@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | A request to get information about a specified hosted zone.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newGetHostedZone' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679305807"><span id="local-6989586621679305808"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostedZone"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-var">GetHostedZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostedZone%27"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-var">GetHostedZone'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679305819"><span id="local-6989586621679305820"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostedZone"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-var">GetHostedZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostedZone%27"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-var">GetHostedZone'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the hosted zone that you want to get information about.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3AGetHostedZone%27"><span class="annot"><span class="annottext">GetHostedZone -&gt; ResourceId
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3Aid%3AGetHostedZone%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305801"><span id="local-6989586621679305803"><span class="annot"><span class="annottext">GetHostedZone -&gt; GetHostedZone -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305813"><span id="local-6989586621679305815"><span class="annot"><span class="annottext">GetHostedZone -&gt; GetHostedZone -&gt; Bool
 (GetHostedZone -&gt; GetHostedZone -&gt; Bool)
 -&gt; (GetHostedZone -&gt; GetHostedZone -&gt; Bool) -&gt; Eq GetHostedZone
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHostedZone -&gt; GetHostedZone -&gt; Bool
 == :: GetHostedZone -&gt; GetHostedZone -&gt; Bool
 $c== :: GetHostedZone -&gt; GetHostedZone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305792"><span id="local-6989586621679305794"><span id="local-6989586621679305796"><span id="local-6989586621679305798"><span class="annot"><span class="annottext">ReadPrec [GetHostedZone]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305804"><span id="local-6989586621679305806"><span id="local-6989586621679305808"><span id="local-6989586621679305810"><span class="annot"><span class="annottext">ReadPrec [GetHostedZone]
 ReadPrec GetHostedZone
 Int -&gt; ReadS GetHostedZone
 ReadS [GetHostedZone]
@@ -85,7 +85,7 @@ readList :: ReadS [GetHostedZone]
 $creadList :: ReadS [GetHostedZone]
 readsPrec :: Int -&gt; ReadS GetHostedZone
 $creadsPrec :: Int -&gt; ReadS GetHostedZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305785"><span id="local-6989586621679305787"><span id="local-6989586621679305789"><span class="annot"><span class="annottext">Int -&gt; GetHostedZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305797"><span id="local-6989586621679305799"><span id="local-6989586621679305801"><span class="annot"><span class="annottext">Int -&gt; GetHostedZone -&gt; ShowS
 [GetHostedZone] -&gt; ShowS
 GetHostedZone -&gt; String
 (Int -&gt; GetHostedZone -&gt; ShowS)
@@ -125,11 +125,11 @@ $cfrom :: forall x. GetHostedZone -&gt; Rep GetHostedZone x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetHostedZone"><span class="annot"><span class="annottext">newGetHostedZone :: ResourceId -&gt; GetHostedZone
-</span><a href="Amazonka.Route53.GetHostedZone.html#newGetHostedZone"><span class="hs-identifier hs-var hs-var">newGetHostedZone</span></a></span></span><span> </span><span id="local-6989586621679305780"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305780"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetHostedZone' :: ResourceId -&gt; GetHostedZone
+</span><a href="Amazonka.Route53.GetHostedZone.html#newGetHostedZone"><span class="hs-identifier hs-var hs-var">newGetHostedZone</span></a></span></span><span> </span><span id="local-6989586621679305792"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679305792"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetHostedZone' :: ResourceId -&gt; GetHostedZone
 </span><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetHostedZone' :: ResourceId
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3Aid%3AGetHostedZone%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305780"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679305792"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The ID of the hosted zone that you want to get information about.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#getHostedZone_id"><span class="hs-identifier hs-type">getHostedZone_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetHostedZone -&gt; Rep GetHostedZone x
 -&gt; (GetHostedZone -&gt; ResourceId -&gt; GetHostedZone)
 -&gt; Lens GetHostedZone GetHostedZone ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305777"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305789"><span class="annot"><span class="annottext">ResourceId
 id :: ResourceId
 $sel:id:GetHostedZone' :: GetHostedZone -&gt; ResourceId
-</span><a href="#local-6989586621679305777"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305777"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305776"><span class="annot"><span class="annottext">s :: GetHostedZone
-</span><a href="#local-6989586621679305776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305775"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZone
-</span><a href="#local-6989586621679305776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetHostedZone' :: ResourceId
+</span><a href="#local-6989586621679305789"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679305789"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305788"><span class="annot"><span class="annottext">s :: GetHostedZone
+</span><a href="#local-6989586621679305788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305787"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679305787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZone
+</span><a href="#local-6989586621679305788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetHostedZone' :: ResourceId
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3Aid%3AGetHostedZone%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679305771"><span class="annot"><span class="annottext">request :: GetHostedZone -&gt; Request GetHostedZone
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679305783"><span class="annot"><span class="annottext">request :: GetHostedZone -&gt; Request GetHostedZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetHostedZone -&gt; Request GetHostedZone
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679305767"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679305779"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetHostedZone
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305764"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305764"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305763"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679305763"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305762"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679305762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305776"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305776"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305775"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305775"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305774"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679305774"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
 -&gt; Maybe DelegationSet
 -&gt; Int
@@ -203,7 +203,7 @@ MonadResource m =&gt;
      (Maybe DelegationSet -&gt; Int -&gt; HostedZone -&gt; GetHostedZoneResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679305762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679305774"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VPCs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -232,7 +232,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 -&gt; Either String (Int -&gt; HostedZone -&gt; GetHostedZoneResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679305762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DelegationSet)
+</span><a href="#local-6989586621679305774"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DelegationSet)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DelegationSet&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,23 +245,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305764"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305776"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (HostedZone -&gt; GetHostedZoneResponse)
 -&gt; Either String HostedZone -&gt; Either String GetHostedZoneResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679305762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HostedZone
+</span><a href="#local-6989586621679305774"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HostedZone
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostedZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305750"><span id="local-6989586621679305752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305762"><span id="local-6989586621679305764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679305743"><span class="annot"><span class="annottext">toHeaders :: GetHostedZone -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679305755"><span class="annot"><span class="annottext">toHeaders :: GetHostedZone -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetHostedZone -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -269,11 +269,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679305738"><span class="annot"><span class="annottext">toPath :: GetHostedZone -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305736"><span class="annot"><span class="annottext">ResourceId
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679305750"><span class="annot"><span class="annottext">toPath :: GetHostedZone -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone%27"><span class="hs-identifier hs-type">GetHostedZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305748"><span class="annot"><span class="annottext">ResourceId
 id :: ResourceId
 $sel:id:GetHostedZone' :: GetHostedZone -&gt; ResourceId
-</span><a href="#local-6989586621679305736"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305748"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -281,10 +281,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2013-04-01/hostedzone/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679305736"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679305748"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZone"><span class="hs-identifier hs-type">GetHostedZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679305732"><span class="annot"><span class="annottext">toQuery :: GetHostedZone -&gt; QueryString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679305744"><span class="annot"><span class="annottext">toQuery :: GetHostedZone -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetHostedZone -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span class="hs-comment">-- | A complex type that contain the response to a @GetHostedZone@ request.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- /See:/ 'newGetHostedZoneResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679305729"><span id="local-6989586621679305730"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostedZoneResponse"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-var">GetHostedZoneResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostedZoneResponse%27"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-var">GetHostedZoneResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679305741"><span id="local-6989586621679305742"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostedZoneResponse"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-var">GetHostedZoneResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostedZoneResponse%27"><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-var">GetHostedZoneResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains information about the VPCs that are</span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-comment">-- associated with the specified hosted zone.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AvPCs%3AGetHostedZoneResponse%27"><span class="annot"><span class="annottext">GetHostedZoneResponse -&gt; Maybe (NonEmpty VPC)
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhostedZone%3AGetHostedZoneResponse%27"><span class="annot"><span class="annottext">GetHostedZoneResponse -&gt; HostedZone
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AhostedZone%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var hs-var">hostedZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305721"><span id="local-6989586621679305723"><span class="annot"><span class="annottext">GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305733"><span id="local-6989586621679305735"><span class="annot"><span class="annottext">GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool
 (GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool)
 -&gt; (GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool)
 -&gt; Eq GetHostedZoneResponse
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool
 == :: GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool
 $c== :: GetHostedZoneResponse -&gt; GetHostedZoneResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305713"><span id="local-6989586621679305715"><span id="local-6989586621679305717"><span id="local-6989586621679305719"><span class="annot"><span class="annottext">ReadPrec [GetHostedZoneResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305725"><span id="local-6989586621679305727"><span id="local-6989586621679305729"><span id="local-6989586621679305731"><span class="annot"><span class="annottext">ReadPrec [GetHostedZoneResponse]
 ReadPrec GetHostedZoneResponse
 Int -&gt; ReadS GetHostedZoneResponse
 ReadS [GetHostedZoneResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [GetHostedZoneResponse]
 $creadList :: ReadS [GetHostedZoneResponse]
 readsPrec :: Int -&gt; ReadS GetHostedZoneResponse
 $creadsPrec :: Int -&gt; ReadS GetHostedZoneResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305707"><span id="local-6989586621679305709"><span id="local-6989586621679305711"><span class="annot"><span class="annottext">Int -&gt; GetHostedZoneResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305719"><span id="local-6989586621679305721"><span id="local-6989586621679305723"><span class="annot"><span class="annottext">Int -&gt; GetHostedZoneResponse -&gt; ShowS
 [GetHostedZoneResponse] -&gt; ShowS
 GetHostedZoneResponse -&gt; String
 (Int -&gt; GetHostedZoneResponse -&gt; ShowS)
@@ -391,9 +391,9 @@ $cfrom :: forall x. GetHostedZoneResponse -&gt; Rep GetHostedZoneResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.HostedZone.html#HostedZone"><span class="hs-identifier hs-type">HostedZone</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newGetHostedZoneResponse"><span class="annot"><span class="annottext">newGetHostedZoneResponse :: Int -&gt; HostedZone -&gt; GetHostedZoneResponse
-</span><a href="Amazonka.Route53.GetHostedZone.html#newGetHostedZoneResponse"><span class="hs-identifier hs-var hs-var">newGetHostedZoneResponse</span></a></span></span><span> </span><span id="local-6989586621679305704"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679305703"><span class="annot"><span class="annottext">HostedZone
-</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">pHostedZone_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Amazonka.Route53.GetHostedZone.html#newGetHostedZoneResponse"><span class="hs-identifier hs-var hs-var">newGetHostedZoneResponse</span></a></span></span><span> </span><span id="local-6989586621679305716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679305715"><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">pHostedZone_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetHostedZoneResponse' :: Maybe (NonEmpty VPC)
 -&gt; Maybe DelegationSet
 -&gt; Int
@@ -410,10 +410,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostedZoneResponse' :: Int
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AhttpStatus%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostedZone:GetHostedZoneResponse' :: HostedZone
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AhostedZone%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">hostedZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HostedZone
-</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">pHostedZone_</span></a></span><span>
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">pHostedZone_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | A complex type that contains information about the VPCs that are</span><span>
@@ -430,16 +430,16 @@ forall a. Maybe a
      (Maybe (NonEmpty VPC))
      (Maybe (NonEmpty VPC))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305702"><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305714"><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
 vPCs :: Maybe (NonEmpty VPC)
 $sel:vPCs:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; Maybe (NonEmpty VPC)
-</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var hs-var">vPCs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
-</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var">vPCs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305701"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
-</span><a href="#local-6989586621679305701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305700"><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
-</span><a href="#local-6989586621679305700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
-</span><a href="#local-6989586621679305701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCs:GetHostedZoneResponse' :: Maybe (NonEmpty VPC)
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var hs-var">vPCs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">vPCs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305713"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
+</span><a href="#local-6989586621679305713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305712"><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
+</span><a href="#local-6989586621679305712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
+</span><a href="#local-6989586621679305713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCs:GetHostedZoneResponse' :: Maybe (NonEmpty VPC)
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AvPCs%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">vPCs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty VPC)
-</span><a href="#local-6989586621679305700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty VPC) -&gt; f (Maybe (NonEmpty VPC)))
+</span><a href="#local-6989586621679305712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty VPC) -&gt; f (Maybe (NonEmpty VPC)))
  -&gt; GetHostedZoneResponse -&gt; f GetHostedZoneResponse)
 -&gt; ((Maybe (NonEmpty VPC) -&gt; f (Maybe (NonEmpty VPC)))
     -&gt; Maybe (NonEmpty VPC) -&gt; f (Maybe (NonEmpty VPC)))
@@ -474,16 +474,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe DelegationSet)
      (Maybe DelegationSet)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305696"><span class="annot"><span class="annottext">Maybe DelegationSet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305708"><span class="annot"><span class="annottext">Maybe DelegationSet
 delegationSet :: Maybe DelegationSet
 $sel:delegationSet:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; Maybe DelegationSet
-</span><a href="#local-6989586621679305696"><span class="hs-identifier hs-var hs-var">delegationSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationSet
-</span><a href="#local-6989586621679305696"><span class="hs-identifier hs-var">delegationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305695"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305694"><span class="annot"><span class="annottext">Maybe DelegationSet
-</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationSet:GetHostedZoneResponse' :: Maybe DelegationSet
+</span><a href="#local-6989586621679305708"><span class="hs-identifier hs-var hs-var">delegationSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationSet
+</span><a href="#local-6989586621679305708"><span class="hs-identifier hs-var">delegationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305707"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
+</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305706"><span class="annot"><span class="annottext">Maybe DelegationSet
+</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
+</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationSet:GetHostedZoneResponse' :: Maybe DelegationSet
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AdelegationSet%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">delegationSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationSet
-</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#getHostedZoneResponse_httpStatus"><span class="hs-identifier hs-type">getHostedZoneResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -492,16 +492,16 @@ $sel:delegationSet:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; Maybe D
 -&gt; (GetHostedZoneResponse -&gt; Int -&gt; GetHostedZoneResponse)
 -&gt; Lens GetHostedZoneResponse GetHostedZoneResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305693"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305705"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; Int
-</span><a href="#local-6989586621679305693"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305693"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305692"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
-</span><a href="#local-6989586621679305692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
-</span><a href="#local-6989586621679305692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostedZoneResponse' :: Int
+</span><a href="#local-6989586621679305705"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305705"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305704"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostedZoneResponse' :: Int
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AhttpStatus%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | A complex type that contains general information about the specified</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- hosted zone.</span><span>
@@ -513,16 +513,16 @@ $sel:httpStatus:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; Int
 -&gt; Lens
      GetHostedZoneResponse GetHostedZoneResponse HostedZone HostedZone
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305690"><span class="annot"><span class="annottext">HostedZone
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305702"><span class="annot"><span class="annottext">HostedZone
 hostedZone :: HostedZone
 $sel:hostedZone:GetHostedZoneResponse' :: GetHostedZoneResponse -&gt; HostedZone
-</span><a href="#local-6989586621679305690"><span class="hs-identifier hs-var hs-var">hostedZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
-</span><a href="#local-6989586621679305690"><span class="hs-identifier hs-var">hostedZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305689"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
-</span><a href="#local-6989586621679305689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305688"><span class="annot"><span class="annottext">HostedZone
-</span><a href="#local-6989586621679305688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
-</span><a href="#local-6989586621679305689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZone:GetHostedZoneResponse' :: HostedZone
+</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var hs-var">hostedZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var">hostedZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305701"><span class="annot"><span class="annottext">s :: GetHostedZoneResponse
+</span><a href="#local-6989586621679305701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse%27"><span class="hs-identifier hs-type">GetHostedZoneResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305700"><span class="annot"><span class="annottext">HostedZone
+</span><a href="#local-6989586621679305700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostedZoneResponse
+</span><a href="#local-6989586621679305701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZone:GetHostedZoneResponse' :: HostedZone
 </span><a href="Amazonka.Route53.GetHostedZone.html#%24sel%3AhostedZone%3AGetHostedZoneResponse%27"><span class="hs-identifier hs-var">hostedZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HostedZone
-</span><a href="#local-6989586621679305688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetHostedZone.html#GetHostedZoneResponse"><span class="hs-identifier hs-type">GetHostedZoneResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

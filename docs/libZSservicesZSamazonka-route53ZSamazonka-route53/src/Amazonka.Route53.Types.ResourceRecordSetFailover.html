@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html"><span class="hs-identifier">Amazonka.Route53.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679296425"><span id="local-6989586621679296426"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceRecordSetFailover"><span class="annot"><a href="Amazonka.Route53.Types.ResourceRecordSetFailover.html#ResourceRecordSetFailover"><span class="hs-identifier hs-var">ResourceRecordSetFailover</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecordSetFailover%27"><span class="annot"><a href="Amazonka.Route53.Types.ResourceRecordSetFailover.html#ResourceRecordSetFailover%27"><span class="hs-identifier hs-var">ResourceRecordSetFailover'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679296437"><span id="local-6989586621679296438"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceRecordSetFailover"><span class="annot"><a href="Amazonka.Route53.Types.ResourceRecordSetFailover.html#ResourceRecordSetFailover"><span class="hs-identifier hs-var">ResourceRecordSetFailover</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecordSetFailover%27"><span class="annot"><a href="Amazonka.Route53.Types.ResourceRecordSetFailover.html#ResourceRecordSetFailover%27"><span class="hs-identifier hs-var">ResourceRecordSetFailover'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceRecordSetFailover"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; Text
 </span><a href="Amazonka.Route53.Types.ResourceRecordSetFailover.html#fromResourceRecordSetFailover"><span class="hs-identifier hs-var hs-var">fromResourceRecordSetFailover</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296417"><span id="local-6989586621679296419"><span id="local-6989586621679296421"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSetFailover -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296429"><span id="local-6989586621679296431"><span id="local-6989586621679296433"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSetFailover -&gt; ShowS
 [ResourceRecordSetFailover] -&gt; ShowS
 ResourceRecordSetFailover -&gt; String
 (Int -&gt; ResourceRecordSetFailover -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ResourceRecordSetFailover -&gt; String
 showsPrec :: Int -&gt; ResourceRecordSetFailover -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceRecordSetFailover -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679296408"><span id="local-6989586621679296410"><span id="local-6989586621679296412"><span id="local-6989586621679296414"><span class="annot"><span class="annottext">ReadPrec [ResourceRecordSetFailover]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679296420"><span id="local-6989586621679296422"><span id="local-6989586621679296424"><span id="local-6989586621679296426"><span class="annot"><span class="annottext">ReadPrec [ResourceRecordSetFailover]
 ReadPrec ResourceRecordSetFailover
 Int -&gt; ReadS ResourceRecordSetFailover
 ReadS [ResourceRecordSetFailover]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ResourceRecordSetFailover]
 readsPrec :: Int -&gt; ReadS ResourceRecordSetFailover
 $creadsPrec :: Int -&gt; ReadS ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679296403"><span id="local-6989586621679296405"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679296415"><span id="local-6989586621679296417"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool
 (ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool)
 -&gt; (ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool)
 -&gt; Eq ResourceRecordSetFailover
@@ -83,7 +83,7 @@ $c/= :: ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool
 == :: ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool
 $c== :: ResourceRecordSetFailover -&gt; ResourceRecordSetFailover -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679296387"><span id="local-6989586621679296389"><span id="local-6989586621679296391"><span id="local-6989586621679296393"><span id="local-6989586621679296395"><span id="local-6989586621679296397"><span id="local-6989586621679296399"><span class="annot"><span class="annottext">Eq ResourceRecordSetFailover
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679296399"><span id="local-6989586621679296401"><span id="local-6989586621679296403"><span id="local-6989586621679296405"><span id="local-6989586621679296407"><span id="local-6989586621679296409"><span id="local-6989586621679296411"><span class="annot"><span class="annottext">Eq ResourceRecordSetFailover
 Eq ResourceRecordSetFailover
 -&gt; (ResourceRecordSetFailover
     -&gt; ResourceRecordSetFailover -&gt; Ordering)
@@ -148,7 +148,7 @@ ResourceRecordSetFailover -&gt; Rep ResourceRecordSetFailover x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296379"><span id="local-6989586621679296381"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSetFailover -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296391"><span id="local-6989586621679296393"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSetFailover -&gt; Int
 ResourceRecordSetFailover -&gt; Int
 (Int -&gt; ResourceRecordSetFailover -&gt; Int)
 -&gt; (ResourceRecordSetFailover -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: ResourceRecordSetFailover -&gt; Int
 hashWithSalt :: Int -&gt; ResourceRecordSetFailover -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceRecordSetFailover -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679296376"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679296388"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ()
 (ResourceRecordSetFailover -&gt; ())
 -&gt; NFData ResourceRecordSetFailover
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceRecordSetFailover -&gt; ()
 $crnf :: ResourceRecordSetFailover -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296373"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceRecordSetFailover
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296385"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceRecordSetFailover
 (Text -&gt; Either String ResourceRecordSetFailover)
 -&gt; FromText ResourceRecordSetFailover
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceRecordSetFailover
 $cfromText :: Text -&gt; Either String ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296370"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296382"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; Text
 (ResourceRecordSetFailover -&gt; Text)
 -&gt; ToText ResourceRecordSetFailover
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceRecordSetFailover -&gt; Text
 $ctoText :: ResourceRecordSetFailover -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296367"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296379"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ByteString
 (ResourceRecordSetFailover -&gt; ByteString)
 -&gt; ToByteString ResourceRecordSetFailover
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceRecordSetFailover -&gt; ByteString
 $ctoBS :: ResourceRecordSetFailover -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679296364"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679296376"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; ByteStringBuilder
 (ResourceRecordSetFailover -&gt; ByteStringBuilder)
 -&gt; ToLog ResourceRecordSetFailover
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceRecordSetFailover -&gt; ByteStringBuilder
 $cbuild :: ResourceRecordSetFailover -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679296361"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceRecordSetFailover -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679296373"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceRecordSetFailover -&gt; [Header]
 (HeaderName -&gt; ResourceRecordSetFailover -&gt; [Header])
 -&gt; ToHeader ResourceRecordSetFailover
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceRecordSetFailover -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceRecordSetFailover -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679296358"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679296370"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; QueryString
 (ResourceRecordSetFailover -&gt; QueryString)
 -&gt; ToQuery ResourceRecordSetFailover
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceRecordSetFailover -&gt; QueryString
 $ctoQuery :: ResourceRecordSetFailover -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296353"><span id="local-6989586621679296355"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceRecordSetFailover]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296365"><span id="local-6989586621679296367"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceRecordSetFailover]
 Value -&gt; Parser ResourceRecordSetFailover
 (Value -&gt; Parser ResourceRecordSetFailover)
 -&gt; (Value -&gt; Parser [ResourceRecordSetFailover])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceRecordSetFailover]
 parseJSON :: Value -&gt; Parser ResourceRecordSetFailover
 $cparseJSON :: Value -&gt; Parser ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296348"><span id="local-6989586621679296350"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceRecordSetFailover]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296360"><span id="local-6989586621679296362"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceRecordSetFailover]
 FromJSONKeyFunction ResourceRecordSetFailover
 FromJSONKeyFunction ResourceRecordSetFailover
 -&gt; FromJSONKeyFunction [ResourceRecordSetFailover]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceRecordSetFailover]
 fromJSONKey :: FromJSONKeyFunction ResourceRecordSetFailover
 $cfromJSONKey :: FromJSONKeyFunction ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296339"><span id="local-6989586621679296341"><span id="local-6989586621679296343"><span id="local-6989586621679296345"><span class="annot"><span class="annottext">[ResourceRecordSetFailover] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296351"><span id="local-6989586621679296353"><span id="local-6989586621679296355"><span id="local-6989586621679296357"><span class="annot"><span class="annottext">[ResourceRecordSetFailover] -&gt; Encoding
 [ResourceRecordSetFailover] -&gt; Value
 ResourceRecordSetFailover -&gt; Encoding
 ResourceRecordSetFailover -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: ResourceRecordSetFailover -&gt; Encoding
 toJSON :: ResourceRecordSetFailover -&gt; Value
 $ctoJSON :: ResourceRecordSetFailover -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296334"><span id="local-6989586621679296336"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceRecordSetFailover]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296346"><span id="local-6989586621679296348"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceRecordSetFailover]
 ToJSONKeyFunction ResourceRecordSetFailover
 ToJSONKeyFunction ResourceRecordSetFailover
 -&gt; ToJSONKeyFunction [ResourceRecordSetFailover]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceRecordSetFailover]
 toJSONKey :: ToJSONKeyFunction ResourceRecordSetFailover
 $ctoJSONKey :: ToJSONKeyFunction ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296331"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceRecordSetFailover
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296343"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceRecordSetFailover
 ([Node] -&gt; Either String ResourceRecordSetFailover)
 -&gt; FromXML ResourceRecordSetFailover
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceRecordSetFailover
 $cparseXML :: [Node] -&gt; Either String ResourceRecordSetFailover
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679296328"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679296340"><span class="annot"><span class="annottext">ResourceRecordSetFailover -&gt; XML
 (ResourceRecordSetFailover -&gt; XML)
 -&gt; ToXML ResourceRecordSetFailover
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-comment">-- zones.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newListHostedZonesByVPC' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679303009"><span id="local-6989586621679303010"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHostedZonesByVPC"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-var">ListHostedZonesByVPC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHostedZonesByVPC%27"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-var">ListHostedZonesByVPC'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679303021"><span id="local-6989586621679303022"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHostedZonesByVPC"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-var">ListHostedZonesByVPC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHostedZonesByVPC%27"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-var">ListHostedZonesByVPC'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response included a @NextToken@ element, the specified</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- VPC is associated with more hosted zones. To get more hosted zones,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- submit another @ListHostedZonesByVPC@ request.</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AvPCRegion%3AListHostedZonesByVPC%27"><span class="annot"><span class="annottext">ListHostedZonesByVPC -&gt; VPCRegion
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AvPCRegion%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var hs-var">vPCRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion"><span class="hs-identifier hs-type">VPCRegion</span></a></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303000"><span id="local-6989586621679303002"><span class="annot"><span class="annottext">ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303012"><span id="local-6989586621679303014"><span class="annot"><span class="annottext">ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool
 (ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool)
 -&gt; (ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool)
 -&gt; Eq ListHostedZonesByVPC
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool
 == :: ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool
 $c== :: ListHostedZonesByVPC -&gt; ListHostedZonesByVPC -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302991"><span id="local-6989586621679302993"><span id="local-6989586621679302995"><span id="local-6989586621679302997"><span class="annot"><span class="annottext">ReadPrec [ListHostedZonesByVPC]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303003"><span id="local-6989586621679303005"><span id="local-6989586621679303007"><span id="local-6989586621679303009"><span class="annot"><span class="annottext">ReadPrec [ListHostedZonesByVPC]
 ReadPrec ListHostedZonesByVPC
 Int -&gt; ReadS ListHostedZonesByVPC
 ReadS [ListHostedZonesByVPC]
@@ -125,7 +125,7 @@ readList :: ReadS [ListHostedZonesByVPC]
 $creadList :: ReadS [ListHostedZonesByVPC]
 readsPrec :: Int -&gt; ReadS ListHostedZonesByVPC
 $creadsPrec :: Int -&gt; ReadS ListHostedZonesByVPC
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302984"><span id="local-6989586621679302986"><span id="local-6989586621679302988"><span class="annot"><span class="annottext">Int -&gt; ListHostedZonesByVPC -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302996"><span id="local-6989586621679302998"><span id="local-6989586621679303000"><span class="annot"><span class="annottext">Int -&gt; ListHostedZonesByVPC -&gt; ShowS
 [ListHostedZonesByVPC] -&gt; ShowS
 ListHostedZonesByVPC -&gt; String
 (Int -&gt; ListHostedZonesByVPC -&gt; ShowS)
@@ -186,9 +186,9 @@ $cfrom :: forall x. ListHostedZonesByVPC -&gt; Rep ListHostedZonesByVPC x
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion"><span class="hs-identifier hs-type">VPCRegion</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span>
 </span><span id="line-131"></span><span id="newListHostedZonesByVPC"><span class="annot"><span class="annottext">newListHostedZonesByVPC :: Text -&gt; VPCRegion -&gt; ListHostedZonesByVPC
-</span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#newListHostedZonesByVPC"><span class="hs-identifier hs-var hs-var">newListHostedZonesByVPC</span></a></span></span><span> </span><span id="local-6989586621679302979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302979"><span class="hs-identifier hs-var">pVPCId_</span></a></span></span><span> </span><span id="local-6989586621679302978"><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var">pVPCRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#newListHostedZonesByVPC"><span class="hs-identifier hs-var hs-var">newListHostedZonesByVPC</span></a></span></span><span> </span><span id="local-6989586621679302991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var">pVPCId_</span></a></span></span><span> </span><span id="local-6989586621679302990"><span class="annot"><span class="annottext">VPCRegion
+</span><a href="#local-6989586621679302990"><span class="hs-identifier hs-var">pVPCRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">ListHostedZonesByVPC' :: Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; VPCRegion -&gt; ListHostedZonesByVPC
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span>
@@ -202,10 +202,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:vPCId:ListHostedZonesByVPC' :: Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AvPCId%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">vPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302979"><span class="hs-identifier hs-var">pVPCId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var">pVPCId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:vPCRegion:ListHostedZonesByVPC' :: VPCRegion
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AvPCRegion%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var">pVPCRegion_</span></a></span><span>
+</span><a href="#local-6989586621679302990"><span class="hs-identifier hs-var">pVPCRegion_</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | If the previous response included a @NextToken@ element, the specified</span><span>
@@ -225,16 +225,16 @@ forall a. Maybe a
 -&gt; Lens
      ListHostedZonesByVPC ListHostedZonesByVPC (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302975"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302987"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
-</span><a href="#local-6989586621679302975"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302975"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302974"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
-</span><a href="#local-6989586621679302974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302973"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
-</span><a href="#local-6989586621679302974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHostedZonesByVPC' :: Maybe Text
+</span><a href="#local-6989586621679302987"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302987"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302986"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
+</span><a href="#local-6989586621679302986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
+</span><a href="#local-6989586621679302986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHostedZonesByVPC' :: Maybe Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AnextToken%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | (Optional) The maximum number of hosted zones that you want Amazon Route</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- 53 to return. If the specified VPC is associated with more than</span><span>
@@ -249,16 +249,16 @@ $sel:nextToken:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
 -&gt; Lens
      ListHostedZonesByVPC ListHostedZonesByVPC (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302972"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302984"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 $sel:maxItems:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
-</span><a href="#local-6989586621679302972"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302972"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302971"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
-</span><a href="#local-6989586621679302971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302970"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
-</span><a href="#local-6989586621679302971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListHostedZonesByVPC' :: Maybe Text
+</span><a href="#local-6989586621679302984"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302984"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302983"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
+</span><a href="#local-6989586621679302983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302982"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
+</span><a href="#local-6989586621679302983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListHostedZonesByVPC' :: Maybe Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AmaxItems%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The ID of the Amazon VPC that you want to list hosted zones for.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#listHostedZonesByVPC_vPCId"><span class="hs-identifier hs-type">listHostedZonesByVPC_vPCId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -267,16 +267,16 @@ $sel:maxItems:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
 -&gt; (ListHostedZonesByVPC -&gt; Text -&gt; ListHostedZonesByVPC)
 -&gt; Lens ListHostedZonesByVPC ListHostedZonesByVPC Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302969"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302981"><span class="annot"><span class="annottext">Text
 vPCId :: Text
 $sel:vPCId:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Text
-</span><a href="#local-6989586621679302969"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302969"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302968"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
-</span><a href="#local-6989586621679302968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
-</span><a href="#local-6989586621679302968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:ListHostedZonesByVPC' :: Text
+</span><a href="#local-6989586621679302981"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302981"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302980"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
+</span><a href="#local-6989586621679302980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
+</span><a href="#local-6989586621679302980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:ListHostedZonesByVPC' :: Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AvPCId%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">vPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | For the Amazon VPC that you specified for @VPCId@, the Amazon Web</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- Services Region that you created the VPC in.</span><span>
@@ -288,27 +288,27 @@ $sel:vPCId:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Text
 -&gt; Lens
      ListHostedZonesByVPC ListHostedZonesByVPC VPCRegion VPCRegion
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302966"><span class="annot"><span class="annottext">VPCRegion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302978"><span class="annot"><span class="annottext">VPCRegion
 vPCRegion :: VPCRegion
 $sel:vPCRegion:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; VPCRegion
-</span><a href="#local-6989586621679302966"><span class="hs-identifier hs-var hs-var">vPCRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302966"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302965"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
-</span><a href="#local-6989586621679302965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302964"><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
-</span><a href="#local-6989586621679302965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCRegion:ListHostedZonesByVPC' :: VPCRegion
+</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var hs-var">vPCRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCRegion
+</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302977"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPC
+</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302976"><span class="annot"><span class="annottext">VPCRegion
+</span><a href="#local-6989586621679302976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPC
+</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCRegion:ListHostedZonesByVPC' :: VPCRegion
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AvPCRegion%3AListHostedZonesByVPC%27"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679302960"><span class="annot"><span class="annottext">request :: ListHostedZonesByVPC -&gt; Request ListHostedZonesByVPC
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679302972"><span class="annot"><span class="annottext">request :: ListHostedZonesByVPC -&gt; Request ListHostedZonesByVPC
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListHostedZonesByVPC -&gt; Request ListHostedZonesByVPC
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679302956"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679302968"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListHostedZonesByVPC
 -&gt; ClientResponse ClientBody
@@ -334,10 +334,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302953"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302952"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679302952"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302951"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302964"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302963"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int
 -&gt; [HostedZoneSummary]
@@ -356,7 +356,7 @@ MonadResource m =&gt;
       -&gt; [HostedZoneSummary] -&gt; Text -&gt; ListHostedZonesByVPCResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -374,7 +374,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([HostedZoneSummary] -&gt; Text -&gt; ListHostedZonesByVPCResponse)
@@ -382,7 +382,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String (Text -&gt; ListHostedZonesByVPCResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679302963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostedZoneSummaries&quot;</span></span><span>
@@ -404,18 +404,18 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Text -&gt; Either String ListHostedZonesByVPCResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302940"><span id="local-6989586621679302942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302952"><span id="local-6989586621679302954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span></span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679302933"><span class="annot"><span class="annottext">toHeaders :: ListHostedZonesByVPC -&gt; ResponseHeaders
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679302945"><span class="annot"><span class="annottext">toHeaders :: ListHostedZonesByVPC -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListHostedZonesByVPC -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -423,15 +423,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679302928"><span class="annot"><span class="annottext">toPath :: ListHostedZonesByVPC -&gt; ByteString
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679302940"><span class="annot"><span class="annottext">toPath :: ListHostedZonesByVPC -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListHostedZonesByVPC -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2013-04-01/hostedzonesbyvpc&quot;</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC"><span class="hs-identifier hs-type">ListHostedZonesByVPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679302924"><span class="annot"><span class="annottext">toQuery :: ListHostedZonesByVPC -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302919"><span id="local-6989586621679302920"><span id="local-6989586621679302921"><span id="local-6989586621679302922"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679302936"><span class="annot"><span class="annottext">toQuery :: ListHostedZonesByVPC -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPC%27"><span class="hs-identifier hs-type">ListHostedZonesByVPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302931"><span id="local-6989586621679302932"><span id="local-6989586621679302933"><span id="local-6989586621679302934"><span class="annot"><span class="annottext">Maybe Text
 Text
 VPCRegion
 vPCRegion :: VPCRegion
@@ -442,7 +442,7 @@ $sel:vPCRegion:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; VPCRegion
 $sel:vPCId:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Text
 $sel:maxItems:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
 $sel:nextToken:ListHostedZonesByVPC' :: ListHostedZonesByVPC -&gt; Maybe Text
-</span><a href="#local-6989586621679302919"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302931"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -450,26 +450,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nexttoken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302922"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302934"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxitems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302921"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302933"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;vpcid&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302920"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302932"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;vpcregion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VPCRegion -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">VPCRegion
-</span><a href="#local-6989586621679302919"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span>
+</span><a href="#local-6989586621679302931"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newListHostedZonesByVPCResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679302916"><span id="local-6989586621679302917"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHostedZonesByVPCResponse"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-var">ListHostedZonesByVPCResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHostedZonesByVPCResponse%27"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">ListHostedZonesByVPCResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span id="local-6989586621679302928"><span id="local-6989586621679302929"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHostedZonesByVPCResponse"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-var">ListHostedZonesByVPCResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHostedZonesByVPCResponse%27"><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">ListHostedZonesByVPCResponse'</span></a></span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that you will use for @NextToken@ in the next</span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-comment">-- @ListHostedZonesByVPC@ request.</span><span>
 </span><span id="line-209"></span><span>    </span><span id="%24sel%3AnextToken%3AListHostedZonesByVPCResponse%27"><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse -&gt; Maybe Text
@@ -488,7 +488,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3AmaxItems%3AListHostedZonesByVPCResponse%27"><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse -&gt; Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AmaxItems%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302908"><span id="local-6989586621679302910"><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302920"><span id="local-6989586621679302922"><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
 -&gt; ListHostedZonesByVPCResponse -&gt; Bool
 (ListHostedZonesByVPCResponse
  -&gt; ListHostedZonesByVPCResponse -&gt; Bool)
@@ -504,7 +504,7 @@ $c/= :: ListHostedZonesByVPCResponse
 -&gt; ListHostedZonesByVPCResponse -&gt; Bool
 $c== :: ListHostedZonesByVPCResponse
 -&gt; ListHostedZonesByVPCResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302900"><span id="local-6989586621679302902"><span id="local-6989586621679302904"><span id="local-6989586621679302906"><span class="annot"><span class="annottext">ReadPrec [ListHostedZonesByVPCResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302912"><span id="local-6989586621679302914"><span id="local-6989586621679302916"><span id="local-6989586621679302918"><span class="annot"><span class="annottext">ReadPrec [ListHostedZonesByVPCResponse]
 ReadPrec ListHostedZonesByVPCResponse
 Int -&gt; ReadS ListHostedZonesByVPCResponse
 ReadS [ListHostedZonesByVPCResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [ListHostedZonesByVPCResponse]
 $creadList :: ReadS [ListHostedZonesByVPCResponse]
 readsPrec :: Int -&gt; ReadS ListHostedZonesByVPCResponse
 $creadsPrec :: Int -&gt; ReadS ListHostedZonesByVPCResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302894"><span id="local-6989586621679302896"><span id="local-6989586621679302898"><span class="annot"><span class="annottext">Int -&gt; ListHostedZonesByVPCResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302906"><span id="local-6989586621679302908"><span id="local-6989586621679302910"><span class="annot"><span class="annottext">Int -&gt; ListHostedZonesByVPCResponse -&gt; ShowS
 [ListHostedZonesByVPCResponse] -&gt; ShowS
 ListHostedZonesByVPCResponse -&gt; String
 (Int -&gt; ListHostedZonesByVPCResponse -&gt; ShowS)
@@ -584,10 +584,10 @@ ListHostedZonesByVPCResponse -&gt; Rep ListHostedZonesByVPCResponse x
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span>
 </span><span id="line-249"></span><span id="newListHostedZonesByVPCResponse"><span class="annot"><span class="annottext">newListHostedZonesByVPCResponse :: Int -&gt; Text -&gt; ListHostedZonesByVPCResponse
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#newListHostedZonesByVPCResponse"><span class="hs-identifier hs-var hs-var">newListHostedZonesByVPCResponse</span></a></span></span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679302891"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679302903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679302902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse' :: Maybe Text
 -&gt; Int
 -&gt; [HostedZoneSummary]
@@ -601,14 +601,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListHostedZonesByVPCResponse' :: Int
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AhttpStatus%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:hostedZoneSummaries:ListHostedZonesByVPCResponse' :: [HostedZoneSummary]
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AhostedZoneSummaries%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">hostedZoneSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HostedZoneSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:ListHostedZonesByVPCResponse' :: Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AmaxItems%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The value that you will use for @NextToken@ in the next</span><span>
@@ -625,16 +625,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302901"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302887"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHostedZonesByVPCResponse' :: Maybe Text
+</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302900"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHostedZonesByVPCResponse' :: Maybe Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AnextToken%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#listHostedZonesByVPCResponse_httpStatus"><span class="hs-identifier hs-type">listHostedZonesByVPCResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -646,16 +646,16 @@ $sel:nextToken:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&g
 -&gt; Lens
      ListHostedZonesByVPCResponse ListHostedZonesByVPCResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302886"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302898"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&gt; Int
-</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302885"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302884"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHostedZonesByVPCResponse' :: Int
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302897"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHostedZonesByVPCResponse' :: Int
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AhttpStatus%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | A list that contains one @HostedZoneSummary@ element for each hosted</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- zone that the specified Amazon VPC is associated with. Each</span><span>
@@ -673,16 +673,16 @@ $sel:httpStatus:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&
      [HostedZoneSummary]
      [HostedZoneSummary]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302883"><span class="annot"><span class="annottext">[HostedZoneSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302895"><span class="annot"><span class="annottext">[HostedZoneSummary]
 hostedZoneSummaries :: [HostedZoneSummary]
 $sel:hostedZoneSummaries:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&gt; [HostedZoneSummary]
-</span><a href="#local-6989586621679302883"><span class="hs-identifier hs-var hs-var">hostedZoneSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HostedZoneSummary]
-</span><a href="#local-6989586621679302883"><span class="hs-identifier hs-var">hostedZoneSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302882"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302881"><span class="annot"><span class="annottext">[HostedZoneSummary]
-</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneSummaries:ListHostedZonesByVPCResponse' :: [HostedZoneSummary]
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var hs-var">hostedZoneSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HostedZoneSummary]
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">hostedZoneSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302894"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302893"><span class="annot"><span class="annottext">[HostedZoneSummary]
+</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneSummaries:ListHostedZonesByVPCResponse' :: [HostedZoneSummary]
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AhostedZoneSummaries%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">hostedZoneSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HostedZoneSummary]
-</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HostedZoneSummary] -&gt; f [HostedZoneSummary])
+</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HostedZoneSummary] -&gt; f [HostedZoneSummary])
  -&gt; ListHostedZonesByVPCResponse -&gt; f ListHostedZonesByVPCResponse)
 -&gt; (([HostedZoneSummary] -&gt; f [HostedZoneSummary])
     -&gt; [HostedZoneSummary] -&gt; f [HostedZoneSummary])
@@ -706,16 +706,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListHostedZonesByVPCResponse ListHostedZonesByVPCResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302878"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">Text
 maxItems :: Text
 $sel:maxItems:ListHostedZonesByVPCResponse' :: ListHostedZonesByVPCResponse -&gt; Text
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302877"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302876"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
-</span><a href="#local-6989586621679302877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListHostedZonesByVPCResponse' :: Text
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">s :: ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHostedZonesByVPCResponse
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListHostedZonesByVPCResponse' :: Text
 </span><a href="Amazonka.Route53.ListHostedZonesByVPC.html#%24sel%3AmaxItems%3AListHostedZonesByVPCResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.ListHostedZonesByVPC.html#ListHostedZonesByVPCResponse"><span class="hs-identifier hs-type">ListHostedZonesByVPCResponse</span></a></span></span><span>
 </span><span id="line-282"></span></pre></body></html>

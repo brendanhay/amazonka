@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html"><span class="hs-identifier">Amazonka.Route53.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679295034"><span id="local-6989586621679295035"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsufficientDataHealthStatus"><span class="annot"><a href="Amazonka.Route53.Types.InsufficientDataHealthStatus.html#InsufficientDataHealthStatus"><span class="hs-identifier hs-var">InsufficientDataHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsufficientDataHealthStatus%27"><span class="annot"><a href="Amazonka.Route53.Types.InsufficientDataHealthStatus.html#InsufficientDataHealthStatus%27"><span class="hs-identifier hs-var">InsufficientDataHealthStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679295046"><span id="local-6989586621679295047"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsufficientDataHealthStatus"><span class="annot"><a href="Amazonka.Route53.Types.InsufficientDataHealthStatus.html#InsufficientDataHealthStatus"><span class="hs-identifier hs-var">InsufficientDataHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsufficientDataHealthStatus%27"><span class="annot"><a href="Amazonka.Route53.Types.InsufficientDataHealthStatus.html#InsufficientDataHealthStatus%27"><span class="hs-identifier hs-var">InsufficientDataHealthStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInsufficientDataHealthStatus"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; Text
 </span><a href="Amazonka.Route53.Types.InsufficientDataHealthStatus.html#fromInsufficientDataHealthStatus"><span class="hs-identifier hs-var hs-var">fromInsufficientDataHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295026"><span id="local-6989586621679295028"><span id="local-6989586621679295030"><span class="annot"><span class="annottext">Int -&gt; InsufficientDataHealthStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295038"><span id="local-6989586621679295040"><span id="local-6989586621679295042"><span class="annot"><span class="annottext">Int -&gt; InsufficientDataHealthStatus -&gt; ShowS
 [InsufficientDataHealthStatus] -&gt; ShowS
 InsufficientDataHealthStatus -&gt; String
 (Int -&gt; InsufficientDataHealthStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: InsufficientDataHealthStatus -&gt; String
 showsPrec :: Int -&gt; InsufficientDataHealthStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; InsufficientDataHealthStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295017"><span id="local-6989586621679295019"><span id="local-6989586621679295021"><span id="local-6989586621679295023"><span class="annot"><span class="annottext">ReadPrec [InsufficientDataHealthStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295029"><span id="local-6989586621679295031"><span id="local-6989586621679295033"><span id="local-6989586621679295035"><span class="annot"><span class="annottext">ReadPrec [InsufficientDataHealthStatus]
 ReadPrec InsufficientDataHealthStatus
 Int -&gt; ReadS InsufficientDataHealthStatus
 ReadS [InsufficientDataHealthStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [InsufficientDataHealthStatus]
 readsPrec :: Int -&gt; ReadS InsufficientDataHealthStatus
 $creadsPrec :: Int -&gt; ReadS InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679295012"><span id="local-6989586621679295014"><span class="annot"><span class="annottext">InsufficientDataHealthStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679295024"><span id="local-6989586621679295026"><span class="annot"><span class="annottext">InsufficientDataHealthStatus
 -&gt; InsufficientDataHealthStatus -&gt; Bool
 (InsufficientDataHealthStatus
  -&gt; InsufficientDataHealthStatus -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: InsufficientDataHealthStatus
 $c== :: InsufficientDataHealthStatus
 -&gt; InsufficientDataHealthStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679294996"><span id="local-6989586621679294998"><span id="local-6989586621679295000"><span id="local-6989586621679295002"><span id="local-6989586621679295004"><span id="local-6989586621679295006"><span id="local-6989586621679295008"><span class="annot"><span class="annottext">Eq InsufficientDataHealthStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679295008"><span id="local-6989586621679295010"><span id="local-6989586621679295012"><span id="local-6989586621679295014"><span id="local-6989586621679295016"><span id="local-6989586621679295018"><span id="local-6989586621679295020"><span class="annot"><span class="annottext">Eq InsufficientDataHealthStatus
 Eq InsufficientDataHealthStatus
 -&gt; (InsufficientDataHealthStatus
     -&gt; InsufficientDataHealthStatus -&gt; Ordering)
@@ -172,7 +172,7 @@ InsufficientDataHealthStatus -&gt; Rep InsufficientDataHealthStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294988"><span id="local-6989586621679294990"><span class="annot"><span class="annottext">Int -&gt; InsufficientDataHealthStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295000"><span id="local-6989586621679295002"><span class="annot"><span class="annottext">Int -&gt; InsufficientDataHealthStatus -&gt; Int
 InsufficientDataHealthStatus -&gt; Int
 (Int -&gt; InsufficientDataHealthStatus -&gt; Int)
 -&gt; (InsufficientDataHealthStatus -&gt; Int)
@@ -183,56 +183,56 @@ $chash :: InsufficientDataHealthStatus -&gt; Int
 hashWithSalt :: Int -&gt; InsufficientDataHealthStatus -&gt; Int
 $chashWithSalt :: Int -&gt; InsufficientDataHealthStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294985"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294997"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ()
 (InsufficientDataHealthStatus -&gt; ())
 -&gt; NFData InsufficientDataHealthStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InsufficientDataHealthStatus -&gt; ()
 $crnf :: InsufficientDataHealthStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294982"><span class="annot"><span class="annottext">Text -&gt; Either String InsufficientDataHealthStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294994"><span class="annot"><span class="annottext">Text -&gt; Either String InsufficientDataHealthStatus
 (Text -&gt; Either String InsufficientDataHealthStatus)
 -&gt; FromText InsufficientDataHealthStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InsufficientDataHealthStatus
 $cfromText :: Text -&gt; Either String InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294979"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294991"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; Text
 (InsufficientDataHealthStatus -&gt; Text)
 -&gt; ToText InsufficientDataHealthStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InsufficientDataHealthStatus -&gt; Text
 $ctoText :: InsufficientDataHealthStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294976"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294988"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ByteString
 (InsufficientDataHealthStatus -&gt; ByteString)
 -&gt; ToByteString InsufficientDataHealthStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InsufficientDataHealthStatus -&gt; ByteString
 $ctoBS :: InsufficientDataHealthStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294973"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294985"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; ByteStringBuilder
 (InsufficientDataHealthStatus -&gt; ByteStringBuilder)
 -&gt; ToLog InsufficientDataHealthStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InsufficientDataHealthStatus -&gt; ByteStringBuilder
 $cbuild :: InsufficientDataHealthStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294970"><span class="annot"><span class="annottext">HeaderName -&gt; InsufficientDataHealthStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294982"><span class="annot"><span class="annottext">HeaderName -&gt; InsufficientDataHealthStatus -&gt; [Header]
 (HeaderName -&gt; InsufficientDataHealthStatus -&gt; [Header])
 -&gt; ToHeader InsufficientDataHealthStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InsufficientDataHealthStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InsufficientDataHealthStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294967"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294979"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; QueryString
 (InsufficientDataHealthStatus -&gt; QueryString)
 -&gt; ToQuery InsufficientDataHealthStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InsufficientDataHealthStatus -&gt; QueryString
 $ctoQuery :: InsufficientDataHealthStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294962"><span id="local-6989586621679294964"><span class="annot"><span class="annottext">Value -&gt; Parser [InsufficientDataHealthStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294974"><span id="local-6989586621679294976"><span class="annot"><span class="annottext">Value -&gt; Parser [InsufficientDataHealthStatus]
 Value -&gt; Parser InsufficientDataHealthStatus
 (Value -&gt; Parser InsufficientDataHealthStatus)
 -&gt; (Value -&gt; Parser [InsufficientDataHealthStatus])
@@ -244,7 +244,7 @@ $cparseJSONList :: Value -&gt; Parser [InsufficientDataHealthStatus]
 parseJSON :: Value -&gt; Parser InsufficientDataHealthStatus
 $cparseJSON :: Value -&gt; Parser InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294957"><span id="local-6989586621679294959"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsufficientDataHealthStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294969"><span id="local-6989586621679294971"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsufficientDataHealthStatus]
 FromJSONKeyFunction InsufficientDataHealthStatus
 FromJSONKeyFunction InsufficientDataHealthStatus
 -&gt; FromJSONKeyFunction [InsufficientDataHealthStatus]
@@ -256,7 +256,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InsufficientDataHealthStatus]
 fromJSONKey :: FromJSONKeyFunction InsufficientDataHealthStatus
 $cfromJSONKey :: FromJSONKeyFunction InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294948"><span id="local-6989586621679294950"><span id="local-6989586621679294952"><span id="local-6989586621679294954"><span class="annot"><span class="annottext">[InsufficientDataHealthStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294960"><span id="local-6989586621679294962"><span id="local-6989586621679294964"><span id="local-6989586621679294966"><span class="annot"><span class="annottext">[InsufficientDataHealthStatus] -&gt; Encoding
 [InsufficientDataHealthStatus] -&gt; Value
 InsufficientDataHealthStatus -&gt; Encoding
 InsufficientDataHealthStatus -&gt; Value
@@ -280,7 +280,7 @@ $ctoEncoding :: InsufficientDataHealthStatus -&gt; Encoding
 toJSON :: InsufficientDataHealthStatus -&gt; Value
 $ctoJSON :: InsufficientDataHealthStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294943"><span id="local-6989586621679294945"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsufficientDataHealthStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294955"><span id="local-6989586621679294957"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsufficientDataHealthStatus]
 ToJSONKeyFunction InsufficientDataHealthStatus
 ToJSONKeyFunction InsufficientDataHealthStatus
 -&gt; ToJSONKeyFunction [InsufficientDataHealthStatus]
@@ -292,14 +292,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InsufficientDataHealthStatus]
 toJSONKey :: ToJSONKeyFunction InsufficientDataHealthStatus
 $ctoJSONKey :: ToJSONKeyFunction InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294940"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsufficientDataHealthStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294952"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsufficientDataHealthStatus
 ([Node] -&gt; Either String InsufficientDataHealthStatus)
 -&gt; FromXML InsufficientDataHealthStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InsufficientDataHealthStatus
 $cparseXML :: [Node] -&gt; Either String InsufficientDataHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294937"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294949"><span class="annot"><span class="annottext">InsufficientDataHealthStatus -&gt; XML
 (InsufficientDataHealthStatus -&gt; XML)
 -&gt; ToXML InsufficientDataHealthStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

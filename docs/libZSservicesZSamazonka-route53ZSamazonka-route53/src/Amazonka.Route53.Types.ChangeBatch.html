@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The information for a change request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newChangeBatch' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679296858"><span id="local-6989586621679296859"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeBatch"><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-var">ChangeBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeBatch%27"><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-var">ChangeBatch'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679296870"><span id="local-6989586621679296871"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeBatch"><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-var">ChangeBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeBatch%27"><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-var">ChangeBatch'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | /Optional:/ Any comments you want to include about a change batch</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acomment%3AChangeBatch%27"><span class="annot"><span class="annottext">ChangeBatch -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Achanges%3AChangeBatch%27"><span class="annot"><span class="annottext">ChangeBatch -&gt; NonEmpty Change
 </span><a href="Amazonka.Route53.Types.ChangeBatch.html#%24sel%3Achanges%3AChangeBatch%27"><span class="hs-identifier hs-var hs-var">changes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296851"><span id="local-6989586621679296853"><span class="annot"><span class="annottext">ChangeBatch -&gt; ChangeBatch -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296863"><span id="local-6989586621679296865"><span class="annot"><span class="annottext">ChangeBatch -&gt; ChangeBatch -&gt; Bool
 (ChangeBatch -&gt; ChangeBatch -&gt; Bool)
 -&gt; (ChangeBatch -&gt; ChangeBatch -&gt; Bool) -&gt; Eq ChangeBatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChangeBatch -&gt; ChangeBatch -&gt; Bool
 == :: ChangeBatch -&gt; ChangeBatch -&gt; Bool
 $c== :: ChangeBatch -&gt; ChangeBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296842"><span id="local-6989586621679296844"><span id="local-6989586621679296846"><span id="local-6989586621679296848"><span class="annot"><span class="annottext">ReadPrec [ChangeBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296854"><span id="local-6989586621679296856"><span id="local-6989586621679296858"><span id="local-6989586621679296860"><span class="annot"><span class="annottext">ReadPrec [ChangeBatch]
 ReadPrec ChangeBatch
 Int -&gt; ReadS ChangeBatch
 ReadS [ChangeBatch]
@@ -65,7 +65,7 @@ readList :: ReadS [ChangeBatch]
 $creadList :: ReadS [ChangeBatch]
 readsPrec :: Int -&gt; ReadS ChangeBatch
 $creadsPrec :: Int -&gt; ReadS ChangeBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296835"><span id="local-6989586621679296837"><span id="local-6989586621679296839"><span class="annot"><span class="annottext">Int -&gt; ChangeBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296847"><span id="local-6989586621679296849"><span id="local-6989586621679296851"><span class="annot"><span class="annottext">Int -&gt; ChangeBatch -&gt; ShowS
 [ChangeBatch] -&gt; ShowS
 ChangeBatch -&gt; String
 (Int -&gt; ChangeBatch -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. ChangeBatch -&gt; Rep ChangeBatch x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span>
 </span><span id="line-56"></span><span id="newChangeBatch"><span class="annot"><span class="annottext">newChangeBatch :: NonEmpty Change -&gt; ChangeBatch
-</span><a href="Amazonka.Route53.Types.ChangeBatch.html#newChangeBatch"><span class="hs-identifier hs-var hs-var">newChangeBatch</span></a></span></span><span> </span><span id="local-6989586621679296829"><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">pChanges_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Amazonka.Route53.Types.ChangeBatch.html#newChangeBatch"><span class="hs-identifier hs-var hs-var">newChangeBatch</span></a></span></span><span> </span><span id="local-6989586621679296841"><span class="annot"><span class="annottext">NonEmpty Change
+</span><a href="#local-6989586621679296841"><span class="hs-identifier hs-var">pChanges_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ChangeBatch' :: Maybe Text -&gt; NonEmpty Change -&gt; ChangeBatch
 </span><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:ChangeBatch' :: Maybe Text
@@ -125,7 +125,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Change -&gt; NonEmpty Change
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">pChanges_</span></a></span><span>
+</span><a href="#local-6989586621679296841"><span class="hs-identifier hs-var">pChanges_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /Optional:/ Any comments you want to include about a change batch</span><span>
@@ -136,16 +136,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ChangeBatch -&gt; Maybe Text -&gt; ChangeBatch)
 -&gt; Lens ChangeBatch ChangeBatch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296823"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296835"><span class="annot"><span class="annottext">Maybe Text
 comment :: Maybe Text
 $sel:comment:ChangeBatch' :: ChangeBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296822"><span class="annot"><span class="annottext">s :: ChangeBatch
-</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:ChangeBatch' :: Maybe Text
+</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296834"><span class="annot"><span class="annottext">s :: ChangeBatch
+</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
+</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:ChangeBatch' :: Maybe Text
 </span><a href="Amazonka.Route53.Types.ChangeBatch.html#%24sel%3Acomment%3AChangeBatch%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Information about the changes to make to the record sets.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#changeBatch_changes"><span class="hs-identifier hs-type">changeBatch_changes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span class="hs-special">)</span><span>
@@ -155,16 +155,16 @@ $sel:comment:ChangeBatch' :: ChangeBatch -&gt; Maybe Text
 -&gt; (ChangeBatch -&gt; NonEmpty Change -&gt; ChangeBatch)
 -&gt; Lens ChangeBatch ChangeBatch (NonEmpty Change) (NonEmpty Change)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296819"><span class="annot"><span class="annottext">NonEmpty Change
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296831"><span class="annot"><span class="annottext">NonEmpty Change
 changes :: NonEmpty Change
 $sel:changes:ChangeBatch' :: ChangeBatch -&gt; NonEmpty Change
-</span><a href="#local-6989586621679296819"><span class="hs-identifier hs-var hs-var">changes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296819"><span class="hs-identifier hs-var">changes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296818"><span class="annot"><span class="annottext">s :: ChangeBatch
-</span><a href="#local-6989586621679296818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296817"><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679296818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changes:ChangeBatch' :: NonEmpty Change
+</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var hs-var">changes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Change
+</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var">changes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296830"><span class="annot"><span class="annottext">s :: ChangeBatch
+</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296829"><span class="annot"><span class="annottext">NonEmpty Change
+</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
+</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changes:ChangeBatch' :: NonEmpty Change
 </span><a href="Amazonka.Route53.Types.ChangeBatch.html#%24sel%3Achanges%3AChangeBatch%27"><span class="hs-identifier hs-var">changes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Change -&gt; f (NonEmpty Change))
+</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Change -&gt; f (NonEmpty Change))
  -&gt; ChangeBatch -&gt; f ChangeBatch)
 -&gt; ((NonEmpty Change -&gt; f (NonEmpty Change))
     -&gt; NonEmpty Change -&gt; f (NonEmpty Change))
@@ -177,19 +177,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296812"><span id="local-6989586621679296814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296824"><span id="local-6989586621679296826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679296805"><span class="annot"><span class="annottext">toXML :: ChangeBatch -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296802"><span id="local-6989586621679296803"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679296817"><span class="annot"><span class="annottext">toXML :: ChangeBatch -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeBatch.html#ChangeBatch%27"><span class="hs-identifier hs-type">ChangeBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296814"><span id="local-6989586621679296815"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty Change
 changes :: NonEmpty Change
 comment :: Maybe Text
 $sel:changes:ChangeBatch' :: ChangeBatch -&gt; NonEmpty Change
 $sel:comment:ChangeBatch' :: ChangeBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679296802"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679296814"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -197,7 +197,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296803"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296815"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Changes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
@@ -205,6 +205,6 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Change&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Change
-</span><a href="#local-6989586621679296802"><span class="hs-identifier hs-var">changes</span></a></span><span>
+</span><a href="#local-6989586621679296814"><span class="hs-identifier hs-var">changes</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>

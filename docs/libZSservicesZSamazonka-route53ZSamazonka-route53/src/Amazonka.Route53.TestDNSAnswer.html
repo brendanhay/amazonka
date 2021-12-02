@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-comment">-- subnet mask.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newTestDNSAnswer' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679299957"><span id="local-6989586621679299958"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestDNSAnswer"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-var">TestDNSAnswer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestDNSAnswer%27"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-var">TestDNSAnswer'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679299969"><span id="local-6989586621679299970"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestDNSAnswer"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-var">TestDNSAnswer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestDNSAnswer%27"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-var">TestDNSAnswer'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you want to simulate a request from a specific DNS resolver, specify</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the IP address for that resolver. If you omit this value,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3ArecordType%3ATestDNSAnswer%27"><span class="annot"><span class="annottext">TestDNSAnswer -&gt; RRType
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordType%3ATestDNSAnswer%27"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299946"><span id="local-6989586621679299948"><span class="annot"><span class="annottext">TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299958"><span id="local-6989586621679299960"><span class="annot"><span class="annottext">TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool
 (TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool)
 -&gt; (TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool) -&gt; Eq TestDNSAnswer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool
 == :: TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool
 $c== :: TestDNSAnswer -&gt; TestDNSAnswer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299937"><span id="local-6989586621679299939"><span id="local-6989586621679299941"><span id="local-6989586621679299943"><span class="annot"><span class="annottext">ReadPrec [TestDNSAnswer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299949"><span id="local-6989586621679299951"><span id="local-6989586621679299953"><span id="local-6989586621679299955"><span class="annot"><span class="annottext">ReadPrec [TestDNSAnswer]
 ReadPrec TestDNSAnswer
 Int -&gt; ReadS TestDNSAnswer
 ReadS [TestDNSAnswer]
@@ -135,7 +135,7 @@ readList :: ReadS [TestDNSAnswer]
 $creadList :: ReadS [TestDNSAnswer]
 readsPrec :: Int -&gt; ReadS TestDNSAnswer
 $creadsPrec :: Int -&gt; ReadS TestDNSAnswer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299930"><span id="local-6989586621679299932"><span id="local-6989586621679299934"><span class="annot"><span class="annottext">Int -&gt; TestDNSAnswer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299942"><span id="local-6989586621679299944"><span id="local-6989586621679299946"><span class="annot"><span class="annottext">Int -&gt; TestDNSAnswer -&gt; ShowS
 [TestDNSAnswer] -&gt; ShowS
 TestDNSAnswer -&gt; String
 (Int -&gt; TestDNSAnswer -&gt; ShowS)
@@ -210,12 +210,12 @@ $cfrom :: forall x. TestDNSAnswer -&gt; Rep TestDNSAnswer x
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span>
 </span><span id="line-153"></span><span id="newTestDNSAnswer"><span class="annot"><span class="annottext">newTestDNSAnswer :: ResourceId -&gt; Text -&gt; RRType -&gt; TestDNSAnswer
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#newTestDNSAnswer"><span class="hs-identifier hs-var hs-var">newTestDNSAnswer</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679299925"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299925"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679299924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299924"><span class="hs-identifier hs-var">pRecordName_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679299923"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">pRecordType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679299937"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679299937"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679299936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299936"><span class="hs-identifier hs-var">pRecordName_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679299935"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299935"><span class="hs-identifier hs-var">pRecordType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">TestDNSAnswer' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -238,13 +238,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:hostedZoneId:TestDNSAnswer' :: ResourceId
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AhostedZoneId%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299925"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299937"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswer' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordName%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">recordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299924"><span class="hs-identifier hs-var">pRecordName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299936"><span class="hs-identifier hs-var">pRecordName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswer' :: RRType
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordType%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">pRecordType_</span></a></span><span>
+</span><a href="#local-6989586621679299935"><span class="hs-identifier hs-var">pRecordType_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | If you want to simulate a request from a specific DNS resolver, specify</span><span>
@@ -257,16 +257,16 @@ forall a. Maybe a
 -&gt; (TestDNSAnswer -&gt; Maybe Text -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299920"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299932"><span class="annot"><span class="annottext">Maybe Text
 resolverIP :: Maybe Text
 $sel:resolverIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
-</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var hs-var">resolverIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var">resolverIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299919"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299918"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverIP:TestDNSAnswer' :: Maybe Text
+</span><a href="#local-6989586621679299932"><span class="hs-identifier hs-var hs-var">resolverIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299932"><span class="hs-identifier hs-var">resolverIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299931"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverIP:TestDNSAnswer' :: Maybe Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AresolverIP%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">resolverIP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | If the resolver that you specified for resolverip supports EDNS0,</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- specify the IPv4 or IPv6 address of a client in the applicable location,</span><span>
@@ -277,16 +277,16 @@ $sel:resolverIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
 -&gt; (TestDNSAnswer -&gt; Maybe Text -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299917"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299929"><span class="annot"><span class="annottext">Maybe Text
 eDNS0ClientSubnetIP :: Maybe Text
 $sel:eDNS0ClientSubnetIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
-</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var hs-var">eDNS0ClientSubnetIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var">eDNS0ClientSubnetIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299916"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299915"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eDNS0ClientSubnetIP:TestDNSAnswer' :: Maybe Text
+</span><a href="#local-6989586621679299929"><span class="hs-identifier hs-var hs-var">eDNS0ClientSubnetIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299929"><span class="hs-identifier hs-var">eDNS0ClientSubnetIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299928"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eDNS0ClientSubnetIP:TestDNSAnswer' :: Maybe Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AeDNS0ClientSubnetIP%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">eDNS0ClientSubnetIP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | If you specify an IP address for @edns0clientsubnetip@, you can</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- optionally specify the number of bits of the IP address that you want</span><span>
@@ -308,16 +308,16 @@ $sel:eDNS0ClientSubnetIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
 -&gt; (TestDNSAnswer -&gt; Maybe Text -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299914"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299926"><span class="annot"><span class="annottext">Maybe Text
 eDNS0ClientSubnetMask :: Maybe Text
 $sel:eDNS0ClientSubnetMask:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
-</span><a href="#local-6989586621679299914"><span class="hs-identifier hs-var hs-var">eDNS0ClientSubnetMask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299914"><span class="hs-identifier hs-var">eDNS0ClientSubnetMask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299913"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299912"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eDNS0ClientSubnetMask:TestDNSAnswer' :: Maybe Text
+</span><a href="#local-6989586621679299926"><span class="hs-identifier hs-var hs-var">eDNS0ClientSubnetMask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299926"><span class="hs-identifier hs-var">eDNS0ClientSubnetMask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299925"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eDNS0ClientSubnetMask:TestDNSAnswer' :: Maybe Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AeDNS0ClientSubnetMask%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">eDNS0ClientSubnetMask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The ID of the hosted zone that you want Amazon Route 53 to simulate a</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- query for.</span><span>
@@ -327,16 +327,16 @@ $sel:eDNS0ClientSubnetMask:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
 -&gt; (TestDNSAnswer -&gt; ResourceId -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299911"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299923"><span class="annot"><span class="annottext">ResourceId
 hostedZoneId :: ResourceId
 $sel:hostedZoneId:TestDNSAnswer' :: TestDNSAnswer -&gt; ResourceId
-</span><a href="#local-6989586621679299911"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299911"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299910"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299909"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:TestDNSAnswer' :: ResourceId
+</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299922"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299921"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679299921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:TestDNSAnswer' :: ResourceId
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AhostedZoneId%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The name of the resource record set that you want Amazon Route 53 to</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- simulate a query for.</span><span>
@@ -346,16 +346,16 @@ $sel:hostedZoneId:TestDNSAnswer' :: TestDNSAnswer -&gt; ResourceId
 -&gt; (TestDNSAnswer -&gt; Text -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299908"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299920"><span class="annot"><span class="annottext">Text
 recordName :: Text
 $sel:recordName:TestDNSAnswer' :: TestDNSAnswer -&gt; Text
-</span><a href="#local-6989586621679299908"><span class="hs-identifier hs-var hs-var">recordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299908"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299907"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299906"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswer' :: Text
+</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var hs-var">recordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299919"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswer' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordName%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">recordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The type of the resource record set.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#testDNSAnswer_recordType"><span class="hs-identifier hs-type">testDNSAnswer_recordType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span>
@@ -364,27 +364,27 @@ $sel:recordName:TestDNSAnswer' :: TestDNSAnswer -&gt; Text
 -&gt; (TestDNSAnswer -&gt; RRType -&gt; TestDNSAnswer)
 -&gt; Lens TestDNSAnswer TestDNSAnswer RRType RRType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299905"><span class="annot"><span class="annottext">RRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299917"><span class="annot"><span class="annottext">RRType
 recordType :: RRType
 $sel:recordType:TestDNSAnswer' :: TestDNSAnswer -&gt; RRType
-</span><a href="#local-6989586621679299905"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299905"><span class="hs-identifier hs-var">recordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299904"><span class="annot"><span class="annottext">s :: TestDNSAnswer
-</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299903"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
-</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswer' :: RRType
+</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var">recordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299916"><span class="annot"><span class="annottext">s :: TestDNSAnswer
+</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299915"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswer
+</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswer' :: RRType
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordType%3ATestDNSAnswer%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-212"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679299899"><span class="annot"><span class="annottext">request :: TestDNSAnswer -&gt; Request TestDNSAnswer
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679299911"><span class="annot"><span class="annottext">request :: TestDNSAnswer -&gt; Request TestDNSAnswer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestDNSAnswer -&gt; Request TestDNSAnswer
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679299895"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679299907"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestDNSAnswer
 -&gt; ClientResponse ClientBody
@@ -408,10 +408,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299892"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299891"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679299891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299890"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299903"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299903"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299902"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; Text
 -&gt; Text
@@ -445,7 +445,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -461,7 +461,7 @@ forall a. Enum a =&gt; a -&gt; Int
      (Text -&gt; RRType -&gt; [Text] -&gt; Text -&gt; Text -&gt; TestDNSAnswerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Nameserver&quot;</span></span><span class="hs-special">)</span><span>
@@ -473,7 +473,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (RRType -&gt; [Text] -&gt; Text -&gt; Text -&gt; TestDNSAnswerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordName&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,7 +483,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ([Text] -&gt; Text -&gt; Text -&gt; TestDNSAnswerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RRType
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RRType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordType&quot;</span></span><span class="hs-special">)</span><span>
@@ -492,7 +492,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; TestDNSAnswerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -513,7 +513,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; TestDNSAnswerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResponseCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -521,18 +521,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String TestDNSAnswerResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679299902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299879"><span id="local-6989586621679299881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299891"><span id="local-6989586621679299893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span></span></span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679299872"><span class="annot"><span class="annottext">toHeaders :: TestDNSAnswer -&gt; ResponseHeaders
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679299884"><span class="annot"><span class="annottext">toHeaders :: TestDNSAnswer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestDNSAnswer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -540,15 +540,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679299867"><span class="annot"><span class="annottext">toPath :: TestDNSAnswer -&gt; ByteString
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679299879"><span class="annot"><span class="annottext">toPath :: TestDNSAnswer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestDNSAnswer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2013-04-01/testdnsanswer&quot;</span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer"><span class="hs-identifier hs-type">TestDNSAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679299863"><span class="annot"><span class="annottext">toQuery :: TestDNSAnswer -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299856"><span id="local-6989586621679299857"><span id="local-6989586621679299858"><span id="local-6989586621679299859"><span id="local-6989586621679299860"><span id="local-6989586621679299861"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679299875"><span class="annot"><span class="annottext">toQuery :: TestDNSAnswer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswer%27"><span class="hs-identifier hs-type">TestDNSAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299868"><span id="local-6989586621679299869"><span id="local-6989586621679299870"><span id="local-6989586621679299871"><span id="local-6989586621679299872"><span id="local-6989586621679299873"><span class="annot"><span class="annottext">Maybe Text
 Text
 ResourceId
 RRType
@@ -564,7 +564,7 @@ $sel:hostedZoneId:TestDNSAnswer' :: TestDNSAnswer -&gt; ResourceId
 $sel:eDNS0ClientSubnetMask:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
 $sel:eDNS0ClientSubnetIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
 $sel:resolverIP:TestDNSAnswer' :: TestDNSAnswer -&gt; Maybe Text
-</span><a href="#local-6989586621679299856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299868"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -572,39 +572,39 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;resolverip&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299861"><span class="hs-identifier hs-var">resolverIP</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var">resolverIP</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;edns0clientsubnetip&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299860"><span class="hs-identifier hs-var">eDNS0ClientSubnetIP</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">eDNS0ClientSubnetIP</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;edns0clientsubnetmask&quot;</span></span><span>
 </span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299859"><span class="hs-identifier hs-var">eDNS0ClientSubnetMask</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299871"><span class="hs-identifier hs-var">eDNS0ClientSubnetMask</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;hostedzoneid&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResourceId -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679299858"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299870"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;recordname&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299857"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299869"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;recordtype&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RRType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299856"><span class="hs-identifier hs-var">recordType</span></a></span><span>
+</span><a href="#local-6989586621679299868"><span class="hs-identifier hs-var">recordType</span></a></span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | A complex type that contains the response to a @TestDNSAnswer@ request.</span><span>
 </span><span id="line-253"></span><span class="hs-comment">--</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- /See:/ 'newTestDNSAnswerResponse' smart constructor.</span><span>
-</span><span id="line-255"></span><span id="local-6989586621679299853"><span id="local-6989586621679299854"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestDNSAnswerResponse"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-var">TestDNSAnswerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestDNSAnswerResponse%27"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-var">TestDNSAnswerResponse'</span></a></span></span><span>
+</span><span id="line-255"></span><span id="local-6989586621679299865"><span id="local-6989586621679299866"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestDNSAnswerResponse"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-var">TestDNSAnswerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestDNSAnswerResponse%27"><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-var">TestDNSAnswerResponse'</span></a></span></span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestDNSAnswerResponse%27"><span class="annot"><span class="annottext">TestDNSAnswerResponse -&gt; Int
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AhttpStatus%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -634,7 +634,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-276"></span><span>    </span><span id="%24sel%3Aprotocol%3ATestDNSAnswerResponse%27"><span class="annot"><span class="annottext">TestDNSAnswerResponse -&gt; Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3Aprotocol%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299842"><span id="local-6989586621679299844"><span class="annot"><span class="annottext">TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool
+</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299854"><span id="local-6989586621679299856"><span class="annot"><span class="annottext">TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool
 (TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool)
 -&gt; (TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool)
 -&gt; Eq TestDNSAnswerResponse
@@ -643,7 +643,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool
 == :: TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool
 $c== :: TestDNSAnswerResponse -&gt; TestDNSAnswerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299834"><span id="local-6989586621679299836"><span id="local-6989586621679299838"><span id="local-6989586621679299840"><span class="annot"><span class="annottext">ReadPrec [TestDNSAnswerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299846"><span id="local-6989586621679299848"><span id="local-6989586621679299850"><span id="local-6989586621679299852"><span class="annot"><span class="annottext">ReadPrec [TestDNSAnswerResponse]
 ReadPrec TestDNSAnswerResponse
 Int -&gt; ReadS TestDNSAnswerResponse
 ReadS [TestDNSAnswerResponse]
@@ -663,7 +663,7 @@ readList :: ReadS [TestDNSAnswerResponse]
 $creadList :: ReadS [TestDNSAnswerResponse]
 readsPrec :: Int -&gt; ReadS TestDNSAnswerResponse
 $creadsPrec :: Int -&gt; ReadS TestDNSAnswerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299828"><span id="local-6989586621679299830"><span id="local-6989586621679299832"><span class="annot"><span class="annottext">Int -&gt; TestDNSAnswerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299840"><span id="local-6989586621679299842"><span id="local-6989586621679299844"><span class="annot"><span class="annottext">Int -&gt; TestDNSAnswerResponse -&gt; ShowS
 [TestDNSAnswerResponse] -&gt; ShowS
 TestDNSAnswerResponse -&gt; String
 (Int -&gt; TestDNSAnswerResponse -&gt; ShowS)
@@ -734,18 +734,18 @@ $cfrom :: forall x. TestDNSAnswerResponse -&gt; Rep TestDNSAnswerResponse x
 </span><span id="line-322"></span><span id="newTestDNSAnswerResponse"><span class="annot"><span class="annottext">newTestDNSAnswerResponse :: Int
 -&gt; Text -&gt; Text -&gt; RRType -&gt; Text -&gt; Text -&gt; TestDNSAnswerResponse
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#newTestDNSAnswerResponse"><span class="hs-identifier hs-var hs-var">newTestDNSAnswerResponse</span></a></span></span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621679299825"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679299824"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var">pNameserver_</span></a></span></span><span>
-</span><span id="line-325"></span><span>  </span><span id="local-6989586621679299823"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">pRecordName_</span></a></span></span><span>
-</span><span id="line-326"></span><span>  </span><span id="local-6989586621679299822"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var">pRecordType_</span></a></span></span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621679299821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299821"><span class="hs-identifier hs-var">pResponseCode_</span></a></span></span><span>
-</span><span id="line-328"></span><span>  </span><span id="local-6989586621679299820"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679299837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679299836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299836"><span class="hs-identifier hs-var">pNameserver_</span></a></span></span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679299835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299835"><span class="hs-identifier hs-var">pRecordName_</span></a></span></span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621679299834"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299834"><span class="hs-identifier hs-var">pRecordType_</span></a></span></span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679299833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299833"><span class="hs-identifier hs-var">pResponseCode_</span></a></span></span><span>
+</span><span id="line-328"></span><span>  </span><span id="local-6989586621679299832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299832"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">TestDNSAnswerResponse' :: Int
 -&gt; Text
 -&gt; Text
@@ -757,26 +757,26 @@ $cfrom :: forall x. TestDNSAnswerResponse -&gt; Rep TestDNSAnswerResponse x
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span>
 </span><span id="line-330"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:TestDNSAnswerResponse' :: Int
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AhttpStatus%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">$sel:nameserver:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3Anameserver%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">nameserver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var">pNameserver_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299836"><span class="hs-identifier hs-var">pNameserver_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordName%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">pRecordName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299835"><span class="hs-identifier hs-var">pRecordName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-333"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswerResponse' :: RRType
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordType%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var">pRecordType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299834"><span class="hs-identifier hs-var">pRecordType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordData:TestDNSAnswerResponse' :: [Text]
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordData%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseCode:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AresponseCode%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">responseCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299821"><span class="hs-identifier hs-var">pResponseCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299833"><span class="hs-identifier hs-var">pResponseCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3Aprotocol%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><a href="#local-6989586621679299832"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
 </span><span id="line-337"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -786,16 +786,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TestDNSAnswerResponse -&gt; Int -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299819"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299831"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Int
-</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299818"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299817"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestDNSAnswerResponse' :: Int
+</span><a href="#local-6989586621679299831"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299831"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299830"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestDNSAnswerResponse' :: Int
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AhttpStatus%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>
 </span><span id="line-343"></span><span class="hs-comment">-- | The Amazon Route 53 name server used to respond to the request.</span><span>
 </span><span id="line-344"></span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#testDNSAnswerResponse_nameserver"><span class="hs-identifier hs-type">testDNSAnswerResponse_nameserver</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -805,16 +805,16 @@ $sel:httpStatus:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Int
 -&gt; (TestDNSAnswerResponse -&gt; Text -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299816"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299828"><span class="annot"><span class="annottext">Text
 nameserver :: Text
 $sel:nameserver:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
-</span><a href="#local-6989586621679299816"><span class="hs-identifier hs-var hs-var">nameserver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299816"><span class="hs-identifier hs-var">nameserver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299815"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299814"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameserver:TestDNSAnswerResponse' :: Text
+</span><a href="#local-6989586621679299828"><span class="hs-identifier hs-var hs-var">nameserver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299828"><span class="hs-identifier hs-var">nameserver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299827"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameserver:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3Anameserver%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">nameserver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
 </span><span id="line-347"></span><span class="hs-comment">-- | The name of the resource record set that you submitted a request for.</span><span>
 </span><span id="line-348"></span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#testDNSAnswerResponse_recordName"><span class="hs-identifier hs-type">testDNSAnswerResponse_recordName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -824,16 +824,16 @@ $sel:nameserver:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
 -&gt; (TestDNSAnswerResponse -&gt; Text -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299813"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299825"><span class="annot"><span class="annottext">Text
 recordName :: Text
 $sel:recordName:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
-</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var hs-var">recordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299812"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299811"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswerResponse' :: Text
+</span><a href="#local-6989586621679299825"><span class="hs-identifier hs-var hs-var">recordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299825"><span class="hs-identifier hs-var">recordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299824"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299823"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordName:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordName%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-comment">-- | The type of the resource record set that you submitted a request for.</span><span>
 </span><span id="line-352"></span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#testDNSAnswerResponse_recordType"><span class="hs-identifier hs-type">testDNSAnswerResponse_recordType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span>
@@ -843,16 +843,16 @@ $sel:recordName:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
 -&gt; (TestDNSAnswerResponse -&gt; RRType -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse RRType RRType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299810"><span class="annot"><span class="annottext">RRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299822"><span class="annot"><span class="annottext">RRType
 recordType :: RRType
 $sel:recordType:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; RRType
-</span><a href="#local-6989586621679299810"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299810"><span class="hs-identifier hs-var">recordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299809"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299808"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswerResponse' :: RRType
+</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var hs-var">recordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var">recordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299821"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299820"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordType:TestDNSAnswerResponse' :: RRType
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordType%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679299808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-354"></span><span>
 </span><span id="line-355"></span><span class="hs-comment">-- | A list that contains values that Amazon Route 53 returned for this</span><span>
 </span><span id="line-356"></span><span class="hs-comment">-- resource record set.</span><span>
@@ -863,16 +863,16 @@ $sel:recordType:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; RRType
 -&gt; (TestDNSAnswerResponse -&gt; [Text] -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299807"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299819"><span class="annot"><span class="annottext">[Text]
 recordData :: [Text]
 $sel:recordData:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; [Text]
-</span><a href="#local-6989586621679299807"><span class="hs-identifier hs-var hs-var">recordData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679299807"><span class="hs-identifier hs-var">recordData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299806"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299805"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordData:TestDNSAnswerResponse' :: [Text]
+</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var hs-var">recordData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var">recordData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299818"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299817"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679299817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordData:TestDNSAnswerResponse' :: [Text]
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3ArecordData%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">recordData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679299817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; TestDNSAnswerResponse -&gt; f TestDNSAnswerResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -896,16 +896,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TestDNSAnswerResponse -&gt; Text -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299802"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299814"><span class="annot"><span class="annottext">Text
 responseCode :: Text
 $sel:responseCode:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
-</span><a href="#local-6989586621679299802"><span class="hs-identifier hs-var hs-var">responseCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299802"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299801"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCode:TestDNSAnswerResponse' :: Text
+</span><a href="#local-6989586621679299814"><span class="hs-identifier hs-var hs-var">responseCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299814"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299813"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCode:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3AresponseCode%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">responseCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-368"></span><span>
 </span><span id="line-369"></span><span class="hs-comment">-- | The protocol that Amazon Route 53 used to respond to the request, either</span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- @UDP@ or @TCP@.</span><span>
@@ -916,16 +916,16 @@ $sel:responseCode:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
 -&gt; (TestDNSAnswerResponse -&gt; Text -&gt; TestDNSAnswerResponse)
 -&gt; Lens TestDNSAnswerResponse TestDNSAnswerResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299799"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299811"><span class="annot"><span class="annottext">Text
 protocol :: Text
 $sel:protocol:TestDNSAnswerResponse' :: TestDNSAnswerResponse -&gt; Text
-</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299798"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
-</span><a href="#local-6989586621679299798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299797"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
-</span><a href="#local-6989586621679299798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:TestDNSAnswerResponse' :: Text
+</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299810"><span class="annot"><span class="annottext">s :: TestDNSAnswerResponse
+</span><a href="#local-6989586621679299810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse%27"><span class="hs-identifier hs-type">TestDNSAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestDNSAnswerResponse
+</span><a href="#local-6989586621679299810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:TestDNSAnswerResponse' :: Text
 </span><a href="Amazonka.Route53.TestDNSAnswer.html#%24sel%3Aprotocol%3ATestDNSAnswerResponse%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
-</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.TestDNSAnswer.html#TestDNSAnswerResponse"><span class="hs-identifier hs-type">TestDNSAnswerResponse</span></a></span></span><span>
 </span><span id="line-375"></span></pre></body></html>

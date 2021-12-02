@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html"><span class="hs-identifier">Amazonka.Route53.Internal</span></a></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span id="local-6989586621679298766"><span id="local-6989586621679298767"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VPCRegion"><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion"><span class="hs-identifier hs-var">VPCRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCRegion%27"><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion%27"><span class="hs-identifier hs-var">VPCRegion'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679298778"><span id="local-6989586621679298779"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VPCRegion"><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion"><span class="hs-identifier hs-var">VPCRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCRegion%27"><span class="annot"><a href="Amazonka.Route53.Types.VPCRegion.html#VPCRegion%27"><span class="hs-identifier hs-var">VPCRegion'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVPCRegion"><span class="annot"><span class="annottext">VPCRegion -&gt; Text
 </span><a href="Amazonka.Route53.Types.VPCRegion.html#fromVPCRegion"><span class="hs-identifier hs-var hs-var">fromVPCRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298758"><span id="local-6989586621679298760"><span id="local-6989586621679298762"><span class="annot"><span class="annottext">Int -&gt; VPCRegion -&gt; ShowS
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298770"><span id="local-6989586621679298772"><span id="local-6989586621679298774"><span class="annot"><span class="annottext">Int -&gt; VPCRegion -&gt; ShowS
 [VPCRegion] -&gt; ShowS
 VPCRegion -&gt; String
 (Int -&gt; VPCRegion -&gt; ShowS)
@@ -76,7 +76,7 @@ $cshow :: VPCRegion -&gt; String
 showsPrec :: Int -&gt; VPCRegion -&gt; ShowS
 $cshowsPrec :: Int -&gt; VPCRegion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679298749"><span id="local-6989586621679298751"><span id="local-6989586621679298753"><span id="local-6989586621679298755"><span class="annot"><span class="annottext">ReadPrec [VPCRegion]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679298761"><span id="local-6989586621679298763"><span id="local-6989586621679298765"><span id="local-6989586621679298767"><span class="annot"><span class="annottext">ReadPrec [VPCRegion]
 ReadPrec VPCRegion
 Int -&gt; ReadS VPCRegion
 ReadS [VPCRegion]
@@ -97,7 +97,7 @@ $creadList :: ReadS [VPCRegion]
 readsPrec :: Int -&gt; ReadS VPCRegion
 $creadsPrec :: Int -&gt; ReadS VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679298744"><span id="local-6989586621679298746"><span class="annot"><span class="annottext">VPCRegion -&gt; VPCRegion -&gt; Bool
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679298756"><span id="local-6989586621679298758"><span class="annot"><span class="annottext">VPCRegion -&gt; VPCRegion -&gt; Bool
 (VPCRegion -&gt; VPCRegion -&gt; Bool)
 -&gt; (VPCRegion -&gt; VPCRegion -&gt; Bool) -&gt; Eq VPCRegion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ $c/= :: VPCRegion -&gt; VPCRegion -&gt; Bool
 == :: VPCRegion -&gt; VPCRegion -&gt; Bool
 $c== :: VPCRegion -&gt; VPCRegion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679298728"><span id="local-6989586621679298730"><span id="local-6989586621679298732"><span id="local-6989586621679298734"><span id="local-6989586621679298736"><span id="local-6989586621679298738"><span id="local-6989586621679298740"><span class="annot"><span class="annottext">Eq VPCRegion
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679298740"><span id="local-6989586621679298742"><span id="local-6989586621679298744"><span id="local-6989586621679298746"><span id="local-6989586621679298748"><span id="local-6989586621679298750"><span id="local-6989586621679298752"><span class="annot"><span class="annottext">Eq VPCRegion
 Eq VPCRegion
 -&gt; (VPCRegion -&gt; VPCRegion -&gt; Ordering)
 -&gt; (VPCRegion -&gt; VPCRegion -&gt; Bool)
@@ -156,7 +156,7 @@ $cfrom :: forall x. VPCRegion -&gt; Rep VPCRegion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298720"><span id="local-6989586621679298722"><span class="annot"><span class="annottext">Int -&gt; VPCRegion -&gt; Int
+</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298732"><span id="local-6989586621679298734"><span class="annot"><span class="annottext">Int -&gt; VPCRegion -&gt; Int
 VPCRegion -&gt; Int
 (Int -&gt; VPCRegion -&gt; Int)
 -&gt; (VPCRegion -&gt; Int) -&gt; Hashable VPCRegion
@@ -166,49 +166,49 @@ $chash :: VPCRegion -&gt; Int
 hashWithSalt :: Int -&gt; VPCRegion -&gt; Int
 $chashWithSalt :: Int -&gt; VPCRegion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679298717"><span class="annot"><span class="annottext">VPCRegion -&gt; ()
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679298729"><span class="annot"><span class="annottext">VPCRegion -&gt; ()
 (VPCRegion -&gt; ()) -&gt; NFData VPCRegion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VPCRegion -&gt; ()
 $crnf :: VPCRegion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679298714"><span class="annot"><span class="annottext">Text -&gt; Either String VPCRegion
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679298726"><span class="annot"><span class="annottext">Text -&gt; Either String VPCRegion
 (Text -&gt; Either String VPCRegion) -&gt; FromText VPCRegion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VPCRegion
 $cfromText :: Text -&gt; Either String VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679298711"><span class="annot"><span class="annottext">VPCRegion -&gt; Text
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679298723"><span class="annot"><span class="annottext">VPCRegion -&gt; Text
 (VPCRegion -&gt; Text) -&gt; ToText VPCRegion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VPCRegion -&gt; Text
 $ctoText :: VPCRegion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679298708"><span class="annot"><span class="annottext">VPCRegion -&gt; ByteString
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679298720"><span class="annot"><span class="annottext">VPCRegion -&gt; ByteString
 (VPCRegion -&gt; ByteString) -&gt; ToByteString VPCRegion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VPCRegion -&gt; ByteString
 $ctoBS :: VPCRegion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679298705"><span class="annot"><span class="annottext">VPCRegion -&gt; ByteStringBuilder
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679298717"><span class="annot"><span class="annottext">VPCRegion -&gt; ByteStringBuilder
 (VPCRegion -&gt; ByteStringBuilder) -&gt; ToLog VPCRegion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VPCRegion -&gt; ByteStringBuilder
 $cbuild :: VPCRegion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679298702"><span class="annot"><span class="annottext">HeaderName -&gt; VPCRegion -&gt; [Header]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679298714"><span class="annot"><span class="annottext">HeaderName -&gt; VPCRegion -&gt; [Header]
 (HeaderName -&gt; VPCRegion -&gt; [Header]) -&gt; ToHeader VPCRegion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VPCRegion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VPCRegion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679298699"><span class="annot"><span class="annottext">VPCRegion -&gt; QueryString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679298711"><span class="annot"><span class="annottext">VPCRegion -&gt; QueryString
 (VPCRegion -&gt; QueryString) -&gt; ToQuery VPCRegion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VPCRegion -&gt; QueryString
 $ctoQuery :: VPCRegion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679298694"><span id="local-6989586621679298696"><span class="annot"><span class="annottext">Value -&gt; Parser [VPCRegion]
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679298706"><span id="local-6989586621679298708"><span class="annot"><span class="annottext">Value -&gt; Parser [VPCRegion]
 Value -&gt; Parser VPCRegion
 (Value -&gt; Parser VPCRegion)
 -&gt; (Value -&gt; Parser [VPCRegion]) -&gt; FromJSON VPCRegion
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [VPCRegion]
 parseJSON :: Value -&gt; Parser VPCRegion
 $cparseJSON :: Value -&gt; Parser VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679298689"><span id="local-6989586621679298691"><span class="annot"><span class="annottext">FromJSONKeyFunction [VPCRegion]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679298701"><span id="local-6989586621679298703"><span class="annot"><span class="annottext">FromJSONKeyFunction [VPCRegion]
 FromJSONKeyFunction VPCRegion
 FromJSONKeyFunction VPCRegion
 -&gt; FromJSONKeyFunction [VPCRegion] -&gt; FromJSONKey VPCRegion
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VPCRegion]
 fromJSONKey :: FromJSONKeyFunction VPCRegion
 $cfromJSONKey :: FromJSONKeyFunction VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679298680"><span id="local-6989586621679298682"><span id="local-6989586621679298684"><span id="local-6989586621679298686"><span class="annot"><span class="annottext">[VPCRegion] -&gt; Encoding
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679298692"><span id="local-6989586621679298694"><span id="local-6989586621679298696"><span id="local-6989586621679298698"><span class="annot"><span class="annottext">[VPCRegion] -&gt; Encoding
 [VPCRegion] -&gt; Value
 VPCRegion -&gt; Encoding
 VPCRegion -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: VPCRegion -&gt; Encoding
 toJSON :: VPCRegion -&gt; Value
 $ctoJSON :: VPCRegion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679298675"><span id="local-6989586621679298677"><span class="annot"><span class="annottext">ToJSONKeyFunction [VPCRegion]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679298687"><span id="local-6989586621679298689"><span class="annot"><span class="annottext">ToJSONKeyFunction [VPCRegion]
 ToJSONKeyFunction VPCRegion
 ToJSONKeyFunction VPCRegion
 -&gt; ToJSONKeyFunction [VPCRegion] -&gt; ToJSONKey VPCRegion
@@ -265,13 +265,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VPCRegion]
 toJSONKey :: ToJSONKeyFunction VPCRegion
 $ctoJSONKey :: ToJSONKeyFunction VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679298672"><span class="annot"><span class="annottext">[Node] -&gt; Either String VPCRegion
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679298684"><span class="annot"><span class="annottext">[Node] -&gt; Either String VPCRegion
 ([Node] -&gt; Either String VPCRegion) -&gt; FromXML VPCRegion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VPCRegion
 $cparseXML :: [Node] -&gt; Either String VPCRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679298669"><span class="annot"><span class="annottext">VPCRegion -&gt; XML
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679298681"><span class="annot"><span class="annottext">VPCRegion -&gt; XML
 (VPCRegion -&gt; XML) -&gt; ToXML VPCRegion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VPCRegion -&gt; XML

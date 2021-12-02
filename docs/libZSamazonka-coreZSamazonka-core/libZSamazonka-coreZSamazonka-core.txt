@@ -5058,6 +5058,83 @@ data ByteString
 -- | A class of types that can be fully evaluated.
 class NFData a
 
+-- | <a>rnf</a> should reduce its argument to normal form (that is, fully
+--   evaluate all sub-components), and then return <tt>()</tt>.
+--   
+--   <h3><a>Generic</a> <a>NFData</a> deriving</h3>
+--   
+--   Starting with GHC 7.2, you can automatically derive instances for
+--   types possessing a <a>Generic</a> instance.
+--   
+--   Note: <a>Generic1</a> can be auto-derived starting with GHC 7.4
+--   
+--   <pre>
+--   {-# LANGUAGE DeriveGeneric #-}
+--   
+--   import GHC.Generics (Generic, Generic1)
+--   import Control.DeepSeq
+--   
+--   data Foo a = Foo a String
+--                deriving (Eq, Generic, Generic1)
+--   
+--   instance NFData a =&gt; NFData (Foo a)
+--   instance NFData1 Foo
+--   
+--   data Colour = Red | Green | Blue
+--                 deriving Generic
+--   
+--   instance NFData Colour
+--   </pre>
+--   
+--   Starting with GHC 7.10, the example above can be written more
+--   concisely by enabling the new <tt>DeriveAnyClass</tt> extension:
+--   
+--   <pre>
+--   {-# LANGUAGE DeriveGeneric, DeriveAnyClass #-}
+--   
+--   import GHC.Generics (Generic)
+--   import Control.DeepSeq
+--   
+--   data Foo a = Foo a String
+--                deriving (Eq, Generic, Generic1, NFData, NFData1)
+--   
+--   data Colour = Red | Green | Blue
+--                 deriving (Generic, NFData)
+--   </pre>
+--   
+--   <h3>Compatibility with previous <tt>deepseq</tt> versions</h3>
+--   
+--   Prior to version 1.4.0.0, the default implementation of the <a>rnf</a>
+--   method was defined as
+--   
+--   <pre>
+--   <a>rnf</a> a = <a>seq</a> a ()
+--   </pre>
+--   
+--   However, starting with <tt>deepseq-1.4.0.0</tt>, the default
+--   implementation is based on <tt>DefaultSignatures</tt> allowing for
+--   more accurate auto-derived <a>NFData</a> instances. If you need the
+--   previously used exact default <a>rnf</a> method implementation
+--   semantics, use
+--   
+--   <pre>
+--   instance NFData Colour where rnf x = seq x ()
+--   </pre>
+--   
+--   or alternatively
+--   
+--   <pre>
+--   instance NFData Colour where rnf = rwhnf
+--   </pre>
+--   
+--   or
+--   
+--   <pre>
+--   {-# LANGUAGE BangPatterns #-}
+--   instance NFData Colour where rnf !_ = ()
+--   </pre>
+rnf :: NFData a => a -> ()
+
 -- | A space efficient, packed, unboxed Unicode text type.
 data Text
 
@@ -5065,6 +5142,36 @@ data Text
 --   
 --   Minimal implementation: <a>hashWithSalt</a>.
 class Hashable a
+
+-- | Return a hash value for the argument, using the given salt.
+--   
+--   The general contract of <a>hashWithSalt</a> is:
+--   
+--   <ul>
+--   <li>If two values are equal according to the <a>==</a> method, then
+--   applying the <a>hashWithSalt</a> method on each of the two values
+--   <i>must</i> produce the same integer result if the same salt is used
+--   in each case.</li>
+--   <li>It is <i>not</i> required that if two values are unequal according
+--   to the <a>==</a> method, then applying the <a>hashWithSalt</a> method
+--   on each of the two values must produce distinct integer results.
+--   However, the programmer should be aware that producing distinct
+--   integer results for unequal values may improve the performance of
+--   hashing-based data structures.</li>
+--   <li>This method can be used to compute different hash values for the
+--   same input by providing a different salt in each application of the
+--   method. This implies that any instance that defines
+--   <a>hashWithSalt</a> <i>must</i> make use of the salt in its
+--   implementation.</li>
+--   </ul>
+hashWithSalt :: Hashable a => Int -> a -> Int
+
+-- | Like <a>hashWithSalt</a>, but no salt is used. The default
+--   implementation uses <a>hashWithSalt</a> with some default salt.
+--   Instances might want to implement this method to provide a more
+--   efficient implementation than the default implementation.
+hash :: Hashable a => a -> Int
+infixl 0 `hashWithSalt`
 
 -- | The class of monad transformers. Instances should satisfy the
 --   following laws, which state that <a>lift</a> is a monad

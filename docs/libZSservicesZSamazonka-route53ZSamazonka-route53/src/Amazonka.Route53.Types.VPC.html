@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- about an Amazon VPC.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVPC' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679298911"><span id="local-6989586621679298912"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPC"><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-var">VPC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPC%27"><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-var">VPC'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679298923"><span id="local-6989586621679298924"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPC"><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-var">VPC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPC%27"><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-var">VPC'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Private hosted zones only) The region that an Amazon VPC was created</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AvPCRegion%3AVPC%27"><span class="annot"><span class="annottext">VPC -&gt; Maybe VPCRegion
@@ -37,14 +37,14 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AvPCId%3AVPC%27"><span class="annot"><span class="annottext">VPC -&gt; Maybe Text
 </span><a href="Amazonka.Route53.Types.VPC.html#%24sel%3AvPCId%3AVPC%27"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298904"><span id="local-6989586621679298906"><span class="annot"><span class="annottext">VPC -&gt; VPC -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298916"><span id="local-6989586621679298918"><span class="annot"><span class="annottext">VPC -&gt; VPC -&gt; Bool
 (VPC -&gt; VPC -&gt; Bool) -&gt; (VPC -&gt; VPC -&gt; Bool) -&gt; Eq VPC
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: VPC -&gt; VPC -&gt; Bool
 $c/= :: VPC -&gt; VPC -&gt; Bool
 == :: VPC -&gt; VPC -&gt; Bool
 $c== :: VPC -&gt; VPC -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298895"><span id="local-6989586621679298897"><span id="local-6989586621679298899"><span id="local-6989586621679298901"><span class="annot"><span class="annottext">ReadPrec [VPC]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298907"><span id="local-6989586621679298909"><span id="local-6989586621679298911"><span id="local-6989586621679298913"><span class="annot"><span class="annottext">ReadPrec [VPC]
 ReadPrec VPC
 Int -&gt; ReadS VPC
 ReadS [VPC]
@@ -61,7 +61,7 @@ readList :: ReadS [VPC]
 $creadList :: ReadS [VPC]
 readsPrec :: Int -&gt; ReadS VPC
 $creadsPrec :: Int -&gt; ReadS VPC
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298888"><span id="local-6989586621679298890"><span id="local-6989586621679298892"><span class="annot"><span class="annottext">Int -&gt; VPC -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298900"><span id="local-6989586621679298902"><span id="local-6989586621679298904"><span class="annot"><span class="annottext">Int -&gt; VPC -&gt; ShowS
 [VPC] -&gt; ShowS
 VPC -&gt; String
 (Int -&gt; VPC -&gt; ShowS)
@@ -120,16 +120,16 @@ forall a. Maybe a
 -&gt; (VPC -&gt; Maybe VPCRegion -&gt; VPC)
 -&gt; Lens VPC VPC (Maybe VPCRegion) (Maybe VPCRegion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298879"><span class="annot"><span class="annottext">Maybe VPCRegion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298891"><span class="annot"><span class="annottext">Maybe VPCRegion
 vPCRegion :: Maybe VPCRegion
 $sel:vPCRegion:VPC' :: VPC -&gt; Maybe VPCRegion
-</span><a href="#local-6989586621679298879"><span class="hs-identifier hs-var hs-var">vPCRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VPCRegion
-</span><a href="#local-6989586621679298879"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298878"><span class="annot"><span class="annottext">s :: VPC
-</span><a href="#local-6989586621679298878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298877"><span class="annot"><span class="annottext">Maybe VPCRegion
-</span><a href="#local-6989586621679298877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPC
-</span><a href="#local-6989586621679298878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCRegion:VPC' :: Maybe VPCRegion
+</span><a href="#local-6989586621679298891"><span class="hs-identifier hs-var hs-var">vPCRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VPCRegion
+</span><a href="#local-6989586621679298891"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298890"><span class="annot"><span class="annottext">s :: VPC
+</span><a href="#local-6989586621679298890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298889"><span class="annot"><span class="annottext">Maybe VPCRegion
+</span><a href="#local-6989586621679298889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPC
+</span><a href="#local-6989586621679298890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCRegion:VPC' :: Maybe VPCRegion
 </span><a href="Amazonka.Route53.Types.VPC.html#%24sel%3AvPCRegion%3AVPC%27"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VPCRegion
-</span><a href="#local-6989586621679298877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#vpc_vPCId"><span class="hs-identifier hs-type">vpc_vPCId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -138,21 +138,21 @@ $sel:vPCRegion:VPC' :: VPC -&gt; Maybe VPCRegion
 -&gt; (VPC -&gt; Maybe Text -&gt; VPC)
 -&gt; Lens VPC VPC (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298875"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298887"><span class="annot"><span class="annottext">Maybe Text
 vPCId :: Maybe Text
 $sel:vPCId:VPC' :: VPC -&gt; Maybe Text
-</span><a href="#local-6989586621679298875"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298875"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298874"><span class="annot"><span class="annottext">s :: VPC
-</span><a href="#local-6989586621679298874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPC
-</span><a href="#local-6989586621679298874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:VPC' :: Maybe Text
+</span><a href="#local-6989586621679298887"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298887"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298886"><span class="annot"><span class="annottext">s :: VPC
+</span><a href="#local-6989586621679298886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPC
+</span><a href="#local-6989586621679298886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:VPC' :: Maybe Text
 </span><a href="Amazonka.Route53.Types.VPC.html#%24sel%3AvPCId%3AVPC%27"><span class="hs-identifier hs-var">vPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679298870"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VPC
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679298868"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679298868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679298882"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VPC
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679298880"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe VPCRegion -&gt; Maybe Text -&gt; VPC
 </span><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-var">VPC'</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VPCRegion -&gt; Maybe Text -&gt; VPC)
@@ -160,7 +160,7 @@ $sel:vPCId:VPC' :: VPC -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; VPC)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679298868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VPCRegion)
+</span><a href="#local-6989586621679298880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VPCRegion)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VPCRegion&quot;</span></span><span class="hs-special">)</span><span>
@@ -168,24 +168,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String VPC
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679298868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679298880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VPCId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298862"><span id="local-6989586621679298864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298874"><span id="local-6989586621679298876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC"><span class="hs-identifier hs-type">VPC</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679298855"><span class="annot"><span class="annottext">toXML :: VPC -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298852"><span id="local-6989586621679298853"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679298867"><span class="annot"><span class="annottext">toXML :: VPC -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.VPC.html#VPC%27"><span class="hs-identifier hs-type">VPC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298864"><span id="local-6989586621679298865"><span class="annot"><span class="annottext">Maybe Text
 Maybe VPCRegion
 vPCId :: Maybe Text
 vPCRegion :: Maybe VPCRegion
 $sel:vPCId:VPC' :: VPC -&gt; Maybe Text
 $sel:vPCRegion:VPC' :: VPC -&gt; Maybe VPCRegion
-</span><a href="#local-6989586621679298852"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298864"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -193,11 +193,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;VPCRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe VPCRegion -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe VPCRegion
-</span><a href="#local-6989586621679298853"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679298865"><span class="hs-identifier hs-var">vPCRegion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;VPCId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298852"><span class="hs-identifier hs-var">vPCId</span></a></span><span>
+</span><a href="#local-6989586621679298864"><span class="hs-identifier hs-var">vPCId</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span></pre></body></html>

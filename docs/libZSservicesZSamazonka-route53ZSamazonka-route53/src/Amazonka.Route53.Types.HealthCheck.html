@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- associated with the current Amazon Web Services account.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newHealthCheck' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679297582"><span id="local-6989586621679297583"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679297594"><span id="local-6989586621679297595"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Natural
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297571"><span id="local-6989586621679297573"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297583"><span id="local-6989586621679297585"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
 (HealthCheck -&gt; HealthCheck -&gt; Bool)
 -&gt; (HealthCheck -&gt; HealthCheck -&gt; Bool) -&gt; Eq HealthCheck
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HealthCheck -&gt; HealthCheck -&gt; Bool
 == :: HealthCheck -&gt; HealthCheck -&gt; Bool
 $c== :: HealthCheck -&gt; HealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297562"><span id="local-6989586621679297564"><span id="local-6989586621679297566"><span id="local-6989586621679297568"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297574"><span id="local-6989586621679297576"><span id="local-6989586621679297578"><span id="local-6989586621679297580"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
 ReadPrec HealthCheck
 Int -&gt; ReadS HealthCheck
 ReadS [HealthCheck]
@@ -88,7 +88,7 @@ readList :: ReadS [HealthCheck]
 $creadList :: ReadS [HealthCheck]
 readsPrec :: Int -&gt; ReadS HealthCheck
 $creadsPrec :: Int -&gt; ReadS HealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297555"><span id="local-6989586621679297557"><span id="local-6989586621679297559"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297567"><span id="local-6989586621679297569"><span id="local-6989586621679297571"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
 [HealthCheck] -&gt; ShowS
 HealthCheck -&gt; String
 (Int -&gt; HealthCheck -&gt; ShowS)
@@ -154,14 +154,14 @@ $cfrom :: forall x. HealthCheck -&gt; Rep HealthCheck x
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span>
 </span><span id="line-97"></span><span id="newHealthCheck"><span class="annot"><span class="annottext">newHealthCheck :: Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#newHealthCheck"><span class="hs-identifier hs-var hs-var">newHealthCheck</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679297547"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297547"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297546"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297546"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297561"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297560"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679297559"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297559"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297558"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297558"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">HealthCheck' :: Maybe LinkedService
 -&gt; Maybe CloudWatchAlarmConfiguration
 -&gt; Text
@@ -180,16 +180,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3Aid%3AHealthCheck%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297561"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AcallerReference%3AHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297560"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckConfig%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297547"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297559"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297546"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span><span>
+</span><a href="#local-6989586621679297558"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
@@ -203,16 +203,16 @@ forall a. Maybe a
 -&gt; Lens
      HealthCheck HealthCheck (Maybe LinkedService) (Maybe LinkedService)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297542"><span class="annot"><span class="annottext">Maybe LinkedService
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297554"><span class="annot"><span class="annottext">Maybe LinkedService
 linkedService :: Maybe LinkedService
 $sel:linkedService:HealthCheck' :: HealthCheck -&gt; Maybe LinkedService
-</span><a href="#local-6989586621679297542"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297542"><span class="hs-identifier hs-var">linkedService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297541"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297540"><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
+</span><a href="#local-6989586621679297554"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679297554"><span class="hs-identifier hs-var">linkedService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297553"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297552"><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679297552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AlinkedService%3AHealthCheck%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | A complex type that contains information about the CloudWatch alarm that</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
@@ -229,16 +229,16 @@ $sel:linkedService:HealthCheck' :: HealthCheck -&gt; Maybe LinkedService
      (Maybe CloudWatchAlarmConfiguration)
      (Maybe CloudWatchAlarmConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297538"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297550"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
 cloudWatchAlarmConfiguration :: Maybe CloudWatchAlarmConfiguration
 $sel:cloudWatchAlarmConfiguration:HealthCheck' :: HealthCheck -&gt; Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297538"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297538"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297537"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297536"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297550"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297550"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297549"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297548"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
@@ -250,16 +250,16 @@ $sel:cloudWatchAlarmConfiguration:HealthCheck' :: HealthCheck -&gt; Maybe CloudW
 -&gt; (HealthCheck -&gt; Text -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297534"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297546"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:HealthCheck' :: HealthCheck -&gt; Text
-</span><a href="#local-6989586621679297534"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297534"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297533"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
+</span><a href="#local-6989586621679297546"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297546"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297545"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297544"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3Aid%3AHealthCheck%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | A unique string that you specified when you created the health check.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#healthCheck_callerReference"><span class="hs-identifier hs-type">healthCheck_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -268,16 +268,16 @@ $sel:id:HealthCheck' :: HealthCheck -&gt; Text
 -&gt; (HealthCheck -&gt; Text -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297530"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297542"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:HealthCheck' :: HealthCheck -&gt; Text
-</span><a href="#local-6989586621679297530"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297530"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297529"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297528"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
+</span><a href="#local-6989586621679297542"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297542"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297541"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AcallerReference%3AHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | A complex type that contains detailed information about one health</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- check.</span><span>
@@ -288,16 +288,16 @@ $sel:callerReference:HealthCheck' :: HealthCheck -&gt; Text
 -&gt; (HealthCheck -&gt; HealthCheckConfig -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck HealthCheckConfig HealthCheckConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297526"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297538"><span class="annot"><span class="annottext">HealthCheckConfig
 healthCheckConfig :: HealthCheckConfig
 $sel:healthCheckConfig:HealthCheck' :: HealthCheck -&gt; HealthCheckConfig
-</span><a href="#local-6989586621679297526"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297526"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297525"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297524"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
+</span><a href="#local-6989586621679297538"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297538"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297537"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297536"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckConfig%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The version of the health check. You can optionally pass this value in a</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- call to @UpdateHealthCheck@ to prevent overwriting another change to the</span><span>
@@ -308,21 +308,21 @@ $sel:healthCheckConfig:HealthCheck' :: HealthCheck -&gt; HealthCheckConfig
 -&gt; (HealthCheck -&gt; Natural -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297522"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297534"><span class="annot"><span class="annottext">Natural
 healthCheckVersion :: Natural
 $sel:healthCheckVersion:HealthCheck' :: HealthCheck -&gt; Natural
-</span><a href="#local-6989586621679297522"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297522"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297521"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297520"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
+</span><a href="#local-6989586621679297534"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297534"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297533"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297532"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
 </span><a href="Amazonka.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679297517"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297515"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679297529"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297527"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">Maybe LinkedService
 -&gt; Maybe CloudWatchAlarmConfiguration
 -&gt; Text
@@ -345,7 +345,7 @@ $sel:healthCheckVersion:HealthCheck' :: HealthCheck -&gt; Natural
       -&gt; Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LinkedService)
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LinkedService)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LinkedService&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,7 +359,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe CloudWatchAlarmConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -372,7 +372,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,7 +390,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheckConfig
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheckConfig
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheckConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -398,12 +398,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Natural -&gt; Either String HealthCheck
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679297527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheckVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297508"><span id="local-6989586621679297510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297520"><span id="local-6989586621679297522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

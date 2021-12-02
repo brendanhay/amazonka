@@ -86,7 +86,7 @@
 </span><span id="line-86"></span><span class="hs-comment">-- | A complex type that contains the health check request information.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- /See:/ 'newCreateHealthCheck' smart constructor.</span><span>
-</span><span id="line-89"></span><span id="local-6989586621679311917"><span id="local-6989586621679311918"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheck"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-var">CreateHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheck%27"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-var">CreateHealthCheck'</span></a></span></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679311929"><span id="local-6989586621679311930"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheck"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-var">CreateHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheck%27"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-var">CreateHealthCheck'</span></a></span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string that identifies the request and that allows you to retry</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- a failed @CreateHealthCheck@ request without the risk of creating two</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- identical health checks:</span><span>
@@ -114,7 +114,7 @@
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; HealthCheckConfig
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311910"><span id="local-6989586621679311912"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311922"><span id="local-6989586621679311924"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
 (CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool)
 -&gt; (CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool)
 -&gt; Eq CreateHealthCheck
@@ -123,7 +123,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
 == :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
 $c== :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311901"><span id="local-6989586621679311903"><span id="local-6989586621679311905"><span id="local-6989586621679311907"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311913"><span id="local-6989586621679311915"><span id="local-6989586621679311917"><span id="local-6989586621679311919"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheck]
 ReadPrec CreateHealthCheck
 Int -&gt; ReadS CreateHealthCheck
 ReadS [CreateHealthCheck]
@@ -143,7 +143,7 @@ readList :: ReadS [CreateHealthCheck]
 $creadList :: ReadS [CreateHealthCheck]
 readsPrec :: Int -&gt; ReadS CreateHealthCheck
 $creadsPrec :: Int -&gt; ReadS CreateHealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311894"><span id="local-6989586621679311896"><span id="local-6989586621679311898"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311906"><span id="local-6989586621679311908"><span id="local-6989586621679311910"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheck -&gt; ShowS
 [CreateHealthCheck] -&gt; ShowS
 CreateHealthCheck -&gt; String
 (Int -&gt; CreateHealthCheck -&gt; ShowS)
@@ -208,19 +208,19 @@ $cfrom :: forall x. CreateHealthCheck -&gt; Rep CreateHealthCheck x
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span>
 </span><span id="line-154"></span><span id="newCreateHealthCheck"><span class="annot"><span class="annottext">newCreateHealthCheck :: Text -&gt; HealthCheckConfig -&gt; CreateHealthCheck
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#newCreateHealthCheck"><span class="hs-identifier hs-var hs-var">newCreateHealthCheck</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679311889"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311889"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679311888"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311888"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679311901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311901"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679311900"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311900"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">CreateHealthCheck' :: Text -&gt; HealthCheckConfig -&gt; CreateHealthCheck
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:callerReference:CreateHealthCheck' :: Text
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311889"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311901"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfig:CreateHealthCheck' :: HealthCheckConfig
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311888"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span>
+</span><a href="#local-6989586621679311900"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | A unique string that identifies the request and that allows you to retry</span><span>
@@ -250,16 +250,16 @@ $cfrom :: forall x. CreateHealthCheck -&gt; Rep CreateHealthCheck x
 -&gt; (CreateHealthCheck -&gt; Text -&gt; CreateHealthCheck)
 -&gt; Lens CreateHealthCheck CreateHealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311885"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311897"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:CreateHealthCheck' :: CreateHealthCheck -&gt; Text
-</span><a href="#local-6989586621679311885"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311885"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311884"><span class="annot"><span class="annottext">s :: CreateHealthCheck
-</span><a href="#local-6989586621679311884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311883"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
-</span><a href="#local-6989586621679311884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:CreateHealthCheck' :: Text
+</span><a href="#local-6989586621679311897"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311897"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311896"><span class="annot"><span class="annottext">s :: CreateHealthCheck
+</span><a href="#local-6989586621679311896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
+</span><a href="#local-6989586621679311896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:CreateHealthCheck' :: Text
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A complex type that contains settings for a new health check.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#createHealthCheck_healthCheckConfig"><span class="hs-identifier hs-type">createHealthCheck_healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
@@ -273,27 +273,27 @@ $sel:callerReference:CreateHealthCheck' :: CreateHealthCheck -&gt; Text
      HealthCheckConfig
      HealthCheckConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311882"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311894"><span class="annot"><span class="annottext">HealthCheckConfig
 healthCheckConfig :: HealthCheckConfig
 $sel:healthCheckConfig:CreateHealthCheck' :: CreateHealthCheck -&gt; HealthCheckConfig
-</span><a href="#local-6989586621679311882"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311882"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311881"><span class="annot"><span class="annottext">s :: CreateHealthCheck
-</span><a href="#local-6989586621679311881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311880"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
-</span><a href="#local-6989586621679311881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:CreateHealthCheck' :: HealthCheckConfig
+</span><a href="#local-6989586621679311894"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311894"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311893"><span class="annot"><span class="annottext">s :: CreateHealthCheck
+</span><a href="#local-6989586621679311893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311892"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
+</span><a href="#local-6989586621679311893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:CreateHealthCheck' :: HealthCheckConfig
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-193"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679311876"><span class="annot"><span class="annottext">request :: CreateHealthCheck -&gt; Request CreateHealthCheck
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679311888"><span class="annot"><span class="annottext">request :: CreateHealthCheck -&gt; Request CreateHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateHealthCheck -&gt; Request CreateHealthCheck
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679311872"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679311884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateHealthCheck
 -&gt; ClientResponse ClientBody
@@ -319,10 +319,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311869"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311869"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311868"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311868"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311867"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311879"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679311879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-var">CreateHealthCheckResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse)
@@ -334,13 +334,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311869"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse)
 -&gt; Either String HealthCheck
 -&gt; Either String (Text -&gt; CreateHealthCheckResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheck
+</span><a href="#local-6989586621679311879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheck
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheck&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,7 +348,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String CreateHealthCheckResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311868"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String Text
+</span><a href="#local-6989586621679311880"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String Text
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String a
@@ -356,12 +356,12 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String a
 </span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311858"><span id="local-6989586621679311860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311870"><span id="local-6989586621679311872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span></span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679311851"><span class="annot"><span class="annottext">toElement :: CreateHealthCheck -&gt; Element
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679311863"><span class="annot"><span class="annottext">toElement :: CreateHealthCheck -&gt; Element
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; CreateHealthCheck -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
@@ -370,7 +370,7 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-string">&quot;{https://route53.amazonaws.com/doc/2013-04-01/}CreateHealthCheckRequest&quot;</span></span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679311846"><span class="annot"><span class="annottext">toHeaders :: CreateHealthCheck -&gt; ResponseHeaders
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679311858"><span class="annot"><span class="annottext">toHeaders :: CreateHealthCheck -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateHealthCheck -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -378,14 +378,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679311841"><span class="annot"><span class="annottext">toPath :: CreateHealthCheck -&gt; ByteString
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679311853"><span class="annot"><span class="annottext">toPath :: CreateHealthCheck -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateHealthCheck -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2013-04-01/healthcheck&quot;</span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679311837"><span class="annot"><span class="annottext">toQuery :: CreateHealthCheck -&gt; QueryString
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679311849"><span class="annot"><span class="annottext">toQuery :: CreateHealthCheck -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateHealthCheck -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -393,14 +393,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679311833"><span class="annot"><span class="annottext">toXML :: CreateHealthCheck -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311830"><span id="local-6989586621679311831"><span class="annot"><span class="annottext">Text
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679311845"><span class="annot"><span class="annottext">toXML :: CreateHealthCheck -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311842"><span id="local-6989586621679311843"><span class="annot"><span class="annottext">Text
 HealthCheckConfig
 healthCheckConfig :: HealthCheckConfig
 callerReference :: Text
 $sel:healthCheckConfig:CreateHealthCheck' :: CreateHealthCheck -&gt; HealthCheckConfig
 $sel:callerReference:CreateHealthCheck' :: CreateHealthCheck -&gt; Text
-</span><a href="#local-6989586621679311830"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311842"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -408,19 +408,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311831"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311843"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;HealthCheckConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; HealthCheckConfig -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679311830"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span>
+</span><a href="#local-6989586621679311842"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | A complex type containing the response information for the new health</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- check.</span><span>
 </span><span id="line-232"></span><span class="hs-comment">--</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- /See:/ 'newCreateHealthCheckResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621679311827"><span id="local-6989586621679311828"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheckResponse"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-var">CreateHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheckResponse%27"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-var">CreateHealthCheckResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span id="local-6989586621679311839"><span id="local-6989586621679311840"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheckResponse"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-var">CreateHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheckResponse%27"><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-var">CreateHealthCheckResponse'</span></a></span></span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; Int
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -432,7 +432,7 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; Text
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311820"><span id="local-6989586621679311822"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311832"><span id="local-6989586621679311834"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
 (CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool)
 -&gt; (CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool)
 -&gt; Eq CreateHealthCheckResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
 == :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
 $c== :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311812"><span id="local-6989586621679311814"><span id="local-6989586621679311816"><span id="local-6989586621679311818"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheckResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311824"><span id="local-6989586621679311826"><span id="local-6989586621679311828"><span id="local-6989586621679311830"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheckResponse]
 ReadPrec CreateHealthCheckResponse
 Int -&gt; ReadS CreateHealthCheckResponse
 ReadS [CreateHealthCheckResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [CreateHealthCheckResponse]
 $creadList :: ReadS [CreateHealthCheckResponse]
 readsPrec :: Int -&gt; ReadS CreateHealthCheckResponse
 $creadsPrec :: Int -&gt; ReadS CreateHealthCheckResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311806"><span id="local-6989586621679311808"><span id="local-6989586621679311810"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheckResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311818"><span id="local-6989586621679311820"><span id="local-6989586621679311822"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheckResponse -&gt; ShowS
 [CreateHealthCheckResponse] -&gt; ShowS
 CreateHealthCheckResponse -&gt; String
 (Int -&gt; CreateHealthCheckResponse -&gt; ShowS)
@@ -517,24 +517,24 @@ CreateHealthCheckResponse -&gt; Rep CreateHealthCheckResponse x
 </span><span id="line-266"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span>
 </span><span id="line-267"></span><span id="newCreateHealthCheckResponse"><span class="annot"><span class="annottext">newCreateHealthCheckResponse :: Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#newCreateHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newCreateHealthCheckResponse</span></a></span></span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621679311803"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679311802"><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679311802"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span></span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621679311801"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311801"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679311815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679311814"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311814"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679311813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311813"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">CreateHealthCheckResponse' :: Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHealthCheckResponse' :: Int
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheck:CreateHealthCheckResponse' :: HealthCheck
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679311802"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311814"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:location:CreateHealthCheckResponse' :: Text
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311801"><span class="hs-identifier hs-var">pLocation_</span></a></span><span>
+</span><a href="#local-6989586621679311813"><span class="hs-identifier hs-var">pLocation_</span></a></span><span>
 </span><span id="line-276"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -545,16 +545,16 @@ CreateHealthCheckResponse -&gt; Rep CreateHealthCheckResponse x
 -&gt; (CreateHealthCheckResponse -&gt; Int -&gt; CreateHealthCheckResponse)
 -&gt; Lens CreateHealthCheckResponse CreateHealthCheckResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311800"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311812"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; Int
-</span><a href="#local-6989586621679311800"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311800"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311799"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
-</span><a href="#local-6989586621679311799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
-</span><a href="#local-6989586621679311799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHealthCheckResponse' :: Int
+</span><a href="#local-6989586621679311812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311811"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHealthCheckResponse' :: Int
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | A complex type that contains identifying information about the health</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- check.</span><span>
@@ -570,16 +570,16 @@ $sel:httpStatus:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; In
      HealthCheck
      HealthCheck
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311797"><span class="annot"><span class="annottext">HealthCheck
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311809"><span class="annot"><span class="annottext">HealthCheck
 healthCheck :: HealthCheck
 $sel:healthCheck:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; HealthCheck
-</span><a href="#local-6989586621679311797"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679311797"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311796"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
-</span><a href="#local-6989586621679311796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311795"><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679311795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
-</span><a href="#local-6989586621679311796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:CreateHealthCheckResponse' :: HealthCheck
+</span><a href="#local-6989586621679311809"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311809"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311808"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311807"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:CreateHealthCheckResponse' :: HealthCheck
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679311795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The unique URL representing the new health check.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#createHealthCheckResponse_location"><span class="hs-identifier hs-type">createHealthCheckResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -590,16 +590,16 @@ $sel:healthCheck:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; H
 -&gt; Lens
      CreateHealthCheckResponse CreateHealthCheckResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311794"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311806"><span class="annot"><span class="annottext">Text
 location :: Text
 $sel:location:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; Text
-</span><a href="#local-6989586621679311794"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311794"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311793"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
-</span><a href="#local-6989586621679311793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
-</span><a href="#local-6989586621679311793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateHealthCheckResponse' :: Text
+</span><a href="#local-6989586621679311806"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311806"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311805"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateHealthCheckResponse' :: Text
 </span><a href="Amazonka.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span></span><span>
 </span><span id="line-292"></span></pre></body></html>

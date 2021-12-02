@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A string repesenting the status of DNSSEC signing.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDNSSECStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679293535"><span id="local-6989586621679293536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DNSSECStatus"><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-var">DNSSECStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DNSSECStatus%27"><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-var">DNSSECStatus'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679293547"><span id="local-6989586621679293548"></span></span><span class="hs-keyword">data</span><span> </span><span id="DNSSECStatus"><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-var">DNSSECStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DNSSECStatus%27"><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-var">DNSSECStatus'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that represents the current hosted zone signing status.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Status can have one of the following values:</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AstatusMessage%3ADNSSECStatus%27"><span class="annot"><span class="annottext">DNSSECStatus -&gt; Maybe Text
 </span><a href="Amazonka.Route53.Types.DNSSECStatus.html#%24sel%3AstatusMessage%3ADNSSECStatus%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293528"><span id="local-6989586621679293530"><span class="annot"><span class="annottext">DNSSECStatus -&gt; DNSSECStatus -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293540"><span id="local-6989586621679293542"><span class="annot"><span class="annottext">DNSSECStatus -&gt; DNSSECStatus -&gt; Bool
 (DNSSECStatus -&gt; DNSSECStatus -&gt; Bool)
 -&gt; (DNSSECStatus -&gt; DNSSECStatus -&gt; Bool) -&gt; Eq DNSSECStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DNSSECStatus -&gt; DNSSECStatus -&gt; Bool
 == :: DNSSECStatus -&gt; DNSSECStatus -&gt; Bool
 $c== :: DNSSECStatus -&gt; DNSSECStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293519"><span id="local-6989586621679293521"><span id="local-6989586621679293523"><span id="local-6989586621679293525"><span class="annot"><span class="annottext">ReadPrec [DNSSECStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293531"><span id="local-6989586621679293533"><span id="local-6989586621679293535"><span id="local-6989586621679293537"><span class="annot"><span class="annottext">ReadPrec [DNSSECStatus]
 ReadPrec DNSSECStatus
 Int -&gt; ReadS DNSSECStatus
 ReadS [DNSSECStatus]
@@ -89,7 +89,7 @@ readList :: ReadS [DNSSECStatus]
 $creadList :: ReadS [DNSSECStatus]
 readsPrec :: Int -&gt; ReadS DNSSECStatus
 $creadsPrec :: Int -&gt; ReadS DNSSECStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293512"><span id="local-6989586621679293514"><span id="local-6989586621679293516"><span class="annot"><span class="annottext">Int -&gt; DNSSECStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293524"><span id="local-6989586621679293526"><span id="local-6989586621679293528"><span class="annot"><span class="annottext">Int -&gt; DNSSECStatus -&gt; ShowS
 [DNSSECStatus] -&gt; ShowS
 DNSSECStatus -&gt; String
 (Int -&gt; DNSSECStatus -&gt; ShowS)
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; (DNSSECStatus -&gt; Maybe Text -&gt; DNSSECStatus)
 -&gt; Lens DNSSECStatus DNSSECStatus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293503"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293515"><span class="annot"><span class="annottext">Maybe Text
 serveSignature :: Maybe Text
 $sel:serveSignature:DNSSECStatus' :: DNSSECStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679293503"><span class="hs-identifier hs-var hs-var">serveSignature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293503"><span class="hs-identifier hs-var">serveSignature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293502"><span class="annot"><span class="annottext">s :: DNSSECStatus
-</span><a href="#local-6989586621679293502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293501"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSSECStatus
-</span><a href="#local-6989586621679293502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serveSignature:DNSSECStatus' :: Maybe Text
+</span><a href="#local-6989586621679293515"><span class="hs-identifier hs-var hs-var">serveSignature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293515"><span class="hs-identifier hs-var">serveSignature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293514"><span class="annot"><span class="annottext">s :: DNSSECStatus
+</span><a href="#local-6989586621679293514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSSECStatus
+</span><a href="#local-6989586621679293514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serveSignature:DNSSECStatus' :: Maybe Text
 </span><a href="Amazonka.Route53.Types.DNSSECStatus.html#%24sel%3AserveSignature%3ADNSSECStatus%27"><span class="hs-identifier hs-var">serveSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The status message provided for the following DNSSEC signing status:</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- @INTERNAL_FAILURE@. The status message includes information about what</span><span>
@@ -219,21 +219,21 @@ $sel:serveSignature:DNSSECStatus' :: DNSSECStatus -&gt; Maybe Text
 -&gt; (DNSSECStatus -&gt; Maybe Text -&gt; DNSSECStatus)
 -&gt; Lens DNSSECStatus DNSSECStatus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293499"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293511"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:DNSSECStatus' :: DNSSECStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679293499"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293499"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293498"><span class="annot"><span class="annottext">s :: DNSSECStatus
-</span><a href="#local-6989586621679293498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293497"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSSECStatus
-</span><a href="#local-6989586621679293498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:DNSSECStatus' :: Maybe Text
+</span><a href="#local-6989586621679293511"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293511"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293510"><span class="annot"><span class="annottext">s :: DNSSECStatus
+</span><a href="#local-6989586621679293510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-type">DNSSECStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSSECStatus
+</span><a href="#local-6989586621679293510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:DNSSECStatus' :: Maybe Text
 </span><a href="Amazonka.Route53.Types.DNSSECStatus.html#%24sel%3AstatusMessage%3ADNSSECStatus%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679293494"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DNSSECStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293492"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679293506"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DNSSECStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293504"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679293504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DNSSECStatus
 </span><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus%27"><span class="hs-identifier hs-var">DNSSECStatus'</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DNSSECStatus)
@@ -241,7 +241,7 @@ $sel:statusMessage:DNSSECStatus' :: DNSSECStatus -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; DNSSECStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679293504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServeSignature&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,12 +249,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String DNSSECStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679293504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293486"><span id="local-6989586621679293488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293498"><span id="local-6989586621679293500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.DNSSECStatus.html#DNSSECStatus"><span class="hs-identifier hs-type">DNSSECStatus</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

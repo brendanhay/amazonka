@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- health check is healthy.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAlarmIdentifier' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679293269"><span id="local-6989586621679293270"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlarmIdentifier"><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-var">AlarmIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmIdentifier%27"><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-var">AlarmIdentifier'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679293281"><span id="local-6989586621679293282"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlarmIdentifier"><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-var">AlarmIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmIdentifier%27"><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-var">AlarmIdentifier'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For the CloudWatch alarm that you want Route 53 health checkers to use</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to determine whether this health check is healthy, the region that the</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- alarm was created in.</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AAlarmIdentifier%27"><span class="annot"><span class="annottext">AlarmIdentifier -&gt; Text
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#%24sel%3Aname%3AAlarmIdentifier%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293262"><span id="local-6989586621679293264"><span class="annot"><span class="annottext">AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293274"><span id="local-6989586621679293276"><span class="annot"><span class="annottext">AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool
 (AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool)
 -&gt; (AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool)
 -&gt; Eq AlarmIdentifier
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool
 == :: AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool
 $c== :: AlarmIdentifier -&gt; AlarmIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293253"><span id="local-6989586621679293255"><span id="local-6989586621679293257"><span id="local-6989586621679293259"><span class="annot"><span class="annottext">ReadPrec [AlarmIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293265"><span id="local-6989586621679293267"><span id="local-6989586621679293269"><span id="local-6989586621679293271"><span class="annot"><span class="annottext">ReadPrec [AlarmIdentifier]
 ReadPrec AlarmIdentifier
 Int -&gt; ReadS AlarmIdentifier
 ReadS [AlarmIdentifier]
@@ -84,7 +84,7 @@ readList :: ReadS [AlarmIdentifier]
 $creadList :: ReadS [AlarmIdentifier]
 readsPrec :: Int -&gt; ReadS AlarmIdentifier
 $creadsPrec :: Int -&gt; ReadS AlarmIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293246"><span id="local-6989586621679293248"><span id="local-6989586621679293250"><span class="annot"><span class="annottext">Int -&gt; AlarmIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293258"><span id="local-6989586621679293260"><span id="local-6989586621679293262"><span class="annot"><span class="annottext">Int -&gt; AlarmIdentifier -&gt; ShowS
 [AlarmIdentifier] -&gt; ShowS
 AlarmIdentifier -&gt; String
 (Int -&gt; AlarmIdentifier -&gt; ShowS)
@@ -145,15 +145,15 @@ $cfrom :: forall x. AlarmIdentifier -&gt; Rep AlarmIdentifier x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span>
 </span><span id="line-92"></span><span id="newAlarmIdentifier"><span class="annot"><span class="annottext">newAlarmIdentifier :: CloudWatchRegion -&gt; Text -&gt; AlarmIdentifier
-</span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#newAlarmIdentifier"><span class="hs-identifier hs-var hs-var">newAlarmIdentifier</span></a></span></span><span> </span><span id="local-6989586621679293240"><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293240"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span id="local-6989586621679293239"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293239"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#newAlarmIdentifier"><span class="hs-identifier hs-var hs-var">newAlarmIdentifier</span></a></span></span><span> </span><span id="local-6989586621679293252"><span class="annot"><span class="annottext">CloudWatchRegion
+</span><a href="#local-6989586621679293252"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span id="local-6989586621679293251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293251"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">AlarmIdentifier' :: CloudWatchRegion -&gt; Text -&gt; AlarmIdentifier
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AlarmIdentifier' :: CloudWatchRegion
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#%24sel%3Aregion%3AAlarmIdentifier%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293240"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:name:AlarmIdentifier' :: Text
+</span><a href="#local-6989586621679293252"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:name:AlarmIdentifier' :: Text
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#%24sel%3Aname%3AAlarmIdentifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293239"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679293251"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | For the CloudWatch alarm that you want Route 53 health checkers to use</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- to determine whether this health check is healthy, the region that the</span><span>
@@ -170,16 +170,16 @@ $cfrom :: forall x. AlarmIdentifier -&gt; Rep AlarmIdentifier x
 -&gt; Lens
      AlarmIdentifier AlarmIdentifier CloudWatchRegion CloudWatchRegion
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293235"><span class="annot"><span class="annottext">CloudWatchRegion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293247"><span class="annot"><span class="annottext">CloudWatchRegion
 region :: CloudWatchRegion
 $sel:region:AlarmIdentifier' :: AlarmIdentifier -&gt; CloudWatchRegion
-</span><a href="#local-6989586621679293235"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293235"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293234"><span class="annot"><span class="annottext">s :: AlarmIdentifier
-</span><a href="#local-6989586621679293234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293233"><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmIdentifier
-</span><a href="#local-6989586621679293234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AlarmIdentifier' :: CloudWatchRegion
+</span><a href="#local-6989586621679293247"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchRegion
+</span><a href="#local-6989586621679293247"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293246"><span class="annot"><span class="annottext">s :: AlarmIdentifier
+</span><a href="#local-6989586621679293246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293245"><span class="annot"><span class="annottext">CloudWatchRegion
+</span><a href="#local-6989586621679293245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmIdentifier
+</span><a href="#local-6989586621679293246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AlarmIdentifier' :: CloudWatchRegion
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#%24sel%3Aregion%3AAlarmIdentifier%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the CloudWatch alarm that you want Amazon Route 53 health</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- checkers to use to determine whether this health check is healthy.</span><span>
@@ -199,21 +199,21 @@ $sel:region:AlarmIdentifier' :: AlarmIdentifier -&gt; CloudWatchRegion
 -&gt; (AlarmIdentifier -&gt; Text -&gt; AlarmIdentifier)
 -&gt; Lens AlarmIdentifier AlarmIdentifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293231"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293243"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:AlarmIdentifier' :: AlarmIdentifier -&gt; Text
-</span><a href="#local-6989586621679293231"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293231"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293230"><span class="annot"><span class="annottext">s :: AlarmIdentifier
-</span><a href="#local-6989586621679293230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmIdentifier
-</span><a href="#local-6989586621679293230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AlarmIdentifier' :: Text
+</span><a href="#local-6989586621679293243"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293243"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293242"><span class="annot"><span class="annottext">s :: AlarmIdentifier
+</span><a href="#local-6989586621679293242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmIdentifier
+</span><a href="#local-6989586621679293242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AlarmIdentifier' :: Text
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#%24sel%3Aname%3AAlarmIdentifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679293226"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AlarmIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293224"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679293238"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AlarmIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293236"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679293236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">CloudWatchRegion -&gt; Text -&gt; AlarmIdentifier
 </span><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-var">AlarmIdentifier'</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">(CloudWatchRegion -&gt; Text -&gt; AlarmIdentifier)
@@ -221,31 +221,31 @@ $sel:name:AlarmIdentifier' :: AlarmIdentifier -&gt; Text
 -&gt; Either String (Text -&gt; AlarmIdentifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CloudWatchRegion
+</span><a href="#local-6989586621679293236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CloudWatchRegion
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; AlarmIdentifier)
 -&gt; Either String Text -&gt; Either String AlarmIdentifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679293236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293218"><span id="local-6989586621679293220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293230"><span id="local-6989586621679293232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier"><span class="hs-identifier hs-type">AlarmIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679293211"><span class="annot"><span class="annottext">toXML :: AlarmIdentifier -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293208"><span id="local-6989586621679293209"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679293223"><span class="annot"><span class="annottext">toXML :: AlarmIdentifier -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.AlarmIdentifier.html#AlarmIdentifier%27"><span class="hs-identifier hs-type">AlarmIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293220"><span id="local-6989586621679293221"><span class="annot"><span class="annottext">Text
 CloudWatchRegion
 name :: Text
 region :: CloudWatchRegion
 $sel:name:AlarmIdentifier' :: AlarmIdentifier -&gt; Text
 $sel:region:AlarmIdentifier' :: AlarmIdentifier -&gt; CloudWatchRegion
-</span><a href="#local-6989586621679293208"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679293220"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -253,9 +253,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CloudWatchRegion -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CloudWatchRegion
-</span><a href="#local-6989586621679293209"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679293221"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293208"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679293220"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span></pre></body></html>

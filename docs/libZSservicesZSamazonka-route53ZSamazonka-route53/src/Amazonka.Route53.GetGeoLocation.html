@@ -71,7 +71,7 @@
 </span><span id="line-71"></span><span class="hs-comment">-- is supported for Amazon Route 53 geolocation resource record sets.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- /See:/ 'newGetGeoLocation' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679306797"><span id="local-6989586621679306798"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocation"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-var">GetGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocation%27"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-var">GetGeoLocation'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679306809"><span id="local-6989586621679306810"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocation"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-var">GetGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocation%27"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-var">GetGeoLocation'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code for the subdivision, such as a particular state within the</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- United States. For a list of US state abbreviations, see</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two&#8211;Letter State and Possession Abbreviations&gt;</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-103"></span><span>    </span><span id="%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="annot"><span class="annottext">GetGeoLocation -&gt; Maybe Text
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306789"><span id="local-6989586621679306791"><span class="annot"><span class="annottext">GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306801"><span id="local-6989586621679306803"><span class="annot"><span class="annottext">GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
 (GetGeoLocation -&gt; GetGeoLocation -&gt; Bool)
 -&gt; (GetGeoLocation -&gt; GetGeoLocation -&gt; Bool) -&gt; Eq GetGeoLocation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
 == :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
 $c== :: GetGeoLocation -&gt; GetGeoLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306780"><span id="local-6989586621679306782"><span id="local-6989586621679306784"><span id="local-6989586621679306786"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306792"><span id="local-6989586621679306794"><span id="local-6989586621679306796"><span id="local-6989586621679306798"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocation]
 ReadPrec GetGeoLocation
 Int -&gt; ReadS GetGeoLocation
 ReadS [GetGeoLocation]
@@ -133,7 +133,7 @@ readList :: ReadS [GetGeoLocation]
 $creadList :: ReadS [GetGeoLocation]
 readsPrec :: Int -&gt; ReadS GetGeoLocation
 $creadsPrec :: Int -&gt; ReadS GetGeoLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306773"><span id="local-6989586621679306775"><span id="local-6989586621679306777"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306785"><span id="local-6989586621679306787"><span id="local-6989586621679306789"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocation -&gt; ShowS
 [GetGeoLocation] -&gt; ShowS
 GetGeoLocation -&gt; String
 (Int -&gt; GetGeoLocation -&gt; ShowS)
@@ -229,16 +229,16 @@ forall a. Maybe a
 -&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
 -&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306766"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306778"><span class="annot"><span class="annottext">Maybe Text
 subdivisionCode :: Maybe Text
 $sel:subdivisionCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679306766"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306766"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306765"><span class="annot"><span class="annottext">s :: GetGeoLocation
-</span><a href="#local-6989586621679306765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306764"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
-</span><a href="#local-6989586621679306765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivisionCode:GetGeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679306778"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306778"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306777"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivisionCode:GetGeoLocation' :: Maybe Text
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AsubdivisionCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Amazon Route 53 uses the two-letter country codes that are specified in</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2&gt;.</span><span>
@@ -249,16 +249,16 @@ $sel:subdivisionCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
 -&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
 -&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306763"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306775"><span class="annot"><span class="annottext">Maybe Text
 countryCode :: Maybe Text
 $sel:countryCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679306763"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306763"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306762"><span class="annot"><span class="annottext">s :: GetGeoLocation
-</span><a href="#local-6989586621679306762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
-</span><a href="#local-6989586621679306762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countryCode:GetGeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679306775"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306775"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306774"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306773"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countryCode:GetGeoLocation' :: Maybe Text
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AcountryCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">countryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | For geolocation resource record sets, a two-letter abbreviation that</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- identifies a continent. Amazon Route 53 supports the following continent</span><span>
@@ -284,27 +284,27 @@ $sel:countryCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
 -&gt; (GetGeoLocation -&gt; Maybe Text -&gt; GetGeoLocation)
 -&gt; Lens GetGeoLocation GetGeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306760"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306772"><span class="annot"><span class="annottext">Maybe Text
 continentCode :: Maybe Text
 $sel:continentCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679306760"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306760"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306759"><span class="annot"><span class="annottext">s :: GetGeoLocation
-</span><a href="#local-6989586621679306759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306758"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
-</span><a href="#local-6989586621679306759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continentCode:GetGeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679306772"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306772"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306771"><span class="annot"><span class="annottext">s :: GetGeoLocation
+</span><a href="#local-6989586621679306771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocation
+</span><a href="#local-6989586621679306771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continentCode:GetGeoLocation' :: Maybe Text
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AcontinentCode%3AGetGeoLocation%27"><span class="hs-identifier hs-var">continentCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-189"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679306754"><span class="annot"><span class="annottext">request :: GetGeoLocation -&gt; Request GetGeoLocation
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679306766"><span class="annot"><span class="annottext">request :: GetGeoLocation -&gt; Request GetGeoLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGeoLocation -&gt; Request GetGeoLocation
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679306750"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679306762"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGeoLocation
 -&gt; ClientResponse ClientBody
@@ -328,10 +328,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306747"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306747"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306746"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679306746"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306745"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306745"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306759"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306758"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306758"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306757"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679306757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
 </span><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-var">GetGeoLocationResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse)
@@ -343,24 +343,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306747"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306759"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (GeoLocationDetails -&gt; GetGeoLocationResponse)
 -&gt; Either String GeoLocationDetails
 -&gt; Either String GetGeoLocationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String GeoLocationDetails
+</span><a href="#local-6989586621679306757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String GeoLocationDetails
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GeoLocationDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306737"><span id="local-6989586621679306739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306749"><span id="local-6989586621679306751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679306730"><span class="annot"><span class="annottext">toHeaders :: GetGeoLocation -&gt; ResponseHeaders
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679306742"><span class="annot"><span class="annottext">toHeaders :: GetGeoLocation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGeoLocation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -368,22 +368,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679306725"><span class="annot"><span class="annottext">toPath :: GetGeoLocation -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679306737"><span class="annot"><span class="annottext">toPath :: GetGeoLocation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGeoLocation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2013-04-01/geolocation&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation"><span class="hs-identifier hs-type">GetGeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679306721"><span class="annot"><span class="annottext">toQuery :: GetGeoLocation -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306717"><span id="local-6989586621679306718"><span id="local-6989586621679306719"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679306733"><span class="annot"><span class="annottext">toQuery :: GetGeoLocation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocation%27"><span class="hs-identifier hs-type">GetGeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306729"><span id="local-6989586621679306730"><span id="local-6989586621679306731"><span class="annot"><span class="annottext">Maybe Text
 continentCode :: Maybe Text
 countryCode :: Maybe Text
 subdivisionCode :: Maybe Text
 $sel:continentCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
 $sel:countryCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
 $sel:subdivisionCode:GetGeoLocation' :: GetGeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679306717"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306729"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -391,24 +391,24 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;subdivisioncode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306719"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306731"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;countrycode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306718"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306730"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;continentcode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306717"><span class="hs-identifier hs-var">continentCode</span></a></span><span>
+</span><a href="#local-6989586621679306729"><span class="hs-identifier hs-var">continentCode</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | A complex type that contains the response information for the specified</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- geolocation code.</span><span>
 </span><span id="line-220"></span><span class="hs-comment">--</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- /See:/ 'newGetGeoLocationResponse' smart constructor.</span><span>
-</span><span id="line-222"></span><span id="local-6989586621679306714"><span id="local-6989586621679306715"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocationResponse"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-var">GetGeoLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocationResponse%27"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-var">GetGeoLocationResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span id="local-6989586621679306726"><span id="local-6989586621679306727"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGeoLocationResponse"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-var">GetGeoLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGeoLocationResponse%27"><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-var">GetGeoLocationResponse'</span></a></span></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; Int
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -417,7 +417,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; GeoLocationDetails
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var hs-var">geoLocationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.GeoLocationDetails.html#GeoLocationDetails"><span class="hs-identifier hs-type">GeoLocationDetails</span></a></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306708"><span id="local-6989586621679306710"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306720"><span id="local-6989586621679306722"><span class="annot"><span class="annottext">GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
 (GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool)
 -&gt; (GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool)
 -&gt; Eq GetGeoLocationResponse
@@ -426,7 +426,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
 == :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
 $c== :: GetGeoLocationResponse -&gt; GetGeoLocationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306700"><span id="local-6989586621679306702"><span id="local-6989586621679306704"><span id="local-6989586621679306706"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306712"><span id="local-6989586621679306714"><span id="local-6989586621679306716"><span id="local-6989586621679306718"><span class="annot"><span class="annottext">ReadPrec [GetGeoLocationResponse]
 ReadPrec GetGeoLocationResponse
 Int -&gt; ReadS GetGeoLocationResponse
 ReadS [GetGeoLocationResponse]
@@ -446,7 +446,7 @@ readList :: ReadS [GetGeoLocationResponse]
 $creadList :: ReadS [GetGeoLocationResponse]
 readsPrec :: Int -&gt; ReadS GetGeoLocationResponse
 $creadsPrec :: Int -&gt; ReadS GetGeoLocationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306694"><span id="local-6989586621679306696"><span id="local-6989586621679306698"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306706"><span id="local-6989586621679306708"><span id="local-6989586621679306710"><span class="annot"><span class="annottext">Int -&gt; GetGeoLocationResponse -&gt; ShowS
 [GetGeoLocationResponse] -&gt; ShowS
 GetGeoLocationResponse -&gt; String
 (Int -&gt; GetGeoLocationResponse -&gt; ShowS)
@@ -493,18 +493,18 @@ $cfrom :: forall x. GetGeoLocationResponse -&gt; Rep GetGeoLocationResponse x
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span>
 </span><span id="line-249"></span><span id="newGetGeoLocationResponse"><span class="annot"><span class="annottext">newGetGeoLocationResponse :: Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
 </span><a href="Amazonka.Route53.GetGeoLocation.html#newGetGeoLocationResponse"><span class="hs-identifier hs-var hs-var">newGetGeoLocationResponse</span></a></span></span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679306691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679306690"><span class="annot"><span class="annottext">GeoLocationDetails
-</span><a href="#local-6989586621679306690"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679306703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679306702"><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306702"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">GetGeoLocationResponse' :: Int -&gt; GeoLocationDetails -&gt; GetGeoLocationResponse
 </span><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGeoLocationResponse' :: Int
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:geoLocationDetails:GetGeoLocationResponse' :: GeoLocationDetails
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
-</span><a href="#local-6989586621679306690"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span><span>
+</span><a href="#local-6989586621679306702"><span class="hs-identifier hs-var">pGeoLocationDetails_</span></a></span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -515,16 +515,16 @@ $cfrom :: forall x. GetGeoLocationResponse -&gt; Rep GetGeoLocationResponse x
 -&gt; (GetGeoLocationResponse -&gt; Int -&gt; GetGeoLocationResponse)
 -&gt; Lens GetGeoLocationResponse GetGeoLocationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306689"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306701"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGeoLocationResponse' :: GetGeoLocationResponse -&gt; Int
-</span><a href="#local-6989586621679306689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306688"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
-</span><a href="#local-6989586621679306688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306687"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
-</span><a href="#local-6989586621679306688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGeoLocationResponse' :: Int
+</span><a href="#local-6989586621679306701"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306701"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306700"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
+</span><a href="#local-6989586621679306700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
+</span><a href="#local-6989586621679306700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGeoLocationResponse' :: Int
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AhttpStatus%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | A complex type that contains the codes and full continent, country, and</span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- subdivision names for the specified geolocation code.</span><span>
@@ -540,16 +540,16 @@ $sel:httpStatus:GetGeoLocationResponse' :: GetGeoLocationResponse -&gt; Int
      GeoLocationDetails
      GeoLocationDetails
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306686"><span class="annot"><span class="annottext">GeoLocationDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306698"><span class="annot"><span class="annottext">GeoLocationDetails
 geoLocationDetails :: GeoLocationDetails
 $sel:geoLocationDetails:GetGeoLocationResponse' :: GetGeoLocationResponse -&gt; GeoLocationDetails
-</span><a href="#local-6989586621679306686"><span class="hs-identifier hs-var hs-var">geoLocationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
-</span><a href="#local-6989586621679306686"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306685"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
-</span><a href="#local-6989586621679306685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306684"><span class="annot"><span class="annottext">GeoLocationDetails
-</span><a href="#local-6989586621679306684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
-</span><a href="#local-6989586621679306685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocationDetails:GetGeoLocationResponse' :: GeoLocationDetails
+</span><a href="#local-6989586621679306698"><span class="hs-identifier hs-var hs-var">geoLocationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306698"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306697"><span class="annot"><span class="annottext">s :: GetGeoLocationResponse
+</span><a href="#local-6989586621679306697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse%27"><span class="hs-identifier hs-type">GetGeoLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306696"><span class="annot"><span class="annottext">GeoLocationDetails
+</span><a href="#local-6989586621679306696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGeoLocationResponse
+</span><a href="#local-6989586621679306697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocationDetails:GetGeoLocationResponse' :: GeoLocationDetails
 </span><a href="Amazonka.Route53.GetGeoLocation.html#%24sel%3AgeoLocationDetails%3AGetGeoLocationResponse%27"><span class="hs-identifier hs-var">geoLocationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoLocationDetails
-</span><a href="#local-6989586621679306684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetGeoLocation.html#GetGeoLocationResponse"><span class="hs-identifier hs-type">GetGeoLocationResponse</span></a></span></span><span>
 </span><span id="line-267"></span></pre></body></html>

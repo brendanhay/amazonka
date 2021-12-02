@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- type that contains information about one dimension.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDimension' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679293753"><span id="local-6989586621679293754"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimension"><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-var">Dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimension%27"><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679293765"><span id="local-6989586621679293766"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimension"><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-var">Dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimension%27"><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For the metric that the CloudWatch alarm is associated with, the name of</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- one dimension.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalue%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
 </span><a href="Amazonka.Route53.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293746"><span id="local-6989586621679293748"><span class="annot"><span class="annottext">Dimension -&gt; Dimension -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293758"><span id="local-6989586621679293760"><span class="annot"><span class="annottext">Dimension -&gt; Dimension -&gt; Bool
 (Dimension -&gt; Dimension -&gt; Bool)
 -&gt; (Dimension -&gt; Dimension -&gt; Bool) -&gt; Eq Dimension
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Dimension -&gt; Dimension -&gt; Bool
 == :: Dimension -&gt; Dimension -&gt; Bool
 $c== :: Dimension -&gt; Dimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293737"><span id="local-6989586621679293739"><span id="local-6989586621679293741"><span id="local-6989586621679293743"><span class="annot"><span class="annottext">ReadPrec [Dimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293749"><span id="local-6989586621679293751"><span id="local-6989586621679293753"><span id="local-6989586621679293755"><span class="annot"><span class="annottext">ReadPrec [Dimension]
 ReadPrec Dimension
 Int -&gt; ReadS Dimension
 ReadS [Dimension]
@@ -66,7 +66,7 @@ readList :: ReadS [Dimension]
 $creadList :: ReadS [Dimension]
 readsPrec :: Int -&gt; ReadS Dimension
 $creadsPrec :: Int -&gt; ReadS Dimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293730"><span id="local-6989586621679293732"><span id="local-6989586621679293734"><span class="annot"><span class="annottext">Int -&gt; Dimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293742"><span id="local-6989586621679293744"><span id="local-6989586621679293746"><span class="annot"><span class="annottext">Int -&gt; Dimension -&gt; ShowS
 [Dimension] -&gt; ShowS
 Dimension -&gt; String
 (Int -&gt; Dimension -&gt; ShowS)
@@ -111,15 +111,15 @@ $cfrom :: forall x. Dimension -&gt; Rep Dimension x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span>
 </span><span id="line-60"></span><span id="newDimension"><span class="annot"><span class="annottext">newDimension :: Text -&gt; Text -&gt; Dimension
-</span><a href="Amazonka.Route53.Types.Dimension.html#newDimension"><span class="hs-identifier hs-var hs-var">newDimension</span></a></span></span><span> </span><span id="local-6989586621679293724"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293724"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679293723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293723"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Amazonka.Route53.Types.Dimension.html#newDimension"><span class="hs-identifier hs-var hs-var">newDimension</span></a></span></span><span> </span><span id="local-6989586621679293736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293736"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679293735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293735"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Dimension' :: Text -&gt; Text -&gt; Dimension
 </span><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
 </span><a href="Amazonka.Route53.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293724"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="#local-6989586621679293736"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
 </span><a href="Amazonka.Route53.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293723"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679293735"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | For the metric that the CloudWatch alarm is associated with, the name of</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- one dimension.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. Dimension -&gt; Rep Dimension x
 -&gt; (Dimension -&gt; Text -&gt; Dimension)
 -&gt; Lens Dimension Dimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293719"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293731"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Dimension' :: Dimension -&gt; Text
-</span><a href="#local-6989586621679293719"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293719"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293718"><span class="annot"><span class="annottext">s :: Dimension
-</span><a href="#local-6989586621679293718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293717"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
-</span><a href="#local-6989586621679293718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
+</span><a href="#local-6989586621679293731"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293731"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293730"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679293730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679293730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
 </span><a href="Amazonka.Route53.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | For the metric that the CloudWatch alarm is associated with, the value</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- of one dimension.</span><span>
@@ -148,40 +148,40 @@ $sel:name:Dimension' :: Dimension -&gt; Text
 -&gt; (Dimension -&gt; Text -&gt; Dimension)
 -&gt; Lens Dimension Dimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293715"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293727"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Dimension' :: Dimension -&gt; Text
-</span><a href="#local-6989586621679293715"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293715"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293714"><span class="annot"><span class="annottext">s :: Dimension
-</span><a href="#local-6989586621679293714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293713"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
-</span><a href="#local-6989586621679293714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="#local-6989586621679293727"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293727"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293726"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679293726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679293726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
 </span><a href="Amazonka.Route53.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679293710"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Dimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293708"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679293722"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Dimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293720"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679293720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Dimension
 </span><a href="Amazonka.Route53.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Dimension)
 -&gt; Either String Text -&gt; Either String (Text -&gt; Dimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679293720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; Dimension)
 -&gt; Either String Text -&gt; Either String Dimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679293720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293702"><span id="local-6989586621679293704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293714"><span id="local-6989586621679293716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

@@ -38,6 +38,11 @@
         "Amazonka.S3.Internal"
     ],
     "typeOverrides": {
+        "CreateMultipartUploadOutput": {
+            "requiredFields": [
+                "UploadId"
+            ]
+        },
         "GetBucketPolicyOutput": {
             "requiredFields": [
                 "Policy"

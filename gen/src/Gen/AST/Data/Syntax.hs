@@ -459,16 +459,16 @@ hashableD :: Id -> [Field] -> Decl
 hashableD n fs =
   instD1 "Prelude.Hashable" n (Exts.InsDecl () (Exts.FunBind () [match]))
   where
-    match = Exts.Match () (ident "hashWithSalt") [Exts.pvar "salt", lhs] (unguarded rhs) Exts.noBinds
+    match = Exts.Match () (ident "hashWithSalt") [Exts.pvar "_salt", lhs] (unguarded rhs) Exts.noBinds
 
     lhs
       | null fs = Exts.PWildCard ()
       | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
 
     rhs
-      | null fs = hashWithSaltE (Exts.var "salt") (Exts.tuple [])
+      | null fs = hashWithSaltE (Exts.var "_salt") (Exts.tuple [])
       | otherwise =
-        foldr (flip hashWithSaltE) (Exts.var "salt") $
+        foldl' hashWithSaltE (Exts.var "_salt") $
           var . fieldAccessor <$> fs
 
     hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r

@@ -6,6 +6,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 ### Changed
 
 - `amazonka-dynamodb`: Provide a sum type for `AttributeValue`
+- `amazonka-dynamodb-streams`: Provide a sum type for `AttributeValue`
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 
 ### Fixed

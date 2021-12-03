@@ -7,6 +7,7 @@ import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
 import qualified Data.HashMap.Strict as HashMap
+import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
@@ -464,10 +465,11 @@ hashableD n fs =
       | null fs = Exts.PWildCard ()
       | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
 
-    rhs =
-      case map (var . fieldAccessor) fs of
-        [] -> hashWithSaltE (Exts.var "salt") (Exts.intE 0)
-        x : xs -> foldr (flip hashWithSaltE) (Exts.var "salt") xs
+    rhs
+      | null fs = hashWithSaltE (Exts.var "salt") (Exts.tuple [])
+      | otherwise =
+        foldr (flip hashWithSaltE) (Exts.var "salt") $
+          var . fieldAccessor <$> fs
 
     hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
 
@@ -481,10 +483,9 @@ nfDataD n fs =
       | null fs = Exts.PWildCard ()
       | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
 
-    rhs =
-      case map (rnfE . var . fieldAccessor) fs of
-        [] -> var "()"
-        x : xs -> foldr (flip seqE) x xs
+    rhs = case NE.nonEmpty $ rnfE . var . fieldAccessor <$> fs of
+      Nothing -> Exts.tuple []
+      Just (x :| xs) -> foldr (flip seqE) x xs
 
     rnfE = Exts.app (var "Prelude.rnf")
 

@@ -485,7 +485,7 @@ nfDataD n fs =
 
     rhs = case NE.nonEmpty $ rnfE . var . fieldAccessor <$> fs of
       Nothing -> Exts.tuple []
-      Just (x :| xs) -> foldr (flip seqE) x xs
+      Just rnfs -> foldr1 seqE rnfs
 
     rnfE = Exts.app (var "Prelude.rnf")
 

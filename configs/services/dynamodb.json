@@ -28,6 +28,11 @@
             "requiredFields": [
                 "UnprocessedItems"
             ]
+        },
+        "GetItemOutput": {
+            "requiredFields": [
+                "Item"
+            ]
         }
     }
 }

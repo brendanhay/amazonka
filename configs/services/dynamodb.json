@@ -23,6 +23,11 @@
                 "Responses",
                 "UnprocessedKeys"
             ]
+        },
+        "BatchWriteItemOutput": {
+            "requiredFields": [
+                "UnprocessedItems"
+            ]
         }
     }
 }

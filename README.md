@@ -54,6 +54,7 @@ This repository is organised into the following directory structure:
 
 * [`lib/amazonka`](lib/amazonka): The main library containing setup, authentication, and send logic. This will be your primary dependency.
 * `lib/service/amazonka-*`: A library per supported Amazon Web Service, you'll need to add a dependency on each selected service library.
+* [`lib/amazonka-core`](lib/amazonka-core): The `amazonka-core` library upon which each of the services depends.
 * [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
 * [`examples`](examples): Basic examples for using the service libraries.
 * [`configs`](configs): Service configuration, templates, and assets used by the code generator.

@@ -28,6 +28,15 @@ module Amazonka.Env
     once,
     timeout,
 
+    -- * 'Env' Lenses
+    -- $envLenses
+    envRegion,
+    envLogger,
+    envRetryCheck,
+    envOverride,
+    envManager,
+    envAuth,
+
     -- * Retry HTTP Exceptions
     retryConnectionFailure,
   )
@@ -37,6 +46,7 @@ import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Lens (Lens)
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
@@ -170,3 +180,28 @@ once = override (serviceRetry . retryAttempts .~ 0)
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env -> Env
 timeout n = override (serviceTimeout ?~ n)
+
+-- $envLenses
+--
+-- The @generic-lens@ package struggles with the higher-kinded 'Env''
+-- data type and the 'Env' type alias, so we provide lenses here.
+
+envRegion :: Lens' (Env' withAuth) Region
+envRegion f env = f (_envRegion env) <&> \r -> env {_envRegion = r}
+
+envLogger :: Lens' (Env' withAuth) Logger
+envLogger f env = f (_envLogger env) <&> \l -> env {_envLogger = l}
+
+envRetryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
+envRetryCheck f env =
+  f (_envRetryCheck env) <&> \rc -> env {_envRetryCheck = rc}
+
+envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
+envOverride f env = f (_envOverride env) <&> \o -> env {_envOverride = o}
+
+envManager :: Lens' (Env' withAuth) Client.Manager
+envManager f env = f (_envManager env) <&> \m -> env {_envManager = m}
+
+envAuth ::
+  Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
+envAuth f env = f (_envAuth env) <&> \a -> env {_envAuth = a}

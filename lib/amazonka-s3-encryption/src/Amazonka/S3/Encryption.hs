@@ -272,17 +272,16 @@ cleanupInstructions env x = do
 --     -- A standard AWS environment with credentials is created using 'newEnv':
 --     e <- newEnv Frankfurt Discover
 --
---     -- The environment needed for encryption is then extended using a 'Key':
---     runAWS (KeyEnv e (kmsKey "alias/master-key")) $ do
+--     runResourceT $ do
 --         -- To store an encrypted object, 'encrypt' is used inplace of where you would
 --         -- typically use 'AWS.send':
---         _  <- encrypt (putObject "bucket-name" "object-key" body)
+--         _ <- encrypt (kmsKey "alias/master-key") e (putObject "bucket-name" "object-key" body)
 --
 --         -- To retrieve a previously encrypted object, 'decrypt' is used, again similarly to
 --         -- how you'd use 'AWS.send':
---         rs <- decrypt (getObject "bucket-name" "object-key")
+--         rs <- decrypt (kmsKey "alias/master-key") e (getObject "bucket-name" "object-key")
 --
---         -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted during read:
+--         -- The 'GetObjectResponse' here contains a 'body' that is decrypted during read:
 --         return rs
 -- @
 

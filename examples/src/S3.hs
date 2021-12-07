@@ -1,11 +1,14 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE ViewPatterns #-}
 
 module S3 where
 
+import Amazonka
+import Amazonka.S3
 import Control.Lens
 import Control.Monad
 import Control.Monad.IO.Class
@@ -13,11 +16,9 @@ import Data.Conduit
 import qualified Data.Conduit.Binary as CB
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
-import Data.Generics.Product
+import Data.Generics.Labels ()
 import qualified Data.Text.IO as Text
 import Data.Time
-import Amazonka
-import Amazonka.S3
 import System.IO
 
 getPresignedURL ::
@@ -29,7 +30,7 @@ getPresignedURL ::
   IO ByteString
 getPresignedURL r b k = do
   lgr <- newLogger Trace stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . set (field @"_envRegion") r
+  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
   ts <- getCurrentTime
   runResourceT $ presignURL env ts 60 (newGetObject b k)
 
@@ -39,24 +40,24 @@ listAll ::
   IO ()
 listAll r = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . set (field @"_envRegion") r
+  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
   let val :: ToText a => Maybe a -> Text
       val = maybe "Nothing" toText
 
-      lat v = maybe mempty (mappend " - " . toText) (v ^. field @"isLatest")
-      key v = val (v ^. field @"key") <> ": " <> val (v ^. field @"versionId") <> lat v
+      lat v = maybe mempty (mappend " - " . toText) (v ^. #isLatest)
+      key v = val (v ^. #key) <> ": " <> val (v ^. #versionId) <> lat v
 
   runResourceT $ do
     say "Listing Buckets .."
-    Just bs <- view (field @"buckets") <$> send env newListBuckets
+    Just bs <- view #buckets <$> send env newListBuckets
     say $ "Found " <> toText (length bs) <> " Buckets."
 
-    forM_ bs $ \(view (field @"name") -> b) -> do
+    forM_ bs $ \(view #name -> b) -> do
       say $ "Listing Object Versions in: " <> toText b
       runConduit $
         paginate env (newListObjectVersions b)
-          .| CL.concatMap (toListOf $ field @"versions" . _Just . folded)
+          .| CL.concatMap (toListOf $ #versions . _Just . folded)
           .| CL.mapM_ (say . mappend " -> " . key)
 
 getFile ::
@@ -70,11 +71,11 @@ getFile ::
   IO ()
 getFile r b k f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . set (field @"_envRegion") r
+  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
   runResourceT $ do
     rs <- send env (newGetObject b k)
-    view (field @"body") rs `sinkBody` CB.sinkFile f
+    view #body rs `sinkBody` CB.sinkFile f
     say $
       "Successfully Download: "
         <> toText b
@@ -97,7 +98,7 @@ putChunkedFile ::
   IO ()
 putChunkedFile r b k c f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . set (field @"_envRegion") r
+  env <- newEnv Discover <&> set #_envLogger lgr . set #_envRegion r
 
   runResourceT $ do
     bdy <- chunkedFile c f
@@ -120,16 +121,16 @@ tagBucket ::
   IO ()
 tagBucket r bkt xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . set (field @"_envRegion") r
+  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
   let tags = map (uncurry newTag) xs
-      kv t = toText (t ^. field @"key") <> "=" <> (t ^. field @"value")
+      kv t = toText (t ^. #key) <> "=" <> (t ^. #value)
 
   runResourceT $ do
-    void . send env $ newPutBucketTagging bkt (newTagging & field @"tagSet" .~ tags)
+    void . send env $ newPutBucketTagging bkt (newTagging & #tagSet .~ tags)
     say $ "Successfully Put Tags: " <> Fold.foldMap kv tags
 
-    ts <- view (field @"tagSet") <$> send env (newGetBucketTagging bkt)
+    ts <- view #tagSet <$> send env (newGetBucketTagging bkt)
     forM_ ts $ \t ->
       say $ "Found Tag: " <> kv t
 

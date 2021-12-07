@@ -58,7 +58,7 @@ type EnvNoAuth = Env' Proxy
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
--- Lenses from 'AWSEnv' can be used to further configure the resulting 'Env'.
+-- Lenses can be used to further configure the resulting 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -183,8 +183,8 @@ timeout n = override (serviceTimeout ?~ n)
 
 -- $envLenses
 --
--- The @generic-lens@ package struggles with the higher-kinded 'Env''
--- data type and the 'Env' type alias, so we provide lenses here.
+-- We provide lenses for 'Env'', though you are of course free to use
+-- the @generic-lens@ package.
 
 envRegion :: Lens' (Env' withAuth) Region
 envRegion f env = f (_envRegion env) <&> \r -> env {_envRegion = r}

@@ -33,6 +33,11 @@
             "requiredFields": [
                 "Item"
             ]
+        },
+        "QueryOutput": {
+            "requiredFields": [
+                "Items"
+            ]
         }
     }
 }

@@ -5,7 +5,6 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
@@ -15,27 +14,10 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DynamoDBStreams.Internal
-  ( -- * Attribute Values
-    AttributeValue (..),
-
-    -- ** Attribute Value Prisms
-    _L,
-    _NS,
-    _M,
-    _NULL,
-    _N,
-    _BS,
-    _B,
-    _SS,
-    _S,
-    _BOOL,
-  )
-where
+module Amazonka.DynamoDBStreams.Internal where
 
 import Amazonka.Core
 import Amazonka.Prelude
-import Control.Lens.TH (makePrisms)
 import Data.Aeson (pairs)
 import Data.Hashable
 import Data.Map (Map)
@@ -107,8 +89,6 @@ data AttributeValue
     BOOL Bool
   deriving stock (Eq, Read, Show, Generic)
   deriving anyclass (NFData)
-
-$(makePrisms ''AttributeValue)
 
 instance Hashable AttributeValue where
   hashWithSalt salt = \case

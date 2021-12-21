@@ -9,6 +9,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 [\#725](https://github.com/brendanhay/amazonka/pull/725)
 - Hosted Zone IDs for S3 website endpoints are correct for all regions.
 [\#723](https://github.com/brendanhay/amazonka/pull/723)
+- `amazonka-ssm`: Various fields that are always available are no longer Maybe's.
+[\#741](https://github.com/brendanhay/amazonka/pull/741)
 
 ## [2.0.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0.0-rc1)
 Released: **28nd November, 2021**, Compare: [1.6.1](https://github.com/brendanhay/amazonka/compare/1.6.1...2.0.0-rc1)

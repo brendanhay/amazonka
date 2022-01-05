@@ -63,9 +63,12 @@ instance Core.FromJSON SubjectAlternativeNames where
             Prelude.<$> (x Core..: "match")
       )
 
-instance Prelude.Hashable SubjectAlternativeNames
+instance Prelude.Hashable SubjectAlternativeNames where
+  hashWithSalt _salt SubjectAlternativeNames' {..} =
+    _salt `Prelude.hashWithSalt` match
 
-instance Prelude.NFData SubjectAlternativeNames
+instance Prelude.NFData SubjectAlternativeNames where
+  rnf SubjectAlternativeNames' {..} = Prelude.rnf match
 
 instance Core.ToJSON SubjectAlternativeNames where
   toJSON SubjectAlternativeNames' {..} =

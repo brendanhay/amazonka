@@ -124,9 +124,17 @@ instance Core.AWSRequest DescribeVirtualService where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeVirtualService
+instance Prelude.Hashable DescribeVirtualService where
+  hashWithSalt _salt DescribeVirtualService' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualServiceName
 
-instance Prelude.NFData DescribeVirtualService
+instance Prelude.NFData DescribeVirtualService where
+  rnf DescribeVirtualService' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualServiceName
 
 instance Core.ToHeaders DescribeVirtualService where
   toHeaders =
@@ -200,3 +208,7 @@ describeVirtualServiceResponse_virtualService = Lens.lens (\DescribeVirtualServi
 instance
   Prelude.NFData
     DescribeVirtualServiceResponse
+  where
+  rnf DescribeVirtualServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualService

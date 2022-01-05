@@ -66,8 +66,13 @@ instance Core.FromJSON VirtualGatewayBackendDefaults where
 instance
   Prelude.Hashable
     VirtualGatewayBackendDefaults
+  where
+  hashWithSalt _salt VirtualGatewayBackendDefaults' {..} =
+    _salt `Prelude.hashWithSalt` clientPolicy
 
-instance Prelude.NFData VirtualGatewayBackendDefaults
+instance Prelude.NFData VirtualGatewayBackendDefaults where
+  rnf VirtualGatewayBackendDefaults' {..} =
+    Prelude.rnf clientPolicy
 
 instance Core.ToJSON VirtualGatewayBackendDefaults where
   toJSON VirtualGatewayBackendDefaults' {..} =

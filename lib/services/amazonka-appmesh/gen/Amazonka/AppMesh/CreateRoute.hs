@@ -200,9 +200,25 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateRoute
+instance Prelude.Hashable CreateRoute where
+  hashWithSalt _salt CreateRoute' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` routeName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData CreateRoute
+instance Prelude.NFData CreateRoute where
+  rnf CreateRoute' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf routeName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf virtualRouterName
 
 instance Core.ToHeaders CreateRoute where
   toHeaders =
@@ -282,4 +298,7 @@ createRouteResponse_httpStatus = Lens.lens (\CreateRouteResponse' {httpStatus} -
 createRouteResponse_route :: Lens.Lens' CreateRouteResponse RouteData
 createRouteResponse_route = Lens.lens (\CreateRouteResponse' {route} -> route) (\s@CreateRouteResponse' {} a -> s {route = a} :: CreateRouteResponse)
 
-instance Prelude.NFData CreateRouteResponse
+instance Prelude.NFData CreateRouteResponse where
+  rnf CreateRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf route

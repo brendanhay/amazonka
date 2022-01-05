@@ -107,9 +107,21 @@ instance Core.FromJSON RouteSpec where
             Prelude.<*> (x Core..:? "httpRoute")
       )
 
-instance Prelude.Hashable RouteSpec
+instance Prelude.Hashable RouteSpec where
+  hashWithSalt _salt RouteSpec' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` http2Route
+      `Prelude.hashWithSalt` grpcRoute
+      `Prelude.hashWithSalt` tcpRoute
+      `Prelude.hashWithSalt` httpRoute
 
-instance Prelude.NFData RouteSpec
+instance Prelude.NFData RouteSpec where
+  rnf RouteSpec' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf http2Route
+      `Prelude.seq` Prelude.rnf grpcRoute
+      `Prelude.seq` Prelude.rnf tcpRoute
+      `Prelude.seq` Prelude.rnf httpRoute
 
 instance Core.ToJSON RouteSpec where
   toJSON RouteSpec' {..} =

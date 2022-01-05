@@ -76,9 +76,14 @@ instance Core.FromJSON VirtualGatewayPortMapping where
             Prelude.<*> (x Core..: "protocol")
       )
 
-instance Prelude.Hashable VirtualGatewayPortMapping
+instance Prelude.Hashable VirtualGatewayPortMapping where
+  hashWithSalt _salt VirtualGatewayPortMapping' {..} =
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData VirtualGatewayPortMapping
+instance Prelude.NFData VirtualGatewayPortMapping where
+  rnf VirtualGatewayPortMapping' {..} =
+    Prelude.rnf port `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToJSON VirtualGatewayPortMapping where
   toJSON VirtualGatewayPortMapping' {..} =

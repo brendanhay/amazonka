@@ -104,9 +104,21 @@ instance Core.FromJSON GrpcMetadataMatchMethod where
             Prelude.<*> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable GrpcMetadataMatchMethod
+instance Prelude.Hashable GrpcMetadataMatchMethod where
+  hashWithSalt _salt GrpcMetadataMatchMethod' {..} =
+    _salt `Prelude.hashWithSalt` suffix
+      `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData GrpcMetadataMatchMethod
+instance Prelude.NFData GrpcMetadataMatchMethod where
+  rnf GrpcMetadataMatchMethod' {..} =
+    Prelude.rnf suffix
+      `Prelude.seq` Prelude.rnf regex
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf exact
 
 instance Core.ToJSON GrpcMetadataMatchMethod where
   toJSON GrpcMetadataMatchMethod' {..} =

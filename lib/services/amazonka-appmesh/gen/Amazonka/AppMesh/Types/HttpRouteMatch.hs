@@ -135,9 +135,23 @@ instance Core.FromJSON HttpRouteMatch where
             Prelude.<*> (x Core..:? "scheme")
       )
 
-instance Prelude.Hashable HttpRouteMatch
+instance Prelude.Hashable HttpRouteMatch where
+  hashWithSalt _salt HttpRouteMatch' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` queryParameters
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` scheme
 
-instance Prelude.NFData HttpRouteMatch
+instance Prelude.NFData HttpRouteMatch where
+  rnf HttpRouteMatch' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf queryParameters
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf scheme
 
 instance Core.ToJSON HttpRouteMatch where
   toJSON HttpRouteMatch' {..} =

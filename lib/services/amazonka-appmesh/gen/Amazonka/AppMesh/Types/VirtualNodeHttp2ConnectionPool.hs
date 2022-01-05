@@ -70,10 +70,18 @@ instance Core.FromJSON VirtualNodeHttp2ConnectionPool where
 instance
   Prelude.Hashable
     VirtualNodeHttp2ConnectionPool
+  where
+  hashWithSalt
+    _salt
+    VirtualNodeHttp2ConnectionPool' {..} =
+      _salt `Prelude.hashWithSalt` maxRequests
 
 instance
   Prelude.NFData
     VirtualNodeHttp2ConnectionPool
+  where
+  rnf VirtualNodeHttp2ConnectionPool' {..} =
+    Prelude.rnf maxRequests
 
 instance Core.ToJSON VirtualNodeHttp2ConnectionPool where
   toJSON VirtualNodeHttp2ConnectionPool' {..} =

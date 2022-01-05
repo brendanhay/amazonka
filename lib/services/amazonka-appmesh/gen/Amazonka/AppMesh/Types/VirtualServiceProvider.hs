@@ -74,9 +74,15 @@ instance Core.FromJSON VirtualServiceProvider where
             Prelude.<*> (x Core..:? "virtualNode")
       )
 
-instance Prelude.Hashable VirtualServiceProvider
+instance Prelude.Hashable VirtualServiceProvider where
+  hashWithSalt _salt VirtualServiceProvider' {..} =
+    _salt `Prelude.hashWithSalt` virtualRouter
+      `Prelude.hashWithSalt` virtualNode
 
-instance Prelude.NFData VirtualServiceProvider
+instance Prelude.NFData VirtualServiceProvider where
+  rnf VirtualServiceProvider' {..} =
+    Prelude.rnf virtualRouter
+      `Prelude.seq` Prelude.rnf virtualNode
 
 instance Core.ToJSON VirtualServiceProvider where
   toJSON VirtualServiceProvider' {..} =

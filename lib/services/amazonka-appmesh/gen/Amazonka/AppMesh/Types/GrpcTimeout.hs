@@ -90,9 +90,15 @@ instance Core.FromJSON GrpcTimeout where
             Prelude.<*> (x Core..:? "perRequest")
       )
 
-instance Prelude.Hashable GrpcTimeout
+instance Prelude.Hashable GrpcTimeout where
+  hashWithSalt _salt GrpcTimeout' {..} =
+    _salt `Prelude.hashWithSalt` idle
+      `Prelude.hashWithSalt` perRequest
 
-instance Prelude.NFData GrpcTimeout
+instance Prelude.NFData GrpcTimeout where
+  rnf GrpcTimeout' {..} =
+    Prelude.rnf idle
+      `Prelude.seq` Prelude.rnf perRequest
 
 instance Core.ToJSON GrpcTimeout where
   toJSON GrpcTimeout' {..} =

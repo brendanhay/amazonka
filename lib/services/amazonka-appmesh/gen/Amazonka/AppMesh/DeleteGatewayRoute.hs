@@ -134,9 +134,19 @@ instance Core.AWSRequest DeleteGatewayRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteGatewayRoute
+instance Prelude.Hashable DeleteGatewayRoute where
+  hashWithSalt _salt DeleteGatewayRoute' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` gatewayRouteName
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData DeleteGatewayRoute
+instance Prelude.NFData DeleteGatewayRoute where
+  rnf DeleteGatewayRoute' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf gatewayRouteName
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders DeleteGatewayRoute where
   toHeaders =
@@ -207,4 +217,7 @@ deleteGatewayRouteResponse_httpStatus = Lens.lens (\DeleteGatewayRouteResponse' 
 deleteGatewayRouteResponse_gatewayRoute :: Lens.Lens' DeleteGatewayRouteResponse GatewayRouteData
 deleteGatewayRouteResponse_gatewayRoute = Lens.lens (\DeleteGatewayRouteResponse' {gatewayRoute} -> gatewayRoute) (\s@DeleteGatewayRouteResponse' {} a -> s {gatewayRoute = a} :: DeleteGatewayRouteResponse)
 
-instance Prelude.NFData DeleteGatewayRouteResponse
+instance Prelude.NFData DeleteGatewayRouteResponse where
+  rnf DeleteGatewayRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayRoute

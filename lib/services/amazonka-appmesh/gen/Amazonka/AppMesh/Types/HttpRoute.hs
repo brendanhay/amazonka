@@ -99,9 +99,19 @@ instance Core.FromJSON HttpRoute where
             Prelude.<*> (x Core..: "match")
       )
 
-instance Prelude.Hashable HttpRoute
+instance Prelude.Hashable HttpRoute where
+  hashWithSalt _salt HttpRoute' {..} =
+    _salt `Prelude.hashWithSalt` retryPolicy
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` match
 
-instance Prelude.NFData HttpRoute
+instance Prelude.NFData HttpRoute where
+  rnf HttpRoute' {..} =
+    Prelude.rnf retryPolicy
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf match
 
 instance Core.ToJSON HttpRoute where
   toJSON HttpRoute' {..} =

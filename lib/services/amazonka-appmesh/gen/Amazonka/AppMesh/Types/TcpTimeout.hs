@@ -59,9 +59,12 @@ instance Core.FromJSON TcpTimeout where
       "TcpTimeout"
       (\x -> TcpTimeout' Prelude.<$> (x Core..:? "idle"))
 
-instance Prelude.Hashable TcpTimeout
+instance Prelude.Hashable TcpTimeout where
+  hashWithSalt _salt TcpTimeout' {..} =
+    _salt `Prelude.hashWithSalt` idle
 
-instance Prelude.NFData TcpTimeout
+instance Prelude.NFData TcpTimeout where
+  rnf TcpTimeout' {..} = Prelude.rnf idle
 
 instance Core.ToJSON TcpTimeout where
   toJSON TcpTimeout' {..} =

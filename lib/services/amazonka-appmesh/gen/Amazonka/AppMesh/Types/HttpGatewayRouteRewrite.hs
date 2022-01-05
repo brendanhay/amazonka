@@ -85,9 +85,17 @@ instance Core.FromJSON HttpGatewayRouteRewrite where
             Prelude.<*> (x Core..:? "prefix")
       )
 
-instance Prelude.Hashable HttpGatewayRouteRewrite
+instance Prelude.Hashable HttpGatewayRouteRewrite where
+  hashWithSalt _salt HttpGatewayRouteRewrite' {..} =
+    _salt `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData HttpGatewayRouteRewrite
+instance Prelude.NFData HttpGatewayRouteRewrite where
+  rnf HttpGatewayRouteRewrite' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON HttpGatewayRouteRewrite where
   toJSON HttpGatewayRouteRewrite' {..} =

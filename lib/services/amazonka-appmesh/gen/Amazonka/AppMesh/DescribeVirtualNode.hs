@@ -121,9 +121,17 @@ instance Core.AWSRequest DescribeVirtualNode where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeVirtualNode
+instance Prelude.Hashable DescribeVirtualNode where
+  hashWithSalt _salt DescribeVirtualNode' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualNodeName
 
-instance Prelude.NFData DescribeVirtualNode
+instance Prelude.NFData DescribeVirtualNode where
+  rnf DescribeVirtualNode' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualNodeName
 
 instance Core.ToHeaders DescribeVirtualNode where
   toHeaders =
@@ -194,4 +202,7 @@ describeVirtualNodeResponse_httpStatus = Lens.lens (\DescribeVirtualNodeResponse
 describeVirtualNodeResponse_virtualNode :: Lens.Lens' DescribeVirtualNodeResponse VirtualNodeData
 describeVirtualNodeResponse_virtualNode = Lens.lens (\DescribeVirtualNodeResponse' {virtualNode} -> virtualNode) (\s@DescribeVirtualNodeResponse' {} a -> s {virtualNode = a} :: DescribeVirtualNodeResponse)
 
-instance Prelude.NFData DescribeVirtualNodeResponse
+instance Prelude.NFData DescribeVirtualNodeResponse where
+  rnf DescribeVirtualNodeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualNode

@@ -60,9 +60,12 @@ instance Core.FromJSON ClientPolicy where
       "ClientPolicy"
       (\x -> ClientPolicy' Prelude.<$> (x Core..:? "tls"))
 
-instance Prelude.Hashable ClientPolicy
+instance Prelude.Hashable ClientPolicy where
+  hashWithSalt _salt ClientPolicy' {..} =
+    _salt `Prelude.hashWithSalt` tls
 
-instance Prelude.NFData ClientPolicy
+instance Prelude.NFData ClientPolicy where
+  rnf ClientPolicy' {..} = Prelude.rnf tls
 
 instance Core.ToJSON ClientPolicy where
   toJSON ClientPolicy' {..} =

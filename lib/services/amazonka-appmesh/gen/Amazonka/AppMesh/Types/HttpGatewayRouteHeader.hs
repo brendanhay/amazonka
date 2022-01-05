@@ -86,9 +86,17 @@ instance Core.FromJSON HttpGatewayRouteHeader where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable HttpGatewayRouteHeader
+instance Prelude.Hashable HttpGatewayRouteHeader where
+  hashWithSalt _salt HttpGatewayRouteHeader' {..} =
+    _salt `Prelude.hashWithSalt` invert
+      `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData HttpGatewayRouteHeader
+instance Prelude.NFData HttpGatewayRouteHeader where
+  rnf HttpGatewayRouteHeader' {..} =
+    Prelude.rnf invert
+      `Prelude.seq` Prelude.rnf match
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON HttpGatewayRouteHeader where
   toJSON HttpGatewayRouteHeader' {..} =

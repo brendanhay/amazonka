@@ -193,9 +193,21 @@ instance Core.AWSRequest ListGatewayRoutes where
             Prelude.<*> (x Core..?> "gatewayRoutes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListGatewayRoutes
+instance Prelude.Hashable ListGatewayRoutes where
+  hashWithSalt _salt ListGatewayRoutes' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData ListGatewayRoutes
+instance Prelude.NFData ListGatewayRoutes where
+  rnf ListGatewayRoutes' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders ListGatewayRoutes where
   toHeaders =
@@ -286,4 +298,8 @@ listGatewayRoutesResponse_httpStatus = Lens.lens (\ListGatewayRoutesResponse' {h
 listGatewayRoutesResponse_gatewayRoutes :: Lens.Lens' ListGatewayRoutesResponse [GatewayRouteRef]
 listGatewayRoutesResponse_gatewayRoutes = Lens.lens (\ListGatewayRoutesResponse' {gatewayRoutes} -> gatewayRoutes) (\s@ListGatewayRoutesResponse' {} a -> s {gatewayRoutes = a} :: ListGatewayRoutesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListGatewayRoutesResponse
+instance Prelude.NFData ListGatewayRoutesResponse where
+  rnf ListGatewayRoutesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayRoutes

@@ -77,9 +77,13 @@ instance Core.FromJSON ListenerTlsSdsCertificate where
             Prelude.<$> (x Core..: "secretName")
       )
 
-instance Prelude.Hashable ListenerTlsSdsCertificate
+instance Prelude.Hashable ListenerTlsSdsCertificate where
+  hashWithSalt _salt ListenerTlsSdsCertificate' {..} =
+    _salt `Prelude.hashWithSalt` secretName
 
-instance Prelude.NFData ListenerTlsSdsCertificate
+instance Prelude.NFData ListenerTlsSdsCertificate where
+  rnf ListenerTlsSdsCertificate' {..} =
+    Prelude.rnf secretName
 
 instance Core.ToJSON ListenerTlsSdsCertificate where
   toJSON ListenerTlsSdsCertificate' {..} =

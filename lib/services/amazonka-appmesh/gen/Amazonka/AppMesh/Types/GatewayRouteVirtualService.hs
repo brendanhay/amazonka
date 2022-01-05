@@ -64,9 +64,13 @@ instance Core.FromJSON GatewayRouteVirtualService where
             Prelude.<$> (x Core..: "virtualServiceName")
       )
 
-instance Prelude.Hashable GatewayRouteVirtualService
+instance Prelude.Hashable GatewayRouteVirtualService where
+  hashWithSalt _salt GatewayRouteVirtualService' {..} =
+    _salt `Prelude.hashWithSalt` virtualServiceName
 
-instance Prelude.NFData GatewayRouteVirtualService
+instance Prelude.NFData GatewayRouteVirtualService where
+  rnf GatewayRouteVirtualService' {..} =
+    Prelude.rnf virtualServiceName
 
 instance Core.ToJSON GatewayRouteVirtualService where
   toJSON GatewayRouteVirtualService' {..} =

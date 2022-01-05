@@ -61,6 +61,9 @@ instance Core.FromJSON VirtualNodeStatus where
           VirtualNodeStatus' Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable VirtualNodeStatus
+instance Prelude.Hashable VirtualNodeStatus where
+  hashWithSalt _salt VirtualNodeStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VirtualNodeStatus
+instance Prelude.NFData VirtualNodeStatus where
+  rnf VirtualNodeStatus' {..} = Prelude.rnf status

@@ -72,9 +72,14 @@ instance Core.FromJSON GatewayRouteHostnameMatch where
             Prelude.<*> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable GatewayRouteHostnameMatch
+instance Prelude.Hashable GatewayRouteHostnameMatch where
+  hashWithSalt _salt GatewayRouteHostnameMatch' {..} =
+    _salt `Prelude.hashWithSalt` suffix
+      `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData GatewayRouteHostnameMatch
+instance Prelude.NFData GatewayRouteHostnameMatch where
+  rnf GatewayRouteHostnameMatch' {..} =
+    Prelude.rnf suffix `Prelude.seq` Prelude.rnf exact
 
 instance Core.ToJSON GatewayRouteHostnameMatch where
   toJSON GatewayRouteHostnameMatch' {..} =

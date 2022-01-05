@@ -60,9 +60,12 @@ instance Core.FromJSON Backend where
           Backend' Prelude.<$> (x Core..:? "virtualService")
       )
 
-instance Prelude.Hashable Backend
+instance Prelude.Hashable Backend where
+  hashWithSalt _salt Backend' {..} =
+    _salt `Prelude.hashWithSalt` virtualService
 
-instance Prelude.NFData Backend
+instance Prelude.NFData Backend where
+  rnf Backend' {..} = Prelude.rnf virtualService
 
 instance Core.ToJSON Backend where
   toJSON Backend' {..} =

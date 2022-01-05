@@ -80,10 +80,18 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayListenerTlsAcmCertificate
+  where
+  hashWithSalt
+    _salt
+    VirtualGatewayListenerTlsAcmCertificate' {..} =
+      _salt `Prelude.hashWithSalt` certificateArn
 
 instance
   Prelude.NFData
     VirtualGatewayListenerTlsAcmCertificate
+  where
+  rnf VirtualGatewayListenerTlsAcmCertificate' {..} =
+    Prelude.rnf certificateArn
 
 instance
   Core.ToJSON

@@ -71,8 +71,13 @@ instance Core.FromJSON TlsValidationContextFileTrust where
 instance
   Prelude.Hashable
     TlsValidationContextFileTrust
+  where
+  hashWithSalt _salt TlsValidationContextFileTrust' {..} =
+    _salt `Prelude.hashWithSalt` certificateChain
 
-instance Prelude.NFData TlsValidationContextFileTrust
+instance Prelude.NFData TlsValidationContextFileTrust where
+  rnf TlsValidationContextFileTrust' {..} =
+    Prelude.rnf certificateChain
 
 instance Core.ToJSON TlsValidationContextFileTrust where
   toJSON TlsValidationContextFileTrust' {..} =

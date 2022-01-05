@@ -75,9 +75,15 @@ instance Core.FromJSON TcpRoute where
             Prelude.<*> (x Core..: "action")
       )
 
-instance Prelude.Hashable TcpRoute
+instance Prelude.Hashable TcpRoute where
+  hashWithSalt _salt TcpRoute' {..} =
+    _salt `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData TcpRoute
+instance Prelude.NFData TcpRoute where
+  rnf TcpRoute' {..} =
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON TcpRoute where
   toJSON TcpRoute' {..} =

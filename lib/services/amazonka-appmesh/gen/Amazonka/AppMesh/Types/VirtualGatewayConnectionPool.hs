@@ -94,8 +94,17 @@ instance Core.FromJSON VirtualGatewayConnectionPool where
 instance
   Prelude.Hashable
     VirtualGatewayConnectionPool
+  where
+  hashWithSalt _salt VirtualGatewayConnectionPool' {..} =
+    _salt `Prelude.hashWithSalt` http2
+      `Prelude.hashWithSalt` grpc
+      `Prelude.hashWithSalt` http
 
-instance Prelude.NFData VirtualGatewayConnectionPool
+instance Prelude.NFData VirtualGatewayConnectionPool where
+  rnf VirtualGatewayConnectionPool' {..} =
+    Prelude.rnf http2
+      `Prelude.seq` Prelude.rnf grpc
+      `Prelude.seq` Prelude.rnf http
 
 instance Core.ToJSON VirtualGatewayConnectionPool where
   toJSON VirtualGatewayConnectionPool' {..} =

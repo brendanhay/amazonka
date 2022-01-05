@@ -122,9 +122,17 @@ instance Core.AWSRequest DeleteVirtualGateway where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteVirtualGateway
+instance Prelude.Hashable DeleteVirtualGateway where
+  hashWithSalt _salt DeleteVirtualGateway' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData DeleteVirtualGateway
+instance Prelude.NFData DeleteVirtualGateway where
+  rnf DeleteVirtualGateway' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders DeleteVirtualGateway where
   toHeaders =
@@ -193,4 +201,7 @@ deleteVirtualGatewayResponse_httpStatus = Lens.lens (\DeleteVirtualGatewayRespon
 deleteVirtualGatewayResponse_virtualGateway :: Lens.Lens' DeleteVirtualGatewayResponse VirtualGatewayData
 deleteVirtualGatewayResponse_virtualGateway = Lens.lens (\DeleteVirtualGatewayResponse' {virtualGateway} -> virtualGateway) (\s@DeleteVirtualGatewayResponse' {} a -> s {virtualGateway = a} :: DeleteVirtualGatewayResponse)
 
-instance Prelude.NFData DeleteVirtualGatewayResponse
+instance Prelude.NFData DeleteVirtualGatewayResponse where
+  rnf DeleteVirtualGatewayResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualGateway

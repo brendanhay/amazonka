@@ -119,6 +119,18 @@ instance Core.FromJSON VirtualServiceData where
             Prelude.<*> (x Core..: "virtualServiceName")
       )
 
-instance Prelude.Hashable VirtualServiceData
+instance Prelude.Hashable VirtualServiceData where
+  hashWithSalt _salt VirtualServiceData' {..} =
+    _salt `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` virtualServiceName
 
-instance Prelude.NFData VirtualServiceData
+instance Prelude.NFData VirtualServiceData where
+  rnf VirtualServiceData' {..} =
+    Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf virtualServiceName

@@ -114,9 +114,17 @@ instance Core.FromJSON VirtualGatewayListenerTls where
             Prelude.<*> (x Core..: "mode")
       )
 
-instance Prelude.Hashable VirtualGatewayListenerTls
+instance Prelude.Hashable VirtualGatewayListenerTls where
+  hashWithSalt _salt VirtualGatewayListenerTls' {..} =
+    _salt `Prelude.hashWithSalt` validation
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData VirtualGatewayListenerTls
+instance Prelude.NFData VirtualGatewayListenerTls where
+  rnf VirtualGatewayListenerTls' {..} =
+    Prelude.rnf validation
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToJSON VirtualGatewayListenerTls where
   toJSON VirtualGatewayListenerTls' {..} =

@@ -155,9 +155,15 @@ instance Core.AWSRequest ListMeshes where
             Prelude.<*> (x Core..?> "meshes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListMeshes
+instance Prelude.Hashable ListMeshes where
+  hashWithSalt _salt ListMeshes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListMeshes
+instance Prelude.NFData ListMeshes where
+  rnf ListMeshes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListMeshes where
   toHeaders =
@@ -238,4 +244,8 @@ listMeshesResponse_httpStatus = Lens.lens (\ListMeshesResponse' {httpStatus} -> 
 listMeshesResponse_meshes :: Lens.Lens' ListMeshesResponse [MeshRef]
 listMeshesResponse_meshes = Lens.lens (\ListMeshesResponse' {meshes} -> meshes) (\s@ListMeshesResponse' {} a -> s {meshes = a} :: ListMeshesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListMeshesResponse
+instance Prelude.NFData ListMeshesResponse where
+  rnf ListMeshesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf meshes

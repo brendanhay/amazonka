@@ -77,8 +77,13 @@ instance Core.FromJSON TlsValidationContextSdsTrust where
 instance
   Prelude.Hashable
     TlsValidationContextSdsTrust
+  where
+  hashWithSalt _salt TlsValidationContextSdsTrust' {..} =
+    _salt `Prelude.hashWithSalt` secretName
 
-instance Prelude.NFData TlsValidationContextSdsTrust
+instance Prelude.NFData TlsValidationContextSdsTrust where
+  rnf TlsValidationContextSdsTrust' {..} =
+    Prelude.rnf secretName
 
 instance Core.ToJSON TlsValidationContextSdsTrust where
   toJSON TlsValidationContextSdsTrust' {..} =

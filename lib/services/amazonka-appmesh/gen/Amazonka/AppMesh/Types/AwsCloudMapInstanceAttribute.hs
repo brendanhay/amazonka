@@ -86,8 +86,14 @@ instance Core.FromJSON AwsCloudMapInstanceAttribute where
 instance
   Prelude.Hashable
     AwsCloudMapInstanceAttribute
+  where
+  hashWithSalt _salt AwsCloudMapInstanceAttribute' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AwsCloudMapInstanceAttribute
+instance Prelude.NFData AwsCloudMapInstanceAttribute where
+  rnf AwsCloudMapInstanceAttribute' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AwsCloudMapInstanceAttribute where
   toJSON AwsCloudMapInstanceAttribute' {..} =

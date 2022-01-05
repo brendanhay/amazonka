@@ -101,6 +101,18 @@ instance Core.FromJSON OpsMetadata where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable OpsMetadata
+instance Prelude.Hashable OpsMetadata where
+  hashWithSalt _salt OpsMetadata' {..} =
+    _salt `Prelude.hashWithSalt` opsMetadataArn
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` lastModifiedUser
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData OpsMetadata
+instance Prelude.NFData OpsMetadata where
+  rnf OpsMetadata' {..} =
+    Prelude.rnf opsMetadataArn
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf lastModifiedUser
+      `Prelude.seq` Prelude.rnf creationDate

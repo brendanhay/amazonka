@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteParameter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteParameter
+instance Prelude.Hashable DeleteParameter where
+  hashWithSalt _salt DeleteParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteParameter
+instance Prelude.NFData DeleteParameter where
+  rnf DeleteParameter' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteParameter where
   toHeaders =
@@ -142,4 +145,6 @@ newDeleteParameterResponse pHttpStatus_ =
 deleteParameterResponse_httpStatus :: Lens.Lens' DeleteParameterResponse Prelude.Int
 deleteParameterResponse_httpStatus = Lens.lens (\DeleteParameterResponse' {httpStatus} -> httpStatus) (\s@DeleteParameterResponse' {} a -> s {httpStatus = a} :: DeleteParameterResponse)
 
-instance Prelude.NFData DeleteParameterResponse
+instance Prelude.NFData DeleteParameterResponse where
+  rnf DeleteParameterResponse' {..} =
+    Prelude.rnf httpStatus

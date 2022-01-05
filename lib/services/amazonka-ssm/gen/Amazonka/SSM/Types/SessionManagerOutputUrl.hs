@@ -72,6 +72,12 @@ instance Core.FromJSON SessionManagerOutputUrl where
             Prelude.<*> (x Core..:? "CloudWatchOutputUrl")
       )
 
-instance Prelude.Hashable SessionManagerOutputUrl
+instance Prelude.Hashable SessionManagerOutputUrl where
+  hashWithSalt _salt SessionManagerOutputUrl' {..} =
+    _salt `Prelude.hashWithSalt` s3OutputUrl
+      `Prelude.hashWithSalt` cloudWatchOutputUrl
 
-instance Prelude.NFData SessionManagerOutputUrl
+instance Prelude.NFData SessionManagerOutputUrl where
+  rnf SessionManagerOutputUrl' {..} =
+    Prelude.rnf s3OutputUrl
+      `Prelude.seq` Prelude.rnf cloudWatchOutputUrl

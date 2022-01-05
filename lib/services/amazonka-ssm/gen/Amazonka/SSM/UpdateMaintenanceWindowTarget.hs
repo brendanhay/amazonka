@@ -198,8 +198,25 @@ instance
 instance
   Prelude.Hashable
     UpdateMaintenanceWindowTarget
+  where
+  hashWithSalt _salt UpdateMaintenanceWindowTarget' {..} =
+    _salt `Prelude.hashWithSalt` replace
+      `Prelude.hashWithSalt` ownerInformation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` windowTargetId
 
-instance Prelude.NFData UpdateMaintenanceWindowTarget
+instance Prelude.NFData UpdateMaintenanceWindowTarget where
+  rnf UpdateMaintenanceWindowTarget' {..} =
+    Prelude.rnf replace
+      `Prelude.seq` Prelude.rnf ownerInformation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf windowTargetId
 
 instance Core.ToHeaders UpdateMaintenanceWindowTarget where
   toHeaders =
@@ -325,3 +342,12 @@ updateMaintenanceWindowTargetResponse_httpStatus = Lens.lens (\UpdateMaintenance
 instance
   Prelude.NFData
     UpdateMaintenanceWindowTargetResponse
+  where
+  rnf UpdateMaintenanceWindowTargetResponse' {..} =
+    Prelude.rnf ownerInformation
+      `Prelude.seq` Prelude.rnf windowTargetId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf httpStatus

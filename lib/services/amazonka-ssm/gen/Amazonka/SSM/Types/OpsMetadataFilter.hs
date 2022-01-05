@@ -65,9 +65,14 @@ opsMetadataFilter_key = Lens.lens (\OpsMetadataFilter' {key} -> key) (\s@OpsMeta
 opsMetadataFilter_values :: Lens.Lens' OpsMetadataFilter (Prelude.NonEmpty Prelude.Text)
 opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\s@OpsMetadataFilter' {} a -> s {values = a} :: OpsMetadataFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable OpsMetadataFilter
+instance Prelude.Hashable OpsMetadataFilter where
+  hashWithSalt _salt OpsMetadataFilter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData OpsMetadataFilter
+instance Prelude.NFData OpsMetadataFilter where
+  rnf OpsMetadataFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON OpsMetadataFilter where
   toJSON OpsMetadataFilter' {..} =

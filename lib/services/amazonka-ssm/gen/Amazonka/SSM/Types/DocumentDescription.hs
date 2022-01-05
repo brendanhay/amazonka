@@ -398,6 +398,68 @@ instance Core.FromJSON DocumentDescription where
             Prelude.<*> (x Core..:? "ApprovedVersion")
       )
 
-instance Prelude.Hashable DocumentDescription
+instance Prelude.Hashable DocumentDescription where
+  hashWithSalt _salt DocumentDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` documentType
+      `Prelude.hashWithSalt` hash
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` sha1
+      `Prelude.hashWithSalt` reviewStatus
+      `Prelude.hashWithSalt` attachmentsInformation
+      `Prelude.hashWithSalt` defaultVersion
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` platformTypes
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` pendingReviewVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hashType
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` statusInformation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` requires
+      `Prelude.hashWithSalt` reviewInformation
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` approvedVersion
 
-instance Prelude.NFData DocumentDescription
+instance Prelude.NFData DocumentDescription where
+  rnf DocumentDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf hash
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf sha1
+      `Prelude.seq` Prelude.rnf reviewStatus
+      `Prelude.seq` Prelude.rnf attachmentsInformation
+      `Prelude.seq` Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf platformTypes
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf pendingReviewVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf hashType
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf
+        statusInformation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf requires
+      `Prelude.seq` Prelude.rnf
+        reviewInformation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        latestVersion
+      `Prelude.seq` Prelude.rnf
+        approvedVersion

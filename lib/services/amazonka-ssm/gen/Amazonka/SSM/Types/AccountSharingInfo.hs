@@ -73,6 +73,12 @@ instance Core.FromJSON AccountSharingInfo where
             Prelude.<*> (x Core..:? "AccountId")
       )
 
-instance Prelude.Hashable AccountSharingInfo
+instance Prelude.Hashable AccountSharingInfo where
+  hashWithSalt _salt AccountSharingInfo' {..} =
+    _salt `Prelude.hashWithSalt` sharedDocumentVersion
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData AccountSharingInfo
+instance Prelude.NFData AccountSharingInfo where
+  rnf AccountSharingInfo' {..} =
+    Prelude.rnf sharedDocumentVersion
+      `Prelude.seq` Prelude.rnf accountId

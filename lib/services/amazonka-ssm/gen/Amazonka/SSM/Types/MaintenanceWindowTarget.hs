@@ -154,6 +154,22 @@ instance Core.FromJSON MaintenanceWindowTarget where
             Prelude.<*> (x Core..:? "WindowId")
       )
 
-instance Prelude.Hashable MaintenanceWindowTarget
+instance Prelude.Hashable MaintenanceWindowTarget where
+  hashWithSalt _salt MaintenanceWindowTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` ownerInformation
+      `Prelude.hashWithSalt` windowTargetId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` windowId
 
-instance Prelude.NFData MaintenanceWindowTarget
+instance Prelude.NFData MaintenanceWindowTarget where
+  rnf MaintenanceWindowTarget' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf ownerInformation
+      `Prelude.seq` Prelude.rnf windowTargetId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf windowId

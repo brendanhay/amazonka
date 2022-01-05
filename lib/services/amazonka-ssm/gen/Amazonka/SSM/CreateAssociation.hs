@@ -503,9 +503,43 @@ instance Core.AWSRequest CreateAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssociation
+instance Prelude.Hashable CreateAssociation where
+  hashWithSalt _salt CreateAssociation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` applyOnlyAtCronInterval
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` syncCompliance
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` automationTargetParameterName
+      `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` calendarNames
+      `Prelude.hashWithSalt` complianceSeverity
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateAssociation
+instance Prelude.NFData CreateAssociation where
+  rnf CreateAssociation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf syncCompliance
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf calendarNames
+      `Prelude.seq` Prelude.rnf complianceSeverity
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateAssociation where
   toHeaders =
@@ -600,4 +634,7 @@ createAssociationResponse_associationDescription = Lens.lens (\CreateAssociation
 createAssociationResponse_httpStatus :: Lens.Lens' CreateAssociationResponse Prelude.Int
 createAssociationResponse_httpStatus = Lens.lens (\CreateAssociationResponse' {httpStatus} -> httpStatus) (\s@CreateAssociationResponse' {} a -> s {httpStatus = a} :: CreateAssociationResponse)
 
-instance Prelude.NFData CreateAssociationResponse
+instance Prelude.NFData CreateAssociationResponse where
+  rnf CreateAssociationResponse' {..} =
+    Prelude.rnf associationDescription
+      `Prelude.seq` Prelude.rnf httpStatus

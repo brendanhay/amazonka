@@ -163,9 +163,27 @@ instance Core.FromJSON Runbook where
             Prelude.<*> (x Core..: "DocumentName")
       )
 
-instance Prelude.Hashable Runbook
+instance Prelude.Hashable Runbook where
+  hashWithSalt _salt Runbook' {..} =
+    _salt `Prelude.hashWithSalt` targetParameterName
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` documentName
 
-instance Prelude.NFData Runbook
+instance Prelude.NFData Runbook where
+  rnf Runbook' {..} =
+    Prelude.rnf targetParameterName
+      `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf documentName
 
 instance Core.ToJSON Runbook where
   toJSON Runbook' {..} =

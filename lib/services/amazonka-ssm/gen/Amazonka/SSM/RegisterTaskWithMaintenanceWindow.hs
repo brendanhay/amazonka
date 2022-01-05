@@ -471,10 +471,46 @@ instance
 instance
   Prelude.Hashable
     RegisterTaskWithMaintenanceWindow
+  where
+  hashWithSalt
+    _salt
+    RegisterTaskWithMaintenanceWindow' {..} =
+      _salt `Prelude.hashWithSalt` serviceRoleArn
+        `Prelude.hashWithSalt` taskParameters
+        `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` cutoffBehavior
+        `Prelude.hashWithSalt` maxErrors
+        `Prelude.hashWithSalt` taskInvocationParameters
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` loggingInfo
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` maxConcurrency
+        `Prelude.hashWithSalt` windowId
+        `Prelude.hashWithSalt` taskArn
+        `Prelude.hashWithSalt` taskType
 
 instance
   Prelude.NFData
     RegisterTaskWithMaintenanceWindow
+  where
+  rnf RegisterTaskWithMaintenanceWindow' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf taskParameters
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf cutoffBehavior
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf taskInvocationParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf taskType
 
 instance
   Core.ToHeaders
@@ -579,3 +615,7 @@ registerTaskWithMaintenanceWindowResponse_httpStatus = Lens.lens (\RegisterTaskW
 instance
   Prelude.NFData
     RegisterTaskWithMaintenanceWindowResponse
+  where
+  rnf RegisterTaskWithMaintenanceWindowResponse' {..} =
+    Prelude.rnf windowTaskId
+      `Prelude.seq` Prelude.rnf httpStatus

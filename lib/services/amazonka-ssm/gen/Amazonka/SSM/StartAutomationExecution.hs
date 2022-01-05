@@ -334,9 +334,35 @@ instance Core.AWSRequest StartAutomationExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartAutomationExecution
+instance Prelude.Hashable StartAutomationExecution where
+  hashWithSalt _salt StartAutomationExecution' {..} =
+    _salt `Prelude.hashWithSalt` targetParameterName
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` targetMaps
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` documentName
 
-instance Prelude.NFData StartAutomationExecution
+instance Prelude.NFData StartAutomationExecution where
+  rnf StartAutomationExecution' {..} =
+    Prelude.rnf targetParameterName
+      `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf targetMaps
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf documentName
 
 instance Core.ToHeaders StartAutomationExecution where
   toHeaders =
@@ -424,3 +450,7 @@ startAutomationExecutionResponse_httpStatus = Lens.lens (\StartAutomationExecuti
 instance
   Prelude.NFData
     StartAutomationExecutionResponse
+  where
+  rnf StartAutomationExecutionResponse' {..} =
+    Prelude.rnf automationExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

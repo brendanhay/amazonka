@@ -496,6 +496,59 @@ instance Core.FromJSON Command where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable Command
+instance Prelude.Hashable Command where
+  hashWithSalt _salt Command' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` expiresAfter
+      `Prelude.hashWithSalt` notificationConfig
+      `Prelude.hashWithSalt` targetCount
+      `Prelude.hashWithSalt` cloudWatchOutputConfig
+      `Prelude.hashWithSalt` deliveryTimedOutCount
+      `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` errorCount
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` outputS3Region
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` timeoutSeconds
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` completedCount
+      `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` requestedDateTime
+      `Prelude.hashWithSalt` serviceRole
 
-instance Prelude.NFData Command
+instance Prelude.NFData Command where
+  rnf Command' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf expiresAfter
+      `Prelude.seq` Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf targetCount
+      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+      `Prelude.seq` Prelude.rnf deliveryTimedOutCount
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf errorCount
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf outputS3Region
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf timeoutSeconds
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf completedCount
+      `Prelude.seq` Prelude.rnf
+        outputS3BucketName
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf
+        requestedDateTime
+      `Prelude.seq` Prelude.rnf
+        serviceRole

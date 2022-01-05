@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteMaintenanceWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMaintenanceWindow
+instance Prelude.Hashable DeleteMaintenanceWindow where
+  hashWithSalt _salt DeleteMaintenanceWindow' {..} =
+    _salt `Prelude.hashWithSalt` windowId
 
-instance Prelude.NFData DeleteMaintenanceWindow
+instance Prelude.NFData DeleteMaintenanceWindow where
+  rnf DeleteMaintenanceWindow' {..} =
+    Prelude.rnf windowId
 
 instance Core.ToHeaders DeleteMaintenanceWindow where
   toHeaders =
@@ -160,3 +164,7 @@ deleteMaintenanceWindowResponse_httpStatus = Lens.lens (\DeleteMaintenanceWindow
 instance
   Prelude.NFData
     DeleteMaintenanceWindowResponse
+  where
+  rnf DeleteMaintenanceWindowResponse' {..} =
+    Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf httpStatus

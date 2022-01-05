@@ -139,9 +139,17 @@ parameterStringFilter_option = Lens.lens (\ParameterStringFilter' {option} -> op
 parameterStringFilter_key :: Lens.Lens' ParameterStringFilter Prelude.Text
 parameterStringFilter_key = Lens.lens (\ParameterStringFilter' {key} -> key) (\s@ParameterStringFilter' {} a -> s {key = a} :: ParameterStringFilter)
 
-instance Prelude.Hashable ParameterStringFilter
+instance Prelude.Hashable ParameterStringFilter where
+  hashWithSalt _salt ParameterStringFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` option
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ParameterStringFilter
+instance Prelude.NFData ParameterStringFilter where
+  rnf ParameterStringFilter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf option
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =

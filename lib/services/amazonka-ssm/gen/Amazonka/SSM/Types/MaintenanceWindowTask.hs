@@ -275,6 +275,36 @@ instance Core.FromJSON MaintenanceWindowTask where
             Prelude.<*> (x Core..:? "WindowId")
       )
 
-instance Prelude.Hashable MaintenanceWindowTask
+instance Prelude.Hashable MaintenanceWindowTask where
+  hashWithSalt _salt MaintenanceWindowTask' {..} =
+    _salt `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` windowTaskId
+      `Prelude.hashWithSalt` taskParameters
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` cutoffBehavior
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` windowId
 
-instance Prelude.NFData MaintenanceWindowTask
+instance Prelude.NFData MaintenanceWindowTask where
+  rnf MaintenanceWindowTask' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf windowTaskId
+      `Prelude.seq` Prelude.rnf taskParameters
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf cutoffBehavior
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf windowId

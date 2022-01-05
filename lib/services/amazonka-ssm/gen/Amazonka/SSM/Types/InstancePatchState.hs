@@ -465,6 +465,54 @@ instance Core.FromJSON InstancePatchState where
             Prelude.<*> (x Core..: "Operation")
       )
 
-instance Prelude.Hashable InstancePatchState
+instance Prelude.Hashable InstancePatchState where
+  hashWithSalt _salt InstancePatchState' {..} =
+    _salt
+      `Prelude.hashWithSalt` unreportedNotApplicableCount
+      `Prelude.hashWithSalt` otherNonCompliantCount
+      `Prelude.hashWithSalt` rebootOption
+      `Prelude.hashWithSalt` installedPendingRebootCount
+      `Prelude.hashWithSalt` ownerInformation
+      `Prelude.hashWithSalt` securityNonCompliantCount
+      `Prelude.hashWithSalt` installedRejectedCount
+      `Prelude.hashWithSalt` failedCount
+      `Prelude.hashWithSalt` installedOtherCount
+      `Prelude.hashWithSalt` missingCount
+      `Prelude.hashWithSalt` installOverrideList
+      `Prelude.hashWithSalt` criticalNonCompliantCount
+      `Prelude.hashWithSalt` notApplicableCount
+      `Prelude.hashWithSalt` installedCount
+      `Prelude.hashWithSalt` lastNoRebootInstallOperationTime
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` patchGroup
+      `Prelude.hashWithSalt` baselineId
+      `Prelude.hashWithSalt` operationStartTime
+      `Prelude.hashWithSalt` operationEndTime
+      `Prelude.hashWithSalt` operation
 
-instance Prelude.NFData InstancePatchState
+instance Prelude.NFData InstancePatchState where
+  rnf InstancePatchState' {..} =
+    Prelude.rnf unreportedNotApplicableCount
+      `Prelude.seq` Prelude.rnf otherNonCompliantCount
+      `Prelude.seq` Prelude.rnf rebootOption
+      `Prelude.seq` Prelude.rnf installedPendingRebootCount
+      `Prelude.seq` Prelude.rnf ownerInformation
+      `Prelude.seq` Prelude.rnf securityNonCompliantCount
+      `Prelude.seq` Prelude.rnf installedRejectedCount
+      `Prelude.seq` Prelude.rnf failedCount
+      `Prelude.seq` Prelude.rnf installedOtherCount
+      `Prelude.seq` Prelude.rnf missingCount
+      `Prelude.seq` Prelude.rnf installOverrideList
+      `Prelude.seq` Prelude.rnf criticalNonCompliantCount
+      `Prelude.seq` Prelude.rnf notApplicableCount
+      `Prelude.seq` Prelude.rnf installedCount
+      `Prelude.seq` Prelude.rnf
+        lastNoRebootInstallOperationTime
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf patchGroup
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf operationStartTime
+      `Prelude.seq` Prelude.rnf operationEndTime
+      `Prelude.seq` Prelude.rnf operation

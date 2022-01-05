@@ -165,9 +165,17 @@ instance Core.AWSRequest DescribePatchGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePatchGroups
+instance Prelude.Hashable DescribePatchGroups where
+  hashWithSalt _salt DescribePatchGroups' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribePatchGroups
+instance Prelude.NFData DescribePatchGroups where
+  rnf DescribePatchGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribePatchGroups where
   toHeaders =
@@ -266,4 +274,8 @@ describePatchGroupsResponse_nextToken = Lens.lens (\DescribePatchGroupsResponse'
 describePatchGroupsResponse_httpStatus :: Lens.Lens' DescribePatchGroupsResponse Prelude.Int
 describePatchGroupsResponse_httpStatus = Lens.lens (\DescribePatchGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribePatchGroupsResponse' {} a -> s {httpStatus = a} :: DescribePatchGroupsResponse)
 
-instance Prelude.NFData DescribePatchGroupsResponse
+instance Prelude.NFData DescribePatchGroupsResponse where
+  rnf DescribePatchGroupsResponse' {..} =
+    Prelude.rnf mappings
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

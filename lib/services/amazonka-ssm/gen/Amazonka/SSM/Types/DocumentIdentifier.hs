@@ -237,6 +237,38 @@ instance Core.FromJSON DocumentIdentifier where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DocumentIdentifier
+instance Prelude.Hashable DocumentIdentifier where
+  hashWithSalt _salt DocumentIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` documentType
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` reviewStatus
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` platformTypes
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` requires
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData DocumentIdentifier
+instance Prelude.NFData DocumentIdentifier where
+  rnf DocumentIdentifier' {..} =
+    Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf reviewStatus
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf platformTypes
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf requires
+      `Prelude.seq` Prelude.rnf tags

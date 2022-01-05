@@ -143,9 +143,19 @@ instance Core.AWSRequest DescribeDocumentPermission where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDocumentPermission
+instance Prelude.Hashable DescribeDocumentPermission where
+  hashWithSalt _salt DescribeDocumentPermission' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` permissionType
 
-instance Prelude.NFData DescribeDocumentPermission
+instance Prelude.NFData DescribeDocumentPermission where
+  rnf DescribeDocumentPermission' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf permissionType
 
 instance Core.ToHeaders DescribeDocumentPermission where
   toHeaders =
@@ -250,3 +260,9 @@ describeDocumentPermissionResponse_httpStatus = Lens.lens (\DescribeDocumentPerm
 instance
   Prelude.NFData
     DescribeDocumentPermissionResponse
+  where
+  rnf DescribeDocumentPermissionResponse' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf accountSharingInfoList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

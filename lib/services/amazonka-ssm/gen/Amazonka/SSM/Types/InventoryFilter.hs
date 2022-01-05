@@ -97,9 +97,17 @@ inventoryFilter_key = Lens.lens (\InventoryFilter' {key} -> key) (\s@InventoryFi
 inventoryFilter_values :: Lens.Lens' InventoryFilter (Prelude.NonEmpty Prelude.Text)
 inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable InventoryFilter
+instance Prelude.Hashable InventoryFilter where
+  hashWithSalt _salt InventoryFilter' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData InventoryFilter
+instance Prelude.NFData InventoryFilter where
+  rnf InventoryFilter' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON InventoryFilter where
   toJSON InventoryFilter' {..} =

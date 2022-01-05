@@ -240,10 +240,38 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowRunCommandParameters
+  where
+  hashWithSalt
+    _salt
+    MaintenanceWindowRunCommandParameters' {..} =
+      _salt `Prelude.hashWithSalt` serviceRoleArn
+        `Prelude.hashWithSalt` notificationConfig
+        `Prelude.hashWithSalt` documentHashType
+        `Prelude.hashWithSalt` cloudWatchOutputConfig
+        `Prelude.hashWithSalt` outputS3KeyPrefix
+        `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` documentHash
+        `Prelude.hashWithSalt` documentVersion
+        `Prelude.hashWithSalt` timeoutSeconds
+        `Prelude.hashWithSalt` comment
+        `Prelude.hashWithSalt` outputS3BucketName
 
 instance
   Prelude.NFData
     MaintenanceWindowRunCommandParameters
+  where
+  rnf MaintenanceWindowRunCommandParameters' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf documentHashType
+      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentHash
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf timeoutSeconds
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf outputS3BucketName
 
 instance
   Core.ToJSON

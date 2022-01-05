@@ -70,9 +70,14 @@ automationExecutionFilter_key = Lens.lens (\AutomationExecutionFilter' {key} -> 
 automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Prelude.NonEmpty Prelude.Text)
 automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable AutomationExecutionFilter
+instance Prelude.Hashable AutomationExecutionFilter where
+  hashWithSalt _salt AutomationExecutionFilter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData AutomationExecutionFilter
+instance Prelude.NFData AutomationExecutionFilter where
+  rnf AutomationExecutionFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON AutomationExecutionFilter where
   toJSON AutomationExecutionFilter' {..} =

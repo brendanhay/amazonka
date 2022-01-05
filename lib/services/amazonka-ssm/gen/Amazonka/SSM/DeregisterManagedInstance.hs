@@ -93,9 +93,13 @@ instance Core.AWSRequest DeregisterManagedInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterManagedInstance
+instance Prelude.Hashable DeregisterManagedInstance where
+  hashWithSalt _salt DeregisterManagedInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DeregisterManagedInstance
+instance Prelude.NFData DeregisterManagedInstance where
+  rnf DeregisterManagedInstance' {..} =
+    Prelude.rnf instanceId
 
 instance Core.ToHeaders DeregisterManagedInstance where
   toHeaders =
@@ -158,3 +162,6 @@ deregisterManagedInstanceResponse_httpStatus = Lens.lens (\DeregisterManagedInst
 instance
   Prelude.NFData
     DeregisterManagedInstanceResponse
+  where
+  rnf DeregisterManagedInstanceResponse' {..} =
+    Prelude.rnf httpStatus

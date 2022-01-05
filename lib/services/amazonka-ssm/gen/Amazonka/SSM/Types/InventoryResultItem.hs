@@ -117,6 +117,18 @@ instance Core.FromJSON InventoryResultItem where
             Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InventoryResultItem
+instance Prelude.Hashable InventoryResultItem where
+  hashWithSalt _salt InventoryResultItem' {..} =
+    _salt `Prelude.hashWithSalt` contentHash
+      `Prelude.hashWithSalt` captureTime
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData InventoryResultItem
+instance Prelude.NFData InventoryResultItem where
+  rnf InventoryResultItem' {..} =
+    Prelude.rnf contentHash
+      `Prelude.seq` Prelude.rnf captureTime
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf content

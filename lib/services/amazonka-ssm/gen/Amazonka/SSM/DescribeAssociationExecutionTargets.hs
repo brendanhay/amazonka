@@ -203,10 +203,26 @@ instance
 instance
   Prelude.Hashable
     DescribeAssociationExecutionTargets
+  where
+  hashWithSalt
+    _salt
+    DescribeAssociationExecutionTargets' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` executionId
 
 instance
   Prelude.NFData
     DescribeAssociationExecutionTargets
+  where
+  rnf DescribeAssociationExecutionTargets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf executionId
 
 instance
   Core.ToHeaders
@@ -309,3 +325,8 @@ describeAssociationExecutionTargetsResponse_httpStatus = Lens.lens (\DescribeAss
 instance
   Prelude.NFData
     DescribeAssociationExecutionTargetsResponse
+  where
+  rnf DescribeAssociationExecutionTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf associationExecutionTargets
+      `Prelude.seq` Prelude.rnf httpStatus

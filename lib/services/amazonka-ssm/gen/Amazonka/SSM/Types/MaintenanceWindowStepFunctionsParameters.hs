@@ -97,10 +97,19 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowStepFunctionsParameters
+  where
+  hashWithSalt
+    _salt
+    MaintenanceWindowStepFunctionsParameters' {..} =
+      _salt `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     MaintenanceWindowStepFunctionsParameters
+  where
+  rnf MaintenanceWindowStepFunctionsParameters' {..} =
+    Prelude.rnf input `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

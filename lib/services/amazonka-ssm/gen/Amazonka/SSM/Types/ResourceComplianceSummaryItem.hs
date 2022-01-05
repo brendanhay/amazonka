@@ -143,5 +143,24 @@ instance Core.FromJSON ResourceComplianceSummaryItem where
 instance
   Prelude.Hashable
     ResourceComplianceSummaryItem
+  where
+  hashWithSalt _salt ResourceComplianceSummaryItem' {..} =
+    _salt `Prelude.hashWithSalt` nonCompliantSummary
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` compliantSummary
+      `Prelude.hashWithSalt` executionSummary
+      `Prelude.hashWithSalt` overallSeverity
+      `Prelude.hashWithSalt` complianceType
 
-instance Prelude.NFData ResourceComplianceSummaryItem
+instance Prelude.NFData ResourceComplianceSummaryItem where
+  rnf ResourceComplianceSummaryItem' {..} =
+    Prelude.rnf nonCompliantSummary
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf compliantSummary
+      `Prelude.seq` Prelude.rnf executionSummary
+      `Prelude.seq` Prelude.rnf overallSeverity
+      `Prelude.seq` Prelude.rnf complianceType

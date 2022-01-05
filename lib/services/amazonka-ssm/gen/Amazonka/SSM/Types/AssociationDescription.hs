@@ -440,6 +440,59 @@ instance Core.FromJSON AssociationDescription where
             Prelude.<*> (x Core..:? "MaxConcurrency")
       )
 
-instance Prelude.Hashable AssociationDescription
+instance Prelude.Hashable AssociationDescription where
+  hashWithSalt _salt AssociationDescription' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` applyOnlyAtCronInterval
+      `Prelude.hashWithSalt` lastSuccessfulExecutionDate
+      `Prelude.hashWithSalt` overview
+      `Prelude.hashWithSalt` lastUpdateAssociationDate
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` syncCompliance
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` automationTargetParameterName
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` calendarNames
+      `Prelude.hashWithSalt` complianceSeverity
+      `Prelude.hashWithSalt` maxConcurrency
 
-instance Prelude.NFData AssociationDescription
+instance Prelude.NFData AssociationDescription where
+  rnf AssociationDescription' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
+      `Prelude.seq` Prelude.rnf lastSuccessfulExecutionDate
+      `Prelude.seq` Prelude.rnf overview
+      `Prelude.seq` Prelude.rnf lastUpdateAssociationDate
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf syncCompliance
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf
+        automationTargetParameterName
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf calendarNames
+      `Prelude.seq` Prelude.rnf
+        complianceSeverity
+      `Prelude.seq` Prelude.rnf
+        maxConcurrency

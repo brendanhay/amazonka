@@ -121,9 +121,17 @@ instance Core.AWSRequest UpdateAssociationStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAssociationStatus
+instance Prelude.Hashable UpdateAssociationStatus where
+  hashWithSalt _salt UpdateAssociationStatus' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationStatus
 
-instance Prelude.NFData UpdateAssociationStatus
+instance Prelude.NFData UpdateAssociationStatus where
+  rnf UpdateAssociationStatus' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf associationStatus
 
 instance Core.ToHeaders UpdateAssociationStatus where
   toHeaders =
@@ -199,3 +207,7 @@ updateAssociationStatusResponse_httpStatus = Lens.lens (\UpdateAssociationStatus
 instance
   Prelude.NFData
     UpdateAssociationStatusResponse
+  where
+  rnf UpdateAssociationStatusResponse' {..} =
+    Prelude.rnf associationDescription
+      `Prelude.seq` Prelude.rnf httpStatus

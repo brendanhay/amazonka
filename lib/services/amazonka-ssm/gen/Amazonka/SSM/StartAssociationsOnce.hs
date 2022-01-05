@@ -88,9 +88,13 @@ instance Core.AWSRequest StartAssociationsOnce where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartAssociationsOnce
+instance Prelude.Hashable StartAssociationsOnce where
+  hashWithSalt _salt StartAssociationsOnce' {..} =
+    _salt `Prelude.hashWithSalt` associationIds
 
-instance Prelude.NFData StartAssociationsOnce
+instance Prelude.NFData StartAssociationsOnce where
+  rnf StartAssociationsOnce' {..} =
+    Prelude.rnf associationIds
 
 instance Core.ToHeaders StartAssociationsOnce where
   toHeaders =
@@ -152,4 +156,6 @@ newStartAssociationsOnceResponse pHttpStatus_ =
 startAssociationsOnceResponse_httpStatus :: Lens.Lens' StartAssociationsOnceResponse Prelude.Int
 startAssociationsOnceResponse_httpStatus = Lens.lens (\StartAssociationsOnceResponse' {httpStatus} -> httpStatus) (\s@StartAssociationsOnceResponse' {} a -> s {httpStatus = a} :: StartAssociationsOnceResponse)
 
-instance Prelude.NFData StartAssociationsOnceResponse
+instance Prelude.NFData StartAssociationsOnceResponse where
+  rnf StartAssociationsOnceResponse' {..} =
+    Prelude.rnf httpStatus

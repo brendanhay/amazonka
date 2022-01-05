@@ -88,9 +88,15 @@ instance Core.FromJSON CloudWatchOutputConfig where
             Prelude.<*> (x Core..:? "CloudWatchOutputEnabled")
       )
 
-instance Prelude.Hashable CloudWatchOutputConfig
+instance Prelude.Hashable CloudWatchOutputConfig where
+  hashWithSalt _salt CloudWatchOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` cloudWatchLogGroupName
+      `Prelude.hashWithSalt` cloudWatchOutputEnabled
 
-instance Prelude.NFData CloudWatchOutputConfig
+instance Prelude.NFData CloudWatchOutputConfig where
+  rnf CloudWatchOutputConfig' {..} =
+    Prelude.rnf cloudWatchLogGroupName
+      `Prelude.seq` Prelude.rnf cloudWatchOutputEnabled
 
 instance Core.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =

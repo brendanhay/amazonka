@@ -184,9 +184,19 @@ instance Core.AWSRequest ListDocuments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDocuments
+instance Prelude.Hashable ListDocuments where
+  hashWithSalt _salt ListDocuments' {..} =
+    _salt `Prelude.hashWithSalt` documentFilterList
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDocuments
+instance Prelude.NFData ListDocuments where
+  rnf ListDocuments' {..} =
+    Prelude.rnf documentFilterList
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDocuments where
   toHeaders =
@@ -270,4 +280,8 @@ listDocumentsResponse_nextToken = Lens.lens (\ListDocumentsResponse' {nextToken}
 listDocumentsResponse_httpStatus :: Lens.Lens' ListDocumentsResponse Prelude.Int
 listDocumentsResponse_httpStatus = Lens.lens (\ListDocumentsResponse' {httpStatus} -> httpStatus) (\s@ListDocumentsResponse' {} a -> s {httpStatus = a} :: ListDocumentsResponse)
 
-instance Prelude.NFData ListDocumentsResponse
+instance Prelude.NFData ListDocumentsResponse where
+  rnf ListDocumentsResponse' {..} =
+    Prelude.rnf documentIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

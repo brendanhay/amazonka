@@ -193,9 +193,27 @@ instance Core.AWSRequest UpdateDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDocument
+instance Prelude.Hashable UpdateDocument where
+  hashWithSalt _salt UpdateDocument' {..} =
+    _salt `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateDocument
+instance Prelude.NFData UpdateDocument where
+  rnf UpdateDocument' {..} =
+    Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateDocument where
   toHeaders =
@@ -272,4 +290,7 @@ updateDocumentResponse_documentDescription = Lens.lens (\UpdateDocumentResponse'
 updateDocumentResponse_httpStatus :: Lens.Lens' UpdateDocumentResponse Prelude.Int
 updateDocumentResponse_httpStatus = Lens.lens (\UpdateDocumentResponse' {httpStatus} -> httpStatus) (\s@UpdateDocumentResponse' {} a -> s {httpStatus = a} :: UpdateDocumentResponse)
 
-instance Prelude.NFData UpdateDocumentResponse
+instance Prelude.NFData UpdateDocumentResponse where
+  rnf UpdateDocumentResponse' {..} =
+    Prelude.rnf documentDescription
+      `Prelude.seq` Prelude.rnf httpStatus

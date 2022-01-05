@@ -162,9 +162,17 @@ instance Core.AWSRequest SendAutomationSignal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendAutomationSignal
+instance Prelude.Hashable SendAutomationSignal where
+  hashWithSalt _salt SendAutomationSignal' {..} =
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` automationExecutionId
+      `Prelude.hashWithSalt` signalType
 
-instance Prelude.NFData SendAutomationSignal
+instance Prelude.NFData SendAutomationSignal where
+  rnf SendAutomationSignal' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf automationExecutionId
+      `Prelude.seq` Prelude.rnf signalType
 
 instance Core.ToHeaders SendAutomationSignal where
   toHeaders =
@@ -230,4 +238,6 @@ newSendAutomationSignalResponse pHttpStatus_ =
 sendAutomationSignalResponse_httpStatus :: Lens.Lens' SendAutomationSignalResponse Prelude.Int
 sendAutomationSignalResponse_httpStatus = Lens.lens (\SendAutomationSignalResponse' {httpStatus} -> httpStatus) (\s@SendAutomationSignalResponse' {} a -> s {httpStatus = a} :: SendAutomationSignalResponse)
 
-instance Prelude.NFData SendAutomationSignalResponse
+instance Prelude.NFData SendAutomationSignalResponse where
+  rnf SendAutomationSignalResponse' {..} =
+    Prelude.rnf httpStatus

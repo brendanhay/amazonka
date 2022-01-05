@@ -143,10 +143,22 @@ instance
 instance
   Prelude.Hashable
     GetDeployablePatchSnapshotForInstance
+  where
+  hashWithSalt
+    _salt
+    GetDeployablePatchSnapshotForInstance' {..} =
+      _salt `Prelude.hashWithSalt` baselineOverride
+        `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` snapshotId
 
 instance
   Prelude.NFData
     GetDeployablePatchSnapshotForInstance
+  where
+  rnf GetDeployablePatchSnapshotForInstance' {..} =
+    Prelude.rnf baselineOverride
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance
   Core.ToHeaders
@@ -272,3 +284,11 @@ getDeployablePatchSnapshotForInstanceResponse_httpStatus = Lens.lens (\GetDeploy
 instance
   Prelude.NFData
     GetDeployablePatchSnapshotForInstanceResponse
+  where
+  rnf
+    GetDeployablePatchSnapshotForInstanceResponse' {..} =
+      Prelude.rnf instanceId
+        `Prelude.seq` Prelude.rnf product
+        `Prelude.seq` Prelude.rnf snapshotDownloadUrl
+        `Prelude.seq` Prelude.rnf snapshotId
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -62,6 +62,9 @@ instance Core.FromJSON S3OutputUrl where
           S3OutputUrl' Prelude.<$> (x Core..:? "OutputUrl")
       )
 
-instance Prelude.Hashable S3OutputUrl
+instance Prelude.Hashable S3OutputUrl where
+  hashWithSalt _salt S3OutputUrl' {..} =
+    _salt `Prelude.hashWithSalt` outputUrl
 
-instance Prelude.NFData S3OutputUrl
+instance Prelude.NFData S3OutputUrl where
+  rnf S3OutputUrl' {..} = Prelude.rnf outputUrl

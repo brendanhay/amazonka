@@ -182,10 +182,24 @@ instance
 instance
   Prelude.Hashable
     DescribeInstancePatchStatesForPatchGroup
+  where
+  hashWithSalt
+    _salt
+    DescribeInstancePatchStatesForPatchGroup' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` patchGroup
 
 instance
   Prelude.NFData
     DescribeInstancePatchStatesForPatchGroup
+  where
+  rnf DescribeInstancePatchStatesForPatchGroup' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf patchGroup
 
 instance
   Core.ToHeaders
@@ -287,3 +301,9 @@ describeInstancePatchStatesForPatchGroupResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeInstancePatchStatesForPatchGroupResponse
+  where
+  rnf
+    DescribeInstancePatchStatesForPatchGroupResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf instancePatchStates
+        `Prelude.seq` Prelude.rnf httpStatus

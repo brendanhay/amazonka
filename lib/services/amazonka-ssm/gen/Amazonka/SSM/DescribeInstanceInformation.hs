@@ -192,9 +192,20 @@ instance Core.AWSRequest DescribeInstanceInformation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceInformation
+instance Prelude.Hashable DescribeInstanceInformation where
+  hashWithSalt _salt DescribeInstanceInformation' {..} =
+    _salt
+      `Prelude.hashWithSalt` instanceInformationFilterList
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeInstanceInformation
+instance Prelude.NFData DescribeInstanceInformation where
+  rnf DescribeInstanceInformation' {..} =
+    Prelude.rnf instanceInformationFilterList
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInstanceInformation where
   toHeaders =
@@ -284,3 +295,8 @@ describeInstanceInformationResponse_httpStatus = Lens.lens (\DescribeInstanceInf
 instance
   Prelude.NFData
     DescribeInstanceInformationResponse
+  where
+  rnf DescribeInstanceInformationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceInformationList
+      `Prelude.seq` Prelude.rnf httpStatus

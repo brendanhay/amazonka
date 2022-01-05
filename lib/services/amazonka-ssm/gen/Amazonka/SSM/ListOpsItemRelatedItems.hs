@@ -160,9 +160,19 @@ instance Core.AWSRequest ListOpsItemRelatedItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOpsItemRelatedItems
+instance Prelude.Hashable ListOpsItemRelatedItems where
+  hashWithSalt _salt ListOpsItemRelatedItems' {..} =
+    _salt `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOpsItemRelatedItems
+instance Prelude.NFData ListOpsItemRelatedItems where
+  rnf ListOpsItemRelatedItems' {..} =
+    Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOpsItemRelatedItems where
   toHeaders =
@@ -250,3 +260,8 @@ listOpsItemRelatedItemsResponse_httpStatus = Lens.lens (\ListOpsItemRelatedItems
 instance
   Prelude.NFData
     ListOpsItemRelatedItemsResponse
+  where
+  rnf ListOpsItemRelatedItemsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf httpStatus

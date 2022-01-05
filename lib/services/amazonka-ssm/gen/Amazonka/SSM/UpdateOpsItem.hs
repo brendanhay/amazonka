@@ -353,9 +353,41 @@ instance Core.AWSRequest UpdateOpsItem where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateOpsItem
+instance Prelude.Hashable UpdateOpsItem where
+  hashWithSalt _salt UpdateOpsItem' {..} =
+    _salt `Prelude.hashWithSalt` actualEndTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` operationalDataToDelete
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` relatedOpsItems
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` operationalData
+      `Prelude.hashWithSalt` actualStartTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` plannedStartTime
+      `Prelude.hashWithSalt` opsItemId
 
-instance Prelude.NFData UpdateOpsItem
+instance Prelude.NFData UpdateOpsItem where
+  rnf UpdateOpsItem' {..} =
+    Prelude.rnf actualEndTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operationalDataToDelete
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf relatedOpsItems
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf operationalData
+      `Prelude.seq` Prelude.rnf actualStartTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf plannedStartTime
+      `Prelude.seq` Prelude.rnf opsItemId
 
 instance Core.ToHeaders UpdateOpsItem where
   toHeaders =
@@ -431,4 +463,6 @@ newUpdateOpsItemResponse pHttpStatus_ =
 updateOpsItemResponse_httpStatus :: Lens.Lens' UpdateOpsItemResponse Prelude.Int
 updateOpsItemResponse_httpStatus = Lens.lens (\UpdateOpsItemResponse' {httpStatus} -> httpStatus) (\s@UpdateOpsItemResponse' {} a -> s {httpStatus = a} :: UpdateOpsItemResponse)
 
-instance Prelude.NFData UpdateOpsItemResponse
+instance Prelude.NFData UpdateOpsItemResponse where
+  rnf UpdateOpsItemResponse' {..} =
+    Prelude.rnf httpStatus

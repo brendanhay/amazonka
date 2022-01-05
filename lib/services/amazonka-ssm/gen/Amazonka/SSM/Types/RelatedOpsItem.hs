@@ -62,9 +62,12 @@ instance Core.FromJSON RelatedOpsItem where
           RelatedOpsItem' Prelude.<$> (x Core..: "OpsItemId")
       )
 
-instance Prelude.Hashable RelatedOpsItem
+instance Prelude.Hashable RelatedOpsItem where
+  hashWithSalt _salt RelatedOpsItem' {..} =
+    _salt `Prelude.hashWithSalt` opsItemId
 
-instance Prelude.NFData RelatedOpsItem
+instance Prelude.NFData RelatedOpsItem where
+  rnf RelatedOpsItem' {..} = Prelude.rnf opsItemId
 
 instance Core.ToJSON RelatedOpsItem where
   toJSON RelatedOpsItem' {..} =

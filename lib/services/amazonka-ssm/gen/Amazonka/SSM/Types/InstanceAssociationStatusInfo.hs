@@ -179,5 +179,32 @@ instance Core.FromJSON InstanceAssociationStatusInfo where
 instance
   Prelude.Hashable
     InstanceAssociationStatusInfo
+  where
+  hashWithSalt _salt InstanceAssociationStatusInfo' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` detailedStatus
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` outputUrl
+      `Prelude.hashWithSalt` executionSummary
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` executionDate
+      `Prelude.hashWithSalt` associationName
 
-instance Prelude.NFData InstanceAssociationStatusInfo
+instance Prelude.NFData InstanceAssociationStatusInfo where
+  rnf InstanceAssociationStatusInfo' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf detailedStatus
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf outputUrl
+      `Prelude.seq` Prelude.rnf executionSummary
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf executionDate
+      `Prelude.seq` Prelude.rnf associationName

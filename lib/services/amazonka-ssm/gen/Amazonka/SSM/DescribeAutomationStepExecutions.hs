@@ -185,10 +185,26 @@ instance
 instance
   Prelude.Hashable
     DescribeAutomationStepExecutions
+  where
+  hashWithSalt
+    _salt
+    DescribeAutomationStepExecutions' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` reverseOrder
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` automationExecutionId
 
 instance
   Prelude.NFData
     DescribeAutomationStepExecutions
+  where
+  rnf DescribeAutomationStepExecutions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf automationExecutionId
 
 instance
   Core.ToHeaders
@@ -290,3 +306,8 @@ describeAutomationStepExecutionsResponse_httpStatus = Lens.lens (\DescribeAutoma
 instance
   Prelude.NFData
     DescribeAutomationStepExecutionsResponse
+  where
+  rnf DescribeAutomationStepExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stepExecutions
+      `Prelude.seq` Prelude.rnf httpStatus

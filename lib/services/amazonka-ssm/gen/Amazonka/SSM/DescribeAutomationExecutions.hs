@@ -147,8 +147,17 @@ instance Core.AWSRequest DescribeAutomationExecutions where
 instance
   Prelude.Hashable
     DescribeAutomationExecutions
+  where
+  hashWithSalt _salt DescribeAutomationExecutions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeAutomationExecutions
+instance Prelude.NFData DescribeAutomationExecutions where
+  rnf DescribeAutomationExecutions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAutomationExecutions where
   toHeaders =
@@ -239,3 +248,8 @@ describeAutomationExecutionsResponse_httpStatus = Lens.lens (\DescribeAutomation
 instance
   Prelude.NFData
     DescribeAutomationExecutionsResponse
+  where
+  rnf DescribeAutomationExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf automationExecutionMetadataList
+      `Prelude.seq` Prelude.rnf httpStatus

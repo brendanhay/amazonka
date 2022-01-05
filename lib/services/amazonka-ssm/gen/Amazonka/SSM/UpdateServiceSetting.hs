@@ -216,9 +216,15 @@ instance Core.AWSRequest UpdateServiceSetting where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServiceSetting
+instance Prelude.Hashable UpdateServiceSetting where
+  hashWithSalt _salt UpdateServiceSetting' {..} =
+    _salt `Prelude.hashWithSalt` settingId
+      `Prelude.hashWithSalt` settingValue
 
-instance Prelude.NFData UpdateServiceSetting
+instance Prelude.NFData UpdateServiceSetting where
+  rnf UpdateServiceSetting' {..} =
+    Prelude.rnf settingId
+      `Prelude.seq` Prelude.rnf settingValue
 
 instance Core.ToHeaders UpdateServiceSetting where
   toHeaders =
@@ -282,4 +288,6 @@ newUpdateServiceSettingResponse pHttpStatus_ =
 updateServiceSettingResponse_httpStatus :: Lens.Lens' UpdateServiceSettingResponse Prelude.Int
 updateServiceSettingResponse_httpStatus = Lens.lens (\UpdateServiceSettingResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceSettingResponse' {} a -> s {httpStatus = a} :: UpdateServiceSettingResponse)
 
-instance Prelude.NFData UpdateServiceSettingResponse
+instance Prelude.NFData UpdateServiceSettingResponse where
+  rnf UpdateServiceSettingResponse' {..} =
+    Prelude.rnf httpStatus

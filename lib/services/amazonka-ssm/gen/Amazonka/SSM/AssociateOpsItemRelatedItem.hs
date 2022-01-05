@@ -159,9 +159,19 @@ instance Core.AWSRequest AssociateOpsItemRelatedItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateOpsItemRelatedItem
+instance Prelude.Hashable AssociateOpsItemRelatedItem where
+  hashWithSalt _salt AssociateOpsItemRelatedItem' {..} =
+    _salt `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceUri
 
-instance Prelude.NFData AssociateOpsItemRelatedItem
+instance Prelude.NFData AssociateOpsItemRelatedItem where
+  rnf AssociateOpsItemRelatedItem' {..} =
+    Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceUri
 
 instance Core.ToHeaders AssociateOpsItemRelatedItem where
   toHeaders =
@@ -238,3 +248,7 @@ associateOpsItemRelatedItemResponse_httpStatus = Lens.lens (\AssociateOpsItemRel
 instance
   Prelude.NFData
     AssociateOpsItemRelatedItemResponse
+  where
+  rnf AssociateOpsItemRelatedItemResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf httpStatus

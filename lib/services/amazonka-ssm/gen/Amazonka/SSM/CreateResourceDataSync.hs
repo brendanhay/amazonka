@@ -171,9 +171,19 @@ instance Core.AWSRequest CreateResourceDataSync where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResourceDataSync
+instance Prelude.Hashable CreateResourceDataSync where
+  hashWithSalt _salt CreateResourceDataSync' {..} =
+    _salt `Prelude.hashWithSalt` syncType
+      `Prelude.hashWithSalt` syncSource
+      `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` syncName
 
-instance Prelude.NFData CreateResourceDataSync
+instance Prelude.NFData CreateResourceDataSync where
+  rnf CreateResourceDataSync' {..} =
+    Prelude.rnf syncType
+      `Prelude.seq` Prelude.rnf syncSource
+      `Prelude.seq` Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf syncName
 
 instance Core.ToHeaders CreateResourceDataSync where
   toHeaders =
@@ -240,3 +250,6 @@ createResourceDataSyncResponse_httpStatus = Lens.lens (\CreateResourceDataSyncRe
 instance
   Prelude.NFData
     CreateResourceDataSyncResponse
+  where
+  rnf CreateResourceDataSyncResponse' {..} =
+    Prelude.rnf httpStatus

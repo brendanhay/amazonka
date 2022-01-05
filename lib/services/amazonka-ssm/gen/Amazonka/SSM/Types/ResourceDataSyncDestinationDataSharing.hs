@@ -72,10 +72,19 @@ instance
 instance
   Prelude.Hashable
     ResourceDataSyncDestinationDataSharing
+  where
+  hashWithSalt
+    _salt
+    ResourceDataSyncDestinationDataSharing' {..} =
+      _salt
+        `Prelude.hashWithSalt` destinationDataSharingType
 
 instance
   Prelude.NFData
     ResourceDataSyncDestinationDataSharing
+  where
+  rnf ResourceDataSyncDestinationDataSharing' {..} =
+    Prelude.rnf destinationDataSharingType
 
 instance
   Core.ToJSON

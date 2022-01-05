@@ -144,9 +144,12 @@ instance Core.AWSRequest ResetServiceSetting where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetServiceSetting
+instance Prelude.Hashable ResetServiceSetting where
+  hashWithSalt _salt ResetServiceSetting' {..} =
+    _salt `Prelude.hashWithSalt` settingId
 
-instance Prelude.NFData ResetServiceSetting
+instance Prelude.NFData ResetServiceSetting where
+  rnf ResetServiceSetting' {..} = Prelude.rnf settingId
 
 instance Core.ToHeaders ResetServiceSetting where
   toHeaders =
@@ -220,4 +223,7 @@ resetServiceSettingResponse_serviceSetting = Lens.lens (\ResetServiceSettingResp
 resetServiceSettingResponse_httpStatus :: Lens.Lens' ResetServiceSettingResponse Prelude.Int
 resetServiceSettingResponse_httpStatus = Lens.lens (\ResetServiceSettingResponse' {httpStatus} -> httpStatus) (\s@ResetServiceSettingResponse' {} a -> s {httpStatus = a} :: ResetServiceSettingResponse)
 
-instance Prelude.NFData ResetServiceSettingResponse
+instance Prelude.NFData ResetServiceSettingResponse where
+  rnf ResetServiceSettingResponse' {..} =
+    Prelude.rnf serviceSetting
+      `Prelude.seq` Prelude.rnf httpStatus

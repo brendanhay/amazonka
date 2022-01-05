@@ -165,6 +165,22 @@ instance Core.FromJSON PatchComplianceData where
             Prelude.<*> (x Core..: "InstalledTime")
       )
 
-instance Prelude.Hashable PatchComplianceData
+instance Prelude.Hashable PatchComplianceData where
+  hashWithSalt _salt PatchComplianceData' {..} =
+    _salt `Prelude.hashWithSalt` cVEIds
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` kBId
+      `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` installedTime
 
-instance Prelude.NFData PatchComplianceData
+instance Prelude.NFData PatchComplianceData where
+  rnf PatchComplianceData' {..} =
+    Prelude.rnf cVEIds
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf kBId
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf installedTime

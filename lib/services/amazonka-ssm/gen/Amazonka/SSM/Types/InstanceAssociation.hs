@@ -92,6 +92,16 @@ instance Core.FromJSON InstanceAssociation where
             Prelude.<*> (x Core..:? "AssociationVersion")
       )
 
-instance Prelude.Hashable InstanceAssociation
+instance Prelude.Hashable InstanceAssociation where
+  hashWithSalt _salt InstanceAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` associationVersion
 
-instance Prelude.NFData InstanceAssociation
+instance Prelude.NFData InstanceAssociation where
+  rnf InstanceAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf associationVersion

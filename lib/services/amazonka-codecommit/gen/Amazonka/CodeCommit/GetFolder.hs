@@ -141,9 +141,17 @@ instance Core.AWSRequest GetFolder where
             Prelude.<*> (x Core..:> "folderPath")
       )
 
-instance Prelude.Hashable GetFolder
+instance Prelude.Hashable GetFolder where
+  hashWithSalt _salt GetFolder' {..} =
+    _salt `Prelude.hashWithSalt` commitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` folderPath
 
-instance Prelude.NFData GetFolder
+instance Prelude.NFData GetFolder where
+  rnf GetFolder' {..} =
+    Prelude.rnf commitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf folderPath
 
 instance Core.ToHeaders GetFolder where
   toHeaders =
@@ -286,4 +294,13 @@ getFolderResponse_commitId = Lens.lens (\GetFolderResponse' {commitId} -> commit
 getFolderResponse_folderPath :: Lens.Lens' GetFolderResponse Prelude.Text
 getFolderResponse_folderPath = Lens.lens (\GetFolderResponse' {folderPath} -> folderPath) (\s@GetFolderResponse' {} a -> s {folderPath = a} :: GetFolderResponse)
 
-instance Prelude.NFData GetFolderResponse
+instance Prelude.NFData GetFolderResponse where
+  rnf GetFolderResponse' {..} =
+    Prelude.rnf subModules
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf subFolders
+      `Prelude.seq` Prelude.rnf symbolicLinks
+      `Prelude.seq` Prelude.rnf files
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf folderPath

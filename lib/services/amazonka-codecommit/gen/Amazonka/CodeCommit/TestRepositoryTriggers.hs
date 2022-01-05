@@ -110,9 +110,15 @@ instance Core.AWSRequest TestRepositoryTriggers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestRepositoryTriggers
+instance Prelude.Hashable TestRepositoryTriggers where
+  hashWithSalt _salt TestRepositoryTriggers' {..} =
+    _salt `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` triggers
 
-instance Prelude.NFData TestRepositoryTriggers
+instance Prelude.NFData TestRepositoryTriggers where
+  rnf TestRepositoryTriggers' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf triggers
 
 instance Core.ToHeaders TestRepositoryTriggers where
   toHeaders =
@@ -207,3 +213,8 @@ testRepositoryTriggersResponse_httpStatus = Lens.lens (\TestRepositoryTriggersRe
 instance
   Prelude.NFData
     TestRepositoryTriggersResponse
+  where
+  rnf TestRepositoryTriggersResponse' {..} =
+    Prelude.rnf failedExecutions
+      `Prelude.seq` Prelude.rnf successfulExecutions
+      `Prelude.seq` Prelude.rnf httpStatus

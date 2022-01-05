@@ -91,7 +91,19 @@ instance
 instance
   Prelude.Hashable
     PullRequestMergedStateChangedEventMetadata
+  where
+  hashWithSalt
+    _salt
+    PullRequestMergedStateChangedEventMetadata' {..} =
+      _salt `Prelude.hashWithSalt` destinationReference
+        `Prelude.hashWithSalt` mergeMetadata
+        `Prelude.hashWithSalt` repositoryName
 
 instance
   Prelude.NFData
     PullRequestMergedStateChangedEventMetadata
+  where
+  rnf PullRequestMergedStateChangedEventMetadata' {..} =
+    Prelude.rnf destinationReference
+      `Prelude.seq` Prelude.rnf mergeMetadata
+      `Prelude.seq` Prelude.rnf repositoryName

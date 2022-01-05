@@ -133,9 +133,21 @@ instance Core.FromJSON RepositoryTrigger where
             Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RepositoryTrigger
+instance Prelude.Hashable RepositoryTrigger where
+  hashWithSalt _salt RepositoryTrigger' {..} =
+    _salt `Prelude.hashWithSalt` branches
+      `Prelude.hashWithSalt` customData
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData RepositoryTrigger
+instance Prelude.NFData RepositoryTrigger where
+  rnf RepositoryTrigger' {..} =
+    Prelude.rnf branches
+      `Prelude.seq` Prelude.rnf customData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToJSON RepositoryTrigger where
   toJSON RepositoryTrigger' {..} =

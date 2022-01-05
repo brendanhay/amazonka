@@ -169,9 +169,21 @@ instance Core.AWSRequest ListPullRequests where
                         )
       )
 
-instance Prelude.Hashable ListPullRequests
+instance Prelude.Hashable ListPullRequests where
+  hashWithSalt _salt ListPullRequests' {..} =
+    _salt `Prelude.hashWithSalt` authorArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pullRequestStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData ListPullRequests
+instance Prelude.NFData ListPullRequests where
+  rnf ListPullRequests' {..} =
+    Prelude.rnf authorArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pullRequestStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders ListPullRequests where
   toHeaders =
@@ -259,4 +271,8 @@ listPullRequestsResponse_httpStatus = Lens.lens (\ListPullRequestsResponse' {htt
 listPullRequestsResponse_pullRequestIds :: Lens.Lens' ListPullRequestsResponse [Prelude.Text]
 listPullRequestsResponse_pullRequestIds = Lens.lens (\ListPullRequestsResponse' {pullRequestIds} -> pullRequestIds) (\s@ListPullRequestsResponse' {} a -> s {pullRequestIds = a} :: ListPullRequestsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPullRequestsResponse
+instance Prelude.NFData ListPullRequestsResponse where
+  rnf ListPullRequestsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pullRequestIds

@@ -114,9 +114,15 @@ instance Core.AWSRequest GetPullRequestOverrideState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPullRequestOverrideState
+instance Prelude.Hashable GetPullRequestOverrideState where
+  hashWithSalt _salt GetPullRequestOverrideState' {..} =
+    _salt `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData GetPullRequestOverrideState
+instance Prelude.NFData GetPullRequestOverrideState where
+  rnf GetPullRequestOverrideState' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders GetPullRequestOverrideState where
   toHeaders =
@@ -206,3 +212,8 @@ getPullRequestOverrideStateResponse_httpStatus = Lens.lens (\GetPullRequestOverr
 instance
   Prelude.NFData
     GetPullRequestOverrideStateResponse
+  where
+  rnf GetPullRequestOverrideStateResponse' {..} =
+    Prelude.rnf overridden
+      `Prelude.seq` Prelude.rnf overrider
+      `Prelude.seq` Prelude.rnf httpStatus

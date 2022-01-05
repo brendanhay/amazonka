@@ -213,9 +213,27 @@ instance Core.AWSRequest GetMergeConflicts where
                         )
       )
 
-instance Prelude.Hashable GetMergeConflicts
+instance Prelude.Hashable GetMergeConflicts where
+  hashWithSalt _salt GetMergeConflicts' {..} =
+    _salt `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxConflictFiles
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` mergeOption
 
-instance Prelude.NFData GetMergeConflicts
+instance Prelude.NFData GetMergeConflicts where
+  rnf GetMergeConflicts' {..} =
+    Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxConflictFiles
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf mergeOption
 
 instance Core.ToHeaders GetMergeConflicts where
   toHeaders =
@@ -372,4 +390,12 @@ getMergeConflictsResponse_sourceCommitId = Lens.lens (\GetMergeConflictsResponse
 getMergeConflictsResponse_conflictMetadataList :: Lens.Lens' GetMergeConflictsResponse [ConflictMetadata]
 getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsResponse' {conflictMetadataList} -> conflictMetadataList) (\s@GetMergeConflictsResponse' {} a -> s {conflictMetadataList = a} :: GetMergeConflictsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetMergeConflictsResponse
+instance Prelude.NFData GetMergeConflictsResponse where
+  rnf GetMergeConflictsResponse' {..} =
+    Prelude.rnf baseCommitId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mergeable
+      `Prelude.seq` Prelude.rnf destinationCommitId
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf conflictMetadataList

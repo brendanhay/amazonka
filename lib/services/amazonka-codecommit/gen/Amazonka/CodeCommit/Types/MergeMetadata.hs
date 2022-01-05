@@ -93,6 +93,16 @@ instance Core.FromJSON MergeMetadata where
             Prelude.<*> (x Core..:? "mergeCommitId")
       )
 
-instance Prelude.Hashable MergeMetadata
+instance Prelude.Hashable MergeMetadata where
+  hashWithSalt _salt MergeMetadata' {..} =
+    _salt `Prelude.hashWithSalt` mergedBy
+      `Prelude.hashWithSalt` mergeOption
+      `Prelude.hashWithSalt` isMerged
+      `Prelude.hashWithSalt` mergeCommitId
 
-instance Prelude.NFData MergeMetadata
+instance Prelude.NFData MergeMetadata where
+  rnf MergeMetadata' {..} =
+    Prelude.rnf mergedBy
+      `Prelude.seq` Prelude.rnf mergeOption
+      `Prelude.seq` Prelude.rnf isMerged
+      `Prelude.seq` Prelude.rnf mergeCommitId

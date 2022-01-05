@@ -262,8 +262,33 @@ instance
 instance
   Prelude.Hashable
     CreateUnreferencedMergeCommit
+  where
+  hashWithSalt _salt CreateUnreferencedMergeCommit' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` mergeOption
 
-instance Prelude.NFData CreateUnreferencedMergeCommit
+instance Prelude.NFData CreateUnreferencedMergeCommit where
+  rnf CreateUnreferencedMergeCommit' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf authorName
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf mergeOption
 
 instance Core.ToHeaders CreateUnreferencedMergeCommit where
   toHeaders =
@@ -369,3 +394,8 @@ createUnreferencedMergeCommitResponse_httpStatus = Lens.lens (\CreateUnreference
 instance
   Prelude.NFData
     CreateUnreferencedMergeCommitResponse
+  where
+  rnf CreateUnreferencedMergeCommitResponse' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf httpStatus

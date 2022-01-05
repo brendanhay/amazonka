@@ -108,6 +108,14 @@ instance Core.FromJSON BlobMetadata where
             Prelude.<*> (x Core..:? "blobId")
       )
 
-instance Prelude.Hashable BlobMetadata
+instance Prelude.Hashable BlobMetadata where
+  hashWithSalt _salt BlobMetadata' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` blobId
 
-instance Prelude.NFData BlobMetadata
+instance Prelude.NFData BlobMetadata where
+  rnf BlobMetadata' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf blobId

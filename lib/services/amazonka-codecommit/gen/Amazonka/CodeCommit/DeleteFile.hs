@@ -222,9 +222,27 @@ instance Core.AWSRequest DeleteFile where
             Prelude.<*> (x Core..:> "filePath")
       )
 
-instance Prelude.Hashable DeleteFile
+instance Prelude.Hashable DeleteFile where
+  hashWithSalt _salt DeleteFile' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` parentCommitId
 
-instance Prelude.NFData DeleteFile
+instance Prelude.NFData DeleteFile where
+  rnf DeleteFile' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf parentCommitId
 
 instance Core.ToHeaders DeleteFile where
   toHeaders =
@@ -352,4 +370,10 @@ deleteFileResponse_treeId = Lens.lens (\DeleteFileResponse' {treeId} -> treeId) 
 deleteFileResponse_filePath :: Lens.Lens' DeleteFileResponse Prelude.Text
 deleteFileResponse_filePath = Lens.lens (\DeleteFileResponse' {filePath} -> filePath) (\s@DeleteFileResponse' {} a -> s {filePath = a} :: DeleteFileResponse)
 
-instance Prelude.NFData DeleteFileResponse
+instance Prelude.NFData DeleteFileResponse where
+  rnf DeleteFileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf filePath

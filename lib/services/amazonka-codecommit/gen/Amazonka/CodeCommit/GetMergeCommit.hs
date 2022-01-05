@@ -173,9 +173,21 @@ instance Core.AWSRequest GetMergeCommit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMergeCommit
+instance Prelude.Hashable GetMergeCommit where
+  hashWithSalt _salt GetMergeCommit' {..} =
+    _salt `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` destinationCommitSpecifier
 
-instance Prelude.NFData GetMergeCommit
+instance Prelude.NFData GetMergeCommit where
+  rnf GetMergeCommit' {..} =
+    Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
 instance Core.ToHeaders GetMergeCommit where
   toHeaders =
@@ -297,4 +309,10 @@ getMergeCommitResponse_sourceCommitId = Lens.lens (\GetMergeCommitResponse' {sou
 getMergeCommitResponse_httpStatus :: Lens.Lens' GetMergeCommitResponse Prelude.Int
 getMergeCommitResponse_httpStatus = Lens.lens (\GetMergeCommitResponse' {httpStatus} -> httpStatus) (\s@GetMergeCommitResponse' {} a -> s {httpStatus = a} :: GetMergeCommitResponse)
 
-instance Prelude.NFData GetMergeCommitResponse
+instance Prelude.NFData GetMergeCommitResponse where
+  rnf GetMergeCommitResponse' {..} =
+    Prelude.rnf mergedCommitId
+      `Prelude.seq` Prelude.rnf destinationCommitId
+      `Prelude.seq` Prelude.rnf baseCommitId
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf httpStatus

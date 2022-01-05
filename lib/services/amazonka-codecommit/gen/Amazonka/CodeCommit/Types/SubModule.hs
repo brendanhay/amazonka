@@ -87,6 +87,14 @@ instance Core.FromJSON SubModule where
             Prelude.<*> (x Core..:? "relativePath")
       )
 
-instance Prelude.Hashable SubModule
+instance Prelude.Hashable SubModule where
+  hashWithSalt _salt SubModule' {..} =
+    _salt `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` absolutePath
+      `Prelude.hashWithSalt` relativePath
 
-instance Prelude.NFData SubModule
+instance Prelude.NFData SubModule where
+  rnf SubModule' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf relativePath

@@ -88,6 +88,14 @@ instance Core.FromJSON ReactionValueFormats where
             Prelude.<*> (x Core..:? "unicode")
       )
 
-instance Prelude.Hashable ReactionValueFormats
+instance Prelude.Hashable ReactionValueFormats where
+  hashWithSalt _salt ReactionValueFormats' {..} =
+    _salt `Prelude.hashWithSalt` emoji
+      `Prelude.hashWithSalt` shortCode
+      `Prelude.hashWithSalt` unicode
 
-instance Prelude.NFData ReactionValueFormats
+instance Prelude.NFData ReactionValueFormats where
+  rnf ReactionValueFormats' {..} =
+    Prelude.rnf emoji
+      `Prelude.seq` Prelude.rnf shortCode
+      `Prelude.seq` Prelude.rnf unicode

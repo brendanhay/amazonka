@@ -115,10 +115,22 @@ instance
 instance
   Prelude.Hashable
     UpdatePullRequestApprovalState
+  where
+  hashWithSalt
+    _salt
+    UpdatePullRequestApprovalState' {..} =
+      _salt `Prelude.hashWithSalt` pullRequestId
+        `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` approvalState
 
 instance
   Prelude.NFData
     UpdatePullRequestApprovalState
+  where
+  rnf UpdatePullRequestApprovalState' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf approvalState
 
 instance
   Core.ToHeaders
@@ -174,3 +186,5 @@ newUpdatePullRequestApprovalStateResponse =
 instance
   Prelude.NFData
     UpdatePullRequestApprovalStateResponse
+  where
+  rnf _ = ()

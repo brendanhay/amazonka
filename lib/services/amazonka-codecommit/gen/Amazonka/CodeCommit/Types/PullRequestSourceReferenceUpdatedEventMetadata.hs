@@ -109,7 +109,22 @@ instance
 instance
   Prelude.Hashable
     PullRequestSourceReferenceUpdatedEventMetadata
+  where
+  hashWithSalt
+    _salt
+    PullRequestSourceReferenceUpdatedEventMetadata' {..} =
+      _salt `Prelude.hashWithSalt` afterCommitId
+        `Prelude.hashWithSalt` beforeCommitId
+        `Prelude.hashWithSalt` mergeBase
+        `Prelude.hashWithSalt` repositoryName
 
 instance
   Prelude.NFData
     PullRequestSourceReferenceUpdatedEventMetadata
+  where
+  rnf
+    PullRequestSourceReferenceUpdatedEventMetadata' {..} =
+      Prelude.rnf afterCommitId
+        `Prelude.seq` Prelude.rnf beforeCommitId
+        `Prelude.seq` Prelude.rnf mergeBase
+        `Prelude.seq` Prelude.rnf repositoryName

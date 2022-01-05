@@ -224,8 +224,17 @@ instance
 instance
   Prelude.Hashable
     CreatePullRequestApprovalRule
+  where
+  hashWithSalt _salt CreatePullRequestApprovalRule' {..} =
+    _salt `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` approvalRuleName
+      `Prelude.hashWithSalt` approvalRuleContent
 
-instance Prelude.NFData CreatePullRequestApprovalRule
+instance Prelude.NFData CreatePullRequestApprovalRule where
+  rnf CreatePullRequestApprovalRule' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf approvalRuleName
+      `Prelude.seq` Prelude.rnf approvalRuleContent
 
 instance Core.ToHeaders CreatePullRequestApprovalRule where
   toHeaders =
@@ -307,3 +316,7 @@ createPullRequestApprovalRuleResponse_approvalRule = Lens.lens (\CreatePullReque
 instance
   Prelude.NFData
     CreatePullRequestApprovalRuleResponse
+  where
+  rnf CreatePullRequestApprovalRuleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRule

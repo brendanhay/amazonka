@@ -100,6 +100,16 @@ instance Core.FromJSON Evaluation where
             Prelude.<*> (x Core..:? "overridden")
       )
 
-instance Prelude.Hashable Evaluation
+instance Prelude.Hashable Evaluation where
+  hashWithSalt _salt Evaluation' {..} =
+    _salt `Prelude.hashWithSalt` approvalRulesSatisfied
+      `Prelude.hashWithSalt` approvalRulesNotSatisfied
+      `Prelude.hashWithSalt` approved
+      `Prelude.hashWithSalt` overridden
 
-instance Prelude.NFData Evaluation
+instance Prelude.NFData Evaluation where
+  rnf Evaluation' {..} =
+    Prelude.rnf approvalRulesSatisfied
+      `Prelude.seq` Prelude.rnf approvalRulesNotSatisfied
+      `Prelude.seq` Prelude.rnf approved
+      `Prelude.seq` Prelude.rnf overridden

@@ -110,10 +110,21 @@ instance
 instance
   Prelude.Hashable
     AssociateApprovalRuleTemplateWithRepository
+  where
+  hashWithSalt
+    _salt
+    AssociateApprovalRuleTemplateWithRepository' {..} =
+      _salt
+        `Prelude.hashWithSalt` approvalRuleTemplateName
+        `Prelude.hashWithSalt` repositoryName
 
 instance
   Prelude.NFData
     AssociateApprovalRuleTemplateWithRepository
+  where
+  rnf AssociateApprovalRuleTemplateWithRepository' {..} =
+    Prelude.rnf approvalRuleTemplateName
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance
   Core.ToHeaders
@@ -180,3 +191,5 @@ newAssociateApprovalRuleTemplateWithRepositoryResponse =
 instance
   Prelude.NFData
     AssociateApprovalRuleTemplateWithRepositoryResponse
+  where
+  rnf _ = ()

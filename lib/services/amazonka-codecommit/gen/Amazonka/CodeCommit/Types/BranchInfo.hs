@@ -71,6 +71,12 @@ instance Core.FromJSON BranchInfo where
             Prelude.<*> (x Core..:? "branchName")
       )
 
-instance Prelude.Hashable BranchInfo
+instance Prelude.Hashable BranchInfo where
+  hashWithSalt _salt BranchInfo' {..} =
+    _salt `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData BranchInfo
+instance Prelude.NFData BranchInfo where
+  rnf BranchInfo' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf branchName

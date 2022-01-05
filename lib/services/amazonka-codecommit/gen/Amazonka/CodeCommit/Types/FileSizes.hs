@@ -81,6 +81,14 @@ instance Core.FromJSON FileSizes where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable FileSizes
+instance Prelude.Hashable FileSizes where
+  hashWithSalt _salt FileSizes' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData FileSizes
+instance Prelude.NFData FileSizes where
+  rnf FileSizes' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf base
+      `Prelude.seq` Prelude.rnf source

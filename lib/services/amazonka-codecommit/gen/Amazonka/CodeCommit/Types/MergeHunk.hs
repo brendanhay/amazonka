@@ -113,6 +113,16 @@ instance Core.FromJSON MergeHunk where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable MergeHunk
+instance Prelude.Hashable MergeHunk where
+  hashWithSalt _salt MergeHunk' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` isConflict
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData MergeHunk
+instance Prelude.NFData MergeHunk where
+  rnf MergeHunk' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf base
+      `Prelude.seq` Prelude.rnf isConflict
+      `Prelude.seq` Prelude.rnf source

@@ -72,6 +72,12 @@ instance Core.FromJSON RepositoryNameIdPair where
             Prelude.<*> (x Core..:? "repositoryName")
       )
 
-instance Prelude.Hashable RepositoryNameIdPair
+instance Prelude.Hashable RepositoryNameIdPair where
+  hashWithSalt _salt RepositoryNameIdPair' {..} =
+    _salt `Prelude.hashWithSalt` repositoryId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData RepositoryNameIdPair
+instance Prelude.NFData RepositoryNameIdPair where
+  rnf RepositoryNameIdPair' {..} =
+    Prelude.rnf repositoryId
+      `Prelude.seq` Prelude.rnf repositoryName

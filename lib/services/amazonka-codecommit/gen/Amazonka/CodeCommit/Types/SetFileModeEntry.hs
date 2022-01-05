@@ -66,9 +66,15 @@ setFileModeEntry_filePath = Lens.lens (\SetFileModeEntry' {filePath} -> filePath
 setFileModeEntry_fileMode :: Lens.Lens' SetFileModeEntry FileModeTypeEnum
 setFileModeEntry_fileMode = Lens.lens (\SetFileModeEntry' {fileMode} -> fileMode) (\s@SetFileModeEntry' {} a -> s {fileMode = a} :: SetFileModeEntry)
 
-instance Prelude.Hashable SetFileModeEntry
+instance Prelude.Hashable SetFileModeEntry where
+  hashWithSalt _salt SetFileModeEntry' {..} =
+    _salt `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` fileMode
 
-instance Prelude.NFData SetFileModeEntry
+instance Prelude.NFData SetFileModeEntry where
+  rnf SetFileModeEntry' {..} =
+    Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf fileMode
 
 instance Core.ToJSON SetFileModeEntry where
   toJSON SetFileModeEntry' {..} =

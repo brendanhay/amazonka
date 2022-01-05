@@ -189,9 +189,23 @@ instance Core.AWSRequest GetCommentsForPullRequest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCommentsForPullRequest
+instance Prelude.Hashable GetCommentsForPullRequest where
+  hashWithSalt _salt GetCommentsForPullRequest' {..} =
+    _salt `Prelude.hashWithSalt` afterCommitId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` pullRequestId
 
-instance Prelude.NFData GetCommentsForPullRequest
+instance Prelude.NFData GetCommentsForPullRequest where
+  rnf GetCommentsForPullRequest' {..} =
+    Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf pullRequestId
 
 instance Core.ToHeaders GetCommentsForPullRequest where
   toHeaders =
@@ -284,3 +298,8 @@ getCommentsForPullRequestResponse_httpStatus = Lens.lens (\GetCommentsForPullReq
 instance
   Prelude.NFData
     GetCommentsForPullRequestResponse
+  where
+  rnf GetCommentsForPullRequestResponse' {..} =
+    Prelude.rnf commentsForPullRequestData
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

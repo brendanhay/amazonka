@@ -64,9 +64,15 @@ sourceFileSpecifier_isMove = Lens.lens (\SourceFileSpecifier' {isMove} -> isMove
 sourceFileSpecifier_filePath :: Lens.Lens' SourceFileSpecifier Prelude.Text
 sourceFileSpecifier_filePath = Lens.lens (\SourceFileSpecifier' {filePath} -> filePath) (\s@SourceFileSpecifier' {} a -> s {filePath = a} :: SourceFileSpecifier)
 
-instance Prelude.Hashable SourceFileSpecifier
+instance Prelude.Hashable SourceFileSpecifier where
+  hashWithSalt _salt SourceFileSpecifier' {..} =
+    _salt `Prelude.hashWithSalt` isMove
+      `Prelude.hashWithSalt` filePath
 
-instance Prelude.NFData SourceFileSpecifier
+instance Prelude.NFData SourceFileSpecifier where
+  rnf SourceFileSpecifier' {..} =
+    Prelude.rnf isMove
+      `Prelude.seq` Prelude.rnf filePath
 
 instance Core.ToJSON SourceFileSpecifier where
   toJSON SourceFileSpecifier' {..} =

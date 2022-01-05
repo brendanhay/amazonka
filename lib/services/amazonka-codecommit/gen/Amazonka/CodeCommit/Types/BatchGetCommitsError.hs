@@ -87,6 +87,14 @@ instance Core.FromJSON BatchGetCommitsError where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable BatchGetCommitsError
+instance Prelude.Hashable BatchGetCommitsError where
+  hashWithSalt _salt BatchGetCommitsError' {..} =
+    _salt `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData BatchGetCommitsError
+instance Prelude.NFData BatchGetCommitsError where
+  rnf BatchGetCommitsError' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

@@ -234,9 +234,31 @@ instance Core.AWSRequest MergePullRequestByThreeWay where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergePullRequestByThreeWay
+instance Prelude.Hashable MergePullRequestByThreeWay where
+  hashWithSalt _salt MergePullRequestByThreeWay' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` sourceCommitId
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData MergePullRequestByThreeWay
+instance Prelude.NFData MergePullRequestByThreeWay where
+  rnf MergePullRequestByThreeWay' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf authorName
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders MergePullRequestByThreeWay where
   toHeaders =
@@ -323,3 +345,7 @@ mergePullRequestByThreeWayResponse_httpStatus = Lens.lens (\MergePullRequestByTh
 instance
   Prelude.NFData
     MergePullRequestByThreeWayResponse
+  where
+  rnf MergePullRequestByThreeWayResponse' {..} =
+    Prelude.rnf pullRequest
+      `Prelude.seq` Prelude.rnf httpStatus

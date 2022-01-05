@@ -82,6 +82,14 @@ instance Core.FromJSON ApprovalRuleEventMetadata where
             Prelude.<*> (x Core..:? "approvalRuleContent")
       )
 
-instance Prelude.Hashable ApprovalRuleEventMetadata
+instance Prelude.Hashable ApprovalRuleEventMetadata where
+  hashWithSalt _salt ApprovalRuleEventMetadata' {..} =
+    _salt `Prelude.hashWithSalt` approvalRuleName
+      `Prelude.hashWithSalt` approvalRuleId
+      `Prelude.hashWithSalt` approvalRuleContent
 
-instance Prelude.NFData ApprovalRuleEventMetadata
+instance Prelude.NFData ApprovalRuleEventMetadata where
+  rnf ApprovalRuleEventMetadata' {..} =
+    Prelude.rnf approvalRuleName
+      `Prelude.seq` Prelude.rnf approvalRuleId
+      `Prelude.seq` Prelude.rnf approvalRuleContent

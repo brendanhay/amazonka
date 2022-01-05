@@ -176,6 +176,28 @@ instance Core.FromJSON Comment where
                         )
       )
 
-instance Prelude.Hashable Comment
+instance Prelude.Hashable Comment where
+  hashWithSalt _salt Comment' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` authorArn
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` callerReactions
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` deleted
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` commentId
+      `Prelude.hashWithSalt` inReplyTo
+      `Prelude.hashWithSalt` reactionCounts
 
-instance Prelude.NFData Comment
+instance Prelude.NFData Comment where
+  rnf Comment' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf authorArn
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf callerReactions
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf inReplyTo
+      `Prelude.seq` Prelude.rnf reactionCounts

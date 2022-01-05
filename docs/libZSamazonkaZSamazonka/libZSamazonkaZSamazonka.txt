@@ -628,21 +628,21 @@ module Amazonka.Env
 
 -- | Creates a new environment with a new <tt>Manager</tt> without debug
 --   logging and uses <a>getAuth</a> to expand/discover the supplied
---   <a>Credentials</a>. Lenses from <tt>AWSEnv</tt> can be used to further
---   configure the resulting <a>Env</a>.
+--   <a>Credentials</a>. Lenses can be used to further configure the
+--   resulting <a>Env</a>.
 --   
 --   <i>Since:</i> <tt>1.5.0</tt> - The region is now retrieved from the
 --   <tt>AWS_REGION</tt> environment variable (identical to official SDKs),
 --   or defaults to <tt>us-east-1</tt>. You can override the <a>Env</a>
---   region by using <tt>envRegion</tt>, or the current operation's region
---   by using <a>within</a>.
+--   region by using <a>envRegion</a>, or the current operation's region by
+--   using <a>within</a>.
 --   
 --   <i>Since:</i> <tt>1.3.6</tt> - The default logic for retrying
 --   <a>HttpException</a>s now uses <a>retryConnectionFailure</a> to retry
 --   specific connection failure conditions up to 3 times. Previously only
 --   service specific errors were automatically retried. This can be
 --   reverted to the old behaviour by resetting the <a>Env</a> using
---   <tt>envRetryCheck</tt> lens to <tt>(\_ _ -&gt; False)</tt>.
+--   <a>envRetryCheck</a> lens to <tt>(\_ _ -&gt; False)</tt>.
 --   
 --   Throws <a>AuthError</a> when environment variables or IAM profiles
 --   cannot be read.
@@ -713,10 +713,16 @@ once :: Env -> Env
 --   <li>This <a>timeout</a>, if set.</li>
 --   <li>The related <a>Service</a> timeout for the sent request if set.
 --   (Usually 70s)</li>
---   <li>The <tt>envManager</tt> timeout if set.</li>
+--   <li>The <a>envManager</a> timeout if set.</li>
 --   <li>The default <a>ClientRequest</a> timeout. (Approximately 30s)</li>
 --   </ul>
 timeout :: Seconds -> Env -> Env
+envRegion :: Lens' (Env' withAuth) Region
+envLogger :: Lens' (Env' withAuth) Logger
+envRetryCheck :: Lens' (Env' withAuth) (Int -> HttpException -> Bool)
+envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
+envManager :: Lens' (Env' withAuth) Manager
+envAuth :: Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
 
 -- | Retry the subset of transport specific errors encompassing connection
 --   failure up to the specific number of times.
@@ -837,21 +843,21 @@ type EnvNoAuth = Env' Proxy
 
 -- | Creates a new environment with a new <tt>Manager</tt> without debug
 --   logging and uses <a>getAuth</a> to expand/discover the supplied
---   <a>Credentials</a>. Lenses from <tt>AWSEnv</tt> can be used to further
---   configure the resulting <a>Env</a>.
+--   <a>Credentials</a>. Lenses can be used to further configure the
+--   resulting <a>Env</a>.
 --   
 --   <i>Since:</i> <tt>1.5.0</tt> - The region is now retrieved from the
 --   <tt>AWS_REGION</tt> environment variable (identical to official SDKs),
 --   or defaults to <tt>us-east-1</tt>. You can override the <a>Env</a>
---   region by using <tt>envRegion</tt>, or the current operation's region
---   by using <a>within</a>.
+--   region by using <a>envRegion</a>, or the current operation's region by
+--   using <a>within</a>.
 --   
 --   <i>Since:</i> <tt>1.3.6</tt> - The default logic for retrying
 --   <a>HttpException</a>s now uses <a>retryConnectionFailure</a> to retry
 --   specific connection failure conditions up to 3 times. Previously only
 --   service specific errors were automatically retried. This can be
 --   reverted to the old behaviour by resetting the <a>Env</a> using
---   <tt>envRetryCheck</tt> lens to <tt>(\_ _ -&gt; False)</tt>.
+--   <a>envRetryCheck</a> lens to <tt>(\_ _ -&gt; False)</tt>.
 --   
 --   Throws <a>AuthError</a> when environment variables or IAM profiles
 --   cannot be read.
@@ -906,10 +912,16 @@ once :: Env -> Env
 --   <li>This <a>timeout</a>, if set.</li>
 --   <li>The related <a>Service</a> timeout for the sent request if set.
 --   (Usually 70s)</li>
---   <li>The <tt>envManager</tt> timeout if set.</li>
+--   <li>The <a>envManager</a> timeout if set.</li>
 --   <li>The default <a>ClientRequest</a> timeout. (Approximately 30s)</li>
 --   </ul>
 timeout :: Seconds -> Env -> Env
+envRegion :: Lens' (Env' withAuth) Region
+envLogger :: Lens' (Env' withAuth) Logger
+envRetryCheck :: Lens' (Env' withAuth) (Int -> HttpException -> Bool)
+envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
+envManager :: Lens' (Env' withAuth) Manager
+envAuth :: Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
 
 -- | Unwrap a <a>ResourceT</a> transformer, and call all registered release
 --   actions.

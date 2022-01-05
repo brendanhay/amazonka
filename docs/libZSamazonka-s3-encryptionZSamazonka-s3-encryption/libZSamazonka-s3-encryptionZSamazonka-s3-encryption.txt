@@ -36,14 +36,14 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anJa
-_EncryptionError :: AsEncryptionError r_anJa => Prism' r_anJa EncryptionError
-_CipherFailure :: AsEncryptionError r_anJa => Prism' r_anJa CryptoError
-_PubKeyFailure :: AsEncryptionError r_anJa => Prism' r_anJa Error
-_IVInvalid :: AsEncryptionError r_anJa => Prism' r_anJa ByteString
-_EnvelopeMissing :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anJa => Prism' r_anJa ()
+class AsEncryptionError r_anJg
+_EncryptionError :: AsEncryptionError r_anJg => Prism' r_anJg EncryptionError
+_CipherFailure :: AsEncryptionError r_anJg => Prism' r_anJg CryptoError
+_PubKeyFailure :: AsEncryptionError r_anJg => Prism' r_anJg Error
+_IVInvalid :: AsEncryptionError r_anJg => Prism' r_anJg ByteString
+_EnvelopeMissing :: AsEncryptionError r_anJg => Prism' r_anJg (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anJg => Prism' r_anJg (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anJg => Prism' r_anJg ()
 data ContentAlgorithm
 
 -- | AES<i>CBC</i>PKCS5Padding
@@ -432,11 +432,11 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anJa
-_EncryptionError :: AsEncryptionError r_anJa => Prism' r_anJa EncryptionError
-_CipherFailure :: AsEncryptionError r_anJa => Prism' r_anJa CryptoError
-_PubKeyFailure :: AsEncryptionError r_anJa => Prism' r_anJa Error
-_IVInvalid :: AsEncryptionError r_anJa => Prism' r_anJa ByteString
-_EnvelopeMissing :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anJa => Prism' r_anJa ()
+class AsEncryptionError r_anJg
+_EncryptionError :: AsEncryptionError r_anJg => Prism' r_anJg EncryptionError
+_CipherFailure :: AsEncryptionError r_anJg => Prism' r_anJg CryptoError
+_PubKeyFailure :: AsEncryptionError r_anJg => Prism' r_anJg Error
+_IVInvalid :: AsEncryptionError r_anJg => Prism' r_anJg ByteString
+_EnvelopeMissing :: AsEncryptionError r_anJg => Prism' r_anJg (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anJg => Prism' r_anJg (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anJg => Prism' r_anJg ()

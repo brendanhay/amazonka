@@ -32,17 +32,16 @@ example k = do
     -- A standard AWS environment with credentials is created using <code><a href="../libZSamazonkaZSamazonka/Amazonka-Env.html#v:newEnv" title="Amazonka.Env">newEnv</a></code>:
     e &lt;- newEnv Frankfurt Discover
 
-    -- The environment needed for encryption is then extended using a <code><a href="Amazonka-S3-Encryption.html#t:Key" title="Amazonka.S3.Encryption">Key</a></code>:
-    runAWS (KeyEnv e (kmsKey &quot;alias/master-key&quot;)) $ do
+    runResourceT $ do
         -- To store an encrypted object, <code><a href="Amazonka-S3-Encryption.html#v:encrypt" title="Amazonka.S3.Encryption">encrypt</a></code> is used inplace of where you would
         -- typically use <code><a href="../libZSamazonkaZSamazonka/Amazonka.html#v:send" title="Amazonka">send</a></code>:
-        _  &lt;- encrypt (putObject &quot;bucket-name&quot; &quot;object-key&quot; body)
+        _ &lt;- encrypt (kmsKey &quot;alias/master-key&quot;) e (putObject &quot;bucket-name&quot; &quot;object-key&quot; body)
 
         -- To retrieve a previously encrypted object, <code><a href="Amazonka-S3-Encryption.html#v:decrypt" title="Amazonka.S3.Encryption">decrypt</a></code> is used, again similarly to
         -- how you'd use <code><a href="../libZSamazonkaZSamazonka/Amazonka.html#v:send" title="Amazonka">send</a></code>:
-        rs &lt;- decrypt (getObject &quot;bucket-name&quot; &quot;object-key&quot;)
+        rs &lt;- decrypt (kmsKey &quot;alias/master-key&quot;) e (getObject &quot;bucket-name&quot; &quot;object-key&quot;)
 
-        -- The <code><a href="../libZSservicesZSamazonka-s3ZSamazonka-s3/Amazonka-S3-GetObject.html#t:GetObjectResponse" title="Amazonka.S3.GetObject">GetObjectResponse</a></code> here contains a <code>gorsBody</code> that is decrypted during read:
+        -- The <code><a href="../libZSservicesZSamazonka-s3ZSamazonka-s3/Amazonka-S3-GetObject.html#t:GetObjectResponse" title="Amazonka.S3.GetObject">GetObjectResponse</a></code> here contains a <code>body</code> that is decrypted during read:
         return rs
 </pre></div><a href="#g:2" id="g:2"><h1>Specifying Master Keys</h1></a><div class="doc"><p>You master key should be stored and secured by you alone (or KMS). The specific
  key that is used to encrypt an object is required to decrypt the same object.

@@ -164,9 +164,25 @@ instance Core.AWSRequest GetInsightSummaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightSummaries
+instance Prelude.Hashable GetInsightSummaries where
+  hashWithSalt _salt GetInsightSummaries' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` groupARN
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData GetInsightSummaries
+instance Prelude.NFData GetInsightSummaries where
+  rnf GetInsightSummaries' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupARN
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders GetInsightSummaries where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,4 +264,8 @@ getInsightSummariesResponse_nextToken = Lens.lens (\GetInsightSummariesResponse'
 getInsightSummariesResponse_httpStatus :: Lens.Lens' GetInsightSummariesResponse Prelude.Int
 getInsightSummariesResponse_httpStatus = Lens.lens (\GetInsightSummariesResponse' {httpStatus} -> httpStatus) (\s@GetInsightSummariesResponse' {} a -> s {httpStatus = a} :: GetInsightSummariesResponse)
 
-instance Prelude.NFData GetInsightSummariesResponse
+instance Prelude.NFData GetInsightSummariesResponse where
+  rnf GetInsightSummariesResponse' {..} =
+    Prelude.rnf insightSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

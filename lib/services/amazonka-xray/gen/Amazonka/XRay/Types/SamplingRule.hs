@@ -235,9 +235,37 @@ instance Core.FromJSON SamplingRule where
             Prelude.<*> (x Core..: "Version")
       )
 
-instance Prelude.Hashable SamplingRule
+instance Prelude.Hashable SamplingRule where
+  hashWithSalt _salt SamplingRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` ruleARN
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` fixedRate
+      `Prelude.hashWithSalt` reservoirSize
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` hTTPMethod
+      `Prelude.hashWithSalt` uRLPath
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData SamplingRule
+instance Prelude.NFData SamplingRule where
+  rnf SamplingRule' {..} =
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf ruleARN
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf fixedRate
+      `Prelude.seq` Prelude.rnf reservoirSize
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf hTTPMethod
+      `Prelude.seq` Prelude.rnf uRLPath
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON SamplingRule where
   toJSON SamplingRule' {..} =

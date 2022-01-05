@@ -82,6 +82,14 @@ instance Core.FromJSON UnprocessedTraceSegment where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable UnprocessedTraceSegment
+instance Prelude.Hashable UnprocessedTraceSegment where
+  hashWithSalt _salt UnprocessedTraceSegment' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData UnprocessedTraceSegment
+instance Prelude.NFData UnprocessedTraceSegment where
+  rnf UnprocessedTraceSegment' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf message

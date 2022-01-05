@@ -305,6 +305,48 @@ instance Core.FromJSON TraceSummary where
             Prelude.<*> (x Core..:? "ResponseTime")
       )
 
-instance Prelude.Hashable TraceSummary
+instance Prelude.Hashable TraceSummary where
+  hashWithSalt _salt TraceSummary' {..} =
+    _salt `Prelude.hashWithSalt` annotations
+      `Prelude.hashWithSalt` hasThrottle
+      `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` hasFault
+      `Prelude.hashWithSalt` serviceIds
+      `Prelude.hashWithSalt` matchedEventTime
+      `Prelude.hashWithSalt` isPartial
+      `Prelude.hashWithSalt` errorRootCauses
+      `Prelude.hashWithSalt` resourceARNs
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` responseTimeRootCauses
+      `Prelude.hashWithSalt` hasError
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` faultRootCauses
+      `Prelude.hashWithSalt` responseTime
 
-instance Prelude.NFData TraceSummary
+instance Prelude.NFData TraceSummary where
+  rnf TraceSummary' {..} =
+    Prelude.rnf annotations
+      `Prelude.seq` Prelude.rnf hasThrottle
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf hasFault
+      `Prelude.seq` Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf matchedEventTime
+      `Prelude.seq` Prelude.rnf isPartial
+      `Prelude.seq` Prelude.rnf errorRootCauses
+      `Prelude.seq` Prelude.rnf resourceARNs
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf responseTimeRootCauses
+      `Prelude.seq` Prelude.rnf hasError
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf faultRootCauses
+      `Prelude.seq` Prelude.rnf responseTime

@@ -70,9 +70,12 @@ instance Core.AWSRequest GetEncryptionConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEncryptionConfig
+instance Prelude.Hashable GetEncryptionConfig where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetEncryptionConfig
+instance Prelude.NFData GetEncryptionConfig where
+  rnf _ = ()
 
 instance Core.ToHeaders GetEncryptionConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,4 +128,7 @@ getEncryptionConfigResponse_encryptionConfig = Lens.lens (\GetEncryptionConfigRe
 getEncryptionConfigResponse_httpStatus :: Lens.Lens' GetEncryptionConfigResponse Prelude.Int
 getEncryptionConfigResponse_httpStatus = Lens.lens (\GetEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@GetEncryptionConfigResponse' {} a -> s {httpStatus = a} :: GetEncryptionConfigResponse)
 
-instance Prelude.NFData GetEncryptionConfigResponse
+instance Prelude.NFData GetEncryptionConfigResponse where
+  rnf GetEncryptionConfigResponse' {..} =
+    Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf httpStatus

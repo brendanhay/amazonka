@@ -119,9 +119,15 @@ instance Core.AWSRequest GetTraceGraph where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTraceGraph
+instance Prelude.Hashable GetTraceGraph where
+  hashWithSalt _salt GetTraceGraph' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` traceIds
 
-instance Prelude.NFData GetTraceGraph
+instance Prelude.NFData GetTraceGraph where
+  rnf GetTraceGraph' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf traceIds
 
 instance Core.ToHeaders GetTraceGraph where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,4 +194,8 @@ getTraceGraphResponse_services = Lens.lens (\GetTraceGraphResponse' {services} -
 getTraceGraphResponse_httpStatus :: Lens.Lens' GetTraceGraphResponse Prelude.Int
 getTraceGraphResponse_httpStatus = Lens.lens (\GetTraceGraphResponse' {httpStatus} -> httpStatus) (\s@GetTraceGraphResponse' {} a -> s {httpStatus = a} :: GetTraceGraphResponse)
 
-instance Prelude.NFData GetTraceGraphResponse
+instance Prelude.NFData GetTraceGraphResponse where
+  rnf GetTraceGraphResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf httpStatus

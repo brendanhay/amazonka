@@ -89,9 +89,13 @@ instance Core.AWSRequest UpdateSamplingRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSamplingRule
+instance Prelude.Hashable UpdateSamplingRule where
+  hashWithSalt _salt UpdateSamplingRule' {..} =
+    _salt `Prelude.hashWithSalt` samplingRuleUpdate
 
-instance Prelude.NFData UpdateSamplingRule
+instance Prelude.NFData UpdateSamplingRule where
+  rnf UpdateSamplingRule' {..} =
+    Prelude.rnf samplingRuleUpdate
 
 instance Core.ToHeaders UpdateSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,4 +154,7 @@ updateSamplingRuleResponse_samplingRuleRecord = Lens.lens (\UpdateSamplingRuleRe
 updateSamplingRuleResponse_httpStatus :: Lens.Lens' UpdateSamplingRuleResponse Prelude.Int
 updateSamplingRuleResponse_httpStatus = Lens.lens (\UpdateSamplingRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateSamplingRuleResponse' {} a -> s {httpStatus = a} :: UpdateSamplingRuleResponse)
 
-instance Prelude.NFData UpdateSamplingRuleResponse
+instance Prelude.NFData UpdateSamplingRuleResponse where
+  rnf UpdateSamplingRuleResponse' {..} =
+    Prelude.rnf samplingRuleRecord
+      `Prelude.seq` Prelude.rnf httpStatus

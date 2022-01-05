@@ -62,6 +62,10 @@ instance Core.FromJSON InsightImpactGraphEdge where
             Prelude.<$> (x Core..:? "ReferenceId")
       )
 
-instance Prelude.Hashable InsightImpactGraphEdge
+instance Prelude.Hashable InsightImpactGraphEdge where
+  hashWithSalt _salt InsightImpactGraphEdge' {..} =
+    _salt `Prelude.hashWithSalt` referenceId
 
-instance Prelude.NFData InsightImpactGraphEdge
+instance Prelude.NFData InsightImpactGraphEdge where
+  rnf InsightImpactGraphEdge' {..} =
+    Prelude.rnf referenceId

@@ -73,6 +73,12 @@ instance Core.FromJSON ForecastStatistics where
             Prelude.<*> (x Core..:? "FaultCountHigh")
       )
 
-instance Prelude.Hashable ForecastStatistics
+instance Prelude.Hashable ForecastStatistics where
+  hashWithSalt _salt ForecastStatistics' {..} =
+    _salt `Prelude.hashWithSalt` faultCountLow
+      `Prelude.hashWithSalt` faultCountHigh
 
-instance Prelude.NFData ForecastStatistics
+instance Prelude.NFData ForecastStatistics where
+  rnf ForecastStatistics' {..} =
+    Prelude.rnf faultCountLow
+      `Prelude.seq` Prelude.rnf faultCountHigh

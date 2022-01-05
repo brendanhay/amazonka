@@ -58,6 +58,9 @@ instance Core.FromJSON InstanceIdDetail where
           InstanceIdDetail' Prelude.<$> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable InstanceIdDetail
+instance Prelude.Hashable InstanceIdDetail where
+  hashWithSalt _salt InstanceIdDetail' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InstanceIdDetail
+instance Prelude.NFData InstanceIdDetail where
+  rnf InstanceIdDetail' {..} = Prelude.rnf id

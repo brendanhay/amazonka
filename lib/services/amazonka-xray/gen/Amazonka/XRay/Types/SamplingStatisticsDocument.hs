@@ -116,9 +116,23 @@ samplingStatisticsDocument_requestCount = Lens.lens (\SamplingStatisticsDocument
 samplingStatisticsDocument_sampledCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
 samplingStatisticsDocument_sampledCount = Lens.lens (\SamplingStatisticsDocument' {sampledCount} -> sampledCount) (\s@SamplingStatisticsDocument' {} a -> s {sampledCount = a} :: SamplingStatisticsDocument)
 
-instance Prelude.Hashable SamplingStatisticsDocument
+instance Prelude.Hashable SamplingStatisticsDocument where
+  hashWithSalt _salt SamplingStatisticsDocument' {..} =
+    _salt `Prelude.hashWithSalt` borrowCount
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` clientID
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` requestCount
+      `Prelude.hashWithSalt` sampledCount
 
-instance Prelude.NFData SamplingStatisticsDocument
+instance Prelude.NFData SamplingStatisticsDocument where
+  rnf SamplingStatisticsDocument' {..} =
+    Prelude.rnf borrowCount
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf clientID
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf requestCount
+      `Prelude.seq` Prelude.rnf sampledCount
 
 instance Core.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =

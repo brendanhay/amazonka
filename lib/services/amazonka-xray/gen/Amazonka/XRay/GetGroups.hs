@@ -105,9 +105,12 @@ instance Core.AWSRequest GetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGroups
+instance Prelude.Hashable GetGroups where
+  hashWithSalt _salt GetGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetGroups
+instance Prelude.NFData GetGroups where
+  rnf GetGroups' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders GetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +175,8 @@ getGroupsResponse_nextToken = Lens.lens (\GetGroupsResponse' {nextToken} -> next
 getGroupsResponse_httpStatus :: Lens.Lens' GetGroupsResponse Prelude.Int
 getGroupsResponse_httpStatus = Lens.lens (\GetGroupsResponse' {httpStatus} -> httpStatus) (\s@GetGroupsResponse' {} a -> s {httpStatus = a} :: GetGroupsResponse)
 
-instance Prelude.NFData GetGroupsResponse
+instance Prelude.NFData GetGroupsResponse where
+  rnf GetGroupsResponse' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

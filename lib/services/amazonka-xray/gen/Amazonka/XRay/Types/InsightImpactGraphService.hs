@@ -160,6 +160,20 @@ instance Core.FromJSON InsightImpactGraphService where
             Prelude.<*> (x Core..:? "Edges" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InsightImpactGraphService
+instance Prelude.Hashable InsightImpactGraphService where
+  hashWithSalt _salt InsightImpactGraphService' {..} =
+    _salt `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` edges
 
-instance Prelude.NFData InsightImpactGraphService
+instance Prelude.NFData InsightImpactGraphService where
+  rnf InsightImpactGraphService' {..} =
+    Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf edges

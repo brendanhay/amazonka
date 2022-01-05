@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDevice
+instance Prelude.Hashable DescribeDevice where
+  hashWithSalt _salt DescribeDevice' {..} =
+    _salt `Prelude.hashWithSalt` managedDeviceId
 
-instance Prelude.NFData DescribeDevice
+instance Prelude.NFData DescribeDevice where
+  rnf DescribeDevice' {..} = Prelude.rnf managedDeviceId
 
 instance Core.ToHeaders DescribeDevice where
   toHeaders =
@@ -284,4 +287,17 @@ describeDeviceResponse_tags = Lens.lens (\DescribeDeviceResponse' {tags} -> tags
 describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
 describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceResponse' {} a -> s {httpStatus = a} :: DescribeDeviceResponse)
 
-instance Prelude.NFData DescribeDeviceResponse
+instance Prelude.NFData DescribeDeviceResponse where
+  rnf DescribeDeviceResponse' {..} =
+    Prelude.rnf deviceState
+      `Prelude.seq` Prelude.rnf deviceCapacities
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf associatedWithJob
+      `Prelude.seq` Prelude.rnf lastReachedOutAt
+      `Prelude.seq` Prelude.rnf software
+      `Prelude.seq` Prelude.rnf physicalNetworkInterfaces
+      `Prelude.seq` Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf managedDeviceArn
+      `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

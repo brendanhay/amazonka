@@ -100,6 +100,16 @@ instance Core.FromJSON TaskSummary where
             Prelude.<*> (x Core..: "taskId")
       )
 
-instance Prelude.Hashable TaskSummary
+instance Prelude.Hashable TaskSummary where
+  hashWithSalt _salt TaskSummary' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData TaskSummary
+instance Prelude.NFData TaskSummary where
+  rnf TaskSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf taskId

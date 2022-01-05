@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExecution
+instance Prelude.Hashable DescribeExecution where
+  hashWithSalt _salt DescribeExecution' {..} =
+    _salt `Prelude.hashWithSalt` managedDeviceId
+      `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData DescribeExecution
+instance Prelude.NFData DescribeExecution where
+  rnf DescribeExecution' {..} =
+    Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf taskId
 
 instance Core.ToHeaders DescribeExecution where
   toHeaders =
@@ -226,4 +232,12 @@ describeExecutionResponse_managedDeviceId = Lens.lens (\DescribeExecutionRespons
 describeExecutionResponse_httpStatus :: Lens.Lens' DescribeExecutionResponse Prelude.Int
 describeExecutionResponse_httpStatus = Lens.lens (\DescribeExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeExecutionResponse' {} a -> s {httpStatus = a} :: DescribeExecutionResponse)
 
-instance Prelude.NFData DescribeExecutionResponse
+instance Prelude.NFData DescribeExecutionResponse where
+  rnf DescribeExecutionResponse' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf httpStatus

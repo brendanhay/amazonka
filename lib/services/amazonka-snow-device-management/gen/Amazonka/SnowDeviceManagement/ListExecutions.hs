@@ -143,9 +143,19 @@ instance Core.AWSRequest ListExecutions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListExecutions
+instance Prelude.Hashable ListExecutions where
+  hashWithSalt _salt ListExecutions' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData ListExecutions
+instance Prelude.NFData ListExecutions where
+  rnf ListExecutions' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf taskId
 
 instance Core.ToHeaders ListExecutions where
   toHeaders =
@@ -224,4 +234,8 @@ listExecutionsResponse_nextToken = Lens.lens (\ListExecutionsResponse' {nextToke
 listExecutionsResponse_httpStatus :: Lens.Lens' ListExecutionsResponse Prelude.Int
 listExecutionsResponse_httpStatus = Lens.lens (\ListExecutionsResponse' {httpStatus} -> httpStatus) (\s@ListExecutionsResponse' {} a -> s {httpStatus = a} :: ListExecutionsResponse)
 
-instance Prelude.NFData ListExecutionsResponse
+instance Prelude.NFData ListExecutionsResponse where
+  rnf ListExecutionsResponse' {..} =
+    Prelude.rnf executions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -190,6 +190,34 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "amiLaunchIndex")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` publicIpAddress
+      `Prelude.hashWithSalt` amiLaunchIndex
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf cpuOptions
+      `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf publicIpAddress
+      `Prelude.seq` Prelude.rnf amiLaunchIndex

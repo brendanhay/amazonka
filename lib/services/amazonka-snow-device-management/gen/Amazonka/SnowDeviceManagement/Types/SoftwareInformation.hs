@@ -85,6 +85,14 @@ instance Core.FromJSON SoftwareInformation where
             Prelude.<*> (x Core..:? "installingVersion")
       )
 
-instance Prelude.Hashable SoftwareInformation
+instance Prelude.Hashable SoftwareInformation where
+  hashWithSalt _salt SoftwareInformation' {..} =
+    _salt `Prelude.hashWithSalt` installedVersion
+      `Prelude.hashWithSalt` installState
+      `Prelude.hashWithSalt` installingVersion
 
-instance Prelude.NFData SoftwareInformation
+instance Prelude.NFData SoftwareInformation where
+  rnf SoftwareInformation' {..} =
+    Prelude.rnf installedVersion
+      `Prelude.seq` Prelude.rnf installState
+      `Prelude.seq` Prelude.rnf installingVersion

@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteGatewayResponse where
   response =
     Response.receiveNull DeleteGatewayResponseResponse'
 
-instance Prelude.Hashable DeleteGatewayResponse
+instance Prelude.Hashable DeleteGatewayResponse where
+  hashWithSalt _salt DeleteGatewayResponse' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` responseType
 
-instance Prelude.NFData DeleteGatewayResponse
+instance Prelude.NFData DeleteGatewayResponse where
+  rnf DeleteGatewayResponse' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf responseType
 
 instance Core.ToHeaders DeleteGatewayResponse where
   toHeaders =
@@ -141,4 +147,5 @@ newDeleteGatewayResponseResponse ::
 newDeleteGatewayResponseResponse =
   DeleteGatewayResponseResponse'
 
-instance Prelude.NFData DeleteGatewayResponseResponse
+instance Prelude.NFData DeleteGatewayResponseResponse where
+  rnf _ = ()

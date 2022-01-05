@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteUsagePlanKey where
   response =
     Response.receiveNull DeleteUsagePlanKeyResponse'
 
-instance Prelude.Hashable DeleteUsagePlanKey
+instance Prelude.Hashable DeleteUsagePlanKey where
+  hashWithSalt _salt DeleteUsagePlanKey' {..} =
+    _salt `Prelude.hashWithSalt` usagePlanId
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData DeleteUsagePlanKey
+instance Prelude.NFData DeleteUsagePlanKey where
+  rnf DeleteUsagePlanKey' {..} =
+    Prelude.rnf usagePlanId
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders DeleteUsagePlanKey where
   toHeaders =
@@ -141,4 +147,5 @@ newDeleteUsagePlanKeyResponse ::
 newDeleteUsagePlanKeyResponse =
   DeleteUsagePlanKeyResponse'
 
-instance Prelude.NFData DeleteUsagePlanKeyResponse
+instance Prelude.NFData DeleteUsagePlanKeyResponse where
+  rnf _ = ()

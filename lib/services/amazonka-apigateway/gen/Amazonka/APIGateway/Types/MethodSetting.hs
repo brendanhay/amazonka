@@ -243,6 +243,28 @@ instance Core.FromJSON MethodSetting where
                         )
       )
 
-instance Prelude.Hashable MethodSetting
+instance Prelude.Hashable MethodSetting where
+  hashWithSalt _salt MethodSetting' {..} =
+    _salt `Prelude.hashWithSalt` cacheTtlInSeconds
+      `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` throttlingBurstLimit
+      `Prelude.hashWithSalt` cacheDataEncrypted
+      `Prelude.hashWithSalt` loggingLevel
+      `Prelude.hashWithSalt` requireAuthorizationForCacheControl
+      `Prelude.hashWithSalt` cachingEnabled
+      `Prelude.hashWithSalt` metricsEnabled
+      `Prelude.hashWithSalt` throttlingRateLimit
+      `Prelude.hashWithSalt` unauthorizedCacheControlHeaderStrategy
 
-instance Prelude.NFData MethodSetting
+instance Prelude.NFData MethodSetting where
+  rnf MethodSetting' {..} =
+    Prelude.rnf cacheTtlInSeconds
+      `Prelude.seq` Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf throttlingBurstLimit
+      `Prelude.seq` Prelude.rnf cacheDataEncrypted
+      `Prelude.seq` Prelude.rnf loggingLevel
+      `Prelude.seq` Prelude.rnf requireAuthorizationForCacheControl
+      `Prelude.seq` Prelude.rnf cachingEnabled
+      `Prelude.seq` Prelude.rnf metricsEnabled
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
+      `Prelude.seq` Prelude.rnf unauthorizedCacheControlHeaderStrategy

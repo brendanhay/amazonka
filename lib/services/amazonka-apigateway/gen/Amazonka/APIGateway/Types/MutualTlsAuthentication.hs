@@ -116,6 +116,14 @@ instance Core.FromJSON MutualTlsAuthentication where
             Prelude.<*> (x Core..:? "truststoreVersion")
       )
 
-instance Prelude.Hashable MutualTlsAuthentication
+instance Prelude.Hashable MutualTlsAuthentication where
+  hashWithSalt _salt MutualTlsAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` truststoreWarnings
+      `Prelude.hashWithSalt` truststoreUri
+      `Prelude.hashWithSalt` truststoreVersion
 
-instance Prelude.NFData MutualTlsAuthentication
+instance Prelude.NFData MutualTlsAuthentication where
+  rnf MutualTlsAuthentication' {..} =
+    Prelude.rnf truststoreWarnings
+      `Prelude.seq` Prelude.rnf truststoreUri
+      `Prelude.seq` Prelude.rnf truststoreVersion

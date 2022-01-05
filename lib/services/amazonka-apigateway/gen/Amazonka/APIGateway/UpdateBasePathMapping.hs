@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateBasePathMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateBasePathMapping
+instance Prelude.Hashable UpdateBasePathMapping where
+  hashWithSalt _salt UpdateBasePathMapping' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` basePath
 
-instance Prelude.NFData UpdateBasePathMapping
+instance Prelude.NFData UpdateBasePathMapping where
+  rnf UpdateBasePathMapping' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf basePath
 
 instance Core.ToHeaders UpdateBasePathMapping where
   toHeaders =

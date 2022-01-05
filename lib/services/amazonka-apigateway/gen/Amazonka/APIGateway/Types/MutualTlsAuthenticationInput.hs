@@ -85,8 +85,15 @@ mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthentica
 instance
   Prelude.Hashable
     MutualTlsAuthenticationInput
+  where
+  hashWithSalt _salt MutualTlsAuthenticationInput' {..} =
+    _salt `Prelude.hashWithSalt` truststoreUri
+      `Prelude.hashWithSalt` truststoreVersion
 
-instance Prelude.NFData MutualTlsAuthenticationInput
+instance Prelude.NFData MutualTlsAuthenticationInput where
+  rnf MutualTlsAuthenticationInput' {..} =
+    Prelude.rnf truststoreUri
+      `Prelude.seq` Prelude.rnf truststoreVersion
 
 instance Core.ToJSON MutualTlsAuthenticationInput where
   toJSON MutualTlsAuthenticationInput' {..} =

@@ -101,6 +101,16 @@ instance Core.FromJSON UsagePlanKey where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable UsagePlanKey
+instance Prelude.Hashable UsagePlanKey where
+  hashWithSalt _salt UsagePlanKey' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UsagePlanKey
+instance Prelude.NFData UsagePlanKey where
+  rnf UsagePlanKey' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'

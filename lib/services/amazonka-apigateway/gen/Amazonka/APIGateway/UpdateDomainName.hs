@@ -113,9 +113,15 @@ instance Core.AWSRequest UpdateDomainName where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDomainName
+instance Prelude.Hashable UpdateDomainName where
+  hashWithSalt _salt UpdateDomainName' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainName
+instance Prelude.NFData UpdateDomainName where
+  rnf UpdateDomainName' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainName where
   toHeaders =

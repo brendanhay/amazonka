@@ -122,9 +122,15 @@ instance Core.AWSRequest GetRestApis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRestApis
+instance Prelude.Hashable GetRestApis where
+  hashWithSalt _salt GetRestApis' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
 
-instance Prelude.NFData GetRestApis
+instance Prelude.NFData GetRestApis where
+  rnf GetRestApis' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetRestApis where
   toHeaders =
@@ -195,4 +201,8 @@ getRestApisResponse_position = Lens.lens (\GetRestApisResponse' {position} -> po
 getRestApisResponse_httpStatus :: Lens.Lens' GetRestApisResponse Prelude.Int
 getRestApisResponse_httpStatus = Lens.lens (\GetRestApisResponse' {httpStatus} -> httpStatus) (\s@GetRestApisResponse' {} a -> s {httpStatus = a} :: GetRestApisResponse)
 
-instance Prelude.NFData GetRestApisResponse
+instance Prelude.NFData GetRestApisResponse where
+  rnf GetRestApisResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -90,6 +90,12 @@ instance Core.FromJSON AccessLogSettings where
             Prelude.<*> (x Core..:? "destinationArn")
       )
 
-instance Prelude.Hashable AccessLogSettings
+instance Prelude.Hashable AccessLogSettings where
+  hashWithSalt _salt AccessLogSettings' {..} =
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` destinationArn
 
-instance Prelude.NFData AccessLogSettings
+instance Prelude.NFData AccessLogSettings where
+  rnf AccessLogSettings' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf destinationArn

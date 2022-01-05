@@ -105,9 +105,15 @@ instance Core.AWSRequest GetApiKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetApiKey
+instance Prelude.Hashable GetApiKey where
+  hashWithSalt _salt GetApiKey' {..} =
+    _salt `Prelude.hashWithSalt` includeValue
+      `Prelude.hashWithSalt` apiKey
 
-instance Prelude.NFData GetApiKey
+instance Prelude.NFData GetApiKey where
+  rnf GetApiKey' {..} =
+    Prelude.rnf includeValue
+      `Prelude.seq` Prelude.rnf apiKey
 
 instance Core.ToHeaders GetApiKey where
   toHeaders =

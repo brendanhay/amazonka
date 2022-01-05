@@ -62,9 +62,15 @@ stageKey_restApiId = Lens.lens (\StageKey' {restApiId} -> restApiId) (\s@StageKe
 stageKey_stageName :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
 stageKey_stageName = Lens.lens (\StageKey' {stageName} -> stageName) (\s@StageKey' {} a -> s {stageName = a} :: StageKey)
 
-instance Prelude.Hashable StageKey
+instance Prelude.Hashable StageKey where
+  hashWithSalt _salt StageKey' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData StageKey
+instance Prelude.NFData StageKey where
+  rnf StageKey' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToJSON StageKey where
   toJSON StageKey' {..} =

@@ -159,9 +159,19 @@ instance Core.AWSRequest GetUsagePlanKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUsagePlanKeys
+instance Prelude.Hashable GetUsagePlanKeys where
+  hashWithSalt _salt GetUsagePlanKeys' {..} =
+    _salt `Prelude.hashWithSalt` nameQuery
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` usagePlanId
 
-instance Prelude.NFData GetUsagePlanKeys
+instance Prelude.NFData GetUsagePlanKeys where
+  rnf GetUsagePlanKeys' {..} =
+    Prelude.rnf nameQuery
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf usagePlanId
 
 instance Core.ToHeaders GetUsagePlanKeys where
   toHeaders =
@@ -236,4 +246,8 @@ getUsagePlanKeysResponse_position = Lens.lens (\GetUsagePlanKeysResponse' {posit
 getUsagePlanKeysResponse_httpStatus :: Lens.Lens' GetUsagePlanKeysResponse Prelude.Int
 getUsagePlanKeysResponse_httpStatus = Lens.lens (\GetUsagePlanKeysResponse' {httpStatus} -> httpStatus) (\s@GetUsagePlanKeysResponse' {} a -> s {httpStatus = a} :: GetUsagePlanKeysResponse)
 
-instance Prelude.NFData GetUsagePlanKeysResponse
+instance Prelude.NFData GetUsagePlanKeysResponse where
+  rnf GetUsagePlanKeysResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -98,9 +98,12 @@ instance Core.AWSRequest GetDomainName where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDomainName
+instance Prelude.Hashable GetDomainName where
+  hashWithSalt _salt GetDomainName' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetDomainName
+instance Prelude.NFData GetDomainName where
+  rnf GetDomainName' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders GetDomainName where
   toHeaders =

@@ -129,6 +129,16 @@ instance Core.FromJSON Account where
             Prelude.<*> (x Core..:? "throttleSettings")
       )
 
-instance Prelude.Hashable Account
+instance Prelude.Hashable Account where
+  hashWithSalt _salt Account' {..} =
+    _salt `Prelude.hashWithSalt` apiKeyVersion
+      `Prelude.hashWithSalt` cloudwatchRoleArn
+      `Prelude.hashWithSalt` features
+      `Prelude.hashWithSalt` throttleSettings
 
-instance Prelude.NFData Account
+instance Prelude.NFData Account where
+  rnf Account' {..} =
+    Prelude.rnf apiKeyVersion
+      `Prelude.seq` Prelude.rnf cloudwatchRoleArn
+      `Prelude.seq` Prelude.rnf features
+      `Prelude.seq` Prelude.rnf throttleSettings

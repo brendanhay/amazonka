@@ -127,9 +127,17 @@ instance Core.AWSRequest ImportApiKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportApiKeys
+instance Prelude.Hashable ImportApiKeys where
+  hashWithSalt _salt ImportApiKeys' {..} =
+    _salt `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData ImportApiKeys
+instance Prelude.NFData ImportApiKeys where
+  rnf ImportApiKeys' {..} =
+    Prelude.rnf failOnWarnings
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToBody ImportApiKeys where
   toBody ImportApiKeys' {..} = Core.toBody body
@@ -203,4 +211,8 @@ importApiKeysResponse_warnings = Lens.lens (\ImportApiKeysResponse' {warnings} -
 importApiKeysResponse_httpStatus :: Lens.Lens' ImportApiKeysResponse Prelude.Int
 importApiKeysResponse_httpStatus = Lens.lens (\ImportApiKeysResponse' {httpStatus} -> httpStatus) (\s@ImportApiKeysResponse' {} a -> s {httpStatus = a} :: ImportApiKeysResponse)
 
-instance Prelude.NFData ImportApiKeysResponse
+instance Prelude.NFData ImportApiKeysResponse where
+  rnf ImportApiKeysResponse' {..} =
+    Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf httpStatus

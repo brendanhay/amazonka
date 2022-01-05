@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteRequestValidator where
     Response.receiveNull
       DeleteRequestValidatorResponse'
 
-instance Prelude.Hashable DeleteRequestValidator
+instance Prelude.Hashable DeleteRequestValidator where
+  hashWithSalt _salt DeleteRequestValidator' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` requestValidatorId
 
-instance Prelude.NFData DeleteRequestValidator
+instance Prelude.NFData DeleteRequestValidator where
+  rnf DeleteRequestValidator' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf requestValidatorId
 
 instance Core.ToHeaders DeleteRequestValidator where
   toHeaders =
@@ -139,3 +145,5 @@ newDeleteRequestValidatorResponse =
 instance
   Prelude.NFData
     DeleteRequestValidatorResponse
+  where
+  rnf _ = ()

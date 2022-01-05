@@ -90,9 +90,15 @@ instance Core.AWSRequest DeleteStage where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteStageResponse'
 
-instance Prelude.Hashable DeleteStage
+instance Prelude.Hashable DeleteStage where
+  hashWithSalt _salt DeleteStage' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData DeleteStage
+instance Prelude.NFData DeleteStage where
+  rnf DeleteStage' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders DeleteStage where
   toHeaders =
@@ -129,4 +135,5 @@ newDeleteStageResponse ::
   DeleteStageResponse
 newDeleteStageResponse = DeleteStageResponse'
 
-instance Prelude.NFData DeleteStageResponse
+instance Prelude.NFData DeleteStageResponse where
+  rnf _ = ()

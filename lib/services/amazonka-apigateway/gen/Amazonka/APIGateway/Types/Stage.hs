@@ -256,6 +256,42 @@ instance Core.FromJSON Stage where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Stage
+instance Prelude.Hashable Stage where
+  hashWithSalt _salt Stage' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` accessLogSettings
+      `Prelude.hashWithSalt` documentationVersion
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` tracingEnabled
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` cacheClusterStatus
+      `Prelude.hashWithSalt` methodSettings
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` cacheClusterSize
+      `Prelude.hashWithSalt` webAclArn
+      `Prelude.hashWithSalt` canarySettings
+      `Prelude.hashWithSalt` cacheClusterEnabled
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Stage
+instance Prelude.NFData Stage where
+  rnf Stage' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf accessLogSettings
+      `Prelude.seq` Prelude.rnf documentationVersion
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf tracingEnabled
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf cacheClusterStatus
+      `Prelude.seq` Prelude.rnf methodSettings
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf cacheClusterSize
+      `Prelude.seq` Prelude.rnf webAclArn
+      `Prelude.seq` Prelude.rnf canarySettings
+      `Prelude.seq` Prelude.rnf cacheClusterEnabled
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

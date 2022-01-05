@@ -125,6 +125,20 @@ instance Core.FromJSON ClientCertificate where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ClientCertificate
+instance Prelude.Hashable ClientCertificate where
+  hashWithSalt _salt ClientCertificate' {..} =
+    _salt `Prelude.hashWithSalt` pemEncodedCertificate
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ClientCertificate
+instance Prelude.NFData ClientCertificate where
+  rnf ClientCertificate' {..} =
+    Prelude.rnf pemEncodedCertificate
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

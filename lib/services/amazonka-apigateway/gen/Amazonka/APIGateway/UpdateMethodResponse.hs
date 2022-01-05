@@ -141,9 +141,21 @@ instance Core.AWSRequest UpdateMethodResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateMethodResponse
+instance Prelude.Hashable UpdateMethodResponse where
+  hashWithSalt _salt UpdateMethodResponse' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData UpdateMethodResponse
+instance Prelude.NFData UpdateMethodResponse where
+  rnf UpdateMethodResponse' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf statusCode
 
 instance Core.ToHeaders UpdateMethodResponse where
   toHeaders =

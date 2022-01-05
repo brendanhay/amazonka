@@ -118,6 +118,18 @@ instance Core.FromJSON Usage where
             Prelude.<*> (x Core..:? "position")
       )
 
-instance Prelude.Hashable Usage
+instance Prelude.Hashable Usage where
+  hashWithSalt _salt Usage' {..} =
+    _salt `Prelude.hashWithSalt` usagePlanId
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` position
 
-instance Prelude.NFData Usage
+instance Prelude.NFData Usage where
+  rnf Usage' {..} =
+    Prelude.rnf usagePlanId
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf position

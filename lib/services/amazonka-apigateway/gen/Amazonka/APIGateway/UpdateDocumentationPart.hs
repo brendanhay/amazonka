@@ -115,9 +115,17 @@ instance Core.AWSRequest UpdateDocumentationPart where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDocumentationPart
+instance Prelude.Hashable UpdateDocumentationPart where
+  hashWithSalt _salt UpdateDocumentationPart' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` documentationPartId
 
-instance Prelude.NFData UpdateDocumentationPart
+instance Prelude.NFData UpdateDocumentationPart where
+  rnf UpdateDocumentationPart' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationPartId
 
 instance Core.ToHeaders UpdateDocumentationPart where
   toHeaders =

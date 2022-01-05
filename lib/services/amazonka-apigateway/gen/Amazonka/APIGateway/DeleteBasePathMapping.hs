@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteBasePathMapping where
   response =
     Response.receiveNull DeleteBasePathMappingResponse'
 
-instance Prelude.Hashable DeleteBasePathMapping
+instance Prelude.Hashable DeleteBasePathMapping where
+  hashWithSalt _salt DeleteBasePathMapping' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` basePath
 
-instance Prelude.NFData DeleteBasePathMapping
+instance Prelude.NFData DeleteBasePathMapping where
+  rnf DeleteBasePathMapping' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf basePath
 
 instance Core.ToHeaders DeleteBasePathMapping where
   toHeaders =
@@ -139,4 +145,5 @@ newDeleteBasePathMappingResponse ::
 newDeleteBasePathMappingResponse =
   DeleteBasePathMappingResponse'
 
-instance Prelude.NFData DeleteBasePathMappingResponse
+instance Prelude.NFData DeleteBasePathMappingResponse where
+  rnf _ = ()

@@ -150,6 +150,14 @@ instance Core.FromJSON MethodResponse where
                         )
       )
 
-instance Prelude.Hashable MethodResponse
+instance Prelude.Hashable MethodResponse where
+  hashWithSalt _salt MethodResponse' {..} =
+    _salt `Prelude.hashWithSalt` responseModels
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` responseParameters
 
-instance Prelude.NFData MethodResponse
+instance Prelude.NFData MethodResponse where
+  rnf MethodResponse' {..} =
+    Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf responseParameters

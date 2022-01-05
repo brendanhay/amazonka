@@ -90,9 +90,12 @@ instance Core.AWSRequest GetVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetVpcLink
+instance Prelude.Hashable GetVpcLink where
+  hashWithSalt _salt GetVpcLink' {..} =
+    _salt `Prelude.hashWithSalt` vpcLinkId
 
-instance Prelude.NFData GetVpcLink
+instance Prelude.NFData GetVpcLink where
+  rnf GetVpcLink' {..} = Prelude.rnf vpcLinkId
 
 instance Core.ToHeaders GetVpcLink where
   toHeaders =

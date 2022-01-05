@@ -154,9 +154,17 @@ instance Core.AWSRequest GetGatewayResponses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGatewayResponses
+instance Prelude.Hashable GetGatewayResponses where
+  hashWithSalt _salt GetGatewayResponses' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetGatewayResponses
+instance Prelude.NFData GetGatewayResponses where
+  rnf GetGatewayResponses' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetGatewayResponses where
   toHeaders =
@@ -252,4 +260,8 @@ getGatewayResponsesResponse_position = Lens.lens (\GetGatewayResponsesResponse' 
 getGatewayResponsesResponse_httpStatus :: Lens.Lens' GetGatewayResponsesResponse Prelude.Int
 getGatewayResponsesResponse_httpStatus = Lens.lens (\GetGatewayResponsesResponse' {httpStatus} -> httpStatus) (\s@GetGatewayResponsesResponse' {} a -> s {httpStatus = a} :: GetGatewayResponsesResponse)
 
-instance Prelude.NFData GetGatewayResponsesResponse
+instance Prelude.NFData GetGatewayResponsesResponse where
+  rnf GetGatewayResponsesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

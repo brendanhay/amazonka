@@ -124,9 +124,15 @@ instance Core.AWSRequest GetVpcLinks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVpcLinks
+instance Prelude.Hashable GetVpcLinks where
+  hashWithSalt _salt GetVpcLinks' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
 
-instance Prelude.NFData GetVpcLinks
+instance Prelude.NFData GetVpcLinks where
+  rnf GetVpcLinks' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetVpcLinks where
   toHeaders =
@@ -196,4 +202,8 @@ getVpcLinksResponse_position = Lens.lens (\GetVpcLinksResponse' {position} -> po
 getVpcLinksResponse_httpStatus :: Lens.Lens' GetVpcLinksResponse Prelude.Int
 getVpcLinksResponse_httpStatus = Lens.lens (\GetVpcLinksResponse' {httpStatus} -> httpStatus) (\s@GetVpcLinksResponse' {} a -> s {httpStatus = a} :: GetVpcLinksResponse)
 
-instance Prelude.NFData GetVpcLinksResponse
+instance Prelude.NFData GetVpcLinksResponse where
+  rnf GetVpcLinksResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

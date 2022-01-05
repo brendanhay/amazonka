@@ -250,6 +250,34 @@ instance Core.FromJSON RestApi where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RestApi
+instance Prelude.Hashable RestApi where
+  hashWithSalt _salt RestApi' {..} =
+    _salt `Prelude.hashWithSalt` minimumCompressionSize
+      `Prelude.hashWithSalt` disableExecuteApiEndpoint
+      `Prelude.hashWithSalt` binaryMediaTypes
+      `Prelude.hashWithSalt` warnings
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` apiKeySource
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RestApi
+instance Prelude.NFData RestApi where
+  rnf RestApi' {..} =
+    Prelude.rnf minimumCompressionSize
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf binaryMediaTypes
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiKeySource
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

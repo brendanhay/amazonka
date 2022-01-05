@@ -198,9 +198,17 @@ instance Core.AWSRequest ImportRestApi where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ImportRestApi
+instance Prelude.Hashable ImportRestApi where
+  hashWithSalt _salt ImportRestApi' {..} =
+    _salt `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` body
 
-instance Prelude.NFData ImportRestApi
+instance Prelude.NFData ImportRestApi where
+  rnf ImportRestApi' {..} =
+    Prelude.rnf failOnWarnings
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToBody ImportRestApi where
   toBody ImportRestApi' {..} = Core.toBody body

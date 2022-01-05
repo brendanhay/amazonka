@@ -101,9 +101,15 @@ instance Core.AWSRequest GetDocumentationPart where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDocumentationPart
+instance Prelude.Hashable GetDocumentationPart where
+  hashWithSalt _salt GetDocumentationPart' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` documentationPartId
 
-instance Prelude.NFData GetDocumentationPart
+instance Prelude.NFData GetDocumentationPart where
+  rnf GetDocumentationPart' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationPartId
 
 instance Core.ToHeaders GetDocumentationPart where
   toHeaders =

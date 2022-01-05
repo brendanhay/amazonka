@@ -225,9 +225,33 @@ instance Core.AWSRequest CreateStage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateStage
+instance Prelude.Hashable CreateStage where
+  hashWithSalt _salt CreateStage' {..} =
+    _salt `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` documentationVersion
+      `Prelude.hashWithSalt` tracingEnabled
+      `Prelude.hashWithSalt` cacheClusterSize
+      `Prelude.hashWithSalt` canarySettings
+      `Prelude.hashWithSalt` cacheClusterEnabled
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData CreateStage
+instance Prelude.NFData CreateStage where
+  rnf CreateStage' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf documentationVersion
+      `Prelude.seq` Prelude.rnf tracingEnabled
+      `Prelude.seq` Prelude.rnf cacheClusterSize
+      `Prelude.seq` Prelude.rnf canarySettings
+      `Prelude.seq` Prelude.rnf cacheClusterEnabled
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Core.ToHeaders CreateStage where
   toHeaders =

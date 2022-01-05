@@ -275,9 +275,33 @@ instance Core.AWSRequest PutMethod where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutMethod
+instance Prelude.Hashable PutMethod where
+  hashWithSalt _salt PutMethod' {..} =
+    _salt `Prelude.hashWithSalt` authorizationScopes
+      `Prelude.hashWithSalt` requestValidatorId
+      `Prelude.hashWithSalt` requestModels
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` apiKeyRequired
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` authorizationType
 
-instance Prelude.NFData PutMethod
+instance Prelude.NFData PutMethod where
+  rnf PutMethod' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf requestValidatorId
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf authorizationType
 
 instance Core.ToHeaders PutMethod where
   toHeaders =

@@ -134,9 +134,19 @@ instance Core.AWSRequest CreateBasePathMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateBasePathMapping
+instance Prelude.Hashable CreateBasePathMapping where
+  hashWithSalt _salt CreateBasePathMapping' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData CreateBasePathMapping
+instance Prelude.NFData CreateBasePathMapping where
+  rnf CreateBasePathMapping' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders CreateBasePathMapping where
   toHeaders =

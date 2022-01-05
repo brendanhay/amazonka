@@ -106,6 +106,17 @@ instance Core.FromJSON RequestValidator where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable RequestValidator
+instance Prelude.Hashable RequestValidator where
+  hashWithSalt _salt RequestValidator' {..} =
+    _salt
+      `Prelude.hashWithSalt` validateRequestParameters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` validateRequestBody
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData RequestValidator
+instance Prelude.NFData RequestValidator where
+  rnf RequestValidator' {..} =
+    Prelude.rnf validateRequestParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf validateRequestBody
+      `Prelude.seq` Prelude.rnf id

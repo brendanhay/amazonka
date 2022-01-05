@@ -121,10 +121,21 @@ instance
 instance
   Prelude.Hashable
     UpdateAutomaticTapeCreationPolicy
+  where
+  hashWithSalt
+    _salt
+    UpdateAutomaticTapeCreationPolicy' {..} =
+      _salt
+        `Prelude.hashWithSalt` automaticTapeCreationRules
+        `Prelude.hashWithSalt` gatewayARN
 
 instance
   Prelude.NFData
     UpdateAutomaticTapeCreationPolicy
+  where
+  rnf UpdateAutomaticTapeCreationPolicy' {..} =
+    Prelude.rnf automaticTapeCreationRules
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance
   Core.ToHeaders
@@ -213,3 +224,7 @@ updateAutomaticTapeCreationPolicyResponse_httpStatus = Lens.lens (\UpdateAutomat
 instance
   Prelude.NFData
     UpdateAutomaticTapeCreationPolicyResponse
+  where
+  rnf UpdateAutomaticTapeCreationPolicyResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

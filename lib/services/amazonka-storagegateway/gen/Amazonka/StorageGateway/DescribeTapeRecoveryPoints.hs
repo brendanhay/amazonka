@@ -152,9 +152,17 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTapeRecoveryPoints
+instance Prelude.Hashable DescribeTapeRecoveryPoints where
+  hashWithSalt _salt DescribeTapeRecoveryPoints' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeTapeRecoveryPoints
+instance Prelude.NFData DescribeTapeRecoveryPoints where
+  rnf DescribeTapeRecoveryPoints' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeTapeRecoveryPoints where
   toHeaders =
@@ -266,3 +274,9 @@ describeTapeRecoveryPointsResponse_httpStatus = Lens.lens (\DescribeTapeRecovery
 instance
   Prelude.NFData
     DescribeTapeRecoveryPointsResponse
+  where
+  rnf DescribeTapeRecoveryPointsResponse' {..} =
+    Prelude.rnf tapeRecoveryPointInfos
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

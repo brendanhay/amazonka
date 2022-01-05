@@ -159,9 +159,18 @@ instance Core.AWSRequest AssignTapePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssignTapePool
+instance Prelude.Hashable AssignTapePool where
+  hashWithSalt _salt AssignTapePool' {..} =
+    _salt
+      `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` poolId
 
-instance Prelude.NFData AssignTapePool
+instance Prelude.NFData AssignTapePool where
+  rnf AssignTapePool' {..} =
+    Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf poolId
 
 instance Core.ToHeaders AssignTapePool where
   toHeaders =
@@ -236,4 +245,7 @@ assignTapePoolResponse_tapeARN = Lens.lens (\AssignTapePoolResponse' {tapeARN} -
 assignTapePoolResponse_httpStatus :: Lens.Lens' AssignTapePoolResponse Prelude.Int
 assignTapePoolResponse_httpStatus = Lens.lens (\AssignTapePoolResponse' {httpStatus} -> httpStatus) (\s@AssignTapePoolResponse' {} a -> s {httpStatus = a} :: AssignTapePoolResponse)
 
-instance Prelude.NFData AssignTapePoolResponse
+instance Prelude.NFData AssignTapePoolResponse where
+  rnf AssignTapePoolResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

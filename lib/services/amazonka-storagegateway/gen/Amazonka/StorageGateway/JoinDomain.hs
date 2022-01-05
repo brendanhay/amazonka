@@ -197,9 +197,25 @@ instance Core.AWSRequest JoinDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable JoinDomain
+instance Prelude.Hashable JoinDomain where
+  hashWithSalt _salt JoinDomain' {..} =
+    _salt `Prelude.hashWithSalt` organizationalUnit
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` domainControllers
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData JoinDomain
+instance Prelude.NFData JoinDomain where
+  rnf JoinDomain' {..} =
+    Prelude.rnf organizationalUnit
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf domainControllers
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToHeaders JoinDomain where
   toHeaders =
@@ -351,4 +367,8 @@ joinDomainResponse_activeDirectoryStatus = Lens.lens (\JoinDomainResponse' {acti
 joinDomainResponse_httpStatus :: Lens.Lens' JoinDomainResponse Prelude.Int
 joinDomainResponse_httpStatus = Lens.lens (\JoinDomainResponse' {httpStatus} -> httpStatus) (\s@JoinDomainResponse' {} a -> s {httpStatus = a} :: JoinDomainResponse)
 
-instance Prelude.NFData JoinDomainResponse
+instance Prelude.NFData JoinDomainResponse where
+  rnf JoinDomainResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf activeDirectoryStatus
+      `Prelude.seq` Prelude.rnf httpStatus

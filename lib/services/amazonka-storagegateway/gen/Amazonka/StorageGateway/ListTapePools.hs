@@ -150,9 +150,17 @@ instance Core.AWSRequest ListTapePools where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTapePools
+instance Prelude.Hashable ListTapePools where
+  hashWithSalt _salt ListTapePools' {..} =
+    _salt `Prelude.hashWithSalt` poolARNs
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListTapePools
+instance Prelude.NFData ListTapePools where
+  rnf ListTapePools' {..} =
+    Prelude.rnf poolARNs
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListTapePools where
   toHeaders =
@@ -247,4 +255,8 @@ listTapePoolsResponse_marker = Lens.lens (\ListTapePoolsResponse' {marker} -> ma
 listTapePoolsResponse_httpStatus :: Lens.Lens' ListTapePoolsResponse Prelude.Int
 listTapePoolsResponse_httpStatus = Lens.lens (\ListTapePoolsResponse' {httpStatus} -> httpStatus) (\s@ListTapePoolsResponse' {} a -> s {httpStatus = a} :: ListTapePoolsResponse)
 
-instance Prelude.NFData ListTapePoolsResponse
+instance Prelude.NFData ListTapePoolsResponse where
+  rnf ListTapePoolsResponse' {..} =
+    Prelude.rnf poolInfos
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

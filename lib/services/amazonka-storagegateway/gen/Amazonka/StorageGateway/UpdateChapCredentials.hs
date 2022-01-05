@@ -176,9 +176,20 @@ instance Core.AWSRequest UpdateChapCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateChapCredentials
+instance Prelude.Hashable UpdateChapCredentials where
+  hashWithSalt _salt UpdateChapCredentials' {..} =
+    _salt
+      `Prelude.hashWithSalt` secretToAuthenticateTarget
+      `Prelude.hashWithSalt` targetARN
+      `Prelude.hashWithSalt` secretToAuthenticateInitiator
+      `Prelude.hashWithSalt` initiatorName
 
-instance Prelude.NFData UpdateChapCredentials
+instance Prelude.NFData UpdateChapCredentials where
+  rnf UpdateChapCredentials' {..} =
+    Prelude.rnf secretToAuthenticateTarget
+      `Prelude.seq` Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator
+      `Prelude.seq` Prelude.rnf initiatorName
 
 instance Core.ToHeaders UpdateChapCredentials where
   toHeaders =
@@ -273,4 +284,8 @@ updateChapCredentialsResponse_initiatorName = Lens.lens (\UpdateChapCredentialsR
 updateChapCredentialsResponse_httpStatus :: Lens.Lens' UpdateChapCredentialsResponse Prelude.Int
 updateChapCredentialsResponse_httpStatus = Lens.lens (\UpdateChapCredentialsResponse' {httpStatus} -> httpStatus) (\s@UpdateChapCredentialsResponse' {} a -> s {httpStatus = a} :: UpdateChapCredentialsResponse)
 
-instance Prelude.NFData UpdateChapCredentialsResponse
+instance Prelude.NFData UpdateChapCredentialsResponse where
+  rnf UpdateChapCredentialsResponse' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf initiatorName
+      `Prelude.seq` Prelude.rnf httpStatus

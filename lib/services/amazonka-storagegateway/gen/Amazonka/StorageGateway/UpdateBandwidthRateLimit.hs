@@ -127,9 +127,18 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBandwidthRateLimit
+instance Prelude.Hashable UpdateBandwidthRateLimit where
+  hashWithSalt _salt UpdateBandwidthRateLimit' {..} =
+    _salt
+      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
+      `Prelude.hashWithSalt` averageDownloadRateLimitInBitsPerSec
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData UpdateBandwidthRateLimit
+instance Prelude.NFData UpdateBandwidthRateLimit where
+  rnf UpdateBandwidthRateLimit' {..} =
+    Prelude.rnf averageUploadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders UpdateBandwidthRateLimit where
   toHeaders =
@@ -208,3 +217,7 @@ updateBandwidthRateLimitResponse_httpStatus = Lens.lens (\UpdateBandwidthRateLim
 instance
   Prelude.NFData
     UpdateBandwidthRateLimitResponse
+  where
+  rnf UpdateBandwidthRateLimitResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

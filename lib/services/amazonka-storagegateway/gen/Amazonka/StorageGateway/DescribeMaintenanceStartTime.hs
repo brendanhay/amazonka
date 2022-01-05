@@ -105,8 +105,13 @@ instance Core.AWSRequest DescribeMaintenanceStartTime where
 instance
   Prelude.Hashable
     DescribeMaintenanceStartTime
+  where
+  hashWithSalt _salt DescribeMaintenanceStartTime' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeMaintenanceStartTime
+instance Prelude.NFData DescribeMaintenanceStartTime where
+  rnf DescribeMaintenanceStartTime' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeMaintenanceStartTime where
   toHeaders =
@@ -264,3 +269,12 @@ describeMaintenanceStartTimeResponse_httpStatus = Lens.lens (\DescribeMaintenanc
 instance
   Prelude.NFData
     DescribeMaintenanceStartTimeResponse
+  where
+  rnf DescribeMaintenanceStartTimeResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf minuteOfHour
+      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf hourOfDay
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf httpStatus

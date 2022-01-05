@@ -599,6 +599,74 @@ instance Core.FromJSON SMBFileShareInfo where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SMBFileShareInfo
+instance Prelude.Hashable SMBFileShareInfo where
+  hashWithSalt _salt SMBFileShareInfo' {..} =
+    _salt `Prelude.hashWithSalt` accessBasedEnumeration
+      `Prelude.hashWithSalt` adminUserList
+      `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` fileShareStatus
+      `Prelude.hashWithSalt` invalidUserList
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` validUserList
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` vPCEndpointDNSName
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` fileShareId
+      `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` sMBACLEnabled
+      `Prelude.hashWithSalt` oplocksEnabled
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` locationARN
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` bucketRegion
+      `Prelude.hashWithSalt` caseSensitivity
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData SMBFileShareInfo
+instance Prelude.NFData SMBFileShareInfo where
+  rnf SMBFileShareInfo' {..} =
+    Prelude.rnf accessBasedEnumeration
+      `Prelude.seq` Prelude.rnf adminUserList
+      `Prelude.seq` Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf fileShareStatus
+      `Prelude.seq` Prelude.rnf invalidUserList
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf validUserList
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf fileShareId
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf sMBACLEnabled
+      `Prelude.seq` Prelude.rnf oplocksEnabled
+      `Prelude.seq` Prelude.rnf
+        notificationPolicy
+      `Prelude.seq` Prelude.rnf
+        requesterPays
+      `Prelude.seq` Prelude.rnf
+        locationARN
+      `Prelude.seq` Prelude.rnf
+        guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf
+        readOnly
+      `Prelude.seq` Prelude.rnf
+        bucketRegion
+      `Prelude.seq` Prelude.rnf
+        caseSensitivity
+      `Prelude.seq` Prelude.rnf
+        tags

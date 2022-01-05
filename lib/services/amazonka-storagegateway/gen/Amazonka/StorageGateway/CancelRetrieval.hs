@@ -107,9 +107,15 @@ instance Core.AWSRequest CancelRetrieval where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelRetrieval
+instance Prelude.Hashable CancelRetrieval where
+  hashWithSalt _salt CancelRetrieval' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` tapeARN
 
-instance Prelude.NFData CancelRetrieval
+instance Prelude.NFData CancelRetrieval where
+  rnf CancelRetrieval' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf tapeARN
 
 instance Core.ToHeaders CancelRetrieval where
   toHeaders =
@@ -184,4 +190,7 @@ cancelRetrievalResponse_tapeARN = Lens.lens (\CancelRetrievalResponse' {tapeARN}
 cancelRetrievalResponse_httpStatus :: Lens.Lens' CancelRetrievalResponse Prelude.Int
 cancelRetrievalResponse_httpStatus = Lens.lens (\CancelRetrievalResponse' {httpStatus} -> httpStatus) (\s@CancelRetrievalResponse' {} a -> s {httpStatus = a} :: CancelRetrievalResponse)
 
-instance Prelude.NFData CancelRetrievalResponse
+instance Prelude.NFData CancelRetrievalResponse where
+  rnf CancelRetrievalResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

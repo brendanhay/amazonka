@@ -99,9 +99,13 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSnapshotSchedule
+instance Prelude.Hashable DeleteSnapshotSchedule where
+  hashWithSalt _salt DeleteSnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` volumeARN
 
-instance Prelude.NFData DeleteSnapshotSchedule
+instance Prelude.NFData DeleteSnapshotSchedule where
+  rnf DeleteSnapshotSchedule' {..} =
+    Prelude.rnf volumeARN
 
 instance Core.ToHeaders DeleteSnapshotSchedule where
   toHeaders =
@@ -173,3 +177,7 @@ deleteSnapshotScheduleResponse_httpStatus = Lens.lens (\DeleteSnapshotScheduleRe
 instance
   Prelude.NFData
     DeleteSnapshotScheduleResponse
+  where
+  rnf DeleteSnapshotScheduleResponse' {..} =
+    Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf httpStatus

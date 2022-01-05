@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteTapePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTapePool
+instance Prelude.Hashable DeleteTapePool where
+  hashWithSalt _salt DeleteTapePool' {..} =
+    _salt `Prelude.hashWithSalt` poolARN
 
-instance Prelude.NFData DeleteTapePool
+instance Prelude.NFData DeleteTapePool where
+  rnf DeleteTapePool' {..} = Prelude.rnf poolARN
 
 instance Core.ToHeaders DeleteTapePool where
   toHeaders =
@@ -158,4 +161,7 @@ deleteTapePoolResponse_poolARN = Lens.lens (\DeleteTapePoolResponse' {poolARN} -
 deleteTapePoolResponse_httpStatus :: Lens.Lens' DeleteTapePoolResponse Prelude.Int
 deleteTapePoolResponse_httpStatus = Lens.lens (\DeleteTapePoolResponse' {httpStatus} -> httpStatus) (\s@DeleteTapePoolResponse' {} a -> s {httpStatus = a} :: DeleteTapePoolResponse)
 
-instance Prelude.NFData DeleteTapePoolResponse
+instance Prelude.NFData DeleteTapePoolResponse where
+  rnf DeleteTapePoolResponse' {..} =
+    Prelude.rnf poolARN
+      `Prelude.seq` Prelude.rnf httpStatus

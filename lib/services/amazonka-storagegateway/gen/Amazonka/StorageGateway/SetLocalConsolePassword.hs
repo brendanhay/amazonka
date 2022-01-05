@@ -107,9 +107,15 @@ instance Core.AWSRequest SetLocalConsolePassword where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetLocalConsolePassword
+instance Prelude.Hashable SetLocalConsolePassword where
+  hashWithSalt _salt SetLocalConsolePassword' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` localConsolePassword
 
-instance Prelude.NFData SetLocalConsolePassword
+instance Prelude.NFData SetLocalConsolePassword where
+  rnf SetLocalConsolePassword' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf localConsolePassword
 
 instance Core.ToHeaders SetLocalConsolePassword where
   toHeaders =
@@ -185,3 +191,7 @@ setLocalConsolePasswordResponse_httpStatus = Lens.lens (\SetLocalConsolePassword
 instance
   Prelude.NFData
     SetLocalConsolePasswordResponse
+  where
+  rnf SetLocalConsolePasswordResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

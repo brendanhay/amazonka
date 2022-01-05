@@ -146,6 +146,24 @@ instance Core.FromJSON Disk where
                         )
       )
 
-instance Prelude.Hashable Disk
+instance Prelude.Hashable Disk where
+  hashWithSalt _salt Disk' {..} =
+    _salt `Prelude.hashWithSalt` diskAllocationResource
+      `Prelude.hashWithSalt` diskAllocationType
+      `Prelude.hashWithSalt` diskNode
+      `Prelude.hashWithSalt` diskPath
+      `Prelude.hashWithSalt` diskSizeInBytes
+      `Prelude.hashWithSalt` diskStatus
+      `Prelude.hashWithSalt` diskId
+      `Prelude.hashWithSalt` diskAttributeList
 
-instance Prelude.NFData Disk
+instance Prelude.NFData Disk where
+  rnf Disk' {..} =
+    Prelude.rnf diskAllocationResource
+      `Prelude.seq` Prelude.rnf diskAllocationType
+      `Prelude.seq` Prelude.rnf diskNode
+      `Prelude.seq` Prelude.rnf diskPath
+      `Prelude.seq` Prelude.rnf diskSizeInBytes
+      `Prelude.seq` Prelude.rnf diskStatus
+      `Prelude.seq` Prelude.rnf diskId
+      `Prelude.seq` Prelude.rnf diskAttributeList

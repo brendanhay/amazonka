@@ -147,9 +147,21 @@ instance Core.AWSRequest UpdateGatewayInformation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGatewayInformation
+instance Prelude.Hashable UpdateGatewayInformation where
+  hashWithSalt _salt UpdateGatewayInformation' {..} =
+    _salt `Prelude.hashWithSalt` gatewayCapacity
+      `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayTimezone
+      `Prelude.hashWithSalt` cloudWatchLogGroupARN
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData UpdateGatewayInformation
+instance Prelude.NFData UpdateGatewayInformation where
+  rnf UpdateGatewayInformation' {..} =
+    Prelude.rnf gatewayCapacity
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayTimezone
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupARN
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders UpdateGatewayInformation where
   toHeaders =
@@ -240,3 +252,8 @@ updateGatewayInformationResponse_httpStatus = Lens.lens (\UpdateGatewayInformati
 instance
   Prelude.NFData
     UpdateGatewayInformationResponse
+  where
+  rnf UpdateGatewayInformationResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf httpStatus

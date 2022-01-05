@@ -75,9 +75,12 @@ instance Core.FromJSON SMBLocalGroups where
             Prelude.<$> (x Core..:? "GatewayAdmins" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SMBLocalGroups
+instance Prelude.Hashable SMBLocalGroups where
+  hashWithSalt _salt SMBLocalGroups' {..} =
+    _salt `Prelude.hashWithSalt` gatewayAdmins
 
-instance Prelude.NFData SMBLocalGroups
+instance Prelude.NFData SMBLocalGroups where
+  rnf SMBLocalGroups' {..} = Prelude.rnf gatewayAdmins
 
 instance Core.ToJSON SMBLocalGroups where
   toJSON SMBLocalGroups' {..} =

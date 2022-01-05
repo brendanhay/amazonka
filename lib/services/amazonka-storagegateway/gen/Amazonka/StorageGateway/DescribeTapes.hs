@@ -172,9 +172,19 @@ instance Core.AWSRequest DescribeTapes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTapes
+instance Prelude.Hashable DescribeTapes where
+  hashWithSalt _salt DescribeTapes' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` tapeARNs
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeTapes
+instance Prelude.NFData DescribeTapes where
+  rnf DescribeTapes' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf tapeARNs
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeTapes where
   toHeaders =
@@ -269,4 +279,8 @@ describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tape
 describeTapesResponse_httpStatus :: Lens.Lens' DescribeTapesResponse Prelude.Int
 describeTapesResponse_httpStatus = Lens.lens (\DescribeTapesResponse' {httpStatus} -> httpStatus) (\s@DescribeTapesResponse' {} a -> s {httpStatus = a} :: DescribeTapesResponse)
 
-instance Prelude.NFData DescribeTapesResponse
+instance Prelude.NFData DescribeTapesResponse where
+  rnf DescribeTapesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tapes
+      `Prelude.seq` Prelude.rnf httpStatus

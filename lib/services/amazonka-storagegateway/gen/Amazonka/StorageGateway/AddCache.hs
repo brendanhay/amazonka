@@ -108,9 +108,15 @@ instance Core.AWSRequest AddCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddCache
+instance Prelude.Hashable AddCache where
+  hashWithSalt _salt AddCache' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` diskIds
 
-instance Prelude.NFData AddCache
+instance Prelude.NFData AddCache where
+  rnf AddCache' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf diskIds
 
 instance Core.ToHeaders AddCache where
   toHeaders =
@@ -179,4 +185,7 @@ addCacheResponse_gatewayARN = Lens.lens (\AddCacheResponse' {gatewayARN} -> gate
 addCacheResponse_httpStatus :: Lens.Lens' AddCacheResponse Prelude.Int
 addCacheResponse_httpStatus = Lens.lens (\AddCacheResponse' {httpStatus} -> httpStatus) (\s@AddCacheResponse' {} a -> s {httpStatus = a} :: AddCacheResponse)
 
-instance Prelude.NFData AddCacheResponse
+instance Prelude.NFData AddCacheResponse where
+  rnf AddCacheResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

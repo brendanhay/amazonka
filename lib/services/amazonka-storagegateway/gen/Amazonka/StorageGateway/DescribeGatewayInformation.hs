@@ -135,9 +135,13 @@ instance Core.AWSRequest DescribeGatewayInformation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGatewayInformation
+instance Prelude.Hashable DescribeGatewayInformation where
+  hashWithSalt _salt DescribeGatewayInformation' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeGatewayInformation
+instance Prelude.NFData DescribeGatewayInformation where
+  rnf DescribeGatewayInformation' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeGatewayInformation where
   toHeaders =
@@ -436,3 +440,26 @@ describeGatewayInformationResponse_httpStatus = Lens.lens (\DescribeGatewayInfor
 instance
   Prelude.NFData
     DescribeGatewayInformationResponse
+  where
+  rnf DescribeGatewayInformationResponse' {..} =
+    Prelude.rnf gatewayState
+      `Prelude.seq` Prelude.rnf ec2InstanceRegion
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf gatewayNetworkInterfaces
+      `Prelude.seq` Prelude.rnf ec2InstanceId
+      `Prelude.seq` Prelude.rnf nextUpdateAvailabilityDate
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf deprecationDate
+      `Prelude.seq` Prelude.rnf lastSoftwareUpdate
+      `Prelude.seq` Prelude.rnf gatewayCapacity
+      `Prelude.seq` Prelude.rnf supportedGatewayCapacities
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf hostEnvironment
+      `Prelude.seq` Prelude.rnf gatewayType
+      `Prelude.seq` Prelude.rnf gatewayTimezone
+      `Prelude.seq` Prelude.rnf softwareUpdatesEndDate
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupARN
+      `Prelude.seq` Prelude.rnf vPCEndpoint
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

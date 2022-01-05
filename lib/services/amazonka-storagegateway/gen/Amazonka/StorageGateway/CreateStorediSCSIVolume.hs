@@ -310,9 +310,29 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStorediSCSIVolume
+instance Prelude.Hashable CreateStorediSCSIVolume where
+  hashWithSalt _salt CreateStorediSCSIVolume' {..} =
+    _salt `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` diskId
+      `Prelude.hashWithSalt` preserveExistingData
+      `Prelude.hashWithSalt` targetName
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData CreateStorediSCSIVolume
+instance Prelude.NFData CreateStorediSCSIVolume where
+  rnf CreateStorediSCSIVolume' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf diskId
+      `Prelude.seq` Prelude.rnf preserveExistingData
+      `Prelude.seq` Prelude.rnf targetName
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Core.ToHeaders CreateStorediSCSIVolume where
   toHeaders =
@@ -420,3 +440,9 @@ createStorediSCSIVolumeResponse_httpStatus = Lens.lens (\CreateStorediSCSIVolume
 instance
   Prelude.NFData
     CreateStorediSCSIVolumeResponse
+  where
+  rnf CreateStorediSCSIVolumeResponse' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf httpStatus

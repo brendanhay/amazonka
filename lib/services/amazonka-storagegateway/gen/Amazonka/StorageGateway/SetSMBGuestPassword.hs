@@ -107,9 +107,15 @@ instance Core.AWSRequest SetSMBGuestPassword where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetSMBGuestPassword
+instance Prelude.Hashable SetSMBGuestPassword where
+  hashWithSalt _salt SetSMBGuestPassword' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData SetSMBGuestPassword
+instance Prelude.NFData SetSMBGuestPassword where
+  rnf SetSMBGuestPassword' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToHeaders SetSMBGuestPassword where
   toHeaders =
@@ -179,4 +185,7 @@ setSMBGuestPasswordResponse_gatewayARN = Lens.lens (\SetSMBGuestPasswordResponse
 setSMBGuestPasswordResponse_httpStatus :: Lens.Lens' SetSMBGuestPasswordResponse Prelude.Int
 setSMBGuestPasswordResponse_httpStatus = Lens.lens (\SetSMBGuestPasswordResponse' {httpStatus} -> httpStatus) (\s@SetSMBGuestPasswordResponse' {} a -> s {httpStatus = a} :: SetSMBGuestPasswordResponse)
 
-instance Prelude.NFData SetSMBGuestPasswordResponse
+instance Prelude.NFData SetSMBGuestPasswordResponse where
+  rnf SetSMBGuestPasswordResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

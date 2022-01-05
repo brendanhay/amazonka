@@ -105,9 +105,13 @@ instance Core.AWSRequest DescribeStorediSCSIVolumes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStorediSCSIVolumes
+instance Prelude.Hashable DescribeStorediSCSIVolumes where
+  hashWithSalt _salt DescribeStorediSCSIVolumes' {..} =
+    _salt `Prelude.hashWithSalt` volumeARNs
 
-instance Prelude.NFData DescribeStorediSCSIVolumes
+instance Prelude.NFData DescribeStorediSCSIVolumes where
+  rnf DescribeStorediSCSIVolumes' {..} =
+    Prelude.rnf volumeARNs
 
 instance Core.ToHeaders DescribeStorediSCSIVolumes where
   toHeaders =
@@ -323,3 +327,7 @@ describeStorediSCSIVolumesResponse_httpStatus = Lens.lens (\DescribeStorediSCSIV
 instance
   Prelude.NFData
     DescribeStorediSCSIVolumesResponse
+  where
+  rnf DescribeStorediSCSIVolumesResponse' {..} =
+    Prelude.rnf storediSCSIVolumes
+      `Prelude.seq` Prelude.rnf httpStatus

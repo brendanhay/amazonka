@@ -101,9 +101,12 @@ instance Core.AWSRequest DescribeCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCache
+instance Prelude.Hashable DescribeCache where
+  hashWithSalt _salt DescribeCache' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeCache
+instance Prelude.NFData DescribeCache where
+  rnf DescribeCache' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeCache where
   toHeaders =
@@ -255,4 +258,13 @@ describeCacheResponse_cacheDirtyPercentage = Lens.lens (\DescribeCacheResponse' 
 describeCacheResponse_httpStatus :: Lens.Lens' DescribeCacheResponse Prelude.Int
 describeCacheResponse_httpStatus = Lens.lens (\DescribeCacheResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheResponse' {} a -> s {httpStatus = a} :: DescribeCacheResponse)
 
-instance Prelude.NFData DescribeCacheResponse
+instance Prelude.NFData DescribeCacheResponse where
+  rnf DescribeCacheResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf diskIds
+      `Prelude.seq` Prelude.rnf cacheUsedPercentage
+      `Prelude.seq` Prelude.rnf cacheHitPercentage
+      `Prelude.seq` Prelude.rnf cacheMissPercentage
+      `Prelude.seq` Prelude.rnf cacheAllocatedInBytes
+      `Prelude.seq` Prelude.rnf cacheDirtyPercentage
+      `Prelude.seq` Prelude.rnf httpStatus

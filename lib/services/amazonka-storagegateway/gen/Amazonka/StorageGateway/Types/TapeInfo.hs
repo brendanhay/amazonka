@@ -158,6 +158,24 @@ instance Core.FromJSON TapeInfo where
             Prelude.<*> (x Core..:? "RetentionStartDate")
       )
 
-instance Prelude.Hashable TapeInfo
+instance Prelude.Hashable TapeInfo where
+  hashWithSalt _salt TapeInfo' {..} =
+    _salt `Prelude.hashWithSalt` tapeBarcode
+      `Prelude.hashWithSalt` tapeStatus
+      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` poolEntryDate
+      `Prelude.hashWithSalt` retentionStartDate
 
-instance Prelude.NFData TapeInfo
+instance Prelude.NFData TapeInfo where
+  rnf TapeInfo' {..} =
+    Prelude.rnf tapeBarcode
+      `Prelude.seq` Prelude.rnf tapeStatus
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf poolEntryDate
+      `Prelude.seq` Prelude.rnf retentionStartDate

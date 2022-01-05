@@ -151,9 +151,17 @@ instance Core.AWSRequest ListTapes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTapes
+instance Prelude.Hashable ListTapes where
+  hashWithSalt _salt ListTapes' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` tapeARNs
 
-instance Prelude.NFData ListTapes
+instance Prelude.NFData ListTapes where
+  rnf ListTapes' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf tapeARNs
 
 instance Core.ToHeaders ListTapes where
   toHeaders =
@@ -247,4 +255,8 @@ listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tape
 listTapesResponse_httpStatus :: Lens.Lens' ListTapesResponse Prelude.Int
 listTapesResponse_httpStatus = Lens.lens (\ListTapesResponse' {httpStatus} -> httpStatus) (\s@ListTapesResponse' {} a -> s {httpStatus = a} :: ListTapesResponse)
 
-instance Prelude.NFData ListTapesResponse
+instance Prelude.NFData ListTapesResponse where
+  rnf ListTapesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tapeInfos
+      `Prelude.seq` Prelude.rnf httpStatus

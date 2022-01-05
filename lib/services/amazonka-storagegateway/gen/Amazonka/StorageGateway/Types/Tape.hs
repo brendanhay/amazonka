@@ -222,6 +222,34 @@ instance Core.FromJSON Tape where
             Prelude.<*> (x Core..:? "RetentionStartDate")
       )
 
-instance Prelude.Hashable Tape
+instance Prelude.Hashable Tape where
+  hashWithSalt _salt Tape' {..} =
+    _salt `Prelude.hashWithSalt` tapeBarcode
+      `Prelude.hashWithSalt` tapeStatus
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` vTLDevice
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` tapeUsedInBytes
+      `Prelude.hashWithSalt` tapeCreatedDate
+      `Prelude.hashWithSalt` poolEntryDate
+      `Prelude.hashWithSalt` worm
+      `Prelude.hashWithSalt` retentionStartDate
 
-instance Prelude.NFData Tape
+instance Prelude.NFData Tape where
+  rnf Tape' {..} =
+    Prelude.rnf tapeBarcode
+      `Prelude.seq` Prelude.rnf tapeStatus
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf vTLDevice
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf tapeUsedInBytes
+      `Prelude.seq` Prelude.rnf tapeCreatedDate
+      `Prelude.seq` Prelude.rnf poolEntryDate
+      `Prelude.seq` Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf retentionStartDate

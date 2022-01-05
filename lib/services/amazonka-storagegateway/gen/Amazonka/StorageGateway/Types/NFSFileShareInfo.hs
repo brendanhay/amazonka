@@ -457,6 +457,57 @@ instance Core.FromJSON NFSFileShareInfo where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable NFSFileShareInfo
+instance Prelude.Hashable NFSFileShareInfo where
+  hashWithSalt _salt NFSFileShareInfo' {..} =
+    _salt `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` fileShareStatus
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` vPCEndpointDNSName
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` fileShareId
+      `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` squash
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` nFSFileShareDefaults
+      `Prelude.hashWithSalt` locationARN
+      `Prelude.hashWithSalt` clientList
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` bucketRegion
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData NFSFileShareInfo
+instance Prelude.NFData NFSFileShareInfo where
+  rnf NFSFileShareInfo' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf fileShareStatus
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf fileShareId
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf squash
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
+      `Prelude.seq` Prelude.rnf locationARN
+      `Prelude.seq` Prelude.rnf clientList
+      `Prelude.seq` Prelude.rnf
+        guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf bucketRegion
+      `Prelude.seq` Prelude.rnf tags

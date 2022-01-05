@@ -97,6 +97,18 @@ instance Core.FromJSON FileShareInfo where
             Prelude.<*> (x Core..:? "FileShareType")
       )
 
-instance Prelude.Hashable FileShareInfo
+instance Prelude.Hashable FileShareInfo where
+  hashWithSalt _salt FileShareInfo' {..} =
+    _salt `Prelude.hashWithSalt` fileShareStatus
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` fileShareId
+      `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` fileShareType
 
-instance Prelude.NFData FileShareInfo
+instance Prelude.NFData FileShareInfo where
+  rnf FileShareInfo' {..} =
+    Prelude.rnf fileShareStatus
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf fileShareId
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf fileShareType

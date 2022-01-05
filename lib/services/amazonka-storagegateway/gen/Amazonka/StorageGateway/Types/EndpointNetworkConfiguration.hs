@@ -78,8 +78,13 @@ instance Core.FromJSON EndpointNetworkConfiguration where
 instance
   Prelude.Hashable
     EndpointNetworkConfiguration
+  where
+  hashWithSalt _salt EndpointNetworkConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` ipAddresses
 
-instance Prelude.NFData EndpointNetworkConfiguration
+instance Prelude.NFData EndpointNetworkConfiguration where
+  rnf EndpointNetworkConfiguration' {..} =
+    Prelude.rnf ipAddresses
 
 instance Core.ToJSON EndpointNetworkConfiguration where
   toJSON EndpointNetworkConfiguration' {..} =

@@ -50,9 +50,12 @@ newTagKeyOnly = TagKeyOnly' {key = Prelude.Nothing}
 tagKeyOnly_key :: Lens.Lens' TagKeyOnly (Prelude.Maybe Prelude.Text)
 tagKeyOnly_key = Lens.lens (\TagKeyOnly' {key} -> key) (\s@TagKeyOnly' {} a -> s {key = a} :: TagKeyOnly)
 
-instance Prelude.Hashable TagKeyOnly
+instance Prelude.Hashable TagKeyOnly where
+  hashWithSalt _salt TagKeyOnly' {..} =
+    _salt `Prelude.hashWithSalt` key
 
-instance Prelude.NFData TagKeyOnly
+instance Prelude.NFData TagKeyOnly where
+  rnf TagKeyOnly' {..} = Prelude.rnf key
 
 instance Core.ToQuery TagKeyOnly where
   toQuery TagKeyOnly' {..} =

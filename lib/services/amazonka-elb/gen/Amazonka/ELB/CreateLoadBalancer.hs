@@ -257,9 +257,25 @@ instance Core.AWSRequest CreateLoadBalancer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancer
+instance Prelude.Hashable CreateLoadBalancer where
+  hashWithSalt _salt CreateLoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` scheme
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` listeners
 
-instance Prelude.NFData CreateLoadBalancer
+instance Prelude.NFData CreateLoadBalancer where
+  rnf CreateLoadBalancer' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf scheme
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf listeners
 
 instance Core.ToHeaders CreateLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
@@ -337,4 +353,7 @@ createLoadBalancerResponse_dNSName = Lens.lens (\CreateLoadBalancerResponse' {dN
 createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Prelude.Int
 createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerResponse)
 
-instance Prelude.NFData CreateLoadBalancerResponse
+instance Prelude.NFData CreateLoadBalancerResponse where
+  rnf CreateLoadBalancerResponse' {..} =
+    Prelude.rnf dNSName
+      `Prelude.seq` Prelude.rnf httpStatus

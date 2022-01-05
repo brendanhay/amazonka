@@ -105,9 +105,19 @@ instance Core.FromXML AccessLog where
       Prelude.<*> (x Core..@? "S3BucketName")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable AccessLog
+instance Prelude.Hashable AccessLog where
+  hashWithSalt _salt AccessLog' {..} =
+    _salt `Prelude.hashWithSalt` emitInterval
+      `Prelude.hashWithSalt` s3BucketPrefix
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData AccessLog
+instance Prelude.NFData AccessLog where
+  rnf AccessLog' {..} =
+    Prelude.rnf emitInterval
+      `Prelude.seq` Prelude.rnf s3BucketPrefix
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery AccessLog where
   toQuery AccessLog' {..} =

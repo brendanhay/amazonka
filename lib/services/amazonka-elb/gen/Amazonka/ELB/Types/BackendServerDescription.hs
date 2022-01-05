@@ -71,6 +71,12 @@ instance Core.FromXML BackendServerDescription where
                   )
       Prelude.<*> (x Core..@? "InstancePort")
 
-instance Prelude.Hashable BackendServerDescription
+instance Prelude.Hashable BackendServerDescription where
+  hashWithSalt _salt BackendServerDescription' {..} =
+    _salt `Prelude.hashWithSalt` policyNames
+      `Prelude.hashWithSalt` instancePort
 
-instance Prelude.NFData BackendServerDescription
+instance Prelude.NFData BackendServerDescription where
+  rnf BackendServerDescription' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf instancePort

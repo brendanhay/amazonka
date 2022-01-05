@@ -71,6 +71,12 @@ instance Core.FromXML TagDescription where
                       Prelude.>>= Core.may (Core.parseXMLList1 "member")
                   )
 
-instance Prelude.Hashable TagDescription
+instance Prelude.Hashable TagDescription where
+  hashWithSalt _salt TagDescription' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagDescription
+instance Prelude.NFData TagDescription where
+  rnf TagDescription' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf tags

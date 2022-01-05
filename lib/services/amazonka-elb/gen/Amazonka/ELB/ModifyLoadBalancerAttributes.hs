@@ -129,8 +129,15 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
 instance
   Prelude.Hashable
     ModifyLoadBalancerAttributes
+  where
+  hashWithSalt _salt ModifyLoadBalancerAttributes' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` loadBalancerAttributes
 
-instance Prelude.NFData ModifyLoadBalancerAttributes
+instance Prelude.NFData ModifyLoadBalancerAttributes where
+  rnf ModifyLoadBalancerAttributes' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf loadBalancerAttributes
 
 instance Core.ToHeaders ModifyLoadBalancerAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +213,8 @@ modifyLoadBalancerAttributesResponse_httpStatus = Lens.lens (\ModifyLoadBalancer
 instance
   Prelude.NFData
     ModifyLoadBalancerAttributesResponse
+  where
+  rnf ModifyLoadBalancerAttributesResponse' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf loadBalancerAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,10 +120,20 @@ instance
 instance
   Prelude.Hashable
     DeregisterInstancesFromLoadBalancer
+  where
+  hashWithSalt
+    _salt
+    DeregisterInstancesFromLoadBalancer' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` instances
 
 instance
   Prelude.NFData
     DeregisterInstancesFromLoadBalancer
+  where
+  rnf DeregisterInstancesFromLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf instances
 
 instance
   Core.ToHeaders
@@ -199,3 +209,7 @@ deregisterInstancesFromLoadBalancerResponse_httpStatus = Lens.lens (\DeregisterI
 instance
   Prelude.NFData
     DeregisterInstancesFromLoadBalancerResponse
+  where
+  rnf DeregisterInstancesFromLoadBalancerResponse' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf httpStatus

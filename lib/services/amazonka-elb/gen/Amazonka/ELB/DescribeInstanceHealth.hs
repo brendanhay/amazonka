@@ -109,9 +109,15 @@ instance Core.AWSRequest DescribeInstanceHealth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceHealth
+instance Prelude.Hashable DescribeInstanceHealth where
+  hashWithSalt _salt DescribeInstanceHealth' {..} =
+    _salt `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData DescribeInstanceHealth
+instance Prelude.NFData DescribeInstanceHealth where
+  rnf DescribeInstanceHealth' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf loadBalancerName
 
 instance Core.ToHeaders DescribeInstanceHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +182,7 @@ describeInstanceHealthResponse_httpStatus = Lens.lens (\DescribeInstanceHealthRe
 instance
   Prelude.NFData
     DescribeInstanceHealthResponse
+  where
+  rnf DescribeInstanceHealthResponse' {..} =
+    Prelude.rnf instanceStates
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,6 +68,12 @@ instance Core.FromXML SourceSecurityGroup where
       Prelude.<$> (x Core..@? "OwnerAlias")
       Prelude.<*> (x Core..@? "GroupName")
 
-instance Prelude.Hashable SourceSecurityGroup
+instance Prelude.Hashable SourceSecurityGroup where
+  hashWithSalt _salt SourceSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` ownerAlias
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData SourceSecurityGroup
+instance Prelude.NFData SourceSecurityGroup where
+  rnf SourceSecurityGroup' {..} =
+    Prelude.rnf ownerAlias
+      `Prelude.seq` Prelude.rnf groupName

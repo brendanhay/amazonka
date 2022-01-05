@@ -137,10 +137,22 @@ instance
 instance
   Prelude.Hashable
     SetLoadBalancerPoliciesOfListener
+  where
+  hashWithSalt
+    _salt
+    SetLoadBalancerPoliciesOfListener' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` loadBalancerPort
+        `Prelude.hashWithSalt` policyNames
 
 instance
   Prelude.NFData
     SetLoadBalancerPoliciesOfListener
+  where
+  rnf SetLoadBalancerPoliciesOfListener' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf loadBalancerPort
+      `Prelude.seq` Prelude.rnf policyNames
 
 instance
   Core.ToHeaders
@@ -208,3 +220,6 @@ setLoadBalancerPoliciesOfListenerResponse_httpStatus = Lens.lens (\SetLoadBalanc
 instance
   Prelude.NFData
     SetLoadBalancerPoliciesOfListenerResponse
+  where
+  rnf SetLoadBalancerPoliciesOfListenerResponse' {..} =
+    Prelude.rnf httpStatus

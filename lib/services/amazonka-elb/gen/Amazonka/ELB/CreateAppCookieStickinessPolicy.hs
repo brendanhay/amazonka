@@ -145,10 +145,22 @@ instance
 instance
   Prelude.Hashable
     CreateAppCookieStickinessPolicy
+  where
+  hashWithSalt
+    _salt
+    CreateAppCookieStickinessPolicy' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` policyName
+        `Prelude.hashWithSalt` cookieName
 
 instance
   Prelude.NFData
     CreateAppCookieStickinessPolicy
+  where
+  rnf CreateAppCookieStickinessPolicy' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf cookieName
 
 instance
   Core.ToHeaders
@@ -209,3 +221,6 @@ createAppCookieStickinessPolicyResponse_httpStatus = Lens.lens (\CreateAppCookie
 instance
   Prelude.NFData
     CreateAppCookieStickinessPolicyResponse
+  where
+  rnf CreateAppCookieStickinessPolicyResponse' {..} =
+    Prelude.rnf httpStatus

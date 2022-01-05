@@ -54,9 +54,12 @@ instance Core.FromXML Instance where
   parseXML x =
     Instance' Prelude.<$> (x Core..@? "InstanceId")
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} = Prelude.rnf instanceId
 
 instance Core.ToQuery Instance where
   toQuery Instance' {..} =

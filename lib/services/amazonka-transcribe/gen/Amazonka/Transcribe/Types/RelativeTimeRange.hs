@@ -180,9 +180,19 @@ instance Core.FromJSON RelativeTimeRange where
             Prelude.<*> (x Core..:? "StartPercentage")
       )
 
-instance Prelude.Hashable RelativeTimeRange
+instance Prelude.Hashable RelativeTimeRange where
+  hashWithSalt _salt RelativeTimeRange' {..} =
+    _salt `Prelude.hashWithSalt` endPercentage
+      `Prelude.hashWithSalt` first
+      `Prelude.hashWithSalt` last
+      `Prelude.hashWithSalt` startPercentage
 
-instance Prelude.NFData RelativeTimeRange
+instance Prelude.NFData RelativeTimeRange where
+  rnf RelativeTimeRange' {..} =
+    Prelude.rnf endPercentage
+      `Prelude.seq` Prelude.rnf first
+      `Prelude.seq` Prelude.rnf last
+      `Prelude.seq` Prelude.rnf startPercentage
 
 instance Core.ToJSON RelativeTimeRange where
   toJSON RelativeTimeRange' {..} =

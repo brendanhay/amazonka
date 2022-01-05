@@ -185,9 +185,17 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMedicalVocabulary
+instance Prelude.Hashable UpdateMedicalVocabulary where
+  hashWithSalt _salt UpdateMedicalVocabulary' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyFileUri
+      `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData UpdateMedicalVocabulary
+instance Prelude.NFData UpdateMedicalVocabulary where
+  rnf UpdateMedicalVocabulary' {..} =
+    Prelude.rnf vocabularyFileUri
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders UpdateMedicalVocabulary where
   toHeaders =
@@ -303,3 +311,10 @@ updateMedicalVocabularyResponse_httpStatus = Lens.lens (\UpdateMedicalVocabulary
 instance
   Prelude.NFData
     UpdateMedicalVocabularyResponse
+  where
+  rnf UpdateMedicalVocabularyResponse' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf httpStatus

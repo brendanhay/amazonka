@@ -526,9 +526,45 @@ instance Core.AWSRequest StartTranscriptionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTranscriptionJob
+instance Prelude.Hashable StartTranscriptionJob where
+  hashWithSalt _salt StartTranscriptionJob' {..} =
+    _salt `Prelude.hashWithSalt` contentRedaction
+      `Prelude.hashWithSalt` subtitles
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` languageOptions
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` outputBucketName
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` outputEncryptionKMSKeyId
+      `Prelude.hashWithSalt` modelSettings
+      `Prelude.hashWithSalt` kmsEncryptionContext
+      `Prelude.hashWithSalt` jobExecutionSettings
+      `Prelude.hashWithSalt` outputKey
+      `Prelude.hashWithSalt` identifyLanguage
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` mediaSampleRateHertz
+      `Prelude.hashWithSalt` transcriptionJobName
+      `Prelude.hashWithSalt` media
 
-instance Prelude.NFData StartTranscriptionJob
+instance Prelude.NFData StartTranscriptionJob where
+  rnf StartTranscriptionJob' {..} =
+    Prelude.rnf contentRedaction
+      `Prelude.seq` Prelude.rnf subtitles
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf languageOptions
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf outputBucketName
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
+      `Prelude.seq` Prelude.rnf modelSettings
+      `Prelude.seq` Prelude.rnf kmsEncryptionContext
+      `Prelude.seq` Prelude.rnf jobExecutionSettings
+      `Prelude.seq` Prelude.rnf outputKey
+      `Prelude.seq` Prelude.rnf identifyLanguage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
+      `Prelude.seq` Prelude.rnf transcriptionJobName
+      `Prelude.seq` Prelude.rnf media
 
 instance Core.ToHeaders StartTranscriptionJob where
   toHeaders =
@@ -625,4 +661,7 @@ startTranscriptionJobResponse_transcriptionJob = Lens.lens (\StartTranscriptionJ
 startTranscriptionJobResponse_httpStatus :: Lens.Lens' StartTranscriptionJobResponse Prelude.Int
 startTranscriptionJobResponse_httpStatus = Lens.lens (\StartTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@StartTranscriptionJobResponse' {} a -> s {httpStatus = a} :: StartTranscriptionJobResponse)
 
-instance Prelude.NFData StartTranscriptionJobResponse
+instance Prelude.NFData StartTranscriptionJobResponse where
+  rnf StartTranscriptionJobResponse' {..} =
+    Prelude.rnf transcriptionJob
+      `Prelude.seq` Prelude.rnf httpStatus

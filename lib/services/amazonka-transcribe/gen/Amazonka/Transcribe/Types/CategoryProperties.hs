@@ -96,6 +96,16 @@ instance Core.FromJSON CategoryProperties where
             Prelude.<*> (x Core..:? "CreateTime")
       )
 
-instance Prelude.Hashable CategoryProperties
+instance Prelude.Hashable CategoryProperties where
+  hashWithSalt _salt CategoryProperties' {..} =
+    _salt `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` categoryName
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData CategoryProperties
+instance Prelude.NFData CategoryProperties where
+  rnf CategoryProperties' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf categoryName
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf createTime

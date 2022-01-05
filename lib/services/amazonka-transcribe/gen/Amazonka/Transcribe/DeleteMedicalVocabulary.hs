@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteMedicalVocabulary where
     Response.receiveNull
       DeleteMedicalVocabularyResponse'
 
-instance Prelude.Hashable DeleteMedicalVocabulary
+instance Prelude.Hashable DeleteMedicalVocabulary where
+  hashWithSalt _salt DeleteMedicalVocabulary' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyName
 
-instance Prelude.NFData DeleteMedicalVocabulary
+instance Prelude.NFData DeleteMedicalVocabulary where
+  rnf DeleteMedicalVocabulary' {..} =
+    Prelude.rnf vocabularyName
 
 instance Core.ToHeaders DeleteMedicalVocabulary where
   toHeaders =
@@ -133,3 +137,5 @@ newDeleteMedicalVocabularyResponse =
 instance
   Prelude.NFData
     DeleteMedicalVocabularyResponse
+  where
+  rnf _ = ()

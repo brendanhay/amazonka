@@ -101,9 +101,15 @@ instance Core.FromJSON ContentRedaction where
             Prelude.<*> (x Core..: "RedactionOutput")
       )
 
-instance Prelude.Hashable ContentRedaction
+instance Prelude.Hashable ContentRedaction where
+  hashWithSalt _salt ContentRedaction' {..} =
+    _salt `Prelude.hashWithSalt` redactionType
+      `Prelude.hashWithSalt` redactionOutput
 
-instance Prelude.NFData ContentRedaction
+instance Prelude.NFData ContentRedaction where
+  rnf ContentRedaction' {..} =
+    Prelude.rnf redactionType
+      `Prelude.seq` Prelude.rnf redactionOutput
 
 instance Core.ToJSON ContentRedaction where
   toJSON ContentRedaction' {..} =

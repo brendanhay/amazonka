@@ -168,9 +168,23 @@ instance Core.FromJSON CallAnalyticsJobSettings where
             Prelude.<*> (x Core..:? "VocabularyFilterMethod")
       )
 
-instance Prelude.Hashable CallAnalyticsJobSettings
+instance Prelude.Hashable CallAnalyticsJobSettings where
+  hashWithSalt _salt CallAnalyticsJobSettings' {..} =
+    _salt `Prelude.hashWithSalt` contentRedaction
+      `Prelude.hashWithSalt` languageOptions
+      `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` languageModelName
+      `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` vocabularyFilterMethod
 
-instance Prelude.NFData CallAnalyticsJobSettings
+instance Prelude.NFData CallAnalyticsJobSettings where
+  rnf CallAnalyticsJobSettings' {..} =
+    Prelude.rnf contentRedaction
+      `Prelude.seq` Prelude.rnf languageOptions
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf languageModelName
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
 
 instance Core.ToJSON CallAnalyticsJobSettings where
   toJSON CallAnalyticsJobSettings' {..} =

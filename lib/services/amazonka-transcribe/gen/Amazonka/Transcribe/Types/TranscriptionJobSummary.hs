@@ -218,6 +218,32 @@ instance Core.FromJSON TranscriptionJobSummary where
             Prelude.<*> (x Core..:? "IdentifyLanguage")
       )
 
-instance Prelude.Hashable TranscriptionJobSummary
+instance Prelude.Hashable TranscriptionJobSummary where
+  hashWithSalt _salt TranscriptionJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` contentRedaction
+      `Prelude.hashWithSalt` identifiedLanguageScore
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` outputLocationType
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` modelSettings
+      `Prelude.hashWithSalt` transcriptionJobStatus
+      `Prelude.hashWithSalt` transcriptionJobName
+      `Prelude.hashWithSalt` identifyLanguage
 
-instance Prelude.NFData TranscriptionJobSummary
+instance Prelude.NFData TranscriptionJobSummary where
+  rnf TranscriptionJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf contentRedaction
+      `Prelude.seq` Prelude.rnf identifiedLanguageScore
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf outputLocationType
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf modelSettings
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf transcriptionJobName
+      `Prelude.seq` Prelude.rnf identifyLanguage

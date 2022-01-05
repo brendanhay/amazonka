@@ -133,9 +133,21 @@ instance Core.FromJSON InterruptionFilter where
             Prelude.<*> (x Core..:? "AbsoluteTimeRange")
       )
 
-instance Prelude.Hashable InterruptionFilter
+instance Prelude.Hashable InterruptionFilter where
+  hashWithSalt _salt InterruptionFilter' {..} =
+    _salt `Prelude.hashWithSalt` participantRole
+      `Prelude.hashWithSalt` relativeTimeRange
+      `Prelude.hashWithSalt` negate
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` absoluteTimeRange
 
-instance Prelude.NFData InterruptionFilter
+instance Prelude.NFData InterruptionFilter where
+  rnf InterruptionFilter' {..} =
+    Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf relativeTimeRange
+      `Prelude.seq` Prelude.rnf negate
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf absoluteTimeRange
 
 instance Core.ToJSON InterruptionFilter where
   toJSON InterruptionFilter' {..} =

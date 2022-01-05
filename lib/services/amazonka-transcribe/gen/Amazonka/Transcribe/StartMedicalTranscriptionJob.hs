@@ -472,8 +472,39 @@ instance Core.AWSRequest StartMedicalTranscriptionJob where
 instance
   Prelude.Hashable
     StartMedicalTranscriptionJob
+  where
+  hashWithSalt _salt StartMedicalTranscriptionJob' {..} =
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` outputEncryptionKMSKeyId
+      `Prelude.hashWithSalt` kmsEncryptionContext
+      `Prelude.hashWithSalt` outputKey
+      `Prelude.hashWithSalt` contentIdentificationType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` mediaSampleRateHertz
+      `Prelude.hashWithSalt` medicalTranscriptionJobName
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` media
+      `Prelude.hashWithSalt` outputBucketName
+      `Prelude.hashWithSalt` specialty
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData StartMedicalTranscriptionJob
+instance Prelude.NFData StartMedicalTranscriptionJob where
+  rnf StartMedicalTranscriptionJob' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
+      `Prelude.seq` Prelude.rnf kmsEncryptionContext
+      `Prelude.seq` Prelude.rnf outputKey
+      `Prelude.seq` Prelude.rnf contentIdentificationType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf media
+      `Prelude.seq` Prelude.rnf outputBucketName
+      `Prelude.seq` Prelude.rnf specialty
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders StartMedicalTranscriptionJob where
   toHeaders =
@@ -567,3 +598,7 @@ startMedicalTranscriptionJobResponse_httpStatus = Lens.lens (\StartMedicalTransc
 instance
   Prelude.NFData
     StartMedicalTranscriptionJobResponse
+  where
+  rnf StartMedicalTranscriptionJobResponse' {..} =
+    Prelude.rnf medicalTranscriptionJob
+      `Prelude.seq` Prelude.rnf httpStatus

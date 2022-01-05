@@ -102,9 +102,13 @@ instance Core.AWSRequest GetMedicalVocabulary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMedicalVocabulary
+instance Prelude.Hashable GetMedicalVocabulary where
+  hashWithSalt _salt GetMedicalVocabulary' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyName
 
-instance Prelude.NFData GetMedicalVocabulary
+instance Prelude.NFData GetMedicalVocabulary where
+  rnf GetMedicalVocabulary' {..} =
+    Prelude.rnf vocabularyName
 
 instance Core.ToHeaders GetMedicalVocabulary where
   toHeaders =
@@ -238,4 +242,12 @@ getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyR
 getMedicalVocabularyResponse_httpStatus :: Lens.Lens' GetMedicalVocabularyResponse Prelude.Int
 getMedicalVocabularyResponse_httpStatus = Lens.lens (\GetMedicalVocabularyResponse' {httpStatus} -> httpStatus) (\s@GetMedicalVocabularyResponse' {} a -> s {httpStatus = a} :: GetMedicalVocabularyResponse)
 
-instance Prelude.NFData GetMedicalVocabularyResponse
+instance Prelude.NFData GetMedicalVocabularyResponse where
+  rnf GetMedicalVocabularyResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf downloadUri
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -125,9 +125,19 @@ instance Core.FromJSON NonTalkTimeFilter where
             Prelude.<*> (x Core..:? "AbsoluteTimeRange")
       )
 
-instance Prelude.Hashable NonTalkTimeFilter
+instance Prelude.Hashable NonTalkTimeFilter where
+  hashWithSalt _salt NonTalkTimeFilter' {..} =
+    _salt `Prelude.hashWithSalt` relativeTimeRange
+      `Prelude.hashWithSalt` negate
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` absoluteTimeRange
 
-instance Prelude.NFData NonTalkTimeFilter
+instance Prelude.NFData NonTalkTimeFilter where
+  rnf NonTalkTimeFilter' {..} =
+    Prelude.rnf relativeTimeRange
+      `Prelude.seq` Prelude.rnf negate
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf absoluteTimeRange
 
 instance Core.ToJSON NonTalkTimeFilter where
   toJSON NonTalkTimeFilter' {..} =

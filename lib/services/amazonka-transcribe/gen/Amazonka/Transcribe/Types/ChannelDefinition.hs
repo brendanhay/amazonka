@@ -78,9 +78,15 @@ instance Core.FromJSON ChannelDefinition where
             Prelude.<*> (x Core..:? "ChannelId")
       )
 
-instance Prelude.Hashable ChannelDefinition
+instance Prelude.Hashable ChannelDefinition where
+  hashWithSalt _salt ChannelDefinition' {..} =
+    _salt `Prelude.hashWithSalt` participantRole
+      `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData ChannelDefinition
+instance Prelude.NFData ChannelDefinition where
+  rnf ChannelDefinition' {..} =
+    Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf channelId
 
 instance Core.ToJSON ChannelDefinition where
   toJSON ChannelDefinition' {..} =

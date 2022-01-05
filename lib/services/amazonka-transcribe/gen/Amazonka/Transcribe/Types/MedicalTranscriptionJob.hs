@@ -387,6 +387,40 @@ instance Core.FromJSON MedicalTranscriptionJob where
             Prelude.<*> (x Core..:? "MediaSampleRateHertz")
       )
 
-instance Prelude.Hashable MedicalTranscriptionJob
+instance Prelude.Hashable MedicalTranscriptionJob where
+  hashWithSalt _salt MedicalTranscriptionJob' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` specialty
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` media
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` medicalTranscriptionJobName
+      `Prelude.hashWithSalt` transcriptionJobStatus
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` contentIdentificationType
+      `Prelude.hashWithSalt` transcript
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` mediaSampleRateHertz
 
-instance Prelude.NFData MedicalTranscriptionJob
+instance Prelude.NFData MedicalTranscriptionJob where
+  rnf MedicalTranscriptionJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf specialty
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf media
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf contentIdentificationType
+      `Prelude.seq` Prelude.rnf transcript
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz

@@ -82,9 +82,13 @@ instance Core.AWSRequest DeleteTranscriptionJob where
     Response.receiveNull
       DeleteTranscriptionJobResponse'
 
-instance Prelude.Hashable DeleteTranscriptionJob
+instance Prelude.Hashable DeleteTranscriptionJob where
+  hashWithSalt _salt DeleteTranscriptionJob' {..} =
+    _salt `Prelude.hashWithSalt` transcriptionJobName
 
-instance Prelude.NFData DeleteTranscriptionJob
+instance Prelude.NFData DeleteTranscriptionJob where
+  rnf DeleteTranscriptionJob' {..} =
+    Prelude.rnf transcriptionJobName
 
 instance Core.ToHeaders DeleteTranscriptionJob where
   toHeaders =
@@ -136,3 +140,5 @@ newDeleteTranscriptionJobResponse =
 instance
   Prelude.NFData
     DeleteTranscriptionJobResponse
+  where
+  rnf _ = ()

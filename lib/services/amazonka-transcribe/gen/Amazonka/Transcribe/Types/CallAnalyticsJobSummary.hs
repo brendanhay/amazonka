@@ -124,6 +124,22 @@ instance Core.FromJSON CallAnalyticsJobSummary where
             Prelude.<*> (x Core..:? "CallAnalyticsJobName")
       )
 
-instance Prelude.Hashable CallAnalyticsJobSummary
+instance Prelude.Hashable CallAnalyticsJobSummary where
+  hashWithSalt _salt CallAnalyticsJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` callAnalyticsJobStatus
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` callAnalyticsJobName
 
-instance Prelude.NFData CallAnalyticsJobSummary
+instance Prelude.NFData CallAnalyticsJobSummary where
+  rnf CallAnalyticsJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf callAnalyticsJobStatus
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf callAnalyticsJobName

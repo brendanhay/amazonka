@@ -201,9 +201,22 @@ instance Core.AWSRequest CreateVocabularyFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVocabularyFilter
+instance Prelude.Hashable CreateVocabularyFilter where
+  hashWithSalt _salt CreateVocabularyFilter' {..} =
+    _salt
+      `Prelude.hashWithSalt` vocabularyFilterFileUri
+      `Prelude.hashWithSalt` words
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CreateVocabularyFilter
+instance Prelude.NFData CreateVocabularyFilter where
+  rnf CreateVocabularyFilter' {..} =
+    Prelude.rnf vocabularyFilterFileUri
+      `Prelude.seq` Prelude.rnf words
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders CreateVocabularyFilter where
   toHeaders =
@@ -302,3 +315,9 @@ createVocabularyFilterResponse_httpStatus = Lens.lens (\CreateVocabularyFilterRe
 instance
   Prelude.NFData
     CreateVocabularyFilterResponse
+  where
+  rnf CreateVocabularyFilterResponse' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -145,9 +145,19 @@ instance Core.AWSRequest ListVocabularies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVocabularies
+instance Prelude.Hashable ListVocabularies where
+  hashWithSalt _salt ListVocabularies' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stateEquals
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListVocabularies
+instance Prelude.NFData ListVocabularies where
+  rnf ListVocabularies' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stateEquals
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListVocabularies where
   toHeaders =
@@ -256,4 +266,9 @@ listVocabulariesResponse_nextToken = Lens.lens (\ListVocabulariesResponse' {next
 listVocabulariesResponse_httpStatus :: Lens.Lens' ListVocabulariesResponse Prelude.Int
 listVocabulariesResponse_httpStatus = Lens.lens (\ListVocabulariesResponse' {httpStatus} -> httpStatus) (\s@ListVocabulariesResponse' {} a -> s {httpStatus = a} :: ListVocabulariesResponse)
 
-instance Prelude.NFData ListVocabulariesResponse
+instance Prelude.NFData ListVocabulariesResponse where
+  rnf ListVocabulariesResponse' {..} =
+    Prelude.rnf vocabularies
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

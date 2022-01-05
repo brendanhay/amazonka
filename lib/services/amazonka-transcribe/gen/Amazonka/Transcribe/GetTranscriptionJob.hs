@@ -94,9 +94,13 @@ instance Core.AWSRequest GetTranscriptionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTranscriptionJob
+instance Prelude.Hashable GetTranscriptionJob where
+  hashWithSalt _salt GetTranscriptionJob' {..} =
+    _salt `Prelude.hashWithSalt` transcriptionJobName
 
-instance Prelude.NFData GetTranscriptionJob
+instance Prelude.NFData GetTranscriptionJob where
+  rnf GetTranscriptionJob' {..} =
+    Prelude.rnf transcriptionJobName
 
 instance Core.ToHeaders GetTranscriptionJob where
   toHeaders =
@@ -169,4 +173,7 @@ getTranscriptionJobResponse_transcriptionJob = Lens.lens (\GetTranscriptionJobRe
 getTranscriptionJobResponse_httpStatus :: Lens.Lens' GetTranscriptionJobResponse Prelude.Int
 getTranscriptionJobResponse_httpStatus = Lens.lens (\GetTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@GetTranscriptionJobResponse' {} a -> s {httpStatus = a} :: GetTranscriptionJobResponse)
 
-instance Prelude.NFData GetTranscriptionJobResponse
+instance Prelude.NFData GetTranscriptionJobResponse where
+  rnf GetTranscriptionJobResponse' {..} =
+    Prelude.rnf transcriptionJob
+      `Prelude.seq` Prelude.rnf httpStatus

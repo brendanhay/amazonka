@@ -182,9 +182,21 @@ instance Core.AWSRequest CreateVocabulary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVocabulary
+instance Prelude.Hashable CreateVocabulary where
+  hashWithSalt _salt CreateVocabulary' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyFileUri
+      `Prelude.hashWithSalt` phrases
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CreateVocabulary
+instance Prelude.NFData CreateVocabulary where
+  rnf CreateVocabulary' {..} =
+    Prelude.rnf vocabularyFileUri
+      `Prelude.seq` Prelude.rnf phrases
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders CreateVocabulary where
   toHeaders =
@@ -305,4 +317,11 @@ createVocabularyResponse_vocabularyState = Lens.lens (\CreateVocabularyResponse'
 createVocabularyResponse_httpStatus :: Lens.Lens' CreateVocabularyResponse Prelude.Int
 createVocabularyResponse_httpStatus = Lens.lens (\CreateVocabularyResponse' {httpStatus} -> httpStatus) (\s@CreateVocabularyResponse' {} a -> s {httpStatus = a} :: CreateVocabularyResponse)
 
-instance Prelude.NFData CreateVocabularyResponse
+instance Prelude.NFData CreateVocabularyResponse where
+  rnf CreateVocabularyResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf httpStatus

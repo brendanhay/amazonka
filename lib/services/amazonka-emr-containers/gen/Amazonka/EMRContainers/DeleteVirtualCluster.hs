@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteVirtualCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVirtualCluster
+instance Prelude.Hashable DeleteVirtualCluster where
+  hashWithSalt _salt DeleteVirtualCluster' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteVirtualCluster
+instance Prelude.NFData DeleteVirtualCluster where
+  rnf DeleteVirtualCluster' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteVirtualCluster where
   toHeaders =
@@ -151,4 +154,6 @@ deleteVirtualClusterResponse_id = Lens.lens (\DeleteVirtualClusterResponse' {id}
 deleteVirtualClusterResponse_httpStatus :: Lens.Lens' DeleteVirtualClusterResponse Prelude.Int
 deleteVirtualClusterResponse_httpStatus = Lens.lens (\DeleteVirtualClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteVirtualClusterResponse' {} a -> s {httpStatus = a} :: DeleteVirtualClusterResponse)
 
-instance Prelude.NFData DeleteVirtualClusterResponse
+instance Prelude.NFData DeleteVirtualClusterResponse where
+  rnf DeleteVirtualClusterResponse' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf httpStatus

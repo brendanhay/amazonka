@@ -60,9 +60,12 @@ instance Core.FromJSON JobDriver where
             Prelude.<$> (x Core..:? "sparkSubmitJobDriver")
       )
 
-instance Prelude.Hashable JobDriver
+instance Prelude.Hashable JobDriver where
+  hashWithSalt _salt JobDriver' {..} =
+    _salt `Prelude.hashWithSalt` sparkSubmitJobDriver
 
-instance Prelude.NFData JobDriver
+instance Prelude.NFData JobDriver where
+  rnf JobDriver' {..} = Prelude.rnf sparkSubmitJobDriver
 
 instance Core.ToJSON JobDriver where
   toJSON JobDriver' {..} =

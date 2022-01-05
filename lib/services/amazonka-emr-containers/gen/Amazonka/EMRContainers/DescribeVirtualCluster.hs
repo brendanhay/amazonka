@@ -92,9 +92,12 @@ instance Core.AWSRequest DescribeVirtualCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVirtualCluster
+instance Prelude.Hashable DescribeVirtualCluster where
+  hashWithSalt _salt DescribeVirtualCluster' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeVirtualCluster
+instance Prelude.NFData DescribeVirtualCluster where
+  rnf DescribeVirtualCluster' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeVirtualCluster where
   toHeaders =
@@ -156,3 +159,7 @@ describeVirtualClusterResponse_httpStatus = Lens.lens (\DescribeVirtualClusterRe
 instance
   Prelude.NFData
     DescribeVirtualClusterResponse
+  where
+  rnf DescribeVirtualClusterResponse' {..} =
+    Prelude.rnf virtualCluster
+      `Prelude.seq` Prelude.rnf httpStatus

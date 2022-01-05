@@ -133,9 +133,17 @@ instance Core.AWSRequest SearchDevices where
             Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable SearchDevices
+instance Prelude.Hashable SearchDevices where
+  hashWithSalt _salt SearchDevices' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchDevices
+instance Prelude.NFData SearchDevices where
+  rnf SearchDevices' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders SearchDevices where
   toHeaders =
@@ -220,4 +228,8 @@ searchDevicesResponse_httpStatus = Lens.lens (\SearchDevicesResponse' {httpStatu
 searchDevicesResponse_devices :: Lens.Lens' SearchDevicesResponse [DeviceSummary]
 searchDevicesResponse_devices = Lens.lens (\SearchDevicesResponse' {devices} -> devices) (\s@SearchDevicesResponse' {} a -> s {devices = a} :: SearchDevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SearchDevicesResponse
+instance Prelude.NFData SearchDevicesResponse where
+  rnf SearchDevicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devices

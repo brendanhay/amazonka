@@ -298,9 +298,29 @@ instance Core.AWSRequest CreateGameSessionQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGameSessionQueue
+instance Prelude.Hashable CreateGameSessionQueue where
+  hashWithSalt _salt CreateGameSessionQueue' {..} =
+    _salt `Prelude.hashWithSalt` playerLatencyPolicies
+      `Prelude.hashWithSalt` filterConfiguration
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` priorityConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateGameSessionQueue
+instance Prelude.NFData CreateGameSessionQueue where
+  rnf CreateGameSessionQueue' {..} =
+    Prelude.rnf playerLatencyPolicies
+      `Prelude.seq` Prelude.rnf filterConfiguration
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf priorityConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateGameSessionQueue where
   toHeaders =
@@ -389,3 +409,7 @@ createGameSessionQueueResponse_httpStatus = Lens.lens (\CreateGameSessionQueueRe
 instance
   Prelude.NFData
     CreateGameSessionQueueResponse
+  where
+  rnf CreateGameSessionQueueResponse' {..} =
+    Prelude.rnf gameSessionQueue
+      `Prelude.seq` Prelude.rnf httpStatus

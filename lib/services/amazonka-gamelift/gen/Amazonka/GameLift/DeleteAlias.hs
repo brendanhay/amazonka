@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteAlias where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAliasResponse'
 
-instance Prelude.Hashable DeleteAlias
+instance Prelude.Hashable DeleteAlias where
+  hashWithSalt _salt DeleteAlias' {..} =
+    _salt `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData DeleteAlias
+instance Prelude.NFData DeleteAlias where
+  rnf DeleteAlias' {..} = Prelude.rnf aliasId
 
 instance Core.ToHeaders DeleteAlias where
   toHeaders =
@@ -132,4 +135,5 @@ newDeleteAliasResponse ::
   DeleteAliasResponse
 newDeleteAliasResponse = DeleteAliasResponse'
 
-instance Prelude.NFData DeleteAliasResponse
+instance Prelude.NFData DeleteAliasResponse where
+  rnf _ = ()

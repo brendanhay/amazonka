@@ -146,9 +146,15 @@ instance Core.AWSRequest GetInstanceAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstanceAccess
+instance Prelude.Hashable GetInstanceAccess where
+  hashWithSalt _salt GetInstanceAccess' {..} =
+    _salt `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GetInstanceAccess
+instance Prelude.NFData GetInstanceAccess where
+  rnf GetInstanceAccess' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GetInstanceAccess where
   toHeaders =
@@ -222,4 +228,7 @@ getInstanceAccessResponse_instanceAccess = Lens.lens (\GetInstanceAccessResponse
 getInstanceAccessResponse_httpStatus :: Lens.Lens' GetInstanceAccessResponse Prelude.Int
 getInstanceAccessResponse_httpStatus = Lens.lens (\GetInstanceAccessResponse' {httpStatus} -> httpStatus) (\s@GetInstanceAccessResponse' {} a -> s {httpStatus = a} :: GetInstanceAccessResponse)
 
-instance Prelude.NFData GetInstanceAccessResponse
+instance Prelude.NFData GetInstanceAccessResponse where
+  rnf GetInstanceAccessResponse' {..} =
+    Prelude.rnf instanceAccess
+      `Prelude.seq` Prelude.rnf httpStatus

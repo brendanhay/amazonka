@@ -463,6 +463,36 @@ instance Core.FromJSON ScalingPolicy where
             Prelude.<*> (x Core..:? "TargetConfiguration")
       )
 
-instance Prelude.Hashable ScalingPolicy
+instance Prelude.Hashable ScalingPolicy where
+  hashWithSalt _salt ScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` scalingAdjustmentType
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` scalingAdjustment
+      `Prelude.hashWithSalt` updateStatus
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` targetConfiguration
 
-instance Prelude.NFData ScalingPolicy
+instance Prelude.NFData ScalingPolicy where
+  rnf ScalingPolicy' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf scalingAdjustmentType
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf scalingAdjustment
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf targetConfiguration

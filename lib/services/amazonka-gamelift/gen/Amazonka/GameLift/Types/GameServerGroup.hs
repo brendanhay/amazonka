@@ -374,6 +374,32 @@ instance Core.FromJSON GameServerGroup where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable GameServerGroup
+instance Prelude.Hashable GameServerGroup where
+  hashWithSalt _salt GameServerGroup' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceDefinitions
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` balancingStrategy
+      `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` suspendedActions
+      `Prelude.hashWithSalt` autoScalingGroupArn
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` gameServerProtectionPolicy
+      `Prelude.hashWithSalt` gameServerGroupArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData GameServerGroup
+instance Prelude.NFData GameServerGroup where
+  rnf GameServerGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceDefinitions
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf balancingStrategy
+      `Prelude.seq` Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf suspendedActions
+      `Prelude.seq` Prelude.rnf autoScalingGroupArn
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
+      `Prelude.seq` Prelude.rnf gameServerGroupArn
+      `Prelude.seq` Prelude.rnf roleArn

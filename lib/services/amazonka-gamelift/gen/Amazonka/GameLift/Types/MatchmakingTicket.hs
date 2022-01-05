@@ -323,6 +323,30 @@ instance Core.FromJSON MatchmakingTicket where
             Prelude.<*> (x Core..:? "Players" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable MatchmakingTicket
+instance Prelude.Hashable MatchmakingTicket where
+  hashWithSalt _salt MatchmakingTicket' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` gameSessionConnectionInfo
+      `Prelude.hashWithSalt` ticketId
+      `Prelude.hashWithSalt` estimatedWaitTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` configurationArn
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` players
 
-instance Prelude.NFData MatchmakingTicket
+instance Prelude.NFData MatchmakingTicket where
+  rnf MatchmakingTicket' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf configurationName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf gameSessionConnectionInfo
+      `Prelude.seq` Prelude.rnf ticketId
+      `Prelude.seq` Prelude.rnf estimatedWaitTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf configurationArn
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf players

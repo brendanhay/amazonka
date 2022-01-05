@@ -106,10 +106,21 @@ gameServerGroupAutoScalingPolicy_targetTrackingConfiguration = Lens.lens (\GameS
 instance
   Prelude.Hashable
     GameServerGroupAutoScalingPolicy
+  where
+  hashWithSalt
+    _salt
+    GameServerGroupAutoScalingPolicy' {..} =
+      _salt
+        `Prelude.hashWithSalt` estimatedInstanceWarmup
+        `Prelude.hashWithSalt` targetTrackingConfiguration
 
 instance
   Prelude.NFData
     GameServerGroupAutoScalingPolicy
+  where
+  rnf GameServerGroupAutoScalingPolicy' {..} =
+    Prelude.rnf estimatedInstanceWarmup
+      `Prelude.seq` Prelude.rnf targetTrackingConfiguration
 
 instance Core.ToJSON GameServerGroupAutoScalingPolicy where
   toJSON GameServerGroupAutoScalingPolicy' {..} =

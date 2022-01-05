@@ -281,9 +281,21 @@ instance Core.AWSRequest UpdateGameServerGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGameServerGroup
+instance Prelude.Hashable UpdateGameServerGroup where
+  hashWithSalt _salt UpdateGameServerGroup' {..} =
+    _salt `Prelude.hashWithSalt` instanceDefinitions
+      `Prelude.hashWithSalt` balancingStrategy
+      `Prelude.hashWithSalt` gameServerProtectionPolicy
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData UpdateGameServerGroup
+instance Prelude.NFData UpdateGameServerGroup where
+  rnf UpdateGameServerGroup' {..} =
+    Prelude.rnf instanceDefinitions
+      `Prelude.seq` Prelude.rnf balancingStrategy
+      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders UpdateGameServerGroup where
   toHeaders =
@@ -364,4 +376,7 @@ updateGameServerGroupResponse_gameServerGroup = Lens.lens (\UpdateGameServerGrou
 updateGameServerGroupResponse_httpStatus :: Lens.Lens' UpdateGameServerGroupResponse Prelude.Int
 updateGameServerGroupResponse_httpStatus = Lens.lens (\UpdateGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGameServerGroupResponse' {} a -> s {httpStatus = a} :: UpdateGameServerGroupResponse)
 
-instance Prelude.NFData UpdateGameServerGroupResponse
+instance Prelude.NFData UpdateGameServerGroupResponse where
+  rnf UpdateGameServerGroupResponse' {..} =
+    Prelude.rnf gameServerGroup
+      `Prelude.seq` Prelude.rnf httpStatus

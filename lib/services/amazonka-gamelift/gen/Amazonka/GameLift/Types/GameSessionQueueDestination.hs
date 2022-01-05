@@ -72,9 +72,13 @@ instance Core.FromJSON GameSessionQueueDestination where
             Prelude.<$> (x Core..:? "DestinationArn")
       )
 
-instance Prelude.Hashable GameSessionQueueDestination
+instance Prelude.Hashable GameSessionQueueDestination where
+  hashWithSalt _salt GameSessionQueueDestination' {..} =
+    _salt `Prelude.hashWithSalt` destinationArn
 
-instance Prelude.NFData GameSessionQueueDestination
+instance Prelude.NFData GameSessionQueueDestination where
+  rnf GameSessionQueueDestination' {..} =
+    Prelude.rnf destinationArn
 
 instance Core.ToJSON GameSessionQueueDestination where
   toJSON GameSessionQueueDestination' {..} =

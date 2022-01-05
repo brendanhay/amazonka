@@ -90,9 +90,17 @@ instance Core.FromJSON PlayerLatency where
             Prelude.<*> (x Core..:? "PlayerId")
       )
 
-instance Prelude.Hashable PlayerLatency
+instance Prelude.Hashable PlayerLatency where
+  hashWithSalt _salt PlayerLatency' {..} =
+    _salt `Prelude.hashWithSalt` latencyInMilliseconds
+      `Prelude.hashWithSalt` regionIdentifier
+      `Prelude.hashWithSalt` playerId
 
-instance Prelude.NFData PlayerLatency
+instance Prelude.NFData PlayerLatency where
+  rnf PlayerLatency' {..} =
+    Prelude.rnf latencyInMilliseconds
+      `Prelude.seq` Prelude.rnf regionIdentifier
+      `Prelude.seq` Prelude.rnf playerId
 
 instance Core.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =

@@ -137,9 +137,15 @@ instance Core.AWSRequest SuspendGameServerGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SuspendGameServerGroup
+instance Prelude.Hashable SuspendGameServerGroup where
+  hashWithSalt _salt SuspendGameServerGroup' {..} =
+    _salt `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` suspendActions
 
-instance Prelude.NFData SuspendGameServerGroup
+instance Prelude.NFData SuspendGameServerGroup where
+  rnf SuspendGameServerGroup' {..} =
+    Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf suspendActions
 
 instance Core.ToHeaders SuspendGameServerGroup where
   toHeaders =
@@ -218,3 +224,7 @@ suspendGameServerGroupResponse_httpStatus = Lens.lens (\SuspendGameServerGroupRe
 instance
   Prelude.NFData
     SuspendGameServerGroupResponse
+  where
+  rnf SuspendGameServerGroupResponse' {..} =
+    Prelude.rnf gameServerGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -121,9 +121,17 @@ instance Core.FromJSON ServerProcess where
             Prelude.<*> (x Core..: "ConcurrentExecutions")
       )
 
-instance Prelude.Hashable ServerProcess
+instance Prelude.Hashable ServerProcess where
+  hashWithSalt _salt ServerProcess' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` launchPath
+      `Prelude.hashWithSalt` concurrentExecutions
 
-instance Prelude.NFData ServerProcess
+instance Prelude.NFData ServerProcess where
+  rnf ServerProcess' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf launchPath
+      `Prelude.seq` Prelude.rnf concurrentExecutions
 
 instance Core.ToJSON ServerProcess where
   toJSON ServerProcess' {..} =

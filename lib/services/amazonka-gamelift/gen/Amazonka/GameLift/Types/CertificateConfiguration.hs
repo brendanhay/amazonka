@@ -93,9 +93,13 @@ instance Core.FromJSON CertificateConfiguration where
             Prelude.<$> (x Core..: "CertificateType")
       )
 
-instance Prelude.Hashable CertificateConfiguration
+instance Prelude.Hashable CertificateConfiguration where
+  hashWithSalt _salt CertificateConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` certificateType
 
-instance Prelude.NFData CertificateConfiguration
+instance Prelude.NFData CertificateConfiguration where
+  rnf CertificateConfiguration' {..} =
+    Prelude.rnf certificateType
 
 instance Core.ToJSON CertificateConfiguration where
   toJSON CertificateConfiguration' {..} =

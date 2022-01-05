@@ -115,9 +115,12 @@ instance Core.AWSRequest DescribeMatchmaking where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMatchmaking
+instance Prelude.Hashable DescribeMatchmaking where
+  hashWithSalt _salt DescribeMatchmaking' {..} =
+    _salt `Prelude.hashWithSalt` ticketIds
 
-instance Prelude.NFData DescribeMatchmaking
+instance Prelude.NFData DescribeMatchmaking where
+  rnf DescribeMatchmaking' {..} = Prelude.rnf ticketIds
 
 instance Core.ToHeaders DescribeMatchmaking where
   toHeaders =
@@ -191,4 +194,7 @@ describeMatchmakingResponse_ticketList = Lens.lens (\DescribeMatchmakingResponse
 describeMatchmakingResponse_httpStatus :: Lens.Lens' DescribeMatchmakingResponse Prelude.Int
 describeMatchmakingResponse_httpStatus = Lens.lens (\DescribeMatchmakingResponse' {httpStatus} -> httpStatus) (\s@DescribeMatchmakingResponse' {} a -> s {httpStatus = a} :: DescribeMatchmakingResponse)
 
-instance Prelude.NFData DescribeMatchmakingResponse
+instance Prelude.NFData DescribeMatchmakingResponse where
+  rnf DescribeMatchmakingResponse' {..} =
+    Prelude.rnf ticketList
+      `Prelude.seq` Prelude.rnf httpStatus

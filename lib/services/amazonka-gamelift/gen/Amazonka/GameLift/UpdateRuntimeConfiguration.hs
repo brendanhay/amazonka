@@ -145,9 +145,15 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRuntimeConfiguration
+instance Prelude.Hashable UpdateRuntimeConfiguration where
+  hashWithSalt _salt UpdateRuntimeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` runtimeConfiguration
 
-instance Prelude.NFData UpdateRuntimeConfiguration
+instance Prelude.NFData UpdateRuntimeConfiguration where
+  rnf UpdateRuntimeConfiguration' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf runtimeConfiguration
 
 instance Core.ToHeaders UpdateRuntimeConfiguration where
   toHeaders =
@@ -229,3 +235,7 @@ updateRuntimeConfigurationResponse_httpStatus = Lens.lens (\UpdateRuntimeConfigu
 instance
   Prelude.NFData
     UpdateRuntimeConfigurationResponse
+  where
+  rnf UpdateRuntimeConfigurationResponse' {..} =
+    Prelude.rnf runtimeConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

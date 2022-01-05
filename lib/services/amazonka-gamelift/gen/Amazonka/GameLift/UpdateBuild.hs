@@ -129,9 +129,17 @@ instance Core.AWSRequest UpdateBuild where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBuild
+instance Prelude.Hashable UpdateBuild where
+  hashWithSalt _salt UpdateBuild' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` buildId
 
-instance Prelude.NFData UpdateBuild
+instance Prelude.NFData UpdateBuild where
+  rnf UpdateBuild' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf buildId
 
 instance Core.ToHeaders UpdateBuild where
   toHeaders =
@@ -202,4 +210,7 @@ updateBuildResponse_build = Lens.lens (\UpdateBuildResponse' {build} -> build) (
 updateBuildResponse_httpStatus :: Lens.Lens' UpdateBuildResponse Prelude.Int
 updateBuildResponse_httpStatus = Lens.lens (\UpdateBuildResponse' {httpStatus} -> httpStatus) (\s@UpdateBuildResponse' {} a -> s {httpStatus = a} :: UpdateBuildResponse)
 
-instance Prelude.NFData UpdateBuildResponse
+instance Prelude.NFData UpdateBuildResponse where
+  rnf UpdateBuildResponse' {..} =
+    Prelude.rnf build
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -266,9 +266,27 @@ instance Core.AWSRequest StartGameSessionPlacement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartGameSessionPlacement
+instance Prelude.Hashable StartGameSessionPlacement where
+  hashWithSalt _salt StartGameSessionPlacement' {..} =
+    _salt `Prelude.hashWithSalt` gameProperties
+      `Prelude.hashWithSalt` gameSessionName
+      `Prelude.hashWithSalt` playerLatencies
+      `Prelude.hashWithSalt` gameSessionData
+      `Prelude.hashWithSalt` desiredPlayerSessions
+      `Prelude.hashWithSalt` placementId
+      `Prelude.hashWithSalt` gameSessionQueueName
+      `Prelude.hashWithSalt` maximumPlayerSessionCount
 
-instance Prelude.NFData StartGameSessionPlacement
+instance Prelude.NFData StartGameSessionPlacement where
+  rnf StartGameSessionPlacement' {..} =
+    Prelude.rnf gameProperties
+      `Prelude.seq` Prelude.rnf gameSessionName
+      `Prelude.seq` Prelude.rnf playerLatencies
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf desiredPlayerSessions
+      `Prelude.seq` Prelude.rnf placementId
+      `Prelude.seq` Prelude.rnf gameSessionQueueName
+      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
 
 instance Core.ToHeaders StartGameSessionPlacement where
   toHeaders =
@@ -367,3 +385,7 @@ startGameSessionPlacementResponse_httpStatus = Lens.lens (\StartGameSessionPlace
 instance
   Prelude.NFData
     StartGameSessionPlacementResponse
+  where
+  rnf StartGameSessionPlacementResponse' {..} =
+    Prelude.rnf gameSessionPlacement
+      `Prelude.seq` Prelude.rnf httpStatus

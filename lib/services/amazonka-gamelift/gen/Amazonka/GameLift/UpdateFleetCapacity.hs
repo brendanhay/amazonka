@@ -201,9 +201,21 @@ instance Core.AWSRequest UpdateFleetCapacity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleetCapacity
+instance Prelude.Hashable UpdateFleetCapacity where
+  hashWithSalt _salt UpdateFleetCapacity' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` desiredInstances
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData UpdateFleetCapacity
+instance Prelude.NFData UpdateFleetCapacity where
+  rnf UpdateFleetCapacity' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf desiredInstances
+      `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders UpdateFleetCapacity where
   toHeaders =
@@ -313,4 +325,9 @@ updateFleetCapacityResponse_fleetId = Lens.lens (\UpdateFleetCapacityResponse' {
 updateFleetCapacityResponse_httpStatus :: Lens.Lens' UpdateFleetCapacityResponse Prelude.Int
 updateFleetCapacityResponse_httpStatus = Lens.lens (\UpdateFleetCapacityResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetCapacityResponse' {} a -> s {httpStatus = a} :: UpdateFleetCapacityResponse)
 
-instance Prelude.NFData UpdateFleetCapacityResponse
+instance Prelude.NFData UpdateFleetCapacityResponse where
+  rnf UpdateFleetCapacityResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf httpStatus

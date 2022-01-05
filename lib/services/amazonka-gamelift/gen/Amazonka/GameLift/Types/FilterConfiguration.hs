@@ -71,9 +71,13 @@ instance Core.FromJSON FilterConfiguration where
             Prelude.<$> (x Core..:? "AllowedLocations")
       )
 
-instance Prelude.Hashable FilterConfiguration
+instance Prelude.Hashable FilterConfiguration where
+  hashWithSalt _salt FilterConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` allowedLocations
 
-instance Prelude.NFData FilterConfiguration
+instance Prelude.NFData FilterConfiguration where
+  rnf FilterConfiguration' {..} =
+    Prelude.rnf allowedLocations
 
 instance Core.ToJSON FilterConfiguration where
   toJSON FilterConfiguration' {..} =

@@ -605,9 +605,52 @@ instance Core.AWSRequest CreateFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleet
+instance Prelude.Hashable CreateFleet where
+  hashWithSalt _salt CreateFleet' {..} =
+    _salt `Prelude.hashWithSalt` serverLaunchParameters
+      `Prelude.hashWithSalt` logPaths
+      `Prelude.hashWithSalt` peerVpcId
+      `Prelude.hashWithSalt` buildId
+      `Prelude.hashWithSalt` fleetType
+      `Prelude.hashWithSalt` peerVpcAwsAccountId
+      `Prelude.hashWithSalt` eC2InboundPermissions
+      `Prelude.hashWithSalt` runtimeConfiguration
+      `Prelude.hashWithSalt` newGameSessionProtectionPolicy'
+      `Prelude.hashWithSalt` scriptId
+      `Prelude.hashWithSalt` certificateConfiguration
+      `Prelude.hashWithSalt` serverLaunchPath
+      `Prelude.hashWithSalt` instanceRoleArn
+      `Prelude.hashWithSalt` metricGroups
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resourceCreationLimitPolicy
+      `Prelude.hashWithSalt` locations
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eC2InstanceType
 
-instance Prelude.NFData CreateFleet
+instance Prelude.NFData CreateFleet where
+  rnf CreateFleet' {..} =
+    Prelude.rnf serverLaunchParameters
+      `Prelude.seq` Prelude.rnf logPaths
+      `Prelude.seq` Prelude.rnf peerVpcId
+      `Prelude.seq` Prelude.rnf buildId
+      `Prelude.seq` Prelude.rnf fleetType
+      `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
+      `Prelude.seq` Prelude.rnf eC2InboundPermissions
+      `Prelude.seq` Prelude.rnf runtimeConfiguration
+      `Prelude.seq` Prelude.rnf newGameSessionProtectionPolicy'
+      `Prelude.seq` Prelude.rnf scriptId
+      `Prelude.seq` Prelude.rnf certificateConfiguration
+      `Prelude.seq` Prelude.rnf serverLaunchPath
+      `Prelude.seq` Prelude.rnf instanceRoleArn
+      `Prelude.seq` Prelude.rnf metricGroups
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf
+        resourceCreationLimitPolicy
+      `Prelude.seq` Prelude.rnf locations
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf eC2InstanceType
 
 instance Core.ToHeaders CreateFleet where
   toHeaders =
@@ -733,4 +776,8 @@ createFleetResponse_fleetAttributes = Lens.lens (\CreateFleetResponse' {fleetAtt
 createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Prelude.Int
 createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -> httpStatus) (\s@CreateFleetResponse' {} a -> s {httpStatus = a} :: CreateFleetResponse)
 
-instance Prelude.NFData CreateFleetResponse
+instance Prelude.NFData CreateFleetResponse where
+  rnf CreateFleetResponse' {..} =
+    Prelude.rnf locationStates
+      `Prelude.seq` Prelude.rnf fleetAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

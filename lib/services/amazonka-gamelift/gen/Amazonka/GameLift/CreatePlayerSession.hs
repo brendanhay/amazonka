@@ -136,9 +136,17 @@ instance Core.AWSRequest CreatePlayerSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlayerSession
+instance Prelude.Hashable CreatePlayerSession where
+  hashWithSalt _salt CreatePlayerSession' {..} =
+    _salt `Prelude.hashWithSalt` playerData
+      `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` playerId
 
-instance Prelude.NFData CreatePlayerSession
+instance Prelude.NFData CreatePlayerSession where
+  rnf CreatePlayerSession' {..} =
+    Prelude.rnf playerData
+      `Prelude.seq` Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf playerId
 
 instance Core.ToHeaders CreatePlayerSession where
   toHeaders =
@@ -212,4 +220,7 @@ createPlayerSessionResponse_playerSession = Lens.lens (\CreatePlayerSessionRespo
 createPlayerSessionResponse_httpStatus :: Lens.Lens' CreatePlayerSessionResponse Prelude.Int
 createPlayerSessionResponse_httpStatus = Lens.lens (\CreatePlayerSessionResponse' {httpStatus} -> httpStatus) (\s@CreatePlayerSessionResponse' {} a -> s {httpStatus = a} :: CreatePlayerSessionResponse)
 
-instance Prelude.NFData CreatePlayerSessionResponse
+instance Prelude.NFData CreatePlayerSessionResponse where
+  rnf CreatePlayerSessionResponse' {..} =
+    Prelude.rnf playerSession
+      `Prelude.seq` Prelude.rnf httpStatus

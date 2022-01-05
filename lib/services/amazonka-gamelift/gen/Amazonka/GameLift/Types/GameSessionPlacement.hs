@@ -447,6 +447,44 @@ instance Core.FromJSON GameSessionPlacement where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable GameSessionPlacement
+instance Prelude.Hashable GameSessionPlacement where
+  hashWithSalt _salt GameSessionPlacement' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` placementId
+      `Prelude.hashWithSalt` gameProperties
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` gameSessionName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` gameSessionRegion
+      `Prelude.hashWithSalt` matchmakerData
+      `Prelude.hashWithSalt` maximumPlayerSessionCount
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` gameSessionArn
+      `Prelude.hashWithSalt` playerLatencies
+      `Prelude.hashWithSalt` gameSessionData
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` gameSessionQueueName
+      `Prelude.hashWithSalt` placedPlayerSessions
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData GameSessionPlacement
+instance Prelude.NFData GameSessionPlacement where
+  rnf GameSessionPlacement' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf placementId
+      `Prelude.seq` Prelude.rnf gameProperties
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf gameSessionName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf gameSessionRegion
+      `Prelude.seq` Prelude.rnf matchmakerData
+      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf gameSessionArn
+      `Prelude.seq` Prelude.rnf playerLatencies
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf gameSessionQueueName
+      `Prelude.seq` Prelude.rnf placedPlayerSessions
+      `Prelude.seq` Prelude.rnf port

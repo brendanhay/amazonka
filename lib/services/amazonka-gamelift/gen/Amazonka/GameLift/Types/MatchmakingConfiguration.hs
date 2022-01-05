@@ -426,6 +426,42 @@ instance Core.FromJSON MatchmakingConfiguration where
             Prelude.<*> (x Core..:? "RuleSetArn")
       )
 
-instance Prelude.Hashable MatchmakingConfiguration
+instance Prelude.Hashable MatchmakingConfiguration where
+  hashWithSalt _salt MatchmakingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` backfillMode
+      `Prelude.hashWithSalt` gameProperties
+      `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` acceptanceTimeoutSeconds
+      `Prelude.hashWithSalt` requestTimeoutSeconds
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` flexMatchMode
+      `Prelude.hashWithSalt` gameSessionQueueArns
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` configurationArn
+      `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` gameSessionData
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` additionalPlayerCount
+      `Prelude.hashWithSalt` ruleSetArn
 
-instance Prelude.NFData MatchmakingConfiguration
+instance Prelude.NFData MatchmakingConfiguration where
+  rnf MatchmakingConfiguration' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf backfillMode
+      `Prelude.seq` Prelude.rnf gameProperties
+      `Prelude.seq` Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf acceptanceTimeoutSeconds
+      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf flexMatchMode
+      `Prelude.seq` Prelude.rnf gameSessionQueueArns
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf configurationArn
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf additionalPlayerCount
+      `Prelude.seq` Prelude.rnf ruleSetArn

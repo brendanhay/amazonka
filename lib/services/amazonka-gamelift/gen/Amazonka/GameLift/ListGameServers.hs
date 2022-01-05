@@ -184,9 +184,19 @@ instance Core.AWSRequest ListGameServers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGameServers
+instance Prelude.Hashable ListGameServers where
+  hashWithSalt _salt ListGameServers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData ListGameServers
+instance Prelude.NFData ListGameServers where
+  rnf ListGameServers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders ListGameServers where
   toHeaders =
@@ -273,4 +283,8 @@ listGameServersResponse_nextToken = Lens.lens (\ListGameServersResponse' {nextTo
 listGameServersResponse_httpStatus :: Lens.Lens' ListGameServersResponse Prelude.Int
 listGameServersResponse_httpStatus = Lens.lens (\ListGameServersResponse' {httpStatus} -> httpStatus) (\s@ListGameServersResponse' {} a -> s {httpStatus = a} :: ListGameServersResponse)
 
-instance Prelude.NFData ListGameServersResponse
+instance Prelude.NFData ListGameServersResponse where
+  rnf ListGameServersResponse' {..} =
+    Prelude.rnf gameServers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

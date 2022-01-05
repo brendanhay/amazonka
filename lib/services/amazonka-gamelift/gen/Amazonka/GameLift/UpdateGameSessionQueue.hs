@@ -249,9 +249,27 @@ instance Core.AWSRequest UpdateGameSessionQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGameSessionQueue
+instance Prelude.Hashable UpdateGameSessionQueue where
+  hashWithSalt _salt UpdateGameSessionQueue' {..} =
+    _salt `Prelude.hashWithSalt` playerLatencyPolicies
+      `Prelude.hashWithSalt` filterConfiguration
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` priorityConfiguration
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateGameSessionQueue
+instance Prelude.NFData UpdateGameSessionQueue where
+  rnf UpdateGameSessionQueue' {..} =
+    Prelude.rnf playerLatencyPolicies
+      `Prelude.seq` Prelude.rnf filterConfiguration
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf priorityConfiguration
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateGameSessionQueue where
   toHeaders =
@@ -339,3 +357,7 @@ updateGameSessionQueueResponse_httpStatus = Lens.lens (\UpdateGameSessionQueueRe
 instance
   Prelude.NFData
     UpdateGameSessionQueueResponse
+  where
+  rnf UpdateGameSessionQueueResponse' {..} =
+    Prelude.rnf gameSessionQueue
+      `Prelude.seq` Prelude.rnf httpStatus

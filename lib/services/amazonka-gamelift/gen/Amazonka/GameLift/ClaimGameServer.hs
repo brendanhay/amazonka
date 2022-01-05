@@ -175,9 +175,17 @@ instance Core.AWSRequest ClaimGameServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ClaimGameServer
+instance Prelude.Hashable ClaimGameServer where
+  hashWithSalt _salt ClaimGameServer' {..} =
+    _salt `Prelude.hashWithSalt` gameServerData
+      `Prelude.hashWithSalt` gameServerId
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData ClaimGameServer
+instance Prelude.NFData ClaimGameServer where
+  rnf ClaimGameServer' {..} =
+    Prelude.rnf gameServerData
+      `Prelude.seq` Prelude.rnf gameServerId
+      `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders ClaimGameServer where
   toHeaders =
@@ -249,4 +257,7 @@ claimGameServerResponse_gameServer = Lens.lens (\ClaimGameServerResponse' {gameS
 claimGameServerResponse_httpStatus :: Lens.Lens' ClaimGameServerResponse Prelude.Int
 claimGameServerResponse_httpStatus = Lens.lens (\ClaimGameServerResponse' {httpStatus} -> httpStatus) (\s@ClaimGameServerResponse' {} a -> s {httpStatus = a} :: ClaimGameServerResponse)
 
-instance Prelude.NFData ClaimGameServerResponse
+instance Prelude.NFData ClaimGameServerResponse where
+  rnf ClaimGameServerResponse' {..} =
+    Prelude.rnf gameServer
+      `Prelude.seq` Prelude.rnf httpStatus

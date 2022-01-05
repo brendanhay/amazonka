@@ -479,10 +479,46 @@ instance
 instance
   Prelude.Hashable
     CreateMatchmakingConfiguration
+  where
+  hashWithSalt
+    _salt
+    CreateMatchmakingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` backfillMode
+        `Prelude.hashWithSalt` gameProperties
+        `Prelude.hashWithSalt` acceptanceTimeoutSeconds
+        `Prelude.hashWithSalt` notificationTarget
+        `Prelude.hashWithSalt` flexMatchMode
+        `Prelude.hashWithSalt` gameSessionQueueArns
+        `Prelude.hashWithSalt` customEventData
+        `Prelude.hashWithSalt` gameSessionData
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` additionalPlayerCount
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` requestTimeoutSeconds
+        `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` ruleSetName
 
 instance
   Prelude.NFData
     CreateMatchmakingConfiguration
+  where
+  rnf CreateMatchmakingConfiguration' {..} =
+    Prelude.rnf backfillMode
+      `Prelude.seq` Prelude.rnf gameProperties
+      `Prelude.seq` Prelude.rnf acceptanceTimeoutSeconds
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf flexMatchMode
+      `Prelude.seq` Prelude.rnf gameSessionQueueArns
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf additionalPlayerCount
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf ruleSetName
 
 instance
   Core.ToHeaders
@@ -586,3 +622,7 @@ createMatchmakingConfigurationResponse_httpStatus = Lens.lens (\CreateMatchmakin
 instance
   Prelude.NFData
     CreateMatchmakingConfigurationResponse
+  where
+  rnf CreateMatchmakingConfigurationResponse' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf httpStatus

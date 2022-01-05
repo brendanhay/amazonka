@@ -192,9 +192,21 @@ instance Core.AWSRequest RegisterGameServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterGameServer
+instance Prelude.Hashable RegisterGameServer where
+  hashWithSalt _salt RegisterGameServer' {..} =
+    _salt `Prelude.hashWithSalt` gameServerData
+      `Prelude.hashWithSalt` connectionInfo
+      `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` gameServerId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData RegisterGameServer
+instance Prelude.NFData RegisterGameServer where
+  rnf RegisterGameServer' {..} =
+    Prelude.rnf gameServerData
+      `Prelude.seq` Prelude.rnf connectionInfo
+      `Prelude.seq` Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf gameServerId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders RegisterGameServer where
   toHeaders =
@@ -271,4 +283,7 @@ registerGameServerResponse_gameServer = Lens.lens (\RegisterGameServerResponse' 
 registerGameServerResponse_httpStatus :: Lens.Lens' RegisterGameServerResponse Prelude.Int
 registerGameServerResponse_httpStatus = Lens.lens (\RegisterGameServerResponse' {httpStatus} -> httpStatus) (\s@RegisterGameServerResponse' {} a -> s {httpStatus = a} :: RegisterGameServerResponse)
 
-instance Prelude.NFData RegisterGameServerResponse
+instance Prelude.NFData RegisterGameServerResponse where
+  rnf RegisterGameServerResponse' {..} =
+    Prelude.rnf gameServer
+      `Prelude.seq` Prelude.rnf httpStatus

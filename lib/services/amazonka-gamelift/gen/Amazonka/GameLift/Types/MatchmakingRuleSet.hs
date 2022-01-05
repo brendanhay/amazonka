@@ -151,6 +151,16 @@ instance Core.FromJSON MatchmakingRuleSet where
             Prelude.<*> (x Core..: "RuleSetBody")
       )
 
-instance Prelude.Hashable MatchmakingRuleSet
+instance Prelude.Hashable MatchmakingRuleSet where
+  hashWithSalt _salt MatchmakingRuleSet' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` ruleSetArn
+      `Prelude.hashWithSalt` ruleSetBody
 
-instance Prelude.NFData MatchmakingRuleSet
+instance Prelude.NFData MatchmakingRuleSet where
+  rnf MatchmakingRuleSet' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf ruleSetArn
+      `Prelude.seq` Prelude.rnf ruleSetBody

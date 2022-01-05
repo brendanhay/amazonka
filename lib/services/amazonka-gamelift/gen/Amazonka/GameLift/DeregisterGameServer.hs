@@ -116,9 +116,15 @@ instance Core.AWSRequest DeregisterGameServer where
   response =
     Response.receiveNull DeregisterGameServerResponse'
 
-instance Prelude.Hashable DeregisterGameServer
+instance Prelude.Hashable DeregisterGameServer where
+  hashWithSalt _salt DeregisterGameServer' {..} =
+    _salt `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` gameServerId
 
-instance Prelude.NFData DeregisterGameServer
+instance Prelude.NFData DeregisterGameServer where
+  rnf DeregisterGameServer' {..} =
+    Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf gameServerId
 
 instance Core.ToHeaders DeregisterGameServer where
   toHeaders =
@@ -166,4 +172,5 @@ newDeregisterGameServerResponse ::
 newDeregisterGameServerResponse =
   DeregisterGameServerResponse'
 
-instance Prelude.NFData DeregisterGameServerResponse
+instance Prelude.NFData DeregisterGameServerResponse where
+  rnf _ = ()

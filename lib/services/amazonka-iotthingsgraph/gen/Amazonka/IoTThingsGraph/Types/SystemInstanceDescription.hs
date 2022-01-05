@@ -145,6 +145,22 @@ instance Core.FromJSON SystemInstanceDescription where
             Prelude.<*> (x Core..:? "s3BucketName")
       )
 
-instance Prelude.Hashable SystemInstanceDescription
+instance Prelude.Hashable SystemInstanceDescription where
+  hashWithSalt _salt SystemInstanceDescription' {..} =
+    _salt `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` metricsConfiguration
+      `Prelude.hashWithSalt` validatedDependencyRevisions
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` validatedNamespaceVersion
+      `Prelude.hashWithSalt` flowActionsRoleArn
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData SystemInstanceDescription
+instance Prelude.NFData SystemInstanceDescription where
+  rnf SystemInstanceDescription' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf metricsConfiguration
+      `Prelude.seq` Prelude.rnf validatedDependencyRevisions
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf validatedNamespaceVersion
+      `Prelude.seq` Prelude.rnf flowActionsRoleArn
+      `Prelude.seq` Prelude.rnf s3BucketName

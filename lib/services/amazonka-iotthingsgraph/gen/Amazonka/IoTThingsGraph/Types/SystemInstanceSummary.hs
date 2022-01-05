@@ -146,6 +146,26 @@ instance Core.FromJSON SystemInstanceSummary where
             Prelude.<*> (x Core..:? "target")
       )
 
-instance Prelude.Hashable SystemInstanceSummary
+instance Prelude.Hashable SystemInstanceSummary where
+  hashWithSalt _salt SystemInstanceSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` greengrassGroupName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` greengrassGroupId
+      `Prelude.hashWithSalt` greengrassGroupVersionId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData SystemInstanceSummary
+instance Prelude.NFData SystemInstanceSummary where
+  rnf SystemInstanceSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf greengrassGroupName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf greengrassGroupId
+      `Prelude.seq` Prelude.rnf greengrassGroupVersionId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf target

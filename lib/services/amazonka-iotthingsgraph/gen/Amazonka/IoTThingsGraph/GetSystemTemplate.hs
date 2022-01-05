@@ -111,9 +111,15 @@ instance Core.AWSRequest GetSystemTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSystemTemplate
+instance Prelude.Hashable GetSystemTemplate where
+  hashWithSalt _salt GetSystemTemplate' {..} =
+    _salt `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetSystemTemplate
+instance Prelude.NFData GetSystemTemplate where
+  rnf GetSystemTemplate' {..} =
+    Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetSystemTemplate where
   toHeaders =
@@ -185,4 +191,7 @@ getSystemTemplateResponse_description = Lens.lens (\GetSystemTemplateResponse' {
 getSystemTemplateResponse_httpStatus :: Lens.Lens' GetSystemTemplateResponse Prelude.Int
 getSystemTemplateResponse_httpStatus = Lens.lens (\GetSystemTemplateResponse' {httpStatus} -> httpStatus) (\s@GetSystemTemplateResponse' {} a -> s {httpStatus = a} :: GetSystemTemplateResponse)
 
-instance Prelude.NFData GetSystemTemplateResponse
+instance Prelude.NFData GetSystemTemplateResponse where
+  rnf GetSystemTemplateResponse' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

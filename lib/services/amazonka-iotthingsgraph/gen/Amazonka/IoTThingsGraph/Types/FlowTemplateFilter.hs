@@ -67,9 +67,14 @@ flowTemplateFilter_name = Lens.lens (\FlowTemplateFilter' {name} -> name) (\s@Fl
 flowTemplateFilter_value :: Lens.Lens' FlowTemplateFilter [Prelude.Text]
 flowTemplateFilter_value = Lens.lens (\FlowTemplateFilter' {value} -> value) (\s@FlowTemplateFilter' {} a -> s {value = a} :: FlowTemplateFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable FlowTemplateFilter
+instance Prelude.Hashable FlowTemplateFilter where
+  hashWithSalt _salt FlowTemplateFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData FlowTemplateFilter
+instance Prelude.NFData FlowTemplateFilter where
+  rnf FlowTemplateFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON FlowTemplateFilter where
   toJSON FlowTemplateFilter' {..} =

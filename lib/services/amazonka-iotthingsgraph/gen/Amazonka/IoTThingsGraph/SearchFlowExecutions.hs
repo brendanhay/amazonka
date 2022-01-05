@@ -167,9 +167,23 @@ instance Core.AWSRequest SearchFlowExecutions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchFlowExecutions
+instance Prelude.Hashable SearchFlowExecutions where
+  hashWithSalt _salt SearchFlowExecutions' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` flowExecutionId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` systemInstanceId
 
-instance Prelude.NFData SearchFlowExecutions
+instance Prelude.NFData SearchFlowExecutions where
+  rnf SearchFlowExecutions' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf flowExecutionId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf systemInstanceId
 
 instance Core.ToHeaders SearchFlowExecutions where
   toHeaders =
@@ -261,4 +275,8 @@ searchFlowExecutionsResponse_summaries = Lens.lens (\SearchFlowExecutionsRespons
 searchFlowExecutionsResponse_httpStatus :: Lens.Lens' SearchFlowExecutionsResponse Prelude.Int
 searchFlowExecutionsResponse_httpStatus = Lens.lens (\SearchFlowExecutionsResponse' {httpStatus} -> httpStatus) (\s@SearchFlowExecutionsResponse' {} a -> s {httpStatus = a} :: SearchFlowExecutionsResponse)
 
-instance Prelude.NFData SearchFlowExecutionsResponse
+instance Prelude.NFData SearchFlowExecutionsResponse where
+  rnf SearchFlowExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf httpStatus

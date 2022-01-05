@@ -91,6 +91,16 @@ instance Core.FromJSON FlowTemplateSummary where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable FlowTemplateSummary
+instance Prelude.Hashable FlowTemplateSummary where
+  hashWithSalt _salt FlowTemplateSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FlowTemplateSummary
+instance Prelude.NFData FlowTemplateSummary where
+  rnf FlowTemplateSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf id

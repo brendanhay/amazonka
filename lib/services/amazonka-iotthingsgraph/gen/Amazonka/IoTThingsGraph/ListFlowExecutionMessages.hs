@@ -139,9 +139,17 @@ instance Core.AWSRequest ListFlowExecutionMessages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFlowExecutionMessages
+instance Prelude.Hashable ListFlowExecutionMessages where
+  hashWithSalt _salt ListFlowExecutionMessages' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` flowExecutionId
 
-instance Prelude.NFData ListFlowExecutionMessages
+instance Prelude.NFData ListFlowExecutionMessages where
+  rnf ListFlowExecutionMessages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf flowExecutionId
 
 instance Core.ToHeaders ListFlowExecutionMessages where
   toHeaders =
@@ -232,3 +240,8 @@ listFlowExecutionMessagesResponse_httpStatus = Lens.lens (\ListFlowExecutionMess
 instance
   Prelude.NFData
     ListFlowExecutionMessagesResponse
+  where
+  rnf ListFlowExecutionMessagesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf httpStatus

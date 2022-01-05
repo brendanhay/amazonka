@@ -75,9 +75,14 @@ entityFilter_value = Lens.lens (\EntityFilter' {value} -> value) (\s@EntityFilte
 entityFilter_name :: Lens.Lens' EntityFilter (Prelude.Maybe EntityFilterName)
 entityFilter_name = Lens.lens (\EntityFilter' {name} -> name) (\s@EntityFilter' {} a -> s {name = a} :: EntityFilter)
 
-instance Prelude.Hashable EntityFilter
+instance Prelude.Hashable EntityFilter where
+  hashWithSalt _salt EntityFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData EntityFilter
+instance Prelude.NFData EntityFilter where
+  rnf EntityFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =

@@ -71,6 +71,12 @@ instance Core.FromJSON Thing where
             Prelude.<*> (x Core..:? "thingName")
       )
 
-instance Prelude.Hashable Thing
+instance Prelude.Hashable Thing where
+  hashWithSalt _salt Thing' {..} =
+    _salt `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData Thing
+instance Prelude.NFData Thing where
+  rnf Thing' {..} =
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingName

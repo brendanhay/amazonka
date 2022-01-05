@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNamespace
+instance Prelude.Hashable DescribeNamespace where
+  hashWithSalt _salt DescribeNamespace' {..} =
+    _salt `Prelude.hashWithSalt` namespaceName
 
-instance Prelude.NFData DescribeNamespace
+instance Prelude.NFData DescribeNamespace where
+  rnf DescribeNamespace' {..} =
+    Prelude.rnf namespaceName
 
 instance Core.ToHeaders DescribeNamespace where
   toHeaders =
@@ -208,4 +212,11 @@ describeNamespaceResponse_trackingNamespaceName = Lens.lens (\DescribeNamespaceR
 describeNamespaceResponse_httpStatus :: Lens.Lens' DescribeNamespaceResponse Prelude.Int
 describeNamespaceResponse_httpStatus = Lens.lens (\DescribeNamespaceResponse' {httpStatus} -> httpStatus) (\s@DescribeNamespaceResponse' {} a -> s {httpStatus = a} :: DescribeNamespaceResponse)
 
-instance Prelude.NFData DescribeNamespaceResponse
+instance Prelude.NFData DescribeNamespaceResponse where
+  rnf DescribeNamespaceResponse' {..} =
+    Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf trackingNamespaceVersion
+      `Prelude.seq` Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf trackingNamespaceName
+      `Prelude.seq` Prelude.rnf httpStatus

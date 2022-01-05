@@ -129,9 +129,19 @@ instance Core.AWSRequest ProvisionDevice where
             Prelude.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable ProvisionDevice
+instance Prelude.Hashable ProvisionDevice where
+  hashWithSalt _salt ProvisionDevice' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` networkingConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ProvisionDevice
+instance Prelude.NFData ProvisionDevice where
+  rnf ProvisionDevice' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf networkingConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ProvisionDevice where
   toHeaders =
@@ -252,4 +262,11 @@ provisionDeviceResponse_arn = Lens.lens (\ProvisionDeviceResponse' {arn} -> arn)
 provisionDeviceResponse_status :: Lens.Lens' ProvisionDeviceResponse DeviceStatus
 provisionDeviceResponse_status = Lens.lens (\ProvisionDeviceResponse' {status} -> status) (\s@ProvisionDeviceResponse' {} a -> s {status = a} :: ProvisionDeviceResponse)
 
-instance Prelude.NFData ProvisionDeviceResponse
+instance Prelude.NFData ProvisionDeviceResponse where
+  rnf ProvisionDeviceResponse' {..} =
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf iotThingName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

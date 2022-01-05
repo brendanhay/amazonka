@@ -52,9 +52,12 @@ newOTAJobConfig pImageVersion_ =
 oTAJobConfig_imageVersion :: Lens.Lens' OTAJobConfig Prelude.Text
 oTAJobConfig_imageVersion = Lens.lens (\OTAJobConfig' {imageVersion} -> imageVersion) (\s@OTAJobConfig' {} a -> s {imageVersion = a} :: OTAJobConfig)
 
-instance Prelude.Hashable OTAJobConfig
+instance Prelude.Hashable OTAJobConfig where
+  hashWithSalt _salt OTAJobConfig' {..} =
+    _salt `Prelude.hashWithSalt` imageVersion
 
-instance Prelude.NFData OTAJobConfig
+instance Prelude.NFData OTAJobConfig where
+  rnf OTAJobConfig' {..} = Prelude.rnf imageVersion
 
 instance Core.ToJSON OTAJobConfig where
   toJSON OTAJobConfig' {..} =

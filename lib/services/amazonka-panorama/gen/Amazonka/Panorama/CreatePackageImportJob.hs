@@ -138,9 +138,21 @@ instance Core.AWSRequest CreatePackageImportJob where
             Prelude.<*> (x Core..:> "JobId")
       )
 
-instance Prelude.Hashable CreatePackageImportJob
+instance Prelude.Hashable CreatePackageImportJob where
+  hashWithSalt _salt CreatePackageImportJob' {..} =
+    _salt `Prelude.hashWithSalt` jobTags
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreatePackageImportJob
+instance Prelude.NFData CreatePackageImportJob where
+  rnf CreatePackageImportJob' {..} =
+    Prelude.rnf jobTags
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreatePackageImportJob where
   toHeaders =
@@ -217,3 +229,7 @@ createPackageImportJobResponse_jobId = Lens.lens (\CreatePackageImportJobRespons
 instance
   Prelude.NFData
     CreatePackageImportJobResponse
+  where
+  rnf CreatePackageImportJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobId

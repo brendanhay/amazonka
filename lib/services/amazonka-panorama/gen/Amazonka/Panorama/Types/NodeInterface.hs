@@ -73,6 +73,12 @@ instance Core.FromJSON NodeInterface where
             Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable NodeInterface
+instance Prelude.Hashable NodeInterface where
+  hashWithSalt _salt NodeInterface' {..} =
+    _salt `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` outputs
 
-instance Prelude.NFData NodeInterface
+instance Prelude.NFData NodeInterface where
+  rnf NodeInterface' {..} =
+    Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf outputs

@@ -87,9 +87,13 @@ instance Core.AWSRequest RemoveApplicationInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveApplicationInstance
+instance Prelude.Hashable RemoveApplicationInstance where
+  hashWithSalt _salt RemoveApplicationInstance' {..} =
+    _salt `Prelude.hashWithSalt` applicationInstanceId
 
-instance Prelude.NFData RemoveApplicationInstance
+instance Prelude.NFData RemoveApplicationInstance where
+  rnf RemoveApplicationInstance' {..} =
+    Prelude.rnf applicationInstanceId
 
 instance Core.ToHeaders RemoveApplicationInstance where
   toHeaders =
@@ -145,3 +149,6 @@ removeApplicationInstanceResponse_httpStatus = Lens.lens (\RemoveApplicationInst
 instance
   Prelude.NFData
     RemoveApplicationInstanceResponse
+  where
+  rnf RemoveApplicationInstanceResponse' {..} =
+    Prelude.rnf httpStatus

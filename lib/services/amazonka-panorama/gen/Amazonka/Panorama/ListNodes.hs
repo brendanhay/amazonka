@@ -149,9 +149,25 @@ instance Core.AWSRequest ListNodes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNodes
+instance Prelude.Hashable ListNodes where
+  hashWithSalt _salt ListNodes' {..} =
+    _salt `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListNodes
+instance Prelude.NFData ListNodes where
+  rnf ListNodes' {..} =
+    Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListNodes where
   toHeaders =
@@ -226,4 +242,8 @@ listNodesResponse_nodes = Lens.lens (\ListNodesResponse' {nodes} -> nodes) (\s@L
 listNodesResponse_httpStatus :: Lens.Lens' ListNodesResponse Prelude.Int
 listNodesResponse_httpStatus = Lens.lens (\ListNodesResponse' {httpStatus} -> httpStatus) (\s@ListNodesResponse' {} a -> s {httpStatus = a} :: ListNodesResponse)
 
-instance Prelude.NFData ListNodesResponse
+instance Prelude.NFData ListNodesResponse where
+  rnf ListNodesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nodes
+      `Prelude.seq` Prelude.rnf httpStatus

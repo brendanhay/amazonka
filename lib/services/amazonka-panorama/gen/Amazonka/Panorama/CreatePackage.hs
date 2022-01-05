@@ -102,9 +102,15 @@ instance Core.AWSRequest CreatePackage where
             Prelude.<*> (x Core..:> "StorageLocation")
       )
 
-instance Prelude.Hashable CreatePackage
+instance Prelude.Hashable CreatePackage where
+  hashWithSalt _salt CreatePackage' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` packageName
 
-instance Prelude.NFData CreatePackage
+instance Prelude.NFData CreatePackage where
+  rnf CreatePackage' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf packageName
 
 instance Core.ToHeaders CreatePackage where
   toHeaders =
@@ -192,4 +198,9 @@ createPackageResponse_httpStatus = Lens.lens (\CreatePackageResponse' {httpStatu
 createPackageResponse_storageLocation :: Lens.Lens' CreatePackageResponse StorageLocation
 createPackageResponse_storageLocation = Lens.lens (\CreatePackageResponse' {storageLocation} -> storageLocation) (\s@CreatePackageResponse' {} a -> s {storageLocation = a} :: CreatePackageResponse)
 
-instance Prelude.NFData CreatePackageResponse
+instance Prelude.NFData CreatePackageResponse where
+  rnf CreatePackageResponse' {..} =
+    Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf storageLocation

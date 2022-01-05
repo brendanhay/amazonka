@@ -99,9 +99,15 @@ instance Core.AWSRequest ListDevices where
             Prelude.<*> (x Core..?> "Devices" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDevices
+instance Prelude.Hashable ListDevices where
+  hashWithSalt _salt ListDevices' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDevices
+instance Prelude.NFData ListDevices where
+  rnf ListDevices' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -171,4 +177,8 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse [Device]
 listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDevicesResponse
+instance Prelude.NFData ListDevicesResponse where
+  rnf ListDevicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devices

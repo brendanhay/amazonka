@@ -88,9 +88,17 @@ instance Core.FromJSON PackageVersionOutputConfig where
             Prelude.<*> (x Core..: "PackageVersion")
       )
 
-instance Prelude.Hashable PackageVersionOutputConfig
+instance Prelude.Hashable PackageVersionOutputConfig where
+  hashWithSalt _salt PackageVersionOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` markLatest
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` packageVersion
 
-instance Prelude.NFData PackageVersionOutputConfig
+instance Prelude.NFData PackageVersionOutputConfig where
+  rnf PackageVersionOutputConfig' {..} =
+    Prelude.rnf markLatest
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageVersion
 
 instance Core.ToJSON PackageVersionOutputConfig where
   toJSON PackageVersionOutputConfig' {..} =

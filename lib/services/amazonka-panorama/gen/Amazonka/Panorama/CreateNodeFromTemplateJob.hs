@@ -159,9 +159,25 @@ instance Core.AWSRequest CreateNodeFromTemplateJob where
             Prelude.<*> (x Core..:> "JobId")
       )
 
-instance Prelude.Hashable CreateNodeFromTemplateJob
+instance Prelude.Hashable CreateNodeFromTemplateJob where
+  hashWithSalt _salt CreateNodeFromTemplateJob' {..} =
+    _salt `Prelude.hashWithSalt` jobTags
+      `Prelude.hashWithSalt` nodeDescription
+      `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` outputPackageName
+      `Prelude.hashWithSalt` outputPackageVersion
+      `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` templateParameters
 
-instance Prelude.NFData CreateNodeFromTemplateJob
+instance Prelude.NFData CreateNodeFromTemplateJob where
+  rnf CreateNodeFromTemplateJob' {..} =
+    Prelude.rnf jobTags
+      `Prelude.seq` Prelude.rnf nodeDescription
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf outputPackageName
+      `Prelude.seq` Prelude.rnf outputPackageVersion
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf templateParameters
 
 instance Core.ToHeaders CreateNodeFromTemplateJob where
   toHeaders =
@@ -246,3 +262,7 @@ createNodeFromTemplateJobResponse_jobId = Lens.lens (\CreateNodeFromTemplateJobR
 instance
   Prelude.NFData
     CreateNodeFromTemplateJobResponse
+  where
+  rnf CreateNodeFromTemplateJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobId

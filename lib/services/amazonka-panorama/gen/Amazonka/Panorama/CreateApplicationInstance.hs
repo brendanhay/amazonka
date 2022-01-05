@@ -164,9 +164,28 @@ instance Core.AWSRequest CreateApplicationInstance where
             Prelude.<*> (x Core..:> "ApplicationInstanceId")
       )
 
-instance Prelude.Hashable CreateApplicationInstance
+instance Prelude.Hashable CreateApplicationInstance where
+  hashWithSalt _salt CreateApplicationInstance' {..} =
+    _salt
+      `Prelude.hashWithSalt` manifestOverridesPayload
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` runtimeRoleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationInstanceIdToReplace
+      `Prelude.hashWithSalt` manifestPayload
+      `Prelude.hashWithSalt` defaultRuntimeContextDevice
 
-instance Prelude.NFData CreateApplicationInstance
+instance Prelude.NFData CreateApplicationInstance where
+  rnf CreateApplicationInstance' {..} =
+    Prelude.rnf manifestOverridesPayload
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf runtimeRoleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
+      `Prelude.seq` Prelude.rnf manifestPayload
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
 
 instance Core.ToHeaders CreateApplicationInstance where
   toHeaders =
@@ -254,3 +273,7 @@ createApplicationInstanceResponse_applicationInstanceId = Lens.lens (\CreateAppl
 instance
   Prelude.NFData
     CreateApplicationInstanceResponse
+  where
+  rnf CreateApplicationInstanceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationInstanceId

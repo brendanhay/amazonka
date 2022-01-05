@@ -113,6 +113,20 @@ instance Core.FromJSON NodeFromTemplateJob where
             Prelude.<*> (x Core..:? "StatusMessage")
       )
 
-instance Prelude.Hashable NodeFromTemplateJob
+instance Prelude.Hashable NodeFromTemplateJob where
+  hashWithSalt _salt NodeFromTemplateJob' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData NodeFromTemplateJob
+instance Prelude.NFData NodeFromTemplateJob where
+  rnf NodeFromTemplateJob' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf statusMessage

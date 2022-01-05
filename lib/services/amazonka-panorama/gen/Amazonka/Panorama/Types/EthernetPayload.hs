@@ -76,9 +76,15 @@ instance Core.FromJSON EthernetPayload where
             Prelude.<*> (x Core..: "ConnectionType")
       )
 
-instance Prelude.Hashable EthernetPayload
+instance Prelude.Hashable EthernetPayload where
+  hashWithSalt _salt EthernetPayload' {..} =
+    _salt `Prelude.hashWithSalt` staticIpConnectionInfo
+      `Prelude.hashWithSalt` connectionType
 
-instance Prelude.NFData EthernetPayload
+instance Prelude.NFData EthernetPayload where
+  rnf EthernetPayload' {..} =
+    Prelude.rnf staticIpConnectionInfo
+      `Prelude.seq` Prelude.rnf connectionType
 
 instance Core.ToJSON EthernetPayload where
   toJSON EthernetPayload' {..} =

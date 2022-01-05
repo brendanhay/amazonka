@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     ListApplicationInstanceDependencies
+  where
+  hashWithSalt
+    _salt
+    ListApplicationInstanceDependencies' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` applicationInstanceId
 
 instance
   Prelude.NFData
     ListApplicationInstanceDependencies
+  where
+  rnf ListApplicationInstanceDependencies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf applicationInstanceId
 
 instance
   Core.ToHeaders
@@ -217,3 +229,8 @@ listApplicationInstanceDependenciesResponse_httpStatus = Lens.lens (\ListApplica
 instance
   Prelude.NFData
     ListApplicationInstanceDependenciesResponse
+  where
+  rnf ListApplicationInstanceDependenciesResponse' {..} =
+    Prelude.rnf packageObjects
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

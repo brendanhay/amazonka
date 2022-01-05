@@ -123,9 +123,17 @@ instance Core.AWSRequest ModifyHapg where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyHapg
+instance Prelude.Hashable ModifyHapg where
+  hashWithSalt _salt ModifyHapg' {..} =
+    _salt `Prelude.hashWithSalt` partitionSerialList
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` hapgArn
 
-instance Prelude.NFData ModifyHapg
+instance Prelude.NFData ModifyHapg where
+  rnf ModifyHapg' {..} =
+    Prelude.rnf partitionSerialList
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf hapgArn
 
 instance Core.ToHeaders ModifyHapg where
   toHeaders =
@@ -197,4 +205,7 @@ modifyHapgResponse_hapgArn = Lens.lens (\ModifyHapgResponse' {hapgArn} -> hapgAr
 modifyHapgResponse_httpStatus :: Lens.Lens' ModifyHapgResponse Prelude.Int
 modifyHapgResponse_httpStatus = Lens.lens (\ModifyHapgResponse' {httpStatus} -> httpStatus) (\s@ModifyHapgResponse' {} a -> s {httpStatus = a} :: ModifyHapgResponse)
 
-instance Prelude.NFData ModifyHapgResponse
+instance Prelude.NFData ModifyHapgResponse where
+  rnf ModifyHapgResponse' {..} =
+    Prelude.rnf hapgArn
+      `Prelude.seq` Prelude.rnf httpStatus

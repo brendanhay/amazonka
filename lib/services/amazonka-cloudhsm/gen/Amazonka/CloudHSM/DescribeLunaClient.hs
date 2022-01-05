@@ -118,9 +118,15 @@ instance Core.AWSRequest DescribeLunaClient where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLunaClient
+instance Prelude.Hashable DescribeLunaClient where
+  hashWithSalt _salt DescribeLunaClient' {..} =
+    _salt `Prelude.hashWithSalt` clientArn
+      `Prelude.hashWithSalt` certificateFingerprint
 
-instance Prelude.NFData DescribeLunaClient
+instance Prelude.NFData DescribeLunaClient where
+  rnf DescribeLunaClient' {..} =
+    Prelude.rnf clientArn
+      `Prelude.seq` Prelude.rnf certificateFingerprint
 
 instance Core.ToHeaders DescribeLunaClient where
   toHeaders =
@@ -228,4 +234,11 @@ describeLunaClientResponse_label = Lens.lens (\DescribeLunaClientResponse' {labe
 describeLunaClientResponse_httpStatus :: Lens.Lens' DescribeLunaClientResponse Prelude.Int
 describeLunaClientResponse_httpStatus = Lens.lens (\DescribeLunaClientResponse' {httpStatus} -> httpStatus) (\s@DescribeLunaClientResponse' {} a -> s {httpStatus = a} :: DescribeLunaClientResponse)
 
-instance Prelude.NFData DescribeLunaClientResponse
+instance Prelude.NFData DescribeLunaClientResponse where
+  rnf DescribeLunaClientResponse' {..} =
+    Prelude.rnf clientArn
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf certificateFingerprint
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf httpStatus

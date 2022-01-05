@@ -100,9 +100,12 @@ instance Core.AWSRequest DeleteHsm where
             Prelude.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DeleteHsm
+instance Prelude.Hashable DeleteHsm where
+  hashWithSalt _salt DeleteHsm' {..} =
+    _salt `Prelude.hashWithSalt` hsmArn
 
-instance Prelude.NFData DeleteHsm
+instance Prelude.NFData DeleteHsm where
+  rnf DeleteHsm' {..} = Prelude.rnf hsmArn
 
 instance Core.ToHeaders DeleteHsm where
   toHeaders =
@@ -174,4 +177,7 @@ deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> ht
 deleteHsmResponse_status :: Lens.Lens' DeleteHsmResponse Prelude.Text
 deleteHsmResponse_status = Lens.lens (\DeleteHsmResponse' {status} -> status) (\s@DeleteHsmResponse' {} a -> s {status = a} :: DeleteHsmResponse)
 
-instance Prelude.NFData DeleteHsmResponse
+instance Prelude.NFData DeleteHsmResponse where
+  rnf DeleteHsmResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

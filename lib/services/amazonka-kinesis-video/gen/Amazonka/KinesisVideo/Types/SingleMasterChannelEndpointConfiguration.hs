@@ -95,10 +95,20 @@ singleMasterChannelEndpointConfiguration_role = Lens.lens (\SingleMasterChannelE
 instance
   Prelude.Hashable
     SingleMasterChannelEndpointConfiguration
+  where
+  hashWithSalt
+    _salt
+    SingleMasterChannelEndpointConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` protocols
+        `Prelude.hashWithSalt` role'
 
 instance
   Prelude.NFData
     SingleMasterChannelEndpointConfiguration
+  where
+  rnf SingleMasterChannelEndpointConfiguration' {..} =
+    Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf role'
 
 instance
   Core.ToJSON

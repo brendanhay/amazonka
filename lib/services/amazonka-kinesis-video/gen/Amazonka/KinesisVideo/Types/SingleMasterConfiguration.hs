@@ -66,9 +66,13 @@ instance Core.FromJSON SingleMasterConfiguration where
             Prelude.<$> (x Core..:? "MessageTtlSeconds")
       )
 
-instance Prelude.Hashable SingleMasterConfiguration
+instance Prelude.Hashable SingleMasterConfiguration where
+  hashWithSalt _salt SingleMasterConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` messageTtlSeconds
 
-instance Prelude.NFData SingleMasterConfiguration
+instance Prelude.NFData SingleMasterConfiguration where
+  rnf SingleMasterConfiguration' {..} =
+    Prelude.rnf messageTtlSeconds
 
 instance Core.ToJSON SingleMasterConfiguration where
   toJSON SingleMasterConfiguration' {..} =

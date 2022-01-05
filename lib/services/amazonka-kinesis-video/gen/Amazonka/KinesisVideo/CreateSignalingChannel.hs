@@ -133,9 +133,20 @@ instance Core.AWSRequest CreateSignalingChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSignalingChannel
+instance Prelude.Hashable CreateSignalingChannel where
+  hashWithSalt _salt CreateSignalingChannel' {..} =
+    _salt
+      `Prelude.hashWithSalt` singleMasterConfiguration
+      `Prelude.hashWithSalt` channelType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData CreateSignalingChannel
+instance Prelude.NFData CreateSignalingChannel where
+  rnf CreateSignalingChannel' {..} =
+    Prelude.rnf singleMasterConfiguration
+      `Prelude.seq` Prelude.rnf channelType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders CreateSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,3 +211,7 @@ createSignalingChannelResponse_httpStatus = Lens.lens (\CreateSignalingChannelRe
 instance
   Prelude.NFData
     CreateSignalingChannelResponse
+  where
+  rnf CreateSignalingChannelResponse' {..} =
+    Prelude.rnf channelARN
+      `Prelude.seq` Prelude.rnf httpStatus

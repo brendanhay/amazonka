@@ -172,9 +172,21 @@ instance Core.AWSRequest UpdateDataRetention where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataRetention
+instance Prelude.Hashable UpdateDataRetention where
+  hashWithSalt _salt UpdateDataRetention' {..} =
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` dataRetentionChangeInHours
 
-instance Prelude.NFData UpdateDataRetention
+instance Prelude.NFData UpdateDataRetention where
+  rnf UpdateDataRetention' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf dataRetentionChangeInHours
 
 instance Core.ToHeaders UpdateDataRetention where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,4 +243,6 @@ newUpdateDataRetentionResponse pHttpStatus_ =
 updateDataRetentionResponse_httpStatus :: Lens.Lens' UpdateDataRetentionResponse Prelude.Int
 updateDataRetentionResponse_httpStatus = Lens.lens (\UpdateDataRetentionResponse' {httpStatus} -> httpStatus) (\s@UpdateDataRetentionResponse' {} a -> s {httpStatus = a} :: UpdateDataRetentionResponse)
 
-instance Prelude.NFData UpdateDataRetentionResponse
+instance Prelude.NFData UpdateDataRetentionResponse where
+  rnf UpdateDataRetentionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -89,9 +89,17 @@ codeContent_s3ContentLocation = Lens.lens (\CodeContent' {s3ContentLocation} -> 
 codeContent_zipFileContent :: Lens.Lens' CodeContent (Prelude.Maybe Prelude.ByteString)
 codeContent_zipFileContent = Lens.lens (\CodeContent' {zipFileContent} -> zipFileContent) (\s@CodeContent' {} a -> s {zipFileContent = a} :: CodeContent) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable CodeContent
+instance Prelude.Hashable CodeContent where
+  hashWithSalt _salt CodeContent' {..} =
+    _salt `Prelude.hashWithSalt` textContent
+      `Prelude.hashWithSalt` s3ContentLocation
+      `Prelude.hashWithSalt` zipFileContent
 
-instance Prelude.NFData CodeContent
+instance Prelude.NFData CodeContent where
+  rnf CodeContent' {..} =
+    Prelude.rnf textContent
+      `Prelude.seq` Prelude.rnf s3ContentLocation
+      `Prelude.seq` Prelude.rnf zipFileContent
 
 instance Core.ToJSON CodeContent where
   toJSON CodeContent' {..} =

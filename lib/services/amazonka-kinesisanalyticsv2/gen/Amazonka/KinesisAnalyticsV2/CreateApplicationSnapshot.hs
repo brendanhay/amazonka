@@ -101,9 +101,15 @@ instance Core.AWSRequest CreateApplicationSnapshot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApplicationSnapshot
+instance Prelude.Hashable CreateApplicationSnapshot where
+  hashWithSalt _salt CreateApplicationSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` snapshotName
 
-instance Prelude.NFData CreateApplicationSnapshot
+instance Prelude.NFData CreateApplicationSnapshot where
+  rnf CreateApplicationSnapshot' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf snapshotName
 
 instance Core.ToHeaders CreateApplicationSnapshot where
   toHeaders =
@@ -169,3 +175,6 @@ createApplicationSnapshotResponse_httpStatus = Lens.lens (\CreateApplicationSnap
 instance
   Prelude.NFData
     CreateApplicationSnapshotResponse
+  where
+  rnf CreateApplicationSnapshotResponse' {..} =
+    Prelude.rnf httpStatus

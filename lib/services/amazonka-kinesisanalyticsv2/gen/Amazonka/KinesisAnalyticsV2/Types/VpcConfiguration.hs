@@ -79,9 +79,15 @@ vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnet
 vpcConfiguration_securityGroupIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
-instance Prelude.Hashable VpcConfiguration
+instance Prelude.Hashable VpcConfiguration where
+  hashWithSalt _salt VpcConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData VpcConfiguration
+instance Prelude.NFData VpcConfiguration where
+  rnf VpcConfiguration' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Core.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =

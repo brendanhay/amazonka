@@ -100,9 +100,21 @@ output_name = Lens.lens (\Output' {name} -> name) (\s@Output' {} a -> s {name = 
 output_destinationSchema :: Lens.Lens' Output DestinationSchema
 output_destinationSchema = Lens.lens (\Output' {destinationSchema} -> destinationSchema) (\s@Output' {} a -> s {destinationSchema = a} :: Output)
 
-instance Prelude.Hashable Output
+instance Prelude.Hashable Output where
+  hashWithSalt _salt Output' {..} =
+    _salt `Prelude.hashWithSalt` lambdaOutput
+      `Prelude.hashWithSalt` kinesisStreamsOutput
+      `Prelude.hashWithSalt` kinesisFirehoseOutput
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinationSchema
 
-instance Prelude.NFData Output
+instance Prelude.NFData Output where
+  rnf Output' {..} =
+    Prelude.rnf lambdaOutput
+      `Prelude.seq` Prelude.rnf kinesisStreamsOutput
+      `Prelude.seq` Prelude.rnf kinesisFirehoseOutput
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinationSchema
 
 instance Core.ToJSON Output where
   toJSON Output' {..} =

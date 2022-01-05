@@ -73,9 +73,15 @@ instance Core.FromJSON PropertyGroup where
             Prelude.<*> (x Core..:? "PropertyMap" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PropertyGroup
+instance Prelude.Hashable PropertyGroup where
+  hashWithSalt _salt PropertyGroup' {..} =
+    _salt `Prelude.hashWithSalt` propertyGroupId
+      `Prelude.hashWithSalt` propertyMap
 
-instance Prelude.NFData PropertyGroup
+instance Prelude.NFData PropertyGroup where
+  rnf PropertyGroup' {..} =
+    Prelude.rnf propertyGroupId
+      `Prelude.seq` Prelude.rnf propertyMap
 
 instance Core.ToJSON PropertyGroup where
   toJSON PropertyGroup' {..} =

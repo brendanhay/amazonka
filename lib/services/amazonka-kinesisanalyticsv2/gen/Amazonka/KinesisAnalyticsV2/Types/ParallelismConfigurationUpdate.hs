@@ -130,10 +130,24 @@ parallelismConfigurationUpdate_configurationTypeUpdate = Lens.lens (\Parallelism
 instance
   Prelude.Hashable
     ParallelismConfigurationUpdate
+  where
+  hashWithSalt
+    _salt
+    ParallelismConfigurationUpdate' {..} =
+      _salt `Prelude.hashWithSalt` parallelismUpdate
+        `Prelude.hashWithSalt` autoScalingEnabledUpdate
+        `Prelude.hashWithSalt` parallelismPerKPUUpdate
+        `Prelude.hashWithSalt` configurationTypeUpdate
 
 instance
   Prelude.NFData
     ParallelismConfigurationUpdate
+  where
+  rnf ParallelismConfigurationUpdate' {..} =
+    Prelude.rnf parallelismUpdate
+      `Prelude.seq` Prelude.rnf autoScalingEnabledUpdate
+      `Prelude.seq` Prelude.rnf parallelismPerKPUUpdate
+      `Prelude.seq` Prelude.rnf configurationTypeUpdate
 
 instance Core.ToJSON ParallelismConfigurationUpdate where
   toJSON ParallelismConfigurationUpdate' {..} =

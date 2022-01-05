@@ -139,8 +139,18 @@ instance
 instance
   Prelude.Hashable
     CreateApplicationPresignedUrl
+  where
+  hashWithSalt _salt CreateApplicationPresignedUrl' {..} =
+    _salt
+      `Prelude.hashWithSalt` sessionExpirationDurationInSeconds
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` urlType
 
-instance Prelude.NFData CreateApplicationPresignedUrl
+instance Prelude.NFData CreateApplicationPresignedUrl where
+  rnf CreateApplicationPresignedUrl' {..} =
+    Prelude.rnf sessionExpirationDurationInSeconds
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf urlType
 
 instance Core.ToHeaders CreateApplicationPresignedUrl where
   toHeaders =
@@ -217,3 +227,7 @@ createApplicationPresignedUrlResponse_httpStatus = Lens.lens (\CreateApplication
 instance
   Prelude.NFData
     CreateApplicationPresignedUrlResponse
+  where
+  rnf CreateApplicationPresignedUrlResponse' {..} =
+    Prelude.rnf authorizedUrl
+      `Prelude.seq` Prelude.rnf httpStatus

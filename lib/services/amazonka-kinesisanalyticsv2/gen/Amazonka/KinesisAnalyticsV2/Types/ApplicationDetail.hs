@@ -275,6 +275,43 @@ instance Core.FromJSON ApplicationDetail where
             Prelude.<*> (x Core..: "ApplicationVersionId")
       )
 
-instance Prelude.Hashable ApplicationDetail
+instance Prelude.Hashable ApplicationDetail where
+  hashWithSalt _salt ApplicationDetail' {..} =
+    _salt `Prelude.hashWithSalt` applicationDescription
+      `Prelude.hashWithSalt` conditionalToken
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
+      `Prelude.hashWithSalt` applicationVersionRolledBackFrom
+      `Prelude.hashWithSalt` applicationMode
+      `Prelude.hashWithSalt` applicationConfigurationDescription
+      `Prelude.hashWithSalt` applicationVersionRolledBackTo
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` serviceExecutionRole
+      `Prelude.hashWithSalt` applicationVersionUpdatedFrom
+      `Prelude.hashWithSalt` applicationMaintenanceConfigurationDescription
+      `Prelude.hashWithSalt` applicationARN
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` runtimeEnvironment
+      `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationVersionId
 
-instance Prelude.NFData ApplicationDetail
+instance Prelude.NFData ApplicationDetail where
+  rnf ApplicationDetail' {..} =
+    Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf conditionalToken
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackFrom
+      `Prelude.seq` Prelude.rnf applicationMode
+      `Prelude.seq` Prelude.rnf applicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackTo
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf serviceExecutionRole
+      `Prelude.seq` Prelude.rnf applicationVersionUpdatedFrom
+      `Prelude.seq` Prelude.rnf
+        applicationMaintenanceConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf runtimeEnvironment
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf applicationVersionId

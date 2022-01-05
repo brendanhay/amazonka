@@ -86,9 +86,15 @@ instance Core.FromJSON RecordFormat where
             Prelude.<*> (x Core..: "RecordFormatType")
       )
 
-instance Prelude.Hashable RecordFormat
+instance Prelude.Hashable RecordFormat where
+  hashWithSalt _salt RecordFormat' {..} =
+    _salt `Prelude.hashWithSalt` mappingParameters
+      `Prelude.hashWithSalt` recordFormatType
 
-instance Prelude.NFData RecordFormat
+instance Prelude.NFData RecordFormat where
+  rnf RecordFormat' {..} =
+    Prelude.rnf mappingParameters
+      `Prelude.seq` Prelude.rnf recordFormatType
 
 instance Core.ToJSON RecordFormat where
   toJSON RecordFormat' {..} =

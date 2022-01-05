@@ -70,10 +70,18 @@ deployAsApplicationConfiguration_s3ContentLocation = Lens.lens (\DeployAsApplica
 instance
   Prelude.Hashable
     DeployAsApplicationConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeployAsApplicationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` s3ContentLocation
 
 instance
   Prelude.NFData
     DeployAsApplicationConfiguration
+  where
+  rnf DeployAsApplicationConfiguration' {..} =
+    Prelude.rnf s3ContentLocation
 
 instance Core.ToJSON DeployAsApplicationConfiguration where
   toJSON DeployAsApplicationConfiguration' {..} =

@@ -92,10 +92,23 @@ flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate = Lens.lens (\
 instance
   Prelude.Hashable
     FlinkApplicationConfigurationUpdate
+  where
+  hashWithSalt
+    _salt
+    FlinkApplicationConfigurationUpdate' {..} =
+      _salt
+        `Prelude.hashWithSalt` checkpointConfigurationUpdate
+        `Prelude.hashWithSalt` parallelismConfigurationUpdate
+        `Prelude.hashWithSalt` monitoringConfigurationUpdate
 
 instance
   Prelude.NFData
     FlinkApplicationConfigurationUpdate
+  where
+  rnf FlinkApplicationConfigurationUpdate' {..} =
+    Prelude.rnf checkpointConfigurationUpdate
+      `Prelude.seq` Prelude.rnf parallelismConfigurationUpdate
+      `Prelude.seq` Prelude.rnf monitoringConfigurationUpdate
 
 instance
   Core.ToJSON

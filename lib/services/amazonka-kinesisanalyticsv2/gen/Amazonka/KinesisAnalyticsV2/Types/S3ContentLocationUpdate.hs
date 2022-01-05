@@ -75,9 +75,17 @@ s3ContentLocationUpdate_fileKeyUpdate = Lens.lens (\S3ContentLocationUpdate' {fi
 s3ContentLocationUpdate_objectVersionUpdate :: Lens.Lens' S3ContentLocationUpdate (Prelude.Maybe Prelude.Text)
 s3ContentLocationUpdate_objectVersionUpdate = Lens.lens (\S3ContentLocationUpdate' {objectVersionUpdate} -> objectVersionUpdate) (\s@S3ContentLocationUpdate' {} a -> s {objectVersionUpdate = a} :: S3ContentLocationUpdate)
 
-instance Prelude.Hashable S3ContentLocationUpdate
+instance Prelude.Hashable S3ContentLocationUpdate where
+  hashWithSalt _salt S3ContentLocationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` bucketARNUpdate
+      `Prelude.hashWithSalt` fileKeyUpdate
+      `Prelude.hashWithSalt` objectVersionUpdate
 
-instance Prelude.NFData S3ContentLocationUpdate
+instance Prelude.NFData S3ContentLocationUpdate where
+  rnf S3ContentLocationUpdate' {..} =
+    Prelude.rnf bucketARNUpdate
+      `Prelude.seq` Prelude.rnf fileKeyUpdate
+      `Prelude.seq` Prelude.rnf objectVersionUpdate
 
 instance Core.ToJSON S3ContentLocationUpdate where
   toJSON S3ContentLocationUpdate' {..} =

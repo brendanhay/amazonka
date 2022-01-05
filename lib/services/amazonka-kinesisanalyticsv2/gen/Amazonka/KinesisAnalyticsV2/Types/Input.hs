@@ -151,9 +151,23 @@ input_namePrefix = Lens.lens (\Input' {namePrefix} -> namePrefix) (\s@Input' {} 
 input_inputSchema :: Lens.Lens' Input SourceSchema
 input_inputSchema = Lens.lens (\Input' {inputSchema} -> inputSchema) (\s@Input' {} a -> s {inputSchema = a} :: Input)
 
-instance Prelude.Hashable Input
+instance Prelude.Hashable Input where
+  hashWithSalt _salt Input' {..} =
+    _salt `Prelude.hashWithSalt` inputParallelism
+      `Prelude.hashWithSalt` inputProcessingConfiguration
+      `Prelude.hashWithSalt` kinesisStreamsInput
+      `Prelude.hashWithSalt` kinesisFirehoseInput
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` inputSchema
 
-instance Prelude.NFData Input
+instance Prelude.NFData Input where
+  rnf Input' {..} =
+    Prelude.rnf inputParallelism
+      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
+      `Prelude.seq` Prelude.rnf kinesisStreamsInput
+      `Prelude.seq` Prelude.rnf kinesisFirehoseInput
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf inputSchema
 
 instance Core.ToJSON Input where
   toJSON Input' {..} =

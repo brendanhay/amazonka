@@ -156,10 +156,22 @@ instance
 instance
   Prelude.Hashable
     AddApplicationReferenceDataSource
+  where
+  hashWithSalt
+    _salt
+    AddApplicationReferenceDataSource' {..} =
+      _salt `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` currentApplicationVersionId
+        `Prelude.hashWithSalt` referenceDataSource
 
 instance
   Prelude.NFData
     AddApplicationReferenceDataSource
+  where
+  rnf AddApplicationReferenceDataSource' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf referenceDataSource
 
 instance
   Core.ToHeaders
@@ -275,3 +287,9 @@ addApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\AddApplicatio
 instance
   Prelude.NFData
     AddApplicationReferenceDataSourceResponse
+  where
+  rnf AddApplicationReferenceDataSourceResponse' {..} =
+    Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

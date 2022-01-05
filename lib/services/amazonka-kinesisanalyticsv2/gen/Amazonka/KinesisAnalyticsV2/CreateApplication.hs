@@ -198,9 +198,27 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (x Core..:> "ApplicationDetail")
       )
 
-instance Prelude.Hashable CreateApplication
+instance Prelude.Hashable CreateApplication where
+  hashWithSalt _salt CreateApplication' {..} =
+    _salt `Prelude.hashWithSalt` applicationDescription
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` applicationMode
+      `Prelude.hashWithSalt` applicationConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` runtimeEnvironment
+      `Prelude.hashWithSalt` serviceExecutionRole
 
-instance Prelude.NFData CreateApplication
+instance Prelude.NFData CreateApplication where
+  rnf CreateApplication' {..} =
+    Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf applicationMode
+      `Prelude.seq` Prelude.rnf applicationConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf runtimeEnvironment
+      `Prelude.seq` Prelude.rnf serviceExecutionRole
 
 instance Core.ToHeaders CreateApplication where
   toHeaders =
@@ -293,4 +311,7 @@ createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {h
 createApplicationResponse_applicationDetail :: Lens.Lens' CreateApplicationResponse ApplicationDetail
 createApplicationResponse_applicationDetail = Lens.lens (\CreateApplicationResponse' {applicationDetail} -> applicationDetail) (\s@CreateApplicationResponse' {} a -> s {applicationDetail = a} :: CreateApplicationResponse)
 
-instance Prelude.NFData CreateApplicationResponse
+instance Prelude.NFData CreateApplicationResponse where
+  rnf CreateApplicationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationDetail

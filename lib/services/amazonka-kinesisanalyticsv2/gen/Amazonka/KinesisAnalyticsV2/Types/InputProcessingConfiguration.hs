@@ -67,8 +67,13 @@ inputProcessingConfiguration_inputLambdaProcessor = Lens.lens (\InputProcessingC
 instance
   Prelude.Hashable
     InputProcessingConfiguration
+  where
+  hashWithSalt _salt InputProcessingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` inputLambdaProcessor
 
-instance Prelude.NFData InputProcessingConfiguration
+instance Prelude.NFData InputProcessingConfiguration where
+  rnf InputProcessingConfiguration' {..} =
+    Prelude.rnf inputLambdaProcessor
 
 instance Core.ToJSON InputProcessingConfiguration where
   toJSON InputProcessingConfiguration' {..} =

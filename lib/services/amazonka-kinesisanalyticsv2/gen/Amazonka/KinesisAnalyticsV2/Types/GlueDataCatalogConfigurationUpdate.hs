@@ -60,10 +60,18 @@ glueDataCatalogConfigurationUpdate_databaseARNUpdate = Lens.lens (\GlueDataCatal
 instance
   Prelude.Hashable
     GlueDataCatalogConfigurationUpdate
+  where
+  hashWithSalt
+    _salt
+    GlueDataCatalogConfigurationUpdate' {..} =
+      _salt `Prelude.hashWithSalt` databaseARNUpdate
 
 instance
   Prelude.NFData
     GlueDataCatalogConfigurationUpdate
+  where
+  rnf GlueDataCatalogConfigurationUpdate' {..} =
+    Prelude.rnf databaseARNUpdate
 
 instance
   Core.ToJSON

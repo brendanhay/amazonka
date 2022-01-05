@@ -96,9 +96,13 @@ instance Core.FromJSON FlinkRunConfiguration where
             Prelude.<$> (x Core..:? "AllowNonRestoredState")
       )
 
-instance Prelude.Hashable FlinkRunConfiguration
+instance Prelude.Hashable FlinkRunConfiguration where
+  hashWithSalt _salt FlinkRunConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` allowNonRestoredState
 
-instance Prelude.NFData FlinkRunConfiguration
+instance Prelude.NFData FlinkRunConfiguration where
+  rnf FlinkRunConfiguration' {..} =
+    Prelude.rnf allowNonRestoredState
 
 instance Core.ToJSON FlinkRunConfiguration where
   toJSON FlinkRunConfiguration' {..} =

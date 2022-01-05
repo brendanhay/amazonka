@@ -66,9 +66,13 @@ instance Core.FromJSON JSONMappingParameters where
             Prelude.<$> (x Core..: "RecordRowPath")
       )
 
-instance Prelude.Hashable JSONMappingParameters
+instance Prelude.Hashable JSONMappingParameters where
+  hashWithSalt _salt JSONMappingParameters' {..} =
+    _salt `Prelude.hashWithSalt` recordRowPath
 
-instance Prelude.NFData JSONMappingParameters
+instance Prelude.NFData JSONMappingParameters where
+  rnf JSONMappingParameters' {..} =
+    Prelude.rnf recordRowPath
 
 instance Core.ToJSON JSONMappingParameters where
   toJSON JSONMappingParameters' {..} =

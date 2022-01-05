@@ -82,9 +82,17 @@ customArtifactConfiguration_mavenReference = Lens.lens (\CustomArtifactConfigura
 customArtifactConfiguration_artifactType :: Lens.Lens' CustomArtifactConfiguration ArtifactType
 customArtifactConfiguration_artifactType = Lens.lens (\CustomArtifactConfiguration' {artifactType} -> artifactType) (\s@CustomArtifactConfiguration' {} a -> s {artifactType = a} :: CustomArtifactConfiguration)
 
-instance Prelude.Hashable CustomArtifactConfiguration
+instance Prelude.Hashable CustomArtifactConfiguration where
+  hashWithSalt _salt CustomArtifactConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` s3ContentLocation
+      `Prelude.hashWithSalt` mavenReference
+      `Prelude.hashWithSalt` artifactType
 
-instance Prelude.NFData CustomArtifactConfiguration
+instance Prelude.NFData CustomArtifactConfiguration where
+  rnf CustomArtifactConfiguration' {..} =
+    Prelude.rnf s3ContentLocation
+      `Prelude.seq` Prelude.rnf mavenReference
+      `Prelude.seq` Prelude.rnf artifactType
 
 instance Core.ToJSON CustomArtifactConfiguration where
   toJSON CustomArtifactConfiguration' {..} =

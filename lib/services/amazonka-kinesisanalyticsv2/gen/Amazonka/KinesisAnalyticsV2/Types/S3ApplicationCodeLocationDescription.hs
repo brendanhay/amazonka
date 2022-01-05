@@ -97,7 +97,19 @@ instance
 instance
   Prelude.Hashable
     S3ApplicationCodeLocationDescription
+  where
+  hashWithSalt
+    _salt
+    S3ApplicationCodeLocationDescription' {..} =
+      _salt `Prelude.hashWithSalt` objectVersion
+        `Prelude.hashWithSalt` bucketARN
+        `Prelude.hashWithSalt` fileKey
 
 instance
   Prelude.NFData
     S3ApplicationCodeLocationDescription
+  where
+  rnf S3ApplicationCodeLocationDescription' {..} =
+    Prelude.rnf objectVersion
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf fileKey

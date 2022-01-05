@@ -61,10 +61,19 @@ deployAsApplicationConfigurationUpdate_s3ContentLocationUpdate = Lens.lens (\Dep
 instance
   Prelude.Hashable
     DeployAsApplicationConfigurationUpdate
+  where
+  hashWithSalt
+    _salt
+    DeployAsApplicationConfigurationUpdate' {..} =
+      _salt
+        `Prelude.hashWithSalt` s3ContentLocationUpdate
 
 instance
   Prelude.NFData
     DeployAsApplicationConfigurationUpdate
+  where
+  rnf DeployAsApplicationConfigurationUpdate' {..} =
+    Prelude.rnf s3ContentLocationUpdate
 
 instance
   Core.ToJSON

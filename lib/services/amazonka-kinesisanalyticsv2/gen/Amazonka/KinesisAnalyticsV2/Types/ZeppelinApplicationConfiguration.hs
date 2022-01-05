@@ -98,10 +98,25 @@ zeppelinApplicationConfiguration_customArtifactsConfiguration = Lens.lens (\Zepp
 instance
   Prelude.Hashable
     ZeppelinApplicationConfiguration
+  where
+  hashWithSalt
+    _salt
+    ZeppelinApplicationConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` monitoringConfiguration
+        `Prelude.hashWithSalt` catalogConfiguration
+        `Prelude.hashWithSalt` deployAsApplicationConfiguration
+        `Prelude.hashWithSalt` customArtifactsConfiguration
 
 instance
   Prelude.NFData
     ZeppelinApplicationConfiguration
+  where
+  rnf ZeppelinApplicationConfiguration' {..} =
+    Prelude.rnf monitoringConfiguration
+      `Prelude.seq` Prelude.rnf catalogConfiguration
+      `Prelude.seq` Prelude.rnf deployAsApplicationConfiguration
+      `Prelude.seq` Prelude.rnf customArtifactsConfiguration
 
 instance Core.ToJSON ZeppelinApplicationConfiguration where
   toJSON ZeppelinApplicationConfiguration' {..} =

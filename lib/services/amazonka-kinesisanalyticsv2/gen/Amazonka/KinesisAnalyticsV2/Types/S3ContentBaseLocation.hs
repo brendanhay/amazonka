@@ -63,9 +63,15 @@ s3ContentBaseLocation_basePath = Lens.lens (\S3ContentBaseLocation' {basePath} -
 s3ContentBaseLocation_bucketARN :: Lens.Lens' S3ContentBaseLocation Prelude.Text
 s3ContentBaseLocation_bucketARN = Lens.lens (\S3ContentBaseLocation' {bucketARN} -> bucketARN) (\s@S3ContentBaseLocation' {} a -> s {bucketARN = a} :: S3ContentBaseLocation)
 
-instance Prelude.Hashable S3ContentBaseLocation
+instance Prelude.Hashable S3ContentBaseLocation where
+  hashWithSalt _salt S3ContentBaseLocation' {..} =
+    _salt `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` bucketARN
 
-instance Prelude.NFData S3ContentBaseLocation
+instance Prelude.NFData S3ContentBaseLocation where
+  rnf S3ContentBaseLocation' {..} =
+    Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf bucketARN
 
 instance Core.ToJSON S3ContentBaseLocation where
   toJSON S3ContentBaseLocation' {..} =

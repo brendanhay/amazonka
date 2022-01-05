@@ -59,9 +59,12 @@ instance Core.FromJSON InputParallelism where
           InputParallelism' Prelude.<$> (x Core..:? "Count")
       )
 
-instance Prelude.Hashable InputParallelism
+instance Prelude.Hashable InputParallelism where
+  hashWithSalt _salt InputParallelism' {..} =
+    _salt `Prelude.hashWithSalt` count
 
-instance Prelude.NFData InputParallelism
+instance Prelude.NFData InputParallelism where
+  rnf InputParallelism' {..} = Prelude.rnf count
 
 instance Core.ToJSON InputParallelism where
   toJSON InputParallelism' {..} =

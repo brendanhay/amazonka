@@ -75,7 +75,16 @@ instance
 instance
   Prelude.Hashable
     InputProcessingConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    InputProcessingConfigurationDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` inputLambdaProcessorDescription
 
 instance
   Prelude.NFData
     InputProcessingConfigurationDescription
+  where
+  rnf InputProcessingConfigurationDescription' {..} =
+    Prelude.rnf inputLambdaProcessorDescription

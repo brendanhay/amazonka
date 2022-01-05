@@ -118,9 +118,15 @@ instance Core.AWSRequest RollbackApplication where
             Prelude.<*> (x Core..:> "ApplicationDetail")
       )
 
-instance Prelude.Hashable RollbackApplication
+instance Prelude.Hashable RollbackApplication where
+  hashWithSalt _salt RollbackApplication' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` currentApplicationVersionId
 
-instance Prelude.NFData RollbackApplication
+instance Prelude.NFData RollbackApplication where
+  rnf RollbackApplication' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
 instance Core.ToHeaders RollbackApplication where
   toHeaders =
@@ -198,4 +204,7 @@ rollbackApplicationResponse_httpStatus = Lens.lens (\RollbackApplicationResponse
 rollbackApplicationResponse_applicationDetail :: Lens.Lens' RollbackApplicationResponse ApplicationDetail
 rollbackApplicationResponse_applicationDetail = Lens.lens (\RollbackApplicationResponse' {applicationDetail} -> applicationDetail) (\s@RollbackApplicationResponse' {} a -> s {applicationDetail = a} :: RollbackApplicationResponse)
 
-instance Prelude.NFData RollbackApplicationResponse
+instance Prelude.NFData RollbackApplicationResponse where
+  rnf RollbackApplicationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationDetail

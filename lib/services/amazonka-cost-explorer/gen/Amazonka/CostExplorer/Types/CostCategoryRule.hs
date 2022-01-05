@@ -164,9 +164,19 @@ instance Core.FromJSON CostCategoryRule where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable CostCategoryRule
+instance Prelude.Hashable CostCategoryRule where
+  hashWithSalt _salt CostCategoryRule' {..} =
+    _salt `Prelude.hashWithSalt` inheritedValue
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` rule
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CostCategoryRule
+instance Prelude.NFData CostCategoryRule where
+  rnf CostCategoryRule' {..} =
+    Prelude.rnf inheritedValue
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON CostCategoryRule where
   toJSON CostCategoryRule' {..} =

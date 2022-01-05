@@ -160,7 +160,29 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansPurchaseRecommendation
+  where
+  hashWithSalt
+    _salt
+    SavingsPlansPurchaseRecommendation' {..} =
+      _salt
+        `Prelude.hashWithSalt` savingsPlansPurchaseRecommendationDetails
+        `Prelude.hashWithSalt` termInYears
+        `Prelude.hashWithSalt` accountScope
+        `Prelude.hashWithSalt` savingsPlansType
+        `Prelude.hashWithSalt` lookbackPeriodInDays
+        `Prelude.hashWithSalt` paymentOption
+        `Prelude.hashWithSalt` savingsPlansPurchaseRecommendationSummary
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendation
+  where
+  rnf SavingsPlansPurchaseRecommendation' {..} =
+    Prelude.rnf
+      savingsPlansPurchaseRecommendationDetails
+      `Prelude.seq` Prelude.rnf termInYears
+      `Prelude.seq` Prelude.rnf accountScope
+      `Prelude.seq` Prelude.rnf savingsPlansType
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendationSummary

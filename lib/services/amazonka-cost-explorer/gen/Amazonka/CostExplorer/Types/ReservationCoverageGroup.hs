@@ -73,6 +73,12 @@ instance Core.FromJSON ReservationCoverageGroup where
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ReservationCoverageGroup
+instance Prelude.Hashable ReservationCoverageGroup where
+  hashWithSalt _salt ReservationCoverageGroup' {..} =
+    _salt `Prelude.hashWithSalt` coverage
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData ReservationCoverageGroup
+instance Prelude.NFData ReservationCoverageGroup where
+  rnf ReservationCoverageGroup' {..} =
+    Prelude.rnf coverage
+      `Prelude.seq` Prelude.rnf attributes

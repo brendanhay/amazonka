@@ -63,9 +63,15 @@ anomalyDateInterval_endDate = Lens.lens (\AnomalyDateInterval' {endDate} -> endD
 anomalyDateInterval_startDate :: Lens.Lens' AnomalyDateInterval Prelude.Text
 anomalyDateInterval_startDate = Lens.lens (\AnomalyDateInterval' {startDate} -> startDate) (\s@AnomalyDateInterval' {} a -> s {startDate = a} :: AnomalyDateInterval)
 
-instance Prelude.Hashable AnomalyDateInterval
+instance Prelude.Hashable AnomalyDateInterval where
+  hashWithSalt _salt AnomalyDateInterval' {..} =
+    _salt `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` startDate
 
-instance Prelude.NFData AnomalyDateInterval
+instance Prelude.NFData AnomalyDateInterval where
+  rnf AnomalyDateInterval' {..} =
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf startDate
 
 instance Core.ToJSON AnomalyDateInterval where
   toJSON AnomalyDateInterval' {..} =

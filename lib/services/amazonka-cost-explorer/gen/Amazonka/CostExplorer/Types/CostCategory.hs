@@ -172,6 +172,26 @@ instance Core.FromJSON CostCategory where
             Prelude.<*> (x Core..: "Rules")
       )
 
-instance Prelude.Hashable CostCategory
+instance Prelude.Hashable CostCategory where
+  hashWithSalt _salt CostCategory' {..} =
+    _salt `Prelude.hashWithSalt` processingStatus
+      `Prelude.hashWithSalt` effectiveEnd
+      `Prelude.hashWithSalt` splitChargeRules
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` costCategoryArn
+      `Prelude.hashWithSalt` effectiveStart
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ruleVersion
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData CostCategory
+instance Prelude.NFData CostCategory where
+  rnf CostCategory' {..} =
+    Prelude.rnf processingStatus
+      `Prelude.seq` Prelude.rnf effectiveEnd
+      `Prelude.seq` Prelude.rnf splitChargeRules
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf costCategoryArn
+      `Prelude.seq` Prelude.rnf effectiveStart
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ruleVersion
+      `Prelude.seq` Prelude.rnf rules

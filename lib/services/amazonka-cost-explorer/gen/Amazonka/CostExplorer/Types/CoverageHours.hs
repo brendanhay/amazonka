@@ -92,6 +92,17 @@ instance Core.FromJSON CoverageHours where
             Prelude.<*> (x Core..:? "ReservedHours")
       )
 
-instance Prelude.Hashable CoverageHours
+instance Prelude.Hashable CoverageHours where
+  hashWithSalt _salt CoverageHours' {..} =
+    _salt
+      `Prelude.hashWithSalt` coverageHoursPercentage
+      `Prelude.hashWithSalt` onDemandHours
+      `Prelude.hashWithSalt` totalRunningHours
+      `Prelude.hashWithSalt` reservedHours
 
-instance Prelude.NFData CoverageHours
+instance Prelude.NFData CoverageHours where
+  rnf CoverageHours' {..} =
+    Prelude.rnf coverageHoursPercentage
+      `Prelude.seq` Prelude.rnf onDemandHours
+      `Prelude.seq` Prelude.rnf totalRunningHours
+      `Prelude.seq` Prelude.rnf reservedHours

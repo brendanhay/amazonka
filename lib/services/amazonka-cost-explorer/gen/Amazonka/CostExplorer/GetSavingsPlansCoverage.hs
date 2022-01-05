@@ -319,9 +319,27 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
                         )
       )
 
-instance Prelude.Hashable GetSavingsPlansCoverage
+instance Prelude.Hashable GetSavingsPlansCoverage where
+  hashWithSalt _salt GetSavingsPlansCoverage' {..} =
+    _salt `Prelude.hashWithSalt` groupBy
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` timePeriod
 
-instance Prelude.NFData GetSavingsPlansCoverage
+instance Prelude.NFData GetSavingsPlansCoverage where
+  rnf GetSavingsPlansCoverage' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf timePeriod
 
 instance Core.ToHeaders GetSavingsPlansCoverage where
   toHeaders =
@@ -416,3 +434,8 @@ getSavingsPlansCoverageResponse_savingsPlansCoverages = Lens.lens (\GetSavingsPl
 instance
   Prelude.NFData
     GetSavingsPlansCoverageResponse
+  where
+  rnf GetSavingsPlansCoverageResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf savingsPlansCoverages

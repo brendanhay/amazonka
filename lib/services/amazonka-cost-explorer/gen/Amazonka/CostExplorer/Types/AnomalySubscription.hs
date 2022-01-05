@@ -138,9 +138,25 @@ instance Core.FromJSON AnomalySubscription where
             Prelude.<*> (x Core..: "SubscriptionName")
       )
 
-instance Prelude.Hashable AnomalySubscription
+instance Prelude.Hashable AnomalySubscription where
+  hashWithSalt _salt AnomalySubscription' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` subscriptionArn
+      `Prelude.hashWithSalt` monitorArnList
+      `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` subscriptionName
 
-instance Prelude.NFData AnomalySubscription
+instance Prelude.NFData AnomalySubscription where
+  rnf AnomalySubscription' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf monitorArnList
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf subscriptionName
 
 instance Core.ToJSON AnomalySubscription where
   toJSON AnomalySubscription' {..} =

@@ -194,6 +194,31 @@ instance Core.FromJSON CurrentInstance where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CurrentInstance
+instance Prelude.Hashable CurrentInstance where
+  hashWithSalt _salt CurrentInstance' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` resourceUtilization
+      `Prelude.hashWithSalt` resourceDetails
+      `Prelude.hashWithSalt` totalRunningHoursInLookbackPeriod
+      `Prelude.hashWithSalt` reservationCoveredHoursInLookbackPeriod
+      `Prelude.hashWithSalt` onDemandHoursInLookbackPeriod
+      `Prelude.hashWithSalt` monthlyCost
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` savingsPlansCoveredHoursInLookbackPeriod
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CurrentInstance
+instance Prelude.NFData CurrentInstance where
+  rnf CurrentInstance' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf resourceUtilization
+      `Prelude.seq` Prelude.rnf resourceDetails
+      `Prelude.seq` Prelude.rnf totalRunningHoursInLookbackPeriod
+      `Prelude.seq` Prelude.rnf reservationCoveredHoursInLookbackPeriod
+      `Prelude.seq` Prelude.rnf onDemandHoursInLookbackPeriod
+      `Prelude.seq` Prelude.rnf monthlyCost
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf
+        savingsPlansCoveredHoursInLookbackPeriod
+      `Prelude.seq` Prelude.rnf tags

@@ -106,6 +106,18 @@ instance Core.FromJSON ESInstanceDetails where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable ESInstanceDetails
+instance Prelude.Hashable ESInstanceDetails where
+  hashWithSalt _salt ESInstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` currentGeneration
+      `Prelude.hashWithSalt` instanceClass
+      `Prelude.hashWithSalt` instanceSize
+      `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData ESInstanceDetails
+instance Prelude.NFData ESInstanceDetails where
+  rnf ESInstanceDetails' {..} =
+    Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf instanceClass
+      `Prelude.seq` Prelude.rnf instanceSize
+      `Prelude.seq` Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf region

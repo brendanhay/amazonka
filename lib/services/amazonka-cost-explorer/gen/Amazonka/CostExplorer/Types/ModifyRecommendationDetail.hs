@@ -68,6 +68,10 @@ instance Core.FromJSON ModifyRecommendationDetail where
                         )
       )
 
-instance Prelude.Hashable ModifyRecommendationDetail
+instance Prelude.Hashable ModifyRecommendationDetail where
+  hashWithSalt _salt ModifyRecommendationDetail' {..} =
+    _salt `Prelude.hashWithSalt` targetInstances
 
-instance Prelude.NFData ModifyRecommendationDetail
+instance Prelude.NFData ModifyRecommendationDetail where
+  rnf ModifyRecommendationDetail' {..} =
+    Prelude.rnf targetInstances

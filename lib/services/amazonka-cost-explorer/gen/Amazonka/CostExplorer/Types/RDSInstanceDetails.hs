@@ -152,6 +152,26 @@ instance Core.FromJSON RDSInstanceDetails where
             Prelude.<*> (x Core..:? "DatabaseEdition")
       )
 
-instance Prelude.Hashable RDSInstanceDetails
+instance Prelude.Hashable RDSInstanceDetails where
+  hashWithSalt _salt RDSInstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` currentGeneration
+      `Prelude.hashWithSalt` deploymentOption
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` databaseEngine
+      `Prelude.hashWithSalt` databaseEdition
 
-instance Prelude.NFData RDSInstanceDetails
+instance Prelude.NFData RDSInstanceDetails where
+  rnf RDSInstanceDetails' {..} =
+    Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf deploymentOption
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf databaseEngine
+      `Prelude.seq` Prelude.rnf databaseEdition

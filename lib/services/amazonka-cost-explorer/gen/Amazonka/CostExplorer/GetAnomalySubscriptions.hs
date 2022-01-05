@@ -129,9 +129,19 @@ instance Core.AWSRequest GetAnomalySubscriptions where
                         )
       )
 
-instance Prelude.Hashable GetAnomalySubscriptions
+instance Prelude.Hashable GetAnomalySubscriptions where
+  hashWithSalt _salt GetAnomalySubscriptions' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionArnList
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` monitorArn
 
-instance Prelude.NFData GetAnomalySubscriptions
+instance Prelude.NFData GetAnomalySubscriptions where
+  rnf GetAnomalySubscriptions' {..} =
+    Prelude.rnf subscriptionArnList
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf monitorArn
 
 instance Core.ToHeaders GetAnomalySubscriptions where
   toHeaders =
@@ -226,3 +236,8 @@ getAnomalySubscriptionsResponse_anomalySubscriptions = Lens.lens (\GetAnomalySub
 instance
   Prelude.NFData
     GetAnomalySubscriptionsResponse
+  where
+  rnf GetAnomalySubscriptionsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf anomalySubscriptions

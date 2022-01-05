@@ -153,9 +153,23 @@ instance Core.FromJSON Expression where
             Prelude.<*> (x Core..:? "Tags")
       )
 
-instance Prelude.Hashable Expression
+instance Prelude.Hashable Expression where
+  hashWithSalt _salt Expression' {..} =
+    _salt `Prelude.hashWithSalt` not
+      `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` or
+      `Prelude.hashWithSalt` costCategories
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Expression
+instance Prelude.NFData Expression where
+  rnf Expression' {..} =
+    Prelude.rnf not
+      `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf or
+      `Prelude.seq` Prelude.rnf costCategories
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON Expression where
   toJSON Expression' {..} =

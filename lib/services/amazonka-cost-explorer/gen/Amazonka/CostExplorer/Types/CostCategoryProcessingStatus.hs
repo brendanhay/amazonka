@@ -78,5 +78,12 @@ instance Core.FromJSON CostCategoryProcessingStatus where
 instance
   Prelude.Hashable
     CostCategoryProcessingStatus
+  where
+  hashWithSalt _salt CostCategoryProcessingStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` component
 
-instance Prelude.NFData CostCategoryProcessingStatus
+instance Prelude.NFData CostCategoryProcessingStatus where
+  rnf CostCategoryProcessingStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf component

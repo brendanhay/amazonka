@@ -63,6 +63,10 @@ instance Core.FromJSON ResourceUtilization where
             Prelude.<$> (x Core..:? "EC2ResourceUtilization")
       )
 
-instance Prelude.Hashable ResourceUtilization
+instance Prelude.Hashable ResourceUtilization where
+  hashWithSalt _salt ResourceUtilization' {..} =
+    _salt `Prelude.hashWithSalt` eC2ResourceUtilization
 
-instance Prelude.NFData ResourceUtilization
+instance Prelude.NFData ResourceUtilization where
+  rnf ResourceUtilization' {..} =
+    Prelude.rnf eC2ResourceUtilization

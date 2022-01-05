@@ -251,9 +251,25 @@ instance Core.AWSRequest GetTags where
             Prelude.<*> (x Core..:> "TotalSize")
       )
 
-instance Prelude.Hashable GetTags
+instance Prelude.Hashable GetTags where
+  hashWithSalt _salt GetTags' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` searchString
+      `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` timePeriod
 
-instance Prelude.NFData GetTags
+instance Prelude.NFData GetTags where
+  rnf GetTags' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf searchString
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf timePeriod
 
 instance Core.ToHeaders GetTags where
   toHeaders =
@@ -368,4 +384,10 @@ getTagsResponse_returnSize = Lens.lens (\GetTagsResponse' {returnSize} -> return
 getTagsResponse_totalSize :: Lens.Lens' GetTagsResponse Prelude.Int
 getTagsResponse_totalSize = Lens.lens (\GetTagsResponse' {totalSize} -> totalSize) (\s@GetTagsResponse' {} a -> s {totalSize = a} :: GetTagsResponse)
 
-instance Prelude.NFData GetTagsResponse
+instance Prelude.NFData GetTagsResponse where
+  rnf GetTagsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf returnSize
+      `Prelude.seq` Prelude.rnf totalSize

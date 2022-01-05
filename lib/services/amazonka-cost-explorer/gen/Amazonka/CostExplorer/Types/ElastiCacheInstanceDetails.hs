@@ -116,6 +116,20 @@ instance Core.FromJSON ElastiCacheInstanceDetails where
             Prelude.<*> (x Core..:? "NodeType")
       )
 
-instance Prelude.Hashable ElastiCacheInstanceDetails
+instance Prelude.Hashable ElastiCacheInstanceDetails where
+  hashWithSalt _salt ElastiCacheInstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` currentGeneration
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` nodeType
 
-instance Prelude.NFData ElastiCacheInstanceDetails
+instance Prelude.NFData ElastiCacheInstanceDetails where
+  rnf ElastiCacheInstanceDetails' {..} =
+    Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf nodeType

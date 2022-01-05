@@ -261,6 +261,42 @@ instance Core.FromJSON ReservationAggregates where
             Prelude.<*> (x Core..:? "TotalActualUnits")
       )
 
-instance Prelude.Hashable ReservationAggregates
+instance Prelude.Hashable ReservationAggregates where
+  hashWithSalt _salt ReservationAggregates' {..} =
+    _salt `Prelude.hashWithSalt` purchasedHours
+      `Prelude.hashWithSalt` totalActualHours
+      `Prelude.hashWithSalt` utilizationPercentage
+      `Prelude.hashWithSalt` totalAmortizedFee
+      `Prelude.hashWithSalt` unusedUnits
+      `Prelude.hashWithSalt` unrealizedSavings
+      `Prelude.hashWithSalt` rICostForUnusedHours
+      `Prelude.hashWithSalt` unusedHours
+      `Prelude.hashWithSalt` realizedSavings
+      `Prelude.hashWithSalt` purchasedUnits
+      `Prelude.hashWithSalt` amortizedUpfrontFee
+      `Prelude.hashWithSalt` amortizedRecurringFee
+      `Prelude.hashWithSalt` utilizationPercentageInUnits
+      `Prelude.hashWithSalt` netRISavings
+      `Prelude.hashWithSalt` onDemandCostOfRIHoursUsed
+      `Prelude.hashWithSalt` totalPotentialRISavings
+      `Prelude.hashWithSalt` totalActualUnits
 
-instance Prelude.NFData ReservationAggregates
+instance Prelude.NFData ReservationAggregates where
+  rnf ReservationAggregates' {..} =
+    Prelude.rnf purchasedHours
+      `Prelude.seq` Prelude.rnf totalActualHours
+      `Prelude.seq` Prelude.rnf utilizationPercentage
+      `Prelude.seq` Prelude.rnf totalAmortizedFee
+      `Prelude.seq` Prelude.rnf unusedUnits
+      `Prelude.seq` Prelude.rnf unrealizedSavings
+      `Prelude.seq` Prelude.rnf rICostForUnusedHours
+      `Prelude.seq` Prelude.rnf unusedHours
+      `Prelude.seq` Prelude.rnf realizedSavings
+      `Prelude.seq` Prelude.rnf purchasedUnits
+      `Prelude.seq` Prelude.rnf amortizedUpfrontFee
+      `Prelude.seq` Prelude.rnf amortizedRecurringFee
+      `Prelude.seq` Prelude.rnf utilizationPercentageInUnits
+      `Prelude.seq` Prelude.rnf netRISavings
+      `Prelude.seq` Prelude.rnf onDemandCostOfRIHoursUsed
+      `Prelude.seq` Prelude.rnf totalPotentialRISavings
+      `Prelude.seq` Prelude.rnf totalActualUnits

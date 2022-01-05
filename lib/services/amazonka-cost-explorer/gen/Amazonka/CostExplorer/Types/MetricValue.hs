@@ -71,6 +71,11 @@ instance Core.FromJSON MetricValue where
             Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable MetricValue
+instance Prelude.Hashable MetricValue where
+  hashWithSalt _salt MetricValue' {..} =
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData MetricValue
+instance Prelude.NFData MetricValue where
+  rnf MetricValue' {..} =
+    Prelude.rnf amount `Prelude.seq` Prelude.rnf unit

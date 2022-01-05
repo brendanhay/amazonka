@@ -87,6 +87,14 @@ instance Core.FromJSON SavingsPlansCoverage where
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SavingsPlansCoverage
+instance Prelude.Hashable SavingsPlansCoverage where
+  hashWithSalt _salt SavingsPlansCoverage' {..} =
+    _salt `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` coverage
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData SavingsPlansCoverage
+instance Prelude.NFData SavingsPlansCoverage where
+  rnf SavingsPlansCoverage' {..} =
+    Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf coverage
+      `Prelude.seq` Prelude.rnf attributes

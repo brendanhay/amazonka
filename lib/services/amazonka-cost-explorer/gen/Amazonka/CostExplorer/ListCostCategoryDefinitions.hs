@@ -124,9 +124,17 @@ instance Core.AWSRequest ListCostCategoryDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCostCategoryDefinitions
+instance Prelude.Hashable ListCostCategoryDefinitions where
+  hashWithSalt _salt ListCostCategoryDefinitions' {..} =
+    _salt `Prelude.hashWithSalt` effectiveOn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCostCategoryDefinitions
+instance Prelude.NFData ListCostCategoryDefinitions where
+  rnf ListCostCategoryDefinitions' {..} =
+    Prelude.rnf effectiveOn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCostCategoryDefinitions where
   toHeaders =
@@ -219,3 +227,8 @@ listCostCategoryDefinitionsResponse_httpStatus = Lens.lens (\ListCostCategoryDef
 instance
   Prelude.NFData
     ListCostCategoryDefinitionsResponse
+  where
+  rnf ListCostCategoryDefinitionsResponse' {..} =
+    Prelude.rnf costCategoryReferences
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

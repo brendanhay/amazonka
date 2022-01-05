@@ -96,6 +96,17 @@ instance Core.FromJSON NetworkResourceUtilization where
             Prelude.<*> (x Core..:? "NetworkOutBytesPerSecond")
       )
 
-instance Prelude.Hashable NetworkResourceUtilization
+instance Prelude.Hashable NetworkResourceUtilization where
+  hashWithSalt _salt NetworkResourceUtilization' {..} =
+    _salt
+      `Prelude.hashWithSalt` networkPacketsOutPerSecond
+      `Prelude.hashWithSalt` networkInBytesPerSecond
+      `Prelude.hashWithSalt` networkPacketsInPerSecond
+      `Prelude.hashWithSalt` networkOutBytesPerSecond
 
-instance Prelude.NFData NetworkResourceUtilization
+instance Prelude.NFData NetworkResourceUtilization where
+  rnf NetworkResourceUtilization' {..} =
+    Prelude.rnf networkPacketsOutPerSecond
+      `Prelude.seq` Prelude.rnf networkInBytesPerSecond
+      `Prelude.seq` Prelude.rnf networkPacketsInPerSecond
+      `Prelude.seq` Prelude.rnf networkOutBytesPerSecond

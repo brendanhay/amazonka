@@ -84,6 +84,14 @@ instance Core.FromJSON CoverageByTime where
             Prelude.<*> (x Core..:? "Total")
       )
 
-instance Prelude.Hashable CoverageByTime
+instance Prelude.Hashable CoverageByTime where
+  hashWithSalt _salt CoverageByTime' {..} =
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` total
 
-instance Prelude.NFData CoverageByTime
+instance Prelude.NFData CoverageByTime where
+  rnf CoverageByTime' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf total

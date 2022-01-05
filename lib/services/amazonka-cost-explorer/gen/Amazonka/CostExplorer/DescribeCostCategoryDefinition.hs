@@ -112,10 +112,20 @@ instance
 instance
   Prelude.Hashable
     DescribeCostCategoryDefinition
+  where
+  hashWithSalt
+    _salt
+    DescribeCostCategoryDefinition' {..} =
+      _salt `Prelude.hashWithSalt` effectiveOn
+        `Prelude.hashWithSalt` costCategoryArn
 
 instance
   Prelude.NFData
     DescribeCostCategoryDefinition
+  where
+  rnf DescribeCostCategoryDefinition' {..} =
+    Prelude.rnf effectiveOn
+      `Prelude.seq` Prelude.rnf costCategoryArn
 
 instance
   Core.ToHeaders
@@ -193,3 +203,7 @@ describeCostCategoryDefinitionResponse_httpStatus = Lens.lens (\DescribeCostCate
 instance
   Prelude.NFData
     DescribeCostCategoryDefinitionResponse
+  where
+  rnf DescribeCostCategoryDefinitionResponse' {..} =
+    Prelude.rnf costCategory
+      `Prelude.seq` Prelude.rnf httpStatus

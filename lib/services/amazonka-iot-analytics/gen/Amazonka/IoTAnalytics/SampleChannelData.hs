@@ -122,9 +122,19 @@ instance Core.AWSRequest SampleChannelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SampleChannelData
+instance Prelude.Hashable SampleChannelData where
+  hashWithSalt _salt SampleChannelData' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` maxMessages
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData SampleChannelData
+instance Prelude.NFData SampleChannelData where
+  rnf SampleChannelData' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf maxMessages
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders SampleChannelData where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +194,7 @@ sampleChannelDataResponse_payloads = Lens.lens (\SampleChannelDataResponse' {pay
 sampleChannelDataResponse_httpStatus :: Lens.Lens' SampleChannelDataResponse Prelude.Int
 sampleChannelDataResponse_httpStatus = Lens.lens (\SampleChannelDataResponse' {httpStatus} -> httpStatus) (\s@SampleChannelDataResponse' {} a -> s {httpStatus = a} :: SampleChannelDataResponse)
 
-instance Prelude.NFData SampleChannelDataResponse
+instance Prelude.NFData SampleChannelDataResponse where
+  rnf SampleChannelDataResponse' {..} =
+    Prelude.rnf payloads
+      `Prelude.seq` Prelude.rnf httpStatus

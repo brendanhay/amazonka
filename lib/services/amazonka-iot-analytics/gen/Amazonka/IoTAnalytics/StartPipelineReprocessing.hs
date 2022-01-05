@@ -149,9 +149,19 @@ instance Core.AWSRequest StartPipelineReprocessing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartPipelineReprocessing
+instance Prelude.Hashable StartPipelineReprocessing where
+  hashWithSalt _salt StartPipelineReprocessing' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` channelMessages
+      `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData StartPipelineReprocessing
+instance Prelude.NFData StartPipelineReprocessing where
+  rnf StartPipelineReprocessing' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf channelMessages
+      `Prelude.seq` Prelude.rnf pipelineName
 
 instance Core.ToHeaders StartPipelineReprocessing where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,3 +230,7 @@ startPipelineReprocessingResponse_httpStatus = Lens.lens (\StartPipelineReproces
 instance
   Prelude.NFData
     StartPipelineReprocessingResponse
+  where
+  rnf StartPipelineReprocessingResponse' {..} =
+    Prelude.rnf reprocessingId
+      `Prelude.seq` Prelude.rnf httpStatus

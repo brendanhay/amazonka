@@ -77,9 +77,12 @@ instance Core.AWSRequest DeletePipeline where
   response =
     Response.receiveNull DeletePipelineResponse'
 
-instance Prelude.Hashable DeletePipeline
+instance Prelude.Hashable DeletePipeline where
+  hashWithSalt _salt DeletePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData DeletePipeline
+instance Prelude.NFData DeletePipeline where
+  rnf DeletePipeline' {..} = Prelude.rnf pipelineName
 
 instance Core.ToHeaders DeletePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -106,4 +109,5 @@ newDeletePipelineResponse ::
   DeletePipelineResponse
 newDeletePipelineResponse = DeletePipelineResponse'
 
-instance Prelude.NFData DeletePipelineResponse
+instance Prelude.NFData DeletePipelineResponse where
+  rnf _ = ()

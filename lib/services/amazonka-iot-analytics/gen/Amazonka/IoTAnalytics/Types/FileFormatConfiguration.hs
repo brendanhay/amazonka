@@ -79,9 +79,15 @@ instance Core.FromJSON FileFormatConfiguration where
             Prelude.<*> (x Core..:? "parquetConfiguration")
       )
 
-instance Prelude.Hashable FileFormatConfiguration
+instance Prelude.Hashable FileFormatConfiguration where
+  hashWithSalt _salt FileFormatConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` jsonConfiguration
+      `Prelude.hashWithSalt` parquetConfiguration
 
-instance Prelude.NFData FileFormatConfiguration
+instance Prelude.NFData FileFormatConfiguration where
+  rnf FileFormatConfiguration' {..} =
+    Prelude.rnf jsonConfiguration
+      `Prelude.seq` Prelude.rnf parquetConfiguration
 
 instance Core.ToJSON FileFormatConfiguration where
   toJSON FileFormatConfiguration' {..} =

@@ -63,9 +63,13 @@ instance Core.FromJSON ParquetConfiguration where
             Prelude.<$> (x Core..:? "schemaDefinition")
       )
 
-instance Prelude.Hashable ParquetConfiguration
+instance Prelude.Hashable ParquetConfiguration where
+  hashWithSalt _salt ParquetConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` schemaDefinition
 
-instance Prelude.NFData ParquetConfiguration
+instance Prelude.NFData ParquetConfiguration where
+  rnf ParquetConfiguration' {..} =
+    Prelude.rnf schemaDefinition
 
 instance Core.ToJSON ParquetConfiguration where
   toJSON ParquetConfiguration' {..} =

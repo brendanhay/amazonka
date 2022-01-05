@@ -68,9 +68,12 @@ newChannelMessages =
 channelMessages_s3Paths :: Lens.Lens' ChannelMessages (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable ChannelMessages
+instance Prelude.Hashable ChannelMessages where
+  hashWithSalt _salt ChannelMessages' {..} =
+    _salt `Prelude.hashWithSalt` s3Paths
 
-instance Prelude.NFData ChannelMessages
+instance Prelude.NFData ChannelMessages where
+  rnf ChannelMessages' {..} = Prelude.rnf s3Paths
 
 instance Core.ToJSON ChannelMessages where
   toJSON ChannelMessages' {..} =

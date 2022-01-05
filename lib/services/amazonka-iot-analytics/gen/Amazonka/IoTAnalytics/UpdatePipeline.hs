@@ -124,9 +124,15 @@ instance Core.AWSRequest UpdatePipeline where
   response =
     Response.receiveNull UpdatePipelineResponse'
 
-instance Prelude.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline where
+  hashWithSalt _salt UpdatePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` pipelineActivities
 
-instance Prelude.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline where
+  rnf UpdatePipeline' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf pipelineActivities
 
 instance Core.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,5 @@ newUpdatePipelineResponse ::
   UpdatePipelineResponse
 newUpdatePipelineResponse = UpdatePipelineResponse'
 
-instance Prelude.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse where
+  rnf _ = ()

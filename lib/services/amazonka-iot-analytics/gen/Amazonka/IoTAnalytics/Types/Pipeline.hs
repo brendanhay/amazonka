@@ -115,6 +115,20 @@ instance Core.FromJSON Pipeline where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable Pipeline
+instance Prelude.Hashable Pipeline where
+  hashWithSalt _salt Pipeline' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` activities
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reprocessingSummaries
+      `Prelude.hashWithSalt` lastUpdateTime
 
-instance Prelude.NFData Pipeline
+instance Prelude.NFData Pipeline where
+  rnf Pipeline' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reprocessingSummaries
+      `Prelude.seq` Prelude.rnf lastUpdateTime

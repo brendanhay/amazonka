@@ -66,9 +66,12 @@ instance Core.FromJSON Schedule where
           Schedule' Prelude.<$> (x Core..:? "expression")
       )
 
-instance Prelude.Hashable Schedule
+instance Prelude.Hashable Schedule where
+  hashWithSalt _salt Schedule' {..} =
+    _salt `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData Schedule
+instance Prelude.NFData Schedule where
+  rnf Schedule' {..} = Prelude.rnf expression
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =

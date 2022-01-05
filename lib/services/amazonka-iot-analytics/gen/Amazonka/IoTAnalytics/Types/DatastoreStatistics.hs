@@ -59,6 +59,9 @@ instance Core.FromJSON DatastoreStatistics where
           DatastoreStatistics' Prelude.<$> (x Core..:? "size")
       )
 
-instance Prelude.Hashable DatastoreStatistics
+instance Prelude.Hashable DatastoreStatistics where
+  hashWithSalt _salt DatastoreStatistics' {..} =
+    _salt `Prelude.hashWithSalt` size
 
-instance Prelude.NFData DatastoreStatistics
+instance Prelude.NFData DatastoreStatistics where
+  rnf DatastoreStatistics' {..} = Prelude.rnf size

@@ -76,9 +76,15 @@ instance Core.FromJSON DatasetContentDeliveryRule where
             Prelude.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable DatasetContentDeliveryRule
+instance Prelude.Hashable DatasetContentDeliveryRule where
+  hashWithSalt _salt DatasetContentDeliveryRule' {..} =
+    _salt `Prelude.hashWithSalt` entryName
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData DatasetContentDeliveryRule
+instance Prelude.NFData DatasetContentDeliveryRule where
+  rnf DatasetContentDeliveryRule' {..} =
+    Prelude.rnf entryName
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON DatasetContentDeliveryRule where
   toJSON DatasetContentDeliveryRule' {..} =

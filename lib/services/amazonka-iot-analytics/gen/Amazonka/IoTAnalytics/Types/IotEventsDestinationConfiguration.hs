@@ -91,10 +91,20 @@ instance
 instance
   Prelude.Hashable
     IotEventsDestinationConfiguration
+  where
+  hashWithSalt
+    _salt
+    IotEventsDestinationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` inputName
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     IotEventsDestinationConfiguration
+  where
+  rnf IotEventsDestinationConfiguration' {..} =
+    Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToJSON

@@ -128,9 +128,19 @@ instance Core.FromJSON ContainerDatasetAction where
             Prelude.<*> (x Core..: "resourceConfiguration")
       )
 
-instance Prelude.Hashable ContainerDatasetAction
+instance Prelude.Hashable ContainerDatasetAction where
+  hashWithSalt _salt ContainerDatasetAction' {..} =
+    _salt `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` resourceConfiguration
 
-instance Prelude.NFData ContainerDatasetAction
+instance Prelude.NFData ContainerDatasetAction where
+  rnf ContainerDatasetAction' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf resourceConfiguration
 
 instance Core.ToJSON ContainerDatasetAction where
   toJSON ContainerDatasetAction' {..} =

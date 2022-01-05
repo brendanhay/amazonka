@@ -68,9 +68,13 @@ instance Core.FromJSON DatasetContentVersionValue where
             Prelude.<$> (x Core..: "datasetName")
       )
 
-instance Prelude.Hashable DatasetContentVersionValue
+instance Prelude.Hashable DatasetContentVersionValue where
+  hashWithSalt _salt DatasetContentVersionValue' {..} =
+    _salt `Prelude.hashWithSalt` datasetName
 
-instance Prelude.NFData DatasetContentVersionValue
+instance Prelude.NFData DatasetContentVersionValue where
+  rnf DatasetContentVersionValue' {..} =
+    Prelude.rnf datasetName
 
 instance Core.ToJSON DatasetContentVersionValue where
   toJSON DatasetContentVersionValue' {..} =

@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePipeline
+instance Prelude.Hashable DescribePipeline where
+  hashWithSalt _salt DescribePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData DescribePipeline
+instance Prelude.NFData DescribePipeline where
+  rnf DescribePipeline' {..} = Prelude.rnf pipelineName
 
 instance Core.ToHeaders DescribePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -140,4 +143,7 @@ describePipelineResponse_pipeline = Lens.lens (\DescribePipelineResponse' {pipel
 describePipelineResponse_httpStatus :: Lens.Lens' DescribePipelineResponse Prelude.Int
 describePipelineResponse_httpStatus = Lens.lens (\DescribePipelineResponse' {httpStatus} -> httpStatus) (\s@DescribePipelineResponse' {} a -> s {httpStatus = a} :: DescribePipelineResponse)
 
-instance Prelude.NFData DescribePipelineResponse
+instance Prelude.NFData DescribePipelineResponse where
+  rnf DescribePipelineResponse' {..} =
+    Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf httpStatus

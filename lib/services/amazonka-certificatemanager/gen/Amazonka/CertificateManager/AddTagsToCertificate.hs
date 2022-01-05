@@ -128,9 +128,15 @@ instance Core.AWSRequest AddTagsToCertificate where
   response =
     Response.receiveNull AddTagsToCertificateResponse'
 
-instance Prelude.Hashable AddTagsToCertificate
+instance Prelude.Hashable AddTagsToCertificate where
+  hashWithSalt _salt AddTagsToCertificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AddTagsToCertificate
+instance Prelude.NFData AddTagsToCertificate where
+  rnf AddTagsToCertificate' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders AddTagsToCertificate where
   toHeaders =
@@ -178,4 +184,5 @@ newAddTagsToCertificateResponse ::
 newAddTagsToCertificateResponse =
   AddTagsToCertificateResponse'
 
-instance Prelude.NFData AddTagsToCertificateResponse
+instance Prelude.NFData AddTagsToCertificateResponse where
+  rnf _ = ()

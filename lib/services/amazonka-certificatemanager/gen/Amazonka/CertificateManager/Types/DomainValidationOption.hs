@@ -116,9 +116,15 @@ domainValidationOption_domainName = Lens.lens (\DomainValidationOption' {domainN
 domainValidationOption_validationDomain :: Lens.Lens' DomainValidationOption Prelude.Text
 domainValidationOption_validationDomain = Lens.lens (\DomainValidationOption' {validationDomain} -> validationDomain) (\s@DomainValidationOption' {} a -> s {validationDomain = a} :: DomainValidationOption)
 
-instance Prelude.Hashable DomainValidationOption
+instance Prelude.Hashable DomainValidationOption where
+  hashWithSalt _salt DomainValidationOption' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` validationDomain
 
-instance Prelude.NFData DomainValidationOption
+instance Prelude.NFData DomainValidationOption where
+  rnf DomainValidationOption' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf validationDomain
 
 instance Core.ToJSON DomainValidationOption where
   toJSON DomainValidationOption' {..} =

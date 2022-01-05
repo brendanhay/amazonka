@@ -112,9 +112,15 @@ instance Core.AWSRequest PutAccountConfiguration where
     Response.receiveNull
       PutAccountConfigurationResponse'
 
-instance Prelude.Hashable PutAccountConfiguration
+instance Prelude.Hashable PutAccountConfiguration where
+  hashWithSalt _salt PutAccountConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` expiryEvents
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData PutAccountConfiguration
+instance Prelude.NFData PutAccountConfiguration where
+  rnf PutAccountConfiguration' {..} =
+    Prelude.rnf expiryEvents
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders PutAccountConfiguration where
   toHeaders =
@@ -165,3 +171,5 @@ newPutAccountConfigurationResponse =
 instance
   Prelude.NFData
     PutAccountConfigurationResponse
+  where
+  rnf _ = ()

@@ -91,6 +91,12 @@ instance Core.FromJSON CertificateSummary where
             Prelude.<*> (x Core..:? "DomainName")
       )
 
-instance Prelude.Hashable CertificateSummary
+instance Prelude.Hashable CertificateSummary where
+  hashWithSalt _salt CertificateSummary' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CertificateSummary
+instance Prelude.NFData CertificateSummary where
+  rnf CertificateSummary' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf domainName

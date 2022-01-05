@@ -88,9 +88,12 @@ instance Core.AWSRequest DeletePlaybackKeyPair where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePlaybackKeyPair
+instance Prelude.Hashable DeletePlaybackKeyPair where
+  hashWithSalt _salt DeletePlaybackKeyPair' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeletePlaybackKeyPair
+instance Prelude.NFData DeletePlaybackKeyPair where
+  rnf DeletePlaybackKeyPair' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeletePlaybackKeyPair where
   toHeaders =
@@ -146,4 +149,6 @@ newDeletePlaybackKeyPairResponse pHttpStatus_ =
 deletePlaybackKeyPairResponse_httpStatus :: Lens.Lens' DeletePlaybackKeyPairResponse Prelude.Int
 deletePlaybackKeyPairResponse_httpStatus = Lens.lens (\DeletePlaybackKeyPairResponse' {httpStatus} -> httpStatus) (\s@DeletePlaybackKeyPairResponse' {} a -> s {httpStatus = a} :: DeletePlaybackKeyPairResponse)
 
-instance Prelude.NFData DeletePlaybackKeyPairResponse
+instance Prelude.NFData DeletePlaybackKeyPairResponse where
+  rnf DeletePlaybackKeyPairResponse' {..} =
+    Prelude.rnf httpStatus

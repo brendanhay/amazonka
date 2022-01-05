@@ -130,6 +130,20 @@ instance Core.FromJSON ChannelSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ChannelSummary
+instance Prelude.Hashable ChannelSummary where
+  hashWithSalt _salt ChannelSummary' {..} =
+    _salt `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recordingConfigurationArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ChannelSummary
+instance Prelude.NFData ChannelSummary where
+  rnf ChannelSummary' {..} =
+    Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recordingConfigurationArn
+      `Prelude.seq` Prelude.rnf tags

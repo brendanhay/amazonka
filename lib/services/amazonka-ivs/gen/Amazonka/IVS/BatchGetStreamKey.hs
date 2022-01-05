@@ -91,9 +91,12 @@ instance Core.AWSRequest BatchGetStreamKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetStreamKey
+instance Prelude.Hashable BatchGetStreamKey where
+  hashWithSalt _salt BatchGetStreamKey' {..} =
+    _salt `Prelude.hashWithSalt` arns
 
-instance Prelude.NFData BatchGetStreamKey
+instance Prelude.NFData BatchGetStreamKey where
+  rnf BatchGetStreamKey' {..} = Prelude.rnf arns
 
 instance Core.ToHeaders BatchGetStreamKey where
   toHeaders =
@@ -165,4 +168,8 @@ batchGetStreamKeyResponse_errors = Lens.lens (\BatchGetStreamKeyResponse' {error
 batchGetStreamKeyResponse_httpStatus :: Lens.Lens' BatchGetStreamKeyResponse Prelude.Int
 batchGetStreamKeyResponse_httpStatus = Lens.lens (\BatchGetStreamKeyResponse' {httpStatus} -> httpStatus) (\s@BatchGetStreamKeyResponse' {} a -> s {httpStatus = a} :: BatchGetStreamKeyResponse)
 
-instance Prelude.NFData BatchGetStreamKeyResponse
+instance Prelude.NFData BatchGetStreamKeyResponse where
+  rnf BatchGetStreamKeyResponse' {..} =
+    Prelude.rnf streamKeys
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

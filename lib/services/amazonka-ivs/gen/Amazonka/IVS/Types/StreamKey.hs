@@ -91,6 +91,16 @@ instance Core.FromJSON StreamKey where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StreamKey
+instance Prelude.Hashable StreamKey where
+  hashWithSalt _salt StreamKey' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData StreamKey
+instance Prelude.NFData StreamKey where
+  rnf StreamKey' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf tags

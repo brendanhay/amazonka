@@ -118,9 +118,15 @@ instance Core.AWSRequest ListStreams where
             Prelude.<*> (x Core..?> "streams" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListStreams
+instance Prelude.Hashable ListStreams where
+  hashWithSalt _salt ListStreams' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListStreams
+instance Prelude.NFData ListStreams where
+  rnf ListStreams' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListStreams where
   toHeaders =
@@ -198,4 +204,8 @@ listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -
 listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse [StreamSummary]
 listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListStreamsResponse
+instance Prelude.NFData ListStreamsResponse where
+  rnf ListStreamsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streams

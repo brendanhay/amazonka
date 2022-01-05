@@ -86,9 +86,12 @@ instance Core.AWSRequest GetRecordingConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRecordingConfiguration
+instance Prelude.Hashable GetRecordingConfiguration where
+  hashWithSalt _salt GetRecordingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetRecordingConfiguration
+instance Prelude.NFData GetRecordingConfiguration where
+  rnf GetRecordingConfiguration' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetRecordingConfiguration where
   toHeaders =
@@ -155,3 +158,7 @@ getRecordingConfigurationResponse_httpStatus = Lens.lens (\GetRecordingConfigura
 instance
   Prelude.NFData
     GetRecordingConfigurationResponse
+  where
+  rnf GetRecordingConfigurationResponse' {..} =
+    Prelude.rnf recordingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

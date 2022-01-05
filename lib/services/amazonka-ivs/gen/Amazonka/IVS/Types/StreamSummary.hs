@@ -118,6 +118,18 @@ instance Core.FromJSON StreamSummary where
             Prelude.<*> (x Core..:? "health")
       )
 
-instance Prelude.Hashable StreamSummary
+instance Prelude.Hashable StreamSummary where
+  hashWithSalt _salt StreamSummary' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` viewerCount
+      `Prelude.hashWithSalt` health
 
-instance Prelude.NFData StreamSummary
+instance Prelude.NFData StreamSummary where
+  rnf StreamSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf viewerCount
+      `Prelude.seq` Prelude.rnf health

@@ -189,9 +189,23 @@ instance Core.AWSRequest CreateChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannel
+instance Prelude.Hashable CreateChannel where
+  hashWithSalt _salt CreateChannel' {..} =
+    _salt `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recordingConfigurationArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateChannel
+instance Prelude.NFData CreateChannel where
+  rnf CreateChannel' {..} =
+    Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recordingConfigurationArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateChannel where
   toHeaders =
@@ -269,4 +283,8 @@ createChannelResponse_streamKey = Lens.lens (\CreateChannelResponse' {streamKey}
 createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Prelude.Int
 createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatus} -> httpStatus) (\s@CreateChannelResponse' {} a -> s {httpStatus = a} :: CreateChannelResponse)
 
-instance Prelude.NFData CreateChannelResponse
+instance Prelude.NFData CreateChannelResponse where
+  rnf CreateChannelResponse' {..} =
+    Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf streamKey
+      `Prelude.seq` Prelude.rnf httpStatus

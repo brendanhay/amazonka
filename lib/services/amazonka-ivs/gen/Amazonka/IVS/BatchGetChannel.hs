@@ -88,9 +88,12 @@ instance Core.AWSRequest BatchGetChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetChannel
+instance Prelude.Hashable BatchGetChannel where
+  hashWithSalt _salt BatchGetChannel' {..} =
+    _salt `Prelude.hashWithSalt` arns
 
-instance Prelude.NFData BatchGetChannel
+instance Prelude.NFData BatchGetChannel where
+  rnf BatchGetChannel' {..} = Prelude.rnf arns
 
 instance Core.ToHeaders BatchGetChannel where
   toHeaders =
@@ -163,4 +166,8 @@ batchGetChannelResponse_errors = Lens.lens (\BatchGetChannelResponse' {errors} -
 batchGetChannelResponse_httpStatus :: Lens.Lens' BatchGetChannelResponse Prelude.Int
 batchGetChannelResponse_httpStatus = Lens.lens (\BatchGetChannelResponse' {httpStatus} -> httpStatus) (\s@BatchGetChannelResponse' {} a -> s {httpStatus = a} :: BatchGetChannelResponse)
 
-instance Prelude.NFData BatchGetChannelResponse
+instance Prelude.NFData BatchGetChannelResponse where
+  rnf BatchGetChannelResponse' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

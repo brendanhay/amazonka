@@ -135,9 +135,19 @@ instance Core.AWSRequest CreateMultiplexProgram' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMultiplexProgram'
+instance Prelude.Hashable CreateMultiplexProgram' where
+  hashWithSalt _salt CreateMultiplexProgram'' {..} =
+    _salt `Prelude.hashWithSalt` multiplexId
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` multiplexProgramSettings
+      `Prelude.hashWithSalt` programName
 
-instance Prelude.NFData CreateMultiplexProgram'
+instance Prelude.NFData CreateMultiplexProgram' where
+  rnf CreateMultiplexProgram'' {..} =
+    Prelude.rnf multiplexId
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf multiplexProgramSettings
+      `Prelude.seq` Prelude.rnf programName
 
 instance Core.ToHeaders CreateMultiplexProgram' where
   toHeaders =
@@ -218,3 +228,7 @@ createMultiplexProgramResponse_httpStatus = Lens.lens (\CreateMultiplexProgramRe
 instance
   Prelude.NFData
     CreateMultiplexProgramResponse
+  where
+  rnf CreateMultiplexProgramResponse' {..} =
+    Prelude.rnf multiplexProgram
+      `Prelude.seq` Prelude.rnf httpStatus

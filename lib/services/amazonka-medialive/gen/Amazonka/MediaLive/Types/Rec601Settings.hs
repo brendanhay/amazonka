@@ -45,9 +45,12 @@ instance Core.FromJSON Rec601Settings where
       "Rec601Settings"
       (\x -> Prelude.pure Rec601Settings')
 
-instance Prelude.Hashable Rec601Settings
+instance Prelude.Hashable Rec601Settings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData Rec601Settings
+instance Prelude.NFData Rec601Settings where
+  rnf _ = ()
 
 instance Core.ToJSON Rec601Settings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

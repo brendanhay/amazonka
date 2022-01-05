@@ -185,9 +185,38 @@ instance Core.FromJSON CaptionDestinationSettings where
             Prelude.<*> (x Core..:? "aribDestinationSettings")
       )
 
-instance Prelude.Hashable CaptionDestinationSettings
+instance Prelude.Hashable CaptionDestinationSettings where
+  hashWithSalt _salt CaptionDestinationSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` teletextDestinationSettings
+      `Prelude.hashWithSalt` ebuTtDDestinationSettings
+      `Prelude.hashWithSalt` rtmpCaptionInfoDestinationSettings
+      `Prelude.hashWithSalt` dvbSubDestinationSettings
+      `Prelude.hashWithSalt` scte27DestinationSettings
+      `Prelude.hashWithSalt` ttmlDestinationSettings
+      `Prelude.hashWithSalt` scte20PlusEmbeddedDestinationSettings
+      `Prelude.hashWithSalt` embeddedPlusScte20DestinationSettings
+      `Prelude.hashWithSalt` smpteTtDestinationSettings
+      `Prelude.hashWithSalt` webvttDestinationSettings
+      `Prelude.hashWithSalt` embeddedDestinationSettings
+      `Prelude.hashWithSalt` burnInDestinationSettings
+      `Prelude.hashWithSalt` aribDestinationSettings
 
-instance Prelude.NFData CaptionDestinationSettings
+instance Prelude.NFData CaptionDestinationSettings where
+  rnf CaptionDestinationSettings' {..} =
+    Prelude.rnf teletextDestinationSettings
+      `Prelude.seq` Prelude.rnf ebuTtDDestinationSettings
+      `Prelude.seq` Prelude.rnf rtmpCaptionInfoDestinationSettings
+      `Prelude.seq` Prelude.rnf dvbSubDestinationSettings
+      `Prelude.seq` Prelude.rnf scte27DestinationSettings
+      `Prelude.seq` Prelude.rnf ttmlDestinationSettings
+      `Prelude.seq` Prelude.rnf scte20PlusEmbeddedDestinationSettings
+      `Prelude.seq` Prelude.rnf embeddedPlusScte20DestinationSettings
+      `Prelude.seq` Prelude.rnf smpteTtDestinationSettings
+      `Prelude.seq` Prelude.rnf webvttDestinationSettings
+      `Prelude.seq` Prelude.rnf embeddedDestinationSettings
+      `Prelude.seq` Prelude.rnf burnInDestinationSettings
+      `Prelude.seq` Prelude.rnf aribDestinationSettings
 
 instance Core.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =

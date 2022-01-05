@@ -186,9 +186,36 @@ instance Core.FromJSON ScheduleActionSettings where
             Prelude.<*> (x Core..:? "inputSwitchSettings")
       )
 
-instance Prelude.Hashable ScheduleActionSettings
+instance Prelude.Hashable ScheduleActionSettings where
+  hashWithSalt _salt ScheduleActionSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` staticImageDeactivateSettings
+      `Prelude.hashWithSalt` scte35SpliceInsertSettings
+      `Prelude.hashWithSalt` motionGraphicsImageActivateSettings
+      `Prelude.hashWithSalt` staticImageActivateSettings
+      `Prelude.hashWithSalt` motionGraphicsImageDeactivateSettings
+      `Prelude.hashWithSalt` scte35TimeSignalSettings
+      `Prelude.hashWithSalt` inputPrepareSettings
+      `Prelude.hashWithSalt` hlsId3SegmentTaggingSettings
+      `Prelude.hashWithSalt` scte35ReturnToNetworkSettings
+      `Prelude.hashWithSalt` pauseStateSettings
+      `Prelude.hashWithSalt` hlsTimedMetadataSettings
+      `Prelude.hashWithSalt` inputSwitchSettings
 
-instance Prelude.NFData ScheduleActionSettings
+instance Prelude.NFData ScheduleActionSettings where
+  rnf ScheduleActionSettings' {..} =
+    Prelude.rnf staticImageDeactivateSettings
+      `Prelude.seq` Prelude.rnf scte35SpliceInsertSettings
+      `Prelude.seq` Prelude.rnf motionGraphicsImageActivateSettings
+      `Prelude.seq` Prelude.rnf staticImageActivateSettings
+      `Prelude.seq` Prelude.rnf motionGraphicsImageDeactivateSettings
+      `Prelude.seq` Prelude.rnf scte35TimeSignalSettings
+      `Prelude.seq` Prelude.rnf inputPrepareSettings
+      `Prelude.seq` Prelude.rnf hlsId3SegmentTaggingSettings
+      `Prelude.seq` Prelude.rnf scte35ReturnToNetworkSettings
+      `Prelude.seq` Prelude.rnf pauseStateSettings
+      `Prelude.seq` Prelude.rnf hlsTimedMetadataSettings
+      `Prelude.seq` Prelude.rnf inputSwitchSettings
 
 instance Core.ToJSON ScheduleActionSettings where
   toJSON ScheduleActionSettings' {..} =

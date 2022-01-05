@@ -92,9 +92,19 @@ instance Core.FromJSON VideoCodecSettings where
             Prelude.<*> (x Core..:? "mpeg2Settings")
       )
 
-instance Prelude.Hashable VideoCodecSettings
+instance Prelude.Hashable VideoCodecSettings where
+  hashWithSalt _salt VideoCodecSettings' {..} =
+    _salt `Prelude.hashWithSalt` frameCaptureSettings
+      `Prelude.hashWithSalt` h265Settings
+      `Prelude.hashWithSalt` h264Settings
+      `Prelude.hashWithSalt` mpeg2Settings
 
-instance Prelude.NFData VideoCodecSettings
+instance Prelude.NFData VideoCodecSettings where
+  rnf VideoCodecSettings' {..} =
+    Prelude.rnf frameCaptureSettings
+      `Prelude.seq` Prelude.rnf h265Settings
+      `Prelude.seq` Prelude.rnf h264Settings
+      `Prelude.seq` Prelude.rnf mpeg2Settings
 
 instance Core.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =

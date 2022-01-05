@@ -143,9 +143,21 @@ instance Core.AWSRequest CreateMultiplex' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMultiplex'
+instance Prelude.Hashable CreateMultiplex' where
+  hashWithSalt _salt CreateMultiplex'' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` multiplexSettings
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateMultiplex'
+instance Prelude.NFData CreateMultiplex' where
+  rnf CreateMultiplex'' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateMultiplex' where
   toHeaders =
@@ -219,4 +231,7 @@ createMultiplexResponse_multiplex = Lens.lens (\CreateMultiplexResponse' {multip
 createMultiplexResponse_httpStatus :: Lens.Lens' CreateMultiplexResponse Prelude.Int
 createMultiplexResponse_httpStatus = Lens.lens (\CreateMultiplexResponse' {httpStatus} -> httpStatus) (\s@CreateMultiplexResponse' {} a -> s {httpStatus = a} :: CreateMultiplexResponse)
 
-instance Prelude.NFData CreateMultiplexResponse
+instance Prelude.NFData CreateMultiplexResponse where
+  rnf CreateMultiplexResponse' {..} =
+    Prelude.rnf multiplex
+      `Prelude.seq` Prelude.rnf httpStatus

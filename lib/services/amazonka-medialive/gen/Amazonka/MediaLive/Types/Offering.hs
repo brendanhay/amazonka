@@ -176,6 +176,30 @@ instance Core.FromJSON Offering where
             Prelude.<*> (x Core..:? "duration")
       )
 
-instance Prelude.Hashable Offering
+instance Prelude.Hashable Offering where
+  hashWithSalt _salt Offering' {..} =
+    _salt `Prelude.hashWithSalt` resourceSpecification
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` durationUnits
+      `Prelude.hashWithSalt` offeringDescription
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData Offering
+instance Prelude.NFData Offering where
+  rnf Offering' {..} =
+    Prelude.rnf resourceSpecification
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf durationUnits
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf duration

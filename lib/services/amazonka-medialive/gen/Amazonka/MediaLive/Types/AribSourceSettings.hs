@@ -45,9 +45,12 @@ instance Core.FromJSON AribSourceSettings where
       "AribSourceSettings"
       (\x -> Prelude.pure AribSourceSettings')
 
-instance Prelude.Hashable AribSourceSettings
+instance Prelude.Hashable AribSourceSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData AribSourceSettings
+instance Prelude.NFData AribSourceSettings where
+  rnf _ = ()
 
 instance Core.ToJSON AribSourceSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

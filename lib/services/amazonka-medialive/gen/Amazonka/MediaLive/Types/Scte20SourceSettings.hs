@@ -82,9 +82,15 @@ instance Core.FromJSON Scte20SourceSettings where
             Prelude.<*> (x Core..:? "source608ChannelNumber")
       )
 
-instance Prelude.Hashable Scte20SourceSettings
+instance Prelude.Hashable Scte20SourceSettings where
+  hashWithSalt _salt Scte20SourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` source608ChannelNumber
 
-instance Prelude.NFData Scte20SourceSettings
+instance Prelude.NFData Scte20SourceSettings where
+  rnf Scte20SourceSettings' {..} =
+    Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf source608ChannelNumber
 
 instance Core.ToJSON Scte20SourceSettings where
   toJSON Scte20SourceSettings' {..} =

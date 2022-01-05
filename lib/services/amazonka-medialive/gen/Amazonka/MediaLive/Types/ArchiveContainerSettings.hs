@@ -72,9 +72,15 @@ instance Core.FromJSON ArchiveContainerSettings where
             Prelude.<*> (x Core..:? "rawSettings")
       )
 
-instance Prelude.Hashable ArchiveContainerSettings
+instance Prelude.Hashable ArchiveContainerSettings where
+  hashWithSalt _salt ArchiveContainerSettings' {..} =
+    _salt `Prelude.hashWithSalt` m2tsSettings
+      `Prelude.hashWithSalt` rawSettings
 
-instance Prelude.NFData ArchiveContainerSettings
+instance Prelude.NFData ArchiveContainerSettings where
+  rnf ArchiveContainerSettings' {..} =
+    Prelude.rnf m2tsSettings
+      `Prelude.seq` Prelude.rnf rawSettings
 
 instance Core.ToJSON ArchiveContainerSettings where
   toJSON ArchiveContainerSettings' {..} =

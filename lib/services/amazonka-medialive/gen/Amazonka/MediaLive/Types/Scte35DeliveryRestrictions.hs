@@ -113,9 +113,19 @@ instance Core.FromJSON Scte35DeliveryRestrictions where
             Prelude.<*> (x Core..: "noRegionalBlackoutFlag")
       )
 
-instance Prelude.Hashable Scte35DeliveryRestrictions
+instance Prelude.Hashable Scte35DeliveryRestrictions where
+  hashWithSalt _salt Scte35DeliveryRestrictions' {..} =
+    _salt `Prelude.hashWithSalt` deviceRestrictions
+      `Prelude.hashWithSalt` archiveAllowedFlag
+      `Prelude.hashWithSalt` webDeliveryAllowedFlag
+      `Prelude.hashWithSalt` noRegionalBlackoutFlag
 
-instance Prelude.NFData Scte35DeliveryRestrictions
+instance Prelude.NFData Scte35DeliveryRestrictions where
+  rnf Scte35DeliveryRestrictions' {..} =
+    Prelude.rnf deviceRestrictions
+      `Prelude.seq` Prelude.rnf archiveAllowedFlag
+      `Prelude.seq` Prelude.rnf webDeliveryAllowedFlag
+      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
 
 instance Core.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =

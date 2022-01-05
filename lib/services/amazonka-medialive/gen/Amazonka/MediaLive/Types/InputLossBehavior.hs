@@ -113,9 +113,21 @@ instance Core.FromJSON InputLossBehavior where
             Prelude.<*> (x Core..:? "inputLossImageSlate")
       )
 
-instance Prelude.Hashable InputLossBehavior
+instance Prelude.Hashable InputLossBehavior where
+  hashWithSalt _salt InputLossBehavior' {..} =
+    _salt `Prelude.hashWithSalt` inputLossImageColor
+      `Prelude.hashWithSalt` blackFrameMsec
+      `Prelude.hashWithSalt` repeatFrameMsec
+      `Prelude.hashWithSalt` inputLossImageType
+      `Prelude.hashWithSalt` inputLossImageSlate
 
-instance Prelude.NFData InputLossBehavior
+instance Prelude.NFData InputLossBehavior where
+  rnf InputLossBehavior' {..} =
+    Prelude.rnf inputLossImageColor
+      `Prelude.seq` Prelude.rnf blackFrameMsec
+      `Prelude.seq` Prelude.rnf repeatFrameMsec
+      `Prelude.seq` Prelude.rnf inputLossImageType
+      `Prelude.seq` Prelude.rnf inputLossImageSlate
 
 instance Core.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =

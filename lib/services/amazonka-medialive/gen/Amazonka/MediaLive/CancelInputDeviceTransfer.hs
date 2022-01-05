@@ -92,9 +92,13 @@ instance Core.AWSRequest CancelInputDeviceTransfer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelInputDeviceTransfer
+instance Prelude.Hashable CancelInputDeviceTransfer where
+  hashWithSalt _salt CancelInputDeviceTransfer' {..} =
+    _salt `Prelude.hashWithSalt` inputDeviceId
 
-instance Prelude.NFData CancelInputDeviceTransfer
+instance Prelude.NFData CancelInputDeviceTransfer where
+  rnf CancelInputDeviceTransfer' {..} =
+    Prelude.rnf inputDeviceId
 
 instance Core.ToHeaders CancelInputDeviceTransfer where
   toHeaders =
@@ -156,3 +160,6 @@ cancelInputDeviceTransferResponse_httpStatus = Lens.lens (\CancelInputDeviceTran
 instance
   Prelude.NFData
     CancelInputDeviceTransferResponse
+  where
+  rnf CancelInputDeviceTransferResponse' {..} =
+    Prelude.rnf httpStatus

@@ -88,9 +88,17 @@ instance Core.FromJSON InputClippingSettings where
             Prelude.<*> (x Core..: "inputTimecodeSource")
       )
 
-instance Prelude.Hashable InputClippingSettings
+instance Prelude.Hashable InputClippingSettings where
+  hashWithSalt _salt InputClippingSettings' {..} =
+    _salt `Prelude.hashWithSalt` stopTimecode
+      `Prelude.hashWithSalt` startTimecode
+      `Prelude.hashWithSalt` inputTimecodeSource
 
-instance Prelude.NFData InputClippingSettings
+instance Prelude.NFData InputClippingSettings where
+  rnf InputClippingSettings' {..} =
+    Prelude.rnf stopTimecode
+      `Prelude.seq` Prelude.rnf startTimecode
+      `Prelude.seq` Prelude.rnf inputTimecodeSource
 
 instance Core.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =

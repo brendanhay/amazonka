@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     Scte35TimeSignalScheduleActionSettings
+  where
+  hashWithSalt
+    _salt
+    Scte35TimeSignalScheduleActionSettings' {..} =
+      _salt `Prelude.hashWithSalt` scte35Descriptors
 
 instance
   Prelude.NFData
     Scte35TimeSignalScheduleActionSettings
+  where
+  rnf Scte35TimeSignalScheduleActionSettings' {..} =
+    Prelude.rnf scte35Descriptors
 
 instance
   Core.ToJSON

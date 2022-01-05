@@ -102,9 +102,16 @@ instance Core.FromJSON VideoBlackFailoverSettings where
             Prelude.<*> (x Core..:? "blackDetectThreshold")
       )
 
-instance Prelude.Hashable VideoBlackFailoverSettings
+instance Prelude.Hashable VideoBlackFailoverSettings where
+  hashWithSalt _salt VideoBlackFailoverSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` videoBlackThresholdMsec
+      `Prelude.hashWithSalt` blackDetectThreshold
 
-instance Prelude.NFData VideoBlackFailoverSettings
+instance Prelude.NFData VideoBlackFailoverSettings where
+  rnf VideoBlackFailoverSettings' {..} =
+    Prelude.rnf videoBlackThresholdMsec
+      `Prelude.seq` Prelude.rnf blackDetectThreshold
 
 instance Core.ToJSON VideoBlackFailoverSettings where
   toJSON VideoBlackFailoverSettings' {..} =

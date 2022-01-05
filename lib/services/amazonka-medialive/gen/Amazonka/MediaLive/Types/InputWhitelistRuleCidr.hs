@@ -50,9 +50,12 @@ newInputWhitelistRuleCidr =
 inputWhitelistRuleCidr_cidr :: Lens.Lens' InputWhitelistRuleCidr (Prelude.Maybe Prelude.Text)
 inputWhitelistRuleCidr_cidr = Lens.lens (\InputWhitelistRuleCidr' {cidr} -> cidr) (\s@InputWhitelistRuleCidr' {} a -> s {cidr = a} :: InputWhitelistRuleCidr)
 
-instance Prelude.Hashable InputWhitelistRuleCidr
+instance Prelude.Hashable InputWhitelistRuleCidr where
+  hashWithSalt _salt InputWhitelistRuleCidr' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData InputWhitelistRuleCidr
+instance Prelude.NFData InputWhitelistRuleCidr where
+  rnf InputWhitelistRuleCidr' {..} = Prelude.rnf cidr
 
 instance Core.ToJSON InputWhitelistRuleCidr where
   toJSON InputWhitelistRuleCidr' {..} =

@@ -65,9 +65,13 @@ instance Core.FromJSON MultiplexOutputSettings where
             Prelude.<$> (x Core..: "destination")
       )
 
-instance Prelude.Hashable MultiplexOutputSettings
+instance Prelude.Hashable MultiplexOutputSettings where
+  hashWithSalt _salt MultiplexOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData MultiplexOutputSettings
+instance Prelude.NFData MultiplexOutputSettings where
+  rnf MultiplexOutputSettings' {..} =
+    Prelude.rnf destination
 
 instance Core.ToJSON MultiplexOutputSettings where
   toJSON MultiplexOutputSettings' {..} =

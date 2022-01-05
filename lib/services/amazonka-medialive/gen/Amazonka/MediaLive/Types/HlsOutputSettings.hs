@@ -108,9 +108,19 @@ instance Core.FromJSON HlsOutputSettings where
             Prelude.<*> (x Core..: "hlsSettings")
       )
 
-instance Prelude.Hashable HlsOutputSettings
+instance Prelude.Hashable HlsOutputSettings where
+  hashWithSalt _salt HlsOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` h265PackagingType
+      `Prelude.hashWithSalt` segmentModifier
+      `Prelude.hashWithSalt` nameModifier
+      `Prelude.hashWithSalt` hlsSettings
 
-instance Prelude.NFData HlsOutputSettings
+instance Prelude.NFData HlsOutputSettings where
+  rnf HlsOutputSettings' {..} =
+    Prelude.rnf h265PackagingType
+      `Prelude.seq` Prelude.rnf segmentModifier
+      `Prelude.seq` Prelude.rnf nameModifier
+      `Prelude.seq` Prelude.rnf hlsSettings
 
 instance Core.ToJSON HlsOutputSettings where
   toJSON HlsOutputSettings' {..} =

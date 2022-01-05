@@ -85,10 +85,20 @@ instance
 instance
   Prelude.Hashable
     MultiplexProgramServiceDescriptor
+  where
+  hashWithSalt
+    _salt
+    MultiplexProgramServiceDescriptor' {..} =
+      _salt `Prelude.hashWithSalt` providerName
+        `Prelude.hashWithSalt` serviceName
 
 instance
   Prelude.NFData
     MultiplexProgramServiceDescriptor
+  where
+  rnf MultiplexProgramServiceDescriptor' {..} =
+    Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance
   Core.ToJSON

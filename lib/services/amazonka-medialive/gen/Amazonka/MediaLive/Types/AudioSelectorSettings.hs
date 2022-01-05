@@ -92,9 +92,19 @@ instance Core.FromJSON AudioSelectorSettings where
             Prelude.<*> (x Core..:? "audioPidSelection")
       )
 
-instance Prelude.Hashable AudioSelectorSettings
+instance Prelude.Hashable AudioSelectorSettings where
+  hashWithSalt _salt AudioSelectorSettings' {..} =
+    _salt `Prelude.hashWithSalt` audioLanguageSelection
+      `Prelude.hashWithSalt` audioTrackSelection
+      `Prelude.hashWithSalt` audioHlsRenditionSelection
+      `Prelude.hashWithSalt` audioPidSelection
 
-instance Prelude.NFData AudioSelectorSettings
+instance Prelude.NFData AudioSelectorSettings where
+  rnf AudioSelectorSettings' {..} =
+    Prelude.rnf audioLanguageSelection
+      `Prelude.seq` Prelude.rnf audioTrackSelection
+      `Prelude.seq` Prelude.rnf audioHlsRenditionSelection
+      `Prelude.seq` Prelude.rnf audioPidSelection
 
 instance Core.ToJSON AudioSelectorSettings where
   toJSON AudioSelectorSettings' {..} =

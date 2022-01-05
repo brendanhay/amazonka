@@ -59,9 +59,12 @@ instance Core.FromJSON HlsS3Settings where
           HlsS3Settings' Prelude.<$> (x Core..:? "cannedAcl")
       )
 
-instance Prelude.Hashable HlsS3Settings
+instance Prelude.Hashable HlsS3Settings where
+  hashWithSalt _salt HlsS3Settings' {..} =
+    _salt `Prelude.hashWithSalt` cannedAcl
 
-instance Prelude.NFData HlsS3Settings
+instance Prelude.NFData HlsS3Settings where
+  rnf HlsS3Settings' {..} = Prelude.rnf cannedAcl
 
 instance Core.ToJSON HlsS3Settings where
   toJSON HlsS3Settings' {..} =

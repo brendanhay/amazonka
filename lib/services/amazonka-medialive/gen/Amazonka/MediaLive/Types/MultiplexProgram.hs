@@ -119,6 +119,18 @@ instance Core.FromJSON MultiplexProgram where
             Prelude.<*> (x Core..:? "multiplexProgramSettings")
       )
 
-instance Prelude.Hashable MultiplexProgram
+instance Prelude.Hashable MultiplexProgram where
+  hashWithSalt _salt MultiplexProgram' {..} =
+    _salt `Prelude.hashWithSalt` packetIdentifiersMap
+      `Prelude.hashWithSalt` pipelineDetails
+      `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` multiplexProgramSettings
 
-instance Prelude.NFData MultiplexProgram
+instance Prelude.NFData MultiplexProgram where
+  rnf MultiplexProgram' {..} =
+    Prelude.rnf packetIdentifiersMap
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf multiplexProgramSettings

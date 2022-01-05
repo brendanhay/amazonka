@@ -110,9 +110,19 @@ instance Core.FromJSON RtmpOutputSettings where
             Prelude.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable RtmpOutputSettings
+instance Prelude.Hashable RtmpOutputSettings where
+  hashWithSalt _salt RtmpOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` certificateMode
+      `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData RtmpOutputSettings
+instance Prelude.NFData RtmpOutputSettings where
+  rnf RtmpOutputSettings' {..} =
+    Prelude.rnf numRetries
+      `Prelude.seq` Prelude.rnf certificateMode
+      `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =

@@ -205,9 +205,31 @@ instance Core.AWSRequest ListReservations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReservations
+instance Prelude.Hashable ListReservations where
+  hashWithSalt _salt ListReservations' {..} =
+    _salt `Prelude.hashWithSalt` videoQuality
+      `Prelude.hashWithSalt` maximumFramerate
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` channelClass
+      `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListReservations
+instance Prelude.NFData ListReservations where
+  rnf ListReservations' {..} =
+    Prelude.rnf videoQuality
+      `Prelude.seq` Prelude.rnf maximumFramerate
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReservations where
   toHeaders =
@@ -288,4 +310,8 @@ listReservationsResponse_reservations = Lens.lens (\ListReservationsResponse' {r
 listReservationsResponse_httpStatus :: Lens.Lens' ListReservationsResponse Prelude.Int
 listReservationsResponse_httpStatus = Lens.lens (\ListReservationsResponse' {httpStatus} -> httpStatus) (\s@ListReservationsResponse' {} a -> s {httpStatus = a} :: ListReservationsResponse)
 
-instance Prelude.NFData ListReservationsResponse
+instance Prelude.NFData ListReservationsResponse where
+  rnf ListReservationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reservations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -146,7 +146,29 @@ instance
 instance
   Prelude.Hashable
     ReservationResourceSpecification
+  where
+  hashWithSalt
+    _salt
+    ReservationResourceSpecification' {..} =
+      _salt `Prelude.hashWithSalt` videoQuality
+        `Prelude.hashWithSalt` maximumFramerate
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` resolution
+        `Prelude.hashWithSalt` codec
+        `Prelude.hashWithSalt` specialFeature
+        `Prelude.hashWithSalt` channelClass
+        `Prelude.hashWithSalt` maximumBitrate
 
 instance
   Prelude.NFData
     ReservationResourceSpecification
+  where
+  rnf ReservationResourceSpecification' {..} =
+    Prelude.rnf videoQuality
+      `Prelude.seq` Prelude.rnf maximumFramerate
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf maximumBitrate

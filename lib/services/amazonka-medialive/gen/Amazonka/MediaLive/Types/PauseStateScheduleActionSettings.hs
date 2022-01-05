@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     PauseStateScheduleActionSettings
+  where
+  hashWithSalt
+    _salt
+    PauseStateScheduleActionSettings' {..} =
+      _salt `Prelude.hashWithSalt` pipelines
 
 instance
   Prelude.NFData
     PauseStateScheduleActionSettings
+  where
+  rnf PauseStateScheduleActionSettings' {..} =
+    Prelude.rnf pipelines
 
 instance Core.ToJSON PauseStateScheduleActionSettings where
   toJSON PauseStateScheduleActionSettings' {..} =

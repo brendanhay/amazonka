@@ -53,9 +53,13 @@ newInputDestinationRequest =
 inputDestinationRequest_streamName :: Lens.Lens' InputDestinationRequest (Prelude.Maybe Prelude.Text)
 inputDestinationRequest_streamName = Lens.lens (\InputDestinationRequest' {streamName} -> streamName) (\s@InputDestinationRequest' {} a -> s {streamName = a} :: InputDestinationRequest)
 
-instance Prelude.Hashable InputDestinationRequest
+instance Prelude.Hashable InputDestinationRequest where
+  hashWithSalt _salt InputDestinationRequest' {..} =
+    _salt `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData InputDestinationRequest
+instance Prelude.NFData InputDestinationRequest where
+  rnf InputDestinationRequest' {..} =
+    Prelude.rnf streamName
 
 instance Core.ToJSON InputDestinationRequest where
   toJSON InputDestinationRequest' {..} =

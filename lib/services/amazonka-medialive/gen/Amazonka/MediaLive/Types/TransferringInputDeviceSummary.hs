@@ -96,7 +96,21 @@ instance Core.FromJSON TransferringInputDeviceSummary where
 instance
   Prelude.Hashable
     TransferringInputDeviceSummary
+  where
+  hashWithSalt
+    _salt
+    TransferringInputDeviceSummary' {..} =
+      _salt `Prelude.hashWithSalt` transferType
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` targetCustomerId
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     TransferringInputDeviceSummary
+  where
+  rnf TransferringInputDeviceSummary' {..} =
+    Prelude.rnf transferType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf targetCustomerId
+      `Prelude.seq` Prelude.rnf message

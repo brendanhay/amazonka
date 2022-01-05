@@ -79,9 +79,15 @@ instance Core.FromJSON AvailBlanking where
             Prelude.<*> (x Core..:? "availBlankingImage")
       )
 
-instance Prelude.Hashable AvailBlanking
+instance Prelude.Hashable AvailBlanking where
+  hashWithSalt _salt AvailBlanking' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` availBlankingImage
 
-instance Prelude.NFData AvailBlanking
+instance Prelude.NFData AvailBlanking where
+  rnf AvailBlanking' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf availBlankingImage
 
 instance Core.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =

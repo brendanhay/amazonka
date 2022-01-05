@@ -46,9 +46,12 @@ instance Core.FromJSON SmpteTtDestinationSettings where
       "SmpteTtDestinationSettings"
       (\x -> Prelude.pure SmpteTtDestinationSettings')
 
-instance Prelude.Hashable SmpteTtDestinationSettings
+instance Prelude.Hashable SmpteTtDestinationSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData SmpteTtDestinationSettings
+instance Prelude.NFData SmpteTtDestinationSettings where
+  rnf _ = ()
 
 instance Core.ToJSON SmpteTtDestinationSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

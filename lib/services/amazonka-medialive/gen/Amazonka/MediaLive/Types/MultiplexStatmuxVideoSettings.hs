@@ -100,8 +100,17 @@ instance Core.FromJSON MultiplexStatmuxVideoSettings where
 instance
   Prelude.Hashable
     MultiplexStatmuxVideoSettings
+  where
+  hashWithSalt _salt MultiplexStatmuxVideoSettings' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` minimumBitrate
+      `Prelude.hashWithSalt` maximumBitrate
 
-instance Prelude.NFData MultiplexStatmuxVideoSettings
+instance Prelude.NFData MultiplexStatmuxVideoSettings where
+  rnf MultiplexStatmuxVideoSettings' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf minimumBitrate
+      `Prelude.seq` Prelude.rnf maximumBitrate
 
 instance Core.ToJSON MultiplexStatmuxVideoSettings where
   toJSON MultiplexStatmuxVideoSettings' {..} =

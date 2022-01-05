@@ -87,9 +87,17 @@ vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {p
 vpcOutputSettings_subnetIds :: Lens.Lens' VpcOutputSettings [Prelude.Text]
 vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Prelude.. Lens.coerced
 
-instance Prelude.Hashable VpcOutputSettings
+instance Prelude.Hashable VpcOutputSettings where
+  hashWithSalt _salt VpcOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` publicAddressAllocationIds
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData VpcOutputSettings
+instance Prelude.NFData VpcOutputSettings where
+  rnf VpcOutputSettings' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf publicAddressAllocationIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON VpcOutputSettings where
   toJSON VpcOutputSettings' {..} =

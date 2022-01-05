@@ -63,6 +63,10 @@ instance Core.FromJSON MultiplexOutputDestination where
             Prelude.<$> (x Core..:? "mediaConnectSettings")
       )
 
-instance Prelude.Hashable MultiplexOutputDestination
+instance Prelude.Hashable MultiplexOutputDestination where
+  hashWithSalt _salt MultiplexOutputDestination' {..} =
+    _salt `Prelude.hashWithSalt` mediaConnectSettings
 
-instance Prelude.NFData MultiplexOutputDestination
+instance Prelude.NFData MultiplexOutputDestination where
+  rnf MultiplexOutputDestination' {..} =
+    Prelude.rnf mediaConnectSettings

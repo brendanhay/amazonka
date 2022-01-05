@@ -107,10 +107,23 @@ instance
 instance
   Prelude.Hashable
     InputPrepareScheduleActionSettings
+  where
+  hashWithSalt
+    _salt
+    InputPrepareScheduleActionSettings' {..} =
+      _salt
+        `Prelude.hashWithSalt` inputAttachmentNameReference
+        `Prelude.hashWithSalt` inputClippingSettings
+        `Prelude.hashWithSalt` urlPath
 
 instance
   Prelude.NFData
     InputPrepareScheduleActionSettings
+  where
+  rnf InputPrepareScheduleActionSettings' {..} =
+    Prelude.rnf inputAttachmentNameReference
+      `Prelude.seq` Prelude.rnf inputClippingSettings
+      `Prelude.seq` Prelude.rnf urlPath
 
 instance
   Core.ToJSON

@@ -92,9 +92,13 @@ instance Core.AWSRequest RejectInputDeviceTransfer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectInputDeviceTransfer
+instance Prelude.Hashable RejectInputDeviceTransfer where
+  hashWithSalt _salt RejectInputDeviceTransfer' {..} =
+    _salt `Prelude.hashWithSalt` inputDeviceId
 
-instance Prelude.NFData RejectInputDeviceTransfer
+instance Prelude.NFData RejectInputDeviceTransfer where
+  rnf RejectInputDeviceTransfer' {..} =
+    Prelude.rnf inputDeviceId
 
 instance Core.ToHeaders RejectInputDeviceTransfer where
   toHeaders =
@@ -156,3 +160,6 @@ rejectInputDeviceTransferResponse_httpStatus = Lens.lens (\RejectInputDeviceTran
 instance
   Prelude.NFData
     RejectInputDeviceTransferResponse
+  where
+  rnf RejectInputDeviceTransferResponse' {..} =
+    Prelude.rnf httpStatus

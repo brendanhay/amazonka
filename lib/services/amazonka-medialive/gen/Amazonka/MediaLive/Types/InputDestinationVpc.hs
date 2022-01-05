@@ -72,6 +72,12 @@ instance Core.FromJSON InputDestinationVpc where
             Prelude.<*> (x Core..:? "availabilityZone")
       )
 
-instance Prelude.Hashable InputDestinationVpc
+instance Prelude.Hashable InputDestinationVpc where
+  hashWithSalt _salt InputDestinationVpc' {..} =
+    _salt `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData InputDestinationVpc
+instance Prelude.NFData InputDestinationVpc where
+  rnf InputDestinationVpc' {..} =
+    Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf availabilityZone

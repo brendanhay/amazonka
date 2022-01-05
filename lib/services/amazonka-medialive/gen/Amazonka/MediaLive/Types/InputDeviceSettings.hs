@@ -58,9 +58,12 @@ instance Core.FromJSON InputDeviceSettings where
           InputDeviceSettings' Prelude.<$> (x Core..:? "id")
       )
 
-instance Prelude.Hashable InputDeviceSettings
+instance Prelude.Hashable InputDeviceSettings where
+  hashWithSalt _salt InputDeviceSettings' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InputDeviceSettings
+instance Prelude.NFData InputDeviceSettings where
+  rnf InputDeviceSettings' {..} = Prelude.rnf id
 
 instance Core.ToJSON InputDeviceSettings where
   toJSON InputDeviceSettings' {..} =

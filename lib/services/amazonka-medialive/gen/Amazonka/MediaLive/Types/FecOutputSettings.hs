@@ -106,9 +106,17 @@ instance Core.FromJSON FecOutputSettings where
             Prelude.<*> (x Core..:? "columnDepth")
       )
 
-instance Prelude.Hashable FecOutputSettings
+instance Prelude.Hashable FecOutputSettings where
+  hashWithSalt _salt FecOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` rowLength
+      `Prelude.hashWithSalt` includeFec
+      `Prelude.hashWithSalt` columnDepth
 
-instance Prelude.NFData FecOutputSettings
+instance Prelude.NFData FecOutputSettings where
+  rnf FecOutputSettings' {..} =
+    Prelude.rnf rowLength
+      `Prelude.seq` Prelude.rnf includeFec
+      `Prelude.seq` Prelude.rnf columnDepth
 
 instance Core.ToJSON FecOutputSettings where
   toJSON FecOutputSettings' {..} =

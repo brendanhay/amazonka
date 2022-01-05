@@ -88,10 +88,20 @@ instance
 instance
   Prelude.Hashable
     FollowModeScheduleActionStartSettings
+  where
+  hashWithSalt
+    _salt
+    FollowModeScheduleActionStartSettings' {..} =
+      _salt `Prelude.hashWithSalt` referenceActionName
+        `Prelude.hashWithSalt` followPoint
 
 instance
   Prelude.NFData
     FollowModeScheduleActionStartSettings
+  where
+  rnf FollowModeScheduleActionStartSettings' {..} =
+    Prelude.rnf referenceActionName
+      `Prelude.seq` Prelude.rnf followPoint
 
 instance
   Core.ToJSON

@@ -45,9 +45,12 @@ instance Core.FromJSON FrameCaptureHlsSettings where
       "FrameCaptureHlsSettings"
       (\x -> Prelude.pure FrameCaptureHlsSettings')
 
-instance Prelude.Hashable FrameCaptureHlsSettings
+instance Prelude.Hashable FrameCaptureHlsSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData FrameCaptureHlsSettings
+instance Prelude.NFData FrameCaptureHlsSettings where
+  rnf _ = ()
 
 instance Core.ToJSON FrameCaptureHlsSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

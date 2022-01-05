@@ -126,9 +126,19 @@ instance Core.FromJSON VideoSelector where
             Prelude.<*> (x Core..:? "colorSpace")
       )
 
-instance Prelude.Hashable VideoSelector
+instance Prelude.Hashable VideoSelector where
+  hashWithSalt _salt VideoSelector' {..} =
+    _salt `Prelude.hashWithSalt` selectorSettings
+      `Prelude.hashWithSalt` colorSpaceUsage
+      `Prelude.hashWithSalt` colorSpaceSettings
+      `Prelude.hashWithSalt` colorSpace
 
-instance Prelude.NFData VideoSelector
+instance Prelude.NFData VideoSelector where
+  rnf VideoSelector' {..} =
+    Prelude.rnf selectorSettings
+      `Prelude.seq` Prelude.rnf colorSpaceUsage
+      `Prelude.seq` Prelude.rnf colorSpaceSettings
+      `Prelude.seq` Prelude.rnf colorSpace
 
 instance Core.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =

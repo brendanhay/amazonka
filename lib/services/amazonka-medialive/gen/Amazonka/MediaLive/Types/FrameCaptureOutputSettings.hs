@@ -65,9 +65,13 @@ instance Core.FromJSON FrameCaptureOutputSettings where
             Prelude.<$> (x Core..:? "nameModifier")
       )
 
-instance Prelude.Hashable FrameCaptureOutputSettings
+instance Prelude.Hashable FrameCaptureOutputSettings where
+  hashWithSalt _salt FrameCaptureOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` nameModifier
 
-instance Prelude.NFData FrameCaptureOutputSettings
+instance Prelude.NFData FrameCaptureOutputSettings where
+  rnf FrameCaptureOutputSettings' {..} =
+    Prelude.rnf nameModifier
 
 instance Core.ToJSON FrameCaptureOutputSettings where
   toJSON FrameCaptureOutputSettings' {..} =

@@ -94,9 +94,17 @@ instance Core.FromJSON FailoverConditionSettings where
             Prelude.<*> (x Core..:? "audioSilenceSettings")
       )
 
-instance Prelude.Hashable FailoverConditionSettings
+instance Prelude.Hashable FailoverConditionSettings where
+  hashWithSalt _salt FailoverConditionSettings' {..} =
+    _salt `Prelude.hashWithSalt` videoBlackSettings
+      `Prelude.hashWithSalt` inputLossSettings
+      `Prelude.hashWithSalt` audioSilenceSettings
 
-instance Prelude.NFData FailoverConditionSettings
+instance Prelude.NFData FailoverConditionSettings where
+  rnf FailoverConditionSettings' {..} =
+    Prelude.rnf videoBlackSettings
+      `Prelude.seq` Prelude.rnf inputLossSettings
+      `Prelude.seq` Prelude.rnf audioSilenceSettings
 
 instance Core.ToJSON FailoverConditionSettings where
   toJSON FailoverConditionSettings' {..} =

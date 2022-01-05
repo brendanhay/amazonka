@@ -178,9 +178,25 @@ instance Core.FromJSON RtmpGroupSettings where
             Prelude.<*> (x Core..:? "cacheFullBehavior")
       )
 
-instance Prelude.Hashable RtmpGroupSettings
+instance Prelude.Hashable RtmpGroupSettings where
+  hashWithSalt _salt RtmpGroupSettings' {..} =
+    _salt `Prelude.hashWithSalt` inputLossAction
+      `Prelude.hashWithSalt` captionData
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` restartDelay
+      `Prelude.hashWithSalt` authenticationScheme
+      `Prelude.hashWithSalt` cacheLength
+      `Prelude.hashWithSalt` cacheFullBehavior
 
-instance Prelude.NFData RtmpGroupSettings
+instance Prelude.NFData RtmpGroupSettings where
+  rnf RtmpGroupSettings' {..} =
+    Prelude.rnf inputLossAction
+      `Prelude.seq` Prelude.rnf captionData
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf restartDelay
+      `Prelude.seq` Prelude.rnf authenticationScheme
+      `Prelude.seq` Prelude.rnf cacheLength
+      `Prelude.seq` Prelude.rnf cacheFullBehavior
 
 instance Core.ToJSON RtmpGroupSettings where
   toJSON RtmpGroupSettings' {..} =

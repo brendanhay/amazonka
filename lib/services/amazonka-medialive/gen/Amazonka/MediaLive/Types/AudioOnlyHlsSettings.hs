@@ -140,9 +140,19 @@ instance Core.FromJSON AudioOnlyHlsSettings where
             Prelude.<*> (x Core..:? "audioTrackType")
       )
 
-instance Prelude.Hashable AudioOnlyHlsSettings
+instance Prelude.Hashable AudioOnlyHlsSettings where
+  hashWithSalt _salt AudioOnlyHlsSettings' {..} =
+    _salt `Prelude.hashWithSalt` audioOnlyImage
+      `Prelude.hashWithSalt` segmentType
+      `Prelude.hashWithSalt` audioGroupId
+      `Prelude.hashWithSalt` audioTrackType
 
-instance Prelude.NFData AudioOnlyHlsSettings
+instance Prelude.NFData AudioOnlyHlsSettings where
+  rnf AudioOnlyHlsSettings' {..} =
+    Prelude.rnf audioOnlyImage
+      `Prelude.seq` Prelude.rnf segmentType
+      `Prelude.seq` Prelude.rnf audioGroupId
+      `Prelude.seq` Prelude.rnf audioTrackType
 
 instance Core.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =

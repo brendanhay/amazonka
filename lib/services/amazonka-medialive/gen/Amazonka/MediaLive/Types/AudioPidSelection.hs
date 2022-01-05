@@ -60,9 +60,12 @@ instance Core.FromJSON AudioPidSelection where
           AudioPidSelection' Prelude.<$> (x Core..: "pid")
       )
 
-instance Prelude.Hashable AudioPidSelection
+instance Prelude.Hashable AudioPidSelection where
+  hashWithSalt _salt AudioPidSelection' {..} =
+    _salt `Prelude.hashWithSalt` pid
 
-instance Prelude.NFData AudioPidSelection
+instance Prelude.NFData AudioPidSelection where
+  rnf AudioPidSelection' {..} = Prelude.rnf pid
 
 instance Core.ToJSON AudioPidSelection where
   toJSON AudioPidSelection' {..} =

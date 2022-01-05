@@ -57,9 +57,12 @@ instance Core.FromJSON AudioTrack where
       "AudioTrack"
       (\x -> AudioTrack' Prelude.<$> (x Core..: "track"))
 
-instance Prelude.Hashable AudioTrack
+instance Prelude.Hashable AudioTrack where
+  hashWithSalt _salt AudioTrack' {..} =
+    _salt `Prelude.hashWithSalt` track
 
-instance Prelude.NFData AudioTrack
+instance Prelude.NFData AudioTrack where
+  rnf AudioTrack' {..} = Prelude.rnf track
 
 instance Core.ToJSON AudioTrack where
   toJSON AudioTrack' {..} =

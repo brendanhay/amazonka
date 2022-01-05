@@ -98,9 +98,15 @@ instance Core.AWSRequest BatchStop' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchStop'
+instance Prelude.Hashable BatchStop' where
+  hashWithSalt _salt BatchStop'' {..} =
+    _salt `Prelude.hashWithSalt` channelIds
+      `Prelude.hashWithSalt` multiplexIds
 
-instance Prelude.NFData BatchStop'
+instance Prelude.NFData BatchStop' where
+  rnf BatchStop'' {..} =
+    Prelude.rnf channelIds
+      `Prelude.seq` Prelude.rnf multiplexIds
 
 instance Core.ToHeaders BatchStop' where
   toHeaders =
@@ -177,4 +183,8 @@ batchStopResponse_failed = Lens.lens (\BatchStopResponse' {failed} -> failed) (\
 batchStopResponse_httpStatus :: Lens.Lens' BatchStopResponse Prelude.Int
 batchStopResponse_httpStatus = Lens.lens (\BatchStopResponse' {httpStatus} -> httpStatus) (\s@BatchStopResponse' {} a -> s {httpStatus = a} :: BatchStopResponse)
 
-instance Prelude.NFData BatchStopResponse
+instance Prelude.NFData BatchStopResponse where
+  rnf BatchStopResponse' {..} =
+    Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf httpStatus

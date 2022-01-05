@@ -108,9 +108,12 @@ instance Core.AWSRequest DescribeMultiplex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMultiplex
+instance Prelude.Hashable DescribeMultiplex where
+  hashWithSalt _salt DescribeMultiplex' {..} =
+    _salt `Prelude.hashWithSalt` multiplexId
 
-instance Prelude.NFData DescribeMultiplex
+instance Prelude.NFData DescribeMultiplex where
+  rnf DescribeMultiplex' {..} = Prelude.rnf multiplexId
 
 instance Core.ToHeaders DescribeMultiplex where
   toHeaders =
@@ -252,4 +255,16 @@ describeMultiplexResponse_tags = Lens.lens (\DescribeMultiplexResponse' {tags} -
 describeMultiplexResponse_httpStatus :: Lens.Lens' DescribeMultiplexResponse Prelude.Int
 describeMultiplexResponse_httpStatus = Lens.lens (\DescribeMultiplexResponse' {httpStatus} -> httpStatus) (\s@DescribeMultiplexResponse' {} a -> s {httpStatus = a} :: DescribeMultiplexResponse)
 
-instance Prelude.NFData DescribeMultiplexResponse
+instance Prelude.NFData DescribeMultiplexResponse where
+  rnf DescribeMultiplexResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf programCount
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

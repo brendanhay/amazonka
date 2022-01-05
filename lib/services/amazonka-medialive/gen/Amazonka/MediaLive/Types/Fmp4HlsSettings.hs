@@ -99,9 +99,17 @@ instance Core.FromJSON Fmp4HlsSettings where
             Prelude.<*> (x Core..:? "timedMetadataBehavior")
       )
 
-instance Prelude.Hashable Fmp4HlsSettings
+instance Prelude.Hashable Fmp4HlsSettings where
+  hashWithSalt _salt Fmp4HlsSettings' {..} =
+    _salt `Prelude.hashWithSalt` nielsenId3Behavior
+      `Prelude.hashWithSalt` audioRenditionSets
+      `Prelude.hashWithSalt` timedMetadataBehavior
 
-instance Prelude.NFData Fmp4HlsSettings
+instance Prelude.NFData Fmp4HlsSettings where
+  rnf Fmp4HlsSettings' {..} =
+    Prelude.rnf nielsenId3Behavior
+      `Prelude.seq` Prelude.rnf audioRenditionSets
+      `Prelude.seq` Prelude.rnf timedMetadataBehavior
 
 instance Core.ToJSON Fmp4HlsSettings where
   toJSON Fmp4HlsSettings' {..} =

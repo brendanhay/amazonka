@@ -62,9 +62,12 @@ instance Core.FromJSON DvbTdtSettings where
             Prelude.<$> (x Core..:? "repInterval")
       )
 
-instance Prelude.Hashable DvbTdtSettings
+instance Prelude.Hashable DvbTdtSettings where
+  hashWithSalt _salt DvbTdtSettings' {..} =
+    _salt `Prelude.hashWithSalt` repInterval
 
-instance Prelude.NFData DvbTdtSettings
+instance Prelude.NFData DvbTdtSettings where
+  rnf DvbTdtSettings' {..} = Prelude.rnf repInterval
 
 instance Core.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =

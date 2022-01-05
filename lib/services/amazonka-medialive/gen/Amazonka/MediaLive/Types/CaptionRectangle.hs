@@ -184,9 +184,19 @@ instance Core.FromJSON CaptionRectangle where
             Prelude.<*> (x Core..: "leftOffset")
       )
 
-instance Prelude.Hashable CaptionRectangle
+instance Prelude.Hashable CaptionRectangle where
+  hashWithSalt _salt CaptionRectangle' {..} =
+    _salt `Prelude.hashWithSalt` topOffset
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` leftOffset
 
-instance Prelude.NFData CaptionRectangle
+instance Prelude.NFData CaptionRectangle where
+  rnf CaptionRectangle' {..} =
+    Prelude.rnf topOffset
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf leftOffset
 
 instance Core.ToJSON CaptionRectangle where
   toJSON CaptionRectangle' {..} =

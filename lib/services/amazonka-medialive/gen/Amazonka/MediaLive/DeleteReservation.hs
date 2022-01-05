@@ -122,9 +122,13 @@ instance Core.AWSRequest DeleteReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReservation
+instance Prelude.Hashable DeleteReservation where
+  hashWithSalt _salt DeleteReservation' {..} =
+    _salt `Prelude.hashWithSalt` reservationId
 
-instance Prelude.NFData DeleteReservation
+instance Prelude.NFData DeleteReservation where
+  rnf DeleteReservation' {..} =
+    Prelude.rnf reservationId
 
 instance Core.ToHeaders DeleteReservation where
   toHeaders =
@@ -356,4 +360,24 @@ deleteReservationResponse_tags = Lens.lens (\DeleteReservationResponse' {tags} -
 deleteReservationResponse_httpStatus :: Lens.Lens' DeleteReservationResponse Prelude.Int
 deleteReservationResponse_httpStatus = Lens.lens (\DeleteReservationResponse' {httpStatus} -> httpStatus) (\s@DeleteReservationResponse' {} a -> s {httpStatus = a} :: DeleteReservationResponse)
 
-instance Prelude.NFData DeleteReservationResponse
+instance Prelude.NFData DeleteReservationResponse where
+  rnf DeleteReservationResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf resourceSpecification
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reservationId
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf durationUnits
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

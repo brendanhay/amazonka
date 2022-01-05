@@ -100,9 +100,19 @@ instance Core.FromJSON InputAttachment where
             Prelude.<*> (x Core..:? "inputSettings")
       )
 
-instance Prelude.Hashable InputAttachment
+instance Prelude.Hashable InputAttachment where
+  hashWithSalt _salt InputAttachment' {..} =
+    _salt `Prelude.hashWithSalt` inputAttachmentName
+      `Prelude.hashWithSalt` inputId
+      `Prelude.hashWithSalt` automaticInputFailoverSettings
+      `Prelude.hashWithSalt` inputSettings
 
-instance Prelude.NFData InputAttachment
+instance Prelude.NFData InputAttachment where
+  rnf InputAttachment' {..} =
+    Prelude.rnf inputAttachmentName
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf automaticInputFailoverSettings
+      `Prelude.seq` Prelude.rnf inputSettings
 
 instance Core.ToJSON InputAttachment where
   toJSON InputAttachment' {..} =

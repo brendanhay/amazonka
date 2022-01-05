@@ -64,9 +64,12 @@ instance Core.FromJSON StartTimecode where
           StartTimecode' Prelude.<$> (x Core..:? "timecode")
       )
 
-instance Prelude.Hashable StartTimecode
+instance Prelude.Hashable StartTimecode where
+  hashWithSalt _salt StartTimecode' {..} =
+    _salt `Prelude.hashWithSalt` timecode
 
-instance Prelude.NFData StartTimecode
+instance Prelude.NFData StartTimecode where
+  rnf StartTimecode' {..} = Prelude.rnf timecode
 
 instance Core.ToJSON StartTimecode where
   toJSON StartTimecode' {..} =

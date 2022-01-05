@@ -100,9 +100,19 @@ instance Core.FromJSON HlsBasicPutSettings where
             Prelude.<*> (x Core..:? "restartDelay")
       )
 
-instance Prelude.Hashable HlsBasicPutSettings
+instance Prelude.Hashable HlsBasicPutSettings where
+  hashWithSalt _salt HlsBasicPutSettings' {..} =
+    _salt `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` restartDelay
 
-instance Prelude.NFData HlsBasicPutSettings
+instance Prelude.NFData HlsBasicPutSettings where
+  rnf HlsBasicPutSettings' {..} =
+    Prelude.rnf numRetries
+      `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf restartDelay
 
 instance Core.ToJSON HlsBasicPutSettings where
   toJSON HlsBasicPutSettings' {..} =

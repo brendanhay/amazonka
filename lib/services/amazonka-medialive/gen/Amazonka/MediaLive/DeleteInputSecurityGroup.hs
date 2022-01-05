@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteInputSecurityGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInputSecurityGroup
+instance Prelude.Hashable DeleteInputSecurityGroup where
+  hashWithSalt _salt DeleteInputSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` inputSecurityGroupId
 
-instance Prelude.NFData DeleteInputSecurityGroup
+instance Prelude.NFData DeleteInputSecurityGroup where
+  rnf DeleteInputSecurityGroup' {..} =
+    Prelude.rnf inputSecurityGroupId
 
 instance Core.ToHeaders DeleteInputSecurityGroup where
   toHeaders =
@@ -149,3 +153,6 @@ deleteInputSecurityGroupResponse_httpStatus = Lens.lens (\DeleteInputSecurityGro
 instance
   Prelude.NFData
     DeleteInputSecurityGroupResponse
+  where
+  rnf DeleteInputSecurityGroupResponse' {..} =
+    Prelude.rnf httpStatus

@@ -152,6 +152,28 @@ instance Core.FromJSON RuleDetail where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable RuleDetail
+instance Prelude.Hashable RuleDetail where
+  hashWithSalt _salt RuleDetail' {..} =
+    _salt `Prelude.hashWithSalt` ruleVersion
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` outcomes
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RuleDetail
+instance Prelude.NFData RuleDetail where
+  rnf RuleDetail' {..} =
+    Prelude.rnf ruleVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf outcomes
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf description

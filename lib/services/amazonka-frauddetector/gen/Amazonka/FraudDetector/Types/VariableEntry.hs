@@ -110,9 +110,23 @@ variableEntry_variableType = Lens.lens (\VariableEntry' {variableType} -> variab
 variableEntry_description :: Lens.Lens' VariableEntry (Prelude.Maybe Prelude.Text)
 variableEntry_description = Lens.lens (\VariableEntry' {description} -> description) (\s@VariableEntry' {} a -> s {description = a} :: VariableEntry)
 
-instance Prelude.Hashable VariableEntry
+instance Prelude.Hashable VariableEntry where
+  hashWithSalt _salt VariableEntry' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` variableType
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData VariableEntry
+instance Prelude.NFData VariableEntry where
+  rnf VariableEntry' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf variableType
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON VariableEntry where
   toJSON VariableEntry' {..} =

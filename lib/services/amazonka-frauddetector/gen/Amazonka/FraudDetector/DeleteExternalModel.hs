@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteExternalModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteExternalModel
+instance Prelude.Hashable DeleteExternalModel where
+  hashWithSalt _salt DeleteExternalModel' {..} =
+    _salt `Prelude.hashWithSalt` modelEndpoint
 
-instance Prelude.NFData DeleteExternalModel
+instance Prelude.NFData DeleteExternalModel where
+  rnf DeleteExternalModel' {..} =
+    Prelude.rnf modelEndpoint
 
 instance Core.ToHeaders DeleteExternalModel where
   toHeaders =
@@ -155,4 +159,6 @@ newDeleteExternalModelResponse pHttpStatus_ =
 deleteExternalModelResponse_httpStatus :: Lens.Lens' DeleteExternalModelResponse Prelude.Int
 deleteExternalModelResponse_httpStatus = Lens.lens (\DeleteExternalModelResponse' {httpStatus} -> httpStatus) (\s@DeleteExternalModelResponse' {} a -> s {httpStatus = a} :: DeleteExternalModelResponse)
 
-instance Prelude.NFData DeleteExternalModelResponse
+instance Prelude.NFData DeleteExternalModelResponse where
+  rnf DeleteExternalModelResponse' {..} =
+    Prelude.rnf httpStatus

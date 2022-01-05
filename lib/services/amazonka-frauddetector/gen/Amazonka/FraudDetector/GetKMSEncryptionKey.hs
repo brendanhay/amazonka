@@ -71,9 +71,12 @@ instance Core.AWSRequest GetKMSEncryptionKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKMSEncryptionKey
+instance Prelude.Hashable GetKMSEncryptionKey where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetKMSEncryptionKey
+instance Prelude.NFData GetKMSEncryptionKey where
+  rnf _ = ()
 
 instance Core.ToHeaders GetKMSEncryptionKey where
   toHeaders =
@@ -138,4 +141,7 @@ getKMSEncryptionKeyResponse_kmsKey = Lens.lens (\GetKMSEncryptionKeyResponse' {k
 getKMSEncryptionKeyResponse_httpStatus :: Lens.Lens' GetKMSEncryptionKeyResponse Prelude.Int
 getKMSEncryptionKeyResponse_httpStatus = Lens.lens (\GetKMSEncryptionKeyResponse' {httpStatus} -> httpStatus) (\s@GetKMSEncryptionKeyResponse' {} a -> s {httpStatus = a} :: GetKMSEncryptionKeyResponse)
 
-instance Prelude.NFData GetKMSEncryptionKeyResponse
+instance Prelude.NFData GetKMSEncryptionKeyResponse where
+  rnf GetKMSEncryptionKeyResponse' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf httpStatus

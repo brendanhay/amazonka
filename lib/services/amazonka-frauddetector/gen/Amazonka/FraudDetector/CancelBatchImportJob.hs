@@ -93,9 +93,12 @@ instance Core.AWSRequest CancelBatchImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelBatchImportJob
+instance Prelude.Hashable CancelBatchImportJob where
+  hashWithSalt _salt CancelBatchImportJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CancelBatchImportJob
+instance Prelude.NFData CancelBatchImportJob where
+  rnf CancelBatchImportJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders CancelBatchImportJob where
   toHeaders =
@@ -155,4 +158,6 @@ newCancelBatchImportJobResponse pHttpStatus_ =
 cancelBatchImportJobResponse_httpStatus :: Lens.Lens' CancelBatchImportJobResponse Prelude.Int
 cancelBatchImportJobResponse_httpStatus = Lens.lens (\CancelBatchImportJobResponse' {httpStatus} -> httpStatus) (\s@CancelBatchImportJobResponse' {} a -> s {httpStatus = a} :: CancelBatchImportJobResponse)
 
-instance Prelude.NFData CancelBatchImportJobResponse
+instance Prelude.NFData CancelBatchImportJobResponse where
+  rnf CancelBatchImportJobResponse' {..} =
+    Prelude.rnf httpStatus

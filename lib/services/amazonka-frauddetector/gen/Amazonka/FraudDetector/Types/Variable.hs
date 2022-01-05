@@ -155,6 +155,26 @@ instance Core.FromJSON Variable where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Variable
+instance Prelude.Hashable Variable where
+  hashWithSalt _salt Variable' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` variableType
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Variable
+instance Prelude.NFData Variable where
+  rnf Variable' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf variableType
+      `Prelude.seq` Prelude.rnf description

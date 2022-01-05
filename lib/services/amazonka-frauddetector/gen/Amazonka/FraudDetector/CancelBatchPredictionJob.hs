@@ -84,9 +84,12 @@ instance Core.AWSRequest CancelBatchPredictionJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelBatchPredictionJob
+instance Prelude.Hashable CancelBatchPredictionJob where
+  hashWithSalt _salt CancelBatchPredictionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CancelBatchPredictionJob
+instance Prelude.NFData CancelBatchPredictionJob where
+  rnf CancelBatchPredictionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders CancelBatchPredictionJob where
   toHeaders =
@@ -149,3 +152,6 @@ cancelBatchPredictionJobResponse_httpStatus = Lens.lens (\CancelBatchPredictionJ
 instance
   Prelude.NFData
     CancelBatchPredictionJobResponse
+  where
+  rnf CancelBatchPredictionJobResponse' {..} =
+    Prelude.rnf httpStatus

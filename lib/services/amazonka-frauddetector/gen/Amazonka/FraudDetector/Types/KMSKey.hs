@@ -59,6 +59,9 @@ instance Core.FromJSON KMSKey where
             Prelude.<$> (x Core..:? "kmsEncryptionKeyArn")
       )
 
-instance Prelude.Hashable KMSKey
+instance Prelude.Hashable KMSKey where
+  hashWithSalt _salt KMSKey' {..} =
+    _salt `Prelude.hashWithSalt` kmsEncryptionKeyArn
 
-instance Prelude.NFData KMSKey
+instance Prelude.NFData KMSKey where
+  rnf KMSKey' {..} = Prelude.rnf kmsEncryptionKeyArn

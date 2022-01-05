@@ -122,6 +122,22 @@ instance Core.FromJSON Model where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Model
+instance Prelude.Hashable Model where
+  hashWithSalt _salt Model' {..} =
+    _salt `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Model
+instance Prelude.NFData Model where
+  rnf Model' {..} =
+    Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf description

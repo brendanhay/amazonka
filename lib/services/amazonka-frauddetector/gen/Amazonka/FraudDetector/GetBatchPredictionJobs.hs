@@ -116,9 +116,17 @@ instance Core.AWSRequest GetBatchPredictionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBatchPredictionJobs
+instance Prelude.Hashable GetBatchPredictionJobs where
+  hashWithSalt _salt GetBatchPredictionJobs' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetBatchPredictionJobs
+instance Prelude.NFData GetBatchPredictionJobs where
+  rnf GetBatchPredictionJobs' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetBatchPredictionJobs where
   toHeaders =
@@ -202,3 +210,8 @@ getBatchPredictionJobsResponse_httpStatus = Lens.lens (\GetBatchPredictionJobsRe
 instance
   Prelude.NFData
     GetBatchPredictionJobsResponse
+  where
+  rnf GetBatchPredictionJobsResponse' {..} =
+    Prelude.rnf batchPredictions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,9 +111,17 @@ instance Core.AWSRequest GetVariables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVariables
+instance Prelude.Hashable GetVariables where
+  hashWithSalt _salt GetVariables' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetVariables
+instance Prelude.NFData GetVariables where
+  rnf GetVariables' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetVariables where
   toHeaders =
@@ -193,4 +201,8 @@ getVariablesResponse_nextToken = Lens.lens (\GetVariablesResponse' {nextToken} -
 getVariablesResponse_httpStatus :: Lens.Lens' GetVariablesResponse Prelude.Int
 getVariablesResponse_httpStatus = Lens.lens (\GetVariablesResponse' {httpStatus} -> httpStatus) (\s@GetVariablesResponse' {} a -> s {httpStatus = a} :: GetVariablesResponse)
 
-instance Prelude.NFData GetVariablesResponse
+instance Prelude.NFData GetVariablesResponse where
+  rnf GetVariablesResponse' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,6 +72,12 @@ instance Core.FromJSON ModelScores where
             Prelude.<*> (x Core..:? "scores" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ModelScores
+instance Prelude.Hashable ModelScores where
+  hashWithSalt _salt ModelScores' {..} =
+    _salt `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` scores
 
-instance Prelude.NFData ModelScores
+instance Prelude.NFData ModelScores where
+  rnf ModelScores' {..} =
+    Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf scores

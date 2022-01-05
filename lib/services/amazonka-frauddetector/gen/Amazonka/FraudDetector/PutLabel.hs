@@ -105,9 +105,17 @@ instance Core.AWSRequest PutLabel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLabel
+instance Prelude.Hashable PutLabel where
+  hashWithSalt _salt PutLabel' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PutLabel
+instance Prelude.NFData PutLabel where
+  rnf PutLabel' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PutLabel where
   toHeaders =
@@ -167,4 +175,5 @@ newPutLabelResponse pHttpStatus_ =
 putLabelResponse_httpStatus :: Lens.Lens' PutLabelResponse Prelude.Int
 putLabelResponse_httpStatus = Lens.lens (\PutLabelResponse' {httpStatus} -> httpStatus) (\s@PutLabelResponse' {} a -> s {httpStatus = a} :: PutLabelResponse)
 
-instance Prelude.NFData PutLabelResponse
+instance Prelude.NFData PutLabelResponse where
+  rnf PutLabelResponse' {..} = Prelude.rnf httpStatus

@@ -111,6 +111,20 @@ instance Core.FromJSON Detector where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Detector
+instance Prelude.Hashable Detector where
+  hashWithSalt _salt Detector' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Detector
+instance Prelude.NFData Detector where
+  rnf Detector' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf description

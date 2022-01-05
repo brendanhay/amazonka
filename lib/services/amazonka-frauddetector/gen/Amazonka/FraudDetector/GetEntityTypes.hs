@@ -114,9 +114,17 @@ instance Core.AWSRequest GetEntityTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEntityTypes
+instance Prelude.Hashable GetEntityTypes where
+  hashWithSalt _salt GetEntityTypes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetEntityTypes
+instance Prelude.NFData GetEntityTypes where
+  rnf GetEntityTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetEntityTypes where
   toHeaders =
@@ -197,4 +205,8 @@ getEntityTypesResponse_nextToken = Lens.lens (\GetEntityTypesResponse' {nextToke
 getEntityTypesResponse_httpStatus :: Lens.Lens' GetEntityTypesResponse Prelude.Int
 getEntityTypesResponse_httpStatus = Lens.lens (\GetEntityTypesResponse' {httpStatus} -> httpStatus) (\s@GetEntityTypesResponse' {} a -> s {httpStatus = a} :: GetEntityTypesResponse)
 
-instance Prelude.NFData GetEntityTypesResponse
+instance Prelude.NFData GetEntityTypesResponse where
+  rnf GetEntityTypesResponse' {..} =
+    Prelude.rnf entityTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

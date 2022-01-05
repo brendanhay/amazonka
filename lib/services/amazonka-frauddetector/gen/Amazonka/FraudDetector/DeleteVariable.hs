@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteVariable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVariable
+instance Prelude.Hashable DeleteVariable where
+  hashWithSalt _salt DeleteVariable' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteVariable
+instance Prelude.NFData DeleteVariable where
+  rnf DeleteVariable' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteVariable where
   toHeaders =
@@ -153,4 +156,6 @@ newDeleteVariableResponse pHttpStatus_ =
 deleteVariableResponse_httpStatus :: Lens.Lens' DeleteVariableResponse Prelude.Int
 deleteVariableResponse_httpStatus = Lens.lens (\DeleteVariableResponse' {httpStatus} -> httpStatus) (\s@DeleteVariableResponse' {} a -> s {httpStatus = a} :: DeleteVariableResponse)
 
-instance Prelude.NFData DeleteVariableResponse
+instance Prelude.NFData DeleteVariableResponse where
+  rnf DeleteVariableResponse' {..} =
+    Prelude.rnf httpStatus

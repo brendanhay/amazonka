@@ -112,9 +112,17 @@ instance Core.AWSRequest GetDetectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDetectors
+instance Prelude.Hashable GetDetectors where
+  hashWithSalt _salt GetDetectors' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetDetectors
+instance Prelude.NFData GetDetectors where
+  rnf GetDetectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDetectors where
   toHeaders =
@@ -194,4 +202,8 @@ getDetectorsResponse_detectors = Lens.lens (\GetDetectorsResponse' {detectors} -
 getDetectorsResponse_httpStatus :: Lens.Lens' GetDetectorsResponse Prelude.Int
 getDetectorsResponse_httpStatus = Lens.lens (\GetDetectorsResponse' {httpStatus} -> httpStatus) (\s@GetDetectorsResponse' {} a -> s {httpStatus = a} :: GetDetectorsResponse)
 
-instance Prelude.NFData GetDetectorsResponse
+instance Prelude.NFData GetDetectorsResponse where
+  rnf GetDetectorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectors
+      `Prelude.seq` Prelude.rnf httpStatus

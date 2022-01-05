@@ -81,6 +81,14 @@ instance Core.FromJSON BatchCreateVariableError where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable BatchCreateVariableError
+instance Prelude.Hashable BatchCreateVariableError where
+  hashWithSalt _salt BatchCreateVariableError' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData BatchCreateVariableError
+instance Prelude.NFData BatchCreateVariableError where
+  rnf BatchCreateVariableError' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message

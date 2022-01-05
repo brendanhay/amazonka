@@ -80,9 +80,17 @@ startPosition_id = Lens.lens (\StartPosition' {id} -> id) (\s@StartPosition' {} 
 startPosition_mostRecent :: Lens.Lens' StartPosition (Prelude.Maybe Prelude.Natural)
 startPosition_mostRecent = Lens.lens (\StartPosition' {mostRecent} -> mostRecent) (\s@StartPosition' {} a -> s {mostRecent = a} :: StartPosition)
 
-instance Prelude.Hashable StartPosition
+instance Prelude.Hashable StartPosition where
+  hashWithSalt _salt StartPosition' {..} =
+    _salt `Prelude.hashWithSalt` absoluteTime
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` mostRecent
 
-instance Prelude.NFData StartPosition
+instance Prelude.NFData StartPosition where
+  rnf StartPosition' {..} =
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mostRecent
 
 instance Core.ToJSON StartPosition where
   toJSON StartPosition' {..} =

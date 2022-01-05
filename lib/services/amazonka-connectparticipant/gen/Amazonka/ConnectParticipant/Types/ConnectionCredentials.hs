@@ -80,6 +80,12 @@ instance Core.FromJSON ConnectionCredentials where
             Prelude.<*> (x Core..:? "ConnectionToken")
       )
 
-instance Prelude.Hashable ConnectionCredentials
+instance Prelude.Hashable ConnectionCredentials where
+  hashWithSalt _salt ConnectionCredentials' {..} =
+    _salt `Prelude.hashWithSalt` expiry
+      `Prelude.hashWithSalt` connectionToken
 
-instance Prelude.NFData ConnectionCredentials
+instance Prelude.NFData ConnectionCredentials where
+  rnf ConnectionCredentials' {..} =
+    Prelude.rnf expiry
+      `Prelude.seq` Prelude.rnf connectionToken

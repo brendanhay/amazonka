@@ -104,9 +104,15 @@ instance Core.AWSRequest DisconnectParticipant where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisconnectParticipant
+instance Prelude.Hashable DisconnectParticipant where
+  hashWithSalt _salt DisconnectParticipant' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectionToken
 
-instance Prelude.NFData DisconnectParticipant
+instance Prelude.NFData DisconnectParticipant where
+  rnf DisconnectParticipant' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectionToken
 
 instance Core.ToHeaders DisconnectParticipant where
   toHeaders DisconnectParticipant' {..} =
@@ -159,4 +165,6 @@ newDisconnectParticipantResponse pHttpStatus_ =
 disconnectParticipantResponse_httpStatus :: Lens.Lens' DisconnectParticipantResponse Prelude.Int
 disconnectParticipantResponse_httpStatus = Lens.lens (\DisconnectParticipantResponse' {httpStatus} -> httpStatus) (\s@DisconnectParticipantResponse' {} a -> s {httpStatus = a} :: DisconnectParticipantResponse)
 
-instance Prelude.NFData DisconnectParticipantResponse
+instance Prelude.NFData DisconnectParticipantResponse where
+  rnf DisconnectParticipantResponse' {..} =
+    Prelude.rnf httpStatus

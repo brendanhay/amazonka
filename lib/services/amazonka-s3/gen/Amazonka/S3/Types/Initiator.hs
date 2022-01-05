@@ -74,6 +74,12 @@ instance Core.FromXML Initiator where
       Prelude.<$> (x Core..@? "DisplayName")
       Prelude.<*> (x Core..@? "ID")
 
-instance Prelude.Hashable Initiator
+instance Prelude.Hashable Initiator where
+  hashWithSalt _salt Initiator' {..} =
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Initiator
+instance Prelude.NFData Initiator where
+  rnf Initiator' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf id

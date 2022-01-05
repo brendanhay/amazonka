@@ -104,9 +104,19 @@ instance Core.FromXML TopicConfiguration where
       Prelude.<*> (x Core..@ "Topic")
       Prelude.<*> (Core.parseXMLList "Event" x)
 
-instance Prelude.Hashable TopicConfiguration
+instance Prelude.Hashable TopicConfiguration where
+  hashWithSalt _salt TopicConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData TopicConfiguration
+instance Prelude.NFData TopicConfiguration where
+  rnf TopicConfiguration' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToXML TopicConfiguration where
   toXML TopicConfiguration' {..} =

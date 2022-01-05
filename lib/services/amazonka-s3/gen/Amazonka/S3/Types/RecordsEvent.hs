@@ -63,6 +63,9 @@ instance Core.FromXML RecordsEvent where
   parseXML x =
     RecordsEvent' Prelude.<$> (x Core..@? "Payload")
 
-instance Prelude.Hashable RecordsEvent
+instance Prelude.Hashable RecordsEvent where
+  hashWithSalt _salt RecordsEvent' {..} =
+    _salt `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData RecordsEvent
+instance Prelude.NFData RecordsEvent where
+  rnf RecordsEvent' {..} = Prelude.rnf payload

@@ -137,8 +137,15 @@ instance Core.FromXML ServerSideEncryptionByDefault where
 instance
   Prelude.Hashable
     ServerSideEncryptionByDefault
+  where
+  hashWithSalt _salt ServerSideEncryptionByDefault' {..} =
+    _salt `Prelude.hashWithSalt` kmsMasterKeyID
+      `Prelude.hashWithSalt` sSEAlgorithm
 
-instance Prelude.NFData ServerSideEncryptionByDefault
+instance Prelude.NFData ServerSideEncryptionByDefault where
+  rnf ServerSideEncryptionByDefault' {..} =
+    Prelude.rnf kmsMasterKeyID
+      `Prelude.seq` Prelude.rnf sSEAlgorithm
 
 instance Core.ToXML ServerSideEncryptionByDefault where
   toXML ServerSideEncryptionByDefault' {..} =

@@ -69,9 +69,15 @@ completedPart_partNumber = Lens.lens (\CompletedPart' {partNumber} -> partNumber
 completedPart_eTag :: Lens.Lens' CompletedPart ETag
 completedPart_eTag = Lens.lens (\CompletedPart' {eTag} -> eTag) (\s@CompletedPart' {} a -> s {eTag = a} :: CompletedPart)
 
-instance Prelude.Hashable CompletedPart
+instance Prelude.Hashable CompletedPart where
+  hashWithSalt _salt CompletedPart' {..} =
+    _salt `Prelude.hashWithSalt` partNumber
+      `Prelude.hashWithSalt` eTag
 
-instance Prelude.NFData CompletedPart
+instance Prelude.NFData CompletedPart where
+  rnf CompletedPart' {..} =
+    Prelude.rnf partNumber
+      `Prelude.seq` Prelude.rnf eTag
 
 instance Core.ToXML CompletedPart where
   toXML CompletedPart' {..} =

@@ -65,9 +65,12 @@ instance Core.FromXML AccessControlTranslation where
     AccessControlTranslation'
       Prelude.<$> (x Core..@ "Owner")
 
-instance Prelude.Hashable AccessControlTranslation
+instance Prelude.Hashable AccessControlTranslation where
+  hashWithSalt _salt AccessControlTranslation' {..} =
+    _salt `Prelude.hashWithSalt` owner
 
-instance Prelude.NFData AccessControlTranslation
+instance Prelude.NFData AccessControlTranslation where
+  rnf AccessControlTranslation' {..} = Prelude.rnf owner
 
 instance Core.ToXML AccessControlTranslation where
   toXML AccessControlTranslation' {..} =

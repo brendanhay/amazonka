@@ -43,9 +43,12 @@ newSSES3 = SSES3'
 instance Core.FromXML SSES3 where
   parseXML = Prelude.const (Prelude.pure SSES3')
 
-instance Prelude.Hashable SSES3
+instance Prelude.Hashable SSES3 where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData SSES3
+instance Prelude.NFData SSES3 where
+  rnf _ = ()
 
 instance Core.ToXML SSES3 where
   toXML = Prelude.const Prelude.mempty

@@ -69,9 +69,15 @@ instance Core.FromXML ObjectLockRetention where
       Prelude.<$> (x Core..@? "Mode")
       Prelude.<*> (x Core..@? "RetainUntilDate")
 
-instance Prelude.Hashable ObjectLockRetention
+instance Prelude.Hashable ObjectLockRetention where
+  hashWithSalt _salt ObjectLockRetention' {..} =
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` retainUntilDate
 
-instance Prelude.NFData ObjectLockRetention
+instance Prelude.NFData ObjectLockRetention where
+  rnf ObjectLockRetention' {..} =
+    Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf retainUntilDate
 
 instance Core.ToXML ObjectLockRetention where
   toXML ObjectLockRetention' {..} =

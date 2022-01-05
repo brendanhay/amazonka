@@ -95,9 +95,17 @@ encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@
 encryption_encryptionType :: Lens.Lens' Encryption ServerSideEncryption
 encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encryptionType) (\s@Encryption' {} a -> s {encryptionType = a} :: Encryption)
 
-instance Prelude.Hashable Encryption
+instance Prelude.Hashable Encryption where
+  hashWithSalt _salt Encryption' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` kmsContext
+      `Prelude.hashWithSalt` encryptionType
 
-instance Prelude.NFData Encryption
+instance Prelude.NFData Encryption where
+  rnf Encryption' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf kmsContext
+      `Prelude.seq` Prelude.rnf encryptionType
 
 instance Core.ToXML Encryption where
   toXML Encryption' {..} =

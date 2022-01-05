@@ -142,10 +142,19 @@ instance
 instance
   Prelude.Hashable
     GetBucketIntelligentTieringConfiguration
+  where
+  hashWithSalt
+    _salt
+    GetBucketIntelligentTieringConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetBucketIntelligentTieringConfiguration
+  where
+  rnf GetBucketIntelligentTieringConfiguration' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -211,3 +220,8 @@ getBucketIntelligentTieringConfigurationResponse_httpStatus = Lens.lens (\GetBuc
 instance
   Prelude.NFData
     GetBucketIntelligentTieringConfigurationResponse
+  where
+  rnf
+    GetBucketIntelligentTieringConfigurationResponse' {..} =
+      Prelude.rnf intelligentTieringConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

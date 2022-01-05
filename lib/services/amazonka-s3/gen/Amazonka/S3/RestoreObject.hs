@@ -434,9 +434,23 @@ instance Core.AWSRequest RestoreObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreObject
+instance Prelude.Hashable RestoreObject where
+  hashWithSalt _salt RestoreObject' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` restoreRequest
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData RestoreObject
+instance Prelude.NFData RestoreObject where
+  rnf RestoreObject' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf restoreRequest
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToElement RestoreObject where
   toElement RestoreObject' {..} =
@@ -512,4 +526,8 @@ restoreObjectResponse_restoreOutputPath = Lens.lens (\RestoreObjectResponse' {re
 restoreObjectResponse_httpStatus :: Lens.Lens' RestoreObjectResponse Prelude.Int
 restoreObjectResponse_httpStatus = Lens.lens (\RestoreObjectResponse' {httpStatus} -> httpStatus) (\s@RestoreObjectResponse' {} a -> s {httpStatus = a} :: RestoreObjectResponse)
 
-instance Prelude.NFData RestoreObjectResponse
+instance Prelude.NFData RestoreObjectResponse where
+  rnf RestoreObjectResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf restoreOutputPath
+      `Prelude.seq` Prelude.rnf httpStatus

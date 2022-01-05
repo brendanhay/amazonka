@@ -184,10 +184,24 @@ instance Core.FromXML PublicAccessBlockConfiguration where
 instance
   Prelude.Hashable
     PublicAccessBlockConfiguration
+  where
+  hashWithSalt
+    _salt
+    PublicAccessBlockConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` ignorePublicAcls
+        `Prelude.hashWithSalt` blockPublicAcls
+        `Prelude.hashWithSalt` restrictPublicBuckets
+        `Prelude.hashWithSalt` blockPublicPolicy
 
 instance
   Prelude.NFData
     PublicAccessBlockConfiguration
+  where
+  rnf PublicAccessBlockConfiguration' {..} =
+    Prelude.rnf ignorePublicAcls
+      `Prelude.seq` Prelude.rnf blockPublicAcls
+      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+      `Prelude.seq` Prelude.rnf blockPublicPolicy
 
 instance Core.ToXML PublicAccessBlockConfiguration where
   toXML PublicAccessBlockConfiguration' {..} =

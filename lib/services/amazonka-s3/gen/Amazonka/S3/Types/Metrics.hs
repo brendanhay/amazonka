@@ -76,9 +76,15 @@ instance Core.FromXML Metrics where
       Prelude.<$> (x Core..@? "EventThreshold")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable Metrics
+instance Prelude.Hashable Metrics where
+  hashWithSalt _salt Metrics' {..} =
+    _salt `Prelude.hashWithSalt` eventThreshold
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Metrics
+instance Prelude.NFData Metrics where
+  rnf Metrics' {..} =
+    Prelude.rnf eventThreshold
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToXML Metrics where
   toXML Metrics' {..} =

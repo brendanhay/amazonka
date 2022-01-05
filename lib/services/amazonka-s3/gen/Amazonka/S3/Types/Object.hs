@@ -179,6 +179,20 @@ instance Core.FromXML Object where
       Prelude.<*> (x Core..@ "StorageClass")
       Prelude.<*> (x Core..@ "LastModified")
 
-instance Prelude.Hashable Object
+instance Prelude.Hashable Object where
+  hashWithSalt _salt Object' {..} =
+    _salt `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` lastModified
 
-instance Prelude.NFData Object
+instance Prelude.NFData Object where
+  rnf Object' {..} =
+    Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf lastModified

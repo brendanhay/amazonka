@@ -78,9 +78,13 @@ instance Core.FromXML EncryptionConfiguration where
     EncryptionConfiguration'
       Prelude.<$> (x Core..@? "ReplicaKmsKeyID")
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Prelude.Hashable EncryptionConfiguration where
+  hashWithSalt _salt EncryptionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` replicaKmsKeyID
 
-instance Prelude.NFData EncryptionConfiguration
+instance Prelude.NFData EncryptionConfiguration where
+  rnf EncryptionConfiguration' {..} =
+    Prelude.rnf replicaKmsKeyID
 
 instance Core.ToXML EncryptionConfiguration where
   toXML EncryptionConfiguration' {..} =

@@ -456,9 +456,9 @@ module Amazonka.S3.Lens
     createMultipartUploadResponse_sSECustomerKeyMD5,
     createMultipartUploadResponse_sSEKMSKeyId,
     createMultipartUploadResponse_sSEKMSEncryptionContext,
-    createMultipartUploadResponse_uploadId,
     createMultipartUploadResponse_serverSideEncryption,
     createMultipartUploadResponse_httpStatus,
+    createMultipartUploadResponse_uploadId,
 
     -- ** GetBucketPolicyStatus
     getBucketPolicyStatus_expectedBucketOwner,

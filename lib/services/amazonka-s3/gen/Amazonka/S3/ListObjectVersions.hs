@@ -290,9 +290,27 @@ instance Core.AWSRequest ListObjectVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectVersions
+instance Prelude.Hashable ListObjectVersions where
+  hashWithSalt _salt ListObjectVersions' {..} =
+    _salt `Prelude.hashWithSalt` keyMarker
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` versionIdMarker
+      `Prelude.hashWithSalt` maxKeys
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData ListObjectVersions
+instance Prelude.NFData ListObjectVersions where
+  rnf ListObjectVersions' {..} =
+    Prelude.rnf keyMarker
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf versionIdMarker
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders ListObjectVersions where
   toHeaders ListObjectVersions' {..} =
@@ -533,4 +551,19 @@ listObjectVersionsResponse_delimiter = Lens.lens (\ListObjectVersionsResponse' {
 listObjectVersionsResponse_httpStatus :: Lens.Lens' ListObjectVersionsResponse Prelude.Int
 listObjectVersionsResponse_httpStatus = Lens.lens (\ListObjectVersionsResponse' {httpStatus} -> httpStatus) (\s@ListObjectVersionsResponse' {} a -> s {httpStatus = a} :: ListObjectVersionsResponse)
 
-instance Prelude.NFData ListObjectVersionsResponse
+instance Prelude.NFData ListObjectVersionsResponse where
+  rnf ListObjectVersionsResponse' {..} =
+    Prelude.rnf nextVersionIdMarker
+      `Prelude.seq` Prelude.rnf keyMarker
+      `Prelude.seq` Prelude.rnf deleteMarkers
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf commonPrefixes
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextKeyMarker
+      `Prelude.seq` Prelude.rnf versionIdMarker
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf httpStatus

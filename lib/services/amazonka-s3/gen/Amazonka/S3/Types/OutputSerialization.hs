@@ -64,9 +64,14 @@ outputSerialization_json = Lens.lens (\OutputSerialization' {json} -> json) (\s@
 outputSerialization_csv :: Lens.Lens' OutputSerialization (Prelude.Maybe CSVOutput)
 outputSerialization_csv = Lens.lens (\OutputSerialization' {csv} -> csv) (\s@OutputSerialization' {} a -> s {csv = a} :: OutputSerialization)
 
-instance Prelude.Hashable OutputSerialization
+instance Prelude.Hashable OutputSerialization where
+  hashWithSalt _salt OutputSerialization' {..} =
+    _salt `Prelude.hashWithSalt` json
+      `Prelude.hashWithSalt` csv
 
-instance Prelude.NFData OutputSerialization
+instance Prelude.NFData OutputSerialization where
+  rnf OutputSerialization' {..} =
+    Prelude.rnf json `Prelude.seq` Prelude.rnf csv
 
 instance Core.ToXML OutputSerialization where
   toXML OutputSerialization' {..} =

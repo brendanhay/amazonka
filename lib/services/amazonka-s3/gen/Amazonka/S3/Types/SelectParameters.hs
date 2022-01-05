@@ -96,9 +96,19 @@ selectParameters_expression = Lens.lens (\SelectParameters' {expression} -> expr
 selectParameters_outputSerialization :: Lens.Lens' SelectParameters OutputSerialization
 selectParameters_outputSerialization = Lens.lens (\SelectParameters' {outputSerialization} -> outputSerialization) (\s@SelectParameters' {} a -> s {outputSerialization = a} :: SelectParameters)
 
-instance Prelude.Hashable SelectParameters
+instance Prelude.Hashable SelectParameters where
+  hashWithSalt _salt SelectParameters' {..} =
+    _salt `Prelude.hashWithSalt` inputSerialization
+      `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` outputSerialization
 
-instance Prelude.NFData SelectParameters
+instance Prelude.NFData SelectParameters where
+  rnf SelectParameters' {..} =
+    Prelude.rnf inputSerialization
+      `Prelude.seq` Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf outputSerialization
 
 instance Core.ToXML SelectParameters where
   toXML SelectParameters' {..} =

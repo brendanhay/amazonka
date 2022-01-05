@@ -279,9 +279,25 @@ instance Core.AWSRequest PutObjectTagging where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectTagging
+instance Prelude.Hashable PutObjectTagging where
+  hashWithSalt _salt PutObjectTagging' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tagging
 
-instance Prelude.NFData PutObjectTagging
+instance Prelude.NFData PutObjectTagging where
+  rnf PutObjectTagging' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf tagging
 
 instance Core.ToElement PutObjectTagging where
   toElement PutObjectTagging' {..} =
@@ -347,4 +363,7 @@ putObjectTaggingResponse_versionId = Lens.lens (\PutObjectTaggingResponse' {vers
 putObjectTaggingResponse_httpStatus :: Lens.Lens' PutObjectTaggingResponse Prelude.Int
 putObjectTaggingResponse_httpStatus = Lens.lens (\PutObjectTaggingResponse' {httpStatus} -> httpStatus) (\s@PutObjectTaggingResponse' {} a -> s {httpStatus = a} :: PutObjectTaggingResponse)
 
-instance Prelude.NFData PutObjectTaggingResponse
+instance Prelude.NFData PutObjectTaggingResponse where
+  rnf PutObjectTaggingResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus

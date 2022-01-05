@@ -59,9 +59,12 @@ instance Core.FromXML InventorySchedule where
     InventorySchedule'
       Prelude.<$> (x Core..@ "Frequency")
 
-instance Prelude.Hashable InventorySchedule
+instance Prelude.Hashable InventorySchedule where
+  hashWithSalt _salt InventorySchedule' {..} =
+    _salt `Prelude.hashWithSalt` frequency
 
-instance Prelude.NFData InventorySchedule
+instance Prelude.NFData InventorySchedule where
+  rnf InventorySchedule' {..} = Prelude.rnf frequency
 
 instance Core.ToXML InventorySchedule where
   toXML InventorySchedule' {..} =

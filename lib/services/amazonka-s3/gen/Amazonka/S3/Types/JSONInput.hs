@@ -51,9 +51,12 @@ newJSONInput = JSONInput' {type' = Prelude.Nothing}
 jSONInput_type :: Lens.Lens' JSONInput (Prelude.Maybe JSONType)
 jSONInput_type = Lens.lens (\JSONInput' {type'} -> type') (\s@JSONInput' {} a -> s {type' = a} :: JSONInput)
 
-instance Prelude.Hashable JSONInput
+instance Prelude.Hashable JSONInput where
+  hashWithSalt _salt JSONInput' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData JSONInput
+instance Prelude.NFData JSONInput where
+  rnf JSONInput' {..} = Prelude.rnf type'
 
 instance Core.ToXML JSONInput where
   toXML JSONInput' {..} =

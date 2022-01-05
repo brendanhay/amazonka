@@ -117,9 +117,15 @@ instance Core.AWSRequest DeletePublicAccessBlock where
     Response.receiveNull
       DeletePublicAccessBlockResponse'
 
-instance Prelude.Hashable DeletePublicAccessBlock
+instance Prelude.Hashable DeletePublicAccessBlock where
+  hashWithSalt _salt DeletePublicAccessBlock' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData DeletePublicAccessBlock
+instance Prelude.NFData DeletePublicAccessBlock where
+  rnf DeletePublicAccessBlock' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeletePublicAccessBlock where
   toHeaders DeletePublicAccessBlock' {..} =
@@ -155,3 +161,5 @@ newDeletePublicAccessBlockResponse =
 instance
   Prelude.NFData
     DeletePublicAccessBlockResponse
+  where
+  rnf _ = ()

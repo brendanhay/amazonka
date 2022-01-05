@@ -135,10 +135,19 @@ instance
 instance
   Prelude.Hashable
     DeleteBucketIntelligentTieringConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteBucketIntelligentTieringConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteBucketIntelligentTieringConfiguration
+  where
+  rnf DeleteBucketIntelligentTieringConfiguration' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -181,3 +190,5 @@ newDeleteBucketIntelligentTieringConfigurationResponse =
 instance
   Prelude.NFData
     DeleteBucketIntelligentTieringConfigurationResponse
+  where
+  rnf _ = ()

@@ -93,9 +93,17 @@ instance Core.FromXML LifecycleExpiration where
       Prelude.<*> (x Core..@? "Date")
       Prelude.<*> (x Core..@? "ExpiredObjectDeleteMarker")
 
-instance Prelude.Hashable LifecycleExpiration
+instance Prelude.Hashable LifecycleExpiration where
+  hashWithSalt _salt LifecycleExpiration' {..} =
+    _salt `Prelude.hashWithSalt` days
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` expiredObjectDeleteMarker
 
-instance Prelude.NFData LifecycleExpiration
+instance Prelude.NFData LifecycleExpiration where
+  rnf LifecycleExpiration' {..} =
+    Prelude.rnf days
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
 
 instance Core.ToXML LifecycleExpiration where
   toXML LifecycleExpiration' {..} =

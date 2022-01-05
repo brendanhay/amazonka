@@ -191,9 +191,21 @@ instance Core.AWSRequest PutBucketVersioning where
   response =
     Response.receiveNull PutBucketVersioningResponse'
 
-instance Prelude.Hashable PutBucketVersioning
+instance Prelude.Hashable PutBucketVersioning where
+  hashWithSalt _salt PutBucketVersioning' {..} =
+    _salt `Prelude.hashWithSalt` mfa
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` versioningConfiguration
 
-instance Prelude.NFData PutBucketVersioning
+instance Prelude.NFData PutBucketVersioning where
+  rnf PutBucketVersioning' {..} =
+    Prelude.rnf mfa
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf versioningConfiguration
 
 instance Core.ToElement PutBucketVersioning where
   toElement PutBucketVersioning' {..} =
@@ -233,4 +245,5 @@ newPutBucketVersioningResponse ::
 newPutBucketVersioningResponse =
   PutBucketVersioningResponse'
 
-instance Prelude.NFData PutBucketVersioningResponse
+instance Prelude.NFData PutBucketVersioningResponse where
+  rnf _ = ()

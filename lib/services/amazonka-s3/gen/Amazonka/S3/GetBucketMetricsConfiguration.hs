@@ -148,8 +148,17 @@ instance
 instance
   Prelude.Hashable
     GetBucketMetricsConfiguration
+  where
+  hashWithSalt _salt GetBucketMetricsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetBucketMetricsConfiguration
+instance Prelude.NFData GetBucketMetricsConfiguration where
+  rnf GetBucketMetricsConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetBucketMetricsConfiguration where
   toHeaders GetBucketMetricsConfiguration' {..} =
@@ -208,3 +217,7 @@ getBucketMetricsConfigurationResponse_httpStatus = Lens.lens (\GetBucketMetricsC
 instance
   Prelude.NFData
     GetBucketMetricsConfigurationResponse
+  where
+  rnf GetBucketMetricsConfigurationResponse' {..} =
+    Prelude.rnf metricsConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

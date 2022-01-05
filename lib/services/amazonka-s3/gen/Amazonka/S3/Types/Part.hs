@@ -91,6 +91,16 @@ instance Core.FromXML Part where
       Prelude.<*> (x Core..@? "PartNumber")
       Prelude.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable Part
+instance Prelude.Hashable Part where
+  hashWithSalt _salt Part' {..} =
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` partNumber
+      `Prelude.hashWithSalt` lastModified
 
-instance Prelude.NFData Part
+instance Prelude.NFData Part where
+  rnf Part' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf partNumber
+      `Prelude.seq` Prelude.rnf lastModified

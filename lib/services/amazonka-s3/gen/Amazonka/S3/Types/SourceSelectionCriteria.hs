@@ -109,9 +109,15 @@ instance Core.FromXML SourceSelectionCriteria where
       Prelude.<$> (x Core..@? "ReplicaModifications")
       Prelude.<*> (x Core..@? "SseKmsEncryptedObjects")
 
-instance Prelude.Hashable SourceSelectionCriteria
+instance Prelude.Hashable SourceSelectionCriteria where
+  hashWithSalt _salt SourceSelectionCriteria' {..} =
+    _salt `Prelude.hashWithSalt` replicaModifications
+      `Prelude.hashWithSalt` sseKmsEncryptedObjects
 
-instance Prelude.NFData SourceSelectionCriteria
+instance Prelude.NFData SourceSelectionCriteria where
+  rnf SourceSelectionCriteria' {..} =
+    Prelude.rnf replicaModifications
+      `Prelude.seq` Prelude.rnf sseKmsEncryptedObjects
 
 instance Core.ToXML SourceSelectionCriteria where
   toXML SourceSelectionCriteria' {..} =

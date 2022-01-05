@@ -61,9 +61,12 @@ instance Core.FromXML InventoryFilter where
   parseXML x =
     InventoryFilter' Prelude.<$> (x Core..@ "Prefix")
 
-instance Prelude.Hashable InventoryFilter
+instance Prelude.Hashable InventoryFilter where
+  hashWithSalt _salt InventoryFilter' {..} =
+    _salt `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData InventoryFilter
+instance Prelude.NFData InventoryFilter where
+  rnf InventoryFilter' {..} = Prelude.rnf prefix
 
 instance Core.ToXML InventoryFilter where
   toXML InventoryFilter' {..} =

@@ -126,9 +126,27 @@ s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@
 s3Location_prefix :: Lens.Lens' S3Location Prelude.Text
 s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' {} a -> s {prefix = a} :: S3Location)
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt _salt S3Location' {..} =
+    _salt `Prelude.hashWithSalt` cannedACL
+      `Prelude.hashWithSalt` accessControlList
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf cannedACL
+      `Prelude.seq` Prelude.rnf accessControlList
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML S3Location where
   toXML S3Location' {..} =

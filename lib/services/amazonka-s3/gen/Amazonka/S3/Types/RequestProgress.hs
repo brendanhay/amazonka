@@ -55,9 +55,12 @@ newRequestProgress =
 requestProgress_enabled :: Lens.Lens' RequestProgress (Prelude.Maybe Prelude.Bool)
 requestProgress_enabled = Lens.lens (\RequestProgress' {enabled} -> enabled) (\s@RequestProgress' {} a -> s {enabled = a} :: RequestProgress)
 
-instance Prelude.Hashable RequestProgress
+instance Prelude.Hashable RequestProgress where
+  hashWithSalt _salt RequestProgress' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData RequestProgress
+instance Prelude.NFData RequestProgress where
+  rnf RequestProgress' {..} = Prelude.rnf enabled
 
 instance Core.ToXML RequestProgress where
   toXML RequestProgress' {..} =

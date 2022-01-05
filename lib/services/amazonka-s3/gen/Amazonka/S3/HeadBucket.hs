@@ -175,9 +175,15 @@ instance Core.AWSRequest HeadBucket where
       Prelude.. Request.head' defaultService
   response = Response.receiveNull HeadBucketResponse'
 
-instance Prelude.Hashable HeadBucket
+instance Prelude.Hashable HeadBucket where
+  hashWithSalt _salt HeadBucket' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData HeadBucket
+instance Prelude.NFData HeadBucket where
+  rnf HeadBucket' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders HeadBucket where
   toHeaders HeadBucket' {..} =
@@ -207,4 +213,5 @@ newHeadBucketResponse ::
   HeadBucketResponse
 newHeadBucketResponse = HeadBucketResponse'
 
-instance Prelude.NFData HeadBucketResponse
+instance Prelude.NFData HeadBucketResponse where
+  rnf _ = ()

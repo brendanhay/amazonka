@@ -60,9 +60,13 @@ newCreateBucketConfiguration =
 createBucketConfiguration_locationConstraint :: Lens.Lens' CreateBucketConfiguration (Prelude.Maybe LocationConstraint)
 createBucketConfiguration_locationConstraint = Lens.lens (\CreateBucketConfiguration' {locationConstraint} -> locationConstraint) (\s@CreateBucketConfiguration' {} a -> s {locationConstraint = a} :: CreateBucketConfiguration)
 
-instance Prelude.Hashable CreateBucketConfiguration
+instance Prelude.Hashable CreateBucketConfiguration where
+  hashWithSalt _salt CreateBucketConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` locationConstraint
 
-instance Prelude.NFData CreateBucketConfiguration
+instance Prelude.NFData CreateBucketConfiguration where
+  rnf CreateBucketConfiguration' {..} =
+    Prelude.rnf locationConstraint
 
 instance Core.ToXML CreateBucketConfiguration where
   toXML CreateBucketConfiguration' {..} =

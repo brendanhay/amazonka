@@ -44,6 +44,9 @@ instance Core.FromXML ContinuationEvent where
   parseXML =
     Prelude.const (Prelude.pure ContinuationEvent')
 
-instance Prelude.Hashable ContinuationEvent
+instance Prelude.Hashable ContinuationEvent where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData ContinuationEvent
+instance Prelude.NFData ContinuationEvent where
+  rnf _ = ()

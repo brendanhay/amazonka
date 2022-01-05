@@ -291,9 +291,29 @@ instance Core.AWSRequest CreateBucket where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBucket
+instance Prelude.Hashable CreateBucket where
+  hashWithSalt _salt CreateBucket' {..} =
+    _salt `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` objectLockEnabledForBucket
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` createBucketConfiguration
+      `Prelude.hashWithSalt` grantWrite
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData CreateBucket
+instance Prelude.NFData CreateBucket where
+  rnf CreateBucket' {..} =
+    Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf objectLockEnabledForBucket
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf createBucketConfiguration
+      `Prelude.seq` Prelude.rnf grantWrite
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToElement CreateBucket where
   toElement CreateBucket' {..} =
@@ -365,4 +385,7 @@ createBucketResponse_location = Lens.lens (\CreateBucketResponse' {location} -> 
 createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Prelude.Int
 createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus} -> httpStatus) (\s@CreateBucketResponse' {} a -> s {httpStatus = a} :: CreateBucketResponse)
 
-instance Prelude.NFData CreateBucketResponse
+instance Prelude.NFData CreateBucketResponse where
+  rnf CreateBucketResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus

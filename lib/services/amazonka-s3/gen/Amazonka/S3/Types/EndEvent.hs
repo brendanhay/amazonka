@@ -45,6 +45,9 @@ newEndEvent = EndEvent'
 instance Core.FromXML EndEvent where
   parseXML = Prelude.const (Prelude.pure EndEvent')
 
-instance Prelude.Hashable EndEvent
+instance Prelude.Hashable EndEvent where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData EndEvent
+instance Prelude.NFData EndEvent where
+  rnf _ = ()

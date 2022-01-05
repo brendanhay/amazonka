@@ -135,9 +135,23 @@ instance Core.FromXML CORSRule where
       Prelude.<*> (Core.parseXMLList "AllowedMethod" x)
       Prelude.<*> (Core.parseXMLList "AllowedOrigin" x)
 
-instance Prelude.Hashable CORSRule
+instance Prelude.Hashable CORSRule where
+  hashWithSalt _salt CORSRule' {..} =
+    _salt `Prelude.hashWithSalt` maxAgeSeconds
+      `Prelude.hashWithSalt` allowedHeaders
+      `Prelude.hashWithSalt` exposeHeaders
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` allowedMethods
+      `Prelude.hashWithSalt` allowedOrigins
 
-instance Prelude.NFData CORSRule
+instance Prelude.NFData CORSRule where
+  rnf CORSRule' {..} =
+    Prelude.rnf maxAgeSeconds
+      `Prelude.seq` Prelude.rnf allowedHeaders
+      `Prelude.seq` Prelude.rnf exposeHeaders
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf allowedMethods
+      `Prelude.seq` Prelude.rnf allowedOrigins
 
 instance Core.ToXML CORSRule where
   toXML CORSRule' {..} =

@@ -70,9 +70,15 @@ instance Core.FromXML TargetGrant where
       Prelude.<$> (x Core..@? "Permission")
       Prelude.<*> (x Core..@? "Grantee")
 
-instance Prelude.Hashable TargetGrant
+instance Prelude.Hashable TargetGrant where
+  hashWithSalt _salt TargetGrant' {..} =
+    _salt `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` grantee
 
-instance Prelude.NFData TargetGrant
+instance Prelude.NFData TargetGrant where
+  rnf TargetGrant' {..} =
+    Prelude.rnf permission
+      `Prelude.seq` Prelude.rnf grantee
 
 instance Core.ToXML TargetGrant where
   toXML TargetGrant' {..} =

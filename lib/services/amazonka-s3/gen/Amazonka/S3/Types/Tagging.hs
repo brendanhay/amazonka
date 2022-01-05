@@ -51,9 +51,12 @@ newTagging = Tagging' {tagSet = Prelude.mempty}
 tagging_tagSet :: Lens.Lens' Tagging [Tag]
 tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Prelude.. Lens.coerced
 
-instance Prelude.Hashable Tagging
+instance Prelude.Hashable Tagging where
+  hashWithSalt _salt Tagging' {..} =
+    _salt `Prelude.hashWithSalt` tagSet
 
-instance Prelude.NFData Tagging
+instance Prelude.NFData Tagging where
+  rnf Tagging' {..} = Prelude.rnf tagSet
 
 instance Core.ToXML Tagging where
   toXML Tagging' {..} =

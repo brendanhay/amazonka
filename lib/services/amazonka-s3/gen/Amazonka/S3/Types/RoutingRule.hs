@@ -93,9 +93,15 @@ instance Core.FromXML RoutingRule where
       Prelude.<$> (x Core..@? "Condition")
       Prelude.<*> (x Core..@ "Redirect")
 
-instance Prelude.Hashable RoutingRule
+instance Prelude.Hashable RoutingRule where
+  hashWithSalt _salt RoutingRule' {..} =
+    _salt `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` redirect
 
-instance Prelude.NFData RoutingRule
+instance Prelude.NFData RoutingRule where
+  rnf RoutingRule' {..} =
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf redirect
 
 instance Core.ToXML RoutingRule where
   toXML RoutingRule' {..} =

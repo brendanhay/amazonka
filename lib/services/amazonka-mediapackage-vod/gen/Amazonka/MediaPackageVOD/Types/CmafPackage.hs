@@ -108,9 +108,20 @@ instance Core.FromJSON CmafPackage where
             Prelude.<*> (x Core..:? "hlsManifests" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CmafPackage
+instance Prelude.Hashable CmafPackage where
+  hashWithSalt _salt CmafPackage' {..} =
+    _salt
+      `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` hlsManifests
 
-instance Prelude.NFData CmafPackage
+instance Prelude.NFData CmafPackage where
+  rnf CmafPackage' {..} =
+    Prelude.rnf includeEncoderConfigurationInSegments
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf hlsManifests
 
 instance Core.ToJSON CmafPackage where
   toJSON CmafPackage' {..} =

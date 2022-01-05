@@ -96,9 +96,12 @@ instance Core.AWSRequest DescribePackagingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePackagingGroup
+instance Prelude.Hashable DescribePackagingGroup where
+  hashWithSalt _salt DescribePackagingGroup' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribePackagingGroup
+instance Prelude.NFData DescribePackagingGroup where
+  rnf DescribePackagingGroup' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribePackagingGroup where
   toHeaders =
@@ -203,3 +206,12 @@ describePackagingGroupResponse_httpStatus = Lens.lens (\DescribePackagingGroupRe
 instance
   Prelude.NFData
     DescribePackagingGroupResponse
+  where
+  rnf DescribePackagingGroupResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

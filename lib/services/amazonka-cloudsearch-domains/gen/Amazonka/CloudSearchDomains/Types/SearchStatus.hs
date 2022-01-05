@@ -71,6 +71,11 @@ instance Core.FromJSON SearchStatus where
             Prelude.<$> (x Core..:? "rid") Prelude.<*> (x Core..:? "timems")
       )
 
-instance Prelude.Hashable SearchStatus
+instance Prelude.Hashable SearchStatus where
+  hashWithSalt _salt SearchStatus' {..} =
+    _salt `Prelude.hashWithSalt` rid
+      `Prelude.hashWithSalt` timems
 
-instance Prelude.NFData SearchStatus
+instance Prelude.NFData SearchStatus where
+  rnf SearchStatus' {..} =
+    Prelude.rnf rid `Prelude.seq` Prelude.rnf timems

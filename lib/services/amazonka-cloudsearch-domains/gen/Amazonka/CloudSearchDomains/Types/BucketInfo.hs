@@ -60,6 +60,9 @@ instance Core.FromJSON BucketInfo where
             Prelude.<$> (x Core..:? "buckets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BucketInfo
+instance Prelude.Hashable BucketInfo where
+  hashWithSalt _salt BucketInfo' {..} =
+    _salt `Prelude.hashWithSalt` buckets
 
-instance Prelude.NFData BucketInfo
+instance Prelude.NFData BucketInfo where
+  rnf BucketInfo' {..} = Prelude.rnf buckets

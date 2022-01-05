@@ -57,9 +57,12 @@ instance Core.FromJSON Source where
           Source' Prelude.<$> (x Core..:? "s3Location")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt _salt Source' {..} =
+    _salt `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} = Prelude.rnf s3Location
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =

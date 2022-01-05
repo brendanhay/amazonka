@@ -125,9 +125,20 @@ instance Core.AWSRequest PutAppLaunchConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAppLaunchConfiguration
+instance Prelude.Hashable PutAppLaunchConfiguration where
+  hashWithSalt _salt PutAppLaunchConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` serverGroupLaunchConfigurations
+      `Prelude.hashWithSalt` autoLaunch
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData PutAppLaunchConfiguration
+instance Prelude.NFData PutAppLaunchConfiguration where
+  rnf PutAppLaunchConfiguration' {..} =
+    Prelude.rnf serverGroupLaunchConfigurations
+      `Prelude.seq` Prelude.rnf autoLaunch
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders PutAppLaunchConfiguration where
   toHeaders =
@@ -195,3 +206,6 @@ putAppLaunchConfigurationResponse_httpStatus = Lens.lens (\PutAppLaunchConfigura
 instance
   Prelude.NFData
     PutAppLaunchConfigurationResponse
+  where
+  rnf PutAppLaunchConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -227,9 +227,31 @@ instance Core.AWSRequest CreateReplicationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplicationJob
+instance Prelude.Hashable CreateReplicationJob where
+  hashWithSalt _salt CreateReplicationJob' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` numberOfRecentAmisToKeep
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` runOnce
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` seedReplicationTime
 
-instance Prelude.NFData CreateReplicationJob
+instance Prelude.NFData CreateReplicationJob where
+  rnf CreateReplicationJob' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf runOnce
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf seedReplicationTime
 
 instance Core.ToHeaders CreateReplicationJob where
   toHeaders =
@@ -310,4 +332,7 @@ createReplicationJobResponse_replicationJobId = Lens.lens (\CreateReplicationJob
 createReplicationJobResponse_httpStatus :: Lens.Lens' CreateReplicationJobResponse Prelude.Int
 createReplicationJobResponse_httpStatus = Lens.lens (\CreateReplicationJobResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationJobResponse' {} a -> s {httpStatus = a} :: CreateReplicationJobResponse)
 
-instance Prelude.NFData CreateReplicationJobResponse
+instance Prelude.NFData CreateReplicationJobResponse where
+  rnf CreateReplicationJobResponse' {..} =
+    Prelude.rnf replicationJobId
+      `Prelude.seq` Prelude.rnf httpStatus

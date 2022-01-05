@@ -77,8 +77,15 @@ instance Core.FromJSON UserDataValidationParameters where
 instance
   Prelude.Hashable
     UserDataValidationParameters
+  where
+  hashWithSalt _salt UserDataValidationParameters' {..} =
+    _salt `Prelude.hashWithSalt` scriptType
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData UserDataValidationParameters
+instance Prelude.NFData UserDataValidationParameters where
+  rnf UserDataValidationParameters' {..} =
+    Prelude.rnf scriptType
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON UserDataValidationParameters where
   toJSON UserDataValidationParameters' {..} =

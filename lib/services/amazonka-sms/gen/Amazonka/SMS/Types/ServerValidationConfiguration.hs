@@ -108,8 +108,22 @@ instance Core.FromJSON ServerValidationConfiguration where
 instance
   Prelude.Hashable
     ServerValidationConfiguration
+  where
+  hashWithSalt _salt ServerValidationConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` serverValidationStrategy
+      `Prelude.hashWithSalt` userDataValidationParameters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` server
+      `Prelude.hashWithSalt` validationId
 
-instance Prelude.NFData ServerValidationConfiguration
+instance Prelude.NFData ServerValidationConfiguration where
+  rnf ServerValidationConfiguration' {..} =
+    Prelude.rnf serverValidationStrategy
+      `Prelude.seq` Prelude.rnf userDataValidationParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf server
+      `Prelude.seq` Prelude.rnf validationId
 
 instance Core.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =

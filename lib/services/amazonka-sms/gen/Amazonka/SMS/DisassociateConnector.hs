@@ -87,9 +87,13 @@ instance Core.AWSRequest DisassociateConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateConnector
+instance Prelude.Hashable DisassociateConnector where
+  hashWithSalt _salt DisassociateConnector' {..} =
+    _salt `Prelude.hashWithSalt` connectorId
 
-instance Prelude.NFData DisassociateConnector
+instance Prelude.NFData DisassociateConnector where
+  rnf DisassociateConnector' {..} =
+    Prelude.rnf connectorId
 
 instance Core.ToHeaders DisassociateConnector where
   toHeaders =
@@ -149,4 +153,6 @@ newDisassociateConnectorResponse pHttpStatus_ =
 disassociateConnectorResponse_httpStatus :: Lens.Lens' DisassociateConnectorResponse Prelude.Int
 disassociateConnectorResponse_httpStatus = Lens.lens (\DisassociateConnectorResponse' {httpStatus} -> httpStatus) (\s@DisassociateConnectorResponse' {} a -> s {httpStatus = a} :: DisassociateConnectorResponse)
 
-instance Prelude.NFData DisassociateConnectorResponse
+instance Prelude.NFData DisassociateConnectorResponse where
+  rnf DisassociateConnectorResponse' {..} =
+    Prelude.rnf httpStatus

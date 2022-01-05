@@ -90,10 +90,18 @@ instance
 instance
   Prelude.Hashable
     DeleteAppValidationConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteAppValidationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` appId
 
 instance
   Prelude.NFData
     DeleteAppValidationConfiguration
+  where
+  rnf DeleteAppValidationConfiguration' {..} =
+    Prelude.rnf appId
 
 instance
   Core.ToHeaders
@@ -163,3 +171,6 @@ deleteAppValidationConfigurationResponse_httpStatus = Lens.lens (\DeleteAppValid
 instance
   Prelude.NFData
     DeleteAppValidationConfigurationResponse
+  where
+  rnf DeleteAppValidationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

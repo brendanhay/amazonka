@@ -144,9 +144,17 @@ instance Core.AWSRequest GetReplicationRuns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetReplicationRuns
+instance Prelude.Hashable GetReplicationRuns where
+  hashWithSalt _salt GetReplicationRuns' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` replicationJobId
 
-instance Prelude.NFData GetReplicationRuns
+instance Prelude.NFData GetReplicationRuns where
+  rnf GetReplicationRuns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf replicationJobId
 
 instance Core.ToHeaders GetReplicationRuns where
   toHeaders =
@@ -240,4 +248,9 @@ getReplicationRunsResponse_replicationRunList = Lens.lens (\GetReplicationRunsRe
 getReplicationRunsResponse_httpStatus :: Lens.Lens' GetReplicationRunsResponse Prelude.Int
 getReplicationRunsResponse_httpStatus = Lens.lens (\GetReplicationRunsResponse' {httpStatus} -> httpStatus) (\s@GetReplicationRunsResponse' {} a -> s {httpStatus = a} :: GetReplicationRunsResponse)
 
-instance Prelude.NFData GetReplicationRunsResponse
+instance Prelude.NFData GetReplicationRunsResponse where
+  rnf GetReplicationRunsResponse' {..} =
+    Prelude.rnf replicationJob
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replicationRunList
+      `Prelude.seq` Prelude.rnf httpStatus

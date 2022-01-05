@@ -211,9 +211,29 @@ instance Core.AWSRequest UpdateReplicationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReplicationJob
+instance Prelude.Hashable UpdateReplicationJob where
+  hashWithSalt _salt UpdateReplicationJob' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` numberOfRecentAmisToKeep
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` nextReplicationRunStartTime
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` replicationJobId
 
-instance Prelude.NFData UpdateReplicationJob
+instance Prelude.NFData UpdateReplicationJob where
+  rnf UpdateReplicationJob' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf nextReplicationRunStartTime
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf replicationJobId
 
 instance Core.ToHeaders UpdateReplicationJob where
   toHeaders =
@@ -285,4 +305,6 @@ newUpdateReplicationJobResponse pHttpStatus_ =
 updateReplicationJobResponse_httpStatus :: Lens.Lens' UpdateReplicationJobResponse Prelude.Int
 updateReplicationJobResponse_httpStatus = Lens.lens (\UpdateReplicationJobResponse' {httpStatus} -> httpStatus) (\s@UpdateReplicationJobResponse' {} a -> s {httpStatus = a} :: UpdateReplicationJobResponse)
 
-instance Prelude.NFData UpdateReplicationJobResponse
+instance Prelude.NFData UpdateReplicationJobResponse where
+  rnf UpdateReplicationJobResponse' {..} =
+    Prelude.rnf httpStatus

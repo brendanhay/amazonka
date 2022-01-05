@@ -91,10 +91,18 @@ instance
 instance
   Prelude.Hashable
     DeleteAppReplicationConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteAppReplicationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` appId
 
 instance
   Prelude.NFData
     DeleteAppReplicationConfiguration
+  where
+  rnf DeleteAppReplicationConfiguration' {..} =
+    Prelude.rnf appId
 
 instance
   Core.ToHeaders
@@ -170,3 +178,6 @@ deleteAppReplicationConfigurationResponse_httpStatus = Lens.lens (\DeleteAppRepl
 instance
   Prelude.NFData
     DeleteAppReplicationConfigurationResponse
+  where
+  rnf DeleteAppReplicationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

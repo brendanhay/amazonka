@@ -94,9 +94,12 @@ instance Core.AWSRequest ImportAppCatalog where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportAppCatalog
+instance Prelude.Hashable ImportAppCatalog where
+  hashWithSalt _salt ImportAppCatalog' {..} =
+    _salt `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData ImportAppCatalog
+instance Prelude.NFData ImportAppCatalog where
+  rnf ImportAppCatalog' {..} = Prelude.rnf roleName
 
 instance Core.ToHeaders ImportAppCatalog where
   toHeaders =
@@ -156,4 +159,6 @@ newImportAppCatalogResponse pHttpStatus_ =
 importAppCatalogResponse_httpStatus :: Lens.Lens' ImportAppCatalogResponse Prelude.Int
 importAppCatalogResponse_httpStatus = Lens.lens (\ImportAppCatalogResponse' {httpStatus} -> httpStatus) (\s@ImportAppCatalogResponse' {} a -> s {httpStatus = a} :: ImportAppCatalogResponse)
 
-instance Prelude.NFData ImportAppCatalogResponse
+instance Prelude.NFData ImportAppCatalogResponse where
+  rnf ImportAppCatalogResponse' {..} =
+    Prelude.rnf httpStatus

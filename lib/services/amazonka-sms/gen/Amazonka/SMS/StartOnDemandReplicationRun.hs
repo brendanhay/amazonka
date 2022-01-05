@@ -104,9 +104,15 @@ instance Core.AWSRequest StartOnDemandReplicationRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartOnDemandReplicationRun
+instance Prelude.Hashable StartOnDemandReplicationRun where
+  hashWithSalt _salt StartOnDemandReplicationRun' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` replicationJobId
 
-instance Prelude.NFData StartOnDemandReplicationRun
+instance Prelude.NFData StartOnDemandReplicationRun where
+  rnf StartOnDemandReplicationRun' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf replicationJobId
 
 instance Core.ToHeaders StartOnDemandReplicationRun where
   toHeaders =
@@ -181,3 +187,7 @@ startOnDemandReplicationRunResponse_httpStatus = Lens.lens (\StartOnDemandReplic
 instance
   Prelude.NFData
     StartOnDemandReplicationRunResponse
+  where
+  rnf StartOnDemandReplicationRunResponse' {..} =
+    Prelude.rnf replicationRunId
+      `Prelude.seq` Prelude.rnf httpStatus

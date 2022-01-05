@@ -103,9 +103,21 @@ instance Core.FromJSON VmServer where
             Prelude.<*> (x Core..:? "vmPath")
       )
 
-instance Prelude.Hashable VmServer
+instance Prelude.Hashable VmServer where
+  hashWithSalt _salt VmServer' {..} =
+    _salt `Prelude.hashWithSalt` vmManagerName
+      `Prelude.hashWithSalt` vmManagerType
+      `Prelude.hashWithSalt` vmServerAddress
+      `Prelude.hashWithSalt` vmName
+      `Prelude.hashWithSalt` vmPath
 
-instance Prelude.NFData VmServer
+instance Prelude.NFData VmServer where
+  rnf VmServer' {..} =
+    Prelude.rnf vmManagerName
+      `Prelude.seq` Prelude.rnf vmManagerType
+      `Prelude.seq` Prelude.rnf vmServerAddress
+      `Prelude.seq` Prelude.rnf vmName
+      `Prelude.seq` Prelude.rnf vmPath
 
 instance Core.ToJSON VmServer where
   toJSON VmServer' {..} =

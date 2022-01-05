@@ -139,9 +139,19 @@ instance Core.AWSRequest StartChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartChangeSet
+instance Prelude.Hashable StartChangeSet where
+  hashWithSalt _salt StartChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` changeSet
 
-instance Prelude.NFData StartChangeSet
+instance Prelude.NFData StartChangeSet where
+  rnf StartChangeSet' {..} =
+    Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf changeSet
 
 instance Core.ToHeaders StartChangeSet where
   toHeaders =
@@ -220,4 +230,8 @@ startChangeSetResponse_changeSetArn = Lens.lens (\StartChangeSetResponse' {chang
 startChangeSetResponse_httpStatus :: Lens.Lens' StartChangeSetResponse Prelude.Int
 startChangeSetResponse_httpStatus = Lens.lens (\StartChangeSetResponse' {httpStatus} -> httpStatus) (\s@StartChangeSetResponse' {} a -> s {httpStatus = a} :: StartChangeSetResponse)
 
-instance Prelude.NFData StartChangeSetResponse
+instance Prelude.NFData StartChangeSetResponse where
+  rnf StartChangeSetResponse' {..} =
+    Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf httpStatus

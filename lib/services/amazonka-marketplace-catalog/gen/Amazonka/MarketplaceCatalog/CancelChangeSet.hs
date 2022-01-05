@@ -111,9 +111,15 @@ instance Core.AWSRequest CancelChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelChangeSet
+instance Prelude.Hashable CancelChangeSet where
+  hashWithSalt _salt CancelChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` changeSetId
 
-instance Prelude.NFData CancelChangeSet
+instance Prelude.NFData CancelChangeSet where
+  rnf CancelChangeSet' {..} =
+    Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf changeSetId
 
 instance Core.ToHeaders CancelChangeSet where
   toHeaders =
@@ -187,4 +193,8 @@ cancelChangeSetResponse_changeSetArn = Lens.lens (\CancelChangeSetResponse' {cha
 cancelChangeSetResponse_httpStatus :: Lens.Lens' CancelChangeSetResponse Prelude.Int
 cancelChangeSetResponse_httpStatus = Lens.lens (\CancelChangeSetResponse' {httpStatus} -> httpStatus) (\s@CancelChangeSetResponse' {} a -> s {httpStatus = a} :: CancelChangeSetResponse)
 
-instance Prelude.NFData CancelChangeSetResponse
+instance Prelude.NFData CancelChangeSetResponse where
+  rnf CancelChangeSetResponse' {..} =
+    Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf httpStatus

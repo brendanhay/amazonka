@@ -111,9 +111,15 @@ instance Core.AWSRequest DescribeEntity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEntity
+instance Prelude.Hashable DescribeEntity where
+  hashWithSalt _salt DescribeEntity' {..} =
+    _salt `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` entityId
 
-instance Prelude.NFData DescribeEntity
+instance Prelude.NFData DescribeEntity where
+  rnf DescribeEntity' {..} =
+    Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders DescribeEntity where
   toHeaders =
@@ -217,4 +223,11 @@ describeEntityResponse_entityArn = Lens.lens (\DescribeEntityResponse' {entityAr
 describeEntityResponse_httpStatus :: Lens.Lens' DescribeEntityResponse Prelude.Int
 describeEntityResponse_httpStatus = Lens.lens (\DescribeEntityResponse' {httpStatus} -> httpStatus) (\s@DescribeEntityResponse' {} a -> s {httpStatus = a} :: DescribeEntityResponse)
 
-instance Prelude.NFData DescribeEntityResponse
+instance Prelude.NFData DescribeEntityResponse where
+  rnf DescribeEntityResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf entityType
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf entityIdentifier
+      `Prelude.seq` Prelude.rnf entityArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -95,9 +95,19 @@ change_entity = Lens.lens (\Change' {entity} -> entity) (\s@Change' {} a -> s {e
 change_details :: Lens.Lens' Change Prelude.Text
 change_details = Lens.lens (\Change' {details} -> details) (\s@Change' {} a -> s {details = a} :: Change)
 
-instance Prelude.Hashable Change
+instance Prelude.Hashable Change where
+  hashWithSalt _salt Change' {..} =
+    _salt `Prelude.hashWithSalt` changeName
+      `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` entity
+      `Prelude.hashWithSalt` details
 
-instance Prelude.NFData Change
+instance Prelude.NFData Change where
+  rnf Change' {..} =
+    Prelude.rnf changeName
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf entity
+      `Prelude.seq` Prelude.rnf details
 
 instance Core.ToJSON Change where
   toJSON Change' {..} =

@@ -151,9 +151,23 @@ instance Core.AWSRequest ListEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEntities
+instance Prelude.Hashable ListEntities where
+  hashWithSalt _salt ListEntities' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterList
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` entityType
 
-instance Prelude.NFData ListEntities
+instance Prelude.NFData ListEntities where
+  rnf ListEntities' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterList
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf entityType
 
 instance Core.ToHeaders ListEntities where
   toHeaders =
@@ -236,4 +250,8 @@ listEntitiesResponse_nextToken = Lens.lens (\ListEntitiesResponse' {nextToken} -
 listEntitiesResponse_httpStatus :: Lens.Lens' ListEntitiesResponse Prelude.Int
 listEntitiesResponse_httpStatus = Lens.lens (\ListEntitiesResponse' {httpStatus} -> httpStatus) (\s@ListEntitiesResponse' {} a -> s {httpStatus = a} :: ListEntitiesResponse)
 
-instance Prelude.NFData ListEntitiesResponse
+instance Prelude.NFData ListEntitiesResponse where
+  rnf ListEntitiesResponse' {..} =
+    Prelude.rnf entitySummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

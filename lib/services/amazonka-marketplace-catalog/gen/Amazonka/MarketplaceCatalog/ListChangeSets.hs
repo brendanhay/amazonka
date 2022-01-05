@@ -147,9 +147,21 @@ instance Core.AWSRequest ListChangeSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChangeSets
+instance Prelude.Hashable ListChangeSets where
+  hashWithSalt _salt ListChangeSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterList
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalog
 
-instance Prelude.NFData ListChangeSets
+instance Prelude.NFData ListChangeSets where
+  rnf ListChangeSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterList
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalog
 
 instance Core.ToHeaders ListChangeSets where
   toHeaders =
@@ -231,4 +243,8 @@ listChangeSetsResponse_changeSetSummaryList = Lens.lens (\ListChangeSetsResponse
 listChangeSetsResponse_httpStatus :: Lens.Lens' ListChangeSetsResponse Prelude.Int
 listChangeSetsResponse_httpStatus = Lens.lens (\ListChangeSetsResponse' {httpStatus} -> httpStatus) (\s@ListChangeSetsResponse' {} a -> s {httpStatus = a} :: ListChangeSetsResponse)
 
-instance Prelude.NFData ListChangeSetsResponse
+instance Prelude.NFData ListChangeSetsResponse where
+  rnf ListChangeSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf changeSetSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

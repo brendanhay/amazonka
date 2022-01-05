@@ -148,8 +148,15 @@ instance Core.AWSRequest RespondActivityTaskCompleted where
 instance
   Prelude.Hashable
     RespondActivityTaskCompleted
+  where
+  hashWithSalt _salt RespondActivityTaskCompleted' {..} =
+    _salt `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData RespondActivityTaskCompleted
+instance Prelude.NFData RespondActivityTaskCompleted where
+  rnf RespondActivityTaskCompleted' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf taskToken
 
 instance Core.ToHeaders RespondActivityTaskCompleted where
   toHeaders =
@@ -199,3 +206,5 @@ newRespondActivityTaskCompletedResponse =
 instance
   Prelude.NFData
     RespondActivityTaskCompletedResponse
+  where
+  rnf _ = ()

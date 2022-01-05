@@ -101,5 +101,14 @@ instance Core.FromJSON MarkerRecordedEventAttributes where
 instance
   Prelude.Hashable
     MarkerRecordedEventAttributes
+  where
+  hashWithSalt _salt MarkerRecordedEventAttributes' {..} =
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` markerName
+      `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
-instance Prelude.NFData MarkerRecordedEventAttributes
+instance Prelude.NFData MarkerRecordedEventAttributes where
+  rnf MarkerRecordedEventAttributes' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf markerName
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

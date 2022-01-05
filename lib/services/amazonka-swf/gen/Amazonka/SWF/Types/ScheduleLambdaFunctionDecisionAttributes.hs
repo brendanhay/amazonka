@@ -116,10 +116,26 @@ scheduleLambdaFunctionDecisionAttributes_name = Lens.lens (\ScheduleLambdaFuncti
 instance
   Prelude.Hashable
     ScheduleLambdaFunctionDecisionAttributes
+  where
+  hashWithSalt
+    _salt
+    ScheduleLambdaFunctionDecisionAttributes' {..} =
+      _salt `Prelude.hashWithSalt` control
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     ScheduleLambdaFunctionDecisionAttributes
+  where
+  rnf ScheduleLambdaFunctionDecisionAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

@@ -116,7 +116,19 @@ instance
 instance
   Prelude.Hashable
     DecisionTaskTimedOutEventAttributes
+  where
+  hashWithSalt
+    _salt
+    DecisionTaskTimedOutEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` timeoutType
+        `Prelude.hashWithSalt` scheduledEventId
+        `Prelude.hashWithSalt` startedEventId
 
 instance
   Prelude.NFData
     DecisionTaskTimedOutEventAttributes
+  where
+  rnf DecisionTaskTimedOutEventAttributes' {..} =
+    Prelude.rnf timeoutType
+      `Prelude.seq` Prelude.rnf scheduledEventId
+      `Prelude.seq` Prelude.rnf startedEventId

@@ -199,9 +199,21 @@ instance Core.AWSRequest CountOpenWorkflowExecutions where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CountOpenWorkflowExecutions
+instance Prelude.Hashable CountOpenWorkflowExecutions where
+  hashWithSalt _salt CountOpenWorkflowExecutions' {..} =
+    _salt `Prelude.hashWithSalt` executionFilter
+      `Prelude.hashWithSalt` typeFilter
+      `Prelude.hashWithSalt` tagFilter
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` startTimeFilter
 
-instance Prelude.NFData CountOpenWorkflowExecutions
+instance Prelude.NFData CountOpenWorkflowExecutions where
+  rnf CountOpenWorkflowExecutions' {..} =
+    Prelude.rnf executionFilter
+      `Prelude.seq` Prelude.rnf typeFilter
+      `Prelude.seq` Prelude.rnf tagFilter
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf startTimeFilter
 
 instance Core.ToHeaders CountOpenWorkflowExecutions where
   toHeaders =

@@ -122,6 +122,18 @@ instance Core.FromJSON WorkflowExecutionOpenCounts where
             Prelude.<*> (x Core..: "openChildWorkflowExecutions")
       )
 
-instance Prelude.Hashable WorkflowExecutionOpenCounts
+instance Prelude.Hashable WorkflowExecutionOpenCounts where
+  hashWithSalt _salt WorkflowExecutionOpenCounts' {..} =
+    _salt `Prelude.hashWithSalt` openLambdaFunctions
+      `Prelude.hashWithSalt` openActivityTasks
+      `Prelude.hashWithSalt` openDecisionTasks
+      `Prelude.hashWithSalt` openTimers
+      `Prelude.hashWithSalt` openChildWorkflowExecutions
 
-instance Prelude.NFData WorkflowExecutionOpenCounts
+instance Prelude.NFData WorkflowExecutionOpenCounts where
+  rnf WorkflowExecutionOpenCounts' {..} =
+    Prelude.rnf openLambdaFunctions
+      `Prelude.seq` Prelude.rnf openActivityTasks
+      `Prelude.seq` Prelude.rnf openDecisionTasks
+      `Prelude.seq` Prelude.rnf openTimers
+      `Prelude.seq` Prelude.rnf openChildWorkflowExecutions

@@ -130,7 +130,22 @@ instance
 instance
   Prelude.Hashable
     WorkflowExecutionSignaledEventAttributes
+  where
+  hashWithSalt
+    _salt
+    WorkflowExecutionSignaledEventAttributes' {..} =
+      _salt
+        `Prelude.hashWithSalt` externalWorkflowExecution
+        `Prelude.hashWithSalt` externalInitiatedEventId
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` signalName
 
 instance
   Prelude.NFData
     WorkflowExecutionSignaledEventAttributes
+  where
+  rnf WorkflowExecutionSignaledEventAttributes' {..} =
+    Prelude.rnf externalWorkflowExecution
+      `Prelude.seq` Prelude.rnf externalInitiatedEventId
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf signalName

@@ -109,7 +109,19 @@ instance
 instance
   Prelude.Hashable
     ActivityTaskCompletedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    ActivityTaskCompletedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` result
+        `Prelude.hashWithSalt` scheduledEventId
+        `Prelude.hashWithSalt` startedEventId
 
 instance
   Prelude.NFData
     ActivityTaskCompletedEventAttributes
+  where
+  rnf ActivityTaskCompletedEventAttributes' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf scheduledEventId
+      `Prelude.seq` Prelude.rnf startedEventId

@@ -57,9 +57,12 @@ newCloseStatusFilter pStatus_ =
 closeStatusFilter_status :: Lens.Lens' CloseStatusFilter CloseStatus
 closeStatusFilter_status = Lens.lens (\CloseStatusFilter' {status} -> status) (\s@CloseStatusFilter' {} a -> s {status = a} :: CloseStatusFilter)
 
-instance Prelude.Hashable CloseStatusFilter
+instance Prelude.Hashable CloseStatusFilter where
+  hashWithSalt _salt CloseStatusFilter' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CloseStatusFilter
+instance Prelude.NFData CloseStatusFilter where
+  rnf CloseStatusFilter' {..} = Prelude.rnf status
 
 instance Core.ToJSON CloseStatusFilter where
   toJSON CloseStatusFilter' {..} =

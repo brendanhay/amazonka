@@ -108,7 +108,19 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionTimedOutEventAttributes
+  where
+  hashWithSalt
+    _salt
+    LambdaFunctionTimedOutEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` timeoutType
+        `Prelude.hashWithSalt` scheduledEventId
+        `Prelude.hashWithSalt` startedEventId
 
 instance
   Prelude.NFData
     LambdaFunctionTimedOutEventAttributes
+  where
+  rnf LambdaFunctionTimedOutEventAttributes' {..} =
+    Prelude.rnf timeoutType
+      `Prelude.seq` Prelude.rnf scheduledEventId
+      `Prelude.seq` Prelude.rnf startedEventId

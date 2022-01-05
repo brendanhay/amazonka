@@ -305,9 +305,23 @@ instance Core.AWSRequest PollForDecisionTask where
             Prelude.<*> (x Core..:> "startedEventId")
       )
 
-instance Prelude.Hashable PollForDecisionTask
+instance Prelude.Hashable PollForDecisionTask where
+  hashWithSalt _salt PollForDecisionTask' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` taskList
 
-instance Prelude.NFData PollForDecisionTask
+instance Prelude.NFData PollForDecisionTask where
+  rnf PollForDecisionTask' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf taskList
 
 instance Core.ToHeaders PollForDecisionTask where
   toHeaders =
@@ -483,4 +497,13 @@ pollForDecisionTaskResponse_httpStatus = Lens.lens (\PollForDecisionTaskResponse
 pollForDecisionTaskResponse_startedEventId :: Lens.Lens' PollForDecisionTaskResponse Prelude.Integer
 pollForDecisionTaskResponse_startedEventId = Lens.lens (\PollForDecisionTaskResponse' {startedEventId} -> startedEventId) (\s@PollForDecisionTaskResponse' {} a -> s {startedEventId = a} :: PollForDecisionTaskResponse)
 
-instance Prelude.NFData PollForDecisionTaskResponse
+instance Prelude.NFData PollForDecisionTaskResponse where
+  rnf PollForDecisionTaskResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf workflowType
+      `Prelude.seq` Prelude.rnf previousStartedEventId
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf taskToken
+      `Prelude.seq` Prelude.rnf workflowExecution
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf startedEventId

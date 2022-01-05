@@ -116,6 +116,18 @@ instance Core.FromJSON ActivityTypeInfo where
             Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable ActivityTypeInfo
+instance Prelude.Hashable ActivityTypeInfo where
+  hashWithSalt _salt ActivityTypeInfo' {..} =
+    _salt `Prelude.hashWithSalt` deprecationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` activityType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData ActivityTypeInfo
+instance Prelude.NFData ActivityTypeInfo where
+  rnf ActivityTypeInfo' {..} =
+    Prelude.rnf deprecationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationDate

@@ -163,9 +163,15 @@ instance Core.AWSRequest RecordActivityTaskHeartbeat where
             Prelude.<*> (x Core..:> "cancelRequested")
       )
 
-instance Prelude.Hashable RecordActivityTaskHeartbeat
+instance Prelude.Hashable RecordActivityTaskHeartbeat where
+  hashWithSalt _salt RecordActivityTaskHeartbeat' {..} =
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData RecordActivityTaskHeartbeat
+instance Prelude.NFData RecordActivityTaskHeartbeat where
+  rnf RecordActivityTaskHeartbeat' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf taskToken
 
 instance Core.ToHeaders RecordActivityTaskHeartbeat where
   toHeaders =
@@ -245,3 +251,7 @@ recordActivityTaskHeartbeatResponse_cancelRequested = Lens.lens (\RecordActivity
 instance
   Prelude.NFData
     RecordActivityTaskHeartbeatResponse
+  where
+  rnf RecordActivityTaskHeartbeatResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cancelRequested

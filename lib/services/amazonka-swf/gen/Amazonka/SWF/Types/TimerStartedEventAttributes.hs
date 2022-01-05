@@ -123,6 +123,16 @@ instance Core.FromJSON TimerStartedEventAttributes where
             Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
-instance Prelude.Hashable TimerStartedEventAttributes
+instance Prelude.Hashable TimerStartedEventAttributes where
+  hashWithSalt _salt TimerStartedEventAttributes' {..} =
+    _salt `Prelude.hashWithSalt` control
+      `Prelude.hashWithSalt` timerId
+      `Prelude.hashWithSalt` startToFireTimeout
+      `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
-instance Prelude.NFData TimerStartedEventAttributes
+instance Prelude.NFData TimerStartedEventAttributes where
+  rnf TimerStartedEventAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf timerId
+      `Prelude.seq` Prelude.rnf startToFireTimeout
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

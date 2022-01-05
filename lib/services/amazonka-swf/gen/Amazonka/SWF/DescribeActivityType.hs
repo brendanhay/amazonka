@@ -137,9 +137,15 @@ instance Core.AWSRequest DescribeActivityType where
             Prelude.<*> (x Core..:> "configuration")
       )
 
-instance Prelude.Hashable DescribeActivityType
+instance Prelude.Hashable DescribeActivityType where
+  hashWithSalt _salt DescribeActivityType' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` activityType
 
-instance Prelude.NFData DescribeActivityType
+instance Prelude.NFData DescribeActivityType where
+  rnf DescribeActivityType' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf activityType
 
 instance Core.ToHeaders DescribeActivityType where
   toHeaders =
@@ -258,4 +264,8 @@ describeActivityTypeResponse_typeInfo = Lens.lens (\DescribeActivityTypeResponse
 describeActivityTypeResponse_configuration :: Lens.Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 describeActivityTypeResponse_configuration = Lens.lens (\DescribeActivityTypeResponse' {configuration} -> configuration) (\s@DescribeActivityTypeResponse' {} a -> s {configuration = a} :: DescribeActivityTypeResponse)
 
-instance Prelude.NFData DescribeActivityTypeResponse
+instance Prelude.NFData DescribeActivityTypeResponse where
+  rnf DescribeActivityTypeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf typeInfo
+      `Prelude.seq` Prelude.rnf configuration

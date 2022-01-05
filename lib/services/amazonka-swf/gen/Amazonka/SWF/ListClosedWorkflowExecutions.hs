@@ -352,8 +352,31 @@ instance Core.AWSRequest ListClosedWorkflowExecutions where
 instance
   Prelude.Hashable
     ListClosedWorkflowExecutions
+  where
+  hashWithSalt _salt ListClosedWorkflowExecutions' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` executionFilter
+      `Prelude.hashWithSalt` closeStatusFilter
+      `Prelude.hashWithSalt` typeFilter
+      `Prelude.hashWithSalt` closeTimeFilter
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` tagFilter
+      `Prelude.hashWithSalt` startTimeFilter
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData ListClosedWorkflowExecutions
+instance Prelude.NFData ListClosedWorkflowExecutions where
+  rnf ListClosedWorkflowExecutions' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf executionFilter
+      `Prelude.seq` Prelude.rnf closeStatusFilter
+      `Prelude.seq` Prelude.rnf typeFilter
+      `Prelude.seq` Prelude.rnf closeTimeFilter
+      `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf tagFilter
+      `Prelude.seq` Prelude.rnf startTimeFilter
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders ListClosedWorkflowExecutions where
   toHeaders =

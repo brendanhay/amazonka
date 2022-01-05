@@ -89,9 +89,14 @@ instance Core.FromJSON WorkflowType where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable WorkflowType
+instance Prelude.Hashable WorkflowType where
+  hashWithSalt _salt WorkflowType' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData WorkflowType
+instance Prelude.NFData WorkflowType where
+  rnf WorkflowType' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON WorkflowType where
   toJSON WorkflowType' {..} =

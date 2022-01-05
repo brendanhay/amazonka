@@ -117,7 +117,19 @@ instance
 instance
   Prelude.Hashable
     StartLambdaFunctionFailedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    StartLambdaFunctionFailedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` scheduledEventId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     StartLambdaFunctionFailedEventAttributes
+  where
+  rnf StartLambdaFunctionFailedEventAttributes' {..} =
+    Prelude.rnf scheduledEventId
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf message

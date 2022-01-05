@@ -144,7 +144,24 @@ instance
 instance
   Prelude.Hashable
     ChildWorkflowExecutionCanceledEventAttributes
+  where
+  hashWithSalt
+    _salt
+    ChildWorkflowExecutionCanceledEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` details
+        `Prelude.hashWithSalt` workflowExecution
+        `Prelude.hashWithSalt` workflowType
+        `Prelude.hashWithSalt` initiatedEventId
+        `Prelude.hashWithSalt` startedEventId
 
 instance
   Prelude.NFData
     ChildWorkflowExecutionCanceledEventAttributes
+  where
+  rnf
+    ChildWorkflowExecutionCanceledEventAttributes' {..} =
+      Prelude.rnf details
+        `Prelude.seq` Prelude.rnf workflowExecution
+        `Prelude.seq` Prelude.rnf workflowType
+        `Prelude.seq` Prelude.rnf initiatedEventId
+        `Prelude.seq` Prelude.rnf startedEventId

@@ -124,9 +124,15 @@ instance Core.AWSRequest UndeprecateActivityType where
     Response.receiveNull
       UndeprecateActivityTypeResponse'
 
-instance Prelude.Hashable UndeprecateActivityType
+instance Prelude.Hashable UndeprecateActivityType where
+  hashWithSalt _salt UndeprecateActivityType' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` activityType
 
-instance Prelude.NFData UndeprecateActivityType
+instance Prelude.NFData UndeprecateActivityType where
+  rnf UndeprecateActivityType' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf activityType
 
 instance Core.ToHeaders UndeprecateActivityType where
   toHeaders =
@@ -176,3 +182,5 @@ newUndeprecateActivityTypeResponse =
 instance
   Prelude.NFData
     UndeprecateActivityTypeResponse
+  where
+  rnf _ = ()

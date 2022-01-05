@@ -93,7 +93,17 @@ instance
 instance
   Prelude.Hashable
     DecisionTaskStartedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    DecisionTaskStartedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` identity
+        `Prelude.hashWithSalt` scheduledEventId
 
 instance
   Prelude.NFData
     DecisionTaskStartedEventAttributes
+  where
+  rnf DecisionTaskStartedEventAttributes' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf scheduledEventId

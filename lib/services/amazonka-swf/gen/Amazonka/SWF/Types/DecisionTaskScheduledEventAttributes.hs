@@ -124,7 +124,19 @@ instance
 instance
   Prelude.Hashable
     DecisionTaskScheduledEventAttributes
+  where
+  hashWithSalt
+    _salt
+    DecisionTaskScheduledEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` taskList
 
 instance
   Prelude.NFData
     DecisionTaskScheduledEventAttributes
+  where
+  rnf DecisionTaskScheduledEventAttributes' {..} =
+    Prelude.rnf taskPriority
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf taskList

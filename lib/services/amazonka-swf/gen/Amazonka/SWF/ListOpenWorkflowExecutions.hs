@@ -285,9 +285,27 @@ instance Core.AWSRequest ListOpenWorkflowExecutions where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ListOpenWorkflowExecutions
+instance Prelude.Hashable ListOpenWorkflowExecutions where
+  hashWithSalt _salt ListOpenWorkflowExecutions' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` executionFilter
+      `Prelude.hashWithSalt` typeFilter
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` tagFilter
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` startTimeFilter
 
-instance Prelude.NFData ListOpenWorkflowExecutions
+instance Prelude.NFData ListOpenWorkflowExecutions where
+  rnf ListOpenWorkflowExecutions' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf executionFilter
+      `Prelude.seq` Prelude.rnf typeFilter
+      `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf tagFilter
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf startTimeFilter
 
 instance Core.ToHeaders ListOpenWorkflowExecutions where
   toHeaders =

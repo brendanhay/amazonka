@@ -53,9 +53,13 @@ newWorkflowExecutionFilter pWorkflowId_ =
 workflowExecutionFilter_workflowId :: Lens.Lens' WorkflowExecutionFilter Prelude.Text
 workflowExecutionFilter_workflowId = Lens.lens (\WorkflowExecutionFilter' {workflowId} -> workflowId) (\s@WorkflowExecutionFilter' {} a -> s {workflowId = a} :: WorkflowExecutionFilter)
 
-instance Prelude.Hashable WorkflowExecutionFilter
+instance Prelude.Hashable WorkflowExecutionFilter where
+  hashWithSalt _salt WorkflowExecutionFilter' {..} =
+    _salt `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData WorkflowExecutionFilter
+instance Prelude.NFData WorkflowExecutionFilter where
+  rnf WorkflowExecutionFilter' {..} =
+    Prelude.rnf workflowId
 
 instance Core.ToJSON WorkflowExecutionFilter where
   toJSON WorkflowExecutionFilter' {..} =

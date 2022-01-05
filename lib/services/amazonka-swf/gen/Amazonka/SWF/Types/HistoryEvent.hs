@@ -1255,6 +1255,173 @@ instance Core.FromJSON HistoryEvent where
             Prelude.<*> (x Core..: "eventId")
       )
 
-instance Prelude.Hashable HistoryEvent
+instance Prelude.Hashable HistoryEvent where
+  hashWithSalt _salt HistoryEvent' {..} =
+    _salt
+      `Prelude.hashWithSalt` workflowExecutionCancelRequestedEventAttributes
+      `Prelude.hashWithSalt` recordMarkerFailedEventAttributes
+      `Prelude.hashWithSalt` requestCancelExternalWorkflowExecutionInitiatedEventAttributes
+      `Prelude.hashWithSalt` lambdaFunctionStartedEventAttributes
+      `Prelude.hashWithSalt` decisionTaskScheduledEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionCompletedEventAttributes
+      `Prelude.hashWithSalt` startTimerFailedEventAttributes
+      `Prelude.hashWithSalt` activityTaskScheduledEventAttributes
+      `Prelude.hashWithSalt` scheduleActivityTaskFailedEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionCompletedEventAttributes
+      `Prelude.hashWithSalt` markerRecordedEventAttributes
+      `Prelude.hashWithSalt` scheduleLambdaFunctionFailedEventAttributes
+      `Prelude.hashWithSalt` completeWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` lambdaFunctionCompletedEventAttributes
+      `Prelude.hashWithSalt` requestCancelExternalWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` timerCanceledEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionStartedEventAttributes
+      `Prelude.hashWithSalt` activityTaskCompletedEventAttributes
+      `Prelude.hashWithSalt` decisionTaskTimedOutEventAttributes
+      `Prelude.hashWithSalt` cancelTimerFailedEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionStartedEventAttributes
+      `Prelude.hashWithSalt` activityTaskCanceledEventAttributes
+      `Prelude.hashWithSalt` activityTaskTimedOutEventAttributes
+      `Prelude.hashWithSalt` decisionTaskStartedEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionTerminatedEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionCanceledEventAttributes
+      `Prelude.hashWithSalt` requestCancelActivityTaskFailedEventAttributes
+      `Prelude.hashWithSalt` lambdaFunctionScheduledEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionTimedOutEventAttributes
+      `Prelude.hashWithSalt` cancelWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` startChildWorkflowExecutionInitiatedEventAttributes
+      `Prelude.hashWithSalt` signalExternalWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` activityTaskStartedEventAttributes
+      `Prelude.hashWithSalt` startLambdaFunctionFailedEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionTerminatedEventAttributes
+      `Prelude.hashWithSalt` lambdaFunctionFailedEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionCanceledEventAttributes
+      `Prelude.hashWithSalt` timerStartedEventAttributes
+      `Prelude.hashWithSalt` activityTaskCancelRequestedEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionTimedOutEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionSignaledEventAttributes
+      `Prelude.hashWithSalt` timerFiredEventAttributes
+      `Prelude.hashWithSalt` activityTaskFailedEventAttributes
+      `Prelude.hashWithSalt` externalWorkflowExecutionSignaledEventAttributes
+      `Prelude.hashWithSalt` decisionTaskCompletedEventAttributes
+      `Prelude.hashWithSalt` startChildWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` childWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` failWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` continueAsNewWorkflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` signalExternalWorkflowExecutionInitiatedEventAttributes
+      `Prelude.hashWithSalt` lambdaFunctionTimedOutEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionFailedEventAttributes
+      `Prelude.hashWithSalt` workflowExecutionContinuedAsNewEventAttributes
+      `Prelude.hashWithSalt` externalWorkflowExecutionCancelRequestedEventAttributes
+      `Prelude.hashWithSalt` eventTimestamp
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData HistoryEvent
+instance Prelude.NFData HistoryEvent where
+  rnf HistoryEvent' {..} =
+    Prelude.rnf
+      workflowExecutionCancelRequestedEventAttributes
+      `Prelude.seq` Prelude.rnf recordMarkerFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        requestCancelExternalWorkflowExecutionInitiatedEventAttributes
+      `Prelude.seq` Prelude.rnf lambdaFunctionStartedEventAttributes
+      `Prelude.seq` Prelude.rnf decisionTaskScheduledEventAttributes
+      `Prelude.seq` Prelude.rnf workflowExecutionCompletedEventAttributes
+      `Prelude.seq` Prelude.rnf startTimerFailedEventAttributes
+      `Prelude.seq` Prelude.rnf activityTaskScheduledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        scheduleActivityTaskFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionCompletedEventAttributes
+      `Prelude.seq` Prelude.rnf markerRecordedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        scheduleLambdaFunctionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        completeWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionCompletedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        requestCancelExternalWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        timerCanceledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionStartedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskCompletedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        decisionTaskTimedOutEventAttributes
+      `Prelude.seq` Prelude.rnf
+        cancelTimerFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionStartedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskCanceledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskTimedOutEventAttributes
+      `Prelude.seq` Prelude.rnf
+        decisionTaskStartedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionTerminatedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionCanceledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        requestCancelActivityTaskFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionScheduledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionTimedOutEventAttributes
+      `Prelude.seq` Prelude.rnf
+        cancelWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        startChildWorkflowExecutionInitiatedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        signalExternalWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskStartedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        startLambdaFunctionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionTerminatedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionCanceledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        timerStartedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskCancelRequestedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionTimedOutEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionSignaledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        timerFiredEventAttributes
+      `Prelude.seq` Prelude.rnf
+        activityTaskFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        externalWorkflowExecutionSignaledEventAttributes
+      `Prelude.seq` Prelude.rnf
+        decisionTaskCompletedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        startChildWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        childWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        failWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        continueAsNewWorkflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        signalExternalWorkflowExecutionInitiatedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionTimedOutEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionFailedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        workflowExecutionContinuedAsNewEventAttributes
+      `Prelude.seq` Prelude.rnf
+        externalWorkflowExecutionCancelRequestedEventAttributes
+      `Prelude.seq` Prelude.rnf
+        eventTimestamp
+      `Prelude.seq` Prelude.rnf
+        eventType
+      `Prelude.seq` Prelude.rnf
+        eventId

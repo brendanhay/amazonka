@@ -228,9 +228,23 @@ instance Core.AWSRequest TerminateWorkflowExecution where
     Response.receiveNull
       TerminateWorkflowExecutionResponse'
 
-instance Prelude.Hashable TerminateWorkflowExecution
+instance Prelude.Hashable TerminateWorkflowExecution where
+  hashWithSalt _salt TerminateWorkflowExecution' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` childPolicy
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData TerminateWorkflowExecution
+instance Prelude.NFData TerminateWorkflowExecution where
+  rnf TerminateWorkflowExecution' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf childPolicy
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf workflowId
 
 instance Core.ToHeaders TerminateWorkflowExecution where
   toHeaders =
@@ -284,3 +298,5 @@ newTerminateWorkflowExecutionResponse =
 instance
   Prelude.NFData
     TerminateWorkflowExecutionResponse
+  where
+  rnf _ = ()

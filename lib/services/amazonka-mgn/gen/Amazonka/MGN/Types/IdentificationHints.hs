@@ -91,6 +91,16 @@ instance Core.FromJSON IdentificationHints where
             Prelude.<*> (x Core..:? "vmWareUuid")
       )
 
-instance Prelude.Hashable IdentificationHints
+instance Prelude.Hashable IdentificationHints where
+  hashWithSalt _salt IdentificationHints' {..} =
+    _salt `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` fqdn
+      `Prelude.hashWithSalt` awsInstanceID
+      `Prelude.hashWithSalt` vmWareUuid
 
-instance Prelude.NFData IdentificationHints
+instance Prelude.NFData IdentificationHints where
+  rnf IdentificationHints' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf fqdn
+      `Prelude.seq` Prelude.rnf awsInstanceID
+      `Prelude.seq` Prelude.rnf vmWareUuid

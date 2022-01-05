@@ -99,9 +99,15 @@ instance Core.AWSRequest StartTest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTest
+instance Prelude.Hashable StartTest where
+  hashWithSalt _salt StartTest' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceServerIDs
 
-instance Prelude.NFData StartTest
+instance Prelude.NFData StartTest where
+  rnf StartTest' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceServerIDs
 
 instance Core.ToHeaders StartTest where
   toHeaders =
@@ -168,4 +174,7 @@ startTestResponse_job = Lens.lens (\StartTestResponse' {job} -> job) (\s@StartTe
 startTestResponse_httpStatus :: Lens.Lens' StartTestResponse Prelude.Int
 startTestResponse_httpStatus = Lens.lens (\StartTestResponse' {httpStatus} -> httpStatus) (\s@StartTestResponse' {} a -> s {httpStatus = a} :: StartTestResponse)
 
-instance Prelude.NFData StartTestResponse
+instance Prelude.NFData StartTestResponse where
+  rnf StartTestResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

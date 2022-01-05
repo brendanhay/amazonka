@@ -72,6 +72,12 @@ instance Core.FromJSON DataReplicationError where
             Prelude.<*> (x Core..:? "error")
       )
 
-instance Prelude.Hashable DataReplicationError
+instance Prelude.Hashable DataReplicationError where
+  hashWithSalt _salt DataReplicationError' {..} =
+    _salt `Prelude.hashWithSalt` rawError
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData DataReplicationError
+instance Prelude.NFData DataReplicationError where
+  rnf DataReplicationError' {..} =
+    Prelude.rnf rawError
+      `Prelude.seq` Prelude.rnf error

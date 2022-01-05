@@ -71,9 +71,17 @@ describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toD
 describeJobsRequestFilters_jobIDs :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe [Prelude.Text])
 describeJobsRequestFilters_jobIDs = Lens.lens (\DescribeJobsRequestFilters' {jobIDs} -> jobIDs) (\s@DescribeJobsRequestFilters' {} a -> s {jobIDs = a} :: DescribeJobsRequestFilters) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable DescribeJobsRequestFilters
+instance Prelude.Hashable DescribeJobsRequestFilters where
+  hashWithSalt _salt DescribeJobsRequestFilters' {..} =
+    _salt `Prelude.hashWithSalt` fromDate
+      `Prelude.hashWithSalt` toDate
+      `Prelude.hashWithSalt` jobIDs
 
-instance Prelude.NFData DescribeJobsRequestFilters
+instance Prelude.NFData DescribeJobsRequestFilters where
+  rnf DescribeJobsRequestFilters' {..} =
+    Prelude.rnf fromDate
+      `Prelude.seq` Prelude.rnf toDate
+      `Prelude.seq` Prelude.rnf jobIDs
 
 instance Core.ToJSON DescribeJobsRequestFilters where
   toJSON DescribeJobsRequestFilters' {..} =

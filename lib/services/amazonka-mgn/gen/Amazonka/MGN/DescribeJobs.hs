@@ -135,9 +135,17 @@ instance Core.AWSRequest DescribeJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeJobs
+instance Prelude.Hashable DescribeJobs where
+  hashWithSalt _salt DescribeJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeJobs
+instance Prelude.NFData DescribeJobs where
+  rnf DescribeJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeJobs where
   toHeaders =
@@ -213,4 +221,8 @@ describeJobsResponse_nextToken = Lens.lens (\DescribeJobsResponse' {nextToken} -
 describeJobsResponse_httpStatus :: Lens.Lens' DescribeJobsResponse Prelude.Int
 describeJobsResponse_httpStatus = Lens.lens (\DescribeJobsResponse' {httpStatus} -> httpStatus) (\s@DescribeJobsResponse' {} a -> s {httpStatus = a} :: DescribeJobsResponse)
 
-instance Prelude.NFData DescribeJobsResponse
+instance Prelude.NFData DescribeJobsResponse where
+  rnf DescribeJobsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

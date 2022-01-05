@@ -82,6 +82,14 @@ instance Core.FromJSON DataReplicationInitiation where
             Prelude.<*> (x Core..:? "startDateTime")
       )
 
-instance Prelude.Hashable DataReplicationInitiation
+instance Prelude.Hashable DataReplicationInitiation where
+  hashWithSalt _salt DataReplicationInitiation' {..} =
+    _salt `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` nextAttemptDateTime
+      `Prelude.hashWithSalt` startDateTime
 
-instance Prelude.NFData DataReplicationInitiation
+instance Prelude.NFData DataReplicationInitiation where
+  rnf DataReplicationInitiation' {..} =
+    Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf nextAttemptDateTime
+      `Prelude.seq` Prelude.rnf startDateTime

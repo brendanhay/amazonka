@@ -108,7 +108,23 @@ instance
 instance
   Prelude.Hashable
     DataReplicationInfoReplicatedDisk
+  where
+  hashWithSalt
+    _salt
+    DataReplicationInfoReplicatedDisk' {..} =
+      _salt `Prelude.hashWithSalt` replicatedStorageBytes
+        `Prelude.hashWithSalt` backloggedStorageBytes
+        `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` rescannedStorageBytes
+        `Prelude.hashWithSalt` totalStorageBytes
 
 instance
   Prelude.NFData
     DataReplicationInfoReplicatedDisk
+  where
+  rnf DataReplicationInfoReplicatedDisk' {..} =
+    Prelude.rnf replicatedStorageBytes
+      `Prelude.seq` Prelude.rnf backloggedStorageBytes
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf rescannedStorageBytes
+      `Prelude.seq` Prelude.rnf totalStorageBytes

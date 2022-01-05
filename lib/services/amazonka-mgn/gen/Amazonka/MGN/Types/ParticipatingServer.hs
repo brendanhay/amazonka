@@ -73,6 +73,12 @@ instance Core.FromJSON ParticipatingServer where
             Prelude.<*> (x Core..:? "sourceServerID")
       )
 
-instance Prelude.Hashable ParticipatingServer
+instance Prelude.Hashable ParticipatingServer where
+  hashWithSalt _salt ParticipatingServer' {..} =
+    _salt `Prelude.hashWithSalt` launchStatus
+      `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData ParticipatingServer
+instance Prelude.NFData ParticipatingServer where
+  rnf ParticipatingServer' {..} =
+    Prelude.rnf launchStatus
+      `Prelude.seq` Prelude.rnf sourceServerID

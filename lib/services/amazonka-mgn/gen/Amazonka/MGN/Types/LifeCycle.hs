@@ -124,6 +124,22 @@ instance Core.FromJSON LifeCycle where
             Prelude.<*> (x Core..:? "firstByteDateTime")
       )
 
-instance Prelude.Hashable LifeCycle
+instance Prelude.Hashable LifeCycle where
+  hashWithSalt _salt LifeCycle' {..} =
+    _salt `Prelude.hashWithSalt` lastTest
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` elapsedReplicationDuration
+      `Prelude.hashWithSalt` lastSeenByServiceDateTime
+      `Prelude.hashWithSalt` addedToServiceDateTime
+      `Prelude.hashWithSalt` lastCutover
+      `Prelude.hashWithSalt` firstByteDateTime
 
-instance Prelude.NFData LifeCycle
+instance Prelude.NFData LifeCycle where
+  rnf LifeCycle' {..} =
+    Prelude.rnf lastTest
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf elapsedReplicationDuration
+      `Prelude.seq` Prelude.rnf lastSeenByServiceDateTime
+      `Prelude.seq` Prelude.rnf addedToServiceDateTime
+      `Prelude.seq` Prelude.rnf lastCutover
+      `Prelude.seq` Prelude.rnf firstByteDateTime

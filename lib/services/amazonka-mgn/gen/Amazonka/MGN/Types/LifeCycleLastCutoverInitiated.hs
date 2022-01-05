@@ -74,5 +74,12 @@ instance Core.FromJSON LifeCycleLastCutoverInitiated where
 instance
   Prelude.Hashable
     LifeCycleLastCutoverInitiated
+  where
+  hashWithSalt _salt LifeCycleLastCutoverInitiated' {..} =
+    _salt `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` apiCallDateTime
 
-instance Prelude.NFData LifeCycleLastCutoverInitiated
+instance Prelude.NFData LifeCycleLastCutoverInitiated where
+  rnf LifeCycleLastCutoverInitiated' {..} =
+    Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf apiCallDateTime

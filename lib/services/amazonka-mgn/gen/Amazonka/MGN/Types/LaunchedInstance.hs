@@ -82,6 +82,14 @@ instance Core.FromJSON LaunchedInstance where
             Prelude.<*> (x Core..:? "firstBoot")
       )
 
-instance Prelude.Hashable LaunchedInstance
+instance Prelude.Hashable LaunchedInstance where
+  hashWithSalt _salt LaunchedInstance' {..} =
+    _salt `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` ec2InstanceID
+      `Prelude.hashWithSalt` firstBoot
 
-instance Prelude.NFData LaunchedInstance
+instance Prelude.NFData LaunchedInstance where
+  rnf LaunchedInstance' {..} =
+    Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf ec2InstanceID
+      `Prelude.seq` Prelude.rnf firstBoot

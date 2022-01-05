@@ -134,6 +134,24 @@ instance Core.FromJSON LaunchConfiguration where
             Prelude.<*> (x Core..:? "copyPrivateIp")
       )
 
-instance Prelude.Hashable LaunchConfiguration
+instance Prelude.Hashable LaunchConfiguration where
+  hashWithSalt _salt LaunchConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` ec2LaunchTemplateID
+      `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
+      `Prelude.hashWithSalt` launchDisposition
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceServerID
+      `Prelude.hashWithSalt` licensing
+      `Prelude.hashWithSalt` copyPrivateIp
 
-instance Prelude.NFData LaunchConfiguration
+instance Prelude.NFData LaunchConfiguration where
+  rnf LaunchConfiguration' {..} =
+    Prelude.rnf ec2LaunchTemplateID
+      `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
+      `Prelude.seq` Prelude.rnf launchDisposition
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf licensing
+      `Prelude.seq` Prelude.rnf copyPrivateIp

@@ -65,10 +65,20 @@ describeSourceServersRequestFilters_isArchived = Lens.lens (\DescribeSourceServe
 instance
   Prelude.Hashable
     DescribeSourceServersRequestFilters
+  where
+  hashWithSalt
+    _salt
+    DescribeSourceServersRequestFilters' {..} =
+      _salt `Prelude.hashWithSalt` sourceServerIDs
+        `Prelude.hashWithSalt` isArchived
 
 instance
   Prelude.NFData
     DescribeSourceServersRequestFilters
+  where
+  rnf DescribeSourceServersRequestFilters' {..} =
+    Prelude.rnf sourceServerIDs
+      `Prelude.seq` Prelude.rnf isArchived
 
 instance
   Core.ToJSON

@@ -68,9 +68,12 @@ instance Core.AWSRequest InitializeService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitializeService
+instance Prelude.Hashable InitializeService where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData InitializeService
+instance Prelude.NFData InitializeService where
+  rnf _ = ()
 
 instance Core.ToHeaders InitializeService where
   toHeaders =
@@ -122,4 +125,6 @@ newInitializeServiceResponse pHttpStatus_ =
 initializeServiceResponse_httpStatus :: Lens.Lens' InitializeServiceResponse Prelude.Int
 initializeServiceResponse_httpStatus = Lens.lens (\InitializeServiceResponse' {httpStatus} -> httpStatus) (\s@InitializeServiceResponse' {} a -> s {httpStatus = a} :: InitializeServiceResponse)
 
-instance Prelude.NFData InitializeServiceResponse
+instance Prelude.NFData InitializeServiceResponse where
+  rnf InitializeServiceResponse' {..} =
+    Prelude.rnf httpStatus

@@ -111,9 +111,15 @@ instance Core.AWSRequest ChangeServerLifeCycleState where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ChangeServerLifeCycleState
+instance Prelude.Hashable ChangeServerLifeCycleState where
+  hashWithSalt _salt ChangeServerLifeCycleState' {..} =
+    _salt `Prelude.hashWithSalt` lifeCycle
+      `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData ChangeServerLifeCycleState
+instance Prelude.NFData ChangeServerLifeCycleState where
+  rnf ChangeServerLifeCycleState' {..} =
+    Prelude.rnf lifeCycle
+      `Prelude.seq` Prelude.rnf sourceServerID
 
 instance Core.ToHeaders ChangeServerLifeCycleState where
   toHeaders =

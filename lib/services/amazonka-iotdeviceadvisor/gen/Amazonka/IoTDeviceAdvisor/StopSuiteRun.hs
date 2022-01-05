@@ -97,9 +97,15 @@ instance Core.AWSRequest StopSuiteRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopSuiteRun
+instance Prelude.Hashable StopSuiteRun where
+  hashWithSalt _salt StopSuiteRun' {..} =
+    _salt `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` suiteRunId
 
-instance Prelude.NFData StopSuiteRun
+instance Prelude.NFData StopSuiteRun where
+  rnf StopSuiteRun' {..} =
+    Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteRunId
 
 instance Core.ToHeaders StopSuiteRun where
   toHeaders =
@@ -155,4 +161,6 @@ newStopSuiteRunResponse pHttpStatus_ =
 stopSuiteRunResponse_httpStatus :: Lens.Lens' StopSuiteRunResponse Prelude.Int
 stopSuiteRunResponse_httpStatus = Lens.lens (\StopSuiteRunResponse' {httpStatus} -> httpStatus) (\s@StopSuiteRunResponse' {} a -> s {httpStatus = a} :: StopSuiteRunResponse)
 
-instance Prelude.NFData StopSuiteRunResponse
+instance Prelude.NFData StopSuiteRunResponse where
+  rnf StopSuiteRunResponse' {..} =
+    Prelude.rnf httpStatus

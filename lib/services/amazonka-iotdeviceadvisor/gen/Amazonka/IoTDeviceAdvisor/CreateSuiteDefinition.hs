@@ -103,9 +103,16 @@ instance Core.AWSRequest CreateSuiteDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSuiteDefinition
+instance Prelude.Hashable CreateSuiteDefinition where
+  hashWithSalt _salt CreateSuiteDefinition' {..} =
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionConfiguration
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateSuiteDefinition
+instance Prelude.NFData CreateSuiteDefinition where
+  rnf CreateSuiteDefinition' {..} =
+    Prelude.rnf suiteDefinitionConfiguration
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateSuiteDefinition where
   toHeaders =
@@ -203,4 +210,10 @@ createSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\CreateSuiteDefin
 createSuiteDefinitionResponse_httpStatus :: Lens.Lens' CreateSuiteDefinitionResponse Prelude.Int
 createSuiteDefinitionResponse_httpStatus = Lens.lens (\CreateSuiteDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateSuiteDefinitionResponse' {} a -> s {httpStatus = a} :: CreateSuiteDefinitionResponse)
 
-instance Prelude.NFData CreateSuiteDefinitionResponse
+instance Prelude.NFData CreateSuiteDefinitionResponse where
+  rnf CreateSuiteDefinitionResponse' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf suiteDefinitionArn
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf httpStatus

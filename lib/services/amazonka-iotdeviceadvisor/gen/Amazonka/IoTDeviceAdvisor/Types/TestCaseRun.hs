@@ -142,6 +142,26 @@ instance Core.FromJSON TestCaseRun where
             Prelude.<*> (x Core..:? "testCaseDefinitionName")
       )
 
-instance Prelude.Hashable TestCaseRun
+instance Prelude.Hashable TestCaseRun where
+  hashWithSalt _salt TestCaseRun' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` logUrl
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` testCaseRunId
+      `Prelude.hashWithSalt` warnings
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` testCaseDefinitionId
+      `Prelude.hashWithSalt` failure
+      `Prelude.hashWithSalt` testCaseDefinitionName
 
-instance Prelude.NFData TestCaseRun
+instance Prelude.NFData TestCaseRun where
+  rnf TestCaseRun' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf logUrl
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf testCaseRunId
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf testCaseDefinitionId
+      `Prelude.seq` Prelude.rnf failure
+      `Prelude.seq` Prelude.rnf testCaseDefinitionName

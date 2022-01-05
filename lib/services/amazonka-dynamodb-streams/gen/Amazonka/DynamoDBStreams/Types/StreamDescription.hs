@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.StreamDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.Shard
 import Amazonka.DynamoDBStreams.Types.StreamStatus
@@ -275,6 +276,26 @@ instance Core.FromJSON StreamDescription where
             Prelude.<*> (x Core..:? "CreationRequestDateTime")
       )
 
-instance Prelude.Hashable StreamDescription
+instance Prelude.Hashable StreamDescription where
+  hashWithSalt _salt StreamDescription' {..} =
+    _salt `Prelude.hashWithSalt` lastEvaluatedShardId
+      `Prelude.hashWithSalt` streamLabel
+      `Prelude.hashWithSalt` streamStatus
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` streamViewType
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` shards
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` creationRequestDateTime
 
-instance Prelude.NFData StreamDescription
+instance Prelude.NFData StreamDescription where
+  rnf StreamDescription' {..} =
+    Prelude.rnf lastEvaluatedShardId
+      `Prelude.seq` Prelude.rnf streamLabel
+      `Prelude.seq` Prelude.rnf streamStatus
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf creationRequestDateTime

@@ -11,7 +11,6 @@ haskell_library(
         "gen/Amazonka/DynamoDBStreams/Lens.hs",
         "gen/Amazonka/DynamoDBStreams/ListStreams.hs",
         "gen/Amazonka/DynamoDBStreams/Types.hs",
-        "gen/Amazonka/DynamoDBStreams/Types/AttributeValue.hs",
         "gen/Amazonka/DynamoDBStreams/Types/Identity.hs",
         "gen/Amazonka/DynamoDBStreams/Types/KeySchemaElement.hs",
         "gen/Amazonka/DynamoDBStreams/Types/KeyType.hs",
@@ -26,6 +25,7 @@ haskell_library(
         "gen/Amazonka/DynamoDBStreams/Types/StreamStatus.hs",
         "gen/Amazonka/DynamoDBStreams/Types/StreamViewType.hs",
         "gen/Amazonka/DynamoDBStreams/Waiters.hs",
+        "src/Amazonka/DynamoDBStreams/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -39,7 +39,12 @@ haskell_library(
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka-core",
+        "@stackage//:aeson",
         "@stackage//:base",
+        "@stackage//:containers",
+        "@stackage//:hashable",
+        "@stackage//:unordered-containers",
+        "@stackage//:vector",
     ],
 )
 

@@ -46,18 +46,6 @@ module Amazonka.DynamoDBStreams.Lens
 
     -- * Types
 
-    -- ** AttributeValue
-    attributeValue_l,
-    attributeValue_ns,
-    attributeValue_m,
-    attributeValue_null,
-    attributeValue_n,
-    attributeValue_bs,
-    attributeValue_b,
-    attributeValue_ss,
-    attributeValue_s,
-    attributeValue_bool,
-
     -- ** Identity
     identity_principalId,
     identity_type,
@@ -115,7 +103,6 @@ import Amazonka.DynamoDBStreams.DescribeStream
 import Amazonka.DynamoDBStreams.GetRecords
 import Amazonka.DynamoDBStreams.GetShardIterator
 import Amazonka.DynamoDBStreams.ListStreams
-import Amazonka.DynamoDBStreams.Types.AttributeValue
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.Record

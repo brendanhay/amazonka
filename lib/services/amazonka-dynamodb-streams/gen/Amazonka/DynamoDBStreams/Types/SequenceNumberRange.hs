@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.SequenceNumberRange where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,6 +80,12 @@ instance Core.FromJSON SequenceNumberRange where
             Prelude.<*> (x Core..:? "EndingSequenceNumber")
       )
 
-instance Prelude.Hashable SequenceNumberRange
+instance Prelude.Hashable SequenceNumberRange where
+  hashWithSalt _salt SequenceNumberRange' {..} =
+    _salt `Prelude.hashWithSalt` startingSequenceNumber
+      `Prelude.hashWithSalt` endingSequenceNumber
 
-instance Prelude.NFData SequenceNumberRange
+instance Prelude.NFData SequenceNumberRange where
+  rnf SequenceNumberRange' {..} =
+    Prelude.rnf startingSequenceNumber
+      `Prelude.seq` Prelude.rnf endingSequenceNumber

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.Identity where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,6 +75,12 @@ instance Core.FromJSON Identity where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Identity
+instance Prelude.Hashable Identity where
+  hashWithSalt _salt Identity' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Identity
+instance Prelude.NFData Identity where
+  rnf Identity' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf type'

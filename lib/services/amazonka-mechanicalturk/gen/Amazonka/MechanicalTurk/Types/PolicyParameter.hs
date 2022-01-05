@@ -82,9 +82,17 @@ instance Core.FromJSON PolicyParameter where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable PolicyParameter
+instance Prelude.Hashable PolicyParameter where
+  hashWithSalt _salt PolicyParameter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` mapEntries
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData PolicyParameter
+instance Prelude.NFData PolicyParameter where
+  rnf PolicyParameter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf mapEntries
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON PolicyParameter where
   toJSON PolicyParameter' {..} =

@@ -131,9 +131,19 @@ notificationSpecification_version = Lens.lens (\NotificationSpecification' {vers
 notificationSpecification_eventTypes :: Lens.Lens' NotificationSpecification [EventType]
 notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {eventTypes} -> eventTypes) (\s@NotificationSpecification' {} a -> s {eventTypes = a} :: NotificationSpecification) Prelude.. Lens.coerced
 
-instance Prelude.Hashable NotificationSpecification
+instance Prelude.Hashable NotificationSpecification where
+  hashWithSalt _salt NotificationSpecification' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` transport
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` eventTypes
 
-instance Prelude.NFData NotificationSpecification
+instance Prelude.NFData NotificationSpecification where
+  rnf NotificationSpecification' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf transport
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf eventTypes
 
 instance Core.ToJSON NotificationSpecification where
   toJSON NotificationSpecification' {..} =

@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateQualificationFromWorker
+  where
+  hashWithSalt
+    _salt
+    DisassociateQualificationFromWorker' {..} =
+      _salt `Prelude.hashWithSalt` reason
+        `Prelude.hashWithSalt` workerId
+        `Prelude.hashWithSalt` qualificationTypeId
 
 instance
   Prelude.NFData
     DisassociateQualificationFromWorker
+  where
+  rnf DisassociateQualificationFromWorker' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance
   Core.ToHeaders
@@ -208,3 +220,6 @@ disassociateQualificationFromWorkerResponse_httpStatus = Lens.lens (\Disassociat
 instance
   Prelude.NFData
     DisassociateQualificationFromWorkerResponse
+  where
+  rnf DisassociateQualificationFromWorkerResponse' {..} =
+    Prelude.rnf httpStatus

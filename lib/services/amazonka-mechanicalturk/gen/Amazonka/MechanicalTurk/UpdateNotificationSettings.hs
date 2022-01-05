@@ -129,9 +129,17 @@ instance Core.AWSRequest UpdateNotificationSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNotificationSettings
+instance Prelude.Hashable UpdateNotificationSettings where
+  hashWithSalt _salt UpdateNotificationSettings' {..} =
+    _salt `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` hITTypeId
 
-instance Prelude.NFData UpdateNotificationSettings
+instance Prelude.NFData UpdateNotificationSettings where
+  rnf UpdateNotificationSettings' {..} =
+    Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf hITTypeId
 
 instance Core.ToHeaders UpdateNotificationSettings where
   toHeaders =
@@ -197,3 +205,6 @@ updateNotificationSettingsResponse_httpStatus = Lens.lens (\UpdateNotificationSe
 instance
   Prelude.NFData
     UpdateNotificationSettingsResponse
+  where
+  rnf UpdateNotificationSettingsResponse' {..} =
+    Prelude.rnf httpStatus

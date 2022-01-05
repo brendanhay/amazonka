@@ -146,6 +146,20 @@ instance Core.FromJSON QualificationRequest where
             Prelude.<*> (x Core..:? "SubmitTime")
       )
 
-instance Prelude.Hashable QualificationRequest
+instance Prelude.Hashable QualificationRequest where
+  hashWithSalt _salt QualificationRequest' {..} =
+    _salt `Prelude.hashWithSalt` qualificationRequestId
+      `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` answer
+      `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` submitTime
 
-instance Prelude.NFData QualificationRequest
+instance Prelude.NFData QualificationRequest where
+  rnf QualificationRequest' {..} =
+    Prelude.rnf qualificationRequestId
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf submitTime

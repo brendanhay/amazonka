@@ -261,6 +261,34 @@ instance Core.FromJSON QualificationType where
             Prelude.<*> (x Core..:? "RetryDelayInSeconds")
       )
 
-instance Prelude.Hashable QualificationType
+instance Prelude.Hashable QualificationType where
+  hashWithSalt _salt QualificationType' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` testDurationInSeconds
+      `Prelude.hashWithSalt` qualificationTypeStatus
+      `Prelude.hashWithSalt` answerKey
+      `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` autoGranted
+      `Prelude.hashWithSalt` autoGrantedValue
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isRequestable
+      `Prelude.hashWithSalt` retryDelayInSeconds
 
-instance Prelude.NFData QualificationType
+instance Prelude.NFData QualificationType where
+  rnf QualificationType' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf testDurationInSeconds
+      `Prelude.seq` Prelude.rnf qualificationTypeStatus
+      `Prelude.seq` Prelude.rnf answerKey
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf autoGranted
+      `Prelude.seq` Prelude.rnf autoGrantedValue
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isRequestable
+      `Prelude.seq` Prelude.rnf retryDelayInSeconds

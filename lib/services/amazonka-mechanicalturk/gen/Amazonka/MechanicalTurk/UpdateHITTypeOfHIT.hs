@@ -102,9 +102,15 @@ instance Core.AWSRequest UpdateHITTypeOfHIT where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateHITTypeOfHIT
+instance Prelude.Hashable UpdateHITTypeOfHIT where
+  hashWithSalt _salt UpdateHITTypeOfHIT' {..} =
+    _salt `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` hITTypeId
 
-instance Prelude.NFData UpdateHITTypeOfHIT
+instance Prelude.NFData UpdateHITTypeOfHIT where
+  rnf UpdateHITTypeOfHIT' {..} =
+    Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf hITTypeId
 
 instance Core.ToHeaders UpdateHITTypeOfHIT where
   toHeaders =
@@ -166,4 +172,6 @@ newUpdateHITTypeOfHITResponse pHttpStatus_ =
 updateHITTypeOfHITResponse_httpStatus :: Lens.Lens' UpdateHITTypeOfHITResponse Prelude.Int
 updateHITTypeOfHITResponse_httpStatus = Lens.lens (\UpdateHITTypeOfHITResponse' {httpStatus} -> httpStatus) (\s@UpdateHITTypeOfHITResponse' {} a -> s {httpStatus = a} :: UpdateHITTypeOfHITResponse)
 
-instance Prelude.NFData UpdateHITTypeOfHITResponse
+instance Prelude.NFData UpdateHITTypeOfHITResponse where
+  rnf UpdateHITTypeOfHITResponse' {..} =
+    Prelude.rnf httpStatus

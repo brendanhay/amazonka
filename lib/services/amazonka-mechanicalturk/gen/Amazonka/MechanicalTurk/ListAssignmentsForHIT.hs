@@ -166,9 +166,19 @@ instance Core.AWSRequest ListAssignmentsForHIT where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssignmentsForHIT
+instance Prelude.Hashable ListAssignmentsForHIT where
+  hashWithSalt _salt ListAssignmentsForHIT' {..} =
+    _salt `Prelude.hashWithSalt` assignmentStatuses
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` hITId
 
-instance Prelude.NFData ListAssignmentsForHIT
+instance Prelude.NFData ListAssignmentsForHIT where
+  rnf ListAssignmentsForHIT' {..} =
+    Prelude.rnf assignmentStatuses
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf hITId
 
 instance Core.ToHeaders ListAssignmentsForHIT where
   toHeaders =
@@ -262,4 +272,9 @@ listAssignmentsForHITResponse_assignments = Lens.lens (\ListAssignmentsForHITRes
 listAssignmentsForHITResponse_httpStatus :: Lens.Lens' ListAssignmentsForHITResponse Prelude.Int
 listAssignmentsForHITResponse_httpStatus = Lens.lens (\ListAssignmentsForHITResponse' {httpStatus} -> httpStatus) (\s@ListAssignmentsForHITResponse' {} a -> s {httpStatus = a} :: ListAssignmentsForHITResponse)
 
-instance Prelude.NFData ListAssignmentsForHITResponse
+instance Prelude.NFData ListAssignmentsForHITResponse where
+  rnf ListAssignmentsForHITResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf assignments
+      `Prelude.seq` Prelude.rnf httpStatus

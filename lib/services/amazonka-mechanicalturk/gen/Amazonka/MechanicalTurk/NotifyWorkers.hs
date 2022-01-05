@@ -125,9 +125,17 @@ instance Core.AWSRequest NotifyWorkers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable NotifyWorkers
+instance Prelude.Hashable NotifyWorkers where
+  hashWithSalt _salt NotifyWorkers' {..} =
+    _salt `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` messageText
+      `Prelude.hashWithSalt` workerIds
 
-instance Prelude.NFData NotifyWorkers
+instance Prelude.NFData NotifyWorkers where
+  rnf NotifyWorkers' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf messageText
+      `Prelude.seq` Prelude.rnf workerIds
 
 instance Core.ToHeaders NotifyWorkers where
   toHeaders =
@@ -205,4 +213,7 @@ notifyWorkersResponse_notifyWorkersFailureStatuses = Lens.lens (\NotifyWorkersRe
 notifyWorkersResponse_httpStatus :: Lens.Lens' NotifyWorkersResponse Prelude.Int
 notifyWorkersResponse_httpStatus = Lens.lens (\NotifyWorkersResponse' {httpStatus} -> httpStatus) (\s@NotifyWorkersResponse' {} a -> s {httpStatus = a} :: NotifyWorkersResponse)
 
-instance Prelude.NFData NotifyWorkersResponse
+instance Prelude.NFData NotifyWorkersResponse where
+  rnf NotifyWorkersResponse' {..} =
+    Prelude.rnf notifyWorkersFailureStatuses
+      `Prelude.seq` Prelude.rnf httpStatus

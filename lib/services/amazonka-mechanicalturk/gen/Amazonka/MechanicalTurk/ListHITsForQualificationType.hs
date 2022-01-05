@@ -143,8 +143,17 @@ instance Core.AWSRequest ListHITsForQualificationType where
 instance
   Prelude.Hashable
     ListHITsForQualificationType
+  where
+  hashWithSalt _salt ListHITsForQualificationType' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` qualificationTypeId
 
-instance Prelude.NFData ListHITsForQualificationType
+instance Prelude.NFData ListHITsForQualificationType where
+  rnf ListHITsForQualificationType' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance Core.ToHeaders ListHITsForQualificationType where
   toHeaders =
@@ -240,3 +249,9 @@ listHITsForQualificationTypeResponse_httpStatus = Lens.lens (\ListHITsForQualifi
 instance
   Prelude.NFData
     ListHITsForQualificationTypeResponse
+  where
+  rnf ListHITsForQualificationTypeResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf hITs
+      `Prelude.seq` Prelude.rnf httpStatus

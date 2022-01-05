@@ -151,10 +151,22 @@ instance
 instance
   Prelude.Hashable
     CreateAdditionalAssignmentsForHIT
+  where
+  hashWithSalt
+    _salt
+    CreateAdditionalAssignmentsForHIT' {..} =
+      _salt `Prelude.hashWithSalt` uniqueRequestToken
+        `Prelude.hashWithSalt` hITId
+        `Prelude.hashWithSalt` numberOfAdditionalAssignments
 
 instance
   Prelude.NFData
     CreateAdditionalAssignmentsForHIT
+  where
+  rnf CreateAdditionalAssignmentsForHIT' {..} =
+    Prelude.rnf uniqueRequestToken
+      `Prelude.seq` Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf numberOfAdditionalAssignments
 
 instance
   Core.ToHeaders
@@ -237,3 +249,6 @@ createAdditionalAssignmentsForHITResponse_httpStatus = Lens.lens (\CreateAdditio
 instance
   Prelude.NFData
     CreateAdditionalAssignmentsForHITResponse
+  where
+  rnf CreateAdditionalAssignmentsForHITResponse' {..} =
+    Prelude.rnf httpStatus

@@ -329,6 +329,52 @@ instance Core.FromJSON HIT where
             Prelude.<*> (x Core..:? "AssignmentDurationInSeconds")
       )
 
-instance Prelude.Hashable HIT
+instance Prelude.Hashable HIT where
+  hashWithSalt _salt HIT' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` hITGroupId
+      `Prelude.hashWithSalt` numberOfAssignmentsPending
+      `Prelude.hashWithSalt` hITTypeId
+      `Prelude.hashWithSalt` expiration
+      `Prelude.hashWithSalt` autoApprovalDelayInSeconds
+      `Prelude.hashWithSalt` requesterAnnotation
+      `Prelude.hashWithSalt` hITStatus
+      `Prelude.hashWithSalt` maxAssignments
+      `Prelude.hashWithSalt` numberOfAssignmentsCompleted
+      `Prelude.hashWithSalt` reward
+      `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` hITLayoutId
+      `Prelude.hashWithSalt` qualificationRequirements
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` hITReviewStatus
+      `Prelude.hashWithSalt` numberOfAssignmentsAvailable
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` question
+      `Prelude.hashWithSalt` assignmentDurationInSeconds
 
-instance Prelude.NFData HIT
+instance Prelude.NFData HIT where
+  rnf HIT' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf hITGroupId
+      `Prelude.seq` Prelude.rnf numberOfAssignmentsPending
+      `Prelude.seq` Prelude.rnf hITTypeId
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
+      `Prelude.seq` Prelude.rnf requesterAnnotation
+      `Prelude.seq` Prelude.rnf hITStatus
+      `Prelude.seq` Prelude.rnf maxAssignments
+      `Prelude.seq` Prelude.rnf numberOfAssignmentsCompleted
+      `Prelude.seq` Prelude.rnf reward
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf hITLayoutId
+      `Prelude.seq` Prelude.rnf qualificationRequirements
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf hITReviewStatus
+      `Prelude.seq` Prelude.rnf
+        numberOfAssignmentsAvailable
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf question
+      `Prelude.seq` Prelude.rnf
+        assignmentDurationInSeconds

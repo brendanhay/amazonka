@@ -125,6 +125,20 @@ instance Core.FromJSON Qualification where
             Prelude.<*> (x Core..:? "WorkerId")
       )
 
-instance Prelude.Hashable Qualification
+instance Prelude.Hashable Qualification where
+  hashWithSalt _salt Qualification' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` integerValue
+      `Prelude.hashWithSalt` localeValue
+      `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` grantTime
+      `Prelude.hashWithSalt` workerId
 
-instance Prelude.NFData Qualification
+instance Prelude.NFData Qualification where
+  rnf Qualification' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf localeValue
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf grantTime
+      `Prelude.seq` Prelude.rnf workerId

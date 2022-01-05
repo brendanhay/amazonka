@@ -247,6 +247,44 @@ instance Core.FromJSON StudioComponent where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable StudioComponent
+instance Prelude.Hashable StudioComponent where
+  hashWithSalt _salt StudioComponent' {..} =
+    _salt `Prelude.hashWithSalt` initializationScripts
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` studioComponentId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` scriptParameters
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData StudioComponent
+instance Prelude.NFData StudioComponent where
+  rnf StudioComponent' {..} =
+    Prelude.rnf initializationScripts
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf studioComponentId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf updatedBy
+      `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf scriptParameters
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf statusCode

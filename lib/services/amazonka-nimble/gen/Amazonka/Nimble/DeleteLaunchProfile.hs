@@ -131,9 +131,17 @@ instance Core.AWSRequest DeleteLaunchProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLaunchProfile
+instance Prelude.Hashable DeleteLaunchProfile where
+  hashWithSalt _salt DeleteLaunchProfile' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` launchProfileId
 
-instance Prelude.NFData DeleteLaunchProfile
+instance Prelude.NFData DeleteLaunchProfile where
+  rnf DeleteLaunchProfile' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf launchProfileId
 
 instance Core.ToHeaders DeleteLaunchProfile where
   toHeaders DeleteLaunchProfile' {..} =
@@ -194,4 +202,7 @@ deleteLaunchProfileResponse_launchProfile = Lens.lens (\DeleteLaunchProfileRespo
 deleteLaunchProfileResponse_httpStatus :: Lens.Lens' DeleteLaunchProfileResponse Prelude.Int
 deleteLaunchProfileResponse_httpStatus = Lens.lens (\DeleteLaunchProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteLaunchProfileResponse' {} a -> s {httpStatus = a} :: DeleteLaunchProfileResponse)
 
-instance Prelude.NFData DeleteLaunchProfileResponse
+instance Prelude.NFData DeleteLaunchProfileResponse where
+  rnf DeleteLaunchProfileResponse' {..} =
+    Prelude.rnf launchProfile
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -131,9 +131,17 @@ instance Core.AWSRequest AcceptEulas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptEulas
+instance Prelude.Hashable AcceptEulas where
+  hashWithSalt _salt AcceptEulas' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` eulaIds
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData AcceptEulas
+instance Prelude.NFData AcceptEulas where
+  rnf AcceptEulas' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf eulaIds
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders AcceptEulas where
   toHeaders AcceptEulas' {..} =
@@ -200,4 +208,7 @@ acceptEulasResponse_eulaAcceptances = Lens.lens (\AcceptEulasResponse' {eulaAcce
 acceptEulasResponse_httpStatus :: Lens.Lens' AcceptEulasResponse Prelude.Int
 acceptEulasResponse_httpStatus = Lens.lens (\AcceptEulasResponse' {httpStatus} -> httpStatus) (\s@AcceptEulasResponse' {} a -> s {httpStatus = a} :: AcceptEulasResponse)
 
-instance Prelude.NFData AcceptEulasResponse
+instance Prelude.NFData AcceptEulasResponse where
+  rnf AcceptEulasResponse' {..} =
+    Prelude.rnf eulaAcceptances
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -154,9 +154,21 @@ instance Core.AWSRequest UpdateStreamingImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStreamingImage
+instance Prelude.Hashable UpdateStreamingImage where
+  hashWithSalt _salt UpdateStreamingImage' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` streamingImageId
 
-instance Prelude.NFData UpdateStreamingImage
+instance Prelude.NFData UpdateStreamingImage where
+  rnf UpdateStreamingImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf streamingImageId
 
 instance Core.ToHeaders UpdateStreamingImage where
   toHeaders UpdateStreamingImage' {..} =
@@ -225,4 +237,7 @@ updateStreamingImageResponse_streamingImage = Lens.lens (\UpdateStreamingImageRe
 updateStreamingImageResponse_httpStatus :: Lens.Lens' UpdateStreamingImageResponse Prelude.Int
 updateStreamingImageResponse_httpStatus = Lens.lens (\UpdateStreamingImageResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamingImageResponse' {} a -> s {httpStatus = a} :: UpdateStreamingImageResponse)
 
-instance Prelude.NFData UpdateStreamingImageResponse
+instance Prelude.NFData UpdateStreamingImageResponse where
+  rnf UpdateStreamingImageResponse' {..} =
+    Prelude.rnf streamingImage
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -158,9 +158,21 @@ instance Core.AWSRequest UpdateStudio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStudio
+instance Prelude.Hashable UpdateStudio where
+  hashWithSalt _salt UpdateStudio' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` userRoleArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` adminRoleArn
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData UpdateStudio
+instance Prelude.NFData UpdateStudio where
+  rnf UpdateStudio' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf userRoleArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf adminRoleArn
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateStudio where
   toHeaders UpdateStudio' {..} =
@@ -226,4 +238,7 @@ updateStudioResponse_studio = Lens.lens (\UpdateStudioResponse' {studio} -> stud
 updateStudioResponse_httpStatus :: Lens.Lens' UpdateStudioResponse Prelude.Int
 updateStudioResponse_httpStatus = Lens.lens (\UpdateStudioResponse' {httpStatus} -> httpStatus) (\s@UpdateStudioResponse' {} a -> s {httpStatus = a} :: UpdateStudioResponse)
 
-instance Prelude.NFData UpdateStudioResponse
+instance Prelude.NFData UpdateStudioResponse where
+  rnf UpdateStudioResponse' {..} =
+    Prelude.rnf studio
+      `Prelude.seq` Prelude.rnf httpStatus

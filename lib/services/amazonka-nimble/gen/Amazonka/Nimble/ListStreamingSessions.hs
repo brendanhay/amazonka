@@ -157,9 +157,21 @@ instance Core.AWSRequest ListStreamingSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreamingSessions
+instance Prelude.Hashable ListStreamingSessions where
+  hashWithSalt _salt ListStreamingSessions' {..} =
+    _salt `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sessionIds
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData ListStreamingSessions
+instance Prelude.NFData ListStreamingSessions where
+  rnf ListStreamingSessions' {..} =
+    Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sessionIds
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders ListStreamingSessions where
   toHeaders =
@@ -240,4 +252,8 @@ listStreamingSessionsResponse_sessions = Lens.lens (\ListStreamingSessionsRespon
 listStreamingSessionsResponse_httpStatus :: Lens.Lens' ListStreamingSessionsResponse Prelude.Int
 listStreamingSessionsResponse_httpStatus = Lens.lens (\ListStreamingSessionsResponse' {httpStatus} -> httpStatus) (\s@ListStreamingSessionsResponse' {} a -> s {httpStatus = a} :: ListStreamingSessionsResponse)
 
-instance Prelude.NFData ListStreamingSessionsResponse
+instance Prelude.NFData ListStreamingSessionsResponse where
+  rnf ListStreamingSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sessions
+      `Prelude.seq` Prelude.rnf httpStatus

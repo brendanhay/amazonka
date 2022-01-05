@@ -129,9 +129,17 @@ instance Core.AWSRequest DeleteStudioMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStudioMember
+instance Prelude.Hashable DeleteStudioMember where
+  hashWithSalt _salt DeleteStudioMember' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData DeleteStudioMember
+instance Prelude.NFData DeleteStudioMember where
+  rnf DeleteStudioMember' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToHeaders DeleteStudioMember where
   toHeaders DeleteStudioMember' {..} =
@@ -183,4 +191,6 @@ newDeleteStudioMemberResponse pHttpStatus_ =
 deleteStudioMemberResponse_httpStatus :: Lens.Lens' DeleteStudioMemberResponse Prelude.Int
 deleteStudioMemberResponse_httpStatus = Lens.lens (\DeleteStudioMemberResponse' {httpStatus} -> httpStatus) (\s@DeleteStudioMemberResponse' {} a -> s {httpStatus = a} :: DeleteStudioMemberResponse)
 
-instance Prelude.NFData DeleteStudioMemberResponse
+instance Prelude.NFData DeleteStudioMemberResponse where
+  rnf DeleteStudioMemberResponse' {..} =
+    Prelude.rnf httpStatus

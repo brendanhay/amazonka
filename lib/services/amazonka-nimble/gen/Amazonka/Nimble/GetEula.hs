@@ -83,9 +83,12 @@ instance Core.AWSRequest GetEula where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEula
+instance Prelude.Hashable GetEula where
+  hashWithSalt _salt GetEula' {..} =
+    _salt `Prelude.hashWithSalt` eulaId
 
-instance Prelude.NFData GetEula
+instance Prelude.NFData GetEula where
+  rnf GetEula' {..} = Prelude.rnf eulaId
 
 instance Core.ToHeaders GetEula where
   toHeaders =
@@ -144,4 +147,7 @@ getEulaResponse_eula = Lens.lens (\GetEulaResponse' {eula} -> eula) (\s@GetEulaR
 getEulaResponse_httpStatus :: Lens.Lens' GetEulaResponse Prelude.Int
 getEulaResponse_httpStatus = Lens.lens (\GetEulaResponse' {httpStatus} -> httpStatus) (\s@GetEulaResponse' {} a -> s {httpStatus = a} :: GetEulaResponse)
 
-instance Prelude.NFData GetEulaResponse
+instance Prelude.NFData GetEulaResponse where
+  rnf GetEulaResponse' {..} =
+    Prelude.rnf eula
+      `Prelude.seq` Prelude.rnf httpStatus

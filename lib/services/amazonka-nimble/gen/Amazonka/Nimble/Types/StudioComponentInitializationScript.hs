@@ -104,10 +104,24 @@ instance
 instance
   Prelude.Hashable
     StudioComponentInitializationScript
+  where
+  hashWithSalt
+    _salt
+    StudioComponentInitializationScript' {..} =
+      _salt `Prelude.hashWithSalt` script
+        `Prelude.hashWithSalt` platform
+        `Prelude.hashWithSalt` runContext
+        `Prelude.hashWithSalt` launchProfileProtocolVersion
 
 instance
   Prelude.NFData
     StudioComponentInitializationScript
+  where
+  rnf StudioComponentInitializationScript' {..} =
+    Prelude.rnf script
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf runContext
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersion
 
 instance
   Core.ToJSON

@@ -100,9 +100,15 @@ instance Core.AWSRequest GetLaunchProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLaunchProfile
+instance Prelude.Hashable GetLaunchProfile where
+  hashWithSalt _salt GetLaunchProfile' {..} =
+    _salt `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` launchProfileId
 
-instance Prelude.NFData GetLaunchProfile
+instance Prelude.NFData GetLaunchProfile where
+  rnf GetLaunchProfile' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf launchProfileId
 
 instance Core.ToHeaders GetLaunchProfile where
   toHeaders =
@@ -166,4 +172,7 @@ getLaunchProfileResponse_launchProfile = Lens.lens (\GetLaunchProfileResponse' {
 getLaunchProfileResponse_httpStatus :: Lens.Lens' GetLaunchProfileResponse Prelude.Int
 getLaunchProfileResponse_httpStatus = Lens.lens (\GetLaunchProfileResponse' {httpStatus} -> httpStatus) (\s@GetLaunchProfileResponse' {} a -> s {httpStatus = a} :: GetLaunchProfileResponse)
 
-instance Prelude.NFData GetLaunchProfileResponse
+instance Prelude.NFData GetLaunchProfileResponse where
+  rnf GetLaunchProfileResponse' {..} =
+    Prelude.rnf launchProfile
+      `Prelude.seq` Prelude.rnf httpStatus

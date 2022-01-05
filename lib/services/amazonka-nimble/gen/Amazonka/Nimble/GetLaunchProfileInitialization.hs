@@ -146,10 +146,26 @@ instance
 instance
   Prelude.Hashable
     GetLaunchProfileInitialization
+  where
+  hashWithSalt
+    _salt
+    GetLaunchProfileInitialization' {..} =
+      _salt `Prelude.hashWithSalt` studioId
+        `Prelude.hashWithSalt` launchProfileProtocolVersions
+        `Prelude.hashWithSalt` launchPurpose
+        `Prelude.hashWithSalt` launchProfileId
+        `Prelude.hashWithSalt` platform
 
 instance
   Prelude.NFData
     GetLaunchProfileInitialization
+  where
+  rnf GetLaunchProfileInitialization' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
+      `Prelude.seq` Prelude.rnf launchPurpose
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf platform
 
 instance
   Core.ToHeaders
@@ -229,3 +245,7 @@ getLaunchProfileInitializationResponse_httpStatus = Lens.lens (\GetLaunchProfile
 instance
   Prelude.NFData
     GetLaunchProfileInitializationResponse
+  where
+  rnf GetLaunchProfileInitializationResponse' {..} =
+    Prelude.rnf launchProfileInitialization
+      `Prelude.seq` Prelude.rnf httpStatus

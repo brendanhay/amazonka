@@ -133,6 +133,24 @@ instance Core.FromJSON StreamingSessionStream where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable StreamingSessionStream
+instance Prelude.Hashable StreamingSessionStream where
+  hashWithSalt _salt StreamingSessionStream' {..} =
+    _salt `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData StreamingSessionStream
+instance Prelude.NFData StreamingSessionStream where
+  rnf StreamingSessionStream' {..} =
+    Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf statusCode

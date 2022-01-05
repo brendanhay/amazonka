@@ -112,8 +112,20 @@ instance Core.FromJSON StudioComponentConfiguration where
 instance
   Prelude.Hashable
     StudioComponentConfiguration
+  where
+  hashWithSalt _salt StudioComponentConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` activeDirectoryConfiguration
+      `Prelude.hashWithSalt` licenseServiceConfiguration
+      `Prelude.hashWithSalt` sharedFileSystemConfiguration
+      `Prelude.hashWithSalt` computeFarmConfiguration
 
-instance Prelude.NFData StudioComponentConfiguration
+instance Prelude.NFData StudioComponentConfiguration where
+  rnf StudioComponentConfiguration' {..} =
+    Prelude.rnf activeDirectoryConfiguration
+      `Prelude.seq` Prelude.rnf licenseServiceConfiguration
+      `Prelude.seq` Prelude.rnf sharedFileSystemConfiguration
+      `Prelude.seq` Prelude.rnf computeFarmConfiguration
 
 instance Core.ToJSON StudioComponentConfiguration where
   toJSON StudioComponentConfiguration' {..} =

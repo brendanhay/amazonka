@@ -100,9 +100,15 @@ instance Core.AWSRequest GetStudioComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStudioComponent
+instance Prelude.Hashable GetStudioComponent where
+  hashWithSalt _salt GetStudioComponent' {..} =
+    _salt `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` studioComponentId
 
-instance Prelude.NFData GetStudioComponent
+instance Prelude.NFData GetStudioComponent where
+  rnf GetStudioComponent' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf studioComponentId
 
 instance Core.ToHeaders GetStudioComponent where
   toHeaders =
@@ -166,4 +172,7 @@ getStudioComponentResponse_studioComponent = Lens.lens (\GetStudioComponentRespo
 getStudioComponentResponse_httpStatus :: Lens.Lens' GetStudioComponentResponse Prelude.Int
 getStudioComponentResponse_httpStatus = Lens.lens (\GetStudioComponentResponse' {httpStatus} -> httpStatus) (\s@GetStudioComponentResponse' {} a -> s {httpStatus = a} :: GetStudioComponentResponse)
 
-instance Prelude.NFData GetStudioComponentResponse
+instance Prelude.NFData GetStudioComponentResponse where
+  rnf GetStudioComponentResponse' {..} =
+    Prelude.rnf studioComponent
+      `Prelude.seq` Prelude.rnf httpStatus

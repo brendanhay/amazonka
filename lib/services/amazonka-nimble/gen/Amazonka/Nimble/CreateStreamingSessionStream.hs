@@ -152,8 +152,19 @@ instance Core.AWSRequest CreateStreamingSessionStream where
 instance
   Prelude.Hashable
     CreateStreamingSessionStream
+  where
+  hashWithSalt _salt CreateStreamingSessionStream' {..} =
+    _salt `Prelude.hashWithSalt` expirationInSeconds
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData CreateStreamingSessionStream
+instance Prelude.NFData CreateStreamingSessionStream where
+  rnf CreateStreamingSessionStream' {..} =
+    Prelude.rnf expirationInSeconds
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf sessionId
 
 instance Core.ToHeaders CreateStreamingSessionStream where
   toHeaders CreateStreamingSessionStream' {..} =
@@ -227,3 +238,7 @@ createStreamingSessionStreamResponse_httpStatus = Lens.lens (\CreateStreamingSes
 instance
   Prelude.NFData
     CreateStreamingSessionStreamResponse
+  where
+  rnf CreateStreamingSessionStreamResponse' {..} =
+    Prelude.rnf stream
+      `Prelude.seq` Prelude.rnf httpStatus

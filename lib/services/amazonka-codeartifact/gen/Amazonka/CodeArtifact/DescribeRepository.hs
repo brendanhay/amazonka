@@ -114,9 +114,17 @@ instance Core.AWSRequest DescribeRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRepository
+instance Prelude.Hashable DescribeRepository where
+  hashWithSalt _salt DescribeRepository' {..} =
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
 
-instance Prelude.NFData DescribeRepository
+instance Prelude.NFData DescribeRepository where
+  rnf DescribeRepository' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
 
 instance Core.ToHeaders DescribeRepository where
   toHeaders =
@@ -182,4 +190,7 @@ describeRepositoryResponse_repository = Lens.lens (\DescribeRepositoryResponse' 
 describeRepositoryResponse_httpStatus :: Lens.Lens' DescribeRepositoryResponse Prelude.Int
 describeRepositoryResponse_httpStatus = Lens.lens (\DescribeRepositoryResponse' {httpStatus} -> httpStatus) (\s@DescribeRepositoryResponse' {} a -> s {httpStatus = a} :: DescribeRepositoryResponse)
 
-instance Prelude.NFData DescribeRepositoryResponse
+instance Prelude.NFData DescribeRepositoryResponse where
+  rnf DescribeRepositoryResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus

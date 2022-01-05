@@ -215,9 +215,25 @@ instance Core.AWSRequest DescribePackageVersion where
             Prelude.<*> (x Core..:> "packageVersion")
       )
 
-instance Prelude.Hashable DescribePackageVersion
+instance Prelude.Hashable DescribePackageVersion where
+  hashWithSalt _salt DescribePackageVersion' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` packageVersion
 
-instance Prelude.NFData DescribePackageVersion
+instance Prelude.NFData DescribePackageVersion where
+  rnf DescribePackageVersion' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf packageVersion
 
 instance Core.ToHeaders DescribePackageVersion where
   toHeaders =
@@ -297,3 +313,7 @@ describePackageVersionResponse_packageVersion = Lens.lens (\DescribePackageVersi
 instance
   Prelude.NFData
     DescribePackageVersionResponse
+  where
+  rnf DescribePackageVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf packageVersion

@@ -274,6 +274,32 @@ instance Core.FromJSON PackageVersionDescription where
             Prelude.<*> (x Core..:? "revision")
       )
 
-instance Prelude.Hashable PackageVersionDescription
+instance Prelude.Hashable PackageVersionDescription where
+  hashWithSalt _salt PackageVersionDescription' {..} =
+    _salt `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` homePage
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` sourceCodeRepository
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` publishedTime
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` licenses
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData PackageVersionDescription
+instance Prelude.NFData PackageVersionDescription where
+  rnf PackageVersionDescription' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf homePage
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceCodeRepository
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf publishedTime
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf licenses
+      `Prelude.seq` Prelude.rnf revision

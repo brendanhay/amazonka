@@ -128,10 +128,22 @@ instance
 instance
   Prelude.Hashable
     GetRepositoryPermissionsPolicy
+  where
+  hashWithSalt
+    _salt
+    GetRepositoryPermissionsPolicy' {..} =
+      _salt `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` repository
 
 instance
   Prelude.NFData
     GetRepositoryPermissionsPolicy
+  where
+  rnf GetRepositoryPermissionsPolicy' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
 
 instance
   Core.ToHeaders
@@ -202,3 +214,7 @@ getRepositoryPermissionsPolicyResponse_httpStatus = Lens.lens (\GetRepositoryPer
 instance
   Prelude.NFData
     GetRepositoryPermissionsPolicyResponse
+  where
+  rnf GetRepositoryPermissionsPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -127,8 +127,17 @@ instance
 instance
   Prelude.Hashable
     DeleteDomainPermissionsPolicy
+  where
+  hashWithSalt _salt DeleteDomainPermissionsPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyRevision
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DeleteDomainPermissionsPolicy
+instance Prelude.NFData DeleteDomainPermissionsPolicy where
+  rnf DeleteDomainPermissionsPolicy' {..} =
+    Prelude.rnf policyRevision
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders DeleteDomainPermissionsPolicy where
   toHeaders =
@@ -198,3 +207,7 @@ deleteDomainPermissionsPolicyResponse_httpStatus = Lens.lens (\DeleteDomainPermi
 instance
   Prelude.NFData
     DeleteDomainPermissionsPolicyResponse
+  where
+  rnf DeleteDomainPermissionsPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

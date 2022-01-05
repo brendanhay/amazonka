@@ -229,9 +229,25 @@ instance Core.AWSRequest GetPackageVersionReadme where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPackageVersionReadme
+instance Prelude.Hashable GetPackageVersionReadme where
+  hashWithSalt _salt GetPackageVersionReadme' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` packageVersion
 
-instance Prelude.NFData GetPackageVersionReadme
+instance Prelude.NFData GetPackageVersionReadme where
+  rnf GetPackageVersionReadme' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf packageVersion
 
 instance Core.ToHeaders GetPackageVersionReadme where
   toHeaders =
@@ -391,3 +407,12 @@ getPackageVersionReadmeResponse_httpStatus = Lens.lens (\GetPackageVersionReadme
 instance
   Prelude.NFData
     GetPackageVersionReadmeResponse
+  where
+  rnf GetPackageVersionReadmeResponse' {..} =
+    Prelude.rnf readme
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versionRevision
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf httpStatus

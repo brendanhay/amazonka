@@ -117,6 +117,20 @@ instance Core.FromJSON RepositorySummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable RepositorySummary
+instance Prelude.Hashable RepositorySummary where
+  hashWithSalt _salt RepositorySummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` administratorAccount
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RepositorySummary
+instance Prelude.NFData RepositorySummary where
+  rnf RepositorySummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf administratorAccount
+      `Prelude.seq` Prelude.rnf description

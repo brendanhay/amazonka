@@ -172,9 +172,19 @@ instance Core.AWSRequest AssociateExternalConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateExternalConnection
+instance Prelude.Hashable AssociateExternalConnection where
+  hashWithSalt _salt AssociateExternalConnection' {..} =
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` externalConnection
 
-instance Prelude.NFData AssociateExternalConnection
+instance Prelude.NFData AssociateExternalConnection where
+  rnf AssociateExternalConnection' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf externalConnection
 
 instance Core.ToHeaders AssociateExternalConnection where
   toHeaders =
@@ -245,3 +255,7 @@ associateExternalConnectionResponse_httpStatus = Lens.lens (\AssociateExternalCo
 instance
   Prelude.NFData
     AssociateExternalConnectionResponse
+  where
+  rnf AssociateExternalConnectionResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus

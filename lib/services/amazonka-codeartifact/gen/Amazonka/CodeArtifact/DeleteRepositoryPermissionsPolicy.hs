@@ -154,10 +154,24 @@ instance
 instance
   Prelude.Hashable
     DeleteRepositoryPermissionsPolicy
+  where
+  hashWithSalt
+    _salt
+    DeleteRepositoryPermissionsPolicy' {..} =
+      _salt `Prelude.hashWithSalt` policyRevision
+        `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` repository
 
 instance
   Prelude.NFData
     DeleteRepositoryPermissionsPolicy
+  where
+  rnf DeleteRepositoryPermissionsPolicy' {..} =
+    Prelude.rnf policyRevision
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
 
 instance
   Core.ToHeaders
@@ -235,3 +249,7 @@ deleteRepositoryPermissionsPolicyResponse_httpStatus = Lens.lens (\DeleteReposit
 instance
   Prelude.NFData
     DeleteRepositoryPermissionsPolicyResponse
+  where
+  rnf DeleteRepositoryPermissionsPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

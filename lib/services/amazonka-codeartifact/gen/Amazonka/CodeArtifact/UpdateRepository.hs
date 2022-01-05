@@ -145,9 +145,21 @@ instance Core.AWSRequest UpdateRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRepository
+instance Prelude.Hashable UpdateRepository where
+  hashWithSalt _salt UpdateRepository' {..} =
+    _salt `Prelude.hashWithSalt` upstreams
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
 
-instance Prelude.NFData UpdateRepository
+instance Prelude.NFData UpdateRepository where
+  rnf UpdateRepository' {..} =
+    Prelude.rnf upstreams
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
 
 instance Core.ToHeaders UpdateRepository where
   toHeaders =
@@ -219,4 +231,7 @@ updateRepositoryResponse_repository = Lens.lens (\UpdateRepositoryResponse' {rep
 updateRepositoryResponse_httpStatus :: Lens.Lens' UpdateRepositoryResponse Prelude.Int
 updateRepositoryResponse_httpStatus = Lens.lens (\UpdateRepositoryResponse' {httpStatus} -> httpStatus) (\s@UpdateRepositoryResponse' {} a -> s {httpStatus = a} :: UpdateRepositoryResponse)
 
-instance Prelude.NFData UpdateRepositoryResponse
+instance Prelude.NFData UpdateRepositoryResponse where
+  rnf UpdateRepositoryResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus

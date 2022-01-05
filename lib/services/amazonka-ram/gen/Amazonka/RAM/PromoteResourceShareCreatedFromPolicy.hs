@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     PromoteResourceShareCreatedFromPolicy
+  where
+  hashWithSalt
+    _salt
+    PromoteResourceShareCreatedFromPolicy' {..} =
+      _salt `Prelude.hashWithSalt` resourceShareArn
 
 instance
   Prelude.NFData
     PromoteResourceShareCreatedFromPolicy
+  where
+  rnf PromoteResourceShareCreatedFromPolicy' {..} =
+    Prelude.rnf resourceShareArn
 
 instance
   Core.ToHeaders
@@ -190,3 +198,8 @@ promoteResourceShareCreatedFromPolicyResponse_httpStatus = Lens.lens (\PromoteRe
 instance
   Prelude.NFData
     PromoteResourceShareCreatedFromPolicyResponse
+  where
+  rnf
+    PromoteResourceShareCreatedFromPolicyResponse' {..} =
+      Prelude.rnf returnValue
+        `Prelude.seq` Prelude.rnf httpStatus

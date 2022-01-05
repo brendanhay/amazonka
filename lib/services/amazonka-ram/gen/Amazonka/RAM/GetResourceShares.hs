@@ -194,9 +194,27 @@ instance Core.AWSRequest GetResourceShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceShares
+instance Prelude.Hashable GetResourceShares where
+  hashWithSalt _salt GetResourceShares' {..} =
+    _salt `Prelude.hashWithSalt` tagFilters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resourceShareStatus
+      `Prelude.hashWithSalt` permissionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` resourceOwner
 
-instance Prelude.NFData GetResourceShares
+instance Prelude.NFData GetResourceShares where
+  rnf GetResourceShares' {..} =
+    Prelude.rnf tagFilters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourceShareStatus
+      `Prelude.seq` Prelude.rnf permissionArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf resourceOwner
 
 instance Core.ToHeaders GetResourceShares where
   toHeaders =
@@ -284,4 +302,8 @@ getResourceSharesResponse_nextToken = Lens.lens (\GetResourceSharesResponse' {ne
 getResourceSharesResponse_httpStatus :: Lens.Lens' GetResourceSharesResponse Prelude.Int
 getResourceSharesResponse_httpStatus = Lens.lens (\GetResourceSharesResponse' {httpStatus} -> httpStatus) (\s@GetResourceSharesResponse' {} a -> s {httpStatus = a} :: GetResourceSharesResponse)
 
-instance Prelude.NFData GetResourceSharesResponse
+instance Prelude.NFData GetResourceSharesResponse where
+  rnf GetResourceSharesResponse' {..} =
+    Prelude.rnf resourceShares
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -113,8 +113,15 @@ instance
 instance
   Prelude.Hashable
     RejectResourceShareInvitation
+  where
+  hashWithSalt _salt RejectResourceShareInvitation' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` resourceShareInvitationArn
 
-instance Prelude.NFData RejectResourceShareInvitation
+instance Prelude.NFData RejectResourceShareInvitation where
+  rnf RejectResourceShareInvitation' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
 
 instance Core.ToHeaders RejectResourceShareInvitation where
   toHeaders =
@@ -201,3 +208,8 @@ rejectResourceShareInvitationResponse_httpStatus = Lens.lens (\RejectResourceSha
 instance
   Prelude.NFData
     RejectResourceShareInvitationResponse
+  where
+  rnf RejectResourceShareInvitationResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceShareInvitation
+      `Prelude.seq` Prelude.rnf httpStatus

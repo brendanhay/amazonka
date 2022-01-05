@@ -120,8 +120,17 @@ instance Core.AWSRequest ListResourceSharePermissions where
 instance
   Prelude.Hashable
     ListResourceSharePermissions
+  where
+  hashWithSalt _salt ListResourceSharePermissions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceShareArn
 
-instance Prelude.NFData ListResourceSharePermissions
+instance Prelude.NFData ListResourceSharePermissions where
+  rnf ListResourceSharePermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceShareArn
 
 instance Core.ToHeaders ListResourceSharePermissions where
   toHeaders =
@@ -206,3 +215,8 @@ listResourceSharePermissionsResponse_httpStatus = Lens.lens (\ListResourceShareP
 instance
   Prelude.NFData
     ListResourceSharePermissionsResponse
+  where
+  rnf ListResourceSharePermissionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf httpStatus

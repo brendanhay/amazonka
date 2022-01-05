@@ -61,9 +61,15 @@ tagFilter_tagValues = Lens.lens (\TagFilter' {tagValues} -> tagValues) (\s@TagFi
 tagFilter_tagKey :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_tagKey = Lens.lens (\TagFilter' {tagKey} -> tagKey) (\s@TagFilter' {} a -> s {tagKey = a} :: TagFilter)
 
-instance Prelude.Hashable TagFilter
+instance Prelude.Hashable TagFilter where
+  hashWithSalt _salt TagFilter' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKey
 
-instance Prelude.NFData TagFilter
+instance Prelude.NFData TagFilter where
+  rnf TagFilter' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKey
 
 instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =

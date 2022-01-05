@@ -126,9 +126,19 @@ instance Core.AWSRequest UpdateResourceShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceShare
+instance Prelude.Hashable UpdateResourceShare where
+  hashWithSalt _salt UpdateResourceShare' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` allowExternalPrincipals
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resourceShareArn
 
-instance Prelude.NFData UpdateResourceShare
+instance Prelude.NFData UpdateResourceShare where
+  rnf UpdateResourceShare' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourceShareArn
 
 instance Core.ToHeaders UpdateResourceShare where
   toHeaders =
@@ -211,4 +221,8 @@ updateResourceShareResponse_resourceShare = Lens.lens (\UpdateResourceShareRespo
 updateResourceShareResponse_httpStatus :: Lens.Lens' UpdateResourceShareResponse Prelude.Int
 updateResourceShareResponse_httpStatus = Lens.lens (\UpdateResourceShareResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceShareResponse' {} a -> s {httpStatus = a} :: UpdateResourceShareResponse)
 
-instance Prelude.NFData UpdateResourceShareResponse
+instance Prelude.NFData UpdateResourceShareResponse where
+  rnf UpdateResourceShareResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceShare
+      `Prelude.seq` Prelude.rnf httpStatus

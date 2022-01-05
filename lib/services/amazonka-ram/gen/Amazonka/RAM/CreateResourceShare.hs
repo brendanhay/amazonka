@@ -224,9 +224,25 @@ instance Core.AWSRequest CreateResourceShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResourceShare
+instance Prelude.Hashable CreateResourceShare where
+  hashWithSalt _salt CreateResourceShare' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` allowExternalPrincipals
+      `Prelude.hashWithSalt` principals
+      `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` permissionArns
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateResourceShare
+instance Prelude.NFData CreateResourceShare where
+  rnf CreateResourceShare' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+      `Prelude.seq` Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf permissionArns
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateResourceShare where
   toHeaders =
@@ -312,4 +328,8 @@ createResourceShareResponse_resourceShare = Lens.lens (\CreateResourceShareRespo
 createResourceShareResponse_httpStatus :: Lens.Lens' CreateResourceShareResponse Prelude.Int
 createResourceShareResponse_httpStatus = Lens.lens (\CreateResourceShareResponse' {httpStatus} -> httpStatus) (\s@CreateResourceShareResponse' {} a -> s {httpStatus = a} :: CreateResourceShareResponse)
 
-instance Prelude.NFData CreateResourceShareResponse
+instance Prelude.NFData CreateResourceShareResponse where
+  rnf CreateResourceShareResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceShare
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -201,8 +201,25 @@ instance Core.AWSRequest GetResourceShareAssociations where
 instance
   Prelude.Hashable
     GetResourceShareAssociations
+  where
+  hashWithSalt _salt GetResourceShareAssociations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` associationStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` associationType
 
-instance Prelude.NFData GetResourceShareAssociations
+instance Prelude.NFData GetResourceShareAssociations where
+  rnf GetResourceShareAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf associationStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf associationType
 
 instance Core.ToHeaders GetResourceShareAssociations where
   toHeaders =
@@ -293,3 +310,8 @@ getResourceShareAssociationsResponse_httpStatus = Lens.lens (\GetResourceShareAs
 instance
   Prelude.NFData
     GetResourceShareAssociationsResponse
+  where
+  rnf GetResourceShareAssociationsResponse' {..} =
+    Prelude.rnf resourceShareAssociations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

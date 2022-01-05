@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     ListPendingInvitationResources
+  where
+  hashWithSalt
+    _salt
+    ListPendingInvitationResources' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` resourceShareInvitationArn
 
 instance
   Prelude.NFData
     ListPendingInvitationResources
+  where
+  rnf ListPendingInvitationResources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
 
 instance
   Core.ToHeaders
@@ -220,3 +232,8 @@ listPendingInvitationResourcesResponse_httpStatus = Lens.lens (\ListPendingInvit
 instance
   Prelude.NFData
     ListPendingInvitationResourcesResponse
+  where
+  rnf ListPendingInvitationResourcesResponse' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -149,9 +149,19 @@ instance Core.AWSRequest GetResourcePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourcePolicies
+instance Prelude.Hashable GetResourcePolicies where
+  hashWithSalt _salt GetResourcePolicies' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceArns
 
-instance Prelude.NFData GetResourcePolicies
+instance Prelude.NFData GetResourcePolicies where
+  rnf GetResourcePolicies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArns
 
 instance Core.ToHeaders GetResourcePolicies where
   toHeaders =
@@ -232,4 +242,8 @@ getResourcePoliciesResponse_policies = Lens.lens (\GetResourcePoliciesResponse' 
 getResourcePoliciesResponse_httpStatus :: Lens.Lens' GetResourcePoliciesResponse Prelude.Int
 getResourcePoliciesResponse_httpStatus = Lens.lens (\GetResourcePoliciesResponse' {httpStatus} -> httpStatus) (\s@GetResourcePoliciesResponse' {} a -> s {httpStatus = a} :: GetResourcePoliciesResponse)
 
-instance Prelude.NFData GetResourcePoliciesResponse
+instance Prelude.NFData GetResourcePoliciesResponse where
+  rnf GetResourcePoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -151,9 +151,19 @@ instance Core.AWSRequest GetResourceShareInvitations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceShareInvitations
+instance Prelude.Hashable GetResourceShareInvitations where
+  hashWithSalt _salt GetResourceShareInvitations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceShareInvitationArns
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceShareArns
 
-instance Prelude.NFData GetResourceShareInvitations
+instance Prelude.NFData GetResourceShareInvitations where
+  rnf GetResourceShareInvitations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceShareInvitationArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceShareArns
 
 instance Core.ToHeaders GetResourceShareInvitations where
   toHeaders =
@@ -239,3 +249,8 @@ getResourceShareInvitationsResponse_httpStatus = Lens.lens (\GetResourceShareInv
 instance
   Prelude.NFData
     GetResourceShareInvitationsResponse
+  where
+  rnf GetResourceShareInvitationsResponse' {..} =
+    Prelude.rnf resourceShareInvitations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

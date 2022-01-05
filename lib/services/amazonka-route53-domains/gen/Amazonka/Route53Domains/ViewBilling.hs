@@ -188,9 +188,19 @@ instance Core.AWSRequest ViewBilling where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ViewBilling
+instance Prelude.Hashable ViewBilling where
+  hashWithSalt _salt ViewBilling' {..} =
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ViewBilling
+instance Prelude.NFData ViewBilling where
+  rnf ViewBilling' {..} =
+    Prelude.rnf start
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ViewBilling where
   toHeaders =
@@ -280,4 +290,8 @@ viewBillingResponse_billingRecords = Lens.lens (\ViewBillingResponse' {billingRe
 viewBillingResponse_httpStatus :: Lens.Lens' ViewBillingResponse Prelude.Int
 viewBillingResponse_httpStatus = Lens.lens (\ViewBillingResponse' {httpStatus} -> httpStatus) (\s@ViewBillingResponse' {} a -> s {httpStatus = a} :: ViewBillingResponse)
 
-instance Prelude.NFData ViewBillingResponse
+instance Prelude.NFData ViewBillingResponse where
+  rnf ViewBillingResponse' {..} =
+    Prelude.rnf nextPageMarker
+      `Prelude.seq` Prelude.rnf billingRecords
+      `Prelude.seq` Prelude.rnf httpStatus

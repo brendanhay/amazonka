@@ -150,10 +150,20 @@ instance
 instance
   Prelude.Hashable
     TransferDomainToAnotherAwsAccount
+  where
+  hashWithSalt
+    _salt
+    TransferDomainToAnotherAwsAccount' {..} =
+      _salt `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
     TransferDomainToAnotherAwsAccount
+  where
+  rnf TransferDomainToAnotherAwsAccount' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf accountId
 
 instance
   Core.ToHeaders
@@ -270,3 +280,8 @@ transferDomainToAnotherAwsAccountResponse_httpStatus = Lens.lens (\TransferDomai
 instance
   Prelude.NFData
     TransferDomainToAnotherAwsAccountResponse
+  where
+  rnf TransferDomainToAnotherAwsAccountResponse' {..} =
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

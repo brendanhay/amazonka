@@ -118,10 +118,18 @@ instance
 instance
   Prelude.Hashable
     CancelDomainTransferToAnotherAwsAccount
+  where
+  hashWithSalt
+    _salt
+    CancelDomainTransferToAnotherAwsAccount' {..} =
+      _salt `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     CancelDomainTransferToAnotherAwsAccount
+  where
+  rnf CancelDomainTransferToAnotherAwsAccount' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -218,3 +226,8 @@ cancelDomainTransferToAnotherAwsAccountResponse_httpStatus = Lens.lens (\CancelD
 instance
   Prelude.NFData
     CancelDomainTransferToAnotherAwsAccountResponse
+  where
+  rnf
+    CancelDomainTransferToAnotherAwsAccountResponse' {..} =
+      Prelude.rnf operationId
+        `Prelude.seq` Prelude.rnf httpStatus

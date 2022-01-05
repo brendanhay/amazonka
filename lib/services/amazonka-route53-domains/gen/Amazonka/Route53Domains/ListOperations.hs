@@ -163,9 +163,17 @@ instance Core.AWSRequest ListOperations where
             Prelude.<*> (x Core..?> "Operations" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListOperations
+instance Prelude.Hashable ListOperations where
+  hashWithSalt _salt ListOperations' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` submittedSince
 
-instance Prelude.NFData ListOperations
+instance Prelude.NFData ListOperations where
+  rnf ListOperations' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf submittedSince
 
 instance Core.ToHeaders ListOperations where
   toHeaders =
@@ -255,4 +263,8 @@ listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpSta
 listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse [OperationSummary]
 listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListOperationsResponse
+instance Prelude.NFData ListOperationsResponse where
+  rnf ListOperationsResponse' {..} =
+    Prelude.rnf nextPageMarker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operations

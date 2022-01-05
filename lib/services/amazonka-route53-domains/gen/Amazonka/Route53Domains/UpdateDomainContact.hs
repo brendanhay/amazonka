@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateDomainContact where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable UpdateDomainContact
+instance Prelude.Hashable UpdateDomainContact where
+  hashWithSalt _salt UpdateDomainContact' {..} =
+    _salt `Prelude.hashWithSalt` registrantContact
+      `Prelude.hashWithSalt` adminContact
+      `Prelude.hashWithSalt` techContact
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainContact
+instance Prelude.NFData UpdateDomainContact where
+  rnf UpdateDomainContact' {..} =
+    Prelude.rnf registrantContact
+      `Prelude.seq` Prelude.rnf adminContact
+      `Prelude.seq` Prelude.rnf techContact
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainContact where
   toHeaders =
@@ -216,4 +226,7 @@ updateDomainContactResponse_httpStatus = Lens.lens (\UpdateDomainContactResponse
 updateDomainContactResponse_operationId :: Lens.Lens' UpdateDomainContactResponse Prelude.Text
 updateDomainContactResponse_operationId = Lens.lens (\UpdateDomainContactResponse' {operationId} -> operationId) (\s@UpdateDomainContactResponse' {} a -> s {operationId = a} :: UpdateDomainContactResponse)
 
-instance Prelude.NFData UpdateDomainContactResponse
+instance Prelude.NFData UpdateDomainContactResponse where
+  rnf UpdateDomainContactResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

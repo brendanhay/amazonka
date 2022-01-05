@@ -93,9 +93,13 @@ instance Core.AWSRequest EnableDomainAutoRenew where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableDomainAutoRenew
+instance Prelude.Hashable EnableDomainAutoRenew where
+  hashWithSalt _salt EnableDomainAutoRenew' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData EnableDomainAutoRenew
+instance Prelude.NFData EnableDomainAutoRenew where
+  rnf EnableDomainAutoRenew' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders EnableDomainAutoRenew where
   toHeaders =
@@ -155,4 +159,6 @@ newEnableDomainAutoRenewResponse pHttpStatus_ =
 enableDomainAutoRenewResponse_httpStatus :: Lens.Lens' EnableDomainAutoRenewResponse Prelude.Int
 enableDomainAutoRenewResponse_httpStatus = Lens.lens (\EnableDomainAutoRenewResponse' {httpStatus} -> httpStatus) (\s@EnableDomainAutoRenewResponse' {} a -> s {httpStatus = a} :: EnableDomainAutoRenewResponse)
 
-instance Prelude.NFData EnableDomainAutoRenewResponse
+instance Prelude.NFData EnableDomainAutoRenewResponse where
+  rnf EnableDomainAutoRenewResponse' {..} =
+    Prelude.rnf httpStatus

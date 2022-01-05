@@ -85,9 +85,13 @@ instance Core.AWSRequest DisableDomainAutoRenew where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableDomainAutoRenew
+instance Prelude.Hashable DisableDomainAutoRenew where
+  hashWithSalt _salt DisableDomainAutoRenew' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DisableDomainAutoRenew
+instance Prelude.NFData DisableDomainAutoRenew where
+  rnf DisableDomainAutoRenew' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders DisableDomainAutoRenew where
   toHeaders =
@@ -150,3 +154,6 @@ disableDomainAutoRenewResponse_httpStatus = Lens.lens (\DisableDomainAutoRenewRe
 instance
   Prelude.NFData
     DisableDomainAutoRenewResponse
+  where
+  rnf DisableDomainAutoRenewResponse' {..} =
+    Prelude.rnf httpStatus

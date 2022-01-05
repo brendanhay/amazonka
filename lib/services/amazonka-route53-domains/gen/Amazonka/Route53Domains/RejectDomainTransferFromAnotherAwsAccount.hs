@@ -120,10 +120,18 @@ instance
 instance
   Prelude.Hashable
     RejectDomainTransferFromAnotherAwsAccount
+  where
+  hashWithSalt
+    _salt
+    RejectDomainTransferFromAnotherAwsAccount' {..} =
+      _salt `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     RejectDomainTransferFromAnotherAwsAccount
+  where
+  rnf RejectDomainTransferFromAnotherAwsAccount' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -221,3 +229,8 @@ rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus = Lens.lens (\Rejec
 instance
   Prelude.NFData
     RejectDomainTransferFromAnotherAwsAccountResponse
+  where
+  rnf
+    RejectDomainTransferFromAnotherAwsAccountResponse' {..} =
+      Prelude.rnf operationId
+        `Prelude.seq` Prelude.rnf httpStatus

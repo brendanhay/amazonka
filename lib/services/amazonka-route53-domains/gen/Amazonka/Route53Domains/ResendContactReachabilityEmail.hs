@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     ResendContactReachabilityEmail
+  where
+  hashWithSalt
+    _salt
+    ResendContactReachabilityEmail' {..} =
+      _salt `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     ResendContactReachabilityEmail
+  where
+  rnf ResendContactReachabilityEmail' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -209,3 +217,9 @@ resendContactReachabilityEmailResponse_httpStatus = Lens.lens (\ResendContactRea
 instance
   Prelude.NFData
     ResendContactReachabilityEmailResponse
+  where
+  rnf ResendContactReachabilityEmailResponse' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf isAlreadyVerified
+      `Prelude.seq` Prelude.rnf httpStatus

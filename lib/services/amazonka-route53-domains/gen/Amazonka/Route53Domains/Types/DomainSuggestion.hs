@@ -182,6 +182,12 @@ instance Core.FromJSON DomainSuggestion where
             Prelude.<*> (x Core..:? "DomainName")
       )
 
-instance Prelude.Hashable DomainSuggestion
+instance Prelude.Hashable DomainSuggestion where
+  hashWithSalt _salt DomainSuggestion' {..} =
+    _salt `Prelude.hashWithSalt` availability
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DomainSuggestion
+instance Prelude.NFData DomainSuggestion where
+  rnf DomainSuggestion' {..} =
+    Prelude.rnf availability
+      `Prelude.seq` Prelude.rnf domainName

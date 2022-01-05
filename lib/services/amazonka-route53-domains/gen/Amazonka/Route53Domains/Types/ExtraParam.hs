@@ -1110,9 +1110,14 @@ instance Core.FromJSON ExtraParam where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ExtraParam
+instance Prelude.Hashable ExtraParam where
+  hashWithSalt _salt ExtraParam' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ExtraParam
+instance Prelude.NFData ExtraParam where
+  rnf ExtraParam' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ExtraParam where
   toJSON ExtraParam' {..} =

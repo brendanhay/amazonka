@@ -155,9 +155,15 @@ instance Core.AWSRequest CheckDomainTransferability where
             Prelude.<*> (x Core..:> "Transferability")
       )
 
-instance Prelude.Hashable CheckDomainTransferability
+instance Prelude.Hashable CheckDomainTransferability where
+  hashWithSalt _salt CheckDomainTransferability' {..} =
+    _salt `Prelude.hashWithSalt` authCode
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CheckDomainTransferability
+instance Prelude.NFData CheckDomainTransferability where
+  rnf CheckDomainTransferability' {..} =
+    Prelude.rnf authCode
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CheckDomainTransferability where
   toHeaders =
@@ -240,3 +246,7 @@ checkDomainTransferabilityResponse_transferability = Lens.lens (\CheckDomainTran
 instance
   Prelude.NFData
     CheckDomainTransferabilityResponse
+  where
+  rnf CheckDomainTransferabilityResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transferability

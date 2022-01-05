@@ -91,9 +91,13 @@ instance Core.AWSRequest RetrieveDomainAuthCode where
             Prelude.<*> (x Core..:> "AuthCode")
       )
 
-instance Prelude.Hashable RetrieveDomainAuthCode
+instance Prelude.Hashable RetrieveDomainAuthCode where
+  hashWithSalt _salt RetrieveDomainAuthCode' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData RetrieveDomainAuthCode
+instance Prelude.NFData RetrieveDomainAuthCode where
+  rnf RetrieveDomainAuthCode' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders RetrieveDomainAuthCode where
   toHeaders =
@@ -172,3 +176,7 @@ retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResp
 instance
   Prelude.NFData
     RetrieveDomainAuthCodeResponse
+  where
+  rnf RetrieveDomainAuthCodeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authCode

@@ -157,9 +157,19 @@ instance Core.AWSRequest UpdatePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePolicy
+instance Prelude.Hashable UpdatePolicy where
+  hashWithSalt _salt UpdatePolicy' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policyId
 
-instance Prelude.NFData UpdatePolicy
+instance Prelude.NFData UpdatePolicy where
+  rnf UpdatePolicy' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyId
 
 instance Core.ToHeaders UpdatePolicy where
   toHeaders =
@@ -234,4 +244,7 @@ updatePolicyResponse_policy = Lens.lens (\UpdatePolicyResponse' {policy} -> poli
 updatePolicyResponse_httpStatus :: Lens.Lens' UpdatePolicyResponse Prelude.Int
 updatePolicyResponse_httpStatus = Lens.lens (\UpdatePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdatePolicyResponse' {} a -> s {httpStatus = a} :: UpdatePolicyResponse)
 
-instance Prelude.NFData UpdatePolicyResponse
+instance Prelude.NFData UpdatePolicyResponse where
+  rnf UpdatePolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

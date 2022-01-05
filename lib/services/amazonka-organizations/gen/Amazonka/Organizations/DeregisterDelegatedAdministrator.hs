@@ -137,10 +137,20 @@ instance
 instance
   Prelude.Hashable
     DeregisterDelegatedAdministrator
+  where
+  hashWithSalt
+    _salt
+    DeregisterDelegatedAdministrator' {..} =
+      _salt `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` servicePrincipal
 
 instance
   Prelude.NFData
     DeregisterDelegatedAdministrator
+  where
+  rnf DeregisterDelegatedAdministrator' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf servicePrincipal
 
 instance
   Core.ToHeaders
@@ -197,3 +207,5 @@ newDeregisterDelegatedAdministratorResponse =
 instance
   Prelude.NFData
     DeregisterDelegatedAdministratorResponse
+  where
+  rnf _ = ()

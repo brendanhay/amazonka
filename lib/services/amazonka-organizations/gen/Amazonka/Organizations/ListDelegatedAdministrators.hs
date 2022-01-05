@@ -191,9 +191,17 @@ instance Core.AWSRequest ListDelegatedAdministrators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDelegatedAdministrators
+instance Prelude.Hashable ListDelegatedAdministrators where
+  hashWithSalt _salt ListDelegatedAdministrators' {..} =
+    _salt `Prelude.hashWithSalt` servicePrincipal
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDelegatedAdministrators
+instance Prelude.NFData ListDelegatedAdministrators where
+  rnf ListDelegatedAdministrators' {..} =
+    Prelude.rnf servicePrincipal
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDelegatedAdministrators where
   toHeaders =
@@ -290,3 +298,8 @@ listDelegatedAdministratorsResponse_httpStatus = Lens.lens (\ListDelegatedAdmini
 instance
   Prelude.NFData
     ListDelegatedAdministratorsResponse
+  where
+  rnf ListDelegatedAdministratorsResponse' {..} =
+    Prelude.rnf delegatedAdministrators
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

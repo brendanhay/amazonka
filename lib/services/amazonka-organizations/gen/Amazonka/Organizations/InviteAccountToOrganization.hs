@@ -235,9 +235,17 @@ instance Core.AWSRequest InviteAccountToOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InviteAccountToOrganization
+instance Prelude.Hashable InviteAccountToOrganization where
+  hashWithSalt _salt InviteAccountToOrganization' {..} =
+    _salt `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData InviteAccountToOrganization
+instance Prelude.NFData InviteAccountToOrganization where
+  rnf InviteAccountToOrganization' {..} =
+    Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders InviteAccountToOrganization where
   toHeaders =
@@ -315,3 +323,7 @@ inviteAccountToOrganizationResponse_httpStatus = Lens.lens (\InviteAccountToOrga
 instance
   Prelude.NFData
     InviteAccountToOrganizationResponse
+  where
+  rnf InviteAccountToOrganizationResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

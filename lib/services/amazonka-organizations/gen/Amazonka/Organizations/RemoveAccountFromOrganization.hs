@@ -135,8 +135,13 @@ instance
 instance
   Prelude.Hashable
     RemoveAccountFromOrganization
+  where
+  hashWithSalt _salt RemoveAccountFromOrganization' {..} =
+    _salt `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData RemoveAccountFromOrganization
+instance Prelude.NFData RemoveAccountFromOrganization where
+  rnf RemoveAccountFromOrganization' {..} =
+    Prelude.rnf accountId
 
 instance Core.ToHeaders RemoveAccountFromOrganization where
   toHeaders =
@@ -184,3 +189,5 @@ newRemoveAccountFromOrganizationResponse =
 instance
   Prelude.NFData
     RemoveAccountFromOrganizationResponse
+  where
+  rnf _ = ()

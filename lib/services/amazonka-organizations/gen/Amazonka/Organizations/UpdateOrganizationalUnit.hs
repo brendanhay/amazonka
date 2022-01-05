@@ -136,9 +136,15 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateOrganizationalUnit
+instance Prelude.Hashable UpdateOrganizationalUnit where
+  hashWithSalt _salt UpdateOrganizationalUnit' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` organizationalUnitId
 
-instance Prelude.NFData UpdateOrganizationalUnit
+instance Prelude.NFData UpdateOrganizationalUnit where
+  rnf UpdateOrganizationalUnit' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf organizationalUnitId
 
 instance Core.ToHeaders UpdateOrganizationalUnit where
   toHeaders =
@@ -218,3 +224,7 @@ updateOrganizationalUnitResponse_httpStatus = Lens.lens (\UpdateOrganizationalUn
 instance
   Prelude.NFData
     UpdateOrganizationalUnitResponse
+  where
+  rnf UpdateOrganizationalUnitResponse' {..} =
+    Prelude.rnf organizationalUnit
+      `Prelude.seq` Prelude.rnf httpStatus

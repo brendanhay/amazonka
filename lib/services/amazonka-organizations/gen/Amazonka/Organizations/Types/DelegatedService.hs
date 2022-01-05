@@ -82,6 +82,12 @@ instance Core.FromJSON DelegatedService where
             Prelude.<*> (x Core..:? "DelegationEnabledDate")
       )
 
-instance Prelude.Hashable DelegatedService
+instance Prelude.Hashable DelegatedService where
+  hashWithSalt _salt DelegatedService' {..} =
+    _salt `Prelude.hashWithSalt` servicePrincipal
+      `Prelude.hashWithSalt` delegationEnabledDate
 
-instance Prelude.NFData DelegatedService
+instance Prelude.NFData DelegatedService where
+  rnf DelegatedService' {..} =
+    Prelude.rnf servicePrincipal
+      `Prelude.seq` Prelude.rnf delegationEnabledDate

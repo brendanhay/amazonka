@@ -301,6 +301,24 @@ instance Core.FromJSON CreateAccountStatus where
             Prelude.<*> (x Core..:? "RequestedTimestamp")
       )
 
-instance Prelude.Hashable CreateAccountStatus
+instance Prelude.Hashable CreateAccountStatus where
+  hashWithSalt _salt CreateAccountStatus' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` completedTimestamp
+      `Prelude.hashWithSalt` accountName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` govCloudAccountId
+      `Prelude.hashWithSalt` requestedTimestamp
 
-instance Prelude.NFData CreateAccountStatus
+instance Prelude.NFData CreateAccountStatus where
+  rnf CreateAccountStatus' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf completedTimestamp
+      `Prelude.seq` Prelude.rnf accountName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf govCloudAccountId
+      `Prelude.seq` Prelude.rnf requestedTimestamp

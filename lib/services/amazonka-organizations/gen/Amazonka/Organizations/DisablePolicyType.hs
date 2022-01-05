@@ -158,9 +158,15 @@ instance Core.AWSRequest DisablePolicyType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisablePolicyType
+instance Prelude.Hashable DisablePolicyType where
+  hashWithSalt _salt DisablePolicyType' {..} =
+    _salt `Prelude.hashWithSalt` rootId
+      `Prelude.hashWithSalt` policyType
 
-instance Prelude.NFData DisablePolicyType
+instance Prelude.NFData DisablePolicyType where
+  rnf DisablePolicyType' {..} =
+    Prelude.rnf rootId
+      `Prelude.seq` Prelude.rnf policyType
 
 instance Core.ToHeaders DisablePolicyType where
   toHeaders =
@@ -233,4 +239,7 @@ disablePolicyTypeResponse_root = Lens.lens (\DisablePolicyTypeResponse' {root} -
 disablePolicyTypeResponse_httpStatus :: Lens.Lens' DisablePolicyTypeResponse Prelude.Int
 disablePolicyTypeResponse_httpStatus = Lens.lens (\DisablePolicyTypeResponse' {httpStatus} -> httpStatus) (\s@DisablePolicyTypeResponse' {} a -> s {httpStatus = a} :: DisablePolicyTypeResponse)
 
-instance Prelude.NFData DisablePolicyTypeResponse
+instance Prelude.NFData DisablePolicyTypeResponse where
+  rnf DisablePolicyTypeResponse' {..} =
+    Prelude.rnf root
+      `Prelude.seq` Prelude.rnf httpStatus

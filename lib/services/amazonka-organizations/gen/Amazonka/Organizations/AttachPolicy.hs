@@ -165,9 +165,15 @@ instance Core.AWSRequest AttachPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull AttachPolicyResponse'
 
-instance Prelude.Hashable AttachPolicy
+instance Prelude.Hashable AttachPolicy where
+  hashWithSalt _salt AttachPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` targetId
 
-instance Prelude.NFData AttachPolicy
+instance Prelude.NFData AttachPolicy where
+  rnf AttachPolicy' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf targetId
 
 instance Core.ToHeaders AttachPolicy where
   toHeaders =
@@ -213,4 +219,5 @@ newAttachPolicyResponse ::
   AttachPolicyResponse
 newAttachPolicyResponse = AttachPolicyResponse'
 
-instance Prelude.NFData AttachPolicyResponse
+instance Prelude.NFData AttachPolicyResponse where
+  rnf _ = ()

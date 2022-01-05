@@ -100,9 +100,12 @@ instance Core.AWSRequest ResolveCase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResolveCase
+instance Prelude.Hashable ResolveCase where
+  hashWithSalt _salt ResolveCase' {..} =
+    _salt `Prelude.hashWithSalt` caseId
 
-instance Prelude.NFData ResolveCase
+instance Prelude.NFData ResolveCase where
+  rnf ResolveCase' {..} = Prelude.rnf caseId
 
 instance Core.ToHeaders ResolveCase where
   toHeaders =
@@ -182,4 +185,8 @@ resolveCaseResponse_finalCaseStatus = Lens.lens (\ResolveCaseResponse' {finalCas
 resolveCaseResponse_httpStatus :: Lens.Lens' ResolveCaseResponse Prelude.Int
 resolveCaseResponse_httpStatus = Lens.lens (\ResolveCaseResponse' {httpStatus} -> httpStatus) (\s@ResolveCaseResponse' {} a -> s {httpStatus = a} :: ResolveCaseResponse)
 
-instance Prelude.NFData ResolveCaseResponse
+instance Prelude.NFData ResolveCaseResponse where
+  rnf ResolveCaseResponse' {..} =
+    Prelude.rnf initialCaseStatus
+      `Prelude.seq` Prelude.rnf finalCaseStatus
+      `Prelude.seq` Prelude.rnf httpStatus

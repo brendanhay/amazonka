@@ -104,9 +104,13 @@ instance Core.AWSRequest DescribeSeverityLevels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSeverityLevels
+instance Prelude.Hashable DescribeSeverityLevels where
+  hashWithSalt _salt DescribeSeverityLevels' {..} =
+    _salt `Prelude.hashWithSalt` language
 
-instance Prelude.NFData DescribeSeverityLevels
+instance Prelude.NFData DescribeSeverityLevels where
+  rnf DescribeSeverityLevels' {..} =
+    Prelude.rnf language
 
 instance Core.ToHeaders DescribeSeverityLevels where
   toHeaders =
@@ -184,3 +188,7 @@ describeSeverityLevelsResponse_httpStatus = Lens.lens (\DescribeSeverityLevelsRe
 instance
   Prelude.NFData
     DescribeSeverityLevelsResponse
+  where
+  rnf DescribeSeverityLevelsResponse' {..} =
+    Prelude.rnf severityLevels
+      `Prelude.seq` Prelude.rnf httpStatus

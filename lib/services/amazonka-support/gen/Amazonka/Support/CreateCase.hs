@@ -282,9 +282,29 @@ instance Core.AWSRequest CreateCase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCase
+instance Prelude.Hashable CreateCase where
+  hashWithSalt _salt CreateCase' {..} =
+    _salt `Prelude.hashWithSalt` severityCode
+      `Prelude.hashWithSalt` issueType
+      `Prelude.hashWithSalt` ccEmailAddresses
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` categoryCode
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` attachmentSetId
+      `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` communicationBody
 
-instance Prelude.NFData CreateCase
+instance Prelude.NFData CreateCase where
+  rnf CreateCase' {..} =
+    Prelude.rnf severityCode
+      `Prelude.seq` Prelude.rnf issueType
+      `Prelude.seq` Prelude.rnf ccEmailAddresses
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf categoryCode
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf communicationBody
 
 instance Core.ToHeaders CreateCase where
   toHeaders =
@@ -373,4 +393,7 @@ createCaseResponse_caseId = Lens.lens (\CreateCaseResponse' {caseId} -> caseId) 
 createCaseResponse_httpStatus :: Lens.Lens' CreateCaseResponse Prelude.Int
 createCaseResponse_httpStatus = Lens.lens (\CreateCaseResponse' {httpStatus} -> httpStatus) (\s@CreateCaseResponse' {} a -> s {httpStatus = a} :: CreateCaseResponse)
 
-instance Prelude.NFData CreateCaseResponse
+instance Prelude.NFData CreateCaseResponse where
+  rnf CreateCaseResponse' {..} =
+    Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,7 +92,18 @@ instance
 instance
   Prelude.Hashable
     TrustedAdvisorCostOptimizingSummary
+  where
+  hashWithSalt
+    _salt
+    TrustedAdvisorCostOptimizingSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` estimatedMonthlySavings
+        `Prelude.hashWithSalt` estimatedPercentMonthlySavings
 
 instance
   Prelude.NFData
     TrustedAdvisorCostOptimizingSummary
+  where
+  rnf TrustedAdvisorCostOptimizingSummary' {..} =
+    Prelude.rnf estimatedMonthlySavings
+      `Prelude.seq` Prelude.rnf estimatedPercentMonthlySavings

@@ -131,5 +131,18 @@ instance Core.FromJSON TrustedAdvisorResourceDetail where
 instance
   Prelude.Hashable
     TrustedAdvisorResourceDetail
+  where
+  hashWithSalt _salt TrustedAdvisorResourceDetail' {..} =
+    _salt `Prelude.hashWithSalt` isSuppressed
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` metadata
 
-instance Prelude.NFData TrustedAdvisorResourceDetail
+instance Prelude.NFData TrustedAdvisorResourceDetail where
+  rnf TrustedAdvisorResourceDetail' {..} =
+    Prelude.rnf isSuppressed
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf metadata

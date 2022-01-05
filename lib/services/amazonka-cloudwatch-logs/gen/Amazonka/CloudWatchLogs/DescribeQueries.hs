@@ -149,9 +149,19 @@ instance Core.AWSRequest DescribeQueries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQueries
+instance Prelude.Hashable DescribeQueries where
+  hashWithSalt _salt DescribeQueries' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeQueries
+instance Prelude.NFData DescribeQueries where
+  rnf DescribeQueries' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeQueries where
   toHeaders =
@@ -231,4 +241,8 @@ describeQueriesResponse_nextToken = Lens.lens (\DescribeQueriesResponse' {nextTo
 describeQueriesResponse_httpStatus :: Lens.Lens' DescribeQueriesResponse Prelude.Int
 describeQueriesResponse_httpStatus = Lens.lens (\DescribeQueriesResponse' {httpStatus} -> httpStatus) (\s@DescribeQueriesResponse' {} a -> s {httpStatus = a} :: DescribeQueriesResponse)
 
-instance Prelude.NFData DescribeQueriesResponse
+instance Prelude.NFData DescribeQueriesResponse where
+  rnf DescribeQueriesResponse' {..} =
+    Prelude.rnf queries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

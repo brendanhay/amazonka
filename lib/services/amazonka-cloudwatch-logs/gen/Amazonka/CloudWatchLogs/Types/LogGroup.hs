@@ -126,6 +126,22 @@ instance Core.FromJSON LogGroup where
             Prelude.<*> (x Core..:? "storedBytes")
       )
 
-instance Prelude.Hashable LogGroup
+instance Prelude.Hashable LogGroup where
+  hashWithSalt _salt LogGroup' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` metricFilterCount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` retentionInDays
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` storedBytes
 
-instance Prelude.NFData LogGroup
+instance Prelude.NFData LogGroup where
+  rnf LogGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf metricFilterCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf retentionInDays
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf storedBytes

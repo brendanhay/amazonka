@@ -94,9 +94,15 @@ instance Core.AWSRequest PutRetentionPolicy where
   response =
     Response.receiveNull PutRetentionPolicyResponse'
 
-instance Prelude.Hashable PutRetentionPolicy
+instance Prelude.Hashable PutRetentionPolicy where
+  hashWithSalt _salt PutRetentionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` retentionInDays
 
-instance Prelude.NFData PutRetentionPolicy
+instance Prelude.NFData PutRetentionPolicy where
+  rnf PutRetentionPolicy' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf retentionInDays
 
 instance Core.ToHeaders PutRetentionPolicy where
   toHeaders =
@@ -144,4 +150,5 @@ newPutRetentionPolicyResponse ::
 newPutRetentionPolicyResponse =
   PutRetentionPolicyResponse'
 
-instance Prelude.NFData PutRetentionPolicyResponse
+instance Prelude.NFData PutRetentionPolicyResponse where
+  rnf _ = ()

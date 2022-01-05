@@ -100,9 +100,15 @@ instance Core.AWSRequest UntagLogGroup where
   response =
     Response.receiveNull UntagLogGroupResponse'
 
-instance Prelude.Hashable UntagLogGroup
+instance Prelude.Hashable UntagLogGroup where
+  hashWithSalt _salt UntagLogGroup' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData UntagLogGroup
+instance Prelude.NFData UntagLogGroup where
+  rnf UntagLogGroup' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders UntagLogGroup where
   toHeaders =
@@ -148,4 +154,5 @@ newUntagLogGroupResponse ::
   UntagLogGroupResponse
 newUntagLogGroupResponse = UntagLogGroupResponse'
 
-instance Prelude.NFData UntagLogGroupResponse
+instance Prelude.NFData UntagLogGroupResponse where
+  rnf _ = ()

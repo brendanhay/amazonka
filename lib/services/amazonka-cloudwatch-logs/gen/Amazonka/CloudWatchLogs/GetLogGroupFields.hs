@@ -125,9 +125,15 @@ instance Core.AWSRequest GetLogGroupFields where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLogGroupFields
+instance Prelude.Hashable GetLogGroupFields where
+  hashWithSalt _salt GetLogGroupFields' {..} =
+    _salt `Prelude.hashWithSalt` time
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData GetLogGroupFields
+instance Prelude.NFData GetLogGroupFields where
+  rnf GetLogGroupFields' {..} =
+    Prelude.rnf time
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders GetLogGroupFields where
   toHeaders =
@@ -204,4 +210,7 @@ getLogGroupFieldsResponse_logGroupFields = Lens.lens (\GetLogGroupFieldsResponse
 getLogGroupFieldsResponse_httpStatus :: Lens.Lens' GetLogGroupFieldsResponse Prelude.Int
 getLogGroupFieldsResponse_httpStatus = Lens.lens (\GetLogGroupFieldsResponse' {httpStatus} -> httpStatus) (\s@GetLogGroupFieldsResponse' {} a -> s {httpStatus = a} :: GetLogGroupFieldsResponse)
 
-instance Prelude.NFData GetLogGroupFieldsResponse
+instance Prelude.NFData GetLogGroupFieldsResponse where
+  rnf GetLogGroupFieldsResponse' {..} =
+    Prelude.rnf logGroupFields
+      `Prelude.seq` Prelude.rnf httpStatus

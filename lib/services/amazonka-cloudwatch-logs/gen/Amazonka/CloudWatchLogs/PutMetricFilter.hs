@@ -143,9 +143,19 @@ instance Core.AWSRequest PutMetricFilter where
   response =
     Response.receiveNull PutMetricFilterResponse'
 
-instance Prelude.Hashable PutMetricFilter
+instance Prelude.Hashable PutMetricFilter where
+  hashWithSalt _salt PutMetricFilter' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` metricTransformations
 
-instance Prelude.NFData PutMetricFilter
+instance Prelude.NFData PutMetricFilter where
+  rnf PutMetricFilter' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf filterName
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf metricTransformations
 
 instance Core.ToHeaders PutMetricFilter where
   toHeaders =
@@ -196,4 +206,5 @@ newPutMetricFilterResponse ::
   PutMetricFilterResponse
 newPutMetricFilterResponse = PutMetricFilterResponse'
 
-instance Prelude.NFData PutMetricFilterResponse
+instance Prelude.NFData PutMetricFilterResponse where
+  rnf _ = ()

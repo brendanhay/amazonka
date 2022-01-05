@@ -104,9 +104,15 @@ instance Core.AWSRequest TestMetricFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestMetricFilter
+instance Prelude.Hashable TestMetricFilter where
+  hashWithSalt _salt TestMetricFilter' {..} =
+    _salt `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` logEventMessages
 
-instance Prelude.NFData TestMetricFilter
+instance Prelude.NFData TestMetricFilter where
+  rnf TestMetricFilter' {..} =
+    Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf logEventMessages
 
 instance Core.ToHeaders TestMetricFilter where
   toHeaders =
@@ -179,4 +185,7 @@ testMetricFilterResponse_matches = Lens.lens (\TestMetricFilterResponse' {matche
 testMetricFilterResponse_httpStatus :: Lens.Lens' TestMetricFilterResponse Prelude.Int
 testMetricFilterResponse_httpStatus = Lens.lens (\TestMetricFilterResponse' {httpStatus} -> httpStatus) (\s@TestMetricFilterResponse' {} a -> s {httpStatus = a} :: TestMetricFilterResponse)
 
-instance Prelude.NFData TestMetricFilterResponse
+instance Prelude.NFData TestMetricFilterResponse where
+  rnf TestMetricFilterResponse' {..} =
+    Prelude.rnf matches
+      `Prelude.seq` Prelude.rnf httpStatus

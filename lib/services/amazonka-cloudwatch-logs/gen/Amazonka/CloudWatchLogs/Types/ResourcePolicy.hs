@@ -85,6 +85,14 @@ instance Core.FromJSON ResourcePolicy where
             Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 
-instance Prelude.Hashable ResourcePolicy
+instance Prelude.Hashable ResourcePolicy where
+  hashWithSalt _salt ResourcePolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData ResourcePolicy
+instance Prelude.NFData ResourcePolicy where
+  rnf ResourcePolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

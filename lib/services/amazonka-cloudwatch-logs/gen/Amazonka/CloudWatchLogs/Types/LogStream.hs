@@ -165,6 +165,24 @@ instance Core.FromJSON LogStream where
             Prelude.<*> (x Core..:? "lastEventTimestamp")
       )
 
-instance Prelude.Hashable LogStream
+instance Prelude.Hashable LogStream where
+  hashWithSalt _salt LogStream' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` uploadSequenceToken
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` firstEventTimestamp
+      `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` storedBytes
+      `Prelude.hashWithSalt` lastIngestionTime
+      `Prelude.hashWithSalt` lastEventTimestamp
 
-instance Prelude.NFData LogStream
+instance Prelude.NFData LogStream where
+  rnf LogStream' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf uploadSequenceToken
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf firstEventTimestamp
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf storedBytes
+      `Prelude.seq` Prelude.rnf lastIngestionTime
+      `Prelude.seq` Prelude.rnf lastEventTimestamp

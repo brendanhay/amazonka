@@ -122,6 +122,22 @@ instance Core.FromJSON SubscriptionFilter where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable SubscriptionFilter
+instance Prelude.Hashable SubscriptionFilter where
+  hashWithSalt _salt SubscriptionFilter' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` distribution
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData SubscriptionFilter
+instance Prelude.NFData SubscriptionFilter where
+  rnf SubscriptionFilter' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf filterName
+      `Prelude.seq` Prelude.rnf distribution
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf roleArn

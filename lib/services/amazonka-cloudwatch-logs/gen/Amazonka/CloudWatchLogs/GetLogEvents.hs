@@ -198,9 +198,25 @@ instance Core.AWSRequest GetLogEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLogEvents
+instance Prelude.Hashable GetLogEvents where
+  hashWithSalt _salt GetLogEvents' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` startFromHead
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` logStreamName
 
-instance Prelude.NFData GetLogEvents
+instance Prelude.NFData GetLogEvents where
+  rnf GetLogEvents' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf startFromHead
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamName
 
 instance Core.ToHeaders GetLogEvents where
   toHeaders =
@@ -305,4 +321,9 @@ getLogEventsResponse_events = Lens.lens (\GetLogEventsResponse' {events} -> even
 getLogEventsResponse_httpStatus :: Lens.Lens' GetLogEventsResponse Prelude.Int
 getLogEventsResponse_httpStatus = Lens.lens (\GetLogEventsResponse' {httpStatus} -> httpStatus) (\s@GetLogEventsResponse' {} a -> s {httpStatus = a} :: GetLogEventsResponse)
 
-instance Prelude.NFData GetLogEventsResponse
+instance Prelude.NFData GetLogEventsResponse where
+  rnf GetLogEventsResponse' {..} =
+    Prelude.rnf nextBackwardToken
+      `Prelude.seq` Prelude.rnf nextForwardToken
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

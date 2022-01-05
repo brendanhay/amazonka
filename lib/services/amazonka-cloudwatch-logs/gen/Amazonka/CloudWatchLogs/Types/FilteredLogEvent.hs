@@ -107,6 +107,18 @@ instance Core.FromJSON FilteredLogEvent where
             Prelude.<*> (x Core..:? "eventId")
       )
 
-instance Prelude.Hashable FilteredLogEvent
+instance Prelude.Hashable FilteredLogEvent where
+  hashWithSalt _salt FilteredLogEvent' {..} =
+    _salt `Prelude.hashWithSalt` ingestionTime
+      `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData FilteredLogEvent
+instance Prelude.NFData FilteredLogEvent where
+  rnf FilteredLogEvent' {..} =
+    Prelude.rnf ingestionTime
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf eventId

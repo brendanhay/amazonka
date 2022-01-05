@@ -72,6 +72,11 @@ instance Core.FromJSON ExportTaskStatus where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable ExportTaskStatus
+instance Prelude.Hashable ExportTaskStatus where
+  hashWithSalt _salt ExportTaskStatus' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ExportTaskStatus
+instance Prelude.NFData ExportTaskStatus where
+  rnf ExportTaskStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

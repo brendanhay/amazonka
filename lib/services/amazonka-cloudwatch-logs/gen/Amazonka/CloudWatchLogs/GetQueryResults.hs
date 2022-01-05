@@ -104,9 +104,12 @@ instance Core.AWSRequest GetQueryResults where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueryResults
+instance Prelude.Hashable GetQueryResults where
+  hashWithSalt _salt GetQueryResults' {..} =
+    _salt `Prelude.hashWithSalt` queryId
 
-instance Prelude.NFData GetQueryResults
+instance Prelude.NFData GetQueryResults where
+  rnf GetQueryResults' {..} = Prelude.rnf queryId
 
 instance Core.ToHeaders GetQueryResults where
   toHeaders =
@@ -234,4 +237,9 @@ getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {stati
 getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int
 getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpStatus} -> httpStatus) (\s@GetQueryResultsResponse' {} a -> s {httpStatus = a} :: GetQueryResultsResponse)
 
-instance Prelude.NFData GetQueryResultsResponse
+instance Prelude.NFData GetQueryResultsResponse where
+  rnf GetQueryResultsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf results
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf httpStatus

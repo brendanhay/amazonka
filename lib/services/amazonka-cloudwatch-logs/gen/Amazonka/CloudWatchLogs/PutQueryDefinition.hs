@@ -182,9 +182,19 @@ instance Core.AWSRequest PutQueryDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutQueryDefinition
+instance Prelude.Hashable PutQueryDefinition where
+  hashWithSalt _salt PutQueryDefinition' {..} =
+    _salt `Prelude.hashWithSalt` logGroupNames
+      `Prelude.hashWithSalt` queryDefinitionId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData PutQueryDefinition
+instance Prelude.NFData PutQueryDefinition where
+  rnf PutQueryDefinition' {..} =
+    Prelude.rnf logGroupNames
+      `Prelude.seq` Prelude.rnf queryDefinitionId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders PutQueryDefinition where
   toHeaders =
@@ -258,4 +268,7 @@ putQueryDefinitionResponse_queryDefinitionId = Lens.lens (\PutQueryDefinitionRes
 putQueryDefinitionResponse_httpStatus :: Lens.Lens' PutQueryDefinitionResponse Prelude.Int
 putQueryDefinitionResponse_httpStatus = Lens.lens (\PutQueryDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutQueryDefinitionResponse' {} a -> s {httpStatus = a} :: PutQueryDefinitionResponse)
 
-instance Prelude.NFData PutQueryDefinitionResponse
+instance Prelude.NFData PutQueryDefinitionResponse where
+  rnf PutQueryDefinitionResponse' {..} =
+    Prelude.rnf queryDefinitionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,9 +92,15 @@ instance Core.AWSRequest DeleteLogStream where
   response =
     Response.receiveNull DeleteLogStreamResponse'
 
-instance Prelude.Hashable DeleteLogStream
+instance Prelude.Hashable DeleteLogStream where
+  hashWithSalt _salt DeleteLogStream' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` logStreamName
 
-instance Prelude.NFData DeleteLogStream
+instance Prelude.NFData DeleteLogStream where
+  rnf DeleteLogStream' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamName
 
 instance Core.ToHeaders DeleteLogStream where
   toHeaders =
@@ -141,4 +147,5 @@ newDeleteLogStreamResponse ::
   DeleteLogStreamResponse
 newDeleteLogStreamResponse = DeleteLogStreamResponse'
 
-instance Prelude.NFData DeleteLogStreamResponse
+instance Prelude.NFData DeleteLogStreamResponse where
+  rnf _ = ()

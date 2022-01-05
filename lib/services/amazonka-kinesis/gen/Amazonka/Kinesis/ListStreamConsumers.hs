@@ -240,9 +240,19 @@ instance Core.AWSRequest ListStreamConsumers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreamConsumers
+instance Prelude.Hashable ListStreamConsumers where
+  hashWithSalt _salt ListStreamConsumers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` streamCreationTimestamp
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData ListStreamConsumers
+instance Prelude.NFData ListStreamConsumers where
+  rnf ListStreamConsumers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf streamCreationTimestamp
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf streamARN
 
 instance Core.ToHeaders ListStreamConsumers where
   toHeaders =
@@ -367,4 +377,8 @@ listStreamConsumersResponse_consumers = Lens.lens (\ListStreamConsumersResponse'
 listStreamConsumersResponse_httpStatus :: Lens.Lens' ListStreamConsumersResponse Prelude.Int
 listStreamConsumersResponse_httpStatus = Lens.lens (\ListStreamConsumersResponse' {httpStatus} -> httpStatus) (\s@ListStreamConsumersResponse' {} a -> s {httpStatus = a} :: ListStreamConsumersResponse)
 
-instance Prelude.NFData ListStreamConsumersResponse
+instance Prelude.NFData ListStreamConsumersResponse where
+  rnf ListStreamConsumersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf consumers
+      `Prelude.seq` Prelude.rnf httpStatus

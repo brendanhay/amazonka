@@ -150,9 +150,15 @@ instance Core.AWSRequest CreateStream where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateStreamResponse'
 
-instance Prelude.Hashable CreateStream
+instance Prelude.Hashable CreateStream where
+  hashWithSalt _salt CreateStream' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` shardCount
 
-instance Prelude.NFData CreateStream
+instance Prelude.NFData CreateStream where
+  rnf CreateStream' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf shardCount
 
 instance Core.ToHeaders CreateStream where
   toHeaders =
@@ -198,4 +204,5 @@ newCreateStreamResponse ::
   CreateStreamResponse
 newCreateStreamResponse = CreateStreamResponse'
 
-instance Prelude.NFData CreateStreamResponse
+instance Prelude.NFData CreateStreamResponse where
+  rnf _ = ()

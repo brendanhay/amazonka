@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribeStreamSummary where
             Prelude.<*> (x Core..:> "StreamDescriptionSummary")
       )
 
-instance Prelude.Hashable DescribeStreamSummary
+instance Prelude.Hashable DescribeStreamSummary where
+  hashWithSalt _salt DescribeStreamSummary' {..} =
+    _salt `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData DescribeStreamSummary
+instance Prelude.NFData DescribeStreamSummary where
+  rnf DescribeStreamSummary' {..} =
+    Prelude.rnf streamName
 
 instance Core.ToHeaders DescribeStreamSummary where
   toHeaders =
@@ -170,4 +174,7 @@ describeStreamSummaryResponse_httpStatus = Lens.lens (\DescribeStreamSummaryResp
 describeStreamSummaryResponse_streamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
 describeStreamSummaryResponse_streamDescriptionSummary = Lens.lens (\DescribeStreamSummaryResponse' {streamDescriptionSummary} -> streamDescriptionSummary) (\s@DescribeStreamSummaryResponse' {} a -> s {streamDescriptionSummary = a} :: DescribeStreamSummaryResponse)
 
-instance Prelude.NFData DescribeStreamSummaryResponse
+instance Prelude.NFData DescribeStreamSummaryResponse where
+  rnf DescribeStreamSummaryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streamDescriptionSummary

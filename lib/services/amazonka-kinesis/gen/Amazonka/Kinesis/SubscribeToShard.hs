@@ -148,9 +148,17 @@ instance Core.AWSRequest SubscribeToShard where
             Prelude.<*> (x Core..:> "EventStream")
       )
 
-instance Prelude.Hashable SubscribeToShard
+instance Prelude.Hashable SubscribeToShard where
+  hashWithSalt _salt SubscribeToShard' {..} =
+    _salt `Prelude.hashWithSalt` consumerARN
+      `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` startingPosition
 
-instance Prelude.NFData SubscribeToShard
+instance Prelude.NFData SubscribeToShard where
+  rnf SubscribeToShard' {..} =
+    Prelude.rnf consumerARN
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf startingPosition
 
 instance Core.ToHeaders SubscribeToShard where
   toHeaders =
@@ -230,4 +238,7 @@ subscribeToShardResponse_httpStatus = Lens.lens (\SubscribeToShardResponse' {htt
 subscribeToShardResponse_eventStream :: Lens.Lens' SubscribeToShardResponse Core.Value
 subscribeToShardResponse_eventStream = Lens.lens (\SubscribeToShardResponse' {eventStream} -> eventStream) (\s@SubscribeToShardResponse' {} a -> s {eventStream = a} :: SubscribeToShardResponse)
 
-instance Prelude.NFData SubscribeToShardResponse
+instance Prelude.NFData SubscribeToShardResponse where
+  rnf SubscribeToShardResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eventStream

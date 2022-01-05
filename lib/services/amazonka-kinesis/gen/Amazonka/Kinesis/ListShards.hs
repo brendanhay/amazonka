@@ -296,9 +296,23 @@ instance Core.AWSRequest ListShards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListShards
+instance Prelude.Hashable ListShards where
+  hashWithSalt _salt ListShards' {..} =
+    _salt `Prelude.hashWithSalt` shardFilter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` exclusiveStartShardId
+      `Prelude.hashWithSalt` streamCreationTimestamp
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListShards
+instance Prelude.NFData ListShards where
+  rnf ListShards' {..} =
+    Prelude.rnf shardFilter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf exclusiveStartShardId
+      `Prelude.seq` Prelude.rnf streamCreationTimestamp
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListShards where
   toHeaders =
@@ -431,4 +445,8 @@ listShardsResponse_shards = Lens.lens (\ListShardsResponse' {shards} -> shards) 
 listShardsResponse_httpStatus :: Lens.Lens' ListShardsResponse Prelude.Int
 listShardsResponse_httpStatus = Lens.lens (\ListShardsResponse' {httpStatus} -> httpStatus) (\s@ListShardsResponse' {} a -> s {httpStatus = a} :: ListShardsResponse)
 
-instance Prelude.NFData ListShardsResponse
+instance Prelude.NFData ListShardsResponse where
+  rnf ListShardsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf httpStatus

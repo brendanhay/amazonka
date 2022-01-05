@@ -147,6 +147,18 @@ instance Core.FromJSON Record where
             Prelude.<*> (x Core..: "PartitionKey")
       )
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt _salt Record' {..} =
+    _salt `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` approximateArrivalTimestamp
+      `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` partitionKey
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf approximateArrivalTimestamp
+      `Prelude.seq` Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf partitionKey

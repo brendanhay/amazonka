@@ -287,6 +287,28 @@ instance Core.FromJSON StreamDescriptionSummary where
             Prelude.<*> (x Core..: "OpenShardCount")
       )
 
-instance Prelude.Hashable StreamDescriptionSummary
+instance Prelude.Hashable StreamDescriptionSummary where
+  hashWithSalt _salt StreamDescriptionSummary' {..} =
+    _salt `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` consumerCount
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamStatus
+      `Prelude.hashWithSalt` retentionPeriodHours
+      `Prelude.hashWithSalt` streamCreationTimestamp
+      `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` openShardCount
 
-instance Prelude.NFData StreamDescriptionSummary
+instance Prelude.NFData StreamDescriptionSummary where
+  rnf StreamDescriptionSummary' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf consumerCount
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamStatus
+      `Prelude.seq` Prelude.rnf retentionPeriodHours
+      `Prelude.seq` Prelude.rnf streamCreationTimestamp
+      `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf openShardCount

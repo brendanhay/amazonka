@@ -99,9 +99,15 @@ instance Core.AWSRequest AddTagsToStream where
   response =
     Response.receiveNull AddTagsToStreamResponse'
 
-instance Prelude.Hashable AddTagsToStream
+instance Prelude.Hashable AddTagsToStream where
+  hashWithSalt _salt AddTagsToStream' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AddTagsToStream
+instance Prelude.NFData AddTagsToStream where
+  rnf AddTagsToStream' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders AddTagsToStream where
   toHeaders =
@@ -147,4 +153,5 @@ newAddTagsToStreamResponse ::
   AddTagsToStreamResponse
 newAddTagsToStreamResponse = AddTagsToStreamResponse'
 
-instance Prelude.NFData AddTagsToStreamResponse
+instance Prelude.NFData AddTagsToStreamResponse where
+  rnf _ = ()

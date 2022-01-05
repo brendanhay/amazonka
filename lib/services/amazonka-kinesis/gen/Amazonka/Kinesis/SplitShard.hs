@@ -176,9 +176,17 @@ instance Core.AWSRequest SplitShard where
   request = Request.postJSON defaultService
   response = Response.receiveNull SplitShardResponse'
 
-instance Prelude.Hashable SplitShard
+instance Prelude.Hashable SplitShard where
+  hashWithSalt _salt SplitShard' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` shardToSplit
+      `Prelude.hashWithSalt` newStartingHashKey'
 
-instance Prelude.NFData SplitShard
+instance Prelude.NFData SplitShard where
+  rnf SplitShard' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf shardToSplit
+      `Prelude.seq` Prelude.rnf newStartingHashKey'
 
 instance Core.ToHeaders SplitShard where
   toHeaders =
@@ -226,4 +234,5 @@ newSplitShardResponse ::
   SplitShardResponse
 newSplitShardResponse = SplitShardResponse'
 
-instance Prelude.NFData SplitShardResponse
+instance Prelude.NFData SplitShardResponse where
+  rnf _ = ()

@@ -119,9 +119,17 @@ putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> dat
 putRecordsRequestEntry_partitionKey :: Lens.Lens' PutRecordsRequestEntry Prelude.Text
 putRecordsRequestEntry_partitionKey = Lens.lens (\PutRecordsRequestEntry' {partitionKey} -> partitionKey) (\s@PutRecordsRequestEntry' {} a -> s {partitionKey = a} :: PutRecordsRequestEntry)
 
-instance Prelude.Hashable PutRecordsRequestEntry
+instance Prelude.Hashable PutRecordsRequestEntry where
+  hashWithSalt _salt PutRecordsRequestEntry' {..} =
+    _salt `Prelude.hashWithSalt` explicitHashKey
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` partitionKey
 
-instance Prelude.NFData PutRecordsRequestEntry
+instance Prelude.NFData PutRecordsRequestEntry where
+  rnf PutRecordsRequestEntry' {..} =
+    Prelude.rnf explicitHashKey
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf partitionKey
 
 instance Core.ToJSON PutRecordsRequestEntry where
   toJSON PutRecordsRequestEntry' {..} =

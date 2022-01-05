@@ -81,6 +81,14 @@ instance Core.FromJSON ChildShard where
             Prelude.<*> (x Core..: "HashKeyRange")
       )
 
-instance Prelude.Hashable ChildShard
+instance Prelude.Hashable ChildShard where
+  hashWithSalt _salt ChildShard' {..} =
+    _salt `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` parentShards
+      `Prelude.hashWithSalt` hashKeyRange
 
-instance Prelude.NFData ChildShard
+instance Prelude.NFData ChildShard where
+  rnf ChildShard' {..} =
+    Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf parentShards
+      `Prelude.seq` Prelude.rnf hashKeyRange

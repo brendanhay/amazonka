@@ -167,9 +167,15 @@ instance Core.AWSRequest EnableEnhancedMonitoring where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable EnableEnhancedMonitoring
+instance Prelude.Hashable EnableEnhancedMonitoring where
+  hashWithSalt _salt EnableEnhancedMonitoring' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` shardLevelMetrics
 
-instance Prelude.NFData EnableEnhancedMonitoring
+instance Prelude.NFData EnableEnhancedMonitoring where
+  rnf EnableEnhancedMonitoring' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf shardLevelMetrics
 
 instance Core.ToHeaders EnableEnhancedMonitoring where
   toHeaders =

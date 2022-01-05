@@ -305,9 +305,23 @@ instance Core.AWSRequest UpdateResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResource
+instance Prelude.Hashable UpdateResource where
+  hashWithSalt _salt UpdateResource' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` typeVersionId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` patchDocument
 
-instance Prelude.NFData UpdateResource
+instance Prelude.NFData UpdateResource where
+  rnf UpdateResource' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf typeVersionId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf patchDocument
 
 instance Core.ToHeaders UpdateResource where
   toHeaders =
@@ -395,4 +409,7 @@ updateResourceResponse_progressEvent = Lens.lens (\UpdateResourceResponse' {prog
 updateResourceResponse_httpStatus :: Lens.Lens' UpdateResourceResponse Prelude.Int
 updateResourceResponse_httpStatus = Lens.lens (\UpdateResourceResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceResponse' {} a -> s {httpStatus = a} :: UpdateResourceResponse)
 
-instance Prelude.NFData UpdateResourceResponse
+instance Prelude.NFData UpdateResourceResponse where
+  rnf UpdateResourceResponse' {..} =
+    Prelude.rnf progressEvent
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromJSON UsageAllocation where
             Prelude.<*> (x Core..: "AllocatedUsageQuantity")
       )
 
-instance Prelude.Hashable UsageAllocation
+instance Prelude.Hashable UsageAllocation where
+  hashWithSalt _salt UsageAllocation' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` allocatedUsageQuantity
 
-instance Prelude.NFData UsageAllocation
+instance Prelude.NFData UsageAllocation where
+  rnf UsageAllocation' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf allocatedUsageQuantity
 
 instance Core.ToJSON UsageAllocation where
   toJSON UsageAllocation' {..} =

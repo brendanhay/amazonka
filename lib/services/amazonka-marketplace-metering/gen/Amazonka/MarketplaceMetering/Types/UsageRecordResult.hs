@@ -123,6 +123,14 @@ instance Core.FromJSON UsageRecordResult where
             Prelude.<*> (x Core..:? "MeteringRecordId")
       )
 
-instance Prelude.Hashable UsageRecordResult
+instance Prelude.Hashable UsageRecordResult where
+  hashWithSalt _salt UsageRecordResult' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` usageRecord
+      `Prelude.hashWithSalt` meteringRecordId
 
-instance Prelude.NFData UsageRecordResult
+instance Prelude.NFData UsageRecordResult where
+  rnf UsageRecordResult' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf usageRecord
+      `Prelude.seq` Prelude.rnf meteringRecordId

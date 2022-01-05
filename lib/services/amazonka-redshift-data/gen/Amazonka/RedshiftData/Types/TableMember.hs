@@ -84,6 +84,14 @@ instance Core.FromJSON TableMember where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable TableMember
+instance Prelude.Hashable TableMember where
+  hashWithSalt _salt TableMember' {..} =
+    _salt `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData TableMember
+instance Prelude.NFData TableMember where
+  rnf TableMember' {..} =
+    Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

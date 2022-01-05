@@ -276,9 +276,29 @@ instance Core.AWSRequest ListTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTables
+instance Prelude.Hashable ListTables where
+  hashWithSalt _salt ListTables' {..} =
+    _salt `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` connectedDatabase
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` tablePattern
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` schemaPattern
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData ListTables
+instance Prelude.NFData ListTables where
+  rnf ListTables' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf connectedDatabase
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf tablePattern
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf schemaPattern
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToHeaders ListTables where
   toHeaders =
@@ -379,4 +399,8 @@ listTablesResponse_tables = Lens.lens (\ListTablesResponse' {tables} -> tables) 
 listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Prelude.Int
 listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> httpStatus) (\s@ListTablesResponse' {} a -> s {httpStatus = a} :: ListTablesResponse)
 
-instance Prelude.NFData ListTablesResponse
+instance Prelude.NFData ListTablesResponse where
+  rnf ListTablesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tables
+      `Prelude.seq` Prelude.rnf httpStatus

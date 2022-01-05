@@ -328,9 +328,31 @@ instance Core.AWSRequest CreateFirewallRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFirewallRule
+instance Prelude.Hashable CreateFirewallRule where
+  hashWithSalt _salt CreateFirewallRule' {..} =
+    _salt `Prelude.hashWithSalt` blockOverrideDnsType
+      `Prelude.hashWithSalt` blockResponse
+      `Prelude.hashWithSalt` blockOverrideTtl
+      `Prelude.hashWithSalt` blockOverrideDomain
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` firewallRuleGroupId
+      `Prelude.hashWithSalt` firewallDomainListId
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateFirewallRule
+instance Prelude.NFData CreateFirewallRule where
+  rnf CreateFirewallRule' {..} =
+    Prelude.rnf blockOverrideDnsType
+      `Prelude.seq` Prelude.rnf blockResponse
+      `Prelude.seq` Prelude.rnf blockOverrideTtl
+      `Prelude.seq` Prelude.rnf blockOverrideDomain
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
+      `Prelude.seq` Prelude.rnf firewallDomainListId
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateFirewallRule where
   toHeaders =
@@ -417,4 +439,7 @@ createFirewallRuleResponse_firewallRule = Lens.lens (\CreateFirewallRuleResponse
 createFirewallRuleResponse_httpStatus :: Lens.Lens' CreateFirewallRuleResponse Prelude.Int
 createFirewallRuleResponse_httpStatus = Lens.lens (\CreateFirewallRuleResponse' {httpStatus} -> httpStatus) (\s@CreateFirewallRuleResponse' {} a -> s {httpStatus = a} :: CreateFirewallRuleResponse)
 
-instance Prelude.NFData CreateFirewallRuleResponse
+instance Prelude.NFData CreateFirewallRuleResponse where
+  rnf CreateFirewallRuleResponse' {..} =
+    Prelude.rnf firewallRule
+      `Prelude.seq` Prelude.rnf httpStatus

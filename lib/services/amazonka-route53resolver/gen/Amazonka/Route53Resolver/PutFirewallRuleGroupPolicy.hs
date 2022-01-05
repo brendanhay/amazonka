@@ -111,9 +111,15 @@ instance Core.AWSRequest PutFirewallRuleGroupPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutFirewallRuleGroupPolicy
+instance Prelude.Hashable PutFirewallRuleGroupPolicy where
+  hashWithSalt _salt PutFirewallRuleGroupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` firewallRuleGroupPolicy
 
-instance Prelude.NFData PutFirewallRuleGroupPolicy
+instance Prelude.NFData PutFirewallRuleGroupPolicy where
+  rnf PutFirewallRuleGroupPolicy' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf firewallRuleGroupPolicy
 
 instance Core.ToHeaders PutFirewallRuleGroupPolicy where
   toHeaders =
@@ -189,3 +195,7 @@ putFirewallRuleGroupPolicyResponse_httpStatus = Lens.lens (\PutFirewallRuleGroup
 instance
   Prelude.NFData
     PutFirewallRuleGroupPolicyResponse
+  where
+  rnf PutFirewallRuleGroupPolicyResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -126,10 +126,21 @@ instance
 instance
   Prelude.Hashable
     DisassociateResolverQueryLogConfig
+  where
+  hashWithSalt
+    _salt
+    DisassociateResolverQueryLogConfig' {..} =
+      _salt
+        `Prelude.hashWithSalt` resolverQueryLogConfigId
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     DisassociateResolverQueryLogConfig
+  where
+  rnf DisassociateResolverQueryLogConfig' {..} =
+    Prelude.rnf resolverQueryLogConfigId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance
   Core.ToHeaders
@@ -222,3 +233,7 @@ disassociateResolverQueryLogConfigResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociateResolverQueryLogConfigResponse
+  where
+  rnf DisassociateResolverQueryLogConfigResponse' {..} =
+    Prelude.rnf resolverQueryLogConfigAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -163,10 +163,20 @@ instance
 instance
   Prelude.Hashable
     PutResolverQueryLogConfigPolicy
+  where
+  hashWithSalt
+    _salt
+    PutResolverQueryLogConfigPolicy' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` resolverQueryLogConfigPolicy
 
 instance
   Prelude.NFData
     PutResolverQueryLogConfigPolicy
+  where
+  rnf PutResolverQueryLogConfigPolicy' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resolverQueryLogConfigPolicy
 
 instance
   Core.ToHeaders
@@ -249,3 +259,7 @@ putResolverQueryLogConfigPolicyResponse_httpStatus = Lens.lens (\PutResolverQuer
 instance
   Prelude.NFData
     PutResolverQueryLogConfigPolicyResponse
+  where
+  rnf PutResolverQueryLogConfigPolicyResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

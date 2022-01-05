@@ -174,10 +174,22 @@ instance
 instance
   Prelude.Hashable
     ListResolverEndpointIpAddresses
+  where
+  hashWithSalt
+    _salt
+    ListResolverEndpointIpAddresses' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` resolverEndpointId
 
 instance
   Prelude.NFData
     ListResolverEndpointIpAddresses
+  where
+  rnf ListResolverEndpointIpAddresses' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resolverEndpointId
 
 instance
   Core.ToHeaders
@@ -290,3 +302,9 @@ listResolverEndpointIpAddressesResponse_httpStatus = Lens.lens (\ListResolverEnd
 instance
   Prelude.NFData
     ListResolverEndpointIpAddressesResponse
+  where
+  rnf ListResolverEndpointIpAddressesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf httpStatus

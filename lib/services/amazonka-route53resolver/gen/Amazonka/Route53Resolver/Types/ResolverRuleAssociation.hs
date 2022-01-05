@@ -137,6 +137,20 @@ instance Core.FromJSON ResolverRuleAssociation where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ResolverRuleAssociation
+instance Prelude.Hashable ResolverRuleAssociation where
+  hashWithSalt _salt ResolverRuleAssociation' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resolverRuleId
+      `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ResolverRuleAssociation
+instance Prelude.NFData ResolverRuleAssociation where
+  rnf ResolverRuleAssociation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resolverRuleId
+      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

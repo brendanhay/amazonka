@@ -137,6 +137,20 @@ instance Core.FromJSON FirewallRuleGroupMetadata where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable FirewallRuleGroupMetadata
+instance Prelude.Hashable FirewallRuleGroupMetadata where
+  hashWithSalt _salt FirewallRuleGroupMetadata' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FirewallRuleGroupMetadata
+instance Prelude.NFData FirewallRuleGroupMetadata where
+  rnf FirewallRuleGroupMetadata' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

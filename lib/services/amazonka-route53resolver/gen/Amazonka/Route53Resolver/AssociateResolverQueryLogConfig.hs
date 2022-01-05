@@ -131,10 +131,21 @@ instance
 instance
   Prelude.Hashable
     AssociateResolverQueryLogConfig
+  where
+  hashWithSalt
+    _salt
+    AssociateResolverQueryLogConfig' {..} =
+      _salt
+        `Prelude.hashWithSalt` resolverQueryLogConfigId
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     AssociateResolverQueryLogConfig
+  where
+  rnf AssociateResolverQueryLogConfig' {..} =
+    Prelude.rnf resolverQueryLogConfigId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance
   Core.ToHeaders
@@ -218,3 +229,7 @@ associateResolverQueryLogConfigResponse_httpStatus = Lens.lens (\AssociateResolv
 instance
   Prelude.NFData
     AssociateResolverQueryLogConfigResponse
+  where
+  rnf AssociateResolverQueryLogConfigResponse' {..} =
+    Prelude.rnf resolverQueryLogConfigAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

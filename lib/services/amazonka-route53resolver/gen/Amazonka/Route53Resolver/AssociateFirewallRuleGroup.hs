@@ -220,9 +220,25 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateFirewallRuleGroup
+instance Prelude.Hashable AssociateFirewallRuleGroup where
+  hashWithSalt _salt AssociateFirewallRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` mutationProtection
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` firewallRuleGroupId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssociateFirewallRuleGroup
+instance Prelude.NFData AssociateFirewallRuleGroup where
+  rnf AssociateFirewallRuleGroup' {..} =
+    Prelude.rnf mutationProtection
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders AssociateFirewallRuleGroup where
   toHeaders =
@@ -307,3 +323,7 @@ associateFirewallRuleGroupResponse_httpStatus = Lens.lens (\AssociateFirewallRul
 instance
   Prelude.NFData
     AssociateFirewallRuleGroupResponse
+  where
+  rnf AssociateFirewallRuleGroupResponse' {..} =
+    Prelude.rnf firewallRuleGroupAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

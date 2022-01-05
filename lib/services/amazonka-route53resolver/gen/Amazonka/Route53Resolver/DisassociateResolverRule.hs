@@ -108,9 +108,15 @@ instance Core.AWSRequest DisassociateResolverRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateResolverRule
+instance Prelude.Hashable DisassociateResolverRule where
+  hashWithSalt _salt DisassociateResolverRule' {..} =
+    _salt `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` resolverRuleId
 
-instance Prelude.NFData DisassociateResolverRule
+instance Prelude.NFData DisassociateResolverRule where
+  rnf DisassociateResolverRule' {..} =
+    Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf resolverRuleId
 
 instance Core.ToHeaders DisassociateResolverRule where
   toHeaders =
@@ -188,3 +194,7 @@ disassociateResolverRuleResponse_httpStatus = Lens.lens (\DisassociateResolverRu
 instance
   Prelude.NFData
     DisassociateResolverRuleResponse
+  where
+  rnf DisassociateResolverRuleResponse' {..} =
+    Prelude.rnf resolverRuleAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

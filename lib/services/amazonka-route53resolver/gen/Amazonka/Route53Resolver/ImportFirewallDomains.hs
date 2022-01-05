@@ -157,9 +157,17 @@ instance Core.AWSRequest ImportFirewallDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportFirewallDomains
+instance Prelude.Hashable ImportFirewallDomains where
+  hashWithSalt _salt ImportFirewallDomains' {..} =
+    _salt `Prelude.hashWithSalt` firewallDomainListId
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` domainFileUrl
 
-instance Prelude.NFData ImportFirewallDomains
+instance Prelude.NFData ImportFirewallDomains where
+  rnf ImportFirewallDomains' {..} =
+    Prelude.rnf firewallDomainListId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf domainFileUrl
 
 instance Core.ToHeaders ImportFirewallDomains where
   toHeaders =
@@ -261,4 +269,10 @@ importFirewallDomainsResponse_id = Lens.lens (\ImportFirewallDomainsResponse' {i
 importFirewallDomainsResponse_httpStatus :: Lens.Lens' ImportFirewallDomainsResponse Prelude.Int
 importFirewallDomainsResponse_httpStatus = Lens.lens (\ImportFirewallDomainsResponse' {httpStatus} -> httpStatus) (\s@ImportFirewallDomainsResponse' {} a -> s {httpStatus = a} :: ImportFirewallDomainsResponse)
 
-instance Prelude.NFData ImportFirewallDomainsResponse
+instance Prelude.NFData ImportFirewallDomainsResponse where
+  rnf ImportFirewallDomainsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

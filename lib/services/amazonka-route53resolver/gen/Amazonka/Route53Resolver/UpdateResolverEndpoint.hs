@@ -98,9 +98,15 @@ instance Core.AWSRequest UpdateResolverEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResolverEndpoint
+instance Prelude.Hashable UpdateResolverEndpoint where
+  hashWithSalt _salt UpdateResolverEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resolverEndpointId
 
-instance Prelude.NFData UpdateResolverEndpoint
+instance Prelude.NFData UpdateResolverEndpoint where
+  rnf UpdateResolverEndpoint' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resolverEndpointId
 
 instance Core.ToHeaders UpdateResolverEndpoint where
   toHeaders =
@@ -175,3 +181,7 @@ updateResolverEndpointResponse_httpStatus = Lens.lens (\UpdateResolverEndpointRe
 instance
   Prelude.NFData
     UpdateResolverEndpointResponse
+  where
+  rnf UpdateResolverEndpointResponse' {..} =
+    Prelude.rnf resolverEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

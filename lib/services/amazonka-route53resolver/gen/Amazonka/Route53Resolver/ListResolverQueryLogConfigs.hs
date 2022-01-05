@@ -377,9 +377,21 @@ instance Core.AWSRequest ListResolverQueryLogConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResolverQueryLogConfigs
+instance Prelude.Hashable ListResolverQueryLogConfigs where
+  hashWithSalt _salt ListResolverQueryLogConfigs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListResolverQueryLogConfigs
+instance Prelude.NFData ListResolverQueryLogConfigs where
+  rnf ListResolverQueryLogConfigs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListResolverQueryLogConfigs where
   toHeaders =
@@ -523,3 +535,10 @@ listResolverQueryLogConfigsResponse_httpStatus = Lens.lens (\ListResolverQueryLo
 instance
   Prelude.NFData
     ListResolverQueryLogConfigsResponse
+  where
+  rnf ListResolverQueryLogConfigsResponse' {..} =
+    Prelude.rnf totalFilteredCount
+      `Prelude.seq` Prelude.rnf resolverQueryLogConfigs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf httpStatus

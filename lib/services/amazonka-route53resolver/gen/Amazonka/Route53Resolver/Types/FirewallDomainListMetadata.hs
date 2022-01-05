@@ -120,6 +120,18 @@ instance Core.FromJSON FirewallDomainListMetadata where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable FirewallDomainListMetadata
+instance Prelude.Hashable FirewallDomainListMetadata where
+  hashWithSalt _salt FirewallDomainListMetadata' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` managedOwnerName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FirewallDomainListMetadata
+instance Prelude.NFData FirewallDomainListMetadata where
+  rnf FirewallDomainListMetadata' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf managedOwnerName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

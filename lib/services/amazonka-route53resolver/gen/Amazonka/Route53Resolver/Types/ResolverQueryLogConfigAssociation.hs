@@ -216,7 +216,27 @@ instance
 instance
   Prelude.Hashable
     ResolverQueryLogConfigAssociation
+  where
+  hashWithSalt
+    _salt
+    ResolverQueryLogConfigAssociation' {..} =
+      _salt `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` resolverQueryLogConfigId
+        `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     ResolverQueryLogConfigAssociation
+  where
+  rnf ResolverQueryLogConfigAssociation' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resolverQueryLogConfigId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf errorMessage

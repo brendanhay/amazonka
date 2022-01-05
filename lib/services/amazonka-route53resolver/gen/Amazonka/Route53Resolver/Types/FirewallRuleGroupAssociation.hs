@@ -221,5 +221,34 @@ instance Core.FromJSON FirewallRuleGroupAssociation where
 instance
   Prelude.Hashable
     FirewallRuleGroupAssociation
+  where
+  hashWithSalt _salt FirewallRuleGroupAssociation' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` mutationProtection
+      `Prelude.hashWithSalt` firewallRuleGroupId
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` managedOwnerName
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FirewallRuleGroupAssociation
+instance Prelude.NFData FirewallRuleGroupAssociation where
+  rnf FirewallRuleGroupAssociation' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf mutationProtection
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf managedOwnerName
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

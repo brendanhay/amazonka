@@ -288,6 +288,36 @@ instance Core.FromJSON ResolverRule where
             Prelude.<*> (x Core..:? "RuleType")
       )
 
-instance Prelude.Hashable ResolverRule
+instance Prelude.Hashable ResolverRule where
+  hashWithSalt _salt ResolverRule' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resolverEndpointId
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` targetIps
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ruleType
 
-instance Prelude.NFData ResolverRule
+instance Prelude.NFData ResolverRule where
+  rnf ResolverRule' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf targetIps
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf ruleType

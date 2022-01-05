@@ -98,9 +98,15 @@ instance Core.FromJSON ComponentPlatform where
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ComponentPlatform
+instance Prelude.Hashable ComponentPlatform where
+  hashWithSalt _salt ComponentPlatform' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData ComponentPlatform
+instance Prelude.NFData ComponentPlatform where
+  rnf ComponentPlatform' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON ComponentPlatform where
   toJSON ComponentPlatform' {..} =

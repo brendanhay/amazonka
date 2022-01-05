@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateClientDeviceFromCoreDevice
+  where
+  hashWithSalt
+    _salt
+    BatchDisassociateClientDeviceFromCoreDevice' {..} =
+      _salt `Prelude.hashWithSalt` entries
+        `Prelude.hashWithSalt` coreDeviceThingName
 
 instance
   Prelude.NFData
     BatchDisassociateClientDeviceFromCoreDevice
+  where
+  rnf BatchDisassociateClientDeviceFromCoreDevice' {..} =
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance
   Core.ToHeaders
@@ -206,3 +216,8 @@ batchDisassociateClientDeviceFromCoreDeviceResponse_httpStatus = Lens.lens (\Bat
 instance
   Prelude.NFData
     BatchDisassociateClientDeviceFromCoreDeviceResponse
+  where
+  rnf
+    BatchDisassociateClientDeviceFromCoreDeviceResponse' {..} =
+      Prelude.rnf errorEntries
+        `Prelude.seq` Prelude.rnf httpStatus

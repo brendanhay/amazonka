@@ -64,10 +64,18 @@ associateClientDeviceWithCoreDeviceEntry_thingName = Lens.lens (\AssociateClient
 instance
   Prelude.Hashable
     AssociateClientDeviceWithCoreDeviceEntry
+  where
+  hashWithSalt
+    _salt
+    AssociateClientDeviceWithCoreDeviceEntry' {..} =
+      _salt `Prelude.hashWithSalt` thingName
 
 instance
   Prelude.NFData
     AssociateClientDeviceWithCoreDeviceEntry
+  where
+  rnf AssociateClientDeviceWithCoreDeviceEntry' {..} =
+    Prelude.rnf thingName
 
 instance
   Core.ToJSON

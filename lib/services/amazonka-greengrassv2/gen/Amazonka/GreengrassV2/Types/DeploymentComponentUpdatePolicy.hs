@@ -147,10 +147,20 @@ instance
 instance
   Prelude.Hashable
     DeploymentComponentUpdatePolicy
+  where
+  hashWithSalt
+    _salt
+    DeploymentComponentUpdatePolicy' {..} =
+      _salt `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` timeoutInSeconds
 
 instance
   Prelude.NFData
     DeploymentComponentUpdatePolicy
+  where
+  rnf DeploymentComponentUpdatePolicy' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance Core.ToJSON DeploymentComponentUpdatePolicy where
   toJSON DeploymentComponentUpdatePolicy' {..} =

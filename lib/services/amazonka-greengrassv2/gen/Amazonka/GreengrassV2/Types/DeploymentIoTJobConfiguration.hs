@@ -97,8 +97,18 @@ instance Core.FromJSON DeploymentIoTJobConfiguration where
 instance
   Prelude.Hashable
     DeploymentIoTJobConfiguration
+  where
+  hashWithSalt _salt DeploymentIoTJobConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` timeoutConfig
 
-instance Prelude.NFData DeploymentIoTJobConfiguration
+instance Prelude.NFData DeploymentIoTJobConfiguration where
+  rnf DeploymentIoTJobConfiguration' {..} =
+    Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf timeoutConfig
 
 instance Core.ToJSON DeploymentIoTJobConfiguration where
   toJSON DeploymentIoTJobConfiguration' {..} =

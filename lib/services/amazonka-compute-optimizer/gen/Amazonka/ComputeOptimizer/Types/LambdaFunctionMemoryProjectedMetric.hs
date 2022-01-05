@@ -91,7 +91,19 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionMemoryProjectedMetric
+  where
+  hashWithSalt
+    _salt
+    LambdaFunctionMemoryProjectedMetric' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` statistic
 
 instance
   Prelude.NFData
     LambdaFunctionMemoryProjectedMetric
+  where
+  rnf LambdaFunctionMemoryProjectedMetric' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statistic

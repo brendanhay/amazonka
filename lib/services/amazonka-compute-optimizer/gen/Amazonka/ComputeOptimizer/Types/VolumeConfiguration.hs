@@ -124,6 +124,20 @@ instance Core.FromJSON VolumeConfiguration where
             Prelude.<*> (x Core..:? "volumeBaselineThroughput")
       )
 
-instance Prelude.Hashable VolumeConfiguration
+instance Prelude.Hashable VolumeConfiguration where
+  hashWithSalt _salt VolumeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` volumeBaselineIOPS
+      `Prelude.hashWithSalt` volumeBurstIOPS
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` volumeBurstThroughput
+      `Prelude.hashWithSalt` volumeBaselineThroughput
 
-instance Prelude.NFData VolumeConfiguration
+instance Prelude.NFData VolumeConfiguration where
+  rnf VolumeConfiguration' {..} =
+    Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf volumeBaselineIOPS
+      `Prelude.seq` Prelude.rnf volumeBurstIOPS
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf volumeBurstThroughput
+      `Prelude.seq` Prelude.rnf volumeBaselineThroughput

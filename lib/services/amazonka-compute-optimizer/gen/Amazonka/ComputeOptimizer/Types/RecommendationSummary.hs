@@ -83,6 +83,14 @@ instance Core.FromJSON RecommendationSummary where
             Prelude.<*> (x Core..:? "recommendationResourceType")
       )
 
-instance Prelude.Hashable RecommendationSummary
+instance Prelude.Hashable RecommendationSummary where
+  hashWithSalt _salt RecommendationSummary' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` summaries
+      `Prelude.hashWithSalt` recommendationResourceType
 
-instance Prelude.NFData RecommendationSummary
+instance Prelude.NFData RecommendationSummary where
+  rnf RecommendationSummary' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf recommendationResourceType

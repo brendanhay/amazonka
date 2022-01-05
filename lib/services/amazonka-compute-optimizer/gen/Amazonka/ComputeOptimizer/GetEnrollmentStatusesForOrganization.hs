@@ -139,10 +139,22 @@ instance
 instance
   Prelude.Hashable
     GetEnrollmentStatusesForOrganization
+  where
+  hashWithSalt
+    _salt
+    GetEnrollmentStatusesForOrganization' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     GetEnrollmentStatusesForOrganization
+  where
+  rnf GetEnrollmentStatusesForOrganization' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -254,3 +266,8 @@ getEnrollmentStatusesForOrganizationResponse_httpStatus = Lens.lens (\GetEnrollm
 instance
   Prelude.NFData
     GetEnrollmentStatusesForOrganizationResponse
+  where
+  rnf GetEnrollmentStatusesForOrganizationResponse' {..} =
+    Prelude.rnf accountEnrollmentStatuses
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

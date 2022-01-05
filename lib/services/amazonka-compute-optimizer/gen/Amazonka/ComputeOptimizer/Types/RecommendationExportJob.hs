@@ -132,6 +132,22 @@ instance Core.FromJSON RecommendationExportJob where
             Prelude.<*> (x Core..:? "lastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable RecommendationExportJob
+instance Prelude.Hashable RecommendationExportJob where
+  hashWithSalt _salt RecommendationExportJob' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
-instance Prelude.NFData RecommendationExportJob
+instance Prelude.NFData RecommendationExportJob where
+  rnf RecommendationExportJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

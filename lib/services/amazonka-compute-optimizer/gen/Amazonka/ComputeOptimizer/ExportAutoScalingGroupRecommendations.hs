@@ -319,10 +319,30 @@ instance
 instance
   Prelude.Hashable
     ExportAutoScalingGroupRecommendations
+  where
+  hashWithSalt
+    _salt
+    ExportAutoScalingGroupRecommendations' {..} =
+      _salt `Prelude.hashWithSalt` accountIds
+        `Prelude.hashWithSalt` fileFormat
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` includeMemberAccounts
+        `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` s3DestinationConfig
 
 instance
   Prelude.NFData
     ExportAutoScalingGroupRecommendations
+  where
+  rnf ExportAutoScalingGroupRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
   Core.ToHeaders
@@ -440,3 +460,9 @@ exportAutoScalingGroupRecommendationsResponse_httpStatus = Lens.lens (\ExportAut
 instance
   Prelude.NFData
     ExportAutoScalingGroupRecommendationsResponse
+  where
+  rnf
+    ExportAutoScalingGroupRecommendationsResponse' {..} =
+      Prelude.rnf jobId
+        `Prelude.seq` Prelude.rnf s3Destination
+        `Prelude.seq` Prelude.rnf httpStatus

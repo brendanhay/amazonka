@@ -197,8 +197,23 @@ instance
 instance
   Prelude.Hashable
     GetEC2InstanceRecommendations
+  where
+  hashWithSalt _salt GetEC2InstanceRecommendations' {..} =
+    _salt `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` recommendationPreferences
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` instanceArns
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetEC2InstanceRecommendations
+instance Prelude.NFData GetEC2InstanceRecommendations where
+  rnf GetEC2InstanceRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceArns
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetEC2InstanceRecommendations where
   toHeaders =
@@ -317,3 +332,9 @@ getEC2InstanceRecommendationsResponse_httpStatus = Lens.lens (\GetEC2InstanceRec
 instance
   Prelude.NFData
     GetEC2InstanceRecommendationsResponse
+  where
+  rnf GetEC2InstanceRecommendationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf instanceRecommendations
+      `Prelude.seq` Prelude.rnf httpStatus

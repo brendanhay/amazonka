@@ -201,10 +201,28 @@ instance
 instance
   Prelude.Hashable
     GetAutoScalingGroupRecommendations
+  where
+  hashWithSalt
+    _salt
+    GetAutoScalingGroupRecommendations' {..} =
+      _salt `Prelude.hashWithSalt` accountIds
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` autoScalingGroupArns
+        `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     GetAutoScalingGroupRecommendations
+  where
+  rnf GetAutoScalingGroupRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf autoScalingGroupArns
+      `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -336,3 +354,9 @@ getAutoScalingGroupRecommendationsResponse_httpStatus = Lens.lens (\GetAutoScali
 instance
   Prelude.NFData
     GetAutoScalingGroupRecommendationsResponse
+  where
+  rnf GetAutoScalingGroupRecommendationsResponse' {..} =
+    Prelude.rnf autoScalingGroupRecommendations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

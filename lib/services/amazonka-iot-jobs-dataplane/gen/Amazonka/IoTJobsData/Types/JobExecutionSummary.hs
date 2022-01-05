@@ -126,6 +126,20 @@ instance Core.FromJSON JobExecutionSummary where
             Prelude.<*> (x Core..:? "startedAt")
       )
 
-instance Prelude.Hashable JobExecutionSummary
+instance Prelude.Hashable JobExecutionSummary where
+  hashWithSalt _salt JobExecutionSummary' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` queuedAt
+      `Prelude.hashWithSalt` executionNumber
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` startedAt
 
-instance Prelude.NFData JobExecutionSummary
+instance Prelude.NFData JobExecutionSummary where
+  rnf JobExecutionSummary' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf queuedAt
+      `Prelude.seq` Prelude.rnf executionNumber
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf startedAt

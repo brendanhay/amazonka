@@ -293,9 +293,31 @@ instance Core.AWSRequest CreateEntityRecognizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEntityRecognizer
+instance Prelude.Hashable CreateEntityRecognizer where
+  hashWithSalt _salt CreateEntityRecognizer' {..} =
+    _salt `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` modelKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recognizerName
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CreateEntityRecognizer
+instance Prelude.NFData CreateEntityRecognizer where
+  rnf CreateEntityRecognizer' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf modelKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recognizerName
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders CreateEntityRecognizer where
   toHeaders =
@@ -382,3 +404,7 @@ createEntityRecognizerResponse_httpStatus = Lens.lens (\CreateEntityRecognizerRe
 instance
   Prelude.NFData
     CreateEntityRecognizerResponse
+  where
+  rnf CreateEntityRecognizerResponse' {..} =
+    Prelude.rnf entityRecognizerArn
+      `Prelude.seq` Prelude.rnf httpStatus

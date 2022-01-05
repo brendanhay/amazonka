@@ -96,9 +96,13 @@ instance Core.AWSRequest DeleteEntityRecognizer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEntityRecognizer
+instance Prelude.Hashable DeleteEntityRecognizer where
+  hashWithSalt _salt DeleteEntityRecognizer' {..} =
+    _salt `Prelude.hashWithSalt` entityRecognizerArn
 
-instance Prelude.NFData DeleteEntityRecognizer
+instance Prelude.NFData DeleteEntityRecognizer where
+  rnf DeleteEntityRecognizer' {..} =
+    Prelude.rnf entityRecognizerArn
 
 instance Core.ToHeaders DeleteEntityRecognizer where
   toHeaders =
@@ -163,3 +167,6 @@ deleteEntityRecognizerResponse_httpStatus = Lens.lens (\DeleteEntityRecognizerRe
 instance
   Prelude.NFData
     DeleteEntityRecognizerResponse
+  where
+  rnf DeleteEntityRecognizerResponse' {..} =
+    Prelude.rnf httpStatus

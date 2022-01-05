@@ -100,10 +100,24 @@ dominantLanguageDetectionJobFilter_jobStatus = Lens.lens (\DominantLanguageDetec
 instance
   Prelude.Hashable
     DominantLanguageDetectionJobFilter
+  where
+  hashWithSalt
+    _salt
+    DominantLanguageDetectionJobFilter' {..} =
+      _salt `Prelude.hashWithSalt` submitTimeAfter
+        `Prelude.hashWithSalt` submitTimeBefore
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` jobStatus
 
 instance
   Prelude.NFData
     DominantLanguageDetectionJobFilter
+  where
+  rnf DominantLanguageDetectionJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance
   Core.ToJSON

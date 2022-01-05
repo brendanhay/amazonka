@@ -85,6 +85,12 @@ instance Core.FromJSON DominantLanguage where
             Prelude.<*> (x Core..:? "Score")
       )
 
-instance Prelude.Hashable DominantLanguage
+instance Prelude.Hashable DominantLanguage where
+  hashWithSalt _salt DominantLanguage' {..} =
+    _salt `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData DominantLanguage
+instance Prelude.NFData DominantLanguage where
+  rnf DominantLanguage' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf score

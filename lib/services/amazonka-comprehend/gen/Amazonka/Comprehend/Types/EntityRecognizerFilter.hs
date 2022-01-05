@@ -94,9 +94,19 @@ entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {s
 entityRecognizerFilter_recognizerName :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.Text)
 entityRecognizerFilter_recognizerName = Lens.lens (\EntityRecognizerFilter' {recognizerName} -> recognizerName) (\s@EntityRecognizerFilter' {} a -> s {recognizerName = a} :: EntityRecognizerFilter)
 
-instance Prelude.Hashable EntityRecognizerFilter
+instance Prelude.Hashable EntityRecognizerFilter where
+  hashWithSalt _salt EntityRecognizerFilter' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` submitTimeAfter
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` recognizerName
 
-instance Prelude.NFData EntityRecognizerFilter
+instance Prelude.NFData EntityRecognizerFilter where
+  rnf EntityRecognizerFilter' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf recognizerName
 
 instance Core.ToJSON EntityRecognizerFilter where
   toJSON EntityRecognizerFilter' {..} =

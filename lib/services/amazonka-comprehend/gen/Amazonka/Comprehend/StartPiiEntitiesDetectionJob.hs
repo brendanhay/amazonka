@@ -223,8 +223,29 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
 instance
   Prelude.Hashable
     StartPiiEntitiesDetectionJob
+  where
+  hashWithSalt _salt StartPiiEntitiesDetectionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` redactionConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData StartPiiEntitiesDetectionJob
+instance Prelude.NFData StartPiiEntitiesDetectionJob where
+  rnf StartPiiEntitiesDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf redactionConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders StartPiiEntitiesDetectionJob where
   toHeaders =
@@ -352,3 +373,9 @@ startPiiEntitiesDetectionJobResponse_httpStatus = Lens.lens (\StartPiiEntitiesDe
 instance
   Prelude.NFData
     StartPiiEntitiesDetectionJobResponse
+  where
+  rnf StartPiiEntitiesDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

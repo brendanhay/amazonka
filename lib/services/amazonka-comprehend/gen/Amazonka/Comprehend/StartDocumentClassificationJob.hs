@@ -242,10 +242,34 @@ instance
 instance
   Prelude.Hashable
     StartDocumentClassificationJob
+  where
+  hashWithSalt
+    _salt
+    StartDocumentClassificationJob' {..} =
+      _salt `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` vpcConfig
+        `Prelude.hashWithSalt` volumeKmsKeyId
+        `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` documentClassifierArn
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` dataAccessRoleArn
 
 instance
   Prelude.NFData
     StartDocumentClassificationJob
+  where
+  rnf StartDocumentClassificationJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf documentClassifierArn
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
 instance
   Core.ToHeaders
@@ -425,3 +449,9 @@ startDocumentClassificationJobResponse_httpStatus = Lens.lens (\StartDocumentCla
 instance
   Prelude.NFData
     StartDocumentClassificationJobResponse
+  where
+  rnf StartDocumentClassificationJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

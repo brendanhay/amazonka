@@ -91,7 +91,19 @@ instance Core.FromJSON BatchDetectSentimentItemResult where
 instance
   Prelude.Hashable
     BatchDetectSentimentItemResult
+  where
+  hashWithSalt
+    _salt
+    BatchDetectSentimentItemResult' {..} =
+      _salt `Prelude.hashWithSalt` sentiment
+        `Prelude.hashWithSalt` sentimentScore
+        `Prelude.hashWithSalt` index
 
 instance
   Prelude.NFData
     BatchDetectSentimentItemResult
+  where
+  rnf BatchDetectSentimentItemResult' {..} =
+    Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf sentimentScore
+      `Prelude.seq` Prelude.rnf index

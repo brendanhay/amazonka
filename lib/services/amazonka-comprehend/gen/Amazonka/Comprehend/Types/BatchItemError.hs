@@ -83,6 +83,14 @@ instance Core.FromJSON BatchItemError where
             Prelude.<*> (x Core..:? "Index")
       )
 
-instance Prelude.Hashable BatchItemError
+instance Prelude.Hashable BatchItemError where
+  hashWithSalt _salt BatchItemError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` index
 
-instance Prelude.NFData BatchItemError
+instance Prelude.NFData BatchItemError where
+  rnf BatchItemError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf index

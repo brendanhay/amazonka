@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribeDominantLanguageDetectionJob
+  where
+  hashWithSalt
+    _salt
+    DescribeDominantLanguageDetectionJob' {..} =
+      _salt `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     DescribeDominantLanguageDetectionJob
+  where
+  rnf DescribeDominantLanguageDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -190,3 +198,7 @@ describeDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\DescribeDo
 instance
   Prelude.NFData
     DescribeDominantLanguageDetectionJobResponse
+  where
+  rnf DescribeDominantLanguageDetectionJobResponse' {..} =
+    Prelude.rnf dominantLanguageDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

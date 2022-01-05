@@ -267,6 +267,38 @@ instance Core.FromJSON EntityRecognizerProperties where
             Prelude.<*> (x Core..:? "SubmitTime")
       )
 
-instance Prelude.Hashable EntityRecognizerProperties
+instance Prelude.Hashable EntityRecognizerProperties where
+  hashWithSalt _salt EntityRecognizerProperties' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` trainingEndTime
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` entityRecognizerArn
+      `Prelude.hashWithSalt` modelKmsKeyId
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` trainingStartTime
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` recognizerMetadata
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` submitTime
 
-instance Prelude.NFData EntityRecognizerProperties
+instance Prelude.NFData EntityRecognizerProperties where
+  rnf EntityRecognizerProperties' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf entityRecognizerArn
+      `Prelude.seq` Prelude.rnf modelKmsKeyId
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf trainingStartTime
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf recognizerMetadata
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf submitTime

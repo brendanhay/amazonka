@@ -110,9 +110,15 @@ instance Core.AWSRequest DetectKeyPhrases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectKeyPhrases
+instance Prelude.Hashable DetectKeyPhrases where
+  hashWithSalt _salt DetectKeyPhrases' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData DetectKeyPhrases
+instance Prelude.NFData DetectKeyPhrases where
+  rnf DetectKeyPhrases' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders DetectKeyPhrases where
   toHeaders =
@@ -192,4 +198,7 @@ detectKeyPhrasesResponse_keyPhrases = Lens.lens (\DetectKeyPhrasesResponse' {key
 detectKeyPhrasesResponse_httpStatus :: Lens.Lens' DetectKeyPhrasesResponse Prelude.Int
 detectKeyPhrasesResponse_httpStatus = Lens.lens (\DetectKeyPhrasesResponse' {httpStatus} -> httpStatus) (\s@DetectKeyPhrasesResponse' {} a -> s {httpStatus = a} :: DetectKeyPhrasesResponse)
 
-instance Prelude.NFData DetectKeyPhrasesResponse
+instance Prelude.NFData DetectKeyPhrasesResponse where
+  rnf DetectKeyPhrasesResponse' {..} =
+    Prelude.rnf keyPhrases
+      `Prelude.seq` Prelude.rnf httpStatus

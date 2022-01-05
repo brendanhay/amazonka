@@ -108,9 +108,15 @@ instance Core.AWSRequest ContainsPiiEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ContainsPiiEntities
+instance Prelude.Hashable ContainsPiiEntities where
+  hashWithSalt _salt ContainsPiiEntities' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData ContainsPiiEntities
+instance Prelude.NFData ContainsPiiEntities where
+  rnf ContainsPiiEntities' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders ContainsPiiEntities where
   toHeaders =
@@ -184,4 +190,7 @@ containsPiiEntitiesResponse_labels = Lens.lens (\ContainsPiiEntitiesResponse' {l
 containsPiiEntitiesResponse_httpStatus :: Lens.Lens' ContainsPiiEntitiesResponse Prelude.Int
 containsPiiEntitiesResponse_httpStatus = Lens.lens (\ContainsPiiEntitiesResponse' {httpStatus} -> httpStatus) (\s@ContainsPiiEntitiesResponse' {} a -> s {httpStatus = a} :: ContainsPiiEntitiesResponse)
 
-instance Prelude.NFData ContainsPiiEntitiesResponse
+instance Prelude.NFData ContainsPiiEntitiesResponse where
+  rnf ContainsPiiEntitiesResponse' {..} =
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf httpStatus

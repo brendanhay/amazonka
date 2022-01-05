@@ -105,6 +105,16 @@ instance Core.FromJSON ClassifierMetadata where
             Prelude.<*> (x Core..:? "NumberOfTestDocuments")
       )
 
-instance Prelude.Hashable ClassifierMetadata
+instance Prelude.Hashable ClassifierMetadata where
+  hashWithSalt _salt ClassifierMetadata' {..} =
+    _salt `Prelude.hashWithSalt` numberOfLabels
+      `Prelude.hashWithSalt` evaluationMetrics
+      `Prelude.hashWithSalt` numberOfTrainedDocuments
+      `Prelude.hashWithSalt` numberOfTestDocuments
 
-instance Prelude.NFData ClassifierMetadata
+instance Prelude.NFData ClassifierMetadata where
+  rnf ClassifierMetadata' {..} =
+    Prelude.rnf numberOfLabels
+      `Prelude.seq` Prelude.rnf evaluationMetrics
+      `Prelude.seq` Prelude.rnf numberOfTrainedDocuments
+      `Prelude.seq` Prelude.rnf numberOfTestDocuments

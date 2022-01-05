@@ -80,5 +80,12 @@ instance Core.FromJSON BatchDetectEntitiesItemResult where
 instance
   Prelude.Hashable
     BatchDetectEntitiesItemResult
+  where
+  hashWithSalt _salt BatchDetectEntitiesItemResult' {..} =
+    _salt `Prelude.hashWithSalt` entities
+      `Prelude.hashWithSalt` index
 
-instance Prelude.NFData BatchDetectEntitiesItemResult
+instance Prelude.NFData BatchDetectEntitiesItemResult where
+  rnf BatchDetectEntitiesItemResult' {..} =
+    Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf index

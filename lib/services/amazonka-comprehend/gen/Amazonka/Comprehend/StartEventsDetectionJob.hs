@@ -192,9 +192,27 @@ instance Core.AWSRequest StartEventsDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartEventsDetectionJob
+instance Prelude.Hashable StartEventsDetectionJob where
+  hashWithSalt _salt StartEventsDetectionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` targetEventTypes
 
-instance Prelude.NFData StartEventsDetectionJob
+instance Prelude.NFData StartEventsDetectionJob where
+  rnf StartEventsDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf targetEventTypes
 
 instance Core.ToHeaders StartEventsDetectionJob where
   toHeaders =
@@ -324,3 +342,9 @@ startEventsDetectionJobResponse_httpStatus = Lens.lens (\StartEventsDetectionJob
 instance
   Prelude.NFData
     StartEventsDetectionJobResponse
+  where
+  rnf StartEventsDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

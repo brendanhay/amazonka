@@ -243,10 +243,28 @@ instance
 instance
   Prelude.Hashable
     EntityRecognizerInputDataConfig
+  where
+  hashWithSalt
+    _salt
+    EntityRecognizerInputDataConfig' {..} =
+      _salt `Prelude.hashWithSalt` augmentedManifests
+        `Prelude.hashWithSalt` annotations
+        `Prelude.hashWithSalt` dataFormat
+        `Prelude.hashWithSalt` documents
+        `Prelude.hashWithSalt` entityList
+        `Prelude.hashWithSalt` entityTypes
 
 instance
   Prelude.NFData
     EntityRecognizerInputDataConfig
+  where
+  rnf EntityRecognizerInputDataConfig' {..} =
+    Prelude.rnf augmentedManifests
+      `Prelude.seq` Prelude.rnf annotations
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf documents
+      `Prelude.seq` Prelude.rnf entityList
+      `Prelude.seq` Prelude.rnf entityTypes
 
 instance Core.ToJSON EntityRecognizerInputDataConfig where
   toJSON EntityRecognizerInputDataConfig' {..} =

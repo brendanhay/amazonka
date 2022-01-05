@@ -120,8 +120,17 @@ instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
 instance
   Prelude.Hashable
     ListPiiEntitiesDetectionJobs
+  where
+  hashWithSalt _salt ListPiiEntitiesDetectionJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPiiEntitiesDetectionJobs
+instance Prelude.NFData ListPiiEntitiesDetectionJobs where
+  rnf ListPiiEntitiesDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPiiEntitiesDetectionJobs where
   toHeaders =
@@ -206,3 +215,8 @@ listPiiEntitiesDetectionJobsResponse_httpStatus = Lens.lens (\ListPiiEntitiesDet
 instance
   Prelude.NFData
     ListPiiEntitiesDetectionJobsResponse
+  where
+  rnf ListPiiEntitiesDetectionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf piiEntitiesDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

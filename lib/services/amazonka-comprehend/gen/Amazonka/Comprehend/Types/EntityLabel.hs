@@ -75,6 +75,11 @@ instance Core.FromJSON EntityLabel where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable EntityLabel
+instance Prelude.Hashable EntityLabel where
+  hashWithSalt _salt EntityLabel' {..} =
+    _salt `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData EntityLabel
+instance Prelude.NFData EntityLabel where
+  rnf EntityLabel' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

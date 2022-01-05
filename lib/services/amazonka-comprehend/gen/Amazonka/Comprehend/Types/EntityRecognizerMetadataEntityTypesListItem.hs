@@ -100,7 +100,19 @@ instance
 instance
   Prelude.Hashable
     EntityRecognizerMetadataEntityTypesListItem
+  where
+  hashWithSalt
+    _salt
+    EntityRecognizerMetadataEntityTypesListItem' {..} =
+      _salt `Prelude.hashWithSalt` evaluationMetrics
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` numberOfTrainMentions
 
 instance
   Prelude.NFData
     EntityRecognizerMetadataEntityTypesListItem
+  where
+  rnf EntityRecognizerMetadataEntityTypesListItem' {..} =
+    Prelude.rnf evaluationMetrics
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf numberOfTrainMentions

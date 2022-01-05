@@ -117,9 +117,17 @@ instance Core.AWSRequest ListEventsDetectionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventsDetectionJobs
+instance Prelude.Hashable ListEventsDetectionJobs where
+  hashWithSalt _salt ListEventsDetectionJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListEventsDetectionJobs
+instance Prelude.NFData ListEventsDetectionJobs where
+  rnf ListEventsDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEventsDetectionJobs where
   toHeaders =
@@ -203,3 +211,8 @@ listEventsDetectionJobsResponse_httpStatus = Lens.lens (\ListEventsDetectionJobs
 instance
   Prelude.NFData
     ListEventsDetectionJobsResponse
+  where
+  rnf ListEventsDetectionJobsResponse' {..} =
+    Prelude.rnf eventsDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

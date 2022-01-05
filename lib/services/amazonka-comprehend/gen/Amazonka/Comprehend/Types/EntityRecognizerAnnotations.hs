@@ -86,9 +86,15 @@ instance Core.FromJSON EntityRecognizerAnnotations where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable EntityRecognizerAnnotations
+instance Prelude.Hashable EntityRecognizerAnnotations where
+  hashWithSalt _salt EntityRecognizerAnnotations' {..} =
+    _salt `Prelude.hashWithSalt` testS3Uri
+      `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData EntityRecognizerAnnotations
+instance Prelude.NFData EntityRecognizerAnnotations where
+  rnf EntityRecognizerAnnotations' {..} =
+    Prelude.rnf testS3Uri
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =

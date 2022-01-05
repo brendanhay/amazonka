@@ -99,8 +99,19 @@ piiEntitiesDetectionJobFilter_jobStatus = Lens.lens (\PiiEntitiesDetectionJobFil
 instance
   Prelude.Hashable
     PiiEntitiesDetectionJobFilter
+  where
+  hashWithSalt _salt PiiEntitiesDetectionJobFilter' {..} =
+    _salt `Prelude.hashWithSalt` submitTimeAfter
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobStatus
 
-instance Prelude.NFData PiiEntitiesDetectionJobFilter
+instance Prelude.NFData PiiEntitiesDetectionJobFilter where
+  rnf PiiEntitiesDetectionJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToJSON PiiEntitiesDetectionJobFilter where
   toJSON PiiEntitiesDetectionJobFilter' {..} =

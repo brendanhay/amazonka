@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     StopDominantLanguageDetectionJob
+  where
+  hashWithSalt
+    _salt
+    StopDominantLanguageDetectionJob' {..} =
+      _salt `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     StopDominantLanguageDetectionJob
+  where
+  rnf StopDominantLanguageDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -203,3 +211,8 @@ stopDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\StopDominantLa
 instance
   Prelude.NFData
     StopDominantLanguageDetectionJobResponse
+  where
+  rnf StopDominantLanguageDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

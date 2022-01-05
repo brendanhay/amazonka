@@ -94,9 +94,12 @@ instance Core.AWSRequest DetectDominantLanguage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectDominantLanguage
+instance Prelude.Hashable DetectDominantLanguage where
+  hashWithSalt _salt DetectDominantLanguage' {..} =
+    _salt `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DetectDominantLanguage
+instance Prelude.NFData DetectDominantLanguage where
+  rnf DetectDominantLanguage' {..} = Prelude.rnf text
 
 instance Core.ToHeaders DetectDominantLanguage where
   toHeaders =
@@ -183,3 +186,7 @@ detectDominantLanguageResponse_httpStatus = Lens.lens (\DetectDominantLanguageRe
 instance
   Prelude.NFData
     DetectDominantLanguageResponse
+  where
+  rnf DetectDominantLanguageResponse' {..} =
+    Prelude.rnf languages
+      `Prelude.seq` Prelude.rnf httpStatus

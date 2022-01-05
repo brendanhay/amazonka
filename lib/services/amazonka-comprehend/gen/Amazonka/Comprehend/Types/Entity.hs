@@ -129,6 +129,18 @@ instance Core.FromJSON Entity where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Entity
+instance Prelude.Hashable Entity where
+  hashWithSalt _salt Entity' {..} =
+    _salt `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Entity
+instance Prelude.NFData Entity where
+  rnf Entity' {..} =
+    Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf type'

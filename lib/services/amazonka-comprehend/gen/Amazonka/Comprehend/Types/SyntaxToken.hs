@@ -116,6 +116,18 @@ instance Core.FromJSON SyntaxToken where
             Prelude.<*> (x Core..:? "PartOfSpeech")
       )
 
-instance Prelude.Hashable SyntaxToken
+instance Prelude.Hashable SyntaxToken where
+  hashWithSalt _salt SyntaxToken' {..} =
+    _salt `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` tokenId
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` partOfSpeech
 
-instance Prelude.NFData SyntaxToken
+instance Prelude.NFData SyntaxToken where
+  rnf SyntaxToken' {..} =
+    Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf tokenId
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf partOfSpeech

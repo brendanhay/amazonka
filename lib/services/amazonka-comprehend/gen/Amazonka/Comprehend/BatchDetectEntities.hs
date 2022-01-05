@@ -114,9 +114,15 @@ instance Core.AWSRequest BatchDetectEntities where
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDetectEntities
+instance Prelude.Hashable BatchDetectEntities where
+  hashWithSalt _salt BatchDetectEntities' {..} =
+    _salt `Prelude.hashWithSalt` textList
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData BatchDetectEntities
+instance Prelude.NFData BatchDetectEntities where
+  rnf BatchDetectEntities' {..} =
+    Prelude.rnf textList
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders BatchDetectEntities where
   toHeaders =
@@ -214,4 +220,8 @@ batchDetectEntitiesResponse_resultList = Lens.lens (\BatchDetectEntitiesResponse
 batchDetectEntitiesResponse_errorList :: Lens.Lens' BatchDetectEntitiesResponse [BatchItemError]
 batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse' {errorList} -> errorList) (\s@BatchDetectEntitiesResponse' {} a -> s {errorList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchDetectEntitiesResponse
+instance Prelude.NFData BatchDetectEntitiesResponse where
+  rnf BatchDetectEntitiesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resultList
+      `Prelude.seq` Prelude.rnf errorList

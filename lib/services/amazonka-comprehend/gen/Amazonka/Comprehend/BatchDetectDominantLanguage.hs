@@ -101,9 +101,13 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDetectDominantLanguage
+instance Prelude.Hashable BatchDetectDominantLanguage where
+  hashWithSalt _salt BatchDetectDominantLanguage' {..} =
+    _salt `Prelude.hashWithSalt` textList
 
-instance Prelude.NFData BatchDetectDominantLanguage
+instance Prelude.NFData BatchDetectDominantLanguage where
+  rnf BatchDetectDominantLanguage' {..} =
+    Prelude.rnf textList
 
 instance Core.ToHeaders BatchDetectDominantLanguage where
   toHeaders =
@@ -202,3 +206,8 @@ batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantL
 instance
   Prelude.NFData
     BatchDetectDominantLanguageResponse
+  where
+  rnf BatchDetectDominantLanguageResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resultList
+      `Prelude.seq` Prelude.rnf errorList

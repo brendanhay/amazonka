@@ -62,9 +62,15 @@ packageSource_s3Key = Lens.lens (\PackageSource' {s3Key} -> s3Key) (\s@PackageSo
 packageSource_s3BucketName :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
 packageSource_s3BucketName = Lens.lens (\PackageSource' {s3BucketName} -> s3BucketName) (\s@PackageSource' {} a -> s {s3BucketName = a} :: PackageSource)
 
-instance Prelude.Hashable PackageSource
+instance Prelude.Hashable PackageSource where
+  hashWithSalt _salt PackageSource' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData PackageSource
+instance Prelude.NFData PackageSource where
+  rnf PackageSource' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3BucketName
 
 instance Core.ToJSON PackageSource where
   toJSON PackageSource' {..} =

@@ -89,9 +89,14 @@ instance Core.AWSRequest AddTags where
   request = Request.postJSON defaultService
   response = Response.receiveNull AddTagsResponse'
 
-instance Prelude.Hashable AddTags
+instance Prelude.Hashable AddTags where
+  hashWithSalt _salt AddTags' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tagList
 
-instance Prelude.NFData AddTags
+instance Prelude.NFData AddTags where
+  rnf AddTags' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tagList
 
 instance Core.ToHeaders AddTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,4 +130,5 @@ newAddTagsResponse ::
   AddTagsResponse
 newAddTagsResponse = AddTagsResponse'
 
-instance Prelude.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse where
+  rnf _ = ()

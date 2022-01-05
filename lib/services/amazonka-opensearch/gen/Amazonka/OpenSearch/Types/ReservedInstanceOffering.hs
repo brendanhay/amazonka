@@ -149,6 +149,24 @@ instance Core.FromJSON ReservedInstanceOffering where
             Prelude.<*> (x Core..:? "PaymentOption")
       )
 
-instance Prelude.Hashable ReservedInstanceOffering
+instance Prelude.Hashable ReservedInstanceOffering where
+  hashWithSalt _salt ReservedInstanceOffering' {..} =
+    _salt `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` reservedInstanceOfferingId
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` paymentOption
 
-instance Prelude.NFData ReservedInstanceOffering
+instance Prelude.NFData ReservedInstanceOffering where
+  rnf ReservedInstanceOffering' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf paymentOption

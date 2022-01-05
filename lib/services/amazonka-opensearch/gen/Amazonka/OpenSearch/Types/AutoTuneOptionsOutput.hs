@@ -73,6 +73,12 @@ instance Core.FromJSON AutoTuneOptionsOutput where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable AutoTuneOptionsOutput
+instance Prelude.Hashable AutoTuneOptionsOutput where
+  hashWithSalt _salt AutoTuneOptionsOutput' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData AutoTuneOptionsOutput
+instance Prelude.NFData AutoTuneOptionsOutput where
+  rnf AutoTuneOptionsOutput' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf errorMessage

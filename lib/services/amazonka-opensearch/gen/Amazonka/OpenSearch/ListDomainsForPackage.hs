@@ -121,9 +121,17 @@ instance Core.AWSRequest ListDomainsForPackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomainsForPackage
+instance Prelude.Hashable ListDomainsForPackage where
+  hashWithSalt _salt ListDomainsForPackage' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` packageID
 
-instance Prelude.NFData ListDomainsForPackage
+instance Prelude.NFData ListDomainsForPackage where
+  rnf ListDomainsForPackage' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf packageID
 
 instance Core.ToHeaders ListDomainsForPackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,4 +201,8 @@ listDomainsForPackageResponse_nextToken = Lens.lens (\ListDomainsForPackageRespo
 listDomainsForPackageResponse_httpStatus :: Lens.Lens' ListDomainsForPackageResponse Prelude.Int
 listDomainsForPackageResponse_httpStatus = Lens.lens (\ListDomainsForPackageResponse' {httpStatus} -> httpStatus) (\s@ListDomainsForPackageResponse' {} a -> s {httpStatus = a} :: ListDomainsForPackageResponse)
 
-instance Prelude.NFData ListDomainsForPackageResponse
+instance Prelude.NFData ListDomainsForPackageResponse where
+  rnf ListDomainsForPackageResponse' {..} =
+    Prelude.rnf domainPackageDetailsList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

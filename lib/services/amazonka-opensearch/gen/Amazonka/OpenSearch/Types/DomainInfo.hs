@@ -70,6 +70,12 @@ instance Core.FromJSON DomainInfo where
             Prelude.<*> (x Core..:? "EngineType")
       )
 
-instance Prelude.Hashable DomainInfo
+instance Prelude.Hashable DomainInfo where
+  hashWithSalt _salt DomainInfo' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` engineType
 
-instance Prelude.NFData DomainInfo
+instance Prelude.NFData DomainInfo where
+  rnf DomainInfo' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf engineType

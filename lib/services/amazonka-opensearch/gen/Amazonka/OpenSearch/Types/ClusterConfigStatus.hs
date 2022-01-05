@@ -77,6 +77,12 @@ instance Core.FromJSON ClusterConfigStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable ClusterConfigStatus
+instance Prelude.Hashable ClusterConfigStatus where
+  hashWithSalt _salt ClusterConfigStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ClusterConfigStatus
+instance Prelude.NFData ClusterConfigStatus where
+  rnf ClusterConfigStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

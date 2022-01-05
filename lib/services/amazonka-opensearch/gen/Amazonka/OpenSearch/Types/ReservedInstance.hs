@@ -207,6 +207,36 @@ instance Core.FromJSON ReservedInstance where
             Prelude.<*> (x Core..:? "PaymentOption")
       )
 
-instance Prelude.Hashable ReservedInstance
+instance Prelude.Hashable ReservedInstance where
+  hashWithSalt _salt ReservedInstance' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` reservationName
+      `Prelude.hashWithSalt` billingSubscriptionId
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` reservedInstanceId
+      `Prelude.hashWithSalt` reservedInstanceOfferingId
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` paymentOption
 
-instance Prelude.NFData ReservedInstance
+instance Prelude.NFData ReservedInstance where
+  rnf ReservedInstance' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf reservationName
+      `Prelude.seq` Prelude.rnf billingSubscriptionId
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf reservedInstanceId
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf paymentOption

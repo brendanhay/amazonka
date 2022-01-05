@@ -80,6 +80,12 @@ instance Core.FromJSON VersionStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable VersionStatus
+instance Prelude.Hashable VersionStatus where
+  hashWithSalt _salt VersionStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VersionStatus
+instance Prelude.NFData VersionStatus where
+  rnf VersionStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

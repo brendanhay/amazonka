@@ -61,9 +61,12 @@ instance Core.FromJSON ColdStorageOptions where
             Prelude.<$> (x Core..: "Enabled")
       )
 
-instance Prelude.Hashable ColdStorageOptions
+instance Prelude.Hashable ColdStorageOptions where
+  hashWithSalt _salt ColdStorageOptions' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData ColdStorageOptions
+instance Prelude.NFData ColdStorageOptions where
+  rnf ColdStorageOptions' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON ColdStorageOptions where
   toJSON ColdStorageOptions' {..} =

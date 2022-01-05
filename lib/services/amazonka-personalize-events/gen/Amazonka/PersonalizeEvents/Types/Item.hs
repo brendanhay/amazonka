@@ -89,9 +89,15 @@ item_properties = Lens.lens (\Item' {properties} -> properties) (\s@Item' {} a -
 item_itemId :: Lens.Lens' Item Prelude.Text
 item_itemId = Lens.lens (\Item' {itemId} -> itemId) (\s@Item' {} a -> s {itemId = a} :: Item)
 
-instance Prelude.Hashable Item
+instance Prelude.Hashable Item where
+  hashWithSalt _salt Item' {..} =
+    _salt `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` itemId
 
-instance Prelude.NFData Item
+instance Prelude.NFData Item where
+  rnf Item' {..} =
+    Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf itemId
 
 instance Core.ToJSON Item where
   toJSON Item' {..} =

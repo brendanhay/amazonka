@@ -131,10 +131,22 @@ instance
 instance
   Prelude.Hashable
     ListDataIntegrationAssociations
+  where
+  hashWithSalt
+    _salt
+    ListDataIntegrationAssociations' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dataIntegrationIdentifier
 
 instance
   Prelude.NFData
     ListDataIntegrationAssociations
+  where
+  rnf ListDataIntegrationAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dataIntegrationIdentifier
 
 instance
   Core.ToHeaders
@@ -223,3 +235,8 @@ listDataIntegrationAssociationsResponse_httpStatus = Lens.lens (\ListDataIntegra
 instance
   Prelude.NFData
     ListDataIntegrationAssociationsResponse
+  where
+  rnf ListDataIntegrationAssociationsResponse' {..} =
+    Prelude.rnf dataIntegrationAssociations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

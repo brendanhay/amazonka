@@ -95,9 +95,14 @@ instance Core.AWSRequest DeleteDataIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataIntegration
+instance Prelude.Hashable DeleteDataIntegration where
+  hashWithSalt _salt DeleteDataIntegration' {..} =
+    _salt
+      `Prelude.hashWithSalt` dataIntegrationIdentifier
 
-instance Prelude.NFData DeleteDataIntegration
+instance Prelude.NFData DeleteDataIntegration where
+  rnf DeleteDataIntegration' {..} =
+    Prelude.rnf dataIntegrationIdentifier
 
 instance Core.ToHeaders DeleteDataIntegration where
   toHeaders =
@@ -150,4 +155,6 @@ newDeleteDataIntegrationResponse pHttpStatus_ =
 deleteDataIntegrationResponse_httpStatus :: Lens.Lens' DeleteDataIntegrationResponse Prelude.Int
 deleteDataIntegrationResponse_httpStatus = Lens.lens (\DeleteDataIntegrationResponse' {httpStatus} -> httpStatus) (\s@DeleteDataIntegrationResponse' {} a -> s {httpStatus = a} :: DeleteDataIntegrationResponse)
 
-instance Prelude.NFData DeleteDataIntegrationResponse
+instance Prelude.NFData DeleteDataIntegrationResponse where
+  rnf DeleteDataIntegrationResponse' {..} =
+    Prelude.rnf httpStatus

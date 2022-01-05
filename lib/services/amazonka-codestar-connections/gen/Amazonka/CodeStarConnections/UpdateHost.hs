@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateHost where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateHost
+instance Prelude.Hashable UpdateHost where
+  hashWithSalt _salt UpdateHost' {..} =
+    _salt `Prelude.hashWithSalt` providerEndpoint
+      `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` hostArn
 
-instance Prelude.NFData UpdateHost
+instance Prelude.NFData UpdateHost where
+  rnf UpdateHost' {..} =
+    Prelude.rnf providerEndpoint
+      `Prelude.seq` Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf hostArn
 
 instance Core.ToHeaders UpdateHost where
   toHeaders =
@@ -174,4 +182,5 @@ newUpdateHostResponse pHttpStatus_ =
 updateHostResponse_httpStatus :: Lens.Lens' UpdateHostResponse Prelude.Int
 updateHostResponse_httpStatus = Lens.lens (\UpdateHostResponse' {httpStatus} -> httpStatus) (\s@UpdateHostResponse' {} a -> s {httpStatus = a} :: UpdateHostResponse)
 
-instance Prelude.NFData UpdateHostResponse
+instance Prelude.NFData UpdateHostResponse where
+  rnf UpdateHostResponse' {..} = Prelude.rnf httpStatus

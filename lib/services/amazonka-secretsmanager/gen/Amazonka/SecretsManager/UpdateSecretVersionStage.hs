@@ -204,9 +204,19 @@ instance Core.AWSRequest UpdateSecretVersionStage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecretVersionStage
+instance Prelude.Hashable UpdateSecretVersionStage where
+  hashWithSalt _salt UpdateSecretVersionStage' {..} =
+    _salt `Prelude.hashWithSalt` removeFromVersionId
+      `Prelude.hashWithSalt` moveToVersionId
+      `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` versionStage
 
-instance Prelude.NFData UpdateSecretVersionStage
+instance Prelude.NFData UpdateSecretVersionStage where
+  rnf UpdateSecretVersionStage' {..} =
+    Prelude.rnf removeFromVersionId
+      `Prelude.seq` Prelude.rnf moveToVersionId
+      `Prelude.seq` Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf versionStage
 
 instance Core.ToHeaders UpdateSecretVersionStage where
   toHeaders =
@@ -293,3 +303,8 @@ updateSecretVersionStageResponse_httpStatus = Lens.lens (\UpdateSecretVersionSta
 instance
   Prelude.NFData
     UpdateSecretVersionStageResponse
+  where
+  rnf UpdateSecretVersionStageResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

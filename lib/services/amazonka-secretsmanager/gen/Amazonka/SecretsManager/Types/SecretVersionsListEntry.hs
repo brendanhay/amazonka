@@ -111,6 +111,18 @@ instance Core.FromJSON SecretVersionsListEntry where
             Prelude.<*> (x Core..:? "LastAccessedDate")
       )
 
-instance Prelude.Hashable SecretVersionsListEntry
+instance Prelude.Hashable SecretVersionsListEntry where
+  hashWithSalt _salt SecretVersionsListEntry' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` versionStages
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` kmsKeyIds
+      `Prelude.hashWithSalt` lastAccessedDate
 
-instance Prelude.NFData SecretVersionsListEntry
+instance Prelude.NFData SecretVersionsListEntry where
+  rnf SecretVersionsListEntry' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf versionStages
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf kmsKeyIds
+      `Prelude.seq` Prelude.rnf lastAccessedDate

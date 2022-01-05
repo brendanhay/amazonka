@@ -74,6 +74,12 @@ instance Core.FromJSON ValidationErrorsEntry where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable ValidationErrorsEntry
+instance Prelude.Hashable ValidationErrorsEntry where
+  hashWithSalt _salt ValidationErrorsEntry' {..} =
+    _salt `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData ValidationErrorsEntry
+instance Prelude.NFData ValidationErrorsEntry where
+  rnf ValidationErrorsEntry' {..} =
+    Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf errorMessage

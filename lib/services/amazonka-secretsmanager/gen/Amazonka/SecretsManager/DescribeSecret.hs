@@ -157,9 +157,12 @@ instance Core.AWSRequest DescribeSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSecret
+instance Prelude.Hashable DescribeSecret where
+  hashWithSalt _salt DescribeSecret' {..} =
+    _salt `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData DescribeSecret
+instance Prelude.NFData DescribeSecret where
+  rnf DescribeSecret' {..} = Prelude.rnf secretId
 
 instance Core.ToHeaders DescribeSecret where
   toHeaders =
@@ -471,4 +474,23 @@ describeSecretResponse_tags = Lens.lens (\DescribeSecretResponse' {tags} -> tags
 describeSecretResponse_httpStatus :: Lens.Lens' DescribeSecretResponse Prelude.Int
 describeSecretResponse_httpStatus = Lens.lens (\DescribeSecretResponse' {httpStatus} -> httpStatus) (\s@DescribeSecretResponse' {} a -> s {httpStatus = a} :: DescribeSecretResponse)
 
-instance Prelude.NFData DescribeSecretResponse
+instance Prelude.NFData DescribeSecretResponse where
+  rnf DescribeSecretResponse' {..} =
+    Prelude.rnf lastChangedDate
+      `Prelude.seq` Prelude.rnf primaryRegion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf rotationRules
+      `Prelude.seq` Prelude.rnf deletedDate
+      `Prelude.seq` Prelude.rnf rotationEnabled
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf versionIdsToStages
+      `Prelude.seq` Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf owningService
+      `Prelude.seq` Prelude.rnf lastRotatedDate
+      `Prelude.seq` Prelude.rnf lastAccessedDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rotationLambdaARN
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -89,9 +89,13 @@ instance Core.FromJSON RotationRulesType where
             Prelude.<$> (x Core..:? "AutomaticallyAfterDays")
       )
 
-instance Prelude.Hashable RotationRulesType
+instance Prelude.Hashable RotationRulesType where
+  hashWithSalt _salt RotationRulesType' {..} =
+    _salt `Prelude.hashWithSalt` automaticallyAfterDays
 
-instance Prelude.NFData RotationRulesType
+instance Prelude.NFData RotationRulesType where
+  rnf RotationRulesType' {..} =
+    Prelude.rnf automaticallyAfterDays
 
 instance Core.ToJSON RotationRulesType where
   toJSON RotationRulesType' {..} =

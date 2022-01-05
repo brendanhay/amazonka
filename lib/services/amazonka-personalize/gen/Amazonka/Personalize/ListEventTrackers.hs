@@ -138,9 +138,17 @@ instance Core.AWSRequest ListEventTrackers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventTrackers
+instance Prelude.Hashable ListEventTrackers where
+  hashWithSalt _salt ListEventTrackers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListEventTrackers
+instance Prelude.NFData ListEventTrackers where
+  rnf ListEventTrackers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEventTrackers where
   toHeaders =
@@ -222,4 +230,8 @@ listEventTrackersResponse_nextToken = Lens.lens (\ListEventTrackersResponse' {ne
 listEventTrackersResponse_httpStatus :: Lens.Lens' ListEventTrackersResponse Prelude.Int
 listEventTrackersResponse_httpStatus = Lens.lens (\ListEventTrackersResponse' {httpStatus} -> httpStatus) (\s@ListEventTrackersResponse' {} a -> s {httpStatus = a} :: ListEventTrackersResponse)
 
-instance Prelude.NFData ListEventTrackersResponse
+instance Prelude.NFData ListEventTrackersResponse where
+  rnf ListEventTrackersResponse' {..} =
+    Prelude.rnf eventTrackers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

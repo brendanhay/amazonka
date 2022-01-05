@@ -138,9 +138,15 @@ instance Core.AWSRequest CreateEventTracker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEventTracker
+instance Prelude.Hashable CreateEventTracker where
+  hashWithSalt _salt CreateEventTracker' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData CreateEventTracker
+instance Prelude.NFData CreateEventTracker where
+  rnf CreateEventTracker' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders CreateEventTracker where
   toHeaders =
@@ -227,4 +233,8 @@ createEventTrackerResponse_eventTrackerArn = Lens.lens (\CreateEventTrackerRespo
 createEventTrackerResponse_httpStatus :: Lens.Lens' CreateEventTrackerResponse Prelude.Int
 createEventTrackerResponse_httpStatus = Lens.lens (\CreateEventTrackerResponse' {httpStatus} -> httpStatus) (\s@CreateEventTrackerResponse' {} a -> s {httpStatus = a} :: CreateEventTrackerResponse)
 
-instance Prelude.NFData CreateEventTrackerResponse
+instance Prelude.NFData CreateEventTrackerResponse where
+  rnf CreateEventTrackerResponse' {..} =
+    Prelude.rnf trackingId
+      `Prelude.seq` Prelude.rnf eventTrackerArn
+      `Prelude.seq` Prelude.rnf httpStatus

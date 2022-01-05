@@ -130,6 +130,20 @@ instance Core.FromJSON CampaignSummary where
             Prelude.<*> (x Core..:? "campaignArn")
       )
 
-instance Prelude.Hashable CampaignSummary
+instance Prelude.Hashable CampaignSummary where
+  hashWithSalt _salt CampaignSummary' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` campaignArn
 
-instance Prelude.NFData CampaignSummary
+instance Prelude.NFData CampaignSummary where
+  rnf CampaignSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf campaignArn

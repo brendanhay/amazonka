@@ -73,6 +73,12 @@ instance Core.FromJSON AlgorithmImage where
             Prelude.<*> (x Core..: "dockerURI")
       )
 
-instance Prelude.Hashable AlgorithmImage
+instance Prelude.Hashable AlgorithmImage where
+  hashWithSalt _salt AlgorithmImage' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dockerURI
 
-instance Prelude.NFData AlgorithmImage
+instance Prelude.NFData AlgorithmImage where
+  rnf AlgorithmImage' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dockerURI

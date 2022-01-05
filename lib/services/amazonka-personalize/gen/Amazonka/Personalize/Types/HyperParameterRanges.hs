@@ -92,9 +92,18 @@ instance Core.FromJSON HyperParameterRanges where
                         )
       )
 
-instance Prelude.Hashable HyperParameterRanges
+instance Prelude.Hashable HyperParameterRanges where
+  hashWithSalt _salt HyperParameterRanges' {..} =
+    _salt
+      `Prelude.hashWithSalt` integerHyperParameterRanges
+      `Prelude.hashWithSalt` categoricalHyperParameterRanges
+      `Prelude.hashWithSalt` continuousHyperParameterRanges
 
-instance Prelude.NFData HyperParameterRanges
+instance Prelude.NFData HyperParameterRanges where
+  rnf HyperParameterRanges' {..} =
+    Prelude.rnf integerHyperParameterRanges
+      `Prelude.seq` Prelude.rnf categoricalHyperParameterRanges
+      `Prelude.seq` Prelude.rnf continuousHyperParameterRanges
 
 instance Core.ToJSON HyperParameterRanges where
   toJSON HyperParameterRanges' {..} =

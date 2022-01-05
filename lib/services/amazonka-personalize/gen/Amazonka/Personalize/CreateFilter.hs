@@ -123,9 +123,17 @@ instance Core.AWSRequest CreateFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFilter
+instance Prelude.Hashable CreateFilter where
+  hashWithSalt _salt CreateFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` filterExpression
 
-instance Prelude.NFData CreateFilter
+instance Prelude.NFData CreateFilter where
+  rnf CreateFilter' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf filterExpression
 
 instance Core.ToHeaders CreateFilter where
   toHeaders =
@@ -198,4 +206,7 @@ createFilterResponse_filterArn = Lens.lens (\CreateFilterResponse' {filterArn} -
 createFilterResponse_httpStatus :: Lens.Lens' CreateFilterResponse Prelude.Int
 createFilterResponse_httpStatus = Lens.lens (\CreateFilterResponse' {httpStatus} -> httpStatus) (\s@CreateFilterResponse' {} a -> s {httpStatus = a} :: CreateFilterResponse)
 
-instance Prelude.NFData CreateFilterResponse
+instance Prelude.NFData CreateFilterResponse where
+  rnf CreateFilterResponse' {..} =
+    Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf httpStatus

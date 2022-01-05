@@ -229,6 +229,34 @@ instance Core.FromJSON BatchInferenceJob where
             Prelude.<*> (x Core..:? "jobInput")
       )
 
-instance Prelude.Hashable BatchInferenceJob
+instance Prelude.Hashable BatchInferenceJob where
+  hashWithSalt _salt BatchInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobOutput
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` numResults
+      `Prelude.hashWithSalt` batchInferenceJobConfig
+      `Prelude.hashWithSalt` batchInferenceJobArn
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` jobInput
 
-instance Prelude.NFData BatchInferenceJob
+instance Prelude.NFData BatchInferenceJob where
+  rnf BatchInferenceJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobOutput
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf batchInferenceJobConfig
+      `Prelude.seq` Prelude.rnf batchInferenceJobArn
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobInput

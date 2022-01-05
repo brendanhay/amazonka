@@ -170,6 +170,24 @@ instance Core.FromJSON Dataset where
             Prelude.<*> (x Core..:? "datasetGroupArn")
       )
 
-instance Prelude.Hashable Dataset
+instance Prelude.Hashable Dataset where
+  hashWithSalt _salt Dataset' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData Dataset
+instance Prelude.NFData Dataset where
+  rnf Dataset' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetGroupArn

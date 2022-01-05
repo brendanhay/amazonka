@@ -313,6 +313,38 @@ instance Core.FromJSON SolutionVersion where
             Prelude.<*> (x Core..:? "solutionVersionArn")
       )
 
-instance Prelude.Hashable SolutionVersion
+instance Prelude.Hashable SolutionVersion where
+  hashWithSalt _salt SolutionVersion' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` solutionArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` performAutoML
+      `Prelude.hashWithSalt` tunedHPOParams
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` trainingMode
+      `Prelude.hashWithSalt` trainingHours
+      `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` solutionVersionArn
 
-instance Prelude.NFData SolutionVersion
+instance Prelude.NFData SolutionVersion where
+  rnf SolutionVersion' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf tunedHPOParams
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf trainingMode
+      `Prelude.seq` Prelude.rnf trainingHours
+      `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf solutionVersionArn

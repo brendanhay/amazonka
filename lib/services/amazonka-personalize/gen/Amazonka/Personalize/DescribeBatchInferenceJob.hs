@@ -91,9 +91,13 @@ instance Core.AWSRequest DescribeBatchInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBatchInferenceJob
+instance Prelude.Hashable DescribeBatchInferenceJob where
+  hashWithSalt _salt DescribeBatchInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` batchInferenceJobArn
 
-instance Prelude.NFData DescribeBatchInferenceJob
+instance Prelude.NFData DescribeBatchInferenceJob where
+  rnf DescribeBatchInferenceJob' {..} =
+    Prelude.rnf batchInferenceJobArn
 
 instance Core.ToHeaders DescribeBatchInferenceJob where
   toHeaders =
@@ -169,3 +173,7 @@ describeBatchInferenceJobResponse_httpStatus = Lens.lens (\DescribeBatchInferenc
 instance
   Prelude.NFData
     DescribeBatchInferenceJobResponse
+  where
+  rnf DescribeBatchInferenceJobResponse' {..} =
+    Prelude.rnf batchInferenceJob
+      `Prelude.seq` Prelude.rnf httpStatus

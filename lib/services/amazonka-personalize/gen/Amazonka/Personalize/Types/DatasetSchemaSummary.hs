@@ -93,6 +93,16 @@ instance Core.FromJSON DatasetSchemaSummary where
             Prelude.<*> (x Core..:? "creationDateTime")
       )
 
-instance Prelude.Hashable DatasetSchemaSummary
+instance Prelude.Hashable DatasetSchemaSummary where
+  hashWithSalt _salt DatasetSchemaSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
 
-instance Prelude.NFData DatasetSchemaSummary
+instance Prelude.NFData DatasetSchemaSummary where
+  rnf DatasetSchemaSummary' {..} =
+    Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime

@@ -61,6 +61,9 @@ instance Core.FromJSON AutoMLResult where
             Prelude.<$> (x Core..:? "bestRecipeArn")
       )
 
-instance Prelude.Hashable AutoMLResult
+instance Prelude.Hashable AutoMLResult where
+  hashWithSalt _salt AutoMLResult' {..} =
+    _salt `Prelude.hashWithSalt` bestRecipeArn
 
-instance Prelude.NFData AutoMLResult
+instance Prelude.NFData AutoMLResult where
+  rnf AutoMLResult' {..} = Prelude.rnf bestRecipeArn

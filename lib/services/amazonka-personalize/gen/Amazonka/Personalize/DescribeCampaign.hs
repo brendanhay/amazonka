@@ -97,9 +97,12 @@ instance Core.AWSRequest DescribeCampaign where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCampaign
+instance Prelude.Hashable DescribeCampaign where
+  hashWithSalt _salt DescribeCampaign' {..} =
+    _salt `Prelude.hashWithSalt` campaignArn
 
-instance Prelude.NFData DescribeCampaign
+instance Prelude.NFData DescribeCampaign where
+  rnf DescribeCampaign' {..} = Prelude.rnf campaignArn
 
 instance Core.ToHeaders DescribeCampaign where
   toHeaders =
@@ -168,4 +171,7 @@ describeCampaignResponse_campaign = Lens.lens (\DescribeCampaignResponse' {campa
 describeCampaignResponse_httpStatus :: Lens.Lens' DescribeCampaignResponse Prelude.Int
 describeCampaignResponse_httpStatus = Lens.lens (\DescribeCampaignResponse' {httpStatus} -> httpStatus) (\s@DescribeCampaignResponse' {} a -> s {httpStatus = a} :: DescribeCampaignResponse)
 
-instance Prelude.NFData DescribeCampaignResponse
+instance Prelude.NFData DescribeCampaignResponse where
+  rnf DescribeCampaignResponse' {..} =
+    Prelude.rnf campaign
+      `Prelude.seq` Prelude.rnf httpStatus

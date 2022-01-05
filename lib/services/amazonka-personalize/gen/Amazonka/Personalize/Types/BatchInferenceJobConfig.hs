@@ -76,9 +76,13 @@ instance Core.FromJSON BatchInferenceJobConfig where
                         )
       )
 
-instance Prelude.Hashable BatchInferenceJobConfig
+instance Prelude.Hashable BatchInferenceJobConfig where
+  hashWithSalt _salt BatchInferenceJobConfig' {..} =
+    _salt `Prelude.hashWithSalt` itemExplorationConfig
 
-instance Prelude.NFData BatchInferenceJobConfig
+instance Prelude.NFData BatchInferenceJobConfig where
+  rnf BatchInferenceJobConfig' {..} =
+    Prelude.rnf itemExplorationConfig
 
 instance Core.ToJSON BatchInferenceJobConfig where
   toJSON BatchInferenceJobConfig' {..} =

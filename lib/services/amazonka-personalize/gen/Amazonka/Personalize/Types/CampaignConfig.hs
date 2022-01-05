@@ -82,9 +82,13 @@ instance Core.FromJSON CampaignConfig where
                         )
       )
 
-instance Prelude.Hashable CampaignConfig
+instance Prelude.Hashable CampaignConfig where
+  hashWithSalt _salt CampaignConfig' {..} =
+    _salt `Prelude.hashWithSalt` itemExplorationConfig
 
-instance Prelude.NFData CampaignConfig
+instance Prelude.NFData CampaignConfig where
+  rnf CampaignConfig' {..} =
+    Prelude.rnf itemExplorationConfig
 
 instance Core.ToJSON CampaignConfig where
   toJSON CampaignConfig' {..} =

@@ -83,6 +83,14 @@ instance Core.FromJSON MetricLevelImpact where
             Prelude.<*> (x Core..:? "NumTimeSeries")
       )
 
-instance Prelude.Hashable MetricLevelImpact
+instance Prelude.Hashable MetricLevelImpact where
+  hashWithSalt _salt MetricLevelImpact' {..} =
+    _salt `Prelude.hashWithSalt` contributionMatrix
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` numTimeSeries
 
-instance Prelude.NFData MetricLevelImpact
+instance Prelude.NFData MetricLevelImpact where
+  rnf MetricLevelImpact' {..} =
+    Prelude.rnf contributionMatrix
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf numTimeSeries

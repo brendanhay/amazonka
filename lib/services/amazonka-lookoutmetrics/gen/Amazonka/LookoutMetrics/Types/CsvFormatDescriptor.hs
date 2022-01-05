@@ -113,9 +113,23 @@ instance Core.FromJSON CsvFormatDescriptor where
             Prelude.<*> (x Core..:? "Delimiter")
       )
 
-instance Prelude.Hashable CsvFormatDescriptor
+instance Prelude.Hashable CsvFormatDescriptor where
+  hashWithSalt _salt CsvFormatDescriptor' {..} =
+    _salt `Prelude.hashWithSalt` quoteSymbol
+      `Prelude.hashWithSalt` containsHeader
+      `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` headerList
+      `Prelude.hashWithSalt` fileCompression
+      `Prelude.hashWithSalt` delimiter
 
-instance Prelude.NFData CsvFormatDescriptor
+instance Prelude.NFData CsvFormatDescriptor where
+  rnf CsvFormatDescriptor' {..} =
+    Prelude.rnf quoteSymbol
+      `Prelude.seq` Prelude.rnf containsHeader
+      `Prelude.seq` Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf headerList
+      `Prelude.seq` Prelude.rnf fileCompression
+      `Prelude.seq` Prelude.rnf delimiter
 
 instance Core.ToJSON CsvFormatDescriptor where
   toJSON CsvFormatDescriptor' {..} =

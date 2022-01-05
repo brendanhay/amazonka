@@ -153,9 +153,23 @@ instance Core.AWSRequest CreateAlert where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAlert
+instance Prelude.Hashable CreateAlert where
+  hashWithSalt _salt CreateAlert' {..} =
+    _salt `Prelude.hashWithSalt` alertDescription
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alertName
+      `Prelude.hashWithSalt` alertSensitivityThreshold
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData CreateAlert
+instance Prelude.NFData CreateAlert where
+  rnf CreateAlert' {..} =
+    Prelude.rnf alertDescription
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alertName
+      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToHeaders CreateAlert where
   toHeaders =
@@ -230,4 +244,7 @@ createAlertResponse_alertArn = Lens.lens (\CreateAlertResponse' {alertArn} -> al
 createAlertResponse_httpStatus :: Lens.Lens' CreateAlertResponse Prelude.Int
 createAlertResponse_httpStatus = Lens.lens (\CreateAlertResponse' {httpStatus} -> httpStatus) (\s@CreateAlertResponse' {} a -> s {httpStatus = a} :: CreateAlertResponse)
 
-instance Prelude.NFData CreateAlertResponse
+instance Prelude.NFData CreateAlertResponse where
+  rnf CreateAlertResponse' {..} =
+    Prelude.rnf alertArn
+      `Prelude.seq` Prelude.rnf httpStatus

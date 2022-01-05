@@ -99,9 +99,19 @@ instance Core.FromJSON S3SourceConfig where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable S3SourceConfig
+instance Prelude.Hashable S3SourceConfig where
+  hashWithSalt _salt S3SourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` templatedPathList
+      `Prelude.hashWithSalt` historicalDataPathList
+      `Prelude.hashWithSalt` fileFormatDescriptor
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData S3SourceConfig
+instance Prelude.NFData S3SourceConfig where
+  rnf S3SourceConfig' {..} =
+    Prelude.rnf templatedPathList
+      `Prelude.seq` Prelude.rnf historicalDataPathList
+      `Prelude.seq` Prelude.rnf fileFormatDescriptor
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON S3SourceConfig where
   toJSON S3SourceConfig' {..} =

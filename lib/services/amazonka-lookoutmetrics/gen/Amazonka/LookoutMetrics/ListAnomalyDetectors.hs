@@ -111,9 +111,15 @@ instance Core.AWSRequest ListAnomalyDetectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAnomalyDetectors
+instance Prelude.Hashable ListAnomalyDetectors where
+  hashWithSalt _salt ListAnomalyDetectors' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListAnomalyDetectors
+instance Prelude.NFData ListAnomalyDetectors where
+  rnf ListAnomalyDetectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAnomalyDetectors where
   toHeaders =
@@ -192,4 +198,8 @@ listAnomalyDetectorsResponse_anomalyDetectorSummaryList = Lens.lens (\ListAnomal
 listAnomalyDetectorsResponse_httpStatus :: Lens.Lens' ListAnomalyDetectorsResponse Prelude.Int
 listAnomalyDetectorsResponse_httpStatus = Lens.lens (\ListAnomalyDetectorsResponse' {httpStatus} -> httpStatus) (\s@ListAnomalyDetectorsResponse' {} a -> s {httpStatus = a} :: ListAnomalyDetectorsResponse)
 
-instance Prelude.NFData ListAnomalyDetectorsResponse
+instance Prelude.NFData ListAnomalyDetectorsResponse where
+  rnf ListAnomalyDetectorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf anomalyDetectorSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

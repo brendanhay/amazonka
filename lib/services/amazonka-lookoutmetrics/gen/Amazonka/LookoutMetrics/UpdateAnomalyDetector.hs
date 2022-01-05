@@ -122,9 +122,19 @@ instance Core.AWSRequest UpdateAnomalyDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAnomalyDetector
+instance Prelude.Hashable UpdateAnomalyDetector where
+  hashWithSalt _salt UpdateAnomalyDetector' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` anomalyDetectorConfig
+      `Prelude.hashWithSalt` anomalyDetectorDescription
+      `Prelude.hashWithSalt` anomalyDetectorArn
 
-instance Prelude.NFData UpdateAnomalyDetector
+instance Prelude.NFData UpdateAnomalyDetector where
+  rnf UpdateAnomalyDetector' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf anomalyDetectorConfig
+      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
 instance Core.ToHeaders UpdateAnomalyDetector where
   toHeaders =
@@ -196,4 +206,7 @@ updateAnomalyDetectorResponse_anomalyDetectorArn = Lens.lens (\UpdateAnomalyDete
 updateAnomalyDetectorResponse_httpStatus :: Lens.Lens' UpdateAnomalyDetectorResponse Prelude.Int
 updateAnomalyDetectorResponse_httpStatus = Lens.lens (\UpdateAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@UpdateAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: UpdateAnomalyDetectorResponse)
 
-instance Prelude.NFData UpdateAnomalyDetectorResponse
+instance Prelude.NFData UpdateAnomalyDetectorResponse where
+  rnf UpdateAnomalyDetectorResponse' {..} =
+    Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf httpStatus

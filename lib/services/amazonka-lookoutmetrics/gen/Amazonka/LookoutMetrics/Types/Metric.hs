@@ -87,9 +87,17 @@ instance Core.FromJSON Metric where
             Prelude.<*> (x Core..: "AggregationFunction")
       )
 
-instance Prelude.Hashable Metric
+instance Prelude.Hashable Metric where
+  hashWithSalt _salt Metric' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` aggregationFunction
 
-instance Prelude.NFData Metric
+instance Prelude.NFData Metric where
+  rnf Metric' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf aggregationFunction
 
 instance Core.ToJSON Metric where
   toJSON Metric' {..} =

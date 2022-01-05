@@ -86,9 +86,19 @@ sampleDataS3SourceConfig_roleArn = Lens.lens (\SampleDataS3SourceConfig' {roleAr
 sampleDataS3SourceConfig_fileFormatDescriptor :: Lens.Lens' SampleDataS3SourceConfig FileFormatDescriptor
 sampleDataS3SourceConfig_fileFormatDescriptor = Lens.lens (\SampleDataS3SourceConfig' {fileFormatDescriptor} -> fileFormatDescriptor) (\s@SampleDataS3SourceConfig' {} a -> s {fileFormatDescriptor = a} :: SampleDataS3SourceConfig)
 
-instance Prelude.Hashable SampleDataS3SourceConfig
+instance Prelude.Hashable SampleDataS3SourceConfig where
+  hashWithSalt _salt SampleDataS3SourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` templatedPathList
+      `Prelude.hashWithSalt` historicalDataPathList
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` fileFormatDescriptor
 
-instance Prelude.NFData SampleDataS3SourceConfig
+instance Prelude.NFData SampleDataS3SourceConfig where
+  rnf SampleDataS3SourceConfig' {..} =
+    Prelude.rnf templatedPathList
+      `Prelude.seq` Prelude.rnf historicalDataPathList
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf fileFormatDescriptor
 
 instance Core.ToJSON SampleDataS3SourceConfig where
   toJSON SampleDataS3SourceConfig' {..} =

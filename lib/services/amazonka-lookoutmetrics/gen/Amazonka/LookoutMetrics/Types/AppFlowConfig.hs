@@ -78,9 +78,15 @@ instance Core.FromJSON AppFlowConfig where
             Prelude.<*> (x Core..: "FlowName")
       )
 
-instance Prelude.Hashable AppFlowConfig
+instance Prelude.Hashable AppFlowConfig where
+  hashWithSalt _salt AppFlowConfig' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` flowName
 
-instance Prelude.NFData AppFlowConfig
+instance Prelude.NFData AppFlowConfig where
+  rnf AppFlowConfig' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf flowName
 
 instance Core.ToJSON AppFlowConfig where
   toJSON AppFlowConfig' {..} =

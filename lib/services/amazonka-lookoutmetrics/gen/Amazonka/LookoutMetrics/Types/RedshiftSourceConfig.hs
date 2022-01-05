@@ -163,9 +163,27 @@ instance Core.FromJSON RedshiftSourceConfig where
             Prelude.<*> (x Core..: "VpcConfiguration")
       )
 
-instance Prelude.Hashable RedshiftSourceConfig
+instance Prelude.Hashable RedshiftSourceConfig where
+  hashWithSalt _salt RedshiftSourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` databaseHost
+      `Prelude.hashWithSalt` databasePort
+      `Prelude.hashWithSalt` secretManagerArn
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` vpcConfiguration
 
-instance Prelude.NFData RedshiftSourceConfig
+instance Prelude.NFData RedshiftSourceConfig where
+  rnf RedshiftSourceConfig' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf databaseHost
+      `Prelude.seq` Prelude.rnf databasePort
+      `Prelude.seq` Prelude.rnf secretManagerArn
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance Core.ToJSON RedshiftSourceConfig where
   toJSON RedshiftSourceConfig' {..} =

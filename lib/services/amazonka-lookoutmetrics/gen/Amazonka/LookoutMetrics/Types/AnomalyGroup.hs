@@ -115,6 +115,20 @@ instance Core.FromJSON AnomalyGroup where
             Prelude.<*> (x Core..:? "EndTime")
       )
 
-instance Prelude.Hashable AnomalyGroup
+instance Prelude.Hashable AnomalyGroup where
+  hashWithSalt _salt AnomalyGroup' {..} =
+    _salt `Prelude.hashWithSalt` metricLevelImpactList
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` anomalyGroupId
+      `Prelude.hashWithSalt` anomalyGroupScore
+      `Prelude.hashWithSalt` primaryMetricName
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData AnomalyGroup
+instance Prelude.NFData AnomalyGroup where
+  rnf AnomalyGroup' {..} =
+    Prelude.rnf metricLevelImpactList
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf anomalyGroupId
+      `Prelude.seq` Prelude.rnf anomalyGroupScore
+      `Prelude.seq` Prelude.rnf primaryMetricName
+      `Prelude.seq` Prelude.rnf endTime

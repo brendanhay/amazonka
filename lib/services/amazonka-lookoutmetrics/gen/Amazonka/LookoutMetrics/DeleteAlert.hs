@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteAlert where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAlert
+instance Prelude.Hashable DeleteAlert where
+  hashWithSalt _salt DeleteAlert' {..} =
+    _salt `Prelude.hashWithSalt` alertArn
 
-instance Prelude.NFData DeleteAlert
+instance Prelude.NFData DeleteAlert where
+  rnf DeleteAlert' {..} = Prelude.rnf alertArn
 
 instance Core.ToHeaders DeleteAlert where
   toHeaders =
@@ -137,4 +140,5 @@ newDeleteAlertResponse pHttpStatus_ =
 deleteAlertResponse_httpStatus :: Lens.Lens' DeleteAlertResponse Prelude.Int
 deleteAlertResponse_httpStatus = Lens.lens (\DeleteAlertResponse' {httpStatus} -> httpStatus) (\s@DeleteAlertResponse' {} a -> s {httpStatus = a} :: DeleteAlertResponse)
 
-instance Prelude.NFData DeleteAlertResponse
+instance Prelude.NFData DeleteAlertResponse where
+  rnf DeleteAlertResponse' {..} = Prelude.rnf httpStatus

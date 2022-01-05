@@ -110,9 +110,13 @@ instance Core.AWSRequest DescribeAnomalyDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAnomalyDetector
+instance Prelude.Hashable DescribeAnomalyDetector where
+  hashWithSalt _salt DescribeAnomalyDetector' {..} =
+    _salt `Prelude.hashWithSalt` anomalyDetectorArn
 
-instance Prelude.NFData DescribeAnomalyDetector
+instance Prelude.NFData DescribeAnomalyDetector where
+  rnf DescribeAnomalyDetector' {..} =
+    Prelude.rnf anomalyDetectorArn
 
 instance Core.ToHeaders DescribeAnomalyDetector where
   toHeaders =
@@ -255,3 +259,15 @@ describeAnomalyDetectorResponse_httpStatus = Lens.lens (\DescribeAnomalyDetector
 instance
   Prelude.NFData
     DescribeAnomalyDetectorResponse
+  where
+  rnf DescribeAnomalyDetectorResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf anomalyDetectorConfig
+      `Prelude.seq` Prelude.rnf anomalyDetectorName
+      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf httpStatus

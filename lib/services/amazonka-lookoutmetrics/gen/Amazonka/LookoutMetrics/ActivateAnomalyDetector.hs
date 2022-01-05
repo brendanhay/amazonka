@@ -87,9 +87,13 @@ instance Core.AWSRequest ActivateAnomalyDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateAnomalyDetector
+instance Prelude.Hashable ActivateAnomalyDetector where
+  hashWithSalt _salt ActivateAnomalyDetector' {..} =
+    _salt `Prelude.hashWithSalt` anomalyDetectorArn
 
-instance Prelude.NFData ActivateAnomalyDetector
+instance Prelude.NFData ActivateAnomalyDetector where
+  rnf ActivateAnomalyDetector' {..} =
+    Prelude.rnf anomalyDetectorArn
 
 instance Core.ToHeaders ActivateAnomalyDetector where
   toHeaders =
@@ -150,3 +154,6 @@ activateAnomalyDetectorResponse_httpStatus = Lens.lens (\ActivateAnomalyDetector
 instance
   Prelude.NFData
     ActivateAnomalyDetectorResponse
+  where
+  rnf ActivateAnomalyDetectorResponse' {..} =
+    Prelude.rnf httpStatus

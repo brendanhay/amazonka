@@ -101,10 +101,19 @@ instance
 instance
   Prelude.Hashable
     DeleteInboundCrossClusterSearchConnection
+  where
+  hashWithSalt
+    _salt
+    DeleteInboundCrossClusterSearchConnection' {..} =
+      _salt
+        `Prelude.hashWithSalt` crossClusterSearchConnectionId
 
 instance
   Prelude.NFData
     DeleteInboundCrossClusterSearchConnection
+  where
+  rnf DeleteInboundCrossClusterSearchConnection' {..} =
+    Prelude.rnf crossClusterSearchConnectionId
 
 instance
   Core.ToHeaders
@@ -178,3 +187,8 @@ deleteInboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\Delet
 instance
   Prelude.NFData
     DeleteInboundCrossClusterSearchConnectionResponse
+  where
+  rnf
+    DeleteInboundCrossClusterSearchConnectionResponse' {..} =
+      Prelude.rnf crossClusterSearchConnection
+        `Prelude.seq` Prelude.rnf httpStatus

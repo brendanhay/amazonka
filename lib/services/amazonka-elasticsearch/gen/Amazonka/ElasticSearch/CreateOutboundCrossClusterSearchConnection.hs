@@ -143,10 +143,22 @@ instance
 instance
   Prelude.Hashable
     CreateOutboundCrossClusterSearchConnection
+  where
+  hashWithSalt
+    _salt
+    CreateOutboundCrossClusterSearchConnection' {..} =
+      _salt `Prelude.hashWithSalt` sourceDomainInfo
+        `Prelude.hashWithSalt` destinationDomainInfo
+        `Prelude.hashWithSalt` connectionAlias
 
 instance
   Prelude.NFData
     CreateOutboundCrossClusterSearchConnection
+  where
+  rnf CreateOutboundCrossClusterSearchConnection' {..} =
+    Prelude.rnf sourceDomainInfo
+      `Prelude.seq` Prelude.rnf destinationDomainInfo
+      `Prelude.seq` Prelude.rnf connectionAlias
 
 instance
   Core.ToHeaders
@@ -287,3 +299,12 @@ createOutboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\Crea
 instance
   Prelude.NFData
     CreateOutboundCrossClusterSearchConnectionResponse
+  where
+  rnf
+    CreateOutboundCrossClusterSearchConnectionResponse' {..} =
+      Prelude.rnf destinationDomainInfo
+        `Prelude.seq` Prelude.rnf connectionAlias
+        `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
+        `Prelude.seq` Prelude.rnf connectionStatus
+        `Prelude.seq` Prelude.rnf sourceDomainInfo
+        `Prelude.seq` Prelude.rnf httpStatus

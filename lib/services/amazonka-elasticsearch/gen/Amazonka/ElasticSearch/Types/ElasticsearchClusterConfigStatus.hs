@@ -93,7 +93,17 @@ instance
 instance
   Prelude.Hashable
     ElasticsearchClusterConfigStatus
+  where
+  hashWithSalt
+    _salt
+    ElasticsearchClusterConfigStatus' {..} =
+      _salt `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ElasticsearchClusterConfigStatus
+  where
+  rnf ElasticsearchClusterConfigStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

@@ -221,6 +221,36 @@ instance Core.FromJSON ElasticsearchDomainConfig where
             Prelude.<*> (x Core..:? "ElasticsearchVersion")
       )
 
-instance Prelude.Hashable ElasticsearchDomainConfig
+instance Prelude.Hashable ElasticsearchDomainConfig where
+  hashWithSalt _salt ElasticsearchDomainConfig' {..} =
+    _salt `Prelude.hashWithSalt` eBSOptions
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` elasticsearchClusterConfig
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` elasticsearchVersion
 
-instance Prelude.NFData ElasticsearchDomainConfig
+instance Prelude.NFData ElasticsearchDomainConfig where
+  rnf ElasticsearchDomainConfig' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf elasticsearchVersion

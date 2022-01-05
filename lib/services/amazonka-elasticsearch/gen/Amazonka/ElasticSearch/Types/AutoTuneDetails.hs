@@ -64,6 +64,11 @@ instance Core.FromJSON AutoTuneDetails where
             Prelude.<$> (x Core..:? "ScheduledAutoTuneDetails")
       )
 
-instance Prelude.Hashable AutoTuneDetails
+instance Prelude.Hashable AutoTuneDetails where
+  hashWithSalt _salt AutoTuneDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` scheduledAutoTuneDetails
 
-instance Prelude.NFData AutoTuneDetails
+instance Prelude.NFData AutoTuneDetails where
+  rnf AutoTuneDetails' {..} =
+    Prelude.rnf scheduledAutoTuneDetails

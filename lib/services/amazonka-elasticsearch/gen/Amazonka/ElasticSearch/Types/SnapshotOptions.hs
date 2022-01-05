@@ -70,9 +70,14 @@ instance Core.FromJSON SnapshotOptions where
             Prelude.<$> (x Core..:? "AutomatedSnapshotStartHour")
       )
 
-instance Prelude.Hashable SnapshotOptions
+instance Prelude.Hashable SnapshotOptions where
+  hashWithSalt _salt SnapshotOptions' {..} =
+    _salt
+      `Prelude.hashWithSalt` automatedSnapshotStartHour
 
-instance Prelude.NFData SnapshotOptions
+instance Prelude.NFData SnapshotOptions where
+  rnf SnapshotOptions' {..} =
+    Prelude.rnf automatedSnapshotStartHour
 
 instance Core.ToJSON SnapshotOptions where
   toJSON SnapshotOptions' {..} =

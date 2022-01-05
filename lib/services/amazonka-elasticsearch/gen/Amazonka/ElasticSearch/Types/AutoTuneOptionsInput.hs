@@ -74,9 +74,15 @@ autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredSt
 autoTuneOptionsInput_maintenanceSchedules :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe [AutoTuneMaintenanceSchedule])
 autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptionsInput' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptionsInput) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable AutoTuneOptionsInput
+instance Prelude.Hashable AutoTuneOptionsInput where
+  hashWithSalt _salt AutoTuneOptionsInput' {..} =
+    _salt `Prelude.hashWithSalt` desiredState
+      `Prelude.hashWithSalt` maintenanceSchedules
 
-instance Prelude.NFData AutoTuneOptionsInput
+instance Prelude.NFData AutoTuneOptionsInput where
+  rnf AutoTuneOptionsInput' {..} =
+    Prelude.rnf desiredState
+      `Prelude.seq` Prelude.rnf maintenanceSchedules
 
 instance Core.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =

@@ -120,9 +120,17 @@ instance Core.AWSRequest ListPackagesForDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackagesForDomain
+instance Prelude.Hashable ListPackagesForDomain where
+  hashWithSalt _salt ListPackagesForDomain' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData ListPackagesForDomain
+instance Prelude.NFData ListPackagesForDomain where
+  rnf ListPackagesForDomain' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders ListPackagesForDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +204,8 @@ listPackagesForDomainResponse_nextToken = Lens.lens (\ListPackagesForDomainRespo
 listPackagesForDomainResponse_httpStatus :: Lens.Lens' ListPackagesForDomainResponse Prelude.Int
 listPackagesForDomainResponse_httpStatus = Lens.lens (\ListPackagesForDomainResponse' {httpStatus} -> httpStatus) (\s@ListPackagesForDomainResponse' {} a -> s {httpStatus = a} :: ListPackagesForDomainResponse)
 
-instance Prelude.NFData ListPackagesForDomainResponse
+instance Prelude.NFData ListPackagesForDomainResponse where
+  rnf ListPackagesForDomainResponse' {..} =
+    Prelude.rnf domainPackageDetailsList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

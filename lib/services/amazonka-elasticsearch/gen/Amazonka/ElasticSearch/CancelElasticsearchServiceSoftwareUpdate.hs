@@ -107,10 +107,18 @@ instance
 instance
   Prelude.Hashable
     CancelElasticsearchServiceSoftwareUpdate
+  where
+  hashWithSalt
+    _salt
+    CancelElasticsearchServiceSoftwareUpdate' {..} =
+      _salt `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     CancelElasticsearchServiceSoftwareUpdate
+  where
+  rnf CancelElasticsearchServiceSoftwareUpdate' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -188,3 +196,8 @@ cancelElasticsearchServiceSoftwareUpdateResponse_httpStatus = Lens.lens (\Cancel
 instance
   Prelude.NFData
     CancelElasticsearchServiceSoftwareUpdateResponse
+  where
+  rnf
+    CancelElasticsearchServiceSoftwareUpdateResponse' {..} =
+      Prelude.rnf serviceSoftwareOptions
+        `Prelude.seq` Prelude.rnf httpStatus

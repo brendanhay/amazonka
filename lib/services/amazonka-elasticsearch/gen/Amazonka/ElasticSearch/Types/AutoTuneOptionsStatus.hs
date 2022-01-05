@@ -77,6 +77,12 @@ instance Core.FromJSON AutoTuneOptionsStatus where
             Prelude.<*> (x Core..:? "Options")
       )
 
-instance Prelude.Hashable AutoTuneOptionsStatus
+instance Prelude.Hashable AutoTuneOptionsStatus where
+  hashWithSalt _salt AutoTuneOptionsStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData AutoTuneOptionsStatus
+instance Prelude.NFData AutoTuneOptionsStatus where
+  rnf AutoTuneOptionsStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf options

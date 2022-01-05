@@ -110,7 +110,21 @@ instance
 instance
   Prelude.Hashable
     InboundCrossClusterSearchConnection
+  where
+  hashWithSalt
+    _salt
+    InboundCrossClusterSearchConnection' {..} =
+      _salt `Prelude.hashWithSalt` destinationDomainInfo
+        `Prelude.hashWithSalt` crossClusterSearchConnectionId
+        `Prelude.hashWithSalt` connectionStatus
+        `Prelude.hashWithSalt` sourceDomainInfo
 
 instance
   Prelude.NFData
     InboundCrossClusterSearchConnection
+  where
+  rnf InboundCrossClusterSearchConnection' {..} =
+    Prelude.rnf destinationDomainInfo
+      `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
+      `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf sourceDomainInfo

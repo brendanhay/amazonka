@@ -87,6 +87,12 @@ instance Core.FromJSON AdditionalLimit where
             Prelude.<*> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AdditionalLimit
+instance Prelude.Hashable AdditionalLimit where
+  hashWithSalt _salt AdditionalLimit' {..} =
+    _salt `Prelude.hashWithSalt` limitName
+      `Prelude.hashWithSalt` limitValues
 
-instance Prelude.NFData AdditionalLimit
+instance Prelude.NFData AdditionalLimit where
+  rnf AdditionalLimit' {..} =
+    Prelude.rnf limitName
+      `Prelude.seq` Prelude.rnf limitValues

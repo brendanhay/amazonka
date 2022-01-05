@@ -191,9 +191,33 @@ instance Core.FromJSON ElasticsearchClusterConfig where
             Prelude.<*> (x Core..:? "WarmType")
       )
 
-instance Prelude.Hashable ElasticsearchClusterConfig
+instance Prelude.Hashable ElasticsearchClusterConfig where
+  hashWithSalt _salt ElasticsearchClusterConfig' {..} =
+    _salt `Prelude.hashWithSalt` dedicatedMasterCount
+      `Prelude.hashWithSalt` dedicatedMasterType
+      `Prelude.hashWithSalt` dedicatedMasterEnabled
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` coldStorageOptions
+      `Prelude.hashWithSalt` zoneAwarenessEnabled
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` warmEnabled
+      `Prelude.hashWithSalt` zoneAwarenessConfig
+      `Prelude.hashWithSalt` warmCount
+      `Prelude.hashWithSalt` warmType
 
-instance Prelude.NFData ElasticsearchClusterConfig
+instance Prelude.NFData ElasticsearchClusterConfig where
+  rnf ElasticsearchClusterConfig' {..} =
+    Prelude.rnf dedicatedMasterCount
+      `Prelude.seq` Prelude.rnf dedicatedMasterType
+      `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf coldStorageOptions
+      `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf warmEnabled
+      `Prelude.seq` Prelude.rnf zoneAwarenessConfig
+      `Prelude.seq` Prelude.rnf warmCount
+      `Prelude.seq` Prelude.rnf warmType
 
 instance Core.ToJSON ElasticsearchClusterConfig where
   toJSON ElasticsearchClusterConfig' {..} =

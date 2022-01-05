@@ -101,10 +101,18 @@ instance
 instance
   Prelude.Hashable
     DescribeElasticsearchDomainConfig
+  where
+  hashWithSalt
+    _salt
+    DescribeElasticsearchDomainConfig' {..} =
+      _salt `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     DescribeElasticsearchDomainConfig
+  where
+  rnf DescribeElasticsearchDomainConfig' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -181,3 +189,7 @@ describeElasticsearchDomainConfigResponse_domainConfig = Lens.lens (\DescribeEla
 instance
   Prelude.NFData
     DescribeElasticsearchDomainConfigResponse
+  where
+  rnf DescribeElasticsearchDomainConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainConfig

@@ -384,6 +384,58 @@ instance Core.FromJSON ElasticsearchDomainStatus where
             Prelude.<*> (x Core..: "ElasticsearchClusterConfig")
       )
 
-instance Prelude.Hashable ElasticsearchDomainStatus
+instance Prelude.Hashable ElasticsearchDomainStatus where
+  hashWithSalt _salt ElasticsearchDomainStatus' {..} =
+    _salt `Prelude.hashWithSalt` eBSOptions
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` serviceSoftwareOptions
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` deleted
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` processing
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` upgradeProcessing
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` elasticsearchVersion
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` elasticsearchClusterConfig
 
-instance Prelude.NFData ElasticsearchDomainStatus
+instance Prelude.NFData ElasticsearchDomainStatus where
+  rnf ElasticsearchDomainStatus' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf processing
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf upgradeProcessing
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf
+        elasticsearchVersion
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf
+        elasticsearchClusterConfig

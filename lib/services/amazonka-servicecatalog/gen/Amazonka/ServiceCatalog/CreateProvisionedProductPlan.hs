@@ -282,8 +282,33 @@ instance Core.AWSRequest CreateProvisionedProductPlan where
 instance
   Prelude.Hashable
     CreateProvisionedProductPlan
+  where
+  hashWithSalt _salt CreateProvisionedProductPlan' {..} =
+    _salt `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pathId
+      `Prelude.hashWithSalt` provisioningParameters
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` planName
+      `Prelude.hashWithSalt` planType
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateProvisionedProductPlan
+instance Prelude.NFData CreateProvisionedProductPlan where
+  rnf CreateProvisionedProductPlan' {..} =
+    Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf planName
+      `Prelude.seq` Prelude.rnf planType
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateProvisionedProductPlan where
   toHeaders =
@@ -413,3 +438,11 @@ createProvisionedProductPlanResponse_httpStatus = Lens.lens (\CreateProvisionedP
 instance
   Prelude.NFData
     CreateProvisionedProductPlanResponse
+  where
+  rnf CreateProvisionedProductPlanResponse' {..} =
+    Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf provisionProductId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf planId
+      `Prelude.seq` Prelude.rnf planName
+      `Prelude.seq` Prelude.rnf httpStatus

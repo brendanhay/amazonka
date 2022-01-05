@@ -139,9 +139,17 @@ instance Core.AWSRequest ListTagOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagOptions
+instance Prelude.Hashable ListTagOptions where
+  hashWithSalt _salt ListTagOptions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListTagOptions
+instance Prelude.NFData ListTagOptions where
+  rnf ListTagOptions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListTagOptions where
   toHeaders =
@@ -225,4 +233,8 @@ listTagOptionsResponse_tagOptionDetails = Lens.lens (\ListTagOptionsResponse' {t
 listTagOptionsResponse_httpStatus :: Lens.Lens' ListTagOptionsResponse Prelude.Int
 listTagOptionsResponse_httpStatus = Lens.lens (\ListTagOptionsResponse' {httpStatus} -> httpStatus) (\s@ListTagOptionsResponse' {} a -> s {httpStatus = a} :: ListTagOptionsResponse)
 
-instance Prelude.NFData ListTagOptionsResponse
+instance Prelude.NFData ListTagOptionsResponse where
+  rnf ListTagOptionsResponse' {..} =
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf tagOptionDetails
+      `Prelude.seq` Prelude.rnf httpStatus

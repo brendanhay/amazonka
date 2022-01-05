@@ -114,6 +114,16 @@ instance Core.FromJSON ProductViewDetail where
             Prelude.<*> (x Core..:? "ProductARN")
       )
 
-instance Prelude.Hashable ProductViewDetail
+instance Prelude.Hashable ProductViewDetail where
+  hashWithSalt _salt ProductViewDetail' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` productViewSummary
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` productARN
 
-instance Prelude.NFData ProductViewDetail
+instance Prelude.NFData ProductViewDetail where
+  rnf ProductViewDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf productViewSummary
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf productARN

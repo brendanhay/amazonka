@@ -172,6 +172,22 @@ instance Core.FromJSON ParameterConstraints where
             Prelude.<*> (x Core..:? "MinValue")
       )
 
-instance Prelude.Hashable ParameterConstraints
+instance Prelude.Hashable ParameterConstraints where
+  hashWithSalt _salt ParameterConstraints' {..} =
+    _salt `Prelude.hashWithSalt` maxValue
+      `Prelude.hashWithSalt` maxLength
+      `Prelude.hashWithSalt` constraintDescription
+      `Prelude.hashWithSalt` minLength
+      `Prelude.hashWithSalt` allowedPattern
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` minValue
 
-instance Prelude.NFData ParameterConstraints
+instance Prelude.NFData ParameterConstraints where
+  rnf ParameterConstraints' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf maxLength
+      `Prelude.seq` Prelude.rnf constraintDescription
+      `Prelude.seq` Prelude.rnf minLength
+      `Prelude.seq` Prelude.rnf allowedPattern
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf minValue

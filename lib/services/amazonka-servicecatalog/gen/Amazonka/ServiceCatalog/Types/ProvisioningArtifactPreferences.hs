@@ -119,7 +119,17 @@ instance
 instance
   Prelude.Hashable
     ProvisioningArtifactPreferences
+  where
+  hashWithSalt
+    _salt
+    ProvisioningArtifactPreferences' {..} =
+      _salt `Prelude.hashWithSalt` stackSetRegions
+        `Prelude.hashWithSalt` stackSetAccounts
 
 instance
   Prelude.NFData
     ProvisioningArtifactPreferences
+  where
+  rnf ProvisioningArtifactPreferences' {..} =
+    Prelude.rnf stackSetRegions
+      `Prelude.seq` Prelude.rnf stackSetAccounts

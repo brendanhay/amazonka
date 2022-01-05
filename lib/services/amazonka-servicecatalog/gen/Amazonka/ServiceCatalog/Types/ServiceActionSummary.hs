@@ -92,6 +92,16 @@ instance Core.FromJSON ServiceActionSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ServiceActionSummary
+instance Prelude.Hashable ServiceActionSummary where
+  hashWithSalt _salt ServiceActionSummary' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` definitionType
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ServiceActionSummary
+instance Prelude.NFData ServiceActionSummary where
+  rnf ServiceActionSummary' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definitionType
+      `Prelude.seq` Prelude.rnf description

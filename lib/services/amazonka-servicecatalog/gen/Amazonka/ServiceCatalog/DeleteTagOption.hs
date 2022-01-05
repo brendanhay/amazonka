@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteTagOption where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTagOption
+instance Prelude.Hashable DeleteTagOption where
+  hashWithSalt _salt DeleteTagOption' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteTagOption
+instance Prelude.NFData DeleteTagOption where
+  rnf DeleteTagOption' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteTagOption where
   toHeaders =
@@ -143,4 +146,6 @@ newDeleteTagOptionResponse pHttpStatus_ =
 deleteTagOptionResponse_httpStatus :: Lens.Lens' DeleteTagOptionResponse Prelude.Int
 deleteTagOptionResponse_httpStatus = Lens.lens (\DeleteTagOptionResponse' {httpStatus} -> httpStatus) (\s@DeleteTagOptionResponse' {} a -> s {httpStatus = a} :: DeleteTagOptionResponse)
 
-instance Prelude.NFData DeleteTagOptionResponse
+instance Prelude.NFData DeleteTagOptionResponse where
+  rnf DeleteTagOptionResponse' {..} =
+    Prelude.rnf httpStatus

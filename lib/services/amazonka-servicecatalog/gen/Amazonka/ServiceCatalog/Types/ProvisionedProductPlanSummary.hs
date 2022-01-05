@@ -116,5 +116,20 @@ instance Core.FromJSON ProvisionedProductPlanSummary where
 instance
   Prelude.Hashable
     ProvisionedProductPlanSummary
+  where
+  hashWithSalt _salt ProvisionedProductPlanSummary' {..} =
+    _salt `Prelude.hashWithSalt` provisionProductId
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` provisionProductName
+      `Prelude.hashWithSalt` planId
+      `Prelude.hashWithSalt` planName
+      `Prelude.hashWithSalt` planType
 
-instance Prelude.NFData ProvisionedProductPlanSummary
+instance Prelude.NFData ProvisionedProductPlanSummary where
+  rnf ProvisionedProductPlanSummary' {..} =
+    Prelude.rnf provisionProductId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisionProductName
+      `Prelude.seq` Prelude.rnf planId
+      `Prelude.seq` Prelude.rnf planName
+      `Prelude.seq` Prelude.rnf planType

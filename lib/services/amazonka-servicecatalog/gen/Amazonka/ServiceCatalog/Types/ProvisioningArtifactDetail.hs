@@ -146,6 +146,22 @@ instance Core.FromJSON ProvisioningArtifactDetail where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ProvisioningArtifactDetail
+instance Prelude.Hashable ProvisioningArtifactDetail where
+  hashWithSalt _salt ProvisioningArtifactDetail' {..} =
+    _salt `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` guidance
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ProvisioningArtifactDetail
+instance Prelude.NFData ProvisioningArtifactDetail where
+  rnf ProvisioningArtifactDetail' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf guidance
+      `Prelude.seq` Prelude.rnf description

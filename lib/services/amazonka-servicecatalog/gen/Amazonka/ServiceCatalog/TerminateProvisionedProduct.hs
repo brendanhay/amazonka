@@ -192,9 +192,23 @@ instance Core.AWSRequest TerminateProvisionedProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateProvisionedProduct
+instance Prelude.Hashable TerminateProvisionedProduct where
+  hashWithSalt _salt TerminateProvisionedProduct' {..} =
+    _salt `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` retainPhysicalResources
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` ignoreErrors
+      `Prelude.hashWithSalt` provisionedProductId
+      `Prelude.hashWithSalt` terminateToken
 
-instance Prelude.NFData TerminateProvisionedProduct
+instance Prelude.NFData TerminateProvisionedProduct where
+  rnf TerminateProvisionedProduct' {..} =
+    Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf retainPhysicalResources
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf ignoreErrors
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf terminateToken
 
 instance Core.ToHeaders TerminateProvisionedProduct where
   toHeaders =
@@ -277,3 +291,7 @@ terminateProvisionedProductResponse_httpStatus = Lens.lens (\TerminateProvisione
 instance
   Prelude.NFData
     TerminateProvisionedProductResponse
+  where
+  rnf TerminateProvisionedProductResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf httpStatus

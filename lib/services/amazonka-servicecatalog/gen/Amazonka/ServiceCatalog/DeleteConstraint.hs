@@ -116,9 +116,15 @@ instance Core.AWSRequest DeleteConstraint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConstraint
+instance Prelude.Hashable DeleteConstraint where
+  hashWithSalt _salt DeleteConstraint' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteConstraint
+instance Prelude.NFData DeleteConstraint where
+  rnf DeleteConstraint' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteConstraint where
   toHeaders =
@@ -181,4 +187,6 @@ newDeleteConstraintResponse pHttpStatus_ =
 deleteConstraintResponse_httpStatus :: Lens.Lens' DeleteConstraintResponse Prelude.Int
 deleteConstraintResponse_httpStatus = Lens.lens (\DeleteConstraintResponse' {httpStatus} -> httpStatus) (\s@DeleteConstraintResponse' {} a -> s {httpStatus = a} :: DeleteConstraintResponse)
 
-instance Prelude.NFData DeleteConstraintResponse
+instance Prelude.NFData DeleteConstraintResponse where
+  rnf DeleteConstraintResponse' {..} =
+    Prelude.rnf httpStatus

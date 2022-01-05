@@ -122,5 +122,20 @@ instance Core.FromJSON ProvisioningArtifactParameter where
 instance
   Prelude.Hashable
     ProvisioningArtifactParameter
+  where
+  hashWithSalt _salt ProvisioningArtifactParameter' {..} =
+    _salt `Prelude.hashWithSalt` isNoEcho
+      `Prelude.hashWithSalt` parameterKey
+      `Prelude.hashWithSalt` parameterType
+      `Prelude.hashWithSalt` parameterConstraints
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ProvisioningArtifactParameter
+instance Prelude.NFData ProvisioningArtifactParameter where
+  rnf ProvisioningArtifactParameter' {..} =
+    Prelude.rnf isNoEcho
+      `Prelude.seq` Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf parameterType
+      `Prelude.seq` Prelude.rnf parameterConstraints
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf description

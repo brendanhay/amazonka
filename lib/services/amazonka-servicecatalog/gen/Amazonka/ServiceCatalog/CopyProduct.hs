@@ -195,9 +195,25 @@ instance Core.AWSRequest CopyProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyProduct
+instance Prelude.Hashable CopyProduct where
+  hashWithSalt _salt CopyProduct' {..} =
+    _salt `Prelude.hashWithSalt` targetProductId
+      `Prelude.hashWithSalt` sourceProvisioningArtifactIdentifiers
+      `Prelude.hashWithSalt` targetProductName
+      `Prelude.hashWithSalt` copyOptions
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` sourceProductArn
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CopyProduct
+instance Prelude.NFData CopyProduct where
+  rnf CopyProduct' {..} =
+    Prelude.rnf targetProductId
+      `Prelude.seq` Prelude.rnf sourceProvisioningArtifactIdentifiers
+      `Prelude.seq` Prelude.rnf targetProductName
+      `Prelude.seq` Prelude.rnf copyOptions
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf sourceProductArn
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CopyProduct where
   toHeaders =
@@ -279,4 +295,7 @@ copyProductResponse_copyProductToken = Lens.lens (\CopyProductResponse' {copyPro
 copyProductResponse_httpStatus :: Lens.Lens' CopyProductResponse Prelude.Int
 copyProductResponse_httpStatus = Lens.lens (\CopyProductResponse' {httpStatus} -> httpStatus) (\s@CopyProductResponse' {} a -> s {httpStatus = a} :: CopyProductResponse)
 
-instance Prelude.NFData CopyProductResponse
+instance Prelude.NFData CopyProductResponse where
+  rnf CopyProductResponse' {..} =
+    Prelude.rnf copyProductToken
+      `Prelude.seq` Prelude.rnf httpStatus

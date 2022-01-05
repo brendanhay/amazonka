@@ -70,6 +70,11 @@ instance Core.FromJSON RecordTag where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable RecordTag
+instance Prelude.Hashable RecordTag where
+  hashWithSalt _salt RecordTag' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData RecordTag
+instance Prelude.NFData RecordTag where
+  rnf RecordTag' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key

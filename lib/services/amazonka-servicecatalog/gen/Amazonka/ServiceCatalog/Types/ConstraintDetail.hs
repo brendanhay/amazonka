@@ -147,6 +147,20 @@ instance Core.FromJSON ConstraintDetail where
             Prelude.<*> (x Core..:? "ProductId")
       )
 
-instance Prelude.Hashable ConstraintDetail
+instance Prelude.Hashable ConstraintDetail where
+  hashWithSalt _salt ConstraintDetail' {..} =
+    _salt `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` constraintId
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData ConstraintDetail
+instance Prelude.NFData ConstraintDetail where
+  rnf ConstraintDetail' {..} =
+    Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf constraintId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf productId

@@ -83,6 +83,14 @@ instance Core.FromJSON ExecutionParameter where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ExecutionParameter
+instance Prelude.Hashable ExecutionParameter where
+  hashWithSalt _salt ExecutionParameter' {..} =
+    _salt `Prelude.hashWithSalt` defaultValues
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ExecutionParameter
+instance Prelude.NFData ExecutionParameter where
+  rnf ExecutionParameter' {..} =
+    Prelude.rnf defaultValues
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

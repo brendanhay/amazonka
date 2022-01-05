@@ -178,9 +178,21 @@ instance Core.AWSRequest ListConstraintsForPortfolio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConstraintsForPortfolio
+instance Prelude.Hashable ListConstraintsForPortfolio where
+  hashWithSalt _salt ListConstraintsForPortfolio' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` portfolioId
 
-instance Prelude.NFData ListConstraintsForPortfolio
+instance Prelude.NFData ListConstraintsForPortfolio where
+  rnf ListConstraintsForPortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf portfolioId
 
 instance Core.ToHeaders ListConstraintsForPortfolio where
   toHeaders =
@@ -270,3 +282,8 @@ listConstraintsForPortfolioResponse_httpStatus = Lens.lens (\ListConstraintsForP
 instance
   Prelude.NFData
     ListConstraintsForPortfolioResponse
+  where
+  rnf ListConstraintsForPortfolioResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf constraintDetails
+      `Prelude.seq` Prelude.rnf httpStatus

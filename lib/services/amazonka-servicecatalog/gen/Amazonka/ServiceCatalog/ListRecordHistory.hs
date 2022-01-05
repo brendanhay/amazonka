@@ -173,9 +173,21 @@ instance Core.AWSRequest ListRecordHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRecordHistory
+instance Prelude.Hashable ListRecordHistory where
+  hashWithSalt _salt ListRecordHistory' {..} =
+    _salt `Prelude.hashWithSalt` searchFilter
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accessLevelFilter
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListRecordHistory
+instance Prelude.NFData ListRecordHistory where
+  rnf ListRecordHistory' {..} =
+    Prelude.rnf searchFilter
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf accessLevelFilter
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListRecordHistory where
   toHeaders =
@@ -263,4 +275,8 @@ listRecordHistoryResponse_recordDetails = Lens.lens (\ListRecordHistoryResponse'
 listRecordHistoryResponse_httpStatus :: Lens.Lens' ListRecordHistoryResponse Prelude.Int
 listRecordHistoryResponse_httpStatus = Lens.lens (\ListRecordHistoryResponse' {httpStatus} -> httpStatus) (\s@ListRecordHistoryResponse' {} a -> s {httpStatus = a} :: ListRecordHistoryResponse)
 
-instance Prelude.NFData ListRecordHistoryResponse
+instance Prelude.NFData ListRecordHistoryResponse where
+  rnf ListRecordHistoryResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf recordDetails
+      `Prelude.seq` Prelude.rnf httpStatus

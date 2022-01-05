@@ -121,9 +121,15 @@ instance Core.AWSRequest DescribeConstraint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConstraint
+instance Prelude.Hashable DescribeConstraint where
+  hashWithSalt _salt DescribeConstraint' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeConstraint
+instance Prelude.NFData DescribeConstraint where
+  rnf DescribeConstraint' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribeConstraint where
   toHeaders =
@@ -213,4 +219,9 @@ describeConstraintResponse_constraintParameters = Lens.lens (\DescribeConstraint
 describeConstraintResponse_httpStatus :: Lens.Lens' DescribeConstraintResponse Prelude.Int
 describeConstraintResponse_httpStatus = Lens.lens (\DescribeConstraintResponse' {httpStatus} -> httpStatus) (\s@DescribeConstraintResponse' {} a -> s {httpStatus = a} :: DescribeConstraintResponse)
 
-instance Prelude.NFData DescribeConstraintResponse
+instance Prelude.NFData DescribeConstraintResponse where
+  rnf DescribeConstraintResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf constraintDetail
+      `Prelude.seq` Prelude.rnf constraintParameters
+      `Prelude.seq` Prelude.rnf httpStatus

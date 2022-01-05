@@ -395,9 +395,25 @@ instance Core.AWSRequest CreateConstraint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConstraint
+instance Prelude.Hashable CreateConstraint where
+  hashWithSalt _salt CreateConstraint' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateConstraint
+instance Prelude.NFData CreateConstraint where
+  rnf CreateConstraint' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateConstraint where
   toHeaders =
@@ -492,4 +508,9 @@ createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResp
 createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Prelude.Int
 createConstraintResponse_httpStatus = Lens.lens (\CreateConstraintResponse' {httpStatus} -> httpStatus) (\s@CreateConstraintResponse' {} a -> s {httpStatus = a} :: CreateConstraintResponse)
 
-instance Prelude.NFData CreateConstraintResponse
+instance Prelude.NFData CreateConstraintResponse where
+  rnf CreateConstraintResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf constraintDetail
+      `Prelude.seq` Prelude.rnf constraintParameters
+      `Prelude.seq` Prelude.rnf httpStatus

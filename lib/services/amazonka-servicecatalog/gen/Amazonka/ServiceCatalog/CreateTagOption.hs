@@ -97,9 +97,14 @@ instance Core.AWSRequest CreateTagOption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTagOption
+instance Prelude.Hashable CreateTagOption where
+  hashWithSalt _salt CreateTagOption' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData CreateTagOption
+instance Prelude.NFData CreateTagOption where
+  rnf CreateTagOption' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToHeaders CreateTagOption where
   toHeaders =
@@ -170,4 +175,7 @@ createTagOptionResponse_tagOptionDetail = Lens.lens (\CreateTagOptionResponse' {
 createTagOptionResponse_httpStatus :: Lens.Lens' CreateTagOptionResponse Prelude.Int
 createTagOptionResponse_httpStatus = Lens.lens (\CreateTagOptionResponse' {httpStatus} -> httpStatus) (\s@CreateTagOptionResponse' {} a -> s {httpStatus = a} :: CreateTagOptionResponse)
 
-instance Prelude.NFData CreateTagOptionResponse
+instance Prelude.NFData CreateTagOptionResponse where
+  rnf CreateTagOptionResponse' {..} =
+    Prelude.rnf tagOptionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

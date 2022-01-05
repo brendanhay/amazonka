@@ -210,9 +210,27 @@ instance Core.AWSRequest SearchProductsAsAdmin where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchProductsAsAdmin
+instance Prelude.Hashable SearchProductsAsAdmin where
+  hashWithSalt _salt SearchProductsAsAdmin' {..} =
+    _salt `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` productSource
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData SearchProductsAsAdmin
+instance Prelude.NFData SearchProductsAsAdmin where
+  rnf SearchProductsAsAdmin' {..} =
+    Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf productSource
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders SearchProductsAsAdmin where
   toHeaders =
@@ -302,4 +320,8 @@ searchProductsAsAdminResponse_productViewDetails = Lens.lens (\SearchProductsAsA
 searchProductsAsAdminResponse_httpStatus :: Lens.Lens' SearchProductsAsAdminResponse Prelude.Int
 searchProductsAsAdminResponse_httpStatus = Lens.lens (\SearchProductsAsAdminResponse' {httpStatus} -> httpStatus) (\s@SearchProductsAsAdminResponse' {} a -> s {httpStatus = a} :: SearchProductsAsAdminResponse)
 
-instance Prelude.NFData SearchProductsAsAdminResponse
+instance Prelude.NFData SearchProductsAsAdminResponse where
+  rnf SearchProductsAsAdminResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf productViewDetails
+      `Prelude.seq` Prelude.rnf httpStatus

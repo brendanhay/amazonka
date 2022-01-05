@@ -163,9 +163,19 @@ instance Core.AWSRequest CreateProvisioningArtifact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProvisioningArtifact
+instance Prelude.Hashable CreateProvisioningArtifact where
+  hashWithSalt _salt CreateProvisioningArtifact' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateProvisioningArtifact
+instance Prelude.NFData CreateProvisioningArtifact where
+  rnf CreateProvisioningArtifact' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateProvisioningArtifact where
   toHeaders =
@@ -298,3 +308,9 @@ createProvisioningArtifactResponse_httpStatus = Lens.lens (\CreateProvisioningAr
 instance
   Prelude.NFData
     CreateProvisioningArtifactResponse
+  where
+  rnf CreateProvisioningArtifactResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf info
+      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -216,9 +216,25 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProvisioningArtifact
+instance Prelude.Hashable UpdateProvisioningArtifact where
+  hashWithSalt _salt UpdateProvisioningArtifact' {..} =
+    _salt `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` guidance
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` provisioningArtifactId
 
-instance Prelude.NFData UpdateProvisioningArtifact
+instance Prelude.NFData UpdateProvisioningArtifact where
+  rnf UpdateProvisioningArtifact' {..} =
+    Prelude.rnf active
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf guidance
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
 
 instance Core.ToHeaders UpdateProvisioningArtifact where
   toHeaders =
@@ -320,3 +336,9 @@ updateProvisioningArtifactResponse_httpStatus = Lens.lens (\UpdateProvisioningAr
 instance
   Prelude.NFData
     UpdateProvisioningArtifactResponse
+  where
+  rnf UpdateProvisioningArtifactResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf info
+      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf httpStatus

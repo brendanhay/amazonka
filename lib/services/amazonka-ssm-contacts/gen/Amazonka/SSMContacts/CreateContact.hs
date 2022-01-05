@@ -162,9 +162,23 @@ instance Core.AWSRequest CreateContact where
             Prelude.<*> (x Core..:> "ContactArn")
       )
 
-instance Prelude.Hashable CreateContact
+instance Prelude.Hashable CreateContact where
+  hashWithSalt _salt CreateContact' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` plan
 
-instance Prelude.NFData CreateContact
+instance Prelude.NFData CreateContact where
+  rnf CreateContact' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf plan
 
 instance Core.ToHeaders CreateContact where
   toHeaders =
@@ -242,4 +256,7 @@ createContactResponse_httpStatus = Lens.lens (\CreateContactResponse' {httpStatu
 createContactResponse_contactArn :: Lens.Lens' CreateContactResponse Prelude.Text
 createContactResponse_contactArn = Lens.lens (\CreateContactResponse' {contactArn} -> contactArn) (\s@CreateContactResponse' {} a -> s {contactArn = a} :: CreateContactResponse)
 
-instance Prelude.NFData CreateContactResponse
+instance Prelude.NFData CreateContactResponse where
+  rnf CreateContactResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contactArn

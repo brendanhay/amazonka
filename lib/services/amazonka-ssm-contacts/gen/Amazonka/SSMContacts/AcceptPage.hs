@@ -166,9 +166,23 @@ instance Core.AWSRequest AcceptPage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptPage
+instance Prelude.Hashable AcceptPage where
+  hashWithSalt _salt AcceptPage' {..} =
+    _salt `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` contactChannelId
+      `Prelude.hashWithSalt` acceptCodeValidation
+      `Prelude.hashWithSalt` pageId
+      `Prelude.hashWithSalt` acceptType
+      `Prelude.hashWithSalt` acceptCode
 
-instance Prelude.NFData AcceptPage
+instance Prelude.NFData AcceptPage where
+  rnf AcceptPage' {..} =
+    Prelude.rnf note
+      `Prelude.seq` Prelude.rnf contactChannelId
+      `Prelude.seq` Prelude.rnf acceptCodeValidation
+      `Prelude.seq` Prelude.rnf pageId
+      `Prelude.seq` Prelude.rnf acceptType
+      `Prelude.seq` Prelude.rnf acceptCode
 
 instance Core.ToHeaders AcceptPage where
   toHeaders =
@@ -231,4 +245,5 @@ newAcceptPageResponse pHttpStatus_ =
 acceptPageResponse_httpStatus :: Lens.Lens' AcceptPageResponse Prelude.Int
 acceptPageResponse_httpStatus = Lens.lens (\AcceptPageResponse' {httpStatus} -> httpStatus) (\s@AcceptPageResponse' {} a -> s {httpStatus = a} :: AcceptPageResponse)
 
-instance Prelude.NFData AcceptPageResponse
+instance Prelude.NFData AcceptPageResponse where
+  rnf AcceptPageResponse' {..} = Prelude.rnf httpStatus

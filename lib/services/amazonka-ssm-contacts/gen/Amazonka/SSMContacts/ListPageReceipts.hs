@@ -138,9 +138,17 @@ instance Core.AWSRequest ListPageReceipts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPageReceipts
+instance Prelude.Hashable ListPageReceipts where
+  hashWithSalt _salt ListPageReceipts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` pageId
 
-instance Prelude.NFData ListPageReceipts
+instance Prelude.NFData ListPageReceipts where
+  rnf ListPageReceipts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf pageId
 
 instance Core.ToHeaders ListPageReceipts where
   toHeaders =
@@ -221,4 +229,8 @@ listPageReceiptsResponse_receipts = Lens.lens (\ListPageReceiptsResponse' {recei
 listPageReceiptsResponse_httpStatus :: Lens.Lens' ListPageReceiptsResponse Prelude.Int
 listPageReceiptsResponse_httpStatus = Lens.lens (\ListPageReceiptsResponse' {httpStatus} -> httpStatus) (\s@ListPageReceiptsResponse' {} a -> s {httpStatus = a} :: ListPageReceiptsResponse)
 
-instance Prelude.NFData ListPageReceiptsResponse
+instance Prelude.NFData ListPageReceiptsResponse where
+  rnf ListPageReceiptsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf receipts
+      `Prelude.seq` Prelude.rnf httpStatus

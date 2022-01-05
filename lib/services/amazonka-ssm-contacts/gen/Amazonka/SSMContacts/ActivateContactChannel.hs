@@ -102,9 +102,15 @@ instance Core.AWSRequest ActivateContactChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateContactChannel
+instance Prelude.Hashable ActivateContactChannel where
+  hashWithSalt _salt ActivateContactChannel' {..} =
+    _salt `Prelude.hashWithSalt` contactChannelId
+      `Prelude.hashWithSalt` activationCode
 
-instance Prelude.NFData ActivateContactChannel
+instance Prelude.NFData ActivateContactChannel where
+  rnf ActivateContactChannel' {..} =
+    Prelude.rnf contactChannelId
+      `Prelude.seq` Prelude.rnf activationCode
 
 instance Core.ToHeaders ActivateContactChannel where
   toHeaders =
@@ -171,3 +177,6 @@ activateContactChannelResponse_httpStatus = Lens.lens (\ActivateContactChannelRe
 instance
   Prelude.NFData
     ActivateContactChannelResponse
+  where
+  rnf ActivateContactChannelResponse' {..} =
+    Prelude.rnf httpStatus

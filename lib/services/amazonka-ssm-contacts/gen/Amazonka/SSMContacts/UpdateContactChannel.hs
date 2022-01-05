@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateContactChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContactChannel
+instance Prelude.Hashable UpdateContactChannel where
+  hashWithSalt _salt UpdateContactChannel' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deliveryAddress
+      `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData UpdateContactChannel
+instance Prelude.NFData UpdateContactChannel where
+  rnf UpdateContactChannel' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deliveryAddress
+      `Prelude.seq` Prelude.rnf contactChannelId
 
 instance Core.ToHeaders UpdateContactChannel where
   toHeaders =
@@ -179,4 +187,6 @@ newUpdateContactChannelResponse pHttpStatus_ =
 updateContactChannelResponse_httpStatus :: Lens.Lens' UpdateContactChannelResponse Prelude.Int
 updateContactChannelResponse_httpStatus = Lens.lens (\UpdateContactChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateContactChannelResponse' {} a -> s {httpStatus = a} :: UpdateContactChannelResponse)
 
-instance Prelude.NFData UpdateContactChannelResponse
+instance Prelude.NFData UpdateContactChannelResponse where
+  rnf UpdateContactChannelResponse' {..} =
+    Prelude.rnf httpStatus

@@ -135,9 +135,17 @@ instance Core.AWSRequest ListPagesByEngagement where
             Prelude.<*> (x Core..?> "Pages" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPagesByEngagement
+instance Prelude.Hashable ListPagesByEngagement where
+  hashWithSalt _salt ListPagesByEngagement' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` engagementId
 
-instance Prelude.NFData ListPagesByEngagement
+instance Prelude.NFData ListPagesByEngagement where
+  rnf ListPagesByEngagement' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf engagementId
 
 instance Core.ToHeaders ListPagesByEngagement where
   toHeaders =
@@ -218,4 +226,8 @@ listPagesByEngagementResponse_httpStatus = Lens.lens (\ListPagesByEngagementResp
 listPagesByEngagementResponse_pages :: Lens.Lens' ListPagesByEngagementResponse [Page]
 listPagesByEngagementResponse_pages = Lens.lens (\ListPagesByEngagementResponse' {pages} -> pages) (\s@ListPagesByEngagementResponse' {} a -> s {pages = a} :: ListPagesByEngagementResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPagesByEngagementResponse
+instance Prelude.NFData ListPagesByEngagementResponse where
+  rnf ListPagesByEngagementResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pages

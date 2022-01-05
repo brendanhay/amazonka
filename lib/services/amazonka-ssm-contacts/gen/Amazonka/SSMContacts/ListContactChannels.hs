@@ -135,9 +135,17 @@ instance Core.AWSRequest ListContactChannels where
                         )
       )
 
-instance Prelude.Hashable ListContactChannels
+instance Prelude.Hashable ListContactChannels where
+  hashWithSalt _salt ListContactChannels' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData ListContactChannels
+instance Prelude.NFData ListContactChannels where
+  rnf ListContactChannels' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf contactId
 
 instance Core.ToHeaders ListContactChannels where
   toHeaders =
@@ -218,4 +226,8 @@ listContactChannelsResponse_httpStatus = Lens.lens (\ListContactChannelsResponse
 listContactChannelsResponse_contactChannels :: Lens.Lens' ListContactChannelsResponse [ContactChannel]
 listContactChannelsResponse_contactChannels = Lens.lens (\ListContactChannelsResponse' {contactChannels} -> contactChannels) (\s@ListContactChannelsResponse' {} a -> s {contactChannels = a} :: ListContactChannelsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListContactChannelsResponse
+instance Prelude.NFData ListContactChannelsResponse where
+  rnf ListContactChannelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contactChannels

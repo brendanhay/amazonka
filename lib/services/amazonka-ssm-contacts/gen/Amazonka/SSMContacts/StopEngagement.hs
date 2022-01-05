@@ -97,9 +97,15 @@ instance Core.AWSRequest StopEngagement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopEngagement
+instance Prelude.Hashable StopEngagement where
+  hashWithSalt _salt StopEngagement' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` engagementId
 
-instance Prelude.NFData StopEngagement
+instance Prelude.NFData StopEngagement where
+  rnf StopEngagement' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf engagementId
 
 instance Core.ToHeaders StopEngagement where
   toHeaders =
@@ -156,4 +162,6 @@ newStopEngagementResponse pHttpStatus_ =
 stopEngagementResponse_httpStatus :: Lens.Lens' StopEngagementResponse Prelude.Int
 stopEngagementResponse_httpStatus = Lens.lens (\StopEngagementResponse' {httpStatus} -> httpStatus) (\s@StopEngagementResponse' {} a -> s {httpStatus = a} :: StopEngagementResponse)
 
-instance Prelude.NFData StopEngagementResponse
+instance Prelude.NFData StopEngagementResponse where
+  rnf StopEngagementResponse' {..} =
+    Prelude.rnf httpStatus

@@ -112,9 +112,17 @@ instance Core.FromJSON CognitoIdentityProvider where
             Prelude.<*> (x Core..:? "ProviderName")
       )
 
-instance Prelude.Hashable CognitoIdentityProvider
+instance Prelude.Hashable CognitoIdentityProvider where
+  hashWithSalt _salt CognitoIdentityProvider' {..} =
+    _salt `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` serverSideTokenCheck
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData CognitoIdentityProvider
+instance Prelude.NFData CognitoIdentityProvider where
+  rnf CognitoIdentityProvider' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf serverSideTokenCheck
+      `Prelude.seq` Prelude.rnf providerName
 
 instance Core.ToJSON CognitoIdentityProvider where
   toJSON CognitoIdentityProvider' {..} =

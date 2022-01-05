@@ -120,9 +120,15 @@ instance Core.AWSRequest GetOpenIdToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpenIdToken
+instance Prelude.Hashable GetOpenIdToken where
+  hashWithSalt _salt GetOpenIdToken' {..} =
+    _salt `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData GetOpenIdToken
+instance Prelude.NFData GetOpenIdToken where
+  rnf GetOpenIdToken' {..} =
+    Prelude.rnf logins
+      `Prelude.seq` Prelude.rnf identityId
 
 instance Core.ToHeaders GetOpenIdToken where
   toHeaders =
@@ -206,4 +212,8 @@ getOpenIdTokenResponse_identityId = Lens.lens (\GetOpenIdTokenResponse' {identit
 getOpenIdTokenResponse_httpStatus :: Lens.Lens' GetOpenIdTokenResponse Prelude.Int
 getOpenIdTokenResponse_httpStatus = Lens.lens (\GetOpenIdTokenResponse' {httpStatus} -> httpStatus) (\s@GetOpenIdTokenResponse' {} a -> s {httpStatus = a} :: GetOpenIdTokenResponse)
 
-instance Prelude.NFData GetOpenIdTokenResponse
+instance Prelude.NFData GetOpenIdTokenResponse where
+  rnf GetOpenIdTokenResponse' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf httpStatus

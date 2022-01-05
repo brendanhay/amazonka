@@ -122,9 +122,17 @@ instance Core.FromJSON RoleMapping where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable RoleMapping
+instance Prelude.Hashable RoleMapping where
+  hashWithSalt _salt RoleMapping' {..} =
+    _salt `Prelude.hashWithSalt` rulesConfiguration
+      `Prelude.hashWithSalt` ambiguousRoleResolution
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData RoleMapping
+instance Prelude.NFData RoleMapping where
+  rnf RoleMapping' {..} =
+    Prelude.rnf rulesConfiguration
+      `Prelude.seq` Prelude.rnf ambiguousRoleResolution
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =

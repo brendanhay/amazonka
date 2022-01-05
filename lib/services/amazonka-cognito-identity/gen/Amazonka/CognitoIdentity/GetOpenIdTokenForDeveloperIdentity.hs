@@ -216,10 +216,26 @@ instance
 instance
   Prelude.Hashable
     GetOpenIdTokenForDeveloperIdentity
+  where
+  hashWithSalt
+    _salt
+    GetOpenIdTokenForDeveloperIdentity' {..} =
+      _salt `Prelude.hashWithSalt` tokenDuration
+        `Prelude.hashWithSalt` principalTags
+        `Prelude.hashWithSalt` identityId
+        `Prelude.hashWithSalt` identityPoolId
+        `Prelude.hashWithSalt` logins
 
 instance
   Prelude.NFData
     GetOpenIdTokenForDeveloperIdentity
+  where
+  rnf GetOpenIdTokenForDeveloperIdentity' {..} =
+    Prelude.rnf tokenDuration
+      `Prelude.seq` Prelude.rnf principalTags
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf logins
 
 instance
   Core.ToHeaders
@@ -322,3 +338,8 @@ getOpenIdTokenForDeveloperIdentityResponse_httpStatus = Lens.lens (\GetOpenIdTok
 instance
   Prelude.NFData
     GetOpenIdTokenForDeveloperIdentityResponse
+  where
+  rnf GetOpenIdTokenForDeveloperIdentityResponse' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf httpStatus

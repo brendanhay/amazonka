@@ -110,9 +110,19 @@ instance Core.FromJSON MappingRule where
             Prelude.<*> (x Core..: "RoleARN")
       )
 
-instance Prelude.Hashable MappingRule
+instance Prelude.Hashable MappingRule where
+  hashWithSalt _salt MappingRule' {..} =
+    _salt `Prelude.hashWithSalt` claim
+      `Prelude.hashWithSalt` matchType
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData MappingRule
+instance Prelude.NFData MappingRule where
+  rnf MappingRule' {..} =
+    Prelude.rnf claim
+      `Prelude.seq` Prelude.rnf matchType
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON MappingRule where
   toJSON MappingRule' {..} =

@@ -71,9 +71,12 @@ instance Core.FromJSON RulesConfigurationType where
             Prelude.<$> (x Core..: "Rules")
       )
 
-instance Prelude.Hashable RulesConfigurationType
+instance Prelude.Hashable RulesConfigurationType where
+  hashWithSalt _salt RulesConfigurationType' {..} =
+    _salt `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData RulesConfigurationType
+instance Prelude.NFData RulesConfigurationType where
+  rnf RulesConfigurationType' {..} = Prelude.rnf rules
 
 instance Core.ToJSON RulesConfigurationType where
   toJSON RulesConfigurationType' {..} =

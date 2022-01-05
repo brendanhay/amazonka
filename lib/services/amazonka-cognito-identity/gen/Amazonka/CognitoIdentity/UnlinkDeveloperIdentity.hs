@@ -132,9 +132,19 @@ instance Core.AWSRequest UnlinkDeveloperIdentity where
     Response.receiveNull
       UnlinkDeveloperIdentityResponse'
 
-instance Prelude.Hashable UnlinkDeveloperIdentity
+instance Prelude.Hashable UnlinkDeveloperIdentity where
+  hashWithSalt _salt UnlinkDeveloperIdentity' {..} =
+    _salt `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` developerProviderName
+      `Prelude.hashWithSalt` developerUserIdentifier
 
-instance Prelude.NFData UnlinkDeveloperIdentity
+instance Prelude.NFData UnlinkDeveloperIdentity where
+  rnf UnlinkDeveloperIdentity' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf developerProviderName
+      `Prelude.seq` Prelude.rnf developerUserIdentifier
 
 instance Core.ToHeaders UnlinkDeveloperIdentity where
   toHeaders =
@@ -193,3 +203,5 @@ newUnlinkDeveloperIdentityResponse =
 instance
   Prelude.NFData
     UnlinkDeveloperIdentityResponse
+  where
+  rnf _ = ()

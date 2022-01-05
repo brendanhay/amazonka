@@ -86,9 +86,12 @@ instance Core.AWSRequest StopRxNormInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopRxNormInferenceJob
+instance Prelude.Hashable StopRxNormInferenceJob where
+  hashWithSalt _salt StopRxNormInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopRxNormInferenceJob
+instance Prelude.NFData StopRxNormInferenceJob where
+  rnf StopRxNormInferenceJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StopRxNormInferenceJob where
   toHeaders =
@@ -163,3 +166,7 @@ stopRxNormInferenceJobResponse_httpStatus = Lens.lens (\StopRxNormInferenceJobRe
 instance
   Prelude.NFData
     StopRxNormInferenceJobResponse
+  where
+  rnf StopRxNormInferenceJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

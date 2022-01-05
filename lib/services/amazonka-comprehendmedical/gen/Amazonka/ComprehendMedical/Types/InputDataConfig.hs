@@ -86,9 +86,15 @@ instance Core.FromJSON InputDataConfig where
             Prelude.<*> (x Core..: "S3Bucket")
       )
 
-instance Prelude.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig where
+  hashWithSalt _salt InputDataConfig' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig where
+  rnf InputDataConfig' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

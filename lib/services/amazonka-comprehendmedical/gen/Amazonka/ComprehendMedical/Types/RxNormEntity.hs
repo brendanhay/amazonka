@@ -191,6 +191,28 @@ instance Core.FromJSON RxNormEntity where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable RxNormEntity
+instance Prelude.Hashable RxNormEntity where
+  hashWithSalt _salt RxNormEntity' {..} =
+    _salt `Prelude.hashWithSalt` rxNormConcepts
+      `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData RxNormEntity
+instance Prelude.NFData RxNormEntity where
+  rnf RxNormEntity' {..} =
+    Prelude.rnf rxNormConcepts
+      `Prelude.seq` Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'

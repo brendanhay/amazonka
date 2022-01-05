@@ -120,9 +120,17 @@ instance Core.AWSRequest ListEntitiesDetectionV2Jobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEntitiesDetectionV2Jobs
+instance Prelude.Hashable ListEntitiesDetectionV2Jobs where
+  hashWithSalt _salt ListEntitiesDetectionV2Jobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListEntitiesDetectionV2Jobs
+instance Prelude.NFData ListEntitiesDetectionV2Jobs where
+  rnf ListEntitiesDetectionV2Jobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEntitiesDetectionV2Jobs where
   toHeaders =
@@ -207,3 +215,8 @@ listEntitiesDetectionV2JobsResponse_httpStatus = Lens.lens (\ListEntitiesDetecti
 instance
   Prelude.NFData
     ListEntitiesDetectionV2JobsResponse
+  where
+  rnf ListEntitiesDetectionV2JobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

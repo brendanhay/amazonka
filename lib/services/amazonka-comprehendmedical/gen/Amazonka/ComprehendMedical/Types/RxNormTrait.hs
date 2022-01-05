@@ -76,6 +76,11 @@ instance Core.FromJSON RxNormTrait where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable RxNormTrait
+instance Prelude.Hashable RxNormTrait where
+  hashWithSalt _salt RxNormTrait' {..} =
+    _salt `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RxNormTrait
+instance Prelude.NFData RxNormTrait where
+  rnf RxNormTrait' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

@@ -88,6 +88,14 @@ instance Core.FromJSON ICD10CMConcept where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ICD10CMConcept
+instance Prelude.Hashable ICD10CMConcept where
+  hashWithSalt _salt ICD10CMConcept' {..} =
+    _salt `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ICD10CMConcept
+instance Prelude.NFData ICD10CMConcept where
+  rnf ICD10CMConcept' {..} =
+    Prelude.rnf score
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf description

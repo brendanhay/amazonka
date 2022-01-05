@@ -120,9 +120,17 @@ instance Core.AWSRequest ListICD10CMInferenceJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListICD10CMInferenceJobs
+instance Prelude.Hashable ListICD10CMInferenceJobs where
+  hashWithSalt _salt ListICD10CMInferenceJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListICD10CMInferenceJobs
+instance Prelude.NFData ListICD10CMInferenceJobs where
+  rnf ListICD10CMInferenceJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListICD10CMInferenceJobs where
   toHeaders =
@@ -207,3 +215,8 @@ listICD10CMInferenceJobsResponse_httpStatus = Lens.lens (\ListICD10CMInferenceJo
 instance
   Prelude.NFData
     ListICD10CMInferenceJobsResponse
+  where
+  rnf ListICD10CMInferenceJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

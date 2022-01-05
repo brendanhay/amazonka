@@ -189,6 +189,28 @@ instance Core.FromJSON ICD10CMAttribute where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ICD10CMAttribute
+instance Prelude.Hashable ICD10CMAttribute where
+  hashWithSalt _salt ICD10CMAttribute' {..} =
+    _salt `Prelude.hashWithSalt` relationshipScore
+      `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` relationshipType
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ICD10CMAttribute
+instance Prelude.NFData ICD10CMAttribute where
+  rnf ICD10CMAttribute' {..} =
+    Prelude.rnf relationshipScore
+      `Prelude.seq` Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf relationshipType
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'

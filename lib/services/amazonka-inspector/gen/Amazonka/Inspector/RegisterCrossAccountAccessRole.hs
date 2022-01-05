@@ -91,10 +91,18 @@ instance
 instance
   Prelude.Hashable
     RegisterCrossAccountAccessRole
+  where
+  hashWithSalt
+    _salt
+    RegisterCrossAccountAccessRole' {..} =
+      _salt `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     RegisterCrossAccountAccessRole
+  where
+  rnf RegisterCrossAccountAccessRole' {..} =
+    Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -145,3 +153,5 @@ newRegisterCrossAccountAccessRoleResponse =
 instance
   Prelude.NFData
     RegisterCrossAccountAccessRoleResponse
+  where
+  rnf _ = ()

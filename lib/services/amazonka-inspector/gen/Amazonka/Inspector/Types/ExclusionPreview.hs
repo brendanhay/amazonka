@@ -116,6 +116,18 @@ instance Core.FromJSON ExclusionPreview where
             Prelude.<*> (x Core..: "scopes")
       )
 
-instance Prelude.Hashable ExclusionPreview
+instance Prelude.Hashable ExclusionPreview where
+  hashWithSalt _salt ExclusionPreview' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` recommendation
+      `Prelude.hashWithSalt` scopes
 
-instance Prelude.NFData ExclusionPreview
+instance Prelude.NFData ExclusionPreview where
+  rnf ExclusionPreview' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf recommendation
+      `Prelude.seq` Prelude.rnf scopes

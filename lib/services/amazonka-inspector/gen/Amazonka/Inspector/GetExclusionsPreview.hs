@@ -164,9 +164,21 @@ instance Core.AWSRequest GetExclusionsPreview where
             Prelude.<*> (x Core..:> "previewStatus")
       )
 
-instance Prelude.Hashable GetExclusionsPreview
+instance Prelude.Hashable GetExclusionsPreview where
+  hashWithSalt _salt GetExclusionsPreview' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assessmentTemplateArn
+      `Prelude.hashWithSalt` previewToken
 
-instance Prelude.NFData GetExclusionsPreview
+instance Prelude.NFData GetExclusionsPreview where
+  rnf GetExclusionsPreview' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assessmentTemplateArn
+      `Prelude.seq` Prelude.rnf previewToken
 
 instance Core.ToHeaders GetExclusionsPreview where
   toHeaders =
@@ -274,4 +286,9 @@ getExclusionsPreviewResponse_httpStatus = Lens.lens (\GetExclusionsPreviewRespon
 getExclusionsPreviewResponse_previewStatus :: Lens.Lens' GetExclusionsPreviewResponse PreviewStatus
 getExclusionsPreviewResponse_previewStatus = Lens.lens (\GetExclusionsPreviewResponse' {previewStatus} -> previewStatus) (\s@GetExclusionsPreviewResponse' {} a -> s {previewStatus = a} :: GetExclusionsPreviewResponse)
 
-instance Prelude.NFData GetExclusionsPreviewResponse
+instance Prelude.NFData GetExclusionsPreviewResponse where
+  rnf GetExclusionsPreviewResponse' {..} =
+    Prelude.rnf exclusionPreviews
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf previewStatus

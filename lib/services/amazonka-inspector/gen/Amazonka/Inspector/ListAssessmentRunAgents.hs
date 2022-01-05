@@ -180,9 +180,19 @@ instance Core.AWSRequest ListAssessmentRunAgents where
                         )
       )
 
-instance Prelude.Hashable ListAssessmentRunAgents
+instance Prelude.Hashable ListAssessmentRunAgents where
+  hashWithSalt _salt ListAssessmentRunAgents' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assessmentRunArn
 
-instance Prelude.NFData ListAssessmentRunAgents
+instance Prelude.NFData ListAssessmentRunAgents where
+  rnf ListAssessmentRunAgents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assessmentRunArn
 
 instance Core.ToHeaders ListAssessmentRunAgents where
   toHeaders =
@@ -277,3 +287,8 @@ listAssessmentRunAgentsResponse_assessmentRunAgents = Lens.lens (\ListAssessment
 instance
   Prelude.NFData
     ListAssessmentRunAgentsResponse
+  where
+  rnf ListAssessmentRunAgentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assessmentRunAgents

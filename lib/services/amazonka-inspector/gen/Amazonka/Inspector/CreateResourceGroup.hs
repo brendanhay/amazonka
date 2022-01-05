@@ -102,9 +102,13 @@ instance Core.AWSRequest CreateResourceGroup where
             Prelude.<*> (x Core..:> "resourceGroupArn")
       )
 
-instance Prelude.Hashable CreateResourceGroup
+instance Prelude.Hashable CreateResourceGroup where
+  hashWithSalt _salt CreateResourceGroup' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupTags
 
-instance Prelude.NFData CreateResourceGroup
+instance Prelude.NFData CreateResourceGroup where
+  rnf CreateResourceGroup' {..} =
+    Prelude.rnf resourceGroupTags
 
 instance Core.ToHeaders CreateResourceGroup where
   toHeaders =
@@ -179,4 +183,7 @@ createResourceGroupResponse_httpStatus = Lens.lens (\CreateResourceGroupResponse
 createResourceGroupResponse_resourceGroupArn :: Lens.Lens' CreateResourceGroupResponse Prelude.Text
 createResourceGroupResponse_resourceGroupArn = Lens.lens (\CreateResourceGroupResponse' {resourceGroupArn} -> resourceGroupArn) (\s@CreateResourceGroupResponse' {} a -> s {resourceGroupArn = a} :: CreateResourceGroupResponse)
 
-instance Prelude.NFData CreateResourceGroupResponse
+instance Prelude.NFData CreateResourceGroupResponse where
+  rnf CreateResourceGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceGroupArn

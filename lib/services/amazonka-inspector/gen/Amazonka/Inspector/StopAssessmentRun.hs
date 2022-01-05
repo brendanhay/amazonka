@@ -102,9 +102,15 @@ instance Core.AWSRequest StopAssessmentRun where
   response =
     Response.receiveNull StopAssessmentRunResponse'
 
-instance Prelude.Hashable StopAssessmentRun
+instance Prelude.Hashable StopAssessmentRun where
+  hashWithSalt _salt StopAssessmentRun' {..} =
+    _salt `Prelude.hashWithSalt` stopAction
+      `Prelude.hashWithSalt` assessmentRunArn
 
-instance Prelude.NFData StopAssessmentRun
+instance Prelude.NFData StopAssessmentRun where
+  rnf StopAssessmentRun' {..} =
+    Prelude.rnf stopAction
+      `Prelude.seq` Prelude.rnf assessmentRunArn
 
 instance Core.ToHeaders StopAssessmentRun where
   toHeaders =
@@ -152,4 +158,5 @@ newStopAssessmentRunResponse ::
 newStopAssessmentRunResponse =
   StopAssessmentRunResponse'
 
-instance Prelude.NFData StopAssessmentRunResponse
+instance Prelude.NFData StopAssessmentRunResponse where
+  rnf _ = ()

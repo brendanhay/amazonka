@@ -153,6 +153,24 @@ instance Core.FromJSON AssetAttributes where
             Prelude.<*> (x Core..: "schemaVersion")
       )
 
-instance Prelude.Hashable AssetAttributes
+instance Prelude.Hashable AssetAttributes where
+  hashWithSalt _salt AssetAttributes' {..} =
+    _salt `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` autoScalingGroup
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` ipv4Addresses
+      `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` schemaVersion
 
-instance Prelude.NFData AssetAttributes
+instance Prelude.NFData AssetAttributes where
+  rnf AssetAttributes' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf autoScalingGroup
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf ipv4Addresses
+      `Prelude.seq` Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf schemaVersion

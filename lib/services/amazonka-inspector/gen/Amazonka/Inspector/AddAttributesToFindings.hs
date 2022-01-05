@@ -103,9 +103,15 @@ instance Core.AWSRequest AddAttributesToFindings where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable AddAttributesToFindings
+instance Prelude.Hashable AddAttributesToFindings where
+  hashWithSalt _salt AddAttributesToFindings' {..} =
+    _salt `Prelude.hashWithSalt` findingArns
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData AddAttributesToFindings
+instance Prelude.NFData AddAttributesToFindings where
+  rnf AddAttributesToFindings' {..} =
+    Prelude.rnf findingArns
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders AddAttributesToFindings where
   toHeaders =
@@ -182,3 +188,7 @@ addAttributesToFindingsResponse_failedItems = Lens.lens (\AddAttributesToFinding
 instance
   Prelude.NFData
     AddAttributesToFindingsResponse
+  where
+  rnf AddAttributesToFindingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems

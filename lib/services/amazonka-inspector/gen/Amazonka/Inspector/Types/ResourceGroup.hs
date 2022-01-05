@@ -94,6 +94,14 @@ instance Core.FromJSON ResourceGroup where
             Prelude.<*> (x Core..: "createdAt")
       )
 
-instance Prelude.Hashable ResourceGroup
+instance Prelude.Hashable ResourceGroup where
+  hashWithSalt _salt ResourceGroup' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData ResourceGroup
+instance Prelude.NFData ResourceGroup where
+  rnf ResourceGroup' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdAt

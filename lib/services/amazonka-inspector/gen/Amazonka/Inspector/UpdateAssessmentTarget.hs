@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateAssessmentTarget where
     Response.receiveNull
       UpdateAssessmentTargetResponse'
 
-instance Prelude.Hashable UpdateAssessmentTarget
+instance Prelude.Hashable UpdateAssessmentTarget where
+  hashWithSalt _salt UpdateAssessmentTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupArn
+      `Prelude.hashWithSalt` assessmentTargetArn
+      `Prelude.hashWithSalt` assessmentTargetName
 
-instance Prelude.NFData UpdateAssessmentTarget
+instance Prelude.NFData UpdateAssessmentTarget where
+  rnf UpdateAssessmentTarget' {..} =
+    Prelude.rnf resourceGroupArn
+      `Prelude.seq` Prelude.rnf assessmentTargetArn
+      `Prelude.seq` Prelude.rnf assessmentTargetName
 
 instance Core.ToHeaders UpdateAssessmentTarget where
   toHeaders =
@@ -170,3 +178,5 @@ newUpdateAssessmentTargetResponse =
 instance
   Prelude.NFData
     UpdateAssessmentTargetResponse
+  where
+  rnf _ = ()

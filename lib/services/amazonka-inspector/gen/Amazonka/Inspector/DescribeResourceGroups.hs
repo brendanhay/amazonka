@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeResourceGroups where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeResourceGroups
+instance Prelude.Hashable DescribeResourceGroups where
+  hashWithSalt _salt DescribeResourceGroups' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupArns
 
-instance Prelude.NFData DescribeResourceGroups
+instance Prelude.NFData DescribeResourceGroups where
+  rnf DescribeResourceGroups' {..} =
+    Prelude.rnf resourceGroupArns
 
 instance Core.ToHeaders DescribeResourceGroups where
   toHeaders =
@@ -180,3 +184,8 @@ describeResourceGroupsResponse_failedItems = Lens.lens (\DescribeResourceGroupsR
 instance
   Prelude.NFData
     DescribeResourceGroupsResponse
+  where
+  rnf DescribeResourceGroupsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceGroups
+      `Prelude.seq` Prelude.rnf failedItems

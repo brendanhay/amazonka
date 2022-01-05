@@ -135,9 +135,17 @@ instance Core.AWSRequest CreateUserPoolDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserPoolDomain
+instance Prelude.Hashable CreateUserPoolDomain where
+  hashWithSalt _salt CreateUserPoolDomain' {..} =
+    _salt `Prelude.hashWithSalt` customDomainConfig
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData CreateUserPoolDomain
+instance Prelude.NFData CreateUserPoolDomain where
+  rnf CreateUserPoolDomain' {..} =
+    Prelude.rnf customDomainConfig
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders CreateUserPoolDomain where
   toHeaders =
@@ -213,4 +221,7 @@ createUserPoolDomainResponse_cloudFrontDomain = Lens.lens (\CreateUserPoolDomain
 createUserPoolDomainResponse_httpStatus :: Lens.Lens' CreateUserPoolDomainResponse Prelude.Int
 createUserPoolDomainResponse_httpStatus = Lens.lens (\CreateUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@CreateUserPoolDomainResponse' {} a -> s {httpStatus = a} :: CreateUserPoolDomainResponse)
 
-instance Prelude.NFData CreateUserPoolDomainResponse
+instance Prelude.NFData CreateUserPoolDomainResponse where
+  rnf CreateUserPoolDomainResponse' {..} =
+    Prelude.rnf cloudFrontDomain
+      `Prelude.seq` Prelude.rnf httpStatus

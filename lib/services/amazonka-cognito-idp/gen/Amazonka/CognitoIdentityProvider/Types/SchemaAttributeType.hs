@@ -182,9 +182,26 @@ instance Core.FromJSON SchemaAttributeType where
             Prelude.<*> (x Core..:? "Mutable")
       )
 
-instance Prelude.Hashable SchemaAttributeType
+instance Prelude.Hashable SchemaAttributeType where
+  hashWithSalt _salt SchemaAttributeType' {..} =
+    _salt
+      `Prelude.hashWithSalt` numberAttributeConstraints
+      `Prelude.hashWithSalt` required
+      `Prelude.hashWithSalt` attributeDataType
+      `Prelude.hashWithSalt` stringAttributeConstraints
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` developerOnlyAttribute
+      `Prelude.hashWithSalt` mutable
 
-instance Prelude.NFData SchemaAttributeType
+instance Prelude.NFData SchemaAttributeType where
+  rnf SchemaAttributeType' {..} =
+    Prelude.rnf numberAttributeConstraints
+      `Prelude.seq` Prelude.rnf required
+      `Prelude.seq` Prelude.rnf attributeDataType
+      `Prelude.seq` Prelude.rnf stringAttributeConstraints
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf developerOnlyAttribute
+      `Prelude.seq` Prelude.rnf mutable
 
 instance Core.ToJSON SchemaAttributeType where
   toJSON SchemaAttributeType' {..} =

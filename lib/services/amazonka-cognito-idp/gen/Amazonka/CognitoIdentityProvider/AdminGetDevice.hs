@@ -116,9 +116,17 @@ instance Core.AWSRequest AdminGetDevice where
             Prelude.<*> (x Core..:> "Device")
       )
 
-instance Prelude.Hashable AdminGetDevice
+instance Prelude.Hashable AdminGetDevice where
+  hashWithSalt _salt AdminGetDevice' {..} =
+    _salt `Prelude.hashWithSalt` deviceKey
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData AdminGetDevice
+instance Prelude.NFData AdminGetDevice where
+  rnf AdminGetDevice' {..} =
+    Prelude.rnf deviceKey
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminGetDevice where
   toHeaders =
@@ -193,4 +201,7 @@ adminGetDeviceResponse_httpStatus = Lens.lens (\AdminGetDeviceResponse' {httpSta
 adminGetDeviceResponse_device :: Lens.Lens' AdminGetDeviceResponse DeviceType
 adminGetDeviceResponse_device = Lens.lens (\AdminGetDeviceResponse' {device} -> device) (\s@AdminGetDeviceResponse' {} a -> s {device = a} :: AdminGetDeviceResponse)
 
-instance Prelude.NFData AdminGetDeviceResponse
+instance Prelude.NFData AdminGetDeviceResponse where
+  rnf AdminGetDeviceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf device

@@ -86,6 +86,14 @@ instance Core.FromJSON EventFeedbackType where
             Prelude.<*> (x Core..: "Provider")
       )
 
-instance Prelude.Hashable EventFeedbackType
+instance Prelude.Hashable EventFeedbackType where
+  hashWithSalt _salt EventFeedbackType' {..} =
+    _salt `Prelude.hashWithSalt` feedbackDate
+      `Prelude.hashWithSalt` feedbackValue
+      `Prelude.hashWithSalt` provider
 
-instance Prelude.NFData EventFeedbackType
+instance Prelude.NFData EventFeedbackType where
+  rnf EventFeedbackType' {..} =
+    Prelude.rnf feedbackDate
+      `Prelude.seq` Prelude.rnf feedbackValue
+      `Prelude.seq` Prelude.rnf provider

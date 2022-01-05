@@ -130,9 +130,23 @@ instance Core.FromJSON NotifyConfigurationType where
             Prelude.<*> (x Core..: "SourceArn")
       )
 
-instance Prelude.Hashable NotifyConfigurationType
+instance Prelude.Hashable NotifyConfigurationType where
+  hashWithSalt _salt NotifyConfigurationType' {..} =
+    _salt `Prelude.hashWithSalt` noActionEmail
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` replyTo
+      `Prelude.hashWithSalt` blockEmail
+      `Prelude.hashWithSalt` mfaEmail
+      `Prelude.hashWithSalt` sourceArn
 
-instance Prelude.NFData NotifyConfigurationType
+instance Prelude.NFData NotifyConfigurationType where
+  rnf NotifyConfigurationType' {..} =
+    Prelude.rnf noActionEmail
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf replyTo
+      `Prelude.seq` Prelude.rnf blockEmail
+      `Prelude.seq` Prelude.rnf mfaEmail
+      `Prelude.seq` Prelude.rnf sourceArn
 
 instance Core.ToJSON NotifyConfigurationType where
   toJSON NotifyConfigurationType' {..} =

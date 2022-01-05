@@ -76,10 +76,20 @@ instance Core.FromJSON NumberAttributeConstraintsType where
 instance
   Prelude.Hashable
     NumberAttributeConstraintsType
+  where
+  hashWithSalt
+    _salt
+    NumberAttributeConstraintsType' {..} =
+      _salt `Prelude.hashWithSalt` maxValue
+        `Prelude.hashWithSalt` minValue
 
 instance
   Prelude.NFData
     NumberAttributeConstraintsType
+  where
+  rnf NumberAttributeConstraintsType' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf minValue
 
 instance Core.ToJSON NumberAttributeConstraintsType where
   toJSON NumberAttributeConstraintsType' {..} =

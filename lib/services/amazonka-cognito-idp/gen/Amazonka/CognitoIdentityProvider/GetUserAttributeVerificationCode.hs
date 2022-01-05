@@ -239,10 +239,22 @@ instance
 instance
   Prelude.Hashable
     GetUserAttributeVerificationCode
+  where
+  hashWithSalt
+    _salt
+    GetUserAttributeVerificationCode' {..} =
+      _salt `Prelude.hashWithSalt` clientMetadata
+        `Prelude.hashWithSalt` accessToken
+        `Prelude.hashWithSalt` attributeName
 
 instance
   Prelude.NFData
     GetUserAttributeVerificationCode
+  where
+  rnf GetUserAttributeVerificationCode' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance
   Core.ToHeaders
@@ -332,3 +344,7 @@ getUserAttributeVerificationCodeResponse_httpStatus = Lens.lens (\GetUserAttribu
 instance
   Prelude.NFData
     GetUserAttributeVerificationCodeResponse
+  where
+  rnf GetUserAttributeVerificationCodeResponse' {..} =
+    Prelude.rnf codeDeliveryDetails
+      `Prelude.seq` Prelude.rnf httpStatus

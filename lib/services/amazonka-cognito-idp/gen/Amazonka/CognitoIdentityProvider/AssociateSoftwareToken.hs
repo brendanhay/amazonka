@@ -114,9 +114,15 @@ instance Core.AWSRequest AssociateSoftwareToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSoftwareToken
+instance Prelude.Hashable AssociateSoftwareToken where
+  hashWithSalt _salt AssociateSoftwareToken' {..} =
+    _salt `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` session
 
-instance Prelude.NFData AssociateSoftwareToken
+instance Prelude.NFData AssociateSoftwareToken where
+  rnf AssociateSoftwareToken' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf session
 
 instance Core.ToHeaders AssociateSoftwareToken where
   toHeaders =
@@ -208,3 +214,8 @@ associateSoftwareTokenResponse_httpStatus = Lens.lens (\AssociateSoftwareTokenRe
 instance
   Prelude.NFData
     AssociateSoftwareTokenResponse
+  where
+  rnf AssociateSoftwareTokenResponse' {..} =
+    Prelude.rnf secretCode
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

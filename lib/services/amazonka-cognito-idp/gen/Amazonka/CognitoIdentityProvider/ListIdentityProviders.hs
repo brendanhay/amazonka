@@ -131,9 +131,17 @@ instance Core.AWSRequest ListIdentityProviders where
             Prelude.<*> (x Core..?> "Providers" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListIdentityProviders
+instance Prelude.Hashable ListIdentityProviders where
+  hashWithSalt _salt ListIdentityProviders' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData ListIdentityProviders
+instance Prelude.NFData ListIdentityProviders where
+  rnf ListIdentityProviders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListIdentityProviders where
   toHeaders =
@@ -214,4 +222,8 @@ listIdentityProvidersResponse_httpStatus = Lens.lens (\ListIdentityProvidersResp
 listIdentityProvidersResponse_providers :: Lens.Lens' ListIdentityProvidersResponse [ProviderDescription]
 listIdentityProvidersResponse_providers = Lens.lens (\ListIdentityProvidersResponse' {providers} -> providers) (\s@ListIdentityProvidersResponse' {} a -> s {providers = a} :: ListIdentityProvidersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListIdentityProvidersResponse
+instance Prelude.NFData ListIdentityProvidersResponse where
+  rnf ListIdentityProvidersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf providers

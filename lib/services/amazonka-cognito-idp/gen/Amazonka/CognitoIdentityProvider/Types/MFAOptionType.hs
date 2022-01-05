@@ -80,9 +80,15 @@ instance Core.FromJSON MFAOptionType where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable MFAOptionType
+instance Prelude.Hashable MFAOptionType where
+  hashWithSalt _salt MFAOptionType' {..} =
+    _salt `Prelude.hashWithSalt` deliveryMedium
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData MFAOptionType
+instance Prelude.NFData MFAOptionType where
+  rnf MFAOptionType' {..} =
+    Prelude.rnf deliveryMedium
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =

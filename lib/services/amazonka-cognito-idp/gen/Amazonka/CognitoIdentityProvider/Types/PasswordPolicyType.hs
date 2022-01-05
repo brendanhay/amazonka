@@ -145,9 +145,23 @@ instance Core.FromJSON PasswordPolicyType where
             Prelude.<*> (x Core..:? "TemporaryPasswordValidityDays")
       )
 
-instance Prelude.Hashable PasswordPolicyType
+instance Prelude.Hashable PasswordPolicyType where
+  hashWithSalt _salt PasswordPolicyType' {..} =
+    _salt `Prelude.hashWithSalt` requireNumbers
+      `Prelude.hashWithSalt` requireUppercase
+      `Prelude.hashWithSalt` requireLowercase
+      `Prelude.hashWithSalt` minimumLength
+      `Prelude.hashWithSalt` requireSymbols
+      `Prelude.hashWithSalt` temporaryPasswordValidityDays
 
-instance Prelude.NFData PasswordPolicyType
+instance Prelude.NFData PasswordPolicyType where
+  rnf PasswordPolicyType' {..} =
+    Prelude.rnf requireNumbers
+      `Prelude.seq` Prelude.rnf requireUppercase
+      `Prelude.seq` Prelude.rnf requireLowercase
+      `Prelude.seq` Prelude.rnf minimumLength
+      `Prelude.seq` Prelude.rnf requireSymbols
+      `Prelude.seq` Prelude.rnf temporaryPasswordValidityDays
 
 instance Core.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =

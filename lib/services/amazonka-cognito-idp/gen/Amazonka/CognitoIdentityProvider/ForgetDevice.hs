@@ -88,9 +88,15 @@ instance Core.AWSRequest ForgetDevice where
   request = Request.postJSON defaultService
   response = Response.receiveNull ForgetDeviceResponse'
 
-instance Prelude.Hashable ForgetDevice
+instance Prelude.Hashable ForgetDevice where
+  hashWithSalt _salt ForgetDevice' {..} =
+    _salt `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` deviceKey
 
-instance Prelude.NFData ForgetDevice
+instance Prelude.NFData ForgetDevice where
+  rnf ForgetDevice' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf deviceKey
 
 instance Core.ToHeaders ForgetDevice where
   toHeaders =
@@ -136,4 +142,5 @@ newForgetDeviceResponse ::
   ForgetDeviceResponse
 newForgetDeviceResponse = ForgetDeviceResponse'
 
-instance Prelude.NFData ForgetDeviceResponse
+instance Prelude.NFData ForgetDeviceResponse where
+  rnf _ = ()

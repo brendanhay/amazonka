@@ -201,9 +201,17 @@ instance Core.AWSRequest AdminConfirmSignUp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminConfirmSignUp
+instance Prelude.Hashable AdminConfirmSignUp where
+  hashWithSalt _salt AdminConfirmSignUp' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData AdminConfirmSignUp
+instance Prelude.NFData AdminConfirmSignUp where
+  rnf AdminConfirmSignUp' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminConfirmSignUp where
   toHeaders =
@@ -270,4 +278,6 @@ newAdminConfirmSignUpResponse pHttpStatus_ =
 adminConfirmSignUpResponse_httpStatus :: Lens.Lens' AdminConfirmSignUpResponse Prelude.Int
 adminConfirmSignUpResponse_httpStatus = Lens.lens (\AdminConfirmSignUpResponse' {httpStatus} -> httpStatus) (\s@AdminConfirmSignUpResponse' {} a -> s {httpStatus = a} :: AdminConfirmSignUpResponse)
 
-instance Prelude.NFData AdminConfirmSignUpResponse
+instance Prelude.NFData AdminConfirmSignUpResponse where
+  rnf AdminConfirmSignUpResponse' {..} =
+    Prelude.rnf httpStatus

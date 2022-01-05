@@ -75,10 +75,20 @@ instance Core.FromJSON StringAttributeConstraintsType where
 instance
   Prelude.Hashable
     StringAttributeConstraintsType
+  where
+  hashWithSalt
+    _salt
+    StringAttributeConstraintsType' {..} =
+      _salt `Prelude.hashWithSalt` maxLength
+        `Prelude.hashWithSalt` minLength
 
 instance
   Prelude.NFData
     StringAttributeConstraintsType
+  where
+  rnf StringAttributeConstraintsType' {..} =
+    Prelude.rnf maxLength
+      `Prelude.seq` Prelude.rnf minLength
 
 instance Core.ToJSON StringAttributeConstraintsType where
   toJSON StringAttributeConstraintsType' {..} =

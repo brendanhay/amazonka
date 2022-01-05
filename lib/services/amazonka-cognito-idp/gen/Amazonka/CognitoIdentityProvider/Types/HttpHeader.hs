@@ -61,9 +61,15 @@ httpHeader_headerValue = Lens.lens (\HttpHeader' {headerValue} -> headerValue) (
 httpHeader_headerName :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerName = Lens.lens (\HttpHeader' {headerName} -> headerName) (\s@HttpHeader' {} a -> s {headerName = a} :: HttpHeader)
 
-instance Prelude.Hashable HttpHeader
+instance Prelude.Hashable HttpHeader where
+  hashWithSalt _salt HttpHeader' {..} =
+    _salt `Prelude.hashWithSalt` headerValue
+      `Prelude.hashWithSalt` headerName
 
-instance Prelude.NFData HttpHeader
+instance Prelude.NFData HttpHeader where
+  rnf HttpHeader' {..} =
+    Prelude.rnf headerValue
+      `Prelude.seq` Prelude.rnf headerName
 
 instance Core.ToJSON HttpHeader where
   toJSON HttpHeader' {..} =

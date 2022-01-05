@@ -250,9 +250,19 @@ instance Core.AWSRequest AdminUpdateUserAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminUpdateUserAttributes
+instance Prelude.Hashable AdminUpdateUserAttributes where
+  hashWithSalt _salt AdminUpdateUserAttributes' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userAttributes
 
-instance Prelude.NFData AdminUpdateUserAttributes
+instance Prelude.NFData AdminUpdateUserAttributes where
+  rnf AdminUpdateUserAttributes' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userAttributes
 
 instance Core.ToHeaders AdminUpdateUserAttributes where
   toHeaders =
@@ -324,3 +334,6 @@ adminUpdateUserAttributesResponse_httpStatus = Lens.lens (\AdminUpdateUserAttrib
 instance
   Prelude.NFData
     AdminUpdateUserAttributesResponse
+  where
+  rnf AdminUpdateUserAttributesResponse' {..} =
+    Prelude.rnf httpStatus

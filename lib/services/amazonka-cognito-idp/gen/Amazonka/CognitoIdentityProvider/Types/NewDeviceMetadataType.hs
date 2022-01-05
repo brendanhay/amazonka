@@ -72,6 +72,12 @@ instance Core.FromJSON NewDeviceMetadataType where
             Prelude.<*> (x Core..:? "DeviceKey")
       )
 
-instance Prelude.Hashable NewDeviceMetadataType
+instance Prelude.Hashable NewDeviceMetadataType where
+  hashWithSalt _salt NewDeviceMetadataType' {..} =
+    _salt `Prelude.hashWithSalt` deviceGroupKey
+      `Prelude.hashWithSalt` deviceKey
 
-instance Prelude.NFData NewDeviceMetadataType
+instance Prelude.NFData NewDeviceMetadataType where
+  rnf NewDeviceMetadataType' {..} =
+    Prelude.rnf deviceGroupKey
+      `Prelude.seq` Prelude.rnf deviceKey

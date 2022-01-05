@@ -83,9 +83,17 @@ instance Core.FromJSON AccountTakeoverActionsType where
             Prelude.<*> (x Core..:? "MediumAction")
       )
 
-instance Prelude.Hashable AccountTakeoverActionsType
+instance Prelude.Hashable AccountTakeoverActionsType where
+  hashWithSalt _salt AccountTakeoverActionsType' {..} =
+    _salt `Prelude.hashWithSalt` lowAction
+      `Prelude.hashWithSalt` highAction
+      `Prelude.hashWithSalt` mediumAction
 
-instance Prelude.NFData AccountTakeoverActionsType
+instance Prelude.NFData AccountTakeoverActionsType where
+  rnf AccountTakeoverActionsType' {..} =
+    Prelude.rnf lowAction
+      `Prelude.seq` Prelude.rnf highAction
+      `Prelude.seq` Prelude.rnf mediumAction
 
 instance Core.ToJSON AccountTakeoverActionsType where
   toJSON AccountTakeoverActionsType' {..} =

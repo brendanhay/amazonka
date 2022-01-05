@@ -279,9 +279,23 @@ instance Core.AWSRequest ForgotPassword where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ForgotPassword
+instance Prelude.Hashable ForgotPassword where
+  hashWithSalt _salt ForgotPassword' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData ForgotPassword
+instance Prelude.NFData ForgotPassword where
+  rnf ForgotPassword' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders ForgotPassword where
   toHeaders =
@@ -365,4 +379,7 @@ forgotPasswordResponse_codeDeliveryDetails = Lens.lens (\ForgotPasswordResponse'
 forgotPasswordResponse_httpStatus :: Lens.Lens' ForgotPasswordResponse Prelude.Int
 forgotPasswordResponse_httpStatus = Lens.lens (\ForgotPasswordResponse' {httpStatus} -> httpStatus) (\s@ForgotPasswordResponse' {} a -> s {httpStatus = a} :: ForgotPasswordResponse)
 
-instance Prelude.NFData ForgotPasswordResponse
+instance Prelude.NFData ForgotPasswordResponse where
+  rnf ForgotPasswordResponse' {..} =
+    Prelude.rnf codeDeliveryDetails
+      `Prelude.seq` Prelude.rnf httpStatus

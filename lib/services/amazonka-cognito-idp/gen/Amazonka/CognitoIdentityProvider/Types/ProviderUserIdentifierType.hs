@@ -77,9 +77,17 @@ providerUserIdentifierType_providerAttributeName = Lens.lens (\ProviderUserIdent
 providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerName = Lens.lens (\ProviderUserIdentifierType' {providerName} -> providerName) (\s@ProviderUserIdentifierType' {} a -> s {providerName = a} :: ProviderUserIdentifierType)
 
-instance Prelude.Hashable ProviderUserIdentifierType
+instance Prelude.Hashable ProviderUserIdentifierType where
+  hashWithSalt _salt ProviderUserIdentifierType' {..} =
+    _salt `Prelude.hashWithSalt` providerAttributeValue
+      `Prelude.hashWithSalt` providerAttributeName
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData ProviderUserIdentifierType
+instance Prelude.NFData ProviderUserIdentifierType where
+  rnf ProviderUserIdentifierType' {..} =
+    Prelude.rnf providerAttributeValue
+      `Prelude.seq` Prelude.rnf providerAttributeName
+      `Prelude.seq` Prelude.rnf providerName
 
 instance Core.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =

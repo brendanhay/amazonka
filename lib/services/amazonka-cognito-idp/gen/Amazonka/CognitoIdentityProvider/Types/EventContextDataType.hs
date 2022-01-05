@@ -102,6 +102,18 @@ instance Core.FromJSON EventContextDataType where
             Prelude.<*> (x Core..:? "Timezone")
       )
 
-instance Prelude.Hashable EventContextDataType
+instance Prelude.Hashable EventContextDataType where
+  hashWithSalt _salt EventContextDataType' {..} =
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` timezone
 
-instance Prelude.NFData EventContextDataType
+instance Prelude.NFData EventContextDataType where
+  rnf EventContextDataType' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf timezone

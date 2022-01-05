@@ -254,6 +254,34 @@ instance Core.FromJSON UserImportJobType where
             Prelude.<*> (x Core..:? "ImportedUsers")
       )
 
-instance Prelude.Hashable UserImportJobType
+instance Prelude.Hashable UserImportJobType where
+  hashWithSalt _salt UserImportJobType' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` skippedUsers
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` failedUsers
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` completionMessage
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` cloudWatchLogsRoleArn
+      `Prelude.hashWithSalt` importedUsers
 
-instance Prelude.NFData UserImportJobType
+instance Prelude.NFData UserImportJobType where
+  rnf UserImportJobType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf skippedUsers
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf failedUsers
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf completionMessage
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+      `Prelude.seq` Prelude.rnf importedUsers

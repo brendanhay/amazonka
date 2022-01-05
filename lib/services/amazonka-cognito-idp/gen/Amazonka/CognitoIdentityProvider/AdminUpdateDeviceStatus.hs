@@ -128,9 +128,19 @@ instance Core.AWSRequest AdminUpdateDeviceStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminUpdateDeviceStatus
+instance Prelude.Hashable AdminUpdateDeviceStatus where
+  hashWithSalt _salt AdminUpdateDeviceStatus' {..} =
+    _salt `Prelude.hashWithSalt` deviceRememberedStatus
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` deviceKey
 
-instance Prelude.NFData AdminUpdateDeviceStatus
+instance Prelude.NFData AdminUpdateDeviceStatus where
+  rnf AdminUpdateDeviceStatus' {..} =
+    Prelude.rnf deviceRememberedStatus
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf deviceKey
 
 instance Core.ToHeaders AdminUpdateDeviceStatus where
   toHeaders =
@@ -201,3 +211,6 @@ adminUpdateDeviceStatusResponse_httpStatus = Lens.lens (\AdminUpdateDeviceStatus
 instance
   Prelude.NFData
     AdminUpdateDeviceStatusResponse
+  where
+  rnf AdminUpdateDeviceStatusResponse' {..} =
+    Prelude.rnf httpStatus

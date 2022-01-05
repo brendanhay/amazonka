@@ -102,9 +102,15 @@ instance Core.AWSRequest AdminDisableUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminDisableUser
+instance Prelude.Hashable AdminDisableUser where
+  hashWithSalt _salt AdminDisableUser' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData AdminDisableUser
+instance Prelude.NFData AdminDisableUser where
+  rnf AdminDisableUser' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminDisableUser where
   toHeaders =
@@ -169,4 +175,6 @@ newAdminDisableUserResponse pHttpStatus_ =
 adminDisableUserResponse_httpStatus :: Lens.Lens' AdminDisableUserResponse Prelude.Int
 adminDisableUserResponse_httpStatus = Lens.lens (\AdminDisableUserResponse' {httpStatus} -> httpStatus) (\s@AdminDisableUserResponse' {} a -> s {httpStatus = a} :: AdminDisableUserResponse)
 
-instance Prelude.NFData AdminDisableUserResponse
+instance Prelude.NFData AdminDisableUserResponse where
+  rnf AdminDisableUserResponse' {..} =
+    Prelude.rnf httpStatus

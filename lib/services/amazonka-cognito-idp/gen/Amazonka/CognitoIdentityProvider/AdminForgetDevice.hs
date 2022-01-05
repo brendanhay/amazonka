@@ -110,9 +110,17 @@ instance Core.AWSRequest AdminForgetDevice where
   response =
     Response.receiveNull AdminForgetDeviceResponse'
 
-instance Prelude.Hashable AdminForgetDevice
+instance Prelude.Hashable AdminForgetDevice where
+  hashWithSalt _salt AdminForgetDevice' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` deviceKey
 
-instance Prelude.NFData AdminForgetDevice
+instance Prelude.NFData AdminForgetDevice where
+  rnf AdminForgetDevice' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf deviceKey
 
 instance Core.ToHeaders AdminForgetDevice where
   toHeaders =
@@ -160,4 +168,5 @@ newAdminForgetDeviceResponse ::
 newAdminForgetDeviceResponse =
   AdminForgetDeviceResponse'
 
-instance Prelude.NFData AdminForgetDeviceResponse
+instance Prelude.NFData AdminForgetDeviceResponse where
+  rnf _ = ()

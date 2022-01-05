@@ -83,6 +83,14 @@ instance Core.FromJSON CodeDeliveryDetailsType where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable CodeDeliveryDetailsType
+instance Prelude.Hashable CodeDeliveryDetailsType where
+  hashWithSalt _salt CodeDeliveryDetailsType' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` deliveryMedium
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData CodeDeliveryDetailsType
+instance Prelude.NFData CodeDeliveryDetailsType where
+  rnf CodeDeliveryDetailsType' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf deliveryMedium
+      `Prelude.seq` Prelude.rnf attributeName

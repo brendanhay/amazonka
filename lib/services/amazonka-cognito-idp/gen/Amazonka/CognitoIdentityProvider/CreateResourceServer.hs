@@ -134,9 +134,19 @@ instance Core.AWSRequest CreateResourceServer where
             Prelude.<*> (x Core..:> "ResourceServer")
       )
 
-instance Prelude.Hashable CreateResourceServer
+instance Prelude.Hashable CreateResourceServer where
+  hashWithSalt _salt CreateResourceServer' {..} =
+    _salt `Prelude.hashWithSalt` scopes
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateResourceServer
+instance Prelude.NFData CreateResourceServer where
+  rnf CreateResourceServer' {..} =
+    Prelude.rnf scopes
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateResourceServer where
   toHeaders =
@@ -213,4 +223,7 @@ createResourceServerResponse_httpStatus = Lens.lens (\CreateResourceServerRespon
 createResourceServerResponse_resourceServer :: Lens.Lens' CreateResourceServerResponse ResourceServerType
 createResourceServerResponse_resourceServer = Lens.lens (\CreateResourceServerResponse' {resourceServer} -> resourceServer) (\s@CreateResourceServerResponse' {} a -> s {resourceServer = a} :: CreateResourceServerResponse)
 
-instance Prelude.NFData CreateResourceServerResponse
+instance Prelude.NFData CreateResourceServerResponse where
+  rnf CreateResourceServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceServer

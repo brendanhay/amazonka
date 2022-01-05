@@ -92,9 +92,15 @@ instance Core.AWSRequest DeleteIdentityProvider where
     Response.receiveNull
       DeleteIdentityProviderResponse'
 
-instance Prelude.Hashable DeleteIdentityProvider
+instance Prelude.Hashable DeleteIdentityProvider where
+  hashWithSalt _salt DeleteIdentityProvider' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData DeleteIdentityProvider
+instance Prelude.NFData DeleteIdentityProvider where
+  rnf DeleteIdentityProvider' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf providerName
 
 instance Core.ToHeaders DeleteIdentityProvider where
   toHeaders =
@@ -144,3 +150,5 @@ newDeleteIdentityProviderResponse =
 instance
   Prelude.NFData
     DeleteIdentityProviderResponse
+  where
+  rnf _ = ()

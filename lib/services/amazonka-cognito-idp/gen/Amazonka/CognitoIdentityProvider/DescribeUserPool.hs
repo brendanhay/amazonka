@@ -89,9 +89,12 @@ instance Core.AWSRequest DescribeUserPool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserPool
+instance Prelude.Hashable DescribeUserPool where
+  hashWithSalt _salt DescribeUserPool' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData DescribeUserPool
+instance Prelude.NFData DescribeUserPool where
+  rnf DescribeUserPool' {..} = Prelude.rnf userPoolId
 
 instance Core.ToHeaders DescribeUserPool where
   toHeaders =
@@ -162,4 +165,7 @@ describeUserPoolResponse_userPool = Lens.lens (\DescribeUserPoolResponse' {userP
 describeUserPoolResponse_httpStatus :: Lens.Lens' DescribeUserPoolResponse Prelude.Int
 describeUserPoolResponse_httpStatus = Lens.lens (\DescribeUserPoolResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolResponse)
 
-instance Prelude.NFData DescribeUserPoolResponse
+instance Prelude.NFData DescribeUserPoolResponse where
+  rnf DescribeUserPoolResponse' {..} =
+    Prelude.rnf userPool
+      `Prelude.seq` Prelude.rnf httpStatus

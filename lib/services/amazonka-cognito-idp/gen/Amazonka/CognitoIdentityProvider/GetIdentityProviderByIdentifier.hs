@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     GetIdentityProviderByIdentifier
+  where
+  hashWithSalt
+    _salt
+    GetIdentityProviderByIdentifier' {..} =
+      _salt `Prelude.hashWithSalt` userPoolId
+        `Prelude.hashWithSalt` idpIdentifier
 
 instance
   Prelude.NFData
     GetIdentityProviderByIdentifier
+  where
+  rnf GetIdentityProviderByIdentifier' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf idpIdentifier
 
 instance
   Core.ToHeaders
@@ -195,3 +205,7 @@ getIdentityProviderByIdentifierResponse_identityProvider = Lens.lens (\GetIdenti
 instance
   Prelude.NFData
     GetIdentityProviderByIdentifierResponse
+  where
+  rnf GetIdentityProviderByIdentifierResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf identityProvider

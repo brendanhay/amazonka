@@ -309,9 +309,21 @@ instance Core.AWSRequest ListUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUsers
+instance Prelude.Hashable ListUsers where
+  hashWithSalt _salt ListUsers' {..} =
+    _salt `Prelude.hashWithSalt` paginationToken
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData ListUsers
+instance Prelude.NFData ListUsers where
+  rnf ListUsers' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListUsers where
   toHeaders =
@@ -404,4 +416,8 @@ listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@L
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
 listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> httpStatus) (\s@ListUsersResponse' {} a -> s {httpStatus = a} :: ListUsersResponse)
 
-instance Prelude.NFData ListUsersResponse
+instance Prelude.NFData ListUsersResponse where
+  rnf ListUsersResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus

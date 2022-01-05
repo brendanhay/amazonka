@@ -102,9 +102,21 @@ contextDataType_serverPath = Lens.lens (\ContextDataType' {serverPath} -> server
 contextDataType_httpHeaders :: Lens.Lens' ContextDataType [HttpHeader]
 contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> httpHeaders) (\s@ContextDataType' {} a -> s {httpHeaders = a} :: ContextDataType) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ContextDataType
+instance Prelude.Hashable ContextDataType where
+  hashWithSalt _salt ContextDataType' {..} =
+    _salt `Prelude.hashWithSalt` encodedData
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` serverPath
+      `Prelude.hashWithSalt` httpHeaders
 
-instance Prelude.NFData ContextDataType
+instance Prelude.NFData ContextDataType where
+  rnf ContextDataType' {..} =
+    Prelude.rnf encodedData
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf serverPath
+      `Prelude.seq` Prelude.rnf httpHeaders
 
 instance Core.ToJSON ContextDataType where
   toJSON ContextDataType' {..} =

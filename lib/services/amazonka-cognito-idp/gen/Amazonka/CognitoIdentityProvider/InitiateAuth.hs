@@ -483,9 +483,23 @@ instance Core.AWSRequest InitiateAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateAuth
+instance Prelude.Hashable InitiateAuth where
+  hashWithSalt _salt InitiateAuth' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` authParameters
+      `Prelude.hashWithSalt` authFlow
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData InitiateAuth
+instance Prelude.NFData InitiateAuth where
+  rnf InitiateAuth' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf authParameters
+      `Prelude.seq` Prelude.rnf authFlow
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToHeaders InitiateAuth where
   toHeaders =
@@ -743,4 +757,10 @@ initiateAuthResponse_session = Lens.lens (\InitiateAuthResponse' {session} -> se
 initiateAuthResponse_httpStatus :: Lens.Lens' InitiateAuthResponse Prelude.Int
 initiateAuthResponse_httpStatus = Lens.lens (\InitiateAuthResponse' {httpStatus} -> httpStatus) (\s@InitiateAuthResponse' {} a -> s {httpStatus = a} :: InitiateAuthResponse)
 
-instance Prelude.NFData InitiateAuthResponse
+instance Prelude.NFData InitiateAuthResponse where
+  rnf InitiateAuthResponse' {..} =
+    Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf challengeParameters
+      `Prelude.seq` Prelude.rnf authenticationResult
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,9 +88,13 @@ instance Core.AWSRequest GetSigningCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSigningCertificate
+instance Prelude.Hashable GetSigningCertificate where
+  hashWithSalt _salt GetSigningCertificate' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData GetSigningCertificate
+instance Prelude.NFData GetSigningCertificate where
+  rnf GetSigningCertificate' {..} =
+    Prelude.rnf userPoolId
 
 instance Core.ToHeaders GetSigningCertificate where
   toHeaders =
@@ -161,4 +165,7 @@ getSigningCertificateResponse_certificate = Lens.lens (\GetSigningCertificateRes
 getSigningCertificateResponse_httpStatus :: Lens.Lens' GetSigningCertificateResponse Prelude.Int
 getSigningCertificateResponse_httpStatus = Lens.lens (\GetSigningCertificateResponse' {httpStatus} -> httpStatus) (\s@GetSigningCertificateResponse' {} a -> s {httpStatus = a} :: GetSigningCertificateResponse)
 
-instance Prelude.NFData GetSigningCertificateResponse
+instance Prelude.NFData GetSigningCertificateResponse where
+  rnf GetSigningCertificateResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf httpStatus

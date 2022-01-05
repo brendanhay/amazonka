@@ -152,10 +152,28 @@ instance
 instance
   Prelude.Hashable
     VerificationMessageTemplateType
+  where
+  hashWithSalt
+    _salt
+    VerificationMessageTemplateType' {..} =
+      _salt `Prelude.hashWithSalt` defaultEmailOption
+        `Prelude.hashWithSalt` emailSubject
+        `Prelude.hashWithSalt` emailSubjectByLink
+        `Prelude.hashWithSalt` smsMessage
+        `Prelude.hashWithSalt` emailMessageByLink
+        `Prelude.hashWithSalt` emailMessage
 
 instance
   Prelude.NFData
     VerificationMessageTemplateType
+  where
+  rnf VerificationMessageTemplateType' {..} =
+    Prelude.rnf defaultEmailOption
+      `Prelude.seq` Prelude.rnf emailSubject
+      `Prelude.seq` Prelude.rnf emailSubjectByLink
+      `Prelude.seq` Prelude.rnf smsMessage
+      `Prelude.seq` Prelude.rnf emailMessageByLink
+      `Prelude.seq` Prelude.rnf emailMessage
 
 instance Core.ToJSON VerificationMessageTemplateType where
   toJSON VerificationMessageTemplateType' {..} =

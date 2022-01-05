@@ -143,9 +143,21 @@ instance Core.AWSRequest UpdateAuthEventFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAuthEventFeedback
+instance Prelude.Hashable UpdateAuthEventFeedback where
+  hashWithSalt _salt UpdateAuthEventFeedback' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` feedbackToken
+      `Prelude.hashWithSalt` feedbackValue
 
-instance Prelude.NFData UpdateAuthEventFeedback
+instance Prelude.NFData UpdateAuthEventFeedback where
+  rnf UpdateAuthEventFeedback' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf feedbackToken
+      `Prelude.seq` Prelude.rnf feedbackValue
 
 instance Core.ToHeaders UpdateAuthEventFeedback where
   toHeaders =
@@ -214,3 +226,6 @@ updateAuthEventFeedbackResponse_httpStatus = Lens.lens (\UpdateAuthEventFeedback
 instance
   Prelude.NFData
     UpdateAuthEventFeedbackResponse
+  where
+  rnf UpdateAuthEventFeedbackResponse' {..} =
+    Prelude.rnf httpStatus

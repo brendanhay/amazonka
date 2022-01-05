@@ -60,9 +60,13 @@ newAnalyticsMetadataType =
 analyticsMetadataType_analyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Prelude.Maybe Prelude.Text)
 analyticsMetadataType_analyticsEndpointId = Lens.lens (\AnalyticsMetadataType' {analyticsEndpointId} -> analyticsEndpointId) (\s@AnalyticsMetadataType' {} a -> s {analyticsEndpointId = a} :: AnalyticsMetadataType)
 
-instance Prelude.Hashable AnalyticsMetadataType
+instance Prelude.Hashable AnalyticsMetadataType where
+  hashWithSalt _salt AnalyticsMetadataType' {..} =
+    _salt `Prelude.hashWithSalt` analyticsEndpointId
 
-instance Prelude.NFData AnalyticsMetadataType
+instance Prelude.NFData AnalyticsMetadataType where
+  rnf AnalyticsMetadataType' {..} =
+    Prelude.rnf analyticsEndpointId
 
 instance Core.ToJSON AnalyticsMetadataType where
   toJSON AnalyticsMetadataType' {..} =

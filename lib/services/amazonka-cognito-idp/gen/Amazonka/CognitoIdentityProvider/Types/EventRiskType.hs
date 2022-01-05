@@ -87,6 +87,15 @@ instance Core.FromJSON EventRiskType where
             Prelude.<*> (x Core..:? "RiskDecision")
       )
 
-instance Prelude.Hashable EventRiskType
+instance Prelude.Hashable EventRiskType where
+  hashWithSalt _salt EventRiskType' {..} =
+    _salt
+      `Prelude.hashWithSalt` compromisedCredentialsDetected
+      `Prelude.hashWithSalt` riskLevel
+      `Prelude.hashWithSalt` riskDecision
 
-instance Prelude.NFData EventRiskType
+instance Prelude.NFData EventRiskType where
+  rnf EventRiskType' {..} =
+    Prelude.rnf compromisedCredentialsDetected
+      `Prelude.seq` Prelude.rnf riskLevel
+      `Prelude.seq` Prelude.rnf riskDecision

@@ -135,9 +135,17 @@ instance Core.AWSRequest ListResourceServers where
                         )
       )
 
-instance Prelude.Hashable ListResourceServers
+instance Prelude.Hashable ListResourceServers where
+  hashWithSalt _salt ListResourceServers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData ListResourceServers
+instance Prelude.NFData ListResourceServers where
+  rnf ListResourceServers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListResourceServers where
   toHeaders =
@@ -218,4 +226,8 @@ listResourceServersResponse_httpStatus = Lens.lens (\ListResourceServersResponse
 listResourceServersResponse_resourceServers :: Lens.Lens' ListResourceServersResponse [ResourceServerType]
 listResourceServersResponse_resourceServers = Lens.lens (\ListResourceServersResponse' {resourceServers} -> resourceServers) (\s@ListResourceServersResponse' {} a -> s {resourceServers = a} :: ListResourceServersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListResourceServersResponse
+instance Prelude.NFData ListResourceServersResponse where
+  rnf ListResourceServersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceServers

@@ -150,9 +150,17 @@ instance Core.AWSRequest ListUserPoolClients where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserPoolClients
+instance Prelude.Hashable ListUserPoolClients where
+  hashWithSalt _salt ListUserPoolClients' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData ListUserPoolClients
+instance Prelude.NFData ListUserPoolClients where
+  rnf ListUserPoolClients' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListUserPoolClients where
   toHeaders =
@@ -241,4 +249,8 @@ listUserPoolClientsResponse_userPoolClients = Lens.lens (\ListUserPoolClientsRes
 listUserPoolClientsResponse_httpStatus :: Lens.Lens' ListUserPoolClientsResponse Prelude.Int
 listUserPoolClientsResponse_httpStatus = Lens.lens (\ListUserPoolClientsResponse' {httpStatus} -> httpStatus) (\s@ListUserPoolClientsResponse' {} a -> s {httpStatus = a} :: ListUserPoolClientsResponse)
 
-instance Prelude.NFData ListUserPoolClientsResponse
+instance Prelude.NFData ListUserPoolClientsResponse where
+  rnf ListUserPoolClientsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userPoolClients
+      `Prelude.seq` Prelude.rnf httpStatus

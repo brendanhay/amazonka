@@ -106,9 +106,15 @@ instance Core.AWSRequest SetUserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetUserSettings
+instance Prelude.Hashable SetUserSettings where
+  hashWithSalt _salt SetUserSettings' {..} =
+    _salt `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` mfaOptions
 
-instance Prelude.NFData SetUserSettings
+instance Prelude.NFData SetUserSettings where
+  rnf SetUserSettings' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf mfaOptions
 
 instance Core.ToHeaders SetUserSettings where
   toHeaders =
@@ -169,4 +175,6 @@ newSetUserSettingsResponse pHttpStatus_ =
 setUserSettingsResponse_httpStatus :: Lens.Lens' SetUserSettingsResponse Prelude.Int
 setUserSettingsResponse_httpStatus = Lens.lens (\SetUserSettingsResponse' {httpStatus} -> httpStatus) (\s@SetUserSettingsResponse' {} a -> s {httpStatus = a} :: SetUserSettingsResponse)
 
-instance Prelude.NFData SetUserSettingsResponse
+instance Prelude.NFData SetUserSettingsResponse where
+  rnf SetUserSettingsResponse' {..} =
+    Prelude.rnf httpStatus

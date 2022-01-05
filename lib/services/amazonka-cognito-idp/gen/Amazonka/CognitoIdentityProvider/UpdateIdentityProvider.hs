@@ -134,9 +134,21 @@ instance Core.AWSRequest UpdateIdentityProvider where
             Prelude.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Prelude.Hashable UpdateIdentityProvider
+instance Prelude.Hashable UpdateIdentityProvider where
+  hashWithSalt _salt UpdateIdentityProvider' {..} =
+    _salt `Prelude.hashWithSalt` idpIdentifiers
+      `Prelude.hashWithSalt` attributeMapping
+      `Prelude.hashWithSalt` providerDetails
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData UpdateIdentityProvider
+instance Prelude.NFData UpdateIdentityProvider where
+  rnf UpdateIdentityProvider' {..} =
+    Prelude.rnf idpIdentifiers
+      `Prelude.seq` Prelude.rnf attributeMapping
+      `Prelude.seq` Prelude.rnf providerDetails
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf providerName
 
 instance Core.ToHeaders UpdateIdentityProvider where
   toHeaders =
@@ -220,3 +232,7 @@ updateIdentityProviderResponse_identityProvider = Lens.lens (\UpdateIdentityProv
 instance
   Prelude.NFData
     UpdateIdentityProviderResponse
+  where
+  rnf UpdateIdentityProviderResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf identityProvider

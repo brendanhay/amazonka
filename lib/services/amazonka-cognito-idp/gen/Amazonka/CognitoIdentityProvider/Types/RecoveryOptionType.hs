@@ -80,9 +80,14 @@ instance Core.FromJSON RecoveryOptionType where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable RecoveryOptionType
+instance Prelude.Hashable RecoveryOptionType where
+  hashWithSalt _salt RecoveryOptionType' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RecoveryOptionType
+instance Prelude.NFData RecoveryOptionType where
+  rnf RecoveryOptionType' {..} =
+    Prelude.rnf priority `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON RecoveryOptionType where
   toJSON RecoveryOptionType' {..} =

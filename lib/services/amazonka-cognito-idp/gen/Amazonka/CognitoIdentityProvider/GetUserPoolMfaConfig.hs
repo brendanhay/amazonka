@@ -90,9 +90,13 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserPoolMfaConfig
+instance Prelude.Hashable GetUserPoolMfaConfig where
+  hashWithSalt _salt GetUserPoolMfaConfig' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData GetUserPoolMfaConfig
+instance Prelude.NFData GetUserPoolMfaConfig where
+  rnf GetUserPoolMfaConfig' {..} =
+    Prelude.rnf userPoolId
 
 instance Core.ToHeaders GetUserPoolMfaConfig where
   toHeaders =
@@ -201,4 +205,9 @@ getUserPoolMfaConfigResponse_mfaConfiguration = Lens.lens (\GetUserPoolMfaConfig
 getUserPoolMfaConfigResponse_httpStatus :: Lens.Lens' GetUserPoolMfaConfigResponse Prelude.Int
 getUserPoolMfaConfigResponse_httpStatus = Lens.lens (\GetUserPoolMfaConfigResponse' {httpStatus} -> httpStatus) (\s@GetUserPoolMfaConfigResponse' {} a -> s {httpStatus = a} :: GetUserPoolMfaConfigResponse)
 
-instance Prelude.NFData GetUserPoolMfaConfigResponse
+instance Prelude.NFData GetUserPoolMfaConfigResponse where
+  rnf GetUserPoolMfaConfigResponse' {..} =
+    Prelude.rnf smsMfaConfiguration
+      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

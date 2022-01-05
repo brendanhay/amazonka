@@ -62,9 +62,12 @@ instance Core.FromJSON JsonOptions where
           JsonOptions' Prelude.<$> (x Core..:? "MultiLine")
       )
 
-instance Prelude.Hashable JsonOptions
+instance Prelude.Hashable JsonOptions where
+  hashWithSalt _salt JsonOptions' {..} =
+    _salt `Prelude.hashWithSalt` multiLine
 
-instance Prelude.NFData JsonOptions
+instance Prelude.NFData JsonOptions where
+  rnf JsonOptions' {..} = Prelude.rnf multiLine
 
 instance Core.ToJSON JsonOptions where
   toJSON JsonOptions' {..} =

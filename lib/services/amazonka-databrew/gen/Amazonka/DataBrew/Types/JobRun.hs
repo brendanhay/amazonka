@@ -252,6 +252,42 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "JobSample")
       )
 
-instance Prelude.Hashable JobRun
+instance Prelude.Hashable JobRun where
+  hashWithSalt _salt JobRun' {..} =
+    _salt `Prelude.hashWithSalt` completedOn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` dataCatalogOutputs
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` recipeReference
+      `Prelude.hashWithSalt` databaseOutputs
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` executionTime
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` attempt
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` jobSample
 
-instance Prelude.NFData JobRun
+instance Prelude.NFData JobRun where
+  rnf JobRun' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf recipeReference
+      `Prelude.seq` Prelude.rnf databaseOutputs
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf jobSample

@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateRecipe where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable UpdateRecipe
+instance Prelude.Hashable UpdateRecipe where
+  hashWithSalt _salt UpdateRecipe' {..} =
+    _salt `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateRecipe
+instance Prelude.NFData UpdateRecipe where
+  rnf UpdateRecipe' {..} =
+    Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateRecipe where
   toHeaders =
@@ -181,4 +189,7 @@ updateRecipeResponse_httpStatus = Lens.lens (\UpdateRecipeResponse' {httpStatus}
 updateRecipeResponse_name :: Lens.Lens' UpdateRecipeResponse Prelude.Text
 updateRecipeResponse_name = Lens.lens (\UpdateRecipeResponse' {name} -> name) (\s@UpdateRecipeResponse' {} a -> s {name = a} :: UpdateRecipeResponse)
 
-instance Prelude.NFData UpdateRecipeResponse
+instance Prelude.NFData UpdateRecipeResponse where
+  rnf UpdateRecipeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

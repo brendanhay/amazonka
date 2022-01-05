@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteProject where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DeleteProject
+instance Prelude.Hashable DeleteProject where
+  hashWithSalt _salt DeleteProject' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteProject
+instance Prelude.NFData DeleteProject where
+  rnf DeleteProject' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteProject where
   toHeaders =
@@ -148,4 +151,7 @@ deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatu
 deleteProjectResponse_name :: Lens.Lens' DeleteProjectResponse Prelude.Text
 deleteProjectResponse_name = Lens.lens (\DeleteProjectResponse' {name} -> name) (\s@DeleteProjectResponse' {} a -> s {name = a} :: DeleteProjectResponse)
 
-instance Prelude.NFData DeleteProjectResponse
+instance Prelude.NFData DeleteProjectResponse where
+  rnf DeleteProjectResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

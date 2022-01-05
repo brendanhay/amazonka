@@ -95,9 +95,14 @@ instance Core.AWSRequest StopJobRun where
             Prelude.<*> (x Core..:> "RunId")
       )
 
-instance Prelude.Hashable StopJobRun
+instance Prelude.Hashable StopJobRun where
+  hashWithSalt _salt StopJobRun' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData StopJobRun
+instance Prelude.NFData StopJobRun where
+  rnf StopJobRun' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders StopJobRun where
   toHeaders =
@@ -166,4 +171,7 @@ stopJobRunResponse_httpStatus = Lens.lens (\StopJobRunResponse' {httpStatus} -> 
 stopJobRunResponse_runId :: Lens.Lens' StopJobRunResponse Prelude.Text
 stopJobRunResponse_runId = Lens.lens (\StopJobRunResponse' {runId} -> runId) (\s@StopJobRunResponse' {} a -> s {runId = a} :: StopJobRunResponse)
 
-instance Prelude.NFData StopJobRunResponse
+instance Prelude.NFData StopJobRunResponse where
+  rnf StopJobRunResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf runId

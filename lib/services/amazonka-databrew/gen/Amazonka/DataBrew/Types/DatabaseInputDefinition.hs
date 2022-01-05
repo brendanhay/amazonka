@@ -91,9 +91,17 @@ instance Core.FromJSON DatabaseInputDefinition where
             Prelude.<*> (x Core..: "DatabaseTableName")
       )
 
-instance Prelude.Hashable DatabaseInputDefinition
+instance Prelude.Hashable DatabaseInputDefinition where
+  hashWithSalt _salt DatabaseInputDefinition' {..} =
+    _salt `Prelude.hashWithSalt` tempDirectory
+      `Prelude.hashWithSalt` glueConnectionName
+      `Prelude.hashWithSalt` databaseTableName
 
-instance Prelude.NFData DatabaseInputDefinition
+instance Prelude.NFData DatabaseInputDefinition where
+  rnf DatabaseInputDefinition' {..} =
+    Prelude.rnf tempDirectory
+      `Prelude.seq` Prelude.rnf glueConnectionName
+      `Prelude.seq` Prelude.rnf databaseTableName
 
 instance Core.ToJSON DatabaseInputDefinition where
   toJSON DatabaseInputDefinition' {..} =

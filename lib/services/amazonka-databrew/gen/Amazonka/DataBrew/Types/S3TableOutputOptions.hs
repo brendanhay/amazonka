@@ -66,9 +66,12 @@ instance Core.FromJSON S3TableOutputOptions where
             Prelude.<$> (x Core..: "Location")
       )
 
-instance Prelude.Hashable S3TableOutputOptions
+instance Prelude.Hashable S3TableOutputOptions where
+  hashWithSalt _salt S3TableOutputOptions' {..} =
+    _salt `Prelude.hashWithSalt` location
 
-instance Prelude.NFData S3TableOutputOptions
+instance Prelude.NFData S3TableOutputOptions where
+  rnf S3TableOutputOptions' {..} = Prelude.rnf location
 
 instance Core.ToJSON S3TableOutputOptions where
   toJSON S3TableOutputOptions' {..} =

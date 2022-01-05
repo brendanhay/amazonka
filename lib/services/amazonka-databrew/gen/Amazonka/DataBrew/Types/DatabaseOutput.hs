@@ -100,9 +100,17 @@ instance Core.FromJSON DatabaseOutput where
             Prelude.<*> (x Core..: "DatabaseOptions")
       )
 
-instance Prelude.Hashable DatabaseOutput
+instance Prelude.Hashable DatabaseOutput where
+  hashWithSalt _salt DatabaseOutput' {..} =
+    _salt `Prelude.hashWithSalt` databaseOutputMode
+      `Prelude.hashWithSalt` glueConnectionName
+      `Prelude.hashWithSalt` databaseOptions
 
-instance Prelude.NFData DatabaseOutput
+instance Prelude.NFData DatabaseOutput where
+  rnf DatabaseOutput' {..} =
+    Prelude.rnf databaseOutputMode
+      `Prelude.seq` Prelude.rnf glueConnectionName
+      `Prelude.seq` Prelude.rnf databaseOptions
 
 instance Core.ToJSON DatabaseOutput where
   toJSON DatabaseOutput' {..} =

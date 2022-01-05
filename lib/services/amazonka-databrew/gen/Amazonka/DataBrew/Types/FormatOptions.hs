@@ -85,9 +85,17 @@ instance Core.FromJSON FormatOptions where
             Prelude.<*> (x Core..:? "Excel")
       )
 
-instance Prelude.Hashable FormatOptions
+instance Prelude.Hashable FormatOptions where
+  hashWithSalt _salt FormatOptions' {..} =
+    _salt `Prelude.hashWithSalt` json
+      `Prelude.hashWithSalt` csv
+      `Prelude.hashWithSalt` excel
 
-instance Prelude.NFData FormatOptions
+instance Prelude.NFData FormatOptions where
+  rnf FormatOptions' {..} =
+    Prelude.rnf json
+      `Prelude.seq` Prelude.rnf csv
+      `Prelude.seq` Prelude.rnf excel
 
 instance Core.ToJSON FormatOptions where
   toJSON FormatOptions' {..} =

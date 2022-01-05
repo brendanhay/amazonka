@@ -102,9 +102,17 @@ instance Core.FromJSON DatetimeOptions where
             Prelude.<*> (x Core..: "Format")
       )
 
-instance Prelude.Hashable DatetimeOptions
+instance Prelude.Hashable DatetimeOptions where
+  hashWithSalt _salt DatetimeOptions' {..} =
+    _salt `Prelude.hashWithSalt` timezoneOffset
+      `Prelude.hashWithSalt` localeCode
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData DatetimeOptions
+instance Prelude.NFData DatetimeOptions where
+  rnf DatetimeOptions' {..} =
+    Prelude.rnf timezoneOffset
+      `Prelude.seq` Prelude.rnf localeCode
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToJSON DatetimeOptions where
   toJSON DatetimeOptions' {..} =

@@ -136,9 +136,15 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable BatchDeleteRecipeVersion
+instance Prelude.Hashable BatchDeleteRecipeVersion where
+  hashWithSalt _salt BatchDeleteRecipeVersion' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recipeVersions
 
-instance Prelude.NFData BatchDeleteRecipeVersion
+instance Prelude.NFData BatchDeleteRecipeVersion where
+  rnf BatchDeleteRecipeVersion' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recipeVersions
 
 instance Core.ToHeaders BatchDeleteRecipeVersion where
   toHeaders =
@@ -229,3 +235,8 @@ batchDeleteRecipeVersionResponse_name = Lens.lens (\BatchDeleteRecipeVersionResp
 instance
   Prelude.NFData
     BatchDeleteRecipeVersionResponse
+  where
+  rnf BatchDeleteRecipeVersionResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

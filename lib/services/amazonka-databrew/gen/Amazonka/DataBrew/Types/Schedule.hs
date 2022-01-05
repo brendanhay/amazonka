@@ -162,6 +162,28 @@ instance Core.FromJSON Schedule where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Schedule
+instance Prelude.Hashable Schedule where
+  hashWithSalt _salt Schedule' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` jobNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Schedule
+instance Prelude.NFData Schedule where
+  rnf Schedule' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf jobNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name

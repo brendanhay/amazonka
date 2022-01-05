@@ -112,9 +112,12 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DescribeProject
+instance Prelude.Hashable DescribeProject where
+  hashWithSalt _salt DescribeProject' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeProject
+instance Prelude.NFData DescribeProject where
+  rnf DescribeProject' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeProject where
   toHeaders =
@@ -312,4 +315,20 @@ describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpS
 describeProjectResponse_name :: Lens.Lens' DescribeProjectResponse Prelude.Text
 describeProjectResponse_name = Lens.lens (\DescribeProjectResponse' {name} -> name) (\s@DescribeProjectResponse' {} a -> s {name = a} :: DescribeProjectResponse)
 
-instance Prelude.NFData DescribeProjectResponse
+instance Prelude.NFData DescribeProjectResponse where
+  rnf DescribeProjectResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf sessionStatus
+      `Prelude.seq` Prelude.rnf openDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf recipeName
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf sample
+      `Prelude.seq` Prelude.rnf openedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

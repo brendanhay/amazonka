@@ -115,9 +115,18 @@ instance Core.FromJSON ProfileConfiguration where
             Prelude.<*> (x Core..:? "ProfileColumns")
       )
 
-instance Prelude.Hashable ProfileConfiguration
+instance Prelude.Hashable ProfileConfiguration where
+  hashWithSalt _salt ProfileConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` datasetStatisticsConfiguration
+      `Prelude.hashWithSalt` columnStatisticsConfigurations
+      `Prelude.hashWithSalt` profileColumns
 
-instance Prelude.NFData ProfileConfiguration
+instance Prelude.NFData ProfileConfiguration where
+  rnf ProfileConfiguration' {..} =
+    Prelude.rnf datasetStatisticsConfiguration
+      `Prelude.seq` Prelude.rnf columnStatisticsConfigurations
+      `Prelude.seq` Prelude.rnf profileColumns
 
 instance Core.ToJSON ProfileConfiguration where
   toJSON ProfileConfiguration' {..} =

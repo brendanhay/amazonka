@@ -73,9 +73,15 @@ instance Core.FromJSON StatisticOverride where
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StatisticOverride
+instance Prelude.Hashable StatisticOverride where
+  hashWithSalt _salt StatisticOverride' {..} =
+    _salt `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData StatisticOverride
+instance Prelude.NFData StatisticOverride where
+  rnf StatisticOverride' {..} =
+    Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON StatisticOverride where
   toJSON StatisticOverride' {..} =

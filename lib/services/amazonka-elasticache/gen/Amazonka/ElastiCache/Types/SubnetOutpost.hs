@@ -55,6 +55,9 @@ instance Core.FromXML SubnetOutpost where
     SubnetOutpost'
       Prelude.<$> (x Core..@? "SubnetOutpostArn")
 
-instance Prelude.Hashable SubnetOutpost
+instance Prelude.Hashable SubnetOutpost where
+  hashWithSalt _salt SubnetOutpost' {..} =
+    _salt `Prelude.hashWithSalt` subnetOutpostArn
 
-instance Prelude.NFData SubnetOutpost
+instance Prelude.NFData SubnetOutpost where
+  rnf SubnetOutpost' {..} = Prelude.rnf subnetOutpostArn

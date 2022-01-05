@@ -180,8 +180,26 @@ instance Core.AWSRequest ModifyGlobalReplicationGroup where
 instance
   Prelude.Hashable
     ModifyGlobalReplicationGroup
+  where
+  hashWithSalt _salt ModifyGlobalReplicationGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` automaticFailoverEnabled
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` globalReplicationGroupDescription
+      `Prelude.hashWithSalt` globalReplicationGroupId
+      `Prelude.hashWithSalt` applyImmediately
 
-instance Prelude.NFData ModifyGlobalReplicationGroup
+instance Prelude.NFData ModifyGlobalReplicationGroup where
+  rnf ModifyGlobalReplicationGroup' {..} =
+    Prelude.rnf automaticFailoverEnabled
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf globalReplicationGroupDescription
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance Core.ToHeaders ModifyGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,3 +270,7 @@ modifyGlobalReplicationGroupResponse_httpStatus = Lens.lens (\ModifyGlobalReplic
 instance
   Prelude.NFData
     ModifyGlobalReplicationGroupResponse
+  where
+  rnf ModifyGlobalReplicationGroupResponse' {..} =
+    Prelude.rnf globalReplicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

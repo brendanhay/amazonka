@@ -73,6 +73,13 @@ instance Core.FromXML NodeGroupUpdateStatus where
                   )
       Prelude.<*> (x Core..@? "NodeGroupId")
 
-instance Prelude.Hashable NodeGroupUpdateStatus
+instance Prelude.Hashable NodeGroupUpdateStatus where
+  hashWithSalt _salt NodeGroupUpdateStatus' {..} =
+    _salt
+      `Prelude.hashWithSalt` nodeGroupMemberUpdateStatus
+      `Prelude.hashWithSalt` nodeGroupId
 
-instance Prelude.NFData NodeGroupUpdateStatus
+instance Prelude.NFData NodeGroupUpdateStatus where
+  rnf NodeGroupUpdateStatus' {..} =
+    Prelude.rnf nodeGroupMemberUpdateStatus
+      `Prelude.seq` Prelude.rnf nodeGroupId

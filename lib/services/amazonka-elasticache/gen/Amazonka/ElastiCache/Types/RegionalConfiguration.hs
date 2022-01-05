@@ -81,9 +81,17 @@ regionalConfiguration_replicationGroupRegion = Lens.lens (\RegionalConfiguration
 regionalConfiguration_reshardingConfiguration :: Lens.Lens' RegionalConfiguration [ReshardingConfiguration]
 regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@RegionalConfiguration' {} a -> s {reshardingConfiguration = a} :: RegionalConfiguration) Prelude.. Lens.coerced
 
-instance Prelude.Hashable RegionalConfiguration
+instance Prelude.Hashable RegionalConfiguration where
+  hashWithSalt _salt RegionalConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` replicationGroupRegion
+      `Prelude.hashWithSalt` reshardingConfiguration
 
-instance Prelude.NFData RegionalConfiguration
+instance Prelude.NFData RegionalConfiguration where
+  rnf RegionalConfiguration' {..} =
+    Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf replicationGroupRegion
+      `Prelude.seq` Prelude.rnf reshardingConfiguration
 
 instance Core.ToQuery RegionalConfiguration where
   toQuery RegionalConfiguration' {..} =

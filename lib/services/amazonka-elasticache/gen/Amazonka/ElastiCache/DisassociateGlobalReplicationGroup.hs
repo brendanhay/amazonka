@@ -134,10 +134,23 @@ instance
 instance
   Prelude.Hashable
     DisassociateGlobalReplicationGroup
+  where
+  hashWithSalt
+    _salt
+    DisassociateGlobalReplicationGroup' {..} =
+      _salt
+        `Prelude.hashWithSalt` globalReplicationGroupId
+        `Prelude.hashWithSalt` replicationGroupId
+        `Prelude.hashWithSalt` replicationGroupRegion
 
 instance
   Prelude.NFData
     DisassociateGlobalReplicationGroup
+  where
+  rnf DisassociateGlobalReplicationGroup' {..} =
+    Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf replicationGroupRegion
 
 instance
   Core.ToHeaders
@@ -212,3 +225,7 @@ disassociateGlobalReplicationGroupResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociateGlobalReplicationGroupResponse
+  where
+  rnf DisassociateGlobalReplicationGroupResponse' {..} =
+    Prelude.rnf globalReplicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

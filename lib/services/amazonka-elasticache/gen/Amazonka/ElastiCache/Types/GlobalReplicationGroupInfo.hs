@@ -72,6 +72,13 @@ instance Core.FromXML GlobalReplicationGroupInfo where
       Prelude.<$> (x Core..@? "GlobalReplicationGroupMemberRole")
       Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
 
-instance Prelude.Hashable GlobalReplicationGroupInfo
+instance Prelude.Hashable GlobalReplicationGroupInfo where
+  hashWithSalt _salt GlobalReplicationGroupInfo' {..} =
+    _salt
+      `Prelude.hashWithSalt` globalReplicationGroupMemberRole
+      `Prelude.hashWithSalt` globalReplicationGroupId
 
-instance Prelude.NFData GlobalReplicationGroupInfo
+instance Prelude.NFData GlobalReplicationGroupInfo where
+  rnf GlobalReplicationGroupInfo' {..} =
+    Prelude.rnf globalReplicationGroupMemberRole
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId

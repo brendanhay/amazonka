@@ -124,6 +124,22 @@ instance Core.FromXML UserGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable UserGroup
+instance Prelude.Hashable UserGroup where
+  hashWithSalt _salt UserGroup' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` userGroupId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` pendingChanges
+      `Prelude.hashWithSalt` replicationGroups
 
-instance Prelude.NFData UserGroup
+instance Prelude.NFData UserGroup where
+  rnf UserGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf userGroupId
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf pendingChanges
+      `Prelude.seq` Prelude.rnf replicationGroups

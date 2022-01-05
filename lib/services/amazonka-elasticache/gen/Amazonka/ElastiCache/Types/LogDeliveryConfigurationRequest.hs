@@ -102,10 +102,26 @@ logDeliveryConfigurationRequest_destinationType = Lens.lens (\LogDeliveryConfigu
 instance
   Prelude.Hashable
     LogDeliveryConfigurationRequest
+  where
+  hashWithSalt
+    _salt
+    LogDeliveryConfigurationRequest' {..} =
+      _salt `Prelude.hashWithSalt` logFormat
+        `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` destinationDetails
+        `Prelude.hashWithSalt` logType
+        `Prelude.hashWithSalt` destinationType
 
 instance
   Prelude.NFData
     LogDeliveryConfigurationRequest
+  where
+  rnf LogDeliveryConfigurationRequest' {..} =
+    Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf destinationDetails
+      `Prelude.seq` Prelude.rnf logType
+      `Prelude.seq` Prelude.rnf destinationType
 
 instance Core.ToQuery LogDeliveryConfigurationRequest where
   toQuery LogDeliveryConfigurationRequest' {..} =

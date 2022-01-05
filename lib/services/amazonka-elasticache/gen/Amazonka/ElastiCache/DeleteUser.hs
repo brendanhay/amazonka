@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteUser where
       "DeleteUserResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser where
+  hashWithSalt _salt DeleteUser' {..} =
+    _salt `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DeleteUser
+instance Prelude.NFData DeleteUser where
+  rnf DeleteUser' {..} = Prelude.rnf userId
 
 instance Core.ToHeaders DeleteUser where
   toHeaders = Prelude.const Prelude.mempty

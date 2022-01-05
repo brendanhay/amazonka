@@ -77,5 +77,12 @@ instance Core.FromXML CacheSecurityGroupMembership where
 instance
   Prelude.Hashable
     CacheSecurityGroupMembership
+  where
+  hashWithSalt _salt CacheSecurityGroupMembership' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` cacheSecurityGroupName
 
-instance Prelude.NFData CacheSecurityGroupMembership
+instance Prelude.NFData CacheSecurityGroupMembership where
+  rnf CacheSecurityGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf cacheSecurityGroupName

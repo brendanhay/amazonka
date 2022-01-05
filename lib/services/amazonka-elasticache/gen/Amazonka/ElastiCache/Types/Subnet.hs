@@ -81,6 +81,14 @@ instance Core.FromXML Subnet where
       Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
       Prelude.<*> (x Core..@? "SubnetOutpost")
 
-instance Prelude.Hashable Subnet
+instance Prelude.Hashable Subnet where
+  hashWithSalt _salt Subnet' {..} =
+    _salt `Prelude.hashWithSalt` subnetIdentifier
+      `Prelude.hashWithSalt` subnetAvailabilityZone
+      `Prelude.hashWithSalt` subnetOutpost
 
-instance Prelude.NFData Subnet
+instance Prelude.NFData Subnet where
+  rnf Subnet' {..} =
+    Prelude.rnf subnetIdentifier
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf subnetOutpost

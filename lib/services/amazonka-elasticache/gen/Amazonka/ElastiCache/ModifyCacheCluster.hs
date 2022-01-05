@@ -938,9 +938,52 @@ instance Core.AWSRequest ModifyCacheCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCacheCluster
+instance Prelude.Hashable ModifyCacheCluster where
+  hashWithSalt _salt ModifyCacheCluster' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` newAvailabilityZones'
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` authToken
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` cacheNodeIdsToRemove
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` notificationTopicStatus
+      `Prelude.hashWithSalt` aZMode
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` authTokenUpdateStrategy
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` cacheSecurityGroupNames
+      `Prelude.hashWithSalt` cacheClusterId
 
-instance Prelude.NFData ModifyCacheCluster
+instance Prelude.NFData ModifyCacheCluster where
+  rnf ModifyCacheCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf newAvailabilityZones'
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf authToken
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf cacheNodeIdsToRemove
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf notificationTopicStatus
+      `Prelude.seq` Prelude.rnf aZMode
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf authTokenUpdateStrategy
+      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf
+        cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf cacheClusterId
 
 instance Core.ToHeaders ModifyCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -1041,4 +1084,7 @@ modifyCacheClusterResponse_cacheCluster = Lens.lens (\ModifyCacheClusterResponse
 modifyCacheClusterResponse_httpStatus :: Lens.Lens' ModifyCacheClusterResponse Prelude.Int
 modifyCacheClusterResponse_httpStatus = Lens.lens (\ModifyCacheClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyCacheClusterResponse' {} a -> s {httpStatus = a} :: ModifyCacheClusterResponse)
 
-instance Prelude.NFData ModifyCacheClusterResponse
+instance Prelude.NFData ModifyCacheClusterResponse where
+  rnf ModifyCacheClusterResponse' {..} =
+    Prelude.rnf cacheCluster
+      `Prelude.seq` Prelude.rnf httpStatus

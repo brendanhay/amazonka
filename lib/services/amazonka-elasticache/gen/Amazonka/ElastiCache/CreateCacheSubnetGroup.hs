@@ -150,9 +150,19 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheSubnetGroup
+instance Prelude.Hashable CreateCacheSubnetGroup where
+  hashWithSalt _salt CreateCacheSubnetGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` cacheSubnetGroupDescription
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData CreateCacheSubnetGroup
+instance Prelude.NFData CreateCacheSubnetGroup where
+  rnf CreateCacheSubnetGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToHeaders CreateCacheSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,3 +228,7 @@ createCacheSubnetGroupResponse_httpStatus = Lens.lens (\CreateCacheSubnetGroupRe
 instance
   Prelude.NFData
     CreateCacheSubnetGroupResponse
+  where
+  rnf CreateCacheSubnetGroupResponse' {..} =
+    Prelude.rnf cacheSubnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

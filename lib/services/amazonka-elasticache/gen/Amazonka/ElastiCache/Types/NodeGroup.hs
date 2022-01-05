@@ -132,6 +132,20 @@ instance Core.FromXML NodeGroup where
       Prelude.<*> (x Core..@? "NodeGroupId")
       Prelude.<*> (x Core..@? "ReaderEndpoint")
 
-instance Prelude.Hashable NodeGroup
+instance Prelude.Hashable NodeGroup where
+  hashWithSalt _salt NodeGroup' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` primaryEndpoint
+      `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` nodeGroupMembers
+      `Prelude.hashWithSalt` nodeGroupId
+      `Prelude.hashWithSalt` readerEndpoint
 
-instance Prelude.NFData NodeGroup
+instance Prelude.NFData NodeGroup where
+  rnf NodeGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf primaryEndpoint
+      `Prelude.seq` Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf nodeGroupMembers
+      `Prelude.seq` Prelude.rnf nodeGroupId
+      `Prelude.seq` Prelude.rnf readerEndpoint

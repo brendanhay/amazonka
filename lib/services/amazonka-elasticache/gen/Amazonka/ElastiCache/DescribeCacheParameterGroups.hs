@@ -171,8 +171,18 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
 instance
   Prelude.Hashable
     DescribeCacheParameterGroups
+  where
+  hashWithSalt _salt DescribeCacheParameterGroups' {..} =
+    _salt
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeCacheParameterGroups
+instance Prelude.NFData DescribeCacheParameterGroups where
+  rnf DescribeCacheParameterGroups' {..} =
+    Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeCacheParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,3 +261,8 @@ describeCacheParameterGroupsResponse_httpStatus = Lens.lens (\DescribeCacheParam
 instance
   Prelude.NFData
     DescribeCacheParameterGroupsResponse
+  where
+  rnf DescribeCacheParameterGroupsResponse' {..} =
+    Prelude.rnf cacheParameterGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

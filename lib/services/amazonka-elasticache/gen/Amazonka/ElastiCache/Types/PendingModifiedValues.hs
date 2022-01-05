@@ -132,6 +132,20 @@ instance Core.FromXML PendingModifiedValues where
                   )
       Prelude.<*> (x Core..@? "NumCacheNodes")
 
-instance Prelude.Hashable PendingModifiedValues
+instance Prelude.Hashable PendingModifiedValues where
+  hashWithSalt _salt PendingModifiedValues' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` authTokenStatus
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` cacheNodeIdsToRemove
+      `Prelude.hashWithSalt` numCacheNodes
 
-instance Prelude.NFData PendingModifiedValues
+instance Prelude.NFData PendingModifiedValues where
+  rnf PendingModifiedValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf authTokenStatus
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf cacheNodeIdsToRemove
+      `Prelude.seq` Prelude.rnf numCacheNodes

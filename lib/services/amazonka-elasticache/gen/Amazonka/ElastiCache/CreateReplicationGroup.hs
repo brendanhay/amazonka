@@ -1339,9 +1339,92 @@ instance Core.AWSRequest CreateReplicationGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplicationGroup
+instance Prelude.Hashable CreateReplicationGroup where
+  hashWithSalt _salt CreateReplicationGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` automaticFailoverEnabled
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` nodeGroupConfiguration
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` snapshotArns
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` userGroupIds
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` authToken
+      `Prelude.hashWithSalt` primaryClusterId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` multiAZEnabled
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` numNodeGroups
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` globalReplicationGroupId
+      `Prelude.hashWithSalt` replicasPerNodeGroup
+      `Prelude.hashWithSalt` numCacheClusters
+      `Prelude.hashWithSalt` preferredCacheClusterAZs
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` cacheSecurityGroupNames
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` replicationGroupDescription
 
-instance Prelude.NFData CreateReplicationGroup
+instance Prelude.NFData CreateReplicationGroup where
+  rnf CreateReplicationGroup' {..} =
+    Prelude.rnf automaticFailoverEnabled
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf nodeGroupConfiguration
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf snapshotArns
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf userGroupIds
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf authToken
+      `Prelude.seq` Prelude.rnf primaryClusterId
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf multiAZEnabled
+      `Prelude.seq` Prelude.rnf
+        cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf numNodeGroups
+      `Prelude.seq` Prelude.rnf
+        snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf
+        globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf
+        replicasPerNodeGroup
+      `Prelude.seq` Prelude.rnf
+        numCacheClusters
+      `Prelude.seq` Prelude.rnf
+        preferredCacheClusterAZs
+      `Prelude.seq` Prelude.rnf
+        snapshotName
+      `Prelude.seq` Prelude.rnf
+        notificationTopicArn
+      `Prelude.seq` Prelude.rnf
+        tags
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf
+        replicationGroupId
+      `Prelude.seq` Prelude.rnf
+        replicationGroupDescription
 
 instance Core.ToHeaders CreateReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -1469,3 +1552,7 @@ createReplicationGroupResponse_httpStatus = Lens.lens (\CreateReplicationGroupRe
 instance
   Prelude.NFData
     CreateReplicationGroupResponse
+  where
+  rnf CreateReplicationGroupResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

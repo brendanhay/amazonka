@@ -237,6 +237,24 @@ instance Core.FromXML CacheNode where
       Prelude.<*> (x Core..@? "CacheNodeStatus")
       Prelude.<*> (x Core..@? "Endpoint")
 
-instance Prelude.Hashable CacheNode
+instance Prelude.Hashable CacheNode where
+  hashWithSalt _salt CacheNode' {..} =
+    _salt `Prelude.hashWithSalt` sourceCacheNodeId
+      `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` cacheNodeCreateTime
+      `Prelude.hashWithSalt` customerAvailabilityZone
+      `Prelude.hashWithSalt` cacheNodeId
+      `Prelude.hashWithSalt` customerOutpostArn
+      `Prelude.hashWithSalt` cacheNodeStatus
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData CacheNode
+instance Prelude.NFData CacheNode where
+  rnf CacheNode' {..} =
+    Prelude.rnf sourceCacheNodeId
+      `Prelude.seq` Prelude.rnf parameterGroupStatus
+      `Prelude.seq` Prelude.rnf cacheNodeCreateTime
+      `Prelude.seq` Prelude.rnf customerAvailabilityZone
+      `Prelude.seq` Prelude.rnf cacheNodeId
+      `Prelude.seq` Prelude.rnf customerOutpostArn
+      `Prelude.seq` Prelude.rnf cacheNodeStatus
+      `Prelude.seq` Prelude.rnf endpoint

@@ -66,9 +66,16 @@ reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfi
 reshardingConfiguration_nodeGroupId :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe Prelude.Text)
 reshardingConfiguration_nodeGroupId = Lens.lens (\ReshardingConfiguration' {nodeGroupId} -> nodeGroupId) (\s@ReshardingConfiguration' {} a -> s {nodeGroupId = a} :: ReshardingConfiguration)
 
-instance Prelude.Hashable ReshardingConfiguration
+instance Prelude.Hashable ReshardingConfiguration where
+  hashWithSalt _salt ReshardingConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` preferredAvailabilityZones
+      `Prelude.hashWithSalt` nodeGroupId
 
-instance Prelude.NFData ReshardingConfiguration
+instance Prelude.NFData ReshardingConfiguration where
+  rnf ReshardingConfiguration' {..} =
+    Prelude.rnf preferredAvailabilityZones
+      `Prelude.seq` Prelude.rnf nodeGroupId
 
 instance Core.ToQuery ReshardingConfiguration where
   toQuery ReshardingConfiguration' {..} =

@@ -113,10 +113,21 @@ instance
 instance
   Prelude.Hashable
     RebalanceSlotsInGlobalReplicationGroup
+  where
+  hashWithSalt
+    _salt
+    RebalanceSlotsInGlobalReplicationGroup' {..} =
+      _salt
+        `Prelude.hashWithSalt` globalReplicationGroupId
+        `Prelude.hashWithSalt` applyImmediately
 
 instance
   Prelude.NFData
     RebalanceSlotsInGlobalReplicationGroup
+  where
+  rnf RebalanceSlotsInGlobalReplicationGroup' {..} =
+    Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
   Core.ToHeaders
@@ -189,3 +200,8 @@ rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus = Lens.lens (\Rebalanc
 instance
   Prelude.NFData
     RebalanceSlotsInGlobalReplicationGroupResponse
+  where
+  rnf
+    RebalanceSlotsInGlobalReplicationGroupResponse' {..} =
+      Prelude.rnf globalReplicationGroup
+        `Prelude.seq` Prelude.rnf httpStatus

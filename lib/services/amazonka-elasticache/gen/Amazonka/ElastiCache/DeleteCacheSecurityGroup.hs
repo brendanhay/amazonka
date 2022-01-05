@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteCacheSecurityGroup where
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'
 
-instance Prelude.Hashable DeleteCacheSecurityGroup
+instance Prelude.Hashable DeleteCacheSecurityGroup where
+  hashWithSalt _salt DeleteCacheSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` cacheSecurityGroupName
 
-instance Prelude.NFData DeleteCacheSecurityGroup
+instance Prelude.NFData DeleteCacheSecurityGroup where
+  rnf DeleteCacheSecurityGroup' {..} =
+    Prelude.rnf cacheSecurityGroupName
 
 instance Core.ToHeaders DeleteCacheSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -131,3 +135,5 @@ newDeleteCacheSecurityGroupResponse =
 instance
   Prelude.NFData
     DeleteCacheSecurityGroupResponse
+  where
+  rnf _ = ()

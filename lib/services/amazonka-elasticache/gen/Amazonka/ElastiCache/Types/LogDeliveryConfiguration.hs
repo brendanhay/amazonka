@@ -121,6 +121,20 @@ instance Core.FromXML LogDeliveryConfiguration where
       Prelude.<*> (x Core..@? "DestinationType")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable LogDeliveryConfiguration
+instance Prelude.Hashable LogDeliveryConfiguration where
+  hashWithSalt _salt LogDeliveryConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` logFormat
+      `Prelude.hashWithSalt` destinationDetails
+      `Prelude.hashWithSalt` logType
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData LogDeliveryConfiguration
+instance Prelude.NFData LogDeliveryConfiguration where
+  rnf LogDeliveryConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf destinationDetails
+      `Prelude.seq` Prelude.rnf logType
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf message

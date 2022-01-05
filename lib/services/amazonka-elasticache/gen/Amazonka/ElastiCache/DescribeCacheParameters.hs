@@ -190,9 +190,19 @@ instance Core.AWSRequest DescribeCacheParameters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheParameters
+instance Prelude.Hashable DescribeCacheParameters where
+  hashWithSalt _salt DescribeCacheParameters' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` cacheParameterGroupName
 
-instance Prelude.NFData DescribeCacheParameters
+instance Prelude.NFData DescribeCacheParameters where
+  rnf DescribeCacheParameters' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
 instance Core.ToHeaders DescribeCacheParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,3 +289,9 @@ describeCacheParametersResponse_httpStatus = Lens.lens (\DescribeCacheParameters
 instance
   Prelude.NFData
     DescribeCacheParametersResponse
+  where
+  rnf DescribeCacheParametersResponse' {..} =
+    Prelude.rnf cacheNodeTypeSpecificParameters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf httpStatus

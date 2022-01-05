@@ -149,9 +149,25 @@ instance Core.FromXML NodeGroupConfiguration where
       Prelude.<*> (x Core..@? "PrimaryOutpostArn")
       Prelude.<*> (x Core..@? "NodeGroupId")
 
-instance Prelude.Hashable NodeGroupConfiguration
+instance Prelude.Hashable NodeGroupConfiguration where
+  hashWithSalt _salt NodeGroupConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` replicaOutpostArns
+      `Prelude.hashWithSalt` replicaCount
+      `Prelude.hashWithSalt` primaryAvailabilityZone
+      `Prelude.hashWithSalt` replicaAvailabilityZones
+      `Prelude.hashWithSalt` primaryOutpostArn
+      `Prelude.hashWithSalt` nodeGroupId
 
-instance Prelude.NFData NodeGroupConfiguration
+instance Prelude.NFData NodeGroupConfiguration where
+  rnf NodeGroupConfiguration' {..} =
+    Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf replicaOutpostArns
+      `Prelude.seq` Prelude.rnf replicaCount
+      `Prelude.seq` Prelude.rnf primaryAvailabilityZone
+      `Prelude.seq` Prelude.rnf replicaAvailabilityZones
+      `Prelude.seq` Prelude.rnf primaryOutpostArn
+      `Prelude.seq` Prelude.rnf nodeGroupId
 
 instance Core.ToQuery NodeGroupConfiguration where
   toQuery NodeGroupConfiguration' {..} =

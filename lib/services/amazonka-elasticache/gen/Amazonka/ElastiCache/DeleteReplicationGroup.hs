@@ -140,9 +140,18 @@ instance Core.AWSRequest DeleteReplicationGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReplicationGroup
+instance Prelude.Hashable DeleteReplicationGroup where
+  hashWithSalt _salt DeleteReplicationGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` finalSnapshotIdentifier
+      `Prelude.hashWithSalt` retainPrimaryCluster
+      `Prelude.hashWithSalt` replicationGroupId
 
-instance Prelude.NFData DeleteReplicationGroup
+instance Prelude.NFData DeleteReplicationGroup where
+  rnf DeleteReplicationGroup' {..} =
+    Prelude.rnf finalSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf retainPrimaryCluster
+      `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance Core.ToHeaders DeleteReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,3 +213,7 @@ deleteReplicationGroupResponse_httpStatus = Lens.lens (\DeleteReplicationGroupRe
 instance
   Prelude.NFData
     DeleteReplicationGroupResponse
+  where
+  rnf DeleteReplicationGroupResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

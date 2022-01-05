@@ -99,6 +99,16 @@ instance Core.FromXML Event where
       Prelude.<*> (x Core..@? "Date")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable Event
+instance Prelude.Hashable Event where
+  hashWithSalt _salt Event' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData Event
+instance Prelude.NFData Event where
+  rnf Event' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf message

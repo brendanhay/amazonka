@@ -736,6 +736,69 @@ instance Core.FromXML Snapshot where
       Prelude.<*> (x Core..@? "AutomaticFailover")
       Prelude.<*> (x Core..@? "SnapshotSource")
 
-instance Prelude.Hashable Snapshot
+instance Prelude.Hashable Snapshot where
+  hashWithSalt _salt Snapshot' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` cacheClusterCreateTime
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` replicationGroupDescription
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` snapshotStatus
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` nodeSnapshots
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` preferredAvailabilityZone
+      `Prelude.hashWithSalt` numNodeGroups
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` preferredOutpostArn
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` automaticFailover
+      `Prelude.hashWithSalt` snapshotSource
 
-instance Prelude.NFData Snapshot
+instance Prelude.NFData Snapshot where
+  rnf Snapshot' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf cacheClusterCreateTime
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf replicationGroupDescription
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf snapshotStatus
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf nodeSnapshots
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf
+        preferredAvailabilityZone
+      `Prelude.seq` Prelude.rnf numNodeGroups
+      `Prelude.seq` Prelude.rnf
+        snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf snapshotName
+      `Prelude.seq` Prelude.rnf
+        preferredOutpostArn
+      `Prelude.seq` Prelude.rnf
+        replicationGroupId
+      `Prelude.seq` Prelude.rnf
+        numCacheNodes
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        automaticFailover
+      `Prelude.seq` Prelude.rnf
+        snapshotSource

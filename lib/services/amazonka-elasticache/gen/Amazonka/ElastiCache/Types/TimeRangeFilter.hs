@@ -62,9 +62,15 @@ timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTim
 timeRangeFilter_endTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
 timeRangeFilter_endTime = Lens.lens (\TimeRangeFilter' {endTime} -> endTime) (\s@TimeRangeFilter' {} a -> s {endTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable TimeRangeFilter
+instance Prelude.Hashable TimeRangeFilter where
+  hashWithSalt _salt TimeRangeFilter' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData TimeRangeFilter
+instance Prelude.NFData TimeRangeFilter where
+  rnf TimeRangeFilter' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToQuery TimeRangeFilter where
   toQuery TimeRangeFilter' {..} =

@@ -108,9 +108,17 @@ instance Core.AWSRequest BatchStopUpdateAction where
       "BatchStopUpdateActionResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable BatchStopUpdateAction
+instance Prelude.Hashable BatchStopUpdateAction where
+  hashWithSalt _salt BatchStopUpdateAction' {..} =
+    _salt `Prelude.hashWithSalt` cacheClusterIds
+      `Prelude.hashWithSalt` replicationGroupIds
+      `Prelude.hashWithSalt` serviceUpdateName
 
-instance Prelude.NFData BatchStopUpdateAction
+instance Prelude.NFData BatchStopUpdateAction where
+  rnf BatchStopUpdateAction' {..} =
+    Prelude.rnf cacheClusterIds
+      `Prelude.seq` Prelude.rnf replicationGroupIds
+      `Prelude.seq` Prelude.rnf serviceUpdateName
 
 instance Core.ToHeaders BatchStopUpdateAction where
   toHeaders = Prelude.const Prelude.mempty

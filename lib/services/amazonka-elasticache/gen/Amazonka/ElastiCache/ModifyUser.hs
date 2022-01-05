@@ -129,9 +129,21 @@ instance Core.AWSRequest ModifyUser where
       "ModifyUserResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyUser
+instance Prelude.Hashable ModifyUser where
+  hashWithSalt _salt ModifyUser' {..} =
+    _salt `Prelude.hashWithSalt` appendAccessString
+      `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` passwords
+      `Prelude.hashWithSalt` noPasswordRequired
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData ModifyUser
+instance Prelude.NFData ModifyUser where
+  rnf ModifyUser' {..} =
+    Prelude.rnf appendAccessString
+      `Prelude.seq` Prelude.rnf accessString
+      `Prelude.seq` Prelude.rnf passwords
+      `Prelude.seq` Prelude.rnf noPasswordRequired
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders ModifyUser where
   toHeaders = Prelude.const Prelude.mempty

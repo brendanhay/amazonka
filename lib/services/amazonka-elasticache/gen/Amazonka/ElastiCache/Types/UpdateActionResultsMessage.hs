@@ -75,6 +75,13 @@ instance Core.FromXML UpdateActionResultsMessage where
                       Prelude.>>= Core.may (Core.parseXMLList "ProcessedUpdateAction")
                   )
 
-instance Prelude.Hashable UpdateActionResultsMessage
+instance Prelude.Hashable UpdateActionResultsMessage where
+  hashWithSalt _salt UpdateActionResultsMessage' {..} =
+    _salt
+      `Prelude.hashWithSalt` unprocessedUpdateActions
+      `Prelude.hashWithSalt` processedUpdateActions
 
-instance Prelude.NFData UpdateActionResultsMessage
+instance Prelude.NFData UpdateActionResultsMessage where
+  rnf UpdateActionResultsMessage' {..} =
+    Prelude.rnf unprocessedUpdateActions
+      `Prelude.seq` Prelude.rnf processedUpdateActions

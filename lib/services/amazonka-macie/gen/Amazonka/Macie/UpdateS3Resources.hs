@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateS3Resources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateS3Resources
+instance Prelude.Hashable UpdateS3Resources where
+  hashWithSalt _salt UpdateS3Resources' {..} =
+    _salt `Prelude.hashWithSalt` memberAccountId
+      `Prelude.hashWithSalt` s3ResourcesUpdate
 
-instance Prelude.NFData UpdateS3Resources
+instance Prelude.NFData UpdateS3Resources where
+  rnf UpdateS3Resources' {..} =
+    Prelude.rnf memberAccountId
+      `Prelude.seq` Prelude.rnf s3ResourcesUpdate
 
 instance Core.ToHeaders UpdateS3Resources where
   toHeaders =
@@ -186,4 +192,7 @@ updateS3ResourcesResponse_failedS3Resources = Lens.lens (\UpdateS3ResourcesRespo
 updateS3ResourcesResponse_httpStatus :: Lens.Lens' UpdateS3ResourcesResponse Prelude.Int
 updateS3ResourcesResponse_httpStatus = Lens.lens (\UpdateS3ResourcesResponse' {httpStatus} -> httpStatus) (\s@UpdateS3ResourcesResponse' {} a -> s {httpStatus = a} :: UpdateS3ResourcesResponse)
 
-instance Prelude.NFData UpdateS3ResourcesResponse
+instance Prelude.NFData UpdateS3ResourcesResponse where
+  rnf UpdateS3ResourcesResponse' {..} =
+    Prelude.rnf failedS3Resources
+      `Prelude.seq` Prelude.rnf httpStatus

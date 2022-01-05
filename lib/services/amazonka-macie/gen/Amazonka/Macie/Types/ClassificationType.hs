@@ -90,9 +90,15 @@ instance Core.FromJSON ClassificationType where
             Prelude.<*> (x Core..: "continuous")
       )
 
-instance Prelude.Hashable ClassificationType
+instance Prelude.Hashable ClassificationType where
+  hashWithSalt _salt ClassificationType' {..} =
+    _salt `Prelude.hashWithSalt` oneTime
+      `Prelude.hashWithSalt` continuous
 
-instance Prelude.NFData ClassificationType
+instance Prelude.NFData ClassificationType where
+  rnf ClassificationType' {..} =
+    Prelude.rnf oneTime
+      `Prelude.seq` Prelude.rnf continuous
 
 instance Core.ToJSON ClassificationType where
   toJSON ClassificationType' {..} =

@@ -85,9 +85,12 @@ instance Core.FromJSON Attribute where
           Attribute' Prelude.<$> (x Core..: "jsonPath")
       )
 
-instance Prelude.Hashable Attribute
+instance Prelude.Hashable Attribute where
+  hashWithSalt _salt Attribute' {..} =
+    _salt `Prelude.hashWithSalt` jsonPath
 
-instance Prelude.NFData Attribute
+instance Prelude.NFData Attribute where
+  rnf Attribute' {..} = Prelude.rnf jsonPath
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =

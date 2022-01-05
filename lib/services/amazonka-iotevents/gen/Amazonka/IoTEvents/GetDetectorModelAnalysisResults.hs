@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     GetDetectorModelAnalysisResults
+  where
+  hashWithSalt
+    _salt
+    GetDetectorModelAnalysisResults' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` analysisId
 
 instance
   Prelude.NFData
     GetDetectorModelAnalysisResults
+  where
+  rnf GetDetectorModelAnalysisResults' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf analysisId
 
 instance
   Core.ToHeaders
@@ -203,3 +215,8 @@ getDetectorModelAnalysisResultsResponse_httpStatus = Lens.lens (\GetDetectorMode
 instance
   Prelude.NFData
     GetDetectorModelAnalysisResultsResponse
+  where
+  rnf GetDetectorModelAnalysisResultsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf analysisResults
+      `Prelude.seq` Prelude.rnf httpStatus

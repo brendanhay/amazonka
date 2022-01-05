@@ -84,9 +84,15 @@ instance Core.FromJSON IotTopicPublishAction where
             Prelude.<*> (x Core..: "mqttTopic")
       )
 
-instance Prelude.Hashable IotTopicPublishAction
+instance Prelude.Hashable IotTopicPublishAction where
+  hashWithSalt _salt IotTopicPublishAction' {..} =
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` mqttTopic
 
-instance Prelude.NFData IotTopicPublishAction
+instance Prelude.NFData IotTopicPublishAction where
+  rnf IotTopicPublishAction' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf mqttTopic
 
 instance Core.ToJSON IotTopicPublishAction where
   toJSON IotTopicPublishAction' {..} =

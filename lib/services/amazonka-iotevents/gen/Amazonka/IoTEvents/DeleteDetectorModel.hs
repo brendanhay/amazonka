@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteDetectorModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDetectorModel
+instance Prelude.Hashable DeleteDetectorModel where
+  hashWithSalt _salt DeleteDetectorModel' {..} =
+    _salt `Prelude.hashWithSalt` detectorModelName
 
-instance Prelude.NFData DeleteDetectorModel
+instance Prelude.NFData DeleteDetectorModel where
+  rnf DeleteDetectorModel' {..} =
+    Prelude.rnf detectorModelName
 
 instance Core.ToHeaders DeleteDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,4 +137,6 @@ newDeleteDetectorModelResponse pHttpStatus_ =
 deleteDetectorModelResponse_httpStatus :: Lens.Lens' DeleteDetectorModelResponse Prelude.Int
 deleteDetectorModelResponse_httpStatus = Lens.lens (\DeleteDetectorModelResponse' {httpStatus} -> httpStatus) (\s@DeleteDetectorModelResponse' {} a -> s {httpStatus = a} :: DeleteDetectorModelResponse)
 
-instance Prelude.NFData DeleteDetectorModelResponse
+instance Prelude.NFData DeleteDetectorModelResponse where
+  rnf DeleteDetectorModelResponse' {..} =
+    Prelude.rnf httpStatus

@@ -177,9 +177,26 @@ instance Core.AWSRequest CreateDetectorModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDetectorModel
+instance Prelude.Hashable CreateDetectorModel where
+  hashWithSalt _salt CreateDetectorModel' {..} =
+    _salt
+      `Prelude.hashWithSalt` detectorModelDescription
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` evaluationMethod
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` detectorModelDefinition
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateDetectorModel
+instance Prelude.NFData CreateDetectorModel where
+  rnf CreateDetectorModel' {..} =
+    Prelude.rnf detectorModelDescription
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf evaluationMethod
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf detectorModelDefinition
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,4 +266,7 @@ createDetectorModelResponse_detectorModelConfiguration = Lens.lens (\CreateDetec
 createDetectorModelResponse_httpStatus :: Lens.Lens' CreateDetectorModelResponse Prelude.Int
 createDetectorModelResponse_httpStatus = Lens.lens (\CreateDetectorModelResponse' {httpStatus} -> httpStatus) (\s@CreateDetectorModelResponse' {} a -> s {httpStatus = a} :: CreateDetectorModelResponse)
 
-instance Prelude.NFData CreateDetectorModelResponse
+instance Prelude.NFData CreateDetectorModelResponse where
+  rnf CreateDetectorModelResponse' {..} =
+    Prelude.rnf detectorModelConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

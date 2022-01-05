@@ -118,9 +118,15 @@ instance Core.FromJSON DynamoDBv2Action where
             Prelude.<*> (x Core..: "tableName")
       )
 
-instance Prelude.Hashable DynamoDBv2Action
+instance Prelude.Hashable DynamoDBv2Action where
+  hashWithSalt _salt DynamoDBv2Action' {..} =
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DynamoDBv2Action
+instance Prelude.NFData DynamoDBv2Action where
+  rnf DynamoDBv2Action' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =

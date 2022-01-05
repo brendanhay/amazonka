@@ -114,9 +114,17 @@ instance Core.AWSRequest ListAlarmModelVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAlarmModelVersions
+instance Prelude.Hashable ListAlarmModelVersions where
+  hashWithSalt _salt ListAlarmModelVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` alarmModelName
 
-instance Prelude.NFData ListAlarmModelVersions
+instance Prelude.NFData ListAlarmModelVersions where
+  rnf ListAlarmModelVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Core.ToHeaders ListAlarmModelVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +198,8 @@ listAlarmModelVersionsResponse_httpStatus = Lens.lens (\ListAlarmModelVersionsRe
 instance
   Prelude.NFData
     ListAlarmModelVersionsResponse
+  where
+  rnf ListAlarmModelVersionsResponse' {..} =
+    Prelude.rnf alarmModelVersionSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

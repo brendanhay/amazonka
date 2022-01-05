@@ -142,9 +142,29 @@ instance Core.FromJSON AlarmAction where
             Prelude.<*> (x Core..:? "sqs")
       )
 
-instance Prelude.Hashable AlarmAction
+instance Prelude.Hashable AlarmAction where
+  hashWithSalt _salt AlarmAction' {..} =
+    _salt `Prelude.hashWithSalt` iotTopicPublish
+      `Prelude.hashWithSalt` dynamoDBv2
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` dynamoDB
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` iotSiteWise
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` iotEvents
+      `Prelude.hashWithSalt` sqs
 
-instance Prelude.NFData AlarmAction
+instance Prelude.NFData AlarmAction where
+  rnf AlarmAction' {..} =
+    Prelude.rnf iotTopicPublish
+      `Prelude.seq` Prelude.rnf dynamoDBv2
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf dynamoDB
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf iotSiteWise
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf iotEvents
+      `Prelude.seq` Prelude.rnf sqs
 
 instance Core.ToJSON AlarmAction where
   toJSON AlarmAction' {..} =

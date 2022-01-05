@@ -140,6 +140,24 @@ instance Core.FromJSON DetectorModelVersionSummary where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable DetectorModelVersionSummary
+instance Prelude.Hashable DetectorModelVersionSummary where
+  hashWithSalt _salt DetectorModelVersionSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` detectorModelArn
+      `Prelude.hashWithSalt` detectorModelVersion
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` evaluationMethod
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DetectorModelVersionSummary
+instance Prelude.NFData DetectorModelVersionSummary where
+  rnf DetectorModelVersionSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf detectorModelArn
+      `Prelude.seq` Prelude.rnf detectorModelVersion
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf evaluationMethod
+      `Prelude.seq` Prelude.rnf roleArn

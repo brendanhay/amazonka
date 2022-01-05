@@ -54,9 +54,14 @@ newIotSiteWiseInputIdentifier =
 iotSiteWiseInputIdentifier_iotSiteWiseAssetModelPropertyIdentifier :: Lens.Lens' IotSiteWiseInputIdentifier (Prelude.Maybe IotSiteWiseAssetModelPropertyIdentifier)
 iotSiteWiseInputIdentifier_iotSiteWiseAssetModelPropertyIdentifier = Lens.lens (\IotSiteWiseInputIdentifier' {iotSiteWiseAssetModelPropertyIdentifier} -> iotSiteWiseAssetModelPropertyIdentifier) (\s@IotSiteWiseInputIdentifier' {} a -> s {iotSiteWiseAssetModelPropertyIdentifier = a} :: IotSiteWiseInputIdentifier)
 
-instance Prelude.Hashable IotSiteWiseInputIdentifier
+instance Prelude.Hashable IotSiteWiseInputIdentifier where
+  hashWithSalt _salt IotSiteWiseInputIdentifier' {..} =
+    _salt
+      `Prelude.hashWithSalt` iotSiteWiseAssetModelPropertyIdentifier
 
-instance Prelude.NFData IotSiteWiseInputIdentifier
+instance Prelude.NFData IotSiteWiseInputIdentifier where
+  rnf IotSiteWiseInputIdentifier' {..} =
+    Prelude.rnf iotSiteWiseAssetModelPropertyIdentifier
 
 instance Core.ToJSON IotSiteWiseInputIdentifier where
   toJSON IotSiteWiseInputIdentifier' {..} =

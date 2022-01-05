@@ -62,9 +62,12 @@ instance Core.FromJSON AlarmRule where
           AlarmRule' Prelude.<$> (x Core..:? "simpleRule")
       )
 
-instance Prelude.Hashable AlarmRule
+instance Prelude.Hashable AlarmRule where
+  hashWithSalt _salt AlarmRule' {..} =
+    _salt `Prelude.hashWithSalt` simpleRule
 
-instance Prelude.NFData AlarmRule
+instance Prelude.NFData AlarmRule where
+  rnf AlarmRule' {..} = Prelude.rnf simpleRule
 
 instance Core.ToJSON AlarmRule where
   toJSON AlarmRule' {..} =

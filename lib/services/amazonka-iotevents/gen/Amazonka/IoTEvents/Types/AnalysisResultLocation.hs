@@ -63,6 +63,9 @@ instance Core.FromJSON AnalysisResultLocation where
             Prelude.<$> (x Core..:? "path")
       )
 
-instance Prelude.Hashable AnalysisResultLocation
+instance Prelude.Hashable AnalysisResultLocation where
+  hashWithSalt _salt AnalysisResultLocation' {..} =
+    _salt `Prelude.hashWithSalt` path
 
-instance Prelude.NFData AnalysisResultLocation
+instance Prelude.NFData AnalysisResultLocation where
+  rnf AnalysisResultLocation' {..} = Prelude.rnf path

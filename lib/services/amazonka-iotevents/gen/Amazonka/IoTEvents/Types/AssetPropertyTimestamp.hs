@@ -111,9 +111,15 @@ instance Core.FromJSON AssetPropertyTimestamp where
             Prelude.<*> (x Core..: "timeInSeconds")
       )
 
-instance Prelude.Hashable AssetPropertyTimestamp
+instance Prelude.Hashable AssetPropertyTimestamp where
+  hashWithSalt _salt AssetPropertyTimestamp' {..} =
+    _salt `Prelude.hashWithSalt` offsetInNanos
+      `Prelude.hashWithSalt` timeInSeconds
 
-instance Prelude.NFData AssetPropertyTimestamp
+instance Prelude.NFData AssetPropertyTimestamp where
+  rnf AssetPropertyTimestamp' {..} =
+    Prelude.rnf offsetInNanos
+      `Prelude.seq` Prelude.rnf timeInSeconds
 
 instance Core.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =

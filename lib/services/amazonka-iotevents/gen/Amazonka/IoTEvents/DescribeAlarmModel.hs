@@ -129,9 +129,15 @@ instance Core.AWSRequest DescribeAlarmModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlarmModel
+instance Prelude.Hashable DescribeAlarmModel where
+  hashWithSalt _salt DescribeAlarmModel' {..} =
+    _salt `Prelude.hashWithSalt` alarmModelVersion
+      `Prelude.hashWithSalt` alarmModelName
 
-instance Prelude.NFData DescribeAlarmModel
+instance Prelude.NFData DescribeAlarmModel where
+  rnf DescribeAlarmModel' {..} =
+    Prelude.rnf alarmModelVersion
+      `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Core.ToHeaders DescribeAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -377,4 +383,21 @@ describeAlarmModelResponse_roleArn = Lens.lens (\DescribeAlarmModelResponse' {ro
 describeAlarmModelResponse_httpStatus :: Lens.Lens' DescribeAlarmModelResponse Prelude.Int
 describeAlarmModelResponse_httpStatus = Lens.lens (\DescribeAlarmModelResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmModelResponse' {} a -> s {httpStatus = a} :: DescribeAlarmModelResponse)
 
-instance Prelude.NFData DescribeAlarmModelResponse
+instance Prelude.NFData DescribeAlarmModelResponse where
+  rnf DescribeAlarmModelResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf alarmRule
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf alarmNotification
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf alarmEventActions
+      `Prelude.seq` Prelude.rnf alarmCapabilities
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf alarmModelVersion
+      `Prelude.seq` Prelude.rnf alarmModelArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

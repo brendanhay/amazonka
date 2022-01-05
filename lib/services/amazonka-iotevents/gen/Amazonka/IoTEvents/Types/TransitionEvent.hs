@@ -105,9 +105,19 @@ instance Core.FromJSON TransitionEvent where
             Prelude.<*> (x Core..: "nextState")
       )
 
-instance Prelude.Hashable TransitionEvent
+instance Prelude.Hashable TransitionEvent where
+  hashWithSalt _salt TransitionEvent' {..} =
+    _salt `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` eventName
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` nextState
 
-instance Prelude.NFData TransitionEvent
+instance Prelude.NFData TransitionEvent where
+  rnf TransitionEvent' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf eventName
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf nextState
 
 instance Core.ToJSON TransitionEvent where
   toJSON TransitionEvent' {..} =

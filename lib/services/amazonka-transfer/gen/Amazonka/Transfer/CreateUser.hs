@@ -417,9 +417,31 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (x Core..:> "UserName")
       )
 
-instance Prelude.Hashable CreateUser
+instance Prelude.Hashable CreateUser where
+  hashWithSalt _salt CreateUser' {..} =
+    _salt `Prelude.hashWithSalt` homeDirectoryType
+      `Prelude.hashWithSalt` sshPublicKeyBody
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData CreateUser
+instance Prelude.NFData CreateUser where
+  rnf CreateUser' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf sshPublicKeyBody
+      `Prelude.seq` Prelude.rnf posixProfile
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders CreateUser where
   toHeaders =
@@ -514,4 +536,8 @@ createUserResponse_serverId = Lens.lens (\CreateUserResponse' {serverId} -> serv
 createUserResponse_userName :: Lens.Lens' CreateUserResponse Prelude.Text
 createUserResponse_userName = Lens.lens (\CreateUserResponse' {userName} -> userName) (\s@CreateUserResponse' {} a -> s {userName = a} :: CreateUserResponse)
 
-instance Prelude.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse where
+  rnf CreateUserResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf userName

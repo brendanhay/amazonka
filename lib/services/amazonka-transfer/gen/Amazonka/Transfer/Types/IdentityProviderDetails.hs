@@ -93,9 +93,17 @@ instance Core.FromJSON IdentityProviderDetails where
             Prelude.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable IdentityProviderDetails
+instance Prelude.Hashable IdentityProviderDetails where
+  hashWithSalt _salt IdentityProviderDetails' {..} =
+    _salt `Prelude.hashWithSalt` invocationRole
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData IdentityProviderDetails
+instance Prelude.NFData IdentityProviderDetails where
+  rnf IdentityProviderDetails' {..} =
+    Prelude.rnf invocationRole
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON IdentityProviderDetails where
   toJSON IdentityProviderDetails' {..} =

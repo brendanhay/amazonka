@@ -102,6 +102,14 @@ instance Core.FromJSON SshPublicKey where
             Prelude.<*> (x Core..: "SshPublicKeyId")
       )
 
-instance Prelude.Hashable SshPublicKey
+instance Prelude.Hashable SshPublicKey where
+  hashWithSalt _salt SshPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` dateImported
+      `Prelude.hashWithSalt` sshPublicKeyBody
+      `Prelude.hashWithSalt` sshPublicKeyId
 
-instance Prelude.NFData SshPublicKey
+instance Prelude.NFData SshPublicKey where
+  rnf SshPublicKey' {..} =
+    Prelude.rnf dateImported
+      `Prelude.seq` Prelude.rnf sshPublicKeyBody
+      `Prelude.seq` Prelude.rnf sshPublicKeyId

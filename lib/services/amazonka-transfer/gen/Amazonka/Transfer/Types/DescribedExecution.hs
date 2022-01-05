@@ -151,6 +151,24 @@ instance Core.FromJSON DescribedExecution where
             Prelude.<*> (x Core..:? "ExecutionRole")
       )
 
-instance Prelude.Hashable DescribedExecution
+instance Prelude.Hashable DescribedExecution where
+  hashWithSalt _salt DescribedExecution' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` results
+      `Prelude.hashWithSalt` initialFileLocation
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` serviceMetadata
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` executionRole
 
-instance Prelude.NFData DescribedExecution
+instance Prelude.NFData DescribedExecution where
+  rnf DescribedExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf results
+      `Prelude.seq` Prelude.rnf initialFileLocation
+      `Prelude.seq` Prelude.rnf posixProfile
+      `Prelude.seq` Prelude.rnf serviceMetadata
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf executionRole

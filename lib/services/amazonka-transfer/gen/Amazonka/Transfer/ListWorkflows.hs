@@ -104,9 +104,15 @@ instance Core.AWSRequest ListWorkflows where
             Prelude.<*> (x Core..?> "Workflows" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListWorkflows
+instance Prelude.Hashable ListWorkflows where
+  hashWithSalt _salt ListWorkflows' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWorkflows
+instance Prelude.NFData ListWorkflows where
+  rnf ListWorkflows' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkflows where
   toHeaders =
@@ -191,4 +197,8 @@ listWorkflowsResponse_httpStatus = Lens.lens (\ListWorkflowsResponse' {httpStatu
 listWorkflowsResponse_workflows :: Lens.Lens' ListWorkflowsResponse [ListedWorkflow]
 listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows} -> workflows) (\s@ListWorkflowsResponse' {} a -> s {workflows = a} :: ListWorkflowsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorkflowsResponse
+instance Prelude.NFData ListWorkflowsResponse where
+  rnf ListWorkflowsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workflows

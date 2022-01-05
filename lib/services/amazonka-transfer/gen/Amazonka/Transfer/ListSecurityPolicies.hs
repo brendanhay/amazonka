@@ -113,9 +113,15 @@ instance Core.AWSRequest ListSecurityPolicies where
                         )
       )
 
-instance Prelude.Hashable ListSecurityPolicies
+instance Prelude.Hashable ListSecurityPolicies where
+  hashWithSalt _salt ListSecurityPolicies' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSecurityPolicies
+instance Prelude.NFData ListSecurityPolicies where
+  rnf ListSecurityPolicies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSecurityPolicies where
   toHeaders =
@@ -204,4 +210,8 @@ listSecurityPoliciesResponse_httpStatus = Lens.lens (\ListSecurityPoliciesRespon
 listSecurityPoliciesResponse_securityPolicyNames :: Lens.Lens' ListSecurityPoliciesResponse [Prelude.Text]
 listSecurityPoliciesResponse_securityPolicyNames = Lens.lens (\ListSecurityPoliciesResponse' {securityPolicyNames} -> securityPolicyNames) (\s@ListSecurityPoliciesResponse' {} a -> s {securityPolicyNames = a} :: ListSecurityPoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListSecurityPoliciesResponse
+instance Prelude.NFData ListSecurityPoliciesResponse where
+  rnf ListSecurityPoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityPolicyNames

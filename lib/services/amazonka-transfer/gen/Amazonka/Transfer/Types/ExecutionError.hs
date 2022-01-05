@@ -85,6 +85,11 @@ instance Core.FromJSON ExecutionError where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Message")
       )
 
-instance Prelude.Hashable ExecutionError
+instance Prelude.Hashable ExecutionError where
+  hashWithSalt _salt ExecutionError' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ExecutionError
+instance Prelude.NFData ExecutionError where
+  rnf ExecutionError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

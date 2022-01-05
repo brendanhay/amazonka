@@ -113,9 +113,15 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (x Core..:> "User")
       )
 
-instance Prelude.Hashable DescribeUser
+instance Prelude.Hashable DescribeUser where
+  hashWithSalt _salt DescribeUser' {..} =
+    _salt `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DescribeUser
+instance Prelude.NFData DescribeUser where
+  rnf DescribeUser' {..} =
+    Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders DescribeUser where
   toHeaders =
@@ -207,4 +213,8 @@ describeUserResponse_serverId = Lens.lens (\DescribeUserResponse' {serverId} -> 
 describeUserResponse_user :: Lens.Lens' DescribeUserResponse DescribedUser
 describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\s@DescribeUserResponse' {} a -> s {user = a} :: DescribeUserResponse)
 
-instance Prelude.NFData DescribeUserResponse
+instance Prelude.NFData DescribeUserResponse where
+  rnf DescribeUserResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf user

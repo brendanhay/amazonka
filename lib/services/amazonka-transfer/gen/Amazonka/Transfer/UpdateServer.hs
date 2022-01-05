@@ -493,9 +493,33 @@ instance Core.AWSRequest UpdateServer where
             Prelude.<*> (x Core..:> "ServerId")
       )
 
-instance Prelude.Hashable UpdateServer
+instance Prelude.Hashable UpdateServer where
+  hashWithSalt _salt UpdateServer' {..} =
+    _salt `Prelude.hashWithSalt` protocolDetails
+      `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` hostKey
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` securityPolicyName
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` identityProviderDetails
+      `Prelude.hashWithSalt` workflowDetails
+      `Prelude.hashWithSalt` endpointDetails
+      `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData UpdateServer
+instance Prelude.NFData UpdateServer where
+  rnf UpdateServer' {..} =
+    Prelude.rnf protocolDetails
+      `Prelude.seq` Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf hostKey
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf securityPolicyName
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf identityProviderDetails
+      `Prelude.seq` Prelude.rnf workflowDetails
+      `Prelude.seq` Prelude.rnf endpointDetails
+      `Prelude.seq` Prelude.rnf serverId
 
 instance Core.ToHeaders UpdateServer where
   toHeaders =
@@ -584,4 +608,7 @@ updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus}
 updateServerResponse_serverId :: Lens.Lens' UpdateServerResponse Prelude.Text
 updateServerResponse_serverId = Lens.lens (\UpdateServerResponse' {serverId} -> serverId) (\s@UpdateServerResponse' {} a -> s {serverId = a} :: UpdateServerResponse)
 
-instance Prelude.NFData UpdateServerResponse
+instance Prelude.NFData UpdateServerResponse where
+  rnf UpdateServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverId

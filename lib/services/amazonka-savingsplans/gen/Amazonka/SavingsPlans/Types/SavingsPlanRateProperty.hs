@@ -71,6 +71,11 @@ instance Core.FromJSON SavingsPlanRateProperty where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable SavingsPlanRateProperty
+instance Prelude.Hashable SavingsPlanRateProperty where
+  hashWithSalt _salt SavingsPlanRateProperty' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SavingsPlanRateProperty
+instance Prelude.NFData SavingsPlanRateProperty where
+  rnf SavingsPlanRateProperty' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

@@ -62,9 +62,14 @@ savingsPlanFilter_values = Lens.lens (\SavingsPlanFilter' {values} -> values) (\
 savingsPlanFilter_name :: Lens.Lens' SavingsPlanFilter (Prelude.Maybe SavingsPlansFilterName)
 savingsPlanFilter_name = Lens.lens (\SavingsPlanFilter' {name} -> name) (\s@SavingsPlanFilter' {} a -> s {name = a} :: SavingsPlanFilter)
 
-instance Prelude.Hashable SavingsPlanFilter
+instance Prelude.Hashable SavingsPlanFilter where
+  hashWithSalt _salt SavingsPlanFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SavingsPlanFilter
+instance Prelude.NFData SavingsPlanFilter where
+  rnf SavingsPlanFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SavingsPlanFilter where
   toJSON SavingsPlanFilter' {..} =

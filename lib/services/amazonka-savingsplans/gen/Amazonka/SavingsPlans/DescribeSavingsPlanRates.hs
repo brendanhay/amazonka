@@ -126,9 +126,19 @@ instance Core.AWSRequest DescribeSavingsPlanRates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSavingsPlanRates
+instance Prelude.Hashable DescribeSavingsPlanRates where
+  hashWithSalt _salt DescribeSavingsPlanRates' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` savingsPlanId
 
-instance Prelude.NFData DescribeSavingsPlanRates
+instance Prelude.NFData DescribeSavingsPlanRates where
+  rnf DescribeSavingsPlanRates' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf savingsPlanId
 
 instance Core.ToHeaders DescribeSavingsPlanRates where
   toHeaders =
@@ -222,3 +232,9 @@ describeSavingsPlanRatesResponse_httpStatus = Lens.lens (\DescribeSavingsPlanRat
 instance
   Prelude.NFData
     DescribeSavingsPlanRatesResponse
+  where
+  rnf DescribeSavingsPlanRatesResponse' {..} =
+    Prelude.rnf searchResults
+      `Prelude.seq` Prelude.rnf savingsPlanId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

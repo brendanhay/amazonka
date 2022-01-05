@@ -101,9 +101,15 @@ instance Core.AWSRequest UpdateWorkspaceBundle where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorkspaceBundle
+instance Prelude.Hashable UpdateWorkspaceBundle where
+  hashWithSalt _salt UpdateWorkspaceBundle' {..} =
+    _salt `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData UpdateWorkspaceBundle
+instance Prelude.NFData UpdateWorkspaceBundle where
+  rnf UpdateWorkspaceBundle' {..} =
+    Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders UpdateWorkspaceBundle where
   toHeaders =
@@ -165,4 +171,6 @@ newUpdateWorkspaceBundleResponse pHttpStatus_ =
 updateWorkspaceBundleResponse_httpStatus :: Lens.Lens' UpdateWorkspaceBundleResponse Prelude.Int
 updateWorkspaceBundleResponse_httpStatus = Lens.lens (\UpdateWorkspaceBundleResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkspaceBundleResponse' {} a -> s {httpStatus = a} :: UpdateWorkspaceBundleResponse)
 
-instance Prelude.NFData UpdateWorkspaceBundleResponse
+instance Prelude.NFData UpdateWorkspaceBundleResponse where
+  rnf UpdateWorkspaceBundleResponse' {..} =
+    Prelude.rnf httpStatus

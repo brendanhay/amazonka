@@ -160,10 +160,22 @@ instance
 instance
   Prelude.Hashable
     UpdateWorkspaceImagePermission
+  where
+  hashWithSalt
+    _salt
+    UpdateWorkspaceImagePermission' {..} =
+      _salt `Prelude.hashWithSalt` imageId
+        `Prelude.hashWithSalt` allowCopyImage
+        `Prelude.hashWithSalt` sharedAccountId
 
 instance
   Prelude.NFData
     UpdateWorkspaceImagePermission
+  where
+  rnf UpdateWorkspaceImagePermission' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf allowCopyImage
+      `Prelude.seq` Prelude.rnf sharedAccountId
 
 instance
   Core.ToHeaders
@@ -235,3 +247,6 @@ updateWorkspaceImagePermissionResponse_httpStatus = Lens.lens (\UpdateWorkspaceI
 instance
   Prelude.NFData
     UpdateWorkspaceImagePermissionResponse
+  where
+  rnf UpdateWorkspaceImagePermissionResponse' {..} =
+    Prelude.rnf httpStatus

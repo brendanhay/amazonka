@@ -122,8 +122,13 @@ instance Core.AWSRequest DescribeAccountModifications where
 instance
   Prelude.Hashable
     DescribeAccountModifications
+  where
+  hashWithSalt _salt DescribeAccountModifications' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeAccountModifications
+instance Prelude.NFData DescribeAccountModifications where
+  rnf DescribeAccountModifications' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeAccountModifications where
   toHeaders =
@@ -207,3 +212,8 @@ describeAccountModificationsResponse_httpStatus = Lens.lens (\DescribeAccountMod
 instance
   Prelude.NFData
     DescribeAccountModificationsResponse
+  where
+  rnf DescribeAccountModificationsResponse' {..} =
+    Prelude.rnf accountModifications
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,6 +65,10 @@ instance Core.FromJSON ImagePermission where
             Prelude.<$> (x Core..:? "SharedAccountId")
       )
 
-instance Prelude.Hashable ImagePermission
+instance Prelude.Hashable ImagePermission where
+  hashWithSalt _salt ImagePermission' {..} =
+    _salt `Prelude.hashWithSalt` sharedAccountId
 
-instance Prelude.NFData ImagePermission
+instance Prelude.NFData ImagePermission where
+  rnf ImagePermission' {..} =
+    Prelude.rnf sharedAccountId

@@ -92,6 +92,16 @@ instance Core.FromJSON WorkspacesIpGroup where
             Prelude.<*> (x Core..:? "groupName")
       )
 
-instance Prelude.Hashable WorkspacesIpGroup
+instance Prelude.Hashable WorkspacesIpGroup where
+  hashWithSalt _salt WorkspacesIpGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupDesc
+      `Prelude.hashWithSalt` userRules
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData WorkspacesIpGroup
+instance Prelude.NFData WorkspacesIpGroup where
+  rnf WorkspacesIpGroup' {..} =
+    Prelude.rnf groupDesc
+      `Prelude.seq` Prelude.rnf userRules
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName

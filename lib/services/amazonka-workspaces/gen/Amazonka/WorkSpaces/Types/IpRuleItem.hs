@@ -71,9 +71,15 @@ instance Core.FromJSON IpRuleItem where
             Prelude.<*> (x Core..:? "ipRule")
       )
 
-instance Prelude.Hashable IpRuleItem
+instance Prelude.Hashable IpRuleItem where
+  hashWithSalt _salt IpRuleItem' {..} =
+    _salt `Prelude.hashWithSalt` ruleDesc
+      `Prelude.hashWithSalt` ipRule
 
-instance Prelude.NFData IpRuleItem
+instance Prelude.NFData IpRuleItem where
+  rnf IpRuleItem' {..} =
+    Prelude.rnf ruleDesc
+      `Prelude.seq` Prelude.rnf ipRule
 
 instance Core.ToJSON IpRuleItem where
   toJSON IpRuleItem' {..} =

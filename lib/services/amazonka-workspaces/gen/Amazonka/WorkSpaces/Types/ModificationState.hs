@@ -73,6 +73,12 @@ instance Core.FromJSON ModificationState where
             Prelude.<*> (x Core..:? "Resource")
       )
 
-instance Prelude.Hashable ModificationState
+instance Prelude.Hashable ModificationState where
+  hashWithSalt _salt ModificationState' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` resource
 
-instance Prelude.NFData ModificationState
+instance Prelude.NFData ModificationState where
+  rnf ModificationState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf resource

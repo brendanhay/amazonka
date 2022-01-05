@@ -95,9 +95,13 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkspaceSnapshots
+instance Prelude.Hashable DescribeWorkspaceSnapshots where
+  hashWithSalt _salt DescribeWorkspaceSnapshots' {..} =
+    _salt `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DescribeWorkspaceSnapshots
+instance Prelude.NFData DescribeWorkspaceSnapshots where
+  rnf DescribeWorkspaceSnapshots' {..} =
+    Prelude.rnf workspaceId
 
 instance Core.ToHeaders DescribeWorkspaceSnapshots where
   toHeaders =
@@ -184,3 +188,8 @@ describeWorkspaceSnapshotsResponse_httpStatus = Lens.lens (\DescribeWorkspaceSna
 instance
   Prelude.NFData
     DescribeWorkspaceSnapshotsResponse
+  where
+  rnf DescribeWorkspaceSnapshotsResponse' {..} =
+    Prelude.rnf restoreSnapshots
+      `Prelude.seq` Prelude.rnf rebuildSnapshots
+      `Prelude.seq` Prelude.rnf httpStatus

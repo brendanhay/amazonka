@@ -96,9 +96,15 @@ instance Core.AWSRequest RevokeIpRules where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeIpRules
+instance Prelude.Hashable RevokeIpRules where
+  hashWithSalt _salt RevokeIpRules' {..} =
+    _salt `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` userRules
 
-instance Prelude.NFData RevokeIpRules
+instance Prelude.NFData RevokeIpRules where
+  rnf RevokeIpRules' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf userRules
 
 instance Core.ToHeaders RevokeIpRules where
   toHeaders =
@@ -157,4 +163,6 @@ newRevokeIpRulesResponse pHttpStatus_ =
 revokeIpRulesResponse_httpStatus :: Lens.Lens' RevokeIpRulesResponse Prelude.Int
 revokeIpRulesResponse_httpStatus = Lens.lens (\RevokeIpRulesResponse' {httpStatus} -> httpStatus) (\s@RevokeIpRulesResponse' {} a -> s {httpStatus = a} :: RevokeIpRulesResponse)
 
-instance Prelude.NFData RevokeIpRulesResponse
+instance Prelude.NFData RevokeIpRulesResponse where
+  rnf RevokeIpRulesResponse' {..} =
+    Prelude.rnf httpStatus

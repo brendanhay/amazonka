@@ -160,6 +160,28 @@ instance Core.FromJSON WorkspaceBundle where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable WorkspaceBundle
+instance Prelude.Hashable WorkspaceBundle where
+  hashWithSalt _salt WorkspaceBundle' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` rootStorage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` computeType
+      `Prelude.hashWithSalt` userStorage
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData WorkspaceBundle
+instance Prelude.NFData WorkspaceBundle where
+  rnf WorkspaceBundle' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf rootStorage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf userStorage
+      `Prelude.seq` Prelude.rnf description

@@ -242,6 +242,38 @@ instance Core.FromJSON Workspace where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable Workspace
+instance Prelude.Hashable Workspace where
+  hashWithSalt _salt Workspace' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` modificationStates
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` workspaceProperties
+      `Prelude.hashWithSalt` rootVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` volumeEncryptionKey
+      `Prelude.hashWithSalt` computerName
+      `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` userVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData Workspace
+instance Prelude.NFData Workspace where
+  rnf Workspace' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf modificationStates
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf workspaceProperties
+      `Prelude.seq` Prelude.rnf rootVolumeEncryptionEnabled
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf volumeEncryptionKey
+      `Prelude.seq` Prelude.rnf computerName
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf userVolumeEncryptionEnabled
+      `Prelude.seq` Prelude.rnf errorMessage

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteWorkspaceImage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkspaceImage
+instance Prelude.Hashable DeleteWorkspaceImage where
+  hashWithSalt _salt DeleteWorkspaceImage' {..} =
+    _salt `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData DeleteWorkspaceImage
+instance Prelude.NFData DeleteWorkspaceImage where
+  rnf DeleteWorkspaceImage' {..} = Prelude.rnf imageId
 
 instance Core.ToHeaders DeleteWorkspaceImage where
   toHeaders =
@@ -148,4 +151,6 @@ newDeleteWorkspaceImageResponse pHttpStatus_ =
 deleteWorkspaceImageResponse_httpStatus :: Lens.Lens' DeleteWorkspaceImageResponse Prelude.Int
 deleteWorkspaceImageResponse_httpStatus = Lens.lens (\DeleteWorkspaceImageResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkspaceImageResponse' {} a -> s {httpStatus = a} :: DeleteWorkspaceImageResponse)
 
-instance Prelude.NFData DeleteWorkspaceImageResponse
+instance Prelude.NFData DeleteWorkspaceImageResponse where
+  rnf DeleteWorkspaceImageResponse' {..} =
+    Prelude.rnf httpStatus

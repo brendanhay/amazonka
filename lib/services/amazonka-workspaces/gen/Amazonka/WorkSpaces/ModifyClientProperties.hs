@@ -100,9 +100,15 @@ instance Core.AWSRequest ModifyClientProperties where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClientProperties
+instance Prelude.Hashable ModifyClientProperties where
+  hashWithSalt _salt ModifyClientProperties' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` clientProperties
 
-instance Prelude.NFData ModifyClientProperties
+instance Prelude.NFData ModifyClientProperties where
+  rnf ModifyClientProperties' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf clientProperties
 
 instance Core.ToHeaders ModifyClientProperties where
   toHeaders =
@@ -168,3 +174,6 @@ modifyClientPropertiesResponse_httpStatus = Lens.lens (\ModifyClientPropertiesRe
 instance
   Prelude.NFData
     ModifyClientPropertiesResponse
+  where
+  rnf ModifyClientPropertiesResponse' {..} =
+    Prelude.rnf httpStatus

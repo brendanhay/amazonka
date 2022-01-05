@@ -89,5 +89,14 @@ instance Core.FromJSON FailedCreateWorkspaceRequest where
 instance
   Prelude.Hashable
     FailedCreateWorkspaceRequest
+  where
+  hashWithSalt _salt FailedCreateWorkspaceRequest' {..} =
+    _salt `Prelude.hashWithSalt` workspaceRequest
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData FailedCreateWorkspaceRequest
+instance Prelude.NFData FailedCreateWorkspaceRequest where
+  rnf FailedCreateWorkspaceRequest' {..} =
+    Prelude.rnf workspaceRequest
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

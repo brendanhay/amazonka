@@ -97,9 +97,15 @@ instance Core.AWSRequest UpdateRulesOfIpGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRulesOfIpGroup
+instance Prelude.Hashable UpdateRulesOfIpGroup where
+  hashWithSalt _salt UpdateRulesOfIpGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` userRules
 
-instance Prelude.NFData UpdateRulesOfIpGroup
+instance Prelude.NFData UpdateRulesOfIpGroup where
+  rnf UpdateRulesOfIpGroup' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf userRules
 
 instance Core.ToHeaders UpdateRulesOfIpGroup where
   toHeaders =
@@ -161,4 +167,6 @@ newUpdateRulesOfIpGroupResponse pHttpStatus_ =
 updateRulesOfIpGroupResponse_httpStatus :: Lens.Lens' UpdateRulesOfIpGroupResponse Prelude.Int
 updateRulesOfIpGroupResponse_httpStatus = Lens.lens (\UpdateRulesOfIpGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateRulesOfIpGroupResponse' {} a -> s {httpStatus = a} :: UpdateRulesOfIpGroupResponse)
 
-instance Prelude.NFData UpdateRulesOfIpGroupResponse
+instance Prelude.NFData UpdateRulesOfIpGroupResponse where
+  rnf UpdateRulesOfIpGroupResponse' {..} =
+    Prelude.rnf httpStatus

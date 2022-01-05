@@ -154,9 +154,19 @@ instance Core.AWSRequest CreateUpdatedWorkspaceImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUpdatedWorkspaceImage
+instance Prelude.Hashable CreateUpdatedWorkspaceImage where
+  hashWithSalt _salt CreateUpdatedWorkspaceImage' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceImageId
 
-instance Prelude.NFData CreateUpdatedWorkspaceImage
+instance Prelude.NFData CreateUpdatedWorkspaceImage where
+  rnf CreateUpdatedWorkspaceImage' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceImageId
 
 instance Core.ToHeaders CreateUpdatedWorkspaceImage where
   toHeaders =
@@ -233,3 +243,7 @@ createUpdatedWorkspaceImageResponse_httpStatus = Lens.lens (\CreateUpdatedWorksp
 instance
   Prelude.NFData
     CreateUpdatedWorkspaceImageResponse
+  where
+  rnf CreateUpdatedWorkspaceImageResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

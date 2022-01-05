@@ -81,6 +81,12 @@ instance Core.FromJSON UpdateResult where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable UpdateResult
+instance Prelude.Hashable UpdateResult where
+  hashWithSalt _salt UpdateResult' {..} =
+    _salt `Prelude.hashWithSalt` updateAvailable
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateResult
+instance Prelude.NFData UpdateResult where
+  rnf UpdateResult' {..} =
+    Prelude.rnf updateAvailable
+      `Prelude.seq` Prelude.rnf description

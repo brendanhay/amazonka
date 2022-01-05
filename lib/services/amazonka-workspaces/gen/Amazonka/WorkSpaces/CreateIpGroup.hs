@@ -131,9 +131,19 @@ instance Core.AWSRequest CreateIpGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIpGroup
+instance Prelude.Hashable CreateIpGroup where
+  hashWithSalt _salt CreateIpGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupDesc
+      `Prelude.hashWithSalt` userRules
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData CreateIpGroup
+instance Prelude.NFData CreateIpGroup where
+  rnf CreateIpGroup' {..} =
+    Prelude.rnf groupDesc
+      `Prelude.seq` Prelude.rnf userRules
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders CreateIpGroup where
   toHeaders =
@@ -205,4 +215,7 @@ createIpGroupResponse_groupId = Lens.lens (\CreateIpGroupResponse' {groupId} -> 
 createIpGroupResponse_httpStatus :: Lens.Lens' CreateIpGroupResponse Prelude.Int
 createIpGroupResponse_httpStatus = Lens.lens (\CreateIpGroupResponse' {httpStatus} -> httpStatus) (\s@CreateIpGroupResponse' {} a -> s {httpStatus = a} :: CreateIpGroupResponse)
 
-instance Prelude.NFData CreateIpGroupResponse
+instance Prelude.NFData CreateIpGroupResponse where
+  rnf CreateIpGroupResponse' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf httpStatus

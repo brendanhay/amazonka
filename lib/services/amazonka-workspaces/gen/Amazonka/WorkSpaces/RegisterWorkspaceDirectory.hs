@@ -200,9 +200,23 @@ instance Core.AWSRequest RegisterWorkspaceDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterWorkspaceDirectory
+instance Prelude.Hashable RegisterWorkspaceDirectory where
+  hashWithSalt _salt RegisterWorkspaceDirectory' {..} =
+    _salt `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` enableSelfService
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` enableWorkDocs
 
-instance Prelude.NFData RegisterWorkspaceDirectory
+instance Prelude.NFData RegisterWorkspaceDirectory where
+  rnf RegisterWorkspaceDirectory' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf enableSelfService
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf enableWorkDocs
 
 instance Core.ToHeaders RegisterWorkspaceDirectory where
   toHeaders =
@@ -273,3 +287,6 @@ registerWorkspaceDirectoryResponse_httpStatus = Lens.lens (\RegisterWorkspaceDir
 instance
   Prelude.NFData
     RegisterWorkspaceDirectoryResponse
+  where
+  rnf RegisterWorkspaceDirectoryResponse' {..} =
+    Prelude.rnf httpStatus

@@ -114,9 +114,15 @@ instance Core.AWSRequest ReorderReceiptRuleSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReorderReceiptRuleSet
+instance Prelude.Hashable ReorderReceiptRuleSet where
+  hashWithSalt _salt ReorderReceiptRuleSet' {..} =
+    _salt `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` ruleNames
 
-instance Prelude.NFData ReorderReceiptRuleSet
+instance Prelude.NFData ReorderReceiptRuleSet where
+  rnf ReorderReceiptRuleSet' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf ruleNames
 
 instance Core.ToHeaders ReorderReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +174,6 @@ newReorderReceiptRuleSetResponse pHttpStatus_ =
 reorderReceiptRuleSetResponse_httpStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Prelude.Int
 reorderReceiptRuleSetResponse_httpStatus = Lens.lens (\ReorderReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@ReorderReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: ReorderReceiptRuleSetResponse)
 
-instance Prelude.NFData ReorderReceiptRuleSetResponse
+instance Prelude.NFData ReorderReceiptRuleSetResponse where
+  rnf ReorderReceiptRuleSetResponse' {..} =
+    Prelude.rnf httpStatus

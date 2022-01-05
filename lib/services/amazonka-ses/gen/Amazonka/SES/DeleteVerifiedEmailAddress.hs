@@ -85,9 +85,13 @@ instance Core.AWSRequest DeleteVerifiedEmailAddress where
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'
 
-instance Prelude.Hashable DeleteVerifiedEmailAddress
+instance Prelude.Hashable DeleteVerifiedEmailAddress where
+  hashWithSalt _salt DeleteVerifiedEmailAddress' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData DeleteVerifiedEmailAddress
+instance Prelude.NFData DeleteVerifiedEmailAddress where
+  rnf DeleteVerifiedEmailAddress' {..} =
+    Prelude.rnf emailAddress
 
 instance Core.ToHeaders DeleteVerifiedEmailAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,3 +127,5 @@ newDeleteVerifiedEmailAddressResponse =
 instance
   Prelude.NFData
     DeleteVerifiedEmailAddressResponse
+  where
+  rnf _ = ()

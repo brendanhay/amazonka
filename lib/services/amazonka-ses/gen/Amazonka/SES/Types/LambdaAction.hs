@@ -145,9 +145,17 @@ instance Core.FromXML LambdaAction where
       Prelude.<*> (x Core..@? "TopicArn")
       Prelude.<*> (x Core..@ "FunctionArn")
 
-instance Prelude.Hashable LambdaAction
+instance Prelude.Hashable LambdaAction where
+  hashWithSalt _salt LambdaAction' {..} =
+    _salt `Prelude.hashWithSalt` invocationType
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` functionArn
 
-instance Prelude.NFData LambdaAction
+instance Prelude.NFData LambdaAction where
+  rnf LambdaAction' {..} =
+    Prelude.rnf invocationType
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf functionArn
 
 instance Core.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =

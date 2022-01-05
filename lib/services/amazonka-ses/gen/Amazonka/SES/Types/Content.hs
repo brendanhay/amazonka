@@ -65,9 +65,14 @@ content_charset = Lens.lens (\Content' {charset} -> charset) (\s@Content' {} a -
 content_data :: Lens.Lens' Content Prelude.Text
 content_data = Lens.lens (\Content' {data'} -> data') (\s@Content' {} a -> s {data' = a} :: Content)
 
-instance Prelude.Hashable Content
+instance Prelude.Hashable Content where
+  hashWithSalt _salt Content' {..} =
+    _salt `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData Content
+instance Prelude.NFData Content where
+  rnf Content' {..} =
+    Prelude.rnf charset `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToQuery Content where
   toQuery Content' {..} =

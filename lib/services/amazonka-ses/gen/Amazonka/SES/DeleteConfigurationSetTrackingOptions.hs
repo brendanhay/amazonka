@@ -113,10 +113,18 @@ instance
 instance
   Prelude.Hashable
     DeleteConfigurationSetTrackingOptions
+  where
+  hashWithSalt
+    _salt
+    DeleteConfigurationSetTrackingOptions' {..} =
+      _salt `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     DeleteConfigurationSetTrackingOptions
+  where
+  rnf DeleteConfigurationSetTrackingOptions' {..} =
+    Prelude.rnf configurationSetName
 
 instance
   Core.ToHeaders
@@ -181,3 +189,7 @@ deleteConfigurationSetTrackingOptionsResponse_httpStatus = Lens.lens (\DeleteCon
 instance
   Prelude.NFData
     DeleteConfigurationSetTrackingOptionsResponse
+  where
+  rnf
+    DeleteConfigurationSetTrackingOptionsResponse' {..} =
+      Prelude.rnf httpStatus

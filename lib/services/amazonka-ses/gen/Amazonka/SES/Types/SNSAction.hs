@@ -111,9 +111,15 @@ instance Core.FromXML SNSAction where
       Prelude.<$> (x Core..@? "Encoding")
       Prelude.<*> (x Core..@ "TopicArn")
 
-instance Prelude.Hashable SNSAction
+instance Prelude.Hashable SNSAction where
+  hashWithSalt _salt SNSAction' {..} =
+    _salt `Prelude.hashWithSalt` encoding
+      `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData SNSAction
+instance Prelude.NFData SNSAction where
+  rnf SNSAction' {..} =
+    Prelude.rnf encoding
+      `Prelude.seq` Prelude.rnf topicArn
 
 instance Core.ToQuery SNSAction where
   toQuery SNSAction' {..} =

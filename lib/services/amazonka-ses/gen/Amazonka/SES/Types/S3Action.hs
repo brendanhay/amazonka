@@ -231,9 +231,19 @@ instance Core.FromXML S3Action where
       Prelude.<*> (x Core..@? "ObjectKeyPrefix")
       Prelude.<*> (x Core..@ "BucketName")
 
-instance Prelude.Hashable S3Action
+instance Prelude.Hashable S3Action where
+  hashWithSalt _salt S3Action' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` objectKeyPrefix
+      `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData S3Action
+instance Prelude.NFData S3Action where
+  rnf S3Action' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf objectKeyPrefix
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToQuery S3Action where
   toQuery S3Action' {..} =

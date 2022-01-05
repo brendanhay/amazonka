@@ -94,9 +94,13 @@ instance Core.AWSRequest VerifyEmailIdentity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VerifyEmailIdentity
+instance Prelude.Hashable VerifyEmailIdentity where
+  hashWithSalt _salt VerifyEmailIdentity' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData VerifyEmailIdentity
+instance Prelude.NFData VerifyEmailIdentity where
+  rnf VerifyEmailIdentity' {..} =
+    Prelude.rnf emailAddress
 
 instance Core.ToHeaders VerifyEmailIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -146,4 +150,6 @@ newVerifyEmailIdentityResponse pHttpStatus_ =
 verifyEmailIdentityResponse_httpStatus :: Lens.Lens' VerifyEmailIdentityResponse Prelude.Int
 verifyEmailIdentityResponse_httpStatus = Lens.lens (\VerifyEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@VerifyEmailIdentityResponse' {} a -> s {httpStatus = a} :: VerifyEmailIdentityResponse)
 
-instance Prelude.NFData VerifyEmailIdentityResponse
+instance Prelude.NFData VerifyEmailIdentityResponse where
+  rnf VerifyEmailIdentityResponse' {..} =
+    Prelude.rnf httpStatus

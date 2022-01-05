@@ -109,9 +109,19 @@ bouncedRecipientInfo_recipientArn = Lens.lens (\BouncedRecipientInfo' {recipient
 bouncedRecipientInfo_recipient :: Lens.Lens' BouncedRecipientInfo Prelude.Text
 bouncedRecipientInfo_recipient = Lens.lens (\BouncedRecipientInfo' {recipient} -> recipient) (\s@BouncedRecipientInfo' {} a -> s {recipient = a} :: BouncedRecipientInfo)
 
-instance Prelude.Hashable BouncedRecipientInfo
+instance Prelude.Hashable BouncedRecipientInfo where
+  hashWithSalt _salt BouncedRecipientInfo' {..} =
+    _salt `Prelude.hashWithSalt` bounceType
+      `Prelude.hashWithSalt` recipientDsnFields
+      `Prelude.hashWithSalt` recipientArn
+      `Prelude.hashWithSalt` recipient
 
-instance Prelude.NFData BouncedRecipientInfo
+instance Prelude.NFData BouncedRecipientInfo where
+  rnf BouncedRecipientInfo' {..} =
+    Prelude.rnf bounceType
+      `Prelude.seq` Prelude.rnf recipientDsnFields
+      `Prelude.seq` Prelude.rnf recipientArn
+      `Prelude.seq` Prelude.rnf recipient
 
 instance Core.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =

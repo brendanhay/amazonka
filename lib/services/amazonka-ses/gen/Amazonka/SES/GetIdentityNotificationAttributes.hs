@@ -118,10 +118,18 @@ instance
 instance
   Prelude.Hashable
     GetIdentityNotificationAttributes
+  where
+  hashWithSalt
+    _salt
+    GetIdentityNotificationAttributes' {..} =
+      _salt `Prelude.hashWithSalt` identities
 
 instance
   Prelude.NFData
     GetIdentityNotificationAttributes
+  where
+  rnf GetIdentityNotificationAttributes' {..} =
+    Prelude.rnf identities
 
 instance
   Core.ToHeaders
@@ -197,3 +205,7 @@ getIdentityNotificationAttributesResponse_notificationAttributes = Lens.lens (\G
 instance
   Prelude.NFData
     GetIdentityNotificationAttributesResponse
+  where
+  rnf GetIdentityNotificationAttributesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf notificationAttributes

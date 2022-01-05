@@ -117,9 +117,12 @@ newRawMessage pData_ =
 rawMessage_data :: Lens.Lens' RawMessage Prelude.ByteString
 rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Core._Base64
 
-instance Prelude.Hashable RawMessage
+instance Prelude.Hashable RawMessage where
+  hashWithSalt _salt RawMessage' {..} =
+    _salt `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData RawMessage
+instance Prelude.NFData RawMessage where
+  rnf RawMessage' {..} = Prelude.rnf data'
 
 instance Core.ToQuery RawMessage where
   toQuery RawMessage' {..} =

@@ -147,10 +147,20 @@ instance
 instance
   Prelude.Hashable
     SetIdentityFeedbackForwardingEnabled
+  where
+  hashWithSalt
+    _salt
+    SetIdentityFeedbackForwardingEnabled' {..} =
+      _salt `Prelude.hashWithSalt` identity
+        `Prelude.hashWithSalt` forwardingEnabled
 
 instance
   Prelude.NFData
     SetIdentityFeedbackForwardingEnabled
+  where
+  rnf SetIdentityFeedbackForwardingEnabled' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf forwardingEnabled
 
 instance
   Core.ToHeaders
@@ -216,3 +226,6 @@ setIdentityFeedbackForwardingEnabledResponse_httpStatus = Lens.lens (\SetIdentit
 instance
   Prelude.NFData
     SetIdentityFeedbackForwardingEnabledResponse
+  where
+  rnf SetIdentityFeedbackForwardingEnabledResponse' {..} =
+    Prelude.rnf httpStatus

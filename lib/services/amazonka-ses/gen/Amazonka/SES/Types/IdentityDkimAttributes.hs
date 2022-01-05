@@ -126,6 +126,14 @@ instance Core.FromXML IdentityDkimAttributes where
       Prelude.<*> (x Core..@ "DkimEnabled")
       Prelude.<*> (x Core..@ "DkimVerificationStatus")
 
-instance Prelude.Hashable IdentityDkimAttributes
+instance Prelude.Hashable IdentityDkimAttributes where
+  hashWithSalt _salt IdentityDkimAttributes' {..} =
+    _salt `Prelude.hashWithSalt` dkimTokens
+      `Prelude.hashWithSalt` dkimEnabled
+      `Prelude.hashWithSalt` dkimVerificationStatus
 
-instance Prelude.NFData IdentityDkimAttributes
+instance Prelude.NFData IdentityDkimAttributes where
+  rnf IdentityDkimAttributes' {..} =
+    Prelude.rnf dkimTokens
+      `Prelude.seq` Prelude.rnf dkimEnabled
+      `Prelude.seq` Prelude.rnf dkimVerificationStatus

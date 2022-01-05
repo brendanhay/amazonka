@@ -90,9 +90,18 @@ bulkEmailDestination_replacementTags = Lens.lens (\BulkEmailDestination' {replac
 bulkEmailDestination_destination :: Lens.Lens' BulkEmailDestination Destination
 bulkEmailDestination_destination = Lens.lens (\BulkEmailDestination' {destination} -> destination) (\s@BulkEmailDestination' {} a -> s {destination = a} :: BulkEmailDestination)
 
-instance Prelude.Hashable BulkEmailDestination
+instance Prelude.Hashable BulkEmailDestination where
+  hashWithSalt _salt BulkEmailDestination' {..} =
+    _salt
+      `Prelude.hashWithSalt` replacementTemplateData
+      `Prelude.hashWithSalt` replacementTags
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData BulkEmailDestination
+instance Prelude.NFData BulkEmailDestination where
+  rnf BulkEmailDestination' {..} =
+    Prelude.rnf replacementTemplateData
+      `Prelude.seq` Prelude.rnf replacementTags
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToQuery BulkEmailDestination where
   toQuery BulkEmailDestination' {..} =

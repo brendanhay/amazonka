@@ -87,9 +87,15 @@ instance Core.FromXML StopAction where
       Prelude.<$> (x Core..@? "TopicArn")
       Prelude.<*> (x Core..@ "Scope")
 
-instance Prelude.Hashable StopAction
+instance Prelude.Hashable StopAction where
+  hashWithSalt _salt StopAction' {..} =
+    _salt `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` scope
 
-instance Prelude.NFData StopAction
+instance Prelude.NFData StopAction where
+  rnf StopAction' {..} =
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf scope
 
 instance Core.ToQuery StopAction where
   toQuery StopAction' {..} =

@@ -120,9 +120,16 @@ instance Core.AWSRequest DescribeConfigurationSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConfigurationSet
+instance Prelude.Hashable DescribeConfigurationSet where
+  hashWithSalt _salt DescribeConfigurationSet' {..} =
+    _salt
+      `Prelude.hashWithSalt` configurationSetAttributeNames
+      `Prelude.hashWithSalt` configurationSetName
 
-instance Prelude.NFData DescribeConfigurationSet
+instance Prelude.NFData DescribeConfigurationSet where
+  rnf DescribeConfigurationSet' {..} =
+    Prelude.rnf configurationSetAttributeNames
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Core.ToHeaders DescribeConfigurationSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,3 +243,11 @@ describeConfigurationSetResponse_httpStatus = Lens.lens (\DescribeConfigurationS
 instance
   Prelude.NFData
     DescribeConfigurationSetResponse
+  where
+  rnf DescribeConfigurationSetResponse' {..} =
+    Prelude.rnf deliveryOptions
+      `Prelude.seq` Prelude.rnf trackingOptions
+      `Prelude.seq` Prelude.rnf configurationSet
+      `Prelude.seq` Prelude.rnf reputationOptions
+      `Prelude.seq` Prelude.rnf eventDestinations
+      `Prelude.seq` Prelude.rnf httpStatus

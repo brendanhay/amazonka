@@ -128,9 +128,12 @@ instance Core.AWSRequest VerifyDomainDkim where
                         )
       )
 
-instance Prelude.Hashable VerifyDomainDkim
+instance Prelude.Hashable VerifyDomainDkim where
+  hashWithSalt _salt VerifyDomainDkim' {..} =
+    _salt `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData VerifyDomainDkim
+instance Prelude.NFData VerifyDomainDkim where
+  rnf VerifyDomainDkim' {..} = Prelude.rnf domain
 
 instance Core.ToHeaders VerifyDomainDkim where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,4 +232,7 @@ verifyDomainDkimResponse_httpStatus = Lens.lens (\VerifyDomainDkimResponse' {htt
 verifyDomainDkimResponse_dkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Prelude.Text]
 verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dkimTokens} -> dkimTokens) (\s@VerifyDomainDkimResponse' {} a -> s {dkimTokens = a} :: VerifyDomainDkimResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData VerifyDomainDkimResponse
+instance Prelude.NFData VerifyDomainDkimResponse where
+  rnf VerifyDomainDkimResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dkimTokens

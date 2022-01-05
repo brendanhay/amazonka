@@ -75,9 +75,12 @@ instance Core.AWSRequest GetAccountSendingEnabled where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountSendingEnabled
+instance Prelude.Hashable GetAccountSendingEnabled where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetAccountSendingEnabled
+instance Prelude.NFData GetAccountSendingEnabled where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountSendingEnabled where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,3 +147,7 @@ getAccountSendingEnabledResponse_httpStatus = Lens.lens (\GetAccountSendingEnabl
 instance
   Prelude.NFData
     GetAccountSendingEnabledResponse
+  where
+  rnf GetAccountSendingEnabledResponse' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf httpStatus

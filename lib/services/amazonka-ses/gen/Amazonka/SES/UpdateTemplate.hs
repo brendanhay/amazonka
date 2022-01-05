@@ -89,9 +89,12 @@ instance Core.AWSRequest UpdateTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTemplate
+instance Prelude.Hashable UpdateTemplate where
+  hashWithSalt _salt UpdateTemplate' {..} =
+    _salt `Prelude.hashWithSalt` template
 
-instance Prelude.NFData UpdateTemplate
+instance Prelude.NFData UpdateTemplate where
+  rnf UpdateTemplate' {..} = Prelude.rnf template
 
 instance Core.ToHeaders UpdateTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,4 +139,6 @@ newUpdateTemplateResponse pHttpStatus_ =
 updateTemplateResponse_httpStatus :: Lens.Lens' UpdateTemplateResponse Prelude.Int
 updateTemplateResponse_httpStatus = Lens.lens (\UpdateTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateTemplateResponse' {} a -> s {httpStatus = a} :: UpdateTemplateResponse)
 
-instance Prelude.NFData UpdateTemplateResponse
+instance Prelude.NFData UpdateTemplateResponse where
+  rnf UpdateTemplateResponse' {..} =
+    Prelude.rnf httpStatus

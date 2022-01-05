@@ -99,9 +99,19 @@ instance Core.FromXML Template where
       Prelude.<*> (x Core..@? "HtmlPart")
       Prelude.<*> (x Core..@ "TemplateName")
 
-instance Prelude.Hashable Template
+instance Prelude.Hashable Template where
+  hashWithSalt _salt Template' {..} =
+    _salt `Prelude.hashWithSalt` textPart
+      `Prelude.hashWithSalt` subjectPart
+      `Prelude.hashWithSalt` htmlPart
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData Template
+instance Prelude.NFData Template where
+  rnf Template' {..} =
+    Prelude.rnf textPart
+      `Prelude.seq` Prelude.rnf subjectPart
+      `Prelude.seq` Prelude.rnf htmlPart
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToQuery Template where
   toQuery Template' {..} =

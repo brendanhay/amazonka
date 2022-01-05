@@ -99,9 +99,14 @@ instance Core.FromXML ReceiptFilter where
     ReceiptFilter'
       Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "IpFilter")
 
-instance Prelude.Hashable ReceiptFilter
+instance Prelude.Hashable ReceiptFilter where
+  hashWithSalt _salt ReceiptFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ipFilter
 
-instance Prelude.NFData ReceiptFilter
+instance Prelude.NFData ReceiptFilter where
+  rnf ReceiptFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf ipFilter
 
 instance Core.ToQuery ReceiptFilter where
   toQuery ReceiptFilter' {..} =

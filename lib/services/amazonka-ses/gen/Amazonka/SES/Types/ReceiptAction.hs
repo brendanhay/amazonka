@@ -147,9 +147,25 @@ instance Core.FromXML ReceiptAction where
       Prelude.<*> (x Core..@? "StopAction")
       Prelude.<*> (x Core..@? "S3Action")
 
-instance Prelude.Hashable ReceiptAction
+instance Prelude.Hashable ReceiptAction where
+  hashWithSalt _salt ReceiptAction' {..} =
+    _salt `Prelude.hashWithSalt` addHeaderAction
+      `Prelude.hashWithSalt` sNSAction
+      `Prelude.hashWithSalt` workmailAction
+      `Prelude.hashWithSalt` bounceAction
+      `Prelude.hashWithSalt` lambdaAction
+      `Prelude.hashWithSalt` stopAction
+      `Prelude.hashWithSalt` s3Action
 
-instance Prelude.NFData ReceiptAction
+instance Prelude.NFData ReceiptAction where
+  rnf ReceiptAction' {..} =
+    Prelude.rnf addHeaderAction
+      `Prelude.seq` Prelude.rnf sNSAction
+      `Prelude.seq` Prelude.rnf workmailAction
+      `Prelude.seq` Prelude.rnf bounceAction
+      `Prelude.seq` Prelude.rnf lambdaAction
+      `Prelude.seq` Prelude.rnf stopAction
+      `Prelude.seq` Prelude.rnf s3Action
 
 instance Core.ToQuery ReceiptAction where
   toQuery ReceiptAction' {..} =

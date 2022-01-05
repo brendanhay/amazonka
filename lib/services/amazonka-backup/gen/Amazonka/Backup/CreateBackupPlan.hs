@@ -141,9 +141,17 @@ instance Core.AWSRequest CreateBackupPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackupPlan
+instance Prelude.Hashable CreateBackupPlan where
+  hashWithSalt _salt CreateBackupPlan' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanTags
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` backupPlan
 
-instance Prelude.NFData CreateBackupPlan
+instance Prelude.NFData CreateBackupPlan where
+  rnf CreateBackupPlan' {..} =
+    Prelude.rnf backupPlanTags
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf backupPlan
 
 instance Core.ToHeaders CreateBackupPlan where
   toHeaders =
@@ -270,4 +278,11 @@ createBackupPlanResponse_creationDate = Lens.lens (\CreateBackupPlanResponse' {c
 createBackupPlanResponse_httpStatus :: Lens.Lens' CreateBackupPlanResponse Prelude.Int
 createBackupPlanResponse_httpStatus = Lens.lens (\CreateBackupPlanResponse' {httpStatus} -> httpStatus) (\s@CreateBackupPlanResponse' {} a -> s {httpStatus = a} :: CreateBackupPlanResponse)
 
-instance Prelude.NFData CreateBackupPlanResponse
+instance Prelude.NFData CreateBackupPlanResponse where
+  rnf CreateBackupPlanResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf httpStatus

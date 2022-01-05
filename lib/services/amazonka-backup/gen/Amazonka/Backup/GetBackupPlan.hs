@@ -121,9 +121,15 @@ instance Core.AWSRequest GetBackupPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackupPlan
+instance Prelude.Hashable GetBackupPlan where
+  hashWithSalt _salt GetBackupPlan' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` backupPlanId
 
-instance Prelude.NFData GetBackupPlan
+instance Prelude.NFData GetBackupPlan where
+  rnf GetBackupPlan' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf backupPlanId
 
 instance Core.ToHeaders GetBackupPlan where
   toHeaders =
@@ -303,4 +309,15 @@ getBackupPlanResponse_deletionDate = Lens.lens (\GetBackupPlanResponse' {deletio
 getBackupPlanResponse_httpStatus :: Lens.Lens' GetBackupPlanResponse Prelude.Int
 getBackupPlanResponse_httpStatus = Lens.lens (\GetBackupPlanResponse' {httpStatus} -> httpStatus) (\s@GetBackupPlanResponse' {} a -> s {httpStatus = a} :: GetBackupPlanResponse)
 
-instance Prelude.NFData GetBackupPlanResponse
+instance Prelude.NFData GetBackupPlanResponse where
+  rnf GetBackupPlanResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf backupPlan
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf httpStatus

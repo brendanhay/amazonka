@@ -113,9 +113,15 @@ instance Core.AWSRequest DeleteRecoveryPoint where
   response =
     Response.receiveNull DeleteRecoveryPointResponse'
 
-instance Prelude.Hashable DeleteRecoveryPoint
+instance Prelude.Hashable DeleteRecoveryPoint where
+  hashWithSalt _salt DeleteRecoveryPoint' {..} =
+    _salt `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` recoveryPointArn
 
-instance Prelude.NFData DeleteRecoveryPoint
+instance Prelude.NFData DeleteRecoveryPoint where
+  rnf DeleteRecoveryPoint' {..} =
+    Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf recoveryPointArn
 
 instance Core.ToHeaders DeleteRecoveryPoint where
   toHeaders =
@@ -155,4 +161,5 @@ newDeleteRecoveryPointResponse ::
 newDeleteRecoveryPointResponse =
   DeleteRecoveryPointResponse'
 
-instance Prelude.NFData DeleteRecoveryPointResponse
+instance Prelude.NFData DeleteRecoveryPointResponse where
+  rnf _ = ()

@@ -90,9 +90,13 @@ instance Core.AWSRequest ExportBackupPlanTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportBackupPlanTemplate
+instance Prelude.Hashable ExportBackupPlanTemplate where
+  hashWithSalt _salt ExportBackupPlanTemplate' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanId
 
-instance Prelude.NFData ExportBackupPlanTemplate
+instance Prelude.NFData ExportBackupPlanTemplate where
+  rnf ExportBackupPlanTemplate' {..} =
+    Prelude.rnf backupPlanId
 
 instance Core.ToHeaders ExportBackupPlanTemplate where
   toHeaders =
@@ -167,3 +171,7 @@ exportBackupPlanTemplateResponse_httpStatus = Lens.lens (\ExportBackupPlanTempla
 instance
   Prelude.NFData
     ExportBackupPlanTemplateResponse
+  where
+  rnf ExportBackupPlanTemplateResponse' {..} =
+    Prelude.rnf backupPlanTemplateJson
+      `Prelude.seq` Prelude.rnf httpStatus

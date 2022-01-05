@@ -179,9 +179,21 @@ instance Core.AWSRequest UpdateReportPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReportPlan
+instance Prelude.Hashable UpdateReportPlan where
+  hashWithSalt _salt UpdateReportPlan' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` reportSetting
+      `Prelude.hashWithSalt` reportPlanDescription
+      `Prelude.hashWithSalt` reportDeliveryChannel
+      `Prelude.hashWithSalt` reportPlanName
 
-instance Prelude.NFData UpdateReportPlan
+instance Prelude.NFData UpdateReportPlan where
+  rnf UpdateReportPlan' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf reportSetting
+      `Prelude.seq` Prelude.rnf reportPlanDescription
+      `Prelude.seq` Prelude.rnf reportDeliveryChannel
+      `Prelude.seq` Prelude.rnf reportPlanName
 
 instance Core.ToHeaders UpdateReportPlan where
   toHeaders =
@@ -285,4 +297,9 @@ updateReportPlanResponse_reportPlanArn = Lens.lens (\UpdateReportPlanResponse' {
 updateReportPlanResponse_httpStatus :: Lens.Lens' UpdateReportPlanResponse Prelude.Int
 updateReportPlanResponse_httpStatus = Lens.lens (\UpdateReportPlanResponse' {httpStatus} -> httpStatus) (\s@UpdateReportPlanResponse' {} a -> s {httpStatus = a} :: UpdateReportPlanResponse)
 
-instance Prelude.NFData UpdateReportPlanResponse
+instance Prelude.NFData UpdateReportPlanResponse where
+  rnf UpdateReportPlanResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf reportPlanName
+      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf httpStatus

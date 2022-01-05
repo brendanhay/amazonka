@@ -75,5 +75,12 @@ instance Core.FromJSON BackupPlanTemplatesListMember where
 instance
   Prelude.Hashable
     BackupPlanTemplatesListMember
+  where
+  hashWithSalt _salt BackupPlanTemplatesListMember' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanTemplateName
+      `Prelude.hashWithSalt` backupPlanTemplateId
 
-instance Prelude.NFData BackupPlanTemplatesListMember
+instance Prelude.NFData BackupPlanTemplatesListMember where
+  rnf BackupPlanTemplatesListMember' {..} =
+    Prelude.rnf backupPlanTemplateName
+      `Prelude.seq` Prelude.rnf backupPlanTemplateId

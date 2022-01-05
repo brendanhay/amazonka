@@ -106,9 +106,13 @@ instance Core.AWSRequest GetBackupVaultNotifications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackupVaultNotifications
+instance Prelude.Hashable GetBackupVaultNotifications where
+  hashWithSalt _salt GetBackupVaultNotifications' {..} =
+    _salt `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData GetBackupVaultNotifications
+instance Prelude.NFData GetBackupVaultNotifications where
+  rnf GetBackupVaultNotifications' {..} =
+    Prelude.rnf backupVaultName
 
 instance Core.ToHeaders GetBackupVaultNotifications where
   toHeaders =
@@ -222,3 +226,10 @@ getBackupVaultNotificationsResponse_httpStatus = Lens.lens (\GetBackupVaultNotif
 instance
   Prelude.NFData
     GetBackupVaultNotificationsResponse
+  where
+  rnf GetBackupVaultNotificationsResponse' {..} =
+    Prelude.rnf sNSTopicArn
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf backupVaultEvents
+      `Prelude.seq` Prelude.rnf httpStatus

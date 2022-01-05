@@ -130,6 +130,20 @@ instance Core.FromJSON BackupSelectionsListMember where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable BackupSelectionsListMember
+instance Prelude.Hashable BackupSelectionsListMember where
+  hashWithSalt _salt BackupSelectionsListMember' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` selectionName
+      `Prelude.hashWithSalt` selectionId
+      `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData BackupSelectionsListMember
+instance Prelude.NFData BackupSelectionsListMember where
+  rnf BackupSelectionsListMember' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf selectionName
+      `Prelude.seq` Prelude.rnf selectionId
+      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf creationDate

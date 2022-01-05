@@ -256,6 +256,38 @@ instance Core.FromJSON CopyJob where
             Prelude.<*> (x Core..:? "CompletionDate")
       )
 
-instance Prelude.Hashable CopyJob
+instance Prelude.Hashable CopyJob where
+  hashWithSalt _salt CopyJob' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` sourceRecoveryPointArn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` destinationBackupVaultArn
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` destinationRecoveryPointArn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` sourceBackupVaultArn
+      `Prelude.hashWithSalt` copyJobId
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` backupSizeInBytes
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` completionDate
 
-instance Prelude.NFData CopyJob
+instance Prelude.NFData CopyJob where
+  rnf CopyJob' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf sourceRecoveryPointArn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf destinationRecoveryPointArn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf copyJobId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf completionDate

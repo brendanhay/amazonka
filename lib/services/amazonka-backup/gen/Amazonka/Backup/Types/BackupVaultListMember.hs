@@ -277,6 +277,28 @@ instance Core.FromJSON BackupVaultListMember where
             Prelude.<*> (x Core..:? "MinRetentionDays")
       )
 
-instance Prelude.Hashable BackupVaultListMember
+instance Prelude.Hashable BackupVaultListMember where
+  hashWithSalt _salt BackupVaultListMember' {..} =
+    _salt `Prelude.hashWithSalt` lockDate
+      `Prelude.hashWithSalt` maxRetentionDays
+      `Prelude.hashWithSalt` locked
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` numberOfRecoveryPoints
+      `Prelude.hashWithSalt` backupVaultArn
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` minRetentionDays
 
-instance Prelude.NFData BackupVaultListMember
+instance Prelude.NFData BackupVaultListMember where
+  rnf BackupVaultListMember' {..} =
+    Prelude.rnf lockDate
+      `Prelude.seq` Prelude.rnf maxRetentionDays
+      `Prelude.seq` Prelude.rnf locked
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf numberOfRecoveryPoints
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf minRetentionDays

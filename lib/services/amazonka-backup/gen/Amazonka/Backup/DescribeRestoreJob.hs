@@ -111,9 +111,13 @@ instance Core.AWSRequest DescribeRestoreJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRestoreJob
+instance Prelude.Hashable DescribeRestoreJob where
+  hashWithSalt _salt DescribeRestoreJob' {..} =
+    _salt `Prelude.hashWithSalt` restoreJobId
 
-instance Prelude.NFData DescribeRestoreJob
+instance Prelude.NFData DescribeRestoreJob where
+  rnf DescribeRestoreJob' {..} =
+    Prelude.rnf restoreJobId
 
 instance Core.ToHeaders DescribeRestoreJob where
   toHeaders =
@@ -320,4 +324,19 @@ describeRestoreJobResponse_completionDate = Lens.lens (\DescribeRestoreJobRespon
 describeRestoreJobResponse_httpStatus :: Lens.Lens' DescribeRestoreJobResponse Prelude.Int
 describeRestoreJobResponse_httpStatus = Lens.lens (\DescribeRestoreJobResponse' {httpStatus} -> httpStatus) (\s@DescribeRestoreJobResponse' {} a -> s {httpStatus = a} :: DescribeRestoreJobResponse)
 
-instance Prelude.NFData DescribeRestoreJobResponse
+instance Prelude.NFData DescribeRestoreJobResponse where
+  rnf DescribeRestoreJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf expectedCompletionTimeMinutes
+      `Prelude.seq` Prelude.rnf restoreJobId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf percentDone
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf createdResourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf httpStatus

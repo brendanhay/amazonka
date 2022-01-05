@@ -237,6 +237,28 @@ instance Core.FromJSON BackupRule where
             Prelude.<*> (x Core..: "TargetBackupVaultName")
       )
 
-instance Prelude.Hashable BackupRule
+instance Prelude.Hashable BackupRule where
+  hashWithSalt _salt BackupRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` recoveryPointTags
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` enableContinuousBackup
+      `Prelude.hashWithSalt` completionWindowMinutes
+      `Prelude.hashWithSalt` copyActions
+      `Prelude.hashWithSalt` startWindowMinutes
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` targetBackupVaultName
 
-instance Prelude.NFData BackupRule
+instance Prelude.NFData BackupRule where
+  rnf BackupRule' {..} =
+    Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf recoveryPointTags
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf enableContinuousBackup
+      `Prelude.seq` Prelude.rnf completionWindowMinutes
+      `Prelude.seq` Prelude.rnf copyActions
+      `Prelude.seq` Prelude.rnf startWindowMinutes
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf targetBackupVaultName

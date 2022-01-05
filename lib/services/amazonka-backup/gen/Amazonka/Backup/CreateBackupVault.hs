@@ -149,9 +149,19 @@ instance Core.AWSRequest CreateBackupVault where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackupVault
+instance Prelude.Hashable CreateBackupVault where
+  hashWithSalt _salt CreateBackupVault' {..} =
+    _salt `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` backupVaultTags
+      `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData CreateBackupVault
+instance Prelude.NFData CreateBackupVault where
+  rnf CreateBackupVault' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf backupVaultTags
+      `Prelude.seq` Prelude.rnf backupVaultName
 
 instance Core.ToHeaders CreateBackupVault where
   toHeaders =
@@ -263,4 +273,9 @@ createBackupVaultResponse_backupVaultName = Lens.lens (\CreateBackupVaultRespons
 createBackupVaultResponse_httpStatus :: Lens.Lens' CreateBackupVaultResponse Prelude.Int
 createBackupVaultResponse_httpStatus = Lens.lens (\CreateBackupVaultResponse' {httpStatus} -> httpStatus) (\s@CreateBackupVaultResponse' {} a -> s {httpStatus = a} :: CreateBackupVaultResponse)
 
-instance Prelude.NFData CreateBackupVaultResponse
+instance Prelude.NFData CreateBackupVaultResponse where
+  rnf CreateBackupVaultResponse' {..} =
+    Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf httpStatus

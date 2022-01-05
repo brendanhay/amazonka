@@ -86,9 +86,17 @@ backupPlanInput_backupPlanName = Lens.lens (\BackupPlanInput' {backupPlanName} -
 backupPlanInput_rules :: Lens.Lens' BackupPlanInput [BackupRuleInput]
 backupPlanInput_rules = Lens.lens (\BackupPlanInput' {rules} -> rules) (\s@BackupPlanInput' {} a -> s {rules = a} :: BackupPlanInput) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BackupPlanInput
+instance Prelude.Hashable BackupPlanInput where
+  hashWithSalt _salt BackupPlanInput' {..} =
+    _salt `Prelude.hashWithSalt` advancedBackupSettings
+      `Prelude.hashWithSalt` backupPlanName
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData BackupPlanInput
+instance Prelude.NFData BackupPlanInput where
+  rnf BackupPlanInput' {..} =
+    Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanName
+      `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToJSON BackupPlanInput where
   toJSON BackupPlanInput' {..} =

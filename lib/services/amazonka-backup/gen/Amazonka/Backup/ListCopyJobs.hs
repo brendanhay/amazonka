@@ -229,9 +229,29 @@ instance Core.AWSRequest ListCopyJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCopyJobs
+instance Prelude.Hashable ListCopyJobs where
+  hashWithSalt _salt ListCopyJobs' {..} =
+    _salt `Prelude.hashWithSalt` byResourceArn
+      `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byAccountId
+      `Prelude.hashWithSalt` byCreatedBefore
+      `Prelude.hashWithSalt` byDestinationVaultArn
+      `Prelude.hashWithSalt` byResourceType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` byState
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCopyJobs
+instance Prelude.NFData ListCopyJobs where
+  rnf ListCopyJobs' {..} =
+    Prelude.rnf byResourceArn
+      `Prelude.seq` Prelude.rnf byCreatedAfter
+      `Prelude.seq` Prelude.rnf byAccountId
+      `Prelude.seq` Prelude.rnf byCreatedBefore
+      `Prelude.seq` Prelude.rnf byDestinationVaultArn
+      `Prelude.seq` Prelude.rnf byResourceType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf byState
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCopyJobs where
   toHeaders =
@@ -320,4 +340,8 @@ listCopyJobsResponse_copyJobs = Lens.lens (\ListCopyJobsResponse' {copyJobs} -> 
 listCopyJobsResponse_httpStatus :: Lens.Lens' ListCopyJobsResponse Prelude.Int
 listCopyJobsResponse_httpStatus = Lens.lens (\ListCopyJobsResponse' {httpStatus} -> httpStatus) (\s@ListCopyJobsResponse' {} a -> s {httpStatus = a} :: ListCopyJobsResponse)
 
-instance Prelude.NFData ListCopyJobsResponse
+instance Prelude.NFData ListCopyJobsResponse where
+  rnf ListCopyJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf copyJobs
+      `Prelude.seq` Prelude.rnf httpStatus

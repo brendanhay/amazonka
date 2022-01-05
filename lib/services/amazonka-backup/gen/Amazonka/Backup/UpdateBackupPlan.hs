@@ -115,9 +115,15 @@ instance Core.AWSRequest UpdateBackupPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBackupPlan
+instance Prelude.Hashable UpdateBackupPlan where
+  hashWithSalt _salt UpdateBackupPlan' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` backupPlan
 
-instance Prelude.NFData UpdateBackupPlan
+instance Prelude.NFData UpdateBackupPlan where
+  rnf UpdateBackupPlan' {..} =
+    Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf backupPlan
 
 instance Core.ToHeaders UpdateBackupPlan where
   toHeaders =
@@ -238,4 +244,11 @@ updateBackupPlanResponse_creationDate = Lens.lens (\UpdateBackupPlanResponse' {c
 updateBackupPlanResponse_httpStatus :: Lens.Lens' UpdateBackupPlanResponse Prelude.Int
 updateBackupPlanResponse_httpStatus = Lens.lens (\UpdateBackupPlanResponse' {httpStatus} -> httpStatus) (\s@UpdateBackupPlanResponse' {} a -> s {httpStatus = a} :: UpdateBackupPlanResponse)
 
-instance Prelude.NFData UpdateBackupPlanResponse
+instance Prelude.NFData UpdateBackupPlanResponse where
+  rnf UpdateBackupPlanResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf httpStatus

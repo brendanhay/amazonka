@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteBackupSelection where
   response =
     Response.receiveNull DeleteBackupSelectionResponse'
 
-instance Prelude.Hashable DeleteBackupSelection
+instance Prelude.Hashable DeleteBackupSelection where
+  hashWithSalt _salt DeleteBackupSelection' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` selectionId
 
-instance Prelude.NFData DeleteBackupSelection
+instance Prelude.NFData DeleteBackupSelection where
+  rnf DeleteBackupSelection' {..} =
+    Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf selectionId
 
 instance Core.ToHeaders DeleteBackupSelection where
   toHeaders =
@@ -138,4 +144,5 @@ newDeleteBackupSelectionResponse ::
 newDeleteBackupSelectionResponse =
   DeleteBackupSelectionResponse'
 
-instance Prelude.NFData DeleteBackupSelectionResponse
+instance Prelude.NFData DeleteBackupSelectionResponse where
+  rnf _ = ()

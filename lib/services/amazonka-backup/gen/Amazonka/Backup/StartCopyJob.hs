@@ -183,9 +183,23 @@ instance Core.AWSRequest StartCopyJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCopyJob
+instance Prelude.Hashable StartCopyJob where
+  hashWithSalt _salt StartCopyJob' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` sourceBackupVaultName
+      `Prelude.hashWithSalt` destinationBackupVaultArn
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData StartCopyJob
+instance Prelude.NFData StartCopyJob where
+  rnf StartCopyJob' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf sourceBackupVaultName
+      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
+      `Prelude.seq` Prelude.rnf iamRoleArn
 
 instance Core.ToHeaders StartCopyJob where
   toHeaders =
@@ -281,4 +295,8 @@ startCopyJobResponse_creationDate = Lens.lens (\StartCopyJobResponse' {creationD
 startCopyJobResponse_httpStatus :: Lens.Lens' StartCopyJobResponse Prelude.Int
 startCopyJobResponse_httpStatus = Lens.lens (\StartCopyJobResponse' {httpStatus} -> httpStatus) (\s@StartCopyJobResponse' {} a -> s {httpStatus = a} :: StartCopyJobResponse)
 
-instance Prelude.NFData StartCopyJobResponse
+instance Prelude.NFData StartCopyJobResponse where
+  rnf StartCopyJobResponse' {..} =
+    Prelude.rnf copyJobId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf httpStatus

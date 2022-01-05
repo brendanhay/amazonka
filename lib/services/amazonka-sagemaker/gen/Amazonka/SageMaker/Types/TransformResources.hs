@@ -178,9 +178,17 @@ instance Core.FromJSON TransformResources where
             Prelude.<*> (x Core..: "InstanceCount")
       )
 
-instance Prelude.Hashable TransformResources
+instance Prelude.Hashable TransformResources where
+  hashWithSalt _salt TransformResources' {..} =
+    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData TransformResources
+instance Prelude.NFData TransformResources where
+  rnf TransformResources' {..} =
+    Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceCount
 
 instance Core.ToJSON TransformResources where
   toJSON TransformResources' {..} =

@@ -84,10 +84,20 @@ instance
 instance
   Prelude.Hashable
     ContinuousParameterRangeSpecification
+  where
+  hashWithSalt
+    _salt
+    ContinuousParameterRangeSpecification' {..} =
+      _salt `Prelude.hashWithSalt` minValue
+        `Prelude.hashWithSalt` maxValue
 
 instance
   Prelude.NFData
     ContinuousParameterRangeSpecification
+  where
+  rnf ContinuousParameterRangeSpecification' {..} =
+    Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf maxValue
 
 instance
   Core.ToJSON

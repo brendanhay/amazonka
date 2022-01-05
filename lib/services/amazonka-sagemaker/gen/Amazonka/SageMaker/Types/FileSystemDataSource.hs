@@ -112,9 +112,19 @@ instance Core.FromJSON FileSystemDataSource where
             Prelude.<*> (x Core..: "DirectoryPath")
       )
 
-instance Prelude.Hashable FileSystemDataSource
+instance Prelude.Hashable FileSystemDataSource where
+  hashWithSalt _salt FileSystemDataSource' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` fileSystemAccessMode
+      `Prelude.hashWithSalt` fileSystemType
+      `Prelude.hashWithSalt` directoryPath
 
-instance Prelude.NFData FileSystemDataSource
+instance Prelude.NFData FileSystemDataSource where
+  rnf FileSystemDataSource' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf fileSystemAccessMode
+      `Prelude.seq` Prelude.rnf fileSystemType
+      `Prelude.seq` Prelude.rnf directoryPath
 
 instance Core.ToJSON FileSystemDataSource where
   toJSON FileSystemDataSource' {..} =

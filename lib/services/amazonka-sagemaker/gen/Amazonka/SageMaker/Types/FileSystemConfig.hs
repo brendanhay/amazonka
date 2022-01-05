@@ -88,9 +88,17 @@ instance Core.FromJSON FileSystemConfig where
             Prelude.<*> (x Core..:? "DefaultUid")
       )
 
-instance Prelude.Hashable FileSystemConfig
+instance Prelude.Hashable FileSystemConfig where
+  hashWithSalt _salt FileSystemConfig' {..} =
+    _salt `Prelude.hashWithSalt` defaultGid
+      `Prelude.hashWithSalt` mountPath
+      `Prelude.hashWithSalt` defaultUid
 
-instance Prelude.NFData FileSystemConfig
+instance Prelude.NFData FileSystemConfig where
+  rnf FileSystemConfig' {..} =
+    Prelude.rnf defaultGid
+      `Prelude.seq` Prelude.rnf mountPath
+      `Prelude.seq` Prelude.rnf defaultUid
 
 instance Core.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =

@@ -68,9 +68,12 @@ instance Core.FromJSON AutoMLDataSource where
             Prelude.<$> (x Core..: "S3DataSource")
       )
 
-instance Prelude.Hashable AutoMLDataSource
+instance Prelude.Hashable AutoMLDataSource where
+  hashWithSalt _salt AutoMLDataSource' {..} =
+    _salt `Prelude.hashWithSalt` s3DataSource
 
-instance Prelude.NFData AutoMLDataSource
+instance Prelude.NFData AutoMLDataSource where
+  rnf AutoMLDataSource' {..} = Prelude.rnf s3DataSource
 
 instance Core.ToJSON AutoMLDataSource where
   toJSON AutoMLDataSource' {..} =

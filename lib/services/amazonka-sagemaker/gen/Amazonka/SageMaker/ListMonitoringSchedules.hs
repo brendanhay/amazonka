@@ -267,9 +267,37 @@ instance Core.AWSRequest ListMonitoringSchedules where
                         )
       )
 
-instance Prelude.Hashable ListMonitoringSchedules
+instance Prelude.Hashable ListMonitoringSchedules where
+  hashWithSalt _salt ListMonitoringSchedules' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` monitoringTypeEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` monitoringJobDefinitionName
 
-instance Prelude.NFData ListMonitoringSchedules
+instance Prelude.NFData ListMonitoringSchedules where
+  rnf ListMonitoringSchedules' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf monitoringTypeEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
 
 instance Core.ToHeaders ListMonitoringSchedules where
   toHeaders =
@@ -376,3 +404,8 @@ listMonitoringSchedulesResponse_monitoringScheduleSummaries = Lens.lens (\ListMo
 instance
   Prelude.NFData
     ListMonitoringSchedulesResponse
+  where
+  rnf ListMonitoringSchedulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf monitoringScheduleSummaries

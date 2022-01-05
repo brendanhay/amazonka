@@ -606,9 +606,32 @@ instance Core.AWSRequest CreateLabelingJob where
             Prelude.<*> (x Core..:> "LabelingJobArn")
       )
 
-instance Prelude.Hashable CreateLabelingJob
+instance Prelude.Hashable CreateLabelingJob where
+  hashWithSalt _salt CreateLabelingJob' {..} =
+    _salt
+      `Prelude.hashWithSalt` labelingJobAlgorithmsConfig
+      `Prelude.hashWithSalt` labelCategoryConfigS3Uri
+      `Prelude.hashWithSalt` stoppingConditions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` labelingJobName
+      `Prelude.hashWithSalt` labelAttributeName
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` humanTaskConfig
 
-instance Prelude.NFData CreateLabelingJob
+instance Prelude.NFData CreateLabelingJob where
+  rnf CreateLabelingJob' {..} =
+    Prelude.rnf labelingJobAlgorithmsConfig
+      `Prelude.seq` Prelude.rnf labelCategoryConfigS3Uri
+      `Prelude.seq` Prelude.rnf stoppingConditions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf labelingJobName
+      `Prelude.seq` Prelude.rnf labelAttributeName
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf humanTaskConfig
 
 instance Core.ToHeaders CreateLabelingJob where
   toHeaders =
@@ -700,4 +723,7 @@ createLabelingJobResponse_httpStatus = Lens.lens (\CreateLabelingJobResponse' {h
 createLabelingJobResponse_labelingJobArn :: Lens.Lens' CreateLabelingJobResponse Prelude.Text
 createLabelingJobResponse_labelingJobArn = Lens.lens (\CreateLabelingJobResponse' {labelingJobArn} -> labelingJobArn) (\s@CreateLabelingJobResponse' {} a -> s {labelingJobArn = a} :: CreateLabelingJobResponse)
 
-instance Prelude.NFData CreateLabelingJobResponse
+instance Prelude.NFData CreateLabelingJobResponse where
+  rnf CreateLabelingJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf labelingJobArn

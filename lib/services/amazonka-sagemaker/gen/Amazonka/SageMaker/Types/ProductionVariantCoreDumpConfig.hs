@@ -192,10 +192,20 @@ instance
 instance
   Prelude.Hashable
     ProductionVariantCoreDumpConfig
+  where
+  hashWithSalt
+    _salt
+    ProductionVariantCoreDumpConfig' {..} =
+      _salt `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` destinationS3Uri
 
 instance
   Prelude.NFData
     ProductionVariantCoreDumpConfig
+  where
+  rnf ProductionVariantCoreDumpConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf destinationS3Uri
 
 instance Core.ToJSON ProductionVariantCoreDumpConfig where
   toJSON ProductionVariantCoreDumpConfig' {..} =

@@ -138,9 +138,19 @@ instance Core.AWSRequest CreateStudioLifecycleConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStudioLifecycleConfig
+instance Prelude.Hashable CreateStudioLifecycleConfig where
+  hashWithSalt _salt CreateStudioLifecycleConfig' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` studioLifecycleConfigName
+      `Prelude.hashWithSalt` studioLifecycleConfigContent
+      `Prelude.hashWithSalt` studioLifecycleConfigAppType
 
-instance Prelude.NFData CreateStudioLifecycleConfig
+instance Prelude.NFData CreateStudioLifecycleConfig where
+  rnf CreateStudioLifecycleConfig' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigContent
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
 
 instance Core.ToHeaders CreateStudioLifecycleConfig where
   toHeaders =
@@ -225,3 +235,7 @@ createStudioLifecycleConfigResponse_httpStatus = Lens.lens (\CreateStudioLifecyc
 instance
   Prelude.NFData
     CreateStudioLifecycleConfigResponse
+  where
+  rnf CreateStudioLifecycleConfigResponse' {..} =
+    Prelude.rnf studioLifecycleConfigArn
+      `Prelude.seq` Prelude.rnf httpStatus

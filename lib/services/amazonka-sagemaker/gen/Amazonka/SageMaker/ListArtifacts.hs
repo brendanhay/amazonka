@@ -197,9 +197,27 @@ instance Core.AWSRequest ListArtifacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListArtifacts
+instance Prelude.Hashable ListArtifacts where
+  hashWithSalt _salt ListArtifacts' {..} =
+    _salt `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` sourceUri
+      `Prelude.hashWithSalt` artifactType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListArtifacts
+instance Prelude.NFData ListArtifacts where
+  rnf ListArtifacts' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf sourceUri
+      `Prelude.seq` Prelude.rnf artifactType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListArtifacts where
   toHeaders =
@@ -283,4 +301,8 @@ listArtifactsResponse_nextToken = Lens.lens (\ListArtifactsResponse' {nextToken}
 listArtifactsResponse_httpStatus :: Lens.Lens' ListArtifactsResponse Prelude.Int
 listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListArtifactsResponse' {} a -> s {httpStatus = a} :: ListArtifactsResponse)
 
-instance Prelude.NFData ListArtifactsResponse
+instance Prelude.NFData ListArtifactsResponse where
+  rnf ListArtifactsResponse' {..} =
+    Prelude.rnf artifactSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

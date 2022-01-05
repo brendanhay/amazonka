@@ -227,9 +227,31 @@ instance Core.AWSRequest ListTransformJobs where
                         )
       )
 
-instance Prelude.Hashable ListTransformJobs
+instance Prelude.Hashable ListTransformJobs where
+  hashWithSalt _salt ListTransformJobs' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListTransformJobs
+instance Prelude.NFData ListTransformJobs where
+  rnf ListTransformJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListTransformJobs where
   toHeaders =
@@ -324,4 +346,8 @@ listTransformJobsResponse_httpStatus = Lens.lens (\ListTransformJobsResponse' {h
 listTransformJobsResponse_transformJobSummaries :: Lens.Lens' ListTransformJobsResponse [TransformJobSummary]
 listTransformJobsResponse_transformJobSummaries = Lens.lens (\ListTransformJobsResponse' {transformJobSummaries} -> transformJobSummaries) (\s@ListTransformJobsResponse' {} a -> s {transformJobSummaries = a} :: ListTransformJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTransformJobsResponse
+instance Prelude.NFData ListTransformJobsResponse where
+  rnf ListTransformJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transformJobSummaries

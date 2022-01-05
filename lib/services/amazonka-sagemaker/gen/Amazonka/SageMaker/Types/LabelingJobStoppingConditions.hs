@@ -81,8 +81,16 @@ instance Core.FromJSON LabelingJobStoppingConditions where
 instance
   Prelude.Hashable
     LabelingJobStoppingConditions
+  where
+  hashWithSalt _salt LabelingJobStoppingConditions' {..} =
+    _salt
+      `Prelude.hashWithSalt` maxHumanLabeledObjectCount
+      `Prelude.hashWithSalt` maxPercentageOfInputDatasetLabeled
 
-instance Prelude.NFData LabelingJobStoppingConditions
+instance Prelude.NFData LabelingJobStoppingConditions where
+  rnf LabelingJobStoppingConditions' {..} =
+    Prelude.rnf maxHumanLabeledObjectCount
+      `Prelude.seq` Prelude.rnf maxPercentageOfInputDatasetLabeled
 
 instance Core.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =

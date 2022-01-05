@@ -60,6 +60,9 @@ instance Core.FromJSON ConditionStepMetadata where
             Prelude.<$> (x Core..:? "Outcome")
       )
 
-instance Prelude.Hashable ConditionStepMetadata
+instance Prelude.Hashable ConditionStepMetadata where
+  hashWithSalt _salt ConditionStepMetadata' {..} =
+    _salt `Prelude.hashWithSalt` outcome
 
-instance Prelude.NFData ConditionStepMetadata
+instance Prelude.NFData ConditionStepMetadata where
+  rnf ConditionStepMetadata' {..} = Prelude.rnf outcome

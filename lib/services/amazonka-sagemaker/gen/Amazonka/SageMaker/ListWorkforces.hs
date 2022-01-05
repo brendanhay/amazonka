@@ -153,9 +153,21 @@ instance Core.AWSRequest ListWorkforces where
             Prelude.<*> (x Core..?> "Workforces" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListWorkforces
+instance Prelude.Hashable ListWorkforces where
+  hashWithSalt _salt ListWorkforces' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListWorkforces
+instance Prelude.NFData ListWorkforces where
+  rnf ListWorkforces' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListWorkforces where
   toHeaders =
@@ -236,4 +248,8 @@ listWorkforcesResponse_httpStatus = Lens.lens (\ListWorkforcesResponse' {httpSta
 listWorkforcesResponse_workforces :: Lens.Lens' ListWorkforcesResponse [Workforce]
 listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorkforcesResponse
+instance Prelude.NFData ListWorkforcesResponse where
+  rnf ListWorkforcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workforces

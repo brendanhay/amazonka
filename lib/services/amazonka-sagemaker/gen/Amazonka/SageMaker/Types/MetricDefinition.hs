@@ -83,9 +83,14 @@ instance Core.FromJSON MetricDefinition where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Regex")
       )
 
-instance Prelude.Hashable MetricDefinition
+instance Prelude.Hashable MetricDefinition where
+  hashWithSalt _salt MetricDefinition' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regex
 
-instance Prelude.NFData MetricDefinition
+instance Prelude.NFData MetricDefinition where
+  rnf MetricDefinition' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf regex
 
 instance Core.ToJSON MetricDefinition where
   toJSON MetricDefinition' {..} =

@@ -89,9 +89,14 @@ instance Core.AWSRequest StopHyperParameterTuningJob where
     Response.receiveNull
       StopHyperParameterTuningJobResponse'
 
-instance Prelude.Hashable StopHyperParameterTuningJob
+instance Prelude.Hashable StopHyperParameterTuningJob where
+  hashWithSalt _salt StopHyperParameterTuningJob' {..} =
+    _salt
+      `Prelude.hashWithSalt` hyperParameterTuningJobName
 
-instance Prelude.NFData StopHyperParameterTuningJob
+instance Prelude.NFData StopHyperParameterTuningJob where
+  rnf StopHyperParameterTuningJob' {..} =
+    Prelude.rnf hyperParameterTuningJobName
 
 instance Core.ToHeaders StopHyperParameterTuningJob where
   toHeaders =
@@ -143,3 +148,5 @@ newStopHyperParameterTuningJobResponse =
 instance
   Prelude.NFData
     StopHyperParameterTuningJobResponse
+  where
+  rnf _ = ()

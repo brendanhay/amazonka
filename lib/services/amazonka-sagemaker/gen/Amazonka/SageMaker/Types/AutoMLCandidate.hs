@@ -185,6 +185,30 @@ instance Core.FromJSON AutoMLCandidate where
             Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Prelude.Hashable AutoMLCandidate
+instance Prelude.Hashable AutoMLCandidate where
+  hashWithSalt _salt AutoMLCandidate' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` inferenceContainers
+      `Prelude.hashWithSalt` candidateProperties
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` finalAutoMLJobObjectiveMetric
+      `Prelude.hashWithSalt` candidateName
+      `Prelude.hashWithSalt` objectiveStatus
+      `Prelude.hashWithSalt` candidateSteps
+      `Prelude.hashWithSalt` candidateStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData AutoMLCandidate
+instance Prelude.NFData AutoMLCandidate where
+  rnf AutoMLCandidate' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf inferenceContainers
+      `Prelude.seq` Prelude.rnf candidateProperties
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf finalAutoMLJobObjectiveMetric
+      `Prelude.seq` Prelude.rnf candidateName
+      `Prelude.seq` Prelude.rnf objectiveStatus
+      `Prelude.seq` Prelude.rnf candidateSteps
+      `Prelude.seq` Prelude.rnf candidateStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime

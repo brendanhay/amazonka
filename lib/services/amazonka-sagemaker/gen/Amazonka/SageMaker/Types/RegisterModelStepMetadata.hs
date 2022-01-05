@@ -59,6 +59,9 @@ instance Core.FromJSON RegisterModelStepMetadata where
             Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable RegisterModelStepMetadata
+instance Prelude.Hashable RegisterModelStepMetadata where
+  hashWithSalt _salt RegisterModelStepMetadata' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RegisterModelStepMetadata
+instance Prelude.NFData RegisterModelStepMetadata where
+  rnf RegisterModelStepMetadata' {..} = Prelude.rnf arn

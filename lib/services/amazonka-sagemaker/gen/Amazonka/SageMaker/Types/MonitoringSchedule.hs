@@ -202,6 +202,30 @@ instance Core.FromJSON MonitoringSchedule where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable MonitoringSchedule
+instance Prelude.Hashable MonitoringSchedule where
+  hashWithSalt _salt MonitoringSchedule' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` monitoringType
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` monitoringScheduleArn
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` monitoringScheduleStatus
+      `Prelude.hashWithSalt` lastMonitoringExecutionSummary
+      `Prelude.hashWithSalt` monitoringScheduleConfig
+      `Prelude.hashWithSalt` monitoringScheduleName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData MonitoringSchedule
+instance Prelude.NFData MonitoringSchedule where
+  rnf MonitoringSchedule' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
+      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
+      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
+      `Prelude.seq` Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf tags

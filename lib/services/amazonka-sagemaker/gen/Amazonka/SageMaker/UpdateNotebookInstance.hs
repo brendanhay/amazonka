@@ -354,9 +354,37 @@ instance Core.AWSRequest UpdateNotebookInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNotebookInstance
+instance Prelude.Hashable UpdateNotebookInstance where
+  hashWithSalt _salt UpdateNotebookInstance' {..} =
+    _salt `Prelude.hashWithSalt` acceleratorTypes
+      `Prelude.hashWithSalt` disassociateAdditionalCodeRepositories
+      `Prelude.hashWithSalt` additionalCodeRepositories
+      `Prelude.hashWithSalt` lifecycleConfigName
+      `Prelude.hashWithSalt` disassociateLifecycleConfig
+      `Prelude.hashWithSalt` disassociateDefaultCodeRepository
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` defaultCodeRepository
+      `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` rootAccess
+      `Prelude.hashWithSalt` disassociateAcceleratorTypes
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` notebookInstanceName
 
-instance Prelude.NFData UpdateNotebookInstance
+instance Prelude.NFData UpdateNotebookInstance where
+  rnf UpdateNotebookInstance' {..} =
+    Prelude.rnf acceleratorTypes
+      `Prelude.seq` Prelude.rnf disassociateAdditionalCodeRepositories
+      `Prelude.seq` Prelude.rnf additionalCodeRepositories
+      `Prelude.seq` Prelude.rnf lifecycleConfigName
+      `Prelude.seq` Prelude.rnf disassociateLifecycleConfig
+      `Prelude.seq` Prelude.rnf disassociateDefaultCodeRepository
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf defaultCodeRepository
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf rootAccess
+      `Prelude.seq` Prelude.rnf disassociateAcceleratorTypes
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf notebookInstanceName
 
 instance Core.ToHeaders UpdateNotebookInstance where
   toHeaders =
@@ -444,3 +472,6 @@ updateNotebookInstanceResponse_httpStatus = Lens.lens (\UpdateNotebookInstanceRe
 instance
   Prelude.NFData
     UpdateNotebookInstanceResponse
+  where
+  rnf UpdateNotebookInstanceResponse' {..} =
+    Prelude.rnf httpStatus

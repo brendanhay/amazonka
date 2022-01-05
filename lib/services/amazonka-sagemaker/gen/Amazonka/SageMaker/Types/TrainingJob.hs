@@ -753,6 +753,99 @@ instance Core.FromJSON TrainingJob where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable TrainingJob
+instance Prelude.Hashable TrainingJob where
+  hashWithSalt _salt TrainingJob' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` labelingJobArn
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` secondaryStatusTransitions
+      `Prelude.hashWithSalt` modelArtifacts
+      `Prelude.hashWithSalt` trainingEndTime
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` billableTimeInSeconds
+      `Prelude.hashWithSalt` debugHookConfig
+      `Prelude.hashWithSalt` checkpointConfig
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` debugRuleEvaluationStatuses
+      `Prelude.hashWithSalt` trainingJobStatus
+      `Prelude.hashWithSalt` enableNetworkIsolation
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` debugRuleConfigurations
+      `Prelude.hashWithSalt` enableManagedSpotTraining
+      `Prelude.hashWithSalt` autoMLJobArn
+      `Prelude.hashWithSalt` hyperParameters
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` trainingJobArn
+      `Prelude.hashWithSalt` algorithmSpecification
+      `Prelude.hashWithSalt` finalMetricDataList
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` trainingStartTime
+      `Prelude.hashWithSalt` tuningJobArn
+      `Prelude.hashWithSalt` trainingJobName
+      `Prelude.hashWithSalt` resourceConfig
+      `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+      `Prelude.hashWithSalt` tensorBoardOutputConfig
+      `Prelude.hashWithSalt` secondaryStatus
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` trainingTimeInSeconds
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData TrainingJob
+instance Prelude.NFData TrainingJob where
+  rnf TrainingJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf labelingJobArn
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf secondaryStatusTransitions
+      `Prelude.seq` Prelude.rnf modelArtifacts
+      `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf billableTimeInSeconds
+      `Prelude.seq` Prelude.rnf debugHookConfig
+      `Prelude.seq` Prelude.rnf checkpointConfig
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf debugRuleEvaluationStatuses
+      `Prelude.seq` Prelude.rnf trainingJobStatus
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf
+        debugRuleConfigurations
+      `Prelude.seq` Prelude.rnf
+        enableManagedSpotTraining
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf
+        inputDataConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf
+        trainingJobArn
+      `Prelude.seq` Prelude.rnf
+        algorithmSpecification
+      `Prelude.seq` Prelude.rnf
+        finalMetricDataList
+      `Prelude.seq` Prelude.rnf
+        outputDataConfig
+      `Prelude.seq` Prelude.rnf
+        trainingStartTime
+      `Prelude.seq` Prelude.rnf
+        tuningJobArn
+      `Prelude.seq` Prelude.rnf
+        trainingJobName
+      `Prelude.seq` Prelude.rnf
+        resourceConfig
+      `Prelude.seq` Prelude.rnf
+        enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf
+        tensorBoardOutputConfig
+      `Prelude.seq` Prelude.rnf
+        secondaryStatus
+      `Prelude.seq` Prelude.rnf
+        tags
+      `Prelude.seq` Prelude.rnf
+        trainingTimeInSeconds
+      `Prelude.seq` Prelude.rnf
+        roleArn

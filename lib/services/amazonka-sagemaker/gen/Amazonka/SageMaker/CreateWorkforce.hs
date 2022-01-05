@@ -174,9 +174,21 @@ instance Core.AWSRequest CreateWorkforce where
             Prelude.<*> (x Core..:> "WorkforceArn")
       )
 
-instance Prelude.Hashable CreateWorkforce
+instance Prelude.Hashable CreateWorkforce where
+  hashWithSalt _salt CreateWorkforce' {..} =
+    _salt `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` cognitoConfig
+      `Prelude.hashWithSalt` oidcConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workforceName
 
-instance Prelude.NFData CreateWorkforce
+instance Prelude.NFData CreateWorkforce where
+  rnf CreateWorkforce' {..} =
+    Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf cognitoConfig
+      `Prelude.seq` Prelude.rnf oidcConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workforceName
 
 instance Core.ToHeaders CreateWorkforce where
   toHeaders =
@@ -253,4 +265,7 @@ createWorkforceResponse_httpStatus = Lens.lens (\CreateWorkforceResponse' {httpS
 createWorkforceResponse_workforceArn :: Lens.Lens' CreateWorkforceResponse Prelude.Text
 createWorkforceResponse_workforceArn = Lens.lens (\CreateWorkforceResponse' {workforceArn} -> workforceArn) (\s@CreateWorkforceResponse' {} a -> s {workforceArn = a} :: CreateWorkforceResponse)
 
-instance Prelude.NFData CreateWorkforceResponse
+instance Prelude.NFData CreateWorkforceResponse where
+  rnf CreateWorkforceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workforceArn

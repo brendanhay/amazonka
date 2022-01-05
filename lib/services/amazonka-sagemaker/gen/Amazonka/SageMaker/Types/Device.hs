@@ -72,9 +72,17 @@ device_iotThingName = Lens.lens (\Device' {iotThingName} -> iotThingName) (\s@De
 device_deviceName :: Lens.Lens' Device Prelude.Text
 device_deviceName = Lens.lens (\Device' {deviceName} -> deviceName) (\s@Device' {} a -> s {deviceName = a} :: Device)
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt _salt Device' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` iotThingName
+      `Prelude.hashWithSalt` deviceName
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf iotThingName
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance Core.ToJSON Device where
   toJSON Device' {..} =

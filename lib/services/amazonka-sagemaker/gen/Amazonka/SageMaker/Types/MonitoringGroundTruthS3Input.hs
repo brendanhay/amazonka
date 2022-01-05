@@ -65,8 +65,13 @@ instance Core.FromJSON MonitoringGroundTruthS3Input where
 instance
   Prelude.Hashable
     MonitoringGroundTruthS3Input
+  where
+  hashWithSalt _salt MonitoringGroundTruthS3Input' {..} =
+    _salt `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData MonitoringGroundTruthS3Input
+instance Prelude.NFData MonitoringGroundTruthS3Input where
+  rnf MonitoringGroundTruthS3Input' {..} =
+    Prelude.rnf s3Uri
 
 instance Core.ToJSON MonitoringGroundTruthS3Input where
   toJSON MonitoringGroundTruthS3Input' {..} =

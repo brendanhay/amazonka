@@ -93,9 +93,12 @@ instance Core.AWSRequest DeleteWorkforce where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkforce
+instance Prelude.Hashable DeleteWorkforce where
+  hashWithSalt _salt DeleteWorkforce' {..} =
+    _salt `Prelude.hashWithSalt` workforceName
 
-instance Prelude.NFData DeleteWorkforce
+instance Prelude.NFData DeleteWorkforce where
+  rnf DeleteWorkforce' {..} = Prelude.rnf workforceName
 
 instance Core.ToHeaders DeleteWorkforce where
   toHeaders =
@@ -152,4 +155,6 @@ newDeleteWorkforceResponse pHttpStatus_ =
 deleteWorkforceResponse_httpStatus :: Lens.Lens' DeleteWorkforceResponse Prelude.Int
 deleteWorkforceResponse_httpStatus = Lens.lens (\DeleteWorkforceResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkforceResponse' {} a -> s {httpStatus = a} :: DeleteWorkforceResponse)
 
-instance Prelude.NFData DeleteWorkforceResponse
+instance Prelude.NFData DeleteWorkforceResponse where
+  rnf DeleteWorkforceResponse' {..} =
+    Prelude.rnf httpStatus

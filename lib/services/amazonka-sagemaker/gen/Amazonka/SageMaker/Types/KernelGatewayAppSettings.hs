@@ -95,9 +95,17 @@ instance Core.FromJSON KernelGatewayAppSettings where
                         )
       )
 
-instance Prelude.Hashable KernelGatewayAppSettings
+instance Prelude.Hashable KernelGatewayAppSettings where
+  hashWithSalt _salt KernelGatewayAppSettings' {..} =
+    _salt `Prelude.hashWithSalt` defaultResourceSpec
+      `Prelude.hashWithSalt` customImages
+      `Prelude.hashWithSalt` lifecycleConfigArns
 
-instance Prelude.NFData KernelGatewayAppSettings
+instance Prelude.NFData KernelGatewayAppSettings where
+  rnf KernelGatewayAppSettings' {..} =
+    Prelude.rnf defaultResourceSpec
+      `Prelude.seq` Prelude.rnf customImages
+      `Prelude.seq` Prelude.rnf lifecycleConfigArns
 
 instance Core.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =

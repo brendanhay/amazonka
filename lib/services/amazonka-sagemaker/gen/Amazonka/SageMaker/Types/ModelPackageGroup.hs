@@ -168,6 +168,22 @@ instance Core.FromJSON ModelPackageGroup where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ModelPackageGroup
+instance Prelude.Hashable ModelPackageGroup where
+  hashWithSalt _salt ModelPackageGroup' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` modelPackageGroupDescription
+      `Prelude.hashWithSalt` modelPackageGroupArn
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` modelPackageGroupStatus
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ModelPackageGroup
+instance Prelude.NFData ModelPackageGroup where
+  rnf ModelPackageGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelPackageGroupDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
+      `Prelude.seq` Prelude.rnf tags

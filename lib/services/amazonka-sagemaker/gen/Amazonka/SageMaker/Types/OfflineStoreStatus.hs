@@ -78,6 +78,12 @@ instance Core.FromJSON OfflineStoreStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable OfflineStoreStatus
+instance Prelude.Hashable OfflineStoreStatus where
+  hashWithSalt _salt OfflineStoreStatus' {..} =
+    _salt `Prelude.hashWithSalt` blockedReason
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OfflineStoreStatus
+instance Prelude.NFData OfflineStoreStatus where
+  rnf OfflineStoreStatus' {..} =
+    Prelude.rnf blockedReason
+      `Prelude.seq` Prelude.rnf status

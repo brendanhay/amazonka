@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateTrainingJob where
             Prelude.<*> (x Core..:> "TrainingJobArn")
       )
 
-instance Prelude.Hashable UpdateTrainingJob
+instance Prelude.Hashable UpdateTrainingJob where
+  hashWithSalt _salt UpdateTrainingJob' {..} =
+    _salt `Prelude.hashWithSalt` profilerConfig
+      `Prelude.hashWithSalt` profilerRuleConfigurations
+      `Prelude.hashWithSalt` trainingJobName
 
-instance Prelude.NFData UpdateTrainingJob
+instance Prelude.NFData UpdateTrainingJob where
+  rnf UpdateTrainingJob' {..} =
+    Prelude.rnf profilerConfig
+      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf trainingJobName
 
 instance Core.ToHeaders UpdateTrainingJob where
   toHeaders =
@@ -200,4 +208,7 @@ updateTrainingJobResponse_httpStatus = Lens.lens (\UpdateTrainingJobResponse' {h
 updateTrainingJobResponse_trainingJobArn :: Lens.Lens' UpdateTrainingJobResponse Prelude.Text
 updateTrainingJobResponse_trainingJobArn = Lens.lens (\UpdateTrainingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@UpdateTrainingJobResponse' {} a -> s {trainingJobArn = a} :: UpdateTrainingJobResponse)
 
-instance Prelude.NFData UpdateTrainingJobResponse
+instance Prelude.NFData UpdateTrainingJobResponse where
+  rnf UpdateTrainingJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trainingJobArn

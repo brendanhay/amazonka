@@ -83,9 +83,17 @@ instance Core.FromJSON AutoMLSecurityConfig where
             Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
       )
 
-instance Prelude.Hashable AutoMLSecurityConfig
+instance Prelude.Hashable AutoMLSecurityConfig where
+  hashWithSalt _salt AutoMLSecurityConfig' {..} =
+    _salt `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
 
-instance Prelude.NFData AutoMLSecurityConfig
+instance Prelude.NFData AutoMLSecurityConfig where
+  rnf AutoMLSecurityConfig' {..} =
+    Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
 
 instance Core.ToJSON AutoMLSecurityConfig where
   toJSON AutoMLSecurityConfig' {..} =

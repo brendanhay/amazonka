@@ -76,9 +76,15 @@ instance Core.FromJSON ArtifactSourceType where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ArtifactSourceType
+instance Prelude.Hashable ArtifactSourceType where
+  hashWithSalt _salt ArtifactSourceType' {..} =
+    _salt `Prelude.hashWithSalt` sourceIdType
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ArtifactSourceType
+instance Prelude.NFData ArtifactSourceType where
+  rnf ArtifactSourceType' {..} =
+    Prelude.rnf sourceIdType
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ArtifactSourceType where
   toJSON ArtifactSourceType' {..} =

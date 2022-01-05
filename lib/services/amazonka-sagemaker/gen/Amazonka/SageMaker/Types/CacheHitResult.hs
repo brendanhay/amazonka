@@ -62,6 +62,11 @@ instance Core.FromJSON CacheHitResult where
             Prelude.<$> (x Core..:? "SourcePipelineExecutionArn")
       )
 
-instance Prelude.Hashable CacheHitResult
+instance Prelude.Hashable CacheHitResult where
+  hashWithSalt _salt CacheHitResult' {..} =
+    _salt
+      `Prelude.hashWithSalt` sourcePipelineExecutionArn
 
-instance Prelude.NFData CacheHitResult
+instance Prelude.NFData CacheHitResult where
+  rnf CacheHitResult' {..} =
+    Prelude.rnf sourcePipelineExecutionArn

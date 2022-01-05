@@ -169,9 +169,13 @@ instance Core.FromJSON ScheduleConfig where
             Prelude.<$> (x Core..: "ScheduleExpression")
       )
 
-instance Prelude.Hashable ScheduleConfig
+instance Prelude.Hashable ScheduleConfig where
+  hashWithSalt _salt ScheduleConfig' {..} =
+    _salt `Prelude.hashWithSalt` scheduleExpression
 
-instance Prelude.NFData ScheduleConfig
+instance Prelude.NFData ScheduleConfig where
+  rnf ScheduleConfig' {..} =
+    Prelude.rnf scheduleExpression
 
 instance Core.ToJSON ScheduleConfig where
   toJSON ScheduleConfig' {..} =

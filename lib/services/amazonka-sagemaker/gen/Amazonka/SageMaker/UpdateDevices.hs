@@ -89,9 +89,15 @@ instance Core.AWSRequest UpdateDevices where
   response =
     Response.receiveNull UpdateDevicesResponse'
 
-instance Prelude.Hashable UpdateDevices
+instance Prelude.Hashable UpdateDevices where
+  hashWithSalt _salt UpdateDevices' {..} =
+    _salt `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` devices
 
-instance Prelude.NFData UpdateDevices
+instance Prelude.NFData UpdateDevices where
+  rnf UpdateDevices' {..} =
+    Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf devices
 
 instance Core.ToHeaders UpdateDevices where
   toHeaders =
@@ -136,4 +142,5 @@ newUpdateDevicesResponse ::
   UpdateDevicesResponse
 newUpdateDevicesResponse = UpdateDevicesResponse'
 
-instance Prelude.NFData UpdateDevicesResponse
+instance Prelude.NFData UpdateDevicesResponse where
+  rnf _ = ()

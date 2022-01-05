@@ -74,8 +74,13 @@ instance Core.FromJSON ProcessingFeatureStoreOutput where
 instance
   Prelude.Hashable
     ProcessingFeatureStoreOutput
+  where
+  hashWithSalt _salt ProcessingFeatureStoreOutput' {..} =
+    _salt `Prelude.hashWithSalt` featureGroupName
 
-instance Prelude.NFData ProcessingFeatureStoreOutput
+instance Prelude.NFData ProcessingFeatureStoreOutput where
+  rnf ProcessingFeatureStoreOutput' {..} =
+    Prelude.rnf featureGroupName
 
 instance Core.ToJSON ProcessingFeatureStoreOutput where
   toJSON ProcessingFeatureStoreOutput' {..} =

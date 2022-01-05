@@ -163,9 +163,25 @@ instance Core.AWSRequest ListProjects where
                         )
       )
 
-instance Prelude.Hashable ListProjects
+instance Prelude.Hashable ListProjects where
+  hashWithSalt _salt ListProjects' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListProjects
+instance Prelude.NFData ListProjects where
+  rnf ListProjects' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListProjects where
   toHeaders =
@@ -255,4 +271,8 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 listProjectsResponse_projectSummaryList :: Lens.Lens' ListProjectsResponse [ProjectSummary]
 listProjectsResponse_projectSummaryList = Lens.lens (\ListProjectsResponse' {projectSummaryList} -> projectSummaryList) (\s@ListProjectsResponse' {} a -> s {projectSummaryList = a} :: ListProjectsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProjectsResponse
+instance Prelude.NFData ListProjectsResponse where
+  rnf ListProjectsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectSummaryList

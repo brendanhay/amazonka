@@ -146,9 +146,19 @@ instance Core.AWSRequest DescribeApp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApp
+instance Prelude.Hashable DescribeApp where
+  hashWithSalt _salt DescribeApp' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` appType
+      `Prelude.hashWithSalt` appName
 
-instance Prelude.NFData DescribeApp
+instance Prelude.NFData DescribeApp where
+  rnf DescribeApp' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf appType
+      `Prelude.seq` Prelude.rnf appName
 
 instance Core.ToHeaders DescribeApp where
   toHeaders =
@@ -322,4 +332,17 @@ describeAppResponse_appType = Lens.lens (\DescribeAppResponse' {appType} -> appT
 describeAppResponse_httpStatus :: Lens.Lens' DescribeAppResponse Prelude.Int
 describeAppResponse_httpStatus = Lens.lens (\DescribeAppResponse' {httpStatus} -> httpStatus) (\s@DescribeAppResponse' {} a -> s {httpStatus = a} :: DescribeAppResponse)
 
-instance Prelude.NFData DescribeAppResponse
+instance Prelude.NFData DescribeAppResponse where
+  rnf DescribeAppResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf resourceSpec
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf lastUserActivityTimestamp
+      `Prelude.seq` Prelude.rnf lastHealthCheckTimestamp
+      `Prelude.seq` Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf appType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -66,6 +66,10 @@ instance Core.FromJSON PropertyNameSuggestion where
             Prelude.<$> (x Core..:? "PropertyName")
       )
 
-instance Prelude.Hashable PropertyNameSuggestion
+instance Prelude.Hashable PropertyNameSuggestion where
+  hashWithSalt _salt PropertyNameSuggestion' {..} =
+    _salt `Prelude.hashWithSalt` propertyName
 
-instance Prelude.NFData PropertyNameSuggestion
+instance Prelude.NFData PropertyNameSuggestion where
+  rnf PropertyNameSuggestion' {..} =
+    Prelude.rnf propertyName

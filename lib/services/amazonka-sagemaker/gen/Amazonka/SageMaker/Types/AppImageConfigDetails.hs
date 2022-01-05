@@ -106,6 +106,18 @@ instance Core.FromJSON AppImageConfigDetails where
             Prelude.<*> (x Core..:? "AppImageConfigArn")
       )
 
-instance Prelude.Hashable AppImageConfigDetails
+instance Prelude.Hashable AppImageConfigDetails where
+  hashWithSalt _salt AppImageConfigDetails' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` appImageConfigName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` kernelGatewayImageConfig
+      `Prelude.hashWithSalt` appImageConfigArn
 
-instance Prelude.NFData AppImageConfigDetails
+instance Prelude.NFData AppImageConfigDetails where
+  rnf AppImageConfigDetails' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf appImageConfigName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
+      `Prelude.seq` Prelude.rnf appImageConfigArn

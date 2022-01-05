@@ -62,9 +62,12 @@ instance Core.FromJSON MonitoringInput where
             Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable MonitoringInput
+instance Prelude.Hashable MonitoringInput where
+  hashWithSalt _salt MonitoringInput' {..} =
+    _salt `Prelude.hashWithSalt` endpointInput
 
-instance Prelude.NFData MonitoringInput
+instance Prelude.NFData MonitoringInput where
+  rnf MonitoringInput' {..} = Prelude.rnf endpointInput
 
 instance Core.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =

@@ -86,9 +86,17 @@ instance Core.FromJSON CustomImage where
             Prelude.<*> (x Core..: "AppImageConfigName")
       )
 
-instance Prelude.Hashable CustomImage
+instance Prelude.Hashable CustomImage where
+  hashWithSalt _salt CustomImage' {..} =
+    _salt `Prelude.hashWithSalt` imageVersionNumber
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` appImageConfigName
 
-instance Prelude.NFData CustomImage
+instance Prelude.NFData CustomImage where
+  rnf CustomImage' {..} =
+    Prelude.rnf imageVersionNumber
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf appImageConfigName
 
 instance Core.ToJSON CustomImage where
   toJSON CustomImage' {..} =

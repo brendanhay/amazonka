@@ -192,6 +192,30 @@ instance Core.FromJSON CompilationJobSummary where
             Prelude.<*> (x Core..: "CompilationJobStatus")
       )
 
-instance Prelude.Hashable CompilationJobSummary
+instance Prelude.Hashable CompilationJobSummary where
+  hashWithSalt _salt CompilationJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` compilationStartTime
+      `Prelude.hashWithSalt` compilationTargetPlatformAccelerator
+      `Prelude.hashWithSalt` compilationTargetDevice
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` compilationTargetPlatformArch
+      `Prelude.hashWithSalt` compilationEndTime
+      `Prelude.hashWithSalt` compilationTargetPlatformOs
+      `Prelude.hashWithSalt` compilationJobName
+      `Prelude.hashWithSalt` compilationJobArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` compilationJobStatus
 
-instance Prelude.NFData CompilationJobSummary
+instance Prelude.NFData CompilationJobSummary where
+  rnf CompilationJobSummary' {..} =
+    Prelude.rnf compilationStartTime
+      `Prelude.seq` Prelude.rnf compilationTargetPlatformAccelerator
+      `Prelude.seq` Prelude.rnf compilationTargetDevice
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf compilationTargetPlatformArch
+      `Prelude.seq` Prelude.rnf compilationEndTime
+      `Prelude.seq` Prelude.rnf compilationTargetPlatformOs
+      `Prelude.seq` Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf compilationJobArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf compilationJobStatus

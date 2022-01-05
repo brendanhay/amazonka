@@ -168,10 +168,28 @@ instance
 instance
   Prelude.Hashable
     ModelPackageContainerDefinition
+  where
+  hashWithSalt
+    _salt
+    ModelPackageContainerDefinition' {..} =
+      _salt `Prelude.hashWithSalt` modelDataUrl
+        `Prelude.hashWithSalt` environment
+        `Prelude.hashWithSalt` imageDigest
+        `Prelude.hashWithSalt` containerHostname
+        `Prelude.hashWithSalt` productId
+        `Prelude.hashWithSalt` image
 
 instance
   Prelude.NFData
     ModelPackageContainerDefinition
+  where
+  rnf ModelPackageContainerDefinition' {..} =
+    Prelude.rnf modelDataUrl
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf containerHostname
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =

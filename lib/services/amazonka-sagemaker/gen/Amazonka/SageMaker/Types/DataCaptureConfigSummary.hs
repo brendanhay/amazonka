@@ -114,6 +114,18 @@ instance Core.FromJSON DataCaptureConfigSummary where
             Prelude.<*> (x Core..: "KmsKeyId")
       )
 
-instance Prelude.Hashable DataCaptureConfigSummary
+instance Prelude.Hashable DataCaptureConfigSummary where
+  hashWithSalt _salt DataCaptureConfigSummary' {..} =
+    _salt `Prelude.hashWithSalt` enableCapture
+      `Prelude.hashWithSalt` captureStatus
+      `Prelude.hashWithSalt` currentSamplingPercentage
+      `Prelude.hashWithSalt` destinationS3Uri
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData DataCaptureConfigSummary
+instance Prelude.NFData DataCaptureConfigSummary where
+  rnf DataCaptureConfigSummary' {..} =
+    Prelude.rnf enableCapture
+      `Prelude.seq` Prelude.rnf captureStatus
+      `Prelude.seq` Prelude.rnf currentSamplingPercentage
+      `Prelude.seq` Prelude.rnf destinationS3Uri
+      `Prelude.seq` Prelude.rnf kmsKeyId

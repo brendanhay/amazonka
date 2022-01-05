@@ -2246,9 +2246,35 @@ instance Core.FromJSON HumanTaskConfig where
             Prelude.<*> (x Core..: "AnnotationConsolidationConfig")
       )
 
-instance Prelude.Hashable HumanTaskConfig
+instance Prelude.Hashable HumanTaskConfig where
+  hashWithSalt _salt HumanTaskConfig' {..} =
+    _salt `Prelude.hashWithSalt` taskKeywords
+      `Prelude.hashWithSalt` publicWorkforceTaskPrice
+      `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
+      `Prelude.hashWithSalt` maxConcurrentTaskCount
+      `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` uiConfig
+      `Prelude.hashWithSalt` preHumanTaskLambdaArn
+      `Prelude.hashWithSalt` taskTitle
+      `Prelude.hashWithSalt` taskDescription
+      `Prelude.hashWithSalt` numberOfHumanWorkersPerDataObject
+      `Prelude.hashWithSalt` taskTimeLimitInSeconds
+      `Prelude.hashWithSalt` annotationConsolidationConfig
 
-instance Prelude.NFData HumanTaskConfig
+instance Prelude.NFData HumanTaskConfig where
+  rnf HumanTaskConfig' {..} =
+    Prelude.rnf taskKeywords
+      `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
+      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
+      `Prelude.seq` Prelude.rnf maxConcurrentTaskCount
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf uiConfig
+      `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn
+      `Prelude.seq` Prelude.rnf taskTitle
+      `Prelude.seq` Prelude.rnf taskDescription
+      `Prelude.seq` Prelude.rnf numberOfHumanWorkersPerDataObject
+      `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
+      `Prelude.seq` Prelude.rnf annotationConsolidationConfig
 
 instance Core.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =

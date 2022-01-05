@@ -231,10 +231,34 @@ instance
 instance
   Prelude.Hashable
     ListNotebookInstanceLifecycleConfigs
+  where
+  hashWithSalt
+    _salt
+    ListNotebookInstanceLifecycleConfigs' {..} =
+      _salt `Prelude.hashWithSalt` nameContains
+        `Prelude.hashWithSalt` lastModifiedTimeBefore
+        `Prelude.hashWithSalt` creationTimeAfter
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` sortOrder
+        `Prelude.hashWithSalt` lastModifiedTimeAfter
+        `Prelude.hashWithSalt` creationTimeBefore
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` sortBy
 
 instance
   Prelude.NFData
     ListNotebookInstanceLifecycleConfigs
+  where
+  rnf ListNotebookInstanceLifecycleConfigs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance
   Core.ToHeaders
@@ -351,3 +375,8 @@ listNotebookInstanceLifecycleConfigsResponse_httpStatus = Lens.lens (\ListNotebo
 instance
   Prelude.NFData
     ListNotebookInstanceLifecycleConfigsResponse
+  where
+  rnf ListNotebookInstanceLifecycleConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigs
+      `Prelude.seq` Prelude.rnf httpStatus

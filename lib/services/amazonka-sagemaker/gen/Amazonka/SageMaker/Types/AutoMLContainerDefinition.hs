@@ -93,6 +93,14 @@ instance Core.FromJSON AutoMLContainerDefinition where
             Prelude.<*> (x Core..: "ModelDataUrl")
       )
 
-instance Prelude.Hashable AutoMLContainerDefinition
+instance Prelude.Hashable AutoMLContainerDefinition where
+  hashWithSalt _salt AutoMLContainerDefinition' {..} =
+    _salt `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` modelDataUrl
 
-instance Prelude.NFData AutoMLContainerDefinition
+instance Prelude.NFData AutoMLContainerDefinition where
+  rnf AutoMLContainerDefinition' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf modelDataUrl

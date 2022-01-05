@@ -232,9 +232,24 @@ instance Core.AWSRequest CreateWorkteam where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkteam
+instance Prelude.Hashable CreateWorkteam where
+  hashWithSalt _salt CreateWorkteam' {..} =
+    _salt
+      `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` workforceName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workteamName
+      `Prelude.hashWithSalt` memberDefinitions
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateWorkteam
+instance Prelude.NFData CreateWorkteam where
+  rnf CreateWorkteam' {..} =
+    Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf workforceName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workteamName
+      `Prelude.seq` Prelude.rnf memberDefinitions
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateWorkteam where
   toHeaders =
@@ -312,4 +327,7 @@ createWorkteamResponse_workteamArn = Lens.lens (\CreateWorkteamResponse' {workte
 createWorkteamResponse_httpStatus :: Lens.Lens' CreateWorkteamResponse Prelude.Int
 createWorkteamResponse_httpStatus = Lens.lens (\CreateWorkteamResponse' {httpStatus} -> httpStatus) (\s@CreateWorkteamResponse' {} a -> s {httpStatus = a} :: CreateWorkteamResponse)
 
-instance Prelude.NFData CreateWorkteamResponse
+instance Prelude.NFData CreateWorkteamResponse where
+  rnf CreateWorkteamResponse' {..} =
+    Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf httpStatus

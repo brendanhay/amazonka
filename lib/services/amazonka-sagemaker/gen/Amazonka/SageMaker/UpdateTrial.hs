@@ -99,9 +99,15 @@ instance Core.AWSRequest UpdateTrial where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrial
+instance Prelude.Hashable UpdateTrial where
+  hashWithSalt _salt UpdateTrial' {..} =
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` trialName
 
-instance Prelude.NFData UpdateTrial
+instance Prelude.NFData UpdateTrial where
+  rnf UpdateTrial' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf trialName
 
 instance Core.ToHeaders UpdateTrial where
   toHeaders =
@@ -169,4 +175,7 @@ updateTrialResponse_trialArn = Lens.lens (\UpdateTrialResponse' {trialArn} -> tr
 updateTrialResponse_httpStatus :: Lens.Lens' UpdateTrialResponse Prelude.Int
 updateTrialResponse_httpStatus = Lens.lens (\UpdateTrialResponse' {httpStatus} -> httpStatus) (\s@UpdateTrialResponse' {} a -> s {httpStatus = a} :: UpdateTrialResponse)
 
-instance Prelude.NFData UpdateTrialResponse
+instance Prelude.NFData UpdateTrialResponse where
+  rnf UpdateTrialResponse' {..} =
+    Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf httpStatus

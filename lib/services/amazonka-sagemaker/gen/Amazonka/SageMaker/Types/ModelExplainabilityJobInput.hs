@@ -64,9 +64,13 @@ instance Core.FromJSON ModelExplainabilityJobInput where
             Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable ModelExplainabilityJobInput
+instance Prelude.Hashable ModelExplainabilityJobInput where
+  hashWithSalt _salt ModelExplainabilityJobInput' {..} =
+    _salt `Prelude.hashWithSalt` endpointInput
 
-instance Prelude.NFData ModelExplainabilityJobInput
+instance Prelude.NFData ModelExplainabilityJobInput where
+  rnf ModelExplainabilityJobInput' {..} =
+    Prelude.rnf endpointInput
 
 instance Core.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =

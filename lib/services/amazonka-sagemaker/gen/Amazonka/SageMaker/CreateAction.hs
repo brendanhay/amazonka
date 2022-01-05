@@ -166,9 +166,27 @@ instance Core.AWSRequest CreateAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAction
+instance Prelude.Hashable CreateAction where
+  hashWithSalt _salt CreateAction' {..} =
+    _salt `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` actionType
 
-instance Prelude.NFData CreateAction
+instance Prelude.NFData CreateAction where
+  rnf CreateAction' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf actionType
 
 instance Core.ToHeaders CreateAction where
   toHeaders =
@@ -243,4 +261,7 @@ createActionResponse_actionArn = Lens.lens (\CreateActionResponse' {actionArn} -
 createActionResponse_httpStatus :: Lens.Lens' CreateActionResponse Prelude.Int
 createActionResponse_httpStatus = Lens.lens (\CreateActionResponse' {httpStatus} -> httpStatus) (\s@CreateActionResponse' {} a -> s {httpStatus = a} :: CreateActionResponse)
 
-instance Prelude.NFData CreateActionResponse
+instance Prelude.NFData CreateActionResponse where
+  rnf CreateActionResponse' {..} =
+    Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf httpStatus

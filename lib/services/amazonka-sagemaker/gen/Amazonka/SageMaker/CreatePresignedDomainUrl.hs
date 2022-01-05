@@ -152,9 +152,20 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePresignedDomainUrl
+instance Prelude.Hashable CreatePresignedDomainUrl where
+  hashWithSalt _salt CreatePresignedDomainUrl' {..} =
+    _salt
+      `Prelude.hashWithSalt` sessionExpirationDurationInSeconds
+      `Prelude.hashWithSalt` expiresInSeconds
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` userProfileName
 
-instance Prelude.NFData CreatePresignedDomainUrl
+instance Prelude.NFData CreatePresignedDomainUrl where
+  rnf CreatePresignedDomainUrl' {..} =
+    Prelude.rnf sessionExpirationDurationInSeconds
+      `Prelude.seq` Prelude.rnf expiresInSeconds
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf userProfileName
 
 instance Core.ToHeaders CreatePresignedDomainUrl where
   toHeaders =
@@ -233,3 +244,7 @@ createPresignedDomainUrlResponse_httpStatus = Lens.lens (\CreatePresignedDomainU
 instance
   Prelude.NFData
     CreatePresignedDomainUrlResponse
+  where
+  rnf CreatePresignedDomainUrlResponse' {..} =
+    Prelude.rnf authorizedUrl
+      `Prelude.seq` Prelude.rnf httpStatus

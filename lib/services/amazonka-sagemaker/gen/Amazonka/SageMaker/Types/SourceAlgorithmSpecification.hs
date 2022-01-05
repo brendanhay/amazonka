@@ -68,8 +68,13 @@ instance Core.FromJSON SourceAlgorithmSpecification where
 instance
   Prelude.Hashable
     SourceAlgorithmSpecification
+  where
+  hashWithSalt _salt SourceAlgorithmSpecification' {..} =
+    _salt `Prelude.hashWithSalt` sourceAlgorithms
 
-instance Prelude.NFData SourceAlgorithmSpecification
+instance Prelude.NFData SourceAlgorithmSpecification where
+  rnf SourceAlgorithmSpecification' {..} =
+    Prelude.rnf sourceAlgorithms
 
 instance Core.ToJSON SourceAlgorithmSpecification where
   toJSON SourceAlgorithmSpecification' {..} =

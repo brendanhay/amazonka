@@ -107,9 +107,17 @@ instance Core.FromJSON ProcessingS3Output where
             Prelude.<*> (x Core..: "S3UploadMode")
       )
 
-instance Prelude.Hashable ProcessingS3Output
+instance Prelude.Hashable ProcessingS3Output where
+  hashWithSalt _salt ProcessingS3Output' {..} =
+    _salt `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` s3UploadMode
 
-instance Prelude.NFData ProcessingS3Output
+instance Prelude.NFData ProcessingS3Output where
+  rnf ProcessingS3Output' {..} =
+    Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3UploadMode
 
 instance Core.ToJSON ProcessingS3Output where
   toJSON ProcessingS3Output' {..} =

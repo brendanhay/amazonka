@@ -78,6 +78,12 @@ instance Core.FromJSON DeviceStats where
             Prelude.<*> (x Core..: "RegisteredDeviceCount")
       )
 
-instance Prelude.Hashable DeviceStats
+instance Prelude.Hashable DeviceStats where
+  hashWithSalt _salt DeviceStats' {..} =
+    _salt `Prelude.hashWithSalt` connectedDeviceCount
+      `Prelude.hashWithSalt` registeredDeviceCount
 
-instance Prelude.NFData DeviceStats
+instance Prelude.NFData DeviceStats where
+  rnf DeviceStats' {..} =
+    Prelude.rnf connectedDeviceCount
+      `Prelude.seq` Prelude.rnf registeredDeviceCount

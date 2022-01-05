@@ -133,9 +133,13 @@ instance Core.AWSRequest DescribeNotebookInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNotebookInstance
+instance Prelude.Hashable DescribeNotebookInstance where
+  hashWithSalt _salt DescribeNotebookInstance' {..} =
+    _salt `Prelude.hashWithSalt` notebookInstanceName
 
-instance Prelude.NFData DescribeNotebookInstance
+instance Prelude.NFData DescribeNotebookInstance where
+  rnf DescribeNotebookInstance' {..} =
+    Prelude.rnf notebookInstanceName
 
 instance Core.ToHeaders DescribeNotebookInstance where
   toHeaders =
@@ -510,3 +514,28 @@ describeNotebookInstanceResponse_httpStatus = Lens.lens (\DescribeNotebookInstan
 instance
   Prelude.NFData
     DescribeNotebookInstanceResponse
+  where
+  rnf DescribeNotebookInstanceResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf acceleratorTypes
+      `Prelude.seq` Prelude.rnf platformIdentifier
+      `Prelude.seq` Prelude.rnf notebookInstanceName
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf additionalCodeRepositories
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf notebookInstanceStatus
+      `Prelude.seq` Prelude.rnf defaultCodeRepository
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf rootAccess
+      `Prelude.seq` Prelude.rnf directInternetAccess
+      `Prelude.seq` Prelude.rnf notebookInstanceArn
+      `Prelude.seq` Prelude.rnf
+        notebookInstanceLifecycleConfigName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

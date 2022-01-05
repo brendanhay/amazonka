@@ -189,9 +189,25 @@ instance Core.AWSRequest ListModelPackageGroups where
                         )
       )
 
-instance Prelude.Hashable ListModelPackageGroups
+instance Prelude.Hashable ListModelPackageGroups where
+  hashWithSalt _salt ListModelPackageGroups' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListModelPackageGroups
+instance Prelude.NFData ListModelPackageGroups where
+  rnf ListModelPackageGroups' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListModelPackageGroups where
   toHeaders =
@@ -288,3 +304,8 @@ listModelPackageGroupsResponse_modelPackageGroupSummaryList = Lens.lens (\ListMo
 instance
   Prelude.NFData
     ListModelPackageGroupsResponse
+  where
+  rnf ListModelPackageGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelPackageGroupSummaryList

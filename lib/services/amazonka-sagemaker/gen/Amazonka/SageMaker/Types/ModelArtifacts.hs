@@ -72,6 +72,10 @@ instance Core.FromJSON ModelArtifacts where
             Prelude.<$> (x Core..: "S3ModelArtifacts")
       )
 
-instance Prelude.Hashable ModelArtifacts
+instance Prelude.Hashable ModelArtifacts where
+  hashWithSalt _salt ModelArtifacts' {..} =
+    _salt `Prelude.hashWithSalt` s3ModelArtifacts
 
-instance Prelude.NFData ModelArtifacts
+instance Prelude.NFData ModelArtifacts where
+  rnf ModelArtifacts' {..} =
+    Prelude.rnf s3ModelArtifacts

@@ -126,9 +126,17 @@ instance Core.AWSRequest CreateMonitoringSchedule where
             Prelude.<*> (x Core..:> "MonitoringScheduleArn")
       )
 
-instance Prelude.Hashable CreateMonitoringSchedule
+instance Prelude.Hashable CreateMonitoringSchedule where
+  hashWithSalt _salt CreateMonitoringSchedule' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` monitoringScheduleName
+      `Prelude.hashWithSalt` monitoringScheduleConfig
 
-instance Prelude.NFData CreateMonitoringSchedule
+instance Prelude.NFData CreateMonitoringSchedule where
+  rnf CreateMonitoringSchedule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
 
 instance Core.ToHeaders CreateMonitoringSchedule where
   toHeaders =
@@ -214,3 +222,7 @@ createMonitoringScheduleResponse_monitoringScheduleArn = Lens.lens (\CreateMonit
 instance
   Prelude.NFData
     CreateMonitoringScheduleResponse
+  where
+  rnf CreateMonitoringScheduleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn

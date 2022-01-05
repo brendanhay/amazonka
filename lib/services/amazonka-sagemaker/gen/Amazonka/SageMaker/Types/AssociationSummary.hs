@@ -144,6 +144,26 @@ instance Core.FromJSON AssociationSummary where
             Prelude.<*> (x Core..:? "DestinationName")
       )
 
-instance Prelude.Hashable AssociationSummary
+instance Prelude.Hashable AssociationSummary where
+  hashWithSalt _salt AssociationSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` sourceName
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` destinationName
 
-instance Prelude.NFData AssociationSummary
+instance Prelude.NFData AssociationSummary where
+  rnf AssociationSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf destinationName

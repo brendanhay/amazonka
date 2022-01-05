@@ -71,9 +71,14 @@ instance Core.FromJSON CapacitySize where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable CapacitySize
+instance Prelude.Hashable CapacitySize where
+  hashWithSalt _salt CapacitySize' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData CapacitySize
+instance Prelude.NFData CapacitySize where
+  rnf CapacitySize' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON CapacitySize where
   toJSON CapacitySize' {..} =

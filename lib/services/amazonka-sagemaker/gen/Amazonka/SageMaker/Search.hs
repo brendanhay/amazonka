@@ -192,9 +192,23 @@ instance Core.AWSRequest Search where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Search
+instance Prelude.Hashable Search where
+  hashWithSalt _salt Search' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` searchExpression
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` resource
 
-instance Prelude.NFData Search
+instance Prelude.NFData Search where
+  rnf Search' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf searchExpression
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf resource
 
 instance Core.ToHeaders Search where
   toHeaders =
@@ -282,4 +296,8 @@ searchResponse_nextToken = Lens.lens (\SearchResponse' {nextToken} -> nextToken)
 searchResponse_httpStatus :: Lens.Lens' SearchResponse Prelude.Int
 searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStatus) (\s@SearchResponse' {} a -> s {httpStatus = a} :: SearchResponse)
 
-instance Prelude.NFData SearchResponse
+instance Prelude.NFData SearchResponse where
+  rnf SearchResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

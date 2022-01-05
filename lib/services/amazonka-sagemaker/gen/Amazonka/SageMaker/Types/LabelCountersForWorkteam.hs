@@ -85,6 +85,14 @@ instance Core.FromJSON LabelCountersForWorkteam where
             Prelude.<*> (x Core..:? "HumanLabeled")
       )
 
-instance Prelude.Hashable LabelCountersForWorkteam
+instance Prelude.Hashable LabelCountersForWorkteam where
+  hashWithSalt _salt LabelCountersForWorkteam' {..} =
+    _salt `Prelude.hashWithSalt` pendingHuman
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` humanLabeled
 
-instance Prelude.NFData LabelCountersForWorkteam
+instance Prelude.NFData LabelCountersForWorkteam where
+  rnf LabelCountersForWorkteam' {..} =
+    Prelude.rnf pendingHuman
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf humanLabeled

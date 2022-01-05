@@ -165,9 +165,23 @@ instance Core.AWSRequest ListUserProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserProfiles
+instance Prelude.Hashable ListUserProfiles where
+  hashWithSalt _salt ListUserProfiles' {..} =
+    _salt `Prelude.hashWithSalt` domainIdEquals
+      `Prelude.hashWithSalt` userProfileNameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListUserProfiles
+instance Prelude.NFData ListUserProfiles where
+  rnf ListUserProfiles' {..} =
+    Prelude.rnf domainIdEquals
+      `Prelude.seq` Prelude.rnf userProfileNameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListUserProfiles where
   toHeaders =
@@ -254,4 +268,8 @@ listUserProfilesResponse_nextToken = Lens.lens (\ListUserProfilesResponse' {next
 listUserProfilesResponse_httpStatus :: Lens.Lens' ListUserProfilesResponse Prelude.Int
 listUserProfilesResponse_httpStatus = Lens.lens (\ListUserProfilesResponse' {httpStatus} -> httpStatus) (\s@ListUserProfilesResponse' {} a -> s {httpStatus = a} :: ListUserProfilesResponse)
 
-instance Prelude.NFData ListUserProfilesResponse
+instance Prelude.NFData ListUserProfilesResponse where
+  rnf ListUserProfilesResponse' {..} =
+    Prelude.rnf userProfiles
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

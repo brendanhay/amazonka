@@ -91,9 +91,13 @@ instance Core.AWSRequest DescribeSubscribedWorkteam where
             Prelude.<*> (x Core..:> "SubscribedWorkteam")
       )
 
-instance Prelude.Hashable DescribeSubscribedWorkteam
+instance Prelude.Hashable DescribeSubscribedWorkteam where
+  hashWithSalt _salt DescribeSubscribedWorkteam' {..} =
+    _salt `Prelude.hashWithSalt` workteamArn
 
-instance Prelude.NFData DescribeSubscribedWorkteam
+instance Prelude.NFData DescribeSubscribedWorkteam where
+  rnf DescribeSubscribedWorkteam' {..} =
+    Prelude.rnf workteamArn
 
 instance Core.ToHeaders DescribeSubscribedWorkteam where
   toHeaders =
@@ -170,3 +174,7 @@ describeSubscribedWorkteamResponse_subscribedWorkteam = Lens.lens (\DescribeSubs
 instance
   Prelude.NFData
     DescribeSubscribedWorkteamResponse
+  where
+  rnf DescribeSubscribedWorkteamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscribedWorkteam

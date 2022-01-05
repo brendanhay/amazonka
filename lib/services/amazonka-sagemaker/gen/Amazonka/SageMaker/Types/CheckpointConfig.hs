@@ -80,9 +80,15 @@ instance Core.FromJSON CheckpointConfig where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable CheckpointConfig
+instance Prelude.Hashable CheckpointConfig where
+  hashWithSalt _salt CheckpointConfig' {..} =
+    _salt `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData CheckpointConfig
+instance Prelude.NFData CheckpointConfig where
+  rnf CheckpointConfig' {..} =
+    Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON CheckpointConfig where
   toJSON CheckpointConfig' {..} =

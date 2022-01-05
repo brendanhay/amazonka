@@ -244,9 +244,31 @@ instance Core.AWSRequest ListTrainingJobs where
                         )
       )
 
-instance Prelude.Hashable ListTrainingJobs
+instance Prelude.Hashable ListTrainingJobs where
+  hashWithSalt _salt ListTrainingJobs' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListTrainingJobs
+instance Prelude.NFData ListTrainingJobs where
+  rnf ListTrainingJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListTrainingJobs where
   toHeaders =
@@ -342,4 +364,8 @@ listTrainingJobsResponse_httpStatus = Lens.lens (\ListTrainingJobsResponse' {htt
 listTrainingJobsResponse_trainingJobSummaries :: Lens.Lens' ListTrainingJobsResponse [TrainingJobSummary]
 listTrainingJobsResponse_trainingJobSummaries = Lens.lens (\ListTrainingJobsResponse' {trainingJobSummaries} -> trainingJobSummaries) (\s@ListTrainingJobsResponse' {} a -> s {trainingJobSummaries = a} :: ListTrainingJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTrainingJobsResponse
+instance Prelude.NFData ListTrainingJobsResponse where
+  rnf ListTrainingJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trainingJobSummaries

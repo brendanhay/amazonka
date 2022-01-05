@@ -82,9 +82,13 @@ instance Core.AWSRequest StopLabelingJob where
   response =
     Response.receiveNull StopLabelingJobResponse'
 
-instance Prelude.Hashable StopLabelingJob
+instance Prelude.Hashable StopLabelingJob where
+  hashWithSalt _salt StopLabelingJob' {..} =
+    _salt `Prelude.hashWithSalt` labelingJobName
 
-instance Prelude.NFData StopLabelingJob
+instance Prelude.NFData StopLabelingJob where
+  rnf StopLabelingJob' {..} =
+    Prelude.rnf labelingJobName
 
 instance Core.ToHeaders StopLabelingJob where
   toHeaders =
@@ -128,4 +132,5 @@ newStopLabelingJobResponse ::
   StopLabelingJobResponse
 newStopLabelingJobResponse = StopLabelingJobResponse'
 
-instance Prelude.NFData StopLabelingJobResponse
+instance Prelude.NFData StopLabelingJobResponse where
+  rnf _ = ()

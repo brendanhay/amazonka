@@ -634,9 +634,19 @@ instance Core.FromJSON InputConfig where
             Prelude.<*> (x Core..: "Framework")
       )
 
-instance Prelude.Hashable InputConfig
+instance Prelude.Hashable InputConfig where
+  hashWithSalt _salt InputConfig' {..} =
+    _salt `Prelude.hashWithSalt` frameworkVersion
+      `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` dataInputConfig
+      `Prelude.hashWithSalt` framework
 
-instance Prelude.NFData InputConfig
+instance Prelude.NFData InputConfig where
+  rnf InputConfig' {..} =
+    Prelude.rnf frameworkVersion
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf dataInputConfig
+      `Prelude.seq` Prelude.rnf framework
 
 instance Core.ToJSON InputConfig where
   toJSON InputConfig' {..} =

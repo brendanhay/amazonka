@@ -131,6 +131,20 @@ instance Core.FromJSON TrainingJobSummary where
             Prelude.<*> (x Core..: "TrainingJobStatus")
       )
 
-instance Prelude.Hashable TrainingJobSummary
+instance Prelude.Hashable TrainingJobSummary where
+  hashWithSalt _salt TrainingJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` trainingEndTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` trainingJobName
+      `Prelude.hashWithSalt` trainingJobArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` trainingJobStatus
 
-instance Prelude.NFData TrainingJobSummary
+instance Prelude.NFData TrainingJobSummary where
+  rnf TrainingJobSummary' {..} =
+    Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf trainingJobName
+      `Prelude.seq` Prelude.rnf trainingJobArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf trainingJobStatus

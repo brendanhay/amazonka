@@ -95,9 +95,13 @@ instance Core.AWSRequest DeleteHumanTaskUi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHumanTaskUi
+instance Prelude.Hashable DeleteHumanTaskUi where
+  hashWithSalt _salt DeleteHumanTaskUi' {..} =
+    _salt `Prelude.hashWithSalt` humanTaskUiName
 
-instance Prelude.NFData DeleteHumanTaskUi
+instance Prelude.NFData DeleteHumanTaskUi where
+  rnf DeleteHumanTaskUi' {..} =
+    Prelude.rnf humanTaskUiName
 
 instance Core.ToHeaders DeleteHumanTaskUi where
   toHeaders =
@@ -159,4 +163,6 @@ newDeleteHumanTaskUiResponse pHttpStatus_ =
 deleteHumanTaskUiResponse_httpStatus :: Lens.Lens' DeleteHumanTaskUiResponse Prelude.Int
 deleteHumanTaskUiResponse_httpStatus = Lens.lens (\DeleteHumanTaskUiResponse' {httpStatus} -> httpStatus) (\s@DeleteHumanTaskUiResponse' {} a -> s {httpStatus = a} :: DeleteHumanTaskUiResponse)
 
-instance Prelude.NFData DeleteHumanTaskUiResponse
+instance Prelude.NFData DeleteHumanTaskUiResponse where
+  rnf DeleteHumanTaskUiResponse' {..} =
+    Prelude.rnf httpStatus

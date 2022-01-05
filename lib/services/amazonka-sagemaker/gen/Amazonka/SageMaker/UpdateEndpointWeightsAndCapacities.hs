@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     UpdateEndpointWeightsAndCapacities
+  where
+  hashWithSalt
+    _salt
+    UpdateEndpointWeightsAndCapacities' {..} =
+      _salt `Prelude.hashWithSalt` endpointName
+        `Prelude.hashWithSalt` desiredWeightsAndCapacities
 
 instance
   Prelude.NFData
     UpdateEndpointWeightsAndCapacities
+  where
+  rnf UpdateEndpointWeightsAndCapacities' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf desiredWeightsAndCapacities
 
 instance
   Core.ToHeaders
@@ -212,3 +222,7 @@ updateEndpointWeightsAndCapacitiesResponse_endpointArn = Lens.lens (\UpdateEndpo
 instance
   Prelude.NFData
     UpdateEndpointWeightsAndCapacitiesResponse
+  where
+  rnf UpdateEndpointWeightsAndCapacitiesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointArn

@@ -77,10 +77,15 @@ instance
 instance
   Prelude.Hashable
     DisableSagemakerServicecatalogPortfolio
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DisableSagemakerServicecatalogPortfolio
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -152,3 +157,7 @@ disableSagemakerServicecatalogPortfolioResponse_httpStatus = Lens.lens (\Disable
 instance
   Prelude.NFData
     DisableSagemakerServicecatalogPortfolioResponse
+  where
+  rnf
+    DisableSagemakerServicecatalogPortfolioResponse' {..} =
+      Prelude.rnf httpStatus

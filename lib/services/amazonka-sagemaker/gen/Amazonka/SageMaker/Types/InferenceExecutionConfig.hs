@@ -78,9 +78,12 @@ instance Core.FromJSON InferenceExecutionConfig where
             Prelude.<$> (x Core..: "Mode")
       )
 
-instance Prelude.Hashable InferenceExecutionConfig
+instance Prelude.Hashable InferenceExecutionConfig where
+  hashWithSalt _salt InferenceExecutionConfig' {..} =
+    _salt `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData InferenceExecutionConfig
+instance Prelude.NFData InferenceExecutionConfig where
+  rnf InferenceExecutionConfig' {..} = Prelude.rnf mode
 
 instance Core.ToJSON InferenceExecutionConfig where
   toJSON InferenceExecutionConfig' {..} =

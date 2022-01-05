@@ -88,9 +88,15 @@ instance Core.FromJSON NeoVpcConfig where
             Prelude.<*> (x Core..: "Subnets")
       )
 
-instance Prelude.Hashable NeoVpcConfig
+instance Prelude.Hashable NeoVpcConfig where
+  hashWithSalt _salt NeoVpcConfig' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnets
 
-instance Prelude.NFData NeoVpcConfig
+instance Prelude.NFData NeoVpcConfig where
+  rnf NeoVpcConfig' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToJSON NeoVpcConfig where
   toJSON NeoVpcConfig' {..} =

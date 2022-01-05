@@ -130,6 +130,20 @@ instance Core.FromJSON ProductionVariantSummary where
             Prelude.<*> (x Core..: "VariantName")
       )
 
-instance Prelude.Hashable ProductionVariantSummary
+instance Prelude.Hashable ProductionVariantSummary where
+  hashWithSalt _salt ProductionVariantSummary' {..} =
+    _salt `Prelude.hashWithSalt` desiredInstanceCount
+      `Prelude.hashWithSalt` desiredWeight
+      `Prelude.hashWithSalt` currentWeight
+      `Prelude.hashWithSalt` currentInstanceCount
+      `Prelude.hashWithSalt` deployedImages
+      `Prelude.hashWithSalt` variantName
 
-instance Prelude.NFData ProductionVariantSummary
+instance Prelude.NFData ProductionVariantSummary where
+  rnf ProductionVariantSummary' {..} =
+    Prelude.rnf desiredInstanceCount
+      `Prelude.seq` Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf currentWeight
+      `Prelude.seq` Prelude.rnf currentInstanceCount
+      `Prelude.seq` Prelude.rnf deployedImages
+      `Prelude.seq` Prelude.rnf variantName

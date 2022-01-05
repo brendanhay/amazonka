@@ -187,9 +187,13 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeTrainingJob
+instance Prelude.Hashable DescribeTrainingJob where
+  hashWithSalt _salt DescribeTrainingJob' {..} =
+    _salt `Prelude.hashWithSalt` trainingJobName
 
-instance Prelude.NFData DescribeTrainingJob
+instance Prelude.NFData DescribeTrainingJob where
+  rnf DescribeTrainingJob' {..} =
+    Prelude.rnf trainingJobName
 
 instance Core.ToHeaders DescribeTrainingJob where
   toHeaders =
@@ -998,4 +1002,67 @@ describeTrainingJobResponse_stoppingCondition = Lens.lens (\DescribeTrainingJobR
 describeTrainingJobResponse_creationTime :: Lens.Lens' DescribeTrainingJobResponse Prelude.UTCTime
 describeTrainingJobResponse_creationTime = Lens.lens (\DescribeTrainingJobResponse' {creationTime} -> creationTime) (\s@DescribeTrainingJobResponse' {} a -> s {creationTime = a} :: DescribeTrainingJobResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeTrainingJobResponse
+instance Prelude.NFData DescribeTrainingJobResponse where
+  rnf DescribeTrainingJobResponse' {..} =
+    Prelude.rnf labelingJobArn
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf secondaryStatusTransitions
+      `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf billableTimeInSeconds
+      `Prelude.seq` Prelude.rnf debugHookConfig
+      `Prelude.seq` Prelude.rnf checkpointConfig
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf debugRuleEvaluationStatuses
+      `Prelude.seq` Prelude.rnf profilerConfig
+      `Prelude.seq` Prelude.rnf profilerRuleEvaluationStatuses
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf debugRuleConfigurations
+      `Prelude.seq` Prelude.rnf
+        enableManagedSpotTraining
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf
+        profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf
+        finalMetricDataList
+      `Prelude.seq` Prelude.rnf
+        profilingStatus
+      `Prelude.seq` Prelude.rnf
+        outputDataConfig
+      `Prelude.seq` Prelude.rnf
+        trainingStartTime
+      `Prelude.seq` Prelude.rnf
+        tuningJobArn
+      `Prelude.seq` Prelude.rnf
+        enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf
+        tensorBoardOutputConfig
+      `Prelude.seq` Prelude.rnf
+        trainingTimeInSeconds
+      `Prelude.seq` Prelude.rnf
+        roleArn
+      `Prelude.seq` Prelude.rnf
+        httpStatus
+      `Prelude.seq` Prelude.rnf
+        trainingJobName
+      `Prelude.seq` Prelude.rnf
+        trainingJobArn
+      `Prelude.seq` Prelude.rnf
+        modelArtifacts
+      `Prelude.seq` Prelude.rnf
+        trainingJobStatus
+      `Prelude.seq` Prelude.rnf
+        secondaryStatus
+      `Prelude.seq` Prelude.rnf
+        algorithmSpecification
+      `Prelude.seq` Prelude.rnf
+        resourceConfig
+      `Prelude.seq` Prelude.rnf
+        stoppingCondition
+      `Prelude.seq` Prelude.rnf
+        creationTime

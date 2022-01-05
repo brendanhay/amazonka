@@ -168,9 +168,25 @@ instance Core.AWSRequest CreatePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePipeline
+instance Prelude.Hashable CreatePipeline where
+  hashWithSalt _salt CreatePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineDisplayName
+      `Prelude.hashWithSalt` pipelineDescription
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` pipelineDefinition
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreatePipeline
+instance Prelude.NFData CreatePipeline where
+  rnf CreatePipeline' {..} =
+    Prelude.rnf pipelineDisplayName
+      `Prelude.seq` Prelude.rnf pipelineDescription
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf pipelineDefinition
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreatePipeline where
   toHeaders =
@@ -248,4 +264,7 @@ createPipelineResponse_pipelineArn = Lens.lens (\CreatePipelineResponse' {pipeli
 createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
 createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
 
-instance Prelude.NFData CreatePipelineResponse
+instance Prelude.NFData CreatePipelineResponse where
+  rnf CreatePipelineResponse' {..} =
+    Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf httpStatus

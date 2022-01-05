@@ -235,9 +235,33 @@ instance Core.AWSRequest ListAssociations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssociations
+instance Prelude.Hashable ListAssociations where
+  hashWithSalt _salt ListAssociations' {..} =
+    _salt `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListAssociations
+instance Prelude.NFData ListAssociations where
+  rnf ListAssociations' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListAssociations where
   toHeaders =
@@ -327,4 +351,8 @@ listAssociationsResponse_associationSummaries = Lens.lens (\ListAssociationsResp
 listAssociationsResponse_httpStatus :: Lens.Lens' ListAssociationsResponse Prelude.Int
 listAssociationsResponse_httpStatus = Lens.lens (\ListAssociationsResponse' {httpStatus} -> httpStatus) (\s@ListAssociationsResponse' {} a -> s {httpStatus = a} :: ListAssociationsResponse)
 
-instance Prelude.NFData ListAssociationsResponse
+instance Prelude.NFData ListAssociationsResponse where
+  rnf ListAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf associationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

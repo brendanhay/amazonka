@@ -73,9 +73,15 @@ instance Core.FromJSON TrialComponentStatus where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable TrialComponentStatus
+instance Prelude.Hashable TrialComponentStatus where
+  hashWithSalt _salt TrialComponentStatus' {..} =
+    _salt `Prelude.hashWithSalt` primaryStatus
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData TrialComponentStatus
+instance Prelude.NFData TrialComponentStatus where
+  rnf TrialComponentStatus' {..} =
+    Prelude.rnf primaryStatus
+      `Prelude.seq` Prelude.rnf message
 
 instance Core.ToJSON TrialComponentStatus where
   toJSON TrialComponentStatus' {..} =

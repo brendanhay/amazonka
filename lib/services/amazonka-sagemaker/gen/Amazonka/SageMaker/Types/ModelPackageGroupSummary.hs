@@ -116,6 +116,19 @@ instance Core.FromJSON ModelPackageGroupSummary where
             Prelude.<*> (x Core..: "ModelPackageGroupStatus")
       )
 
-instance Prelude.Hashable ModelPackageGroupSummary
+instance Prelude.Hashable ModelPackageGroupSummary where
+  hashWithSalt _salt ModelPackageGroupSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` modelPackageGroupDescription
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` modelPackageGroupArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` modelPackageGroupStatus
 
-instance Prelude.NFData ModelPackageGroupSummary
+instance Prelude.NFData ModelPackageGroupSummary where
+  rnf ModelPackageGroupSummary' {..} =
+    Prelude.rnf modelPackageGroupDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelPackageGroupStatus

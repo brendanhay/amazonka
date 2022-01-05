@@ -148,9 +148,24 @@ instance Core.FromJSON ChannelSpecification where
             Prelude.<*> (x Core..: "SupportedInputModes")
       )
 
-instance Prelude.Hashable ChannelSpecification
+instance Prelude.Hashable ChannelSpecification where
+  hashWithSalt _salt ChannelSpecification' {..} =
+    _salt
+      `Prelude.hashWithSalt` supportedCompressionTypes
+      `Prelude.hashWithSalt` isRequired
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` supportedContentTypes
+      `Prelude.hashWithSalt` supportedInputModes
 
-instance Prelude.NFData ChannelSpecification
+instance Prelude.NFData ChannelSpecification where
+  rnf ChannelSpecification' {..} =
+    Prelude.rnf supportedCompressionTypes
+      `Prelude.seq` Prelude.rnf isRequired
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf supportedContentTypes
+      `Prelude.seq` Prelude.rnf supportedInputModes
 
 instance Core.ToJSON ChannelSpecification where
   toJSON ChannelSpecification' {..} =

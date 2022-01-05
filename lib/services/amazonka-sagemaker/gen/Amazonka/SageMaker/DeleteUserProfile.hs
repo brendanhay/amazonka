@@ -93,9 +93,15 @@ instance Core.AWSRequest DeleteUserProfile where
   response =
     Response.receiveNull DeleteUserProfileResponse'
 
-instance Prelude.Hashable DeleteUserProfile
+instance Prelude.Hashable DeleteUserProfile where
+  hashWithSalt _salt DeleteUserProfile' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` userProfileName
 
-instance Prelude.NFData DeleteUserProfile
+instance Prelude.NFData DeleteUserProfile where
+  rnf DeleteUserProfile' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf userProfileName
 
 instance Core.ToHeaders DeleteUserProfile where
   toHeaders =
@@ -143,4 +149,5 @@ newDeleteUserProfileResponse ::
 newDeleteUserProfileResponse =
   DeleteUserProfileResponse'
 
-instance Prelude.NFData DeleteUserProfileResponse
+instance Prelude.NFData DeleteUserProfileResponse where
+  rnf _ = ()

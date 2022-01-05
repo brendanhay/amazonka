@@ -194,9 +194,31 @@ instance Core.FromJSON EndpointInput where
             Prelude.<*> (x Core..: "LocalPath")
       )
 
-instance Prelude.Hashable EndpointInput
+instance Prelude.Hashable EndpointInput where
+  hashWithSalt _salt EndpointInput' {..} =
+    _salt `Prelude.hashWithSalt` inferenceAttribute
+      `Prelude.hashWithSalt` s3DataDistributionType
+      `Prelude.hashWithSalt` s3InputMode
+      `Prelude.hashWithSalt` startTimeOffset
+      `Prelude.hashWithSalt` featuresAttribute
+      `Prelude.hashWithSalt` endTimeOffset
+      `Prelude.hashWithSalt` probabilityThresholdAttribute
+      `Prelude.hashWithSalt` probabilityAttribute
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` localPath
 
-instance Prelude.NFData EndpointInput
+instance Prelude.NFData EndpointInput where
+  rnf EndpointInput' {..} =
+    Prelude.rnf inferenceAttribute
+      `Prelude.seq` Prelude.rnf s3DataDistributionType
+      `Prelude.seq` Prelude.rnf s3InputMode
+      `Prelude.seq` Prelude.rnf startTimeOffset
+      `Prelude.seq` Prelude.rnf featuresAttribute
+      `Prelude.seq` Prelude.rnf endTimeOffset
+      `Prelude.seq` Prelude.rnf probabilityThresholdAttribute
+      `Prelude.seq` Prelude.rnf probabilityAttribute
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf localPath
 
 instance Core.ToJSON EndpointInput where
   toJSON EndpointInput' {..} =

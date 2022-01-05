@@ -87,9 +87,15 @@ instance Core.FromJSON MemberDefinition where
             Prelude.<*> (x Core..:? "CognitoMemberDefinition")
       )
 
-instance Prelude.Hashable MemberDefinition
+instance Prelude.Hashable MemberDefinition where
+  hashWithSalt _salt MemberDefinition' {..} =
+    _salt `Prelude.hashWithSalt` oidcMemberDefinition
+      `Prelude.hashWithSalt` cognitoMemberDefinition
 
-instance Prelude.NFData MemberDefinition
+instance Prelude.NFData MemberDefinition where
+  rnf MemberDefinition' {..} =
+    Prelude.rnf oidcMemberDefinition
+      `Prelude.seq` Prelude.rnf cognitoMemberDefinition
 
 instance Core.ToJSON MemberDefinition where
   toJSON MemberDefinition' {..} =

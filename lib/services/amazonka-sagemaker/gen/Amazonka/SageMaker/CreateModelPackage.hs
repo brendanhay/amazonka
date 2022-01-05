@@ -307,9 +307,35 @@ instance Core.AWSRequest CreateModelPackage where
             Prelude.<*> (x Core..:> "ModelPackageArn")
       )
 
-instance Prelude.Hashable CreateModelPackage
+instance Prelude.Hashable CreateModelPackage where
+  hashWithSalt _salt CreateModelPackage' {..} =
+    _salt `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` modelApprovalStatus
+      `Prelude.hashWithSalt` sourceAlgorithmSpecification
+      `Prelude.hashWithSalt` modelPackageName
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` modelMetrics
+      `Prelude.hashWithSalt` modelPackageDescription
+      `Prelude.hashWithSalt` validationSpecification
+      `Prelude.hashWithSalt` inferenceSpecification
+      `Prelude.hashWithSalt` certifyForMarketplace
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateModelPackage
+instance Prelude.NFData CreateModelPackage where
+  rnf CreateModelPackage' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
+      `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
+      `Prelude.seq` Prelude.rnf modelPackageName
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf inferenceSpecification
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateModelPackage where
   toHeaders =
@@ -403,4 +429,7 @@ createModelPackageResponse_httpStatus = Lens.lens (\CreateModelPackageResponse' 
 createModelPackageResponse_modelPackageArn :: Lens.Lens' CreateModelPackageResponse Prelude.Text
 createModelPackageResponse_modelPackageArn = Lens.lens (\CreateModelPackageResponse' {modelPackageArn} -> modelPackageArn) (\s@CreateModelPackageResponse' {} a -> s {modelPackageArn = a} :: CreateModelPackageResponse)
 
-instance Prelude.NFData CreateModelPackageResponse
+instance Prelude.NFData CreateModelPackageResponse where
+  rnf CreateModelPackageResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelPackageArn

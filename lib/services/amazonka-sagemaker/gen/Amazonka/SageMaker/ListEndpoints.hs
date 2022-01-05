@@ -221,9 +221,31 @@ instance Core.AWSRequest ListEndpoints where
             Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListEndpoints
+instance Prelude.Hashable ListEndpoints where
+  hashWithSalt _salt ListEndpoints' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListEndpoints
+instance Prelude.NFData ListEndpoints where
+  rnf ListEndpoints' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListEndpoints where
   toHeaders =
@@ -318,4 +340,8 @@ listEndpointsResponse_httpStatus = Lens.lens (\ListEndpointsResponse' {httpStatu
 listEndpointsResponse_endpoints :: Lens.Lens' ListEndpointsResponse [EndpointSummary]
 listEndpointsResponse_endpoints = Lens.lens (\ListEndpointsResponse' {endpoints} -> endpoints) (\s@ListEndpointsResponse' {} a -> s {endpoints = a} :: ListEndpointsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListEndpointsResponse
+instance Prelude.NFData ListEndpointsResponse where
+  rnf ListEndpointsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpoints

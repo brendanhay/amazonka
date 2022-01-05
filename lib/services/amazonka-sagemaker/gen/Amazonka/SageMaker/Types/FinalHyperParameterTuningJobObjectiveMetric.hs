@@ -101,7 +101,19 @@ instance
 instance
   Prelude.Hashable
     FinalHyperParameterTuningJobObjectiveMetric
+  where
+  hashWithSalt
+    _salt
+    FinalHyperParameterTuningJobObjectiveMetric' {..} =
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     FinalHyperParameterTuningJobObjectiveMetric
+  where
+  rnf FinalHyperParameterTuningJobObjectiveMetric' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf value

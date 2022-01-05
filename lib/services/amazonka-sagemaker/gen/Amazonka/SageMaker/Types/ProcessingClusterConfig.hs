@@ -180,9 +180,19 @@ instance Core.FromJSON ProcessingClusterConfig where
             Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Prelude.Hashable ProcessingClusterConfig
+instance Prelude.Hashable ProcessingClusterConfig where
+  hashWithSalt _salt ProcessingClusterConfig' {..} =
+    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` volumeSizeInGB
 
-instance Prelude.NFData ProcessingClusterConfig
+instance Prelude.NFData ProcessingClusterConfig where
+  rnf ProcessingClusterConfig' {..} =
+    Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance Core.ToJSON ProcessingClusterConfig where
   toJSON ProcessingClusterConfig' {..} =

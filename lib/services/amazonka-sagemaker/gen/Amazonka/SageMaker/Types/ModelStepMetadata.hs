@@ -58,6 +58,9 @@ instance Core.FromJSON ModelStepMetadata where
           ModelStepMetadata' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable ModelStepMetadata
+instance Prelude.Hashable ModelStepMetadata where
+  hashWithSalt _salt ModelStepMetadata' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ModelStepMetadata
+instance Prelude.NFData ModelStepMetadata where
+  rnf ModelStepMetadata' {..} = Prelude.rnf arn

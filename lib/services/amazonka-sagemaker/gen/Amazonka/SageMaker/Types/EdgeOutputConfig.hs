@@ -197,9 +197,19 @@ instance Core.FromJSON EdgeOutputConfig where
             Prelude.<*> (x Core..: "S3OutputLocation")
       )
 
-instance Prelude.Hashable EdgeOutputConfig
+instance Prelude.Hashable EdgeOutputConfig where
+  hashWithSalt _salt EdgeOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` presetDeploymentType
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` presetDeploymentConfig
+      `Prelude.hashWithSalt` s3OutputLocation
 
-instance Prelude.NFData EdgeOutputConfig
+instance Prelude.NFData EdgeOutputConfig where
+  rnf EdgeOutputConfig' {..} =
+    Prelude.rnf presetDeploymentType
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf presetDeploymentConfig
+      `Prelude.seq` Prelude.rnf s3OutputLocation
 
 instance Core.ToJSON EdgeOutputConfig where
   toJSON EdgeOutputConfig' {..} =

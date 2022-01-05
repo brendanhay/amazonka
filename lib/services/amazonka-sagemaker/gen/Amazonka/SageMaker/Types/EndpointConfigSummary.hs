@@ -91,6 +91,14 @@ instance Core.FromJSON EndpointConfigSummary where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable EndpointConfigSummary
+instance Prelude.Hashable EndpointConfigSummary where
+  hashWithSalt _salt EndpointConfigSummary' {..} =
+    _salt `Prelude.hashWithSalt` endpointConfigName
+      `Prelude.hashWithSalt` endpointConfigArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData EndpointConfigSummary
+instance Prelude.NFData EndpointConfigSummary where
+  rnf EndpointConfigSummary' {..} =
+    Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf endpointConfigArn
+      `Prelude.seq` Prelude.rnf creationTime

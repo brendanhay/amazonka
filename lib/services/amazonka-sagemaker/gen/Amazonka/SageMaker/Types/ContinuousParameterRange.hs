@@ -186,9 +186,19 @@ instance Core.FromJSON ContinuousParameterRange where
             Prelude.<*> (x Core..: "MaxValue")
       )
 
-instance Prelude.Hashable ContinuousParameterRange
+instance Prelude.Hashable ContinuousParameterRange where
+  hashWithSalt _salt ContinuousParameterRange' {..} =
+    _salt `Prelude.hashWithSalt` scalingType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minValue
+      `Prelude.hashWithSalt` maxValue
 
-instance Prelude.NFData ContinuousParameterRange
+instance Prelude.NFData ContinuousParameterRange where
+  rnf ContinuousParameterRange' {..} =
+    Prelude.rnf scalingType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf maxValue
 
 instance Core.ToJSON ContinuousParameterRange where
   toJSON ContinuousParameterRange' {..} =

@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeDeviceFleet where
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
 
-instance Prelude.Hashable DescribeDeviceFleet
+instance Prelude.Hashable DescribeDeviceFleet where
+  hashWithSalt _salt DescribeDeviceFleet' {..} =
+    _salt `Prelude.hashWithSalt` deviceFleetName
 
-instance Prelude.NFData DescribeDeviceFleet
+instance Prelude.NFData DescribeDeviceFleet where
+  rnf DescribeDeviceFleet' {..} =
+    Prelude.rnf deviceFleetName
 
 instance Core.ToHeaders DescribeDeviceFleet where
   toHeaders =
@@ -263,4 +267,14 @@ describeDeviceFleetResponse_creationTime = Lens.lens (\DescribeDeviceFleetRespon
 describeDeviceFleetResponse_lastModifiedTime :: Lens.Lens' DescribeDeviceFleetResponse Prelude.UTCTime
 describeDeviceFleetResponse_lastModifiedTime = Lens.lens (\DescribeDeviceFleetResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDeviceFleetResponse' {} a -> s {lastModifiedTime = a} :: DescribeDeviceFleetResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeDeviceFleetResponse
+instance Prelude.NFData DescribeDeviceFleetResponse where
+  rnf DescribeDeviceFleetResponse' {..} =
+    Prelude.rnf iotRoleAlias
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceFleetArn
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime

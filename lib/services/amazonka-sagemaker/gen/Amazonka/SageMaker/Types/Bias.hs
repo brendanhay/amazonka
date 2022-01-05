@@ -56,9 +56,12 @@ instance Core.FromJSON Bias where
       "Bias"
       (\x -> Bias' Prelude.<$> (x Core..:? "Report"))
 
-instance Prelude.Hashable Bias
+instance Prelude.Hashable Bias where
+  hashWithSalt _salt Bias' {..} =
+    _salt `Prelude.hashWithSalt` report
 
-instance Prelude.NFData Bias
+instance Prelude.NFData Bias where
+  rnf Bias' {..} = Prelude.rnf report
 
 instance Core.ToJSON Bias where
   toJSON Bias' {..} =

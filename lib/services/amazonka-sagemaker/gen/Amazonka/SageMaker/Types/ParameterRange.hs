@@ -96,9 +96,18 @@ instance Core.FromJSON ParameterRange where
             Prelude.<*> (x Core..:? "ContinuousParameterRangeSpecification")
       )
 
-instance Prelude.Hashable ParameterRange
+instance Prelude.Hashable ParameterRange where
+  hashWithSalt _salt ParameterRange' {..} =
+    _salt
+      `Prelude.hashWithSalt` categoricalParameterRangeSpecification
+      `Prelude.hashWithSalt` integerParameterRangeSpecification
+      `Prelude.hashWithSalt` continuousParameterRangeSpecification
 
-instance Prelude.NFData ParameterRange
+instance Prelude.NFData ParameterRange where
+  rnf ParameterRange' {..} =
+    Prelude.rnf categoricalParameterRangeSpecification
+      `Prelude.seq` Prelude.rnf integerParameterRangeSpecification
+      `Prelude.seq` Prelude.rnf continuousParameterRangeSpecification
 
 instance Core.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =

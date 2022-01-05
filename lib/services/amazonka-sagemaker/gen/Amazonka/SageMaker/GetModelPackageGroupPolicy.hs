@@ -92,9 +92,13 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
             Prelude.<*> (x Core..:> "ResourcePolicy")
       )
 
-instance Prelude.Hashable GetModelPackageGroupPolicy
+instance Prelude.Hashable GetModelPackageGroupPolicy where
+  hashWithSalt _salt GetModelPackageGroupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` modelPackageGroupName
 
-instance Prelude.NFData GetModelPackageGroupPolicy
+instance Prelude.NFData GetModelPackageGroupPolicy where
+  rnf GetModelPackageGroupPolicy' {..} =
+    Prelude.rnf modelPackageGroupName
 
 instance Core.ToHeaders GetModelPackageGroupPolicy where
   toHeaders =
@@ -174,3 +178,7 @@ getModelPackageGroupPolicyResponse_resourcePolicy = Lens.lens (\GetModelPackageG
 instance
   Prelude.NFData
     GetModelPackageGroupPolicyResponse
+  where
+  rnf GetModelPackageGroupPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourcePolicy

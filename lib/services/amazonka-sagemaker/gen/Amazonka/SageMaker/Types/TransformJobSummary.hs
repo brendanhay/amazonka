@@ -146,6 +146,22 @@ instance Core.FromJSON TransformJobSummary where
             Prelude.<*> (x Core..: "TransformJobStatus")
       )
 
-instance Prelude.Hashable TransformJobSummary
+instance Prelude.Hashable TransformJobSummary where
+  hashWithSalt _salt TransformJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` transformEndTime
+      `Prelude.hashWithSalt` transformJobName
+      `Prelude.hashWithSalt` transformJobArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` transformJobStatus
 
-instance Prelude.NFData TransformJobSummary
+instance Prelude.NFData TransformJobSummary where
+  rnf TransformJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf transformEndTime
+      `Prelude.seq` Prelude.rnf transformJobName
+      `Prelude.seq` Prelude.rnf transformJobArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf transformJobStatus

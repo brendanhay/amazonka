@@ -77,9 +77,12 @@ instance Core.AWSRequest StopAutoMLJob where
   response =
     Response.receiveNull StopAutoMLJobResponse'
 
-instance Prelude.Hashable StopAutoMLJob
+instance Prelude.Hashable StopAutoMLJob where
+  hashWithSalt _salt StopAutoMLJob' {..} =
+    _salt `Prelude.hashWithSalt` autoMLJobName
 
-instance Prelude.NFData StopAutoMLJob
+instance Prelude.NFData StopAutoMLJob where
+  rnf StopAutoMLJob' {..} = Prelude.rnf autoMLJobName
 
 instance Core.ToHeaders StopAutoMLJob where
   toHeaders =
@@ -123,4 +126,5 @@ newStopAutoMLJobResponse ::
   StopAutoMLJobResponse
 newStopAutoMLJobResponse = StopAutoMLJobResponse'
 
-instance Prelude.NFData StopAutoMLJobResponse
+instance Prelude.NFData StopAutoMLJobResponse where
+  rnf _ = ()

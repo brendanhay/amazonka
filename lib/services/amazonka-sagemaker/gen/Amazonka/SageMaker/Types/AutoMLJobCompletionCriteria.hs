@@ -108,9 +108,17 @@ instance Core.FromJSON AutoMLJobCompletionCriteria where
             Prelude.<*> (x Core..:? "MaxAutoMLJobRuntimeInSeconds")
       )
 
-instance Prelude.Hashable AutoMLJobCompletionCriteria
+instance Prelude.Hashable AutoMLJobCompletionCriteria where
+  hashWithSalt _salt AutoMLJobCompletionCriteria' {..} =
+    _salt `Prelude.hashWithSalt` maxCandidates
+      `Prelude.hashWithSalt` maxRuntimePerTrainingJobInSeconds
+      `Prelude.hashWithSalt` maxAutoMLJobRuntimeInSeconds
 
-instance Prelude.NFData AutoMLJobCompletionCriteria
+instance Prelude.NFData AutoMLJobCompletionCriteria where
+  rnf AutoMLJobCompletionCriteria' {..} =
+    Prelude.rnf maxCandidates
+      `Prelude.seq` Prelude.rnf maxRuntimePerTrainingJobInSeconds
+      `Prelude.seq` Prelude.rnf maxAutoMLJobRuntimeInSeconds
 
 instance Core.ToJSON AutoMLJobCompletionCriteria where
   toJSON AutoMLJobCompletionCriteria' {..} =

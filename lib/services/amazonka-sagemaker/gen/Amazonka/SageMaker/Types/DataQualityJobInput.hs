@@ -65,9 +65,13 @@ instance Core.FromJSON DataQualityJobInput where
             Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable DataQualityJobInput
+instance Prelude.Hashable DataQualityJobInput where
+  hashWithSalt _salt DataQualityJobInput' {..} =
+    _salt `Prelude.hashWithSalt` endpointInput
 
-instance Prelude.NFData DataQualityJobInput
+instance Prelude.NFData DataQualityJobInput where
+  rnf DataQualityJobInput' {..} =
+    Prelude.rnf endpointInput
 
 instance Core.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =

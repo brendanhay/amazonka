@@ -85,9 +85,14 @@ instance Core.AWSRequest DeleteStudioLifecycleConfig where
     Response.receiveNull
       DeleteStudioLifecycleConfigResponse'
 
-instance Prelude.Hashable DeleteStudioLifecycleConfig
+instance Prelude.Hashable DeleteStudioLifecycleConfig where
+  hashWithSalt _salt DeleteStudioLifecycleConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` studioLifecycleConfigName
 
-instance Prelude.NFData DeleteStudioLifecycleConfig
+instance Prelude.NFData DeleteStudioLifecycleConfig where
+  rnf DeleteStudioLifecycleConfig' {..} =
+    Prelude.rnf studioLifecycleConfigName
 
 instance Core.ToHeaders DeleteStudioLifecycleConfig where
   toHeaders =
@@ -139,3 +144,5 @@ newDeleteStudioLifecycleConfigResponse =
 instance
   Prelude.NFData
     DeleteStudioLifecycleConfigResponse
+  where
+  rnf _ = ()

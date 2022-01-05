@@ -83,9 +83,13 @@ instance Core.AWSRequest DeleteMonitoringSchedule where
     Response.receiveNull
       DeleteMonitoringScheduleResponse'
 
-instance Prelude.Hashable DeleteMonitoringSchedule
+instance Prelude.Hashable DeleteMonitoringSchedule where
+  hashWithSalt _salt DeleteMonitoringSchedule' {..} =
+    _salt `Prelude.hashWithSalt` monitoringScheduleName
 
-instance Prelude.NFData DeleteMonitoringSchedule
+instance Prelude.NFData DeleteMonitoringSchedule where
+  rnf DeleteMonitoringSchedule' {..} =
+    Prelude.rnf monitoringScheduleName
 
 instance Core.ToHeaders DeleteMonitoringSchedule where
   toHeaders =
@@ -137,3 +141,5 @@ newDeleteMonitoringScheduleResponse =
 instance
   Prelude.NFData
     DeleteMonitoringScheduleResponse
+  where
+  rnf _ = ()

@@ -113,6 +113,20 @@ instance Core.FromJSON ContextSummary where
             Prelude.<*> (x Core..:? "ContextName")
       )
 
-instance Prelude.Hashable ContextSummary
+instance Prelude.Hashable ContextSummary where
+  hashWithSalt _salt ContextSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` contextType
+      `Prelude.hashWithSalt` contextArn
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` contextName
 
-instance Prelude.NFData ContextSummary
+instance Prelude.NFData ContextSummary where
+  rnf ContextSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf contextType
+      `Prelude.seq` Prelude.rnf contextArn
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf contextName

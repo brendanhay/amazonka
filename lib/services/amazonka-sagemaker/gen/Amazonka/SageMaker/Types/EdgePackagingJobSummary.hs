@@ -142,6 +142,24 @@ instance Core.FromJSON EdgePackagingJobSummary where
             Prelude.<*> (x Core..: "EdgePackagingJobStatus")
       )
 
-instance Prelude.Hashable EdgePackagingJobSummary
+instance Prelude.Hashable EdgePackagingJobSummary where
+  hashWithSalt _salt EdgePackagingJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` compilationJobName
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` edgePackagingJobArn
+      `Prelude.hashWithSalt` edgePackagingJobName
+      `Prelude.hashWithSalt` edgePackagingJobStatus
 
-instance Prelude.NFData EdgePackagingJobSummary
+instance Prelude.NFData EdgePackagingJobSummary where
+  rnf EdgePackagingJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf edgePackagingJobArn
+      `Prelude.seq` Prelude.rnf edgePackagingJobName
+      `Prelude.seq` Prelude.rnf edgePackagingJobStatus

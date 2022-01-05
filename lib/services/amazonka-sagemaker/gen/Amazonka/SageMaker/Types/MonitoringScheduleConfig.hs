@@ -95,9 +95,19 @@ instance Core.FromJSON MonitoringScheduleConfig where
             Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
       )
 
-instance Prelude.Hashable MonitoringScheduleConfig
+instance Prelude.Hashable MonitoringScheduleConfig where
+  hashWithSalt _salt MonitoringScheduleConfig' {..} =
+    _salt `Prelude.hashWithSalt` monitoringType
+      `Prelude.hashWithSalt` scheduleConfig
+      `Prelude.hashWithSalt` monitoringJobDefinition
+      `Prelude.hashWithSalt` monitoringJobDefinitionName
 
-instance Prelude.NFData MonitoringScheduleConfig
+instance Prelude.NFData MonitoringScheduleConfig where
+  rnf MonitoringScheduleConfig' {..} =
+    Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf scheduleConfig
+      `Prelude.seq` Prelude.rnf monitoringJobDefinition
+      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
 
 instance Core.ToJSON MonitoringScheduleConfig where
   toJSON MonitoringScheduleConfig' {..} =

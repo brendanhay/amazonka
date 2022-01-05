@@ -90,9 +90,13 @@ instance Core.AWSRequest StopNotebookInstance where
   response =
     Response.receiveNull StopNotebookInstanceResponse'
 
-instance Prelude.Hashable StopNotebookInstance
+instance Prelude.Hashable StopNotebookInstance where
+  hashWithSalt _salt StopNotebookInstance' {..} =
+    _salt `Prelude.hashWithSalt` notebookInstanceName
 
-instance Prelude.NFData StopNotebookInstance
+instance Prelude.NFData StopNotebookInstance where
+  rnf StopNotebookInstance' {..} =
+    Prelude.rnf notebookInstanceName
 
 instance Core.ToHeaders StopNotebookInstance where
   toHeaders =
@@ -141,4 +145,5 @@ newStopNotebookInstanceResponse ::
 newStopNotebookInstanceResponse =
   StopNotebookInstanceResponse'
 
-instance Prelude.NFData StopNotebookInstanceResponse
+instance Prelude.NFData StopNotebookInstanceResponse where
+  rnf _ = ()

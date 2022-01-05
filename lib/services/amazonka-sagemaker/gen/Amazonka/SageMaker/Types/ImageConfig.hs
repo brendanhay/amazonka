@@ -104,9 +104,15 @@ instance Core.FromJSON ImageConfig where
             Prelude.<*> (x Core..: "RepositoryAccessMode")
       )
 
-instance Prelude.Hashable ImageConfig
+instance Prelude.Hashable ImageConfig where
+  hashWithSalt _salt ImageConfig' {..} =
+    _salt `Prelude.hashWithSalt` repositoryAuthConfig
+      `Prelude.hashWithSalt` repositoryAccessMode
 
-instance Prelude.NFData ImageConfig
+instance Prelude.NFData ImageConfig where
+  rnf ImageConfig' {..} =
+    Prelude.rnf repositoryAuthConfig
+      `Prelude.seq` Prelude.rnf repositoryAccessMode
 
 instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =

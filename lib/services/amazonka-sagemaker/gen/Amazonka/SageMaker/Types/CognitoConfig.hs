@@ -92,9 +92,15 @@ instance Core.FromJSON CognitoConfig where
             Prelude.<*> (x Core..: "ClientId")
       )
 
-instance Prelude.Hashable CognitoConfig
+instance Prelude.Hashable CognitoConfig where
+  hashWithSalt _salt CognitoConfig' {..} =
+    _salt `Prelude.hashWithSalt` userPool
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData CognitoConfig
+instance Prelude.NFData CognitoConfig where
+  rnf CognitoConfig' {..} =
+    Prelude.rnf userPool
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToJSON CognitoConfig where
   toJSON CognitoConfig' {..} =

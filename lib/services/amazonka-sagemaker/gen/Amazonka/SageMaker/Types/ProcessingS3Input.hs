@@ -184,9 +184,23 @@ instance Core.FromJSON ProcessingS3Input where
             Prelude.<*> (x Core..: "S3DataType")
       )
 
-instance Prelude.Hashable ProcessingS3Input
+instance Prelude.Hashable ProcessingS3Input where
+  hashWithSalt _salt ProcessingS3Input' {..} =
+    _salt `Prelude.hashWithSalt` s3DataDistributionType
+      `Prelude.hashWithSalt` s3InputMode
+      `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` s3CompressionType
+      `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` s3DataType
 
-instance Prelude.NFData ProcessingS3Input
+instance Prelude.NFData ProcessingS3Input where
+  rnf ProcessingS3Input' {..} =
+    Prelude.rnf s3DataDistributionType
+      `Prelude.seq` Prelude.rnf s3InputMode
+      `Prelude.seq` Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3CompressionType
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf s3DataType
 
 instance Core.ToJSON ProcessingS3Input where
   toJSON ProcessingS3Input' {..} =

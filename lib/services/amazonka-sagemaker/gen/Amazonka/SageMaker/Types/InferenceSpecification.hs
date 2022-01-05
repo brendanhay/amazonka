@@ -140,9 +140,22 @@ instance Core.FromJSON InferenceSpecification where
                         )
       )
 
-instance Prelude.Hashable InferenceSpecification
+instance Prelude.Hashable InferenceSpecification where
+  hashWithSalt _salt InferenceSpecification' {..} =
+    _salt
+      `Prelude.hashWithSalt` supportedRealtimeInferenceInstanceTypes
+      `Prelude.hashWithSalt` supportedTransformInstanceTypes
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` supportedContentTypes
+      `Prelude.hashWithSalt` supportedResponseMIMETypes
 
-instance Prelude.NFData InferenceSpecification
+instance Prelude.NFData InferenceSpecification where
+  rnf InferenceSpecification' {..} =
+    Prelude.rnf supportedRealtimeInferenceInstanceTypes
+      `Prelude.seq` Prelude.rnf supportedTransformInstanceTypes
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf supportedContentTypes
+      `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
 
 instance Core.ToJSON InferenceSpecification where
   toJSON InferenceSpecification' {..} =

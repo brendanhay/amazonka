@@ -133,9 +133,21 @@ instance Core.AWSRequest UpdateImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateImage
+instance Prelude.Hashable UpdateImage where
+  hashWithSalt _salt UpdateImage' {..} =
+    _salt `Prelude.hashWithSalt` deleteProperties
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` imageName
 
-instance Prelude.NFData UpdateImage
+instance Prelude.NFData UpdateImage where
+  rnf UpdateImage' {..} =
+    Prelude.rnf deleteProperties
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf imageName
 
 instance Core.ToHeaders UpdateImage where
   toHeaders =
@@ -207,4 +219,7 @@ updateImageResponse_imageArn = Lens.lens (\UpdateImageResponse' {imageArn} -> im
 updateImageResponse_httpStatus :: Lens.Lens' UpdateImageResponse Prelude.Int
 updateImageResponse_httpStatus = Lens.lens (\UpdateImageResponse' {httpStatus} -> httpStatus) (\s@UpdateImageResponse' {} a -> s {httpStatus = a} :: UpdateImageResponse)
 
-instance Prelude.NFData UpdateImageResponse
+instance Prelude.NFData UpdateImageResponse where
+  rnf UpdateImageResponse' {..} =
+    Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -183,9 +183,21 @@ instance Core.AWSRequest ListReportsForReportGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReportsForReportGroup
+instance Prelude.Hashable ListReportsForReportGroup where
+  hashWithSalt _salt ListReportsForReportGroup' {..} =
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` reportGroupArn
 
-instance Prelude.NFData ListReportsForReportGroup
+instance Prelude.NFData ListReportsForReportGroup where
+  rnf ListReportsForReportGroup' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf reportGroupArn
 
 instance Core.ToHeaders ListReportsForReportGroup where
   toHeaders =
@@ -290,3 +302,8 @@ listReportsForReportGroupResponse_httpStatus = Lens.lens (\ListReportsForReportG
 instance
   Prelude.NFData
     ListReportsForReportGroupResponse
+  where
+  rnf ListReportsForReportGroupResponse' {..} =
+    Prelude.rnf reports
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

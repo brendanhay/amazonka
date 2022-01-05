@@ -152,9 +152,17 @@ instance Core.AWSRequest UpdateProjectVisibility where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProjectVisibility
+instance Prelude.Hashable UpdateProjectVisibility where
+  hashWithSalt _salt UpdateProjectVisibility' {..} =
+    _salt `Prelude.hashWithSalt` resourceAccessRole
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` projectVisibility
 
-instance Prelude.NFData UpdateProjectVisibility
+instance Prelude.NFData UpdateProjectVisibility where
+  rnf UpdateProjectVisibility' {..} =
+    Prelude.rnf resourceAccessRole
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectVisibility
 
 instance Core.ToHeaders UpdateProjectVisibility where
   toHeaders =
@@ -248,3 +256,9 @@ updateProjectVisibilityResponse_httpStatus = Lens.lens (\UpdateProjectVisibility
 instance
   Prelude.NFData
     UpdateProjectVisibilityResponse
+  where
+  rnf UpdateProjectVisibilityResponse' {..} =
+    Prelude.rnf publicProjectAlias
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectVisibility
+      `Prelude.seq` Prelude.rnf httpStatus

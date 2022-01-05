@@ -71,6 +71,12 @@ instance Core.FromJSON ReportWithRawData where
             Prelude.<*> (x Core..:? "reportArn")
       )
 
-instance Prelude.Hashable ReportWithRawData
+instance Prelude.Hashable ReportWithRawData where
+  hashWithSalt _salt ReportWithRawData' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` reportArn
 
-instance Prelude.NFData ReportWithRawData
+instance Prelude.NFData ReportWithRawData where
+  rnf ReportWithRawData' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf reportArn

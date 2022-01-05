@@ -90,6 +90,14 @@ instance Core.FromJSON SourceCredentialsInfo where
             Prelude.<*> (x Core..:? "authType")
       )
 
-instance Prelude.Hashable SourceCredentialsInfo
+instance Prelude.Hashable SourceCredentialsInfo where
+  hashWithSalt _salt SourceCredentialsInfo' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` serverType
+      `Prelude.hashWithSalt` authType
 
-instance Prelude.NFData SourceCredentialsInfo
+instance Prelude.NFData SourceCredentialsInfo where
+  rnf SourceCredentialsInfo' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf serverType
+      `Prelude.seq` Prelude.rnf authType

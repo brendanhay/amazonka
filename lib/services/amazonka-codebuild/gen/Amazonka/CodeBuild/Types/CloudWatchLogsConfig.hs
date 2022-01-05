@@ -108,9 +108,17 @@ instance Core.FromJSON CloudWatchLogsConfig where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable CloudWatchLogsConfig
+instance Prelude.Hashable CloudWatchLogsConfig where
+  hashWithSalt _salt CloudWatchLogsConfig' {..} =
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CloudWatchLogsConfig
+instance Prelude.NFData CloudWatchLogsConfig where
+  rnf CloudWatchLogsConfig' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON CloudWatchLogsConfig where
   toJSON CloudWatchLogsConfig' {..} =

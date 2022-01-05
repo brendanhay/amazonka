@@ -150,9 +150,15 @@ instance Core.FromJSON ProjectSourceVersion where
             Prelude.<*> (x Core..: "sourceVersion")
       )
 
-instance Prelude.Hashable ProjectSourceVersion
+instance Prelude.Hashable ProjectSourceVersion where
+  hashWithSalt _salt ProjectSourceVersion' {..} =
+    _salt `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` sourceVersion
 
-instance Prelude.NFData ProjectSourceVersion
+instance Prelude.NFData ProjectSourceVersion where
+  rnf ProjectSourceVersion' {..} =
+    Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf sourceVersion
 
 instance Core.ToJSON ProjectSourceVersion where
   toJSON ProjectSourceVersion' {..} =

@@ -82,6 +82,11 @@ instance Core.FromJSON ExportedEnvironmentVariable where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ExportedEnvironmentVariable
+instance Prelude.Hashable ExportedEnvironmentVariable where
+  hashWithSalt _salt ExportedEnvironmentVariable' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ExportedEnvironmentVariable
+instance Prelude.NFData ExportedEnvironmentVariable where
+  rnf ExportedEnvironmentVariable' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

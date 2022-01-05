@@ -88,9 +88,12 @@ instance Core.AWSRequest BatchGetBuildBatches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetBuildBatches
+instance Prelude.Hashable BatchGetBuildBatches where
+  hashWithSalt _salt BatchGetBuildBatches' {..} =
+    _salt `Prelude.hashWithSalt` ids
 
-instance Prelude.NFData BatchGetBuildBatches
+instance Prelude.NFData BatchGetBuildBatches where
+  rnf BatchGetBuildBatches' {..} = Prelude.rnf ids
 
 instance Core.ToHeaders BatchGetBuildBatches where
   toHeaders =
@@ -174,4 +177,8 @@ batchGetBuildBatchesResponse_buildBatchesNotFound = Lens.lens (\BatchGetBuildBat
 batchGetBuildBatchesResponse_httpStatus :: Lens.Lens' BatchGetBuildBatchesResponse Prelude.Int
 batchGetBuildBatchesResponse_httpStatus = Lens.lens (\BatchGetBuildBatchesResponse' {httpStatus} -> httpStatus) (\s@BatchGetBuildBatchesResponse' {} a -> s {httpStatus = a} :: BatchGetBuildBatchesResponse)
 
-instance Prelude.NFData BatchGetBuildBatchesResponse
+instance Prelude.NFData BatchGetBuildBatchesResponse where
+  rnf BatchGetBuildBatchesResponse' {..} =
+    Prelude.rnf buildBatches
+      `Prelude.seq` Prelude.rnf buildBatchesNotFound
+      `Prelude.seq` Prelude.rnf httpStatus

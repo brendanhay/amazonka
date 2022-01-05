@@ -79,6 +79,12 @@ instance Core.FromJSON DebugSession where
             Prelude.<*> (x Core..:? "sessionTarget")
       )
 
-instance Prelude.Hashable DebugSession
+instance Prelude.Hashable DebugSession where
+  hashWithSalt _salt DebugSession' {..} =
+    _salt `Prelude.hashWithSalt` sessionEnabled
+      `Prelude.hashWithSalt` sessionTarget
 
-instance Prelude.NFData DebugSession
+instance Prelude.NFData DebugSession where
+  rnf DebugSession' {..} =
+    Prelude.rnf sessionEnabled
+      `Prelude.seq` Prelude.rnf sessionTarget

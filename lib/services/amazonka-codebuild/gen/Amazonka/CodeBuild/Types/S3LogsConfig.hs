@@ -118,9 +118,19 @@ instance Core.FromJSON S3LogsConfig where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable S3LogsConfig
+instance Prelude.Hashable S3LogsConfig where
+  hashWithSalt _salt S3LogsConfig' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` encryptionDisabled
+      `Prelude.hashWithSalt` bucketOwnerAccess
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData S3LogsConfig
+instance Prelude.NFData S3LogsConfig where
+  rnf S3LogsConfig' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf bucketOwnerAccess
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON S3LogsConfig where
   toJSON S3LogsConfig' {..} =

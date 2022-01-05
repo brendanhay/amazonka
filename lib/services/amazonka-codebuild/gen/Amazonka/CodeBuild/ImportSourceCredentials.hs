@@ -156,9 +156,21 @@ instance Core.AWSRequest ImportSourceCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportSourceCredentials
+instance Prelude.Hashable ImportSourceCredentials where
+  hashWithSalt _salt ImportSourceCredentials' {..} =
+    _salt `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` shouldOverwrite
+      `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` serverType
+      `Prelude.hashWithSalt` authType
 
-instance Prelude.NFData ImportSourceCredentials
+instance Prelude.NFData ImportSourceCredentials where
+  rnf ImportSourceCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf shouldOverwrite
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf serverType
+      `Prelude.seq` Prelude.rnf authType
 
 instance Core.ToHeaders ImportSourceCredentials where
   toHeaders =
@@ -236,3 +248,7 @@ importSourceCredentialsResponse_httpStatus = Lens.lens (\ImportSourceCredentials
 instance
   Prelude.NFData
     ImportSourceCredentialsResponse
+  where
+  rnf ImportSourceCredentialsResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -168,9 +168,21 @@ instance Core.FromJSON ProjectFileSystemLocation where
             Prelude.<*> (x Core..:? "mountPoint")
       )
 
-instance Prelude.Hashable ProjectFileSystemLocation
+instance Prelude.Hashable ProjectFileSystemLocation where
+  hashWithSalt _salt ProjectFileSystemLocation' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` mountPoint
 
-instance Prelude.NFData ProjectFileSystemLocation
+instance Prelude.NFData ProjectFileSystemLocation where
+  rnf ProjectFileSystemLocation' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf mountPoint
 
 instance Core.ToJSON ProjectFileSystemLocation where
   toJSON ProjectFileSystemLocation' {..} =

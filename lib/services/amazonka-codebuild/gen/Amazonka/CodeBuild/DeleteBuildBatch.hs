@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteBuildBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBuildBatch
+instance Prelude.Hashable DeleteBuildBatch where
+  hashWithSalt _salt DeleteBuildBatch' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteBuildBatch
+instance Prelude.NFData DeleteBuildBatch where
+  rnf DeleteBuildBatch' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteBuildBatch where
   toHeaders =
@@ -185,4 +188,9 @@ deleteBuildBatchResponse_statusCode = Lens.lens (\DeleteBuildBatchResponse' {sta
 deleteBuildBatchResponse_httpStatus :: Lens.Lens' DeleteBuildBatchResponse Prelude.Int
 deleteBuildBatchResponse_httpStatus = Lens.lens (\DeleteBuildBatchResponse' {httpStatus} -> httpStatus) (\s@DeleteBuildBatchResponse' {} a -> s {httpStatus = a} :: DeleteBuildBatchResponse)
 
-instance Prelude.NFData DeleteBuildBatchResponse
+instance Prelude.NFData DeleteBuildBatchResponse where
+  rnf DeleteBuildBatchResponse' {..} =
+    Prelude.rnf buildsNotDeleted
+      `Prelude.seq` Prelude.rnf buildsDeleted
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpStatus

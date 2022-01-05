@@ -94,6 +94,14 @@ instance Core.FromJSON TestReportSummary where
             Prelude.<*> (x Core..: "durationInNanoSeconds")
       )
 
-instance Prelude.Hashable TestReportSummary
+instance Prelude.Hashable TestReportSummary where
+  hashWithSalt _salt TestReportSummary' {..} =
+    _salt `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` statusCounts
+      `Prelude.hashWithSalt` durationInNanoSeconds
 
-instance Prelude.NFData TestReportSummary
+instance Prelude.NFData TestReportSummary where
+  rnf TestReportSummary' {..} =
+    Prelude.rnf total
+      `Prelude.seq` Prelude.rnf statusCounts
+      `Prelude.seq` Prelude.rnf durationInNanoSeconds

@@ -469,9 +469,28 @@ instance Core.FromJSON ProjectEnvironment where
             Prelude.<*> (x Core..: "computeType")
       )
 
-instance Prelude.Hashable ProjectEnvironment
+instance Prelude.Hashable ProjectEnvironment where
+  hashWithSalt _salt ProjectEnvironment' {..} =
+    _salt
+      `Prelude.hashWithSalt` imagePullCredentialsType
+      `Prelude.hashWithSalt` privilegedMode
+      `Prelude.hashWithSalt` registryCredential
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` computeType
 
-instance Prelude.NFData ProjectEnvironment
+instance Prelude.NFData ProjectEnvironment where
+  rnf ProjectEnvironment' {..} =
+    Prelude.rnf imagePullCredentialsType
+      `Prelude.seq` Prelude.rnf privilegedMode
+      `Prelude.seq` Prelude.rnf registryCredential
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf computeType
 
 instance Core.ToJSON ProjectEnvironment where
   toJSON ProjectEnvironment' {..} =

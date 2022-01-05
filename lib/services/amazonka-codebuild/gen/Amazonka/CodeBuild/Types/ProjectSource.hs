@@ -469,9 +469,31 @@ instance Core.FromJSON ProjectSource where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ProjectSource
+instance Prelude.Hashable ProjectSource where
+  hashWithSalt _salt ProjectSource' {..} =
+    _salt `Prelude.hashWithSalt` reportBuildStatus
+      `Prelude.hashWithSalt` insecureSsl
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` auth
+      `Prelude.hashWithSalt` buildspec
+      `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` gitCloneDepth
+      `Prelude.hashWithSalt` gitSubmodulesConfig
+      `Prelude.hashWithSalt` buildStatusConfig
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ProjectSource
+instance Prelude.NFData ProjectSource where
+  rnf ProjectSource' {..} =
+    Prelude.rnf reportBuildStatus
+      `Prelude.seq` Prelude.rnf insecureSsl
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf auth
+      `Prelude.seq` Prelude.rnf buildspec
+      `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf gitCloneDepth
+      `Prelude.seq` Prelude.rnf gitSubmodulesConfig
+      `Prelude.seq` Prelude.rnf buildStatusConfig
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ProjectSource where
   toJSON ProjectSource' {..} =

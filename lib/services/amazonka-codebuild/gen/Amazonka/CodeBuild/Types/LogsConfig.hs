@@ -80,9 +80,15 @@ instance Core.FromJSON LogsConfig where
             Prelude.<*> (x Core..:? "cloudWatchLogs")
       )
 
-instance Prelude.Hashable LogsConfig
+instance Prelude.Hashable LogsConfig where
+  hashWithSalt _salt LogsConfig' {..} =
+    _salt `Prelude.hashWithSalt` s3Logs
+      `Prelude.hashWithSalt` cloudWatchLogs
 
-instance Prelude.NFData LogsConfig
+instance Prelude.NFData LogsConfig where
+  rnf LogsConfig' {..} =
+    Prelude.rnf s3Logs
+      `Prelude.seq` Prelude.rnf cloudWatchLogs
 
 instance Core.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =

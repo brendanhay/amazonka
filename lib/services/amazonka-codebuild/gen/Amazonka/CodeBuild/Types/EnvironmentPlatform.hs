@@ -77,6 +77,12 @@ instance Core.FromJSON EnvironmentPlatform where
             Prelude.<*> (x Core..:? "languages" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EnvironmentPlatform
+instance Prelude.Hashable EnvironmentPlatform where
+  hashWithSalt _salt EnvironmentPlatform' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` languages
 
-instance Prelude.NFData EnvironmentPlatform
+instance Prelude.NFData EnvironmentPlatform where
+  rnf EnvironmentPlatform' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf languages

@@ -74,6 +74,11 @@ instance Core.FromJSON BuildNotDeleted where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable BuildNotDeleted
+instance Prelude.Hashable BuildNotDeleted where
+  hashWithSalt _salt BuildNotDeleted' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData BuildNotDeleted
+instance Prelude.NFData BuildNotDeleted where
+  rnf BuildNotDeleted' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf statusCode

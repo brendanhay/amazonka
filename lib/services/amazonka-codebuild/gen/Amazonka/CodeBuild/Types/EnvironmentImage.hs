@@ -81,6 +81,14 @@ instance Core.FromJSON EnvironmentImage where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable EnvironmentImage
+instance Prelude.Hashable EnvironmentImage where
+  hashWithSalt _salt EnvironmentImage' {..} =
+    _salt `Prelude.hashWithSalt` versions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData EnvironmentImage
+instance Prelude.NFData EnvironmentImage where
+  rnf EnvironmentImage' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

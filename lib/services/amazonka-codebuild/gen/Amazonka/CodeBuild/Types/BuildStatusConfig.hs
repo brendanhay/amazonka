@@ -153,9 +153,15 @@ instance Core.FromJSON BuildStatusConfig where
             Prelude.<*> (x Core..:? "targetUrl")
       )
 
-instance Prelude.Hashable BuildStatusConfig
+instance Prelude.Hashable BuildStatusConfig where
+  hashWithSalt _salt BuildStatusConfig' {..} =
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` targetUrl
 
-instance Prelude.NFData BuildStatusConfig
+instance Prelude.NFData BuildStatusConfig where
+  rnf BuildStatusConfig' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetUrl
 
 instance Core.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =

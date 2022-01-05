@@ -143,9 +143,21 @@ instance Core.FromJSON ProjectBuildBatchConfig where
             Prelude.<*> (x Core..:? "serviceRole")
       )
 
-instance Prelude.Hashable ProjectBuildBatchConfig
+instance Prelude.Hashable ProjectBuildBatchConfig where
+  hashWithSalt _salt ProjectBuildBatchConfig' {..} =
+    _salt `Prelude.hashWithSalt` combineArtifacts
+      `Prelude.hashWithSalt` timeoutInMins
+      `Prelude.hashWithSalt` restrictions
+      `Prelude.hashWithSalt` batchReportMode
+      `Prelude.hashWithSalt` serviceRole
 
-instance Prelude.NFData ProjectBuildBatchConfig
+instance Prelude.NFData ProjectBuildBatchConfig where
+  rnf ProjectBuildBatchConfig' {..} =
+    Prelude.rnf combineArtifacts
+      `Prelude.seq` Prelude.rnf timeoutInMins
+      `Prelude.seq` Prelude.rnf restrictions
+      `Prelude.seq` Prelude.rnf batchReportMode
+      `Prelude.seq` Prelude.rnf serviceRole
 
 instance Core.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =

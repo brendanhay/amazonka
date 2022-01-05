@@ -95,9 +95,15 @@ encodingParametersRequest_encoderProfile = Lens.lens (\EncodingParametersRequest
 encodingParametersRequest_compressionFactor :: Lens.Lens' EncodingParametersRequest Prelude.Double
 encodingParametersRequest_compressionFactor = Lens.lens (\EncodingParametersRequest' {compressionFactor} -> compressionFactor) (\s@EncodingParametersRequest' {} a -> s {compressionFactor = a} :: EncodingParametersRequest)
 
-instance Prelude.Hashable EncodingParametersRequest
+instance Prelude.Hashable EncodingParametersRequest where
+  hashWithSalt _salt EncodingParametersRequest' {..} =
+    _salt `Prelude.hashWithSalt` encoderProfile
+      `Prelude.hashWithSalt` compressionFactor
 
-instance Prelude.NFData EncodingParametersRequest
+instance Prelude.NFData EncodingParametersRequest where
+  rnf EncodingParametersRequest' {..} =
+    Prelude.rnf encoderProfile
+      `Prelude.seq` Prelude.rnf compressionFactor
 
 instance Core.ToJSON EncodingParametersRequest where
   toJSON EncodingParametersRequest' {..} =

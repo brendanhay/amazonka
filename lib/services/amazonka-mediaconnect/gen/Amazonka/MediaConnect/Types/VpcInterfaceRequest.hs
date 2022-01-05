@@ -102,9 +102,21 @@ vpcInterfaceRequest_roleArn = Lens.lens (\VpcInterfaceRequest' {roleArn} -> role
 vpcInterfaceRequest_name :: Lens.Lens' VpcInterfaceRequest Prelude.Text
 vpcInterfaceRequest_name = Lens.lens (\VpcInterfaceRequest' {name} -> name) (\s@VpcInterfaceRequest' {} a -> s {name = a} :: VpcInterfaceRequest)
 
-instance Prelude.Hashable VpcInterfaceRequest
+instance Prelude.Hashable VpcInterfaceRequest where
+  hashWithSalt _salt VpcInterfaceRequest' {..} =
+    _salt `Prelude.hashWithSalt` networkInterfaceType
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData VpcInterfaceRequest
+instance Prelude.NFData VpcInterfaceRequest where
+  rnf VpcInterfaceRequest' {..} =
+    Prelude.rnf networkInterfaceType
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON VpcInterfaceRequest where
   toJSON VpcInterfaceRequest' {..} =

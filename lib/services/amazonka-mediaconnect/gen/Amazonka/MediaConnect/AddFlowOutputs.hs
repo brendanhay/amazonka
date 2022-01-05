@@ -103,9 +103,15 @@ instance Core.AWSRequest AddFlowOutputs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddFlowOutputs
+instance Prelude.Hashable AddFlowOutputs where
+  hashWithSalt _salt AddFlowOutputs' {..} =
+    _salt `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` outputs
 
-instance Prelude.NFData AddFlowOutputs
+instance Prelude.NFData AddFlowOutputs where
+  rnf AddFlowOutputs' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf outputs
 
 instance Core.ToHeaders AddFlowOutputs where
   toHeaders =
@@ -180,4 +186,8 @@ addFlowOutputsResponse_outputs = Lens.lens (\AddFlowOutputsResponse' {outputs} -
 addFlowOutputsResponse_httpStatus :: Lens.Lens' AddFlowOutputsResponse Prelude.Int
 addFlowOutputsResponse_httpStatus = Lens.lens (\AddFlowOutputsResponse' {httpStatus} -> httpStatus) (\s@AddFlowOutputsResponse' {} a -> s {httpStatus = a} :: AddFlowOutputsResponse)
 
-instance Prelude.NFData AddFlowOutputsResponse
+instance Prelude.NFData AddFlowOutputsResponse where
+  rnf AddFlowOutputsResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf httpStatus

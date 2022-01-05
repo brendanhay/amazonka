@@ -119,7 +119,22 @@ instance Core.FromJSON MediaStreamOutputConfiguration where
 instance
   Prelude.Hashable
     MediaStreamOutputConfiguration
+  where
+  hashWithSalt
+    _salt
+    MediaStreamOutputConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` destinationConfigurations
+        `Prelude.hashWithSalt` encodingParameters
+        `Prelude.hashWithSalt` mediaStreamName
+        `Prelude.hashWithSalt` encodingName
 
 instance
   Prelude.NFData
     MediaStreamOutputConfiguration
+  where
+  rnf MediaStreamOutputConfiguration' {..} =
+    Prelude.rnf destinationConfigurations
+      `Prelude.seq` Prelude.rnf encodingParameters
+      `Prelude.seq` Prelude.rnf mediaStreamName
+      `Prelude.seq` Prelude.rnf encodingName

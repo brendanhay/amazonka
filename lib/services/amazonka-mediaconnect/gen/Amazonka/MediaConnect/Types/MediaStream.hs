@@ -161,6 +161,24 @@ instance Core.FromJSON MediaStream where
             Prelude.<*> (x Core..: "fmt")
       )
 
-instance Prelude.Hashable MediaStream
+instance Prelude.Hashable MediaStream where
+  hashWithSalt _salt MediaStream' {..} =
+    _salt `Prelude.hashWithSalt` videoFormat
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` clockRate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` mediaStreamType
+      `Prelude.hashWithSalt` mediaStreamId
+      `Prelude.hashWithSalt` mediaStreamName
+      `Prelude.hashWithSalt` fmt
 
-instance Prelude.NFData MediaStream
+instance Prelude.NFData MediaStream where
+  rnf MediaStream' {..} =
+    Prelude.rnf videoFormat
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf clockRate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf mediaStreamType
+      `Prelude.seq` Prelude.rnf mediaStreamId
+      `Prelude.seq` Prelude.rnf mediaStreamName
+      `Prelude.seq` Prelude.rnf fmt

@@ -267,9 +267,41 @@ instance Core.AWSRequest UpdateFlowOutput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFlowOutput
+instance Prelude.Hashable UpdateFlowOutput where
+  hashWithSalt _salt UpdateFlowOutput' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` maxLatency
+      `Prelude.hashWithSalt` mediaStreamOutputConfigurations
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` cidrAllowList
+      `Prelude.hashWithSalt` smoothingLatency
+      `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` vpcInterfaceAttachment
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` outputArn
 
-instance Prelude.NFData UpdateFlowOutput
+instance Prelude.NFData UpdateFlowOutput where
+  rnf UpdateFlowOutput' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf maxLatency
+      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf cidrAllowList
+      `Prelude.seq` Prelude.rnf smoothingLatency
+      `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf outputArn
 
 instance Core.ToHeaders UpdateFlowOutput where
   toHeaders =
@@ -365,4 +397,8 @@ updateFlowOutputResponse_output = Lens.lens (\UpdateFlowOutputResponse' {output}
 updateFlowOutputResponse_httpStatus :: Lens.Lens' UpdateFlowOutputResponse Prelude.Int
 updateFlowOutputResponse_httpStatus = Lens.lens (\UpdateFlowOutputResponse' {httpStatus} -> httpStatus) (\s@UpdateFlowOutputResponse' {} a -> s {httpStatus = a} :: UpdateFlowOutputResponse)
 
-instance Prelude.NFData UpdateFlowOutputResponse
+instance Prelude.NFData UpdateFlowOutputResponse where
+  rnf UpdateFlowOutputResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf httpStatus

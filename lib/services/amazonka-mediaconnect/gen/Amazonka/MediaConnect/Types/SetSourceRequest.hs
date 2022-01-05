@@ -214,9 +214,39 @@ setSourceRequest_maxBitrate = Lens.lens (\SetSourceRequest' {maxBitrate} -> maxB
 setSourceRequest_streamId :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_streamId = Lens.lens (\SetSourceRequest' {streamId} -> streamId) (\s@SetSourceRequest' {} a -> s {streamId = a} :: SetSourceRequest)
 
-instance Prelude.Hashable SetSourceRequest
+instance Prelude.Hashable SetSourceRequest where
+  hashWithSalt _salt SetSourceRequest' {..} =
+    _salt `Prelude.hashWithSalt` entitlementArn
+      `Prelude.hashWithSalt` maxLatency
+      `Prelude.hashWithSalt` vpcInterfaceName
+      `Prelude.hashWithSalt` decryption
+      `Prelude.hashWithSalt` maxSyncBuffer
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` ingestPort
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` mediaStreamSourceConfigurations
+      `Prelude.hashWithSalt` whitelistCidr
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` streamId
 
-instance Prelude.NFData SetSourceRequest
+instance Prelude.NFData SetSourceRequest where
+  rnf SetSourceRequest' {..} =
+    Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf maxLatency
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
+      `Prelude.seq` Prelude.rnf decryption
+      `Prelude.seq` Prelude.rnf maxSyncBuffer
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf ingestPort
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
+      `Prelude.seq` Prelude.rnf whitelistCidr
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf streamId
 
 instance Core.ToJSON SetSourceRequest where
   toJSON SetSourceRequest' {..} =

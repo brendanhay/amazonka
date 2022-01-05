@@ -102,6 +102,12 @@ instance Core.FromJSON EncodingParameters where
             Prelude.<*> (x Core..: "compressionFactor")
       )
 
-instance Prelude.Hashable EncodingParameters
+instance Prelude.Hashable EncodingParameters where
+  hashWithSalt _salt EncodingParameters' {..} =
+    _salt `Prelude.hashWithSalt` encoderProfile
+      `Prelude.hashWithSalt` compressionFactor
 
-instance Prelude.NFData EncodingParameters
+instance Prelude.NFData EncodingParameters where
+  rnf EncodingParameters' {..} =
+    Prelude.rnf encoderProfile
+      `Prelude.seq` Prelude.rnf compressionFactor

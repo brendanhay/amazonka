@@ -140,6 +140,23 @@ instance Core.FromJSON Entitlement where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Entitlement
+instance Prelude.Hashable Entitlement where
+  hashWithSalt _salt Entitlement' {..} =
+    _salt
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` entitlementStatus
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` entitlementArn
+      `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Entitlement
+instance Prelude.NFData Entitlement where
+  rnf Entitlement' {..} =
+    Prelude.rnf dataTransferSubscriberFeePercent
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf entitlementStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf name

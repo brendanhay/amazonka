@@ -161,9 +161,25 @@ instance Core.AWSRequest UpdateFlowMediaStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFlowMediaStream
+instance Prelude.Hashable UpdateFlowMediaStream where
+  hashWithSalt _salt UpdateFlowMediaStream' {..} =
+    _salt `Prelude.hashWithSalt` videoFormat
+      `Prelude.hashWithSalt` mediaStreamType
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` clockRate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` mediaStreamName
 
-instance Prelude.NFData UpdateFlowMediaStream
+instance Prelude.NFData UpdateFlowMediaStream where
+  rnf UpdateFlowMediaStream' {..} =
+    Prelude.rnf videoFormat
+      `Prelude.seq` Prelude.rnf mediaStreamType
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf clockRate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf mediaStreamName
 
 instance Core.ToHeaders UpdateFlowMediaStream where
   toHeaders =
@@ -252,4 +268,8 @@ updateFlowMediaStreamResponse_mediaStream = Lens.lens (\UpdateFlowMediaStreamRes
 updateFlowMediaStreamResponse_httpStatus :: Lens.Lens' UpdateFlowMediaStreamResponse Prelude.Int
 updateFlowMediaStreamResponse_httpStatus = Lens.lens (\UpdateFlowMediaStreamResponse' {httpStatus} -> httpStatus) (\s@UpdateFlowMediaStreamResponse' {} a -> s {httpStatus = a} :: UpdateFlowMediaStreamResponse)
 
-instance Prelude.NFData UpdateFlowMediaStreamResponse
+instance Prelude.NFData UpdateFlowMediaStreamResponse where
+  rnf UpdateFlowMediaStreamResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf mediaStream
+      `Prelude.seq` Prelude.rnf httpStatus

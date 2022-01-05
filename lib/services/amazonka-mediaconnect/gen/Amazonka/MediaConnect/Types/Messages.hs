@@ -61,6 +61,9 @@ instance Core.FromJSON Messages where
             Prelude.<$> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Messages
+instance Prelude.Hashable Messages where
+  hashWithSalt _salt Messages' {..} =
+    _salt `Prelude.hashWithSalt` errors
 
-instance Prelude.NFData Messages
+instance Prelude.NFData Messages where
+  rnf Messages' {..} = Prelude.rnf errors

@@ -88,9 +88,12 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFlow
+instance Prelude.Hashable DescribeFlow where
+  hashWithSalt _salt DescribeFlow' {..} =
+    _salt `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData DescribeFlow
+instance Prelude.NFData DescribeFlow where
+  rnf DescribeFlow' {..} = Prelude.rnf flowArn
 
 instance Core.ToHeaders DescribeFlow where
   toHeaders =
@@ -155,4 +158,8 @@ describeFlowResponse_messages = Lens.lens (\DescribeFlowResponse' {messages} -> 
 describeFlowResponse_httpStatus :: Lens.Lens' DescribeFlowResponse Prelude.Int
 describeFlowResponse_httpStatus = Lens.lens (\DescribeFlowResponse' {httpStatus} -> httpStatus) (\s@DescribeFlowResponse' {} a -> s {httpStatus = a} :: DescribeFlowResponse)
 
-instance Prelude.NFData DescribeFlowResponse
+instance Prelude.NFData DescribeFlowResponse where
+  rnf DescribeFlowResponse' {..} =
+    Prelude.rnf flow
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf httpStatus

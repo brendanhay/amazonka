@@ -84,9 +84,17 @@ s3Reference_bucket = Lens.lens (\S3Reference' {bucket} -> bucket) (\s@S3Referenc
 s3Reference_key :: Lens.Lens' S3Reference Prelude.Text
 s3Reference_key = Lens.lens (\S3Reference' {key} -> key) (\s@S3Reference' {} a -> s {key = a} :: S3Reference)
 
-instance Prelude.Hashable S3Reference
+instance Prelude.Hashable S3Reference where
+  hashWithSalt _salt S3Reference' {..} =
+    _salt `Prelude.hashWithSalt` objectVersion
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3Reference
+instance Prelude.NFData S3Reference where
+  rnf S3Reference' {..} =
+    Prelude.rnf objectVersion
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON S3Reference where
   toJSON S3Reference' {..} =

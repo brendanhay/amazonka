@@ -125,9 +125,17 @@ instance Core.AWSRequest GetRoleCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRoleCredentials
+instance Prelude.Hashable GetRoleCredentials where
+  hashWithSalt _salt GetRoleCredentials' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData GetRoleCredentials
+instance Prelude.NFData GetRoleCredentials where
+  rnf GetRoleCredentials' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf accessToken
 
 instance Core.ToHeaders GetRoleCredentials where
   toHeaders GetRoleCredentials' {..} =
@@ -186,4 +194,7 @@ getRoleCredentialsResponse_roleCredentials = Lens.lens (\GetRoleCredentialsRespo
 getRoleCredentialsResponse_httpStatus :: Lens.Lens' GetRoleCredentialsResponse Prelude.Int
 getRoleCredentialsResponse_httpStatus = Lens.lens (\GetRoleCredentialsResponse' {httpStatus} -> httpStatus) (\s@GetRoleCredentialsResponse' {} a -> s {httpStatus = a} :: GetRoleCredentialsResponse)
 
-instance Prelude.NFData GetRoleCredentialsResponse
+instance Prelude.NFData GetRoleCredentialsResponse where
+  rnf GetRoleCredentialsResponse' {..} =
+    Prelude.rnf roleCredentials
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -420,10 +420,29 @@ instance
 instance
   Prelude.Hashable
     TargetTrackingScalingPolicyConfiguration
+  where
+  hashWithSalt
+    _salt
+    TargetTrackingScalingPolicyConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` predefinedMetricSpecification
+        `Prelude.hashWithSalt` scaleInCooldown
+        `Prelude.hashWithSalt` customizedMetricSpecification
+        `Prelude.hashWithSalt` disableScaleIn
+        `Prelude.hashWithSalt` scaleOutCooldown
+        `Prelude.hashWithSalt` targetValue
 
 instance
   Prelude.NFData
     TargetTrackingScalingPolicyConfiguration
+  where
+  rnf TargetTrackingScalingPolicyConfiguration' {..} =
+    Prelude.rnf predefinedMetricSpecification
+      `Prelude.seq` Prelude.rnf scaleInCooldown
+      `Prelude.seq` Prelude.rnf customizedMetricSpecification
+      `Prelude.seq` Prelude.rnf disableScaleIn
+      `Prelude.seq` Prelude.rnf scaleOutCooldown
+      `Prelude.seq` Prelude.rnf targetValue
 
 instance
   Core.ToJSON

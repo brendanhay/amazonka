@@ -339,10 +339,26 @@ instance Core.FromJSON StepScalingPolicyConfiguration where
 instance
   Prelude.Hashable
     StepScalingPolicyConfiguration
+  where
+  hashWithSalt
+    _salt
+    StepScalingPolicyConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` stepAdjustments
+        `Prelude.hashWithSalt` adjustmentType
+        `Prelude.hashWithSalt` cooldown
+        `Prelude.hashWithSalt` metricAggregationType
+        `Prelude.hashWithSalt` minAdjustmentMagnitude
 
 instance
   Prelude.NFData
     StepScalingPolicyConfiguration
+  where
+  rnf StepScalingPolicyConfiguration' {..} =
+    Prelude.rnf stepAdjustments
+      `Prelude.seq` Prelude.rnf adjustmentType
+      `Prelude.seq` Prelude.rnf cooldown
+      `Prelude.seq` Prelude.rnf metricAggregationType
+      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
 
 instance Core.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =

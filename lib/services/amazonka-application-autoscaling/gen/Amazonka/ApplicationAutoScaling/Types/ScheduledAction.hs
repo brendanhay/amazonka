@@ -660,6 +660,30 @@ instance Core.FromJSON ScheduledAction where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable ScheduledAction
+instance Prelude.Hashable ScheduledAction where
+  hashWithSalt _salt ScheduledAction' {..} =
+    _salt `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` scalableTargetAction
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` scheduledActionARN
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ScheduledAction
+instance Prelude.NFData ScheduledAction where
+  rnf ScheduledAction' {..} =
+    Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf scalableTargetAction
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf scheduledActionARN
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf creationTime

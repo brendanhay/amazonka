@@ -582,9 +582,21 @@ instance Core.AWSRequest DescribeScalableTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScalableTargets
+instance Prelude.Hashable DescribeScalableTargets where
+  hashWithSalt _salt DescribeScalableTargets' {..} =
+    _salt `Prelude.hashWithSalt` resourceIds
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceNamespace
 
-instance Prelude.NFData DescribeScalableTargets
+instance Prelude.NFData DescribeScalableTargets where
+  rnf DescribeScalableTargets' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Core.ToHeaders DescribeScalableTargets where
   toHeaders =
@@ -675,3 +687,8 @@ describeScalableTargetsResponse_httpStatus = Lens.lens (\DescribeScalableTargets
 instance
   Prelude.NFData
     DescribeScalableTargetsResponse
+  where
+  rnf DescribeScalableTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scalableTargets
+      `Prelude.seq` Prelude.rnf httpStatus

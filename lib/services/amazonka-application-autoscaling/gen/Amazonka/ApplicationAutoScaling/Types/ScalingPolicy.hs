@@ -579,6 +579,30 @@ instance Core.FromJSON ScalingPolicy where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable ScalingPolicy
+instance Prelude.Hashable ScalingPolicy where
+  hashWithSalt _salt ScalingPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
+      `Prelude.hashWithSalt` stepScalingPolicyConfiguration
+      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` policyARN
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ScalingPolicy
+instance Prelude.NFData ScalingPolicy where
+  rnf ScalingPolicy' {..} =
+    Prelude.rnf
+      targetTrackingScalingPolicyConfiguration
+      `Prelude.seq` Prelude.rnf stepScalingPolicyConfiguration
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf policyARN
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf creationTime

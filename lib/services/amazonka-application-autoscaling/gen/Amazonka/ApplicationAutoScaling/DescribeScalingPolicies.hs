@@ -597,9 +597,23 @@ instance Core.AWSRequest DescribeScalingPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScalingPolicies
+instance Prelude.Hashable DescribeScalingPolicies where
+  hashWithSalt _salt DescribeScalingPolicies' {..} =
+    _salt `Prelude.hashWithSalt` policyNames
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceNamespace
 
-instance Prelude.NFData DescribeScalingPolicies
+instance Prelude.NFData DescribeScalingPolicies where
+  rnf DescribeScalingPolicies' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Core.ToHeaders DescribeScalingPolicies where
   toHeaders =
@@ -691,3 +705,8 @@ describeScalingPoliciesResponse_httpStatus = Lens.lens (\DescribeScalingPolicies
 instance
   Prelude.NFData
     DescribeScalingPoliciesResponse
+  where
+  rnf DescribeScalingPoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scalingPolicies
+      `Prelude.seq` Prelude.rnf httpStatus

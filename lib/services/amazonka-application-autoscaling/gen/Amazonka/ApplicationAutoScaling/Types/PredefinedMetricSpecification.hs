@@ -163,8 +163,15 @@ instance Core.FromJSON PredefinedMetricSpecification where
 instance
   Prelude.Hashable
     PredefinedMetricSpecification
+  where
+  hashWithSalt _salt PredefinedMetricSpecification' {..} =
+    _salt `Prelude.hashWithSalt` resourceLabel
+      `Prelude.hashWithSalt` predefinedMetricType
 
-instance Prelude.NFData PredefinedMetricSpecification
+instance Prelude.NFData PredefinedMetricSpecification where
+  rnf PredefinedMetricSpecification' {..} =
+    Prelude.rnf resourceLabel
+      `Prelude.seq` Prelude.rnf predefinedMetricType
 
 instance Core.ToJSON PredefinedMetricSpecification where
   toJSON PredefinedMetricSpecification' {..} =

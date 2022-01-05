@@ -728,9 +728,25 @@ instance Core.AWSRequest RegisterScalableTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterScalableTarget
+instance Prelude.Hashable RegisterScalableTarget where
+  hashWithSalt _salt RegisterScalableTarget' {..} =
+    _salt `Prelude.hashWithSalt` suspendedState
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scalableDimension
 
-instance Prelude.NFData RegisterScalableTarget
+instance Prelude.NFData RegisterScalableTarget where
+  rnf RegisterScalableTarget' {..} =
+    Prelude.rnf suspendedState
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf scalableDimension
 
 instance Core.ToHeaders RegisterScalableTarget where
   toHeaders =
@@ -803,3 +819,6 @@ registerScalableTargetResponse_httpStatus = Lens.lens (\RegisterScalableTargetRe
 instance
   Prelude.NFData
     RegisterScalableTargetResponse
+  where
+  rnf RegisterScalableTargetResponse' {..} =
+    Prelude.rnf httpStatus

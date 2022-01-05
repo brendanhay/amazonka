@@ -398,7 +398,61 @@ instance
 instance
   Prelude.Hashable
     EventSourceMappingConfiguration
+  where
+  hashWithSalt
+    _salt
+    EventSourceMappingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` eventSourceArn
+        `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` startingPositionTimestamp
+        `Prelude.hashWithSalt` functionArn
+        `Prelude.hashWithSalt` topics
+        `Prelude.hashWithSalt` queues
+        `Prelude.hashWithSalt` bisectBatchOnFunctionError
+        `Prelude.hashWithSalt` uuid
+        `Prelude.hashWithSalt` parallelizationFactor
+        `Prelude.hashWithSalt` lastProcessingResult
+        `Prelude.hashWithSalt` maximumRetryAttempts
+        `Prelude.hashWithSalt` batchSize
+        `Prelude.hashWithSalt` stateTransitionReason
+        `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
+        `Prelude.hashWithSalt` sourceAccessConfigurations
+        `Prelude.hashWithSalt` maximumRecordAgeInSeconds
+        `Prelude.hashWithSalt` functionResponseTypes
+        `Prelude.hashWithSalt` tumblingWindowInSeconds
+        `Prelude.hashWithSalt` selfManagedEventSource
+        `Prelude.hashWithSalt` lastModified
+        `Prelude.hashWithSalt` destinationConfig
+        `Prelude.hashWithSalt` startingPosition
 
 instance
   Prelude.NFData
     EventSourceMappingConfiguration
+  where
+  rnf EventSourceMappingConfiguration' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf startingPositionTimestamp
+      `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
+      `Prelude.seq` Prelude.rnf uuid
+      `Prelude.seq` Prelude.rnf parallelizationFactor
+      `Prelude.seq` Prelude.rnf lastProcessingResult
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf stateTransitionReason
+      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
+      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
+      `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf
+        tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf
+        selfManagedEventSource
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf
+        destinationConfig
+      `Prelude.seq` Prelude.rnf
+        startingPosition

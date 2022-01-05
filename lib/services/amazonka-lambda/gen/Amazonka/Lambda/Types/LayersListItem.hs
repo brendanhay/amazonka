@@ -83,6 +83,14 @@ instance Core.FromJSON LayersListItem where
             Prelude.<*> (x Core..:? "LayerArn")
       )
 
-instance Prelude.Hashable LayersListItem
+instance Prelude.Hashable LayersListItem where
+  hashWithSalt _salt LayersListItem' {..} =
+    _salt `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` latestMatchingVersion
+      `Prelude.hashWithSalt` layerArn
 
-instance Prelude.NFData LayersListItem
+instance Prelude.NFData LayersListItem where
+  rnf LayersListItem' {..} =
+    Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf latestMatchingVersion
+      `Prelude.seq` Prelude.rnf layerArn

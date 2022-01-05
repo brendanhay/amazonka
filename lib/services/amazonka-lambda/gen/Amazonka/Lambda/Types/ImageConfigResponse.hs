@@ -73,6 +73,12 @@ instance Core.FromJSON ImageConfigResponse where
             Prelude.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable ImageConfigResponse
+instance Prelude.Hashable ImageConfigResponse where
+  hashWithSalt _salt ImageConfigResponse' {..} =
+    _salt `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData ImageConfigResponse
+instance Prelude.NFData ImageConfigResponse where
+  rnf ImageConfigResponse' {..} =
+    Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf error

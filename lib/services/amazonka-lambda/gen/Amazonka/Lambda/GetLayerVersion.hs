@@ -105,9 +105,15 @@ instance Core.AWSRequest GetLayerVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetLayerVersion
+instance Prelude.Hashable GetLayerVersion where
+  hashWithSalt _salt GetLayerVersion' {..} =
+    _salt `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` versionNumber
 
-instance Prelude.NFData GetLayerVersion
+instance Prelude.NFData GetLayerVersion where
+  rnf GetLayerVersion' {..} =
+    Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance Core.ToHeaders GetLayerVersion where
   toHeaders = Prelude.const Prelude.mempty

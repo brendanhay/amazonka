@@ -143,10 +143,20 @@ instance
 instance
   Prelude.Hashable
     DeleteFunctionEventInvokeConfig
+  where
+  hashWithSalt
+    _salt
+    DeleteFunctionEventInvokeConfig' {..} =
+      _salt `Prelude.hashWithSalt` qualifier
+        `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     DeleteFunctionEventInvokeConfig
+  where
+  rnf DeleteFunctionEventInvokeConfig' {..} =
+    Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf functionName
 
 instance
   Core.ToHeaders
@@ -184,3 +194,5 @@ newDeleteFunctionEventInvokeConfigResponse =
 instance
   Prelude.NFData
     DeleteFunctionEventInvokeConfigResponse
+  where
+  rnf _ = ()

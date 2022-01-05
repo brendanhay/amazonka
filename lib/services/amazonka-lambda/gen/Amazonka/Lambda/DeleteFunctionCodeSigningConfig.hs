@@ -123,10 +123,18 @@ instance
 instance
   Prelude.Hashable
     DeleteFunctionCodeSigningConfig
+  where
+  hashWithSalt
+    _salt
+    DeleteFunctionCodeSigningConfig' {..} =
+      _salt `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     DeleteFunctionCodeSigningConfig
+  where
+  rnf DeleteFunctionCodeSigningConfig' {..} =
+    Prelude.rnf functionName
 
 instance
   Core.ToHeaders
@@ -163,3 +171,5 @@ newDeleteFunctionCodeSigningConfigResponse =
 instance
   Prelude.NFData
     DeleteFunctionCodeSigningConfigResponse
+  where
+  rnf _ = ()

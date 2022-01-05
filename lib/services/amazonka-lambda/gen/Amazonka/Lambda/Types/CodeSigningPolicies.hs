@@ -80,9 +80,14 @@ instance Core.FromJSON CodeSigningPolicies where
             Prelude.<$> (x Core..:? "UntrustedArtifactOnDeployment")
       )
 
-instance Prelude.Hashable CodeSigningPolicies
+instance Prelude.Hashable CodeSigningPolicies where
+  hashWithSalt _salt CodeSigningPolicies' {..} =
+    _salt
+      `Prelude.hashWithSalt` untrustedArtifactOnDeployment
 
-instance Prelude.NFData CodeSigningPolicies
+instance Prelude.NFData CodeSigningPolicies where
+  rnf CodeSigningPolicies' {..} =
+    Prelude.rnf untrustedArtifactOnDeployment
 
 instance Core.ToJSON CodeSigningPolicies where
   toJSON CodeSigningPolicies' {..} =

@@ -74,6 +74,12 @@ instance Core.FromJSON AccountUsage where
             Prelude.<*> (x Core..:? "FunctionCount")
       )
 
-instance Prelude.Hashable AccountUsage
+instance Prelude.Hashable AccountUsage where
+  hashWithSalt _salt AccountUsage' {..} =
+    _salt `Prelude.hashWithSalt` totalCodeSize
+      `Prelude.hashWithSalt` functionCount
 
-instance Prelude.NFData AccountUsage
+instance Prelude.NFData AccountUsage where
+  rnf AccountUsage' {..} =
+    Prelude.rnf totalCodeSize
+      `Prelude.seq` Prelude.rnf functionCount

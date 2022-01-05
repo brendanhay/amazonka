@@ -147,8 +147,15 @@ instance Core.AWSRequest GetFunctionEventInvokeConfig where
 instance
   Prelude.Hashable
     GetFunctionEventInvokeConfig
+  where
+  hashWithSalt _salt GetFunctionEventInvokeConfig' {..} =
+    _salt `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData GetFunctionEventInvokeConfig
+instance Prelude.NFData GetFunctionEventInvokeConfig where
+  rnf GetFunctionEventInvokeConfig' {..} =
+    Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders GetFunctionEventInvokeConfig where
   toHeaders = Prelude.const Prelude.mempty

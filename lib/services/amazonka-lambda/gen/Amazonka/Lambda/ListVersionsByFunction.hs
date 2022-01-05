@@ -182,9 +182,17 @@ instance Core.AWSRequest ListVersionsByFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVersionsByFunction
+instance Prelude.Hashable ListVersionsByFunction where
+  hashWithSalt _salt ListVersionsByFunction' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData ListVersionsByFunction
+instance Prelude.NFData ListVersionsByFunction where
+  rnf ListVersionsByFunction' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders ListVersionsByFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,3 +263,8 @@ listVersionsByFunctionResponse_httpStatus = Lens.lens (\ListVersionsByFunctionRe
 instance
   Prelude.NFData
     ListVersionsByFunctionResponse
+  where
+  rnf ListVersionsByFunctionResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

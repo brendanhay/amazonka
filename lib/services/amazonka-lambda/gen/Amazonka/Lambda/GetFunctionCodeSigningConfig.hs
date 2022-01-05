@@ -130,8 +130,13 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
 instance
   Prelude.Hashable
     GetFunctionCodeSigningConfig
+  where
+  hashWithSalt _salt GetFunctionCodeSigningConfig' {..} =
+    _salt `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData GetFunctionCodeSigningConfig
+instance Prelude.NFData GetFunctionCodeSigningConfig where
+  rnf GetFunctionCodeSigningConfig' {..} =
+    Prelude.rnf functionName
 
 instance Core.ToHeaders GetFunctionCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,3 +247,8 @@ getFunctionCodeSigningConfigResponse_functionName = Lens.lens (\GetFunctionCodeS
 instance
   Prelude.NFData
     GetFunctionCodeSigningConfigResponse
+  where
+  rnf GetFunctionCodeSigningConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+      `Prelude.seq` Prelude.rnf functionName

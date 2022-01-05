@@ -141,9 +141,15 @@ instance Core.AWSRequest DeleteFunction where
   response =
     Response.receiveNull DeleteFunctionResponse'
 
-instance Prelude.Hashable DeleteFunction
+instance Prelude.Hashable DeleteFunction where
+  hashWithSalt _salt DeleteFunction' {..} =
+    _salt `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData DeleteFunction
+instance Prelude.NFData DeleteFunction where
+  rnf DeleteFunction' {..} =
+    Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders DeleteFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +177,5 @@ newDeleteFunctionResponse ::
   DeleteFunctionResponse
 newDeleteFunctionResponse = DeleteFunctionResponse'
 
-instance Prelude.NFData DeleteFunctionResponse
+instance Prelude.NFData DeleteFunctionResponse where
+  rnf _ = ()

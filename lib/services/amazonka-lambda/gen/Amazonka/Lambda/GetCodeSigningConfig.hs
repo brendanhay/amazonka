@@ -89,9 +89,13 @@ instance Core.AWSRequest GetCodeSigningConfig where
             Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
 
-instance Prelude.Hashable GetCodeSigningConfig
+instance Prelude.Hashable GetCodeSigningConfig where
+  hashWithSalt _salt GetCodeSigningConfig' {..} =
+    _salt `Prelude.hashWithSalt` codeSigningConfigArn
 
-instance Prelude.NFData GetCodeSigningConfig
+instance Prelude.NFData GetCodeSigningConfig where
+  rnf GetCodeSigningConfig' {..} =
+    Prelude.rnf codeSigningConfigArn
 
 instance Core.ToHeaders GetCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +153,7 @@ getCodeSigningConfigResponse_httpStatus = Lens.lens (\GetCodeSigningConfigRespon
 getCodeSigningConfigResponse_codeSigningConfig :: Lens.Lens' GetCodeSigningConfigResponse CodeSigningConfig
 getCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\GetCodeSigningConfigResponse' {codeSigningConfig} -> codeSigningConfig) (\s@GetCodeSigningConfigResponse' {} a -> s {codeSigningConfig = a} :: GetCodeSigningConfigResponse)
 
-instance Prelude.NFData GetCodeSigningConfigResponse
+instance Prelude.NFData GetCodeSigningConfigResponse where
+  rnf GetCodeSigningConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeSigningConfig

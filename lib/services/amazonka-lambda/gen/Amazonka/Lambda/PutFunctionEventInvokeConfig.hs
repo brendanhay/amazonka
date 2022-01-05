@@ -230,8 +230,22 @@ instance Core.AWSRequest PutFunctionEventInvokeConfig where
 instance
   Prelude.Hashable
     PutFunctionEventInvokeConfig
+  where
+  hashWithSalt _salt PutFunctionEventInvokeConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` maximumEventAgeInSeconds
+      `Prelude.hashWithSalt` maximumRetryAttempts
+      `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData PutFunctionEventInvokeConfig
+instance Prelude.NFData PutFunctionEventInvokeConfig where
+  rnf PutFunctionEventInvokeConfig' {..} =
+    Prelude.rnf maximumEventAgeInSeconds
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders PutFunctionEventInvokeConfig where
   toHeaders = Prelude.const Prelude.mempty

@@ -74,9 +74,15 @@ instance Core.FromJSON DestinationConfig where
             Prelude.<*> (x Core..:? "OnFailure")
       )
 
-instance Prelude.Hashable DestinationConfig
+instance Prelude.Hashable DestinationConfig where
+  hashWithSalt _salt DestinationConfig' {..} =
+    _salt `Prelude.hashWithSalt` onSuccess
+      `Prelude.hashWithSalt` onFailure
 
-instance Prelude.NFData DestinationConfig
+instance Prelude.NFData DestinationConfig where
+  rnf DestinationConfig' {..} =
+    Prelude.rnf onSuccess
+      `Prelude.seq` Prelude.rnf onFailure
 
 instance Core.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =

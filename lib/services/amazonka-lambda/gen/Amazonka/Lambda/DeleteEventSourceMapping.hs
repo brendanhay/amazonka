@@ -108,9 +108,12 @@ instance Core.AWSRequest DeleteEventSourceMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteEventSourceMapping
+instance Prelude.Hashable DeleteEventSourceMapping where
+  hashWithSalt _salt DeleteEventSourceMapping' {..} =
+    _salt `Prelude.hashWithSalt` uuid
 
-instance Prelude.NFData DeleteEventSourceMapping
+instance Prelude.NFData DeleteEventSourceMapping where
+  rnf DeleteEventSourceMapping' {..} = Prelude.rnf uuid
 
 instance Core.ToHeaders DeleteEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty

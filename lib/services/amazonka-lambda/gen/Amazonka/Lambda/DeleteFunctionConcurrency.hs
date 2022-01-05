@@ -117,9 +117,13 @@ instance Core.AWSRequest DeleteFunctionConcurrency where
     Response.receiveNull
       DeleteFunctionConcurrencyResponse'
 
-instance Prelude.Hashable DeleteFunctionConcurrency
+instance Prelude.Hashable DeleteFunctionConcurrency where
+  hashWithSalt _salt DeleteFunctionConcurrency' {..} =
+    _salt `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData DeleteFunctionConcurrency
+instance Prelude.NFData DeleteFunctionConcurrency where
+  rnf DeleteFunctionConcurrency' {..} =
+    Prelude.rnf functionName
 
 instance Core.ToHeaders DeleteFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,3 +157,5 @@ newDeleteFunctionConcurrencyResponse =
 instance
   Prelude.NFData
     DeleteFunctionConcurrencyResponse
+  where
+  rnf _ = ()

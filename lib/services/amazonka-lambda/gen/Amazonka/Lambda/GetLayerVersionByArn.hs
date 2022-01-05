@@ -91,9 +91,12 @@ instance Core.AWSRequest GetLayerVersionByArn where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetLayerVersionByArn
+instance Prelude.Hashable GetLayerVersionByArn where
+  hashWithSalt _salt GetLayerVersionByArn' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetLayerVersionByArn
+instance Prelude.NFData GetLayerVersionByArn where
+  rnf GetLayerVersionByArn' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetLayerVersionByArn where
   toHeaders = Prelude.const Prelude.mempty

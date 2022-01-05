@@ -127,9 +127,13 @@ instance Core.AWSRequest GetFunctionConcurrency where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFunctionConcurrency
+instance Prelude.Hashable GetFunctionConcurrency where
+  hashWithSalt _salt GetFunctionConcurrency' {..} =
+    _salt `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData GetFunctionConcurrency
+instance Prelude.NFData GetFunctionConcurrency where
+  rnf GetFunctionConcurrency' {..} =
+    Prelude.rnf functionName
 
 instance Core.ToHeaders GetFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +194,7 @@ getFunctionConcurrencyResponse_httpStatus = Lens.lens (\GetFunctionConcurrencyRe
 instance
   Prelude.NFData
     GetFunctionConcurrencyResponse
+  where
+  rnf GetFunctionConcurrencyResponse' {..} =
+    Prelude.rnf reservedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf httpStatus

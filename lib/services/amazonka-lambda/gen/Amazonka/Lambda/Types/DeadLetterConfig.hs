@@ -64,9 +64,12 @@ instance Core.FromJSON DeadLetterConfig where
             Prelude.<$> (x Core..:? "TargetArn")
       )
 
-instance Prelude.Hashable DeadLetterConfig
+instance Prelude.Hashable DeadLetterConfig where
+  hashWithSalt _salt DeadLetterConfig' {..} =
+    _salt `Prelude.hashWithSalt` targetArn
 
-instance Prelude.NFData DeadLetterConfig
+instance Prelude.NFData DeadLetterConfig where
+  rnf DeadLetterConfig' {..} = Prelude.rnf targetArn
 
 instance Core.ToJSON DeadLetterConfig where
   toJSON DeadLetterConfig' {..} =

@@ -145,7 +145,27 @@ instance
 instance
   Prelude.Hashable
     ProvisionedConcurrencyConfigListItem
+  where
+  hashWithSalt
+    _salt
+    ProvisionedConcurrencyConfigListItem' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` functionArn
+        `Prelude.hashWithSalt` requestedProvisionedConcurrentExecutions
+        `Prelude.hashWithSalt` availableProvisionedConcurrentExecutions
+        `Prelude.hashWithSalt` statusReason
+        `Prelude.hashWithSalt` allocatedProvisionedConcurrentExecutions
+        `Prelude.hashWithSalt` lastModified
 
 instance
   Prelude.NFData
     ProvisionedConcurrencyConfigListItem
+  where
+  rnf ProvisionedConcurrencyConfigListItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf requestedProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf availableProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf allocatedProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf lastModified

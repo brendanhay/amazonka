@@ -95,9 +95,15 @@ instance Core.AWSRequest DeleteLayerVersion where
   response =
     Response.receiveNull DeleteLayerVersionResponse'
 
-instance Prelude.Hashable DeleteLayerVersion
+instance Prelude.Hashable DeleteLayerVersion where
+  hashWithSalt _salt DeleteLayerVersion' {..} =
+    _salt `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` versionNumber
 
-instance Prelude.NFData DeleteLayerVersion
+instance Prelude.NFData DeleteLayerVersion where
+  rnf DeleteLayerVersion' {..} =
+    Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance Core.ToHeaders DeleteLayerVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +135,5 @@ newDeleteLayerVersionResponse ::
 newDeleteLayerVersionResponse =
   DeleteLayerVersionResponse'
 
-instance Prelude.NFData DeleteLayerVersionResponse
+instance Prelude.NFData DeleteLayerVersionResponse where
+  rnf _ = ()

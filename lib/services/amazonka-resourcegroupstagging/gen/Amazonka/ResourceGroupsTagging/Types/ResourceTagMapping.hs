@@ -88,6 +88,14 @@ instance Core.FromJSON ResourceTagMapping where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourceTagMapping
+instance Prelude.Hashable ResourceTagMapping where
+  hashWithSalt _salt ResourceTagMapping' {..} =
+    _salt `Prelude.hashWithSalt` complianceDetails
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ResourceTagMapping
+instance Prelude.NFData ResourceTagMapping where
+  rnf ResourceTagMapping' {..} =
+    Prelude.rnf complianceDetails
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf tags

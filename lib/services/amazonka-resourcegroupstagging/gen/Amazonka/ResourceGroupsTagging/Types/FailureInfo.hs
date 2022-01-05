@@ -118,6 +118,14 @@ instance Core.FromJSON FailureInfo where
             Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable FailureInfo
+instance Prelude.Hashable FailureInfo where
+  hashWithSalt _salt FailureInfo' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData FailureInfo
+instance Prelude.NFData FailureInfo where
+  rnf FailureInfo' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf statusCode

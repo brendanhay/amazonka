@@ -85,6 +85,14 @@ instance Core.FromJSON ChoiceAnswerSummary where
             Prelude.<*> (x Core..:? "ChoiceId")
       )
 
-instance Prelude.Hashable ChoiceAnswerSummary
+instance Prelude.Hashable ChoiceAnswerSummary where
+  hashWithSalt _salt ChoiceAnswerSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` choiceId
 
-instance Prelude.NFData ChoiceAnswerSummary
+instance Prelude.NFData ChoiceAnswerSummary where
+  rnf ChoiceAnswerSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf choiceId

@@ -70,6 +70,12 @@ instance Core.FromJSON ShareInvitation where
             Prelude.<*> (x Core..:? "ShareInvitationId")
       )
 
-instance Prelude.Hashable ShareInvitation
+instance Prelude.Hashable ShareInvitation where
+  hashWithSalt _salt ShareInvitation' {..} =
+    _salt `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` shareInvitationId
 
-instance Prelude.NFData ShareInvitation
+instance Prelude.NFData ShareInvitation where
+  rnf ShareInvitation' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf shareInvitationId

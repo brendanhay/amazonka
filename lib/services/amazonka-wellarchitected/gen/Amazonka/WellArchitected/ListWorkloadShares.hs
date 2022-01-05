@@ -125,9 +125,19 @@ instance Core.AWSRequest ListWorkloadShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorkloadShares
+instance Prelude.Hashable ListWorkloadShares where
+  hashWithSalt _salt ListWorkloadShares' {..} =
+    _salt `Prelude.hashWithSalt` sharedWithPrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData ListWorkloadShares
+instance Prelude.NFData ListWorkloadShares where
+  rnf ListWorkloadShares' {..} =
+    Prelude.rnf sharedWithPrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workloadId
 
 instance Core.ToHeaders ListWorkloadShares where
   toHeaders =
@@ -209,4 +219,9 @@ listWorkloadSharesResponse_workloadId = Lens.lens (\ListWorkloadSharesResponse' 
 listWorkloadSharesResponse_httpStatus :: Lens.Lens' ListWorkloadSharesResponse Prelude.Int
 listWorkloadSharesResponse_httpStatus = Lens.lens (\ListWorkloadSharesResponse' {httpStatus} -> httpStatus) (\s@ListWorkloadSharesResponse' {} a -> s {httpStatus = a} :: ListWorkloadSharesResponse)
 
-instance Prelude.NFData ListWorkloadSharesResponse
+instance Prelude.NFData ListWorkloadSharesResponse where
+  rnf ListWorkloadSharesResponse' {..} =
+    Prelude.rnf workloadShareSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf httpStatus

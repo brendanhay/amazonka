@@ -94,9 +94,15 @@ instance Core.AWSRequest DisassociateLenses where
   response =
     Response.receiveNull DisassociateLensesResponse'
 
-instance Prelude.Hashable DisassociateLenses
+instance Prelude.Hashable DisassociateLenses where
+  hashWithSalt _salt DisassociateLenses' {..} =
+    _salt `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` lensAliases
 
-instance Prelude.NFData DisassociateLenses
+instance Prelude.NFData DisassociateLenses where
+  rnf DisassociateLenses' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf lensAliases
 
 instance Core.ToHeaders DisassociateLenses where
   toHeaders =
@@ -142,4 +148,5 @@ newDisassociateLensesResponse ::
 newDisassociateLensesResponse =
   DisassociateLensesResponse'
 
-instance Prelude.NFData DisassociateLensesResponse
+instance Prelude.NFData DisassociateLensesResponse where
+  rnf _ = ()

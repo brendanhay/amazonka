@@ -145,6 +145,26 @@ instance Core.FromJSON AnswerSummary where
             Prelude.<*> (x Core..:? "QuestionId")
       )
 
-instance Prelude.Hashable AnswerSummary
+instance Prelude.Hashable AnswerSummary where
+  hashWithSalt _salt AnswerSummary' {..} =
+    _salt `Prelude.hashWithSalt` isApplicable
+      `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` choiceAnswerSummaries
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` selectedChoices
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` choices
+      `Prelude.hashWithSalt` questionId
 
-instance Prelude.NFData AnswerSummary
+instance Prelude.NFData AnswerSummary where
+  rnf AnswerSummary' {..} =
+    Prelude.rnf isApplicable
+      `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf choiceAnswerSummaries
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf selectedChoices
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf choices
+      `Prelude.seq` Prelude.rnf questionId

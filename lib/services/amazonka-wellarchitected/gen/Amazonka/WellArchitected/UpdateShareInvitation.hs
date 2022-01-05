@@ -104,9 +104,15 @@ instance Core.AWSRequest UpdateShareInvitation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateShareInvitation
+instance Prelude.Hashable UpdateShareInvitation where
+  hashWithSalt _salt UpdateShareInvitation' {..} =
+    _salt `Prelude.hashWithSalt` shareInvitationId
+      `Prelude.hashWithSalt` shareInvitationAction
 
-instance Prelude.NFData UpdateShareInvitation
+instance Prelude.NFData UpdateShareInvitation where
+  rnf UpdateShareInvitation' {..} =
+    Prelude.rnf shareInvitationId
+      `Prelude.seq` Prelude.rnf shareInvitationAction
 
 instance Core.ToHeaders UpdateShareInvitation where
   toHeaders =
@@ -177,4 +183,7 @@ updateShareInvitationResponse_shareInvitation = Lens.lens (\UpdateShareInvitatio
 updateShareInvitationResponse_httpStatus :: Lens.Lens' UpdateShareInvitationResponse Prelude.Int
 updateShareInvitationResponse_httpStatus = Lens.lens (\UpdateShareInvitationResponse' {httpStatus} -> httpStatus) (\s@UpdateShareInvitationResponse' {} a -> s {httpStatus = a} :: UpdateShareInvitationResponse)
 
-instance Prelude.NFData UpdateShareInvitationResponse
+instance Prelude.NFData UpdateShareInvitationResponse where
+  rnf UpdateShareInvitationResponse' {..} =
+    Prelude.rnf shareInvitation
+      `Prelude.seq` Prelude.rnf httpStatus

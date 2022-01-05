@@ -105,9 +105,17 @@ instance Core.AWSRequest DeleteWorkloadShare where
   response =
     Response.receiveNull DeleteWorkloadShareResponse'
 
-instance Prelude.Hashable DeleteWorkloadShare
+instance Prelude.Hashable DeleteWorkloadShare where
+  hashWithSalt _salt DeleteWorkloadShare' {..} =
+    _salt `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData DeleteWorkloadShare
+instance Prelude.NFData DeleteWorkloadShare where
+  rnf DeleteWorkloadShare' {..} =
+    Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders DeleteWorkloadShare where
   toHeaders =
@@ -149,4 +157,5 @@ newDeleteWorkloadShareResponse ::
 newDeleteWorkloadShareResponse =
   DeleteWorkloadShareResponse'
 
-instance Prelude.NFData DeleteWorkloadShareResponse
+instance Prelude.NFData DeleteWorkloadShareResponse where
+  rnf _ = ()

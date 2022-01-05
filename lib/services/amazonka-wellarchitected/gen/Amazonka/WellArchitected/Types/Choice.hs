@@ -78,6 +78,14 @@ instance Core.FromJSON Choice where
             Prelude.<*> (x Core..:? "ChoiceId")
       )
 
-instance Prelude.Hashable Choice
+instance Prelude.Hashable Choice where
+  hashWithSalt _salt Choice' {..} =
+    _salt `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` choiceId
 
-instance Prelude.NFData Choice
+instance Prelude.NFData Choice where
+  rnf Choice' {..} =
+    Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf choiceId

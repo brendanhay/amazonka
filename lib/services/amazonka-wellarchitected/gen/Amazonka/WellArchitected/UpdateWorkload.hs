@@ -232,9 +232,42 @@ instance Core.AWSRequest UpdateWorkload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorkload
+instance Prelude.Hashable UpdateWorkload where
+  hashWithSalt _salt UpdateWorkload' {..} =
+    _salt
+      `Prelude.hashWithSalt` isReviewOwnerUpdateAcknowledged
+      `Prelude.hashWithSalt` architecturalDesign
+      `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` improvementStatus
+      `Prelude.hashWithSalt` industryType
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` reviewOwner
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pillarPriorities
+      `Prelude.hashWithSalt` nonAwsRegions
+      `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData UpdateWorkload
+instance Prelude.NFData UpdateWorkload where
+  rnf UpdateWorkload' {..} =
+    Prelude.rnf isReviewOwnerUpdateAcknowledged
+      `Prelude.seq` Prelude.rnf architecturalDesign
+      `Prelude.seq` Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf improvementStatus
+      `Prelude.seq` Prelude.rnf industryType
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf reviewOwner
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pillarPriorities
+      `Prelude.seq` Prelude.rnf nonAwsRegions
+      `Prelude.seq` Prelude.rnf workloadId
 
 instance Core.ToHeaders UpdateWorkload where
   toHeaders =
@@ -319,4 +352,7 @@ updateWorkloadResponse_workload = Lens.lens (\UpdateWorkloadResponse' {workload}
 updateWorkloadResponse_httpStatus :: Lens.Lens' UpdateWorkloadResponse Prelude.Int
 updateWorkloadResponse_httpStatus = Lens.lens (\UpdateWorkloadResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkloadResponse' {} a -> s {httpStatus = a} :: UpdateWorkloadResponse)
 
-instance Prelude.NFData UpdateWorkloadResponse
+instance Prelude.NFData UpdateWorkloadResponse where
+  rnf UpdateWorkloadResponse' {..} =
+    Prelude.rnf workload
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -240,9 +240,41 @@ instance Core.AWSRequest CreateWorkload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkload
+instance Prelude.Hashable CreateWorkload where
+  hashWithSalt _salt CreateWorkload' {..} =
+    _salt `Prelude.hashWithSalt` architecturalDesign
+      `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` industryType
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` pillarPriorities
+      `Prelude.hashWithSalt` nonAwsRegions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` reviewOwner
+      `Prelude.hashWithSalt` lenses
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateWorkload
+instance Prelude.NFData CreateWorkload where
+  rnf CreateWorkload' {..} =
+    Prelude.rnf architecturalDesign
+      `Prelude.seq` Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf industryType
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf pillarPriorities
+      `Prelude.seq` Prelude.rnf nonAwsRegions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf reviewOwner
+      `Prelude.seq` Prelude.rnf lenses
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateWorkload where
   toHeaders =
@@ -334,4 +366,8 @@ createWorkloadResponse_workloadId = Lens.lens (\CreateWorkloadResponse' {workloa
 createWorkloadResponse_httpStatus :: Lens.Lens' CreateWorkloadResponse Prelude.Int
 createWorkloadResponse_httpStatus = Lens.lens (\CreateWorkloadResponse' {httpStatus} -> httpStatus) (\s@CreateWorkloadResponse' {} a -> s {httpStatus = a} :: CreateWorkloadResponse)
 
-instance Prelude.NFData CreateWorkloadResponse
+instance Prelude.NFData CreateWorkloadResponse where
+  rnf CreateWorkloadResponse' {..} =
+    Prelude.rnf workloadArn
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf httpStatus

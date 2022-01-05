@@ -282,6 +282,56 @@ instance Core.FromJSON Workload where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Workload
+instance Prelude.Hashable Workload where
+  hashWithSalt _salt Workload' {..} =
+    _salt
+      `Prelude.hashWithSalt` isReviewOwnerUpdateAcknowledged
+      `Prelude.hashWithSalt` architecturalDesign
+      `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` lenses
+      `Prelude.hashWithSalt` reviewRestrictionDate
+      `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` riskCounts
+      `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` improvementStatus
+      `Prelude.hashWithSalt` workloadArn
+      `Prelude.hashWithSalt` industryType
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` reviewOwner
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pillarPriorities
+      `Prelude.hashWithSalt` shareInvitationId
+      `Prelude.hashWithSalt` nonAwsRegions
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Workload
+instance Prelude.NFData Workload where
+  rnf Workload' {..} =
+    Prelude.rnf isReviewOwnerUpdateAcknowledged
+      `Prelude.seq` Prelude.rnf architecturalDesign
+      `Prelude.seq` Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf lenses
+      `Prelude.seq` Prelude.rnf reviewRestrictionDate
+      `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf riskCounts
+      `Prelude.seq` Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf improvementStatus
+      `Prelude.seq` Prelude.rnf workloadArn
+      `Prelude.seq` Prelude.rnf industryType
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf reviewOwner
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pillarPriorities
+      `Prelude.seq` Prelude.rnf
+        shareInvitationId
+      `Prelude.seq` Prelude.rnf nonAwsRegions
+      `Prelude.seq` Prelude.rnf tags

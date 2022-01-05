@@ -110,9 +110,17 @@ instance Core.AWSRequest ListWorkloads where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorkloads
+instance Prelude.Hashable ListWorkloads where
+  hashWithSalt _salt ListWorkloads' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` workloadNamePrefix
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWorkloads
+instance Prelude.NFData ListWorkloads where
+  rnf ListWorkloads' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workloadNamePrefix
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkloads where
   toHeaders =
@@ -190,4 +198,8 @@ listWorkloadsResponse_nextToken = Lens.lens (\ListWorkloadsResponse' {nextToken}
 listWorkloadsResponse_httpStatus :: Lens.Lens' ListWorkloadsResponse Prelude.Int
 listWorkloadsResponse_httpStatus = Lens.lens (\ListWorkloadsResponse' {httpStatus} -> httpStatus) (\s@ListWorkloadsResponse' {} a -> s {httpStatus = a} :: ListWorkloadsResponse)
 
-instance Prelude.NFData ListWorkloadsResponse
+instance Prelude.NFData ListWorkloadsResponse where
+  rnf ListWorkloadsResponse' {..} =
+    Prelude.rnf workloadSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

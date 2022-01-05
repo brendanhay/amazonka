@@ -88,9 +88,13 @@ instance Core.AWSRequest DeregisterEcsCluster where
   response =
     Response.receiveNull DeregisterEcsClusterResponse'
 
-instance Prelude.Hashable DeregisterEcsCluster
+instance Prelude.Hashable DeregisterEcsCluster where
+  hashWithSalt _salt DeregisterEcsCluster' {..} =
+    _salt `Prelude.hashWithSalt` ecsClusterArn
 
-instance Prelude.NFData DeregisterEcsCluster
+instance Prelude.NFData DeregisterEcsCluster where
+  rnf DeregisterEcsCluster' {..} =
+    Prelude.rnf ecsClusterArn
 
 instance Core.ToHeaders DeregisterEcsCluster where
   toHeaders =
@@ -137,4 +141,5 @@ newDeregisterEcsClusterResponse ::
 newDeregisterEcsClusterResponse =
   DeregisterEcsClusterResponse'
 
-instance Prelude.NFData DeregisterEcsClusterResponse
+instance Prelude.NFData DeregisterEcsClusterResponse where
+  rnf _ = ()

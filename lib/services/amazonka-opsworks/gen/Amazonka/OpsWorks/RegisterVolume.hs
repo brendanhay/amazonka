@@ -108,9 +108,15 @@ instance Core.AWSRequest RegisterVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterVolume
+instance Prelude.Hashable RegisterVolume where
+  hashWithSalt _salt RegisterVolume' {..} =
+    _salt `Prelude.hashWithSalt` ec2VolumeId
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData RegisterVolume
+instance Prelude.NFData RegisterVolume where
+  rnf RegisterVolume' {..} =
+    Prelude.rnf ec2VolumeId
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders RegisterVolume where
   toHeaders =
@@ -182,4 +188,7 @@ registerVolumeResponse_volumeId = Lens.lens (\RegisterVolumeResponse' {volumeId}
 registerVolumeResponse_httpStatus :: Lens.Lens' RegisterVolumeResponse Prelude.Int
 registerVolumeResponse_httpStatus = Lens.lens (\RegisterVolumeResponse' {httpStatus} -> httpStatus) (\s@RegisterVolumeResponse' {} a -> s {httpStatus = a} :: RegisterVolumeResponse)
 
-instance Prelude.NFData RegisterVolumeResponse
+instance Prelude.NFData RegisterVolumeResponse where
+  rnf RegisterVolumeResponse' {..} =
+    Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf httpStatus

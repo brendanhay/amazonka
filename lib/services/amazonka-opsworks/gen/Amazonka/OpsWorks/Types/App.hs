@@ -233,6 +233,36 @@ instance Core.FromJSON App where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable App
+instance Prelude.Hashable App where
+  hashWithSalt _salt App' {..} =
+    _salt `Prelude.hashWithSalt` sslConfiguration
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` enableSsl
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` shortname
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` appSource
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData App
+instance Prelude.NFData App where
+  rnf App' {..} =
+    Prelude.rnf sslConfiguration
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf enableSsl
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf shortname
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf appSource
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf description

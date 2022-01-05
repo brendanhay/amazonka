@@ -184,9 +184,19 @@ instance Core.AWSRequest DescribeEcsClusters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEcsClusters
+instance Prelude.Hashable DescribeEcsClusters where
+  hashWithSalt _salt DescribeEcsClusters' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` ecsClusterArns
 
-instance Prelude.NFData DescribeEcsClusters
+instance Prelude.NFData DescribeEcsClusters where
+  rnf DescribeEcsClusters' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf ecsClusterArns
 
 instance Core.ToHeaders DescribeEcsClusters where
   toHeaders =
@@ -283,4 +293,8 @@ describeEcsClustersResponse_ecsClusters = Lens.lens (\DescribeEcsClustersRespons
 describeEcsClustersResponse_httpStatus :: Lens.Lens' DescribeEcsClustersResponse Prelude.Int
 describeEcsClustersResponse_httpStatus = Lens.lens (\DescribeEcsClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeEcsClustersResponse' {} a -> s {httpStatus = a} :: DescribeEcsClustersResponse)
 
-instance Prelude.NFData DescribeEcsClustersResponse
+instance Prelude.NFData DescribeEcsClustersResponse where
+  rnf DescribeEcsClustersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ecsClusters
+      `Prelude.seq` Prelude.rnf httpStatus

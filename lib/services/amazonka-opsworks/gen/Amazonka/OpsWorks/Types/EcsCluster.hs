@@ -91,6 +91,16 @@ instance Core.FromJSON EcsCluster where
             Prelude.<*> (x Core..:? "StackId")
       )
 
-instance Prelude.Hashable EcsCluster
+instance Prelude.Hashable EcsCluster where
+  hashWithSalt _salt EcsCluster' {..} =
+    _salt `Prelude.hashWithSalt` ecsClusterArn
+      `Prelude.hashWithSalt` ecsClusterName
+      `Prelude.hashWithSalt` registeredAt
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData EcsCluster
+instance Prelude.NFData EcsCluster where
+  rnf EcsCluster' {..} =
+    Prelude.rnf ecsClusterArn
+      `Prelude.seq` Prelude.rnf ecsClusterName
+      `Prelude.seq` Prelude.rnf registeredAt
+      `Prelude.seq` Prelude.rnf stackId

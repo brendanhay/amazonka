@@ -407,6 +407,58 @@ instance Core.FromJSON Layer where
             Prelude.<*> (x Core..:? "AutoAssignElasticIps")
       )
 
-instance Prelude.Hashable Layer
+instance Prelude.Hashable Layer where
+  hashWithSalt _salt Layer' {..} =
+    _salt
+      `Prelude.hashWithSalt` customInstanceProfileArn
+      `Prelude.hashWithSalt` customSecurityGroupIds
+      `Prelude.hashWithSalt` installUpdatesOnBoot
+      `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+      `Prelude.hashWithSalt` lifecycleEventConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` shortname
+      `Prelude.hashWithSalt` defaultRecipes
+      `Prelude.hashWithSalt` customRecipes
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` volumeConfigurations
+      `Prelude.hashWithSalt` enableAutoHealing
+      `Prelude.hashWithSalt` packages
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` autoAssignPublicIps
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` useEbsOptimizedInstances
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` defaultSecurityGroupNames
+      `Prelude.hashWithSalt` autoAssignElasticIps
 
-instance Prelude.NFData Layer
+instance Prelude.NFData Layer where
+  rnf Layer' {..} =
+    Prelude.rnf customInstanceProfileArn
+      `Prelude.seq` Prelude.rnf customSecurityGroupIds
+      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf lifecycleEventConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf shortname
+      `Prelude.seq` Prelude.rnf defaultRecipes
+      `Prelude.seq` Prelude.rnf customRecipes
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf volumeConfigurations
+      `Prelude.seq` Prelude.rnf enableAutoHealing
+      `Prelude.seq` Prelude.rnf packages
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoAssignPublicIps
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf
+        useEbsOptimizedInstances
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf
+        defaultSecurityGroupNames
+      `Prelude.seq` Prelude.rnf
+        autoAssignElasticIps

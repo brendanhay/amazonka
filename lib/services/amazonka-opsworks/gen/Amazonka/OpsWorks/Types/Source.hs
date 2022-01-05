@@ -194,9 +194,23 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..:? "Revision")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt _salt Source' {..} =
+    _salt `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` sshKey
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf sshKey
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf revision
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =

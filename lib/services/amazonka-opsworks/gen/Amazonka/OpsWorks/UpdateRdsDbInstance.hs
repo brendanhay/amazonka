@@ -105,9 +105,17 @@ instance Core.AWSRequest UpdateRdsDbInstance where
   response =
     Response.receiveNull UpdateRdsDbInstanceResponse'
 
-instance Prelude.Hashable UpdateRdsDbInstance
+instance Prelude.Hashable UpdateRdsDbInstance where
+  hashWithSalt _salt UpdateRdsDbInstance' {..} =
+    _salt `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` dbPassword
+      `Prelude.hashWithSalt` rdsDbInstanceArn
 
-instance Prelude.NFData UpdateRdsDbInstance
+instance Prelude.NFData UpdateRdsDbInstance where
+  rnf UpdateRdsDbInstance' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf dbPassword
+      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
 
 instance Core.ToHeaders UpdateRdsDbInstance where
   toHeaders =
@@ -156,4 +164,5 @@ newUpdateRdsDbInstanceResponse ::
 newUpdateRdsDbInstanceResponse =
   UpdateRdsDbInstanceResponse'
 
-instance Prelude.NFData UpdateRdsDbInstanceResponse
+instance Prelude.NFData UpdateRdsDbInstanceResponse where
+  rnf _ = ()

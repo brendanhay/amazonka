@@ -100,8 +100,13 @@ instance Core.AWSRequest DescribeLoadBasedAutoScaling where
 instance
   Prelude.Hashable
     DescribeLoadBasedAutoScaling
+  where
+  hashWithSalt _salt DescribeLoadBasedAutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` layerIds
 
-instance Prelude.NFData DescribeLoadBasedAutoScaling
+instance Prelude.NFData DescribeLoadBasedAutoScaling where
+  rnf DescribeLoadBasedAutoScaling' {..} =
+    Prelude.rnf layerIds
 
 instance Core.ToHeaders DescribeLoadBasedAutoScaling where
   toHeaders =
@@ -178,3 +183,7 @@ describeLoadBasedAutoScalingResponse_httpStatus = Lens.lens (\DescribeLoadBasedA
 instance
   Prelude.NFData
     DescribeLoadBasedAutoScalingResponse
+  where
+  rnf DescribeLoadBasedAutoScalingResponse' {..} =
+    Prelude.rnf loadBasedAutoScalingConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

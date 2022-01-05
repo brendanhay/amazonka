@@ -86,9 +86,12 @@ instance Core.AWSRequest DeregisterInstance where
   response =
     Response.receiveNull DeregisterInstanceResponse'
 
-instance Prelude.Hashable DeregisterInstance
+instance Prelude.Hashable DeregisterInstance where
+  hashWithSalt _salt DeregisterInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DeregisterInstance
+instance Prelude.NFData DeregisterInstance where
+  rnf DeregisterInstance' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders DeregisterInstance where
   toHeaders =
@@ -133,4 +136,5 @@ newDeregisterInstanceResponse ::
 newDeregisterInstanceResponse =
   DeregisterInstanceResponse'
 
-instance Prelude.NFData DeregisterInstanceResponse
+instance Prelude.NFData DeregisterInstanceResponse where
+  rnf _ = ()

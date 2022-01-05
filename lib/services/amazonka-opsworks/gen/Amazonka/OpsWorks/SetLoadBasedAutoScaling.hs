@@ -142,9 +142,19 @@ instance Core.AWSRequest SetLoadBasedAutoScaling where
     Response.receiveNull
       SetLoadBasedAutoScalingResponse'
 
-instance Prelude.Hashable SetLoadBasedAutoScaling
+instance Prelude.Hashable SetLoadBasedAutoScaling where
+  hashWithSalt _salt SetLoadBasedAutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` upScaling
+      `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` downScaling
+      `Prelude.hashWithSalt` layerId
 
-instance Prelude.NFData SetLoadBasedAutoScaling
+instance Prelude.NFData SetLoadBasedAutoScaling where
+  rnf SetLoadBasedAutoScaling' {..} =
+    Prelude.rnf upScaling
+      `Prelude.seq` Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf downScaling
+      `Prelude.seq` Prelude.rnf layerId
 
 instance Core.ToHeaders SetLoadBasedAutoScaling where
   toHeaders =
@@ -196,3 +206,5 @@ newSetLoadBasedAutoScalingResponse =
 instance
   Prelude.NFData
     SetLoadBasedAutoScalingResponse
+  where
+  rnf _ = ()

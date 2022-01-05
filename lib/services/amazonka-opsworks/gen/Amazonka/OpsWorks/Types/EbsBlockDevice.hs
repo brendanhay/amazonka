@@ -136,9 +136,21 @@ instance Core.FromJSON EbsBlockDevice where
             Prelude.<*> (x Core..:? "SnapshotId")
       )
 
-instance Prelude.Hashable EbsBlockDevice
+instance Prelude.Hashable EbsBlockDevice where
+  hashWithSalt _salt EbsBlockDevice' {..} =
+    _salt `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData EbsBlockDevice
+instance Prelude.NFData EbsBlockDevice where
+  rnf EbsBlockDevice' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToJSON EbsBlockDevice where
   toJSON EbsBlockDevice' {..} =

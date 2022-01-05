@@ -214,6 +214,32 @@ instance Core.FromJSON Deployment where
             Prelude.<*> (x Core..:? "Duration")
       )
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt _salt Deployment' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf duration

@@ -257,6 +257,36 @@ instance Core.FromJSON Volume where
             Prelude.<*> (x Core..:? "MountPoint")
       )
 
-instance Prelude.Hashable Volume
+instance Prelude.Hashable Volume where
+  hashWithSalt _salt Volume' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` raidArrayId
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` ec2VolumeId
+      `Prelude.hashWithSalt` mountPoint
 
-instance Prelude.NFData Volume
+instance Prelude.NFData Volume where
+  rnf Volume' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf raidArrayId
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf ec2VolumeId
+      `Prelude.seq` Prelude.rnf mountPoint

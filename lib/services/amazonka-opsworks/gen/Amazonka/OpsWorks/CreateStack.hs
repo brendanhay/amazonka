@@ -863,9 +863,50 @@ instance Core.AWSRequest CreateStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStack
+instance Prelude.Hashable CreateStack where
+  hashWithSalt _salt CreateStack' {..} =
+    _salt `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` defaultSshKeyName
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` defaultAvailabilityZone
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` defaultOs
+      `Prelude.hashWithSalt` useOpsworksSecurityGroups
+      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` defaultSubnetId
+      `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` defaultInstanceProfileArn
 
-instance Prelude.NFData CreateStack
+instance Prelude.NFData CreateStack where
+  rnf CreateStack' {..} =
+    Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf defaultSshKeyName
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf customCookbooksSource
+      `Prelude.seq` Prelude.rnf defaultAvailabilityZone
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf defaultOs
+      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf defaultSubnetId
+      `Prelude.seq` Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf
+        defaultInstanceProfileArn
 
 instance Core.ToHeaders CreateStack where
   toHeaders =
@@ -970,4 +1011,7 @@ createStackResponse_stackId = Lens.lens (\CreateStackResponse' {stackId} -> stac
 createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Prelude.Int
 createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -> httpStatus) (\s@CreateStackResponse' {} a -> s {httpStatus = a} :: CreateStackResponse)
 
-instance Prelude.NFData CreateStackResponse
+instance Prelude.NFData CreateStackResponse where
+  rnf CreateStackResponse' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -123,9 +123,17 @@ instance Core.AWSRequest DescribeRaidArrays where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRaidArrays
+instance Prelude.Hashable DescribeRaidArrays where
+  hashWithSalt _salt DescribeRaidArrays' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` raidArrayIds
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DescribeRaidArrays
+instance Prelude.NFData DescribeRaidArrays where
+  rnf DescribeRaidArrays' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf raidArrayIds
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeRaidArrays where
   toHeaders =
@@ -199,4 +207,7 @@ describeRaidArraysResponse_raidArrays = Lens.lens (\DescribeRaidArraysResponse' 
 describeRaidArraysResponse_httpStatus :: Lens.Lens' DescribeRaidArraysResponse Prelude.Int
 describeRaidArraysResponse_httpStatus = Lens.lens (\DescribeRaidArraysResponse' {httpStatus} -> httpStatus) (\s@DescribeRaidArraysResponse' {} a -> s {httpStatus = a} :: DescribeRaidArraysResponse)
 
-instance Prelude.NFData DescribeRaidArraysResponse
+instance Prelude.NFData DescribeRaidArraysResponse where
+  rnf DescribeRaidArraysResponse' {..} =
+    Prelude.rnf raidArrays
+      `Prelude.seq` Prelude.rnf httpStatus

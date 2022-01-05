@@ -113,9 +113,21 @@ instance Core.FromJSON Recipes where
             Prelude.<*> (x Core..:? "Deploy" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Recipes
+instance Prelude.Hashable Recipes where
+  hashWithSalt _salt Recipes' {..} =
+    _salt `Prelude.hashWithSalt` setup
+      `Prelude.hashWithSalt` shutdown
+      `Prelude.hashWithSalt` undeploy
+      `Prelude.hashWithSalt` configure
+      `Prelude.hashWithSalt` deploy
 
-instance Prelude.NFData Recipes
+instance Prelude.NFData Recipes where
+  rnf Recipes' {..} =
+    Prelude.rnf setup
+      `Prelude.seq` Prelude.rnf shutdown
+      `Prelude.seq` Prelude.rnf undeploy
+      `Prelude.seq` Prelude.rnf configure
+      `Prelude.seq` Prelude.rnf deploy
 
 instance Core.ToJSON Recipes where
   toJSON Recipes' {..} =

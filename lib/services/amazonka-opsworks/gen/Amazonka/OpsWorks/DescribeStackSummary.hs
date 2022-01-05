@@ -93,9 +93,12 @@ instance Core.AWSRequest DescribeStackSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackSummary
+instance Prelude.Hashable DescribeStackSummary where
+  hashWithSalt _salt DescribeStackSummary' {..} =
+    _salt `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DescribeStackSummary
+instance Prelude.NFData DescribeStackSummary where
+  rnf DescribeStackSummary' {..} = Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeStackSummary where
   toHeaders =
@@ -166,4 +169,7 @@ describeStackSummaryResponse_stackSummary = Lens.lens (\DescribeStackSummaryResp
 describeStackSummaryResponse_httpStatus :: Lens.Lens' DescribeStackSummaryResponse Prelude.Int
 describeStackSummaryResponse_httpStatus = Lens.lens (\DescribeStackSummaryResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSummaryResponse' {} a -> s {httpStatus = a} :: DescribeStackSummaryResponse)
 
-instance Prelude.NFData DescribeStackSummaryResponse
+instance Prelude.NFData DescribeStackSummaryResponse where
+  rnf DescribeStackSummaryResponse' {..} =
+    Prelude.rnf stackSummary
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -140,9 +140,25 @@ instance Core.FromJSON WeeklyAutoScalingSchedule where
             Prelude.<*> (x Core..:? "Tuesday" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable WeeklyAutoScalingSchedule
+instance Prelude.Hashable WeeklyAutoScalingSchedule where
+  hashWithSalt _salt WeeklyAutoScalingSchedule' {..} =
+    _salt `Prelude.hashWithSalt` thursday
+      `Prelude.hashWithSalt` wednesday
+      `Prelude.hashWithSalt` saturday
+      `Prelude.hashWithSalt` monday
+      `Prelude.hashWithSalt` friday
+      `Prelude.hashWithSalt` sunday
+      `Prelude.hashWithSalt` tuesday
 
-instance Prelude.NFData WeeklyAutoScalingSchedule
+instance Prelude.NFData WeeklyAutoScalingSchedule where
+  rnf WeeklyAutoScalingSchedule' {..} =
+    Prelude.rnf thursday
+      `Prelude.seq` Prelude.rnf wednesday
+      `Prelude.seq` Prelude.rnf saturday
+      `Prelude.seq` Prelude.rnf monday
+      `Prelude.seq` Prelude.rnf friday
+      `Prelude.seq` Prelude.rnf sunday
+      `Prelude.seq` Prelude.rnf tuesday
 
 instance Core.ToJSON WeeklyAutoScalingSchedule where
   toJSON WeeklyAutoScalingSchedule' {..} =

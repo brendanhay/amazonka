@@ -190,9 +190,25 @@ instance Core.FromJSON VolumeConfiguration where
             Prelude.<*> (x Core..: "Size")
       )
 
-instance Prelude.Hashable VolumeConfiguration
+instance Prelude.Hashable VolumeConfiguration where
+  hashWithSalt _salt VolumeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` raidLevel
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` mountPoint
+      `Prelude.hashWithSalt` numberOfDisks
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData VolumeConfiguration
+instance Prelude.NFData VolumeConfiguration where
+  rnf VolumeConfiguration' {..} =
+    Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf raidLevel
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf mountPoint
+      `Prelude.seq` Prelude.rnf numberOfDisks
+      `Prelude.seq` Prelude.rnf size
 
 instance Core.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =

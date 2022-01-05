@@ -83,9 +83,13 @@ instance Core.AWSRequest UpdateMyUserProfile where
   response =
     Response.receiveNull UpdateMyUserProfileResponse'
 
-instance Prelude.Hashable UpdateMyUserProfile
+instance Prelude.Hashable UpdateMyUserProfile where
+  hashWithSalt _salt UpdateMyUserProfile' {..} =
+    _salt `Prelude.hashWithSalt` sshPublicKey
 
-instance Prelude.NFData UpdateMyUserProfile
+instance Prelude.NFData UpdateMyUserProfile where
+  rnf UpdateMyUserProfile' {..} =
+    Prelude.rnf sshPublicKey
 
 instance Core.ToHeaders UpdateMyUserProfile where
   toHeaders =
@@ -130,4 +134,5 @@ newUpdateMyUserProfileResponse ::
 newUpdateMyUserProfileResponse =
   UpdateMyUserProfileResponse'
 
-instance Prelude.NFData UpdateMyUserProfileResponse
+instance Prelude.NFData UpdateMyUserProfileResponse where
+  rnf _ = ()

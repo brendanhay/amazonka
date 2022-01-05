@@ -251,6 +251,48 @@ instance Core.FromJSON InstancesCount where
             Prelude.<*> (x Core..:? "Registering")
       )
 
-instance Prelude.Hashable InstancesCount
+instance Prelude.Hashable InstancesCount where
+  hashWithSalt _salt InstancesCount' {..} =
+    _salt `Prelude.hashWithSalt` terminating
+      `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` online
+      `Prelude.hashWithSalt` unassigning
+      `Prelude.hashWithSalt` deregistering
+      `Prelude.hashWithSalt` runningSetup
+      `Prelude.hashWithSalt` requested
+      `Prelude.hashWithSalt` stopFailed
+      `Prelude.hashWithSalt` booting
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` rebooting
+      `Prelude.hashWithSalt` assigning
+      `Prelude.hashWithSalt` shuttingDown
+      `Prelude.hashWithSalt` setupFailed
+      `Prelude.hashWithSalt` connectionLost
+      `Prelude.hashWithSalt` terminated
+      `Prelude.hashWithSalt` stopping
+      `Prelude.hashWithSalt` registered
+      `Prelude.hashWithSalt` startFailed
+      `Prelude.hashWithSalt` registering
 
-instance Prelude.NFData InstancesCount
+instance Prelude.NFData InstancesCount where
+  rnf InstancesCount' {..} =
+    Prelude.rnf terminating
+      `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf online
+      `Prelude.seq` Prelude.rnf unassigning
+      `Prelude.seq` Prelude.rnf deregistering
+      `Prelude.seq` Prelude.rnf runningSetup
+      `Prelude.seq` Prelude.rnf requested
+      `Prelude.seq` Prelude.rnf stopFailed
+      `Prelude.seq` Prelude.rnf booting
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf rebooting
+      `Prelude.seq` Prelude.rnf assigning
+      `Prelude.seq` Prelude.rnf shuttingDown
+      `Prelude.seq` Prelude.rnf setupFailed
+      `Prelude.seq` Prelude.rnf connectionLost
+      `Prelude.seq` Prelude.rnf terminated
+      `Prelude.seq` Prelude.rnf stopping
+      `Prelude.seq` Prelude.rnf registered
+      `Prelude.seq` Prelude.rnf startFailed
+      `Prelude.seq` Prelude.rnf registering

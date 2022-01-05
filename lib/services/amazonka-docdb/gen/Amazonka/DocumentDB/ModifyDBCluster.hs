@@ -447,9 +447,37 @@ instance Core.AWSRequest ModifyDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBCluster
+instance Prelude.Hashable ModifyDBCluster where
+  hashWithSalt _salt ModifyDBCluster' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` newDBClusterIdentifier'
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData ModifyDBCluster
+instance Prelude.NFData ModifyDBCluster where
+  rnf ModifyDBCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf newDBClusterIdentifier'
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders ModifyDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -527,4 +555,7 @@ modifyDBClusterResponse_dbCluster = Lens.lens (\ModifyDBClusterResponse' {dbClus
 modifyDBClusterResponse_httpStatus :: Lens.Lens' ModifyDBClusterResponse Prelude.Int
 modifyDBClusterResponse_httpStatus = Lens.lens (\ModifyDBClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyDBClusterResponse' {} a -> s {httpStatus = a} :: ModifyDBClusterResponse)
 
-instance Prelude.NFData ModifyDBClusterResponse
+instance Prelude.NFData ModifyDBClusterResponse where
+  rnf ModifyDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

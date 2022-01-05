@@ -69,6 +69,12 @@ instance Core.FromXML EventCategoriesMap where
                       Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
                   )
 
-instance Prelude.Hashable EventCategoriesMap
+instance Prelude.Hashable EventCategoriesMap where
+  hashWithSalt _salt EventCategoriesMap' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` eventCategories
 
-instance Prelude.NFData EventCategoriesMap
+instance Prelude.NFData EventCategoriesMap where
+  rnf EventCategoriesMap' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf eventCategories

@@ -110,6 +110,20 @@ instance Core.FromXML DBSubnetGroup where
       Prelude.<*> (x Core..@? "DBSubnetGroupArn")
       Prelude.<*> (x Core..@? "SubnetGroupStatus")
 
-instance Prelude.Hashable DBSubnetGroup
+instance Prelude.Hashable DBSubnetGroup where
+  hashWithSalt _salt DBSubnetGroup' {..} =
+    _salt `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` dbSubnetGroupDescription
+      `Prelude.hashWithSalt` dbSubnetGroupArn
+      `Prelude.hashWithSalt` subnetGroupStatus
 
-instance Prelude.NFData DBSubnetGroup
+instance Prelude.NFData DBSubnetGroup where
+  rnf DBSubnetGroup' {..} =
+    Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf dbSubnetGroupArn
+      `Prelude.seq` Prelude.rnf subnetGroupStatus

@@ -185,9 +185,20 @@ instance Core.AWSRequest DescribeGlobalClusters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGlobalClusters
+instance Prelude.Hashable DescribeGlobalClusters where
+  hashWithSalt _salt DescribeGlobalClusters' {..} =
+    _salt
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeGlobalClusters
+instance Prelude.NFData DescribeGlobalClusters where
+  rnf DescribeGlobalClusters' {..} =
+    Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeGlobalClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,3 +271,8 @@ describeGlobalClustersResponse_httpStatus = Lens.lens (\DescribeGlobalClustersRe
 instance
   Prelude.NFData
     DescribeGlobalClustersResponse
+  where
+  rnf DescribeGlobalClustersResponse' {..} =
+    Prelude.rnf globalClusters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

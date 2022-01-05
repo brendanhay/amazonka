@@ -100,6 +100,12 @@ instance Core.FromXML DBClusterSnapshotAttribute where
                   )
       Prelude.<*> (x Core..@? "AttributeName")
 
-instance Prelude.Hashable DBClusterSnapshotAttribute
+instance Prelude.Hashable DBClusterSnapshotAttribute where
+  hashWithSalt _salt DBClusterSnapshotAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attributeValues
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData DBClusterSnapshotAttribute
+instance Prelude.NFData DBClusterSnapshotAttribute where
+  rnf DBClusterSnapshotAttribute' {..} =
+    Prelude.rnf attributeValues
+      `Prelude.seq` Prelude.rnf attributeName

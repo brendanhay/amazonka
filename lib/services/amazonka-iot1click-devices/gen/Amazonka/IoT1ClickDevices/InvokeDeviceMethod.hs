@@ -110,9 +110,17 @@ instance Core.AWSRequest InvokeDeviceMethod where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InvokeDeviceMethod
+instance Prelude.Hashable InvokeDeviceMethod where
+  hashWithSalt _salt InvokeDeviceMethod' {..} =
+    _salt `Prelude.hashWithSalt` deviceMethodParameters
+      `Prelude.hashWithSalt` deviceMethod
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData InvokeDeviceMethod
+instance Prelude.NFData InvokeDeviceMethod where
+  rnf InvokeDeviceMethod' {..} =
+    Prelude.rnf deviceMethodParameters
+      `Prelude.seq` Prelude.rnf deviceMethod
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders InvokeDeviceMethod where
   toHeaders =
@@ -182,4 +190,7 @@ invokeDeviceMethodResponse_deviceMethodResponse = Lens.lens (\InvokeDeviceMethod
 invokeDeviceMethodResponse_httpStatus :: Lens.Lens' InvokeDeviceMethodResponse Prelude.Int
 invokeDeviceMethodResponse_httpStatus = Lens.lens (\InvokeDeviceMethodResponse' {httpStatus} -> httpStatus) (\s@InvokeDeviceMethodResponse' {} a -> s {httpStatus = a} :: InvokeDeviceMethodResponse)
 
-instance Prelude.NFData InvokeDeviceMethodResponse
+instance Prelude.NFData InvokeDeviceMethodResponse where
+  rnf InvokeDeviceMethodResponse' {..} =
+    Prelude.rnf deviceMethodResponse
+      `Prelude.seq` Prelude.rnf httpStatus

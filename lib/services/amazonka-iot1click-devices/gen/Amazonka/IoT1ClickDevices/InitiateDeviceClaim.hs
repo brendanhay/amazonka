@@ -90,9 +90,12 @@ instance Core.AWSRequest InitiateDeviceClaim where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateDeviceClaim
+instance Prelude.Hashable InitiateDeviceClaim where
+  hashWithSalt _salt InitiateDeviceClaim' {..} =
+    _salt `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData InitiateDeviceClaim
+instance Prelude.NFData InitiateDeviceClaim where
+  rnf InitiateDeviceClaim' {..} = Prelude.rnf deviceId
 
 instance Core.ToHeaders InitiateDeviceClaim where
   toHeaders =
@@ -155,4 +158,7 @@ initiateDeviceClaimResponse_state = Lens.lens (\InitiateDeviceClaimResponse' {st
 initiateDeviceClaimResponse_httpStatus :: Lens.Lens' InitiateDeviceClaimResponse Prelude.Int
 initiateDeviceClaimResponse_httpStatus = Lens.lens (\InitiateDeviceClaimResponse' {httpStatus} -> httpStatus) (\s@InitiateDeviceClaimResponse' {} a -> s {httpStatus = a} :: InitiateDeviceClaimResponse)
 
-instance Prelude.NFData InitiateDeviceClaimResponse
+instance Prelude.NFData InitiateDeviceClaimResponse where
+  rnf InitiateDeviceClaimResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus

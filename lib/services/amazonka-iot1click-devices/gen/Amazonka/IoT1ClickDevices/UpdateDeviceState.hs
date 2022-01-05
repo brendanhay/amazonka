@@ -97,9 +97,15 @@ instance Core.AWSRequest UpdateDeviceState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDeviceState
+instance Prelude.Hashable UpdateDeviceState where
+  hashWithSalt _salt UpdateDeviceState' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData UpdateDeviceState
+instance Prelude.NFData UpdateDeviceState where
+  rnf UpdateDeviceState' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders UpdateDeviceState where
   toHeaders =
@@ -157,4 +163,6 @@ newUpdateDeviceStateResponse pHttpStatus_ =
 updateDeviceStateResponse_httpStatus :: Lens.Lens' UpdateDeviceStateResponse Prelude.Int
 updateDeviceStateResponse_httpStatus = Lens.lens (\UpdateDeviceStateResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceStateResponse' {} a -> s {httpStatus = a} :: UpdateDeviceStateResponse)
 
-instance Prelude.NFData UpdateDeviceStateResponse
+instance Prelude.NFData UpdateDeviceStateResponse where
+  rnf UpdateDeviceStateResponse' {..} =
+    Prelude.rnf httpStatus

@@ -43,6 +43,9 @@ instance Core.FromJSON Attributes where
       "Attributes"
       (\x -> Prelude.pure Attributes')
 
-instance Prelude.Hashable Attributes
+instance Prelude.Hashable Attributes where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData Attributes
+instance Prelude.NFData Attributes where
+  rnf _ = ()

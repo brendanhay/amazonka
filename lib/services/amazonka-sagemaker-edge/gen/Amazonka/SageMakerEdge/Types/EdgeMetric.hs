@@ -79,9 +79,19 @@ edgeMetric_value = Lens.lens (\EdgeMetric' {value} -> value) (\s@EdgeMetric' {} 
 edgeMetric_timestamp :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.UTCTime)
 edgeMetric_timestamp = Lens.lens (\EdgeMetric' {timestamp} -> timestamp) (\s@EdgeMetric' {} a -> s {timestamp = a} :: EdgeMetric) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable EdgeMetric
+instance Prelude.Hashable EdgeMetric where
+  hashWithSalt _salt EdgeMetric' {..} =
+    _salt `Prelude.hashWithSalt` dimension
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData EdgeMetric
+instance Prelude.NFData EdgeMetric where
+  rnf EdgeMetric' {..} =
+    Prelude.rnf dimension
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON EdgeMetric where
   toJSON EdgeMetric' {..} =

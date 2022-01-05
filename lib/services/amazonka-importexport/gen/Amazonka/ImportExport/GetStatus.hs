@@ -132,9 +132,15 @@ instance Core.AWSRequest GetStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStatus
+instance Prelude.Hashable GetStatus where
+  hashWithSalt _salt GetStatus' {..} =
+    _salt `Prelude.hashWithSalt` aPIVersion
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetStatus
+instance Prelude.NFData GetStatus where
+  rnf GetStatus' {..} =
+    Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,4 +318,22 @@ getStatusResponse_progressMessage = Lens.lens (\GetStatusResponse' {progressMess
 getStatusResponse_httpStatus :: Lens.Lens' GetStatusResponse Prelude.Int
 getStatusResponse_httpStatus = Lens.lens (\GetStatusResponse' {httpStatus} -> httpStatus) (\s@GetStatusResponse' {} a -> s {httpStatus = a} :: GetStatusResponse)
 
-instance Prelude.NFData GetStatusResponse
+instance Prelude.NFData GetStatusResponse where
+  rnf GetStatusResponse' {..} =
+    Prelude.rnf carrier
+      `Prelude.seq` Prelude.rnf trackingNumber
+      `Prelude.seq` Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf signatureFileContents
+      `Prelude.seq` Prelude.rnf errorCount
+      `Prelude.seq` Prelude.rnf currentManifest
+      `Prelude.seq` Prelude.rnf artifactList
+      `Prelude.seq` Prelude.rnf logBucket
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf progressCode
+      `Prelude.seq` Prelude.rnf locationCode
+      `Prelude.seq` Prelude.rnf logKey
+      `Prelude.seq` Prelude.rnf locationMessage
+      `Prelude.seq` Prelude.rnf progressMessage
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -84,6 +84,9 @@ instance Core.FromJSON SSEDescription where
           SSEDescription' Prelude.<$> (x Core..:? "Status")
       )
 
-instance Prelude.Hashable SSEDescription
+instance Prelude.Hashable SSEDescription where
+  hashWithSalt _salt SSEDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SSEDescription
+instance Prelude.NFData SSEDescription where
+  rnf SSEDescription' {..} = Prelude.rnf status

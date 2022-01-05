@@ -412,9 +412,39 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` sSESpecification
+      `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` clusterEndpointEncryptionType
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` replicationFactor
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf sSESpecification
+      `Prelude.seq` Prelude.rnf subnetGroupName
+      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf replicationFactor
+      `Prelude.seq` Prelude.rnf iamRoleArn
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -503,4 +533,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

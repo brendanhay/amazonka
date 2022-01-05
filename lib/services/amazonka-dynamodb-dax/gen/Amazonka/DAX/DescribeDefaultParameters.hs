@@ -145,9 +145,15 @@ instance Core.AWSRequest DescribeDefaultParameters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDefaultParameters
+instance Prelude.Hashable DescribeDefaultParameters where
+  hashWithSalt _salt DescribeDefaultParameters' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeDefaultParameters
+instance Prelude.NFData DescribeDefaultParameters where
+  rnf DescribeDefaultParameters' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeDefaultParameters where
   toHeaders =
@@ -230,3 +236,8 @@ describeDefaultParametersResponse_httpStatus = Lens.lens (\DescribeDefaultParame
 instance
   Prelude.NFData
     DescribeDefaultParametersResponse
+  where
+  rnf DescribeDefaultParametersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf httpStatus

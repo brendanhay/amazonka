@@ -291,6 +291,44 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "ParameterGroup")
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt _salt Cluster' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` activeNodes
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` nodeIdsToRemove
+      `Prelude.hashWithSalt` clusterEndpointEncryptionType
+      `Prelude.hashWithSalt` totalNodes
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` subnetGroup
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` nodes
+      `Prelude.hashWithSalt` clusterDiscoveryEndpoint
+      `Prelude.hashWithSalt` sSEDescription
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameterGroup
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf activeNodes
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf nodeIdsToRemove
+      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
+      `Prelude.seq` Prelude.rnf totalNodes
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf subnetGroup
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf nodes
+      `Prelude.seq` Prelude.rnf clusterDiscoveryEndpoint
+      `Prelude.seq` Prelude.rnf sSEDescription
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterGroup

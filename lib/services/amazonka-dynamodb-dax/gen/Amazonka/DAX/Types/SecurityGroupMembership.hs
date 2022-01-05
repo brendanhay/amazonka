@@ -71,6 +71,12 @@ instance Core.FromJSON SecurityGroupMembership where
             Prelude.<*> (x Core..:? "SecurityGroupIdentifier")
       )
 
-instance Prelude.Hashable SecurityGroupMembership
+instance Prelude.Hashable SecurityGroupMembership where
+  hashWithSalt _salt SecurityGroupMembership' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` securityGroupIdentifier
 
-instance Prelude.NFData SecurityGroupMembership
+instance Prelude.NFData SecurityGroupMembership where
+  rnf SecurityGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf securityGroupIdentifier

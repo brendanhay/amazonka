@@ -84,6 +84,14 @@ instance Core.FromJSON ParameterGroupStatus where
             Prelude.<*> (x Core..:? "ParameterGroupName")
       )
 
-instance Prelude.Hashable ParameterGroupStatus
+instance Prelude.Hashable ParameterGroupStatus where
+  hashWithSalt _salt ParameterGroupStatus' {..} =
+    _salt `Prelude.hashWithSalt` nodeIdsToReboot
+      `Prelude.hashWithSalt` parameterApplyStatus
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ParameterGroupStatus
+instance Prelude.NFData ParameterGroupStatus where
+  rnf ParameterGroupStatus' {..} =
+    Prelude.rnf nodeIdsToReboot
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterGroupName

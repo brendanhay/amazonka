@@ -83,6 +83,14 @@ instance Core.FromJSON AcceleratorType where
             Prelude.<*> (x Core..:? "acceleratorTypeName")
       )
 
-instance Prelude.Hashable AcceleratorType
+instance Prelude.Hashable AcceleratorType where
+  hashWithSalt _salt AcceleratorType' {..} =
+    _salt `Prelude.hashWithSalt` throughputInfo
+      `Prelude.hashWithSalt` memoryInfo
+      `Prelude.hashWithSalt` acceleratorTypeName
 
-instance Prelude.NFData AcceleratorType
+instance Prelude.NFData AcceleratorType where
+  rnf AcceleratorType' {..} =
+    Prelude.rnf throughputInfo
+      `Prelude.seq` Prelude.rnf memoryInfo
+      `Prelude.seq` Prelude.rnf acceleratorTypeName

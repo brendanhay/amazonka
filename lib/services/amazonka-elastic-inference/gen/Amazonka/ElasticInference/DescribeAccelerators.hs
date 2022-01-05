@@ -170,9 +170,19 @@ instance Core.AWSRequest DescribeAccelerators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccelerators
+instance Prelude.Hashable DescribeAccelerators where
+  hashWithSalt _salt DescribeAccelerators' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` acceleratorIds
 
-instance Prelude.NFData DescribeAccelerators
+instance Prelude.NFData DescribeAccelerators where
+  rnf DescribeAccelerators' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf acceleratorIds
 
 instance Core.ToHeaders DescribeAccelerators where
   toHeaders =
@@ -254,4 +264,8 @@ describeAcceleratorsResponse_nextToken = Lens.lens (\DescribeAcceleratorsRespons
 describeAcceleratorsResponse_httpStatus :: Lens.Lens' DescribeAcceleratorsResponse Prelude.Int
 describeAcceleratorsResponse_httpStatus = Lens.lens (\DescribeAcceleratorsResponse' {httpStatus} -> httpStatus) (\s@DescribeAcceleratorsResponse' {} a -> s {httpStatus = a} :: DescribeAcceleratorsResponse)
 
-instance Prelude.NFData DescribeAcceleratorsResponse
+instance Prelude.NFData DescribeAcceleratorsResponse where
+  rnf DescribeAcceleratorsResponse' {..} =
+    Prelude.rnf acceleratorSet
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

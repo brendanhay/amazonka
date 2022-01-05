@@ -135,9 +135,19 @@ instance Core.AWSRequest DescribeImagePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImagePermissions
+instance Prelude.Hashable DescribeImagePermissions where
+  hashWithSalt _salt DescribeImagePermissions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sharedAwsAccountIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeImagePermissions
+instance Prelude.NFData DescribeImagePermissions where
+  rnf DescribeImagePermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sharedAwsAccountIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeImagePermissions where
   toHeaders =
@@ -235,3 +245,9 @@ describeImagePermissionsResponse_httpStatus = Lens.lens (\DescribeImagePermissio
 instance
   Prelude.NFData
     DescribeImagePermissionsResponse
+  where
+  rnf DescribeImagePermissionsResponse' {..} =
+    Prelude.rnf sharedImagePermissionsList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

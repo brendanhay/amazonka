@@ -91,6 +91,14 @@ instance Core.FromJSON UserStackAssociationError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable UserStackAssociationError
+instance Prelude.Hashable UserStackAssociationError where
+  hashWithSalt _salt UserStackAssociationError' {..} =
+    _salt `Prelude.hashWithSalt` userStackAssociation
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData UserStackAssociationError
+instance Prelude.NFData UserStackAssociationError where
+  rnf UserStackAssociationError' {..} =
+    Prelude.rnf userStackAssociation
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

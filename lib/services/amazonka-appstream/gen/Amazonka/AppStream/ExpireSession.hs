@@ -84,9 +84,12 @@ instance Core.AWSRequest ExpireSession where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExpireSession
+instance Prelude.Hashable ExpireSession where
+  hashWithSalt _salt ExpireSession' {..} =
+    _salt `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData ExpireSession
+instance Prelude.NFData ExpireSession where
+  rnf ExpireSession' {..} = Prelude.rnf sessionId
 
 instance Core.ToHeaders ExpireSession where
   toHeaders =
@@ -143,4 +146,6 @@ newExpireSessionResponse pHttpStatus_ =
 expireSessionResponse_httpStatus :: Lens.Lens' ExpireSessionResponse Prelude.Int
 expireSessionResponse_httpStatus = Lens.lens (\ExpireSessionResponse' {httpStatus} -> httpStatus) (\s@ExpireSessionResponse' {} a -> s {httpStatus = a} :: ExpireSessionResponse)
 
-instance Prelude.NFData ExpireSessionResponse
+instance Prelude.NFData ExpireSessionResponse where
+  rnf ExpireSessionResponse' {..} =
+    Prelude.rnf httpStatus

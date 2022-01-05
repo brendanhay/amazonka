@@ -125,9 +125,15 @@ instance Core.AWSRequest DescribeFleets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleets
+instance Prelude.Hashable DescribeFleets where
+  hashWithSalt _salt DescribeFleets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
 
-instance Prelude.NFData DescribeFleets
+instance Prelude.NFData DescribeFleets where
+  rnf DescribeFleets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders DescribeFleets where
   toHeaders =
@@ -210,4 +216,8 @@ describeFleetsResponse_fleets = Lens.lens (\DescribeFleetsResponse' {fleets} -> 
 describeFleetsResponse_httpStatus :: Lens.Lens' DescribeFleetsResponse Prelude.Int
 describeFleetsResponse_httpStatus = Lens.lens (\DescribeFleetsResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetsResponse' {} a -> s {httpStatus = a} :: DescribeFleetsResponse)
 
-instance Prelude.NFData DescribeFleetsResponse
+instance Prelude.NFData DescribeFleetsResponse where
+  rnf DescribeFleetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf fleets
+      `Prelude.seq` Prelude.rnf httpStatus

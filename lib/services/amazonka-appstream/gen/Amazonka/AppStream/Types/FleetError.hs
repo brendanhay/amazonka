@@ -72,6 +72,12 @@ instance Core.FromJSON FleetError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable FleetError
+instance Prelude.Hashable FleetError where
+  hashWithSalt _salt FleetError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData FleetError
+instance Prelude.NFData FleetError where
+  rnf FleetError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

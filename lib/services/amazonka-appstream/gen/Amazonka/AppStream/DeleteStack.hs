@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteStack where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStack
+instance Prelude.Hashable DeleteStack where
+  hashWithSalt _salt DeleteStack' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteStack
+instance Prelude.NFData DeleteStack where
+  rnf DeleteStack' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteStack where
   toHeaders =
@@ -143,4 +146,5 @@ newDeleteStackResponse pHttpStatus_ =
 deleteStackResponse_httpStatus :: Lens.Lens' DeleteStackResponse Prelude.Int
 deleteStackResponse_httpStatus = Lens.lens (\DeleteStackResponse' {httpStatus} -> httpStatus) (\s@DeleteStackResponse' {} a -> s {httpStatus = a} :: DeleteStackResponse)
 
-instance Prelude.NFData DeleteStackResponse
+instance Prelude.NFData DeleteStackResponse where
+  rnf DeleteStackResponse' {..} = Prelude.rnf httpStatus

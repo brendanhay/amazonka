@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteDirectoryConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDirectoryConfig
+instance Prelude.Hashable DeleteDirectoryConfig where
+  hashWithSalt _salt DeleteDirectoryConfig' {..} =
+    _salt `Prelude.hashWithSalt` directoryName
 
-instance Prelude.NFData DeleteDirectoryConfig
+instance Prelude.NFData DeleteDirectoryConfig where
+  rnf DeleteDirectoryConfig' {..} =
+    Prelude.rnf directoryName
 
 instance Core.ToHeaders DeleteDirectoryConfig where
   toHeaders =
@@ -153,4 +157,6 @@ newDeleteDirectoryConfigResponse pHttpStatus_ =
 deleteDirectoryConfigResponse_httpStatus :: Lens.Lens' DeleteDirectoryConfigResponse Prelude.Int
 deleteDirectoryConfigResponse_httpStatus = Lens.lens (\DeleteDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@DeleteDirectoryConfigResponse' {} a -> s {httpStatus = a} :: DeleteDirectoryConfigResponse)
 
-instance Prelude.NFData DeleteDirectoryConfigResponse
+instance Prelude.NFData DeleteDirectoryConfigResponse where
+  rnf DeleteDirectoryConfigResponse' {..} =
+    Prelude.rnf httpStatus

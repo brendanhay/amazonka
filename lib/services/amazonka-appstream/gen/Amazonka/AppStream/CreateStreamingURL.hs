@@ -171,9 +171,23 @@ instance Core.AWSRequest CreateStreamingURL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamingURL
+instance Prelude.Hashable CreateStreamingURL where
+  hashWithSalt _salt CreateStreamingURL' {..} =
+    _salt `Prelude.hashWithSalt` sessionContext
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` fleetName
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData CreateStreamingURL
+instance Prelude.NFData CreateStreamingURL where
+  rnf CreateStreamingURL' {..} =
+    Prelude.rnf sessionContext
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders CreateStreamingURL where
   toHeaders =
@@ -261,4 +275,8 @@ createStreamingURLResponse_expires = Lens.lens (\CreateStreamingURLResponse' {ex
 createStreamingURLResponse_httpStatus :: Lens.Lens' CreateStreamingURLResponse Prelude.Int
 createStreamingURLResponse_httpStatus = Lens.lens (\CreateStreamingURLResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingURLResponse' {} a -> s {httpStatus = a} :: CreateStreamingURLResponse)
 
-instance Prelude.NFData CreateStreamingURLResponse
+instance Prelude.NFData CreateStreamingURLResponse where
+  rnf CreateStreamingURLResponse' {..} =
+    Prelude.rnf streamingURL
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf httpStatus

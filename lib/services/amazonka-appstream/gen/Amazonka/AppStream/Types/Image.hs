@@ -248,6 +248,42 @@ instance Core.FromJSON Image where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt _salt Image' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` imagePermissions
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` publicBaseImageReleasedDate
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` imageBuilderSupported
+      `Prelude.hashWithSalt` visibility
+      `Prelude.hashWithSalt` imageBuilderName
+      `Prelude.hashWithSalt` imageErrors
+      `Prelude.hashWithSalt` baseImageArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` appstreamAgentVersion
+      `Prelude.hashWithSalt` applications
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf imagePermissions
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf publicBaseImageReleasedDate
+      `Prelude.seq` Prelude.rnf stateChangeReason
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf imageBuilderSupported
+      `Prelude.seq` Prelude.rnf visibility
+      `Prelude.seq` Prelude.rnf imageBuilderName
+      `Prelude.seq` Prelude.rnf imageErrors
+      `Prelude.seq` Prelude.rnf baseImageArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf appstreamAgentVersion
+      `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf name

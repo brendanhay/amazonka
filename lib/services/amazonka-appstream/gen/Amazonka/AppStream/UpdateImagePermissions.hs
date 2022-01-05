@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateImagePermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateImagePermissions
+instance Prelude.Hashable UpdateImagePermissions where
+  hashWithSalt _salt UpdateImagePermissions' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sharedAccountId
+      `Prelude.hashWithSalt` imagePermissions
 
-instance Prelude.NFData UpdateImagePermissions
+instance Prelude.NFData UpdateImagePermissions where
+  rnf UpdateImagePermissions' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sharedAccountId
+      `Prelude.seq` Prelude.rnf imagePermissions
 
 instance Core.ToHeaders UpdateImagePermissions where
   toHeaders =
@@ -186,3 +194,6 @@ updateImagePermissionsResponse_httpStatus = Lens.lens (\UpdateImagePermissionsRe
 instance
   Prelude.NFData
     UpdateImagePermissionsResponse
+  where
+  rnf UpdateImagePermissionsResponse' {..} =
+    Prelude.rnf httpStatus

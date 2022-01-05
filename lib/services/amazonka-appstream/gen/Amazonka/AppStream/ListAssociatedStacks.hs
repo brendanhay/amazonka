@@ -128,9 +128,15 @@ instance Core.AWSRequest ListAssociatedStacks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssociatedStacks
+instance Prelude.Hashable ListAssociatedStacks where
+  hashWithSalt _salt ListAssociatedStacks' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` fleetName
 
-instance Prelude.NFData ListAssociatedStacks
+instance Prelude.NFData ListAssociatedStacks where
+  rnf ListAssociatedStacks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf fleetName
 
 instance Core.ToHeaders ListAssociatedStacks where
   toHeaders =
@@ -213,4 +219,8 @@ listAssociatedStacksResponse_names = Lens.lens (\ListAssociatedStacksResponse' {
 listAssociatedStacksResponse_httpStatus :: Lens.Lens' ListAssociatedStacksResponse Prelude.Int
 listAssociatedStacksResponse_httpStatus = Lens.lens (\ListAssociatedStacksResponse' {httpStatus} -> httpStatus) (\s@ListAssociatedStacksResponse' {} a -> s {httpStatus = a} :: ListAssociatedStacksResponse)
 
-instance Prelude.NFData ListAssociatedStacksResponse
+instance Prelude.NFData ListAssociatedStacksResponse where
+  rnf ListAssociatedStacksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf httpStatus

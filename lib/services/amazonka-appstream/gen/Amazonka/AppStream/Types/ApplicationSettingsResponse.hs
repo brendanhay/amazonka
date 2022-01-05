@@ -97,6 +97,14 @@ instance Core.FromJSON ApplicationSettingsResponse where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable ApplicationSettingsResponse
+instance Prelude.Hashable ApplicationSettingsResponse where
+  hashWithSalt _salt ApplicationSettingsResponse' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` settingsGroup
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData ApplicationSettingsResponse
+instance Prelude.NFData ApplicationSettingsResponse where
+  rnf ApplicationSettingsResponse' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf settingsGroup
+      `Prelude.seq` Prelude.rnf s3BucketName

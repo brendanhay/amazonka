@@ -195,6 +195,29 @@ instance Core.FromJSON Session where
             Prelude.<*> (x Core..: "State")
       )
 
-instance Prelude.Hashable Session
+instance Prelude.Hashable Session where
+  hashWithSalt _salt Session' {..} =
+    _salt
+      `Prelude.hashWithSalt` networkAccessConfiguration
+      `Prelude.hashWithSalt` maxExpirationTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` fleetName
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Session
+instance Prelude.NFData Session where
+  rnf Session' {..} =
+    Prelude.rnf networkAccessConfiguration
+      `Prelude.seq` Prelude.rnf maxExpirationTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf state

@@ -84,9 +84,17 @@ instance Core.FromJSON StorageConnector where
             Prelude.<*> (x Core..: "ConnectorType")
       )
 
-instance Prelude.Hashable StorageConnector
+instance Prelude.Hashable StorageConnector where
+  hashWithSalt _salt StorageConnector' {..} =
+    _salt `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` connectorType
 
-instance Prelude.NFData StorageConnector
+instance Prelude.NFData StorageConnector where
+  rnf StorageConnector' {..} =
+    Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf connectorType
 
 instance Core.ToJSON StorageConnector where
   toJSON StorageConnector' {..} =

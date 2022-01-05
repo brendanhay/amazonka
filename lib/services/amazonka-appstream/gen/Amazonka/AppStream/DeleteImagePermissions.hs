@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteImagePermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteImagePermissions
+instance Prelude.Hashable DeleteImagePermissions where
+  hashWithSalt _salt DeleteImagePermissions' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sharedAccountId
 
-instance Prelude.NFData DeleteImagePermissions
+instance Prelude.NFData DeleteImagePermissions where
+  rnf DeleteImagePermissions' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sharedAccountId
 
 instance Core.ToHeaders DeleteImagePermissions where
   toHeaders =
@@ -171,3 +177,6 @@ deleteImagePermissionsResponse_httpStatus = Lens.lens (\DeleteImagePermissionsRe
 instance
   Prelude.NFData
     DeleteImagePermissionsResponse
+  where
+  rnf DeleteImagePermissionsResponse' {..} =
+    Prelude.rnf httpStatus

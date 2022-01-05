@@ -120,6 +120,17 @@ instance Core.FromJSON UsageReportSubscription where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable UsageReportSubscription
+instance Prelude.Hashable UsageReportSubscription where
+  hashWithSalt _salt UsageReportSubscription' {..} =
+    _salt
+      `Prelude.hashWithSalt` lastGeneratedReportDate
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` subscriptionErrors
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData UsageReportSubscription
+instance Prelude.NFData UsageReportSubscription where
+  rnf UsageReportSubscription' {..} =
+    Prelude.rnf lastGeneratedReportDate
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf subscriptionErrors
+      `Prelude.seq` Prelude.rnf s3BucketName

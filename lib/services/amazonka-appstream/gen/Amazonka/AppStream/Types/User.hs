@@ -176,6 +176,24 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..: "AuthenticationType")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` authenticationType
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf authenticationType

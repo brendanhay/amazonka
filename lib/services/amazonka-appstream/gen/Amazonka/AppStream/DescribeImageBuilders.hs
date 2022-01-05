@@ -137,9 +137,17 @@ instance Core.AWSRequest DescribeImageBuilders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageBuilders
+instance Prelude.Hashable DescribeImageBuilders where
+  hashWithSalt _salt DescribeImageBuilders' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeImageBuilders
+instance Prelude.NFData DescribeImageBuilders where
+  rnf DescribeImageBuilders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeImageBuilders where
   toHeaders =
@@ -223,4 +231,8 @@ describeImageBuildersResponse_nextToken = Lens.lens (\DescribeImageBuildersRespo
 describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Prelude.Int
 describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResponse' {httpStatus} -> httpStatus) (\s@DescribeImageBuildersResponse' {} a -> s {httpStatus = a} :: DescribeImageBuildersResponse)
 
-instance Prelude.NFData DescribeImageBuildersResponse
+instance Prelude.NFData DescribeImageBuildersResponse where
+  rnf DescribeImageBuildersResponse' {..} =
+    Prelude.rnf imageBuilders
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

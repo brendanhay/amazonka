@@ -110,10 +110,19 @@ instance
 instance
   Prelude.Hashable
     CreateImageBuilderStreamingURL
+  where
+  hashWithSalt
+    _salt
+    CreateImageBuilderStreamingURL' {..} =
+      _salt `Prelude.hashWithSalt` validity
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     CreateImageBuilderStreamingURL
+  where
+  rnf CreateImageBuilderStreamingURL' {..} =
+    Prelude.rnf validity `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToHeaders
@@ -203,3 +212,8 @@ createImageBuilderStreamingURLResponse_httpStatus = Lens.lens (\CreateImageBuild
 instance
   Prelude.NFData
     CreateImageBuilderStreamingURLResponse
+  where
+  rnf CreateImageBuilderStreamingURLResponse' {..} =
+    Prelude.rnf streamingURL
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf httpStatus

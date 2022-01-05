@@ -98,9 +98,15 @@ instance Core.FromJSON MetricPolicy where
             Prelude.<*> (x Core..: "ContainerLevelMetrics")
       )
 
-instance Prelude.Hashable MetricPolicy
+instance Prelude.Hashable MetricPolicy where
+  hashWithSalt _salt MetricPolicy' {..} =
+    _salt `Prelude.hashWithSalt` metricPolicyRules
+      `Prelude.hashWithSalt` containerLevelMetrics
 
-instance Prelude.NFData MetricPolicy
+instance Prelude.NFData MetricPolicy where
+  rnf MetricPolicy' {..} =
+    Prelude.rnf metricPolicyRules
+      `Prelude.seq` Prelude.rnf containerLevelMetrics
 
 instance Core.ToJSON MetricPolicy where
   toJSON MetricPolicy' {..} =

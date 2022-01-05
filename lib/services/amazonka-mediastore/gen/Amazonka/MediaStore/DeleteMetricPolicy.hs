@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteMetricPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMetricPolicy
+instance Prelude.Hashable DeleteMetricPolicy where
+  hashWithSalt _salt DeleteMetricPolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData DeleteMetricPolicy
+instance Prelude.NFData DeleteMetricPolicy where
+  rnf DeleteMetricPolicy' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders DeleteMetricPolicy where
   toHeaders =
@@ -156,4 +160,6 @@ newDeleteMetricPolicyResponse pHttpStatus_ =
 deleteMetricPolicyResponse_httpStatus :: Lens.Lens' DeleteMetricPolicyResponse Prelude.Int
 deleteMetricPolicyResponse_httpStatus = Lens.lens (\DeleteMetricPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteMetricPolicyResponse' {} a -> s {httpStatus = a} :: DeleteMetricPolicyResponse)
 
-instance Prelude.NFData DeleteMetricPolicyResponse
+instance Prelude.NFData DeleteMetricPolicyResponse where
+  rnf DeleteMetricPolicyResponse' {..} =
+    Prelude.rnf httpStatus

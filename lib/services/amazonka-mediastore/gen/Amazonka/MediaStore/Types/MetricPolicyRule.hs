@@ -83,9 +83,15 @@ instance Core.FromJSON MetricPolicyRule where
             Prelude.<*> (x Core..: "ObjectGroupName")
       )
 
-instance Prelude.Hashable MetricPolicyRule
+instance Prelude.Hashable MetricPolicyRule where
+  hashWithSalt _salt MetricPolicyRule' {..} =
+    _salt `Prelude.hashWithSalt` objectGroup
+      `Prelude.hashWithSalt` objectGroupName
 
-instance Prelude.NFData MetricPolicyRule
+instance Prelude.NFData MetricPolicyRule where
+  rnf MetricPolicyRule' {..} =
+    Prelude.rnf objectGroup
+      `Prelude.seq` Prelude.rnf objectGroupName
 
 instance Core.ToJSON MetricPolicyRule where
   toJSON MetricPolicyRule' {..} =

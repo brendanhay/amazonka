@@ -86,9 +86,12 @@ instance Core.AWSRequest GetMetricPolicy where
             Prelude.<*> (x Core..:> "MetricPolicy")
       )
 
-instance Prelude.Hashable GetMetricPolicy
+instance Prelude.Hashable GetMetricPolicy where
+  hashWithSalt _salt GetMetricPolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData GetMetricPolicy
+instance Prelude.NFData GetMetricPolicy where
+  rnf GetMetricPolicy' {..} = Prelude.rnf containerName
 
 instance Core.ToHeaders GetMetricPolicy where
   toHeaders =
@@ -162,4 +165,7 @@ getMetricPolicyResponse_httpStatus = Lens.lens (\GetMetricPolicyResponse' {httpS
 getMetricPolicyResponse_metricPolicy :: Lens.Lens' GetMetricPolicyResponse MetricPolicy
 getMetricPolicyResponse_metricPolicy = Lens.lens (\GetMetricPolicyResponse' {metricPolicy} -> metricPolicy) (\s@GetMetricPolicyResponse' {} a -> s {metricPolicy = a} :: GetMetricPolicyResponse)
 
-instance Prelude.NFData GetMetricPolicyResponse
+instance Prelude.NFData GetMetricPolicyResponse where
+  rnf GetMetricPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricPolicy

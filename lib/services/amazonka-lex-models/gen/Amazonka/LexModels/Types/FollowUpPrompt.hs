@@ -85,9 +85,15 @@ instance Core.FromJSON FollowUpPrompt where
             Prelude.<*> (x Core..: "rejectionStatement")
       )
 
-instance Prelude.Hashable FollowUpPrompt
+instance Prelude.Hashable FollowUpPrompt where
+  hashWithSalt _salt FollowUpPrompt' {..} =
+    _salt `Prelude.hashWithSalt` prompt
+      `Prelude.hashWithSalt` rejectionStatement
 
-instance Prelude.NFData FollowUpPrompt
+instance Prelude.NFData FollowUpPrompt where
+  rnf FollowUpPrompt' {..} =
+    Prelude.rnf prompt
+      `Prelude.seq` Prelude.rnf rejectionStatement
 
 instance Core.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =

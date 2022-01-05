@@ -105,9 +105,17 @@ instance Core.FromJSON Prompt where
             Prelude.<*> (x Core..: "maxAttempts")
       )
 
-instance Prelude.Hashable Prompt
+instance Prelude.Hashable Prompt where
+  hashWithSalt _salt Prompt' {..} =
+    _salt `Prelude.hashWithSalt` responseCard
+      `Prelude.hashWithSalt` messages
+      `Prelude.hashWithSalt` maxAttempts
 
-instance Prelude.NFData Prompt
+instance Prelude.NFData Prompt where
+  rnf Prompt' {..} =
+    Prelude.rnf responseCard
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf maxAttempts
 
 instance Core.ToJSON Prompt where
   toJSON Prompt' {..} =

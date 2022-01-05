@@ -101,9 +101,14 @@ instance Core.AWSRequest DeleteBotVersion where
   response =
     Response.receiveNull DeleteBotVersionResponse'
 
-instance Prelude.Hashable DeleteBotVersion
+instance Prelude.Hashable DeleteBotVersion where
+  hashWithSalt _salt DeleteBotVersion' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteBotVersion
+instance Prelude.NFData DeleteBotVersion where
+  rnf DeleteBotVersion' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteBotVersion where
   toHeaders =
@@ -143,4 +148,5 @@ newDeleteBotVersionResponse ::
 newDeleteBotVersionResponse =
   DeleteBotVersionResponse'
 
-instance Prelude.NFData DeleteBotVersionResponse
+instance Prelude.NFData DeleteBotVersionResponse where
+  rnf _ = ()

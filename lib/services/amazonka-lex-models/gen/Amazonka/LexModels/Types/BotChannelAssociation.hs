@@ -195,6 +195,26 @@ instance Core.FromJSON BotChannelAssociation where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable BotChannelAssociation
+instance Prelude.Hashable BotChannelAssociation where
+  hashWithSalt _salt BotChannelAssociation' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` botConfiguration
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData BotChannelAssociation
+instance Prelude.NFData BotChannelAssociation where
+  rnf BotChannelAssociation' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botConfiguration
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

@@ -84,6 +84,12 @@ instance Core.FromJSON BuiltinSlotTypeMetadata where
                         )
       )
 
-instance Prelude.Hashable BuiltinSlotTypeMetadata
+instance Prelude.Hashable BuiltinSlotTypeMetadata where
+  hashWithSalt _salt BuiltinSlotTypeMetadata' {..} =
+    _salt `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` supportedLocales
 
-instance Prelude.NFData BuiltinSlotTypeMetadata
+instance Prelude.NFData BuiltinSlotTypeMetadata where
+  rnf BuiltinSlotTypeMetadata' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf supportedLocales

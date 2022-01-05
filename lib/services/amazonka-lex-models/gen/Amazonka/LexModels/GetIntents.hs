@@ -153,9 +153,17 @@ instance Core.AWSRequest GetIntents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntents
+instance Prelude.Hashable GetIntents where
+  hashWithSalt _salt GetIntents' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetIntents
+instance Prelude.NFData GetIntents where
+  rnf GetIntents' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetIntents where
   toHeaders =
@@ -232,4 +240,8 @@ getIntentsResponse_nextToken = Lens.lens (\GetIntentsResponse' {nextToken} -> ne
 getIntentsResponse_httpStatus :: Lens.Lens' GetIntentsResponse Prelude.Int
 getIntentsResponse_httpStatus = Lens.lens (\GetIntentsResponse' {httpStatus} -> httpStatus) (\s@GetIntentsResponse' {} a -> s {httpStatus = a} :: GetIntentsResponse)
 
-instance Prelude.NFData GetIntentsResponse
+instance Prelude.NFData GetIntentsResponse where
+  rnf GetIntentsResponse' {..} =
+    Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

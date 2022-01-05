@@ -104,6 +104,18 @@ instance Core.FromJSON UtteranceData where
             Prelude.<*> (x Core..:? "distinctUsers")
       )
 
-instance Prelude.Hashable UtteranceData
+instance Prelude.Hashable UtteranceData where
+  hashWithSalt _salt UtteranceData' {..} =
+    _salt `Prelude.hashWithSalt` firstUtteredDate
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` utteranceString
+      `Prelude.hashWithSalt` lastUtteredDate
+      `Prelude.hashWithSalt` distinctUsers
 
-instance Prelude.NFData UtteranceData
+instance Prelude.NFData UtteranceData where
+  rnf UtteranceData' {..} =
+    Prelude.rnf firstUtteredDate
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf utteranceString
+      `Prelude.seq` Prelude.rnf lastUtteredDate
+      `Prelude.seq` Prelude.rnf distinctUsers

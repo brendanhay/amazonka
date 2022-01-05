@@ -96,9 +96,14 @@ instance Core.AWSRequest DeleteBotAlias where
   response =
     Response.receiveNull DeleteBotAliasResponse'
 
-instance Prelude.Hashable DeleteBotAlias
+instance Prelude.Hashable DeleteBotAlias where
+  hashWithSalt _salt DeleteBotAlias' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` botName
 
-instance Prelude.NFData DeleteBotAlias
+instance Prelude.NFData DeleteBotAlias where
+  rnf DeleteBotAlias' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf botName
 
 instance Core.ToHeaders DeleteBotAlias where
   toHeaders =
@@ -137,4 +142,5 @@ newDeleteBotAliasResponse ::
   DeleteBotAliasResponse
 newDeleteBotAliasResponse = DeleteBotAliasResponse'
 
-instance Prelude.NFData DeleteBotAliasResponse
+instance Prelude.NFData DeleteBotAliasResponse where
+  rnf _ = ()

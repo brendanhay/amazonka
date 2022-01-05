@@ -167,9 +167,19 @@ instance Core.AWSRequest GetBuiltinSlotTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBuiltinSlotTypes
+instance Prelude.Hashable GetBuiltinSlotTypes where
+  hashWithSalt _salt GetBuiltinSlotTypes' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` signatureContains
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetBuiltinSlotTypes
+instance Prelude.NFData GetBuiltinSlotTypes where
+  rnf GetBuiltinSlotTypes' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf signatureContains
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetBuiltinSlotTypes where
   toHeaders =
@@ -251,4 +261,8 @@ getBuiltinSlotTypesResponse_slotTypes = Lens.lens (\GetBuiltinSlotTypesResponse'
 getBuiltinSlotTypesResponse_httpStatus :: Lens.Lens' GetBuiltinSlotTypesResponse Prelude.Int
 getBuiltinSlotTypesResponse_httpStatus = Lens.lens (\GetBuiltinSlotTypesResponse' {httpStatus} -> httpStatus) (\s@GetBuiltinSlotTypesResponse' {} a -> s {httpStatus = a} :: GetBuiltinSlotTypesResponse)
 
-instance Prelude.NFData GetBuiltinSlotTypesResponse
+instance Prelude.NFData GetBuiltinSlotTypesResponse where
+  rnf GetBuiltinSlotTypesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf slotTypes
+      `Prelude.seq` Prelude.rnf httpStatus

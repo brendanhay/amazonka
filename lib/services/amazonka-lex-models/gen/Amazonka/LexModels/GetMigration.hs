@@ -107,9 +107,12 @@ instance Core.AWSRequest GetMigration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMigration
+instance Prelude.Hashable GetMigration where
+  hashWithSalt _salt GetMigration' {..} =
+    _salt `Prelude.hashWithSalt` migrationId
 
-instance Prelude.NFData GetMigration
+instance Prelude.NFData GetMigration where
+  rnf GetMigration' {..} = Prelude.rnf migrationId
 
 instance Core.ToHeaders GetMigration where
   toHeaders =
@@ -310,4 +313,16 @@ getMigrationResponse_migrationId = Lens.lens (\GetMigrationResponse' {migrationI
 getMigrationResponse_httpStatus :: Lens.Lens' GetMigrationResponse Prelude.Int
 getMigrationResponse_httpStatus = Lens.lens (\GetMigrationResponse' {httpStatus} -> httpStatus) (\s@GetMigrationResponse' {} a -> s {httpStatus = a} :: GetMigrationResponse)
 
-instance Prelude.NFData GetMigrationResponse
+instance Prelude.NFData GetMigrationResponse where
+  rnf GetMigrationResponse' {..} =
+    Prelude.rnf v1BotVersion
+      `Prelude.seq` Prelude.rnf migrationStrategy
+      `Prelude.seq` Prelude.rnf migrationTimestamp
+      `Prelude.seq` Prelude.rnf alerts
+      `Prelude.seq` Prelude.rnf migrationStatus
+      `Prelude.seq` Prelude.rnf v2BotId
+      `Prelude.seq` Prelude.rnf v1BotLocale
+      `Prelude.seq` Prelude.rnf v1BotName
+      `Prelude.seq` Prelude.rnf v2BotRole
+      `Prelude.seq` Prelude.rnf migrationId
+      `Prelude.seq` Prelude.rnf httpStatus

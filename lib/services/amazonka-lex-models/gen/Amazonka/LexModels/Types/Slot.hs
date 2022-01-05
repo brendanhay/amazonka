@@ -231,9 +231,33 @@ instance Core.FromJSON Slot where
             Prelude.<*> (x Core..: "slotConstraint")
       )
 
-instance Prelude.Hashable Slot
+instance Prelude.Hashable Slot where
+  hashWithSalt _salt Slot' {..} =
+    _salt `Prelude.hashWithSalt` slotType
+      `Prelude.hashWithSalt` valueElicitationPrompt
+      `Prelude.hashWithSalt` responseCard
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` obfuscationSetting
+      `Prelude.hashWithSalt` defaultValueSpec
+      `Prelude.hashWithSalt` slotTypeVersion
+      `Prelude.hashWithSalt` sampleUtterances
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` slotConstraint
 
-instance Prelude.NFData Slot
+instance Prelude.NFData Slot where
+  rnf Slot' {..} =
+    Prelude.rnf slotType
+      `Prelude.seq` Prelude.rnf valueElicitationPrompt
+      `Prelude.seq` Prelude.rnf responseCard
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf obfuscationSetting
+      `Prelude.seq` Prelude.rnf defaultValueSpec
+      `Prelude.seq` Prelude.rnf slotTypeVersion
+      `Prelude.seq` Prelude.rnf sampleUtterances
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf slotConstraint
 
 instance Core.ToJSON Slot where
   toJSON Slot' {..} =

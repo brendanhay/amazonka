@@ -120,9 +120,15 @@ instance Core.AWSRequest DeleteUtterances where
   response =
     Response.receiveNull DeleteUtterancesResponse'
 
-instance Prelude.Hashable DeleteUtterances
+instance Prelude.Hashable DeleteUtterances where
+  hashWithSalt _salt DeleteUtterances' {..} =
+    _salt `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DeleteUtterances
+instance Prelude.NFData DeleteUtterances where
+  rnf DeleteUtterances' {..} =
+    Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders DeleteUtterances where
   toHeaders =
@@ -162,4 +168,5 @@ newDeleteUtterancesResponse ::
 newDeleteUtterancesResponse =
   DeleteUtterancesResponse'
 
-instance Prelude.NFData DeleteUtterancesResponse
+instance Prelude.NFData DeleteUtterancesResponse where
+  rnf _ = ()

@@ -79,6 +79,12 @@ instance Core.FromJSON ConversationLogsResponse where
             Prelude.<*> (x Core..:? "logSettings" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ConversationLogsResponse
+instance Prelude.Hashable ConversationLogsResponse where
+  hashWithSalt _salt ConversationLogsResponse' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` logSettings
 
-instance Prelude.NFData ConversationLogsResponse
+instance Prelude.NFData ConversationLogsResponse where
+  rnf ConversationLogsResponse' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf logSettings

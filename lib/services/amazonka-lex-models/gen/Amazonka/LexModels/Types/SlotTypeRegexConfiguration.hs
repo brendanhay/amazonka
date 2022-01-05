@@ -115,9 +115,13 @@ instance Core.FromJSON SlotTypeRegexConfiguration where
             Prelude.<$> (x Core..: "pattern")
       )
 
-instance Prelude.Hashable SlotTypeRegexConfiguration
+instance Prelude.Hashable SlotTypeRegexConfiguration where
+  hashWithSalt _salt SlotTypeRegexConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` pattern'
 
-instance Prelude.NFData SlotTypeRegexConfiguration
+instance Prelude.NFData SlotTypeRegexConfiguration where
+  rnf SlotTypeRegexConfiguration' {..} =
+    Prelude.rnf pattern'
 
 instance Core.ToJSON SlotTypeRegexConfiguration where
   toJSON SlotTypeRegexConfiguration' {..} =

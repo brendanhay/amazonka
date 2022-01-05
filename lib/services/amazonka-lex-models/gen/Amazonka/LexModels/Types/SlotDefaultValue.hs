@@ -85,9 +85,12 @@ instance Core.FromJSON SlotDefaultValue where
             Prelude.<$> (x Core..: "defaultValue")
       )
 
-instance Prelude.Hashable SlotDefaultValue
+instance Prelude.Hashable SlotDefaultValue where
+  hashWithSalt _salt SlotDefaultValue' {..} =
+    _salt `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData SlotDefaultValue
+instance Prelude.NFData SlotDefaultValue where
+  rnf SlotDefaultValue' {..} = Prelude.rnf defaultValue
 
 instance Core.ToJSON SlotDefaultValue where
   toJSON SlotDefaultValue' {..} =

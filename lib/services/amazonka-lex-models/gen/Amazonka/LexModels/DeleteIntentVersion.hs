@@ -101,9 +101,14 @@ instance Core.AWSRequest DeleteIntentVersion where
   response =
     Response.receiveNull DeleteIntentVersionResponse'
 
-instance Prelude.Hashable DeleteIntentVersion
+instance Prelude.Hashable DeleteIntentVersion where
+  hashWithSalt _salt DeleteIntentVersion' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteIntentVersion
+instance Prelude.NFData DeleteIntentVersion where
+  rnf DeleteIntentVersion' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteIntentVersion where
   toHeaders =
@@ -143,4 +148,5 @@ newDeleteIntentVersionResponse ::
 newDeleteIntentVersionResponse =
   DeleteIntentVersionResponse'
 
-instance Prelude.NFData DeleteIntentVersionResponse
+instance Prelude.NFData DeleteIntentVersionResponse where
+  rnf _ = ()

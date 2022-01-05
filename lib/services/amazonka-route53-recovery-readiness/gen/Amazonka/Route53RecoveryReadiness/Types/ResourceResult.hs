@@ -100,6 +100,16 @@ instance Core.FromJSON ResourceResult where
             Prelude.<*> (x Core..: "lastCheckedTimestamp")
       )
 
-instance Prelude.Hashable ResourceResult
+instance Prelude.Hashable ResourceResult where
+  hashWithSalt _salt ResourceResult' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` componentId
+      `Prelude.hashWithSalt` readiness
+      `Prelude.hashWithSalt` lastCheckedTimestamp
 
-instance Prelude.NFData ResourceResult
+instance Prelude.NFData ResourceResult where
+  rnf ResourceResult' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf componentId
+      `Prelude.seq` Prelude.rnf readiness
+      `Prelude.seq` Prelude.rnf lastCheckedTimestamp

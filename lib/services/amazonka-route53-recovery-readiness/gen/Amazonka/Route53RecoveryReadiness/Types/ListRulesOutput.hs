@@ -91,6 +91,14 @@ instance Core.FromJSON ListRulesOutput where
             Prelude.<*> (x Core..: "resourceType")
       )
 
-instance Prelude.Hashable ListRulesOutput
+instance Prelude.Hashable ListRulesOutput where
+  hashWithSalt _salt ListRulesOutput' {..} =
+    _salt `Prelude.hashWithSalt` ruleDescription
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ListRulesOutput
+instance Prelude.NFData ListRulesOutput where
+  rnf ListRulesOutput' {..} =
+    Prelude.rnf ruleDescription
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf resourceType

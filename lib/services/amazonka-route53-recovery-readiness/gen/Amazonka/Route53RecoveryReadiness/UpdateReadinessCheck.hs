@@ -111,9 +111,15 @@ instance Core.AWSRequest UpdateReadinessCheck where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReadinessCheck
+instance Prelude.Hashable UpdateReadinessCheck where
+  hashWithSalt _salt UpdateReadinessCheck' {..} =
+    _salt `Prelude.hashWithSalt` readinessCheckName
+      `Prelude.hashWithSalt` resourceSetName
 
-instance Prelude.NFData UpdateReadinessCheck
+instance Prelude.NFData UpdateReadinessCheck where
+  rnf UpdateReadinessCheck' {..} =
+    Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf resourceSetName
 
 instance Core.ToHeaders UpdateReadinessCheck where
   toHeaders =
@@ -208,4 +214,10 @@ updateReadinessCheckResponse_tags = Lens.lens (\UpdateReadinessCheckResponse' {t
 updateReadinessCheckResponse_httpStatus :: Lens.Lens' UpdateReadinessCheckResponse Prelude.Int
 updateReadinessCheckResponse_httpStatus = Lens.lens (\UpdateReadinessCheckResponse' {httpStatus} -> httpStatus) (\s@UpdateReadinessCheckResponse' {} a -> s {httpStatus = a} :: UpdateReadinessCheckResponse)
 
-instance Prelude.NFData UpdateReadinessCheckResponse
+instance Prelude.NFData UpdateReadinessCheckResponse where
+  rnf UpdateReadinessCheckResponse' {..} =
+    Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf resourceSet
+      `Prelude.seq` Prelude.rnf readinessCheckArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

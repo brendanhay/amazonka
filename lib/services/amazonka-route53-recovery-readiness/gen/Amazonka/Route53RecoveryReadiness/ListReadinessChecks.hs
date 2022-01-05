@@ -124,9 +124,15 @@ instance Core.AWSRequest ListReadinessChecks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReadinessChecks
+instance Prelude.Hashable ListReadinessChecks where
+  hashWithSalt _salt ListReadinessChecks' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListReadinessChecks
+instance Prelude.NFData ListReadinessChecks where
+  rnf ListReadinessChecks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReadinessChecks where
   toHeaders =
@@ -200,4 +206,8 @@ listReadinessChecksResponse_nextToken = Lens.lens (\ListReadinessChecksResponse'
 listReadinessChecksResponse_httpStatus :: Lens.Lens' ListReadinessChecksResponse Prelude.Int
 listReadinessChecksResponse_httpStatus = Lens.lens (\ListReadinessChecksResponse' {httpStatus} -> httpStatus) (\s@ListReadinessChecksResponse' {} a -> s {httpStatus = a} :: ListReadinessChecksResponse)
 
-instance Prelude.NFData ListReadinessChecksResponse
+instance Prelude.NFData ListReadinessChecksResponse where
+  rnf ListReadinessChecksResponse' {..} =
+    Prelude.rnf readinessChecks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

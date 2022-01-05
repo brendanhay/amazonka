@@ -98,10 +98,19 @@ instance
 instance
   Prelude.Hashable
     CreateCrossAccountAuthorization
+  where
+  hashWithSalt
+    _salt
+    CreateCrossAccountAuthorization' {..} =
+      _salt
+        `Prelude.hashWithSalt` crossAccountAuthorization
 
 instance
   Prelude.NFData
     CreateCrossAccountAuthorization
+  where
+  rnf CreateCrossAccountAuthorization' {..} =
+    Prelude.rnf crossAccountAuthorization
 
 instance
   Core.ToHeaders
@@ -177,3 +186,7 @@ createCrossAccountAuthorizationResponse_httpStatus = Lens.lens (\CreateCrossAcco
 instance
   Prelude.NFData
     CreateCrossAccountAuthorizationResponse
+  where
+  rnf CreateCrossAccountAuthorizationResponse' {..} =
+    Prelude.rnf crossAccountAuthorization
+      `Prelude.seq` Prelude.rnf httpStatus

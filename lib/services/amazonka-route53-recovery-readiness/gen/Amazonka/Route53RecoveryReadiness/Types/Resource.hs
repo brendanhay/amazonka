@@ -99,9 +99,19 @@ instance Core.FromJSON Resource where
             Prelude.<*> (x Core..:? "dnsTargetResource")
       )
 
-instance Prelude.Hashable Resource
+instance Prelude.Hashable Resource where
+  hashWithSalt _salt Resource' {..} =
+    _salt `Prelude.hashWithSalt` readinessScopes
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` componentId
+      `Prelude.hashWithSalt` dnsTargetResource
 
-instance Prelude.NFData Resource
+instance Prelude.NFData Resource where
+  rnf Resource' {..} =
+    Prelude.rnf readinessScopes
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf componentId
+      `Prelude.seq` Prelude.rnf dnsTargetResource
 
 instance Core.ToJSON Resource where
   toJSON Resource' {..} =

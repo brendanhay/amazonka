@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteRecoveryGroup where
   response =
     Response.receiveNull DeleteRecoveryGroupResponse'
 
-instance Prelude.Hashable DeleteRecoveryGroup
+instance Prelude.Hashable DeleteRecoveryGroup where
+  hashWithSalt _salt DeleteRecoveryGroup' {..} =
+    _salt `Prelude.hashWithSalt` recoveryGroupName
 
-instance Prelude.NFData DeleteRecoveryGroup
+instance Prelude.NFData DeleteRecoveryGroup where
+  rnf DeleteRecoveryGroup' {..} =
+    Prelude.rnf recoveryGroupName
 
 instance Core.ToHeaders DeleteRecoveryGroup where
   toHeaders =
@@ -118,4 +122,5 @@ newDeleteRecoveryGroupResponse ::
 newDeleteRecoveryGroupResponse =
   DeleteRecoveryGroupResponse'
 
-instance Prelude.NFData DeleteRecoveryGroupResponse
+instance Prelude.NFData DeleteRecoveryGroupResponse where
+  rnf _ = ()

@@ -94,10 +94,19 @@ instance
 instance
   Prelude.Hashable
     DeleteCrossAccountAuthorization
+  where
+  hashWithSalt
+    _salt
+    DeleteCrossAccountAuthorization' {..} =
+      _salt
+        `Prelude.hashWithSalt` crossAccountAuthorization
 
 instance
   Prelude.NFData
     DeleteCrossAccountAuthorization
+  where
+  rnf DeleteCrossAccountAuthorization' {..} =
+    Prelude.rnf crossAccountAuthorization
 
 instance
   Core.ToHeaders
@@ -157,3 +166,6 @@ deleteCrossAccountAuthorizationResponse_httpStatus = Lens.lens (\DeleteCrossAcco
 instance
   Prelude.NFData
     DeleteCrossAccountAuthorizationResponse
+  where
+  rnf DeleteCrossAccountAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus

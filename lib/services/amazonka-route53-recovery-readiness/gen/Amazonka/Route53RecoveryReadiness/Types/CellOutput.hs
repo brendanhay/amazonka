@@ -106,6 +106,18 @@ instance Core.FromJSON CellOutput where
             Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CellOutput
+instance Prelude.Hashable CellOutput where
+  hashWithSalt _salt CellOutput' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parentReadinessScopes
+      `Prelude.hashWithSalt` cellArn
+      `Prelude.hashWithSalt` cellName
+      `Prelude.hashWithSalt` cells
 
-instance Prelude.NFData CellOutput
+instance Prelude.NFData CellOutput where
+  rnf CellOutput' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parentReadinessScopes
+      `Prelude.seq` Prelude.rnf cellArn
+      `Prelude.seq` Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf cells

@@ -119,9 +119,17 @@ instance Core.AWSRequest CreateReadinessCheck where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReadinessCheck
+instance Prelude.Hashable CreateReadinessCheck where
+  hashWithSalt _salt CreateReadinessCheck' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceSetName
+      `Prelude.hashWithSalt` readinessCheckName
 
-instance Prelude.NFData CreateReadinessCheck
+instance Prelude.NFData CreateReadinessCheck where
+  rnf CreateReadinessCheck' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceSetName
+      `Prelude.seq` Prelude.rnf readinessCheckName
 
 instance Core.ToHeaders CreateReadinessCheck where
   toHeaders =
@@ -217,4 +225,10 @@ createReadinessCheckResponse_tags = Lens.lens (\CreateReadinessCheckResponse' {t
 createReadinessCheckResponse_httpStatus :: Lens.Lens' CreateReadinessCheckResponse Prelude.Int
 createReadinessCheckResponse_httpStatus = Lens.lens (\CreateReadinessCheckResponse' {httpStatus} -> httpStatus) (\s@CreateReadinessCheckResponse' {} a -> s {httpStatus = a} :: CreateReadinessCheckResponse)
 
-instance Prelude.NFData CreateReadinessCheckResponse
+instance Prelude.NFData CreateReadinessCheckResponse where
+  rnf CreateReadinessCheckResponse' {..} =
+    Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf resourceSet
+      `Prelude.seq` Prelude.rnf readinessCheckArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

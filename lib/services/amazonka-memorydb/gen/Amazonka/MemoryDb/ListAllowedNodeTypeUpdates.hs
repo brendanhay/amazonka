@@ -104,9 +104,13 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAllowedNodeTypeUpdates
+instance Prelude.Hashable ListAllowedNodeTypeUpdates where
+  hashWithSalt _salt ListAllowedNodeTypeUpdates' {..} =
+    _salt `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData ListAllowedNodeTypeUpdates
+instance Prelude.NFData ListAllowedNodeTypeUpdates where
+  rnf ListAllowedNodeTypeUpdates' {..} =
+    Prelude.rnf clusterName
 
 instance Core.ToHeaders ListAllowedNodeTypeUpdates where
   toHeaders =
@@ -187,3 +191,8 @@ listAllowedNodeTypeUpdatesResponse_httpStatus = Lens.lens (\ListAllowedNodeTypeU
 instance
   Prelude.NFData
     ListAllowedNodeTypeUpdatesResponse
+  where
+  rnf ListAllowedNodeTypeUpdatesResponse' {..} =
+    Prelude.rnf scaleUpNodeTypes
+      `Prelude.seq` Prelude.rnf scaleDownNodeTypes
+      `Prelude.seq` Prelude.rnf httpStatus

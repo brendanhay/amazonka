@@ -53,9 +53,13 @@ newShardConfigurationRequest =
 shardConfigurationRequest_shardCount :: Lens.Lens' ShardConfigurationRequest (Prelude.Maybe Prelude.Int)
 shardConfigurationRequest_shardCount = Lens.lens (\ShardConfigurationRequest' {shardCount} -> shardCount) (\s@ShardConfigurationRequest' {} a -> s {shardCount = a} :: ShardConfigurationRequest)
 
-instance Prelude.Hashable ShardConfigurationRequest
+instance Prelude.Hashable ShardConfigurationRequest where
+  hashWithSalt _salt ShardConfigurationRequest' {..} =
+    _salt `Prelude.hashWithSalt` shardCount
 
-instance Prelude.NFData ShardConfigurationRequest
+instance Prelude.NFData ShardConfigurationRequest where
+  rnf ShardConfigurationRequest' {..} =
+    Prelude.rnf shardCount
 
 instance Core.ToJSON ShardConfigurationRequest where
   toJSON ShardConfigurationRequest' {..} =

@@ -196,6 +196,36 @@ instance Core.FromJSON ClusterConfiguration where
             Prelude.<*> (x Core..:? "ParameterGroupName")
       )
 
-instance Prelude.Hashable ClusterConfiguration
+instance Prelude.Hashable ClusterConfiguration where
+  hashWithSalt _salt ClusterConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` numShards
+      `Prelude.hashWithSalt` maintenanceWindow
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` shards
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ClusterConfiguration
+instance Prelude.NFData ClusterConfiguration where
+  rnf ClusterConfiguration' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf subnetGroupName
+      `Prelude.seq` Prelude.rnf numShards
+      `Prelude.seq` Prelude.rnf maintenanceWindow
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf parameterGroupName

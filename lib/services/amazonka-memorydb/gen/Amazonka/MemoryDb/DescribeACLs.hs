@@ -124,9 +124,17 @@ instance Core.AWSRequest DescribeACLs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeACLs
+instance Prelude.Hashable DescribeACLs where
+  hashWithSalt _salt DescribeACLs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` aCLName
 
-instance Prelude.NFData DescribeACLs
+instance Prelude.NFData DescribeACLs where
+  rnf DescribeACLs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf aCLName
 
 instance Core.ToHeaders DescribeACLs where
   toHeaders =
@@ -215,4 +223,8 @@ describeACLsResponse_aCLs = Lens.lens (\DescribeACLsResponse' {aCLs} -> aCLs) (\
 describeACLsResponse_httpStatus :: Lens.Lens' DescribeACLsResponse Prelude.Int
 describeACLsResponse_httpStatus = Lens.lens (\DescribeACLsResponse' {httpStatus} -> httpStatus) (\s@DescribeACLsResponse' {} a -> s {httpStatus = a} :: DescribeACLsResponse)
 
-instance Prelude.NFData DescribeACLsResponse
+instance Prelude.NFData DescribeACLsResponse where
+  rnf DescribeACLsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aCLs
+      `Prelude.seq` Prelude.rnf httpStatus

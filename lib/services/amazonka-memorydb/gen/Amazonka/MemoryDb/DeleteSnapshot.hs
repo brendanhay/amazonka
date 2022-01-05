@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSnapshot
+instance Prelude.Hashable DeleteSnapshot where
+  hashWithSalt _salt DeleteSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` snapshotName
 
-instance Prelude.NFData DeleteSnapshot
+instance Prelude.NFData DeleteSnapshot where
+  rnf DeleteSnapshot' {..} = Prelude.rnf snapshotName
 
 instance Core.ToHeaders DeleteSnapshot where
   toHeaders =
@@ -158,4 +161,7 @@ deleteSnapshotResponse_snapshot = Lens.lens (\DeleteSnapshotResponse' {snapshot}
 deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Prelude.Int
 deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteSnapshotResponse)
 
-instance Prelude.NFData DeleteSnapshotResponse
+instance Prelude.NFData DeleteSnapshotResponse where
+  rnf DeleteSnapshotResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -78,6 +78,12 @@ instance Core.FromJSON ShardConfiguration where
             Prelude.<*> (x Core..:? "ReplicaCount")
       )
 
-instance Prelude.Hashable ShardConfiguration
+instance Prelude.Hashable ShardConfiguration where
+  hashWithSalt _salt ShardConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` replicaCount
 
-instance Prelude.NFData ShardConfiguration
+instance Prelude.NFData ShardConfiguration where
+  rnf ShardConfiguration' {..} =
+    Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf replicaCount

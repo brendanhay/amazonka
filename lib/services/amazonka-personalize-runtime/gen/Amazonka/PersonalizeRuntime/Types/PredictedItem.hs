@@ -79,6 +79,11 @@ instance Core.FromJSON PredictedItem where
             Prelude.<*> (x Core..:? "itemId")
       )
 
-instance Prelude.Hashable PredictedItem
+instance Prelude.Hashable PredictedItem where
+  hashWithSalt _salt PredictedItem' {..} =
+    _salt `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` itemId
 
-instance Prelude.NFData PredictedItem
+instance Prelude.NFData PredictedItem where
+  rnf PredictedItem' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf itemId

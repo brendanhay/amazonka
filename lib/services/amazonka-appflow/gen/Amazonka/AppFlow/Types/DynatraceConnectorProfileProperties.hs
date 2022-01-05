@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     DynatraceConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    DynatraceConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     DynatraceConnectorProfileProperties
+  where
+  rnf DynatraceConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

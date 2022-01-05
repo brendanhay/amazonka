@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     SlackConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    SlackConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     SlackConnectorProfileProperties
+  where
+  rnf SlackConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance Core.ToJSON SlackConnectorProfileProperties where
   toJSON SlackConnectorProfileProperties' {..} =

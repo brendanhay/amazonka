@@ -98,9 +98,17 @@ instance Core.FromJSON DestinationFlowConfig where
             Prelude.<*> (x Core..: "destinationConnectorProperties")
       )
 
-instance Prelude.Hashable DestinationFlowConfig
+instance Prelude.Hashable DestinationFlowConfig where
+  hashWithSalt _salt DestinationFlowConfig' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` destinationConnectorProperties
 
-instance Prelude.NFData DestinationFlowConfig
+instance Prelude.NFData DestinationFlowConfig where
+  rnf DestinationFlowConfig' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf destinationConnectorProperties
 
 instance Core.ToJSON DestinationFlowConfig where
   toJSON DestinationFlowConfig' {..} =

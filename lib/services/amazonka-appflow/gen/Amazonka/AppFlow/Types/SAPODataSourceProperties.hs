@@ -62,9 +62,13 @@ instance Core.FromJSON SAPODataSourceProperties where
             Prelude.<$> (x Core..:? "objectPath")
       )
 
-instance Prelude.Hashable SAPODataSourceProperties
+instance Prelude.Hashable SAPODataSourceProperties where
+  hashWithSalt _salt SAPODataSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` objectPath
 
-instance Prelude.NFData SAPODataSourceProperties
+instance Prelude.NFData SAPODataSourceProperties where
+  rnf SAPODataSourceProperties' {..} =
+    Prelude.rnf objectPath
 
 instance Core.ToJSON SAPODataSourceProperties where
   toJSON SAPODataSourceProperties' {..} =

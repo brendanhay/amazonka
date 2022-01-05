@@ -98,6 +98,14 @@ instance Core.FromJSON ConnectorEntity where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ConnectorEntity
+instance Prelude.Hashable ConnectorEntity where
+  hashWithSalt _salt ConnectorEntity' {..} =
+    _salt `Prelude.hashWithSalt` hasNestedEntities
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ConnectorEntity
+instance Prelude.NFData ConnectorEntity where
+  rnf ConnectorEntity' {..} =
+    Prelude.rnf hasNestedEntities
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf name

@@ -64,9 +64,13 @@ instance Core.FromJSON S3InputFormatConfig where
             Prelude.<$> (x Core..:? "s3InputFileType")
       )
 
-instance Prelude.Hashable S3InputFormatConfig
+instance Prelude.Hashable S3InputFormatConfig where
+  hashWithSalt _salt S3InputFormatConfig' {..} =
+    _salt `Prelude.hashWithSalt` s3InputFileType
 
-instance Prelude.NFData S3InputFormatConfig
+instance Prelude.NFData S3InputFormatConfig where
+  rnf S3InputFormatConfig' {..} =
+    Prelude.rnf s3InputFileType
 
 instance Core.ToJSON S3InputFormatConfig where
   toJSON S3InputFormatConfig' {..} =

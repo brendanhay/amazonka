@@ -45,6 +45,9 @@ instance Core.FromJSON AmplitudeMetadata where
       "AmplitudeMetadata"
       (\x -> Prelude.pure AmplitudeMetadata')
 
-instance Prelude.Hashable AmplitudeMetadata
+instance Prelude.Hashable AmplitudeMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData AmplitudeMetadata
+instance Prelude.NFData AmplitudeMetadata where
+  rnf _ = ()

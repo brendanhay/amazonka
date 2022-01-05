@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateConnectorProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnectorProfile
+instance Prelude.Hashable UpdateConnectorProfile where
+  hashWithSalt _salt UpdateConnectorProfile' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` connectionMode
+      `Prelude.hashWithSalt` connectorProfileConfig
 
-instance Prelude.NFData UpdateConnectorProfile
+instance Prelude.NFData UpdateConnectorProfile where
+  rnf UpdateConnectorProfile' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectorProfileConfig
 
 instance Core.ToHeaders UpdateConnectorProfile where
   toHeaders =
@@ -199,3 +207,7 @@ updateConnectorProfileResponse_httpStatus = Lens.lens (\UpdateConnectorProfileRe
 instance
   Prelude.NFData
     UpdateConnectorProfileResponse
+  where
+  rnf UpdateConnectorProfileResponse' {..} =
+    Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf httpStatus

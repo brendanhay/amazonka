@@ -62,9 +62,13 @@ instance Core.FromJSON InforNexusSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable InforNexusSourceProperties
+instance Prelude.Hashable InforNexusSourceProperties where
+  hashWithSalt _salt InforNexusSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData InforNexusSourceProperties
+instance Prelude.NFData InforNexusSourceProperties where
+  rnf InforNexusSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON InforNexusSourceProperties where
   toJSON InforNexusSourceProperties' {..} =

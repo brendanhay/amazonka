@@ -72,10 +72,20 @@ veevaConnectorProfileCredentials_password = Lens.lens (\VeevaConnectorProfileCre
 instance
   Prelude.Hashable
     VeevaConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    VeevaConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` password
 
 instance
   Prelude.NFData
     VeevaConnectorProfileCredentials
+  where
+  rnf VeevaConnectorProfileCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON VeevaConnectorProfileCredentials where
   toJSON VeevaConnectorProfileCredentials' {..} =

@@ -282,6 +282,50 @@ instance Core.FromJSON ConnectorMetadata where
             Prelude.<*> (x Core..:? "Veeva")
       )
 
-instance Prelude.Hashable ConnectorMetadata
+instance Prelude.Hashable ConnectorMetadata where
+  hashWithSalt _salt ConnectorMetadata' {..} =
+    _salt `Prelude.hashWithSalt` upsolver
+      `Prelude.hashWithSalt` snowflake
+      `Prelude.hashWithSalt` honeycode
+      `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` slack
+      `Prelude.hashWithSalt` singular
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` customerProfiles
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` googleAnalytics
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` eventBridge
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` redshift
+      `Prelude.hashWithSalt` veeva
 
-instance Prelude.NFData ConnectorMetadata
+instance Prelude.NFData ConnectorMetadata where
+  rnf ConnectorMetadata' {..} =
+    Prelude.rnf upsolver
+      `Prelude.seq` Prelude.rnf snowflake
+      `Prelude.seq` Prelude.rnf honeycode
+      `Prelude.seq` Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf dynatrace
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf slack
+      `Prelude.seq` Prelude.rnf singular
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf customerProfiles
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf googleAnalytics
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf eventBridge
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf veeva

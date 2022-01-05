@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     MarketoConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    MarketoConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     MarketoConnectorProfileProperties
+  where
+  rnf MarketoConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

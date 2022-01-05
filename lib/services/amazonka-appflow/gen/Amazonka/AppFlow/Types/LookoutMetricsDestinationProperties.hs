@@ -55,10 +55,15 @@ instance
 instance
   Prelude.Hashable
     LookoutMetricsDestinationProperties
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     LookoutMetricsDestinationProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

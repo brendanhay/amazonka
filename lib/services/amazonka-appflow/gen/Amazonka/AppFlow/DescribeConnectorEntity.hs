@@ -118,9 +118,17 @@ instance Core.AWSRequest DescribeConnectorEntity where
                         )
       )
 
-instance Prelude.Hashable DescribeConnectorEntity
+instance Prelude.Hashable DescribeConnectorEntity where
+  hashWithSalt _salt DescribeConnectorEntity' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` connectorEntityName
 
-instance Prelude.NFData DescribeConnectorEntity
+instance Prelude.NFData DescribeConnectorEntity where
+  rnf DescribeConnectorEntity' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf connectorEntityName
 
 instance Core.ToHeaders DescribeConnectorEntity where
   toHeaders =
@@ -199,3 +207,7 @@ describeConnectorEntityResponse_connectorEntityFields = Lens.lens (\DescribeConn
 instance
   Prelude.NFData
     DescribeConnectorEntityResponse
+  where
+  rnf DescribeConnectorEntityResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connectorEntityFields

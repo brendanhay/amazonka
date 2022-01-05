@@ -136,9 +136,19 @@ instance Core.AWSRequest DescribeConnectorProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnectorProfiles
+instance Prelude.Hashable DescribeConnectorProfiles where
+  hashWithSalt _salt DescribeConnectorProfiles' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeConnectorProfiles
+instance Prelude.NFData DescribeConnectorProfiles where
+  rnf DescribeConnectorProfiles' {..} =
+    Prelude.rnf connectorProfileNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeConnectorProfiles where
   toHeaders =
@@ -226,3 +236,8 @@ describeConnectorProfilesResponse_httpStatus = Lens.lens (\DescribeConnectorProf
 instance
   Prelude.NFData
     DescribeConnectorProfilesResponse
+  where
+  rnf DescribeConnectorProfilesResponse' {..} =
+    Prelude.rnf connectorProfileDetails
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

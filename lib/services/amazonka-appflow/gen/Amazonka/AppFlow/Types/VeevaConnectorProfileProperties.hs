@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     VeevaConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    VeevaConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     VeevaConnectorProfileProperties
+  where
+  rnf VeevaConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance Core.ToJSON VeevaConnectorProfileProperties where
   toJSON VeevaConnectorProfileProperties' {..} =

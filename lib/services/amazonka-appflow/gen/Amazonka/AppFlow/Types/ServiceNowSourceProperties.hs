@@ -62,9 +62,13 @@ instance Core.FromJSON ServiceNowSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable ServiceNowSourceProperties
+instance Prelude.Hashable ServiceNowSourceProperties where
+  hashWithSalt _salt ServiceNowSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData ServiceNowSourceProperties
+instance Prelude.NFData ServiceNowSourceProperties where
+  rnf ServiceNowSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON ServiceNowSourceProperties where
   toJSON ServiceNowSourceProperties' {..} =

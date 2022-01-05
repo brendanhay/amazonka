@@ -96,10 +96,24 @@ inforNexusConnectorProfileCredentials_datakey = Lens.lens (\InforNexusConnectorP
 instance
   Prelude.Hashable
     InforNexusConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    InforNexusConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` accessKeyId
+        `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` secretAccessKey
+        `Prelude.hashWithSalt` datakey
 
 instance
   Prelude.NFData
     InforNexusConnectorProfileCredentials
+  where
+  rnf InforNexusConnectorProfileCredentials' {..} =
+    Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf datakey
 
 instance
   Core.ToJSON

@@ -45,6 +45,9 @@ instance Core.FromJSON DynatraceMetadata where
       "DynatraceMetadata"
       (\x -> Prelude.pure DynatraceMetadata')
 
-instance Prelude.Hashable DynatraceMetadata
+instance Prelude.Hashable DynatraceMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DynatraceMetadata
+instance Prelude.NFData DynatraceMetadata where
+  rnf _ = ()

@@ -115,9 +115,19 @@ instance Core.FromJSON SourceFlowConfig where
             Prelude.<*> (x Core..: "sourceConnectorProperties")
       )
 
-instance Prelude.Hashable SourceFlowConfig
+instance Prelude.Hashable SourceFlowConfig where
+  hashWithSalt _salt SourceFlowConfig' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` incrementalPullConfig
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` sourceConnectorProperties
 
-instance Prelude.NFData SourceFlowConfig
+instance Prelude.NFData SourceFlowConfig where
+  rnf SourceFlowConfig' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf incrementalPullConfig
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf sourceConnectorProperties
 
 instance Core.ToJSON SourceFlowConfig where
   toJSON SourceFlowConfig' {..} =

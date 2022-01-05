@@ -74,10 +74,22 @@ honeycodeConnectorProfileCredentials_oAuthRequest = Lens.lens (\HoneycodeConnect
 instance
   Prelude.Hashable
     HoneycodeConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    HoneycodeConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` accessToken
+        `Prelude.hashWithSalt` refreshToken
+        `Prelude.hashWithSalt` oAuthRequest
 
 instance
   Prelude.NFData
     HoneycodeConnectorProfileCredentials
+  where
+  rnf HoneycodeConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf oAuthRequest
 
 instance
   Core.ToJSON

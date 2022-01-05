@@ -59,6 +59,9 @@ instance Core.FromJSON ZendeskMetadata where
             Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ZendeskMetadata
+instance Prelude.Hashable ZendeskMetadata where
+  hashWithSalt _salt ZendeskMetadata' {..} =
+    _salt `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData ZendeskMetadata
+instance Prelude.NFData ZendeskMetadata where
+  rnf ZendeskMetadata' {..} = Prelude.rnf oAuthScopes

@@ -93,6 +93,14 @@ instance Core.FromJSON FieldTypeDetails where
                         )
       )
 
-instance Prelude.Hashable FieldTypeDetails
+instance Prelude.Hashable FieldTypeDetails where
+  hashWithSalt _salt FieldTypeDetails' {..} =
+    _salt `Prelude.hashWithSalt` supportedValues
+      `Prelude.hashWithSalt` fieldType
+      `Prelude.hashWithSalt` filterOperators
 
-instance Prelude.NFData FieldTypeDetails
+instance Prelude.NFData FieldTypeDetails where
+  rnf FieldTypeDetails' {..} =
+    Prelude.rnf supportedValues
+      `Prelude.seq` Prelude.rnf fieldType
+      `Prelude.seq` Prelude.rnf filterOperators

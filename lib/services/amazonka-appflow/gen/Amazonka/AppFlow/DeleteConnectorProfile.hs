@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteConnectorProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnectorProfile
+instance Prelude.Hashable DeleteConnectorProfile where
+  hashWithSalt _salt DeleteConnectorProfile' {..} =
+    _salt `Prelude.hashWithSalt` forceDelete
+      `Prelude.hashWithSalt` connectorProfileName
 
-instance Prelude.NFData DeleteConnectorProfile
+instance Prelude.NFData DeleteConnectorProfile where
+  rnf DeleteConnectorProfile' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf connectorProfileName
 
 instance Core.ToHeaders DeleteConnectorProfile where
   toHeaders =
@@ -169,3 +175,6 @@ deleteConnectorProfileResponse_httpStatus = Lens.lens (\DeleteConnectorProfileRe
 instance
   Prelude.NFData
     DeleteConnectorProfileResponse
+  where
+  rnf DeleteConnectorProfileResponse' {..} =
+    Prelude.rnf httpStatus

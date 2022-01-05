@@ -102,8 +102,17 @@ instance Core.FromJSON UpsolverDestinationProperties where
 instance
   Prelude.Hashable
     UpsolverDestinationProperties
+  where
+  hashWithSalt _salt UpsolverDestinationProperties' {..} =
+    _salt `Prelude.hashWithSalt` bucketPrefix
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` s3OutputFormatConfig
 
-instance Prelude.NFData UpsolverDestinationProperties
+instance Prelude.NFData UpsolverDestinationProperties where
+  rnf UpsolverDestinationProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf s3OutputFormatConfig
 
 instance Core.ToJSON UpsolverDestinationProperties where
   toJSON UpsolverDestinationProperties' {..} =

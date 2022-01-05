@@ -97,10 +97,24 @@ marketoConnectorProfileCredentials_clientSecret = Lens.lens (\MarketoConnectorPr
 instance
   Prelude.Hashable
     MarketoConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    MarketoConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` accessToken
+        `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` clientSecret
 
 instance
   Prelude.NFData
     MarketoConnectorProfileCredentials
+  where
+  rnf MarketoConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf oAuthRequest
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance
   Core.ToJSON

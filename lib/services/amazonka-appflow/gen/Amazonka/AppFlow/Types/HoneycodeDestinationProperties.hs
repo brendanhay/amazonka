@@ -78,10 +78,20 @@ instance Core.FromJSON HoneycodeDestinationProperties where
 instance
   Prelude.Hashable
     HoneycodeDestinationProperties
+  where
+  hashWithSalt
+    _salt
+    HoneycodeDestinationProperties' {..} =
+      _salt `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` object'
 
 instance
   Prelude.NFData
     HoneycodeDestinationProperties
+  where
+  rnf HoneycodeDestinationProperties' {..} =
+    Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON HoneycodeDestinationProperties where
   toJSON HoneycodeDestinationProperties' {..} =

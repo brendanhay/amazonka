@@ -73,10 +73,20 @@ snowflakeConnectorProfileCredentials_password = Lens.lens (\SnowflakeConnectorPr
 instance
   Prelude.Hashable
     SnowflakeConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    SnowflakeConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` password
 
 instance
   Prelude.NFData
     SnowflakeConnectorProfileCredentials
+  where
+  rnf SnowflakeConnectorProfileCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToJSON

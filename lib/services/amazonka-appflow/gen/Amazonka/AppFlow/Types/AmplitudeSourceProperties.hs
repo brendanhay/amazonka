@@ -62,9 +62,13 @@ instance Core.FromJSON AmplitudeSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable AmplitudeSourceProperties
+instance Prelude.Hashable AmplitudeSourceProperties where
+  hashWithSalt _salt AmplitudeSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData AmplitudeSourceProperties
+instance Prelude.NFData AmplitudeSourceProperties where
+  rnf AmplitudeSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON AmplitudeSourceProperties where
   toJSON AmplitudeSourceProperties' {..} =

@@ -147,10 +147,30 @@ instance
 instance
   Prelude.Hashable
     SAPODataConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    SAPODataConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` logonLanguage
+        `Prelude.hashWithSalt` privateLinkServiceName
+        `Prelude.hashWithSalt` oAuthProperties
+        `Prelude.hashWithSalt` applicationHostUrl
+        `Prelude.hashWithSalt` applicationServicePath
+        `Prelude.hashWithSalt` portNumber
+        `Prelude.hashWithSalt` clientNumber
 
 instance
   Prelude.NFData
     SAPODataConnectorProfileProperties
+  where
+  rnf SAPODataConnectorProfileProperties' {..} =
+    Prelude.rnf logonLanguage
+      `Prelude.seq` Prelude.rnf privateLinkServiceName
+      `Prelude.seq` Prelude.rnf oAuthProperties
+      `Prelude.seq` Prelude.rnf applicationHostUrl
+      `Prelude.seq` Prelude.rnf applicationServicePath
+      `Prelude.seq` Prelude.rnf portNumber
+      `Prelude.seq` Prelude.rnf clientNumber
 
 instance
   Core.ToJSON

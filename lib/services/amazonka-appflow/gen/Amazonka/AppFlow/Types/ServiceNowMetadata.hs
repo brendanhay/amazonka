@@ -45,6 +45,9 @@ instance Core.FromJSON ServiceNowMetadata where
       "ServiceNowMetadata"
       (\x -> Prelude.pure ServiceNowMetadata')
 
-instance Prelude.Hashable ServiceNowMetadata
+instance Prelude.Hashable ServiceNowMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData ServiceNowMetadata
+instance Prelude.NFData ServiceNowMetadata where
+  rnf _ = ()

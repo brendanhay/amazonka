@@ -62,9 +62,13 @@ instance Core.FromJSON DynatraceSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable DynatraceSourceProperties
+instance Prelude.Hashable DynatraceSourceProperties where
+  hashWithSalt _salt DynatraceSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData DynatraceSourceProperties
+instance Prelude.NFData DynatraceSourceProperties where
+  rnf DynatraceSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON DynatraceSourceProperties where
   toJSON DynatraceSourceProperties' {..} =

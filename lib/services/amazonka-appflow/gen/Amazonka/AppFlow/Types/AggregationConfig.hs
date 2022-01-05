@@ -67,9 +67,13 @@ instance Core.FromJSON AggregationConfig where
             Prelude.<$> (x Core..:? "aggregationType")
       )
 
-instance Prelude.Hashable AggregationConfig
+instance Prelude.Hashable AggregationConfig where
+  hashWithSalt _salt AggregationConfig' {..} =
+    _salt `Prelude.hashWithSalt` aggregationType
 
-instance Prelude.NFData AggregationConfig
+instance Prelude.NFData AggregationConfig where
+  rnf AggregationConfig' {..} =
+    Prelude.rnf aggregationType
 
 instance Core.ToJSON AggregationConfig where
   toJSON AggregationConfig' {..} =

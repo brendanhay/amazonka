@@ -83,10 +83,20 @@ instance
 instance
   Prelude.Hashable
     SalesforceConnectorProfileProperties
+  where
+  hashWithSalt
+    _salt
+    SalesforceConnectorProfileProperties' {..} =
+      _salt `Prelude.hashWithSalt` instanceUrl
+        `Prelude.hashWithSalt` isSandboxEnvironment
 
 instance
   Prelude.NFData
     SalesforceConnectorProfileProperties
+  where
+  rnf SalesforceConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
+      `Prelude.seq` Prelude.rnf isSandboxEnvironment
 
 instance
   Core.ToJSON

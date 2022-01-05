@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     GoogleAnalyticsSourceProperties
+  where
+  hashWithSalt
+    _salt
+    GoogleAnalyticsSourceProperties' {..} =
+      _salt `Prelude.hashWithSalt` object'
 
 instance
   Prelude.NFData
     GoogleAnalyticsSourceProperties
+  where
+  rnf GoogleAnalyticsSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON GoogleAnalyticsSourceProperties where
   toJSON GoogleAnalyticsSourceProperties' {..} =

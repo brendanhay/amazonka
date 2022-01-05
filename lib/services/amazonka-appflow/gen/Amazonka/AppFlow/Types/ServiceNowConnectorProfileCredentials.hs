@@ -73,10 +73,20 @@ serviceNowConnectorProfileCredentials_password = Lens.lens (\ServiceNowConnector
 instance
   Prelude.Hashable
     ServiceNowConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    ServiceNowConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` password
 
 instance
   Prelude.NFData
     ServiceNowConnectorProfileCredentials
+  where
+  rnf ServiceNowConnectorProfileCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToJSON

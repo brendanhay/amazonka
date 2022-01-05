@@ -84,6 +84,15 @@ instance Core.FromJSON ExecutionDetails where
             Prelude.<*> (x Core..:? "mostRecentExecutionTime")
       )
 
-instance Prelude.Hashable ExecutionDetails
+instance Prelude.Hashable ExecutionDetails where
+  hashWithSalt _salt ExecutionDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` mostRecentExecutionMessage
+      `Prelude.hashWithSalt` mostRecentExecutionStatus
+      `Prelude.hashWithSalt` mostRecentExecutionTime
 
-instance Prelude.NFData ExecutionDetails
+instance Prelude.NFData ExecutionDetails where
+  rnf ExecutionDetails' {..} =
+    Prelude.rnf mostRecentExecutionMessage
+      `Prelude.seq` Prelude.rnf mostRecentExecutionStatus
+      `Prelude.seq` Prelude.rnf mostRecentExecutionTime

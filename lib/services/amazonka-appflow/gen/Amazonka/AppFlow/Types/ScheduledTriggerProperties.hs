@@ -142,9 +142,25 @@ instance Core.FromJSON ScheduledTriggerProperties where
             Prelude.<*> (x Core..: "scheduleExpression")
       )
 
-instance Prelude.Hashable ScheduledTriggerProperties
+instance Prelude.Hashable ScheduledTriggerProperties where
+  hashWithSalt _salt ScheduledTriggerProperties' {..} =
+    _salt `Prelude.hashWithSalt` scheduleEndTime
+      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` dataPullMode
+      `Prelude.hashWithSalt` scheduleStartTime
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` firstExecutionFrom
+      `Prelude.hashWithSalt` scheduleExpression
 
-instance Prelude.NFData ScheduledTriggerProperties
+instance Prelude.NFData ScheduledTriggerProperties where
+  rnf ScheduledTriggerProperties' {..} =
+    Prelude.rnf scheduleEndTime
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf dataPullMode
+      `Prelude.seq` Prelude.rnf scheduleStartTime
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf firstExecutionFrom
+      `Prelude.seq` Prelude.rnf scheduleExpression
 
 instance Core.ToJSON ScheduledTriggerProperties where
   toJSON ScheduledTriggerProperties' {..} =

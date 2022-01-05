@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteFlow where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFlow
+instance Prelude.Hashable DeleteFlow where
+  hashWithSalt _salt DeleteFlow' {..} =
+    _salt `Prelude.hashWithSalt` forceDelete
+      `Prelude.hashWithSalt` flowName
 
-instance Prelude.NFData DeleteFlow
+instance Prelude.NFData DeleteFlow where
+  rnf DeleteFlow' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf flowName
 
 instance Core.ToHeaders DeleteFlow where
   toHeaders =
@@ -159,4 +165,5 @@ newDeleteFlowResponse pHttpStatus_ =
 deleteFlowResponse_httpStatus :: Lens.Lens' DeleteFlowResponse Prelude.Int
 deleteFlowResponse_httpStatus = Lens.lens (\DeleteFlowResponse' {httpStatus} -> httpStatus) (\s@DeleteFlowResponse' {} a -> s {httpStatus = a} :: DeleteFlowResponse)
 
-instance Prelude.NFData DeleteFlowResponse
+instance Prelude.NFData DeleteFlowResponse where
+  rnf DeleteFlowResponse' {..} = Prelude.rnf httpStatus

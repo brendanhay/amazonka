@@ -96,8 +96,19 @@ instance Core.FromJSON ZendeskDestinationProperties where
 instance
   Prelude.Hashable
     ZendeskDestinationProperties
+  where
+  hashWithSalt _salt ZendeskDestinationProperties' {..} =
+    _salt `Prelude.hashWithSalt` writeOperationType
+      `Prelude.hashWithSalt` idFieldNames
+      `Prelude.hashWithSalt` errorHandlingConfig
+      `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData ZendeskDestinationProperties
+instance Prelude.NFData ZendeskDestinationProperties where
+  rnf ZendeskDestinationProperties' {..} =
+    Prelude.rnf writeOperationType
+      `Prelude.seq` Prelude.rnf idFieldNames
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON ZendeskDestinationProperties where
   toJSON ZendeskDestinationProperties' {..} =

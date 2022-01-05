@@ -88,9 +88,18 @@ instance Core.FromJSON SalesforceSourceProperties where
             Prelude.<*> (x Core..: "object")
       )
 
-instance Prelude.Hashable SalesforceSourceProperties
+instance Prelude.Hashable SalesforceSourceProperties where
+  hashWithSalt _salt SalesforceSourceProperties' {..} =
+    _salt
+      `Prelude.hashWithSalt` enableDynamicFieldUpdate
+      `Prelude.hashWithSalt` includeDeletedRecords
+      `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData SalesforceSourceProperties
+instance Prelude.NFData SalesforceSourceProperties where
+  rnf SalesforceSourceProperties' {..} =
+    Prelude.rnf enableDynamicFieldUpdate
+      `Prelude.seq` Prelude.rnf includeDeletedRecords
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =

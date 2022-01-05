@@ -145,6 +145,24 @@ instance Core.FromJSON ConnectorConfiguration where
             Prelude.<*> (x Core..:? "isPrivateLinkEndpointUrlRequired")
       )
 
-instance Prelude.Hashable ConnectorConfiguration
+instance Prelude.Hashable ConnectorConfiguration where
+  hashWithSalt _salt ConnectorConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` isPrivateLinkEnabled
+      `Prelude.hashWithSalt` supportedTriggerTypes
+      `Prelude.hashWithSalt` canUseAsSource
+      `Prelude.hashWithSalt` connectorMetadata
+      `Prelude.hashWithSalt` canUseAsDestination
+      `Prelude.hashWithSalt` supportedSchedulingFrequencies
+      `Prelude.hashWithSalt` supportedDestinationConnectors
+      `Prelude.hashWithSalt` isPrivateLinkEndpointUrlRequired
 
-instance Prelude.NFData ConnectorConfiguration
+instance Prelude.NFData ConnectorConfiguration where
+  rnf ConnectorConfiguration' {..} =
+    Prelude.rnf isPrivateLinkEnabled
+      `Prelude.seq` Prelude.rnf supportedTriggerTypes
+      `Prelude.seq` Prelude.rnf canUseAsSource
+      `Prelude.seq` Prelude.rnf connectorMetadata
+      `Prelude.seq` Prelude.rnf canUseAsDestination
+      `Prelude.seq` Prelude.rnf supportedSchedulingFrequencies
+      `Prelude.seq` Prelude.rnf supportedDestinationConnectors
+      `Prelude.seq` Prelude.rnf isPrivateLinkEndpointUrlRequired

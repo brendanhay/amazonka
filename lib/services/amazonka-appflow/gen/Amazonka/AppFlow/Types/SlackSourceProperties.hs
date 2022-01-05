@@ -61,9 +61,12 @@ instance Core.FromJSON SlackSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable SlackSourceProperties
+instance Prelude.Hashable SlackSourceProperties where
+  hashWithSalt _salt SlackSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData SlackSourceProperties
+instance Prelude.NFData SlackSourceProperties where
+  rnf SlackSourceProperties' {..} = Prelude.rnf object'
 
 instance Core.ToJSON SlackSourceProperties where
   toJSON SlackSourceProperties' {..} =

@@ -102,6 +102,16 @@ instance Core.FromJSON CommitTransactionResult where
             Prelude.<*> (x Core..:? "TransactionId")
       )
 
-instance Prelude.Hashable CommitTransactionResult
+instance Prelude.Hashable CommitTransactionResult where
+  hashWithSalt _salt CommitTransactionResult' {..} =
+    _salt `Prelude.hashWithSalt` timingInformation
+      `Prelude.hashWithSalt` consumedIOs
+      `Prelude.hashWithSalt` commitDigest
+      `Prelude.hashWithSalt` transactionId
 
-instance Prelude.NFData CommitTransactionResult
+instance Prelude.NFData CommitTransactionResult where
+  rnf CommitTransactionResult' {..} =
+    Prelude.rnf timingInformation
+      `Prelude.seq` Prelude.rnf consumedIOs
+      `Prelude.seq` Prelude.rnf commitDigest
+      `Prelude.seq` Prelude.rnf transactionId

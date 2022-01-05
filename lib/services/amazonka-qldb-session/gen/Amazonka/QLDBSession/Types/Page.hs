@@ -72,6 +72,12 @@ instance Core.FromJSON Page where
             Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Page
+instance Prelude.Hashable Page where
+  hashWithSalt _salt Page' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData Page
+instance Prelude.NFData Page where
+  rnf Page' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf values

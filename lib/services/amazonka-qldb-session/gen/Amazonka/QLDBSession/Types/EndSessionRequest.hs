@@ -39,9 +39,12 @@ newEndSessionRequest ::
   EndSessionRequest
 newEndSessionRequest = EndSessionRequest'
 
-instance Prelude.Hashable EndSessionRequest
+instance Prelude.Hashable EndSessionRequest where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData EndSessionRequest
+instance Prelude.NFData EndSessionRequest where
+  rnf _ = ()
 
 instance Core.ToJSON EndSessionRequest where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

@@ -39,9 +39,12 @@ newStartTransactionRequest ::
   StartTransactionRequest
 newStartTransactionRequest = StartTransactionRequest'
 
-instance Prelude.Hashable StartTransactionRequest
+instance Prelude.Hashable StartTransactionRequest where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData StartTransactionRequest
+instance Prelude.NFData StartTransactionRequest where
+  rnf _ = ()
 
 instance Core.ToJSON StartTransactionRequest where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

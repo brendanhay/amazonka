@@ -78,9 +78,17 @@ executeStatementRequest_transactionId = Lens.lens (\ExecuteStatementRequest' {tr
 executeStatementRequest_statement :: Lens.Lens' ExecuteStatementRequest Prelude.Text
 executeStatementRequest_statement = Lens.lens (\ExecuteStatementRequest' {statement} -> statement) (\s@ExecuteStatementRequest' {} a -> s {statement = a} :: ExecuteStatementRequest)
 
-instance Prelude.Hashable ExecuteStatementRequest
+instance Prelude.Hashable ExecuteStatementRequest where
+  hashWithSalt _salt ExecuteStatementRequest' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` statement
 
-instance Prelude.NFData ExecuteStatementRequest
+instance Prelude.NFData ExecuteStatementRequest where
+  rnf ExecuteStatementRequest' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf statement
 
 instance Core.ToJSON ExecuteStatementRequest where
   toJSON ExecuteStatementRequest' {..} =

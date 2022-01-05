@@ -116,9 +116,21 @@ putAssetPropertyValueEntry_entryId = Lens.lens (\PutAssetPropertyValueEntry' {en
 putAssetPropertyValueEntry_propertyValues :: Lens.Lens' PutAssetPropertyValueEntry [AssetPropertyValue]
 putAssetPropertyValueEntry_propertyValues = Lens.lens (\PutAssetPropertyValueEntry' {propertyValues} -> propertyValues) (\s@PutAssetPropertyValueEntry' {} a -> s {propertyValues = a} :: PutAssetPropertyValueEntry) Prelude.. Lens.coerced
 
-instance Prelude.Hashable PutAssetPropertyValueEntry
+instance Prelude.Hashable PutAssetPropertyValueEntry where
+  hashWithSalt _salt PutAssetPropertyValueEntry' {..} =
+    _salt `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` entryId
+      `Prelude.hashWithSalt` propertyValues
 
-instance Prelude.NFData PutAssetPropertyValueEntry
+instance Prelude.NFData PutAssetPropertyValueEntry where
+  rnf PutAssetPropertyValueEntry' {..} =
+    Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf entryId
+      `Prelude.seq` Prelude.rnf propertyValues
 
 instance Core.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =

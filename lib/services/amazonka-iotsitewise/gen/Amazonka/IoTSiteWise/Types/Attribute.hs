@@ -75,9 +75,12 @@ instance Core.FromJSON Attribute where
           Attribute' Prelude.<$> (x Core..:? "defaultValue")
       )
 
-instance Prelude.Hashable Attribute
+instance Prelude.Hashable Attribute where
+  hashWithSalt _salt Attribute' {..} =
+    _salt `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData Attribute
+instance Prelude.NFData Attribute where
+  rnf Attribute' {..} = Prelude.rnf defaultValue
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =

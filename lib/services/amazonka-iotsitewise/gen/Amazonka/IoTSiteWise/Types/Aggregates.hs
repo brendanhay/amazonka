@@ -111,6 +111,20 @@ instance Core.FromJSON Aggregates where
             Prelude.<*> (x Core..:? "sum")
       )
 
-instance Prelude.Hashable Aggregates
+instance Prelude.Hashable Aggregates where
+  hashWithSalt _salt Aggregates' {..} =
+    _salt `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` standardDeviation
+      `Prelude.hashWithSalt` sum
 
-instance Prelude.NFData Aggregates
+instance Prelude.NFData Aggregates where
+  rnf Aggregates' {..} =
+    Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf standardDeviation
+      `Prelude.seq` Prelude.rnf sum

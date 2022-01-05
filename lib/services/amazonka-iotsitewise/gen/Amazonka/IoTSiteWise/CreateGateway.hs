@@ -125,9 +125,17 @@ instance Core.AWSRequest CreateGateway where
             Prelude.<*> (x Core..:> "gatewayArn")
       )
 
-instance Prelude.Hashable CreateGateway
+instance Prelude.Hashable CreateGateway where
+  hashWithSalt _salt CreateGateway' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayPlatform
 
-instance Prelude.NFData CreateGateway
+instance Prelude.NFData CreateGateway where
+  rnf CreateGateway' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayPlatform
 
 instance Core.ToHeaders CreateGateway where
   toHeaders =
@@ -226,4 +234,8 @@ createGatewayResponse_gatewayId = Lens.lens (\CreateGatewayResponse' {gatewayId}
 createGatewayResponse_gatewayArn :: Lens.Lens' CreateGatewayResponse Prelude.Text
 createGatewayResponse_gatewayArn = Lens.lens (\CreateGatewayResponse' {gatewayArn} -> gatewayArn) (\s@CreateGatewayResponse' {} a -> s {gatewayArn = a} :: CreateGatewayResponse)
 
-instance Prelude.NFData CreateGatewayResponse
+instance Prelude.NFData CreateGatewayResponse where
+  rnf CreateGatewayResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf gatewayArn

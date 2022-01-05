@@ -74,6 +74,11 @@ instance Core.FromJSON ConfigurationStatus where
             Prelude.<$> (x Core..:? "error") Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable ConfigurationStatus
+instance Prelude.Hashable ConfigurationStatus where
+  hashWithSalt _salt ConfigurationStatus' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ConfigurationStatus
+instance Prelude.NFData ConfigurationStatus where
+  rnf ConfigurationStatus' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf state

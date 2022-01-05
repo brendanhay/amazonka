@@ -100,9 +100,19 @@ instance Core.FromJSON Identity where
             Prelude.<*> (x Core..:? "iamRole")
       )
 
-instance Prelude.Hashable Identity
+instance Prelude.Hashable Identity where
+  hashWithSalt _salt Identity' {..} =
+    _salt `Prelude.hashWithSalt` iamUser
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData Identity
+instance Prelude.NFData Identity where
+  rnf Identity' {..} =
+    Prelude.rnf iamUser
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf iamRole
 
 instance Core.ToJSON Identity where
   toJSON Identity' {..} =

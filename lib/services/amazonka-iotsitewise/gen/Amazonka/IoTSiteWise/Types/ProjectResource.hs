@@ -59,9 +59,12 @@ instance Core.FromJSON ProjectResource where
           ProjectResource' Prelude.<$> (x Core..: "id")
       )
 
-instance Prelude.Hashable ProjectResource
+instance Prelude.Hashable ProjectResource where
+  hashWithSalt _salt ProjectResource' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ProjectResource
+instance Prelude.NFData ProjectResource where
+  rnf ProjectResource' {..} = Prelude.rnf id
 
 instance Core.ToJSON ProjectResource where
   toJSON ProjectResource' {..} =

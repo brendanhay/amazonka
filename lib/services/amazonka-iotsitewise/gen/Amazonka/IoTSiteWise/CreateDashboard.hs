@@ -171,9 +171,23 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (x Core..:> "dashboardArn")
       )
 
-instance Prelude.Hashable CreateDashboard
+instance Prelude.Hashable CreateDashboard where
+  hashWithSalt _salt CreateDashboard' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dashboardDescription
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` dashboardName
+      `Prelude.hashWithSalt` dashboardDefinition
 
-instance Prelude.NFData CreateDashboard
+instance Prelude.NFData CreateDashboard where
+  rnf CreateDashboard' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dashboardDescription
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf dashboardDefinition
 
 instance Core.ToHeaders CreateDashboard where
   toHeaders =
@@ -273,4 +287,8 @@ createDashboardResponse_dashboardId = Lens.lens (\CreateDashboardResponse' {dash
 createDashboardResponse_dashboardArn :: Lens.Lens' CreateDashboardResponse Prelude.Text
 createDashboardResponse_dashboardArn = Lens.lens (\CreateDashboardResponse' {dashboardArn} -> dashboardArn) (\s@CreateDashboardResponse' {} a -> s {dashboardArn = a} :: CreateDashboardResponse)
 
-instance Prelude.NFData CreateDashboardResponse
+instance Prelude.NFData CreateDashboardResponse where
+  rnf CreateDashboardResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf dashboardArn

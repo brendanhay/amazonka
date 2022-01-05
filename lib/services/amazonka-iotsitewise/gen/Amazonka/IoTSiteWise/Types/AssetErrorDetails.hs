@@ -88,6 +88,14 @@ instance Core.FromJSON AssetErrorDetails where
             Prelude.<*> (x Core..: "message")
       )
 
-instance Prelude.Hashable AssetErrorDetails
+instance Prelude.Hashable AssetErrorDetails where
+  hashWithSalt _salt AssetErrorDetails' {..} =
+    _salt `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData AssetErrorDetails
+instance Prelude.NFData AssetErrorDetails where
+  rnf AssetErrorDetails' {..} =
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message

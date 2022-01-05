@@ -91,6 +91,14 @@ instance Core.FromJSON BatchPutAssetPropertyError where
             Prelude.<*> (x Core..:? "timestamps" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchPutAssetPropertyError
+instance Prelude.Hashable BatchPutAssetPropertyError where
+  hashWithSalt _salt BatchPutAssetPropertyError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` timestamps
 
-instance Prelude.NFData BatchPutAssetPropertyError
+instance Prelude.NFData BatchPutAssetPropertyError where
+  rnf BatchPutAssetPropertyError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf timestamps

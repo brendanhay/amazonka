@@ -69,9 +69,12 @@ instance Core.FromJSON IAMRoleIdentity where
           IAMRoleIdentity' Prelude.<$> (x Core..: "arn")
       )
 
-instance Prelude.Hashable IAMRoleIdentity
+instance Prelude.Hashable IAMRoleIdentity where
+  hashWithSalt _salt IAMRoleIdentity' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData IAMRoleIdentity
+instance Prelude.NFData IAMRoleIdentity where
+  rnf IAMRoleIdentity' {..} = Prelude.rnf arn
 
 instance Core.ToJSON IAMRoleIdentity where
   toJSON IAMRoleIdentity' {..} =

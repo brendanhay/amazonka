@@ -110,9 +110,12 @@ instance Core.AWSRequest DescribeAsset where
             Prelude.<*> (x Core..:> "assetStatus")
       )
 
-instance Prelude.Hashable DescribeAsset
+instance Prelude.Hashable DescribeAsset where
+  hashWithSalt _salt DescribeAsset' {..} =
+    _salt `Prelude.hashWithSalt` assetId
 
-instance Prelude.NFData DescribeAsset
+instance Prelude.NFData DescribeAsset where
+  rnf DescribeAsset' {..} = Prelude.rnf assetId
 
 instance Core.ToHeaders DescribeAsset where
   toHeaders =
@@ -306,4 +309,16 @@ describeAssetResponse_assetLastUpdateDate = Lens.lens (\DescribeAssetResponse' {
 describeAssetResponse_assetStatus :: Lens.Lens' DescribeAssetResponse AssetStatus
 describeAssetResponse_assetStatus = Lens.lens (\DescribeAssetResponse' {assetStatus} -> assetStatus) (\s@DescribeAssetResponse' {} a -> s {assetStatus = a} :: DescribeAssetResponse)
 
-instance Prelude.NFData DescribeAssetResponse
+instance Prelude.NFData DescribeAssetResponse where
+  rnf DescribeAssetResponse' {..} =
+    Prelude.rnf assetCompositeModels
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf assetArn
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf assetModelId
+      `Prelude.seq` Prelude.rnf assetProperties
+      `Prelude.seq` Prelude.rnf assetHierarchies
+      `Prelude.seq` Prelude.rnf assetCreationDate
+      `Prelude.seq` Prelude.rnf assetLastUpdateDate
+      `Prelude.seq` Prelude.rnf assetStatus

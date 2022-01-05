@@ -102,9 +102,19 @@ instance Core.FromJSON AssetModelCompositeModel where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable AssetModelCompositeModel
+instance Prelude.Hashable AssetModelCompositeModel where
+  hashWithSalt _salt AssetModelCompositeModel' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AssetModelCompositeModel
+instance Prelude.NFData AssetModelCompositeModel where
+  rnf AssetModelCompositeModel' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON AssetModelCompositeModel where
   toJSON AssetModelCompositeModel' {..} =

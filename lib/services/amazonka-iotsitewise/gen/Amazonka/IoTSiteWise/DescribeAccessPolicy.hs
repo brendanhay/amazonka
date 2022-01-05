@@ -102,9 +102,13 @@ instance Core.AWSRequest DescribeAccessPolicy where
             Prelude.<*> (x Core..:> "accessPolicyLastUpdateDate")
       )
 
-instance Prelude.Hashable DescribeAccessPolicy
+instance Prelude.Hashable DescribeAccessPolicy where
+  hashWithSalt _salt DescribeAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` accessPolicyId
 
-instance Prelude.NFData DescribeAccessPolicy
+instance Prelude.NFData DescribeAccessPolicy where
+  rnf DescribeAccessPolicy' {..} =
+    Prelude.rnf accessPolicyId
 
 instance Core.ToHeaders DescribeAccessPolicy where
   toHeaders =
@@ -266,4 +270,13 @@ describeAccessPolicyResponse_accessPolicyCreationDate = Lens.lens (\DescribeAcce
 describeAccessPolicyResponse_accessPolicyLastUpdateDate :: Lens.Lens' DescribeAccessPolicyResponse Prelude.UTCTime
 describeAccessPolicyResponse_accessPolicyLastUpdateDate = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyLastUpdateDate} -> accessPolicyLastUpdateDate) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyLastUpdateDate = a} :: DescribeAccessPolicyResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeAccessPolicyResponse
+instance Prelude.NFData DescribeAccessPolicyResponse where
+  rnf DescribeAccessPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessPolicyId
+      `Prelude.seq` Prelude.rnf accessPolicyArn
+      `Prelude.seq` Prelude.rnf accessPolicyIdentity
+      `Prelude.seq` Prelude.rnf accessPolicyResource
+      `Prelude.seq` Prelude.rnf accessPolicyPermission
+      `Prelude.seq` Prelude.rnf accessPolicyCreationDate
+      `Prelude.seq` Prelude.rnf accessPolicyLastUpdateDate

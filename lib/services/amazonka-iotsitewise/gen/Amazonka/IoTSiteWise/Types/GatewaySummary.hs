@@ -135,6 +135,20 @@ instance Core.FromJSON GatewaySummary where
             Prelude.<*> (x Core..: "lastUpdateDate")
       )
 
-instance Prelude.Hashable GatewaySummary
+instance Prelude.Hashable GatewaySummary where
+  hashWithSalt _salt GatewaySummary' {..} =
+    _salt `Prelude.hashWithSalt` gatewayPlatform
+      `Prelude.hashWithSalt` gatewayCapabilitySummaries
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
 
-instance Prelude.NFData GatewaySummary
+instance Prelude.NFData GatewaySummary where
+  rnf GatewaySummary' {..} =
+    Prelude.rnf gatewayPlatform
+      `Prelude.seq` Prelude.rnf gatewayCapabilitySummaries
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate

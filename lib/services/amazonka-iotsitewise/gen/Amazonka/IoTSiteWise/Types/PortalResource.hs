@@ -57,9 +57,12 @@ instance Core.FromJSON PortalResource where
       "PortalResource"
       (\x -> PortalResource' Prelude.<$> (x Core..: "id"))
 
-instance Prelude.Hashable PortalResource
+instance Prelude.Hashable PortalResource where
+  hashWithSalt _salt PortalResource' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData PortalResource
+instance Prelude.NFData PortalResource where
+  rnf PortalResource' {..} = Prelude.rnf id
 
 instance Core.ToJSON PortalResource where
   toJSON PortalResource' {..} =

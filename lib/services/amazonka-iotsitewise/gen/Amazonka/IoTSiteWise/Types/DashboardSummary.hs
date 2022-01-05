@@ -105,6 +105,18 @@ instance Core.FromJSON DashboardSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable DashboardSummary
+instance Prelude.Hashable DashboardSummary where
+  hashWithSalt _salt DashboardSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdateDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DashboardSummary
+instance Prelude.NFData DashboardSummary where
+  rnf DashboardSummary' {..} =
+    Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

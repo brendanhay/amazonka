@@ -72,6 +72,12 @@ instance Core.FromJSON AssetHierarchyInfo where
             Prelude.<*> (x Core..:? "parentAssetId")
       )
 
-instance Prelude.Hashable AssetHierarchyInfo
+instance Prelude.Hashable AssetHierarchyInfo where
+  hashWithSalt _salt AssetHierarchyInfo' {..} =
+    _salt `Prelude.hashWithSalt` childAssetId
+      `Prelude.hashWithSalt` parentAssetId
 
-instance Prelude.NFData AssetHierarchyInfo
+instance Prelude.NFData AssetHierarchyInfo where
+  rnf AssetHierarchyInfo' {..} =
+    Prelude.rnf childAssetId
+      `Prelude.seq` Prelude.rnf parentAssetId

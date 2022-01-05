@@ -235,9 +235,25 @@ instance Core.AWSRequest UpdateAssetModel where
             Prelude.<*> (x Core..:> "assetModelStatus")
       )
 
-instance Prelude.Hashable UpdateAssetModel
+instance Prelude.Hashable UpdateAssetModel where
+  hashWithSalt _salt UpdateAssetModel' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` assetModelDescription
+      `Prelude.hashWithSalt` assetModelProperties
+      `Prelude.hashWithSalt` assetModelCompositeModels
+      `Prelude.hashWithSalt` assetModelHierarchies
+      `Prelude.hashWithSalt` assetModelId
+      `Prelude.hashWithSalt` assetModelName
 
-instance Prelude.NFData UpdateAssetModel
+instance Prelude.NFData UpdateAssetModel where
+  rnf UpdateAssetModel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetModelDescription
+      `Prelude.seq` Prelude.rnf assetModelProperties
+      `Prelude.seq` Prelude.rnf assetModelCompositeModels
+      `Prelude.seq` Prelude.rnf assetModelHierarchies
+      `Prelude.seq` Prelude.rnf assetModelId
+      `Prelude.seq` Prelude.rnf assetModelName
 
 instance Core.ToHeaders UpdateAssetModel where
   toHeaders =
@@ -322,4 +338,7 @@ updateAssetModelResponse_httpStatus = Lens.lens (\UpdateAssetModelResponse' {htt
 updateAssetModelResponse_assetModelStatus :: Lens.Lens' UpdateAssetModelResponse AssetModelStatus
 updateAssetModelResponse_assetModelStatus = Lens.lens (\UpdateAssetModelResponse' {assetModelStatus} -> assetModelStatus) (\s@UpdateAssetModelResponse' {} a -> s {assetModelStatus = a} :: UpdateAssetModelResponse)
 
-instance Prelude.NFData UpdateAssetModelResponse
+instance Prelude.NFData UpdateAssetModelResponse where
+  rnf UpdateAssetModelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assetModelStatus

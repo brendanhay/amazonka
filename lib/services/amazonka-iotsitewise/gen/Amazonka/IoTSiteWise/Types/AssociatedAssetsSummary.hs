@@ -170,6 +170,24 @@ instance Core.FromJSON AssociatedAssetsSummary where
             Prelude.<*> (x Core..:? "hierarchies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AssociatedAssetsSummary
+instance Prelude.Hashable AssociatedAssetsSummary where
+  hashWithSalt _salt AssociatedAssetsSummary' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` assetModelId
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` hierarchies
 
-instance Prelude.NFData AssociatedAssetsSummary
+instance Prelude.NFData AssociatedAssetsSummary where
+  rnf AssociatedAssetsSummary' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf assetModelId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hierarchies

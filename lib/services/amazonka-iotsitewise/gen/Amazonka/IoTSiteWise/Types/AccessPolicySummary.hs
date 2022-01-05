@@ -134,6 +134,20 @@ instance Core.FromJSON AccessPolicySummary where
             Prelude.<*> (x Core..: "permission")
       )
 
-instance Prelude.Hashable AccessPolicySummary
+instance Prelude.Hashable AccessPolicySummary where
+  hashWithSalt _salt AccessPolicySummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdateDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` permission
 
-instance Prelude.NFData AccessPolicySummary
+instance Prelude.NFData AccessPolicySummary where
+  rnf AccessPolicySummary' {..} =
+    Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf permission

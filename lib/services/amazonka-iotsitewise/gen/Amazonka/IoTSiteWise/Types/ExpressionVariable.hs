@@ -72,9 +72,14 @@ instance Core.FromJSON ExpressionVariable where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable ExpressionVariable
+instance Prelude.Hashable ExpressionVariable where
+  hashWithSalt _salt ExpressionVariable' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ExpressionVariable
+instance Prelude.NFData ExpressionVariable where
+  rnf ExpressionVariable' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ExpressionVariable where
   toJSON ExpressionVariable' {..} =

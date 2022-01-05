@@ -72,6 +72,11 @@ instance Core.FromJSON MonitorErrorDetails where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable MonitorErrorDetails
+instance Prelude.Hashable MonitorErrorDetails where
+  hashWithSalt _salt MonitorErrorDetails' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData MonitorErrorDetails
+instance Prelude.NFData MonitorErrorDetails where
+  rnf MonitorErrorDetails' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

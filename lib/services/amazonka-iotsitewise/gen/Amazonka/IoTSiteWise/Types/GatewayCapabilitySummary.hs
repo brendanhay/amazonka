@@ -115,6 +115,12 @@ instance Core.FromJSON GatewayCapabilitySummary where
             Prelude.<*> (x Core..: "capabilitySyncStatus")
       )
 
-instance Prelude.Hashable GatewayCapabilitySummary
+instance Prelude.Hashable GatewayCapabilitySummary where
+  hashWithSalt _salt GatewayCapabilitySummary' {..} =
+    _salt `Prelude.hashWithSalt` capabilityNamespace
+      `Prelude.hashWithSalt` capabilitySyncStatus
 
-instance Prelude.NFData GatewayCapabilitySummary
+instance Prelude.NFData GatewayCapabilitySummary where
+  rnf GatewayCapabilitySummary' {..} =
+    Prelude.rnf capabilityNamespace
+      `Prelude.seq` Prelude.rnf capabilitySyncStatus

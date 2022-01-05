@@ -148,9 +148,21 @@ instance Core.AWSRequest UpdateDashboard where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDashboard
+instance Prelude.Hashable UpdateDashboard where
+  hashWithSalt _salt UpdateDashboard' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dashboardDescription
+      `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` dashboardName
+      `Prelude.hashWithSalt` dashboardDefinition
 
-instance Prelude.NFData UpdateDashboard
+instance Prelude.NFData UpdateDashboard where
+  rnf UpdateDashboard' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dashboardDescription
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf dashboardDefinition
 
 instance Core.ToHeaders UpdateDashboard where
   toHeaders =
@@ -211,4 +223,6 @@ newUpdateDashboardResponse pHttpStatus_ =
 updateDashboardResponse_httpStatus :: Lens.Lens' UpdateDashboardResponse Prelude.Int
 updateDashboardResponse_httpStatus = Lens.lens (\UpdateDashboardResponse' {httpStatus} -> httpStatus) (\s@UpdateDashboardResponse' {} a -> s {httpStatus = a} :: UpdateDashboardResponse)
 
-instance Prelude.NFData UpdateDashboardResponse
+instance Prelude.NFData UpdateDashboardResponse where
+  rnf UpdateDashboardResponse' {..} =
+    Prelude.rnf httpStatus

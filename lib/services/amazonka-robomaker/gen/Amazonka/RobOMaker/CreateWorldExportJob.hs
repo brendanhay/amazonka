@@ -161,9 +161,21 @@ instance Core.AWSRequest CreateWorldExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorldExportJob
+instance Prelude.Hashable CreateWorldExportJob where
+  hashWithSalt _salt CreateWorldExportJob' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` worlds
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData CreateWorldExportJob
+instance Prelude.NFData CreateWorldExportJob where
+  rnf CreateWorldExportJob' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf worlds
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf iamRole
 
 instance Core.ToHeaders CreateWorldExportJob where
   toHeaders =
@@ -435,4 +447,14 @@ createWorldExportJobResponse_tags = Lens.lens (\CreateWorldExportJobResponse' {t
 createWorldExportJobResponse_httpStatus :: Lens.Lens' CreateWorldExportJobResponse Prelude.Int
 createWorldExportJobResponse_httpStatus = Lens.lens (\CreateWorldExportJobResponse' {httpStatus} -> httpStatus) (\s@CreateWorldExportJobResponse' {} a -> s {httpStatus = a} :: CreateWorldExportJobResponse)
 
-instance Prelude.NFData CreateWorldExportJobResponse
+instance Prelude.NFData CreateWorldExportJobResponse where
+  rnf CreateWorldExportJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

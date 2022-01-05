@@ -63,9 +63,13 @@ instance Core.FromJSON PortForwardingConfig where
             Prelude.<$> (x Core..:? "portMappings" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PortForwardingConfig
+instance Prelude.Hashable PortForwardingConfig where
+  hashWithSalt _salt PortForwardingConfig' {..} =
+    _salt `Prelude.hashWithSalt` portMappings
 
-instance Prelude.NFData PortForwardingConfig
+instance Prelude.NFData PortForwardingConfig where
+  rnf PortForwardingConfig' {..} =
+    Prelude.rnf portMappings
 
 instance Core.ToJSON PortForwardingConfig where
   toJSON PortForwardingConfig' {..} =

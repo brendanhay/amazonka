@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateRobot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRobot
+instance Prelude.Hashable CreateRobot where
+  hashWithSalt _salt CreateRobot' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` greengrassGroupId
 
-instance Prelude.NFData CreateRobot
+instance Prelude.NFData CreateRobot where
+  rnf CreateRobot' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf greengrassGroupId
 
 instance Core.ToHeaders CreateRobot where
   toHeaders =
@@ -255,4 +265,12 @@ createRobotResponse_tags = Lens.lens (\CreateRobotResponse' {tags} -> tags) (\s@
 createRobotResponse_httpStatus :: Lens.Lens' CreateRobotResponse Prelude.Int
 createRobotResponse_httpStatus = Lens.lens (\CreateRobotResponse' {httpStatus} -> httpStatus) (\s@CreateRobotResponse' {} a -> s {httpStatus = a} :: CreateRobotResponse)
 
-instance Prelude.NFData CreateRobotResponse
+instance Prelude.NFData CreateRobotResponse where
+  rnf CreateRobotResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf greengrassGroupId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

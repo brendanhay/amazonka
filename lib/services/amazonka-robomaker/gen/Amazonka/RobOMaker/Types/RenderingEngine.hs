@@ -72,9 +72,14 @@ instance Core.FromJSON RenderingEngine where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable RenderingEngine
+instance Prelude.Hashable RenderingEngine where
+  hashWithSalt _salt RenderingEngine' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData RenderingEngine
+instance Prelude.NFData RenderingEngine where
+  rnf RenderingEngine' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON RenderingEngine where
   toJSON RenderingEngine' {..} =

@@ -119,9 +119,15 @@ instance Core.AWSRequest SyncDeploymentJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SyncDeploymentJob
+instance Prelude.Hashable SyncDeploymentJob where
+  hashWithSalt _salt SyncDeploymentJob' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` fleet
 
-instance Prelude.NFData SyncDeploymentJob
+instance Prelude.NFData SyncDeploymentJob where
+  rnf SyncDeploymentJob' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf fleet
 
 instance Core.ToHeaders SyncDeploymentJob where
   toHeaders =
@@ -393,4 +399,14 @@ syncDeploymentJobResponse_fleet = Lens.lens (\SyncDeploymentJobResponse' {fleet}
 syncDeploymentJobResponse_httpStatus :: Lens.Lens' SyncDeploymentJobResponse Prelude.Int
 syncDeploymentJobResponse_httpStatus = Lens.lens (\SyncDeploymentJobResponse' {httpStatus} -> httpStatus) (\s@SyncDeploymentJobResponse' {} a -> s {httpStatus = a} :: SyncDeploymentJobResponse)
 
-instance Prelude.NFData SyncDeploymentJobResponse
+instance Prelude.NFData SyncDeploymentJobResponse where
+  rnf SyncDeploymentJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf httpStatus

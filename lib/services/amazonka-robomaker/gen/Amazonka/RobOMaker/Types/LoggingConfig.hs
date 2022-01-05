@@ -64,9 +64,13 @@ instance Core.FromJSON LoggingConfig where
             Prelude.<$> (x Core..: "recordAllRosTopics")
       )
 
-instance Prelude.Hashable LoggingConfig
+instance Prelude.Hashable LoggingConfig where
+  hashWithSalt _salt LoggingConfig' {..} =
+    _salt `Prelude.hashWithSalt` recordAllRosTopics
 
-instance Prelude.NFData LoggingConfig
+instance Prelude.NFData LoggingConfig where
+  rnf LoggingConfig' {..} =
+    Prelude.rnf recordAllRosTopics
 
 instance Core.ToJSON LoggingConfig where
   toJSON LoggingConfig' {..} =

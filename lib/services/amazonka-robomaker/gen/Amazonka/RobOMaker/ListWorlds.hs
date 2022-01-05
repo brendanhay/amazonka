@@ -158,9 +158,17 @@ instance Core.AWSRequest ListWorlds where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorlds
+instance Prelude.Hashable ListWorlds where
+  hashWithSalt _salt ListWorlds' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWorlds
+instance Prelude.NFData ListWorlds where
+  rnf ListWorlds' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorlds where
   toHeaders =
@@ -251,4 +259,8 @@ listWorldsResponse_worldSummaries = Lens.lens (\ListWorldsResponse' {worldSummar
 listWorldsResponse_httpStatus :: Lens.Lens' ListWorldsResponse Prelude.Int
 listWorldsResponse_httpStatus = Lens.lens (\ListWorldsResponse' {httpStatus} -> httpStatus) (\s@ListWorldsResponse' {} a -> s {httpStatus = a} :: ListWorldsResponse)
 
-instance Prelude.NFData ListWorldsResponse
+instance Prelude.NFData ListWorldsResponse where
+  rnf ListWorldsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf worldSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

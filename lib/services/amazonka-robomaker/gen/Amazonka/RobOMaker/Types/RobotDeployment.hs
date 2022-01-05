@@ -128,6 +128,22 @@ instance Core.FromJSON RobotDeployment where
             Prelude.<*> (x Core..:? "deploymentFinishTime")
       )
 
-instance Prelude.Hashable RobotDeployment
+instance Prelude.Hashable RobotDeployment where
+  hashWithSalt _salt RobotDeployment' {..} =
+    _salt `Prelude.hashWithSalt` deploymentStartTime
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` progressDetail
+      `Prelude.hashWithSalt` deploymentFinishTime
 
-instance Prelude.NFData RobotDeployment
+instance Prelude.NFData RobotDeployment where
+  rnf RobotDeployment' {..} =
+    Prelude.rnf deploymentStartTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf progressDetail
+      `Prelude.seq` Prelude.rnf deploymentFinishTime

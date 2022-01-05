@@ -120,5 +120,20 @@ instance Core.FromJSON SimulationApplicationSummary where
 instance
   Prelude.Hashable
     SimulationApplicationSummary
+  where
+  hashWithSalt _salt SimulationApplicationSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` simulationSoftwareSuite
+      `Prelude.hashWithSalt` robotSoftwareSuite
 
-instance Prelude.NFData SimulationApplicationSummary
+instance Prelude.NFData SimulationApplicationSummary where
+  rnf SimulationApplicationSummary' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite

@@ -151,8 +151,19 @@ instance
 instance
   Prelude.Hashable
     CreateRobotApplicationVersion
+  where
+  hashWithSalt _salt CreateRobotApplicationVersion' {..} =
+    _salt `Prelude.hashWithSalt` currentRevisionId
+      `Prelude.hashWithSalt` s3Etags
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` application
 
-instance Prelude.NFData CreateRobotApplicationVersion
+instance Prelude.NFData CreateRobotApplicationVersion where
+  rnf CreateRobotApplicationVersion' {..} =
+    Prelude.rnf currentRevisionId
+      `Prelude.seq` Prelude.rnf s3Etags
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf application
 
 instance Core.ToHeaders CreateRobotApplicationVersion where
   toHeaders =
@@ -298,3 +309,14 @@ createRobotApplicationVersionResponse_httpStatus = Lens.lens (\CreateRobotApplic
 instance
   Prelude.NFData
     CreateRobotApplicationVersionResponse
+  where
+  rnf CreateRobotApplicationVersionResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -185,9 +185,17 @@ instance Core.AWSRequest ListSimulationJobs where
                         )
       )
 
-instance Prelude.Hashable ListSimulationJobs
+instance Prelude.Hashable ListSimulationJobs where
+  hashWithSalt _salt ListSimulationJobs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSimulationJobs
+instance Prelude.NFData ListSimulationJobs where
+  rnf ListSimulationJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSimulationJobs where
   toHeaders =
@@ -282,4 +290,8 @@ listSimulationJobsResponse_httpStatus = Lens.lens (\ListSimulationJobsResponse' 
 listSimulationJobsResponse_simulationJobSummaries :: Lens.Lens' ListSimulationJobsResponse [SimulationJobSummary]
 listSimulationJobsResponse_simulationJobSummaries = Lens.lens (\ListSimulationJobsResponse' {simulationJobSummaries} -> simulationJobSummaries) (\s@ListSimulationJobsResponse' {} a -> s {simulationJobSummaries = a} :: ListSimulationJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListSimulationJobsResponse
+instance Prelude.NFData ListSimulationJobsResponse where
+  rnf ListSimulationJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf simulationJobSummaries

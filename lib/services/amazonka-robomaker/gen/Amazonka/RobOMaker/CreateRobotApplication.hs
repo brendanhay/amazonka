@@ -156,9 +156,21 @@ instance Core.AWSRequest CreateRobotApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRobotApplication
+instance Prelude.Hashable CreateRobotApplication where
+  hashWithSalt _salt CreateRobotApplication' {..} =
+    _salt `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` robotSoftwareSuite
 
-instance Prelude.NFData CreateRobotApplication
+instance Prelude.NFData CreateRobotApplication where
+  rnf CreateRobotApplication' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
 
 instance Core.ToHeaders CreateRobotApplication where
   toHeaders =
@@ -313,3 +325,15 @@ createRobotApplicationResponse_httpStatus = Lens.lens (\CreateRobotApplicationRe
 instance
   Prelude.NFData
     CreateRobotApplicationResponse
+  where
+  rnf CreateRobotApplicationResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

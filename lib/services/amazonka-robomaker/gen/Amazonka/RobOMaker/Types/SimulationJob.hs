@@ -311,6 +311,51 @@ instance Core.FromJSON SimulationJob where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SimulationJob
+instance Prelude.Hashable SimulationJob where
+  hashWithSalt _salt SimulationJob' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` failureBehavior
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` robotApplications
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` compute
+      `Prelude.hashWithSalt` networkInterface
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` simulationApplications
+      `Prelude.hashWithSalt` simulationTimeMillis
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` lastStartedAt
+      `Prelude.hashWithSalt` loggingConfig
+      `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` maxJobDurationInSeconds
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData SimulationJob
+instance Prelude.NFData SimulationJob where
+  rnf SimulationJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf failureBehavior
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf robotApplications
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf networkInterface
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf simulationApplications
+      `Prelude.seq` Prelude.rnf simulationTimeMillis
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf lastStartedAt
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf
+        maxJobDurationInSeconds
+      `Prelude.seq` Prelude.rnf tags

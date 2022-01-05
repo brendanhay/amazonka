@@ -233,9 +233,35 @@ instance Core.FromJSON SimulationJobRequest where
             Prelude.<*> (x Core..: "maxJobDurationInSeconds")
       )
 
-instance Prelude.Hashable SimulationJobRequest
+instance Prelude.Hashable SimulationJobRequest where
+  hashWithSalt _salt SimulationJobRequest' {..} =
+    _salt `Prelude.hashWithSalt` failureBehavior
+      `Prelude.hashWithSalt` robotApplications
+      `Prelude.hashWithSalt` compute
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` useDefaultApplications
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` simulationApplications
+      `Prelude.hashWithSalt` loggingConfig
+      `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` maxJobDurationInSeconds
 
-instance Prelude.NFData SimulationJobRequest
+instance Prelude.NFData SimulationJobRequest where
+  rnf SimulationJobRequest' {..} =
+    Prelude.rnf failureBehavior
+      `Prelude.seq` Prelude.rnf robotApplications
+      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf useDefaultApplications
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf simulationApplications
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
 
 instance Core.ToJSON SimulationJobRequest where
   toJSON SimulationJobRequest' {..} =

@@ -188,9 +188,19 @@ instance Core.AWSRequest ListSimulationApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSimulationApplications
+instance Prelude.Hashable ListSimulationApplications where
+  hashWithSalt _salt ListSimulationApplications' {..} =
+    _salt `Prelude.hashWithSalt` versionQualifier
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSimulationApplications
+instance Prelude.NFData ListSimulationApplications where
+  rnf ListSimulationApplications' {..} =
+    Prelude.rnf versionQualifier
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSimulationApplications where
   toHeaders =
@@ -291,3 +301,8 @@ listSimulationApplicationsResponse_httpStatus = Lens.lens (\ListSimulationApplic
 instance
   Prelude.NFData
     ListSimulationApplicationsResponse
+  where
+  rnf ListSimulationApplicationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf simulationApplicationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

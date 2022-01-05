@@ -91,9 +91,13 @@ instance Core.AWSRequest BatchDescribeSimulationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDescribeSimulationJob
+instance Prelude.Hashable BatchDescribeSimulationJob where
+  hashWithSalt _salt BatchDescribeSimulationJob' {..} =
+    _salt `Prelude.hashWithSalt` jobs
 
-instance Prelude.NFData BatchDescribeSimulationJob
+instance Prelude.NFData BatchDescribeSimulationJob where
+  rnf BatchDescribeSimulationJob' {..} =
+    Prelude.rnf jobs
 
 instance Core.ToHeaders BatchDescribeSimulationJob where
   toHeaders =
@@ -170,3 +174,8 @@ batchDescribeSimulationJobResponse_httpStatus = Lens.lens (\BatchDescribeSimulat
 instance
   Prelude.NFData
     BatchDescribeSimulationJobResponse
+  where
+  rnf BatchDescribeSimulationJobResponse' {..} =
+    Prelude.rnf unprocessedJobs
+      `Prelude.seq` Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus

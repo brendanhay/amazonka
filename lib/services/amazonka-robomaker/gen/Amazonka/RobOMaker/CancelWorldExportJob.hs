@@ -84,9 +84,12 @@ instance Core.AWSRequest CancelWorldExportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelWorldExportJob
+instance Prelude.Hashable CancelWorldExportJob where
+  hashWithSalt _salt CancelWorldExportJob' {..} =
+    _salt `Prelude.hashWithSalt` job
 
-instance Prelude.NFData CancelWorldExportJob
+instance Prelude.NFData CancelWorldExportJob where
+  rnf CancelWorldExportJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders CancelWorldExportJob where
   toHeaders =
@@ -142,4 +145,6 @@ newCancelWorldExportJobResponse pHttpStatus_ =
 cancelWorldExportJobResponse_httpStatus :: Lens.Lens' CancelWorldExportJobResponse Prelude.Int
 cancelWorldExportJobResponse_httpStatus = Lens.lens (\CancelWorldExportJobResponse' {httpStatus} -> httpStatus) (\s@CancelWorldExportJobResponse' {} a -> s {httpStatus = a} :: CancelWorldExportJobResponse)
 
-instance Prelude.NFData CancelWorldExportJobResponse
+instance Prelude.NFData CancelWorldExportJobResponse where
+  rnf CancelWorldExportJobResponse' {..} =
+    Prelude.rnf httpStatus

@@ -124,9 +124,19 @@ instance Core.AWSRequest UpdateWorldTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorldTemplate
+instance Prelude.Hashable UpdateWorldTemplate where
+  hashWithSalt _salt UpdateWorldTemplate' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` templateLocation
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` template
 
-instance Prelude.NFData UpdateWorldTemplate
+instance Prelude.NFData UpdateWorldTemplate where
+  rnf UpdateWorldTemplate' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf templateLocation
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf template
 
 instance Core.ToHeaders UpdateWorldTemplate where
   toHeaders =
@@ -229,4 +239,10 @@ updateWorldTemplateResponse_name = Lens.lens (\UpdateWorldTemplateResponse' {nam
 updateWorldTemplateResponse_httpStatus :: Lens.Lens' UpdateWorldTemplateResponse Prelude.Int
 updateWorldTemplateResponse_httpStatus = Lens.lens (\UpdateWorldTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateWorldTemplateResponse' {} a -> s {httpStatus = a} :: UpdateWorldTemplateResponse)
 
-instance Prelude.NFData UpdateWorldTemplateResponse
+instance Prelude.NFData UpdateWorldTemplateResponse where
+  rnf UpdateWorldTemplateResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

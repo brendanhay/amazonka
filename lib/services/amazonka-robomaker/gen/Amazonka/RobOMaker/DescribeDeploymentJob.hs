@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeDeploymentJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDeploymentJob
+instance Prelude.Hashable DescribeDeploymentJob where
+  hashWithSalt _salt DescribeDeploymentJob' {..} =
+    _salt `Prelude.hashWithSalt` job
 
-instance Prelude.NFData DescribeDeploymentJob
+instance Prelude.NFData DescribeDeploymentJob where
+  rnf DescribeDeploymentJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders DescribeDeploymentJob where
   toHeaders =
@@ -258,4 +261,16 @@ describeDeploymentJobResponse_tags = Lens.lens (\DescribeDeploymentJobResponse' 
 describeDeploymentJobResponse_httpStatus :: Lens.Lens' DescribeDeploymentJobResponse Prelude.Int
 describeDeploymentJobResponse_httpStatus = Lens.lens (\DescribeDeploymentJobResponse' {httpStatus} -> httpStatus) (\s@DescribeDeploymentJobResponse' {} a -> s {httpStatus = a} :: DescribeDeploymentJobResponse)
 
-instance Prelude.NFData DescribeDeploymentJobResponse
+instance Prelude.NFData DescribeDeploymentJobResponse where
+  rnf DescribeDeploymentJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf robotDeploymentSummary
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

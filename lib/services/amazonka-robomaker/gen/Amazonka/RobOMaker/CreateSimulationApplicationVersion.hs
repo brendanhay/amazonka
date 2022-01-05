@@ -155,10 +155,24 @@ instance
 instance
   Prelude.Hashable
     CreateSimulationApplicationVersion
+  where
+  hashWithSalt
+    _salt
+    CreateSimulationApplicationVersion' {..} =
+      _salt `Prelude.hashWithSalt` currentRevisionId
+        `Prelude.hashWithSalt` s3Etags
+        `Prelude.hashWithSalt` imageDigest
+        `Prelude.hashWithSalt` application
 
 instance
   Prelude.NFData
     CreateSimulationApplicationVersion
+  where
+  rnf CreateSimulationApplicationVersion' {..} =
+    Prelude.rnf currentRevisionId
+      `Prelude.seq` Prelude.rnf s3Etags
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf application
 
 instance
   Core.ToHeaders
@@ -334,3 +348,16 @@ createSimulationApplicationVersionResponse_httpStatus = Lens.lens (\CreateSimula
 instance
   Prelude.NFData
     CreateSimulationApplicationVersionResponse
+  where
+  rnf CreateSimulationApplicationVersionResponse' {..} =
+    Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

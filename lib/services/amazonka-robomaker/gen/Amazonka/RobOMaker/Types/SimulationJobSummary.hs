@@ -142,6 +142,24 @@ instance Core.FromJSON SimulationJobSummary where
                         )
       )
 
-instance Prelude.Hashable SimulationJobSummary
+instance Prelude.Hashable SimulationJobSummary where
+  hashWithSalt _salt SimulationJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` robotApplicationNames
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` simulationApplicationNames
+      `Prelude.hashWithSalt` computeType
+      `Prelude.hashWithSalt` dataSourceNames
 
-instance Prelude.NFData SimulationJobSummary
+instance Prelude.NFData SimulationJobSummary where
+  rnf SimulationJobSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf robotApplicationNames
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf simulationApplicationNames
+      `Prelude.seq` Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf dataSourceNames

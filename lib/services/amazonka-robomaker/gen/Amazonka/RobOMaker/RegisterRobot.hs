@@ -99,9 +99,14 @@ instance Core.AWSRequest RegisterRobot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterRobot
+instance Prelude.Hashable RegisterRobot where
+  hashWithSalt _salt RegisterRobot' {..} =
+    _salt `Prelude.hashWithSalt` fleet
+      `Prelude.hashWithSalt` robot
 
-instance Prelude.NFData RegisterRobot
+instance Prelude.NFData RegisterRobot where
+  rnf RegisterRobot' {..} =
+    Prelude.rnf fleet `Prelude.seq` Prelude.rnf robot
 
 instance Core.ToHeaders RegisterRobot where
   toHeaders =
@@ -176,4 +181,8 @@ registerRobotResponse_fleet = Lens.lens (\RegisterRobotResponse' {fleet} -> flee
 registerRobotResponse_httpStatus :: Lens.Lens' RegisterRobotResponse Prelude.Int
 registerRobotResponse_httpStatus = Lens.lens (\RegisterRobotResponse' {httpStatus} -> httpStatus) (\s@RegisterRobotResponse' {} a -> s {httpStatus = a} :: RegisterRobotResponse)
 
-instance Prelude.NFData RegisterRobotResponse
+instance Prelude.NFData RegisterRobotResponse where
+  rnf RegisterRobotResponse' {..} =
+    Prelude.rnf robot
+      `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf httpStatus

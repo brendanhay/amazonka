@@ -139,9 +139,17 @@ instance Core.AWSRequest GetSnapshotBlock where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetSnapshotBlock
+instance Prelude.Hashable GetSnapshotBlock where
+  hashWithSalt _salt GetSnapshotBlock' {..} =
+    _salt `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` blockIndex
+      `Prelude.hashWithSalt` blockToken
 
-instance Prelude.NFData GetSnapshotBlock
+instance Prelude.NFData GetSnapshotBlock where
+  rnf GetSnapshotBlock' {..} =
+    Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf blockIndex
+      `Prelude.seq` Prelude.rnf blockToken
 
 instance Core.ToHeaders GetSnapshotBlock where
   toHeaders =

@@ -71,6 +71,12 @@ instance Core.FromJSON Block where
             Prelude.<*> (x Core..:? "BlockToken")
       )
 
-instance Prelude.Hashable Block
+instance Prelude.Hashable Block where
+  hashWithSalt _salt Block' {..} =
+    _salt `Prelude.hashWithSalt` blockIndex
+      `Prelude.hashWithSalt` blockToken
 
-instance Prelude.NFData Block
+instance Prelude.NFData Block where
+  rnf Block' {..} =
+    Prelude.rnf blockIndex
+      `Prelude.seq` Prelude.rnf blockToken

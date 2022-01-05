@@ -343,9 +343,27 @@ instance Core.AWSRequest StartSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSnapshot
+instance Prelude.Hashable StartSnapshot where
+  hashWithSalt _salt StartSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` parentSnapshotId
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` volumeSize
 
-instance Prelude.NFData StartSnapshot
+instance Prelude.NFData StartSnapshot where
+  rnf StartSnapshot' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf parentSnapshotId
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf volumeSize
 
 instance Core.ToHeaders StartSnapshot where
   toHeaders =
@@ -511,4 +529,16 @@ startSnapshotResponse_snapshotId = Lens.lens (\StartSnapshotResponse' {snapshotI
 startSnapshotResponse_httpStatus :: Lens.Lens' StartSnapshotResponse Prelude.Int
 startSnapshotResponse_httpStatus = Lens.lens (\StartSnapshotResponse' {httpStatus} -> httpStatus) (\s@StartSnapshotResponse' {} a -> s {httpStatus = a} :: StartSnapshotResponse)
 
-instance Prelude.NFData StartSnapshotResponse
+instance Prelude.NFData StartSnapshotResponse where
+  rnf StartSnapshotResponse' {..} =
+    Prelude.rnf blockSize
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf parentSnapshotId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf httpStatus

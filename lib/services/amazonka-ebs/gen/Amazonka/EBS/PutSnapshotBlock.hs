@@ -307,4 +307,8 @@ putSnapshotBlockResponse_checksum = Lens.lens (\PutSnapshotBlockResponse' {check
 putSnapshotBlockResponse_httpStatus :: Lens.Lens' PutSnapshotBlockResponse Prelude.Int
 putSnapshotBlockResponse_httpStatus = Lens.lens (\PutSnapshotBlockResponse' {httpStatus} -> httpStatus) (\s@PutSnapshotBlockResponse' {} a -> s {httpStatus = a} :: PutSnapshotBlockResponse)
 
-instance Prelude.NFData PutSnapshotBlockResponse
+instance Prelude.NFData PutSnapshotBlockResponse where
+  rnf PutSnapshotBlockResponse' {..} =
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf httpStatus

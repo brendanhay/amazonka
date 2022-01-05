@@ -88,8 +88,12 @@ instance
 instance
   Prelude.Hashable
     DescribeMetricCollectionTypes
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeMetricCollectionTypes
+instance Prelude.NFData DescribeMetricCollectionTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeMetricCollectionTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,3 +165,8 @@ describeMetricCollectionTypesResponse_httpStatus = Lens.lens (\DescribeMetricCol
 instance
   Prelude.NFData
     DescribeMetricCollectionTypesResponse
+  where
+  rnf DescribeMetricCollectionTypesResponse' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf granularities
+      `Prelude.seq` Prelude.rnf httpStatus

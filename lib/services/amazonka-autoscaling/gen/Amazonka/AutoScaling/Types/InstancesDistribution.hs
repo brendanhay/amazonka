@@ -239,9 +239,23 @@ instance Core.FromXML InstancesDistribution where
       Prelude.<*> (x Core..@? "OnDemandAllocationStrategy")
       Prelude.<*> (x Core..@? "OnDemandPercentageAboveBaseCapacity")
 
-instance Prelude.Hashable InstancesDistribution
+instance Prelude.Hashable InstancesDistribution where
+  hashWithSalt _salt InstancesDistribution' {..} =
+    _salt `Prelude.hashWithSalt` spotAllocationStrategy
+      `Prelude.hashWithSalt` spotInstancePools
+      `Prelude.hashWithSalt` spotMaxPrice
+      `Prelude.hashWithSalt` onDemandBaseCapacity
+      `Prelude.hashWithSalt` onDemandAllocationStrategy
+      `Prelude.hashWithSalt` onDemandPercentageAboveBaseCapacity
 
-instance Prelude.NFData InstancesDistribution
+instance Prelude.NFData InstancesDistribution where
+  rnf InstancesDistribution' {..} =
+    Prelude.rnf spotAllocationStrategy
+      `Prelude.seq` Prelude.rnf spotInstancePools
+      `Prelude.seq` Prelude.rnf spotMaxPrice
+      `Prelude.seq` Prelude.rnf onDemandBaseCapacity
+      `Prelude.seq` Prelude.rnf onDemandAllocationStrategy
+      `Prelude.seq` Prelude.rnf onDemandPercentageAboveBaseCapacity
 
 instance Core.ToQuery InstancesDistribution where
   toQuery InstancesDistribution' {..} =

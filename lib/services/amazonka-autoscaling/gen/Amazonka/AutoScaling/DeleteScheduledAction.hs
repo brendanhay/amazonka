@@ -94,9 +94,15 @@ instance Core.AWSRequest DeleteScheduledAction where
   response =
     Response.receiveNull DeleteScheduledActionResponse'
 
-instance Prelude.Hashable DeleteScheduledAction
+instance Prelude.Hashable DeleteScheduledAction where
+  hashWithSalt _salt DeleteScheduledAction' {..} =
+    _salt `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` scheduledActionName
 
-instance Prelude.NFData DeleteScheduledAction
+instance Prelude.NFData DeleteScheduledAction where
+  rnf DeleteScheduledAction' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf scheduledActionName
 
 instance Core.ToHeaders DeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +136,5 @@ newDeleteScheduledActionResponse ::
 newDeleteScheduledActionResponse =
   DeleteScheduledActionResponse'
 
-instance Prelude.NFData DeleteScheduledActionResponse
+instance Prelude.NFData DeleteScheduledActionResponse where
+  rnf _ = ()

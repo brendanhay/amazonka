@@ -173,9 +173,21 @@ instance Core.AWSRequest CompleteLifecycleAction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteLifecycleAction
+instance Prelude.Hashable CompleteLifecycleAction where
+  hashWithSalt _salt CompleteLifecycleAction' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` lifecycleActionToken
+      `Prelude.hashWithSalt` lifecycleHookName
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` lifecycleActionResult
 
-instance Prelude.NFData CompleteLifecycleAction
+instance Prelude.NFData CompleteLifecycleAction where
+  rnf CompleteLifecycleAction' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lifecycleActionToken
+      `Prelude.seq` Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf lifecycleActionResult
 
 instance Core.ToHeaders CompleteLifecycleAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,3 +243,6 @@ completeLifecycleActionResponse_httpStatus = Lens.lens (\CompleteLifecycleAction
 instance
   Prelude.NFData
     CompleteLifecycleActionResponse
+  where
+  rnf CompleteLifecycleActionResponse' {..} =
+    Prelude.rnf httpStatus

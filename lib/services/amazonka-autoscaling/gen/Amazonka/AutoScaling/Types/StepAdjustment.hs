@@ -153,9 +153,18 @@ instance Core.FromXML StepAdjustment where
       Prelude.<*> (x Core..@? "MetricIntervalUpperBound")
       Prelude.<*> (x Core..@ "ScalingAdjustment")
 
-instance Prelude.Hashable StepAdjustment
+instance Prelude.Hashable StepAdjustment where
+  hashWithSalt _salt StepAdjustment' {..} =
+    _salt
+      `Prelude.hashWithSalt` metricIntervalLowerBound
+      `Prelude.hashWithSalt` metricIntervalUpperBound
+      `Prelude.hashWithSalt` scalingAdjustment
 
-instance Prelude.NFData StepAdjustment
+instance Prelude.NFData StepAdjustment where
+  rnf StepAdjustment' {..} =
+    Prelude.rnf metricIntervalLowerBound
+      `Prelude.seq` Prelude.rnf metricIntervalUpperBound
+      `Prelude.seq` Prelude.rnf scalingAdjustment
 
 instance Core.ToQuery StepAdjustment where
   toQuery StepAdjustment' {..} =

@@ -114,6 +114,9 @@ instance Core.FromXML ProcessType where
   parseXML x =
     ProcessType' Prelude.<$> (x Core..@ "ProcessName")
 
-instance Prelude.Hashable ProcessType
+instance Prelude.Hashable ProcessType where
+  hashWithSalt _salt ProcessType' {..} =
+    _salt `Prelude.hashWithSalt` processName
 
-instance Prelude.NFData ProcessType
+instance Prelude.NFData ProcessType where
+  rnf ProcessType' {..} = Prelude.rnf processName

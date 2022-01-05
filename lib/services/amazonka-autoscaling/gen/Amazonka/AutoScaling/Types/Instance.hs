@@ -184,6 +184,26 @@ instance Core.FromXML Instance where
       Prelude.<*> (x Core..@ "HealthStatus")
       Prelude.<*> (x Core..@ "ProtectedFromScaleIn")
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` lifecycleState
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` protectedFromScaleIn
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf lifecycleState
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf protectedFromScaleIn

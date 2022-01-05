@@ -135,9 +135,17 @@ instance Core.AWSRequest DetachInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachInstances
+instance Prelude.Hashable DetachInstances where
+  hashWithSalt _salt DetachInstances' {..} =
+    _salt `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` shouldDecrementDesiredCapacity
 
-instance Prelude.NFData DetachInstances
+instance Prelude.NFData DetachInstances where
+  rnf DetachInstances' {..} =
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
 
 instance Core.ToHeaders DetachInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,4 +210,7 @@ detachInstancesResponse_activities = Lens.lens (\DetachInstancesResponse' {activ
 detachInstancesResponse_httpStatus :: Lens.Lens' DetachInstancesResponse Prelude.Int
 detachInstancesResponse_httpStatus = Lens.lens (\DetachInstancesResponse' {httpStatus} -> httpStatus) (\s@DetachInstancesResponse' {} a -> s {httpStatus = a} :: DetachInstancesResponse)
 
-instance Prelude.NFData DetachInstancesResponse
+instance Prelude.NFData DetachInstancesResponse where
+  rnf DetachInstancesResponse' {..} =
+    Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf httpStatus

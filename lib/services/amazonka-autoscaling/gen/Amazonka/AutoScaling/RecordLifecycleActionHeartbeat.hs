@@ -165,10 +165,24 @@ instance
 instance
   Prelude.Hashable
     RecordLifecycleActionHeartbeat
+  where
+  hashWithSalt
+    _salt
+    RecordLifecycleActionHeartbeat' {..} =
+      _salt `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` lifecycleActionToken
+        `Prelude.hashWithSalt` lifecycleHookName
+        `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
   Prelude.NFData
     RecordLifecycleActionHeartbeat
+  where
+  rnf RecordLifecycleActionHeartbeat' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lifecycleActionToken
+      `Prelude.seq` Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance
   Core.ToHeaders
@@ -228,3 +242,6 @@ recordLifecycleActionHeartbeatResponse_httpStatus = Lens.lens (\RecordLifecycleA
 instance
   Prelude.NFData
     RecordLifecycleActionHeartbeatResponse
+  where
+  rnf RecordLifecycleActionHeartbeatResponse' {..} =
+    Prelude.rnf httpStatus

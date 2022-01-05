@@ -187,6 +187,26 @@ instance Core.FromXML LifecycleHook where
       Prelude.<*> (x Core..@? "LifecycleTransition")
       Prelude.<*> (x Core..@? "RoleARN")
 
-instance Prelude.Hashable LifecycleHook
+instance Prelude.Hashable LifecycleHook where
+  hashWithSalt _salt LifecycleHook' {..} =
+    _salt `Prelude.hashWithSalt` defaultResult
+      `Prelude.hashWithSalt` lifecycleHookName
+      `Prelude.hashWithSalt` heartbeatTimeout
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` notificationMetadata
+      `Prelude.hashWithSalt` globalTimeout
+      `Prelude.hashWithSalt` notificationTargetARN
+      `Prelude.hashWithSalt` lifecycleTransition
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData LifecycleHook
+instance Prelude.NFData LifecycleHook where
+  rnf LifecycleHook' {..} =
+    Prelude.rnf defaultResult
+      `Prelude.seq` Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf heartbeatTimeout
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf notificationMetadata
+      `Prelude.seq` Prelude.rnf globalTimeout
+      `Prelude.seq` Prelude.rnf notificationTargetARN
+      `Prelude.seq` Prelude.rnf lifecycleTransition
+      `Prelude.seq` Prelude.rnf roleARN

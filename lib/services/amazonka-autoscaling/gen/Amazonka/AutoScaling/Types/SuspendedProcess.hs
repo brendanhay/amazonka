@@ -71,6 +71,12 @@ instance Core.FromXML SuspendedProcess where
       Prelude.<$> (x Core..@? "ProcessName")
       Prelude.<*> (x Core..@? "SuspensionReason")
 
-instance Prelude.Hashable SuspendedProcess
+instance Prelude.Hashable SuspendedProcess where
+  hashWithSalt _salt SuspendedProcess' {..} =
+    _salt `Prelude.hashWithSalt` processName
+      `Prelude.hashWithSalt` suspensionReason
 
-instance Prelude.NFData SuspendedProcess
+instance Prelude.NFData SuspendedProcess where
+  rnf SuspendedProcess' {..} =
+    Prelude.rnf processName
+      `Prelude.seq` Prelude.rnf suspensionReason

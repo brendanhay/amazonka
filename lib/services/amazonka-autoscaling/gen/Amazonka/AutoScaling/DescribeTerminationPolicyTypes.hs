@@ -85,10 +85,15 @@ instance
 instance
   Prelude.Hashable
     DescribeTerminationPolicyTypes
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeTerminationPolicyTypes
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -164,3 +169,7 @@ describeTerminationPolicyTypesResponse_httpStatus = Lens.lens (\DescribeTerminat
 instance
   Prelude.NFData
     DescribeTerminationPolicyTypesResponse
+  where
+  rnf DescribeTerminationPolicyTypesResponse' {..} =
+    Prelude.rnf terminationPolicyTypes
+      `Prelude.seq` Prelude.rnf httpStatus

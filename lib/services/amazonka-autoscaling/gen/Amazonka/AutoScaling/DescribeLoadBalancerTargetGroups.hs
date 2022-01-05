@@ -181,10 +181,22 @@ instance
 instance
   Prelude.Hashable
     DescribeLoadBalancerTargetGroups
+  where
+  hashWithSalt
+    _salt
+    DescribeLoadBalancerTargetGroups' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
   Prelude.NFData
     DescribeLoadBalancerTargetGroups
+  where
+  rnf DescribeLoadBalancerTargetGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance
   Core.ToHeaders
@@ -273,3 +285,8 @@ describeLoadBalancerTargetGroupsResponse_httpStatus = Lens.lens (\DescribeLoadBa
 instance
   Prelude.NFData
     DescribeLoadBalancerTargetGroupsResponse
+  where
+  rnf DescribeLoadBalancerTargetGroupsResponse' {..} =
+    Prelude.rnf loadBalancerTargetGroups
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -132,10 +132,20 @@ instance
 instance
   Prelude.Hashable
     TerminateInstanceInAutoScalingGroup
+  where
+  hashWithSalt
+    _salt
+    TerminateInstanceInAutoScalingGroup' {..} =
+      _salt `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` shouldDecrementDesiredCapacity
 
 instance
   Prelude.NFData
     TerminateInstanceInAutoScalingGroup
+  where
+  rnf TerminateInstanceInAutoScalingGroup' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
 
 instance
   Core.ToHeaders
@@ -209,3 +219,7 @@ terminateInstanceInAutoScalingGroupResponse_httpStatus = Lens.lens (\TerminateIn
 instance
   Prelude.NFData
     TerminateInstanceInAutoScalingGroupResponse
+  where
+  rnf TerminateInstanceInAutoScalingGroupResponse' {..} =
+    Prelude.rnf activity
+      `Prelude.seq` Prelude.rnf httpStatus

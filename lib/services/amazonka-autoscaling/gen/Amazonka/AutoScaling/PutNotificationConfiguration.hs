@@ -128,8 +128,17 @@ instance Core.AWSRequest PutNotificationConfiguration where
 instance
   Prelude.Hashable
     PutNotificationConfiguration
+  where
+  hashWithSalt _salt PutNotificationConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` topicARN
+      `Prelude.hashWithSalt` notificationTypes
 
-instance Prelude.NFData PutNotificationConfiguration
+instance Prelude.NFData PutNotificationConfiguration where
+  rnf PutNotificationConfiguration' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf topicARN
+      `Prelude.seq` Prelude.rnf notificationTypes
 
 instance Core.ToHeaders PutNotificationConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,3 +179,5 @@ newPutNotificationConfigurationResponse =
 instance
   Prelude.NFData
     PutNotificationConfigurationResponse
+  where
+  rnf _ = ()

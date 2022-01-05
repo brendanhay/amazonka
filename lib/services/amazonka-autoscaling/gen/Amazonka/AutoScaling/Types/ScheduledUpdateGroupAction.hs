@@ -179,6 +179,30 @@ instance Core.FromXML ScheduledUpdateGroupAction where
       Prelude.<*> (x Core..@? "EndTime")
       Prelude.<*> (x Core..@? "TimeZone")
 
-instance Prelude.Hashable ScheduledUpdateGroupAction
+instance Prelude.Hashable ScheduledUpdateGroupAction where
+  hashWithSalt _salt ScheduledUpdateGroupAction' {..} =
+    _salt `Prelude.hashWithSalt` scheduledActionARN
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` time
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` timeZone
 
-instance Prelude.NFData ScheduledUpdateGroupAction
+instance Prelude.NFData ScheduledUpdateGroupAction where
+  rnf ScheduledUpdateGroupAction' {..} =
+    Prelude.rnf scheduledActionARN
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf time
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf timeZone

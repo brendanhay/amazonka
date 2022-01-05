@@ -75,9 +75,12 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScalingProcessTypes
+instance Prelude.Hashable DescribeScalingProcessTypes where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeScalingProcessTypes
+instance Prelude.NFData DescribeScalingProcessTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeScalingProcessTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -140,3 +143,7 @@ describeScalingProcessTypesResponse_httpStatus = Lens.lens (\DescribeScalingProc
 instance
   Prelude.NFData
     DescribeScalingProcessTypesResponse
+  where
+  rnf DescribeScalingProcessTypesResponse' {..} =
+    Prelude.rnf processes
+      `Prelude.seq` Prelude.rnf httpStatus

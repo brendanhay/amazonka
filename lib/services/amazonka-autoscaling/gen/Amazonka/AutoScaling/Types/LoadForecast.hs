@@ -87,6 +87,14 @@ instance Core.FromXML LoadForecast where
                   )
       Prelude.<*> (x Core..@ "MetricSpecification")
 
-instance Prelude.Hashable LoadForecast
+instance Prelude.Hashable LoadForecast where
+  hashWithSalt _salt LoadForecast' {..} =
+    _salt `Prelude.hashWithSalt` timestamps
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` metricSpecification
 
-instance Prelude.NFData LoadForecast
+instance Prelude.NFData LoadForecast where
+  rnf LoadForecast' {..} =
+    Prelude.rnf timestamps
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf metricSpecification

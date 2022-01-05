@@ -226,6 +226,30 @@ instance Core.FromXML InstanceRefresh where
       Prelude.<*> (x Core..@? "DesiredConfiguration")
       Prelude.<*> (x Core..@? "InstanceRefreshId")
 
-instance Prelude.Hashable InstanceRefresh
+instance Prelude.Hashable InstanceRefresh where
+  hashWithSalt _salt InstanceRefresh' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` progressDetails
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` preferences
+      `Prelude.hashWithSalt` instancesToUpdate
+      `Prelude.hashWithSalt` percentageComplete
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` desiredConfiguration
+      `Prelude.hashWithSalt` instanceRefreshId
 
-instance Prelude.NFData InstanceRefresh
+instance Prelude.NFData InstanceRefresh where
+  rnf InstanceRefresh' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf progressDetails
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf preferences
+      `Prelude.seq` Prelude.rnf instancesToUpdate
+      `Prelude.seq` Prelude.rnf percentageComplete
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf desiredConfiguration
+      `Prelude.seq` Prelude.rnf instanceRefreshId

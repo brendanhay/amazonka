@@ -66,6 +66,10 @@ instance Core.FromJSON LineItemFields where
                         )
       )
 
-instance Prelude.Hashable LineItemFields
+instance Prelude.Hashable LineItemFields where
+  hashWithSalt _salt LineItemFields' {..} =
+    _salt `Prelude.hashWithSalt` lineItemExpenseFields
 
-instance Prelude.NFData LineItemFields
+instance Prelude.NFData LineItemFields where
+  rnf LineItemFields' {..} =
+    Prelude.rnf lineItemExpenseFields

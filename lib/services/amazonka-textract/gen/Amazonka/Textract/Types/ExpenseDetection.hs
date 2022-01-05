@@ -82,6 +82,14 @@ instance Core.FromJSON ExpenseDetection where
             Prelude.<*> (x Core..:? "Geometry")
       )
 
-instance Prelude.Hashable ExpenseDetection
+instance Prelude.Hashable ExpenseDetection where
+  hashWithSalt _salt ExpenseDetection' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` geometry
 
-instance Prelude.NFData ExpenseDetection
+instance Prelude.NFData ExpenseDetection where
+  rnf ExpenseDetection' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf geometry

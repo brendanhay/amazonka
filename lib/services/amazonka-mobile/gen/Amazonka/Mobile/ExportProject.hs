@@ -96,9 +96,12 @@ instance Core.AWSRequest ExportProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportProject
+instance Prelude.Hashable ExportProject where
+  hashWithSalt _salt ExportProject' {..} =
+    _salt `Prelude.hashWithSalt` projectId
 
-instance Prelude.NFData ExportProject
+instance Prelude.NFData ExportProject where
+  rnf ExportProject' {..} = Prelude.rnf projectId
 
 instance Core.ToHeaders ExportProject where
   toHeaders =
@@ -201,4 +204,9 @@ exportProjectResponse_snapshotId = Lens.lens (\ExportProjectResponse' {snapshotI
 exportProjectResponse_httpStatus :: Lens.Lens' ExportProjectResponse Prelude.Int
 exportProjectResponse_httpStatus = Lens.lens (\ExportProjectResponse' {httpStatus} -> httpStatus) (\s@ExportProjectResponse' {} a -> s {httpStatus = a} :: ExportProjectResponse)
 
-instance Prelude.NFData ExportProjectResponse
+instance Prelude.NFData ExportProjectResponse where
+  rnf ExportProjectResponse' {..} =
+    Prelude.rnf shareUrl
+      `Prelude.seq` Prelude.rnf downloadUrl
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf httpStatus

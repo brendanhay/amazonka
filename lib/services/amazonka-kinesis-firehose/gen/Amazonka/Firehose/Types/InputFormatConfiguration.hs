@@ -70,9 +70,13 @@ instance Core.FromJSON InputFormatConfiguration where
             Prelude.<$> (x Core..:? "Deserializer")
       )
 
-instance Prelude.Hashable InputFormatConfiguration
+instance Prelude.Hashable InputFormatConfiguration where
+  hashWithSalt _salt InputFormatConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` deserializer
 
-instance Prelude.NFData InputFormatConfiguration
+instance Prelude.NFData InputFormatConfiguration where
+  rnf InputFormatConfiguration' {..} =
+    Prelude.rnf deserializer
 
 instance Core.ToJSON InputFormatConfiguration where
   toJSON InputFormatConfiguration' {..} =

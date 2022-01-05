@@ -97,9 +97,15 @@ instance Core.FromJSON ElasticsearchBufferingHints where
             Prelude.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Prelude.Hashable ElasticsearchBufferingHints
+instance Prelude.Hashable ElasticsearchBufferingHints where
+  hashWithSalt _salt ElasticsearchBufferingHints' {..} =
+    _salt `Prelude.hashWithSalt` sizeInMBs
+      `Prelude.hashWithSalt` intervalInSeconds
 
-instance Prelude.NFData ElasticsearchBufferingHints
+instance Prelude.NFData ElasticsearchBufferingHints where
+  rnf ElasticsearchBufferingHints' {..} =
+    Prelude.rnf sizeInMBs
+      `Prelude.seq` Prelude.rnf intervalInSeconds
 
 instance Core.ToJSON ElasticsearchBufferingHints where
   toJSON ElasticsearchBufferingHints' {..} =

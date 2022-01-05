@@ -151,10 +151,20 @@ deliveryStreamEncryptionConfigurationInput_keyType = Lens.lens (\DeliveryStreamE
 instance
   Prelude.Hashable
     DeliveryStreamEncryptionConfigurationInput
+  where
+  hashWithSalt
+    _salt
+    DeliveryStreamEncryptionConfigurationInput' {..} =
+      _salt `Prelude.hashWithSalt` keyARN
+        `Prelude.hashWithSalt` keyType
 
 instance
   Prelude.NFData
     DeliveryStreamEncryptionConfigurationInput
+  where
+  rnf DeliveryStreamEncryptionConfigurationInput' {..} =
+    Prelude.rnf keyARN
+      `Prelude.seq` Prelude.rnf keyType
 
 instance
   Core.ToJSON

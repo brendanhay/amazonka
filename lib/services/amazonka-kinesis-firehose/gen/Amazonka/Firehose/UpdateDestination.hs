@@ -236,9 +236,33 @@ instance Core.AWSRequest UpdateDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDestination
+instance Prelude.Hashable UpdateDestination where
+  hashWithSalt _salt UpdateDestination' {..} =
+    _salt
+      `Prelude.hashWithSalt` amazonopensearchserviceDestinationUpdate
+      `Prelude.hashWithSalt` splunkDestinationUpdate
+      `Prelude.hashWithSalt` s3DestinationUpdate
+      `Prelude.hashWithSalt` redshiftDestinationUpdate
+      `Prelude.hashWithSalt` elasticsearchDestinationUpdate
+      `Prelude.hashWithSalt` extendedS3DestinationUpdate
+      `Prelude.hashWithSalt` httpEndpointDestinationUpdate
+      `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` currentDeliveryStreamVersionId
+      `Prelude.hashWithSalt` destinationId
 
-instance Prelude.NFData UpdateDestination
+instance Prelude.NFData UpdateDestination where
+  rnf UpdateDestination' {..} =
+    Prelude.rnf
+      amazonopensearchserviceDestinationUpdate
+      `Prelude.seq` Prelude.rnf splunkDestinationUpdate
+      `Prelude.seq` Prelude.rnf s3DestinationUpdate
+      `Prelude.seq` Prelude.rnf redshiftDestinationUpdate
+      `Prelude.seq` Prelude.rnf elasticsearchDestinationUpdate
+      `Prelude.seq` Prelude.rnf extendedS3DestinationUpdate
+      `Prelude.seq` Prelude.rnf httpEndpointDestinationUpdate
+      `Prelude.seq` Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf currentDeliveryStreamVersionId
+      `Prelude.seq` Prelude.rnf destinationId
 
 instance Core.ToHeaders UpdateDestination where
   toHeaders =
@@ -320,4 +344,6 @@ newUpdateDestinationResponse pHttpStatus_ =
 updateDestinationResponse_httpStatus :: Lens.Lens' UpdateDestinationResponse Prelude.Int
 updateDestinationResponse_httpStatus = Lens.lens (\UpdateDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateDestinationResponse' {} a -> s {httpStatus = a} :: UpdateDestinationResponse)
 
-instance Prelude.NFData UpdateDestinationResponse
+instance Prelude.NFData UpdateDestinationResponse where
+  rnf UpdateDestinationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -101,9 +101,15 @@ instance Core.FromJSON HttpEndpointBufferingHints where
             Prelude.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Prelude.Hashable HttpEndpointBufferingHints
+instance Prelude.Hashable HttpEndpointBufferingHints where
+  hashWithSalt _salt HttpEndpointBufferingHints' {..} =
+    _salt `Prelude.hashWithSalt` sizeInMBs
+      `Prelude.hashWithSalt` intervalInSeconds
 
-instance Prelude.NFData HttpEndpointBufferingHints
+instance Prelude.NFData HttpEndpointBufferingHints where
+  rnf HttpEndpointBufferingHints' {..} =
+    Prelude.rnf sizeInMBs
+      `Prelude.seq` Prelude.rnf intervalInSeconds
 
 instance Core.ToJSON HttpEndpointBufferingHints where
   toJSON HttpEndpointBufferingHints' {..} =

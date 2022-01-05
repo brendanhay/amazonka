@@ -169,9 +169,15 @@ instance Core.AWSRequest PutRecordBatch where
             Prelude.<*> (x Core..:> "RequestResponses")
       )
 
-instance Prelude.Hashable PutRecordBatch
+instance Prelude.Hashable PutRecordBatch where
+  hashWithSalt _salt PutRecordBatch' {..} =
+    _salt `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` records
 
-instance Prelude.NFData PutRecordBatch
+instance Prelude.NFData PutRecordBatch where
+  rnf PutRecordBatch' {..} =
+    Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf records
 
 instance Core.ToHeaders PutRecordBatch where
   toHeaders =
@@ -284,4 +290,9 @@ putRecordBatchResponse_failedPutCount = Lens.lens (\PutRecordBatchResponse' {fai
 putRecordBatchResponse_requestResponses :: Lens.Lens' PutRecordBatchResponse (Prelude.NonEmpty PutRecordBatchResponseEntry)
 putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {requestResponses} -> requestResponses) (\s@PutRecordBatchResponse' {} a -> s {requestResponses = a} :: PutRecordBatchResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData PutRecordBatchResponse
+instance Prelude.NFData PutRecordBatchResponse where
+  rnf PutRecordBatchResponse' {..} =
+    Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedPutCount
+      `Prelude.seq` Prelude.rnf requestResponses

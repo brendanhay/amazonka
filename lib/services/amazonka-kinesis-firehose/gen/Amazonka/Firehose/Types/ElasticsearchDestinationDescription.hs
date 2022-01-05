@@ -227,7 +227,39 @@ instance
 instance
   Prelude.Hashable
     ElasticsearchDestinationDescription
+  where
+  hashWithSalt
+    _salt
+    ElasticsearchDestinationDescription' {..} =
+      _salt `Prelude.hashWithSalt` indexRotationPeriod
+        `Prelude.hashWithSalt` typeName
+        `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` vpcConfigurationDescription
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3DestinationDescription
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     ElasticsearchDestinationDescription
+  where
+  rnf ElasticsearchDestinationDescription' {..} =
+    Prelude.rnf indexRotationPeriod
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf domainARN
+      `Prelude.seq` Prelude.rnf vpcConfigurationDescription
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf s3DestinationDescription
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf indexName

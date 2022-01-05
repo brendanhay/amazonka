@@ -63,9 +63,12 @@ instance Core.FromJSON RetryOptions where
             Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable RetryOptions
+instance Prelude.Hashable RetryOptions where
+  hashWithSalt _salt RetryOptions' {..} =
+    _salt `Prelude.hashWithSalt` durationInSeconds
 
-instance Prelude.NFData RetryOptions
+instance Prelude.NFData RetryOptions where
+  rnf RetryOptions' {..} = Prelude.rnf durationInSeconds
 
 instance Core.ToJSON RetryOptions where
   toJSON RetryOptions' {..} =

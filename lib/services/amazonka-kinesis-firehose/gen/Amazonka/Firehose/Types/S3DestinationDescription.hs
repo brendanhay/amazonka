@@ -187,6 +187,24 @@ instance Core.FromJSON S3DestinationDescription where
             Prelude.<*> (x Core..: "EncryptionConfiguration")
       )
 
-instance Prelude.Hashable S3DestinationDescription
+instance Prelude.Hashable S3DestinationDescription where
+  hashWithSalt _salt S3DestinationDescription' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` errorOutputPrefix
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` bucketARN
+      `Prelude.hashWithSalt` bufferingHints
+      `Prelude.hashWithSalt` compressionFormat
+      `Prelude.hashWithSalt` encryptionConfiguration
 
-instance Prelude.NFData S3DestinationDescription
+instance Prelude.NFData S3DestinationDescription where
+  rnf S3DestinationDescription' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf errorOutputPrefix
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf compressionFormat
+      `Prelude.seq` Prelude.rnf encryptionConfiguration

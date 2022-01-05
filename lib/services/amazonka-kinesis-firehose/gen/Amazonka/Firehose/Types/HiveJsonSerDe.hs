@@ -86,9 +86,12 @@ instance Core.FromJSON HiveJsonSerDe where
                         )
       )
 
-instance Prelude.Hashable HiveJsonSerDe
+instance Prelude.Hashable HiveJsonSerDe where
+  hashWithSalt _salt HiveJsonSerDe' {..} =
+    _salt `Prelude.hashWithSalt` timestampFormats
 
-instance Prelude.NFData HiveJsonSerDe
+instance Prelude.NFData HiveJsonSerDe where
+  rnf HiveJsonSerDe' {..} = Prelude.rnf timestampFormats
 
 instance Core.ToJSON HiveJsonSerDe where
   toJSON HiveJsonSerDe' {..} =

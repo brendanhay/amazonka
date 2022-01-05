@@ -209,10 +209,38 @@ redshiftDestinationConfiguration_s3Configuration = Lens.lens (\RedshiftDestinati
 instance
   Prelude.Hashable
     RedshiftDestinationConfiguration
+  where
+  hashWithSalt
+    _salt
+    RedshiftDestinationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` clusterJDBCURL
+        `Prelude.hashWithSalt` copyCommand
+        `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` password
+        `Prelude.hashWithSalt` s3Configuration
 
 instance
   Prelude.NFData
     RedshiftDestinationConfiguration
+  where
+  rnf RedshiftDestinationConfiguration' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf s3BackupConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf clusterJDBCURL
+      `Prelude.seq` Prelude.rnf copyCommand
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf s3Configuration
 
 instance Core.ToJSON RedshiftDestinationConfiguration where
   toJSON RedshiftDestinationConfiguration' {..} =

@@ -126,9 +126,17 @@ instance Core.AWSRequest ListTagsForDeliveryStream where
             Prelude.<*> (x Core..:> "HasMoreTags")
       )
 
-instance Prelude.Hashable ListTagsForDeliveryStream
+instance Prelude.Hashable ListTagsForDeliveryStream where
+  hashWithSalt _salt ListTagsForDeliveryStream' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartTagKey
+      `Prelude.hashWithSalt` deliveryStreamName
 
-instance Prelude.NFData ListTagsForDeliveryStream
+instance Prelude.NFData ListTagsForDeliveryStream where
+  rnf ListTagsForDeliveryStream' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartTagKey
+      `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders ListTagsForDeliveryStream where
   toHeaders =
@@ -227,3 +235,8 @@ listTagsForDeliveryStreamResponse_hasMoreTags = Lens.lens (\ListTagsForDeliveryS
 instance
   Prelude.NFData
     ListTagsForDeliveryStreamResponse
+  where
+  rnf ListTagsForDeliveryStreamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hasMoreTags

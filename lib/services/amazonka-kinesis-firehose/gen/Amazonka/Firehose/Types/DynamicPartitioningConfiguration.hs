@@ -89,10 +89,20 @@ instance
 instance
   Prelude.Hashable
     DynamicPartitioningConfiguration
+  where
+  hashWithSalt
+    _salt
+    DynamicPartitioningConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` retryOptions
 
 instance
   Prelude.NFData
     DynamicPartitioningConfiguration
+  where
+  rnf DynamicPartitioningConfiguration' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf retryOptions
 
 instance Core.ToJSON DynamicPartitioningConfiguration where
   toJSON DynamicPartitioningConfiguration' {..} =

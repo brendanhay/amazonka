@@ -101,7 +101,19 @@ instance Core.FromJSON KinesisStreamSourceDescription where
 instance
   Prelude.Hashable
     KinesisStreamSourceDescription
+  where
+  hashWithSalt
+    _salt
+    KinesisStreamSourceDescription' {..} =
+      _salt `Prelude.hashWithSalt` deliveryStartTimestamp
+        `Prelude.hashWithSalt` kinesisStreamARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     KinesisStreamSourceDescription
+  where
+  rnf KinesisStreamSourceDescription' {..} =
+    Prelude.rnf deliveryStartTimestamp
+      `Prelude.seq` Prelude.rnf kinesisStreamARN
+      `Prelude.seq` Prelude.rnf roleARN

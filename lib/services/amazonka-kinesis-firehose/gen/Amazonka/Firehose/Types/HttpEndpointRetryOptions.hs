@@ -77,9 +77,13 @@ instance Core.FromJSON HttpEndpointRetryOptions where
             Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable HttpEndpointRetryOptions
+instance Prelude.Hashable HttpEndpointRetryOptions where
+  hashWithSalt _salt HttpEndpointRetryOptions' {..} =
+    _salt `Prelude.hashWithSalt` durationInSeconds
 
-instance Prelude.NFData HttpEndpointRetryOptions
+instance Prelude.NFData HttpEndpointRetryOptions where
+  rnf HttpEndpointRetryOptions' {..} =
+    Prelude.rnf durationInSeconds
 
 instance Core.ToJSON HttpEndpointRetryOptions where
   toJSON HttpEndpointRetryOptions' {..} =

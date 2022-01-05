@@ -94,10 +94,20 @@ instance
 instance
   Prelude.Hashable
     HttpEndpointRequestConfiguration
+  where
+  hashWithSalt
+    _salt
+    HttpEndpointRequestConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` commonAttributes
+        `Prelude.hashWithSalt` contentEncoding
 
 instance
   Prelude.NFData
     HttpEndpointRequestConfiguration
+  where
+  rnf HttpEndpointRequestConfiguration' {..} =
+    Prelude.rnf commonAttributes
+      `Prelude.seq` Prelude.rnf contentEncoding
 
 instance Core.ToJSON HttpEndpointRequestConfiguration where
   toJSON HttpEndpointRequestConfiguration' {..} =

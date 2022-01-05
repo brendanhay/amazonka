@@ -182,10 +182,34 @@ httpEndpointDestinationConfiguration_s3Configuration = Lens.lens (\HttpEndpointD
 instance
   Prelude.Hashable
     HttpEndpointDestinationConfiguration
+  where
+  hashWithSalt
+    _salt
+    HttpEndpointDestinationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` requestConfiguration
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` endpointConfiguration
+        `Prelude.hashWithSalt` s3Configuration
 
 instance
   Prelude.NFData
     HttpEndpointDestinationConfiguration
+  where
+  rnf HttpEndpointDestinationConfiguration' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf requestConfiguration
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf s3Configuration
 
 instance
   Core.ToJSON

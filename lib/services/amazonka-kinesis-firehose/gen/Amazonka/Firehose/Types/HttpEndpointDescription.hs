@@ -70,6 +70,11 @@ instance Core.FromJSON HttpEndpointDescription where
             Prelude.<$> (x Core..:? "Url") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable HttpEndpointDescription
+instance Prelude.Hashable HttpEndpointDescription where
+  hashWithSalt _salt HttpEndpointDescription' {..} =
+    _salt `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData HttpEndpointDescription
+instance Prelude.NFData HttpEndpointDescription where
+  rnf HttpEndpointDescription' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf name

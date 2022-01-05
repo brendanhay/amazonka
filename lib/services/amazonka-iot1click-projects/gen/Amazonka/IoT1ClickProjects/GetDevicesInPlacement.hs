@@ -102,9 +102,15 @@ instance Core.AWSRequest GetDevicesInPlacement where
             Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetDevicesInPlacement
+instance Prelude.Hashable GetDevicesInPlacement where
+  hashWithSalt _salt GetDevicesInPlacement' {..} =
+    _salt `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` placementName
 
-instance Prelude.NFData GetDevicesInPlacement
+instance Prelude.NFData GetDevicesInPlacement where
+  rnf GetDevicesInPlacement' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf placementName
 
 instance Core.ToHeaders GetDevicesInPlacement where
   toHeaders =
@@ -169,4 +175,7 @@ getDevicesInPlacementResponse_httpStatus = Lens.lens (\GetDevicesInPlacementResp
 getDevicesInPlacementResponse_devices :: Lens.Lens' GetDevicesInPlacementResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 getDevicesInPlacementResponse_devices = Lens.lens (\GetDevicesInPlacementResponse' {devices} -> devices) (\s@GetDevicesInPlacementResponse' {} a -> s {devices = a} :: GetDevicesInPlacementResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetDevicesInPlacementResponse
+instance Prelude.NFData GetDevicesInPlacementResponse where
+  rnf GetDevicesInPlacementResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devices

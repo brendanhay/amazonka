@@ -170,9 +170,19 @@ instance Core.AWSRequest ListAnomaliesForInsight where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAnomaliesForInsight
+instance Prelude.Hashable ListAnomaliesForInsight where
+  hashWithSalt _salt ListAnomaliesForInsight' {..} =
+    _salt `Prelude.hashWithSalt` startTimeRange
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` insightId
 
-instance Prelude.NFData ListAnomaliesForInsight
+instance Prelude.NFData ListAnomaliesForInsight where
+  rnf ListAnomaliesForInsight' {..} =
+    Prelude.rnf startTimeRange
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf insightId
 
 instance Core.ToHeaders ListAnomaliesForInsight where
   toHeaders =
@@ -273,3 +283,9 @@ listAnomaliesForInsightResponse_httpStatus = Lens.lens (\ListAnomaliesForInsight
 instance
   Prelude.NFData
     ListAnomaliesForInsightResponse
+  where
+  rnf ListAnomaliesForInsightResponse' {..} =
+    Prelude.rnf proactiveAnomalies
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reactiveAnomalies
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -76,6 +76,12 @@ instance Core.FromJSON AnomalyTimeRange where
             Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Prelude.Hashable AnomalyTimeRange
+instance Prelude.Hashable AnomalyTimeRange where
+  hashWithSalt _salt AnomalyTimeRange' {..} =
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData AnomalyTimeRange
+instance Prelude.NFData AnomalyTimeRange where
+  rnf AnomalyTimeRange' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime

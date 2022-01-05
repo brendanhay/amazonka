@@ -79,9 +79,12 @@ instance Core.AWSRequest DescribeAccountHealth where
             Prelude.<*> (x Core..:> "ResourceHours")
       )
 
-instance Prelude.Hashable DescribeAccountHealth
+instance Prelude.Hashable DescribeAccountHealth where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeAccountHealth
+instance Prelude.NFData DescribeAccountHealth where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeAccountHealth where
   toHeaders =
@@ -193,4 +196,10 @@ describeAccountHealthResponse_metricsAnalyzed = Lens.lens (\DescribeAccountHealt
 describeAccountHealthResponse_resourceHours :: Lens.Lens' DescribeAccountHealthResponse Prelude.Integer
 describeAccountHealthResponse_resourceHours = Lens.lens (\DescribeAccountHealthResponse' {resourceHours} -> resourceHours) (\s@DescribeAccountHealthResponse' {} a -> s {resourceHours = a} :: DescribeAccountHealthResponse)
 
-instance Prelude.NFData DescribeAccountHealthResponse
+instance Prelude.NFData DescribeAccountHealthResponse where
+  rnf DescribeAccountHealthResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf openReactiveInsights
+      `Prelude.seq` Prelude.rnf openProactiveInsights
+      `Prelude.seq` Prelude.rnf metricsAnalyzed
+      `Prelude.seq` Prelude.rnf resourceHours

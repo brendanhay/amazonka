@@ -122,6 +122,20 @@ instance Core.FromJSON Recommendation where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Recommendation
+instance Prelude.Hashable Recommendation where
+  hashWithSalt _salt Recommendation' {..} =
+    _salt `Prelude.hashWithSalt` link
+      `Prelude.hashWithSalt` relatedAnomalies
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` relatedEvents
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Recommendation
+instance Prelude.NFData Recommendation where
+  rnf Recommendation' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf relatedAnomalies
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf relatedEvents
+      `Prelude.seq` Prelude.rnf description

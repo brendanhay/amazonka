@@ -82,6 +82,12 @@ instance Core.FromJSON CloudFormationHealth where
             Prelude.<*> (x Core..:? "StackName")
       )
 
-instance Prelude.Hashable CloudFormationHealth
+instance Prelude.Hashable CloudFormationHealth where
+  hashWithSalt _salt CloudFormationHealth' {..} =
+    _salt `Prelude.hashWithSalt` insight
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData CloudFormationHealth
+instance Prelude.NFData CloudFormationHealth where
+  rnf CloudFormationHealth' {..} =
+    Prelude.rnf insight
+      `Prelude.seq` Prelude.rnf stackName

@@ -75,10 +75,20 @@ listInsightsClosedStatusFilter_endTimeRange = Lens.lens (\ListInsightsClosedStat
 instance
   Prelude.Hashable
     ListInsightsClosedStatusFilter
+  where
+  hashWithSalt
+    _salt
+    ListInsightsClosedStatusFilter' {..} =
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` endTimeRange
 
 instance
   Prelude.NFData
     ListInsightsClosedStatusFilter
+  where
+  rnf ListInsightsClosedStatusFilter' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf endTimeRange
 
 instance Core.ToJSON ListInsightsClosedStatusFilter where
   toJSON ListInsightsClosedStatusFilter' {..} =

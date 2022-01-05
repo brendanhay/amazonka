@@ -57,10 +57,18 @@ updateServiceIntegrationConfig_opsCenter = Lens.lens (\UpdateServiceIntegrationC
 instance
   Prelude.Hashable
     UpdateServiceIntegrationConfig
+  where
+  hashWithSalt
+    _salt
+    UpdateServiceIntegrationConfig' {..} =
+      _salt `Prelude.hashWithSalt` opsCenter
 
 instance
   Prelude.NFData
     UpdateServiceIntegrationConfig
+  where
+  rnf UpdateServiceIntegrationConfig' {..} =
+    Prelude.rnf opsCenter
 
 instance Core.ToJSON UpdateServiceIntegrationConfig where
   toJSON UpdateServiceIntegrationConfig' {..} =

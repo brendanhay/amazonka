@@ -84,7 +84,16 @@ instance
 instance
   Prelude.Hashable
     RecommendationRelatedEventResource
+  where
+  hashWithSalt
+    _salt
+    RecommendationRelatedEventResource' {..} =
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     RecommendationRelatedEventResource
+  where
+  rnf RecommendationRelatedEventResource' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf type'

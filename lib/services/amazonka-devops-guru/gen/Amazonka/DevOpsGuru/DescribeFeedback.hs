@@ -85,9 +85,12 @@ instance Core.AWSRequest DescribeFeedback where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFeedback
+instance Prelude.Hashable DescribeFeedback where
+  hashWithSalt _salt DescribeFeedback' {..} =
+    _salt `Prelude.hashWithSalt` insightId
 
-instance Prelude.NFData DescribeFeedback
+instance Prelude.NFData DescribeFeedback where
+  rnf DescribeFeedback' {..} = Prelude.rnf insightId
 
 instance Core.ToHeaders DescribeFeedback where
   toHeaders =
@@ -151,4 +154,7 @@ describeFeedbackResponse_insightFeedback = Lens.lens (\DescribeFeedbackResponse'
 describeFeedbackResponse_httpStatus :: Lens.Lens' DescribeFeedbackResponse Prelude.Int
 describeFeedbackResponse_httpStatus = Lens.lens (\DescribeFeedbackResponse' {httpStatus} -> httpStatus) (\s@DescribeFeedbackResponse' {} a -> s {httpStatus = a} :: DescribeFeedbackResponse)
 
-instance Prelude.NFData DescribeFeedbackResponse
+instance Prelude.NFData DescribeFeedbackResponse where
+  rnf DescribeFeedbackResponse' {..} =
+    Prelude.rnf insightFeedback
+      `Prelude.seq` Prelude.rnf httpStatus

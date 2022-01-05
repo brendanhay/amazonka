@@ -79,6 +79,12 @@ instance Core.FromJSON ServiceHealth where
             Prelude.<*> (x Core..:? "ServiceName")
       )
 
-instance Prelude.Hashable ServiceHealth
+instance Prelude.Hashable ServiceHealth where
+  hashWithSalt _salt ServiceHealth' {..} =
+    _salt `Prelude.hashWithSalt` insight
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData ServiceHealth
+instance Prelude.NFData ServiceHealth where
+  rnf ServiceHealth' {..} =
+    Prelude.rnf insight
+      `Prelude.seq` Prelude.rnf serviceName

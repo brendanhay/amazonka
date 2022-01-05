@@ -89,5 +89,12 @@ instance Core.FromJSON RecommendationRelatedAnomaly where
 instance
   Prelude.Hashable
     RecommendationRelatedAnomaly
+  where
+  hashWithSalt _salt RecommendationRelatedAnomaly' {..} =
+    _salt `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` sourceDetails
 
-instance Prelude.NFData RecommendationRelatedAnomaly
+instance Prelude.NFData RecommendationRelatedAnomaly where
+  rnf RecommendationRelatedAnomaly' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf sourceDetails

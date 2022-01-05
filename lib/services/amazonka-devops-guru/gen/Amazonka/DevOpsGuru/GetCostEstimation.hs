@@ -124,9 +124,12 @@ instance Core.AWSRequest GetCostEstimation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCostEstimation
+instance Prelude.Hashable GetCostEstimation where
+  hashWithSalt _salt GetCostEstimation' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetCostEstimation
+instance Prelude.NFData GetCostEstimation where
+  rnf GetCostEstimation' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders GetCostEstimation where
   toHeaders =
@@ -251,4 +254,12 @@ getCostEstimationResponse_totalCost = Lens.lens (\GetCostEstimationResponse' {to
 getCostEstimationResponse_httpStatus :: Lens.Lens' GetCostEstimationResponse Prelude.Int
 getCostEstimationResponse_httpStatus = Lens.lens (\GetCostEstimationResponse' {httpStatus} -> httpStatus) (\s@GetCostEstimationResponse' {} a -> s {httpStatus = a} :: GetCostEstimationResponse)
 
-instance Prelude.NFData GetCostEstimationResponse
+instance Prelude.NFData GetCostEstimationResponse where
+  rnf GetCostEstimationResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf timeRange
+      `Prelude.seq` Prelude.rnf costs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf totalCost
+      `Prelude.seq` Prelude.rnf httpStatus

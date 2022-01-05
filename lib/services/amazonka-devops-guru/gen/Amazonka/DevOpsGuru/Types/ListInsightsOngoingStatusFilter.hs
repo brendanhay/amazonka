@@ -56,10 +56,18 @@ listInsightsOngoingStatusFilter_type = Lens.lens (\ListInsightsOngoingStatusFilt
 instance
   Prelude.Hashable
     ListInsightsOngoingStatusFilter
+  where
+  hashWithSalt
+    _salt
+    ListInsightsOngoingStatusFilter' {..} =
+      _salt `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ListInsightsOngoingStatusFilter
+  where
+  rnf ListInsightsOngoingStatusFilter' {..} =
+    Prelude.rnf type'
 
 instance Core.ToJSON ListInsightsOngoingStatusFilter where
   toJSON ListInsightsOngoingStatusFilter' {..} =

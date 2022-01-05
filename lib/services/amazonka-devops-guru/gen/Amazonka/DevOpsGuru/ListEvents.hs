@@ -137,9 +137,17 @@ instance Core.AWSRequest ListEvents where
             Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListEvents
+instance Prelude.Hashable ListEvents where
+  hashWithSalt _salt ListEvents' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListEvents
+instance Prelude.NFData ListEvents where
+  rnf ListEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders ListEvents where
   toHeaders =
@@ -218,4 +226,8 @@ listEventsResponse_httpStatus = Lens.lens (\ListEventsResponse' {httpStatus} -> 
 listEventsResponse_events :: Lens.Lens' ListEventsResponse [Event]
 listEventsResponse_events = Lens.lens (\ListEventsResponse' {events} -> events) (\s@ListEventsResponse' {} a -> s {events = a} :: ListEventsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListEventsResponse
+instance Prelude.NFData ListEventsResponse where
+  rnf ListEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events

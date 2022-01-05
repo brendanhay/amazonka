@@ -131,6 +131,20 @@ instance Core.FromJSON CloudWatchMetricsDetail where
             Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable CloudWatchMetricsDetail
+instance Prelude.Hashable CloudWatchMetricsDetail where
+  hashWithSalt _salt CloudWatchMetricsDetail' {..} =
+    _salt `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` stat
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData CloudWatchMetricsDetail
+instance Prelude.NFData CloudWatchMetricsDetail where
+  rnf CloudWatchMetricsDetail' {..} =
+    Prelude.rnf period
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf stat
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf unit

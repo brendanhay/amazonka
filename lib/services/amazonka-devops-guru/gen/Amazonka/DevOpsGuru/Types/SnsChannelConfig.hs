@@ -75,9 +75,12 @@ instance Core.FromJSON SnsChannelConfig where
             Prelude.<$> (x Core..:? "TopicArn")
       )
 
-instance Prelude.Hashable SnsChannelConfig
+instance Prelude.Hashable SnsChannelConfig where
+  hashWithSalt _salt SnsChannelConfig' {..} =
+    _salt `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData SnsChannelConfig
+instance Prelude.NFData SnsChannelConfig where
+  rnf SnsChannelConfig' {..} = Prelude.rnf topicArn
 
 instance Core.ToJSON SnsChannelConfig where
   toJSON SnsChannelConfig' {..} =

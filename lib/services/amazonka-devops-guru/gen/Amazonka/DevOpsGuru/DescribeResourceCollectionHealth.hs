@@ -166,10 +166,20 @@ instance
 instance
   Prelude.Hashable
     DescribeResourceCollectionHealth
+  where
+  hashWithSalt
+    _salt
+    DescribeResourceCollectionHealth' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` resourceCollectionType
 
 instance
   Prelude.NFData
     DescribeResourceCollectionHealth
+  where
+  rnf DescribeResourceCollectionHealth' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceCollectionType
 
 instance
   Core.ToHeaders
@@ -272,3 +282,9 @@ describeResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeRe
 instance
   Prelude.NFData
     DescribeResourceCollectionHealthResponse
+  where
+  rnf DescribeResourceCollectionHealthResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cloudFormation

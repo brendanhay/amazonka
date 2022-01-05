@@ -70,6 +70,10 @@ instance Core.FromJSON AnomalySourceDetails where
                         )
       )
 
-instance Prelude.Hashable AnomalySourceDetails
+instance Prelude.Hashable AnomalySourceDetails where
+  hashWithSalt _salt AnomalySourceDetails' {..} =
+    _salt `Prelude.hashWithSalt` cloudWatchMetrics
 
-instance Prelude.NFData AnomalySourceDetails
+instance Prelude.NFData AnomalySourceDetails where
+  rnf AnomalySourceDetails' {..} =
+    Prelude.rnf cloudWatchMetrics

@@ -60,9 +60,12 @@ instance Core.FromJSON ServiceCollection where
             Prelude.<$> (x Core..:? "ServiceNames" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ServiceCollection
+instance Prelude.Hashable ServiceCollection where
+  hashWithSalt _salt ServiceCollection' {..} =
+    _salt `Prelude.hashWithSalt` serviceNames
 
-instance Prelude.NFData ServiceCollection
+instance Prelude.NFData ServiceCollection where
+  rnf ServiceCollection' {..} = Prelude.rnf serviceNames
 
 instance Core.ToJSON ServiceCollection where
   toJSON ServiceCollection' {..} =

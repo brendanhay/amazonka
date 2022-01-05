@@ -103,9 +103,12 @@ instance Core.FromJSON NotificationChannelConfig where
             Prelude.<$> (x Core..: "Sns")
       )
 
-instance Prelude.Hashable NotificationChannelConfig
+instance Prelude.Hashable NotificationChannelConfig where
+  hashWithSalt _salt NotificationChannelConfig' {..} =
+    _salt `Prelude.hashWithSalt` sns
 
-instance Prelude.NFData NotificationChannelConfig
+instance Prelude.NFData NotificationChannelConfig where
+  rnf NotificationChannelConfig' {..} = Prelude.rnf sns
 
 instance Core.ToJSON NotificationChannelConfig where
   toJSON NotificationChannelConfig' {..} =

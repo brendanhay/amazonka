@@ -74,9 +74,12 @@ instance Core.AWSRequest DescribeServiceIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeServiceIntegration
+instance Prelude.Hashable DescribeServiceIntegration where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeServiceIntegration
+instance Prelude.NFData DescribeServiceIntegration where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeServiceIntegration where
   toHeaders =
@@ -136,3 +139,7 @@ describeServiceIntegrationResponse_httpStatus = Lens.lens (\DescribeServiceInteg
 instance
   Prelude.NFData
     DescribeServiceIntegrationResponse
+  where
+  rnf DescribeServiceIntegrationResponse' {..} =
+    Prelude.rnf serviceIntegration
+      `Prelude.seq` Prelude.rnf httpStatus

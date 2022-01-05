@@ -100,9 +100,15 @@ instance Core.AWSRequest StartCostEstimation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCostEstimation
+instance Prelude.Hashable StartCostEstimation where
+  hashWithSalt _salt StartCostEstimation' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` resourceCollection
 
-instance Prelude.NFData StartCostEstimation
+instance Prelude.NFData StartCostEstimation where
+  rnf StartCostEstimation' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceCollection
 
 instance Core.ToHeaders StartCostEstimation where
   toHeaders =
@@ -161,4 +167,6 @@ newStartCostEstimationResponse pHttpStatus_ =
 startCostEstimationResponse_httpStatus :: Lens.Lens' StartCostEstimationResponse Prelude.Int
 startCostEstimationResponse_httpStatus = Lens.lens (\StartCostEstimationResponse' {httpStatus} -> httpStatus) (\s@StartCostEstimationResponse' {} a -> s {httpStatus = a} :: StartCostEstimationResponse)
 
-instance Prelude.NFData StartCostEstimationResponse
+instance Prelude.NFData StartCostEstimationResponse where
+  rnf StartCostEstimationResponse' {..} =
+    Prelude.rnf httpStatus

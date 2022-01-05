@@ -68,9 +68,15 @@ eventTimeRange_fromTime = Lens.lens (\EventTimeRange' {fromTime} -> fromTime) (\
 eventTimeRange_toTime :: Lens.Lens' EventTimeRange Prelude.UTCTime
 eventTimeRange_toTime = Lens.lens (\EventTimeRange' {toTime} -> toTime) (\s@EventTimeRange' {} a -> s {toTime = a} :: EventTimeRange) Prelude.. Core._Time
 
-instance Prelude.Hashable EventTimeRange
+instance Prelude.Hashable EventTimeRange where
+  hashWithSalt _salt EventTimeRange' {..} =
+    _salt `Prelude.hashWithSalt` fromTime
+      `Prelude.hashWithSalt` toTime
 
-instance Prelude.NFData EventTimeRange
+instance Prelude.NFData EventTimeRange where
+  rnf EventTimeRange' {..} =
+    Prelude.rnf fromTime
+      `Prelude.seq` Prelude.rnf toTime
 
 instance Core.ToJSON EventTimeRange where
   toJSON EventTimeRange' {..} =

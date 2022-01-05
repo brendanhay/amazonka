@@ -61,9 +61,12 @@ instance Core.FromJSON DestinationOptions where
             Prelude.<$> (x Core..:? "columnMap" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DestinationOptions
+instance Prelude.Hashable DestinationOptions where
+  hashWithSalt _salt DestinationOptions' {..} =
+    _salt `Prelude.hashWithSalt` columnMap
 
-instance Prelude.NFData DestinationOptions
+instance Prelude.NFData DestinationOptions where
+  rnf DestinationOptions' {..} = Prelude.rnf columnMap
 
 instance Core.ToJSON DestinationOptions where
   toJSON DestinationOptions' {..} =

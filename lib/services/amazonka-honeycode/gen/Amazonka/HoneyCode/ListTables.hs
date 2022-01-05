@@ -150,9 +150,17 @@ instance Core.AWSRequest ListTables where
             Prelude.<*> (x Core..?> "tables" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListTables
+instance Prelude.Hashable ListTables where
+  hashWithSalt _salt ListTables' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workbookId
 
-instance Prelude.NFData ListTables
+instance Prelude.NFData ListTables where
+  rnf ListTables' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workbookId
 
 instance Core.ToHeaders ListTables where
   toHeaders =
@@ -248,4 +256,9 @@ listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> 
 listTablesResponse_tables :: Lens.Lens' ListTablesResponse [Table]
 listTablesResponse_tables = Lens.lens (\ListTablesResponse' {tables} -> tables) (\s@ListTablesResponse' {} a -> s {tables = a} :: ListTablesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTablesResponse
+instance Prelude.NFData ListTablesResponse where
+  rnf ListTablesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workbookCursor
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tables

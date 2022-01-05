@@ -53,9 +53,12 @@ newVariableValue pRawValue_ =
 variableValue_rawValue :: Lens.Lens' VariableValue Prelude.Text
 variableValue_rawValue = Lens.lens (\VariableValue' {rawValue} -> rawValue) (\s@VariableValue' {} a -> s {rawValue = a} :: VariableValue)
 
-instance Prelude.Hashable VariableValue
+instance Prelude.Hashable VariableValue where
+  hashWithSalt _salt VariableValue' {..} =
+    _salt `Prelude.hashWithSalt` rawValue
 
-instance Prelude.NFData VariableValue
+instance Prelude.NFData VariableValue where
+  rnf VariableValue' {..} = Prelude.rnf rawValue
 
 instance Core.ToJSON VariableValue where
   toJSON VariableValue' {..} =

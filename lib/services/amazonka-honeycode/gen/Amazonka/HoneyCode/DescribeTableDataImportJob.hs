@@ -151,9 +151,17 @@ instance Core.AWSRequest DescribeTableDataImportJob where
             Prelude.<*> (x Core..:> "jobMetadata")
       )
 
-instance Prelude.Hashable DescribeTableDataImportJob
+instance Prelude.Hashable DescribeTableDataImportJob where
+  hashWithSalt _salt DescribeTableDataImportJob' {..} =
+    _salt `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeTableDataImportJob
+instance Prelude.NFData DescribeTableDataImportJob where
+  rnf DescribeTableDataImportJob' {..} =
+    Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeTableDataImportJob where
   toHeaders =
@@ -253,3 +261,9 @@ describeTableDataImportJobResponse_jobMetadata = Lens.lens (\DescribeTableDataIm
 instance
   Prelude.NFData
     DescribeTableDataImportJobResponse
+  where
+  rnf DescribeTableDataImportJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf jobMetadata

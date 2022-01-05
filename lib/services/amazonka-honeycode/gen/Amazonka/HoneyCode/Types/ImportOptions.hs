@@ -78,9 +78,15 @@ instance Core.FromJSON ImportOptions where
             Prelude.<*> (x Core..:? "destinationOptions")
       )
 
-instance Prelude.Hashable ImportOptions
+instance Prelude.Hashable ImportOptions where
+  hashWithSalt _salt ImportOptions' {..} =
+    _salt `Prelude.hashWithSalt` delimitedTextOptions
+      `Prelude.hashWithSalt` destinationOptions
 
-instance Prelude.NFData ImportOptions
+instance Prelude.NFData ImportOptions where
+  rnf ImportOptions' {..} =
+    Prelude.rnf delimitedTextOptions
+      `Prelude.seq` Prelude.rnf destinationOptions
 
 instance Core.ToJSON ImportOptions where
   toJSON ImportOptions' {..} =

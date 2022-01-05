@@ -105,9 +105,19 @@ instance Core.FromJSON DelimitedTextImportOptions where
             Prelude.<*> (x Core..: "delimiter")
       )
 
-instance Prelude.Hashable DelimitedTextImportOptions
+instance Prelude.Hashable DelimitedTextImportOptions where
+  hashWithSalt _salt DelimitedTextImportOptions' {..} =
+    _salt `Prelude.hashWithSalt` ignoreEmptyRows
+      `Prelude.hashWithSalt` hasHeaderRow
+      `Prelude.hashWithSalt` dataCharacterEncoding
+      `Prelude.hashWithSalt` delimiter
 
-instance Prelude.NFData DelimitedTextImportOptions
+instance Prelude.NFData DelimitedTextImportOptions where
+  rnf DelimitedTextImportOptions' {..} =
+    Prelude.rnf ignoreEmptyRows
+      `Prelude.seq` Prelude.rnf hasHeaderRow
+      `Prelude.seq` Prelude.rnf dataCharacterEncoding
+      `Prelude.seq` Prelude.rnf delimiter
 
 instance Core.ToJSON DelimitedTextImportOptions where
   toJSON DelimitedTextImportOptions' {..} =

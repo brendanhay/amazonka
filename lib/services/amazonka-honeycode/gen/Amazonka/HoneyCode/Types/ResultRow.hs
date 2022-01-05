@@ -72,6 +72,12 @@ instance Core.FromJSON ResultRow where
             Prelude.<*> (x Core..:? "dataItems" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResultRow
+instance Prelude.Hashable ResultRow where
+  hashWithSalt _salt ResultRow' {..} =
+    _salt `Prelude.hashWithSalt` rowId
+      `Prelude.hashWithSalt` dataItems
 
-instance Prelude.NFData ResultRow
+instance Prelude.NFData ResultRow where
+  rnf ResultRow' {..} =
+    Prelude.rnf rowId
+      `Prelude.seq` Prelude.rnf dataItems

@@ -71,9 +71,15 @@ updateRowData_rowId = Lens.lens (\UpdateRowData' {rowId} -> rowId) (\s@UpdateRow
 updateRowData_cellsToUpdate :: Lens.Lens' UpdateRowData (Prelude.HashMap Prelude.Text CellInput)
 updateRowData_cellsToUpdate = Lens.lens (\UpdateRowData' {cellsToUpdate} -> cellsToUpdate) (\s@UpdateRowData' {} a -> s {cellsToUpdate = a} :: UpdateRowData) Prelude.. Lens.coerced
 
-instance Prelude.Hashable UpdateRowData
+instance Prelude.Hashable UpdateRowData where
+  hashWithSalt _salt UpdateRowData' {..} =
+    _salt `Prelude.hashWithSalt` rowId
+      `Prelude.hashWithSalt` cellsToUpdate
 
-instance Prelude.NFData UpdateRowData
+instance Prelude.NFData UpdateRowData where
+  rnf UpdateRowData' {..} =
+    Prelude.rnf rowId
+      `Prelude.seq` Prelude.rnf cellsToUpdate
 
 instance Core.ToJSON UpdateRowData where
   toJSON UpdateRowData' {..} =

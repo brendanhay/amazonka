@@ -196,9 +196,21 @@ instance Core.AWSRequest ListTableRows where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable ListTableRows
+instance Prelude.Hashable ListTableRows where
+  hashWithSalt _salt ListTableRows' {..} =
+    _salt `Prelude.hashWithSalt` rowIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` tableId
 
-instance Prelude.NFData ListTableRows
+instance Prelude.NFData ListTableRows where
+  rnf ListTableRows' {..} =
+    Prelude.rnf rowIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf tableId
 
 instance Core.ToHeaders ListTableRows where
   toHeaders =
@@ -340,4 +352,11 @@ listTableRowsResponse_rows = Lens.lens (\ListTableRowsResponse' {rows} -> rows) 
 listTableRowsResponse_workbookCursor :: Lens.Lens' ListTableRowsResponse Prelude.Integer
 listTableRowsResponse_workbookCursor = Lens.lens (\ListTableRowsResponse' {workbookCursor} -> workbookCursor) (\s@ListTableRowsResponse' {} a -> s {workbookCursor = a} :: ListTableRowsResponse)
 
-instance Prelude.NFData ListTableRowsResponse
+instance Prelude.NFData ListTableRowsResponse where
+  rnf ListTableRowsResponse' {..} =
+    Prelude.rnf rowIdsNotFound
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf columnIds
+      `Prelude.seq` Prelude.rnf rows
+      `Prelude.seq` Prelude.rnf workbookCursor

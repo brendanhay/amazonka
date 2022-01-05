@@ -254,6 +254,16 @@ instance Core.FromJSON Cell where
             Prelude.<*> (x Core..:? "formattedValue")
       )
 
-instance Prelude.Hashable Cell
+instance Prelude.Hashable Cell where
+  hashWithSalt _salt Cell' {..} =
+    _salt `Prelude.hashWithSalt` rawValue
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` formula
+      `Prelude.hashWithSalt` formattedValue
 
-instance Prelude.NFData Cell
+instance Prelude.NFData Cell where
+  rnf Cell' {..} =
+    Prelude.rnf rawValue
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formula
+      `Prelude.seq` Prelude.rnf formattedValue

@@ -125,9 +125,17 @@ upsertRowData_filter = Lens.lens (\UpsertRowData' {filter'} -> filter') (\s@Upse
 upsertRowData_cellsToUpdate :: Lens.Lens' UpsertRowData (Prelude.HashMap Prelude.Text CellInput)
 upsertRowData_cellsToUpdate = Lens.lens (\UpsertRowData' {cellsToUpdate} -> cellsToUpdate) (\s@UpsertRowData' {} a -> s {cellsToUpdate = a} :: UpsertRowData) Prelude.. Lens.coerced
 
-instance Prelude.Hashable UpsertRowData
+instance Prelude.Hashable UpsertRowData where
+  hashWithSalt _salt UpsertRowData' {..} =
+    _salt `Prelude.hashWithSalt` batchItemId
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` cellsToUpdate
 
-instance Prelude.NFData UpsertRowData
+instance Prelude.NFData UpsertRowData where
+  rnf UpsertRowData' {..} =
+    Prelude.rnf batchItemId
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf cellsToUpdate
 
 instance Core.ToJSON UpsertRowData where
   toJSON UpsertRowData' {..} =

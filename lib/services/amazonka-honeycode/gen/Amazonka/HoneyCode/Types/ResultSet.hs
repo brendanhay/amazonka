@@ -119,6 +119,11 @@ instance Core.FromJSON ResultSet where
             Prelude.<*> (x Core..:? "rows" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResultSet
+instance Prelude.Hashable ResultSet where
+  hashWithSalt _salt ResultSet' {..} =
+    _salt `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` rows
 
-instance Prelude.NFData ResultSet
+instance Prelude.NFData ResultSet where
+  rnf ResultSet' {..} =
+    Prelude.rnf headers `Prelude.seq` Prelude.rnf rows

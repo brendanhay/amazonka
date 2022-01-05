@@ -73,6 +73,11 @@ instance Core.FromJSON ValidationError where
             Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ValidationError
+instance Prelude.Hashable ValidationError where
+  hashWithSalt _salt ValidationError' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` errors
 
-instance Prelude.NFData ValidationError
+instance Prelude.NFData ValidationError where
+  rnf ValidationError' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf errors

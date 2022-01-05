@@ -53,9 +53,12 @@ newQuery = Query' {selectors = Prelude.Nothing}
 query_selectors :: Lens.Lens' Query (Prelude.Maybe [Selector])
 query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Query
+instance Prelude.Hashable Query where
+  hashWithSalt _salt Query' {..} =
+    _salt `Prelude.hashWithSalt` selectors
 
-instance Prelude.NFData Query
+instance Prelude.NFData Query where
+  rnf Query' {..} = Prelude.rnf selectors
 
 instance Core.ToJSON Query where
   toJSON Query' {..} =

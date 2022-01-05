@@ -124,9 +124,12 @@ instance Core.AWSRequest ListPipelines where
                         )
       )
 
-instance Prelude.Hashable ListPipelines
+instance Prelude.Hashable ListPipelines where
+  hashWithSalt _salt ListPipelines' {..} =
+    _salt `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListPipelines
+instance Prelude.NFData ListPipelines where
+  rnf ListPipelines' {..} = Prelude.rnf marker
 
 instance Core.ToHeaders ListPipelines where
   toHeaders =
@@ -228,4 +231,9 @@ listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatu
 listPipelinesResponse_pipelineIdList :: Lens.Lens' ListPipelinesResponse [PipelineIdName]
 listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipelineIdList} -> pipelineIdList) (\s@ListPipelinesResponse' {} a -> s {pipelineIdList = a} :: ListPipelinesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPipelinesResponse
+instance Prelude.NFData ListPipelinesResponse where
+  rnf ListPipelinesResponse' {..} =
+    Prelude.rnf hasMoreResults
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipelineIdList

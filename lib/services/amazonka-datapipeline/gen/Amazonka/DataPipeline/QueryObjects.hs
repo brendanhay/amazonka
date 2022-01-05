@@ -181,9 +181,21 @@ instance Core.AWSRequest QueryObjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable QueryObjects
+instance Prelude.Hashable QueryObjects where
+  hashWithSalt _salt QueryObjects' {..} =
+    _salt `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` sphere
 
-instance Prelude.NFData QueryObjects
+instance Prelude.NFData QueryObjects where
+  rnf QueryObjects' {..} =
+    Prelude.rnf query
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf sphere
 
 instance Core.ToHeaders QueryObjects where
   toHeaders =
@@ -284,4 +296,9 @@ queryObjectsResponse_marker = Lens.lens (\QueryObjectsResponse' {marker} -> mark
 queryObjectsResponse_httpStatus :: Lens.Lens' QueryObjectsResponse Prelude.Int
 queryObjectsResponse_httpStatus = Lens.lens (\QueryObjectsResponse' {httpStatus} -> httpStatus) (\s@QueryObjectsResponse' {} a -> s {httpStatus = a} :: QueryObjectsResponse)
 
-instance Prelude.NFData QueryObjectsResponse
+instance Prelude.NFData QueryObjectsResponse where
+  rnf QueryObjectsResponse' {..} =
+    Prelude.rnf hasMoreResults
+      `Prelude.seq` Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

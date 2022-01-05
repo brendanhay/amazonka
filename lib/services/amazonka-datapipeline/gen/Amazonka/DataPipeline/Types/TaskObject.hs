@@ -102,6 +102,16 @@ instance Core.FromJSON TaskObject where
             Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TaskObject
+instance Prelude.Hashable TaskObject where
+  hashWithSalt _salt TaskObject' {..} =
+    _salt `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` attemptId
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` objects
 
-instance Prelude.NFData TaskObject
+instance Prelude.NFData TaskObject where
+  rnf TaskObject' {..} =
+    Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf attemptId
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf objects

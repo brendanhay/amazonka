@@ -73,6 +73,11 @@ instance Core.FromJSON PipelineIdName where
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable PipelineIdName
+instance Prelude.Hashable PipelineIdName where
+  hashWithSalt _salt PipelineIdName' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData PipelineIdName
+instance Prelude.NFData PipelineIdName where
+  rnf PipelineIdName' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id

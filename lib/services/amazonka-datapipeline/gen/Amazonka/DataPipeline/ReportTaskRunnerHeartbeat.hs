@@ -142,9 +142,17 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
             Prelude.<*> (x Core..:> "terminate")
       )
 
-instance Prelude.Hashable ReportTaskRunnerHeartbeat
+instance Prelude.Hashable ReportTaskRunnerHeartbeat where
+  hashWithSalt _salt ReportTaskRunnerHeartbeat' {..} =
+    _salt `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` workerGroup
+      `Prelude.hashWithSalt` taskrunnerId
 
-instance Prelude.NFData ReportTaskRunnerHeartbeat
+instance Prelude.NFData ReportTaskRunnerHeartbeat where
+  rnf ReportTaskRunnerHeartbeat' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf workerGroup
+      `Prelude.seq` Prelude.rnf taskrunnerId
 
 instance Core.ToHeaders ReportTaskRunnerHeartbeat where
   toHeaders =
@@ -225,3 +233,7 @@ reportTaskRunnerHeartbeatResponse_terminate = Lens.lens (\ReportTaskRunnerHeartb
 instance
   Prelude.NFData
     ReportTaskRunnerHeartbeatResponse
+  where
+  rnf ReportTaskRunnerHeartbeatResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf terminate

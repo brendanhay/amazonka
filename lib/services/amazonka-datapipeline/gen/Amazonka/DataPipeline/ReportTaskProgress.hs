@@ -117,9 +117,14 @@ instance Core.AWSRequest ReportTaskProgress where
             Prelude.<*> (x Core..:> "canceled")
       )
 
-instance Prelude.Hashable ReportTaskProgress
+instance Prelude.Hashable ReportTaskProgress where
+  hashWithSalt _salt ReportTaskProgress' {..} =
+    _salt `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData ReportTaskProgress
+instance Prelude.NFData ReportTaskProgress where
+  rnf ReportTaskProgress' {..} =
+    Prelude.rnf fields `Prelude.seq` Prelude.rnf taskId
 
 instance Core.ToHeaders ReportTaskProgress where
   toHeaders =
@@ -197,4 +202,7 @@ reportTaskProgressResponse_httpStatus = Lens.lens (\ReportTaskProgressResponse' 
 reportTaskProgressResponse_canceled :: Lens.Lens' ReportTaskProgressResponse Prelude.Bool
 reportTaskProgressResponse_canceled = Lens.lens (\ReportTaskProgressResponse' {canceled} -> canceled) (\s@ReportTaskProgressResponse' {} a -> s {canceled = a} :: ReportTaskProgressResponse)
 
-instance Prelude.NFData ReportTaskProgressResponse
+instance Prelude.NFData ReportTaskProgressResponse where
+  rnf ReportTaskProgressResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf canceled

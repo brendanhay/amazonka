@@ -197,9 +197,23 @@ instance Core.AWSRequest DescribeSnapshotSchedules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshotSchedules
+instance Prelude.Hashable DescribeSnapshotSchedules where
+  hashWithSalt _salt DescribeSnapshotSchedules' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` scheduleIdentifier
 
-instance Prelude.NFData DescribeSnapshotSchedules
+instance Prelude.NFData DescribeSnapshotSchedules where
+  rnf DescribeSnapshotSchedules' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf scheduleIdentifier
 
 instance Core.ToHeaders DescribeSnapshotSchedules where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,3 +306,8 @@ describeSnapshotSchedulesResponse_httpStatus = Lens.lens (\DescribeSnapshotSched
 instance
   Prelude.NFData
     DescribeSnapshotSchedulesResponse
+  where
+  rnf DescribeSnapshotSchedulesResponse' {..} =
+    Prelude.rnf snapshotSchedules
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

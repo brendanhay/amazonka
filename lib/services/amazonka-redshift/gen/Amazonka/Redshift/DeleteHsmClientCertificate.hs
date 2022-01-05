@@ -84,9 +84,14 @@ instance Core.AWSRequest DeleteHsmClientCertificate where
     Response.receiveNull
       DeleteHsmClientCertificateResponse'
 
-instance Prelude.Hashable DeleteHsmClientCertificate
+instance Prelude.Hashable DeleteHsmClientCertificate where
+  hashWithSalt _salt DeleteHsmClientCertificate' {..} =
+    _salt
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
 
-instance Prelude.NFData DeleteHsmClientCertificate
+instance Prelude.NFData DeleteHsmClientCertificate where
+  rnf DeleteHsmClientCertificate' {..} =
+    Prelude.rnf hsmClientCertificateIdentifier
 
 instance Core.ToHeaders DeleteHsmClientCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,3 +128,5 @@ newDeleteHsmClientCertificateResponse =
 instance
   Prelude.NFData
     DeleteHsmClientCertificateResponse
+  where
+  rnf _ = ()

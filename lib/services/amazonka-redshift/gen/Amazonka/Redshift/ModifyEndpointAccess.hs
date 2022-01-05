@@ -107,9 +107,15 @@ instance Core.AWSRequest ModifyEndpointAccess where
       "ModifyEndpointAccessResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyEndpointAccess
+instance Prelude.Hashable ModifyEndpointAccess where
+  hashWithSalt _salt ModifyEndpointAccess' {..} =
+    _salt `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData ModifyEndpointAccess
+instance Prelude.NFData ModifyEndpointAccess where
+  rnf ModifyEndpointAccess' {..} =
+    Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance Core.ToHeaders ModifyEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

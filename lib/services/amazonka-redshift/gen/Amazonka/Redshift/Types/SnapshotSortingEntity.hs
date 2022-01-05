@@ -66,9 +66,15 @@ snapshotSortingEntity_sortOrder = Lens.lens (\SnapshotSortingEntity' {sortOrder}
 snapshotSortingEntity_attribute :: Lens.Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
 snapshotSortingEntity_attribute = Lens.lens (\SnapshotSortingEntity' {attribute} -> attribute) (\s@SnapshotSortingEntity' {} a -> s {attribute = a} :: SnapshotSortingEntity)
 
-instance Prelude.Hashable SnapshotSortingEntity
+instance Prelude.Hashable SnapshotSortingEntity where
+  hashWithSalt _salt SnapshotSortingEntity' {..} =
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData SnapshotSortingEntity
+instance Prelude.NFData SnapshotSortingEntity where
+  rnf SnapshotSortingEntity' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =

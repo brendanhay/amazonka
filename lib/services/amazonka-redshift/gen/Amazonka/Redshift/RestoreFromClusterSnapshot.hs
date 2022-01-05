@@ -776,9 +776,73 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreFromClusterSnapshot
+instance Prelude.Hashable RestoreFromClusterSnapshot where
+  hashWithSalt _salt RestoreFromClusterSnapshot' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` snapshotScheduleIdentifier
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` snapshotClusterIdentifier
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` aquaConfigurationStatus
+      `Prelude.hashWithSalt` clusterSecurityGroups
+      `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` iamRoles
+      `Prelude.hashWithSalt` availabilityZoneRelocation
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` allowVersionUpgrade
+      `Prelude.hashWithSalt` clusterParameterGroupName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
 
-instance Prelude.NFData RestoreFromClusterSnapshot
+instance Prelude.NFData RestoreFromClusterSnapshot where
+  rnf RestoreFromClusterSnapshot' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf snapshotScheduleIdentifier
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf aquaConfigurationStatus
+      `Prelude.seq` Prelude.rnf clusterSecurityGroups
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf iamRoles
+      `Prelude.seq` Prelude.rnf
+        availabilityZoneRelocation
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf
+        allowVersionUpgrade
+      `Prelude.seq` Prelude.rnf
+        clusterParameterGroupName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        clusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        snapshotIdentifier
 
 instance Core.ToHeaders RestoreFromClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -885,3 +949,7 @@ restoreFromClusterSnapshotResponse_httpStatus = Lens.lens (\RestoreFromClusterSn
 instance
   Prelude.NFData
     RestoreFromClusterSnapshotResponse
+  where
+  rnf RestoreFromClusterSnapshotResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

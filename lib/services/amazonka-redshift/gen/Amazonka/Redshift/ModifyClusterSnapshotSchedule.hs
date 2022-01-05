@@ -116,8 +116,17 @@ instance
 instance
   Prelude.Hashable
     ModifyClusterSnapshotSchedule
+  where
+  hashWithSalt _salt ModifyClusterSnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` disassociateSchedule
+      `Prelude.hashWithSalt` scheduleIdentifier
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ModifyClusterSnapshotSchedule
+instance Prelude.NFData ModifyClusterSnapshotSchedule where
+  rnf ModifyClusterSnapshotSchedule' {..} =
+    Prelude.rnf disassociateSchedule
+      `Prelude.seq` Prelude.rnf scheduleIdentifier
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ModifyClusterSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +166,5 @@ newModifyClusterSnapshotScheduleResponse =
 instance
   Prelude.NFData
     ModifyClusterSnapshotScheduleResponse
+  where
+  rnf _ = ()

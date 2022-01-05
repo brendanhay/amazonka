@@ -123,8 +123,18 @@ instance
 instance
   Prelude.Hashable
     DisassociateDataShareConsumer
+  where
+  hashWithSalt _salt DisassociateDataShareConsumer' {..} =
+    _salt
+      `Prelude.hashWithSalt` disassociateEntireAccount
+      `Prelude.hashWithSalt` consumerArn
+      `Prelude.hashWithSalt` dataShareArn
 
-instance Prelude.NFData DisassociateDataShareConsumer
+instance Prelude.NFData DisassociateDataShareConsumer where
+  rnf DisassociateDataShareConsumer' {..} =
+    Prelude.rnf disassociateEntireAccount
+      `Prelude.seq` Prelude.rnf consumerArn
+      `Prelude.seq` Prelude.rnf dataShareArn
 
 instance Core.ToHeaders DisassociateDataShareConsumer where
   toHeaders = Prelude.const Prelude.mempty

@@ -124,9 +124,16 @@ instance Core.AWSRequest ModifyAquaConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAquaConfiguration
+instance Prelude.Hashable ModifyAquaConfiguration where
+  hashWithSalt _salt ModifyAquaConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` aquaConfigurationStatus
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ModifyAquaConfiguration
+instance Prelude.NFData ModifyAquaConfiguration where
+  rnf ModifyAquaConfiguration' {..} =
+    Prelude.rnf aquaConfigurationStatus
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ModifyAquaConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,3 +195,7 @@ modifyAquaConfigurationResponse_httpStatus = Lens.lens (\ModifyAquaConfiguration
 instance
   Prelude.NFData
     ModifyAquaConfigurationResponse
+  where
+  rnf ModifyAquaConfigurationResponse' {..} =
+    Prelude.rnf aquaConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -141,9 +141,18 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchModifyClusterSnapshots
+instance Prelude.Hashable BatchModifyClusterSnapshots where
+  hashWithSalt _salt BatchModifyClusterSnapshots' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` snapshotIdentifierList
 
-instance Prelude.NFData BatchModifyClusterSnapshots
+instance Prelude.NFData BatchModifyClusterSnapshots where
+  rnf BatchModifyClusterSnapshots' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf force
+      `Prelude.seq` Prelude.rnf snapshotIdentifierList
 
 instance Core.ToHeaders BatchModifyClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,3 +227,8 @@ batchModifyClusterSnapshotsResponse_httpStatus = Lens.lens (\BatchModifyClusterS
 instance
   Prelude.NFData
     BatchModifyClusterSnapshotsResponse
+  where
+  rnf BatchModifyClusterSnapshotsResponse' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

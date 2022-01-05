@@ -266,10 +266,26 @@ instance
 instance
   Prelude.Hashable
     DescribeClusterParameterGroups
+  where
+  hashWithSalt
+    _salt
+    DescribeClusterParameterGroups' {..} =
+      _salt `Prelude.hashWithSalt` tagValues
+        `Prelude.hashWithSalt` tagKeys
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` parameterGroupName
 
 instance
   Prelude.NFData
     DescribeClusterParameterGroups
+  where
+  rnf DescribeClusterParameterGroups' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance
   Core.ToHeaders
@@ -372,3 +388,8 @@ describeClusterParameterGroupsResponse_httpStatus = Lens.lens (\DescribeClusterP
 instance
   Prelude.NFData
     DescribeClusterParameterGroupsResponse
+  where
+  rnf DescribeClusterParameterGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parameterGroups
+      `Prelude.seq` Prelude.rnf httpStatus

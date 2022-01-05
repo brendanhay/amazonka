@@ -108,9 +108,15 @@ instance Core.AWSRequest ModifySnapshotSchedule where
       "ModifySnapshotScheduleResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifySnapshotSchedule
+instance Prelude.Hashable ModifySnapshotSchedule where
+  hashWithSalt _salt ModifySnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` scheduleIdentifier
+      `Prelude.hashWithSalt` scheduleDefinitions
 
-instance Prelude.NFData ModifySnapshotSchedule
+instance Prelude.NFData ModifySnapshotSchedule where
+  rnf ModifySnapshotSchedule' {..} =
+    Prelude.rnf scheduleIdentifier
+      `Prelude.seq` Prelude.rnf scheduleDefinitions
 
 instance Core.ToHeaders ModifySnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty

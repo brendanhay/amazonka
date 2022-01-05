@@ -196,8 +196,21 @@ instance
 instance
   Prelude.Hashable
     DescribeEndpointAuthorization
+  where
+  hashWithSalt _salt DescribeEndpointAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` grantee
 
-instance Prelude.NFData DescribeEndpointAuthorization
+instance Prelude.NFData DescribeEndpointAuthorization where
+  rnf DescribeEndpointAuthorization' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf grantee
 
 instance Core.ToHeaders DescribeEndpointAuthorization where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,3 +294,8 @@ describeEndpointAuthorizationResponse_httpStatus = Lens.lens (\DescribeEndpointA
 instance
   Prelude.NFData
     DescribeEndpointAuthorizationResponse
+  where
+  rnf DescribeEndpointAuthorizationResponse' {..} =
+    Prelude.rnf endpointAuthorizationList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

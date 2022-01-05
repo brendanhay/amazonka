@@ -133,9 +133,17 @@ instance Core.AWSRequest ResetClusterParameterGroup where
       "ResetClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ResetClusterParameterGroup
+instance Prelude.Hashable ResetClusterParameterGroup where
+  hashWithSalt _salt ResetClusterParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` resetAllParameters
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ResetClusterParameterGroup
+instance Prelude.NFData ResetClusterParameterGroup where
+  rnf ResetClusterParameterGroup' {..} =
+    Prelude.rnf resetAllParameters
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders ResetClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

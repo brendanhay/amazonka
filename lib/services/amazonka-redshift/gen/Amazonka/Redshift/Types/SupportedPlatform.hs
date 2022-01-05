@@ -54,6 +54,9 @@ instance Core.FromXML SupportedPlatform where
   parseXML x =
     SupportedPlatform' Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable SupportedPlatform
+instance Prelude.Hashable SupportedPlatform where
+  hashWithSalt _salt SupportedPlatform' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SupportedPlatform
+instance Prelude.NFData SupportedPlatform where
+  rnf SupportedPlatform' {..} = Prelude.rnf name

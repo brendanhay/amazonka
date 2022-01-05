@@ -97,9 +97,13 @@ instance Core.AWSRequest DisableLogging where
       "DisableLoggingResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DisableLogging
+instance Prelude.Hashable DisableLogging where
+  hashWithSalt _salt DisableLogging' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DisableLogging
+instance Prelude.NFData DisableLogging where
+  rnf DisableLogging' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders DisableLogging where
   toHeaders = Prelude.const Prelude.mempty

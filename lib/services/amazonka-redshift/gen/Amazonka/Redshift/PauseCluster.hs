@@ -91,9 +91,12 @@ instance Core.AWSRequest PauseCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PauseCluster
+instance Prelude.Hashable PauseCluster where
+  hashWithSalt _salt PauseCluster' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData PauseCluster
+instance Prelude.NFData PauseCluster where
+  rnf PauseCluster' {..} = Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders PauseCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,7 @@ pauseClusterResponse_cluster = Lens.lens (\PauseClusterResponse' {cluster} -> cl
 pauseClusterResponse_httpStatus :: Lens.Lens' PauseClusterResponse Prelude.Int
 pauseClusterResponse_httpStatus = Lens.lens (\PauseClusterResponse' {httpStatus} -> httpStatus) (\s@PauseClusterResponse' {} a -> s {httpStatus = a} :: PauseClusterResponse)
 
-instance Prelude.NFData PauseClusterResponse
+instance Prelude.NFData PauseClusterResponse where
+  rnf PauseClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

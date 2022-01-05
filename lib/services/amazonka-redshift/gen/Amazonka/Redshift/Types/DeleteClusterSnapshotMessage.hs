@@ -92,8 +92,16 @@ deleteClusterSnapshotMessage_snapshotIdentifier = Lens.lens (\DeleteClusterSnaps
 instance
   Prelude.Hashable
     DeleteClusterSnapshotMessage
+  where
+  hashWithSalt _salt DeleteClusterSnapshotMessage' {..} =
+    _salt
+      `Prelude.hashWithSalt` snapshotClusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
 
-instance Prelude.NFData DeleteClusterSnapshotMessage
+instance Prelude.NFData DeleteClusterSnapshotMessage where
+  rnf DeleteClusterSnapshotMessage' {..} =
+    Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
 
 instance Core.ToQuery DeleteClusterSnapshotMessage where
   toQuery DeleteClusterSnapshotMessage' {..} =

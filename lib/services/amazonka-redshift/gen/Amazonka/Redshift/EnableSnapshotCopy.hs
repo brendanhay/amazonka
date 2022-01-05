@@ -197,9 +197,22 @@ instance Core.AWSRequest EnableSnapshotCopy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableSnapshotCopy
+instance Prelude.Hashable EnableSnapshotCopy where
+  hashWithSalt _salt EnableSnapshotCopy' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` snapshotCopyGrantName
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` destinationRegion
 
-instance Prelude.NFData EnableSnapshotCopy
+instance Prelude.NFData EnableSnapshotCopy where
+  rnf EnableSnapshotCopy' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf destinationRegion
 
 instance Core.ToHeaders EnableSnapshotCopy where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,4 +274,7 @@ enableSnapshotCopyResponse_cluster = Lens.lens (\EnableSnapshotCopyResponse' {cl
 enableSnapshotCopyResponse_httpStatus :: Lens.Lens' EnableSnapshotCopyResponse Prelude.Int
 enableSnapshotCopyResponse_httpStatus = Lens.lens (\EnableSnapshotCopyResponse' {httpStatus} -> httpStatus) (\s@EnableSnapshotCopyResponse' {} a -> s {httpStatus = a} :: EnableSnapshotCopyResponse)
 
-instance Prelude.NFData EnableSnapshotCopyResponse
+instance Prelude.NFData EnableSnapshotCopyResponse where
+  rnf EnableSnapshotCopyResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

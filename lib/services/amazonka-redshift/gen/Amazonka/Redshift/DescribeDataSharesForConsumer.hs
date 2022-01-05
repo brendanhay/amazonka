@@ -165,8 +165,19 @@ instance
 instance
   Prelude.Hashable
     DescribeDataSharesForConsumer
+  where
+  hashWithSalt _salt DescribeDataSharesForConsumer' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` consumerArn
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeDataSharesForConsumer
+instance Prelude.NFData DescribeDataSharesForConsumer where
+  rnf DescribeDataSharesForConsumer' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf consumerArn
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeDataSharesForConsumer where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,3 +266,8 @@ describeDataSharesForConsumerResponse_httpStatus = Lens.lens (\DescribeDataShare
 instance
   Prelude.NFData
     DescribeDataSharesForConsumerResponse
+  where
+  rnf DescribeDataSharesForConsumerResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dataShares
+      `Prelude.seq` Prelude.rnf httpStatus

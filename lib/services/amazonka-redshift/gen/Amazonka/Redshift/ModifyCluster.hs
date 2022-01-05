@@ -846,9 +846,66 @@ instance Core.AWSRequest ModifyCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCluster
+instance Prelude.Hashable ModifyCluster where
+  hashWithSalt _salt ModifyCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` clusterSecurityGroups
+      `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` newClusterIdentifier'
+      `Prelude.hashWithSalt` availabilityZoneRelocation
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` allowVersionUpgrade
+      `Prelude.hashWithSalt` clusterParameterGroupName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ModifyCluster
+instance Prelude.NFData ModifyCluster where
+  rnf ModifyCluster' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf clusterSecurityGroups
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf newClusterIdentifier'
+      `Prelude.seq` Prelude.rnf
+        availabilityZoneRelocation
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf
+        allowVersionUpgrade
+      `Prelude.seq` Prelude.rnf
+        clusterParameterGroupName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        clusterIdentifier
 
 instance Core.ToHeaders ModifyCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -942,4 +999,7 @@ modifyClusterResponse_cluster = Lens.lens (\ModifyClusterResponse' {cluster} -> 
 modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Prelude.NFData ModifyClusterResponse
+instance Prelude.NFData ModifyClusterResponse where
+  rnf ModifyClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

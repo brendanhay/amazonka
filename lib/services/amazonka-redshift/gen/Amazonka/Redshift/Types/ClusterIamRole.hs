@@ -106,6 +106,12 @@ instance Core.FromXML ClusterIamRole where
       Prelude.<$> (x Core..@? "IamRoleArn")
       Prelude.<*> (x Core..@? "ApplyStatus")
 
-instance Prelude.Hashable ClusterIamRole
+instance Prelude.Hashable ClusterIamRole where
+  hashWithSalt _salt ClusterIamRole' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` applyStatus
 
-instance Prelude.NFData ClusterIamRole
+instance Prelude.NFData ClusterIamRole where
+  rnf ClusterIamRole' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf applyStatus

@@ -130,9 +130,19 @@ instance Core.AWSRequest AddPartner where
       "AddPartnerResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AddPartner
+instance Prelude.Hashable AddPartner where
+  hashWithSalt _salt AddPartner' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` partnerName
 
-instance Prelude.NFData AddPartner
+instance Prelude.NFData AddPartner where
+  rnf AddPartner' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf partnerName
 
 instance Core.ToHeaders AddPartner where
   toHeaders = Prelude.const Prelude.mempty

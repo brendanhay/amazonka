@@ -91,9 +91,14 @@ instance Core.AWSRequest DeleteAuthenticationProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAuthenticationProfile
+instance Prelude.Hashable DeleteAuthenticationProfile where
+  hashWithSalt _salt DeleteAuthenticationProfile' {..} =
+    _salt
+      `Prelude.hashWithSalt` authenticationProfileName
 
-instance Prelude.NFData DeleteAuthenticationProfile
+instance Prelude.NFData DeleteAuthenticationProfile where
+  rnf DeleteAuthenticationProfile' {..} =
+    Prelude.rnf authenticationProfileName
 
 instance Core.ToHeaders DeleteAuthenticationProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +161,7 @@ deleteAuthenticationProfileResponse_httpStatus = Lens.lens (\DeleteAuthenticatio
 instance
   Prelude.NFData
     DeleteAuthenticationProfileResponse
+  where
+  rnf DeleteAuthenticationProfileResponse' {..} =
+    Prelude.rnf authenticationProfileName
+      `Prelude.seq` Prelude.rnf httpStatus

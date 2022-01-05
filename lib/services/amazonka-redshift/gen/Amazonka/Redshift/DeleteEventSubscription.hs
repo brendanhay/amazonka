@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteEventSubscription where
     Response.receiveNull
       DeleteEventSubscriptionResponse'
 
-instance Prelude.Hashable DeleteEventSubscription
+instance Prelude.Hashable DeleteEventSubscription where
+  hashWithSalt _salt DeleteEventSubscription' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionName
 
-instance Prelude.NFData DeleteEventSubscription
+instance Prelude.NFData DeleteEventSubscription where
+  rnf DeleteEventSubscription' {..} =
+    Prelude.rnf subscriptionName
 
 instance Core.ToHeaders DeleteEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -124,3 +128,5 @@ newDeleteEventSubscriptionResponse =
 instance
   Prelude.NFData
     DeleteEventSubscriptionResponse
+  where
+  rnf _ = ()

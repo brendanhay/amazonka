@@ -83,9 +83,17 @@ instance Core.FromXML ScheduledActionType where
       Prelude.<*> (x Core..@? "ResumeCluster")
       Prelude.<*> (x Core..@? "PauseCluster")
 
-instance Prelude.Hashable ScheduledActionType
+instance Prelude.Hashable ScheduledActionType where
+  hashWithSalt _salt ScheduledActionType' {..} =
+    _salt `Prelude.hashWithSalt` resizeCluster
+      `Prelude.hashWithSalt` resumeCluster
+      `Prelude.hashWithSalt` pauseCluster
 
-instance Prelude.NFData ScheduledActionType
+instance Prelude.NFData ScheduledActionType where
+  rnf ScheduledActionType' {..} =
+    Prelude.rnf resizeCluster
+      `Prelude.seq` Prelude.rnf resumeCluster
+      `Prelude.seq` Prelude.rnf pauseCluster
 
 instance Core.ToQuery ScheduledActionType where
   toQuery ScheduledActionType' {..} =

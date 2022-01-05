@@ -129,9 +129,19 @@ instance Core.AWSRequest RevokeEndpointAccess where
       "RevokeEndpointAccessResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable RevokeEndpointAccess
+instance Prelude.Hashable RevokeEndpointAccess where
+  hashWithSalt _salt RevokeEndpointAccess' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` vpcIds
 
-instance Prelude.NFData RevokeEndpointAccess
+instance Prelude.NFData RevokeEndpointAccess where
+  rnf RevokeEndpointAccess' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf vpcIds
 
 instance Core.ToHeaders RevokeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

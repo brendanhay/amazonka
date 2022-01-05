@@ -225,9 +225,20 @@ instance Core.AWSRequest DescribeClusterVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterVersions
+instance Prelude.Hashable DescribeClusterVersions where
+  hashWithSalt _salt DescribeClusterVersions' {..} =
+    _salt
+      `Prelude.hashWithSalt` clusterParameterGroupFamily
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` clusterVersion
 
-instance Prelude.NFData DescribeClusterVersions
+instance Prelude.NFData DescribeClusterVersions where
+  rnf DescribeClusterVersions' {..} =
+    Prelude.rnf clusterParameterGroupFamily
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf clusterVersion
 
 instance Core.ToHeaders DescribeClusterVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,3 +328,8 @@ describeClusterVersionsResponse_httpStatus = Lens.lens (\DescribeClusterVersions
 instance
   Prelude.NFData
     DescribeClusterVersionsResponse
+  where
+  rnf DescribeClusterVersionsResponse' {..} =
+    Prelude.rnf clusterVersions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

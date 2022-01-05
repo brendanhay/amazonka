@@ -148,6 +148,26 @@ instance Core.FromXML EndpointAuthorization where
       Prelude.<*> (x Core..@? "ClusterStatus")
       Prelude.<*> (x Core..@? "AuthorizeTime")
 
-instance Prelude.Hashable EndpointAuthorization
+instance Prelude.Hashable EndpointAuthorization where
+  hashWithSalt _salt EndpointAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` allowedAllVPCs
+      `Prelude.hashWithSalt` endpointCount
+      `Prelude.hashWithSalt` grantor
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` grantee
+      `Prelude.hashWithSalt` allowedVPCs
+      `Prelude.hashWithSalt` clusterStatus
+      `Prelude.hashWithSalt` authorizeTime
 
-instance Prelude.NFData EndpointAuthorization
+instance Prelude.NFData EndpointAuthorization where
+  rnf EndpointAuthorization' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf allowedAllVPCs
+      `Prelude.seq` Prelude.rnf endpointCount
+      `Prelude.seq` Prelude.rnf grantor
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf allowedVPCs
+      `Prelude.seq` Prelude.rnf clusterStatus
+      `Prelude.seq` Prelude.rnf authorizeTime

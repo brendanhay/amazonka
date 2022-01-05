@@ -62,9 +62,13 @@ instance Core.FromXML PauseClusterMessage where
     PauseClusterMessage'
       Prelude.<$> (x Core..@ "ClusterIdentifier")
 
-instance Prelude.Hashable PauseClusterMessage
+instance Prelude.Hashable PauseClusterMessage where
+  hashWithSalt _salt PauseClusterMessage' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData PauseClusterMessage
+instance Prelude.NFData PauseClusterMessage where
+  rnf PauseClusterMessage' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToQuery PauseClusterMessage where
   toQuery PauseClusterMessage' {..} =

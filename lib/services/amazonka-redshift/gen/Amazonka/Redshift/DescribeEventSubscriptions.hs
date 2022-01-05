@@ -250,9 +250,21 @@ instance Core.AWSRequest DescribeEventSubscriptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventSubscriptions
+instance Prelude.Hashable DescribeEventSubscriptions where
+  hashWithSalt _salt DescribeEventSubscriptions' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionName
+      `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeEventSubscriptions
+instance Prelude.NFData DescribeEventSubscriptions where
+  rnf DescribeEventSubscriptions' {..} =
+    Prelude.rnf subscriptionName
+      `Prelude.seq` Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeEventSubscriptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -346,3 +358,8 @@ describeEventSubscriptionsResponse_httpStatus = Lens.lens (\DescribeEventSubscri
 instance
   Prelude.NFData
     DescribeEventSubscriptionsResponse
+  where
+  rnf DescribeEventSubscriptionsResponse' {..} =
+    Prelude.rnf eventSubscriptionsList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

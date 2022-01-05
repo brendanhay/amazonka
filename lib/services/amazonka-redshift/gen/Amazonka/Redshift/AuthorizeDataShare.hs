@@ -107,9 +107,15 @@ instance Core.AWSRequest AuthorizeDataShare where
       "AuthorizeDataShareResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AuthorizeDataShare
+instance Prelude.Hashable AuthorizeDataShare where
+  hashWithSalt _salt AuthorizeDataShare' {..} =
+    _salt `Prelude.hashWithSalt` dataShareArn
+      `Prelude.hashWithSalt` consumerIdentifier
 
-instance Prelude.NFData AuthorizeDataShare
+instance Prelude.NFData AuthorizeDataShare where
+  rnf AuthorizeDataShare' {..} =
+    Prelude.rnf dataShareArn
+      `Prelude.seq` Prelude.rnf consumerIdentifier
 
 instance Core.ToHeaders AuthorizeDataShare where
   toHeaders = Prelude.const Prelude.mempty

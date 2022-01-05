@@ -185,9 +185,23 @@ instance Core.AWSRequest DescribeEndpointAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpointAccess
+instance Prelude.Hashable DescribeEndpointAccess where
+  hashWithSalt _salt DescribeEndpointAccess' {..} =
+    _salt `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` resourceOwner
 
-instance Prelude.NFData DescribeEndpointAccess
+instance Prelude.NFData DescribeEndpointAccess where
+  rnf DescribeEndpointAccess' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf resourceOwner
 
 instance Core.ToHeaders DescribeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,3 +284,8 @@ describeEndpointAccessResponse_httpStatus = Lens.lens (\DescribeEndpointAccessRe
 instance
   Prelude.NFData
     DescribeEndpointAccessResponse
+  where
+  rnf DescribeEndpointAccessResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf endpointAccessList
+      `Prelude.seq` Prelude.rnf httpStatus

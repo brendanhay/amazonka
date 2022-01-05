@@ -83,9 +83,13 @@ instance Core.AWSRequest DeleteSnapshotCopyGrant where
     Response.receiveNull
       DeleteSnapshotCopyGrantResponse'
 
-instance Prelude.Hashable DeleteSnapshotCopyGrant
+instance Prelude.Hashable DeleteSnapshotCopyGrant where
+  hashWithSalt _salt DeleteSnapshotCopyGrant' {..} =
+    _salt `Prelude.hashWithSalt` snapshotCopyGrantName
 
-instance Prelude.NFData DeleteSnapshotCopyGrant
+instance Prelude.NFData DeleteSnapshotCopyGrant where
+  rnf DeleteSnapshotCopyGrant' {..} =
+    Prelude.rnf snapshotCopyGrantName
 
 instance Core.ToHeaders DeleteSnapshotCopyGrant where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,3 +126,5 @@ newDeleteSnapshotCopyGrantResponse =
 instance
   Prelude.NFData
     DeleteSnapshotCopyGrantResponse
+  where
+  rnf _ = ()

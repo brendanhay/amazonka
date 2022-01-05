@@ -138,9 +138,19 @@ instance Core.AWSRequest DescribePartners where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePartners
+instance Prelude.Hashable DescribePartners where
+  hashWithSalt _salt DescribePartners' {..} =
+    _salt `Prelude.hashWithSalt` partnerName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DescribePartners
+instance Prelude.NFData DescribePartners where
+  rnf DescribePartners' {..} =
+    Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders DescribePartners where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,4 +210,7 @@ describePartnersResponse_partnerIntegrationInfoList = Lens.lens (\DescribePartne
 describePartnersResponse_httpStatus :: Lens.Lens' DescribePartnersResponse Prelude.Int
 describePartnersResponse_httpStatus = Lens.lens (\DescribePartnersResponse' {httpStatus} -> httpStatus) (\s@DescribePartnersResponse' {} a -> s {httpStatus = a} :: DescribePartnersResponse)
 
-instance Prelude.NFData DescribePartnersResponse
+instance Prelude.NFData DescribePartnersResponse where
+  rnf DescribePartnersResponse' {..} =
+    Prelude.rnf partnerIntegrationInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

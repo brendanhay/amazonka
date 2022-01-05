@@ -182,9 +182,19 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTableRestoreStatus
+instance Prelude.Hashable DescribeTableRestoreStatus where
+  hashWithSalt _salt DescribeTableRestoreStatus' {..} =
+    _salt `Prelude.hashWithSalt` tableRestoreRequestId
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeTableRestoreStatus
+instance Prelude.NFData DescribeTableRestoreStatus where
+  rnf DescribeTableRestoreStatus' {..} =
+    Prelude.rnf tableRestoreRequestId
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeTableRestoreStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,3 +273,8 @@ describeTableRestoreStatusResponse_httpStatus = Lens.lens (\DescribeTableRestore
 instance
   Prelude.NFData
     DescribeTableRestoreStatusResponse
+  where
+  rnf DescribeTableRestoreStatusResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tableRestoreStatusDetails
+      `Prelude.seq` Prelude.rnf httpStatus

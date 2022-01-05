@@ -173,9 +173,21 @@ instance Core.AWSRequest ResizeCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResizeCluster
+instance Prelude.Hashable ResizeCluster where
+  hashWithSalt _salt ResizeCluster' {..} =
+    _salt `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` classic
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ResizeCluster
+instance Prelude.NFData ResizeCluster where
+  rnf ResizeCluster' {..} =
+    Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf classic
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ResizeCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,4 +246,7 @@ resizeClusterResponse_cluster = Lens.lens (\ResizeClusterResponse' {cluster} -> 
 resizeClusterResponse_httpStatus :: Lens.Lens' ResizeClusterResponse Prelude.Int
 resizeClusterResponse_httpStatus = Lens.lens (\ResizeClusterResponse' {httpStatus} -> httpStatus) (\s@ResizeClusterResponse' {} a -> s {httpStatus = a} :: ResizeClusterResponse)
 
-instance Prelude.NFData ResizeClusterResponse
+instance Prelude.NFData ResizeClusterResponse where
+  rnf ResizeClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

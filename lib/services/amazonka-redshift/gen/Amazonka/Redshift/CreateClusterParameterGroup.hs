@@ -203,9 +203,19 @@ instance Core.AWSRequest CreateClusterParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClusterParameterGroup
+instance Prelude.Hashable CreateClusterParameterGroup where
+  hashWithSalt _salt CreateClusterParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateClusterParameterGroup
+instance Prelude.NFData CreateClusterParameterGroup where
+  rnf CreateClusterParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,3 +281,7 @@ createClusterParameterGroupResponse_httpStatus = Lens.lens (\CreateClusterParame
 instance
   Prelude.NFData
     CreateClusterParameterGroupResponse
+  where
+  rnf CreateClusterParameterGroupResponse' {..} =
+    Prelude.rnf clusterParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

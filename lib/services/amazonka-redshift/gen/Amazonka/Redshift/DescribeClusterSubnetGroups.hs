@@ -244,9 +244,21 @@ instance Core.AWSRequest DescribeClusterSubnetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterSubnetGroups
+instance Prelude.Hashable DescribeClusterSubnetGroups where
+  hashWithSalt _salt DescribeClusterSubnetGroups' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeClusterSubnetGroups
+instance Prelude.NFData DescribeClusterSubnetGroups where
+  rnf DescribeClusterSubnetGroups' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeClusterSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -343,3 +355,8 @@ describeClusterSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeClusterSubn
 instance
   Prelude.NFData
     DescribeClusterSubnetGroupsResponse
+  where
+  rnf DescribeClusterSubnetGroupsResponse' {..} =
+    Prelude.rnf clusterSubnetGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

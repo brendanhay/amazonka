@@ -89,6 +89,16 @@ instance Core.FromXML NodeConfigurationOption where
       Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@? "EstimatedDiskUtilizationPercent")
 
-instance Prelude.Hashable NodeConfigurationOption
+instance Prelude.Hashable NodeConfigurationOption where
+  hashWithSalt _salt NodeConfigurationOption' {..} =
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` estimatedDiskUtilizationPercent
 
-instance Prelude.NFData NodeConfigurationOption
+instance Prelude.NFData NodeConfigurationOption where
+  rnf NodeConfigurationOption' {..} =
+    Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf estimatedDiskUtilizationPercent

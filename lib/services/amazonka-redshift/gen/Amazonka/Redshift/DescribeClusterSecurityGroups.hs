@@ -274,8 +274,21 @@ instance
 instance
   Prelude.Hashable
     DescribeClusterSecurityGroups
+  where
+  hashWithSalt _salt DescribeClusterSecurityGroups' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` clusterSecurityGroupName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeClusterSecurityGroups
+instance Prelude.NFData DescribeClusterSecurityGroups where
+  rnf DescribeClusterSecurityGroups' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeClusterSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -372,3 +385,8 @@ describeClusterSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeClusterSe
 instance
   Prelude.NFData
     DescribeClusterSecurityGroupsResponse
+  where
+  rnf DescribeClusterSecurityGroupsResponse' {..} =
+    Prelude.rnf clusterSecurityGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

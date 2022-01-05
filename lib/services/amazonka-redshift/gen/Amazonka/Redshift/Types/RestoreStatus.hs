@@ -140,6 +140,20 @@ instance Core.FromXML RestoreStatus where
       Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
       Prelude.<*> (x Core..@? "SnapshotSizeInMegaBytes")
 
-instance Prelude.Hashable RestoreStatus
+instance Prelude.Hashable RestoreStatus where
+  hashWithSalt _salt RestoreStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+      `Prelude.hashWithSalt` currentRestoreRateInMegaBytesPerSecond
+      `Prelude.hashWithSalt` progressInMegaBytes
+      `Prelude.hashWithSalt` elapsedTimeInSeconds
+      `Prelude.hashWithSalt` snapshotSizeInMegaBytes
 
-instance Prelude.NFData RestoreStatus
+instance Prelude.NFData RestoreStatus where
+  rnf RestoreStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
+      `Prelude.seq` Prelude.rnf currentRestoreRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
+      `Prelude.seq` Prelude.rnf snapshotSizeInMegaBytes

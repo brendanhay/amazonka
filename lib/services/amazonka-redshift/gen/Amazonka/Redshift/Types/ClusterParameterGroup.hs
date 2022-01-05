@@ -95,6 +95,16 @@ instance Core.FromXML ClusterParameterGroup where
                   )
       Prelude.<*> (x Core..@? "ParameterGroupName")
 
-instance Prelude.Hashable ClusterParameterGroup
+instance Prelude.Hashable ClusterParameterGroup where
+  hashWithSalt _salt ClusterParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ClusterParameterGroup
+instance Prelude.NFData ClusterParameterGroup where
+  rnf ClusterParameterGroup' {..} =
+    Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameterGroupName

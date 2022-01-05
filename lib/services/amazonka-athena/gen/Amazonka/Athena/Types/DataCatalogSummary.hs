@@ -73,6 +73,12 @@ instance Core.FromJSON DataCatalogSummary where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DataCatalogSummary
+instance Prelude.Hashable DataCatalogSummary where
+  hashWithSalt _salt DataCatalogSummary' {..} =
+    _salt `Prelude.hashWithSalt` catalogName
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DataCatalogSummary
+instance Prelude.NFData DataCatalogSummary where
+  rnf DataCatalogSummary' {..} =
+    Prelude.rnf catalogName
+      `Prelude.seq` Prelude.rnf type'

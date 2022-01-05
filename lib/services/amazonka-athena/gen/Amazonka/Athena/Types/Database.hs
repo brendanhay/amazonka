@@ -83,6 +83,14 @@ instance Core.FromJSON Database where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Database
+instance Prelude.Hashable Database where
+  hashWithSalt _salt Database' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Database
+instance Prelude.NFData Database where
+  rnf Database' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name

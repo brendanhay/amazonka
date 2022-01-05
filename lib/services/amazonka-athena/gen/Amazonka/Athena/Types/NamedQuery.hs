@@ -118,6 +118,20 @@ instance Core.FromJSON NamedQuery where
             Prelude.<*> (x Core..: "QueryString")
       )
 
-instance Prelude.Hashable NamedQuery
+instance Prelude.Hashable NamedQuery where
+  hashWithSalt _salt NamedQuery' {..} =
+    _salt `Prelude.hashWithSalt` namedQueryId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData NamedQuery
+instance Prelude.NFData NamedQuery where
+  rnf NamedQuery' {..} =
+    Prelude.rnf namedQueryId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf queryString

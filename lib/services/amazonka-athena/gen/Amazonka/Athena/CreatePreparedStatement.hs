@@ -124,9 +124,19 @@ instance Core.AWSRequest CreatePreparedStatement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePreparedStatement
+instance Prelude.Hashable CreatePreparedStatement where
+  hashWithSalt _salt CreatePreparedStatement' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` queryStatement
 
-instance Prelude.NFData CreatePreparedStatement
+instance Prelude.NFData CreatePreparedStatement where
+  rnf CreatePreparedStatement' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf queryStatement
 
 instance Core.ToHeaders CreatePreparedStatement where
   toHeaders =
@@ -194,3 +204,6 @@ createPreparedStatementResponse_httpStatus = Lens.lens (\CreatePreparedStatement
 instance
   Prelude.NFData
     CreatePreparedStatementResponse
+  where
+  rnf CreatePreparedStatementResponse' {..} =
+    Prelude.rnf httpStatus

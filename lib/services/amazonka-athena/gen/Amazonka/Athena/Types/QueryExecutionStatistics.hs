@@ -162,6 +162,23 @@ instance Core.FromJSON QueryExecutionStatistics where
             Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
       )
 
-instance Prelude.Hashable QueryExecutionStatistics
+instance Prelude.Hashable QueryExecutionStatistics where
+  hashWithSalt _salt QueryExecutionStatistics' {..} =
+    _salt
+      `Prelude.hashWithSalt` totalExecutionTimeInMillis
+      `Prelude.hashWithSalt` engineExecutionTimeInMillis
+      `Prelude.hashWithSalt` queryPlanningTimeInMillis
+      `Prelude.hashWithSalt` dataScannedInBytes
+      `Prelude.hashWithSalt` queryQueueTimeInMillis
+      `Prelude.hashWithSalt` dataManifestLocation
+      `Prelude.hashWithSalt` serviceProcessingTimeInMillis
 
-instance Prelude.NFData QueryExecutionStatistics
+instance Prelude.NFData QueryExecutionStatistics where
+  rnf QueryExecutionStatistics' {..} =
+    Prelude.rnf totalExecutionTimeInMillis
+      `Prelude.seq` Prelude.rnf engineExecutionTimeInMillis
+      `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis
+      `Prelude.seq` Prelude.rnf dataScannedInBytes
+      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
+      `Prelude.seq` Prelude.rnf dataManifestLocation
+      `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis

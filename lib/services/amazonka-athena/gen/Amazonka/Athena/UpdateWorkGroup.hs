@@ -120,9 +120,19 @@ instance Core.AWSRequest UpdateWorkGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorkGroup
+instance Prelude.Hashable UpdateWorkGroup where
+  hashWithSalt _salt UpdateWorkGroup' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` configurationUpdates
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workGroup
 
-instance Prelude.NFData UpdateWorkGroup
+instance Prelude.NFData UpdateWorkGroup where
+  rnf UpdateWorkGroup' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf configurationUpdates
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders UpdateWorkGroup where
   toHeaders =
@@ -184,4 +194,6 @@ newUpdateWorkGroupResponse pHttpStatus_ =
 updateWorkGroupResponse_httpStatus :: Lens.Lens' UpdateWorkGroupResponse Prelude.Int
 updateWorkGroupResponse_httpStatus = Lens.lens (\UpdateWorkGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkGroupResponse' {} a -> s {httpStatus = a} :: UpdateWorkGroupResponse)
 
-instance Prelude.NFData UpdateWorkGroupResponse
+instance Prelude.NFData UpdateWorkGroupResponse where
+  rnf UpdateWorkGroupResponse' {..} =
+    Prelude.rnf httpStatus

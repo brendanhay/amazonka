@@ -124,9 +124,16 @@ instance Core.FromJSON ResultConfiguration where
             Prelude.<*> (x Core..:? "OutputLocation")
       )
 
-instance Prelude.Hashable ResultConfiguration
+instance Prelude.Hashable ResultConfiguration where
+  hashWithSalt _salt ResultConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` outputLocation
 
-instance Prelude.NFData ResultConfiguration
+instance Prelude.NFData ResultConfiguration where
+  rnf ResultConfiguration' {..} =
+    Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf outputLocation
 
 instance Core.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =

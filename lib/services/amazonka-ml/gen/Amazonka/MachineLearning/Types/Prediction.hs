@@ -104,6 +104,16 @@ instance Core.FromJSON Prediction where
             Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Prediction
+instance Prelude.Hashable Prediction where
+  hashWithSalt _salt Prediction' {..} =
+    _salt `Prelude.hashWithSalt` predictedValue
+      `Prelude.hashWithSalt` predictedLabel
+      `Prelude.hashWithSalt` predictedScores
+      `Prelude.hashWithSalt` details
 
-instance Prelude.NFData Prediction
+instance Prelude.NFData Prediction where
+  rnf Prediction' {..} =
+    Prelude.rnf predictedValue
+      `Prelude.seq` Prelude.rnf predictedLabel
+      `Prelude.seq` Prelude.rnf predictedScores
+      `Prelude.seq` Prelude.rnf details

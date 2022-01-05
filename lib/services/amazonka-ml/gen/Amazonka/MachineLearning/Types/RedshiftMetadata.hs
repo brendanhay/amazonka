@@ -83,6 +83,14 @@ instance Core.FromJSON RedshiftMetadata where
             Prelude.<*> (x Core..:? "DatabaseUserName")
       )
 
-instance Prelude.Hashable RedshiftMetadata
+instance Prelude.Hashable RedshiftMetadata where
+  hashWithSalt _salt RedshiftMetadata' {..} =
+    _salt `Prelude.hashWithSalt` selectSqlQuery
+      `Prelude.hashWithSalt` redshiftDatabase
+      `Prelude.hashWithSalt` databaseUserName
 
-instance Prelude.NFData RedshiftMetadata
+instance Prelude.NFData RedshiftMetadata where
+  rnf RedshiftMetadata' {..} =
+    Prelude.rnf selectSqlQuery
+      `Prelude.seq` Prelude.rnf redshiftDatabase
+      `Prelude.seq` Prelude.rnf databaseUserName

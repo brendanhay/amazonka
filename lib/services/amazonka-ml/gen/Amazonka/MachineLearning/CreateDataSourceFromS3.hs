@@ -203,9 +203,19 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSourceFromS3
+instance Prelude.Hashable CreateDataSourceFromS3 where
+  hashWithSalt _salt CreateDataSourceFromS3' {..} =
+    _salt `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` computeStatistics
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` dataSpec
 
-instance Prelude.NFData CreateDataSourceFromS3
+instance Prelude.NFData CreateDataSourceFromS3 where
+  rnf CreateDataSourceFromS3' {..} =
+    Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf computeStatistics
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf dataSpec
 
 instance Core.ToHeaders CreateDataSourceFromS3 where
   toHeaders =
@@ -293,3 +303,7 @@ createDataSourceFromS3Response_httpStatus = Lens.lens (\CreateDataSourceFromS3Re
 instance
   Prelude.NFData
     CreateDataSourceFromS3Response
+  where
+  rnf CreateDataSourceFromS3Response' {..} =
+    Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf httpStatus

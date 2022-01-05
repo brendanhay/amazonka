@@ -129,9 +129,17 @@ instance Core.AWSRequest UpdateMLModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMLModel
+instance Prelude.Hashable UpdateMLModel where
+  hashWithSalt _salt UpdateMLModel' {..} =
+    _salt `Prelude.hashWithSalt` mLModelName
+      `Prelude.hashWithSalt` scoreThreshold
+      `Prelude.hashWithSalt` mLModelId
 
-instance Prelude.NFData UpdateMLModel
+instance Prelude.NFData UpdateMLModel where
+  rnf UpdateMLModel' {..} =
+    Prelude.rnf mLModelName
+      `Prelude.seq` Prelude.rnf scoreThreshold
+      `Prelude.seq` Prelude.rnf mLModelId
 
 instance Core.ToHeaders UpdateMLModel where
   toHeaders =
@@ -210,4 +218,7 @@ updateMLModelResponse_mLModelId = Lens.lens (\UpdateMLModelResponse' {mLModelId}
 updateMLModelResponse_httpStatus :: Lens.Lens' UpdateMLModelResponse Prelude.Int
 updateMLModelResponse_httpStatus = Lens.lens (\UpdateMLModelResponse' {httpStatus} -> httpStatus) (\s@UpdateMLModelResponse' {} a -> s {httpStatus = a} :: UpdateMLModelResponse)
 
-instance Prelude.NFData UpdateMLModelResponse
+instance Prelude.NFData UpdateMLModelResponse where
+  rnf UpdateMLModelResponse' {..} =
+    Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf httpStatus

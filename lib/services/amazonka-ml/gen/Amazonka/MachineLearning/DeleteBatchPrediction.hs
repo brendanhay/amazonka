@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteBatchPrediction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBatchPrediction
+instance Prelude.Hashable DeleteBatchPrediction where
+  hashWithSalt _salt DeleteBatchPrediction' {..} =
+    _salt `Prelude.hashWithSalt` batchPredictionId
 
-instance Prelude.NFData DeleteBatchPrediction
+instance Prelude.NFData DeleteBatchPrediction where
+  rnf DeleteBatchPrediction' {..} =
+    Prelude.rnf batchPredictionId
 
 instance Core.ToHeaders DeleteBatchPrediction where
   toHeaders =
@@ -182,4 +186,7 @@ deleteBatchPredictionResponse_batchPredictionId = Lens.lens (\DeleteBatchPredict
 deleteBatchPredictionResponse_httpStatus :: Lens.Lens' DeleteBatchPredictionResponse Prelude.Int
 deleteBatchPredictionResponse_httpStatus = Lens.lens (\DeleteBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@DeleteBatchPredictionResponse' {} a -> s {httpStatus = a} :: DeleteBatchPredictionResponse)
 
-instance Prelude.NFData DeleteBatchPredictionResponse
+instance Prelude.NFData DeleteBatchPredictionResponse where
+  rnf DeleteBatchPredictionResponse' {..} =
+    Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf httpStatus

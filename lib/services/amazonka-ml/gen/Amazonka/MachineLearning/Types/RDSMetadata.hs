@@ -144,6 +144,20 @@ instance Core.FromJSON RDSMetadata where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable RDSMetadata
+instance Prelude.Hashable RDSMetadata where
+  hashWithSalt _salt RDSMetadata' {..} =
+    _salt `Prelude.hashWithSalt` selectSqlQuery
+      `Prelude.hashWithSalt` dataPipelineId
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` databaseUserName
+      `Prelude.hashWithSalt` resourceRole
+      `Prelude.hashWithSalt` serviceRole
 
-instance Prelude.NFData RDSMetadata
+instance Prelude.NFData RDSMetadata where
+  rnf RDSMetadata' {..} =
+    Prelude.rnf selectSqlQuery
+      `Prelude.seq` Prelude.rnf dataPipelineId
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf databaseUserName
+      `Prelude.seq` Prelude.rnf resourceRole
+      `Prelude.seq` Prelude.rnf serviceRole

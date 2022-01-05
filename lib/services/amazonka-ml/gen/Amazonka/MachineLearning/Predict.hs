@@ -110,9 +110,17 @@ instance Core.AWSRequest Predict where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Predict
+instance Prelude.Hashable Predict where
+  hashWithSalt _salt Predict' {..} =
+    _salt `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` record
+      `Prelude.hashWithSalt` predictEndpoint
 
-instance Prelude.NFData Predict
+instance Prelude.NFData Predict where
+  rnf Predict' {..} =
+    Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf record
+      `Prelude.seq` Prelude.rnf predictEndpoint
 
 instance Core.ToHeaders Predict where
   toHeaders =
@@ -181,4 +189,7 @@ predictResponse_prediction = Lens.lens (\PredictResponse' {prediction} -> predic
 predictResponse_httpStatus :: Lens.Lens' PredictResponse Prelude.Int
 predictResponse_httpStatus = Lens.lens (\PredictResponse' {httpStatus} -> httpStatus) (\s@PredictResponse' {} a -> s {httpStatus = a} :: PredictResponse)
 
-instance Prelude.NFData PredictResponse
+instance Prelude.NFData PredictResponse where
+  rnf PredictResponse' {..} =
+    Prelude.rnf prediction
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -378,9 +378,33 @@ instance Core.AWSRequest DescribeMLModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMLModels
+instance Prelude.Hashable DescribeMLModels where
+  hashWithSalt _salt DescribeMLModels' {..} =
+    _salt `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` ne
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` filterVariable
+      `Prelude.hashWithSalt` le
 
-instance Prelude.NFData DescribeMLModels
+instance Prelude.NFData DescribeMLModels where
+  rnf DescribeMLModels' {..} =
+    Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf ne
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf filterVariable
+      `Prelude.seq` Prelude.rnf le
 
 instance Core.ToHeaders DescribeMLModels where
   toHeaders =
@@ -476,4 +500,8 @@ describeMLModelsResponse_nextToken = Lens.lens (\DescribeMLModelsResponse' {next
 describeMLModelsResponse_httpStatus :: Lens.Lens' DescribeMLModelsResponse Prelude.Int
 describeMLModelsResponse_httpStatus = Lens.lens (\DescribeMLModelsResponse' {httpStatus} -> httpStatus) (\s@DescribeMLModelsResponse' {} a -> s {httpStatus = a} :: DescribeMLModelsResponse)
 
-instance Prelude.NFData DescribeMLModelsResponse
+instance Prelude.NFData DescribeMLModelsResponse where
+  rnf DescribeMLModelsResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

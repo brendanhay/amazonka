@@ -288,6 +288,40 @@ instance Core.FromJSON BatchPrediction where
             Prelude.<*> (x Core..:? "OutputUri")
       )
 
-instance Prelude.Hashable BatchPrediction
+instance Prelude.Hashable BatchPrediction where
+  hashWithSalt _salt BatchPrediction' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` computeTime
+      `Prelude.hashWithSalt` inputDataLocationS3
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` batchPredictionDataSourceId
+      `Prelude.hashWithSalt` totalRecordCount
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` batchPredictionId
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` invalidRecordCount
+      `Prelude.hashWithSalt` createdByIamUser
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` outputUri
 
-instance Prelude.NFData BatchPrediction
+instance Prelude.NFData BatchPrediction where
+  rnf BatchPrediction' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf batchPredictionDataSourceId
+      `Prelude.seq` Prelude.rnf totalRecordCount
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf invalidRecordCount
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf outputUri

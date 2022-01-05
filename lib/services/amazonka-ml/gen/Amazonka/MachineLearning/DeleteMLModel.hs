@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteMLModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMLModel
+instance Prelude.Hashable DeleteMLModel where
+  hashWithSalt _salt DeleteMLModel' {..} =
+    _salt `Prelude.hashWithSalt` mLModelId
 
-instance Prelude.NFData DeleteMLModel
+instance Prelude.NFData DeleteMLModel where
+  rnf DeleteMLModel' {..} = Prelude.rnf mLModelId
 
 instance Core.ToHeaders DeleteMLModel where
   toHeaders =
@@ -170,4 +173,7 @@ deleteMLModelResponse_mLModelId = Lens.lens (\DeleteMLModelResponse' {mLModelId}
 deleteMLModelResponse_httpStatus :: Lens.Lens' DeleteMLModelResponse Prelude.Int
 deleteMLModelResponse_httpStatus = Lens.lens (\DeleteMLModelResponse' {httpStatus} -> httpStatus) (\s@DeleteMLModelResponse' {} a -> s {httpStatus = a} :: DeleteMLModelResponse)
 
-instance Prelude.NFData DeleteMLModelResponse
+instance Prelude.NFData DeleteMLModelResponse where
+  rnf DeleteMLModelResponse' {..} =
+    Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf httpStatus

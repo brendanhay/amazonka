@@ -135,9 +135,19 @@ instance Core.AWSRequest StartHumanLoop where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartHumanLoop
+instance Prelude.Hashable StartHumanLoop where
+  hashWithSalt _salt StartHumanLoop' {..} =
+    _salt `Prelude.hashWithSalt` dataAttributes
+      `Prelude.hashWithSalt` humanLoopName
+      `Prelude.hashWithSalt` flowDefinitionArn
+      `Prelude.hashWithSalt` humanLoopInput
 
-instance Prelude.NFData StartHumanLoop
+instance Prelude.NFData StartHumanLoop where
+  rnf StartHumanLoop' {..} =
+    Prelude.rnf dataAttributes
+      `Prelude.seq` Prelude.rnf humanLoopName
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf humanLoopInput
 
 instance Core.ToHeaders StartHumanLoop where
   toHeaders =
@@ -209,4 +219,7 @@ startHumanLoopResponse_humanLoopArn = Lens.lens (\StartHumanLoopResponse' {human
 startHumanLoopResponse_httpStatus :: Lens.Lens' StartHumanLoopResponse Prelude.Int
 startHumanLoopResponse_httpStatus = Lens.lens (\StartHumanLoopResponse' {httpStatus} -> httpStatus) (\s@StartHumanLoopResponse' {} a -> s {httpStatus = a} :: StartHumanLoopResponse)
 
-instance Prelude.NFData StartHumanLoopResponse
+instance Prelude.NFData StartHumanLoopResponse where
+  rnf StartHumanLoopResponse' {..} =
+    Prelude.rnf humanLoopArn
+      `Prelude.seq` Prelude.rnf httpStatus

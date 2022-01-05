@@ -67,9 +67,13 @@ newHumanLoopDataAttributes =
 humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes [ContentClassifier]
 humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Prelude.. Lens.coerced
 
-instance Prelude.Hashable HumanLoopDataAttributes
+instance Prelude.Hashable HumanLoopDataAttributes where
+  hashWithSalt _salt HumanLoopDataAttributes' {..} =
+    _salt `Prelude.hashWithSalt` contentClassifiers
 
-instance Prelude.NFData HumanLoopDataAttributes
+instance Prelude.NFData HumanLoopDataAttributes where
+  rnf HumanLoopDataAttributes' {..} =
+    Prelude.rnf contentClassifiers
 
 instance Core.ToJSON HumanLoopDataAttributes where
   toJSON HumanLoopDataAttributes' {..} =

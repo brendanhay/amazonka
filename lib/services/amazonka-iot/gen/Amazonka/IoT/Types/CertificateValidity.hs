@@ -71,6 +71,12 @@ instance Core.FromJSON CertificateValidity where
             Prelude.<*> (x Core..:? "notAfter")
       )
 
-instance Prelude.Hashable CertificateValidity
+instance Prelude.Hashable CertificateValidity where
+  hashWithSalt _salt CertificateValidity' {..} =
+    _salt `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` notAfter
 
-instance Prelude.NFData CertificateValidity
+instance Prelude.NFData CertificateValidity where
+  rnf CertificateValidity' {..} =
+    Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf notAfter

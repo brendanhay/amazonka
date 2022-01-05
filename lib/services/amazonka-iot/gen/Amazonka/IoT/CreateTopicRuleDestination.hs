@@ -95,9 +95,14 @@ instance Core.AWSRequest CreateTopicRuleDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTopicRuleDestination
+instance Prelude.Hashable CreateTopicRuleDestination where
+  hashWithSalt _salt CreateTopicRuleDestination' {..} =
+    _salt
+      `Prelude.hashWithSalt` destinationConfiguration
 
-instance Prelude.NFData CreateTopicRuleDestination
+instance Prelude.NFData CreateTopicRuleDestination where
+  rnf CreateTopicRuleDestination' {..} =
+    Prelude.rnf destinationConfiguration
 
 instance Core.ToHeaders CreateTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,3 +166,7 @@ createTopicRuleDestinationResponse_httpStatus = Lens.lens (\CreateTopicRuleDesti
 instance
   Prelude.NFData
     CreateTopicRuleDestinationResponse
+  where
+  rnf CreateTopicRuleDestinationResponse' {..} =
+    Prelude.rnf topicRuleDestination
+      `Prelude.seq` Prelude.rnf httpStatus

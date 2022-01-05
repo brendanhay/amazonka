@@ -146,9 +146,21 @@ instance Core.AWSRequest GetBucketsAggregation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketsAggregation
+instance Prelude.Hashable GetBucketsAggregation where
+  hashWithSalt _salt GetBucketsAggregation' {..} =
+    _salt `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` bucketsAggregationType
 
-instance Prelude.NFData GetBucketsAggregation
+instance Prelude.NFData GetBucketsAggregation where
+  rnf GetBucketsAggregation' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf bucketsAggregationType
 
 instance Core.ToHeaders GetBucketsAggregation where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +256,8 @@ getBucketsAggregationResponse_totalCount = Lens.lens (\GetBucketsAggregationResp
 getBucketsAggregationResponse_httpStatus :: Lens.Lens' GetBucketsAggregationResponse Prelude.Int
 getBucketsAggregationResponse_httpStatus = Lens.lens (\GetBucketsAggregationResponse' {httpStatus} -> httpStatus) (\s@GetBucketsAggregationResponse' {} a -> s {httpStatus = a} :: GetBucketsAggregationResponse)
 
-instance Prelude.NFData GetBucketsAggregationResponse
+instance Prelude.NFData GetBucketsAggregationResponse where
+  rnf GetBucketsAggregationResponse' {..} =
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf httpStatus

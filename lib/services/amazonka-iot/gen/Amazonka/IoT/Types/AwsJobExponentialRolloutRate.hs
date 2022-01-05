@@ -114,8 +114,17 @@ instance Core.FromJSON AwsJobExponentialRolloutRate where
 instance
   Prelude.Hashable
     AwsJobExponentialRolloutRate
+  where
+  hashWithSalt _salt AwsJobExponentialRolloutRate' {..} =
+    _salt `Prelude.hashWithSalt` baseRatePerMinute
+      `Prelude.hashWithSalt` incrementFactor
+      `Prelude.hashWithSalt` rateIncreaseCriteria
 
-instance Prelude.NFData AwsJobExponentialRolloutRate
+instance Prelude.NFData AwsJobExponentialRolloutRate where
+  rnf AwsJobExponentialRolloutRate' {..} =
+    Prelude.rnf baseRatePerMinute
+      `Prelude.seq` Prelude.rnf incrementFactor
+      `Prelude.seq` Prelude.rnf rateIncreaseCriteria
 
 instance Core.ToJSON AwsJobExponentialRolloutRate where
   toJSON AwsJobExponentialRolloutRate' {..} =

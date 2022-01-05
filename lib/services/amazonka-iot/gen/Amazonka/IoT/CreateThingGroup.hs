@@ -131,9 +131,19 @@ instance Core.AWSRequest CreateThingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateThingGroup
+instance Prelude.Hashable CreateThingGroup where
+  hashWithSalt _salt CreateThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` parentGroupName
+      `Prelude.hashWithSalt` thingGroupProperties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` thingGroupName
 
-instance Prelude.NFData CreateThingGroup
+instance Prelude.NFData CreateThingGroup where
+  rnf CreateThingGroup' {..} =
+    Prelude.rnf parentGroupName
+      `Prelude.seq` Prelude.rnf thingGroupProperties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf thingGroupName
 
 instance Core.ToHeaders CreateThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,4 +225,9 @@ createThingGroupResponse_thingGroupName = Lens.lens (\CreateThingGroupResponse' 
 createThingGroupResponse_httpStatus :: Lens.Lens' CreateThingGroupResponse Prelude.Int
 createThingGroupResponse_httpStatus = Lens.lens (\CreateThingGroupResponse' {httpStatus} -> httpStatus) (\s@CreateThingGroupResponse' {} a -> s {httpStatus = a} :: CreateThingGroupResponse)
 
-instance Prelude.NFData CreateThingGroupResponse
+instance Prelude.NFData CreateThingGroupResponse where
+  rnf CreateThingGroupResponse' {..} =
+    Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf thingGroupId
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf httpStatus

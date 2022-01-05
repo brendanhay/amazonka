@@ -136,9 +136,17 @@ instance Core.AWSRequest ListRoleAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRoleAliases
+instance Prelude.Hashable ListRoleAliases where
+  hashWithSalt _salt ListRoleAliases' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListRoleAliases
+instance Prelude.NFData ListRoleAliases where
+  rnf ListRoleAliases' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListRoleAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,4 +210,8 @@ listRoleAliasesResponse_nextMarker = Lens.lens (\ListRoleAliasesResponse' {nextM
 listRoleAliasesResponse_httpStatus :: Lens.Lens' ListRoleAliasesResponse Prelude.Int
 listRoleAliasesResponse_httpStatus = Lens.lens (\ListRoleAliasesResponse' {httpStatus} -> httpStatus) (\s@ListRoleAliasesResponse' {} a -> s {httpStatus = a} :: ListRoleAliasesResponse)
 
-instance Prelude.NFData ListRoleAliasesResponse
+instance Prelude.NFData ListRoleAliasesResponse where
+  rnf ListRoleAliasesResponse' {..} =
+    Prelude.rnf roleAliases
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

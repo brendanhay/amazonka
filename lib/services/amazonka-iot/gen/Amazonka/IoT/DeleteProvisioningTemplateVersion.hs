@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     DeleteProvisioningTemplateVersion
+  where
+  hashWithSalt
+    _salt
+    DeleteProvisioningTemplateVersion' {..} =
+      _salt `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` versionId
 
 instance
   Prelude.NFData
     DeleteProvisioningTemplateVersion
+  where
+  rnf DeleteProvisioningTemplateVersion' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf versionId
 
 instance
   Core.ToHeaders
@@ -174,3 +184,6 @@ deleteProvisioningTemplateVersionResponse_httpStatus = Lens.lens (\DeleteProvisi
 instance
   Prelude.NFData
     DeleteProvisioningTemplateVersionResponse
+  where
+  rnf DeleteProvisioningTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus

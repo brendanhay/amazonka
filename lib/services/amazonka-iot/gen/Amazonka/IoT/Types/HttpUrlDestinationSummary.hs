@@ -65,6 +65,10 @@ instance Core.FromJSON HttpUrlDestinationSummary where
             Prelude.<$> (x Core..:? "confirmationUrl")
       )
 
-instance Prelude.Hashable HttpUrlDestinationSummary
+instance Prelude.Hashable HttpUrlDestinationSummary where
+  hashWithSalt _salt HttpUrlDestinationSummary' {..} =
+    _salt `Prelude.hashWithSalt` confirmationUrl
 
-instance Prelude.NFData HttpUrlDestinationSummary
+instance Prelude.NFData HttpUrlDestinationSummary where
+  rnf HttpUrlDestinationSummary' {..} =
+    Prelude.rnf confirmationUrl

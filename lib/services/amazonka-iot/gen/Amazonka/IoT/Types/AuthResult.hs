@@ -113,6 +113,18 @@ instance Core.FromJSON AuthResult where
             Prelude.<*> (x Core..:? "authInfo")
       )
 
-instance Prelude.Hashable AuthResult
+instance Prelude.Hashable AuthResult where
+  hashWithSalt _salt AuthResult' {..} =
+    _salt `Prelude.hashWithSalt` denied
+      `Prelude.hashWithSalt` authDecision
+      `Prelude.hashWithSalt` allowed
+      `Prelude.hashWithSalt` missingContextValues
+      `Prelude.hashWithSalt` authInfo
 
-instance Prelude.NFData AuthResult
+instance Prelude.NFData AuthResult where
+  rnf AuthResult' {..} =
+    Prelude.rnf denied
+      `Prelude.seq` Prelude.rnf authDecision
+      `Prelude.seq` Prelude.rnf allowed
+      `Prelude.seq` Prelude.rnf missingContextValues
+      `Prelude.seq` Prelude.rnf authInfo

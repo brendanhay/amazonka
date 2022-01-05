@@ -94,9 +94,12 @@ instance Core.AWSRequest DescribeIndex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIndex
+instance Prelude.Hashable DescribeIndex where
+  hashWithSalt _salt DescribeIndex' {..} =
+    _salt `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData DescribeIndex
+instance Prelude.NFData DescribeIndex where
+  rnf DescribeIndex' {..} = Prelude.rnf indexName
 
 instance Core.ToHeaders DescribeIndex where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +207,9 @@ describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName}
 describeIndexResponse_httpStatus :: Lens.Lens' DescribeIndexResponse Prelude.Int
 describeIndexResponse_httpStatus = Lens.lens (\DescribeIndexResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexResponse' {} a -> s {httpStatus = a} :: DescribeIndexResponse)
 
-instance Prelude.NFData DescribeIndexResponse
+instance Prelude.NFData DescribeIndexResponse where
+  rnf DescribeIndexResponse' {..} =
+    Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf httpStatus

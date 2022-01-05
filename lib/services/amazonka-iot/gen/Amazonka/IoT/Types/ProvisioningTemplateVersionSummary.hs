@@ -91,7 +91,19 @@ instance
 instance
   Prelude.Hashable
     ProvisioningTemplateVersionSummary
+  where
+  hashWithSalt
+    _salt
+    ProvisioningTemplateVersionSummary' {..} =
+      _salt `Prelude.hashWithSalt` versionId
+        `Prelude.hashWithSalt` creationDate
+        `Prelude.hashWithSalt` isDefaultVersion
 
 instance
   Prelude.NFData
     ProvisioningTemplateVersionSummary
+  where
+  rnf ProvisioningTemplateVersionSummary' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf isDefaultVersion

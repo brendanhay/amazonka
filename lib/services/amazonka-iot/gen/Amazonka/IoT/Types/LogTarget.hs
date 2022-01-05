@@ -74,9 +74,15 @@ instance Core.FromJSON LogTarget where
             Prelude.<*> (x Core..: "targetType")
       )
 
-instance Prelude.Hashable LogTarget
+instance Prelude.Hashable LogTarget where
+  hashWithSalt _salt LogTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetName
+      `Prelude.hashWithSalt` targetType
 
-instance Prelude.NFData LogTarget
+instance Prelude.NFData LogTarget where
+  rnf LogTarget' {..} =
+    Prelude.rnf targetName
+      `Prelude.seq` Prelude.rnf targetType
 
 instance Core.ToJSON LogTarget where
   toJSON LogTarget' {..} =

@@ -66,9 +66,13 @@ instance Core.FromJSON UpdateCACertificateParams where
             Prelude.<$> (x Core..: "action")
       )
 
-instance Prelude.Hashable UpdateCACertificateParams
+instance Prelude.Hashable UpdateCACertificateParams where
+  hashWithSalt _salt UpdateCACertificateParams' {..} =
+    _salt `Prelude.hashWithSalt` action
 
-instance Prelude.NFData UpdateCACertificateParams
+instance Prelude.NFData UpdateCACertificateParams where
+  rnf UpdateCACertificateParams' {..} =
+    Prelude.rnf action
 
 instance Core.ToJSON UpdateCACertificateParams where
   toJSON UpdateCACertificateParams' {..} =

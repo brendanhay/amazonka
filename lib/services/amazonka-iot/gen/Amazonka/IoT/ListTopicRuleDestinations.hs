@@ -136,9 +136,15 @@ instance Core.AWSRequest ListTopicRuleDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTopicRuleDestinations
+instance Prelude.Hashable ListTopicRuleDestinations where
+  hashWithSalt _salt ListTopicRuleDestinations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListTopicRuleDestinations
+instance Prelude.NFData ListTopicRuleDestinations where
+  rnf ListTopicRuleDestinations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTopicRuleDestinations where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,3 +213,8 @@ listTopicRuleDestinationsResponse_httpStatus = Lens.lens (\ListTopicRuleDestinat
 instance
   Prelude.NFData
     ListTopicRuleDestinationsResponse
+  where
+  rnf ListTopicRuleDestinationsResponse' {..} =
+    Prelude.rnf destinationSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

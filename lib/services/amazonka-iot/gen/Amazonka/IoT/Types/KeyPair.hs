@@ -71,6 +71,12 @@ instance Core.FromJSON KeyPair where
             Prelude.<*> (x Core..:? "PublicKey")
       )
 
-instance Prelude.Hashable KeyPair
+instance Prelude.Hashable KeyPair where
+  hashWithSalt _salt KeyPair' {..} =
+    _salt `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` publicKey
 
-instance Prelude.NFData KeyPair
+instance Prelude.NFData KeyPair where
+  rnf KeyPair' {..} =
+    Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf publicKey

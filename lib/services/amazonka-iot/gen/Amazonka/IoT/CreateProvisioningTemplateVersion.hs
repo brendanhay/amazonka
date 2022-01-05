@@ -129,10 +129,22 @@ instance
 instance
   Prelude.Hashable
     CreateProvisioningTemplateVersion
+  where
+  hashWithSalt
+    _salt
+    CreateProvisioningTemplateVersion' {..} =
+      _salt `Prelude.hashWithSalt` setAsDefault
+        `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` templateBody
 
 instance
   Prelude.NFData
     CreateProvisioningTemplateVersion
+  where
+  rnf CreateProvisioningTemplateVersion' {..} =
+    Prelude.rnf setAsDefault
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateBody
 
 instance
   Core.ToHeaders
@@ -243,3 +255,10 @@ createProvisioningTemplateVersionResponse_httpStatus = Lens.lens (\CreateProvisi
 instance
   Prelude.NFData
     CreateProvisioningTemplateVersionResponse
+  where
+  rnf CreateProvisioningTemplateVersionResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf httpStatus

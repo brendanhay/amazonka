@@ -166,10 +166,24 @@ instance
 instance
   Prelude.Hashable
     ListThingRegistrationTaskReports
+  where
+  hashWithSalt
+    _salt
+    ListThingRegistrationTaskReports' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` reportType
 
 instance
   Prelude.NFData
     ListThingRegistrationTaskReports
+  where
+  rnf ListThingRegistrationTaskReports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf reportType
 
 instance
   Core.ToHeaders
@@ -260,3 +274,9 @@ listThingRegistrationTaskReportsResponse_httpStatus = Lens.lens (\ListThingRegis
 instance
   Prelude.NFData
     ListThingRegistrationTaskReportsResponse
+  where
+  rnf ListThingRegistrationTaskReportsResponse' {..} =
+    Prelude.rnf resourceLinks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reportType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -112,6 +112,20 @@ instance Core.FromJSON OutgoingCertificate where
             Prelude.<*> (x Core..:? "transferMessage")
       )
 
-instance Prelude.Hashable OutgoingCertificate
+instance Prelude.Hashable OutgoingCertificate where
+  hashWithSalt _salt OutgoingCertificate' {..} =
+    _salt `Prelude.hashWithSalt` transferDate
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` transferredTo
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` transferMessage
 
-instance Prelude.NFData OutgoingCertificate
+instance Prelude.NFData OutgoingCertificate where
+  rnf OutgoingCertificate' {..} =
+    Prelude.rnf transferDate
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf transferredTo
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf transferMessage

@@ -90,7 +90,19 @@ instance
 instance
   Prelude.Hashable
     AuditMitigationActionsTaskMetadata
+  where
+  hashWithSalt
+    _salt
+    AuditMitigationActionsTaskMetadata' {..} =
+      _salt `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` taskStatus
 
 instance
   Prelude.NFData
     AuditMitigationActionsTaskMetadata
+  where
+  rnf AuditMitigationActionsTaskMetadata' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskStatus

@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateDomainConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDomainConfiguration
+instance Prelude.Hashable UpdateDomainConfiguration where
+  hashWithSalt _salt UpdateDomainConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` authorizerConfig
+      `Prelude.hashWithSalt` domainConfigurationStatus
+      `Prelude.hashWithSalt` removeAuthorizerConfig
+      `Prelude.hashWithSalt` domainConfigurationName
 
-instance Prelude.NFData UpdateDomainConfiguration
+instance Prelude.NFData UpdateDomainConfiguration where
+  rnf UpdateDomainConfiguration' {..} =
+    Prelude.rnf authorizerConfig
+      `Prelude.seq` Prelude.rnf domainConfigurationStatus
+      `Prelude.seq` Prelude.rnf removeAuthorizerConfig
+      `Prelude.seq` Prelude.rnf domainConfigurationName
 
 instance Core.ToHeaders UpdateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,3 +219,8 @@ updateDomainConfigurationResponse_httpStatus = Lens.lens (\UpdateDomainConfigura
 instance
   Prelude.NFData
     UpdateDomainConfigurationResponse
+  where
+  rnf UpdateDomainConfigurationResponse' {..} =
+    Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf domainConfigurationArn
+      `Prelude.seq` Prelude.rnf httpStatus

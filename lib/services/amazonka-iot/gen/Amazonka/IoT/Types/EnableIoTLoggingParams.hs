@@ -80,9 +80,15 @@ instance Core.FromJSON EnableIoTLoggingParams where
             Prelude.<*> (x Core..: "logLevel")
       )
 
-instance Prelude.Hashable EnableIoTLoggingParams
+instance Prelude.Hashable EnableIoTLoggingParams where
+  hashWithSalt _salt EnableIoTLoggingParams' {..} =
+    _salt `Prelude.hashWithSalt` roleArnForLogging
+      `Prelude.hashWithSalt` logLevel
 
-instance Prelude.NFData EnableIoTLoggingParams
+instance Prelude.NFData EnableIoTLoggingParams where
+  rnf EnableIoTLoggingParams' {..} =
+    Prelude.rnf roleArnForLogging
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToJSON EnableIoTLoggingParams where
   toJSON EnableIoTLoggingParams' {..} =

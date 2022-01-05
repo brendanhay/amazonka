@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteTopicRuleDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTopicRuleDestination
+instance Prelude.Hashable DeleteTopicRuleDestination where
+  hashWithSalt _salt DeleteTopicRuleDestination' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteTopicRuleDestination
+instance Prelude.NFData DeleteTopicRuleDestination where
+  rnf DeleteTopicRuleDestination' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,3 +138,6 @@ deleteTopicRuleDestinationResponse_httpStatus = Lens.lens (\DeleteTopicRuleDesti
 instance
   Prelude.NFData
     DeleteTopicRuleDestinationResponse
+  where
+  rnf DeleteTopicRuleDestinationResponse' {..} =
+    Prelude.rnf httpStatus

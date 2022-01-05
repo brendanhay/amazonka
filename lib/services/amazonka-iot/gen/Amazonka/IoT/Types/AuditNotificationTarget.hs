@@ -85,9 +85,17 @@ instance Core.FromJSON AuditNotificationTarget where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable AuditNotificationTarget
+instance Prelude.Hashable AuditNotificationTarget where
+  hashWithSalt _salt AuditNotificationTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData AuditNotificationTarget
+instance Prelude.NFData AuditNotificationTarget where
+  rnf AuditNotificationTarget' {..} =
+    Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON AuditNotificationTarget where
   toJSON AuditNotificationTarget' {..} =

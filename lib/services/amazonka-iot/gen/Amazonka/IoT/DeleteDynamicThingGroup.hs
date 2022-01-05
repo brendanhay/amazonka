@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteDynamicThingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDynamicThingGroup
+instance Prelude.Hashable DeleteDynamicThingGroup where
+  hashWithSalt _salt DeleteDynamicThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` thingGroupName
 
-instance Prelude.NFData DeleteDynamicThingGroup
+instance Prelude.NFData DeleteDynamicThingGroup where
+  rnf DeleteDynamicThingGroup' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf thingGroupName
 
 instance Core.ToHeaders DeleteDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,3 +157,6 @@ deleteDynamicThingGroupResponse_httpStatus = Lens.lens (\DeleteDynamicThingGroup
 instance
   Prelude.NFData
     DeleteDynamicThingGroupResponse
+  where
+  rnf DeleteDynamicThingGroupResponse' {..} =
+    Prelude.rnf httpStatus

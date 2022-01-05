@@ -107,9 +107,17 @@ instance Core.FromJSON ExponentialRolloutRate where
             Prelude.<*> (x Core..: "rateIncreaseCriteria")
       )
 
-instance Prelude.Hashable ExponentialRolloutRate
+instance Prelude.Hashable ExponentialRolloutRate where
+  hashWithSalt _salt ExponentialRolloutRate' {..} =
+    _salt `Prelude.hashWithSalt` baseRatePerMinute
+      `Prelude.hashWithSalt` incrementFactor
+      `Prelude.hashWithSalt` rateIncreaseCriteria
 
-instance Prelude.NFData ExponentialRolloutRate
+instance Prelude.NFData ExponentialRolloutRate where
+  rnf ExponentialRolloutRate' {..} =
+    Prelude.rnf baseRatePerMinute
+      `Prelude.seq` Prelude.rnf incrementFactor
+      `Prelude.seq` Prelude.rnf rateIncreaseCriteria
 
 instance Core.ToJSON ExponentialRolloutRate where
   toJSON ExponentialRolloutRate' {..} =

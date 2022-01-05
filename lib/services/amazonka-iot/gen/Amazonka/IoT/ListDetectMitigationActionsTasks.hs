@@ -171,10 +171,24 @@ instance
 instance
   Prelude.Hashable
     ListDetectMitigationActionsTasks
+  where
+  hashWithSalt
+    _salt
+    ListDetectMitigationActionsTasks' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` endTime
 
 instance
   Prelude.NFData
     ListDetectMitigationActionsTasks
+  where
+  rnf ListDetectMitigationActionsTasks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance
   Core.ToHeaders
@@ -256,3 +270,8 @@ listDetectMitigationActionsTasksResponse_httpStatus = Lens.lens (\ListDetectMiti
 instance
   Prelude.NFData
     ListDetectMitigationActionsTasksResponse
+  where
+  rnf ListDetectMitigationActionsTasksResponse' {..} =
+    Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

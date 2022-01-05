@@ -122,6 +122,22 @@ instance Core.FromJSON RoleAliasDescription where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable RoleAliasDescription
+instance Prelude.Hashable RoleAliasDescription where
+  hashWithSalt _salt RoleAliasDescription' {..} =
+    _salt `Prelude.hashWithSalt` roleAliasArn
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` roleAlias
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` credentialDurationSeconds
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData RoleAliasDescription
+instance Prelude.NFData RoleAliasDescription where
+  rnf RoleAliasDescription' {..} =
+    Prelude.rnf roleAliasArn
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf roleAlias
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf credentialDurationSeconds
+      `Prelude.seq` Prelude.rnf roleArn

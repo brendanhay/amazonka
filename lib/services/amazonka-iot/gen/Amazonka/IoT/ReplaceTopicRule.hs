@@ -100,9 +100,15 @@ instance Core.AWSRequest ReplaceTopicRule where
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
 
-instance Prelude.Hashable ReplaceTopicRule
+instance Prelude.Hashable ReplaceTopicRule where
+  hashWithSalt _salt ReplaceTopicRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` topicRulePayload
 
-instance Prelude.NFData ReplaceTopicRule
+instance Prelude.NFData ReplaceTopicRule where
+  rnf ReplaceTopicRule' {..} =
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf topicRulePayload
 
 instance Core.ToHeaders ReplaceTopicRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +144,5 @@ newReplaceTopicRuleResponse ::
 newReplaceTopicRuleResponse =
   ReplaceTopicRuleResponse'
 
-instance Prelude.NFData ReplaceTopicRuleResponse
+instance Prelude.NFData ReplaceTopicRuleResponse where
+  rnf _ = ()

@@ -124,9 +124,15 @@ instance Core.AWSRequest ListIndices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIndices
+instance Prelude.Hashable ListIndices where
+  hashWithSalt _salt ListIndices' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListIndices
+instance Prelude.NFData ListIndices where
+  rnf ListIndices' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIndices where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +197,8 @@ listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -
 listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int
 listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -> httpStatus) (\s@ListIndicesResponse' {} a -> s {httpStatus = a} :: ListIndicesResponse)
 
-instance Prelude.NFData ListIndicesResponse
+instance Prelude.NFData ListIndicesResponse where
+  rnf ListIndicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf indexNames
+      `Prelude.seq` Prelude.rnf httpStatus

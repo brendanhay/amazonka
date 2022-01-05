@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteRoleAlias where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRoleAlias
+instance Prelude.Hashable DeleteRoleAlias where
+  hashWithSalt _salt DeleteRoleAlias' {..} =
+    _salt `Prelude.hashWithSalt` roleAlias
 
-instance Prelude.NFData DeleteRoleAlias
+instance Prelude.NFData DeleteRoleAlias where
+  rnf DeleteRoleAlias' {..} = Prelude.rnf roleAlias
 
 instance Core.ToHeaders DeleteRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +133,6 @@ newDeleteRoleAliasResponse pHttpStatus_ =
 deleteRoleAliasResponse_httpStatus :: Lens.Lens' DeleteRoleAliasResponse Prelude.Int
 deleteRoleAliasResponse_httpStatus = Lens.lens (\DeleteRoleAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteRoleAliasResponse' {} a -> s {httpStatus = a} :: DeleteRoleAliasResponse)
 
-instance Prelude.NFData DeleteRoleAliasResponse
+instance Prelude.NFData DeleteRoleAliasResponse where
+  rnf DeleteRoleAliasResponse' {..} =
+    Prelude.rnf httpStatus

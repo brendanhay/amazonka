@@ -167,6 +167,30 @@ instance Core.FromJSON CACertificateDescription where
             Prelude.<*> (x Core..:? "customerVersion")
       )
 
-instance Prelude.Hashable CACertificateDescription
+instance Prelude.Hashable CACertificateDescription where
+  hashWithSalt _salt CACertificateDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` autoRegistrationStatus
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` generationId
+      `Prelude.hashWithSalt` customerVersion
 
-instance Prelude.NFData CACertificateDescription
+instance Prelude.NFData CACertificateDescription where
+  rnf CACertificateDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf autoRegistrationStatus
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf generationId
+      `Prelude.seq` Prelude.rnf customerVersion

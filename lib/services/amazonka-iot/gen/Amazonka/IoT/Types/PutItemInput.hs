@@ -61,9 +61,12 @@ instance Core.FromJSON PutItemInput where
           PutItemInput' Prelude.<$> (x Core..: "tableName")
       )
 
-instance Prelude.Hashable PutItemInput
+instance Prelude.Hashable PutItemInput where
+  hashWithSalt _salt PutItemInput' {..} =
+    _salt `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData PutItemInput
+instance Prelude.NFData PutItemInput where
+  rnf PutItemInput' {..} = Prelude.rnf tableName
 
 instance Core.ToJSON PutItemInput where
   toJSON PutItemInput' {..} =

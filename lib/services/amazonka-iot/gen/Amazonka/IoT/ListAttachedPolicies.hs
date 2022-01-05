@@ -160,9 +160,19 @@ instance Core.AWSRequest ListAttachedPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttachedPolicies
+instance Prelude.Hashable ListAttachedPolicies where
+  hashWithSalt _salt ListAttachedPolicies' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` recursive
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData ListAttachedPolicies
+instance Prelude.NFData ListAttachedPolicies where
+  rnf ListAttachedPolicies' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf recursive
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders ListAttachedPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,4 +244,8 @@ listAttachedPoliciesResponse_policies = Lens.lens (\ListAttachedPoliciesResponse
 listAttachedPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedPoliciesResponse Prelude.Int
 listAttachedPoliciesResponse_httpStatus = Lens.lens (\ListAttachedPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedPoliciesResponse' {} a -> s {httpStatus = a} :: ListAttachedPoliciesResponse)
 
-instance Prelude.NFData ListAttachedPoliciesResponse
+instance Prelude.NFData ListAttachedPoliciesResponse where
+  rnf ListAttachedPoliciesResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -141,6 +141,23 @@ instance Core.FromJSON AuditCheckDetails where
             Prelude.<*> (x Core..:? "checkRunStatus")
       )
 
-instance Prelude.Hashable AuditCheckDetails
+instance Prelude.Hashable AuditCheckDetails where
+  hashWithSalt _salt AuditCheckDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` suppressedNonCompliantResourcesCount
+      `Prelude.hashWithSalt` totalResourcesCount
+      `Prelude.hashWithSalt` checkCompliant
+      `Prelude.hashWithSalt` nonCompliantResourcesCount
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` checkRunStatus
 
-instance Prelude.NFData AuditCheckDetails
+instance Prelude.NFData AuditCheckDetails where
+  rnf AuditCheckDetails' {..} =
+    Prelude.rnf suppressedNonCompliantResourcesCount
+      `Prelude.seq` Prelude.rnf totalResourcesCount
+      `Prelude.seq` Prelude.rnf checkCompliant
+      `Prelude.seq` Prelude.rnf nonCompliantResourcesCount
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf checkRunStatus

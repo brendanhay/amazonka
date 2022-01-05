@@ -136,9 +136,23 @@ instance Core.FromJSON CloudwatchMetricAction where
             Prelude.<*> (x Core..: "metricUnit")
       )
 
-instance Prelude.Hashable CloudwatchMetricAction
+instance Prelude.Hashable CloudwatchMetricAction where
+  hashWithSalt _salt CloudwatchMetricAction' {..} =
+    _salt `Prelude.hashWithSalt` metricTimestamp
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` metricValue
+      `Prelude.hashWithSalt` metricUnit
 
-instance Prelude.NFData CloudwatchMetricAction
+instance Prelude.NFData CloudwatchMetricAction where
+  rnf CloudwatchMetricAction' {..} =
+    Prelude.rnf metricTimestamp
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf metricNamespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricValue
+      `Prelude.seq` Prelude.rnf metricUnit
 
 instance Core.ToJSON CloudwatchMetricAction where
   toJSON CloudwatchMetricAction' {..} =

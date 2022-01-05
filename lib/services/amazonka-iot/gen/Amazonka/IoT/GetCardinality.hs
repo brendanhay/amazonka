@@ -122,9 +122,19 @@ instance Core.AWSRequest GetCardinality where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCardinality
+instance Prelude.Hashable GetCardinality where
+  hashWithSalt _salt GetCardinality' {..} =
+    _salt `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData GetCardinality
+instance Prelude.NFData GetCardinality where
+  rnf GetCardinality' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders GetCardinality where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +196,7 @@ getCardinalityResponse_cardinality = Lens.lens (\GetCardinalityResponse' {cardin
 getCardinalityResponse_httpStatus :: Lens.Lens' GetCardinalityResponse Prelude.Int
 getCardinalityResponse_httpStatus = Lens.lens (\GetCardinalityResponse' {httpStatus} -> httpStatus) (\s@GetCardinalityResponse' {} a -> s {httpStatus = a} :: GetCardinalityResponse)
 
-instance Prelude.NFData GetCardinalityResponse
+instance Prelude.NFData GetCardinalityResponse where
+  rnf GetCardinalityResponse' {..} =
+    Prelude.rnf cardinality
+      `Prelude.seq` Prelude.rnf httpStatus

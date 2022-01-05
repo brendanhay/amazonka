@@ -100,9 +100,13 @@ instance Core.AWSRequest DescribeThingType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeThingType
+instance Prelude.Hashable DescribeThingType where
+  hashWithSalt _salt DescribeThingType' {..} =
+    _salt `Prelude.hashWithSalt` thingTypeName
 
-instance Prelude.NFData DescribeThingType
+instance Prelude.NFData DescribeThingType where
+  rnf DescribeThingType' {..} =
+    Prelude.rnf thingTypeName
 
 instance Core.ToHeaders DescribeThingType where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +205,11 @@ describeThingTypeResponse_thingTypeArn = Lens.lens (\DescribeThingTypeResponse' 
 describeThingTypeResponse_httpStatus :: Lens.Lens' DescribeThingTypeResponse Prelude.Int
 describeThingTypeResponse_httpStatus = Lens.lens (\DescribeThingTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeThingTypeResponse' {} a -> s {httpStatus = a} :: DescribeThingTypeResponse)
 
-instance Prelude.NFData DescribeThingTypeResponse
+instance Prelude.NFData DescribeThingTypeResponse where
+  rnf DescribeThingTypeResponse' {..} =
+    Prelude.rnf thingTypeProperties
+      `Prelude.seq` Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf thingTypeId
+      `Prelude.seq` Prelude.rnf thingTypeMetadata
+      `Prelude.seq` Prelude.rnf thingTypeArn
+      `Prelude.seq` Prelude.rnf httpStatus

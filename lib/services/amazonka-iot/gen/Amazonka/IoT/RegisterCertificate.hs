@@ -129,9 +129,19 @@ instance Core.AWSRequest RegisterCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterCertificate
+instance Prelude.Hashable RegisterCertificate where
+  hashWithSalt _salt RegisterCertificate' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` caCertificatePem
+      `Prelude.hashWithSalt` setAsActive
+      `Prelude.hashWithSalt` certificatePem
 
-instance Prelude.NFData RegisterCertificate
+instance Prelude.NFData RegisterCertificate where
+  rnf RegisterCertificate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf caCertificatePem
+      `Prelude.seq` Prelude.rnf setAsActive
+      `Prelude.seq` Prelude.rnf certificatePem
 
 instance Core.ToHeaders RegisterCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +215,8 @@ registerCertificateResponse_certificateId = Lens.lens (\RegisterCertificateRespo
 registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Prelude.Int
 registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateResponse' {} a -> s {httpStatus = a} :: RegisterCertificateResponse)
 
-instance Prelude.NFData RegisterCertificateResponse
+instance Prelude.NFData RegisterCertificateResponse where
+  rnf RegisterCertificateResponse' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf httpStatus

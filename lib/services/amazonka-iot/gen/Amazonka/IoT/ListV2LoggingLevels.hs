@@ -147,9 +147,17 @@ instance Core.AWSRequest ListV2LoggingLevels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListV2LoggingLevels
+instance Prelude.Hashable ListV2LoggingLevels where
+  hashWithSalt _salt ListV2LoggingLevels' {..} =
+    _salt `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListV2LoggingLevels
+instance Prelude.NFData ListV2LoggingLevels where
+  rnf ListV2LoggingLevels' {..} =
+    Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListV2LoggingLevels where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,4 +224,8 @@ listV2LoggingLevelsResponse_nextToken = Lens.lens (\ListV2LoggingLevelsResponse'
 listV2LoggingLevelsResponse_httpStatus :: Lens.Lens' ListV2LoggingLevelsResponse Prelude.Int
 listV2LoggingLevelsResponse_httpStatus = Lens.lens (\ListV2LoggingLevelsResponse' {httpStatus} -> httpStatus) (\s@ListV2LoggingLevelsResponse' {} a -> s {httpStatus = a} :: ListV2LoggingLevelsResponse)
 
-instance Prelude.NFData ListV2LoggingLevelsResponse
+instance Prelude.NFData ListV2LoggingLevelsResponse where
+  rnf ListV2LoggingLevelsResponse' {..} =
+    Prelude.rnf logTargetConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

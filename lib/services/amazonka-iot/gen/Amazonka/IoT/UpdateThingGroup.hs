@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdateThingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThingGroup
+instance Prelude.Hashable UpdateThingGroup where
+  hashWithSalt _salt UpdateThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` thingGroupProperties
 
-instance Prelude.NFData UpdateThingGroup
+instance Prelude.NFData UpdateThingGroup where
+  rnf UpdateThingGroup' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingGroupProperties
 
 instance Core.ToHeaders UpdateThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,4 +195,7 @@ updateThingGroupResponse_version = Lens.lens (\UpdateThingGroupResponse' {versio
 updateThingGroupResponse_httpStatus :: Lens.Lens' UpdateThingGroupResponse Prelude.Int
 updateThingGroupResponse_httpStatus = Lens.lens (\UpdateThingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateThingGroupResponse' {} a -> s {httpStatus = a} :: UpdateThingGroupResponse)
 
-instance Prelude.NFData UpdateThingGroupResponse
+instance Prelude.NFData UpdateThingGroupResponse where
+  rnf UpdateThingGroupResponse' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf httpStatus

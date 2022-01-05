@@ -89,6 +89,14 @@ instance Core.FromJSON AuditTaskMetadata where
             Prelude.<*> (x Core..:? "taskStatus")
       )
 
-instance Prelude.Hashable AuditTaskMetadata
+instance Prelude.Hashable AuditTaskMetadata where
+  hashWithSalt _salt AuditTaskMetadata' {..} =
+    _salt `Prelude.hashWithSalt` taskType
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` taskStatus
 
-instance Prelude.NFData AuditTaskMetadata
+instance Prelude.NFData AuditTaskMetadata where
+  rnf AuditTaskMetadata' {..} =
+    Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskStatus

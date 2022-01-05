@@ -62,6 +62,10 @@ instance Core.FromJSON JobExecutionStatusDetails where
             Prelude.<$> (x Core..:? "detailsMap" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobExecutionStatusDetails
+instance Prelude.Hashable JobExecutionStatusDetails where
+  hashWithSalt _salt JobExecutionStatusDetails' {..} =
+    _salt `Prelude.hashWithSalt` detailsMap
 
-instance Prelude.NFData JobExecutionStatusDetails
+instance Prelude.NFData JobExecutionStatusDetails where
+  rnf JobExecutionStatusDetails' {..} =
+    Prelude.rnf detailsMap

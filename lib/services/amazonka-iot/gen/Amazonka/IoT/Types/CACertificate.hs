@@ -98,6 +98,16 @@ instance Core.FromJSON CACertificate where
             Prelude.<*> (x Core..:? "creationDate")
       )
 
-instance Prelude.Hashable CACertificate
+instance Prelude.Hashable CACertificate where
+  hashWithSalt _salt CACertificate' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData CACertificate
+instance Prelude.NFData CACertificate where
+  rnf CACertificate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf creationDate

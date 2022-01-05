@@ -156,6 +156,26 @@ instance Core.FromJSON JobProcessDetails where
                         )
       )
 
-instance Prelude.Hashable JobProcessDetails
+instance Prelude.Hashable JobProcessDetails where
+  hashWithSalt _salt JobProcessDetails' {..} =
+    _salt `Prelude.hashWithSalt` numberOfRemovedThings
+      `Prelude.hashWithSalt` numberOfQueuedThings
+      `Prelude.hashWithSalt` numberOfFailedThings
+      `Prelude.hashWithSalt` numberOfSucceededThings
+      `Prelude.hashWithSalt` numberOfInProgressThings
+      `Prelude.hashWithSalt` numberOfCanceledThings
+      `Prelude.hashWithSalt` numberOfTimedOutThings
+      `Prelude.hashWithSalt` numberOfRejectedThings
+      `Prelude.hashWithSalt` processingTargets
 
-instance Prelude.NFData JobProcessDetails
+instance Prelude.NFData JobProcessDetails where
+  rnf JobProcessDetails' {..} =
+    Prelude.rnf numberOfRemovedThings
+      `Prelude.seq` Prelude.rnf numberOfQueuedThings
+      `Prelude.seq` Prelude.rnf numberOfFailedThings
+      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+      `Prelude.seq` Prelude.rnf numberOfInProgressThings
+      `Prelude.seq` Prelude.rnf numberOfCanceledThings
+      `Prelude.seq` Prelude.rnf numberOfTimedOutThings
+      `Prelude.seq` Prelude.rnf numberOfRejectedThings
+      `Prelude.seq` Prelude.rnf processingTargets

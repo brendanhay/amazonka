@@ -184,9 +184,23 @@ instance Core.AWSRequest ListAuditTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuditTasks
+instance Prelude.Hashable ListAuditTasks where
+  hashWithSalt _salt ListAuditTasks' {..} =
+    _salt `Prelude.hashWithSalt` taskType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` taskStatus
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData ListAuditTasks
+instance Prelude.NFData ListAuditTasks where
+  rnf ListAuditTasks' {..} =
+    Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf taskStatus
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders ListAuditTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,4 +269,8 @@ listAuditTasksResponse_nextToken = Lens.lens (\ListAuditTasksResponse' {nextToke
 listAuditTasksResponse_httpStatus :: Lens.Lens' ListAuditTasksResponse Prelude.Int
 listAuditTasksResponse_httpStatus = Lens.lens (\ListAuditTasksResponse' {httpStatus} -> httpStatus) (\s@ListAuditTasksResponse' {} a -> s {httpStatus = a} :: ListAuditTasksResponse)
 
-instance Prelude.NFData ListAuditTasksResponse
+instance Prelude.NFData ListAuditTasksResponse where
+  rnf ListAuditTasksResponse' {..} =
+    Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

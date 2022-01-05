@@ -126,9 +126,15 @@ instance Core.AWSRequest ListDimensions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDimensions
+instance Prelude.Hashable ListDimensions where
+  hashWithSalt _salt ListDimensions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDimensions
+instance Prelude.NFData ListDimensions where
+  rnf ListDimensions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDimensions where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +203,8 @@ listDimensionsResponse_dimensionNames = Lens.lens (\ListDimensionsResponse' {dim
 listDimensionsResponse_httpStatus :: Lens.Lens' ListDimensionsResponse Prelude.Int
 listDimensionsResponse_httpStatus = Lens.lens (\ListDimensionsResponse' {httpStatus} -> httpStatus) (\s@ListDimensionsResponse' {} a -> s {httpStatus = a} :: ListDimensionsResponse)
 
-instance Prelude.NFData ListDimensionsResponse
+instance Prelude.NFData ListDimensionsResponse where
+  rnf ListDimensionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dimensionNames
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -185,9 +185,31 @@ instance Core.AWSRequest UpdateFleetMetric where
   response =
     Response.receiveNull UpdateFleetMetricResponse'
 
-instance Prelude.Hashable UpdateFleetMetric
+instance Prelude.Hashable UpdateFleetMetric where
+  hashWithSalt _salt UpdateFleetMetric' {..} =
+    _salt `Prelude.hashWithSalt` aggregationType
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData UpdateFleetMetric
+instance Prelude.NFData UpdateFleetMetric where
+  rnf UpdateFleetMetric' {..} =
+    Prelude.rnf aggregationType
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToHeaders UpdateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,4 +256,5 @@ newUpdateFleetMetricResponse ::
 newUpdateFleetMetricResponse =
   UpdateFleetMetricResponse'
 
-instance Prelude.NFData UpdateFleetMetricResponse
+instance Prelude.NFData UpdateFleetMetricResponse where
+  rnf _ = ()

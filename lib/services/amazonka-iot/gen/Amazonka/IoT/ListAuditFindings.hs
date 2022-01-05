@@ -212,9 +212,27 @@ instance Core.AWSRequest ListAuditFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuditFindings
+instance Prelude.Hashable ListAuditFindings where
+  hashWithSalt _salt ListAuditFindings' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` listSuppressedFindings
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceIdentifier
 
-instance Prelude.NFData ListAuditFindings
+instance Prelude.NFData ListAuditFindings where
+  rnf ListAuditFindings' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf listSuppressedFindings
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance Core.ToHeaders ListAuditFindings where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,4 +311,8 @@ listAuditFindingsResponse_findings = Lens.lens (\ListAuditFindingsResponse' {fin
 listAuditFindingsResponse_httpStatus :: Lens.Lens' ListAuditFindingsResponse Prelude.Int
 listAuditFindingsResponse_httpStatus = Lens.lens (\ListAuditFindingsResponse' {httpStatus} -> httpStatus) (\s@ListAuditFindingsResponse' {} a -> s {httpStatus = a} :: ListAuditFindingsResponse)
 
-instance Prelude.NFData ListAuditFindingsResponse
+instance Prelude.NFData ListAuditFindingsResponse where
+  rnf ListAuditFindingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findings
+      `Prelude.seq` Prelude.rnf httpStatus

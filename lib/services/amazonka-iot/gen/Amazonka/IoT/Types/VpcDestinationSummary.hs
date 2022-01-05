@@ -95,6 +95,16 @@ instance Core.FromJSON VpcDestinationSummary where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable VpcDestinationSummary
+instance Prelude.Hashable VpcDestinationSummary where
+  hashWithSalt _salt VpcDestinationSummary' {..} =
+    _salt `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData VpcDestinationSummary
+instance Prelude.NFData VpcDestinationSummary where
+  rnf VpcDestinationSummary' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf roleArn

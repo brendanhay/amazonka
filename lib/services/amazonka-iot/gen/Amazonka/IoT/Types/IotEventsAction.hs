@@ -143,9 +143,19 @@ instance Core.FromJSON IotEventsAction where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable IotEventsAction
+instance Prelude.Hashable IotEventsAction where
+  hashWithSalt _salt IotEventsAction' {..} =
+    _salt `Prelude.hashWithSalt` batchMode
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData IotEventsAction
+instance Prelude.NFData IotEventsAction where
+  rnf IotEventsAction' {..} =
+    Prelude.rnf batchMode
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON IotEventsAction where
   toJSON IotEventsAction' {..} =

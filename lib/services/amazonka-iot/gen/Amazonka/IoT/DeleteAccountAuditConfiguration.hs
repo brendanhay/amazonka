@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     DeleteAccountAuditConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteAccountAuditConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` deleteScheduledAudits
 
 instance
   Prelude.NFData
     DeleteAccountAuditConfiguration
+  where
+  rnf DeleteAccountAuditConfiguration' {..} =
+    Prelude.rnf deleteScheduledAudits
 
 instance
   Core.ToHeaders
@@ -152,3 +160,6 @@ deleteAccountAuditConfigurationResponse_httpStatus = Lens.lens (\DeleteAccountAu
 instance
   Prelude.NFData
     DeleteAccountAuditConfigurationResponse
+  where
+  rnf DeleteAccountAuditConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

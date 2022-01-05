@@ -84,9 +84,17 @@ instance Core.FromJSON StartSigningJobParameter where
             Prelude.<*> (x Core..:? "signingProfileParameter")
       )
 
-instance Prelude.Hashable StartSigningJobParameter
+instance Prelude.Hashable StartSigningJobParameter where
+  hashWithSalt _salt StartSigningJobParameter' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` signingProfileName
+      `Prelude.hashWithSalt` signingProfileParameter
 
-instance Prelude.NFData StartSigningJobParameter
+instance Prelude.NFData StartSigningJobParameter where
+  rnf StartSigningJobParameter' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf signingProfileName
+      `Prelude.seq` Prelude.rnf signingProfileParameter
 
 instance Core.ToJSON StartSigningJobParameter where
   toJSON StartSigningJobParameter' {..} =

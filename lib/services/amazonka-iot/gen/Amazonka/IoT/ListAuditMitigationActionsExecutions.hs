@@ -180,10 +180,26 @@ instance
 instance
   Prelude.Hashable
     ListAuditMitigationActionsExecutions
+  where
+  hashWithSalt
+    _salt
+    ListAuditMitigationActionsExecutions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` actionStatus
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` findingId
 
 instance
   Prelude.NFData
     ListAuditMitigationActionsExecutions
+  where
+  rnf ListAuditMitigationActionsExecutions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actionStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf findingId
 
 instance
   Core.ToHeaders
@@ -266,3 +282,8 @@ listAuditMitigationActionsExecutionsResponse_httpStatus = Lens.lens (\ListAuditM
 instance
   Prelude.NFData
     ListAuditMitigationActionsExecutionsResponse
+  where
+  rnf ListAuditMitigationActionsExecutionsResponse' {..} =
+    Prelude.rnf actionsExecutions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -143,9 +143,17 @@ instance Core.AWSRequest ListOutgoingCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOutgoingCertificates
+instance Prelude.Hashable ListOutgoingCertificates where
+  hashWithSalt _salt ListOutgoingCertificates' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListOutgoingCertificates
+instance Prelude.NFData ListOutgoingCertificates where
+  rnf ListOutgoingCertificates' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListOutgoingCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,3 +222,8 @@ listOutgoingCertificatesResponse_httpStatus = Lens.lens (\ListOutgoingCertificat
 instance
   Prelude.NFData
     ListOutgoingCertificatesResponse
+  where
+  rnf ListOutgoingCertificatesResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf outgoingCertificates
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,6 +72,12 @@ instance Core.FromJSON FleetMetricNameAndArn where
             Prelude.<*> (x Core..:? "metricArn")
       )
 
-instance Prelude.Hashable FleetMetricNameAndArn
+instance Prelude.Hashable FleetMetricNameAndArn where
+  hashWithSalt _salt FleetMetricNameAndArn' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` metricArn
 
-instance Prelude.NFData FleetMetricNameAndArn
+instance Prelude.NFData FleetMetricNameAndArn where
+  rnf FleetMetricNameAndArn' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricArn

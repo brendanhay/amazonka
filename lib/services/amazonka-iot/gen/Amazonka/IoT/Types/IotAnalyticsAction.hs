@@ -124,9 +124,19 @@ instance Core.FromJSON IotAnalyticsAction where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable IotAnalyticsAction
+instance Prelude.Hashable IotAnalyticsAction where
+  hashWithSalt _salt IotAnalyticsAction' {..} =
+    _salt `Prelude.hashWithSalt` batchMode
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData IotAnalyticsAction
+instance Prelude.NFData IotAnalyticsAction where
+  rnf IotAnalyticsAction' {..} =
+    Prelude.rnf batchMode
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON IotAnalyticsAction where
   toJSON IotAnalyticsAction' {..} =

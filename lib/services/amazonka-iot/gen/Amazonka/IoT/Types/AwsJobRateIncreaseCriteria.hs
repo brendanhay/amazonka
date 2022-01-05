@@ -78,9 +78,15 @@ instance Core.FromJSON AwsJobRateIncreaseCriteria where
             Prelude.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Prelude.Hashable AwsJobRateIncreaseCriteria
+instance Prelude.Hashable AwsJobRateIncreaseCriteria where
+  hashWithSalt _salt AwsJobRateIncreaseCriteria' {..} =
+    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+      `Prelude.hashWithSalt` numberOfSucceededThings
 
-instance Prelude.NFData AwsJobRateIncreaseCriteria
+instance Prelude.NFData AwsJobRateIncreaseCriteria where
+  rnf AwsJobRateIncreaseCriteria' {..} =
+    Prelude.rnf numberOfNotifiedThings
+      `Prelude.seq` Prelude.rnf numberOfSucceededThings
 
 instance Core.ToJSON AwsJobRateIncreaseCriteria where
   toJSON AwsJobRateIncreaseCriteria' {..} =

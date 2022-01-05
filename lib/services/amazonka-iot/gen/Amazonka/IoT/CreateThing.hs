@@ -154,9 +154,19 @@ instance Core.AWSRequest CreateThing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateThing
+instance Prelude.Hashable CreateThing where
+  hashWithSalt _salt CreateThing' {..} =
+    _salt `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` attributePayload
+      `Prelude.hashWithSalt` billingGroupName
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData CreateThing
+instance Prelude.NFData CreateThing where
+  rnf CreateThing' {..} =
+    Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf attributePayload
+      `Prelude.seq` Prelude.rnf billingGroupName
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders CreateThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,4 +248,9 @@ createThingResponse_thingId = Lens.lens (\CreateThingResponse' {thingId} -> thin
 createThingResponse_httpStatus :: Lens.Lens' CreateThingResponse Prelude.Int
 createThingResponse_httpStatus = Lens.lens (\CreateThingResponse' {httpStatus} -> httpStatus) (\s@CreateThingResponse' {} a -> s {httpStatus = a} :: CreateThingResponse)
 
-instance Prelude.NFData CreateThingResponse
+instance Prelude.NFData CreateThingResponse where
+  rnf CreateThingResponse' {..} =
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf thingId
+      `Prelude.seq` Prelude.rnf httpStatus

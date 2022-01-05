@@ -88,9 +88,15 @@ instance Core.FromJSON AddThingsToThingGroupParams where
             Prelude.<*> (x Core..: "thingGroupNames")
       )
 
-instance Prelude.Hashable AddThingsToThingGroupParams
+instance Prelude.Hashable AddThingsToThingGroupParams where
+  hashWithSalt _salt AddThingsToThingGroupParams' {..} =
+    _salt `Prelude.hashWithSalt` overrideDynamicGroups
+      `Prelude.hashWithSalt` thingGroupNames
 
-instance Prelude.NFData AddThingsToThingGroupParams
+instance Prelude.NFData AddThingsToThingGroupParams where
+  rnf AddThingsToThingGroupParams' {..} =
+    Prelude.rnf overrideDynamicGroups
+      `Prelude.seq` Prelude.rnf thingGroupNames
 
 instance Core.ToJSON AddThingsToThingGroupParams where
   toJSON AddThingsToThingGroupParams' {..} =

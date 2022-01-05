@@ -100,9 +100,13 @@ instance Core.AWSRequest DescribeCustomMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomMetric
+instance Prelude.Hashable DescribeCustomMetric where
+  hashWithSalt _salt DescribeCustomMetric' {..} =
+    _salt `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData DescribeCustomMetric
+instance Prelude.NFData DescribeCustomMetric where
+  rnf DescribeCustomMetric' {..} =
+    Prelude.rnf metricName
 
 instance Core.ToHeaders DescribeCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,4 +215,12 @@ describeCustomMetricResponse_metricArn = Lens.lens (\DescribeCustomMetricRespons
 describeCustomMetricResponse_httpStatus :: Lens.Lens' DescribeCustomMetricResponse Prelude.Int
 describeCustomMetricResponse_httpStatus = Lens.lens (\DescribeCustomMetricResponse' {httpStatus} -> httpStatus) (\s@DescribeCustomMetricResponse' {} a -> s {httpStatus = a} :: DescribeCustomMetricResponse)
 
-instance Prelude.NFData DescribeCustomMetricResponse
+instance Prelude.NFData DescribeCustomMetricResponse where
+  rnf DescribeCustomMetricResponse' {..} =
+    Prelude.rnf metricType
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf metricArn
+      `Prelude.seq` Prelude.rnf httpStatus

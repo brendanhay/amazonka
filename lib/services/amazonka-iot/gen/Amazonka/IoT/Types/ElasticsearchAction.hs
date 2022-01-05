@@ -122,9 +122,21 @@ instance Core.FromJSON ElasticsearchAction where
             Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable ElasticsearchAction
+instance Prelude.Hashable ElasticsearchAction where
+  hashWithSalt _salt ElasticsearchAction' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ElasticsearchAction
+instance Prelude.NFData ElasticsearchAction where
+  rnf ElasticsearchAction' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf index
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON ElasticsearchAction where
   toJSON ElasticsearchAction' {..} =

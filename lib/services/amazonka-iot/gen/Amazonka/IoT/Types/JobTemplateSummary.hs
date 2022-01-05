@@ -91,6 +91,16 @@ instance Core.FromJSON JobTemplateSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable JobTemplateSummary
+instance Prelude.Hashable JobTemplateSummary where
+  hashWithSalt _salt JobTemplateSummary' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` jobTemplateId
+      `Prelude.hashWithSalt` jobTemplateArn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData JobTemplateSummary
+instance Prelude.NFData JobTemplateSummary where
+  rnf JobTemplateSummary' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf description

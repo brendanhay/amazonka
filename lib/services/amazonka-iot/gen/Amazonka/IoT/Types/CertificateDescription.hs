@@ -198,6 +198,36 @@ instance Core.FromJSON CertificateDescription where
             Prelude.<*> (x Core..:? "customerVersion")
       )
 
-instance Prelude.Hashable CertificateDescription
+instance Prelude.Hashable CertificateDescription where
+  hashWithSalt _salt CertificateDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` caCertificateId
+      `Prelude.hashWithSalt` previousOwnedBy
+      `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` certificateMode
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` generationId
+      `Prelude.hashWithSalt` transferData
+      `Prelude.hashWithSalt` customerVersion
 
-instance Prelude.NFData CertificateDescription
+instance Prelude.NFData CertificateDescription where
+  rnf CertificateDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf caCertificateId
+      `Prelude.seq` Prelude.rnf previousOwnedBy
+      `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf certificateMode
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf generationId
+      `Prelude.seq` Prelude.rnf transferData
+      `Prelude.seq` Prelude.rnf customerVersion

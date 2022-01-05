@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteDimension where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDimension
+instance Prelude.Hashable DeleteDimension where
+  hashWithSalt _salt DeleteDimension' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteDimension
+instance Prelude.NFData DeleteDimension where
+  rnf DeleteDimension' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +132,6 @@ newDeleteDimensionResponse pHttpStatus_ =
 deleteDimensionResponse_httpStatus :: Lens.Lens' DeleteDimensionResponse Prelude.Int
 deleteDimensionResponse_httpStatus = Lens.lens (\DeleteDimensionResponse' {httpStatus} -> httpStatus) (\s@DeleteDimensionResponse' {} a -> s {httpStatus = a} :: DeleteDimensionResponse)
 
-instance Prelude.NFData DeleteDimensionResponse
+instance Prelude.NFData DeleteDimensionResponse where
+  rnf DeleteDimensionResponse' {..} =
+    Prelude.rnf httpStatus

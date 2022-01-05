@@ -71,6 +71,12 @@ instance Core.FromJSON Policy where
             Prelude.<*> (x Core..:? "policyArn")
       )
 
-instance Prelude.Hashable Policy
+instance Prelude.Hashable Policy where
+  hashWithSalt _salt Policy' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData Policy
+instance Prelude.NFData Policy where
+  rnf Policy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyArn

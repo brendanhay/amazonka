@@ -139,9 +139,19 @@ instance Core.AWSRequest StartThingRegistrationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartThingRegistrationTask
+instance Prelude.Hashable StartThingRegistrationTask where
+  hashWithSalt _salt StartThingRegistrationTask' {..} =
+    _salt `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` inputFileBucket
+      `Prelude.hashWithSalt` inputFileKey
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData StartThingRegistrationTask
+instance Prelude.NFData StartThingRegistrationTask where
+  rnf StartThingRegistrationTask' {..} =
+    Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf inputFileBucket
+      `Prelude.seq` Prelude.rnf inputFileKey
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders StartThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +216,7 @@ startThingRegistrationTaskResponse_httpStatus = Lens.lens (\StartThingRegistrati
 instance
   Prelude.NFData
     StartThingRegistrationTaskResponse
+  where
+  rnf StartThingRegistrationTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -130,9 +130,19 @@ instance Core.AWSRequest UpdateStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStream
+instance Prelude.Hashable UpdateStream where
+  hashWithSalt _salt UpdateStream' {..} =
+    _salt `Prelude.hashWithSalt` files
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` streamId
 
-instance Prelude.NFData UpdateStream
+instance Prelude.NFData UpdateStream where
+  rnf UpdateStream' {..} =
+    Prelude.rnf files
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf streamId
 
 instance Core.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,4 +230,10 @@ updateStreamResponse_streamId = Lens.lens (\UpdateStreamResponse' {streamId} -> 
 updateStreamResponse_httpStatus :: Lens.Lens' UpdateStreamResponse Prelude.Int
 updateStreamResponse_httpStatus = Lens.lens (\UpdateStreamResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamResponse' {} a -> s {httpStatus = a} :: UpdateStreamResponse)
 
-instance Prelude.NFData UpdateStreamResponse
+instance Prelude.NFData UpdateStreamResponse where
+  rnf UpdateStreamResponse' {..} =
+    Prelude.rnf streamVersion
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf httpStatus

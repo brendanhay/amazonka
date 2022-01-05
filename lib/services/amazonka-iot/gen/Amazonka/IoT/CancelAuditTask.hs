@@ -93,9 +93,12 @@ instance Core.AWSRequest CancelAuditTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelAuditTask
+instance Prelude.Hashable CancelAuditTask where
+  hashWithSalt _salt CancelAuditTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData CancelAuditTask
+instance Prelude.NFData CancelAuditTask where
+  rnf CancelAuditTask' {..} = Prelude.rnf taskId
 
 instance Core.ToHeaders CancelAuditTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,6 @@ newCancelAuditTaskResponse pHttpStatus_ =
 cancelAuditTaskResponse_httpStatus :: Lens.Lens' CancelAuditTaskResponse Prelude.Int
 cancelAuditTaskResponse_httpStatus = Lens.lens (\CancelAuditTaskResponse' {httpStatus} -> httpStatus) (\s@CancelAuditTaskResponse' {} a -> s {httpStatus = a} :: CancelAuditTaskResponse)
 
-instance Prelude.NFData CancelAuditTaskResponse
+instance Prelude.NFData CancelAuditTaskResponse where
+  rnf CancelAuditTaskResponse' {..} =
+    Prelude.rnf httpStatus

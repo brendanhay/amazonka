@@ -69,8 +69,13 @@ instance Core.FromJSON UpdateDeviceCertificateParams where
 instance
   Prelude.Hashable
     UpdateDeviceCertificateParams
+  where
+  hashWithSalt _salt UpdateDeviceCertificateParams' {..} =
+    _salt `Prelude.hashWithSalt` action
 
-instance Prelude.NFData UpdateDeviceCertificateParams
+instance Prelude.NFData UpdateDeviceCertificateParams where
+  rnf UpdateDeviceCertificateParams' {..} =
+    Prelude.rnf action
 
 instance Core.ToJSON UpdateDeviceCertificateParams where
   toJSON UpdateDeviceCertificateParams' {..} =

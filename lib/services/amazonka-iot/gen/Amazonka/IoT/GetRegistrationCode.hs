@@ -76,9 +76,12 @@ instance Core.AWSRequest GetRegistrationCode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegistrationCode
+instance Prelude.Hashable GetRegistrationCode where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetRegistrationCode
+instance Prelude.NFData GetRegistrationCode where
+  rnf _ = ()
 
 instance Core.ToHeaders GetRegistrationCode where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +133,7 @@ getRegistrationCodeResponse_registrationCode = Lens.lens (\GetRegistrationCodeRe
 getRegistrationCodeResponse_httpStatus :: Lens.Lens' GetRegistrationCodeResponse Prelude.Int
 getRegistrationCodeResponse_httpStatus = Lens.lens (\GetRegistrationCodeResponse' {httpStatus} -> httpStatus) (\s@GetRegistrationCodeResponse' {} a -> s {httpStatus = a} :: GetRegistrationCodeResponse)
 
-instance Prelude.NFData GetRegistrationCodeResponse
+instance Prelude.NFData GetRegistrationCodeResponse where
+  rnf GetRegistrationCodeResponse' {..} =
+    Prelude.rnf registrationCode
+      `Prelude.seq` Prelude.rnf httpStatus

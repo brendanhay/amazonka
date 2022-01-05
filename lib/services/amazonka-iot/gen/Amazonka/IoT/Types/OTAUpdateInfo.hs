@@ -247,6 +247,40 @@ instance Core.FromJSON OTAUpdateInfo where
             Prelude.<*> (x Core..:? "targetSelection")
       )
 
-instance Prelude.Hashable OTAUpdateInfo
+instance Prelude.Hashable OTAUpdateInfo where
+  hashWithSalt _salt OTAUpdateInfo' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` awsJobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` awsIotJobId
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` awsJobPresignedUrlConfig
+      `Prelude.hashWithSalt` otaUpdateFiles
+      `Prelude.hashWithSalt` otaUpdateStatus
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` awsIotJobArn
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` additionalParameters
+      `Prelude.hashWithSalt` otaUpdateId
+      `Prelude.hashWithSalt` errorInfo
+      `Prelude.hashWithSalt` otaUpdateArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` targetSelection
 
-instance Prelude.NFData OTAUpdateInfo
+instance Prelude.NFData OTAUpdateInfo where
+  rnf OTAUpdateInfo' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf awsIotJobId
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf awsJobPresignedUrlConfig
+      `Prelude.seq` Prelude.rnf otaUpdateFiles
+      `Prelude.seq` Prelude.rnf otaUpdateStatus
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf awsIotJobArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf additionalParameters
+      `Prelude.seq` Prelude.rnf otaUpdateId
+      `Prelude.seq` Prelude.rnf errorInfo
+      `Prelude.seq` Prelude.rnf otaUpdateArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targetSelection

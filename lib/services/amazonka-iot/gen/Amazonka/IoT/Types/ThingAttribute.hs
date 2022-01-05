@@ -105,6 +105,18 @@ instance Core.FromJSON ThingAttribute where
             Prelude.<*> (x Core..:? "thingName")
       )
 
-instance Prelude.Hashable ThingAttribute
+instance Prelude.Hashable ThingAttribute where
+  hashWithSalt _salt ThingAttribute' {..} =
+    _salt `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData ThingAttribute
+instance Prelude.NFData ThingAttribute where
+  rnf ThingAttribute' {..} =
+    Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf thingName

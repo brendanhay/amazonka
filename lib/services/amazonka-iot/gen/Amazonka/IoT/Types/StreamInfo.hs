@@ -132,6 +132,24 @@ instance Core.FromJSON StreamInfo where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable StreamInfo
+instance Prelude.Hashable StreamInfo where
+  hashWithSalt _salt StreamInfo' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` streamVersion
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` files
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData StreamInfo
+instance Prelude.NFData StreamInfo where
+  rnf StreamInfo' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf streamVersion
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf files
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf roleArn

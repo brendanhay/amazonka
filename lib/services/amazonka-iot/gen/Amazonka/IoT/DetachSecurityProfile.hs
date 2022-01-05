@@ -107,9 +107,15 @@ instance Core.AWSRequest DetachSecurityProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachSecurityProfile
+instance Prelude.Hashable DetachSecurityProfile where
+  hashWithSalt _salt DetachSecurityProfile' {..} =
+    _salt `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` securityProfileTargetArn
 
-instance Prelude.NFData DetachSecurityProfile
+instance Prelude.NFData DetachSecurityProfile where
+  rnf DetachSecurityProfile' {..} =
+    Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf securityProfileTargetArn
 
 instance Core.ToHeaders DetachSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,4 +165,6 @@ newDetachSecurityProfileResponse pHttpStatus_ =
 detachSecurityProfileResponse_httpStatus :: Lens.Lens' DetachSecurityProfileResponse Prelude.Int
 detachSecurityProfileResponse_httpStatus = Lens.lens (\DetachSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@DetachSecurityProfileResponse' {} a -> s {httpStatus = a} :: DetachSecurityProfileResponse)
 
-instance Prelude.NFData DetachSecurityProfileResponse
+instance Prelude.NFData DetachSecurityProfileResponse where
+  rnf DetachSecurityProfileResponse' {..} =
+    Prelude.rnf httpStatus

@@ -92,9 +92,17 @@ instance Core.FromJSON SigV4Authorization where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable SigV4Authorization
+instance Prelude.Hashable SigV4Authorization where
+  hashWithSalt _salt SigV4Authorization' {..} =
+    _salt `Prelude.hashWithSalt` signingRegion
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData SigV4Authorization
+instance Prelude.NFData SigV4Authorization where
+  rnf SigV4Authorization' {..} =
+    Prelude.rnf signingRegion
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON SigV4Authorization where
   toJSON SigV4Authorization' {..} =

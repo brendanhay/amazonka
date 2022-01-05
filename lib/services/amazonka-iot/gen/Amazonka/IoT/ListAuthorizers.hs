@@ -146,9 +146,19 @@ instance Core.AWSRequest ListAuthorizers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuthorizers
+instance Prelude.Hashable ListAuthorizers where
+  hashWithSalt _salt ListAuthorizers' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListAuthorizers
+instance Prelude.NFData ListAuthorizers where
+  rnf ListAuthorizers' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListAuthorizers where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,4 +223,8 @@ listAuthorizersResponse_nextMarker = Lens.lens (\ListAuthorizersResponse' {nextM
 listAuthorizersResponse_httpStatus :: Lens.Lens' ListAuthorizersResponse Prelude.Int
 listAuthorizersResponse_httpStatus = Lens.lens (\ListAuthorizersResponse' {httpStatus} -> httpStatus) (\s@ListAuthorizersResponse' {} a -> s {httpStatus = a} :: ListAuthorizersResponse)
 
-instance Prelude.NFData ListAuthorizersResponse
+instance Prelude.NFData ListAuthorizersResponse where
+  rnf ListAuthorizersResponse' {..} =
+    Prelude.rnf authorizers
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -75,9 +75,15 @@ instance Core.FromJSON AuthInfo where
             Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AuthInfo
+instance Prelude.Hashable AuthInfo where
+  hashWithSalt _salt AuthInfo' {..} =
+    _salt `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` resources
 
-instance Prelude.NFData AuthInfo
+instance Prelude.NFData AuthInfo where
+  rnf AuthInfo' {..} =
+    Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf resources
 
 instance Core.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =

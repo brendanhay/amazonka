@@ -262,9 +262,31 @@ instance Core.AWSRequest UpdateSecurityProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecurityProfile
+instance Prelude.Hashable UpdateSecurityProfile where
+  hashWithSalt _salt UpdateSecurityProfile' {..} =
+    _salt `Prelude.hashWithSalt` alertTargets
+      `Prelude.hashWithSalt` additionalMetricsToRetainV2
+      `Prelude.hashWithSalt` behaviors
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` deleteAlertTargets
+      `Prelude.hashWithSalt` additionalMetricsToRetain
+      `Prelude.hashWithSalt` securityProfileDescription
+      `Prelude.hashWithSalt` deleteBehaviors
+      `Prelude.hashWithSalt` deleteAdditionalMetricsToRetain
+      `Prelude.hashWithSalt` securityProfileName
 
-instance Prelude.NFData UpdateSecurityProfile
+instance Prelude.NFData UpdateSecurityProfile where
+  rnf UpdateSecurityProfile' {..} =
+    Prelude.rnf alertTargets
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
+      `Prelude.seq` Prelude.rnf behaviors
+      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf deleteAlertTargets
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf securityProfileDescription
+      `Prelude.seq` Prelude.rnf deleteBehaviors
+      `Prelude.seq` Prelude.rnf deleteAdditionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf securityProfileName
 
 instance Core.ToHeaders UpdateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -450,4 +472,16 @@ updateSecurityProfileResponse_securityProfileDescription = Lens.lens (\UpdateSec
 updateSecurityProfileResponse_httpStatus :: Lens.Lens' UpdateSecurityProfileResponse Prelude.Int
 updateSecurityProfileResponse_httpStatus = Lens.lens (\UpdateSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateSecurityProfileResponse' {} a -> s {httpStatus = a} :: UpdateSecurityProfileResponse)
 
-instance Prelude.NFData UpdateSecurityProfileResponse
+instance Prelude.NFData UpdateSecurityProfileResponse where
+  rnf UpdateSecurityProfileResponse' {..} =
+    Prelude.rnf alertTargets
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
+      `Prelude.seq` Prelude.rnf behaviors
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf securityProfileArn
+      `Prelude.seq` Prelude.rnf securityProfileDescription
+      `Prelude.seq` Prelude.rnf httpStatus

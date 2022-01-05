@@ -73,9 +73,15 @@ instance Core.FromJSON PolicyVersionIdentifier where
             Prelude.<*> (x Core..:? "policyVersionId")
       )
 
-instance Prelude.Hashable PolicyVersionIdentifier
+instance Prelude.Hashable PolicyVersionIdentifier where
+  hashWithSalt _salt PolicyVersionIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyVersionId
 
-instance Prelude.NFData PolicyVersionIdentifier
+instance Prelude.NFData PolicyVersionIdentifier where
+  rnf PolicyVersionIdentifier' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyVersionId
 
 instance Core.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =

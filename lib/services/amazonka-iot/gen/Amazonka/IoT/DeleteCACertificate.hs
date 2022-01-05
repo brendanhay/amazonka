@@ -96,9 +96,13 @@ instance Core.AWSRequest DeleteCACertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCACertificate
+instance Prelude.Hashable DeleteCACertificate where
+  hashWithSalt _salt DeleteCACertificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateId
 
-instance Prelude.NFData DeleteCACertificate
+instance Prelude.NFData DeleteCACertificate where
+  rnf DeleteCACertificate' {..} =
+    Prelude.rnf certificateId
 
 instance Core.ToHeaders DeleteCACertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,4 +147,6 @@ newDeleteCACertificateResponse pHttpStatus_ =
 deleteCACertificateResponse_httpStatus :: Lens.Lens' DeleteCACertificateResponse Prelude.Int
 deleteCACertificateResponse_httpStatus = Lens.lens (\DeleteCACertificateResponse' {httpStatus} -> httpStatus) (\s@DeleteCACertificateResponse' {} a -> s {httpStatus = a} :: DeleteCACertificateResponse)
 
-instance Prelude.NFData DeleteCACertificateResponse
+instance Prelude.NFData DeleteCACertificateResponse where
+  rnf DeleteCACertificateResponse' {..} =
+    Prelude.rnf httpStatus

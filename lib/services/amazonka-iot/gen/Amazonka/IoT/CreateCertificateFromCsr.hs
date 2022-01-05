@@ -157,9 +157,15 @@ instance Core.AWSRequest CreateCertificateFromCsr where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCertificateFromCsr
+instance Prelude.Hashable CreateCertificateFromCsr where
+  hashWithSalt _salt CreateCertificateFromCsr' {..} =
+    _salt `Prelude.hashWithSalt` setAsActive
+      `Prelude.hashWithSalt` certificateSigningRequest
 
-instance Prelude.NFData CreateCertificateFromCsr
+instance Prelude.NFData CreateCertificateFromCsr where
+  rnf CreateCertificateFromCsr' {..} =
+    Prelude.rnf setAsActive
+      `Prelude.seq` Prelude.rnf certificateSigningRequest
 
 instance Core.ToHeaders CreateCertificateFromCsr where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,3 +256,9 @@ createCertificateFromCsrResponse_httpStatus = Lens.lens (\CreateCertificateFromC
 instance
   Prelude.NFData
     CreateCertificateFromCsrResponse
+  where
+  rnf CreateCertificateFromCsrResponse' {..} =
+    Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf httpStatus

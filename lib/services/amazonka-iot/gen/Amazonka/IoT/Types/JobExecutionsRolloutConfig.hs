@@ -79,9 +79,15 @@ instance Core.FromJSON JobExecutionsRolloutConfig where
             Prelude.<*> (x Core..:? "maximumPerMinute")
       )
 
-instance Prelude.Hashable JobExecutionsRolloutConfig
+instance Prelude.Hashable JobExecutionsRolloutConfig where
+  hashWithSalt _salt JobExecutionsRolloutConfig' {..} =
+    _salt `Prelude.hashWithSalt` exponentialRate
+      `Prelude.hashWithSalt` maximumPerMinute
 
-instance Prelude.NFData JobExecutionsRolloutConfig
+instance Prelude.NFData JobExecutionsRolloutConfig where
+  rnf JobExecutionsRolloutConfig' {..} =
+    Prelude.rnf exponentialRate
+      `Prelude.seq` Prelude.rnf maximumPerMinute
 
 instance Core.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =

@@ -71,10 +71,18 @@ instance Core.FromJSON MachineLearningDetectionConfig where
 instance
   Prelude.Hashable
     MachineLearningDetectionConfig
+  where
+  hashWithSalt
+    _salt
+    MachineLearningDetectionConfig' {..} =
+      _salt `Prelude.hashWithSalt` confidenceLevel
 
 instance
   Prelude.NFData
     MachineLearningDetectionConfig
+  where
+  rnf MachineLearningDetectionConfig' {..} =
+    Prelude.rnf confidenceLevel
 
 instance Core.ToJSON MachineLearningDetectionConfig where
   toJSON MachineLearningDetectionConfig' {..} =

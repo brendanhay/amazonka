@@ -93,9 +93,13 @@ instance Core.AWSRequest DescribeAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuthorizer
+instance Prelude.Hashable DescribeAuthorizer where
+  hashWithSalt _salt DescribeAuthorizer' {..} =
+    _salt `Prelude.hashWithSalt` authorizerName
 
-instance Prelude.NFData DescribeAuthorizer
+instance Prelude.NFData DescribeAuthorizer where
+  rnf DescribeAuthorizer' {..} =
+    Prelude.rnf authorizerName
 
 instance Core.ToHeaders DescribeAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,4 +151,7 @@ describeAuthorizerResponse_authorizerDescription = Lens.lens (\DescribeAuthorize
 describeAuthorizerResponse_httpStatus :: Lens.Lens' DescribeAuthorizerResponse Prelude.Int
 describeAuthorizerResponse_httpStatus = Lens.lens (\DescribeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@DescribeAuthorizerResponse' {} a -> s {httpStatus = a} :: DescribeAuthorizerResponse)
 
-instance Prelude.NFData DescribeAuthorizerResponse
+instance Prelude.NFData DescribeAuthorizerResponse where
+  rnf DescribeAuthorizerResponse' {..} =
+    Prelude.rnf authorizerDescription
+      `Prelude.seq` Prelude.rnf httpStatus

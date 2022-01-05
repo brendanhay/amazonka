@@ -59,6 +59,9 @@ instance Core.FromJSON Allowed where
             Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Allowed
+instance Prelude.Hashable Allowed where
+  hashWithSalt _salt Allowed' {..} =
+    _salt `Prelude.hashWithSalt` policies
 
-instance Prelude.NFData Allowed
+instance Prelude.NFData Allowed where
+  rnf Allowed' {..} = Prelude.rnf policies

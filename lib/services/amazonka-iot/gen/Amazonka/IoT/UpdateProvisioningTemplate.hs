@@ -154,9 +154,25 @@ instance Core.AWSRequest UpdateProvisioningTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProvisioningTemplate
+instance Prelude.Hashable UpdateProvisioningTemplate where
+  hashWithSalt _salt UpdateProvisioningTemplate' {..} =
+    _salt `Prelude.hashWithSalt` preProvisioningHook
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` provisioningRoleArn
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` removePreProvisioningHook
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData UpdateProvisioningTemplate
+instance Prelude.NFData UpdateProvisioningTemplate where
+  rnf UpdateProvisioningTemplate' {..} =
+    Prelude.rnf preProvisioningHook
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf provisioningRoleArn
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf removePreProvisioningHook
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders UpdateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,3 +235,6 @@ updateProvisioningTemplateResponse_httpStatus = Lens.lens (\UpdateProvisioningTe
 instance
   Prelude.NFData
     UpdateProvisioningTemplateResponse
+  where
+  rnf UpdateProvisioningTemplateResponse' {..} =
+    Prelude.rnf httpStatus

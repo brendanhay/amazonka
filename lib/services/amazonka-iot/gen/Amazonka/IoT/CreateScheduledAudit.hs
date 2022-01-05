@@ -179,9 +179,23 @@ instance Core.AWSRequest CreateScheduledAudit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateScheduledAudit
+instance Prelude.Hashable CreateScheduledAudit where
+  hashWithSalt _salt CreateScheduledAudit' {..} =
+    _salt `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` targetCheckNames
+      `Prelude.hashWithSalt` scheduledAuditName
 
-instance Prelude.NFData CreateScheduledAudit
+instance Prelude.NFData CreateScheduledAudit where
+  rnf CreateScheduledAudit' {..} =
+    Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf targetCheckNames
+      `Prelude.seq` Prelude.rnf scheduledAuditName
 
 instance Core.ToHeaders CreateScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,4 +262,7 @@ createScheduledAuditResponse_scheduledAuditArn = Lens.lens (\CreateScheduledAudi
 createScheduledAuditResponse_httpStatus :: Lens.Lens' CreateScheduledAuditResponse Prelude.Int
 createScheduledAuditResponse_httpStatus = Lens.lens (\CreateScheduledAuditResponse' {httpStatus} -> httpStatus) (\s@CreateScheduledAuditResponse' {} a -> s {httpStatus = a} :: CreateScheduledAuditResponse)
 
-instance Prelude.NFData CreateScheduledAuditResponse
+instance Prelude.NFData CreateScheduledAuditResponse where
+  rnf CreateScheduledAuditResponse' {..} =
+    Prelude.rnf scheduledAuditArn
+      `Prelude.seq` Prelude.rnf httpStatus

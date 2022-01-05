@@ -115,9 +115,15 @@ instance Core.AWSRequest DetachThingPrincipal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachThingPrincipal
+instance Prelude.Hashable DetachThingPrincipal where
+  hashWithSalt _salt DetachThingPrincipal' {..} =
+    _salt `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData DetachThingPrincipal
+instance Prelude.NFData DetachThingPrincipal where
+  rnf DetachThingPrincipal' {..} =
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf principal
 
 instance Core.ToHeaders DetachThingPrincipal where
   toHeaders DetachThingPrincipal' {..} =
@@ -164,4 +170,6 @@ newDetachThingPrincipalResponse pHttpStatus_ =
 detachThingPrincipalResponse_httpStatus :: Lens.Lens' DetachThingPrincipalResponse Prelude.Int
 detachThingPrincipalResponse_httpStatus = Lens.lens (\DetachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@DetachThingPrincipalResponse' {} a -> s {httpStatus = a} :: DetachThingPrincipalResponse)
 
-instance Prelude.NFData DetachThingPrincipalResponse
+instance Prelude.NFData DetachThingPrincipalResponse where
+  rnf DetachThingPrincipalResponse' {..} =
+    Prelude.rnf httpStatus

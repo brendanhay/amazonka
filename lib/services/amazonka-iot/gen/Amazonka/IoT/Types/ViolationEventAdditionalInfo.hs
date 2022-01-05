@@ -69,5 +69,10 @@ instance Core.FromJSON ViolationEventAdditionalInfo where
 instance
   Prelude.Hashable
     ViolationEventAdditionalInfo
+  where
+  hashWithSalt _salt ViolationEventAdditionalInfo' {..} =
+    _salt `Prelude.hashWithSalt` confidenceLevel
 
-instance Prelude.NFData ViolationEventAdditionalInfo
+instance Prelude.NFData ViolationEventAdditionalInfo where
+  rnf ViolationEventAdditionalInfo' {..} =
+    Prelude.rnf confidenceLevel

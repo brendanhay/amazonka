@@ -118,8 +118,13 @@ instance
 instance
   Prelude.Hashable
     DescribeThingRegistrationTask
+  where
+  hashWithSalt _salt DescribeThingRegistrationTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData DescribeThingRegistrationTask
+instance Prelude.NFData DescribeThingRegistrationTask where
+  rnf DescribeThingRegistrationTask' {..} =
+    Prelude.rnf taskId
 
 instance Core.ToHeaders DescribeThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,3 +278,18 @@ describeThingRegistrationTaskResponse_httpStatus = Lens.lens (\DescribeThingRegi
 instance
   Prelude.NFData
     DescribeThingRegistrationTaskResponse
+  where
+  rnf DescribeThingRegistrationTaskResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf inputFileKey
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf percentageProgress
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf successCount
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf failureCount
+      `Prelude.seq` Prelude.rnf inputFileBucket
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

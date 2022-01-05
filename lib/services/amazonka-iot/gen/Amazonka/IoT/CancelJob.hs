@@ -145,9 +145,19 @@ instance Core.AWSRequest CancelJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelJob
+instance Prelude.Hashable CancelJob where
+  hashWithSalt _salt CancelJob' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` reasonCode
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CancelJob
+instance Prelude.NFData CancelJob where
+  rnf CancelJob' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf reasonCode
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders CancelJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,4 +236,9 @@ cancelJobResponse_description = Lens.lens (\CancelJobResponse' {description} -> 
 cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
 cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
-instance Prelude.NFData CancelJobResponse
+instance Prelude.NFData CancelJobResponse where
+  rnf CancelJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

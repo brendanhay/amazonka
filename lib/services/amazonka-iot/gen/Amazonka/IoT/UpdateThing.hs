@@ -166,9 +166,21 @@ instance Core.AWSRequest UpdateThing where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThing
+instance Prelude.Hashable UpdateThing where
+  hashWithSalt _salt UpdateThing' {..} =
+    _salt `Prelude.hashWithSalt` removeThingType
+      `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` attributePayload
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData UpdateThing
+instance Prelude.NFData UpdateThing where
+  rnf UpdateThing' {..} =
+    Prelude.rnf removeThingType
+      `Prelude.seq` Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf attributePayload
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders UpdateThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +235,5 @@ newUpdateThingResponse pHttpStatus_ =
 updateThingResponse_httpStatus :: Lens.Lens' UpdateThingResponse Prelude.Int
 updateThingResponse_httpStatus = Lens.lens (\UpdateThingResponse' {httpStatus} -> httpStatus) (\s@UpdateThingResponse' {} a -> s {httpStatus = a} :: UpdateThingResponse)
 
-instance Prelude.NFData UpdateThingResponse
+instance Prelude.NFData UpdateThingResponse where
+  rnf UpdateThingResponse' {..} = Prelude.rnf httpStatus

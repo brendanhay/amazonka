@@ -138,9 +138,21 @@ instance Core.AWSRequest AddThingToThingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddThingToThingGroup
+instance Prelude.Hashable AddThingToThingGroup where
+  hashWithSalt _salt AddThingToThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` thingGroupArn
+      `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` overrideDynamicGroups
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData AddThingToThingGroup
+instance Prelude.NFData AddThingToThingGroup where
+  rnf AddThingToThingGroup' {..} =
+    Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf overrideDynamicGroups
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders AddThingToThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +208,6 @@ newAddThingToThingGroupResponse pHttpStatus_ =
 addThingToThingGroupResponse_httpStatus :: Lens.Lens' AddThingToThingGroupResponse Prelude.Int
 addThingToThingGroupResponse_httpStatus = Lens.lens (\AddThingToThingGroupResponse' {httpStatus} -> httpStatus) (\s@AddThingToThingGroupResponse' {} a -> s {httpStatus = a} :: AddThingToThingGroupResponse)
 
-instance Prelude.NFData AddThingToThingGroupResponse
+instance Prelude.NFData AddThingToThingGroupResponse where
+  rnf AddThingToThingGroupResponse' {..} =
+    Prelude.rnf httpStatus

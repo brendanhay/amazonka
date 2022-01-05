@@ -107,9 +107,19 @@ instance Core.FromJSON S3Action where
             Prelude.<*> (x Core..: "key")
       )
 
-instance Prelude.Hashable S3Action
+instance Prelude.Hashable S3Action where
+  hashWithSalt _salt S3Action' {..} =
+    _salt `Prelude.hashWithSalt` cannedAcl
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3Action
+instance Prelude.NFData S3Action where
+  rnf S3Action' {..} =
+    Prelude.rnf cannedAcl
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON S3Action where
   toJSON S3Action' {..} =

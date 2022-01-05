@@ -104,9 +104,15 @@ instance Core.FromJSON AttributePayload where
             Prelude.<*> (x Core..:? "merge")
       )
 
-instance Prelude.Hashable AttributePayload
+instance Prelude.Hashable AttributePayload where
+  hashWithSalt _salt AttributePayload' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` merge
 
-instance Prelude.NFData AttributePayload
+instance Prelude.NFData AttributePayload where
+  rnf AttributePayload' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf merge
 
 instance Core.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =

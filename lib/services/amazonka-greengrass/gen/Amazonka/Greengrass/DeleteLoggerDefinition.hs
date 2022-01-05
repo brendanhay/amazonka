@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteLoggerDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoggerDefinition
+instance Prelude.Hashable DeleteLoggerDefinition where
+  hashWithSalt _salt DeleteLoggerDefinition' {..} =
+    _salt `Prelude.hashWithSalt` loggerDefinitionId
 
-instance Prelude.NFData DeleteLoggerDefinition
+instance Prelude.NFData DeleteLoggerDefinition where
+  rnf DeleteLoggerDefinition' {..} =
+    Prelude.rnf loggerDefinitionId
 
 instance Core.ToHeaders DeleteLoggerDefinition where
   toHeaders =
@@ -145,3 +149,6 @@ deleteLoggerDefinitionResponse_httpStatus = Lens.lens (\DeleteLoggerDefinitionRe
 instance
   Prelude.NFData
     DeleteLoggerDefinitionResponse
+  where
+  rnf DeleteLoggerDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

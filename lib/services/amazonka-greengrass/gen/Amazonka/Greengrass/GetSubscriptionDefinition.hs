@@ -104,9 +104,14 @@ instance Core.AWSRequest GetSubscriptionDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSubscriptionDefinition
+instance Prelude.Hashable GetSubscriptionDefinition where
+  hashWithSalt _salt GetSubscriptionDefinition' {..} =
+    _salt
+      `Prelude.hashWithSalt` subscriptionDefinitionId
 
-instance Prelude.NFData GetSubscriptionDefinition
+instance Prelude.NFData GetSubscriptionDefinition where
+  rnf GetSubscriptionDefinition' {..} =
+    Prelude.rnf subscriptionDefinitionId
 
 instance Core.ToHeaders GetSubscriptionDefinition where
   toHeaders =
@@ -240,3 +245,14 @@ getSubscriptionDefinitionResponse_httpStatus = Lens.lens (\GetSubscriptionDefini
 instance
   Prelude.NFData
     GetSubscriptionDefinitionResponse
+  where
+  rnf GetSubscriptionDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

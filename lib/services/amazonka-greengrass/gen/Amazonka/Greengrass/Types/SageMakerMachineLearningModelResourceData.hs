@@ -93,10 +93,22 @@ instance
 instance
   Prelude.Hashable
     SageMakerMachineLearningModelResourceData
+  where
+  hashWithSalt
+    _salt
+    SageMakerMachineLearningModelResourceData' {..} =
+      _salt `Prelude.hashWithSalt` ownerSetting
+        `Prelude.hashWithSalt` sageMakerJobArn
+        `Prelude.hashWithSalt` destinationPath
 
 instance
   Prelude.NFData
     SageMakerMachineLearningModelResourceData
+  where
+  rnf SageMakerMachineLearningModelResourceData' {..} =
+    Prelude.rnf ownerSetting
+      `Prelude.seq` Prelude.rnf sageMakerJobArn
+      `Prelude.seq` Prelude.rnf destinationPath
 
 instance
   Core.ToJSON

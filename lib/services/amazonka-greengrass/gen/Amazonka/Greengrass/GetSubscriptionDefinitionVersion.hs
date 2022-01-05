@@ -152,10 +152,22 @@ instance
 instance
   Prelude.Hashable
     GetSubscriptionDefinitionVersion
+  where
+  hashWithSalt
+    _salt
+    GetSubscriptionDefinitionVersion' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` subscriptionDefinitionId
+        `Prelude.hashWithSalt` subscriptionDefinitionVersionId
 
 instance
   Prelude.NFData
     GetSubscriptionDefinitionVersion
+  where
+  rnf GetSubscriptionDefinitionVersion' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionId
 
 instance
   Core.ToHeaders
@@ -282,3 +294,12 @@ getSubscriptionDefinitionVersionResponse_httpStatus = Lens.lens (\GetSubscriptio
 instance
   Prelude.NFData
     GetSubscriptionDefinitionVersionResponse
+  where
+  rnf GetSubscriptionDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

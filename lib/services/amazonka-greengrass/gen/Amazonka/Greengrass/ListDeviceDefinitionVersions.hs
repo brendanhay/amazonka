@@ -141,8 +141,17 @@ instance Core.AWSRequest ListDeviceDefinitionVersions where
 instance
   Prelude.Hashable
     ListDeviceDefinitionVersions
+  where
+  hashWithSalt _salt ListDeviceDefinitionVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` deviceDefinitionId
 
-instance Prelude.NFData ListDeviceDefinitionVersions
+instance Prelude.NFData ListDeviceDefinitionVersions where
+  rnf ListDeviceDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf deviceDefinitionId
 
 instance Core.ToHeaders ListDeviceDefinitionVersions where
   toHeaders =
@@ -224,3 +233,8 @@ listDeviceDefinitionVersionsResponse_httpStatus = Lens.lens (\ListDeviceDefiniti
 instance
   Prelude.NFData
     ListDeviceDefinitionVersionsResponse
+  where
+  rnf ListDeviceDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

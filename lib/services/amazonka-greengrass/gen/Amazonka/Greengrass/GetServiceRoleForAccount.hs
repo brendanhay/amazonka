@@ -73,9 +73,12 @@ instance Core.AWSRequest GetServiceRoleForAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceRoleForAccount
+instance Prelude.Hashable GetServiceRoleForAccount where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetServiceRoleForAccount
+instance Prelude.NFData GetServiceRoleForAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetServiceRoleForAccount where
   toHeaders =
@@ -145,3 +148,8 @@ getServiceRoleForAccountResponse_httpStatus = Lens.lens (\GetServiceRoleForAccou
 instance
   Prelude.NFData
     GetServiceRoleForAccountResponse
+  where
+  rnf GetServiceRoleForAccountResponse' {..} =
+    Prelude.rnf associatedAt
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

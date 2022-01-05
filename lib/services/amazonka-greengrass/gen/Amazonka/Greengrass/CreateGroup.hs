@@ -132,9 +132,19 @@ instance Core.AWSRequest CreateGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroup
+instance Prelude.Hashable CreateGroup where
+  hashWithSalt _salt CreateGroup' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateGroup
+instance Prelude.NFData CreateGroup where
+  rnf CreateGroup' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf initialVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateGroup where
   toHeaders CreateGroup' {..} =
@@ -260,4 +270,13 @@ createGroupResponse_lastUpdatedTimestamp = Lens.lens (\CreateGroupResponse' {las
 createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Prelude.NFData CreateGroupResponse where
+  rnf CreateGroupResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

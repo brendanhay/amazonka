@@ -141,8 +141,17 @@ instance Core.AWSRequest ListLoggerDefinitionVersions where
 instance
   Prelude.Hashable
     ListLoggerDefinitionVersions
+  where
+  hashWithSalt _salt ListLoggerDefinitionVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` loggerDefinitionId
 
-instance Prelude.NFData ListLoggerDefinitionVersions
+instance Prelude.NFData ListLoggerDefinitionVersions where
+  rnf ListLoggerDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf loggerDefinitionId
 
 instance Core.ToHeaders ListLoggerDefinitionVersions where
   toHeaders =
@@ -224,3 +233,8 @@ listLoggerDefinitionVersionsResponse_httpStatus = Lens.lens (\ListLoggerDefiniti
 instance
   Prelude.NFData
     ListLoggerDefinitionVersionsResponse
+  where
+  rnf ListLoggerDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteDeviceDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDeviceDefinition
+instance Prelude.Hashable DeleteDeviceDefinition where
+  hashWithSalt _salt DeleteDeviceDefinition' {..} =
+    _salt `Prelude.hashWithSalt` deviceDefinitionId
 
-instance Prelude.NFData DeleteDeviceDefinition
+instance Prelude.NFData DeleteDeviceDefinition where
+  rnf DeleteDeviceDefinition' {..} =
+    Prelude.rnf deviceDefinitionId
 
 instance Core.ToHeaders DeleteDeviceDefinition where
   toHeaders =
@@ -145,3 +149,6 @@ deleteDeviceDefinitionResponse_httpStatus = Lens.lens (\DeleteDeviceDefinitionRe
 instance
   Prelude.NFData
     DeleteDeviceDefinitionResponse
+  where
+  rnf DeleteDeviceDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

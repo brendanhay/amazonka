@@ -77,9 +77,14 @@ instance Core.FromJSON FunctionRunAsConfig where
             Prelude.<$> (x Core..:? "Uid") Prelude.<*> (x Core..:? "Gid")
       )
 
-instance Prelude.Hashable FunctionRunAsConfig
+instance Prelude.Hashable FunctionRunAsConfig where
+  hashWithSalt _salt FunctionRunAsConfig' {..} =
+    _salt `Prelude.hashWithSalt` uid
+      `Prelude.hashWithSalt` gid
 
-instance Prelude.NFData FunctionRunAsConfig
+instance Prelude.NFData FunctionRunAsConfig where
+  rnf FunctionRunAsConfig' {..} =
+    Prelude.rnf uid `Prelude.seq` Prelude.rnf gid
 
 instance Core.ToJSON FunctionRunAsConfig where
   toJSON FunctionRunAsConfig' {..} =

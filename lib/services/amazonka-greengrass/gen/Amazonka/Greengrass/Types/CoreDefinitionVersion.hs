@@ -60,9 +60,12 @@ instance Core.FromJSON CoreDefinitionVersion where
             Prelude.<$> (x Core..:? "Cores" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CoreDefinitionVersion
+instance Prelude.Hashable CoreDefinitionVersion where
+  hashWithSalt _salt CoreDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` cores
 
-instance Prelude.NFData CoreDefinitionVersion
+instance Prelude.NFData CoreDefinitionVersion where
+  rnf CoreDefinitionVersion' {..} = Prelude.rnf cores
 
 instance Core.ToJSON CoreDefinitionVersion where
   toJSON CoreDefinitionVersion' {..} =

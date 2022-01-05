@@ -125,9 +125,15 @@ instance Core.AWSRequest ListCoreDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCoreDefinitions
+instance Prelude.Hashable ListCoreDefinitions where
+  hashWithSalt _salt ListCoreDefinitions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCoreDefinitions
+instance Prelude.NFData ListCoreDefinitions where
+  rnf ListCoreDefinitions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCoreDefinitions where
   toHeaders =
@@ -201,4 +207,8 @@ listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsRespons
 listCoreDefinitionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionsResponse Prelude.Int
 listCoreDefinitionsResponse_httpStatus = Lens.lens (\ListCoreDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListCoreDefinitionsResponse' {} a -> s {httpStatus = a} :: ListCoreDefinitionsResponse)
 
-instance Prelude.NFData ListCoreDefinitionsResponse
+instance Prelude.NFData ListCoreDefinitionsResponse where
+  rnf ListCoreDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf definitions
+      `Prelude.seq` Prelude.rnf httpStatus

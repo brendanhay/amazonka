@@ -121,8 +121,17 @@ instance
 instance
   Prelude.Hashable
     CreateDeviceDefinitionVersion
+  where
+  hashWithSalt _salt CreateDeviceDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` deviceDefinitionId
 
-instance Prelude.NFData CreateDeviceDefinitionVersion
+instance Prelude.NFData CreateDeviceDefinitionVersion where
+  rnf CreateDeviceDefinitionVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf deviceDefinitionId
 
 instance Core.ToHeaders CreateDeviceDefinitionVersion where
   toHeaders CreateDeviceDefinitionVersion' {..} =
@@ -219,3 +228,10 @@ createDeviceDefinitionVersionResponse_httpStatus = Lens.lens (\CreateDeviceDefin
 instance
   Prelude.NFData
     CreateDeviceDefinitionVersionResponse
+  where
+  rnf CreateDeviceDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

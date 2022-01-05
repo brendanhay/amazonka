@@ -96,9 +96,15 @@ instance Core.AWSRequest UpdateConnectorDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnectorDefinition
+instance Prelude.Hashable UpdateConnectorDefinition where
+  hashWithSalt _salt UpdateConnectorDefinition' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` connectorDefinitionId
 
-instance Prelude.NFData UpdateConnectorDefinition
+instance Prelude.NFData UpdateConnectorDefinition where
+  rnf UpdateConnectorDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance Core.ToHeaders UpdateConnectorDefinition where
   toHeaders =
@@ -161,3 +167,6 @@ updateConnectorDefinitionResponse_httpStatus = Lens.lens (\UpdateConnectorDefini
 instance
   Prelude.NFData
     UpdateConnectorDefinitionResponse
+  where
+  rnf UpdateConnectorDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

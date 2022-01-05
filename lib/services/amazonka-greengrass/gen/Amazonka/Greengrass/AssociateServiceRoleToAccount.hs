@@ -96,8 +96,13 @@ instance
 instance
   Prelude.Hashable
     AssociateServiceRoleToAccount
+  where
+  hashWithSalt _salt AssociateServiceRoleToAccount' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData AssociateServiceRoleToAccount
+instance Prelude.NFData AssociateServiceRoleToAccount where
+  rnf AssociateServiceRoleToAccount' {..} =
+    Prelude.rnf roleArn
 
 instance Core.ToHeaders AssociateServiceRoleToAccount where
   toHeaders =
@@ -165,3 +170,7 @@ associateServiceRoleToAccountResponse_httpStatus = Lens.lens (\AssociateServiceR
 instance
   Prelude.NFData
     AssociateServiceRoleToAccountResponse
+  where
+  rnf AssociateServiceRoleToAccountResponse' {..} =
+    Prelude.rnf associatedAt
+      `Prelude.seq` Prelude.rnf httpStatus

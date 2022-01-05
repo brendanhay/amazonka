@@ -127,9 +127,15 @@ instance Core.AWSRequest ListBulkDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBulkDeployments
+instance Prelude.Hashable ListBulkDeployments where
+  hashWithSalt _salt ListBulkDeployments' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListBulkDeployments
+instance Prelude.NFData ListBulkDeployments where
+  rnf ListBulkDeployments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBulkDeployments where
   toHeaders =
@@ -203,4 +209,8 @@ listBulkDeploymentsResponse_bulkDeployments = Lens.lens (\ListBulkDeploymentsRes
 listBulkDeploymentsResponse_httpStatus :: Lens.Lens' ListBulkDeploymentsResponse Prelude.Int
 listBulkDeploymentsResponse_httpStatus = Lens.lens (\ListBulkDeploymentsResponse' {httpStatus} -> httpStatus) (\s@ListBulkDeploymentsResponse' {} a -> s {httpStatus = a} :: ListBulkDeploymentsResponse)
 
-instance Prelude.NFData ListBulkDeploymentsResponse
+instance Prelude.NFData ListBulkDeploymentsResponse where
+  rnf ListBulkDeploymentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf bulkDeployments
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -152,10 +152,22 @@ instance
 instance
   Prelude.Hashable
     ListConnectorDefinitionVersions
+  where
+  hashWithSalt
+    _salt
+    ListConnectorDefinitionVersions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` connectorDefinitionId
 
 instance
   Prelude.NFData
     ListConnectorDefinitionVersions
+  where
+  rnf ListConnectorDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance
   Core.ToHeaders
@@ -241,3 +253,8 @@ listConnectorDefinitionVersionsResponse_httpStatus = Lens.lens (\ListConnectorDe
 instance
   Prelude.NFData
     ListConnectorDefinitionVersionsResponse
+  where
+  rnf ListConnectorDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     CreateResourceDefinitionVersion
+  where
+  hashWithSalt
+    _salt
+    CreateResourceDefinitionVersion' {..} =
+      _salt `Prelude.hashWithSalt` amznClientToken
+        `Prelude.hashWithSalt` resources
+        `Prelude.hashWithSalt` resourceDefinitionId
 
 instance
   Prelude.NFData
     CreateResourceDefinitionVersion
+  where
+  rnf CreateResourceDefinitionVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance
   Core.ToHeaders
@@ -229,3 +241,10 @@ createResourceDefinitionVersionResponse_httpStatus = Lens.lens (\CreateResourceD
 instance
   Prelude.NFData
     CreateResourceDefinitionVersionResponse
+  where
+  rnf CreateResourceDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

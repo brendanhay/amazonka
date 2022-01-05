@@ -86,9 +86,13 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateRoleFromGroup
+instance Prelude.Hashable DisassociateRoleFromGroup where
+  hashWithSalt _salt DisassociateRoleFromGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData DisassociateRoleFromGroup
+instance Prelude.NFData DisassociateRoleFromGroup where
+  rnf DisassociateRoleFromGroup' {..} =
+    Prelude.rnf groupId
 
 instance Core.ToHeaders DisassociateRoleFromGroup where
   toHeaders =
@@ -154,3 +158,7 @@ disassociateRoleFromGroupResponse_httpStatus = Lens.lens (\DisassociateRoleFromG
 instance
   Prelude.NFData
     DisassociateRoleFromGroupResponse
+  where
+  rnf DisassociateRoleFromGroupResponse' {..} =
+    Prelude.rnf disassociatedAt
+      `Prelude.seq` Prelude.rnf httpStatus

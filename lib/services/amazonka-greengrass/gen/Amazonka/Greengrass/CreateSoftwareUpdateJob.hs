@@ -163,9 +163,25 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSoftwareUpdateJob
+instance Prelude.Hashable CreateSoftwareUpdateJob where
+  hashWithSalt _salt CreateSoftwareUpdateJob' {..} =
+    _salt `Prelude.hashWithSalt` updateAgentLogLevel
+      `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` s3UrlSignerRole
+      `Prelude.hashWithSalt` updateTargetsArchitecture
+      `Prelude.hashWithSalt` softwareToUpdate
+      `Prelude.hashWithSalt` updateTargets
+      `Prelude.hashWithSalt` updateTargetsOperatingSystem
 
-instance Prelude.NFData CreateSoftwareUpdateJob
+instance Prelude.NFData CreateSoftwareUpdateJob where
+  rnf CreateSoftwareUpdateJob' {..} =
+    Prelude.rnf updateAgentLogLevel
+      `Prelude.seq` Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf s3UrlSignerRole
+      `Prelude.seq` Prelude.rnf updateTargetsArchitecture
+      `Prelude.seq` Prelude.rnf softwareToUpdate
+      `Prelude.seq` Prelude.rnf updateTargets
+      `Prelude.seq` Prelude.rnf updateTargetsOperatingSystem
 
 instance Core.ToHeaders CreateSoftwareUpdateJob where
   toHeaders CreateSoftwareUpdateJob' {..} =
@@ -266,3 +282,9 @@ createSoftwareUpdateJobResponse_httpStatus = Lens.lens (\CreateSoftwareUpdateJob
 instance
   Prelude.NFData
     CreateSoftwareUpdateJobResponse
+  where
+  rnf CreateSoftwareUpdateJobResponse' {..} =
+    Prelude.rnf platformSoftwareVersion
+      `Prelude.seq` Prelude.rnf iotJobArn
+      `Prelude.seq` Prelude.rnf iotJobId
+      `Prelude.seq` Prelude.rnf httpStatus

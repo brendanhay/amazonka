@@ -158,9 +158,19 @@ instance Core.AWSRequest StartBulkDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartBulkDeployment
+instance Prelude.Hashable StartBulkDeployment where
+  hashWithSalt _salt StartBulkDeployment' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` inputFileUri
 
-instance Prelude.NFData StartBulkDeployment
+instance Prelude.NFData StartBulkDeployment where
+  rnf StartBulkDeployment' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf inputFileUri
 
 instance Core.ToHeaders StartBulkDeployment where
   toHeaders StartBulkDeployment' {..} =
@@ -235,4 +245,8 @@ startBulkDeploymentResponse_bulkDeploymentId = Lens.lens (\StartBulkDeploymentRe
 startBulkDeploymentResponse_httpStatus :: Lens.Lens' StartBulkDeploymentResponse Prelude.Int
 startBulkDeploymentResponse_httpStatus = Lens.lens (\StartBulkDeploymentResponse' {httpStatus} -> httpStatus) (\s@StartBulkDeploymentResponse' {} a -> s {httpStatus = a} :: StartBulkDeploymentResponse)
 
-instance Prelude.NFData StartBulkDeploymentResponse
+instance Prelude.NFData StartBulkDeploymentResponse where
+  rnf StartBulkDeploymentResponse' {..} =
+    Prelude.rnf bulkDeploymentArn
+      `Prelude.seq` Prelude.rnf bulkDeploymentId
+      `Prelude.seq` Prelude.rnf httpStatus

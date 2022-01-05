@@ -146,10 +146,22 @@ instance
 instance
   Prelude.Hashable
     ListResourceDefinitionVersions
+  where
+  hashWithSalt
+    _salt
+    ListResourceDefinitionVersions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` resourceDefinitionId
 
 instance
   Prelude.NFData
     ListResourceDefinitionVersions
+  where
+  rnf ListResourceDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance
   Core.ToHeaders
@@ -235,3 +247,8 @@ listResourceDefinitionVersionsResponse_httpStatus = Lens.lens (\ListResourceDefi
 instance
   Prelude.NFData
     ListResourceDefinitionVersionsResponse
+  where
+  rnf ListResourceDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

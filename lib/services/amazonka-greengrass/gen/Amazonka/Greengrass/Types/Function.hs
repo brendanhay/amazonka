@@ -90,9 +90,17 @@ instance Core.FromJSON Function where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable Function
+instance Prelude.Hashable Function where
+  hashWithSalt _salt Function' {..} =
+    _salt `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` functionConfiguration
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Function
+instance Prelude.NFData Function where
+  rnf Function' {..} =
+    Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf functionConfiguration
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON Function where
   toJSON Function' {..} =

@@ -133,9 +133,19 @@ instance Core.AWSRequest CreateFunctionDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFunctionDefinition
+instance Prelude.Hashable CreateFunctionDefinition where
+  hashWithSalt _salt CreateFunctionDefinition' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateFunctionDefinition
+instance Prelude.NFData CreateFunctionDefinition where
+  rnf CreateFunctionDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf initialVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateFunctionDefinition where
   toHeaders CreateFunctionDefinition' {..} =
@@ -265,3 +275,13 @@ createFunctionDefinitionResponse_httpStatus = Lens.lens (\CreateFunctionDefiniti
 instance
   Prelude.NFData
     CreateFunctionDefinitionResponse
+  where
+  rnf CreateFunctionDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

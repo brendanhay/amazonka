@@ -142,9 +142,25 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "Timeout")
       )
 
-instance Prelude.Hashable FunctionConfiguration
+instance Prelude.Hashable FunctionConfiguration where
+  hashWithSalt _salt FunctionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` memorySize
+      `Prelude.hashWithSalt` execArgs
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` executable
+      `Prelude.hashWithSalt` pinned
+      `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` timeout
 
-instance Prelude.NFData FunctionConfiguration
+instance Prelude.NFData FunctionConfiguration where
+  rnf FunctionConfiguration' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf execArgs
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf executable
+      `Prelude.seq` Prelude.rnf pinned
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf timeout
 
 instance Core.ToJSON FunctionConfiguration where
   toJSON FunctionConfiguration' {..} =

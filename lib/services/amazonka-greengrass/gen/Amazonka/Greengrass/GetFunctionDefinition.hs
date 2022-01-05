@@ -104,9 +104,13 @@ instance Core.AWSRequest GetFunctionDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFunctionDefinition
+instance Prelude.Hashable GetFunctionDefinition where
+  hashWithSalt _salt GetFunctionDefinition' {..} =
+    _salt `Prelude.hashWithSalt` functionDefinitionId
 
-instance Prelude.NFData GetFunctionDefinition
+instance Prelude.NFData GetFunctionDefinition where
+  rnf GetFunctionDefinition' {..} =
+    Prelude.rnf functionDefinitionId
 
 instance Core.ToHeaders GetFunctionDefinition where
   toHeaders =
@@ -237,4 +241,14 @@ getFunctionDefinitionResponse_tags = Lens.lens (\GetFunctionDefinitionResponse' 
 getFunctionDefinitionResponse_httpStatus :: Lens.Lens' GetFunctionDefinitionResponse Prelude.Int
 getFunctionDefinitionResponse_httpStatus = Lens.lens (\GetFunctionDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetFunctionDefinitionResponse' {} a -> s {httpStatus = a} :: GetFunctionDefinitionResponse)
 
-instance Prelude.NFData GetFunctionDefinitionResponse
+instance Prelude.NFData GetFunctionDefinitionResponse where
+  rnf GetFunctionDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

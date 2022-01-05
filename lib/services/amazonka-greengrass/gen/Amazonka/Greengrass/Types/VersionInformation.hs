@@ -91,6 +91,16 @@ instance Core.FromJSON VersionInformation where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable VersionInformation
+instance Prelude.Hashable VersionInformation where
+  hashWithSalt _salt VersionInformation' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData VersionInformation
+instance Prelude.NFData VersionInformation where
+  rnf VersionInformation' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id

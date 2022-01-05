@@ -99,9 +99,13 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBulkDeploymentStatus
+instance Prelude.Hashable GetBulkDeploymentStatus where
+  hashWithSalt _salt GetBulkDeploymentStatus' {..} =
+    _salt `Prelude.hashWithSalt` bulkDeploymentId
 
-instance Prelude.NFData GetBulkDeploymentStatus
+instance Prelude.NFData GetBulkDeploymentStatus where
+  rnf GetBulkDeploymentStatus' {..} =
+    Prelude.rnf bulkDeploymentId
 
 instance Core.ToHeaders GetBulkDeploymentStatus where
   toHeaders =
@@ -212,3 +216,12 @@ getBulkDeploymentStatusResponse_httpStatus = Lens.lens (\GetBulkDeploymentStatus
 instance
   Prelude.NFData
     GetBulkDeploymentStatusResponse
+  where
+  rnf GetBulkDeploymentStatusResponse' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf bulkDeploymentStatus
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf bulkDeploymentMetrics
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

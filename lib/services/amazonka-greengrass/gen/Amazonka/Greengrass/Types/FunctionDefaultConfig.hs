@@ -60,9 +60,13 @@ instance Core.FromJSON FunctionDefaultConfig where
             Prelude.<$> (x Core..:? "Execution")
       )
 
-instance Prelude.Hashable FunctionDefaultConfig
+instance Prelude.Hashable FunctionDefaultConfig where
+  hashWithSalt _salt FunctionDefaultConfig' {..} =
+    _salt `Prelude.hashWithSalt` execution
 
-instance Prelude.NFData FunctionDefaultConfig
+instance Prelude.NFData FunctionDefaultConfig where
+  rnf FunctionDefaultConfig' {..} =
+    Prelude.rnf execution
 
 instance Core.ToJSON FunctionDefaultConfig where
   toJSON FunctionDefaultConfig' {..} =

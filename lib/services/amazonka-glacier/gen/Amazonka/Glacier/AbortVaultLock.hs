@@ -127,9 +127,15 @@ instance Core.AWSRequest AbortVaultLock where
   response =
     Response.receiveNull AbortVaultLockResponse'
 
-instance Prelude.Hashable AbortVaultLock
+instance Prelude.Hashable AbortVaultLock where
+  hashWithSalt _salt AbortVaultLock' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData AbortVaultLock
+instance Prelude.NFData AbortVaultLock where
+  rnf AbortVaultLock' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders AbortVaultLock where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +167,5 @@ newAbortVaultLockResponse ::
   AbortVaultLockResponse
 newAbortVaultLockResponse = AbortVaultLockResponse'
 
-instance Prelude.NFData AbortVaultLockResponse
+instance Prelude.NFData AbortVaultLockResponse where
+  rnf _ = ()

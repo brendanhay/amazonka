@@ -150,7 +150,23 @@ instance
 instance
   Prelude.Hashable
     InventoryRetrievalJobDescription
+  where
+  hashWithSalt
+    _salt
+    InventoryRetrievalJobDescription' {..} =
+      _salt `Prelude.hashWithSalt` format
+        `Prelude.hashWithSalt` endDate
+        `Prelude.hashWithSalt` startDate
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` limit
 
 instance
   Prelude.NFData
     InventoryRetrievalJobDescription
+  where
+  rnf InventoryRetrievalJobDescription' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit

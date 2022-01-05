@@ -136,9 +136,15 @@ instance Core.AWSRequest GetVaultNotifications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVaultNotifications
+instance Prelude.Hashable GetVaultNotifications where
+  hashWithSalt _salt GetVaultNotifications' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData GetVaultNotifications
+instance Prelude.NFData GetVaultNotifications where
+  rnf GetVaultNotifications' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders GetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +203,7 @@ getVaultNotificationsResponse_vaultNotificationConfig = Lens.lens (\GetVaultNoti
 getVaultNotificationsResponse_httpStatus :: Lens.Lens' GetVaultNotificationsResponse Prelude.Int
 getVaultNotificationsResponse_httpStatus = Lens.lens (\GetVaultNotificationsResponse' {httpStatus} -> httpStatus) (\s@GetVaultNotificationsResponse' {} a -> s {httpStatus = a} :: GetVaultNotificationsResponse)
 
-instance Prelude.NFData GetVaultNotificationsResponse
+instance Prelude.NFData GetVaultNotificationsResponse where
+  rnf GetVaultNotificationsResponse' {..} =
+    Prelude.rnf vaultNotificationConfig
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -217,9 +217,31 @@ jobParameters_type = Lens.lens (\JobParameters' {type'} -> type') (\s@JobParamet
 jobParameters_description :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_description = Lens.lens (\JobParameters' {description} -> description) (\s@JobParameters' {} a -> s {description = a} :: JobParameters)
 
-instance Prelude.Hashable JobParameters
+instance Prelude.Hashable JobParameters where
+  hashWithSalt _salt JobParameters' {..} =
+    _salt `Prelude.hashWithSalt` archiveId
+      `Prelude.hashWithSalt` selectParameters
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` retrievalByteRange
+      `Prelude.hashWithSalt` inventoryRetrievalParameters
+      `Prelude.hashWithSalt` sNSTopic
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData JobParameters
+instance Prelude.NFData JobParameters where
+  rnf JobParameters' {..} =
+    Prelude.rnf archiveId
+      `Prelude.seq` Prelude.rnf selectParameters
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf retrievalByteRange
+      `Prelude.seq` Prelude.rnf inventoryRetrievalParameters
+      `Prelude.seq` Prelude.rnf sNSTopic
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON JobParameters where
   toJSON JobParameters' {..} =

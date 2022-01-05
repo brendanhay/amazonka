@@ -78,9 +78,15 @@ instance Core.FromJSON VaultNotificationConfig where
             Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VaultNotificationConfig
+instance Prelude.Hashable VaultNotificationConfig where
+  hashWithSalt _salt VaultNotificationConfig' {..} =
+    _salt `Prelude.hashWithSalt` sNSTopic
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData VaultNotificationConfig
+instance Prelude.NFData VaultNotificationConfig where
+  rnf VaultNotificationConfig' {..} =
+    Prelude.rnf sNSTopic
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToJSON VaultNotificationConfig where
   toJSON VaultNotificationConfig' {..} =

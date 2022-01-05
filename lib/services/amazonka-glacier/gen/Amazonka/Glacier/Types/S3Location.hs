@@ -141,9 +141,27 @@ instance Core.FromJSON S3Location where
             Prelude.<*> (x Core..:? "Tagging" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt _salt S3Location' {..} =
+    _salt `Prelude.hashWithSalt` cannedACL
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` accessControlList
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` tagging
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf cannedACL
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf accessControlList
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf tagging
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =

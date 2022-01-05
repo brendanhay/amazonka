@@ -141,9 +141,15 @@ instance Core.AWSRequest CreateVault where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVault
+instance Prelude.Hashable CreateVault where
+  hashWithSalt _salt CreateVault' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData CreateVault
+instance Prelude.NFData CreateVault where
+  rnf CreateVault' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders CreateVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,4 +209,7 @@ createVaultResponse_location = Lens.lens (\CreateVaultResponse' {location} -> lo
 createVaultResponse_httpStatus :: Lens.Lens' CreateVaultResponse Prelude.Int
 createVaultResponse_httpStatus = Lens.lens (\CreateVaultResponse' {httpStatus} -> httpStatus) (\s@CreateVaultResponse' {} a -> s {httpStatus = a} :: CreateVaultResponse)
 
-instance Prelude.NFData CreateVaultResponse
+instance Prelude.NFData CreateVaultResponse where
+  rnf CreateVaultResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus

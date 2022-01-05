@@ -126,9 +126,17 @@ instance Core.AWSRequest AddTagsToVault where
   response =
     Response.receiveNull AddTagsToVaultResponse'
 
-instance Prelude.Hashable AddTagsToVault
+instance Prelude.Hashable AddTagsToVault where
+  hashWithSalt _salt AddTagsToVault' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData AddTagsToVault
+instance Prelude.NFData AddTagsToVault where
+  rnf AddTagsToVault' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders AddTagsToVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +176,5 @@ newAddTagsToVaultResponse ::
   AddTagsToVaultResponse
 newAddTagsToVaultResponse = AddTagsToVaultResponse'
 
-instance Prelude.NFData AddTagsToVaultResponse
+instance Prelude.NFData AddTagsToVaultResponse where
+  rnf _ = ()

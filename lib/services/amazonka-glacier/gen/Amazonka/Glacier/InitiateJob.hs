@@ -132,9 +132,17 @@ instance Core.AWSRequest InitiateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateJob
+instance Prelude.Hashable InitiateJob where
+  hashWithSalt _salt InitiateJob' {..} =
+    _salt `Prelude.hashWithSalt` jobParameters
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData InitiateJob
+instance Prelude.NFData InitiateJob where
+  rnf InitiateJob' {..} =
+    Prelude.rnf jobParameters
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders InitiateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +227,9 @@ initiateJobResponse_location = Lens.lens (\InitiateJobResponse' {location} -> lo
 initiateJobResponse_httpStatus :: Lens.Lens' InitiateJobResponse Prelude.Int
 initiateJobResponse_httpStatus = Lens.lens (\InitiateJobResponse' {httpStatus} -> httpStatus) (\s@InitiateJobResponse' {} a -> s {httpStatus = a} :: InitiateJobResponse)
 
-instance Prelude.NFData InitiateJobResponse
+instance Prelude.NFData InitiateJobResponse where
+  rnf InitiateJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobOutputPath
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus

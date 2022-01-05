@@ -50,9 +50,12 @@ newVaultLockPolicy =
 vaultLockPolicy_policy :: Lens.Lens' VaultLockPolicy (Prelude.Maybe Prelude.Text)
 vaultLockPolicy_policy = Lens.lens (\VaultLockPolicy' {policy} -> policy) (\s@VaultLockPolicy' {} a -> s {policy = a} :: VaultLockPolicy)
 
-instance Prelude.Hashable VaultLockPolicy
+instance Prelude.Hashable VaultLockPolicy where
+  hashWithSalt _salt VaultLockPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData VaultLockPolicy
+instance Prelude.NFData VaultLockPolicy where
+  rnf VaultLockPolicy' {..} = Prelude.rnf policy
 
 instance Core.ToJSON VaultLockPolicy where
   toJSON VaultLockPolicy' {..} =

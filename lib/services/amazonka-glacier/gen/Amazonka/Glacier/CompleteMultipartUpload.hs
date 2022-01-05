@@ -224,9 +224,21 @@ instance Core.AWSRequest CompleteMultipartUpload where
             Prelude.<*> (h Core..#? "Location")
       )
 
-instance Prelude.Hashable CompleteMultipartUpload
+instance Prelude.Hashable CompleteMultipartUpload where
+  hashWithSalt _salt CompleteMultipartUpload' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` archiveSize
+      `Prelude.hashWithSalt` checksum
 
-instance Prelude.NFData CompleteMultipartUpload
+instance Prelude.NFData CompleteMultipartUpload where
+  rnf CompleteMultipartUpload' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf archiveSize
+      `Prelude.seq` Prelude.rnf checksum
 
 instance Core.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =

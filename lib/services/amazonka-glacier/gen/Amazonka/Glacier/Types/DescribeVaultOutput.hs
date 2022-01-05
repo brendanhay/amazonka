@@ -135,6 +135,20 @@ instance Core.FromJSON DescribeVaultOutput where
             Prelude.<*> (x Core..:? "NumberOfArchives")
       )
 
-instance Prelude.Hashable DescribeVaultOutput
+instance Prelude.Hashable DescribeVaultOutput where
+  hashWithSalt _salt DescribeVaultOutput' {..} =
+    _salt `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` lastInventoryDate
+      `Prelude.hashWithSalt` vaultARN
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` numberOfArchives
 
-instance Prelude.NFData DescribeVaultOutput
+instance Prelude.NFData DescribeVaultOutput where
+  rnf DescribeVaultOutput' {..} =
+    Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf lastInventoryDate
+      `Prelude.seq` Prelude.rnf vaultARN
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf numberOfArchives

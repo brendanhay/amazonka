@@ -89,9 +89,15 @@ instance Core.FromJSON DataRetrievalRule where
             Prelude.<*> (x Core..:? "BytesPerHour")
       )
 
-instance Prelude.Hashable DataRetrievalRule
+instance Prelude.Hashable DataRetrievalRule where
+  hashWithSalt _salt DataRetrievalRule' {..} =
+    _salt `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` bytesPerHour
 
-instance Prelude.NFData DataRetrievalRule
+instance Prelude.NFData DataRetrievalRule where
+  rnf DataRetrievalRule' {..} =
+    Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf bytesPerHour
 
 instance Core.ToJSON DataRetrievalRule where
   toJSON DataRetrievalRule' {..} =

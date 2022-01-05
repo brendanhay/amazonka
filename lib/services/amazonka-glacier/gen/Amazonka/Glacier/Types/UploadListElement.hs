@@ -111,6 +111,18 @@ instance Core.FromJSON UploadListElement where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable UploadListElement
+instance Prelude.Hashable UploadListElement where
+  hashWithSalt _salt UploadListElement' {..} =
+    _salt `Prelude.hashWithSalt` multipartUploadId
+      `Prelude.hashWithSalt` partSizeInBytes
+      `Prelude.hashWithSalt` archiveDescription
+      `Prelude.hashWithSalt` vaultARN
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData UploadListElement
+instance Prelude.NFData UploadListElement where
+  rnf UploadListElement' {..} =
+    Prelude.rnf multipartUploadId
+      `Prelude.seq` Prelude.rnf partSizeInBytes
+      `Prelude.seq` Prelude.rnf archiveDescription
+      `Prelude.seq` Prelude.rnf vaultARN
+      `Prelude.seq` Prelude.rnf creationDate

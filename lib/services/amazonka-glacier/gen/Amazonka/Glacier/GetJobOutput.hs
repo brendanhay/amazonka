@@ -282,9 +282,19 @@ instance Core.AWSRequest GetJobOutput where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetJobOutput
+instance Prelude.Hashable GetJobOutput where
+  hashWithSalt _salt GetJobOutput' {..} =
+    _salt `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetJobOutput
+instance Prelude.NFData GetJobOutput where
+  rnf GetJobOutput' {..} =
+    Prelude.rnf range
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetJobOutput where
   toHeaders GetJobOutput' {..} =

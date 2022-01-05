@@ -74,8 +74,8 @@ module Amazonka.Glacier.InitiateMultipartUpload
 
     -- * Response Lenses
     initiateMultipartUploadResponse_location,
-    initiateMultipartUploadResponse_uploadId,
     initiateMultipartUploadResponse_httpStatus,
+    initiateMultipartUploadResponse_uploadId,
   )
 where
 
@@ -195,13 +195,23 @@ instance Core.AWSRequest InitiateMultipartUpload where
       ( \s h x ->
           InitiateMultipartUploadResponse'
             Prelude.<$> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "x-amz-multipart-upload-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (h Core..# "x-amz-multipart-upload-id")
       )
 
-instance Prelude.Hashable InitiateMultipartUpload
+instance Prelude.Hashable InitiateMultipartUpload where
+  hashWithSalt _salt InitiateMultipartUpload' {..} =
+    _salt `Prelude.hashWithSalt` archiveDescription
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` partSize
 
-instance Prelude.NFData InitiateMultipartUpload
+instance Prelude.NFData InitiateMultipartUpload where
+  rnf InitiateMultipartUpload' {..} =
+    Prelude.rnf archiveDescription
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf partSize
 
 instance Core.ToHeaders InitiateMultipartUpload where
   toHeaders InitiateMultipartUpload' {..} =
@@ -234,11 +244,11 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
   { -- | The relative URI path of the multipart upload ID Amazon S3 Glacier
     -- created.
     location :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
     -- | The ID of the multipart upload. This value is also included as part of
     -- the location.
-    uploadId :: Prelude.Maybe Prelude.Text,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    uploadId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -253,36 +263,45 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
 -- 'location', 'initiateMultipartUploadResponse_location' - The relative URI path of the multipart upload ID Amazon S3 Glacier
 -- created.
 --
+-- 'httpStatus', 'initiateMultipartUploadResponse_httpStatus' - The response's http status code.
+--
 -- 'uploadId', 'initiateMultipartUploadResponse_uploadId' - The ID of the multipart upload. This value is also included as part of
 -- the location.
---
--- 'httpStatus', 'initiateMultipartUploadResponse_httpStatus' - The response's http status code.
 newInitiateMultipartUploadResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'uploadId'
+  Prelude.Text ->
   InitiateMultipartUploadResponse
-newInitiateMultipartUploadResponse pHttpStatus_ =
-  InitiateMultipartUploadResponse'
-    { location =
-        Prelude.Nothing,
-      uploadId = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+newInitiateMultipartUploadResponse
+  pHttpStatus_
+  pUploadId_ =
+    InitiateMultipartUploadResponse'
+      { location =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        uploadId = pUploadId_
+      }
 
 -- | The relative URI path of the multipart upload ID Amazon S3 Glacier
 -- created.
 initiateMultipartUploadResponse_location :: Lens.Lens' InitiateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 initiateMultipartUploadResponse_location = Lens.lens (\InitiateMultipartUploadResponse' {location} -> location) (\s@InitiateMultipartUploadResponse' {} a -> s {location = a} :: InitiateMultipartUploadResponse)
 
--- | The ID of the multipart upload. This value is also included as part of
--- the location.
-initiateMultipartUploadResponse_uploadId :: Lens.Lens' InitiateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-initiateMultipartUploadResponse_uploadId = Lens.lens (\InitiateMultipartUploadResponse' {uploadId} -> uploadId) (\s@InitiateMultipartUploadResponse' {} a -> s {uploadId = a} :: InitiateMultipartUploadResponse)
-
 -- | The response's http status code.
 initiateMultipartUploadResponse_httpStatus :: Lens.Lens' InitiateMultipartUploadResponse Prelude.Int
 initiateMultipartUploadResponse_httpStatus = Lens.lens (\InitiateMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@InitiateMultipartUploadResponse' {} a -> s {httpStatus = a} :: InitiateMultipartUploadResponse)
 
+-- | The ID of the multipart upload. This value is also included as part of
+-- the location.
+initiateMultipartUploadResponse_uploadId :: Lens.Lens' InitiateMultipartUploadResponse Prelude.Text
+initiateMultipartUploadResponse_uploadId = Lens.lens (\InitiateMultipartUploadResponse' {uploadId} -> uploadId) (\s@InitiateMultipartUploadResponse' {} a -> s {uploadId = a} :: InitiateMultipartUploadResponse)
+
 instance
   Prelude.NFData
     InitiateMultipartUploadResponse
+  where
+  rnf InitiateMultipartUploadResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId

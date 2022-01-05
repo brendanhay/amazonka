@@ -108,9 +108,13 @@ instance Core.AWSRequest GetDataRetrievalPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataRetrievalPolicy
+instance Prelude.Hashable GetDataRetrievalPolicy where
+  hashWithSalt _salt GetDataRetrievalPolicy' {..} =
+    _salt `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetDataRetrievalPolicy
+instance Prelude.NFData GetDataRetrievalPolicy where
+  rnf GetDataRetrievalPolicy' {..} =
+    Prelude.rnf accountId
 
 instance Core.ToHeaders GetDataRetrievalPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,3 +175,7 @@ getDataRetrievalPolicyResponse_httpStatus = Lens.lens (\GetDataRetrievalPolicyRe
 instance
   Prelude.NFData
     GetDataRetrievalPolicyResponse
+  where
+  rnf GetDataRetrievalPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

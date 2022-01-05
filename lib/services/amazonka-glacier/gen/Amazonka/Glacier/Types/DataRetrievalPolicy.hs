@@ -66,9 +66,12 @@ instance Core.FromJSON DataRetrievalPolicy where
             Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DataRetrievalPolicy
+instance Prelude.Hashable DataRetrievalPolicy where
+  hashWithSalt _salt DataRetrievalPolicy' {..} =
+    _salt `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData DataRetrievalPolicy
+instance Prelude.NFData DataRetrievalPolicy where
+  rnf DataRetrievalPolicy' {..} = Prelude.rnf rules
 
 instance Core.ToJSON DataRetrievalPolicy where
   toJSON DataRetrievalPolicy' {..} =

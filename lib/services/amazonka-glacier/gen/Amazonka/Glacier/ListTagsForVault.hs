@@ -119,9 +119,15 @@ instance Core.AWSRequest ListTagsForVault where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForVault
+instance Prelude.Hashable ListTagsForVault where
+  hashWithSalt _salt ListTagsForVault' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData ListTagsForVault
+instance Prelude.NFData ListTagsForVault where
+  rnf ListTagsForVault' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders ListTagsForVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +188,7 @@ listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> 
 listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Prelude.Int
 listTagsForVaultResponse_httpStatus = Lens.lens (\ListTagsForVaultResponse' {httpStatus} -> httpStatus) (\s@ListTagsForVaultResponse' {} a -> s {httpStatus = a} :: ListTagsForVaultResponse)
 
-instance Prelude.NFData ListTagsForVaultResponse
+instance Prelude.NFData ListTagsForVaultResponse where
+  rnf ListTagsForVaultResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

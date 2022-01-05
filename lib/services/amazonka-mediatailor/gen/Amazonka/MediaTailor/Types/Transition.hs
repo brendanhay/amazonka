@@ -142,9 +142,20 @@ transition_type = Lens.lens (\Transition' {type'} -> type') (\s@Transition' {} a
 transition_relativePosition :: Lens.Lens' Transition RelativePosition
 transition_relativePosition = Lens.lens (\Transition' {relativePosition} -> relativePosition) (\s@Transition' {} a -> s {relativePosition = a} :: Transition)
 
-instance Prelude.Hashable Transition
+instance Prelude.Hashable Transition where
+  hashWithSalt _salt Transition' {..} =
+    _salt
+      `Prelude.hashWithSalt` scheduledStartTimeMillis
+      `Prelude.hashWithSalt` relativeProgram
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` relativePosition
 
-instance Prelude.NFData Transition
+instance Prelude.NFData Transition where
+  rnf Transition' {..} =
+    Prelude.rnf scheduledStartTimeMillis
+      `Prelude.seq` Prelude.rnf relativeProgram
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf relativePosition
 
 instance Core.ToJSON Transition where
   toJSON Transition' {..} =

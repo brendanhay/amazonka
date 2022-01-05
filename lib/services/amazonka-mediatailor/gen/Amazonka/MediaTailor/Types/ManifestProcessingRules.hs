@@ -83,9 +83,13 @@ instance Core.FromJSON ManifestProcessingRules where
             Prelude.<$> (x Core..:? "AdMarkerPassthrough")
       )
 
-instance Prelude.Hashable ManifestProcessingRules
+instance Prelude.Hashable ManifestProcessingRules where
+  hashWithSalt _salt ManifestProcessingRules' {..} =
+    _salt `Prelude.hashWithSalt` adMarkerPassthrough
 
-instance Prelude.NFData ManifestProcessingRules
+instance Prelude.NFData ManifestProcessingRules where
+  rnf ManifestProcessingRules' {..} =
+    Prelude.rnf adMarkerPassthrough
 
 instance Core.ToJSON ManifestProcessingRules where
   toJSON ManifestProcessingRules' {..} =

@@ -105,10 +105,22 @@ instance
 instance
   Prelude.Hashable
     SecretsManagerAccessTokenConfiguration
+  where
+  hashWithSalt
+    _salt
+    SecretsManagerAccessTokenConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` headerName
+        `Prelude.hashWithSalt` secretStringKey
+        `Prelude.hashWithSalt` secretArn
 
 instance
   Prelude.NFData
     SecretsManagerAccessTokenConfiguration
+  where
+  rnf SecretsManagerAccessTokenConfiguration' {..} =
+    Prelude.rnf headerName
+      `Prelude.seq` Prelude.rnf secretStringKey
+      `Prelude.seq` Prelude.rnf secretArn
 
 instance
   Core.ToJSON

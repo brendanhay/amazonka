@@ -357,6 +357,47 @@ instance Core.FromJSON PlaybackConfiguration where
             Prelude.<*> (x Core..:? "CdnConfiguration")
       )
 
-instance Prelude.Hashable PlaybackConfiguration
+instance Prelude.Hashable PlaybackConfiguration where
+  hashWithSalt _salt PlaybackConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` playbackEndpointPrefix
+      `Prelude.hashWithSalt` hlsConfiguration
+      `Prelude.hashWithSalt` personalizationThresholdSeconds
+      `Prelude.hashWithSalt` playbackConfigurationArn
+      `Prelude.hashWithSalt` availSuppression
+      `Prelude.hashWithSalt` bumper
+      `Prelude.hashWithSalt` adDecisionServerUrl
+      `Prelude.hashWithSalt` videoContentSourceUrl
+      `Prelude.hashWithSalt` dashConfiguration
+      `Prelude.hashWithSalt` manifestProcessingRules
+      `Prelude.hashWithSalt` logConfiguration
+      `Prelude.hashWithSalt` livePreRollConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sessionInitializationEndpointPrefix
+      `Prelude.hashWithSalt` configurationAliases
+      `Prelude.hashWithSalt` transcodeProfileName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` slateAdUrl
+      `Prelude.hashWithSalt` cdnConfiguration
 
-instance Prelude.NFData PlaybackConfiguration
+instance Prelude.NFData PlaybackConfiguration where
+  rnf PlaybackConfiguration' {..} =
+    Prelude.rnf playbackEndpointPrefix
+      `Prelude.seq` Prelude.rnf hlsConfiguration
+      `Prelude.seq` Prelude.rnf personalizationThresholdSeconds
+      `Prelude.seq` Prelude.rnf playbackConfigurationArn
+      `Prelude.seq` Prelude.rnf availSuppression
+      `Prelude.seq` Prelude.rnf bumper
+      `Prelude.seq` Prelude.rnf adDecisionServerUrl
+      `Prelude.seq` Prelude.rnf videoContentSourceUrl
+      `Prelude.seq` Prelude.rnf dashConfiguration
+      `Prelude.seq` Prelude.rnf manifestProcessingRules
+      `Prelude.seq` Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf livePreRollConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf
+        sessionInitializationEndpointPrefix
+      `Prelude.seq` Prelude.rnf configurationAliases
+      `Prelude.seq` Prelude.rnf transcodeProfileName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf slateAdUrl
+      `Prelude.seq` Prelude.rnf cdnConfiguration

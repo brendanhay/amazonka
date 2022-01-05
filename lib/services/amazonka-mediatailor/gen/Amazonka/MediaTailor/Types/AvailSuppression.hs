@@ -109,9 +109,14 @@ instance Core.FromJSON AvailSuppression where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Mode")
       )
 
-instance Prelude.Hashable AvailSuppression
+instance Prelude.Hashable AvailSuppression where
+  hashWithSalt _salt AvailSuppression' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData AvailSuppression
+instance Prelude.NFData AvailSuppression where
+  rnf AvailSuppression' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToJSON AvailSuppression where
   toJSON AvailSuppression' {..} =

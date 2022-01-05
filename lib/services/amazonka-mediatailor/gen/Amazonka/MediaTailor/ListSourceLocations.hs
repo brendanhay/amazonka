@@ -128,9 +128,15 @@ instance Core.AWSRequest ListSourceLocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSourceLocations
+instance Prelude.Hashable ListSourceLocations where
+  hashWithSalt _salt ListSourceLocations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSourceLocations
+instance Prelude.NFData ListSourceLocations where
+  rnf ListSourceLocations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSourceLocations where
   toHeaders =
@@ -204,4 +210,8 @@ listSourceLocationsResponse_nextToken = Lens.lens (\ListSourceLocationsResponse'
 listSourceLocationsResponse_httpStatus :: Lens.Lens' ListSourceLocationsResponse Prelude.Int
 listSourceLocationsResponse_httpStatus = Lens.lens (\ListSourceLocationsResponse' {httpStatus} -> httpStatus) (\s@ListSourceLocationsResponse' {} a -> s {httpStatus = a} :: ListSourceLocationsResponse)
 
-instance Prelude.NFData ListSourceLocationsResponse
+instance Prelude.NFData ListSourceLocationsResponse where
+  rnf ListSourceLocationsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -133,6 +133,22 @@ instance Core.FromJSON VodSource where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable VodSource
+instance Prelude.Hashable VodSource where
+  hashWithSalt _salt VodSource' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` httpPackageConfigurations
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData VodSource
+instance Prelude.NFData VodSource where
+  rnf VodSource' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf arn

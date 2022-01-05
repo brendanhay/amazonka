@@ -98,9 +98,15 @@ instance Core.AWSRequest PutChannelPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutChannelPolicy
+instance Prelude.Hashable PutChannelPolicy where
+  hashWithSalt _salt PutChannelPolicy' {..} =
+    _salt `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutChannelPolicy
+instance Prelude.NFData PutChannelPolicy where
+  rnf PutChannelPolicy' {..} =
+    Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutChannelPolicy where
   toHeaders =
@@ -158,4 +164,6 @@ newPutChannelPolicyResponse pHttpStatus_ =
 putChannelPolicyResponse_httpStatus :: Lens.Lens' PutChannelPolicyResponse Prelude.Int
 putChannelPolicyResponse_httpStatus = Lens.lens (\PutChannelPolicyResponse' {httpStatus} -> httpStatus) (\s@PutChannelPolicyResponse' {} a -> s {httpStatus = a} :: PutChannelPolicyResponse)
 
-instance Prelude.NFData PutChannelPolicyResponse
+instance Prelude.NFData PutChannelPolicyResponse where
+  rnf PutChannelPolicyResponse' {..} =
+    Prelude.rnf httpStatus

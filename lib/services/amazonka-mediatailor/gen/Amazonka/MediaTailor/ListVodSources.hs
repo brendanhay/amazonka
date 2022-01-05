@@ -138,9 +138,17 @@ instance Core.AWSRequest ListVodSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVodSources
+instance Prelude.Hashable ListVodSources where
+  hashWithSalt _salt ListVodSources' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sourceLocationName
 
-instance Prelude.NFData ListVodSources
+instance Prelude.NFData ListVodSources where
+  rnf ListVodSources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders ListVodSources where
   toHeaders =
@@ -218,4 +226,8 @@ listVodSourcesResponse_nextToken = Lens.lens (\ListVodSourcesResponse' {nextToke
 listVodSourcesResponse_httpStatus :: Lens.Lens' ListVodSourcesResponse Prelude.Int
 listVodSourcesResponse_httpStatus = Lens.lens (\ListVodSourcesResponse' {httpStatus} -> httpStatus) (\s@ListVodSourcesResponse' {} a -> s {httpStatus = a} :: ListVodSourcesResponse)
 
-instance Prelude.NFData ListVodSourcesResponse
+instance Prelude.NFData ListVodSourcesResponse where
+  rnf ListVodSourcesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

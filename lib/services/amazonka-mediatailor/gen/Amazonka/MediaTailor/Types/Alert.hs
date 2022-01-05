@@ -119,6 +119,18 @@ instance Core.FromJSON Alert where
             Prelude.<*> (x Core..: "AlertMessage")
       )
 
-instance Prelude.Hashable Alert
+instance Prelude.Hashable Alert where
+  hashWithSalt _salt Alert' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` alertCode
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` relatedResourceArns
+      `Prelude.hashWithSalt` alertMessage
 
-instance Prelude.NFData Alert
+instance Prelude.NFData Alert where
+  rnf Alert' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf alertCode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf relatedResourceArns
+      `Prelude.seq` Prelude.rnf alertMessage

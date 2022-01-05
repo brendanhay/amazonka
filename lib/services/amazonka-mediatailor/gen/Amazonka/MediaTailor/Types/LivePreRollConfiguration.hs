@@ -93,9 +93,15 @@ instance Core.FromJSON LivePreRollConfiguration where
             Prelude.<*> (x Core..:? "MaxDurationSeconds")
       )
 
-instance Prelude.Hashable LivePreRollConfiguration
+instance Prelude.Hashable LivePreRollConfiguration where
+  hashWithSalt _salt LivePreRollConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` adDecisionServerUrl
+      `Prelude.hashWithSalt` maxDurationSeconds
 
-instance Prelude.NFData LivePreRollConfiguration
+instance Prelude.NFData LivePreRollConfiguration where
+  rnf LivePreRollConfiguration' {..} =
+    Prelude.rnf adDecisionServerUrl
+      `Prelude.seq` Prelude.rnf maxDurationSeconds
 
 instance Core.ToJSON LivePreRollConfiguration where
   toJSON LivePreRollConfiguration' {..} =

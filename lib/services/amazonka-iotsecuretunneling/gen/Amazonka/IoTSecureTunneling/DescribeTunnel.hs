@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeTunnel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTunnel
+instance Prelude.Hashable DescribeTunnel where
+  hashWithSalt _salt DescribeTunnel' {..} =
+    _salt `Prelude.hashWithSalt` tunnelId
 
-instance Prelude.NFData DescribeTunnel
+instance Prelude.NFData DescribeTunnel where
+  rnf DescribeTunnel' {..} = Prelude.rnf tunnelId
 
 instance Core.ToHeaders DescribeTunnel where
   toHeaders =
@@ -156,4 +159,7 @@ describeTunnelResponse_tunnel = Lens.lens (\DescribeTunnelResponse' {tunnel} -> 
 describeTunnelResponse_httpStatus :: Lens.Lens' DescribeTunnelResponse Prelude.Int
 describeTunnelResponse_httpStatus = Lens.lens (\DescribeTunnelResponse' {httpStatus} -> httpStatus) (\s@DescribeTunnelResponse' {} a -> s {httpStatus = a} :: DescribeTunnelResponse)
 
-instance Prelude.NFData DescribeTunnelResponse
+instance Prelude.NFData DescribeTunnelResponse where
+  rnf DescribeTunnelResponse' {..} =
+    Prelude.rnf tunnel
+      `Prelude.seq` Prelude.rnf httpStatus

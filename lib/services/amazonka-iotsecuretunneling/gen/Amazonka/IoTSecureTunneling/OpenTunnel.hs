@@ -121,9 +121,19 @@ instance Core.AWSRequest OpenTunnel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable OpenTunnel
+instance Prelude.Hashable OpenTunnel where
+  hashWithSalt _salt OpenTunnel' {..} =
+    _salt `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` timeoutConfig
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData OpenTunnel
+instance Prelude.NFData OpenTunnel where
+  rnf OpenTunnel' {..} =
+    Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders OpenTunnel where
   toHeaders =
@@ -233,4 +243,10 @@ openTunnelResponse_tunnelId = Lens.lens (\OpenTunnelResponse' {tunnelId} -> tunn
 openTunnelResponse_httpStatus :: Lens.Lens' OpenTunnelResponse Prelude.Int
 openTunnelResponse_httpStatus = Lens.lens (\OpenTunnelResponse' {httpStatus} -> httpStatus) (\s@OpenTunnelResponse' {} a -> s {httpStatus = a} :: OpenTunnelResponse)
 
-instance Prelude.NFData OpenTunnelResponse
+instance Prelude.NFData OpenTunnelResponse where
+  rnf OpenTunnelResponse' {..} =
+    Prelude.rnf sourceAccessToken
+      `Prelude.seq` Prelude.rnf tunnelArn
+      `Prelude.seq` Prelude.rnf destinationAccessToken
+      `Prelude.seq` Prelude.rnf tunnelId
+      `Prelude.seq` Prelude.rnf httpStatus

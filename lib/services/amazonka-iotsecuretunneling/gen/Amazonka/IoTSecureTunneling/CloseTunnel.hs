@@ -99,9 +99,15 @@ instance Core.AWSRequest CloseTunnel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CloseTunnel
+instance Prelude.Hashable CloseTunnel where
+  hashWithSalt _salt CloseTunnel' {..} =
+    _salt `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` tunnelId
 
-instance Prelude.NFData CloseTunnel
+instance Prelude.NFData CloseTunnel where
+  rnf CloseTunnel' {..} =
+    Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf tunnelId
 
 instance Core.ToHeaders CloseTunnel where
   toHeaders =
@@ -160,4 +166,5 @@ newCloseTunnelResponse pHttpStatus_ =
 closeTunnelResponse_httpStatus :: Lens.Lens' CloseTunnelResponse Prelude.Int
 closeTunnelResponse_httpStatus = Lens.lens (\CloseTunnelResponse' {httpStatus} -> httpStatus) (\s@CloseTunnelResponse' {} a -> s {httpStatus = a} :: CloseTunnelResponse)
 
-instance Prelude.NFData CloseTunnelResponse
+instance Prelude.NFData CloseTunnelResponse where
+  rnf CloseTunnelResponse' {..} = Prelude.rnf httpStatus

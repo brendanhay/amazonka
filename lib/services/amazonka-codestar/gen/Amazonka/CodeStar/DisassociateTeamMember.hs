@@ -108,9 +108,15 @@ instance Core.AWSRequest DisassociateTeamMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateTeamMember
+instance Prelude.Hashable DisassociateTeamMember where
+  hashWithSalt _salt DisassociateTeamMember' {..} =
+    _salt `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` userArn
 
-instance Prelude.NFData DisassociateTeamMember
+instance Prelude.NFData DisassociateTeamMember where
+  rnf DisassociateTeamMember' {..} =
+    Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf userArn
 
 instance Core.ToHeaders DisassociateTeamMember where
   toHeaders =
@@ -175,3 +181,6 @@ disassociateTeamMemberResponse_httpStatus = Lens.lens (\DisassociateTeamMemberRe
 instance
   Prelude.NFData
     DisassociateTeamMemberResponse
+  where
+  rnf DisassociateTeamMemberResponse' {..} =
+    Prelude.rnf httpStatus

@@ -78,9 +78,15 @@ codeDestination_codeCommit = Lens.lens (\CodeDestination' {codeCommit} -> codeCo
 codeDestination_gitHub :: Lens.Lens' CodeDestination (Prelude.Maybe GitHubCodeDestination)
 codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@CodeDestination' {} a -> s {gitHub = a} :: CodeDestination)
 
-instance Prelude.Hashable CodeDestination
+instance Prelude.Hashable CodeDestination where
+  hashWithSalt _salt CodeDestination' {..} =
+    _salt `Prelude.hashWithSalt` codeCommit
+      `Prelude.hashWithSalt` gitHub
 
-instance Prelude.NFData CodeDestination
+instance Prelude.NFData CodeDestination where
+  rnf CodeDestination' {..} =
+    Prelude.rnf codeCommit
+      `Prelude.seq` Prelude.rnf gitHub
 
 instance Core.ToJSON CodeDestination where
   toJSON CodeDestination' {..} =

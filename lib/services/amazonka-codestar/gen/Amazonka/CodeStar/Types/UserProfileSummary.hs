@@ -127,6 +127,16 @@ instance Core.FromJSON UserProfileSummary where
             Prelude.<*> (x Core..:? "displayName")
       )
 
-instance Prelude.Hashable UserProfileSummary
+instance Prelude.Hashable UserProfileSummary where
+  hashWithSalt _salt UserProfileSummary' {..} =
+    _salt `Prelude.hashWithSalt` sshPublicKey
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData UserProfileSummary
+instance Prelude.NFData UserProfileSummary where
+  rnf UserProfileSummary' {..} =
+    Prelude.rnf sshPublicKey
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf displayName

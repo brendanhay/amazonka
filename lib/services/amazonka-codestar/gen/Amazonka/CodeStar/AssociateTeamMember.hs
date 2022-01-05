@@ -154,9 +154,21 @@ instance Core.AWSRequest AssociateTeamMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTeamMember
+instance Prelude.Hashable AssociateTeamMember where
+  hashWithSalt _salt AssociateTeamMember' {..} =
+    _salt `Prelude.hashWithSalt` remoteAccessAllowed
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` projectRole
 
-instance Prelude.NFData AssociateTeamMember
+instance Prelude.NFData AssociateTeamMember where
+  rnf AssociateTeamMember' {..} =
+    Prelude.rnf remoteAccessAllowed
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf projectRole
 
 instance Core.ToHeaders AssociateTeamMember where
   toHeaders =
@@ -235,4 +247,7 @@ associateTeamMemberResponse_clientRequestToken = Lens.lens (\AssociateTeamMember
 associateTeamMemberResponse_httpStatus :: Lens.Lens' AssociateTeamMemberResponse Prelude.Int
 associateTeamMemberResponse_httpStatus = Lens.lens (\AssociateTeamMemberResponse' {httpStatus} -> httpStatus) (\s@AssociateTeamMemberResponse' {} a -> s {httpStatus = a} :: AssociateTeamMemberResponse)
 
-instance Prelude.NFData AssociateTeamMemberResponse
+instance Prelude.NFData AssociateTeamMemberResponse where
+  rnf AssociateTeamMemberResponse' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf httpStatus

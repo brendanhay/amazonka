@@ -139,9 +139,25 @@ gitHubCodeDestination_issuesEnabled = Lens.lens (\GitHubCodeDestination' {issues
 gitHubCodeDestination_token :: Lens.Lens' GitHubCodeDestination Prelude.Text
 gitHubCodeDestination_token = Lens.lens (\GitHubCodeDestination' {token} -> token) (\s@GitHubCodeDestination' {} a -> s {token = a} :: GitHubCodeDestination) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable GitHubCodeDestination
+instance Prelude.Hashable GitHubCodeDestination where
+  hashWithSalt _salt GitHubCodeDestination' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` privateRepository
+      `Prelude.hashWithSalt` issuesEnabled
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData GitHubCodeDestination
+instance Prelude.NFData GitHubCodeDestination where
+  rnf GitHubCodeDestination' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf privateRepository
+      `Prelude.seq` Prelude.rnf issuesEnabled
+      `Prelude.seq` Prelude.rnf token
 
 instance Core.ToJSON GitHubCodeDestination where
   toJSON GitHubCodeDestination' {..} =

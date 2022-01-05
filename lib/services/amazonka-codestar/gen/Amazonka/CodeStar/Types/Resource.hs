@@ -57,6 +57,9 @@ instance Core.FromJSON Resource where
       "Resource"
       (\x -> Resource' Prelude.<$> (x Core..: "id"))
 
-instance Prelude.Hashable Resource
+instance Prelude.Hashable Resource where
+  hashWithSalt _salt Resource' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Resource
+instance Prelude.NFData Resource where
+  rnf Resource' {..} = Prelude.rnf id

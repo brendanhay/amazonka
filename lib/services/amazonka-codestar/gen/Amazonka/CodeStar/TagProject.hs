@@ -93,9 +93,14 @@ instance Core.AWSRequest TagProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TagProject
+instance Prelude.Hashable TagProject where
+  hashWithSalt _salt TagProject' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagProject
+instance Prelude.NFData TagProject where
+  rnf TagProject' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagProject where
   toHeaders =
@@ -165,4 +170,7 @@ tagProjectResponse_tags = Lens.lens (\TagProjectResponse' {tags} -> tags) (\s@Ta
 tagProjectResponse_httpStatus :: Lens.Lens' TagProjectResponse Prelude.Int
 tagProjectResponse_httpStatus = Lens.lens (\TagProjectResponse' {httpStatus} -> httpStatus) (\s@TagProjectResponse' {} a -> s {httpStatus = a} :: TagProjectResponse)
 
-instance Prelude.NFData TagProjectResponse
+instance Prelude.NFData TagProjectResponse where
+  rnf TagProjectResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

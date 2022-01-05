@@ -123,10 +123,20 @@ instance
 instance
   Prelude.Hashable
     DescribePermissionSetProvisioningStatus
+  where
+  hashWithSalt
+    _salt
+    DescribePermissionSetProvisioningStatus' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` provisionPermissionSetRequestId
 
 instance
   Prelude.NFData
     DescribePermissionSetProvisioningStatus
+  where
+  rnf DescribePermissionSetProvisioningStatus' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf provisionPermissionSetRequestId
 
 instance
   Core.ToHeaders
@@ -216,3 +226,8 @@ describePermissionSetProvisioningStatusResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribePermissionSetProvisioningStatusResponse
+  where
+  rnf
+    DescribePermissionSetProvisioningStatusResponse' {..} =
+      Prelude.rnf permissionSetProvisioningStatus
+        `Prelude.seq` Prelude.rnf httpStatus

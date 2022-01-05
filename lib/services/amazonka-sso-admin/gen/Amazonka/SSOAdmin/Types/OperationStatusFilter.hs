@@ -51,9 +51,12 @@ newOperationStatusFilter =
 operationStatusFilter_status :: Lens.Lens' OperationStatusFilter (Prelude.Maybe StatusValues)
 operationStatusFilter_status = Lens.lens (\OperationStatusFilter' {status} -> status) (\s@OperationStatusFilter' {} a -> s {status = a} :: OperationStatusFilter)
 
-instance Prelude.Hashable OperationStatusFilter
+instance Prelude.Hashable OperationStatusFilter where
+  hashWithSalt _salt OperationStatusFilter' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OperationStatusFilter
+instance Prelude.NFData OperationStatusFilter where
+  rnf OperationStatusFilter' {..} = Prelude.rnf status
 
 instance Core.ToJSON OperationStatusFilter where
   toJSON OperationStatusFilter' {..} =

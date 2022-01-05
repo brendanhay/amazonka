@@ -92,7 +92,19 @@ instance
 instance
   Prelude.Hashable
     AccountAssignmentOperationStatusMetadata
+  where
+  hashWithSalt
+    _salt
+    AccountAssignmentOperationStatusMetadata' {..} =
+      _salt `Prelude.hashWithSalt` requestId
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` createdDate
 
 instance
   Prelude.NFData
     AccountAssignmentOperationStatusMetadata
+  where
+  rnf AccountAssignmentOperationStatusMetadata' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdDate

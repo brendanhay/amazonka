@@ -76,6 +76,11 @@ instance Core.FromJSON AttachedManagedPolicy where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AttachedManagedPolicy
+instance Prelude.Hashable AttachedManagedPolicy where
+  hashWithSalt _salt AttachedManagedPolicy' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AttachedManagedPolicy
+instance Prelude.NFData AttachedManagedPolicy where
+  rnf AttachedManagedPolicy' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

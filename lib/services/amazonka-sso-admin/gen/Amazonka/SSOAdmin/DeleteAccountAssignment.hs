@@ -180,9 +180,23 @@ instance Core.AWSRequest DeleteAccountAssignment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccountAssignment
+instance Prelude.Hashable DeleteAccountAssignment where
+  hashWithSalt _salt DeleteAccountAssignment' {..} =
+    _salt `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData DeleteAccountAssignment
+instance Prelude.NFData DeleteAccountAssignment where
+  rnf DeleteAccountAssignment' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToHeaders DeleteAccountAssignment where
   toHeaders =
@@ -261,3 +275,7 @@ deleteAccountAssignmentResponse_httpStatus = Lens.lens (\DeleteAccountAssignment
 instance
   Prelude.NFData
     DeleteAccountAssignmentResponse
+  where
+  rnf DeleteAccountAssignmentResponse' {..} =
+    Prelude.rnf accountAssignmentDeletionStatus
+      `Prelude.seq` Prelude.rnf httpStatus

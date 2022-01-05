@@ -137,10 +137,22 @@ instance
 instance
   Prelude.Hashable
     AttachManagedPolicyToPermissionSet
+  where
+  hashWithSalt
+    _salt
+    AttachManagedPolicyToPermissionSet' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` managedPolicyArn
 
 instance
   Prelude.NFData
     AttachManagedPolicyToPermissionSet
+  where
+  rnf AttachManagedPolicyToPermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf managedPolicyArn
 
 instance
   Core.ToHeaders
@@ -221,3 +233,6 @@ attachManagedPolicyToPermissionSetResponse_httpStatus = Lens.lens (\AttachManage
 instance
   Prelude.NFData
     AttachManagedPolicyToPermissionSetResponse
+  where
+  rnf AttachManagedPolicyToPermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

@@ -145,9 +145,21 @@ instance Core.AWSRequest UpdatePermissionSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePermissionSet
+instance Prelude.Hashable UpdatePermissionSet where
+  hashWithSalt _salt UpdatePermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` relayState
+      `Prelude.hashWithSalt` sessionDuration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` permissionSetArn
 
-instance Prelude.NFData UpdatePermissionSet
+instance Prelude.NFData UpdatePermissionSet where
+  rnf UpdatePermissionSet' {..} =
+    Prelude.rnf relayState
+      `Prelude.seq` Prelude.rnf sessionDuration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance Core.ToHeaders UpdatePermissionSet where
   toHeaders =
@@ -214,4 +226,6 @@ newUpdatePermissionSetResponse pHttpStatus_ =
 updatePermissionSetResponse_httpStatus :: Lens.Lens' UpdatePermissionSetResponse Prelude.Int
 updatePermissionSetResponse_httpStatus = Lens.lens (\UpdatePermissionSetResponse' {httpStatus} -> httpStatus) (\s@UpdatePermissionSetResponse' {} a -> s {httpStatus = a} :: UpdatePermissionSetResponse)
 
-instance Prelude.NFData UpdatePermissionSetResponse
+instance Prelude.NFData UpdatePermissionSetResponse where
+  rnf UpdatePermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

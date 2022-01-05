@@ -92,7 +92,19 @@ instance
 instance
   Prelude.Hashable
     PermissionSetProvisioningStatusMetadata
+  where
+  hashWithSalt
+    _salt
+    PermissionSetProvisioningStatusMetadata' {..} =
+      _salt `Prelude.hashWithSalt` requestId
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` createdDate
 
 instance
   Prelude.NFData
     PermissionSetProvisioningStatusMetadata
+  where
+  rnf PermissionSetProvisioningStatusMetadata' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdDate

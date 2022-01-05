@@ -135,10 +135,22 @@ instance
 instance
   Prelude.Hashable
     PutInlinePolicyToPermissionSet
+  where
+  hashWithSalt
+    _salt
+    PutInlinePolicyToPermissionSet' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` inlinePolicy
 
 instance
   Prelude.NFData
     PutInlinePolicyToPermissionSet
+  where
+  rnf PutInlinePolicyToPermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf inlinePolicy
 
 instance
   Core.ToHeaders
@@ -209,3 +221,6 @@ putInlinePolicyToPermissionSetResponse_httpStatus = Lens.lens (\PutInlinePolicyT
 instance
   Prelude.NFData
     PutInlinePolicyToPermissionSetResponse
+  where
+  rnf PutInlinePolicyToPermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

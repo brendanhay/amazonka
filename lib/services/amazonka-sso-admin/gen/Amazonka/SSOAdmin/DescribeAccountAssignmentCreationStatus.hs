@@ -120,10 +120,20 @@ instance
 instance
   Prelude.Hashable
     DescribeAccountAssignmentCreationStatus
+  where
+  hashWithSalt
+    _salt
+    DescribeAccountAssignmentCreationStatus' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` accountAssignmentCreationRequestId
 
 instance
   Prelude.NFData
     DescribeAccountAssignmentCreationStatus
+  where
+  rnf DescribeAccountAssignmentCreationStatus' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf accountAssignmentCreationRequestId
 
 instance
   Core.ToHeaders
@@ -213,3 +223,8 @@ describeAccountAssignmentCreationStatusResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeAccountAssignmentCreationStatusResponse
+  where
+  rnf
+    DescribeAccountAssignmentCreationStatusResponse' {..} =
+      Prelude.rnf accountAssignmentCreationStatus
+        `Prelude.seq` Prelude.rnf httpStatus

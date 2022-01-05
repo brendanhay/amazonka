@@ -138,9 +138,19 @@ instance Core.AWSRequest ProvisionPermissionSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ProvisionPermissionSet
+instance Prelude.Hashable ProvisionPermissionSet where
+  hashWithSalt _salt ProvisionPermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` targetType
 
-instance Prelude.NFData ProvisionPermissionSet
+instance Prelude.NFData ProvisionPermissionSet where
+  rnf ProvisionPermissionSet' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf targetType
 
 instance Core.ToHeaders ProvisionPermissionSet where
   toHeaders =
@@ -217,3 +227,7 @@ provisionPermissionSetResponse_httpStatus = Lens.lens (\ProvisionPermissionSetRe
 instance
   Prelude.NFData
     ProvisionPermissionSetResponse
+  where
+  rnf ProvisionPermissionSetResponse' {..} =
+    Prelude.rnf permissionSetProvisioningStatus
+      `Prelude.seq` Prelude.rnf httpStatus

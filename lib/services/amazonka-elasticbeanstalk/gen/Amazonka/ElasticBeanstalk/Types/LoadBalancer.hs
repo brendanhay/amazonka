@@ -54,6 +54,9 @@ instance Core.FromXML LoadBalancer where
   parseXML x =
     LoadBalancer' Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable LoadBalancer
+instance Prelude.Hashable LoadBalancer where
+  hashWithSalt _salt LoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData LoadBalancer
+instance Prelude.NFData LoadBalancer where
+  rnf LoadBalancer' {..} = Prelude.rnf name

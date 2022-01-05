@@ -136,9 +136,17 @@ platformFilter_operator = Lens.lens (\PlatformFilter' {operator} -> operator) (\
 platformFilter_type :: Lens.Lens' PlatformFilter (Prelude.Maybe Prelude.Text)
 platformFilter_type = Lens.lens (\PlatformFilter' {type'} -> type') (\s@PlatformFilter' {} a -> s {type' = a} :: PlatformFilter)
 
-instance Prelude.Hashable PlatformFilter
+instance Prelude.Hashable PlatformFilter where
+  hashWithSalt _salt PlatformFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData PlatformFilter
+instance Prelude.NFData PlatformFilter where
+  rnf PlatformFilter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery PlatformFilter where
   toQuery PlatformFilter' {..} =

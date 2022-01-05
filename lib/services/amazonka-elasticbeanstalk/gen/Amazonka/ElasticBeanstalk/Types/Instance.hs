@@ -52,6 +52,9 @@ instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a}
 instance Core.FromXML Instance where
   parseXML x = Instance' Prelude.<$> (x Core..@? "Id")
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} = Prelude.rnf id

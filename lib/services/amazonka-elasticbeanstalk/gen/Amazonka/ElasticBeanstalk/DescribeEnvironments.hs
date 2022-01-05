@@ -234,9 +234,27 @@ instance Core.AWSRequest DescribeEnvironments where
       "DescribeEnvironmentsResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DescribeEnvironments
+instance Prelude.Hashable DescribeEnvironments where
+  hashWithSalt _salt DescribeEnvironments' {..} =
+    _salt `Prelude.hashWithSalt` environmentIds
+      `Prelude.hashWithSalt` environmentNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` includedDeletedBackTo
+      `Prelude.hashWithSalt` includeDeleted
 
-instance Prelude.NFData DescribeEnvironments
+instance Prelude.NFData DescribeEnvironments where
+  rnf DescribeEnvironments' {..} =
+    Prelude.rnf environmentIds
+      `Prelude.seq` Prelude.rnf environmentNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf includedDeletedBackTo
+      `Prelude.seq` Prelude.rnf includeDeleted
 
 instance Core.ToHeaders DescribeEnvironments where
   toHeaders = Prelude.const Prelude.mempty

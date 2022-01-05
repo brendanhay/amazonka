@@ -392,6 +392,50 @@ instance Core.FromXML EnvironmentDescription where
                   )
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable EnvironmentDescription
+instance Prelude.Hashable EnvironmentDescription where
+  hashWithSalt _salt EnvironmentDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` cname
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` abortableOperationInProgress
+      `Prelude.hashWithSalt` endpointURL
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` operationsRole
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentArn
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` environmentLinks
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData EnvironmentDescription
+instance Prelude.NFData EnvironmentDescription where
+  rnf EnvironmentDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf cname
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf abortableOperationInProgress
+      `Prelude.seq` Prelude.rnf endpointURL
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf operationsRole
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf environmentLinks
+      `Prelude.seq` Prelude.rnf description

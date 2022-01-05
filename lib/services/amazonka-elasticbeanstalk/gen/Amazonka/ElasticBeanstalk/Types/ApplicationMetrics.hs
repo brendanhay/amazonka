@@ -107,6 +107,16 @@ instance Core.FromXML ApplicationMetrics where
       Prelude.<*> (x Core..@? "StatusCodes")
       Prelude.<*> (x Core..@? "Duration")
 
-instance Prelude.Hashable ApplicationMetrics
+instance Prelude.Hashable ApplicationMetrics where
+  hashWithSalt _salt ApplicationMetrics' {..} =
+    _salt `Prelude.hashWithSalt` requestCount
+      `Prelude.hashWithSalt` latency
+      `Prelude.hashWithSalt` statusCodes
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData ApplicationMetrics
+instance Prelude.NFData ApplicationMetrics where
+  rnf ApplicationMetrics' {..} =
+    Prelude.rnf requestCount
+      `Prelude.seq` Prelude.rnf latency
+      `Prelude.seq` Prelude.rnf statusCodes
+      `Prelude.seq` Prelude.rnf duration

@@ -88,9 +88,13 @@ instance Core.AWSRequest DeletePlatformVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePlatformVersion
+instance Prelude.Hashable DeletePlatformVersion where
+  hashWithSalt _salt DeletePlatformVersion' {..} =
+    _salt `Prelude.hashWithSalt` platformArn
 
-instance Prelude.NFData DeletePlatformVersion
+instance Prelude.NFData DeletePlatformVersion where
+  rnf DeletePlatformVersion' {..} =
+    Prelude.rnf platformArn
 
 instance Core.ToHeaders DeletePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,4 +151,7 @@ deletePlatformVersionResponse_platformSummary = Lens.lens (\DeletePlatformVersio
 deletePlatformVersionResponse_httpStatus :: Lens.Lens' DeletePlatformVersionResponse Prelude.Int
 deletePlatformVersionResponse_httpStatus = Lens.lens (\DeletePlatformVersionResponse' {httpStatus} -> httpStatus) (\s@DeletePlatformVersionResponse' {} a -> s {httpStatus = a} :: DeletePlatformVersionResponse)
 
-instance Prelude.NFData DeletePlatformVersionResponse
+instance Prelude.NFData DeletePlatformVersionResponse where
+  rnf DeletePlatformVersionResponse' {..} =
+    Prelude.rnf platformSummary
+      `Prelude.seq` Prelude.rnf httpStatus

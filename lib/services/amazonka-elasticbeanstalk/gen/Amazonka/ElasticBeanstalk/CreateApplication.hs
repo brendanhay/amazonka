@@ -130,9 +130,20 @@ instance Core.AWSRequest CreateApplication where
       "CreateApplicationResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateApplication
+instance Prelude.Hashable CreateApplication where
+  hashWithSalt _salt CreateApplication' {..} =
+    _salt
+      `Prelude.hashWithSalt` resourceLifecycleConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData CreateApplication
+instance Prelude.NFData CreateApplication where
+  rnf CreateApplication' {..} =
+    Prelude.rnf resourceLifecycleConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders CreateApplication where
   toHeaders = Prelude.const Prelude.mempty

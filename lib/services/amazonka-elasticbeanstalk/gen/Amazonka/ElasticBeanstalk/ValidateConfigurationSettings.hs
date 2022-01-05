@@ -152,8 +152,19 @@ instance
 instance
   Prelude.Hashable
     ValidateConfigurationSettings
+  where
+  hashWithSalt _salt ValidateConfigurationSettings' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` optionSettings
 
-instance Prelude.NFData ValidateConfigurationSettings
+instance Prelude.NFData ValidateConfigurationSettings where
+  rnf ValidateConfigurationSettings' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf optionSettings
 
 instance Core.ToHeaders ValidateConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,3 +232,7 @@ validateConfigurationSettingsResponse_httpStatus = Lens.lens (\ValidateConfigura
 instance
   Prelude.NFData
     ValidateConfigurationSettingsResponse
+  where
+  rnf ValidateConfigurationSettingsResponse' {..} =
+    Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf httpStatus

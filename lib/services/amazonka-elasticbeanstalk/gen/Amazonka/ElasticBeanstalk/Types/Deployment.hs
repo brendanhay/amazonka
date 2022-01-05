@@ -114,6 +114,16 @@ instance Core.FromXML Deployment where
       Prelude.<*> (x Core..@? "DeploymentTime")
       Prelude.<*> (x Core..@? "VersionLabel")
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt _salt Deployment' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentTime
+      `Prelude.hashWithSalt` versionLabel
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentTime
+      `Prelude.seq` Prelude.rnf versionLabel

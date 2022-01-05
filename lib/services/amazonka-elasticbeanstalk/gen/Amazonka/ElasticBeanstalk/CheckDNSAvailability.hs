@@ -91,9 +91,13 @@ instance Core.AWSRequest CheckDNSAvailability where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CheckDNSAvailability
+instance Prelude.Hashable CheckDNSAvailability where
+  hashWithSalt _salt CheckDNSAvailability' {..} =
+    _salt `Prelude.hashWithSalt` cNAMEPrefix
 
-instance Prelude.NFData CheckDNSAvailability
+instance Prelude.NFData CheckDNSAvailability where
+  rnf CheckDNSAvailability' {..} =
+    Prelude.rnf cNAMEPrefix
 
 instance Core.ToHeaders CheckDNSAvailability where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +180,8 @@ checkDNSAvailabilityResponse_available = Lens.lens (\CheckDNSAvailabilityRespons
 checkDNSAvailabilityResponse_httpStatus :: Lens.Lens' CheckDNSAvailabilityResponse Prelude.Int
 checkDNSAvailabilityResponse_httpStatus = Lens.lens (\CheckDNSAvailabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDNSAvailabilityResponse' {} a -> s {httpStatus = a} :: CheckDNSAvailabilityResponse)
 
-instance Prelude.NFData CheckDNSAvailabilityResponse
+instance Prelude.NFData CheckDNSAvailabilityResponse where
+  rnf CheckDNSAvailabilityResponse' {..} =
+    Prelude.rnf fullyQualifiedCNAME
+      `Prelude.seq` Prelude.rnf available
+      `Prelude.seq` Prelude.rnf httpStatus

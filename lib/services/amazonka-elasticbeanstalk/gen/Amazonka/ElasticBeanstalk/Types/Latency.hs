@@ -152,6 +152,24 @@ instance Core.FromXML Latency where
       Prelude.<*> (x Core..@? "P99")
       Prelude.<*> (x Core..@? "P10")
 
-instance Prelude.Hashable Latency
+instance Prelude.Hashable Latency where
+  hashWithSalt _salt Latency' {..} =
+    _salt `Prelude.hashWithSalt` p75
+      `Prelude.hashWithSalt` p50
+      `Prelude.hashWithSalt` p85
+      `Prelude.hashWithSalt` p999
+      `Prelude.hashWithSalt` p90
+      `Prelude.hashWithSalt` p95
+      `Prelude.hashWithSalt` p99
+      `Prelude.hashWithSalt` p10
 
-instance Prelude.NFData Latency
+instance Prelude.NFData Latency where
+  rnf Latency' {..} =
+    Prelude.rnf p75
+      `Prelude.seq` Prelude.rnf p50
+      `Prelude.seq` Prelude.rnf p85
+      `Prelude.seq` Prelude.rnf p999
+      `Prelude.seq` Prelude.rnf p90
+      `Prelude.seq` Prelude.rnf p95
+      `Prelude.seq` Prelude.rnf p99
+      `Prelude.seq` Prelude.rnf p10

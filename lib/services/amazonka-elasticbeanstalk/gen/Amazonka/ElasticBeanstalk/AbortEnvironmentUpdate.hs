@@ -98,9 +98,15 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
     Response.receiveNull
       AbortEnvironmentUpdateResponse'
 
-instance Prelude.Hashable AbortEnvironmentUpdate
+instance Prelude.Hashable AbortEnvironmentUpdate where
+  hashWithSalt _salt AbortEnvironmentUpdate' {..} =
+    _salt `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData AbortEnvironmentUpdate
+instance Prelude.NFData AbortEnvironmentUpdate where
+  rnf AbortEnvironmentUpdate' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders AbortEnvironmentUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,3 +143,5 @@ newAbortEnvironmentUpdateResponse =
 instance
   Prelude.NFData
     AbortEnvironmentUpdateResponse
+  where
+  rnf _ = ()

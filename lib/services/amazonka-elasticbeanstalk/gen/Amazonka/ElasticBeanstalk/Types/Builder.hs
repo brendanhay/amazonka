@@ -52,6 +52,9 @@ builder_arn = Lens.lens (\Builder' {arn} -> arn) (\s@Builder' {} a -> s {arn = a
 instance Core.FromXML Builder where
   parseXML x = Builder' Prelude.<$> (x Core..@? "ARN")
 
-instance Prelude.Hashable Builder
+instance Prelude.Hashable Builder where
+  hashWithSalt _salt Builder' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Builder
+instance Prelude.NFData Builder where
+  rnf Builder' {..} = Prelude.rnf arn

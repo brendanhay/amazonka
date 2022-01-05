@@ -138,9 +138,21 @@ buildConfiguration_codeBuildServiceRole = Lens.lens (\BuildConfiguration' {codeB
 buildConfiguration_image :: Lens.Lens' BuildConfiguration Prelude.Text
 buildConfiguration_image = Lens.lens (\BuildConfiguration' {image} -> image) (\s@BuildConfiguration' {} a -> s {image = a} :: BuildConfiguration)
 
-instance Prelude.Hashable BuildConfiguration
+instance Prelude.Hashable BuildConfiguration where
+  hashWithSalt _salt BuildConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` computeType
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` codeBuildServiceRole
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData BuildConfiguration
+instance Prelude.NFData BuildConfiguration where
+  rnf BuildConfiguration' {..} =
+    Prelude.rnf artifactName
+      `Prelude.seq` Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf codeBuildServiceRole
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToQuery BuildConfiguration where
   toQuery BuildConfiguration' {..} =

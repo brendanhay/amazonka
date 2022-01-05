@@ -62,9 +62,15 @@ sourceConfiguration_templateName = Lens.lens (\SourceConfiguration' {templateNam
 sourceConfiguration_applicationName :: Lens.Lens' SourceConfiguration (Prelude.Maybe Prelude.Text)
 sourceConfiguration_applicationName = Lens.lens (\SourceConfiguration' {applicationName} -> applicationName) (\s@SourceConfiguration' {} a -> s {applicationName = a} :: SourceConfiguration)
 
-instance Prelude.Hashable SourceConfiguration
+instance Prelude.Hashable SourceConfiguration where
+  hashWithSalt _salt SourceConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData SourceConfiguration
+instance Prelude.NFData SourceConfiguration where
+  rnf SourceConfiguration' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToQuery SourceConfiguration where
   toQuery SourceConfiguration' {..} =

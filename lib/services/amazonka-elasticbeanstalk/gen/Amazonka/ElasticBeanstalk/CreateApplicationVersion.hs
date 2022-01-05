@@ -280,9 +280,29 @@ instance Core.AWSRequest CreateApplicationVersion where
       "CreateApplicationVersionResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateApplicationVersion
+instance Prelude.Hashable CreateApplicationVersion where
+  hashWithSalt _salt CreateApplicationVersion' {..} =
+    _salt `Prelude.hashWithSalt` process
+      `Prelude.hashWithSalt` sourceBundle
+      `Prelude.hashWithSalt` autoCreateApplication
+      `Prelude.hashWithSalt` sourceBuildInformation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` buildConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` versionLabel
 
-instance Prelude.NFData CreateApplicationVersion
+instance Prelude.NFData CreateApplicationVersion where
+  rnf CreateApplicationVersion' {..} =
+    Prelude.rnf process
+      `Prelude.seq` Prelude.rnf sourceBundle
+      `Prelude.seq` Prelude.rnf autoCreateApplication
+      `Prelude.seq` Prelude.rnf sourceBuildInformation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf buildConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf versionLabel
 
 instance Core.ToHeaders CreateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty

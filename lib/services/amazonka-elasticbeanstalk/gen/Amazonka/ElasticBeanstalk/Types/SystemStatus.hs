@@ -76,6 +76,12 @@ instance Core.FromXML SystemStatus where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable SystemStatus
+instance Prelude.Hashable SystemStatus where
+  hashWithSalt _salt SystemStatus' {..} =
+    _salt `Prelude.hashWithSalt` cPUUtilization
+      `Prelude.hashWithSalt` loadAverage
 
-instance Prelude.NFData SystemStatus
+instance Prelude.NFData SystemStatus where
+  rnf SystemStatus' {..} =
+    Prelude.rnf cPUUtilization
+      `Prelude.seq` Prelude.rnf loadAverage

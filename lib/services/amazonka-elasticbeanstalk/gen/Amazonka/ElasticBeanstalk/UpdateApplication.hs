@@ -111,9 +111,15 @@ instance Core.AWSRequest UpdateApplication where
       "UpdateApplicationResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt _salt UpdateApplication' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders = Prelude.const Prelude.mempty

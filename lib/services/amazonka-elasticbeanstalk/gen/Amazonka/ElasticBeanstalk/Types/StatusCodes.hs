@@ -101,6 +101,16 @@ instance Core.FromXML StatusCodes where
       Prelude.<*> (x Core..@? "Status4xx")
       Prelude.<*> (x Core..@? "Status5xx")
 
-instance Prelude.Hashable StatusCodes
+instance Prelude.Hashable StatusCodes where
+  hashWithSalt _salt StatusCodes' {..} =
+    _salt `Prelude.hashWithSalt` status2xx
+      `Prelude.hashWithSalt` status3xx
+      `Prelude.hashWithSalt` status4xx
+      `Prelude.hashWithSalt` status5xx
 
-instance Prelude.NFData StatusCodes
+instance Prelude.NFData StatusCodes where
+  rnf StatusCodes' {..} =
+    Prelude.rnf status2xx
+      `Prelude.seq` Prelude.rnf status3xx
+      `Prelude.seq` Prelude.rnf status4xx
+      `Prelude.seq` Prelude.rnf status5xx

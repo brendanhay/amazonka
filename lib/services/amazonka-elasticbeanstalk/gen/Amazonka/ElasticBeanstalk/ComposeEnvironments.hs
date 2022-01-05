@@ -140,9 +140,17 @@ instance Core.AWSRequest ComposeEnvironments where
       "ComposeEnvironmentsResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ComposeEnvironments
+instance Prelude.Hashable ComposeEnvironments where
+  hashWithSalt _salt ComposeEnvironments' {..} =
+    _salt `Prelude.hashWithSalt` versionLabels
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData ComposeEnvironments
+instance Prelude.NFData ComposeEnvironments where
+  rnf ComposeEnvironments' {..} =
+    Prelude.rnf versionLabels
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders ComposeEnvironments where
   toHeaders = Prelude.const Prelude.mempty

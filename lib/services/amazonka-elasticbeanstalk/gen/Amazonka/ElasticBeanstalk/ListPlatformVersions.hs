@@ -161,9 +161,17 @@ instance Core.AWSRequest ListPlatformVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPlatformVersions
+instance Prelude.Hashable ListPlatformVersions where
+  hashWithSalt _salt ListPlatformVersions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData ListPlatformVersions
+instance Prelude.NFData ListPlatformVersions where
+  rnf ListPlatformVersions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders ListPlatformVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,4 +244,8 @@ listPlatformVersionsResponse_platformSummaryList = Lens.lens (\ListPlatformVersi
 listPlatformVersionsResponse_httpStatus :: Lens.Lens' ListPlatformVersionsResponse Prelude.Int
 listPlatformVersionsResponse_httpStatus = Lens.lens (\ListPlatformVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPlatformVersionsResponse' {} a -> s {httpStatus = a} :: ListPlatformVersionsResponse)
 
-instance Prelude.NFData ListPlatformVersionsResponse
+instance Prelude.NFData ListPlatformVersionsResponse where
+  rnf ListPlatformVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf platformSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

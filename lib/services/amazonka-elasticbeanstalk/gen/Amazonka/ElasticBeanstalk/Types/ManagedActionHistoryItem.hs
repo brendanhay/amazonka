@@ -130,6 +130,24 @@ instance Core.FromXML ManagedActionHistoryItem where
       Prelude.<*> (x Core..@? "ExecutedTime")
       Prelude.<*> (x Core..@? "ActionType")
 
-instance Prelude.Hashable ManagedActionHistoryItem
+instance Prelude.Hashable ManagedActionHistoryItem where
+  hashWithSalt _salt ManagedActionHistoryItem' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureType
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` failureDescription
+      `Prelude.hashWithSalt` finishedTime
+      `Prelude.hashWithSalt` actionDescription
+      `Prelude.hashWithSalt` executedTime
+      `Prelude.hashWithSalt` actionType
 
-instance Prelude.NFData ManagedActionHistoryItem
+instance Prelude.NFData ManagedActionHistoryItem where
+  rnf ManagedActionHistoryItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureType
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf finishedTime
+      `Prelude.seq` Prelude.rnf actionDescription
+      `Prelude.seq` Prelude.rnf executedTime
+      `Prelude.seq` Prelude.rnf actionType

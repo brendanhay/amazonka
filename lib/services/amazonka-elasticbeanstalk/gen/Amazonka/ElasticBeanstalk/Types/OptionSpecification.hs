@@ -70,9 +70,17 @@ optionSpecification_resourceName = Lens.lens (\OptionSpecification' {resourceNam
 optionSpecification_namespace :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_namespace = Lens.lens (\OptionSpecification' {namespace} -> namespace) (\s@OptionSpecification' {} a -> s {namespace = a} :: OptionSpecification)
 
-instance Prelude.Hashable OptionSpecification
+instance Prelude.Hashable OptionSpecification where
+  hashWithSalt _salt OptionSpecification' {..} =
+    _salt `Prelude.hashWithSalt` optionName
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData OptionSpecification
+instance Prelude.NFData OptionSpecification where
+  rnf OptionSpecification' {..} =
+    Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =

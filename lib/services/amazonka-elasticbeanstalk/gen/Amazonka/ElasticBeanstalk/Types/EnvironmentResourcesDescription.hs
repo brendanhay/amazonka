@@ -63,7 +63,15 @@ instance Core.FromXML EnvironmentResourcesDescription where
 instance
   Prelude.Hashable
     EnvironmentResourcesDescription
+  where
+  hashWithSalt
+    _salt
+    EnvironmentResourcesDescription' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancer
 
 instance
   Prelude.NFData
     EnvironmentResourcesDescription
+  where
+  rnf EnvironmentResourcesDescription' {..} =
+    Prelude.rnf loadBalancer

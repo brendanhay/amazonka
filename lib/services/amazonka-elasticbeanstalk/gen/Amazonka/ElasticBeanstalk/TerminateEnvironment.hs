@@ -207,9 +207,19 @@ instance Core.AWSRequest TerminateEnvironment where
       "TerminateEnvironmentResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable TerminateEnvironment
+instance Prelude.Hashable TerminateEnvironment where
+  hashWithSalt _salt TerminateEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` forceTerminate
+      `Prelude.hashWithSalt` terminateResources
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData TerminateEnvironment
+instance Prelude.NFData TerminateEnvironment where
+  rnf TerminateEnvironment' {..} =
+    Prelude.rnf forceTerminate
+      `Prelude.seq` Prelude.rnf terminateResources
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders TerminateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

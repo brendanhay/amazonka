@@ -62,5 +62,10 @@ instance Core.FromXML ApplicationDescriptionMessage where
 instance
   Prelude.Hashable
     ApplicationDescriptionMessage
+  where
+  hashWithSalt _salt ApplicationDescriptionMessage' {..} =
+    _salt `Prelude.hashWithSalt` application
 
-instance Prelude.NFData ApplicationDescriptionMessage
+instance Prelude.NFData ApplicationDescriptionMessage where
+  rnf ApplicationDescriptionMessage' {..} =
+    Prelude.rnf application

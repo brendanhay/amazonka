@@ -126,9 +126,15 @@ instance Core.AWSRequest GetSigningProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSigningProfile
+instance Prelude.Hashable GetSigningProfile where
+  hashWithSalt _salt GetSigningProfile' {..} =
+    _salt `Prelude.hashWithSalt` profileOwner
+      `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData GetSigningProfile
+instance Prelude.NFData GetSigningProfile where
+  rnf GetSigningProfile' {..} =
+    Prelude.rnf profileOwner
+      `Prelude.seq` Prelude.rnf profileName
 
 instance Core.ToHeaders GetSigningProfile where
   toHeaders =
@@ -317,4 +323,20 @@ getSigningProfileResponse_tags = Lens.lens (\GetSigningProfileResponse' {tags} -
 getSigningProfileResponse_httpStatus :: Lens.Lens' GetSigningProfileResponse Prelude.Int
 getSigningProfileResponse_httpStatus = Lens.lens (\GetSigningProfileResponse' {httpStatus} -> httpStatus) (\s@GetSigningProfileResponse' {} a -> s {httpStatus = a} :: GetSigningProfileResponse)
 
-instance Prelude.NFData GetSigningProfileResponse
+instance Prelude.NFData GetSigningProfileResponse where
+  rnf GetSigningProfileResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf platformDisplayName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf signingMaterial
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf profileVersionArn
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf revocationRecord
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf signatureValidityPeriod
+      `Prelude.seq` Prelude.rnf signingParameters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -174,9 +174,21 @@ instance Core.AWSRequest ListSigningProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSigningProfiles
+instance Prelude.Hashable ListSigningProfiles where
+  hashWithSalt _salt ListSigningProfiles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` platformId
+      `Prelude.hashWithSalt` statuses
+      `Prelude.hashWithSalt` includeCanceled
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSigningProfiles
+instance Prelude.NFData ListSigningProfiles where
+  rnf ListSigningProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf statuses
+      `Prelude.seq` Prelude.rnf includeCanceled
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSigningProfiles where
   toHeaders =
@@ -258,4 +270,8 @@ listSigningProfilesResponse_nextToken = Lens.lens (\ListSigningProfilesResponse'
 listSigningProfilesResponse_httpStatus :: Lens.Lens' ListSigningProfilesResponse Prelude.Int
 listSigningProfilesResponse_httpStatus = Lens.lens (\ListSigningProfilesResponse' {httpStatus} -> httpStatus) (\s@ListSigningProfilesResponse' {} a -> s {httpStatus = a} :: ListSigningProfilesResponse)
 
-instance Prelude.NFData ListSigningProfilesResponse
+instance Prelude.NFData ListSigningProfilesResponse where
+  rnf ListSigningProfilesResponse' {..} =
+    Prelude.rnf profiles
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

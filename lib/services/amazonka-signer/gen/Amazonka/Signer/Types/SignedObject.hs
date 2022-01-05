@@ -57,6 +57,9 @@ instance Core.FromJSON SignedObject where
       "SignedObject"
       (\x -> SignedObject' Prelude.<$> (x Core..:? "s3"))
 
-instance Prelude.Hashable SignedObject
+instance Prelude.Hashable SignedObject where
+  hashWithSalt _salt SignedObject' {..} =
+    _salt `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData SignedObject
+instance Prelude.NFData SignedObject where
+  rnf SignedObject' {..} = Prelude.rnf s3

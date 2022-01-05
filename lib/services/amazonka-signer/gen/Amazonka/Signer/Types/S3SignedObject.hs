@@ -72,6 +72,12 @@ instance Core.FromJSON S3SignedObject where
             Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable S3SignedObject
+instance Prelude.Hashable S3SignedObject where
+  hashWithSalt _salt S3SignedObject' {..} =
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3SignedObject
+instance Prelude.NFData S3SignedObject where
+  rnf S3SignedObject' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf key

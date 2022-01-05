@@ -153,6 +153,26 @@ instance Core.FromJSON SigningPlatform where
             Prelude.<*> (x Core..:? "target")
       )
 
-instance Prelude.Hashable SigningPlatform
+instance Prelude.Hashable SigningPlatform where
+  hashWithSalt _salt SigningPlatform' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` signingConfiguration
+      `Prelude.hashWithSalt` partner
+      `Prelude.hashWithSalt` revocationSupported
+      `Prelude.hashWithSalt` signingImageFormat
+      `Prelude.hashWithSalt` platformId
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` maxSizeInMB
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData SigningPlatform
+instance Prelude.NFData SigningPlatform where
+  rnf SigningPlatform' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf signingConfiguration
+      `Prelude.seq` Prelude.rnf partner
+      `Prelude.seq` Prelude.rnf revocationSupported
+      `Prelude.seq` Prelude.rnf signingImageFormat
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf maxSizeInMB
+      `Prelude.seq` Prelude.rnf target

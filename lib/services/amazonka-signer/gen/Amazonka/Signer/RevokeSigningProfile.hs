@@ -128,9 +128,19 @@ instance Core.AWSRequest RevokeSigningProfile where
   response =
     Response.receiveNull RevokeSigningProfileResponse'
 
-instance Prelude.Hashable RevokeSigningProfile
+instance Prelude.Hashable RevokeSigningProfile where
+  hashWithSalt _salt RevokeSigningProfile' {..} =
+    _salt `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` effectiveTime
+      `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData RevokeSigningProfile
+instance Prelude.NFData RevokeSigningProfile where
+  rnf RevokeSigningProfile' {..} =
+    Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf effectiveTime
+      `Prelude.seq` Prelude.rnf profileName
 
 instance Core.ToHeaders RevokeSigningProfile where
   toHeaders =
@@ -181,4 +191,5 @@ newRevokeSigningProfileResponse ::
 newRevokeSigningProfileResponse =
   RevokeSigningProfileResponse'
 
-instance Prelude.NFData RevokeSigningProfileResponse
+instance Prelude.NFData RevokeSigningProfileResponse where
+  rnf _ = ()

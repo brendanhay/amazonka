@@ -152,6 +152,30 @@ instance Core.FromJSON Outpost where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Outpost
+instance Prelude.Hashable Outpost where
+  hashWithSalt _salt Outpost' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lifeCycleStatus
+      `Prelude.hashWithSalt` outpostId
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` siteArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Outpost
+instance Prelude.NFData Outpost where
+  rnf Outpost' {..} =
+    Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lifeCycleStatus
+      `Prelude.seq` Prelude.rnf outpostId
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf siteArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

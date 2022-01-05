@@ -113,9 +113,17 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOutpostInstanceTypes
+instance Prelude.Hashable GetOutpostInstanceTypes where
+  hashWithSalt _salt GetOutpostInstanceTypes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` outpostId
 
-instance Prelude.NFData GetOutpostInstanceTypes
+instance Prelude.NFData GetOutpostInstanceTypes where
+  rnf GetOutpostInstanceTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf outpostId
 
 instance Core.ToHeaders GetOutpostInstanceTypes where
   toHeaders =
@@ -206,3 +214,10 @@ getOutpostInstanceTypesResponse_httpStatus = Lens.lens (\GetOutpostInstanceTypes
 instance
   Prelude.NFData
     GetOutpostInstanceTypesResponse
+  where
+  rnf GetOutpostInstanceTypesResponse' {..} =
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf outpostId
+      `Prelude.seq` Prelude.rnf httpStatus

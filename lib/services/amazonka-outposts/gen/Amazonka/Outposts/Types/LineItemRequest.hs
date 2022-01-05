@@ -61,9 +61,15 @@ lineItemRequest_quantity = Lens.lens (\LineItemRequest' {quantity} -> quantity) 
 lineItemRequest_catalogItemId :: Lens.Lens' LineItemRequest (Prelude.Maybe Prelude.Text)
 lineItemRequest_catalogItemId = Lens.lens (\LineItemRequest' {catalogItemId} -> catalogItemId) (\s@LineItemRequest' {} a -> s {catalogItemId = a} :: LineItemRequest)
 
-instance Prelude.Hashable LineItemRequest
+instance Prelude.Hashable LineItemRequest where
+  hashWithSalt _salt LineItemRequest' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` catalogItemId
 
-instance Prelude.NFData LineItemRequest
+instance Prelude.NFData LineItemRequest where
+  rnf LineItemRequest' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf catalogItemId
 
 instance Core.ToJSON LineItemRequest where
   toJSON LineItemRequest' {..} =

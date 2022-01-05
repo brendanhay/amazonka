@@ -106,6 +106,20 @@ instance Core.FromJSON Site where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Site
+instance Prelude.Hashable Site where
+  hashWithSalt _salt Site' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` siteArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Site
+instance Prelude.NFData Site where
+  rnf Site' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf siteArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

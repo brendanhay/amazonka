@@ -58,6 +58,9 @@ instance Core.FromJSON InstanceTypeItem where
             Prelude.<$> (x Core..:? "InstanceType")
       )
 
-instance Prelude.Hashable InstanceTypeItem
+instance Prelude.Hashable InstanceTypeItem where
+  hashWithSalt _salt InstanceTypeItem' {..} =
+    _salt `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData InstanceTypeItem
+instance Prelude.NFData InstanceTypeItem where
+  rnf InstanceTypeItem' {..} = Prelude.rnf instanceType

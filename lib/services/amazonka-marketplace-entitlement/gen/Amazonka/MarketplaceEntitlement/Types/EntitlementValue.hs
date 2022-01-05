@@ -104,6 +104,16 @@ instance Core.FromJSON EntitlementValue where
             Prelude.<*> (x Core..:? "BooleanValue")
       )
 
-instance Prelude.Hashable EntitlementValue
+instance Prelude.Hashable EntitlementValue where
+  hashWithSalt _salt EntitlementValue' {..} =
+    _salt `Prelude.hashWithSalt` integerValue
+      `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` booleanValue
 
-instance Prelude.NFData EntitlementValue
+instance Prelude.NFData EntitlementValue where
+  rnf EntitlementValue' {..} =
+    Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf doubleValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf booleanValue

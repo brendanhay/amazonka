@@ -138,6 +138,18 @@ instance Core.FromJSON Entitlement where
             Prelude.<*> (x Core..:? "ProductCode")
       )
 
-instance Prelude.Hashable Entitlement
+instance Prelude.Hashable Entitlement where
+  hashWithSalt _salt Entitlement' {..} =
+    _salt `Prelude.hashWithSalt` dimension
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` customerIdentifier
+      `Prelude.hashWithSalt` productCode
 
-instance Prelude.NFData Entitlement
+instance Prelude.NFData Entitlement where
+  rnf Entitlement' {..} =
+    Prelude.rnf dimension
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf customerIdentifier
+      `Prelude.seq` Prelude.rnf productCode

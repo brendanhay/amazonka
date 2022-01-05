@@ -85,6 +85,14 @@ instance Core.FromJSON S3LogDeliveryDescription where
             Prelude.<*> (x Core..:? "bucket")
       )
 
-instance Prelude.Hashable S3LogDeliveryDescription
+instance Prelude.Hashable S3LogDeliveryDescription where
+  hashWithSalt _salt S3LogDeliveryDescription' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData S3LogDeliveryDescription
+instance Prelude.NFData S3LogDeliveryDescription where
+  rnf S3LogDeliveryDescription' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucket

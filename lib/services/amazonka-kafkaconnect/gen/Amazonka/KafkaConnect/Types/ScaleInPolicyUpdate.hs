@@ -58,9 +58,14 @@ newScaleInPolicyUpdate pCpuUtilizationPercentage_ =
 scaleInPolicyUpdate_cpuUtilizationPercentage :: Lens.Lens' ScaleInPolicyUpdate Prelude.Natural
 scaleInPolicyUpdate_cpuUtilizationPercentage = Lens.lens (\ScaleInPolicyUpdate' {cpuUtilizationPercentage} -> cpuUtilizationPercentage) (\s@ScaleInPolicyUpdate' {} a -> s {cpuUtilizationPercentage = a} :: ScaleInPolicyUpdate)
 
-instance Prelude.Hashable ScaleInPolicyUpdate
+instance Prelude.Hashable ScaleInPolicyUpdate where
+  hashWithSalt _salt ScaleInPolicyUpdate' {..} =
+    _salt
+      `Prelude.hashWithSalt` cpuUtilizationPercentage
 
-instance Prelude.NFData ScaleInPolicyUpdate
+instance Prelude.NFData ScaleInPolicyUpdate where
+  rnf ScaleInPolicyUpdate' {..} =
+    Prelude.rnf cpuUtilizationPercentage
 
 instance Core.ToJSON ScaleInPolicyUpdate where
   toJSON ScaleInPolicyUpdate' {..} =

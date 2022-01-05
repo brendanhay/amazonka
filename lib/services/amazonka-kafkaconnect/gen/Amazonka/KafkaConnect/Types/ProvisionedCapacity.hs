@@ -68,9 +68,15 @@ provisionedCapacity_mcuCount = Lens.lens (\ProvisionedCapacity' {mcuCount} -> mc
 provisionedCapacity_workerCount :: Lens.Lens' ProvisionedCapacity Prelude.Natural
 provisionedCapacity_workerCount = Lens.lens (\ProvisionedCapacity' {workerCount} -> workerCount) (\s@ProvisionedCapacity' {} a -> s {workerCount = a} :: ProvisionedCapacity)
 
-instance Prelude.Hashable ProvisionedCapacity
+instance Prelude.Hashable ProvisionedCapacity where
+  hashWithSalt _salt ProvisionedCapacity' {..} =
+    _salt `Prelude.hashWithSalt` mcuCount
+      `Prelude.hashWithSalt` workerCount
 
-instance Prelude.NFData ProvisionedCapacity
+instance Prelude.NFData ProvisionedCapacity where
+  rnf ProvisionedCapacity' {..} =
+    Prelude.rnf mcuCount
+      `Prelude.seq` Prelude.rnf workerCount
 
 instance Core.ToJSON ProvisionedCapacity where
   toJSON ProvisionedCapacity' {..} =

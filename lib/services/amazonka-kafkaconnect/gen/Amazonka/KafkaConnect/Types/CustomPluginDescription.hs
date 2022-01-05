@@ -72,6 +72,12 @@ instance Core.FromJSON CustomPluginDescription where
             Prelude.<*> (x Core..:? "revision")
       )
 
-instance Prelude.Hashable CustomPluginDescription
+instance Prelude.Hashable CustomPluginDescription where
+  hashWithSalt _salt CustomPluginDescription' {..} =
+    _salt `Prelude.hashWithSalt` customPluginArn
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData CustomPluginDescription
+instance Prelude.NFData CustomPluginDescription where
+  rnf CustomPluginDescription' {..} =
+    Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf revision

@@ -70,7 +70,15 @@ instance
 instance
   Prelude.Hashable
     KafkaClusterEncryptionInTransitDescription
+  where
+  hashWithSalt
+    _salt
+    KafkaClusterEncryptionInTransitDescription' {..} =
+      _salt `Prelude.hashWithSalt` encryptionType
 
 instance
   Prelude.NFData
     KafkaClusterEncryptionInTransitDescription
+  where
+  rnf KafkaClusterEncryptionInTransitDescription' {..} =
+    Prelude.rnf encryptionType

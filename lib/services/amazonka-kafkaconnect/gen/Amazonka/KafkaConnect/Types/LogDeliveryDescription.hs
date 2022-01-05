@@ -66,6 +66,10 @@ instance Core.FromJSON LogDeliveryDescription where
             Prelude.<$> (x Core..:? "workerLogDelivery")
       )
 
-instance Prelude.Hashable LogDeliveryDescription
+instance Prelude.Hashable LogDeliveryDescription where
+  hashWithSalt _salt LogDeliveryDescription' {..} =
+    _salt `Prelude.hashWithSalt` workerLogDelivery
 
-instance Prelude.NFData LogDeliveryDescription
+instance Prelude.NFData LogDeliveryDescription where
+  rnf LogDeliveryDescription' {..} =
+    Prelude.rnf workerLogDelivery

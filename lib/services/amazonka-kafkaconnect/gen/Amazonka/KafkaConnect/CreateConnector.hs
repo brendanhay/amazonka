@@ -244,9 +244,35 @@ instance Core.AWSRequest CreateConnector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnector
+instance Prelude.Hashable CreateConnector where
+  hashWithSalt _salt CreateConnector' {..} =
+    _salt `Prelude.hashWithSalt` logDelivery
+      `Prelude.hashWithSalt` workerConfiguration
+      `Prelude.hashWithSalt` connectorDescription
+      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` connectorConfiguration
+      `Prelude.hashWithSalt` connectorName
+      `Prelude.hashWithSalt` kafkaCluster
+      `Prelude.hashWithSalt` kafkaClusterClientAuthentication
+      `Prelude.hashWithSalt` kafkaClusterEncryptionInTransit
+      `Prelude.hashWithSalt` kafkaConnectVersion
+      `Prelude.hashWithSalt` plugins
+      `Prelude.hashWithSalt` serviceExecutionRoleArn
 
-instance Prelude.NFData CreateConnector
+instance Prelude.NFData CreateConnector where
+  rnf CreateConnector' {..} =
+    Prelude.rnf logDelivery
+      `Prelude.seq` Prelude.rnf workerConfiguration
+      `Prelude.seq` Prelude.rnf connectorDescription
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf connectorConfiguration
+      `Prelude.seq` Prelude.rnf connectorName
+      `Prelude.seq` Prelude.rnf kafkaCluster
+      `Prelude.seq` Prelude.rnf kafkaClusterClientAuthentication
+      `Prelude.seq` Prelude.rnf kafkaClusterEncryptionInTransit
+      `Prelude.seq` Prelude.rnf kafkaConnectVersion
+      `Prelude.seq` Prelude.rnf plugins
+      `Prelude.seq` Prelude.rnf serviceExecutionRoleArn
 
 instance Core.ToHeaders CreateConnector where
   toHeaders =
@@ -356,4 +382,9 @@ createConnectorResponse_connectorState = Lens.lens (\CreateConnectorResponse' {c
 createConnectorResponse_httpStatus :: Lens.Lens' CreateConnectorResponse Prelude.Int
 createConnectorResponse_httpStatus = Lens.lens (\CreateConnectorResponse' {httpStatus} -> httpStatus) (\s@CreateConnectorResponse' {} a -> s {httpStatus = a} :: CreateConnectorResponse)
 
-instance Prelude.NFData CreateConnectorResponse
+instance Prelude.NFData CreateConnectorResponse where
+  rnf CreateConnectorResponse' {..} =
+    Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf connectorName
+      `Prelude.seq` Prelude.rnf connectorState
+      `Prelude.seq` Prelude.rnf httpStatus

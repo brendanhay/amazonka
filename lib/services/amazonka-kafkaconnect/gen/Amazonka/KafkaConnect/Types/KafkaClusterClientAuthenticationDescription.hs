@@ -73,7 +73,15 @@ instance
 instance
   Prelude.Hashable
     KafkaClusterClientAuthenticationDescription
+  where
+  hashWithSalt
+    _salt
+    KafkaClusterClientAuthenticationDescription' {..} =
+      _salt `Prelude.hashWithSalt` authenticationType
 
 instance
   Prelude.NFData
     KafkaClusterClientAuthenticationDescription
+  where
+  rnf KafkaClusterClientAuthenticationDescription' {..} =
+    Prelude.rnf authenticationType

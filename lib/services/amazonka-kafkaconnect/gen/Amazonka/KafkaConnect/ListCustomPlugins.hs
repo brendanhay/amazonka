@@ -128,9 +128,15 @@ instance Core.AWSRequest ListCustomPlugins where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCustomPlugins
+instance Prelude.Hashable ListCustomPlugins where
+  hashWithSalt _salt ListCustomPlugins' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCustomPlugins
+instance Prelude.NFData ListCustomPlugins where
+  rnf ListCustomPlugins' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCustomPlugins where
   toHeaders =
@@ -207,4 +213,8 @@ listCustomPluginsResponse_nextToken = Lens.lens (\ListCustomPluginsResponse' {ne
 listCustomPluginsResponse_httpStatus :: Lens.Lens' ListCustomPluginsResponse Prelude.Int
 listCustomPluginsResponse_httpStatus = Lens.lens (\ListCustomPluginsResponse' {httpStatus} -> httpStatus) (\s@ListCustomPluginsResponse' {} a -> s {httpStatus = a} :: ListCustomPluginsResponse)
 
-instance Prelude.NFData ListCustomPluginsResponse
+instance Prelude.NFData ListCustomPluginsResponse where
+  rnf ListCustomPluginsResponse' {..} =
+    Prelude.rnf customPlugins
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

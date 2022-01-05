@@ -145,9 +145,17 @@ instance Core.AWSRequest ListAssistantAssociations where
                         )
       )
 
-instance Prelude.Hashable ListAssistantAssociations
+instance Prelude.Hashable ListAssistantAssociations where
+  hashWithSalt _salt ListAssistantAssociations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assistantId
 
-instance Prelude.NFData ListAssistantAssociations
+instance Prelude.NFData ListAssistantAssociations where
+  rnf ListAssistantAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assistantId
 
 instance Core.ToHeaders ListAssistantAssociations where
   toHeaders =
@@ -230,3 +238,8 @@ listAssistantAssociationsResponse_assistantAssociationSummaries = Lens.lens (\Li
 instance
   Prelude.NFData
     ListAssistantAssociationsResponse
+  where
+  rnf ListAssistantAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assistantAssociationSummaries

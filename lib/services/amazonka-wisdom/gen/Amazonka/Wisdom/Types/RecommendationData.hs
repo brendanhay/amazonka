@@ -98,6 +98,16 @@ instance Core.FromJSON RecommendationData where
             Prelude.<*> (x Core..: "recommendationId")
       )
 
-instance Prelude.Hashable RecommendationData
+instance Prelude.Hashable RecommendationData where
+  hashWithSalt _salt RecommendationData' {..} =
+    _salt `Prelude.hashWithSalt` relevanceLevel
+      `Prelude.hashWithSalt` relevanceScore
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` recommendationId
 
-instance Prelude.NFData RecommendationData
+instance Prelude.NFData RecommendationData where
+  rnf RecommendationData' {..} =
+    Prelude.rnf relevanceLevel
+      `Prelude.seq` Prelude.rnf relevanceScore
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf recommendationId

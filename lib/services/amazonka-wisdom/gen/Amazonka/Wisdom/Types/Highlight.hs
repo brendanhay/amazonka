@@ -72,6 +72,12 @@ instance Core.FromJSON Highlight where
             Prelude.<*> (x Core..:? "beginOffsetInclusive")
       )
 
-instance Prelude.Hashable Highlight
+instance Prelude.Hashable Highlight where
+  hashWithSalt _salt Highlight' {..} =
+    _salt `Prelude.hashWithSalt` endOffsetExclusive
+      `Prelude.hashWithSalt` beginOffsetInclusive
 
-instance Prelude.NFData Highlight
+instance Prelude.NFData Highlight where
+  rnf Highlight' {..} =
+    Prelude.rnf endOffsetExclusive
+      `Prelude.seq` Prelude.rnf beginOffsetInclusive

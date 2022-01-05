@@ -85,6 +85,14 @@ instance Core.FromJSON Document where
             Prelude.<*> (x Core..: "contentReference")
       )
 
-instance Prelude.Hashable Document
+instance Prelude.Hashable Document where
+  hashWithSalt _salt Document' {..} =
+    _salt `Prelude.hashWithSalt` excerpt
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` contentReference
 
-instance Prelude.NFData Document
+instance Prelude.NFData Document where
+  rnf Document' {..} =
+    Prelude.rnf excerpt
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf contentReference

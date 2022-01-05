@@ -66,7 +66,16 @@ instance Core.FromJSON AssistantAssociationOutputData where
 instance
   Prelude.Hashable
     AssistantAssociationOutputData
+  where
+  hashWithSalt
+    _salt
+    AssistantAssociationOutputData' {..} =
+      _salt
+        `Prelude.hashWithSalt` knowledgeBaseAssociation
 
 instance
   Prelude.NFData
     AssistantAssociationOutputData
+  where
+  rnf AssistantAssociationOutputData' {..} =
+    Prelude.rnf knowledgeBaseAssociation

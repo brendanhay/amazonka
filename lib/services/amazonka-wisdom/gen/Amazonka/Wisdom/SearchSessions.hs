@@ -153,9 +153,19 @@ instance Core.AWSRequest SearchSessions where
                         )
       )
 
-instance Prelude.Hashable SearchSessions
+instance Prelude.Hashable SearchSessions where
+  hashWithSalt _salt SearchSessions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` searchExpression
 
-instance Prelude.NFData SearchSessions
+instance Prelude.NFData SearchSessions where
+  rnf SearchSessions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf searchExpression
 
 instance Core.ToHeaders SearchSessions where
   toHeaders =
@@ -243,4 +253,8 @@ searchSessionsResponse_httpStatus = Lens.lens (\SearchSessionsResponse' {httpSta
 searchSessionsResponse_sessionSummaries :: Lens.Lens' SearchSessionsResponse [SessionSummary]
 searchSessionsResponse_sessionSummaries = Lens.lens (\SearchSessionsResponse' {sessionSummaries} -> sessionSummaries) (\s@SearchSessionsResponse' {} a -> s {sessionSummaries = a} :: SearchSessionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SearchSessionsResponse
+instance Prelude.NFData SearchSessionsResponse where
+  rnf SearchSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sessionSummaries

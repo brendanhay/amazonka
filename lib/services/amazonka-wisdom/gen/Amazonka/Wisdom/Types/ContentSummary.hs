@@ -198,6 +198,30 @@ instance Core.FromJSON ContentSummary where
             Prelude.<*> (x Core..: "title")
       )
 
-instance Prelude.Hashable ContentSummary
+instance Prelude.Hashable ContentSummary where
+  hashWithSalt _salt ContentSummary' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` contentArn
+      `Prelude.hashWithSalt` contentId
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` knowledgeBaseArn
+      `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` title
 
-instance Prelude.NFData ContentSummary
+instance Prelude.NFData ContentSummary where
+  rnf ContentSummary' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf contentArn
+      `Prelude.seq` Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf knowledgeBaseArn
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf title

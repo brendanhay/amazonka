@@ -138,9 +138,17 @@ instance Core.AWSRequest ListContents where
                         )
       )
 
-instance Prelude.Hashable ListContents
+instance Prelude.Hashable ListContents where
+  hashWithSalt _salt ListContents' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData ListContents
+instance Prelude.NFData ListContents where
+  rnf ListContents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders ListContents where
   toHeaders =
@@ -218,4 +226,8 @@ listContentsResponse_httpStatus = Lens.lens (\ListContentsResponse' {httpStatus}
 listContentsResponse_contentSummaries :: Lens.Lens' ListContentsResponse [ContentSummary]
 listContentsResponse_contentSummaries = Lens.lens (\ListContentsResponse' {contentSummaries} -> contentSummaries) (\s@ListContentsResponse' {} a -> s {contentSummaries = a} :: ListContentsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListContentsResponse
+instance Prelude.NFData ListContentsResponse where
+  rnf ListContentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentSummaries

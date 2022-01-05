@@ -87,9 +87,12 @@ instance Core.AWSRequest GetAssistant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssistant
+instance Prelude.Hashable GetAssistant where
+  hashWithSalt _salt GetAssistant' {..} =
+    _salt `Prelude.hashWithSalt` assistantId
 
-instance Prelude.NFData GetAssistant
+instance Prelude.NFData GetAssistant where
+  rnf GetAssistant' {..} = Prelude.rnf assistantId
 
 instance Core.ToHeaders GetAssistant where
   toHeaders =
@@ -148,4 +151,7 @@ getAssistantResponse_assistant = Lens.lens (\GetAssistantResponse' {assistant} -
 getAssistantResponse_httpStatus :: Lens.Lens' GetAssistantResponse Prelude.Int
 getAssistantResponse_httpStatus = Lens.lens (\GetAssistantResponse' {httpStatus} -> httpStatus) (\s@GetAssistantResponse' {} a -> s {httpStatus = a} :: GetAssistantResponse)
 
-instance Prelude.NFData GetAssistantResponse
+instance Prelude.NFData GetAssistantResponse where
+  rnf GetAssistantResponse' {..} =
+    Prelude.rnf assistant
+      `Prelude.seq` Prelude.rnf httpStatus

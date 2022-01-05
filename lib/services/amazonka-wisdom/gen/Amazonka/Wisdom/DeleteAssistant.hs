@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteAssistant where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAssistant
+instance Prelude.Hashable DeleteAssistant where
+  hashWithSalt _salt DeleteAssistant' {..} =
+    _salt `Prelude.hashWithSalt` assistantId
 
-instance Prelude.NFData DeleteAssistant
+instance Prelude.NFData DeleteAssistant where
+  rnf DeleteAssistant' {..} = Prelude.rnf assistantId
 
 instance Core.ToHeaders DeleteAssistant where
   toHeaders =
@@ -137,4 +140,6 @@ newDeleteAssistantResponse pHttpStatus_ =
 deleteAssistantResponse_httpStatus :: Lens.Lens' DeleteAssistantResponse Prelude.Int
 deleteAssistantResponse_httpStatus = Lens.lens (\DeleteAssistantResponse' {httpStatus} -> httpStatus) (\s@DeleteAssistantResponse' {} a -> s {httpStatus = a} :: DeleteAssistantResponse)
 
-instance Prelude.NFData DeleteAssistantResponse
+instance Prelude.NFData DeleteAssistantResponse where
+  rnf DeleteAssistantResponse' {..} =
+    Prelude.rnf httpStatus

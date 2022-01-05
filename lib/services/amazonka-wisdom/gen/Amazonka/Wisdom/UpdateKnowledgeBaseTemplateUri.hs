@@ -117,10 +117,20 @@ instance
 instance
   Prelude.Hashable
     UpdateKnowledgeBaseTemplateUri
+  where
+  hashWithSalt
+    _salt
+    UpdateKnowledgeBaseTemplateUri' {..} =
+      _salt `Prelude.hashWithSalt` knowledgeBaseId
+        `Prelude.hashWithSalt` templateUri
 
 instance
   Prelude.NFData
     UpdateKnowledgeBaseTemplateUri
+  where
+  rnf UpdateKnowledgeBaseTemplateUri' {..} =
+    Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf templateUri
 
 instance
   Core.ToHeaders
@@ -197,3 +207,7 @@ updateKnowledgeBaseTemplateUriResponse_httpStatus = Lens.lens (\UpdateKnowledgeB
 instance
   Prelude.NFData
     UpdateKnowledgeBaseTemplateUriResponse
+  where
+  rnf UpdateKnowledgeBaseTemplateUriResponse' {..} =
+    Prelude.rnf knowledgeBase
+      `Prelude.seq` Prelude.rnf httpStatus

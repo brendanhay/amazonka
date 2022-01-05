@@ -234,6 +234,36 @@ instance Core.FromJSON ContentData where
             Prelude.<*> (x Core..: "urlExpiry")
       )
 
-instance Prelude.Hashable ContentData
+instance Prelude.Hashable ContentData where
+  hashWithSalt _salt ContentData' {..} =
+    _salt `Prelude.hashWithSalt` linkOutUri
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` contentArn
+      `Prelude.hashWithSalt` contentId
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` knowledgeBaseArn
+      `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` urlExpiry
 
-instance Prelude.NFData ContentData
+instance Prelude.NFData ContentData where
+  rnf ContentData' {..} =
+    Prelude.rnf linkOutUri
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf contentArn
+      `Prelude.seq` Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf knowledgeBaseArn
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf urlExpiry

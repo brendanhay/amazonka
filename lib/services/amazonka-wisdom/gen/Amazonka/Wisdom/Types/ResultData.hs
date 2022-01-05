@@ -86,6 +86,14 @@ instance Core.FromJSON ResultData where
             Prelude.<*> (x Core..: "resultId")
       )
 
-instance Prelude.Hashable ResultData
+instance Prelude.Hashable ResultData where
+  hashWithSalt _salt ResultData' {..} =
+    _salt `Prelude.hashWithSalt` relevanceScore
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` resultId
 
-instance Prelude.NFData ResultData
+instance Prelude.NFData ResultData where
+  rnf ResultData' {..} =
+    Prelude.rnf relevanceScore
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf resultId

@@ -104,9 +104,15 @@ instance Core.AWSRequest GetContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContent
+instance Prelude.Hashable GetContent where
+  hashWithSalt _salt GetContent' {..} =
+    _salt `Prelude.hashWithSalt` contentId
+      `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData GetContent
+instance Prelude.NFData GetContent where
+  rnf GetContent' {..} =
+    Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders GetContent where
   toHeaders =
@@ -169,4 +175,7 @@ getContentResponse_content = Lens.lens (\GetContentResponse' {content} -> conten
 getContentResponse_httpStatus :: Lens.Lens' GetContentResponse Prelude.Int
 getContentResponse_httpStatus = Lens.lens (\GetContentResponse' {httpStatus} -> httpStatus) (\s@GetContentResponse' {} a -> s {httpStatus = a} :: GetContentResponse)
 
-instance Prelude.NFData GetContentResponse
+instance Prelude.NFData GetContentResponse where
+  rnf GetContentResponse' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf httpStatus

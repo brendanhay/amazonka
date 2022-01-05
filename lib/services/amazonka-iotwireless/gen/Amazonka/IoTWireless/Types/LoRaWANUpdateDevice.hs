@@ -62,9 +62,15 @@ loRaWANUpdateDevice_serviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {service
 loRaWANUpdateDevice_deviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
 loRaWANUpdateDevice_deviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {deviceProfileId} -> deviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {deviceProfileId = a} :: LoRaWANUpdateDevice)
 
-instance Prelude.Hashable LoRaWANUpdateDevice
+instance Prelude.Hashable LoRaWANUpdateDevice where
+  hashWithSalt _salt LoRaWANUpdateDevice' {..} =
+    _salt `Prelude.hashWithSalt` serviceProfileId
+      `Prelude.hashWithSalt` deviceProfileId
 
-instance Prelude.NFData LoRaWANUpdateDevice
+instance Prelude.NFData LoRaWANUpdateDevice where
+  rnf LoRaWANUpdateDevice' {..} =
+    Prelude.rnf serviceProfileId
+      `Prelude.seq` Prelude.rnf deviceProfileId
 
 instance Core.ToJSON LoRaWANUpdateDevice where
   toJSON LoRaWANUpdateDevice' {..} =

@@ -81,9 +81,12 @@ instance Core.AWSRequest GetLogLevelsByResourceTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLogLevelsByResourceTypes
+instance Prelude.Hashable GetLogLevelsByResourceTypes where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetLogLevelsByResourceTypes
+instance Prelude.NFData GetLogLevelsByResourceTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders GetLogLevelsByResourceTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,3 +156,9 @@ getLogLevelsByResourceTypesResponse_httpStatus = Lens.lens (\GetLogLevelsByResou
 instance
   Prelude.NFData
     GetLogLevelsByResourceTypesResponse
+  where
+  rnf GetLogLevelsByResourceTypesResponse' {..} =
+    Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
+      `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -81,6 +81,14 @@ instance Core.FromJSON ServiceProfile where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ServiceProfile
+instance Prelude.Hashable ServiceProfile where
+  hashWithSalt _salt ServiceProfile' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ServiceProfile
+instance Prelude.NFData ServiceProfile where
+  rnf ServiceProfile' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

@@ -53,9 +53,13 @@ newSidewalkUpdateAccount =
 sidewalkUpdateAccount_appServerPrivateKey :: Lens.Lens' SidewalkUpdateAccount (Prelude.Maybe Prelude.Text)
 sidewalkUpdateAccount_appServerPrivateKey = Lens.lens (\SidewalkUpdateAccount' {appServerPrivateKey} -> appServerPrivateKey) (\s@SidewalkUpdateAccount' {} a -> s {appServerPrivateKey = a} :: SidewalkUpdateAccount) Prelude.. Lens.mapping Core._Sensitive
 
-instance Prelude.Hashable SidewalkUpdateAccount
+instance Prelude.Hashable SidewalkUpdateAccount where
+  hashWithSalt _salt SidewalkUpdateAccount' {..} =
+    _salt `Prelude.hashWithSalt` appServerPrivateKey
 
-instance Prelude.NFData SidewalkUpdateAccount
+instance Prelude.NFData SidewalkUpdateAccount where
+  rnf SidewalkUpdateAccount' {..} =
+    Prelude.rnf appServerPrivateKey
 
 instance Core.ToJSON SidewalkUpdateAccount where
   toJSON SidewalkUpdateAccount' {..} =

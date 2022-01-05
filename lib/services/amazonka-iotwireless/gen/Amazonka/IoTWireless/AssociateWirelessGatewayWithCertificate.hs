@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     AssociateWirelessGatewayWithCertificate
+  where
+  hashWithSalt
+    _salt
+    AssociateWirelessGatewayWithCertificate' {..} =
+      _salt `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` iotCertificateId
 
 instance
   Prelude.NFData
     AssociateWirelessGatewayWithCertificate
+  where
+  rnf AssociateWirelessGatewayWithCertificate' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf iotCertificateId
 
 instance
   Core.ToHeaders
@@ -190,3 +200,8 @@ associateWirelessGatewayWithCertificateResponse_httpStatus = Lens.lens (\Associa
 instance
   Prelude.NFData
     AssociateWirelessGatewayWithCertificateResponse
+  where
+  rnf
+    AssociateWirelessGatewayWithCertificateResponse' {..} =
+      Prelude.rnf iotCertificateId
+        `Prelude.seq` Prelude.rnf httpStatus

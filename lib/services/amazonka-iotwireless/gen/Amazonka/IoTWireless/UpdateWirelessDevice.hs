@@ -126,9 +126,21 @@ instance Core.AWSRequest UpdateWirelessDevice where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWirelessDevice
+instance Prelude.Hashable UpdateWirelessDevice where
+  hashWithSalt _salt UpdateWirelessDevice' {..} =
+    _salt `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinationName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateWirelessDevice
+instance Prelude.NFData UpdateWirelessDevice where
+  rnf UpdateWirelessDevice' {..} =
+    Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +195,6 @@ newUpdateWirelessDeviceResponse pHttpStatus_ =
 updateWirelessDeviceResponse_httpStatus :: Lens.Lens' UpdateWirelessDeviceResponse Prelude.Int
 updateWirelessDeviceResponse_httpStatus = Lens.lens (\UpdateWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@UpdateWirelessDeviceResponse' {} a -> s {httpStatus = a} :: UpdateWirelessDeviceResponse)
 
-instance Prelude.NFData UpdateWirelessDeviceResponse
+instance Prelude.NFData UpdateWirelessDeviceResponse where
+  rnf UpdateWirelessDeviceResponse' {..} =
+    Prelude.rnf httpStatus

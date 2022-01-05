@@ -248,5 +248,46 @@ instance Core.FromJSON LoRaWANGetServiceProfileInfo where
 instance
   Prelude.Hashable
     LoRaWANGetServiceProfileInfo
+  where
+  hashWithSalt _salt LoRaWANGetServiceProfileInfo' {..} =
+    _salt `Prelude.hashWithSalt` addGwMetadata
+      `Prelude.hashWithSalt` prAllowed
+      `Prelude.hashWithSalt` drMax
+      `Prelude.hashWithSalt` dlRate
+      `Prelude.hashWithSalt` devStatusReqFreq
+      `Prelude.hashWithSalt` reportDevStatusBattery
+      `Prelude.hashWithSalt` dlBucketSize
+      `Prelude.hashWithSalt` ulRatePolicy
+      `Prelude.hashWithSalt` targetPer
+      `Prelude.hashWithSalt` drMin
+      `Prelude.hashWithSalt` nwkGeoLoc
+      `Prelude.hashWithSalt` channelMask
+      `Prelude.hashWithSalt` dlRatePolicy
+      `Prelude.hashWithSalt` hrAllowed
+      `Prelude.hashWithSalt` ulBucketSize
+      `Prelude.hashWithSalt` ulRate
+      `Prelude.hashWithSalt` reportDevStatusMargin
+      `Prelude.hashWithSalt` raAllowed
+      `Prelude.hashWithSalt` minGwDiversity
 
-instance Prelude.NFData LoRaWANGetServiceProfileInfo
+instance Prelude.NFData LoRaWANGetServiceProfileInfo where
+  rnf LoRaWANGetServiceProfileInfo' {..} =
+    Prelude.rnf addGwMetadata
+      `Prelude.seq` Prelude.rnf prAllowed
+      `Prelude.seq` Prelude.rnf drMax
+      `Prelude.seq` Prelude.rnf dlRate
+      `Prelude.seq` Prelude.rnf devStatusReqFreq
+      `Prelude.seq` Prelude.rnf reportDevStatusBattery
+      `Prelude.seq` Prelude.rnf dlBucketSize
+      `Prelude.seq` Prelude.rnf ulRatePolicy
+      `Prelude.seq` Prelude.rnf targetPer
+      `Prelude.seq` Prelude.rnf drMin
+      `Prelude.seq` Prelude.rnf nwkGeoLoc
+      `Prelude.seq` Prelude.rnf channelMask
+      `Prelude.seq` Prelude.rnf dlRatePolicy
+      `Prelude.seq` Prelude.rnf hrAllowed
+      `Prelude.seq` Prelude.rnf ulBucketSize
+      `Prelude.seq` Prelude.rnf ulRate
+      `Prelude.seq` Prelude.rnf reportDevStatusMargin
+      `Prelude.seq` Prelude.rnf raAllowed
+      `Prelude.seq` Prelude.rnf minGwDiversity

@@ -76,6 +76,12 @@ instance Core.FromJSON CertificateList where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable CertificateList
+instance Prelude.Hashable CertificateList where
+  hashWithSalt _salt CertificateList' {..} =
+    _salt `Prelude.hashWithSalt` signingAlg
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData CertificateList
+instance Prelude.NFData CertificateList where
+  rnf CertificateList' {..} =
+    Prelude.rnf signingAlg
+      `Prelude.seq` Prelude.rnf value

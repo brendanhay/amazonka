@@ -94,6 +94,16 @@ instance Core.FromJSON SidewalkDeviceMetadata where
             Prelude.<*> (x Core..:? "Rssi")
       )
 
-instance Prelude.Hashable SidewalkDeviceMetadata
+instance Prelude.Hashable SidewalkDeviceMetadata where
+  hashWithSalt _salt SidewalkDeviceMetadata' {..} =
+    _salt `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` deviceState
+      `Prelude.hashWithSalt` batteryLevel
+      `Prelude.hashWithSalt` rssi
 
-instance Prelude.NFData SidewalkDeviceMetadata
+instance Prelude.NFData SidewalkDeviceMetadata where
+  rnf SidewalkDeviceMetadata' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf deviceState
+      `Prelude.seq` Prelude.rnf batteryLevel
+      `Prelude.seq` Prelude.rnf rssi

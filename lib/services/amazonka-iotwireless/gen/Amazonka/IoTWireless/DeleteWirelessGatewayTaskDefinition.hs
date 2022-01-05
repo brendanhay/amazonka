@@ -91,10 +91,18 @@ instance
 instance
   Prelude.Hashable
     DeleteWirelessGatewayTaskDefinition
+  where
+  hashWithSalt
+    _salt
+    DeleteWirelessGatewayTaskDefinition' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteWirelessGatewayTaskDefinition
+  where
+  rnf DeleteWirelessGatewayTaskDefinition' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -150,3 +158,6 @@ deleteWirelessGatewayTaskDefinitionResponse_httpStatus = Lens.lens (\DeleteWirel
 instance
   Prelude.NFData
     DeleteWirelessGatewayTaskDefinitionResponse
+  where
+  rnf DeleteWirelessGatewayTaskDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

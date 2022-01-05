@@ -130,10 +130,22 @@ instance
 instance
   Prelude.Hashable
     AssociateAwsAccountWithPartnerAccount
+  where
+  hashWithSalt
+    _salt
+    AssociateAwsAccountWithPartnerAccount' {..} =
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` sidewalk
 
 instance
   Prelude.NFData
     AssociateAwsAccountWithPartnerAccount
+  where
+  rnf AssociateAwsAccountWithPartnerAccount' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sidewalk
 
 instance
   Core.ToHeaders
@@ -219,3 +231,9 @@ associateAwsAccountWithPartnerAccountResponse_httpStatus = Lens.lens (\Associate
 instance
   Prelude.NFData
     AssociateAwsAccountWithPartnerAccountResponse
+  where
+  rnf
+    AssociateAwsAccountWithPartnerAccountResponse' {..} =
+      Prelude.rnf sidewalk
+        `Prelude.seq` Prelude.rnf arn
+        `Prelude.seq` Prelude.rnf httpStatus

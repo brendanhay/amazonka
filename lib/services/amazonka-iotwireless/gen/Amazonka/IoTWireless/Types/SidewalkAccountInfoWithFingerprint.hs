@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     SidewalkAccountInfoWithFingerprint
+  where
+  hashWithSalt
+    _salt
+    SidewalkAccountInfoWithFingerprint' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` fingerprint
+        `Prelude.hashWithSalt` amazonId
 
 instance
   Prelude.NFData
     SidewalkAccountInfoWithFingerprint
+  where
+  rnf SidewalkAccountInfoWithFingerprint' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf amazonId

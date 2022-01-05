@@ -112,6 +112,20 @@ instance Core.FromJSON Destinations where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable Destinations
+instance Prelude.Hashable Destinations where
+  hashWithSalt _salt Destinations' {..} =
+    _salt `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData Destinations
+instance Prelude.NFData Destinations where
+  rnf Destinations' {..} =
+    Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf roleArn

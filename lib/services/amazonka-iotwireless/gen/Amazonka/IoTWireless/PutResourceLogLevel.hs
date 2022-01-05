@@ -117,9 +117,17 @@ instance Core.AWSRequest PutResourceLogLevel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourceLogLevel
+instance Prelude.Hashable PutResourceLogLevel where
+  hashWithSalt _salt PutResourceLogLevel' {..} =
+    _salt `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` logLevel
 
-instance Prelude.NFData PutResourceLogLevel
+instance Prelude.NFData PutResourceLogLevel where
+  rnf PutResourceLogLevel' {..} =
+    Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToHeaders PutResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +179,6 @@ newPutResourceLogLevelResponse pHttpStatus_ =
 putResourceLogLevelResponse_httpStatus :: Lens.Lens' PutResourceLogLevelResponse Prelude.Int
 putResourceLogLevelResponse_httpStatus = Lens.lens (\PutResourceLogLevelResponse' {httpStatus} -> httpStatus) (\s@PutResourceLogLevelResponse' {} a -> s {httpStatus = a} :: PutResourceLogLevelResponse)
 
-instance Prelude.NFData PutResourceLogLevelResponse
+instance Prelude.NFData PutResourceLogLevelResponse where
+  rnf PutResourceLogLevelResponse' {..} =
+    Prelude.rnf httpStatus

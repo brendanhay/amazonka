@@ -96,8 +96,13 @@ instance Core.AWSRequest GetWirelessGatewayStatistics where
 instance
   Prelude.Hashable
     GetWirelessGatewayStatistics
+  where
+  hashWithSalt _salt GetWirelessGatewayStatistics' {..} =
+    _salt `Prelude.hashWithSalt` wirelessGatewayId
 
-instance Prelude.NFData GetWirelessGatewayStatistics
+instance Prelude.NFData GetWirelessGatewayStatistics where
+  rnf GetWirelessGatewayStatistics' {..} =
+    Prelude.rnf wirelessGatewayId
 
 instance Core.ToHeaders GetWirelessGatewayStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,3 +179,9 @@ getWirelessGatewayStatisticsResponse_httpStatus = Lens.lens (\GetWirelessGateway
 instance
   Prelude.NFData
     GetWirelessGatewayStatisticsResponse
+  where
+  rnf GetWirelessGatewayStatisticsResponse' {..} =
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
+      `Prelude.seq` Prelude.rnf wirelessGatewayId
+      `Prelude.seq` Prelude.rnf httpStatus

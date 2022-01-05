@@ -106,9 +106,15 @@ instance Core.AWSRequest ListDeviceProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeviceProfiles
+instance Prelude.Hashable ListDeviceProfiles where
+  hashWithSalt _salt ListDeviceProfiles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDeviceProfiles
+instance Prelude.NFData ListDeviceProfiles where
+  rnf ListDeviceProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeviceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,8 @@ listDeviceProfilesResponse_nextToken = Lens.lens (\ListDeviceProfilesResponse' {
 listDeviceProfilesResponse_httpStatus :: Lens.Lens' ListDeviceProfilesResponse Prelude.Int
 listDeviceProfilesResponse_httpStatus = Lens.lens (\ListDeviceProfilesResponse' {httpStatus} -> httpStatus) (\s@ListDeviceProfilesResponse' {} a -> s {httpStatus = a} :: ListDeviceProfilesResponse)
 
-instance Prelude.NFData ListDeviceProfilesResponse
+instance Prelude.NFData ListDeviceProfilesResponse where
+  rnf ListDeviceProfilesResponse' {..} =
+    Prelude.rnf deviceProfileList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -110,10 +110,22 @@ instance
 instance
   Prelude.Hashable
     UpdateLogLevelsByResourceTypes
+  where
+  hashWithSalt
+    _salt
+    UpdateLogLevelsByResourceTypes' {..} =
+      _salt `Prelude.hashWithSalt` defaultLogLevel
+        `Prelude.hashWithSalt` wirelessGatewayLogOptions
+        `Prelude.hashWithSalt` wirelessDeviceLogOptions
 
 instance
   Prelude.NFData
     UpdateLogLevelsByResourceTypes
+  where
+  rnf UpdateLogLevelsByResourceTypes' {..} =
+    Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
+      `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
 
 instance
   Core.ToHeaders
@@ -174,3 +186,6 @@ updateLogLevelsByResourceTypesResponse_httpStatus = Lens.lens (\UpdateLogLevelsB
 instance
   Prelude.NFData
     UpdateLogLevelsByResourceTypesResponse
+  where
+  rnf UpdateLogLevelsByResourceTypesResponse' {..} =
+    Prelude.rnf httpStatus

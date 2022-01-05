@@ -92,9 +92,12 @@ instance Core.AWSRequest GetDeviceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceProfile
+instance Prelude.Hashable GetDeviceProfile where
+  hashWithSalt _salt GetDeviceProfile' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetDeviceProfile
+instance Prelude.NFData GetDeviceProfile where
+  rnf GetDeviceProfile' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +174,10 @@ getDeviceProfileResponse_id = Lens.lens (\GetDeviceProfileResponse' {id} -> id) 
 getDeviceProfileResponse_httpStatus :: Lens.Lens' GetDeviceProfileResponse Prelude.Int
 getDeviceProfileResponse_httpStatus = Lens.lens (\GetDeviceProfileResponse' {httpStatus} -> httpStatus) (\s@GetDeviceProfileResponse' {} a -> s {httpStatus = a} :: GetDeviceProfileResponse)
 
-instance Prelude.NFData GetDeviceProfileResponse
+instance Prelude.NFData GetDeviceProfileResponse where
+  rnf GetDeviceProfileResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

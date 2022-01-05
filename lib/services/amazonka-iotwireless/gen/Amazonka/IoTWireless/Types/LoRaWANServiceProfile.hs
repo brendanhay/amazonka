@@ -53,9 +53,13 @@ newLoRaWANServiceProfile =
 loRaWANServiceProfile_addGwMetadata :: Lens.Lens' LoRaWANServiceProfile (Prelude.Maybe Prelude.Bool)
 loRaWANServiceProfile_addGwMetadata = Lens.lens (\LoRaWANServiceProfile' {addGwMetadata} -> addGwMetadata) (\s@LoRaWANServiceProfile' {} a -> s {addGwMetadata = a} :: LoRaWANServiceProfile)
 
-instance Prelude.Hashable LoRaWANServiceProfile
+instance Prelude.Hashable LoRaWANServiceProfile where
+  hashWithSalt _salt LoRaWANServiceProfile' {..} =
+    _salt `Prelude.hashWithSalt` addGwMetadata
 
-instance Prelude.NFData LoRaWANServiceProfile
+instance Prelude.NFData LoRaWANServiceProfile where
+  rnf LoRaWANServiceProfile' {..} =
+    Prelude.rnf addGwMetadata
 
 instance Core.ToJSON LoRaWANServiceProfile where
   toJSON LoRaWANServiceProfile' {..} =

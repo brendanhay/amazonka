@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdatePartnerAccount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePartnerAccount
+instance Prelude.Hashable UpdatePartnerAccount where
+  hashWithSalt _salt UpdatePartnerAccount' {..} =
+    _salt `Prelude.hashWithSalt` sidewalk
+      `Prelude.hashWithSalt` partnerAccountId
+      `Prelude.hashWithSalt` partnerType
 
-instance Prelude.NFData UpdatePartnerAccount
+instance Prelude.NFData UpdatePartnerAccount where
+  rnf UpdatePartnerAccount' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf partnerAccountId
+      `Prelude.seq` Prelude.rnf partnerType
 
 instance Core.ToHeaders UpdatePartnerAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +174,6 @@ newUpdatePartnerAccountResponse pHttpStatus_ =
 updatePartnerAccountResponse_httpStatus :: Lens.Lens' UpdatePartnerAccountResponse Prelude.Int
 updatePartnerAccountResponse_httpStatus = Lens.lens (\UpdatePartnerAccountResponse' {httpStatus} -> httpStatus) (\s@UpdatePartnerAccountResponse' {} a -> s {httpStatus = a} :: UpdatePartnerAccountResponse)
 
-instance Prelude.NFData UpdatePartnerAccountResponse
+instance Prelude.NFData UpdatePartnerAccountResponse where
+  rnf UpdatePartnerAccountResponse' {..} =
+    Prelude.rnf httpStatus

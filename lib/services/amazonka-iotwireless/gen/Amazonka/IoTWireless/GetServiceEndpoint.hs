@@ -95,9 +95,12 @@ instance Core.AWSRequest GetServiceEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceEndpoint
+instance Prelude.Hashable GetServiceEndpoint where
+  hashWithSalt _salt GetServiceEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` serviceType
 
-instance Prelude.NFData GetServiceEndpoint
+instance Prelude.NFData GetServiceEndpoint where
+  rnf GetServiceEndpoint' {..} = Prelude.rnf serviceType
 
 instance Core.ToHeaders GetServiceEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +169,9 @@ getServiceEndpointResponse_serviceType = Lens.lens (\GetServiceEndpointResponse'
 getServiceEndpointResponse_httpStatus :: Lens.Lens' GetServiceEndpointResponse Prelude.Int
 getServiceEndpointResponse_httpStatus = Lens.lens (\GetServiceEndpointResponse' {httpStatus} -> httpStatus) (\s@GetServiceEndpointResponse' {} a -> s {httpStatus = a} :: GetServiceEndpointResponse)
 
-instance Prelude.NFData GetServiceEndpointResponse
+instance Prelude.NFData GetServiceEndpointResponse where
+  rnf GetServiceEndpointResponse' {..} =
+    Prelude.rnf serviceEndpoint
+      `Prelude.seq` Prelude.rnf serverTrust
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf httpStatus

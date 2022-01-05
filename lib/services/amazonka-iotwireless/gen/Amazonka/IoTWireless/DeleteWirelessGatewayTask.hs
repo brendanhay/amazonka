@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteWirelessGatewayTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWirelessGatewayTask
+instance Prelude.Hashable DeleteWirelessGatewayTask where
+  hashWithSalt _salt DeleteWirelessGatewayTask' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteWirelessGatewayTask
+instance Prelude.NFData DeleteWirelessGatewayTask where
+  rnf DeleteWirelessGatewayTask' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteWirelessGatewayTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -132,3 +135,6 @@ deleteWirelessGatewayTaskResponse_httpStatus = Lens.lens (\DeleteWirelessGateway
 instance
   Prelude.NFData
     DeleteWirelessGatewayTaskResponse
+  where
+  rnf DeleteWirelessGatewayTaskResponse' {..} =
+    Prelude.rnf httpStatus

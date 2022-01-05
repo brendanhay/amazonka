@@ -104,9 +104,15 @@ instance Core.AWSRequest ListPartnerAccounts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPartnerAccounts
+instance Prelude.Hashable ListPartnerAccounts where
+  hashWithSalt _salt ListPartnerAccounts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPartnerAccounts
+instance Prelude.NFData ListPartnerAccounts where
+  rnf ListPartnerAccounts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPartnerAccounts where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,8 @@ listPartnerAccountsResponse_nextToken = Lens.lens (\ListPartnerAccountsResponse'
 listPartnerAccountsResponse_httpStatus :: Lens.Lens' ListPartnerAccountsResponse Prelude.Int
 listPartnerAccountsResponse_httpStatus = Lens.lens (\ListPartnerAccountsResponse' {httpStatus} -> httpStatus) (\s@ListPartnerAccountsResponse' {} a -> s {httpStatus = a} :: ListPartnerAccountsResponse)
 
-instance Prelude.NFData ListPartnerAccountsResponse
+instance Prelude.NFData ListPartnerAccountsResponse where
+  rnf ListPartnerAccountsResponse' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

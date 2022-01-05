@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteWirelessDevice where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWirelessDevice
+instance Prelude.Hashable DeleteWirelessDevice where
+  hashWithSalt _salt DeleteWirelessDevice' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteWirelessDevice
+instance Prelude.NFData DeleteWirelessDevice where
+  rnf DeleteWirelessDevice' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +132,6 @@ newDeleteWirelessDeviceResponse pHttpStatus_ =
 deleteWirelessDeviceResponse_httpStatus :: Lens.Lens' DeleteWirelessDeviceResponse Prelude.Int
 deleteWirelessDeviceResponse_httpStatus = Lens.lens (\DeleteWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@DeleteWirelessDeviceResponse' {} a -> s {httpStatus = a} :: DeleteWirelessDeviceResponse)
 
-instance Prelude.NFData DeleteWirelessDeviceResponse
+instance Prelude.NFData DeleteWirelessDeviceResponse where
+  rnf DeleteWirelessDeviceResponse' {..} =
+    Prelude.rnf httpStatus

@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     GetWirelessGatewayTaskDefinition
+  where
+  hashWithSalt
+    _salt
+    GetWirelessGatewayTaskDefinition' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetWirelessGatewayTaskDefinition
+  where
+  rnf GetWirelessGatewayTaskDefinition' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -196,3 +204,10 @@ getWirelessGatewayTaskDefinitionResponse_httpStatus = Lens.lens (\GetWirelessGat
 instance
   Prelude.NFData
     GetWirelessGatewayTaskDefinitionResponse
+  where
+  rnf GetWirelessGatewayTaskDefinitionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoCreateTasks
+      `Prelude.seq` Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

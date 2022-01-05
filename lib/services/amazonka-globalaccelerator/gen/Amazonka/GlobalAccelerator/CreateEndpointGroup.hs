@@ -279,9 +279,33 @@ instance Core.AWSRequest CreateEndpointGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEndpointGroup
+instance Prelude.Hashable CreateEndpointGroup where
+  hashWithSalt _salt CreateEndpointGroup' {..} =
+    _salt `Prelude.hashWithSalt` thresholdCount
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` trafficDialPercentage
+      `Prelude.hashWithSalt` endpointConfigurations
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` portOverrides
+      `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` endpointGroupRegion
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateEndpointGroup
+instance Prelude.NFData CreateEndpointGroup where
+  rnf CreateEndpointGroup' {..} =
+    Prelude.rnf thresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf trafficDialPercentage
+      `Prelude.seq` Prelude.rnf endpointConfigurations
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf portOverrides
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf endpointGroupRegion
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateEndpointGroup where
   toHeaders =
@@ -370,4 +394,7 @@ createEndpointGroupResponse_endpointGroup = Lens.lens (\CreateEndpointGroupRespo
 createEndpointGroupResponse_httpStatus :: Lens.Lens' CreateEndpointGroupResponse Prelude.Int
 createEndpointGroupResponse_httpStatus = Lens.lens (\CreateEndpointGroupResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointGroupResponse' {} a -> s {httpStatus = a} :: CreateEndpointGroupResponse)
 
-instance Prelude.NFData CreateEndpointGroupResponse
+instance Prelude.NFData CreateEndpointGroupResponse where
+  rnf CreateEndpointGroupResponse' {..} =
+    Prelude.rnf endpointGroup
+      `Prelude.seq` Prelude.rnf httpStatus

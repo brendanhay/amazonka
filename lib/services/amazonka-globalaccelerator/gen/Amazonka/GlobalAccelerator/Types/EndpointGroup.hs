@@ -226,6 +226,28 @@ instance Core.FromJSON EndpointGroup where
                         )
       )
 
-instance Prelude.Hashable EndpointGroup
+instance Prelude.Hashable EndpointGroup where
+  hashWithSalt _salt EndpointGroup' {..} =
+    _salt `Prelude.hashWithSalt` thresholdCount
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` endpointGroupRegion
+      `Prelude.hashWithSalt` trafficDialPercentage
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` portOverrides
+      `Prelude.hashWithSalt` endpointDescriptions
 
-instance Prelude.NFData EndpointGroup
+instance Prelude.NFData EndpointGroup where
+  rnf EndpointGroup' {..} =
+    Prelude.rnf thresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf endpointGroupRegion
+      `Prelude.seq` Prelude.rnf trafficDialPercentage
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf portOverrides
+      `Prelude.seq` Prelude.rnf endpointDescriptions

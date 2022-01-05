@@ -191,9 +191,21 @@ instance Core.AWSRequest DenyCustomRoutingTraffic where
     Response.receiveNull
       DenyCustomRoutingTrafficResponse'
 
-instance Prelude.Hashable DenyCustomRoutingTraffic
+instance Prelude.Hashable DenyCustomRoutingTraffic where
+  hashWithSalt _salt DenyCustomRoutingTraffic' {..} =
+    _salt `Prelude.hashWithSalt` destinationAddresses
+      `Prelude.hashWithSalt` destinationPorts
+      `Prelude.hashWithSalt` denyAllTrafficToEndpoint
+      `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` endpointId
 
-instance Prelude.NFData DenyCustomRoutingTraffic
+instance Prelude.NFData DenyCustomRoutingTraffic where
+  rnf DenyCustomRoutingTraffic' {..} =
+    Prelude.rnf destinationAddresses
+      `Prelude.seq` Prelude.rnf destinationPorts
+      `Prelude.seq` Prelude.rnf denyAllTrafficToEndpoint
+      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf endpointId
 
 instance Core.ToHeaders DenyCustomRoutingTraffic where
   toHeaders =
@@ -250,3 +262,5 @@ newDenyCustomRoutingTrafficResponse =
 instance
   Prelude.NFData
     DenyCustomRoutingTrafficResponse
+  where
+  rnf _ = ()

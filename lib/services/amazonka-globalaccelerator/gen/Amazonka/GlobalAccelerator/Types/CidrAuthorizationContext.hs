@@ -70,9 +70,15 @@ cidrAuthorizationContext_message = Lens.lens (\CidrAuthorizationContext' {messag
 cidrAuthorizationContext_signature :: Lens.Lens' CidrAuthorizationContext Prelude.Text
 cidrAuthorizationContext_signature = Lens.lens (\CidrAuthorizationContext' {signature} -> signature) (\s@CidrAuthorizationContext' {} a -> s {signature = a} :: CidrAuthorizationContext)
 
-instance Prelude.Hashable CidrAuthorizationContext
+instance Prelude.Hashable CidrAuthorizationContext where
+  hashWithSalt _salt CidrAuthorizationContext' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` signature
 
-instance Prelude.NFData CidrAuthorizationContext
+instance Prelude.NFData CidrAuthorizationContext where
+  rnf CidrAuthorizationContext' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf signature
 
 instance Core.ToJSON CidrAuthorizationContext where
   toJSON CidrAuthorizationContext' {..} =

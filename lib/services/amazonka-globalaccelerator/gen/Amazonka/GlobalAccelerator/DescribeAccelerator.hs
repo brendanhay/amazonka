@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeAccelerator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccelerator
+instance Prelude.Hashable DescribeAccelerator where
+  hashWithSalt _salt DescribeAccelerator' {..} =
+    _salt `Prelude.hashWithSalt` acceleratorArn
 
-instance Prelude.NFData DescribeAccelerator
+instance Prelude.NFData DescribeAccelerator where
+  rnf DescribeAccelerator' {..} =
+    Prelude.rnf acceleratorArn
 
 instance Core.ToHeaders DescribeAccelerator where
   toHeaders =
@@ -162,4 +166,7 @@ describeAcceleratorResponse_accelerator = Lens.lens (\DescribeAcceleratorRespons
 describeAcceleratorResponse_httpStatus :: Lens.Lens' DescribeAcceleratorResponse Prelude.Int
 describeAcceleratorResponse_httpStatus = Lens.lens (\DescribeAcceleratorResponse' {httpStatus} -> httpStatus) (\s@DescribeAcceleratorResponse' {} a -> s {httpStatus = a} :: DescribeAcceleratorResponse)
 
-instance Prelude.NFData DescribeAcceleratorResponse
+instance Prelude.NFData DescribeAcceleratorResponse where
+  rnf DescribeAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

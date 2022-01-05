@@ -133,6 +133,14 @@ instance Core.FromJSON AcceleratorAttributes where
             Prelude.<*> (x Core..:? "FlowLogsS3Bucket")
       )
 
-instance Prelude.Hashable AcceleratorAttributes
+instance Prelude.Hashable AcceleratorAttributes where
+  hashWithSalt _salt AcceleratorAttributes' {..} =
+    _salt `Prelude.hashWithSalt` flowLogsS3Prefix
+      `Prelude.hashWithSalt` flowLogsEnabled
+      `Prelude.hashWithSalt` flowLogsS3Bucket
 
-instance Prelude.NFData AcceleratorAttributes
+instance Prelude.NFData AcceleratorAttributes where
+  rnf AcceleratorAttributes' {..} =
+    Prelude.rnf flowLogsS3Prefix
+      `Prelude.seq` Prelude.rnf flowLogsEnabled
+      `Prelude.seq` Prelude.rnf flowLogsS3Bucket

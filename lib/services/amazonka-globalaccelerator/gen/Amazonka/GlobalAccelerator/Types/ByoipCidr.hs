@@ -135,6 +135,14 @@ instance Core.FromJSON ByoipCidr where
             Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ByoipCidr
+instance Prelude.Hashable ByoipCidr where
+  hashWithSalt _salt ByoipCidr' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData ByoipCidr
+instance Prelude.NFData ByoipCidr where
+  rnf ByoipCidr' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf events

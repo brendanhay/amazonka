@@ -118,9 +118,15 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCustomRoutingListener
+instance Prelude.Hashable UpdateCustomRoutingListener where
+  hashWithSalt _salt UpdateCustomRoutingListener' {..} =
+    _salt `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` portRanges
 
-instance Prelude.NFData UpdateCustomRoutingListener
+instance Prelude.NFData UpdateCustomRoutingListener where
+  rnf UpdateCustomRoutingListener' {..} =
+    Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf portRanges
 
 instance Core.ToHeaders UpdateCustomRoutingListener where
   toHeaders =
@@ -194,3 +200,7 @@ updateCustomRoutingListenerResponse_httpStatus = Lens.lens (\UpdateCustomRouting
 instance
   Prelude.NFData
     UpdateCustomRoutingListenerResponse
+  where
+  rnf UpdateCustomRoutingListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

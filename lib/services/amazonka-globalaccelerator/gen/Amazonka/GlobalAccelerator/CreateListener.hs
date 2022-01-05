@@ -209,9 +209,21 @@ instance Core.AWSRequest CreateListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateListener
+instance Prelude.Hashable CreateListener where
+  hashWithSalt _salt CreateListener' {..} =
+    _salt `Prelude.hashWithSalt` clientAffinity
+      `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` portRanges
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateListener
+instance Prelude.NFData CreateListener where
+  rnf CreateListener' {..} =
+    Prelude.rnf clientAffinity
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateListener where
   toHeaders =
@@ -287,4 +299,7 @@ createListenerResponse_listener = Lens.lens (\CreateListenerResponse' {listener}
 createListenerResponse_httpStatus :: Lens.Lens' CreateListenerResponse Prelude.Int
 createListenerResponse_httpStatus = Lens.lens (\CreateListenerResponse' {httpStatus} -> httpStatus) (\s@CreateListenerResponse' {} a -> s {httpStatus = a} :: CreateListenerResponse)
 
-instance Prelude.NFData CreateListenerResponse
+instance Prelude.NFData CreateListenerResponse where
+  rnf CreateListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

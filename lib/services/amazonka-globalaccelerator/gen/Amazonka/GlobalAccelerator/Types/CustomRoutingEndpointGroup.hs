@@ -108,6 +108,16 @@ instance Core.FromJSON CustomRoutingEndpointGroup where
                         )
       )
 
-instance Prelude.Hashable CustomRoutingEndpointGroup
+instance Prelude.Hashable CustomRoutingEndpointGroup where
+  hashWithSalt _salt CustomRoutingEndpointGroup' {..} =
+    _salt `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` endpointGroupRegion
+      `Prelude.hashWithSalt` endpointDescriptions
+      `Prelude.hashWithSalt` destinationDescriptions
 
-instance Prelude.NFData CustomRoutingEndpointGroup
+instance Prelude.NFData CustomRoutingEndpointGroup where
+  rnf CustomRoutingEndpointGroup' {..} =
+    Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf endpointGroupRegion
+      `Prelude.seq` Prelude.rnf endpointDescriptions
+      `Prelude.seq` Prelude.rnf destinationDescriptions

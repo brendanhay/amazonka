@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     DescribeCustomRoutingAccelerator
+  where
+  hashWithSalt
+    _salt
+    DescribeCustomRoutingAccelerator' {..} =
+      _salt `Prelude.hashWithSalt` acceleratorArn
 
 instance
   Prelude.NFData
     DescribeCustomRoutingAccelerator
+  where
+  rnf DescribeCustomRoutingAccelerator' {..} =
+    Prelude.rnf acceleratorArn
 
 instance
   Core.ToHeaders
@@ -179,3 +187,7 @@ describeCustomRoutingAcceleratorResponse_httpStatus = Lens.lens (\DescribeCustom
 instance
   Prelude.NFData
     DescribeCustomRoutingAcceleratorResponse
+  where
+  rnf DescribeCustomRoutingAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

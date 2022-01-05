@@ -82,10 +82,15 @@ instance
 instance
   Prelude.Hashable
     DescribeEmergencyContactSettings
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeEmergencyContactSettings
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -169,3 +174,7 @@ describeEmergencyContactSettingsResponse_httpStatus = Lens.lens (\DescribeEmerge
 instance
   Prelude.NFData
     DescribeEmergencyContactSettingsResponse
+  where
+  rnf DescribeEmergencyContactSettingsResponse' {..} =
+    Prelude.rnf emergencyContactList
+      `Prelude.seq` Prelude.rnf httpStatus

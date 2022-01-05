@@ -94,9 +94,13 @@ instance Core.AWSRequest DisassociateDRTLogBucket where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDRTLogBucket
+instance Prelude.Hashable DisassociateDRTLogBucket where
+  hashWithSalt _salt DisassociateDRTLogBucket' {..} =
+    _salt `Prelude.hashWithSalt` logBucket
 
-instance Prelude.NFData DisassociateDRTLogBucket
+instance Prelude.NFData DisassociateDRTLogBucket where
+  rnf DisassociateDRTLogBucket' {..} =
+    Prelude.rnf logBucket
 
 instance Core.ToHeaders DisassociateDRTLogBucket where
   toHeaders =
@@ -159,3 +163,6 @@ disassociateDRTLogBucketResponse_httpStatus = Lens.lens (\DisassociateDRTLogBuck
 instance
   Prelude.NFData
     DisassociateDRTLogBucketResponse
+  where
+  rnf DisassociateDRTLogBucketResponse' {..} =
+    Prelude.rnf httpStatus

@@ -114,6 +114,18 @@ instance Core.FromJSON AttackSummary where
             Prelude.<*> (x Core..:? "EndTime")
       )
 
-instance Prelude.Hashable AttackSummary
+instance Prelude.Hashable AttackSummary where
+  hashWithSalt _salt AttackSummary' {..} =
+    _salt `Prelude.hashWithSalt` attackVectors
+      `Prelude.hashWithSalt` attackId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData AttackSummary
+instance Prelude.NFData AttackSummary where
+  rnf AttackSummary' {..} =
+    Prelude.rnf attackVectors
+      `Prelude.seq` Prelude.rnf attackId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf endTime

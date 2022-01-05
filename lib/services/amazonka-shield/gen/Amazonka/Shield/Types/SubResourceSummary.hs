@@ -94,6 +94,16 @@ instance Core.FromJSON SubResourceSummary where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable SubResourceSummary
+instance Prelude.Hashable SubResourceSummary where
+  hashWithSalt _salt SubResourceSummary' {..} =
+    _salt `Prelude.hashWithSalt` counters
+      `Prelude.hashWithSalt` attackVectors
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SubResourceSummary
+instance Prelude.NFData SubResourceSummary where
+  rnf SubResourceSummary' {..} =
+    Prelude.rnf counters
+      `Prelude.seq` Prelude.rnf attackVectors
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'

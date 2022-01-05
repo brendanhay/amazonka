@@ -107,6 +107,18 @@ instance Core.FromJSON Protection where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable Protection
+instance Prelude.Hashable Protection where
+  hashWithSalt _salt Protection' {..} =
+    _salt `Prelude.hashWithSalt` protectionArn
+      `Prelude.hashWithSalt` healthCheckIds
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Protection
+instance Prelude.NFData Protection where
+  rnf Protection' {..} =
+    Prelude.rnf protectionArn
+      `Prelude.seq` Prelude.rnf healthCheckIds
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

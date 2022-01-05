@@ -112,10 +112,18 @@ instance
 instance
   Prelude.Hashable
     UpdateEmergencyContactSettings
+  where
+  hashWithSalt
+    _salt
+    UpdateEmergencyContactSettings' {..} =
+      _salt `Prelude.hashWithSalt` emergencyContactList
 
 instance
   Prelude.NFData
     UpdateEmergencyContactSettings
+  where
+  rnf UpdateEmergencyContactSettings' {..} =
+    Prelude.rnf emergencyContactList
 
 instance
   Core.ToHeaders
@@ -184,3 +192,6 @@ updateEmergencyContactSettingsResponse_httpStatus = Lens.lens (\UpdateEmergencyC
 instance
   Prelude.NFData
     UpdateEmergencyContactSettingsResponse
+  where
+  rnf UpdateEmergencyContactSettingsResponse' {..} =
+    Prelude.rnf httpStatus

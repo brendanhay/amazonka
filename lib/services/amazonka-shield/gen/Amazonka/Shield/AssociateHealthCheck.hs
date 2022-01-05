@@ -115,9 +115,15 @@ instance Core.AWSRequest AssociateHealthCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateHealthCheck
+instance Prelude.Hashable AssociateHealthCheck where
+  hashWithSalt _salt AssociateHealthCheck' {..} =
+    _salt `Prelude.hashWithSalt` protectionId
+      `Prelude.hashWithSalt` healthCheckArn
 
-instance Prelude.NFData AssociateHealthCheck
+instance Prelude.NFData AssociateHealthCheck where
+  rnf AssociateHealthCheck' {..} =
+    Prelude.rnf protectionId
+      `Prelude.seq` Prelude.rnf healthCheckArn
 
 instance Core.ToHeaders AssociateHealthCheck where
   toHeaders =
@@ -180,4 +186,6 @@ newAssociateHealthCheckResponse pHttpStatus_ =
 associateHealthCheckResponse_httpStatus :: Lens.Lens' AssociateHealthCheckResponse Prelude.Int
 associateHealthCheckResponse_httpStatus = Lens.lens (\AssociateHealthCheckResponse' {httpStatus} -> httpStatus) (\s@AssociateHealthCheckResponse' {} a -> s {httpStatus = a} :: AssociateHealthCheckResponse)
 
-instance Prelude.NFData AssociateHealthCheckResponse
+instance Prelude.NFData AssociateHealthCheckResponse where
+  rnf AssociateHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus

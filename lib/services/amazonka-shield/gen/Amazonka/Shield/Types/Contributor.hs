@@ -82,6 +82,11 @@ instance Core.FromJSON Contributor where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Contributor
+instance Prelude.Hashable Contributor where
+  hashWithSalt _salt Contributor' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Contributor
+instance Prelude.NFData Contributor where
+  rnf Contributor' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

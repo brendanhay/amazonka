@@ -59,6 +59,9 @@ instance Core.FromJSON Mitigation where
             Prelude.<$> (x Core..:? "MitigationName")
       )
 
-instance Prelude.Hashable Mitigation
+instance Prelude.Hashable Mitigation where
+  hashWithSalt _salt Mitigation' {..} =
+    _salt `Prelude.hashWithSalt` mitigationName
 
-instance Prelude.NFData Mitigation
+instance Prelude.NFData Mitigation where
+  rnf Mitigation' {..} = Prelude.rnf mitigationName

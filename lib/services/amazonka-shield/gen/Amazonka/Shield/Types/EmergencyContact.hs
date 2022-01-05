@@ -85,9 +85,17 @@ instance Core.FromJSON EmergencyContact where
             Prelude.<*> (x Core..: "EmailAddress")
       )
 
-instance Prelude.Hashable EmergencyContact
+instance Prelude.Hashable EmergencyContact where
+  hashWithSalt _salt EmergencyContact' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` contactNotes
+      `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData EmergencyContact
+instance Prelude.NFData EmergencyContact where
+  rnf EmergencyContact' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf contactNotes
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =

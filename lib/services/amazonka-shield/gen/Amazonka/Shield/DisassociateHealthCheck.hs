@@ -116,9 +116,15 @@ instance Core.AWSRequest DisassociateHealthCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateHealthCheck
+instance Prelude.Hashable DisassociateHealthCheck where
+  hashWithSalt _salt DisassociateHealthCheck' {..} =
+    _salt `Prelude.hashWithSalt` protectionId
+      `Prelude.hashWithSalt` healthCheckArn
 
-instance Prelude.NFData DisassociateHealthCheck
+instance Prelude.NFData DisassociateHealthCheck where
+  rnf DisassociateHealthCheck' {..} =
+    Prelude.rnf protectionId
+      `Prelude.seq` Prelude.rnf healthCheckArn
 
 instance Core.ToHeaders DisassociateHealthCheck where
   toHeaders =
@@ -184,3 +190,6 @@ disassociateHealthCheckResponse_httpStatus = Lens.lens (\DisassociateHealthCheck
 instance
   Prelude.NFData
     DisassociateHealthCheckResponse
+  where
+  rnf DisassociateHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus

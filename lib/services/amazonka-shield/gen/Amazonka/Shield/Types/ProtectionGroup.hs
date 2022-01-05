@@ -200,6 +200,20 @@ instance Core.FromJSON ProtectionGroup where
             Prelude.<*> (x Core..:? "Members" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProtectionGroup
+instance Prelude.Hashable ProtectionGroup where
+  hashWithSalt _salt ProtectionGroup' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` protectionGroupArn
+      `Prelude.hashWithSalt` protectionGroupId
+      `Prelude.hashWithSalt` aggregation
+      `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` members
 
-instance Prelude.NFData ProtectionGroup
+instance Prelude.NFData ProtectionGroup where
+  rnf ProtectionGroup' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf protectionGroupArn
+      `Prelude.seq` Prelude.rnf protectionGroupId
+      `Prelude.seq` Prelude.rnf aggregation
+      `Prelude.seq` Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf members

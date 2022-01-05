@@ -73,7 +73,15 @@ instance
 instance
   Prelude.Hashable
     ProtectionGroupPatternTypeLimits
+  where
+  hashWithSalt
+    _salt
+    ProtectionGroupPatternTypeLimits' {..} =
+      _salt `Prelude.hashWithSalt` arbitraryPatternLimits
 
 instance
   Prelude.NFData
     ProtectionGroupPatternTypeLimits
+  where
+  rnf ProtectionGroupPatternTypeLimits' {..} =
+    Prelude.rnf arbitraryPatternLimits

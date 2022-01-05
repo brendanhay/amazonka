@@ -68,6 +68,11 @@ instance Core.FromJSON ProtectionLimits where
                         )
       )
 
-instance Prelude.Hashable ProtectionLimits
+instance Prelude.Hashable ProtectionLimits where
+  hashWithSalt _salt ProtectionLimits' {..} =
+    _salt
+      `Prelude.hashWithSalt` protectedResourceTypeLimits
 
-instance Prelude.NFData ProtectionLimits
+instance Prelude.NFData ProtectionLimits where
+  rnf ProtectionLimits' {..} =
+    Prelude.rnf protectedResourceTypeLimits

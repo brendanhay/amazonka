@@ -75,6 +75,12 @@ instance Core.FromJSON SummarizedAttackVector where
             Prelude.<*> (x Core..: "VectorType")
       )
 
-instance Prelude.Hashable SummarizedAttackVector
+instance Prelude.Hashable SummarizedAttackVector where
+  hashWithSalt _salt SummarizedAttackVector' {..} =
+    _salt `Prelude.hashWithSalt` vectorCounters
+      `Prelude.hashWithSalt` vectorType
 
-instance Prelude.NFData SummarizedAttackVector
+instance Prelude.NFData SummarizedAttackVector where
+  rnf SummarizedAttackVector' {..} =
+    Prelude.rnf vectorCounters
+      `Prelude.seq` Prelude.rnf vectorType

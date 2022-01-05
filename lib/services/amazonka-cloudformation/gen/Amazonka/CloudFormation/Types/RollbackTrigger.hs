@@ -85,9 +85,14 @@ instance Core.FromXML RollbackTrigger where
     RollbackTrigger'
       Prelude.<$> (x Core..@ "Arn") Prelude.<*> (x Core..@ "Type")
 
-instance Prelude.Hashable RollbackTrigger
+instance Prelude.Hashable RollbackTrigger where
+  hashWithSalt _salt RollbackTrigger' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData RollbackTrigger
+instance Prelude.NFData RollbackTrigger where
+  rnf RollbackTrigger' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery RollbackTrigger where
   toQuery RollbackTrigger' {..} =

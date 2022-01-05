@@ -276,9 +276,27 @@ instance Core.AWSRequest DeleteStackInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStackInstances
+instance Prelude.Hashable DeleteStackInstances where
+  hashWithSalt _salt DeleteStackInstances' {..} =
+    _salt `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` deploymentTargets
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` retainStacks
 
-instance Prelude.NFData DeleteStackInstances
+instance Prelude.NFData DeleteStackInstances where
+  rnf DeleteStackInstances' {..} =
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf deploymentTargets
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf retainStacks
 
 instance Core.ToHeaders DeleteStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -344,4 +362,7 @@ deleteStackInstancesResponse_operationId = Lens.lens (\DeleteStackInstancesRespo
 deleteStackInstancesResponse_httpStatus :: Lens.Lens' DeleteStackInstancesResponse Prelude.Int
 deleteStackInstancesResponse_httpStatus = Lens.lens (\DeleteStackInstancesResponse' {httpStatus} -> httpStatus) (\s@DeleteStackInstancesResponse' {} a -> s {httpStatus = a} :: DeleteStackInstancesResponse)
 
-instance Prelude.NFData DeleteStackInstancesResponse
+instance Prelude.NFData DeleteStackInstancesResponse where
+  rnf DeleteStackInstancesResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

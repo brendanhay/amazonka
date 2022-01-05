@@ -128,9 +128,17 @@ typeFilters_category = Lens.lens (\TypeFilters' {category} -> category) (\s@Type
 typeFilters_publisherId :: Lens.Lens' TypeFilters (Prelude.Maybe Prelude.Text)
 typeFilters_publisherId = Lens.lens (\TypeFilters' {publisherId} -> publisherId) (\s@TypeFilters' {} a -> s {publisherId = a} :: TypeFilters)
 
-instance Prelude.Hashable TypeFilters
+instance Prelude.Hashable TypeFilters where
+  hashWithSalt _salt TypeFilters' {..} =
+    _salt `Prelude.hashWithSalt` typeNamePrefix
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` publisherId
 
-instance Prelude.NFData TypeFilters
+instance Prelude.NFData TypeFilters where
+  rnf TypeFilters' {..} =
+    Prelude.rnf typeNamePrefix
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf publisherId
 
 instance Core.ToQuery TypeFilters where
   toQuery TypeFilters' {..} =

@@ -94,9 +94,17 @@ resourceToImport_logicalResourceId = Lens.lens (\ResourceToImport' {logicalResou
 resourceToImport_resourceIdentifier :: Lens.Lens' ResourceToImport (Prelude.HashMap Prelude.Text Prelude.Text)
 resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIdentifier} -> resourceIdentifier) (\s@ResourceToImport' {} a -> s {resourceIdentifier = a} :: ResourceToImport) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ResourceToImport
+instance Prelude.Hashable ResourceToImport where
+  hashWithSalt _salt ResourceToImport' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` logicalResourceId
+      `Prelude.hashWithSalt` resourceIdentifier
 
-instance Prelude.NFData ResourceToImport
+instance Prelude.NFData ResourceToImport where
+  rnf ResourceToImport' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance Core.ToQuery ResourceToImport where
   toQuery ResourceToImport' {..} =

@@ -95,9 +95,17 @@ instance Core.FromXML DeploymentTargets where
                   )
       Prelude.<*> (x Core..@? "AccountsUrl")
 
-instance Prelude.Hashable DeploymentTargets
+instance Prelude.Hashable DeploymentTargets where
+  hashWithSalt _salt DeploymentTargets' {..} =
+    _salt `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` organizationalUnitIds
+      `Prelude.hashWithSalt` accountsUrl
 
-instance Prelude.NFData DeploymentTargets
+instance Prelude.NFData DeploymentTargets where
+  rnf DeploymentTargets' {..} =
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf organizationalUnitIds
+      `Prelude.seq` Prelude.rnf accountsUrl
 
 instance Core.ToQuery DeploymentTargets where
   toQuery DeploymentTargets' {..} =

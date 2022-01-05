@@ -362,6 +362,33 @@ instance Core.FromXML StackSetOperation where
       Prelude.<*> (x Core..@? "StackSetId")
       Prelude.<*> (x Core..@? "ExecutionRoleName")
 
-instance Prelude.Hashable StackSetOperation
+instance Prelude.Hashable StackSetOperation where
+  hashWithSalt _salt StackSetOperation' {..} =
+    _salt
+      `Prelude.hashWithSalt` stackSetDriftDetectionDetails
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` administrationRoleARN
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` retainStacks
+      `Prelude.hashWithSalt` deploymentTargets
+      `Prelude.hashWithSalt` stackSetId
+      `Prelude.hashWithSalt` executionRoleName
 
-instance Prelude.NFData StackSetOperation
+instance Prelude.NFData StackSetOperation where
+  rnf StackSetOperation' {..} =
+    Prelude.rnf stackSetDriftDetectionDetails
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf administrationRoleARN
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf retainStacks
+      `Prelude.seq` Prelude.rnf deploymentTargets
+      `Prelude.seq` Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf executionRoleName

@@ -256,9 +256,25 @@ instance Core.AWSRequest ListStackInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStackInstances
+instance Prelude.Hashable ListStackInstances where
+  hashWithSalt _salt ListStackInstances' {..} =
+    _salt `Prelude.hashWithSalt` stackInstanceRegion
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stackInstanceAccount
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` stackSetName
 
-instance Prelude.NFData ListStackInstances
+instance Prelude.NFData ListStackInstances where
+  rnf ListStackInstances' {..} =
+    Prelude.rnf stackInstanceRegion
+      `Prelude.seq` Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackInstanceAccount
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders ListStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -347,4 +363,8 @@ listStackInstancesResponse_summaries = Lens.lens (\ListStackInstancesResponse' {
 listStackInstancesResponse_httpStatus :: Lens.Lens' ListStackInstancesResponse Prelude.Int
 listStackInstancesResponse_httpStatus = Lens.lens (\ListStackInstancesResponse' {httpStatus} -> httpStatus) (\s@ListStackInstancesResponse' {} a -> s {httpStatus = a} :: ListStackInstancesResponse)
 
-instance Prelude.NFData ListStackInstancesResponse
+instance Prelude.NFData ListStackInstancesResponse where
+  rnf ListStackInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf httpStatus

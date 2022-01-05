@@ -234,6 +234,16 @@ instance Core.FromXML ResourceChangeDetail where
       Prelude.<*> (x Core..@? "Evaluation")
       Prelude.<*> (x Core..@? "Target")
 
-instance Prelude.Hashable ResourceChangeDetail
+instance Prelude.Hashable ResourceChangeDetail where
+  hashWithSalt _salt ResourceChangeDetail' {..} =
+    _salt `Prelude.hashWithSalt` causingEntity
+      `Prelude.hashWithSalt` changeSource
+      `Prelude.hashWithSalt` evaluation
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData ResourceChangeDetail
+instance Prelude.NFData ResourceChangeDetail where
+  rnf ResourceChangeDetail' {..} =
+    Prelude.rnf causingEntity
+      `Prelude.seq` Prelude.rnf changeSource
+      `Prelude.seq` Prelude.rnf evaluation
+      `Prelude.seq` Prelude.rnf target

@@ -237,9 +237,23 @@ instance Core.AWSRequest DescribeType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeType
+instance Prelude.Hashable DescribeType where
+  hashWithSalt _salt DescribeType' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` publisherId
 
-instance Prelude.NFData DescribeType
+instance Prelude.NFData DescribeType where
+  rnf DescribeType' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf publisherId
 
 instance Core.ToHeaders DescribeType where
   toHeaders = Prelude.const Prelude.mempty
@@ -1000,4 +1014,39 @@ describeTypeResponse_loggingConfig = Lens.lens (\DescribeTypeResponse' {loggingC
 describeTypeResponse_httpStatus :: Lens.Lens' DescribeTypeResponse Prelude.Int
 describeTypeResponse_httpStatus = Lens.lens (\DescribeTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeTypeResponse' {} a -> s {httpStatus = a} :: DescribeTypeResponse)
 
-instance Prelude.NFData DescribeTypeResponse
+instance Prelude.NFData DescribeTypeResponse where
+  rnf DescribeTypeResponse' {..} =
+    Prelude.rnf typeTestsStatusDescription
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf autoUpdate
+      `Prelude.seq` Prelude.rnf originalTypeName
+      `Prelude.seq` Prelude.rnf visibility
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf originalTypeArn
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf isActivated
+      `Prelude.seq` Prelude.rnf requiredActivatedTypes
+      `Prelude.seq` Prelude.rnf deprecatedStatus
+      `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf latestPublicVersion
+      `Prelude.seq` Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceUrl
+      `Prelude.seq` Prelude.rnf
+        documentationUrl
+      `Prelude.seq` Prelude.rnf
+        configurationSchema
+      `Prelude.seq` Prelude.rnf
+        provisioningType
+      `Prelude.seq` Prelude.rnf
+        typeTestsStatus
+      `Prelude.seq` Prelude.rnf
+        loggingConfig
+      `Prelude.seq` Prelude.rnf
+        httpStatus

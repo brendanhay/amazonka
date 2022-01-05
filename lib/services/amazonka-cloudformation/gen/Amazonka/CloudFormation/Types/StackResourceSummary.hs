@@ -171,6 +171,24 @@ instance Core.FromXML StackResourceSummary where
       Prelude.<*> (x Core..@ "LastUpdatedTimestamp")
       Prelude.<*> (x Core..@ "ResourceStatus")
 
-instance Prelude.Hashable StackResourceSummary
+instance Prelude.Hashable StackResourceSummary where
+  hashWithSalt _salt StackResourceSummary' {..} =
+    _salt `Prelude.hashWithSalt` physicalResourceId
+      `Prelude.hashWithSalt` resourceStatusReason
+      `Prelude.hashWithSalt` driftInformation
+      `Prelude.hashWithSalt` moduleInfo
+      `Prelude.hashWithSalt` logicalResourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` resourceStatus
 
-instance Prelude.NFData StackResourceSummary
+instance Prelude.NFData StackResourceSummary where
+  rnf StackResourceSummary' {..} =
+    Prelude.rnf physicalResourceId
+      `Prelude.seq` Prelude.rnf resourceStatusReason
+      `Prelude.seq` Prelude.rnf driftInformation
+      `Prelude.seq` Prelude.rnf moduleInfo
+      `Prelude.seq` Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf resourceStatus

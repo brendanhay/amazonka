@@ -114,9 +114,15 @@ instance Core.AWSRequest DeleteChangeSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChangeSet
+instance Prelude.Hashable DeleteChangeSet where
+  hashWithSalt _salt DeleteChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` changeSetName
 
-instance Prelude.NFData DeleteChangeSet
+instance Prelude.NFData DeleteChangeSet where
+  rnf DeleteChangeSet' {..} =
+    Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf changeSetName
 
 instance Core.ToHeaders DeleteChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,6 @@ newDeleteChangeSetResponse pHttpStatus_ =
 deleteChangeSetResponse_httpStatus :: Lens.Lens' DeleteChangeSetResponse Prelude.Int
 deleteChangeSetResponse_httpStatus = Lens.lens (\DeleteChangeSetResponse' {httpStatus} -> httpStatus) (\s@DeleteChangeSetResponse' {} a -> s {httpStatus = a} :: DeleteChangeSetResponse)
 
-instance Prelude.NFData DeleteChangeSetResponse
+instance Prelude.NFData DeleteChangeSetResponse where
+  rnf DeleteChangeSetResponse' {..} =
+    Prelude.rnf httpStatus

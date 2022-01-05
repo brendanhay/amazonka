@@ -183,6 +183,24 @@ instance Core.FromXML TypeVersionSummary where
       Prelude.<*> (x Core..@? "IsDefaultVersion")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable TypeVersionSummary
+instance Prelude.Hashable TypeVersionSummary where
+  hashWithSalt _salt TypeVersionSummary' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` timeCreated
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` isDefaultVersion
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData TypeVersionSummary
+instance Prelude.NFData TypeVersionSummary where
+  rnf TypeVersionSummary' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf description

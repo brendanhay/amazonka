@@ -352,9 +352,27 @@ instance Core.AWSRequest CreateStackInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStackInstances
+instance Prelude.Hashable CreateStackInstances where
+  hashWithSalt _salt CreateStackInstances' {..} =
+    _salt `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` deploymentTargets
+      `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` regions
 
-instance Prelude.NFData CreateStackInstances
+instance Prelude.NFData CreateStackInstances where
+  rnf CreateStackInstances' {..} =
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf deploymentTargets
+      `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf regions
 
 instance Core.ToHeaders CreateStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -424,4 +442,7 @@ createStackInstancesResponse_operationId = Lens.lens (\CreateStackInstancesRespo
 createStackInstancesResponse_httpStatus :: Lens.Lens' CreateStackInstancesResponse Prelude.Int
 createStackInstancesResponse_httpStatus = Lens.lens (\CreateStackInstancesResponse' {httpStatus} -> httpStatus) (\s@CreateStackInstancesResponse' {} a -> s {httpStatus = a} :: CreateStackInstancesResponse)
 
-instance Prelude.NFData CreateStackInstancesResponse
+instance Prelude.NFData CreateStackInstancesResponse where
+  rnf CreateStackInstancesResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

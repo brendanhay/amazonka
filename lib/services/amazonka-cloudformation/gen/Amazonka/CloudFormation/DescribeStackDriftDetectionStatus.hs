@@ -135,10 +135,18 @@ instance
 instance
   Prelude.Hashable
     DescribeStackDriftDetectionStatus
+  where
+  hashWithSalt
+    _salt
+    DescribeStackDriftDetectionStatus' {..} =
+      _salt `Prelude.hashWithSalt` stackDriftDetectionId
 
 instance
   Prelude.NFData
     DescribeStackDriftDetectionStatus
+  where
+  rnf DescribeStackDriftDetectionStatus' {..} =
+    Prelude.rnf stackDriftDetectionId
 
 instance
   Core.ToHeaders
@@ -390,3 +398,13 @@ describeStackDriftDetectionStatusResponse_timestamp = Lens.lens (\DescribeStackD
 instance
   Prelude.NFData
     DescribeStackDriftDetectionStatusResponse
+  where
+  rnf DescribeStackDriftDetectionStatusResponse' {..} =
+    Prelude.rnf stackDriftStatus
+      `Prelude.seq` Prelude.rnf driftedStackResourceCount
+      `Prelude.seq` Prelude.rnf detectionStatusReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf stackDriftDetectionId
+      `Prelude.seq` Prelude.rnf detectionStatus
+      `Prelude.seq` Prelude.rnf timestamp

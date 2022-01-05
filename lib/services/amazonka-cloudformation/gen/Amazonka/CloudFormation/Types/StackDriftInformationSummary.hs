@@ -120,5 +120,12 @@ instance Core.FromXML StackDriftInformationSummary where
 instance
   Prelude.Hashable
     StackDriftInformationSummary
+  where
+  hashWithSalt _salt StackDriftInformationSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastCheckTimestamp
+      `Prelude.hashWithSalt` stackDriftStatus
 
-instance Prelude.NFData StackDriftInformationSummary
+instance Prelude.NFData StackDriftInformationSummary where
+  rnf StackDriftInformationSummary' {..} =
+    Prelude.rnf lastCheckTimestamp
+      `Prelude.seq` Prelude.rnf stackDriftStatus

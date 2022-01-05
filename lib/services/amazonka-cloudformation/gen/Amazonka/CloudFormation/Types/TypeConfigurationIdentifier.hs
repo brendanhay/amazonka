@@ -130,9 +130,21 @@ instance Core.FromXML TypeConfigurationIdentifier where
       Prelude.<*> (x Core..@? "TypeArn")
       Prelude.<*> (x Core..@? "Type")
 
-instance Prelude.Hashable TypeConfigurationIdentifier
+instance Prelude.Hashable TypeConfigurationIdentifier where
+  hashWithSalt _salt TypeConfigurationIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` typeConfigurationArn
+      `Prelude.hashWithSalt` typeConfigurationAlias
+      `Prelude.hashWithSalt` typeArn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData TypeConfigurationIdentifier
+instance Prelude.NFData TypeConfigurationIdentifier where
+  rnf TypeConfigurationIdentifier' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf typeConfigurationArn
+      `Prelude.seq` Prelude.rnf typeConfigurationAlias
+      `Prelude.seq` Prelude.rnf typeArn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery TypeConfigurationIdentifier where
   toQuery TypeConfigurationIdentifier' {..} =

@@ -76,6 +76,12 @@ instance Core.FromXML Change where
       Prelude.<$> (x Core..@? "ResourceChange")
       Prelude.<*> (x Core..@? "Type")
 
-instance Prelude.Hashable Change
+instance Prelude.Hashable Change where
+  hashWithSalt _salt Change' {..} =
+    _salt `Prelude.hashWithSalt` resourceChange
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Change
+instance Prelude.NFData Change where
+  rnf Change' {..} =
+    Prelude.rnf resourceChange
+      `Prelude.seq` Prelude.rnf type'

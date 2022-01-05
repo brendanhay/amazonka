@@ -87,6 +87,16 @@ instance Core.FromXML Output where
       Prelude.<*> (x Core..@? "ExportName")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable Output
+instance Prelude.Hashable Output where
+  hashWithSalt _salt Output' {..} =
+    _salt `Prelude.hashWithSalt` outputValue
+      `Prelude.hashWithSalt` outputKey
+      `Prelude.hashWithSalt` exportName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Output
+instance Prelude.NFData Output where
+  rnf Output' {..} =
+    Prelude.rnf outputValue
+      `Prelude.seq` Prelude.rnf outputKey
+      `Prelude.seq` Prelude.rnf exportName
+      `Prelude.seq` Prelude.rnf description

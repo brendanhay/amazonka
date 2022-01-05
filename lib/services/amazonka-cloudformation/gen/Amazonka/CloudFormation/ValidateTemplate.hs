@@ -156,9 +156,15 @@ instance Core.AWSRequest ValidateTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ValidateTemplate
+instance Prelude.Hashable ValidateTemplate where
+  hashWithSalt _salt ValidateTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` templateURL
 
-instance Prelude.NFData ValidateTemplate
+instance Prelude.NFData ValidateTemplate where
+  rnf ValidateTemplate' {..} =
+    Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateURL
 
 instance Core.ToHeaders ValidateTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,4 +284,11 @@ validateTemplateResponse_capabilities = Lens.lens (\ValidateTemplateResponse' {c
 validateTemplateResponse_httpStatus :: Lens.Lens' ValidateTemplateResponse Prelude.Int
 validateTemplateResponse_httpStatus = Lens.lens (\ValidateTemplateResponse' {httpStatus} -> httpStatus) (\s@ValidateTemplateResponse' {} a -> s {httpStatus = a} :: ValidateTemplateResponse)
 
-instance Prelude.NFData ValidateTemplateResponse
+instance Prelude.NFData ValidateTemplateResponse where
+  rnf ValidateTemplateResponse' {..} =
+    Prelude.rnf declaredTransforms
+      `Prelude.seq` Prelude.rnf capabilitiesReason
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf httpStatus

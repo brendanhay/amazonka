@@ -121,10 +121,23 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterDeferredMaintenanceWindow
+  where
+  hashWithSalt
+    _salt
+    AwsRedshiftClusterDeferredMaintenanceWindow' {..} =
+      _salt
+        `Prelude.hashWithSalt` deferMaintenanceEndTime
+        `Prelude.hashWithSalt` deferMaintenanceStartTime
+        `Prelude.hashWithSalt` deferMaintenanceIdentifier
 
 instance
   Prelude.NFData
     AwsRedshiftClusterDeferredMaintenanceWindow
+  where
+  rnf AwsRedshiftClusterDeferredMaintenanceWindow' {..} =
+    Prelude.rnf deferMaintenanceEndTime
+      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
+      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier
 
 instance
   Core.ToJSON

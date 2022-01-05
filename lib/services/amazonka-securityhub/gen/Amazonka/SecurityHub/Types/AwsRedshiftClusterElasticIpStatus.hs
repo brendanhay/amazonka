@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterElasticIpStatus
+  where
+  hashWithSalt
+    _salt
+    AwsRedshiftClusterElasticIpStatus' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` elasticIp
 
 instance
   Prelude.NFData
     AwsRedshiftClusterElasticIpStatus
+  where
+  rnf AwsRedshiftClusterElasticIpStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf elasticIp
 
 instance
   Core.ToJSON

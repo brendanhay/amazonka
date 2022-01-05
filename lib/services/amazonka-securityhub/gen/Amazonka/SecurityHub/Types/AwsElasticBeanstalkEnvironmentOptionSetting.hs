@@ -98,10 +98,24 @@ instance
 instance
   Prelude.Hashable
     AwsElasticBeanstalkEnvironmentOptionSetting
+  where
+  hashWithSalt
+    _salt
+    AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
+      _salt `Prelude.hashWithSalt` optionName
+        `Prelude.hashWithSalt` resourceName
+        `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     AwsElasticBeanstalkEnvironmentOptionSetting
+  where
+  rnf AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
+    Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON

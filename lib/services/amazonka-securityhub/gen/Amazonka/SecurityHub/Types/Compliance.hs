@@ -149,9 +149,17 @@ instance Core.FromJSON Compliance where
             Prelude.<*> (x Core..:? "StatusReasons" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Compliance
+instance Prelude.Hashable Compliance where
+  hashWithSalt _salt Compliance' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` relatedRequirements
+      `Prelude.hashWithSalt` statusReasons
 
-instance Prelude.NFData Compliance
+instance Prelude.NFData Compliance where
+  rnf Compliance' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf relatedRequirements
+      `Prelude.seq` Prelude.rnf statusReasons
 
 instance Core.ToJSON Compliance where
   toJSON Compliance' {..} =

@@ -63,9 +63,13 @@ instance Core.FromJSON ActionLocalIpDetails where
             Prelude.<$> (x Core..:? "IpAddressV4")
       )
 
-instance Prelude.Hashable ActionLocalIpDetails
+instance Prelude.Hashable ActionLocalIpDetails where
+  hashWithSalt _salt ActionLocalIpDetails' {..} =
+    _salt `Prelude.hashWithSalt` ipAddressV4
 
-instance Prelude.NFData ActionLocalIpDetails
+instance Prelude.NFData ActionLocalIpDetails where
+  rnf ActionLocalIpDetails' {..} =
+    Prelude.rnf ipAddressV4
 
 instance Core.ToJSON ActionLocalIpDetails where
   toJSON ActionLocalIpDetails' {..} =

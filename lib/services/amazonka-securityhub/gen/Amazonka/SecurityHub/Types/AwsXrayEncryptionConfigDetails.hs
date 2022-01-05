@@ -94,10 +94,22 @@ instance Core.FromJSON AwsXrayEncryptionConfigDetails where
 instance
   Prelude.Hashable
     AwsXrayEncryptionConfigDetails
+  where
+  hashWithSalt
+    _salt
+    AwsXrayEncryptionConfigDetails' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` keyId
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsXrayEncryptionConfigDetails
+  where
+  rnf AwsXrayEncryptionConfigDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON AwsXrayEncryptionConfigDetails where
   toJSON AwsXrayEncryptionConfigDetails' {..} =

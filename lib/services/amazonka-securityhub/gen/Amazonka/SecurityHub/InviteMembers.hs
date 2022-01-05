@@ -100,9 +100,12 @@ instance Core.AWSRequest InviteMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InviteMembers
+instance Prelude.Hashable InviteMembers where
+  hashWithSalt _salt InviteMembers' {..} =
+    _salt `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData InviteMembers
+instance Prelude.NFData InviteMembers where
+  rnf InviteMembers' {..} = Prelude.rnf accountIds
 
 instance Core.ToHeaders InviteMembers where
   toHeaders =
@@ -173,4 +176,7 @@ inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {
 inviteMembersResponse_httpStatus :: Lens.Lens' InviteMembersResponse Prelude.Int
 inviteMembersResponse_httpStatus = Lens.lens (\InviteMembersResponse' {httpStatus} -> httpStatus) (\s@InviteMembersResponse' {} a -> s {httpStatus = a} :: InviteMembersResponse)
 
-instance Prelude.NFData InviteMembersResponse
+instance Prelude.NFData InviteMembersResponse where
+  rnf InviteMembersResponse' {..} =
+    Prelude.rnf unprocessedAccounts
+      `Prelude.seq` Prelude.rnf httpStatus

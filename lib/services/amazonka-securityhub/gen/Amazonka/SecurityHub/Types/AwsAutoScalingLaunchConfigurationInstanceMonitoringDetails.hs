@@ -80,10 +80,19 @@ instance
 instance
   Prelude.Hashable
     AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+  where
+  hashWithSalt
+    _salt
+    AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails' {..} =
+      _salt `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+  where
+  rnf
+    AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails' {..} =
+      Prelude.rnf enabled
 
 instance
   Core.ToJSON

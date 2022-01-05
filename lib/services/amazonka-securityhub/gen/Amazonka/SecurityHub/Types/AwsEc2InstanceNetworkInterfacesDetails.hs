@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     AwsEc2InstanceNetworkInterfacesDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEc2InstanceNetworkInterfacesDetails' {..} =
+      _salt `Prelude.hashWithSalt` networkInterfaceId
 
 instance
   Prelude.NFData
     AwsEc2InstanceNetworkInterfacesDetails
+  where
+  rnf AwsEc2InstanceNetworkInterfacesDetails' {..} =
+    Prelude.rnf networkInterfaceId
 
 instance
   Core.ToJSON

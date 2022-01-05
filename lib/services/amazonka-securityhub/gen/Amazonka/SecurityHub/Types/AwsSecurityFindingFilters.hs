@@ -1392,9 +1392,273 @@ instance Core.FromJSON AwsSecurityFindingFilters where
             Prelude.<*> (x Core..:? "Keyword" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AwsSecurityFindingFilters
+instance Prelude.Hashable AwsSecurityFindingFilters where
+  hashWithSalt _salt AwsSecurityFindingFilters' {..} =
+    _salt
+      `Prelude.hashWithSalt` resourceAwsIamAccessKeyPrincipalName
+      `Prelude.hashWithSalt` resourceAwsIamAccessKeyCreatedAt
+      `Prelude.hashWithSalt` malwarePath
+      `Prelude.hashWithSalt` resourceDetailsOther
+      `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceSubnetId
+      `Prelude.hashWithSalt` workflowState
+      `Prelude.hashWithSalt` resourceContainerImageId
+      `Prelude.hashWithSalt` relatedFindingsProductArn
+      `Prelude.hashWithSalt` criticality
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceAwsIamAccessKeyUserName
+      `Prelude.hashWithSalt` processParentPid
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceType
+      `Prelude.hashWithSalt` resourceRegion
+      `Prelude.hashWithSalt` recordState
+      `Prelude.hashWithSalt` networkSourceIpV6
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` productFields
+      `Prelude.hashWithSalt` noteText
+      `Prelude.hashWithSalt` resourceContainerImageName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` threatIntelIndicatorCategory
+      `Prelude.hashWithSalt` severityProduct
+      `Prelude.hashWithSalt` companyName
+      `Prelude.hashWithSalt` findingProviderFieldsSeverityLabel
+      `Prelude.hashWithSalt` networkProtocol
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceImageId
+      `Prelude.hashWithSalt` resourcePartition
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceIpV6Addresses
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceLaunchedAt
+      `Prelude.hashWithSalt` networkSourceDomain
+      `Prelude.hashWithSalt` networkDestinationPort
+      `Prelude.hashWithSalt` noteUpdatedBy
+      `Prelude.hashWithSalt` malwareName
+      `Prelude.hashWithSalt` findingProviderFieldsTypes
+      `Prelude.hashWithSalt` threatIntelIndicatorValue
+      `Prelude.hashWithSalt` malwareState
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` complianceStatus
+      `Prelude.hashWithSalt` networkDestinationIpV4
+      `Prelude.hashWithSalt` findingProviderFieldsRelatedFindingsId
+      `Prelude.hashWithSalt` firstObservedAt
+      `Prelude.hashWithSalt` threatIntelIndicatorLastObservedAt
+      `Prelude.hashWithSalt` recommendationText
+      `Prelude.hashWithSalt` resourceContainerLaunchedAt
+      `Prelude.hashWithSalt` networkSourceMac
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` relatedFindingsId
+      `Prelude.hashWithSalt` processName
+      `Prelude.hashWithSalt` findingProviderFieldsSeverityOriginal
+      `Prelude.hashWithSalt` workflowStatus
+      `Prelude.hashWithSalt` resourceAwsS3BucketOwnerName
+      `Prelude.hashWithSalt` findingProviderFieldsCriticality
+      `Prelude.hashWithSalt` findingProviderFieldsRelatedFindingsProductArn
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceVpcId
+      `Prelude.hashWithSalt` networkSourcePort
+      `Prelude.hashWithSalt` resourceContainerName
+      `Prelude.hashWithSalt` severityNormalized
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceKeyName
+      `Prelude.hashWithSalt` networkDestinationDomain
+      `Prelude.hashWithSalt` processLaunchedAt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` severityLabel
+      `Prelude.hashWithSalt` resourceAwsIamAccessKeyStatus
+      `Prelude.hashWithSalt` resourceAwsS3BucketOwnerId
+      `Prelude.hashWithSalt` threatIntelIndicatorType
+      `Prelude.hashWithSalt` resourceAwsIamUserUserName
+      `Prelude.hashWithSalt` noteUpdatedAt
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` threatIntelIndicatorSource
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` networkSourceIpV4
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceIamInstanceProfileArn
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` processTerminatedAt
+      `Prelude.hashWithSalt` networkDestinationIpV6
+      `Prelude.hashWithSalt` threatIntelIndicatorSourceUrl
+      `Prelude.hashWithSalt` networkDirection
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` sourceUrl
+      `Prelude.hashWithSalt` processPath
+      `Prelude.hashWithSalt` processPid
+      `Prelude.hashWithSalt` generatorId
+      `Prelude.hashWithSalt` productArn
+      `Prelude.hashWithSalt` lastObservedAt
+      `Prelude.hashWithSalt` findingProviderFieldsConfidence
+      `Prelude.hashWithSalt` userDefinedFields
+      `Prelude.hashWithSalt` resourceAwsEc2InstanceIpV4Addresses
+      `Prelude.hashWithSalt` malwareType
+      `Prelude.hashWithSalt` keyword
 
-instance Prelude.NFData AwsSecurityFindingFilters
+instance Prelude.NFData AwsSecurityFindingFilters where
+  rnf AwsSecurityFindingFilters' {..} =
+    Prelude.rnf resourceAwsIamAccessKeyPrincipalName
+      `Prelude.seq` Prelude.rnf resourceAwsIamAccessKeyCreatedAt
+      `Prelude.seq` Prelude.rnf malwarePath
+      `Prelude.seq` Prelude.rnf resourceDetailsOther
+      `Prelude.seq` Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf resourceAwsEc2InstanceSubnetId
+      `Prelude.seq` Prelude.rnf workflowState
+      `Prelude.seq` Prelude.rnf resourceContainerImageId
+      `Prelude.seq` Prelude.rnf relatedFindingsProductArn
+      `Prelude.seq` Prelude.rnf criticality
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceAwsIamAccessKeyUserName
+      `Prelude.seq` Prelude.rnf processParentPid
+      `Prelude.seq` Prelude.rnf resourceAwsEc2InstanceType
+      `Prelude.seq` Prelude.rnf resourceRegion
+      `Prelude.seq` Prelude.rnf recordState
+      `Prelude.seq` Prelude.rnf networkSourceIpV6
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf productFields
+      `Prelude.seq` Prelude.rnf noteText
+      `Prelude.seq` Prelude.rnf
+        resourceContainerImageName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorCategory
+      `Prelude.seq` Prelude.rnf
+        severityProduct
+      `Prelude.seq` Prelude.rnf
+        companyName
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsSeverityLabel
+      `Prelude.seq` Prelude.rnf
+        networkProtocol
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceImageId
+      `Prelude.seq` Prelude.rnf
+        resourcePartition
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceIpV6Addresses
+      `Prelude.seq` Prelude.rnf
+        resourceTags
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceLaunchedAt
+      `Prelude.seq` Prelude.rnf
+        networkSourceDomain
+      `Prelude.seq` Prelude.rnf
+        networkDestinationPort
+      `Prelude.seq` Prelude.rnf
+        noteUpdatedBy
+      `Prelude.seq` Prelude.rnf
+        malwareName
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsTypes
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorValue
+      `Prelude.seq` Prelude.rnf
+        malwareState
+      `Prelude.seq` Prelude.rnf
+        awsAccountId
+      `Prelude.seq` Prelude.rnf
+        complianceStatus
+      `Prelude.seq` Prelude.rnf
+        networkDestinationIpV4
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsRelatedFindingsId
+      `Prelude.seq` Prelude.rnf
+        firstObservedAt
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorLastObservedAt
+      `Prelude.seq` Prelude.rnf
+        recommendationText
+      `Prelude.seq` Prelude.rnf
+        resourceContainerLaunchedAt
+      `Prelude.seq` Prelude.rnf
+        networkSourceMac
+      `Prelude.seq` Prelude.rnf
+        confidence
+      `Prelude.seq` Prelude.rnf
+        relatedFindingsId
+      `Prelude.seq` Prelude.rnf
+        processName
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsSeverityOriginal
+      `Prelude.seq` Prelude.rnf
+        workflowStatus
+      `Prelude.seq` Prelude.rnf
+        resourceAwsS3BucketOwnerName
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsCriticality
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsRelatedFindingsProductArn
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceVpcId
+      `Prelude.seq` Prelude.rnf
+        networkSourcePort
+      `Prelude.seq` Prelude.rnf
+        resourceContainerName
+      `Prelude.seq` Prelude.rnf
+        severityNormalized
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceKeyName
+      `Prelude.seq` Prelude.rnf
+        networkDestinationDomain
+      `Prelude.seq` Prelude.rnf
+        processLaunchedAt
+      `Prelude.seq` Prelude.rnf
+        id
+      `Prelude.seq` Prelude.rnf
+        severityLabel
+      `Prelude.seq` Prelude.rnf
+        resourceAwsIamAccessKeyStatus
+      `Prelude.seq` Prelude.rnf
+        resourceAwsS3BucketOwnerId
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorType
+      `Prelude.seq` Prelude.rnf
+        resourceAwsIamUserUserName
+      `Prelude.seq` Prelude.rnf
+        noteUpdatedAt
+      `Prelude.seq` Prelude.rnf
+        title
+      `Prelude.seq` Prelude.rnf
+        region
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorSource
+      `Prelude.seq` Prelude.rnf
+        type'
+      `Prelude.seq` Prelude.rnf
+        networkSourceIpV4
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceIamInstanceProfileArn
+      `Prelude.seq` Prelude.rnf
+        updatedAt
+      `Prelude.seq` Prelude.rnf
+        processTerminatedAt
+      `Prelude.seq` Prelude.rnf
+        networkDestinationIpV6
+      `Prelude.seq` Prelude.rnf
+        threatIntelIndicatorSourceUrl
+      `Prelude.seq` Prelude.rnf
+        networkDirection
+      `Prelude.seq` Prelude.rnf
+        description
+      `Prelude.seq` Prelude.rnf
+        verificationState
+      `Prelude.seq` Prelude.rnf
+        sourceUrl
+      `Prelude.seq` Prelude.rnf
+        processPath
+      `Prelude.seq` Prelude.rnf
+        processPid
+      `Prelude.seq` Prelude.rnf
+        generatorId
+      `Prelude.seq` Prelude.rnf
+        productArn
+      `Prelude.seq` Prelude.rnf
+        lastObservedAt
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsConfidence
+      `Prelude.seq` Prelude.rnf
+        userDefinedFields
+      `Prelude.seq` Prelude.rnf
+        resourceAwsEc2InstanceIpV4Addresses
+      `Prelude.seq` Prelude.rnf
+        malwareType
+      `Prelude.seq` Prelude.rnf
+        keyword
 
 instance Core.ToJSON AwsSecurityFindingFilters where
   toJSON AwsSecurityFindingFilters' {..} =

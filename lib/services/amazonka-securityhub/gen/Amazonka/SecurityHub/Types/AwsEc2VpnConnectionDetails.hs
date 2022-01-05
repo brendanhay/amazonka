@@ -183,9 +183,34 @@ instance Core.FromJSON AwsEc2VpnConnectionDetails where
             Prelude.<*> (x Core..:? "VgwTelemetry" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AwsEc2VpnConnectionDetails
+instance Prelude.Hashable AwsEc2VpnConnectionDetails where
+  hashWithSalt _salt AwsEc2VpnConnectionDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` customerGatewayConfiguration
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` routes
+      `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` customerGatewayId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` vpnConnectionId
+      `Prelude.hashWithSalt` vgwTelemetry
 
-instance Prelude.NFData AwsEc2VpnConnectionDetails
+instance Prelude.NFData AwsEc2VpnConnectionDetails where
+  rnf AwsEc2VpnConnectionDetails' {..} =
+    Prelude.rnf customerGatewayConfiguration
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf customerGatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf vpnConnectionId
+      `Prelude.seq` Prelude.rnf vgwTelemetry
 
 instance Core.ToJSON AwsEc2VpnConnectionDetails where
   toJSON AwsEc2VpnConnectionDetails' {..} =

@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketLoggingConfiguration
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketLoggingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` logFilePrefix
+        `Prelude.hashWithSalt` destinationBucketName
 
 instance
   Prelude.NFData
     AwsS3BucketLoggingConfiguration
+  where
+  rnf AwsS3BucketLoggingConfiguration' {..} =
+    Prelude.rnf logFilePrefix
+      `Prelude.seq` Prelude.rnf destinationBucketName
 
 instance Core.ToJSON AwsS3BucketLoggingConfiguration where
   toJSON AwsS3BucketLoggingConfiguration' {..} =

@@ -175,10 +175,34 @@ instance
 instance
   Prelude.Hashable
     AwsCodeBuildProjectArtifactsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsCodeBuildProjectArtifactsDetails' {..} =
+      _salt `Prelude.hashWithSalt` packaging
+        `Prelude.hashWithSalt` location
+        `Prelude.hashWithSalt` path
+        `Prelude.hashWithSalt` encryptionDisabled
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` overrideArtifactName
+        `Prelude.hashWithSalt` artifactIdentifier
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` namespaceType
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectArtifactsDetails
+  where
+  rnf AwsCodeBuildProjectArtifactsDetails' {..} =
+    Prelude.rnf packaging
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf overrideArtifactName
+      `Prelude.seq` Prelude.rnf artifactIdentifier
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf namespaceType
 
 instance
   Core.ToJSON

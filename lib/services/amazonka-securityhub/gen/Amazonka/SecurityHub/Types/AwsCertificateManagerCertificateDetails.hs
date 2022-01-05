@@ -503,10 +503,64 @@ instance
 instance
   Prelude.Hashable
     AwsCertificateManagerCertificateDetails
+  where
+  hashWithSalt
+    _salt
+    AwsCertificateManagerCertificateDetails' {..} =
+      _salt `Prelude.hashWithSalt` subject
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` subjectAlternativeNames
+        `Prelude.hashWithSalt` inUseBy
+        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` serial
+        `Prelude.hashWithSalt` renewalEligibility
+        `Prelude.hashWithSalt` extendedKeyUsages
+        `Prelude.hashWithSalt` importedAt
+        `Prelude.hashWithSalt` keyUsages
+        `Prelude.hashWithSalt` notBefore
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` renewalSummary
+        `Prelude.hashWithSalt` keyAlgorithm
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` issuedAt
+        `Prelude.hashWithSalt` signatureAlgorithm
+        `Prelude.hashWithSalt` domainValidationOptions
+        `Prelude.hashWithSalt` issuer
+        `Prelude.hashWithSalt` notAfter
+        `Prelude.hashWithSalt` certificateAuthorityArn
 
 instance
   Prelude.NFData
     AwsCertificateManagerCertificateDetails
+  where
+  rnf AwsCertificateManagerCertificateDetails' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf inUseBy
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serial
+      `Prelude.seq` Prelude.rnf renewalEligibility
+      `Prelude.seq` Prelude.rnf extendedKeyUsages
+      `Prelude.seq` Prelude.rnf importedAt
+      `Prelude.seq` Prelude.rnf keyUsages
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf renewalSummary
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf signatureAlgorithm
+      `Prelude.seq` Prelude.rnf
+        domainValidationOptions
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf
+        certificateAuthorityArn
 
 instance
   Core.ToJSON

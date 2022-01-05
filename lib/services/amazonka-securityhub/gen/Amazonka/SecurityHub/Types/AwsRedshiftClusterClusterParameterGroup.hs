@@ -94,10 +94,23 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterClusterParameterGroup
+  where
+  hashWithSalt
+    _salt
+    AwsRedshiftClusterClusterParameterGroup' {..} =
+      _salt
+        `Prelude.hashWithSalt` clusterParameterStatusList
+        `Prelude.hashWithSalt` parameterApplyStatus
+        `Prelude.hashWithSalt` parameterGroupName
 
 instance
   Prelude.NFData
     AwsRedshiftClusterClusterParameterGroup
+  where
+  rnf AwsRedshiftClusterClusterParameterGroup' {..} =
+    Prelude.rnf clusterParameterStatusList
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance
   Core.ToJSON

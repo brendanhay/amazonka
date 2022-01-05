@@ -124,10 +124,27 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` driver
+        `Prelude.hashWithSalt` driverOpts
+        `Prelude.hashWithSalt` scope
+        `Prelude.hashWithSalt` labels
+        `Prelude.hashWithSalt` autoprovision
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
+      Prelude.rnf driver
+        `Prelude.seq` Prelude.rnf driverOpts
+        `Prelude.seq` Prelude.rnf scope
+        `Prelude.seq` Prelude.rnf labels
+        `Prelude.seq` Prelude.rnf autoprovision
 
 instance
   Core.ToJSON

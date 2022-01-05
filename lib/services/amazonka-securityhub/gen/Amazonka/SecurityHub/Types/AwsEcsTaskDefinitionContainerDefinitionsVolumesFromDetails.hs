@@ -82,10 +82,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
+      _salt `Prelude.hashWithSalt` sourceContainer
+        `Prelude.hashWithSalt` readOnly
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
+      Prelude.rnf sourceContainer
+        `Prelude.seq` Prelude.rnf readOnly
 
 instance
   Core.ToJSON

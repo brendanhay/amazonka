@@ -110,10 +110,24 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionOriginItem
+  where
+  hashWithSalt
+    _salt
+    AwsCloudFrontDistributionOriginItem' {..} =
+      _salt `Prelude.hashWithSalt` s3OriginConfig
+        `Prelude.hashWithSalt` originPath
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginItem
+  where
+  rnf AwsCloudFrontDistributionOriginItem' {..} =
+    Prelude.rnf s3OriginConfig
+      `Prelude.seq` Prelude.rnf originPath
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToJSON

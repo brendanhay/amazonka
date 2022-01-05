@@ -90,10 +90,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` hardLimit
+        `Prelude.hashWithSalt` softLimit
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
+      Prelude.rnf name
+        `Prelude.seq` Prelude.rnf hardLimit
+        `Prelude.seq` Prelude.rnf softLimit
 
 instance
   Core.ToJSON

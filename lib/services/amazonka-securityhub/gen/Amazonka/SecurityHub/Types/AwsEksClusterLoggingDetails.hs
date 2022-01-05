@@ -65,9 +65,13 @@ instance Core.FromJSON AwsEksClusterLoggingDetails where
                         )
       )
 
-instance Prelude.Hashable AwsEksClusterLoggingDetails
+instance Prelude.Hashable AwsEksClusterLoggingDetails where
+  hashWithSalt _salt AwsEksClusterLoggingDetails' {..} =
+    _salt `Prelude.hashWithSalt` clusterLogging
 
-instance Prelude.NFData AwsEksClusterLoggingDetails
+instance Prelude.NFData AwsEksClusterLoggingDetails where
+  rnf AwsEksClusterLoggingDetails' {..} =
+    Prelude.rnf clusterLogging
 
 instance Core.ToJSON AwsEksClusterLoggingDetails where
   toJSON AwsEksClusterLoggingDetails' {..} =

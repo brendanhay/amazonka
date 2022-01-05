@@ -63,9 +63,12 @@ instance Core.FromJSON Remediation where
             Prelude.<$> (x Core..:? "Recommendation")
       )
 
-instance Prelude.Hashable Remediation
+instance Prelude.Hashable Remediation where
+  hashWithSalt _salt Remediation' {..} =
+    _salt `Prelude.hashWithSalt` recommendation
 
-instance Prelude.NFData Remediation
+instance Prelude.NFData Remediation where
+  rnf Remediation' {..} = Prelude.rnf recommendation
 
 instance Core.ToJSON Remediation where
   toJSON Remediation' {..} =

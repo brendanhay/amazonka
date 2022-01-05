@@ -76,8 +76,15 @@ instance Core.FromJSON AwsLambdaFunctionEnvironment where
 instance
   Prelude.Hashable
     AwsLambdaFunctionEnvironment
+  where
+  hashWithSalt _salt AwsLambdaFunctionEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData AwsLambdaFunctionEnvironment
+instance Prelude.NFData AwsLambdaFunctionEnvironment where
+  rnf AwsLambdaFunctionEnvironment' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf error
 
 instance Core.ToJSON AwsLambdaFunctionEnvironment where
   toJSON AwsLambdaFunctionEnvironment' {..} =

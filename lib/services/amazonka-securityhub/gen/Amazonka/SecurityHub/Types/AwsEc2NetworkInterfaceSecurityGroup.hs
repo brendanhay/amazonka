@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfaceSecurityGroup
+  where
+  hashWithSalt
+    _salt
+    AwsEc2NetworkInterfaceSecurityGroup' {..} =
+      _salt `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` groupName
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceSecurityGroup
+  where
+  rnf AwsEc2NetworkInterfaceSecurityGroup' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance
   Core.ToJSON

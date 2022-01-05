@@ -177,9 +177,19 @@ instance Core.AWSRequest GetFindings where
             Prelude.<*> (x Core..?> "Findings" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetFindings
+instance Prelude.Hashable GetFindings where
+  hashWithSalt _salt GetFindings' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetFindings
+instance Prelude.NFData GetFindings where
+  rnf GetFindings' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetFindings where
   toHeaders =
@@ -256,4 +266,8 @@ getFindingsResponse_httpStatus = Lens.lens (\GetFindingsResponse' {httpStatus} -
 getFindingsResponse_findings :: Lens.Lens' GetFindingsResponse [AwsSecurityFinding]
 getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetFindingsResponse
+instance Prelude.NFData GetFindingsResponse where
+  rnf GetFindingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf findings

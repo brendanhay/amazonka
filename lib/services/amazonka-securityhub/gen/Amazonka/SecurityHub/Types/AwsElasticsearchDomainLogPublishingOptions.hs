@@ -89,10 +89,22 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainLogPublishingOptions
+  where
+  hashWithSalt
+    _salt
+    AwsElasticsearchDomainLogPublishingOptions' {..} =
+      _salt `Prelude.hashWithSalt` indexSlowLogs
+        `Prelude.hashWithSalt` searchSlowLogs
+        `Prelude.hashWithSalt` auditLogs
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainLogPublishingOptions
+  where
+  rnf AwsElasticsearchDomainLogPublishingOptions' {..} =
+    Prelude.rnf indexSlowLogs
+      `Prelude.seq` Prelude.rnf searchSlowLogs
+      `Prelude.seq` Prelude.rnf auditLogs
 
 instance
   Core.ToJSON

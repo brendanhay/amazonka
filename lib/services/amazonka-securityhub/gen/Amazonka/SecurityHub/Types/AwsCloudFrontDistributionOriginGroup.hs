@@ -69,10 +69,18 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionOriginGroup
+  where
+  hashWithSalt
+    _salt
+    AwsCloudFrontDistributionOriginGroup' {..} =
+      _salt `Prelude.hashWithSalt` failoverCriteria
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginGroup
+  where
+  rnf AwsCloudFrontDistributionOriginGroup' {..} =
+    Prelude.rnf failoverCriteria
 
 instance
   Core.ToJSON

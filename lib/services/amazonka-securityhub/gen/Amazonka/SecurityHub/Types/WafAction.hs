@@ -92,9 +92,12 @@ instance Core.FromJSON WafAction where
       "WafAction"
       (\x -> WafAction' Prelude.<$> (x Core..:? "Type"))
 
-instance Prelude.Hashable WafAction
+instance Prelude.Hashable WafAction where
+  hashWithSalt _salt WafAction' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData WafAction
+instance Prelude.NFData WafAction where
+  rnf WafAction' {..} = Prelude.rnf type'
 
 instance Core.ToJSON WafAction where
   toJSON WafAction' {..} =

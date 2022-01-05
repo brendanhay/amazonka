@@ -118,9 +118,17 @@ instance Core.AWSRequest CreateActionTarget where
             Prelude.<*> (x Core..:> "ActionTargetArn")
       )
 
-instance Prelude.Hashable CreateActionTarget
+instance Prelude.Hashable CreateActionTarget where
+  hashWithSalt _salt CreateActionTarget' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData CreateActionTarget
+instance Prelude.NFData CreateActionTarget where
+  rnf CreateActionTarget' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders CreateActionTarget where
   toHeaders =
@@ -192,4 +200,7 @@ createActionTargetResponse_httpStatus = Lens.lens (\CreateActionTargetResponse' 
 createActionTargetResponse_actionTargetArn :: Lens.Lens' CreateActionTargetResponse Prelude.Text
 createActionTargetResponse_actionTargetArn = Lens.lens (\CreateActionTargetResponse' {actionTargetArn} -> actionTargetArn) (\s@CreateActionTargetResponse' {} a -> s {actionTargetArn = a} :: CreateActionTargetResponse)
 
-instance Prelude.NFData CreateActionTargetResponse
+instance Prelude.NFData CreateActionTargetResponse where
+  rnf CreateActionTargetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf actionTargetArn

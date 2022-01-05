@@ -81,9 +81,15 @@ instance Core.FromJSON Record where
             Prelude.<*> (x Core..:? "RecordIndex")
       )
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt _salt Record' {..} =
+    _salt `Prelude.hashWithSalt` jsonPath
+      `Prelude.hashWithSalt` recordIndex
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} =
+    Prelude.rnf jsonPath
+      `Prelude.seq` Prelude.rnf recordIndex
 
 instance Core.ToJSON Record where
   toJSON Record' {..} =

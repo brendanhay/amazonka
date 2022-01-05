@@ -99,9 +99,19 @@ instance Core.FromJSON NetworkPathComponent where
             Prelude.<*> (x Core..:? "Egress")
       )
 
-instance Prelude.Hashable NetworkPathComponent
+instance Prelude.Hashable NetworkPathComponent where
+  hashWithSalt _salt NetworkPathComponent' {..} =
+    _salt `Prelude.hashWithSalt` componentType
+      `Prelude.hashWithSalt` ingress
+      `Prelude.hashWithSalt` componentId
+      `Prelude.hashWithSalt` egress
 
-instance Prelude.NFData NetworkPathComponent
+instance Prelude.NFData NetworkPathComponent where
+  rnf NetworkPathComponent' {..} =
+    Prelude.rnf componentType
+      `Prelude.seq` Prelude.rnf ingress
+      `Prelude.seq` Prelude.rnf componentId
+      `Prelude.seq` Prelude.rnf egress
 
 instance Core.ToJSON NetworkPathComponent where
   toJSON NetworkPathComponent' {..} =

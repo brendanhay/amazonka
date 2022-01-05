@@ -96,9 +96,17 @@ instance Core.FromJSON AwsIamPolicyVersion where
             Prelude.<*> (x Core..:? "IsDefaultVersion")
       )
 
-instance Prelude.Hashable AwsIamPolicyVersion
+instance Prelude.Hashable AwsIamPolicyVersion where
+  hashWithSalt _salt AwsIamPolicyVersion' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` isDefaultVersion
 
-instance Prelude.NFData AwsIamPolicyVersion
+instance Prelude.NFData AwsIamPolicyVersion where
+  rnf AwsIamPolicyVersion' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf isDefaultVersion
 
 instance Core.ToJSON AwsIamPolicyVersion where
   toJSON AwsIamPolicyVersion' {..} =

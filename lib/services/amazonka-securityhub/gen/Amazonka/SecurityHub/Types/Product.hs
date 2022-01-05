@@ -194,6 +194,26 @@ instance Core.FromJSON Product where
             Prelude.<*> (x Core..: "ProductArn")
       )
 
-instance Prelude.Hashable Product
+instance Prelude.Hashable Product where
+  hashWithSalt _salt Product' {..} =
+    _salt `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` productSubscriptionResourcePolicy
+      `Prelude.hashWithSalt` companyName
+      `Prelude.hashWithSalt` categories
+      `Prelude.hashWithSalt` marketplaceUrl
+      `Prelude.hashWithSalt` activationUrl
+      `Prelude.hashWithSalt` integrationTypes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` productArn
 
-instance Prelude.NFData Product
+instance Prelude.NFData Product where
+  rnf Product' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf productSubscriptionResourcePolicy
+      `Prelude.seq` Prelude.rnf companyName
+      `Prelude.seq` Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf marketplaceUrl
+      `Prelude.seq` Prelude.rnf activationUrl
+      `Prelude.seq` Prelude.rnf integrationTypes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf productArn

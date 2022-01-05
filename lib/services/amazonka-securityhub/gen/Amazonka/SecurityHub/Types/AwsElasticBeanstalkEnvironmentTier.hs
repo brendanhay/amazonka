@@ -88,10 +88,22 @@ instance
 instance
   Prelude.Hashable
     AwsElasticBeanstalkEnvironmentTier
+  where
+  hashWithSalt
+    _salt
+    AwsElasticBeanstalkEnvironmentTier' {..} =
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsElasticBeanstalkEnvironmentTier
+  where
+  rnf AwsElasticBeanstalkEnvironmentTier' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

@@ -79,10 +79,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {..} =
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` deviceType
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {..} =
+      Prelude.rnf deviceName
+        `Prelude.seq` Prelude.rnf deviceType
 
 instance
   Core.ToJSON

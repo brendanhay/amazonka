@@ -67,8 +67,13 @@ instance Core.FromJSON AwsSsmPatchComplianceDetails where
 instance
   Prelude.Hashable
     AwsSsmPatchComplianceDetails
+  where
+  hashWithSalt _salt AwsSsmPatchComplianceDetails' {..} =
+    _salt `Prelude.hashWithSalt` patch
 
-instance Prelude.NFData AwsSsmPatchComplianceDetails
+instance Prelude.NFData AwsSsmPatchComplianceDetails where
+  rnf AwsSsmPatchComplianceDetails' {..} =
+    Prelude.rnf patch
 
 instance Core.ToJSON AwsSsmPatchComplianceDetails where
   toJSON AwsSsmPatchComplianceDetails' {..} =

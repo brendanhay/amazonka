@@ -121,9 +121,25 @@ instance Core.FromJSON SoftwarePackage where
             Prelude.<*> (x Core..:? "Epoch")
       )
 
-instance Prelude.Hashable SoftwarePackage
+instance Prelude.Hashable SoftwarePackage where
+  hashWithSalt _salt SoftwarePackage' {..} =
+    _salt `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` release
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` packageManager
+      `Prelude.hashWithSalt` epoch
 
-instance Prelude.NFData SoftwarePackage
+instance Prelude.NFData SoftwarePackage where
+  rnf SoftwarePackage' {..} =
+    Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf release
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf packageManager
+      `Prelude.seq` Prelude.rnf epoch
 
 instance Core.ToJSON SoftwarePackage where
   toJSON SoftwarePackage' {..} =

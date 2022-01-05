@@ -147,9 +147,21 @@ instance Core.FromJSON FindingProviderFields where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable FindingProviderFields
+instance Prelude.Hashable FindingProviderFields where
+  hashWithSalt _salt FindingProviderFields' {..} =
+    _salt `Prelude.hashWithSalt` criticality
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` relatedFindings
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData FindingProviderFields
+instance Prelude.NFData FindingProviderFields where
+  rnf FindingProviderFields' {..} =
+    Prelude.rnf criticality
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf relatedFindings
+      `Prelude.seq` Prelude.rnf confidence
 
 instance Core.ToJSON FindingProviderFields where
   toJSON FindingProviderFields' {..} =

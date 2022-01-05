@@ -143,9 +143,15 @@ instance Core.AWSRequest DescribeStandards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStandards
+instance Prelude.Hashable DescribeStandards where
+  hashWithSalt _salt DescribeStandards' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeStandards
+instance Prelude.NFData DescribeStandards where
+  rnf DescribeStandards' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeStandards where
   toHeaders =
@@ -216,4 +222,8 @@ describeStandardsResponse_nextToken = Lens.lens (\DescribeStandardsResponse' {ne
 describeStandardsResponse_httpStatus :: Lens.Lens' DescribeStandardsResponse Prelude.Int
 describeStandardsResponse_httpStatus = Lens.lens (\DescribeStandardsResponse' {httpStatus} -> httpStatus) (\s@DescribeStandardsResponse' {} a -> s {httpStatus = a} :: DescribeStandardsResponse)
 
-instance Prelude.NFData DescribeStandardsResponse
+instance Prelude.NFData DescribeStandardsResponse where
+  rnf DescribeStandardsResponse' {..} =
+    Prelude.rnf standards
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

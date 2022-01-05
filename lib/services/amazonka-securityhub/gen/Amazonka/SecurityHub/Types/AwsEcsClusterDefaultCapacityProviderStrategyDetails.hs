@@ -95,10 +95,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsClusterDefaultCapacityProviderStrategyDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
+      _salt `Prelude.hashWithSalt` base
+        `Prelude.hashWithSalt` capacityProvider
+        `Prelude.hashWithSalt` weight
 
 instance
   Prelude.NFData
     AwsEcsClusterDefaultCapacityProviderStrategyDetails
+  where
+  rnf
+    AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
+      Prelude.rnf base
+        `Prelude.seq` Prelude.rnf capacityProvider
+        `Prelude.seq` Prelude.rnf weight
 
 instance
   Core.ToJSON

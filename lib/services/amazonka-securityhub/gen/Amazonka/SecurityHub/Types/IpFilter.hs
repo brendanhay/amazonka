@@ -55,9 +55,12 @@ instance Core.FromJSON IpFilter where
       "IpFilter"
       (\x -> IpFilter' Prelude.<$> (x Core..:? "Cidr"))
 
-instance Prelude.Hashable IpFilter
+instance Prelude.Hashable IpFilter where
+  hashWithSalt _salt IpFilter' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData IpFilter
+instance Prelude.NFData IpFilter where
+  rnf IpFilter' {..} = Prelude.rnf cidr
 
 instance Core.ToJSON IpFilter where
   toJSON IpFilter' {..} =

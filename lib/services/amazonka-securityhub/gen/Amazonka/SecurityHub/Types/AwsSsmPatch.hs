@@ -60,9 +60,12 @@ instance Core.FromJSON AwsSsmPatch where
             Prelude.<$> (x Core..:? "ComplianceSummary")
       )
 
-instance Prelude.Hashable AwsSsmPatch
+instance Prelude.Hashable AwsSsmPatch where
+  hashWithSalt _salt AwsSsmPatch' {..} =
+    _salt `Prelude.hashWithSalt` complianceSummary
 
-instance Prelude.NFData AwsSsmPatch
+instance Prelude.NFData AwsSsmPatch where
+  rnf AwsSsmPatch' {..} = Prelude.rnf complianceSummary
 
 instance Core.ToJSON AwsSsmPatch where
   toJSON AwsSsmPatch' {..} =

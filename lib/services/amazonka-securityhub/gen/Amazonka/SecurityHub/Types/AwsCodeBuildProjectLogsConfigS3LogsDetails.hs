@@ -89,10 +89,22 @@ instance
 instance
   Prelude.Hashable
     AwsCodeBuildProjectLogsConfigS3LogsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` location
+        `Prelude.hashWithSalt` encryptionDisabled
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectLogsConfigS3LogsDetails
+  where
+  rnf AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf encryptionDisabled
 
 instance
   Core.ToJSON

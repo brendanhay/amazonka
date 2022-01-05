@@ -140,9 +140,25 @@ instance Core.FromJSON AwsEc2VolumeDetails where
             Prelude.<*> (x Core..:? "SnapshotId")
       )
 
-instance Prelude.Hashable AwsEc2VolumeDetails
+instance Prelude.Hashable AwsEc2VolumeDetails where
+  hashWithSalt _salt AwsEc2VolumeDetails' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData AwsEc2VolumeDetails
+instance Prelude.NFData AwsEc2VolumeDetails where
+  rnf AwsEc2VolumeDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToJSON AwsEc2VolumeDetails where
   toJSON AwsEc2VolumeDetails' {..} =

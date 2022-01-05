@@ -77,8 +77,15 @@ instance Core.FromJSON AwsIamAccessKeySessionContext where
 instance
   Prelude.Hashable
     AwsIamAccessKeySessionContext
+  where
+  hashWithSalt _salt AwsIamAccessKeySessionContext' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` sessionIssuer
 
-instance Prelude.NFData AwsIamAccessKeySessionContext
+instance Prelude.NFData AwsIamAccessKeySessionContext where
+  rnf AwsIamAccessKeySessionContext' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf sessionIssuer
 
 instance Core.ToJSON AwsIamAccessKeySessionContext where
   toJSON AwsIamAccessKeySessionContext' {..} =

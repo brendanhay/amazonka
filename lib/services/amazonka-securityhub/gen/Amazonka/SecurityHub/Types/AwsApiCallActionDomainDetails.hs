@@ -66,8 +66,13 @@ instance Core.FromJSON AwsApiCallActionDomainDetails where
 instance
   Prelude.Hashable
     AwsApiCallActionDomainDetails
+  where
+  hashWithSalt _salt AwsApiCallActionDomainDetails' {..} =
+    _salt `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData AwsApiCallActionDomainDetails
+instance Prelude.NFData AwsApiCallActionDomainDetails where
+  rnf AwsApiCallActionDomainDetails' {..} =
+    Prelude.rnf domain
 
 instance Core.ToJSON AwsApiCallActionDomainDetails where
   toJSON AwsApiCallActionDomainDetails' {..} =

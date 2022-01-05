@@ -88,10 +88,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {..} =
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` valueFrom
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {..} =
+      Prelude.rnf name
+        `Prelude.seq` Prelude.rnf valueFrom
 
 instance
   Core.ToJSON

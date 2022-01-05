@@ -73,8 +73,15 @@ standardsSubscriptionRequest_standardsArn = Lens.lens (\StandardsSubscriptionReq
 instance
   Prelude.Hashable
     StandardsSubscriptionRequest
+  where
+  hashWithSalt _salt StandardsSubscriptionRequest' {..} =
+    _salt `Prelude.hashWithSalt` standardsInput
+      `Prelude.hashWithSalt` standardsArn
 
-instance Prelude.NFData StandardsSubscriptionRequest
+instance Prelude.NFData StandardsSubscriptionRequest where
+  rnf StandardsSubscriptionRequest' {..} =
+    Prelude.rnf standardsInput
+      `Prelude.seq` Prelude.rnf standardsArn
 
 instance Core.ToJSON StandardsSubscriptionRequest where
   toJSON StandardsSubscriptionRequest' {..} =

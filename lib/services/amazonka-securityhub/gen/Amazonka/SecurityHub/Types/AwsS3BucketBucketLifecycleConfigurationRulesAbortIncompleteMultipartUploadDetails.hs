@@ -72,10 +72,19 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails' {..} =
+      _salt `Prelude.hashWithSalt` daysAfterInitiation
 
 instance
   Prelude.NFData
     AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+  where
+  rnf
+    AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails' {..} =
+      Prelude.rnf daysAfterInitiation
 
 instance
   Core.ToJSON

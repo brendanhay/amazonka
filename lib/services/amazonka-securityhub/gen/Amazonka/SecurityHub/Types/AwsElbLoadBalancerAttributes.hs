@@ -150,8 +150,19 @@ instance Core.FromJSON AwsElbLoadBalancerAttributes where
 instance
   Prelude.Hashable
     AwsElbLoadBalancerAttributes
+  where
+  hashWithSalt _salt AwsElbLoadBalancerAttributes' {..} =
+    _salt `Prelude.hashWithSalt` crossZoneLoadBalancing
+      `Prelude.hashWithSalt` accessLog
+      `Prelude.hashWithSalt` connectionSettings
+      `Prelude.hashWithSalt` connectionDraining
 
-instance Prelude.NFData AwsElbLoadBalancerAttributes
+instance Prelude.NFData AwsElbLoadBalancerAttributes where
+  rnf AwsElbLoadBalancerAttributes' {..} =
+    Prelude.rnf crossZoneLoadBalancing
+      `Prelude.seq` Prelude.rnf accessLog
+      `Prelude.seq` Prelude.rnf connectionSettings
+      `Prelude.seq` Prelude.rnf connectionDraining
 
 instance Core.ToJSON AwsElbLoadBalancerAttributes where
   toJSON AwsElbLoadBalancerAttributes' {..} =

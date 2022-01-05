@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterVpcSecurityGroup
+  where
+  hashWithSalt
+    _salt
+    AwsRedshiftClusterVpcSecurityGroup' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` vpcSecurityGroupId
 
 instance
   Prelude.NFData
     AwsRedshiftClusterVpcSecurityGroup
+  where
+  rnf AwsRedshiftClusterVpcSecurityGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupId
 
 instance
   Core.ToJSON

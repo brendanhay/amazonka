@@ -182,9 +182,35 @@ instance Core.FromJSON Network where
             Prelude.<*> (x Core..:? "SourceIpV4")
       )
 
-instance Prelude.Hashable Network
+instance Prelude.Hashable Network where
+  hashWithSalt _salt Network' {..} =
+    _salt `Prelude.hashWithSalt` destinationDomain
+      `Prelude.hashWithSalt` sourcePort
+      `Prelude.hashWithSalt` openPortRange
+      `Prelude.hashWithSalt` sourceMac
+      `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` destinationIpV6
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` sourceIpV6
+      `Prelude.hashWithSalt` destinationIpV4
+      `Prelude.hashWithSalt` sourceDomain
+      `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` sourceIpV4
 
-instance Prelude.NFData Network
+instance Prelude.NFData Network where
+  rnf Network' {..} =
+    Prelude.rnf destinationDomain
+      `Prelude.seq` Prelude.rnf sourcePort
+      `Prelude.seq` Prelude.rnf openPortRange
+      `Prelude.seq` Prelude.rnf sourceMac
+      `Prelude.seq` Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf destinationIpV6
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf sourceIpV6
+      `Prelude.seq` Prelude.rnf destinationIpV4
+      `Prelude.seq` Prelude.rnf sourceDomain
+      `Prelude.seq` Prelude.rnf destinationPort
+      `Prelude.seq` Prelude.rnf sourceIpV4
 
 instance Core.ToJSON Network where
   toJSON Network' {..} =

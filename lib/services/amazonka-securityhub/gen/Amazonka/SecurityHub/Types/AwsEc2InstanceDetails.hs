@@ -176,9 +176,31 @@ instance Core.FromJSON AwsEc2InstanceDetails where
             Prelude.<*> (x Core..:? "LaunchedAt")
       )
 
-instance Prelude.Hashable AwsEc2InstanceDetails
+instance Prelude.Hashable AwsEc2InstanceDetails where
+  hashWithSalt _salt AwsEc2InstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` iamInstanceProfileArn
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` ipV4Addresses
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` ipV6Addresses
+      `Prelude.hashWithSalt` launchedAt
 
-instance Prelude.NFData AwsEc2InstanceDetails
+instance Prelude.NFData AwsEc2InstanceDetails where
+  rnf AwsEc2InstanceDetails' {..} =
+    Prelude.rnf iamInstanceProfileArn
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf ipV4Addresses
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf ipV6Addresses
+      `Prelude.seq` Prelude.rnf launchedAt
 
 instance Core.ToJSON AwsEc2InstanceDetails where
   toJSON AwsEc2InstanceDetails' {..} =

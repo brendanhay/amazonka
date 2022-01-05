@@ -113,9 +113,19 @@ instance Core.FromJSON AwsEcsClusterDetails where
                         )
       )
 
-instance Prelude.Hashable AwsEcsClusterDetails
+instance Prelude.Hashable AwsEcsClusterDetails where
+  hashWithSalt _salt AwsEcsClusterDetails' {..} =
+    _salt `Prelude.hashWithSalt` clusterSettings
+      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` capacityProviders
 
-instance Prelude.NFData AwsEcsClusterDetails
+instance Prelude.NFData AwsEcsClusterDetails where
+  rnf AwsEcsClusterDetails' {..} =
+    Prelude.rnf clusterSettings
+      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf capacityProviders
 
 instance Core.ToJSON AwsEcsClusterDetails where
   toJSON AwsEcsClusterDetails' {..} =

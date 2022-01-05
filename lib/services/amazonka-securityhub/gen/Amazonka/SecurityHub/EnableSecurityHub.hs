@@ -133,9 +133,15 @@ instance Core.AWSRequest EnableSecurityHub where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableSecurityHub
+instance Prelude.Hashable EnableSecurityHub where
+  hashWithSalt _salt EnableSecurityHub' {..} =
+    _salt `Prelude.hashWithSalt` enableDefaultStandards
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData EnableSecurityHub
+instance Prelude.NFData EnableSecurityHub where
+  rnf EnableSecurityHub' {..} =
+    Prelude.rnf enableDefaultStandards
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders EnableSecurityHub where
   toHeaders =
@@ -194,4 +200,6 @@ newEnableSecurityHubResponse pHttpStatus_ =
 enableSecurityHubResponse_httpStatus :: Lens.Lens' EnableSecurityHubResponse Prelude.Int
 enableSecurityHubResponse_httpStatus = Lens.lens (\EnableSecurityHubResponse' {httpStatus} -> httpStatus) (\s@EnableSecurityHubResponse' {} a -> s {httpStatus = a} :: EnableSecurityHubResponse)
 
-instance Prelude.NFData EnableSecurityHubResponse
+instance Prelude.NFData EnableSecurityHubResponse where
+  rnf EnableSecurityHubResponse' {..} =
+    Prelude.rnf httpStatus

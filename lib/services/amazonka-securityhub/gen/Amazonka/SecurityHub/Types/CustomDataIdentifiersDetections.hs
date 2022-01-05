@@ -102,10 +102,24 @@ instance
 instance
   Prelude.Hashable
     CustomDataIdentifiersDetections
+  where
+  hashWithSalt
+    _salt
+    CustomDataIdentifiersDetections' {..} =
+      _salt `Prelude.hashWithSalt` occurrences
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` count
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     CustomDataIdentifiersDetections
+  where
+  rnf CustomDataIdentifiersDetections' {..} =
+    Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CustomDataIdentifiersDetections where
   toJSON CustomDataIdentifiersDetections' {..} =

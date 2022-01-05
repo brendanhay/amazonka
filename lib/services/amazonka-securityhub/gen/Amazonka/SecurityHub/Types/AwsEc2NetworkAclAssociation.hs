@@ -85,9 +85,17 @@ instance Core.FromJSON AwsEc2NetworkAclAssociation where
             Prelude.<*> (x Core..:? "NetworkAclAssociationId")
       )
 
-instance Prelude.Hashable AwsEc2NetworkAclAssociation
+instance Prelude.Hashable AwsEc2NetworkAclAssociation where
+  hashWithSalt _salt AwsEc2NetworkAclAssociation' {..} =
+    _salt `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkAclAssociationId
 
-instance Prelude.NFData AwsEc2NetworkAclAssociation
+instance Prelude.NFData AwsEc2NetworkAclAssociation where
+  rnf AwsEc2NetworkAclAssociation' {..} =
+    Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkAclAssociationId
 
 instance Core.ToJSON AwsEc2NetworkAclAssociation where
   toJSON AwsEc2NetworkAclAssociation' {..} =

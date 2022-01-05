@@ -223,9 +223,42 @@ instance Core.FromJSON AwsCloudTrailTrailDetails where
             Prelude.<*> (x Core..:? "IsMultiRegionTrail")
       )
 
-instance Prelude.Hashable AwsCloudTrailTrailDetails
+instance Prelude.Hashable AwsCloudTrailTrailDetails where
+  hashWithSalt _salt AwsCloudTrailTrailDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` logFileValidationEnabled
+      `Prelude.hashWithSalt` trailArn
+      `Prelude.hashWithSalt` s3KeyPrefix
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` snsTopicName
+      `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` includeGlobalServiceEvents
+      `Prelude.hashWithSalt` hasCustomEventSelectors
+      `Prelude.hashWithSalt` isOrganizationTrail
+      `Prelude.hashWithSalt` cloudWatchLogsRoleArn
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` isMultiRegionTrail
 
-instance Prelude.NFData AwsCloudTrailTrailDetails
+instance Prelude.NFData AwsCloudTrailTrailDetails where
+  rnf AwsCloudTrailTrailDetails' {..} =
+    Prelude.rnf logFileValidationEnabled
+      `Prelude.seq` Prelude.rnf trailArn
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf snsTopicName
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf includeGlobalServiceEvents
+      `Prelude.seq` Prelude.rnf hasCustomEventSelectors
+      `Prelude.seq` Prelude.rnf isOrganizationTrail
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf isMultiRegionTrail
 
 instance Core.ToJSON AwsCloudTrailTrailDetails where
   toJSON AwsCloudTrailTrailDetails' {..} =

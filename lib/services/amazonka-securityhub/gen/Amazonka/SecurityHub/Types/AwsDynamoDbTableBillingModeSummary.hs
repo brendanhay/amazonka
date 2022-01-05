@@ -100,10 +100,21 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableBillingModeSummary
+  where
+  hashWithSalt
+    _salt
+    AwsDynamoDbTableBillingModeSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
+        `Prelude.hashWithSalt` billingMode
 
 instance
   Prelude.NFData
     AwsDynamoDbTableBillingModeSummary
+  where
+  rnf AwsDynamoDbTableBillingModeSummary' {..} =
+    Prelude.rnf lastUpdateToPayPerRequestDateTime
+      `Prelude.seq` Prelude.rnf billingMode
 
 instance
   Core.ToJSON

@@ -97,10 +97,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsClusterConfigurationExecuteCommandConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` logConfiguration
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` logging
 
 instance
   Prelude.NFData
     AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
+  where
+  rnf
+    AwsEcsClusterConfigurationExecuteCommandConfigurationDetails' {..} =
+      Prelude.rnf logConfiguration
+        `Prelude.seq` Prelude.rnf kmsKeyId
+        `Prelude.seq` Prelude.rnf logging
 
 instance
   Core.ToJSON

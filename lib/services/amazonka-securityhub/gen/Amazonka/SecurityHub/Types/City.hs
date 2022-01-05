@@ -55,9 +55,12 @@ instance Core.FromJSON City where
       "City"
       (\x -> City' Prelude.<$> (x Core..:? "CityName"))
 
-instance Prelude.Hashable City
+instance Prelude.Hashable City where
+  hashWithSalt _salt City' {..} =
+    _salt `Prelude.hashWithSalt` cityName
 
-instance Prelude.NFData City
+instance Prelude.NFData City where
+  rnf City' {..} = Prelude.rnf cityName
 
 instance Core.ToJSON City where
   toJSON City' {..} =

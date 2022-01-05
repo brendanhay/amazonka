@@ -114,10 +114,24 @@ instance Core.FromJSON AwsDynamoDbTableSseDescription where
 instance
   Prelude.Hashable
     AwsDynamoDbTableSseDescription
+  where
+  hashWithSalt
+    _salt
+    AwsDynamoDbTableSseDescription' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
+        `Prelude.hashWithSalt` sseType
+        `Prelude.hashWithSalt` kmsMasterKeyArn
 
 instance
   Prelude.NFData
     AwsDynamoDbTableSseDescription
+  where
+  rnf AwsDynamoDbTableSseDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf inaccessibleEncryptionDateTime
+      `Prelude.seq` Prelude.rnf sseType
+      `Prelude.seq` Prelude.rnf kmsMasterKeyArn
 
 instance Core.ToJSON AwsDynamoDbTableSseDescription where
   toJSON AwsDynamoDbTableSseDescription' {..} =

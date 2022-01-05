@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableStreamSpecification
+  where
+  hashWithSalt
+    _salt
+    AwsDynamoDbTableStreamSpecification' {..} =
+      _salt `Prelude.hashWithSalt` streamViewType
+        `Prelude.hashWithSalt` streamEnabled
 
 instance
   Prelude.NFData
     AwsDynamoDbTableStreamSpecification
+  where
+  rnf AwsDynamoDbTableStreamSpecification' {..} =
+    Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf streamEnabled
 
 instance
   Core.ToJSON

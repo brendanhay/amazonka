@@ -82,9 +82,17 @@ instance Core.FromJSON Ipv6CidrBlockAssociation where
             Prelude.<*> (x Core..:? "CidrBlockState")
       )
 
-instance Prelude.Hashable Ipv6CidrBlockAssociation
+instance Prelude.Hashable Ipv6CidrBlockAssociation where
+  hashWithSalt _salt Ipv6CidrBlockAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` cidrBlockState
 
-instance Prelude.NFData Ipv6CidrBlockAssociation
+instance Prelude.NFData Ipv6CidrBlockAssociation where
+  rnf Ipv6CidrBlockAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf cidrBlockState
 
 instance Core.ToJSON Ipv6CidrBlockAssociation where
   toJSON Ipv6CidrBlockAssociation' {..} =

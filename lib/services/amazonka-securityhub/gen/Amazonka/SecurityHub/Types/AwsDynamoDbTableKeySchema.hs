@@ -73,9 +73,15 @@ instance Core.FromJSON AwsDynamoDbTableKeySchema where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable AwsDynamoDbTableKeySchema
+instance Prelude.Hashable AwsDynamoDbTableKeySchema where
+  hashWithSalt _salt AwsDynamoDbTableKeySchema' {..} =
+    _salt `Prelude.hashWithSalt` keyType
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData AwsDynamoDbTableKeySchema
+instance Prelude.NFData AwsDynamoDbTableKeySchema where
+  rnf AwsDynamoDbTableKeySchema' {..} =
+    Prelude.rnf keyType
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON AwsDynamoDbTableKeySchema where
   toJSON AwsDynamoDbTableKeySchema' {..} =

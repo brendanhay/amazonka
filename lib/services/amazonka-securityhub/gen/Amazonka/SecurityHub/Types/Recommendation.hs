@@ -76,9 +76,14 @@ instance Core.FromJSON Recommendation where
             Prelude.<$> (x Core..:? "Text") Prelude.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable Recommendation
+instance Prelude.Hashable Recommendation where
+  hashWithSalt _salt Recommendation' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData Recommendation
+instance Prelude.NFData Recommendation where
+  rnf Recommendation' {..} =
+    Prelude.rnf text `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON Recommendation where
   toJSON Recommendation' {..} =

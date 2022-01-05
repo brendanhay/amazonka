@@ -154,8 +154,21 @@ instance Core.FromJSON AwsElbLoadBalancerHealthCheck where
 instance
   Prelude.Hashable
     AwsElbLoadBalancerHealthCheck
+  where
+  hashWithSalt _salt AwsElbLoadBalancerHealthCheck' {..} =
+    _salt `Prelude.hashWithSalt` healthyThreshold
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` unhealthyThreshold
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData AwsElbLoadBalancerHealthCheck
+instance Prelude.NFData AwsElbLoadBalancerHealthCheck where
+  rnf AwsElbLoadBalancerHealthCheck' {..} =
+    Prelude.rnf healthyThreshold
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON AwsElbLoadBalancerHealthCheck where
   toJSON AwsElbLoadBalancerHealthCheck' {..} =

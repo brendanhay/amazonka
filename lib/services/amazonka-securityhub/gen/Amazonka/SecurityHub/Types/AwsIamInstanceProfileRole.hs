@@ -127,9 +127,24 @@ instance Core.FromJSON AwsIamInstanceProfileRole where
             Prelude.<*> (x Core..:? "RoleId")
       )
 
-instance Prelude.Hashable AwsIamInstanceProfileRole
+instance Prelude.Hashable AwsIamInstanceProfileRole where
+  hashWithSalt _salt AwsIamInstanceProfileRole' {..} =
+    _salt
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` roleId
 
-instance Prelude.NFData AwsIamInstanceProfileRole
+instance Prelude.NFData AwsIamInstanceProfileRole where
+  rnf AwsIamInstanceProfileRole' {..} =
+    Prelude.rnf assumeRolePolicyDocument
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf roleId
 
 instance Core.ToJSON AwsIamInstanceProfileRole where
   toJSON AwsIamInstanceProfileRole' {..} =

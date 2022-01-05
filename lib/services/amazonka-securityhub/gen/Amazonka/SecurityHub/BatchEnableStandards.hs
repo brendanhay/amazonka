@@ -97,9 +97,14 @@ instance Core.AWSRequest BatchEnableStandards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchEnableStandards
+instance Prelude.Hashable BatchEnableStandards where
+  hashWithSalt _salt BatchEnableStandards' {..} =
+    _salt
+      `Prelude.hashWithSalt` standardsSubscriptionRequests
 
-instance Prelude.NFData BatchEnableStandards
+instance Prelude.NFData BatchEnableStandards where
+  rnf BatchEnableStandards' {..} =
+    Prelude.rnf standardsSubscriptionRequests
 
 instance Core.ToHeaders BatchEnableStandards where
   toHeaders =
@@ -168,4 +173,7 @@ batchEnableStandardsResponse_standardsSubscriptions = Lens.lens (\BatchEnableSta
 batchEnableStandardsResponse_httpStatus :: Lens.Lens' BatchEnableStandardsResponse Prelude.Int
 batchEnableStandardsResponse_httpStatus = Lens.lens (\BatchEnableStandardsResponse' {httpStatus} -> httpStatus) (\s@BatchEnableStandardsResponse' {} a -> s {httpStatus = a} :: BatchEnableStandardsResponse)
 
-instance Prelude.NFData BatchEnableStandardsResponse
+instance Prelude.NFData BatchEnableStandardsResponse where
+  rnf BatchEnableStandardsResponse' {..} =
+    Prelude.rnf standardsSubscriptions
+      `Prelude.seq` Prelude.rnf httpStatus

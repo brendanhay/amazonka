@@ -189,10 +189,38 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterPendingModifiedValues
+  where
+  hashWithSalt
+    _salt
+    AwsRedshiftClusterPendingModifiedValues' {..} =
+      _salt `Prelude.hashWithSalt` encryptionType
+        `Prelude.hashWithSalt` enhancedVpcRouting
+        `Prelude.hashWithSalt` masterUserPassword
+        `Prelude.hashWithSalt` publiclyAccessible
+        `Prelude.hashWithSalt` maintenanceTrackName
+        `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` numberOfNodes
+        `Prelude.hashWithSalt` clusterType
+        `Prelude.hashWithSalt` clusterVersion
+        `Prelude.hashWithSalt` nodeType
 
 instance
   Prelude.NFData
     AwsRedshiftClusterPendingModifiedValues
+  where
+  rnf AwsRedshiftClusterPendingModifiedValues' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf nodeType
 
 instance
   Core.ToJSON

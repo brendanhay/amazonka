@@ -193,9 +193,33 @@ instance Core.FromJSON AwsElbv2LoadBalancerDetails where
             Prelude.<*> (x Core..:? "DNSName")
       )
 
-instance Prelude.Hashable AwsElbv2LoadBalancerDetails
+instance Prelude.Hashable AwsElbv2LoadBalancerDetails where
+  hashWithSalt _salt AwsElbv2LoadBalancerDetails' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` loadBalancerAttributes
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` canonicalHostedZoneId
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` scheme
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dNSName
 
-instance Prelude.NFData AwsElbv2LoadBalancerDetails
+instance Prelude.NFData AwsElbv2LoadBalancerDetails where
+  rnf AwsElbv2LoadBalancerDetails' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf loadBalancerAttributes
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf canonicalHostedZoneId
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf scheme
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dNSName
 
 instance Core.ToJSON AwsElbv2LoadBalancerDetails where
   toJSON AwsElbv2LoadBalancerDetails' {..} =

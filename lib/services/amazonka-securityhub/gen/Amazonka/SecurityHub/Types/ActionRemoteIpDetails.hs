@@ -110,9 +110,21 @@ instance Core.FromJSON ActionRemoteIpDetails where
             Prelude.<*> (x Core..:? "Organization")
       )
 
-instance Prelude.Hashable ActionRemoteIpDetails
+instance Prelude.Hashable ActionRemoteIpDetails where
+  hashWithSalt _salt ActionRemoteIpDetails' {..} =
+    _salt `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` ipAddressV4
+      `Prelude.hashWithSalt` geoLocation
+      `Prelude.hashWithSalt` organization
 
-instance Prelude.NFData ActionRemoteIpDetails
+instance Prelude.NFData ActionRemoteIpDetails where
+  rnf ActionRemoteIpDetails' {..} =
+    Prelude.rnf country
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf ipAddressV4
+      `Prelude.seq` Prelude.rnf geoLocation
+      `Prelude.seq` Prelude.rnf organization
 
 instance Core.ToJSON ActionRemoteIpDetails where
   toJSON ActionRemoteIpDetails' {..} =

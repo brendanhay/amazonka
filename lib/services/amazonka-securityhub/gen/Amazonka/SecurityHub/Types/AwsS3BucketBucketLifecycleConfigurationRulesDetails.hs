@@ -234,10 +234,39 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` transitions
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` noncurrentVersionTransitions
+        `Prelude.hashWithSalt` noncurrentVersionExpirationInDays
+        `Prelude.hashWithSalt` expirationDate
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` expirationInDays
+        `Prelude.hashWithSalt` abortIncompleteMultipartUpload
+        `Prelude.hashWithSalt` expiredObjectDeleteMarker
 
 instance
   Prelude.NFData
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
+  where
+  rnf
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf transitions
+        `Prelude.seq` Prelude.rnf prefix
+        `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
+        `Prelude.seq` Prelude.rnf noncurrentVersionExpirationInDays
+        `Prelude.seq` Prelude.rnf expirationDate
+        `Prelude.seq` Prelude.rnf id
+        `Prelude.seq` Prelude.rnf filter'
+        `Prelude.seq` Prelude.rnf expirationInDays
+        `Prelude.seq` Prelude.rnf abortIncompleteMultipartUpload
+        `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
 
 instance
   Core.ToJSON

@@ -75,8 +75,15 @@ instance Core.FromJSON AwsRdsDbOptionGroupMembership where
 instance
   Prelude.Hashable
     AwsRdsDbOptionGroupMembership
+  where
+  hashWithSalt _salt AwsRdsDbOptionGroupMembership' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` optionGroupName
 
-instance Prelude.NFData AwsRdsDbOptionGroupMembership
+instance Prelude.NFData AwsRdsDbOptionGroupMembership where
+  rnf AwsRdsDbOptionGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf optionGroupName
 
 instance Core.ToJSON AwsRdsDbOptionGroupMembership where
   toJSON AwsRdsDbOptionGroupMembership' {..} =

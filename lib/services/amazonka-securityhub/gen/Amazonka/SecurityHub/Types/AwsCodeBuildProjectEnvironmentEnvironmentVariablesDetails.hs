@@ -90,10 +90,23 @@ instance
 instance
   Prelude.Hashable
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
+  where
+  hashWithSalt
+    _salt
+    AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
+  where
+  rnf
+    AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {..} =
+      Prelude.rnf value
+        `Prelude.seq` Prelude.rnf name
+        `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

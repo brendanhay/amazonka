@@ -90,10 +90,23 @@ instance
 instance
   Prelude.Hashable
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` streamName
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
+  where
+  rnf
+    AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf groupName
+        `Prelude.seq` Prelude.rnf streamName
 
 instance
   Core.ToJSON

@@ -85,8 +85,17 @@ instance Core.FromJSON AwsRedshiftClusterClusterNode where
 instance
   Prelude.Hashable
     AwsRedshiftClusterClusterNode
+  where
+  hashWithSalt _salt AwsRedshiftClusterClusterNode' {..} =
+    _salt `Prelude.hashWithSalt` nodeRole
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` publicIpAddress
 
-instance Prelude.NFData AwsRedshiftClusterClusterNode
+instance Prelude.NFData AwsRedshiftClusterClusterNode where
+  rnf AwsRedshiftClusterClusterNode' {..} =
+    Prelude.rnf nodeRole
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf publicIpAddress
 
 instance Core.ToJSON AwsRedshiftClusterClusterNode where
   toJSON AwsRedshiftClusterClusterNode' {..} =

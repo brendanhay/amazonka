@@ -82,9 +82,17 @@ instance Core.FromJSON CidrBlockAssociation where
             Prelude.<*> (x Core..:? "CidrBlock")
       )
 
-instance Prelude.Hashable CidrBlockAssociation
+instance Prelude.Hashable CidrBlockAssociation where
+  hashWithSalt _salt CidrBlockAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` cidrBlockState
+      `Prelude.hashWithSalt` cidrBlock
 
-instance Prelude.NFData CidrBlockAssociation
+instance Prelude.NFData CidrBlockAssociation where
+  rnf CidrBlockAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf cidrBlockState
+      `Prelude.seq` Prelude.rnf cidrBlock
 
 instance Core.ToJSON CidrBlockAssociation where
   toJSON CidrBlockAssociation' {..} =

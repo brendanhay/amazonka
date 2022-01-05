@@ -86,10 +86,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {..} =
+      _salt `Prelude.hashWithSalt` rollback
+        `Prelude.hashWithSalt` enable
 
 instance
   Prelude.NFData
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+  where
+  rnf
+    AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {..} =
+      Prelude.rnf rollback
+        `Prelude.seq` Prelude.rnf enable
 
 instance
   Core.ToJSON

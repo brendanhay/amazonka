@@ -71,9 +71,14 @@ instance Core.FromJSON DateRange where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable DateRange
+instance Prelude.Hashable DateRange where
+  hashWithSalt _salt DateRange' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData DateRange
+instance Prelude.NFData DateRange where
+  rnf DateRange' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON DateRange where
   toJSON DateRange' {..} =

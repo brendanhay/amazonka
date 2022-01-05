@@ -87,9 +87,12 @@ instance Core.AWSRequest DeregisterCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterCluster
+instance Prelude.Hashable DeregisterCluster where
+  hashWithSalt _salt DeregisterCluster' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeregisterCluster
+instance Prelude.NFData DeregisterCluster where
+  rnf DeregisterCluster' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeregisterCluster where
   toHeaders =
@@ -148,4 +151,7 @@ deregisterClusterResponse_cluster = Lens.lens (\DeregisterClusterResponse' {clus
 deregisterClusterResponse_httpStatus :: Lens.Lens' DeregisterClusterResponse Prelude.Int
 deregisterClusterResponse_httpStatus = Lens.lens (\DeregisterClusterResponse' {httpStatus} -> httpStatus) (\s@DeregisterClusterResponse' {} a -> s {httpStatus = a} :: DeregisterClusterResponse)
 
-instance Prelude.NFData DeregisterClusterResponse
+instance Prelude.NFData DeregisterClusterResponse where
+  rnf DeregisterClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

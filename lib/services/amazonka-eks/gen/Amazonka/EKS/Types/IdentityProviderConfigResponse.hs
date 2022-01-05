@@ -69,7 +69,15 @@ instance Core.FromJSON IdentityProviderConfigResponse where
 instance
   Prelude.Hashable
     IdentityProviderConfigResponse
+  where
+  hashWithSalt
+    _salt
+    IdentityProviderConfigResponse' {..} =
+      _salt `Prelude.hashWithSalt` oidc
 
 instance
   Prelude.NFData
     IdentityProviderConfigResponse
+  where
+  rnf IdentityProviderConfigResponse' {..} =
+    Prelude.rnf oidc

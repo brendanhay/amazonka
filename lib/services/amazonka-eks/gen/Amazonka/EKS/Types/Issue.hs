@@ -280,6 +280,14 @@ instance Core.FromJSON Issue where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable Issue
+instance Prelude.Hashable Issue where
+  hashWithSalt _salt Issue' {..} =
+    _salt `Prelude.hashWithSalt` resourceIds
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData Issue
+instance Prelude.NFData Issue where
+  rnf Issue' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message

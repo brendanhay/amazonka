@@ -192,9 +192,23 @@ instance Core.AWSRequest UpdateAddon where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAddon
+instance Prelude.Hashable UpdateAddon where
+  hashWithSalt _salt UpdateAddon' {..} =
+    _salt `Prelude.hashWithSalt` addonVersion
+      `Prelude.hashWithSalt` serviceAccountRoleArn
+      `Prelude.hashWithSalt` resolveConflicts
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` addonName
 
-instance Prelude.NFData UpdateAddon
+instance Prelude.NFData UpdateAddon where
+  rnf UpdateAddon' {..} =
+    Prelude.rnf addonVersion
+      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+      `Prelude.seq` Prelude.rnf resolveConflicts
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf addonName
 
 instance Core.ToHeaders UpdateAddon where
   toHeaders =
@@ -271,4 +285,7 @@ updateAddonResponse_update = Lens.lens (\UpdateAddonResponse' {update} -> update
 updateAddonResponse_httpStatus :: Lens.Lens' UpdateAddonResponse Prelude.Int
 updateAddonResponse_httpStatus = Lens.lens (\UpdateAddonResponse' {httpStatus} -> httpStatus) (\s@UpdateAddonResponse' {} a -> s {httpStatus = a} :: UpdateAddonResponse)
 
-instance Prelude.NFData UpdateAddonResponse
+instance Prelude.NFData UpdateAddonResponse where
+  rnf UpdateAddonResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

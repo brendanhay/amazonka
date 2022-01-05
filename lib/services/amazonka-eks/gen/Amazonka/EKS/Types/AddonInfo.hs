@@ -85,6 +85,14 @@ instance Core.FromJSON AddonInfo where
             Prelude.<*> (x Core..:? "addonVersions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AddonInfo
+instance Prelude.Hashable AddonInfo where
+  hashWithSalt _salt AddonInfo' {..} =
+    _salt `Prelude.hashWithSalt` addonName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` addonVersions
 
-instance Prelude.NFData AddonInfo
+instance Prelude.NFData AddonInfo where
+  rnf AddonInfo' {..} =
+    Prelude.rnf addonName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf addonVersions

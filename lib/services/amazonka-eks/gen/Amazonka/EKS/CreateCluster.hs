@@ -275,9 +275,30 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` kubernetesNetworkConfig
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` resourcesVpcConfig
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf kubernetesNetworkConfig
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf resourcesVpcConfig
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -354,4 +375,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

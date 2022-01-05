@@ -204,9 +204,21 @@ vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnet
 vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
 vpcConfigRequest_endpointPublicAccess = Lens.lens (\VpcConfigRequest' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigRequest' {} a -> s {endpointPublicAccess = a} :: VpcConfigRequest)
 
-instance Prelude.Hashable VpcConfigRequest
+instance Prelude.Hashable VpcConfigRequest where
+  hashWithSalt _salt VpcConfigRequest' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` endpointPrivateAccess
+      `Prelude.hashWithSalt` publicAccessCidrs
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` endpointPublicAccess
 
-instance Prelude.NFData VpcConfigRequest
+instance Prelude.NFData VpcConfigRequest where
+  rnf VpcConfigRequest' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf endpointPrivateAccess
+      `Prelude.seq` Prelude.rnf publicAccessCidrs
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf endpointPublicAccess
 
 instance Core.ToJSON VpcConfigRequest where
   toJSON VpcConfigRequest' {..} =

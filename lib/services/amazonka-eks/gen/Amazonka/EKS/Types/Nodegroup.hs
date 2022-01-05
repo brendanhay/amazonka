@@ -393,6 +393,54 @@ instance Core.FromJSON Nodegroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Nodegroup
+instance Prelude.Hashable Nodegroup where
+  hashWithSalt _salt Nodegroup' {..} =
+    _salt `Prelude.hashWithSalt` modifiedAt
+      `Prelude.hashWithSalt` capacityType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` taints
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` remoteAccess
+      `Prelude.hashWithSalt` diskSize
+      `Prelude.hashWithSalt` releaseVersion
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` nodeRole
+      `Prelude.hashWithSalt` scalingConfig
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` nodegroupArn
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` amiType
+      `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` updateConfig
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Nodegroup
+instance Prelude.NFData Nodegroup where
+  rnf Nodegroup' {..} =
+    Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf capacityType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf taints
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf remoteAccess
+      `Prelude.seq` Prelude.rnf diskSize
+      `Prelude.seq` Prelude.rnf releaseVersion
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf nodeRole
+      `Prelude.seq` Prelude.rnf scalingConfig
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf nodegroupArn
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf amiType
+      `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf updateConfig
+      `Prelude.seq` Prelude.rnf tags

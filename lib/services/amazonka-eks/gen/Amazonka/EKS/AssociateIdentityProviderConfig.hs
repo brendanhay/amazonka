@@ -152,10 +152,24 @@ instance
 instance
   Prelude.Hashable
     AssociateIdentityProviderConfig
+  where
+  hashWithSalt
+    _salt
+    AssociateIdentityProviderConfig' {..} =
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` clusterName
+        `Prelude.hashWithSalt` oidc
 
 instance
   Prelude.NFData
     AssociateIdentityProviderConfig
+  where
+  rnf AssociateIdentityProviderConfig' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf oidc
 
 instance
   Core.ToHeaders
@@ -244,3 +258,8 @@ associateIdentityProviderConfigResponse_httpStatus = Lens.lens (\AssociateIdenti
 instance
   Prelude.NFData
     AssociateIdentityProviderConfigResponse
+  where
+  rnf AssociateIdentityProviderConfigResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

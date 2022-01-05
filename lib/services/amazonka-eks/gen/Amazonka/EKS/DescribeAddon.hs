@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeAddon where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddon
+instance Prelude.Hashable DescribeAddon where
+  hashWithSalt _salt DescribeAddon' {..} =
+    _salt `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` addonName
 
-instance Prelude.NFData DescribeAddon
+instance Prelude.NFData DescribeAddon where
+  rnf DescribeAddon' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf addonName
 
 instance Core.ToHeaders DescribeAddon where
   toHeaders =
@@ -170,4 +176,7 @@ describeAddonResponse_addon = Lens.lens (\DescribeAddonResponse' {addon} -> addo
 describeAddonResponse_httpStatus :: Lens.Lens' DescribeAddonResponse Prelude.Int
 describeAddonResponse_httpStatus = Lens.lens (\DescribeAddonResponse' {httpStatus} -> httpStatus) (\s@DescribeAddonResponse' {} a -> s {httpStatus = a} :: DescribeAddonResponse)
 
-instance Prelude.NFData DescribeAddonResponse
+instance Prelude.NFData DescribeAddonResponse where
+  rnf DescribeAddonResponse' {..} =
+    Prelude.rnf addon
+      `Prelude.seq` Prelude.rnf httpStatus

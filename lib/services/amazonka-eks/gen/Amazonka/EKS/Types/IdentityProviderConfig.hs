@@ -74,9 +74,14 @@ instance Core.FromJSON IdentityProviderConfig where
             Prelude.<$> (x Core..: "type") Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable IdentityProviderConfig
+instance Prelude.Hashable IdentityProviderConfig where
+  hashWithSalt _salt IdentityProviderConfig' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IdentityProviderConfig
+instance Prelude.NFData IdentityProviderConfig where
+  rnf IdentityProviderConfig' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON IdentityProviderConfig where
   toJSON IdentityProviderConfig' {..} =

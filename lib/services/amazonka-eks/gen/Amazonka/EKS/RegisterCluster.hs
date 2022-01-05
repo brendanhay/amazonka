@@ -134,9 +134,17 @@ instance Core.AWSRequest RegisterCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterCluster
+instance Prelude.Hashable RegisterCluster where
+  hashWithSalt _salt RegisterCluster' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` connectorConfig
 
-instance Prelude.NFData RegisterCluster
+instance Prelude.NFData RegisterCluster where
+  rnf RegisterCluster' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf connectorConfig
 
 instance Core.ToHeaders RegisterCluster where
   toHeaders =
@@ -204,4 +212,7 @@ registerClusterResponse_cluster = Lens.lens (\RegisterClusterResponse' {cluster}
 registerClusterResponse_httpStatus :: Lens.Lens' RegisterClusterResponse Prelude.Int
 registerClusterResponse_httpStatus = Lens.lens (\RegisterClusterResponse' {httpStatus} -> httpStatus) (\s@RegisterClusterResponse' {} a -> s {httpStatus = a} :: RegisterClusterResponse)
 
-instance Prelude.NFData RegisterClusterResponse
+instance Prelude.NFData RegisterClusterResponse where
+  rnf RegisterClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

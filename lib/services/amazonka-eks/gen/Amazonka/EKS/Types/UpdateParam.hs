@@ -71,6 +71,11 @@ instance Core.FromJSON UpdateParam where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable UpdateParam
+instance Prelude.Hashable UpdateParam where
+  hashWithSalt _salt UpdateParam' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UpdateParam
+instance Prelude.NFData UpdateParam where
+  rnf UpdateParam' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'

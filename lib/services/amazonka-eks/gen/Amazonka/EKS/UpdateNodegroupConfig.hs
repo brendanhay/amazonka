@@ -171,9 +171,25 @@ instance Core.AWSRequest UpdateNodegroupConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNodegroupConfig
+instance Prelude.Hashable UpdateNodegroupConfig where
+  hashWithSalt _salt UpdateNodegroupConfig' {..} =
+    _salt `Prelude.hashWithSalt` taints
+      `Prelude.hashWithSalt` scalingConfig
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` updateConfig
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` nodegroupName
 
-instance Prelude.NFData UpdateNodegroupConfig
+instance Prelude.NFData UpdateNodegroupConfig where
+  rnf UpdateNodegroupConfig' {..} =
+    Prelude.rnf taints
+      `Prelude.seq` Prelude.rnf scalingConfig
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf updateConfig
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodegroupName
 
 instance Core.ToHeaders UpdateNodegroupConfig where
   toHeaders =
@@ -250,4 +266,7 @@ updateNodegroupConfigResponse_update = Lens.lens (\UpdateNodegroupConfigResponse
 updateNodegroupConfigResponse_httpStatus :: Lens.Lens' UpdateNodegroupConfigResponse Prelude.Int
 updateNodegroupConfigResponse_httpStatus = Lens.lens (\UpdateNodegroupConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateNodegroupConfigResponse' {} a -> s {httpStatus = a} :: UpdateNodegroupConfigResponse)
 
-instance Prelude.NFData UpdateNodegroupConfigResponse
+instance Prelude.NFData UpdateNodegroupConfigResponse where
+  rnf UpdateNodegroupConfigResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

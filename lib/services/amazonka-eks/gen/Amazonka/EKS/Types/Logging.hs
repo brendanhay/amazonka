@@ -63,9 +63,12 @@ instance Core.FromJSON Logging where
                         )
       )
 
-instance Prelude.Hashable Logging
+instance Prelude.Hashable Logging where
+  hashWithSalt _salt Logging' {..} =
+    _salt `Prelude.hashWithSalt` clusterLogging
 
-instance Prelude.NFData Logging
+instance Prelude.NFData Logging where
+  rnf Logging' {..} = Prelude.rnf clusterLogging
 
 instance Core.ToJSON Logging where
   toJSON Logging' {..} =

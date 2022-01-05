@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateIdentityProviderConfig
+  where
+  hashWithSalt
+    _salt
+    DisassociateIdentityProviderConfig' {..} =
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` clusterName
+        `Prelude.hashWithSalt` identityProviderConfig
 
 instance
   Prelude.NFData
     DisassociateIdentityProviderConfig
+  where
+  rnf DisassociateIdentityProviderConfig' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf identityProviderConfig
 
 instance
   Core.ToHeaders
@@ -220,3 +232,7 @@ disassociateIdentityProviderConfigResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociateIdentityProviderConfigResponse
+  where
+  rnf DisassociateIdentityProviderConfigResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

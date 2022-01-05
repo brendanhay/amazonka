@@ -512,9 +512,47 @@ instance Core.AWSRequest CreateNodegroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNodegroup
+instance Prelude.Hashable CreateNodegroup where
+  hashWithSalt _salt CreateNodegroup' {..} =
+    _salt `Prelude.hashWithSalt` capacityType
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` taints
+      `Prelude.hashWithSalt` remoteAccess
+      `Prelude.hashWithSalt` diskSize
+      `Prelude.hashWithSalt` releaseVersion
+      `Prelude.hashWithSalt` scalingConfig
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` amiType
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` updateConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` nodeRole
 
-instance Prelude.NFData CreateNodegroup
+instance Prelude.NFData CreateNodegroup where
+  rnf CreateNodegroup' {..} =
+    Prelude.rnf capacityType
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf taints
+      `Prelude.seq` Prelude.rnf remoteAccess
+      `Prelude.seq` Prelude.rnf diskSize
+      `Prelude.seq` Prelude.rnf releaseVersion
+      `Prelude.seq` Prelude.rnf scalingConfig
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf amiType
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf updateConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf nodeRole
 
 instance Core.ToHeaders CreateNodegroup where
   toHeaders =
@@ -601,4 +639,7 @@ createNodegroupResponse_nodegroup = Lens.lens (\CreateNodegroupResponse' {nodegr
 createNodegroupResponse_httpStatus :: Lens.Lens' CreateNodegroupResponse Prelude.Int
 createNodegroupResponse_httpStatus = Lens.lens (\CreateNodegroupResponse' {httpStatus} -> httpStatus) (\s@CreateNodegroupResponse' {} a -> s {httpStatus = a} :: CreateNodegroupResponse)
 
-instance Prelude.NFData CreateNodegroupResponse
+instance Prelude.NFData CreateNodegroupResponse where
+  rnf CreateNodegroupResponse' {..} =
+    Prelude.rnf nodegroup
+      `Prelude.seq` Prelude.rnf httpStatus

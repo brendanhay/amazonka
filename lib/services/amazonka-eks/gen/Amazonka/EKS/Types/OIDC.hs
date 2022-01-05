@@ -56,6 +56,9 @@ instance Core.FromJSON OIDC where
       "OIDC"
       (\x -> OIDC' Prelude.<$> (x Core..:? "issuer"))
 
-instance Prelude.Hashable OIDC
+instance Prelude.Hashable OIDC where
+  hashWithSalt _salt OIDC' {..} =
+    _salt `Prelude.hashWithSalt` issuer
 
-instance Prelude.NFData OIDC
+instance Prelude.NFData OIDC where
+  rnf OIDC' {..} = Prelude.rnf issuer

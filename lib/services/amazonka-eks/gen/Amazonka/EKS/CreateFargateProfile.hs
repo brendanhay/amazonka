@@ -241,9 +241,25 @@ instance Core.AWSRequest CreateFargateProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFargateProfile
+instance Prelude.Hashable CreateFargateProfile where
+  hashWithSalt _salt CreateFargateProfile' {..} =
+    _salt `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` selectors
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fargateProfileName
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` podExecutionRoleArn
 
-instance Prelude.NFData CreateFargateProfile
+instance Prelude.NFData CreateFargateProfile where
+  rnf CreateFargateProfile' {..} =
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf selectors
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fargateProfileName
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf podExecutionRoleArn
 
 instance Core.ToHeaders CreateFargateProfile where
   toHeaders =
@@ -322,4 +338,7 @@ createFargateProfileResponse_fargateProfile = Lens.lens (\CreateFargateProfileRe
 createFargateProfileResponse_httpStatus :: Lens.Lens' CreateFargateProfileResponse Prelude.Int
 createFargateProfileResponse_httpStatus = Lens.lens (\CreateFargateProfileResponse' {httpStatus} -> httpStatus) (\s@CreateFargateProfileResponse' {} a -> s {httpStatus = a} :: CreateFargateProfileResponse)
 
-instance Prelude.NFData CreateFargateProfileResponse
+instance Prelude.NFData CreateFargateProfileResponse where
+  rnf CreateFargateProfileResponse' {..} =
+    Prelude.rnf fargateProfile
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -91,9 +91,13 @@ instance Core.AWSRequest DeregisterJobDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterJobDefinition
+instance Prelude.Hashable DeregisterJobDefinition where
+  hashWithSalt _salt DeregisterJobDefinition' {..} =
+    _salt `Prelude.hashWithSalt` jobDefinition
 
-instance Prelude.NFData DeregisterJobDefinition
+instance Prelude.NFData DeregisterJobDefinition where
+  rnf DeregisterJobDefinition' {..} =
+    Prelude.rnf jobDefinition
 
 instance Core.ToHeaders DeregisterJobDefinition where
   toHeaders =
@@ -154,3 +158,6 @@ deregisterJobDefinitionResponse_httpStatus = Lens.lens (\DeregisterJobDefinition
 instance
   Prelude.NFData
     DeregisterJobDefinitionResponse
+  where
+  rnf DeregisterJobDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

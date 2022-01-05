@@ -161,9 +161,21 @@ computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
-instance Prelude.Hashable ComputeResourceUpdate
+instance Prelude.Hashable ComputeResourceUpdate where
+  hashWithSalt _salt ComputeResourceUpdate' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` minvCpus
+      `Prelude.hashWithSalt` maxvCpus
+      `Prelude.hashWithSalt` desiredvCpus
 
-instance Prelude.NFData ComputeResourceUpdate
+instance Prelude.NFData ComputeResourceUpdate where
+  rnf ComputeResourceUpdate' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf minvCpus
+      `Prelude.seq` Prelude.rnf maxvCpus
+      `Prelude.seq` Prelude.rnf desiredvCpus
 
 instance Core.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =

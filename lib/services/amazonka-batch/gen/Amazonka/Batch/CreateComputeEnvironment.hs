@@ -363,9 +363,23 @@ instance Core.AWSRequest CreateComputeEnvironment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComputeEnvironment
+instance Prelude.Hashable CreateComputeEnvironment where
+  hashWithSalt _salt CreateComputeEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` computeResources
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` computeEnvironmentName
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateComputeEnvironment
+instance Prelude.NFData CreateComputeEnvironment where
+  rnf CreateComputeEnvironment' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf computeResources
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf computeEnvironmentName
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateComputeEnvironment where
   toHeaders =
@@ -455,3 +469,8 @@ createComputeEnvironmentResponse_httpStatus = Lens.lens (\CreateComputeEnvironme
 instance
   Prelude.NFData
     CreateComputeEnvironmentResponse
+  where
+  rnf CreateComputeEnvironmentResponse' {..} =
+    Prelude.rnf computeEnvironmentName
+      `Prelude.seq` Prelude.rnf computeEnvironmentArn
+      `Prelude.seq` Prelude.rnf httpStatus

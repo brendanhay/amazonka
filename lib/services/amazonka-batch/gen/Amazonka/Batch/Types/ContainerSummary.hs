@@ -74,6 +74,12 @@ instance Core.FromJSON ContainerSummary where
             Prelude.<*> (x Core..:? "exitCode")
       )
 
-instance Prelude.Hashable ContainerSummary
+instance Prelude.Hashable ContainerSummary where
+  hashWithSalt _salt ContainerSummary' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` exitCode
 
-instance Prelude.NFData ContainerSummary
+instance Prelude.NFData ContainerSummary where
+  rnf ContainerSummary' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf exitCode

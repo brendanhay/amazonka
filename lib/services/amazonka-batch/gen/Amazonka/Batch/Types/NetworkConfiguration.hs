@@ -83,9 +83,13 @@ instance Core.FromJSON NetworkConfiguration where
             Prelude.<$> (x Core..:? "assignPublicIp")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Prelude.Hashable NetworkConfiguration where
+  hashWithSalt _salt NetworkConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` assignPublicIp
 
-instance Prelude.NFData NetworkConfiguration
+instance Prelude.NFData NetworkConfiguration where
+  rnf NetworkConfiguration' {..} =
+    Prelude.rnf assignPublicIp
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =

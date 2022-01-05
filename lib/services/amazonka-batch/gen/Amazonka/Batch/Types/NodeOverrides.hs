@@ -99,9 +99,15 @@ nodeOverrides_numNodes = Lens.lens (\NodeOverrides' {numNodes} -> numNodes) (\s@
 nodeOverrides_nodePropertyOverrides :: Lens.Lens' NodeOverrides (Prelude.Maybe [NodePropertyOverride])
 nodeOverrides_nodePropertyOverrides = Lens.lens (\NodeOverrides' {nodePropertyOverrides} -> nodePropertyOverrides) (\s@NodeOverrides' {} a -> s {nodePropertyOverrides = a} :: NodeOverrides) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable NodeOverrides
+instance Prelude.Hashable NodeOverrides where
+  hashWithSalt _salt NodeOverrides' {..} =
+    _salt `Prelude.hashWithSalt` numNodes
+      `Prelude.hashWithSalt` nodePropertyOverrides
 
-instance Prelude.NFData NodeOverrides
+instance Prelude.NFData NodeOverrides where
+  rnf NodeOverrides' {..} =
+    Prelude.rnf numNodes
+      `Prelude.seq` Prelude.rnf nodePropertyOverrides
 
 instance Core.ToJSON NodeOverrides where
   toJSON NodeOverrides' {..} =

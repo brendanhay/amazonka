@@ -228,9 +228,23 @@ containerOverrides_memory = Lens.lens (\ContainerOverrides' {memory} -> memory) 
 containerOverrides_vcpus :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Int)
 containerOverrides_vcpus = Lens.lens (\ContainerOverrides' {vcpus} -> vcpus) (\s@ContainerOverrides' {} a -> s {vcpus = a} :: ContainerOverrides)
 
-instance Prelude.Hashable ContainerOverrides
+instance Prelude.Hashable ContainerOverrides where
+  hashWithSalt _salt ContainerOverrides' {..} =
+    _salt `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` resourceRequirements
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` vcpus
 
-instance Prelude.NFData ContainerOverrides
+instance Prelude.NFData ContainerOverrides where
+  rnf ContainerOverrides' {..} =
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf resourceRequirements
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf vcpus
 
 instance Core.ToJSON ContainerOverrides where
   toJSON ContainerOverrides' {..} =

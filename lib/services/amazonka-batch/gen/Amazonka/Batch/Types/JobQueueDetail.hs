@@ -193,6 +193,24 @@ instance Core.FromJSON JobQueueDetail where
                         )
       )
 
-instance Prelude.Hashable JobQueueDetail
+instance Prelude.Hashable JobQueueDetail where
+  hashWithSalt _salt JobQueueDetail' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobQueueName
+      `Prelude.hashWithSalt` jobQueueArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` computeEnvironmentOrder
 
-instance Prelude.NFData JobQueueDetail
+instance Prelude.NFData JobQueueDetail where
+  rnf JobQueueDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobQueueName
+      `Prelude.seq` Prelude.rnf jobQueueArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf computeEnvironmentOrder

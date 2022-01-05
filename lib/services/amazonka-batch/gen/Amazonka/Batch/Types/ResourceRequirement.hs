@@ -388,9 +388,14 @@ instance Core.FromJSON ResourceRequirement where
             Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ResourceRequirement
+instance Prelude.Hashable ResourceRequirement where
+  hashWithSalt _salt ResourceRequirement' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ResourceRequirement
+instance Prelude.NFData ResourceRequirement where
+  rnf ResourceRequirement' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ResourceRequirement where
   toJSON ResourceRequirement' {..} =

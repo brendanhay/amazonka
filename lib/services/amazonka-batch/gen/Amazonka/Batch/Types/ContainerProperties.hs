@@ -789,9 +789,53 @@ instance Core.FromJSON ContainerProperties where
             Prelude.<*> (x Core..:? "networkConfiguration")
       )
 
-instance Prelude.Hashable ContainerProperties
+instance Prelude.Hashable ContainerProperties where
+  hashWithSalt _salt ContainerProperties' {..} =
+    _salt `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` secrets
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` ulimits
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` jobRoleArn
+      `Prelude.hashWithSalt` resourceRequirements
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` logConfiguration
+      `Prelude.hashWithSalt` linuxParameters
+      `Prelude.hashWithSalt` mountPoints
+      `Prelude.hashWithSalt` fargatePlatformConfiguration
+      `Prelude.hashWithSalt` vcpus
+      `Prelude.hashWithSalt` readonlyRootFilesystem
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` networkConfiguration
 
-instance Prelude.NFData ContainerProperties
+instance Prelude.NFData ContainerProperties where
+  rnf ContainerProperties' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf secrets
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf ulimits
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf jobRoleArn
+      `Prelude.seq` Prelude.rnf resourceRequirements
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf linuxParameters
+      `Prelude.seq` Prelude.rnf mountPoints
+      `Prelude.seq` Prelude.rnf
+        fargatePlatformConfiguration
+      `Prelude.seq` Prelude.rnf vcpus
+      `Prelude.seq` Prelude.rnf readonlyRootFilesystem
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf
+        networkConfiguration
 
 instance Core.ToJSON ContainerProperties where
   toJSON ContainerProperties' {..} =

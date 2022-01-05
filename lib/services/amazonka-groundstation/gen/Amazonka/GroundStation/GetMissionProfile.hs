@@ -109,9 +109,13 @@ instance Core.AWSRequest GetMissionProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMissionProfile
+instance Prelude.Hashable GetMissionProfile where
+  hashWithSalt _salt GetMissionProfile' {..} =
+    _salt `Prelude.hashWithSalt` missionProfileId
 
-instance Prelude.NFData GetMissionProfile
+instance Prelude.NFData GetMissionProfile where
+  rnf GetMissionProfile' {..} =
+    Prelude.rnf missionProfileId
 
 instance Core.ToHeaders GetMissionProfile where
   toHeaders =
@@ -270,4 +274,16 @@ getMissionProfileResponse_tags = Lens.lens (\GetMissionProfileResponse' {tags} -
 getMissionProfileResponse_httpStatus :: Lens.Lens' GetMissionProfileResponse Prelude.Int
 getMissionProfileResponse_httpStatus = Lens.lens (\GetMissionProfileResponse' {httpStatus} -> httpStatus) (\s@GetMissionProfileResponse' {} a -> s {httpStatus = a} :: GetMissionProfileResponse)
 
-instance Prelude.NFData GetMissionProfileResponse
+instance Prelude.NFData GetMissionProfileResponse where
+  rnf GetMissionProfileResponse' {..} =
+    Prelude.rnf missionProfileId
+      `Prelude.seq` Prelude.rnf missionProfileArn
+      `Prelude.seq` Prelude.rnf trackingConfigArn
+      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataflowEdges
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -105,9 +105,14 @@ instance Core.FromJSON FrequencyBandwidth where
             Prelude.<$> (x Core..: "units") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable FrequencyBandwidth
+instance Prelude.Hashable FrequencyBandwidth where
+  hashWithSalt _salt FrequencyBandwidth' {..} =
+    _salt `Prelude.hashWithSalt` units
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData FrequencyBandwidth
+instance Prelude.NFData FrequencyBandwidth where
+  rnf FrequencyBandwidth' {..} =
+    Prelude.rnf units `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON FrequencyBandwidth where
   toJSON FrequencyBandwidth' {..} =

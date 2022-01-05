@@ -84,6 +84,15 @@ instance Core.FromJSON ConfigDetails where
             Prelude.<*> (x Core..:? "endpointDetails")
       )
 
-instance Prelude.Hashable ConfigDetails
+instance Prelude.Hashable ConfigDetails where
+  hashWithSalt _salt ConfigDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` antennaDemodDecodeDetails
+      `Prelude.hashWithSalt` s3RecordingDetails
+      `Prelude.hashWithSalt` endpointDetails
 
-instance Prelude.NFData ConfigDetails
+instance Prelude.NFData ConfigDetails where
+  rnf ConfigDetails' {..} =
+    Prelude.rnf antennaDemodDecodeDetails
+      `Prelude.seq` Prelude.rnf s3RecordingDetails
+      `Prelude.seq` Prelude.rnf endpointDetails

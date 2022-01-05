@@ -81,6 +81,14 @@ instance Core.FromJSON DataflowDetail where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable DataflowDetail
+instance Prelude.Hashable DataflowDetail where
+  hashWithSalt _salt DataflowDetail' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData DataflowDetail
+instance Prelude.NFData DataflowDetail where
+  rnf DataflowDetail' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf errorMessage

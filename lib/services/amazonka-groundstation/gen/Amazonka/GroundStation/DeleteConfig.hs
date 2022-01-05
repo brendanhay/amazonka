@@ -97,9 +97,15 @@ instance Core.AWSRequest DeleteConfig where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteConfig
+instance Prelude.Hashable DeleteConfig where
+  hashWithSalt _salt DeleteConfig' {..} =
+    _salt `Prelude.hashWithSalt` configId
+      `Prelude.hashWithSalt` configType
 
-instance Prelude.NFData DeleteConfig
+instance Prelude.NFData DeleteConfig where
+  rnf DeleteConfig' {..} =
+    Prelude.rnf configId
+      `Prelude.seq` Prelude.rnf configType
 
 instance Core.ToHeaders DeleteConfig where
   toHeaders =

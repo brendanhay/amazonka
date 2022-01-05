@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteMissionProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteMissionProfile
+instance Prelude.Hashable DeleteMissionProfile where
+  hashWithSalt _salt DeleteMissionProfile' {..} =
+    _salt `Prelude.hashWithSalt` missionProfileId
 
-instance Prelude.NFData DeleteMissionProfile
+instance Prelude.NFData DeleteMissionProfile where
+  rnf DeleteMissionProfile' {..} =
+    Prelude.rnf missionProfileId
 
 instance Core.ToHeaders DeleteMissionProfile where
   toHeaders =

@@ -68,7 +68,16 @@ instance
 instance
   Prelude.Hashable
     DataflowEndpointGroupIdResponse
+  where
+  hashWithSalt
+    _salt
+    DataflowEndpointGroupIdResponse' {..} =
+      _salt
+        `Prelude.hashWithSalt` dataflowEndpointGroupId
 
 instance
   Prelude.NFData
     DataflowEndpointGroupIdResponse
+  where
+  rnf DataflowEndpointGroupIdResponse' {..} =
+    Prelude.rnf dataflowEndpointGroupId

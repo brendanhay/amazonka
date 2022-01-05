@@ -62,6 +62,10 @@ instance Core.FromJSON AntennaDemodDecodeDetails where
             Prelude.<$> (x Core..:? "outputNode")
       )
 
-instance Prelude.Hashable AntennaDemodDecodeDetails
+instance Prelude.Hashable AntennaDemodDecodeDetails where
+  hashWithSalt _salt AntennaDemodDecodeDetails' {..} =
+    _salt `Prelude.hashWithSalt` outputNode
 
-instance Prelude.NFData AntennaDemodDecodeDetails
+instance Prelude.NFData AntennaDemodDecodeDetails where
+  rnf AntennaDemodDecodeDetails' {..} =
+    Prelude.rnf outputNode

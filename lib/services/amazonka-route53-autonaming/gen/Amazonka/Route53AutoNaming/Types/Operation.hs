@@ -269,6 +269,24 @@ instance Core.FromJSON Operation where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable Operation
+instance Prelude.Hashable Operation where
+  hashWithSalt _salt Operation' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData Operation
+instance Prelude.NFData Operation where
+  rnf Operation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf errorMessage

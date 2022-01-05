@@ -141,9 +141,19 @@ instance Core.AWSRequest CreateHttpNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHttpNamespace
+instance Prelude.Hashable CreateHttpNamespace where
+  hashWithSalt _salt CreateHttpNamespace' {..} =
+    _salt `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateHttpNamespace
+instance Prelude.NFData CreateHttpNamespace where
+  rnf CreateHttpNamespace' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateHttpNamespace where
   toHeaders =
@@ -223,4 +233,7 @@ createHttpNamespaceResponse_operationId = Lens.lens (\CreateHttpNamespaceRespons
 createHttpNamespaceResponse_httpStatus :: Lens.Lens' CreateHttpNamespaceResponse Prelude.Int
 createHttpNamespaceResponse_httpStatus = Lens.lens (\CreateHttpNamespaceResponse' {httpStatus} -> httpStatus) (\s@CreateHttpNamespaceResponse' {} a -> s {httpStatus = a} :: CreateHttpNamespaceResponse)
 
-instance Prelude.NFData CreateHttpNamespaceResponse
+instance Prelude.NFData CreateHttpNamespaceResponse where
+  rnf CreateHttpNamespaceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

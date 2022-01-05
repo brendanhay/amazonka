@@ -76,6 +76,12 @@ instance Core.FromJSON DnsProperties where
             Prelude.<*> (x Core..:? "SOA")
       )
 
-instance Prelude.Hashable DnsProperties
+instance Prelude.Hashable DnsProperties where
+  hashWithSalt _salt DnsProperties' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` soa
 
-instance Prelude.NFData DnsProperties
+instance Prelude.NFData DnsProperties where
+  rnf DnsProperties' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf soa

@@ -257,6 +257,28 @@ instance Core.FromJSON ServiceSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ServiceSummary
+instance Prelude.Hashable ServiceSummary where
+  hashWithSalt _salt ServiceSummary' {..} =
+    _salt `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` healthCheckConfig
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` healthCheckCustomConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dnsConfig
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ServiceSummary
+instance Prelude.NFData ServiceSummary where
+  rnf ServiceSummary' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf healthCheckConfig
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf healthCheckCustomConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dnsConfig
+      `Prelude.seq` Prelude.rnf description

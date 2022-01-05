@@ -56,9 +56,13 @@ newPrivateDnsPropertiesMutable pSOA_ =
 privateDnsPropertiesMutable_soa :: Lens.Lens' PrivateDnsPropertiesMutable SOA
 privateDnsPropertiesMutable_soa = Lens.lens (\PrivateDnsPropertiesMutable' {soa} -> soa) (\s@PrivateDnsPropertiesMutable' {} a -> s {soa = a} :: PrivateDnsPropertiesMutable)
 
-instance Prelude.Hashable PrivateDnsPropertiesMutable
+instance Prelude.Hashable PrivateDnsPropertiesMutable where
+  hashWithSalt _salt PrivateDnsPropertiesMutable' {..} =
+    _salt `Prelude.hashWithSalt` soa
 
-instance Prelude.NFData PrivateDnsPropertiesMutable
+instance Prelude.NFData PrivateDnsPropertiesMutable where
+  rnf PrivateDnsPropertiesMutable' {..} =
+    Prelude.rnf soa
 
 instance Core.ToJSON PrivateDnsPropertiesMutable where
   toJSON PrivateDnsPropertiesMutable' {..} =

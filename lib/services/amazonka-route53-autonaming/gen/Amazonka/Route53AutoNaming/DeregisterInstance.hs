@@ -107,9 +107,15 @@ instance Core.AWSRequest DeregisterInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterInstance
+instance Prelude.Hashable DeregisterInstance where
+  hashWithSalt _salt DeregisterInstance' {..} =
+    _salt `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DeregisterInstance
+instance Prelude.NFData DeregisterInstance where
+  rnf DeregisterInstance' {..} =
+    Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DeregisterInstance where
   toHeaders =
@@ -186,4 +192,7 @@ deregisterInstanceResponse_operationId = Lens.lens (\DeregisterInstanceResponse'
 deregisterInstanceResponse_httpStatus :: Lens.Lens' DeregisterInstanceResponse Prelude.Int
 deregisterInstanceResponse_httpStatus = Lens.lens (\DeregisterInstanceResponse' {httpStatus} -> httpStatus) (\s@DeregisterInstanceResponse' {} a -> s {httpStatus = a} :: DeregisterInstanceResponse)
 
-instance Prelude.NFData DeregisterInstanceResponse
+instance Prelude.NFData DeregisterInstanceResponse where
+  rnf DeregisterInstanceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

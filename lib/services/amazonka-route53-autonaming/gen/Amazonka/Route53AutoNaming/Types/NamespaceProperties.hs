@@ -78,6 +78,12 @@ instance Core.FromJSON NamespaceProperties where
             Prelude.<*> (x Core..:? "HttpProperties")
       )
 
-instance Prelude.Hashable NamespaceProperties
+instance Prelude.Hashable NamespaceProperties where
+  hashWithSalt _salt NamespaceProperties' {..} =
+    _salt `Prelude.hashWithSalt` dnsProperties
+      `Prelude.hashWithSalt` httpProperties
 
-instance Prelude.NFData NamespaceProperties
+instance Prelude.NFData NamespaceProperties where
+  rnf NamespaceProperties' {..} =
+    Prelude.rnf dnsProperties
+      `Prelude.seq` Prelude.rnf httpProperties

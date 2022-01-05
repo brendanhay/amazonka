@@ -83,9 +83,12 @@ instance Core.AWSRequest GetNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNamespace
+instance Prelude.Hashable GetNamespace where
+  hashWithSalt _salt GetNamespace' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetNamespace
+instance Prelude.NFData GetNamespace where
+  rnf GetNamespace' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetNamespace where
   toHeaders =
@@ -151,4 +154,7 @@ getNamespaceResponse_namespace = Lens.lens (\GetNamespaceResponse' {namespace} -
 getNamespaceResponse_httpStatus :: Lens.Lens' GetNamespaceResponse Prelude.Int
 getNamespaceResponse_httpStatus = Lens.lens (\GetNamespaceResponse' {httpStatus} -> httpStatus) (\s@GetNamespaceResponse' {} a -> s {httpStatus = a} :: GetNamespaceResponse)
 
-instance Prelude.NFData GetNamespaceResponse
+instance Prelude.NFData GetNamespaceResponse where
+  rnf GetNamespaceResponse' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf httpStatus

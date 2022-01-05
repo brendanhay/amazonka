@@ -231,9 +231,17 @@ instance Core.FromJSON DnsConfig where
             Prelude.<*> (x Core..:? "DnsRecords" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DnsConfig
+instance Prelude.Hashable DnsConfig where
+  hashWithSalt _salt DnsConfig' {..} =
+    _salt `Prelude.hashWithSalt` routingPolicy
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` dnsRecords
 
-instance Prelude.NFData DnsConfig
+instance Prelude.NFData DnsConfig where
+  rnf DnsConfig' {..} =
+    Prelude.rnf routingPolicy
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf dnsRecords
 
 instance Core.ToJSON DnsConfig where
   toJSON DnsConfig' {..} =

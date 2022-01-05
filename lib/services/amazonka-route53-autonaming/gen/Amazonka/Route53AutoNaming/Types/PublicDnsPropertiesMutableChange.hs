@@ -59,10 +59,18 @@ publicDnsPropertiesMutableChange_soa = Lens.lens (\PublicDnsPropertiesMutableCha
 instance
   Prelude.Hashable
     PublicDnsPropertiesMutableChange
+  where
+  hashWithSalt
+    _salt
+    PublicDnsPropertiesMutableChange' {..} =
+      _salt `Prelude.hashWithSalt` soa
 
 instance
   Prelude.NFData
     PublicDnsPropertiesMutableChange
+  where
+  rnf PublicDnsPropertiesMutableChange' {..} =
+    Prelude.rnf soa
 
 instance Core.ToJSON PublicDnsPropertiesMutableChange where
   toJSON PublicDnsPropertiesMutableChange' {..} =

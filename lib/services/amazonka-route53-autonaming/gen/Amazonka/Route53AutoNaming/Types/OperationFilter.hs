@@ -204,9 +204,17 @@ operationFilter_name = Lens.lens (\OperationFilter' {name} -> name) (\s@Operatio
 operationFilter_values :: Lens.Lens' OperationFilter [Prelude.Text]
 operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@OperationFilter' {} a -> s {values = a} :: OperationFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable OperationFilter
+instance Prelude.Hashable OperationFilter where
+  hashWithSalt _salt OperationFilter' {..} =
+    _salt `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData OperationFilter
+instance Prelude.NFData OperationFilter where
+  rnf OperationFilter' {..} =
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON OperationFilter where
   toJSON OperationFilter' {..} =

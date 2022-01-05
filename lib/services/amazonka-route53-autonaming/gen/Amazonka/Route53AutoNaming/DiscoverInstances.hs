@@ -225,9 +225,23 @@ instance Core.AWSRequest DiscoverInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DiscoverInstances
+instance Prelude.Hashable DiscoverInstances where
+  hashWithSalt _salt DiscoverInstances' {..} =
+    _salt `Prelude.hashWithSalt` queryParameters
+      `Prelude.hashWithSalt` optionalParameters
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData DiscoverInstances
+instance Prelude.NFData DiscoverInstances where
+  rnf DiscoverInstances' {..} =
+    Prelude.rnf queryParameters
+      `Prelude.seq` Prelude.rnf optionalParameters
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToHeaders DiscoverInstances where
   toHeaders =
@@ -307,4 +321,7 @@ discoverInstancesResponse_instances = Lens.lens (\DiscoverInstancesResponse' {in
 discoverInstancesResponse_httpStatus :: Lens.Lens' DiscoverInstancesResponse Prelude.Int
 discoverInstancesResponse_httpStatus = Lens.lens (\DiscoverInstancesResponse' {httpStatus} -> httpStatus) (\s@DiscoverInstancesResponse' {} a -> s {httpStatus = a} :: DiscoverInstancesResponse)
 
-instance Prelude.NFData DiscoverInstancesResponse
+instance Prelude.NFData DiscoverInstancesResponse where
+  rnf DiscoverInstancesResponse' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf httpStatus

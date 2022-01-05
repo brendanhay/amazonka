@@ -126,6 +126,18 @@ instance Core.FromJSON HttpInstanceSummary where
             Prelude.<*> (x Core..:? "HealthStatus")
       )
 
-instance Prelude.Hashable HttpInstanceSummary
+instance Prelude.Hashable HttpInstanceSummary where
+  hashWithSalt _salt HttpInstanceSummary' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` healthStatus
 
-instance Prelude.NFData HttpInstanceSummary
+instance Prelude.NFData HttpInstanceSummary where
+  rnf HttpInstanceSummary' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf healthStatus

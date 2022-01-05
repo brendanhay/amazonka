@@ -256,9 +256,17 @@ instance Core.FromJSON HealthCheckConfig where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable HealthCheckConfig
+instance Prelude.Hashable HealthCheckConfig where
+  hashWithSalt _salt HealthCheckConfig' {..} =
+    _salt `Prelude.hashWithSalt` failureThreshold
+      `Prelude.hashWithSalt` resourcePath
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData HealthCheckConfig
+instance Prelude.NFData HealthCheckConfig where
+  rnf HealthCheckConfig' {..} =
+    Prelude.rnf failureThreshold
+      `Prelude.seq` Prelude.rnf resourcePath
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON HealthCheckConfig where
   toJSON HealthCheckConfig' {..} =

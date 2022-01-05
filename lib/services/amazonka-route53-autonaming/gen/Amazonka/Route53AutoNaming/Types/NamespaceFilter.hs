@@ -126,9 +126,17 @@ namespaceFilter_name = Lens.lens (\NamespaceFilter' {name} -> name) (\s@Namespac
 namespaceFilter_values :: Lens.Lens' NamespaceFilter [Prelude.Text]
 namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable NamespaceFilter
+instance Prelude.Hashable NamespaceFilter where
+  hashWithSalt _salt NamespaceFilter' {..} =
+    _salt `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData NamespaceFilter
+instance Prelude.NFData NamespaceFilter where
+  rnf NamespaceFilter' {..} =
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON NamespaceFilter where
   toJSON NamespaceFilter' {..} =

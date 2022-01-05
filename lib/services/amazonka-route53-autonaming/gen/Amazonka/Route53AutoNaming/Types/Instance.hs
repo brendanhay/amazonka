@@ -423,6 +423,14 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf id

@@ -207,4 +207,7 @@ detectAnomaliesResponse_detectAnomalyResult = Lens.lens (\DetectAnomaliesRespons
 detectAnomaliesResponse_httpStatus :: Lens.Lens' DetectAnomaliesResponse Prelude.Int
 detectAnomaliesResponse_httpStatus = Lens.lens (\DetectAnomaliesResponse' {httpStatus} -> httpStatus) (\s@DetectAnomaliesResponse' {} a -> s {httpStatus = a} :: DetectAnomaliesResponse)
 
-instance Prelude.NFData DetectAnomaliesResponse
+instance Prelude.NFData DetectAnomaliesResponse where
+  rnf DetectAnomaliesResponse' {..} =
+    Prelude.rnf detectAnomalyResult
+      `Prelude.seq` Prelude.rnf httpStatus

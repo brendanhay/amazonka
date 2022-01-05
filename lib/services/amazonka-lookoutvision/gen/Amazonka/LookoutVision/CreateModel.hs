@@ -190,9 +190,23 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateModel
+instance Prelude.Hashable CreateModel where
+  hashWithSalt _salt CreateModel' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` outputConfig
 
-instance Prelude.NFData CreateModel
+instance Prelude.NFData CreateModel where
+  rnf CreateModel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf outputConfig
 
 instance Core.ToHeaders CreateModel where
   toHeaders CreateModel' {..} =
@@ -263,4 +277,7 @@ createModelResponse_modelMetadata = Lens.lens (\CreateModelResponse' {modelMetad
 createModelResponse_httpStatus :: Lens.Lens' CreateModelResponse Prelude.Int
 createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -> httpStatus) (\s@CreateModelResponse' {} a -> s {httpStatus = a} :: CreateModelResponse)
 
-instance Prelude.NFData CreateModelResponse
+instance Prelude.NFData CreateModelResponse where
+  rnf CreateModelResponse' {..} =
+    Prelude.rnf modelMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -56,6 +56,9 @@ instance Core.FromJSON ImageSource where
       "ImageSource"
       (\x -> ImageSource' Prelude.<$> (x Core..:? "Type"))
 
-instance Prelude.Hashable ImageSource
+instance Prelude.Hashable ImageSource where
+  hashWithSalt _salt ImageSource' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ImageSource
+instance Prelude.NFData ImageSource where
+  rnf ImageSource' {..} = Prelude.rnf type'

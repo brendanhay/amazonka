@@ -155,9 +155,17 @@ instance Core.AWSRequest DeleteDataset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataset
+instance Prelude.Hashable DeleteDataset where
+  hashWithSalt _salt DeleteDataset' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` datasetType
 
-instance Prelude.NFData DeleteDataset
+instance Prelude.NFData DeleteDataset where
+  rnf DeleteDataset' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf datasetType
 
 instance Core.ToHeaders DeleteDataset where
   toHeaders DeleteDataset' {..} =
@@ -206,4 +214,6 @@ newDeleteDatasetResponse pHttpStatus_ =
 deleteDatasetResponse_httpStatus :: Lens.Lens' DeleteDatasetResponse Prelude.Int
 deleteDatasetResponse_httpStatus = Lens.lens (\DeleteDatasetResponse' {httpStatus} -> httpStatus) (\s@DeleteDatasetResponse' {} a -> s {httpStatus = a} :: DeleteDatasetResponse)
 
-instance Prelude.NFData DeleteDatasetResponse
+instance Prelude.NFData DeleteDatasetResponse where
+  rnf DeleteDatasetResponse' {..} =
+    Prelude.rnf httpStatus

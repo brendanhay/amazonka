@@ -92,6 +92,16 @@ instance Core.FromJSON DatasetMetadata where
             Prelude.<*> (x Core..:? "DatasetType")
       )
 
-instance Prelude.Hashable DatasetMetadata
+instance Prelude.Hashable DatasetMetadata where
+  hashWithSalt _salt DatasetMetadata' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` datasetType
 
-instance Prelude.NFData DatasetMetadata
+instance Prelude.NFData DatasetMetadata where
+  rnf DatasetMetadata' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf datasetType

@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     ListChannelsAssociatedWithChannelFlow
+  where
+  hashWithSalt
+    _salt
+    ListChannelsAssociatedWithChannelFlow' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` channelFlowArn
 
 instance
   Prelude.NFData
     ListChannelsAssociatedWithChannelFlow
+  where
+  rnf ListChannelsAssociatedWithChannelFlow' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf channelFlowArn
 
 instance
   Core.ToHeaders
@@ -208,3 +220,9 @@ listChannelsAssociatedWithChannelFlowResponse_httpStatus = Lens.lens (\ListChann
 instance
   Prelude.NFData
     ListChannelsAssociatedWithChannelFlowResponse
+  where
+  rnf
+    ListChannelsAssociatedWithChannelFlowResponse' {..} =
+      Prelude.rnf channels
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

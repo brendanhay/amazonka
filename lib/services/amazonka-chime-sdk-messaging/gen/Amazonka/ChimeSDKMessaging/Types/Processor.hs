@@ -126,9 +126,19 @@ instance Core.FromJSON Processor where
             Prelude.<*> (x Core..: "FallbackAction")
       )
 
-instance Prelude.Hashable Processor
+instance Prelude.Hashable Processor where
+  hashWithSalt _salt Processor' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` executionOrder
+      `Prelude.hashWithSalt` fallbackAction
 
-instance Prelude.NFData Processor
+instance Prelude.NFData Processor where
+  rnf Processor' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf executionOrder
+      `Prelude.seq` Prelude.rnf fallbackAction
 
 instance Core.ToJSON Processor where
   toJSON Processor' {..} =

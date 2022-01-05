@@ -59,6 +59,9 @@ instance Core.FromJSON MessagingSessionEndpoint where
             Prelude.<$> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable MessagingSessionEndpoint
+instance Prelude.Hashable MessagingSessionEndpoint where
+  hashWithSalt _salt MessagingSessionEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` url
 
-instance Prelude.NFData MessagingSessionEndpoint
+instance Prelude.NFData MessagingSessionEndpoint where
+  rnf MessagingSessionEndpoint' {..} = Prelude.rnf url

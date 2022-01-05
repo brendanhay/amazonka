@@ -154,6 +154,28 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt _salt Channel' {..} =
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` lastMessageTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf channelFlowArn
+      `Prelude.seq` Prelude.rnf lastMessageTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

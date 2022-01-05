@@ -72,9 +72,17 @@ channelMessageCallback_metadata = Lens.lens (\ChannelMessageCallback' {metadata}
 channelMessageCallback_messageId :: Lens.Lens' ChannelMessageCallback Prelude.Text
 channelMessageCallback_messageId = Lens.lens (\ChannelMessageCallback' {messageId} -> messageId) (\s@ChannelMessageCallback' {} a -> s {messageId = a} :: ChannelMessageCallback)
 
-instance Prelude.Hashable ChannelMessageCallback
+instance Prelude.Hashable ChannelMessageCallback where
+  hashWithSalt _salt ChannelMessageCallback' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData ChannelMessageCallback
+instance Prelude.NFData ChannelMessageCallback where
+  rnf ChannelMessageCallback' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf messageId
 
 instance Core.ToJSON ChannelMessageCallback where
   toJSON ChannelMessageCallback' {..} =

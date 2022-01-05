@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteChannelFlow where
   response =
     Response.receiveNull DeleteChannelFlowResponse'
 
-instance Prelude.Hashable DeleteChannelFlow
+instance Prelude.Hashable DeleteChannelFlow where
+  hashWithSalt _salt DeleteChannelFlow' {..} =
+    _salt `Prelude.hashWithSalt` channelFlowArn
 
-instance Prelude.NFData DeleteChannelFlow
+instance Prelude.NFData DeleteChannelFlow where
+  rnf DeleteChannelFlow' {..} =
+    Prelude.rnf channelFlowArn
 
 instance Core.ToHeaders DeleteChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
@@ -117,4 +121,5 @@ newDeleteChannelFlowResponse ::
 newDeleteChannelFlowResponse =
   DeleteChannelFlowResponse'
 
-instance Prelude.NFData DeleteChannelFlowResponse
+instance Prelude.NFData DeleteChannelFlowResponse where
+  rnf _ = ()

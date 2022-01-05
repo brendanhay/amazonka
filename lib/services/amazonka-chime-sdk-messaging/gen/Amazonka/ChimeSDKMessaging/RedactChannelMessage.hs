@@ -123,9 +123,17 @@ instance Core.AWSRequest RedactChannelMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RedactChannelMessage
+instance Prelude.Hashable RedactChannelMessage where
+  hashWithSalt _salt RedactChannelMessage' {..} =
+    _salt `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData RedactChannelMessage
+instance Prelude.NFData RedactChannelMessage where
+  rnf RedactChannelMessage' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Core.ToHeaders RedactChannelMessage where
   toHeaders RedactChannelMessage' {..} =
@@ -197,4 +205,8 @@ redactChannelMessageResponse_messageId = Lens.lens (\RedactChannelMessageRespons
 redactChannelMessageResponse_httpStatus :: Lens.Lens' RedactChannelMessageResponse Prelude.Int
 redactChannelMessageResponse_httpStatus = Lens.lens (\RedactChannelMessageResponse' {httpStatus} -> httpStatus) (\s@RedactChannelMessageResponse' {} a -> s {httpStatus = a} :: RedactChannelMessageResponse)
 
-instance Prelude.NFData RedactChannelMessageResponse
+instance Prelude.NFData RedactChannelMessageResponse where
+  rnf RedactChannelMessageResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -71,9 +71,12 @@ instance Core.AWSRequest GetMessagingSessionEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMessagingSessionEndpoint
+instance Prelude.Hashable GetMessagingSessionEndpoint where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetMessagingSessionEndpoint
+instance Prelude.NFData GetMessagingSessionEndpoint where
+  rnf _ = ()
 
 instance Core.ToHeaders GetMessagingSessionEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -126,3 +129,7 @@ getMessagingSessionEndpointResponse_httpStatus = Lens.lens (\GetMessagingSession
 instance
   Prelude.NFData
     GetMessagingSessionEndpointResponse
+  where
+  rnf GetMessagingSessionEndpointResponse' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf httpStatus

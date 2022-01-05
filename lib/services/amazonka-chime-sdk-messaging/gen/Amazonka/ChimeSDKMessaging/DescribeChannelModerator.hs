@@ -120,9 +120,17 @@ instance Core.AWSRequest DescribeChannelModerator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannelModerator
+instance Prelude.Hashable DescribeChannelModerator where
+  hashWithSalt _salt DescribeChannelModerator' {..} =
+    _salt `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` channelModeratorArn
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData DescribeChannelModerator
+instance Prelude.NFData DescribeChannelModerator where
+  rnf DescribeChannelModerator' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf channelModeratorArn
+      `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Core.ToHeaders DescribeChannelModerator where
   toHeaders DescribeChannelModerator' {..} =
@@ -183,3 +191,7 @@ describeChannelModeratorResponse_httpStatus = Lens.lens (\DescribeChannelModerat
 instance
   Prelude.NFData
     DescribeChannelModeratorResponse
+  where
+  rnf DescribeChannelModeratorResponse' {..} =
+    Prelude.rnf channelModerator
+      `Prelude.seq` Prelude.rnf httpStatus

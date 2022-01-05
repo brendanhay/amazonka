@@ -92,6 +92,16 @@ instance Core.FromJSON ChannelModerator where
             Prelude.<*> (x Core..:? "Moderator")
       )
 
-instance Prelude.Hashable ChannelModerator
+instance Prelude.Hashable ChannelModerator where
+  hashWithSalt _salt ChannelModerator' {..} =
+    _salt `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` moderator
 
-instance Prelude.NFData ChannelModerator
+instance Prelude.NFData ChannelModerator where
+  rnf ChannelModerator' {..} =
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf moderator

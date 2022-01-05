@@ -76,5 +76,11 @@ instance Core.FromJSON ChannelMessageStatusStructure where
 instance
   Prelude.Hashable
     ChannelMessageStatusStructure
+  where
+  hashWithSalt _salt ChannelMessageStatusStructure' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` detail
 
-instance Prelude.NFData ChannelMessageStatusStructure
+instance Prelude.NFData ChannelMessageStatusStructure where
+  rnf ChannelMessageStatusStructure' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf detail

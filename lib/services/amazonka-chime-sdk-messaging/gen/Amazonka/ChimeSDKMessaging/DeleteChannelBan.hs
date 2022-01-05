@@ -110,9 +110,17 @@ instance Core.AWSRequest DeleteChannelBan where
   response =
     Response.receiveNull DeleteChannelBanResponse'
 
-instance Prelude.Hashable DeleteChannelBan
+instance Prelude.Hashable DeleteChannelBan where
+  hashWithSalt _salt DeleteChannelBan' {..} =
+    _salt `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` memberArn
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData DeleteChannelBan
+instance Prelude.NFData DeleteChannelBan where
+  rnf DeleteChannelBan' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf memberArn
+      `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Core.ToHeaders DeleteChannelBan where
   toHeaders DeleteChannelBan' {..} =
@@ -146,4 +154,5 @@ newDeleteChannelBanResponse ::
 newDeleteChannelBanResponse =
   DeleteChannelBanResponse'
 
-instance Prelude.NFData DeleteChannelBanResponse
+instance Prelude.NFData DeleteChannelBanResponse where
+  rnf _ = ()

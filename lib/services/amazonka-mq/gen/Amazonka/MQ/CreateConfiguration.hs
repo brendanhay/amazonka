@@ -168,9 +168,21 @@ instance Core.AWSRequest CreateConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConfiguration
+instance Prelude.Hashable CreateConfiguration where
+  hashWithSalt _salt CreateConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` authenticationStrategy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateConfiguration
+instance Prelude.NFData CreateConfiguration where
+  rnf CreateConfiguration' {..} =
+    Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf engineType
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateConfiguration where
   toHeaders =
@@ -294,4 +306,12 @@ createConfigurationResponse_id = Lens.lens (\CreateConfigurationResponse' {id} -
 createConfigurationResponse_httpStatus :: Lens.Lens' CreateConfigurationResponse Prelude.Int
 createConfigurationResponse_httpStatus = Lens.lens (\CreateConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationResponse' {} a -> s {httpStatus = a} :: CreateConfigurationResponse)
 
-instance Prelude.NFData CreateConfigurationResponse
+instance Prelude.NFData CreateConfigurationResponse where
+  rnf CreateConfigurationResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

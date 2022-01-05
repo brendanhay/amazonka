@@ -73,6 +73,12 @@ instance Core.FromJSON BrokerEngineType where
             Prelude.<*> (x Core..:? "engineType")
       )
 
-instance Prelude.Hashable BrokerEngineType
+instance Prelude.Hashable BrokerEngineType where
+  hashWithSalt _salt BrokerEngineType' {..} =
+    _salt `Prelude.hashWithSalt` engineVersions
+      `Prelude.hashWithSalt` engineType
 
-instance Prelude.NFData BrokerEngineType
+instance Prelude.NFData BrokerEngineType where
+  rnf BrokerEngineType' {..} =
+    Prelude.rnf engineVersions
+      `Prelude.seq` Prelude.rnf engineType

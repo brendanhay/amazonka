@@ -223,9 +223,31 @@ instance Core.AWSRequest UpdateBroker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBroker
+instance Prelude.Hashable UpdateBroker where
+  hashWithSalt _salt UpdateBroker' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` authenticationStrategy
+      `Prelude.hashWithSalt` ldapServerMetadata
+      `Prelude.hashWithSalt` maintenanceWindowStartTime
+      `Prelude.hashWithSalt` logs
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` brokerId
 
-instance Prelude.NFData UpdateBroker
+instance Prelude.NFData UpdateBroker where
+  rnf UpdateBroker' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf ldapServerMetadata
+      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf logs
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf brokerId
 
 instance Core.ToHeaders UpdateBroker where
   toHeaders =
@@ -418,4 +440,16 @@ updateBrokerResponse_hostInstanceType = Lens.lens (\UpdateBrokerResponse' {hostI
 updateBrokerResponse_httpStatus :: Lens.Lens' UpdateBrokerResponse Prelude.Int
 updateBrokerResponse_httpStatus = Lens.lens (\UpdateBrokerResponse' {httpStatus} -> httpStatus) (\s@UpdateBrokerResponse' {} a -> s {httpStatus = a} :: UpdateBrokerResponse)
 
-instance Prelude.NFData UpdateBrokerResponse
+instance Prelude.NFData UpdateBrokerResponse where
+  rnf UpdateBrokerResponse' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf ldapServerMetadata
+      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf logs
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf httpStatus

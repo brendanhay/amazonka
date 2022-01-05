@@ -74,9 +74,14 @@ instance Core.FromJSON ConfigurationId where
             Prelude.<$> (x Core..:? "revision") Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable ConfigurationId
+instance Prelude.Hashable ConfigurationId where
+  hashWithSalt _salt ConfigurationId' {..} =
+    _salt `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ConfigurationId
+instance Prelude.NFData ConfigurationId where
+  rnf ConfigurationId' {..} =
+    Prelude.rnf revision `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON ConfigurationId where
   toJSON ConfigurationId' {..} =

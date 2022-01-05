@@ -144,9 +144,12 @@ instance Core.AWSRequest DescribeBroker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBroker
+instance Prelude.Hashable DescribeBroker where
+  hashWithSalt _salt DescribeBroker' {..} =
+    _salt `Prelude.hashWithSalt` brokerId
 
-instance Prelude.NFData DescribeBroker
+instance Prelude.NFData DescribeBroker where
+  rnf DescribeBroker' {..} = Prelude.rnf brokerId
 
 instance Core.ToHeaders DescribeBroker where
   toHeaders =
@@ -512,4 +515,40 @@ describeBrokerResponse_storageType = Lens.lens (\DescribeBrokerResponse' {storag
 describeBrokerResponse_httpStatus :: Lens.Lens' DescribeBrokerResponse Prelude.Int
 describeBrokerResponse_httpStatus = Lens.lens (\DescribeBrokerResponse' {httpStatus} -> httpStatus) (\s@DescribeBrokerResponse' {} a -> s {httpStatus = a} :: DescribeBrokerResponse)
 
-instance Prelude.NFData DescribeBrokerResponse
+instance Prelude.NFData DescribeBrokerResponse where
+  rnf DescribeBrokerResponse' {..} =
+    Prelude.rnf brokerName
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf pendingAuthenticationStrategy
+      `Prelude.seq` Prelude.rnf brokerState
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf pendingSecurityGroups
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf pendingHostInstanceType
+      `Prelude.seq` Prelude.rnf ldapServerMetadata
+      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf logs
+      `Prelude.seq` Prelude.rnf encryptionOptions
+      `Prelude.seq` Prelude.rnf deploymentMode
+      `Prelude.seq` Prelude.rnf
+        pendingEngineVersion
+      `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf
+        pendingLdapServerMetadata
+      `Prelude.seq` Prelude.rnf engineType
+      `Prelude.seq` Prelude.rnf brokerArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        brokerInstances
+      `Prelude.seq` Prelude.rnf
+        hostInstanceType
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
+        httpStatus

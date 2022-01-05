@@ -86,6 +86,14 @@ instance Core.FromJSON ConfigurationRevision where
             Prelude.<*> (x Core..: "created")
       )
 
-instance Prelude.Hashable ConfigurationRevision
+instance Prelude.Hashable ConfigurationRevision where
+  hashWithSalt _salt ConfigurationRevision' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` created
 
-instance Prelude.NFData ConfigurationRevision
+instance Prelude.NFData ConfigurationRevision where
+  rnf ConfigurationRevision' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf created

@@ -102,6 +102,20 @@ hostedConfigurationVersion_configurationProfileId = Lens.lens (\HostedConfigurat
 hostedConfigurationVersion_contentType :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Text)
 hostedConfigurationVersion_contentType = Lens.lens (\HostedConfigurationVersion' {contentType} -> contentType) (\s@HostedConfigurationVersion' {} a -> s {contentType = a} :: HostedConfigurationVersion)
 
-instance Prelude.Hashable HostedConfigurationVersion
+instance Prelude.Hashable HostedConfigurationVersion where
+  hashWithSalt _salt HostedConfigurationVersion' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData HostedConfigurationVersion
+instance Prelude.NFData HostedConfigurationVersion where
+  rnf HostedConfigurationVersion' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf contentType

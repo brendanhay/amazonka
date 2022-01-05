@@ -127,9 +127,17 @@ instance Core.AWSRequest StopDeployment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable StopDeployment
+instance Prelude.Hashable StopDeployment where
+  hashWithSalt _salt StopDeployment' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` deploymentNumber
 
-instance Prelude.NFData StopDeployment
+instance Prelude.NFData StopDeployment where
+  rnf StopDeployment' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf deploymentNumber
 
 instance Core.ToHeaders StopDeployment where
   toHeaders =

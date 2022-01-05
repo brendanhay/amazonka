@@ -177,9 +177,25 @@ instance Core.AWSRequest StartDeployment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable StartDeployment
+instance Prelude.Hashable StartDeployment where
+  hashWithSalt _salt StartDeployment' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` deploymentStrategyId
+      `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` configurationVersion
 
-instance Prelude.NFData StartDeployment
+instance Prelude.NFData StartDeployment where
+  rnf StartDeployment' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf deploymentStrategyId
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf configurationVersion
 
 instance Core.ToHeaders StartDeployment where
   toHeaders =

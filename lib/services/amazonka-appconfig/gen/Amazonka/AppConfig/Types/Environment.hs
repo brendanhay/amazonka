@@ -117,6 +117,20 @@ instance Core.FromJSON Environment where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Environment
+instance Prelude.Hashable Environment where
+  hashWithSalt _salt Environment' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` monitors
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Environment
+instance Prelude.NFData Environment where
+  rnf Environment' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf monitors
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description

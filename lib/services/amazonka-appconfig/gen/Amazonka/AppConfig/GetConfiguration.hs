@@ -221,9 +221,22 @@ instance Core.AWSRequest GetConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConfiguration
+instance Prelude.Hashable GetConfiguration where
+  hashWithSalt _salt GetConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` clientConfigurationVersion
+      `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData GetConfiguration
+instance Prelude.NFData GetConfiguration where
+  rnf GetConfiguration' {..} =
+    Prelude.rnf clientConfigurationVersion
+      `Prelude.seq` Prelude.rnf application
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToHeaders GetConfiguration where
   toHeaders =
@@ -318,4 +331,9 @@ getConfigurationResponse_contentType = Lens.lens (\GetConfigurationResponse' {co
 getConfigurationResponse_httpStatus :: Lens.Lens' GetConfigurationResponse Prelude.Int
 getConfigurationResponse_httpStatus = Lens.lens (\GetConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetConfigurationResponse' {} a -> s {httpStatus = a} :: GetConfigurationResponse)
 
-instance Prelude.NFData GetConfigurationResponse
+instance Prelude.NFData GetConfigurationResponse where
+  rnf GetConfigurationResponse' {..} =
+    Prelude.rnf configurationVersion
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf httpStatus

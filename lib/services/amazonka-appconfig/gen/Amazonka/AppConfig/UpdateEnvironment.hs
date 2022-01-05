@@ -128,9 +128,21 @@ instance Core.AWSRequest UpdateEnvironment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateEnvironment
+instance Prelude.Hashable UpdateEnvironment where
+  hashWithSalt _salt UpdateEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` monitors
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData UpdateEnvironment
+instance Prelude.NFData UpdateEnvironment where
+  rnf UpdateEnvironment' {..} =
+    Prelude.rnf monitors
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders UpdateEnvironment where
   toHeaders =

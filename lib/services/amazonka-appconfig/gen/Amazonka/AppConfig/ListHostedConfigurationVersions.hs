@@ -142,10 +142,24 @@ instance
 instance
   Prelude.Hashable
     ListHostedConfigurationVersions
+  where
+  hashWithSalt
+    _salt
+    ListHostedConfigurationVersions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` configurationProfileId
 
 instance
   Prelude.NFData
     ListHostedConfigurationVersions
+  where
+  rnf ListHostedConfigurationVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance
   Core.ToHeaders
@@ -233,3 +247,8 @@ listHostedConfigurationVersionsResponse_httpStatus = Lens.lens (\ListHostedConfi
 instance
   Prelude.NFData
     ListHostedConfigurationVersionsResponse
+  where
+  rnf ListHostedConfigurationVersionsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

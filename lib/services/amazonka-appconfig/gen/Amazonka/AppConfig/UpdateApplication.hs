@@ -103,9 +103,17 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt _salt UpdateApplication' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =

@@ -92,9 +92,15 @@ instance Core.AWSRequest DeleteEnvironment where
   response =
     Response.receiveNull DeleteEnvironmentResponse'
 
-instance Prelude.Hashable DeleteEnvironment
+instance Prelude.Hashable DeleteEnvironment where
+  hashWithSalt _salt DeleteEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData DeleteEnvironment
+instance Prelude.NFData DeleteEnvironment where
+  rnf DeleteEnvironment' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders DeleteEnvironment where
   toHeaders =
@@ -134,4 +140,5 @@ newDeleteEnvironmentResponse ::
 newDeleteEnvironmentResponse =
   DeleteEnvironmentResponse'
 
-instance Prelude.NFData DeleteEnvironmentResponse
+instance Prelude.NFData DeleteEnvironmentResponse where
+  rnf _ = ()

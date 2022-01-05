@@ -107,9 +107,15 @@ instance Core.AWSRequest DeleteExpression where
             Prelude.<*> (x Core..@ "Expression")
       )
 
-instance Prelude.Hashable DeleteExpression
+instance Prelude.Hashable DeleteExpression where
+  hashWithSalt _salt DeleteExpression' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` expressionName
 
-instance Prelude.NFData DeleteExpression
+instance Prelude.NFData DeleteExpression where
+  rnf DeleteExpression' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf expressionName
 
 instance Core.ToHeaders DeleteExpression where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ deleteExpressionResponse_httpStatus = Lens.lens (\DeleteExpressionResponse' {htt
 deleteExpressionResponse_expression :: Lens.Lens' DeleteExpressionResponse ExpressionStatus
 deleteExpressionResponse_expression = Lens.lens (\DeleteExpressionResponse' {expression} -> expression) (\s@DeleteExpressionResponse' {} a -> s {expression = a} :: DeleteExpressionResponse)
 
-instance Prelude.NFData DeleteExpressionResponse
+instance Prelude.NFData DeleteExpressionResponse where
+  rnf DeleteExpressionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf expression

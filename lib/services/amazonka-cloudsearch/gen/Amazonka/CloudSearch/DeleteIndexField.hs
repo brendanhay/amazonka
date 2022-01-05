@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteIndexField where
             Prelude.<*> (x Core..@ "IndexField")
       )
 
-instance Prelude.Hashable DeleteIndexField
+instance Prelude.Hashable DeleteIndexField where
+  hashWithSalt _salt DeleteIndexField' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` indexFieldName
 
-instance Prelude.NFData DeleteIndexField
+instance Prelude.NFData DeleteIndexField where
+  rnf DeleteIndexField' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf indexFieldName
 
 instance Core.ToHeaders DeleteIndexField where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,7 @@ deleteIndexFieldResponse_httpStatus = Lens.lens (\DeleteIndexFieldResponse' {htt
 deleteIndexFieldResponse_indexField :: Lens.Lens' DeleteIndexFieldResponse IndexFieldStatus
 deleteIndexFieldResponse_indexField = Lens.lens (\DeleteIndexFieldResponse' {indexField} -> indexField) (\s@DeleteIndexFieldResponse' {} a -> s {indexField = a} :: DeleteIndexFieldResponse)
 
-instance Prelude.NFData DeleteIndexFieldResponse
+instance Prelude.NFData DeleteIndexFieldResponse where
+  rnf DeleteIndexFieldResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexField

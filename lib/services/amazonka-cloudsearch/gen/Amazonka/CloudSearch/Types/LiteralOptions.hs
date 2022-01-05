@@ -110,9 +110,23 @@ instance Core.FromXML LiteralOptions where
       Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable LiteralOptions
+instance Prelude.Hashable LiteralOptions where
+  hashWithSalt _salt LiteralOptions' {..} =
+    _salt `Prelude.hashWithSalt` sourceField
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` sortEnabled
+      `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData LiteralOptions
+instance Prelude.NFData LiteralOptions where
+  rnf LiteralOptions' {..} =
+    Prelude.rnf sourceField
+      `Prelude.seq` Prelude.rnf returnEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf sortEnabled
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToQuery LiteralOptions where
   toQuery LiteralOptions' {..} =

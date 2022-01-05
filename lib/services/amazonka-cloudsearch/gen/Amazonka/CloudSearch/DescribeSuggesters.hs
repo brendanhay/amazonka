@@ -127,9 +127,17 @@ instance Core.AWSRequest DescribeSuggesters where
                         )
       )
 
-instance Prelude.Hashable DescribeSuggesters
+instance Prelude.Hashable DescribeSuggesters where
+  hashWithSalt _salt DescribeSuggesters' {..} =
+    _salt `Prelude.hashWithSalt` deployed
+      `Prelude.hashWithSalt` suggesterNames
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeSuggesters
+instance Prelude.NFData DescribeSuggesters where
+  rnf DescribeSuggesters' {..} =
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf suggesterNames
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeSuggesters where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +202,7 @@ describeSuggestersResponse_httpStatus = Lens.lens (\DescribeSuggestersResponse' 
 describeSuggestersResponse_suggesters :: Lens.Lens' DescribeSuggestersResponse [SuggesterStatus]
 describeSuggestersResponse_suggesters = Lens.lens (\DescribeSuggestersResponse' {suggesters} -> suggesters) (\s@DescribeSuggestersResponse' {} a -> s {suggesters = a} :: DescribeSuggestersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeSuggestersResponse
+instance Prelude.NFData DescribeSuggestersResponse where
+  rnf DescribeSuggestersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suggesters

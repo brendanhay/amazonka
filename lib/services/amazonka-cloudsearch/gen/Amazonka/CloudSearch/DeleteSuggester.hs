@@ -106,9 +106,15 @@ instance Core.AWSRequest DeleteSuggester where
             Prelude.<*> (x Core..@ "Suggester")
       )
 
-instance Prelude.Hashable DeleteSuggester
+instance Prelude.Hashable DeleteSuggester where
+  hashWithSalt _salt DeleteSuggester' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` suggesterName
 
-instance Prelude.NFData DeleteSuggester
+instance Prelude.NFData DeleteSuggester where
+  rnf DeleteSuggester' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf suggesterName
 
 instance Core.ToHeaders DeleteSuggester where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,4 +176,7 @@ deleteSuggesterResponse_httpStatus = Lens.lens (\DeleteSuggesterResponse' {httpS
 deleteSuggesterResponse_suggester :: Lens.Lens' DeleteSuggesterResponse SuggesterStatus
 deleteSuggesterResponse_suggester = Lens.lens (\DeleteSuggesterResponse' {suggester} -> suggester) (\s@DeleteSuggesterResponse' {} a -> s {suggester = a} :: DeleteSuggesterResponse)
 
-instance Prelude.NFData DeleteSuggesterResponse
+instance Prelude.NFData DeleteSuggesterResponse where
+  rnf DeleteSuggesterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suggester

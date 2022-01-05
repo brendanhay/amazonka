@@ -113,9 +113,15 @@ instance Core.AWSRequest UpdateScalingParameters where
             Prelude.<*> (x Core..@ "ScalingParameters")
       )
 
-instance Prelude.Hashable UpdateScalingParameters
+instance Prelude.Hashable UpdateScalingParameters where
+  hashWithSalt _salt UpdateScalingParameters' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` scalingParameters
 
-instance Prelude.NFData UpdateScalingParameters
+instance Prelude.NFData UpdateScalingParameters where
+  rnf UpdateScalingParameters' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf scalingParameters
 
 instance Core.ToHeaders UpdateScalingParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +188,7 @@ updateScalingParametersResponse_scalingParameters = Lens.lens (\UpdateScalingPar
 instance
   Prelude.NFData
     UpdateScalingParametersResponse
+  where
+  rnf UpdateScalingParametersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scalingParameters

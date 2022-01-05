@@ -102,9 +102,21 @@ instance Core.FromXML DateArrayOptions where
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable DateArrayOptions
+instance Prelude.Hashable DateArrayOptions where
+  hashWithSalt _salt DateArrayOptions' {..} =
+    _salt `Prelude.hashWithSalt` sourceFields
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData DateArrayOptions
+instance Prelude.NFData DateArrayOptions where
+  rnf DateArrayOptions' {..} =
+    Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf returnEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =

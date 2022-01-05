@@ -111,9 +111,23 @@ instance Core.FromXML TextOptions where
       Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable TextOptions
+instance Prelude.Hashable TextOptions where
+  hashWithSalt _salt TextOptions' {..} =
+    _salt `Prelude.hashWithSalt` sourceField
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` analysisScheme
+      `Prelude.hashWithSalt` highlightEnabled
+      `Prelude.hashWithSalt` sortEnabled
+      `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData TextOptions
+instance Prelude.NFData TextOptions where
+  rnf TextOptions' {..} =
+    Prelude.rnf sourceField
+      `Prelude.seq` Prelude.rnf returnEnabled
+      `Prelude.seq` Prelude.rnf analysisScheme
+      `Prelude.seq` Prelude.rnf highlightEnabled
+      `Prelude.seq` Prelude.rnf sortEnabled
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToQuery TextOptions where
   toQuery TextOptions' {..} =

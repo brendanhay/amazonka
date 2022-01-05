@@ -93,9 +93,12 @@ instance Core.AWSRequest BuildSuggesters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BuildSuggesters
+instance Prelude.Hashable BuildSuggesters where
+  hashWithSalt _salt BuildSuggesters' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData BuildSuggesters
+instance Prelude.NFData BuildSuggesters where
+  rnf BuildSuggesters' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders BuildSuggesters where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,4 +157,7 @@ buildSuggestersResponse_fieldNames = Lens.lens (\BuildSuggestersResponse' {field
 buildSuggestersResponse_httpStatus :: Lens.Lens' BuildSuggestersResponse Prelude.Int
 buildSuggestersResponse_httpStatus = Lens.lens (\BuildSuggestersResponse' {httpStatus} -> httpStatus) (\s@BuildSuggestersResponse' {} a -> s {httpStatus = a} :: BuildSuggestersResponse)
 
-instance Prelude.NFData BuildSuggestersResponse
+instance Prelude.NFData BuildSuggestersResponse where
+  rnf BuildSuggestersResponse' {..} =
+    Prelude.rnf fieldNames
+      `Prelude.seq` Prelude.rnf httpStatus

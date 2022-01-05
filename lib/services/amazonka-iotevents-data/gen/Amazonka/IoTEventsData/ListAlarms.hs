@@ -109,9 +109,17 @@ instance Core.AWSRequest ListAlarms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAlarms
+instance Prelude.Hashable ListAlarms where
+  hashWithSalt _salt ListAlarms' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` alarmModelName
 
-instance Prelude.NFData ListAlarms
+instance Prelude.NFData ListAlarms where
+  rnf ListAlarms' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Core.ToHeaders ListAlarms where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +186,8 @@ listAlarmsResponse_alarmSummaries = Lens.lens (\ListAlarmsResponse' {alarmSummar
 listAlarmsResponse_httpStatus :: Lens.Lens' ListAlarmsResponse Prelude.Int
 listAlarmsResponse_httpStatus = Lens.lens (\ListAlarmsResponse' {httpStatus} -> httpStatus) (\s@ListAlarmsResponse' {} a -> s {httpStatus = a} :: ListAlarmsResponse)
 
-instance Prelude.NFData ListAlarmsResponse
+instance Prelude.NFData ListAlarmsResponse where
+  rnf ListAlarmsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf alarmSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -115,6 +115,20 @@ instance Core.FromJSON DetectorSummary where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable DetectorSummary
+instance Prelude.Hashable DetectorSummary where
+  hashWithSalt _salt DetectorSummary' {..} =
+    _salt `Prelude.hashWithSalt` keyValue
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` detectorModelVersion
+      `Prelude.hashWithSalt` lastUpdateTime
 
-instance Prelude.NFData DetectorSummary
+instance Prelude.NFData DetectorSummary where
+  rnf DetectorSummary' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf detectorModelVersion
+      `Prelude.seq` Prelude.rnf lastUpdateTime

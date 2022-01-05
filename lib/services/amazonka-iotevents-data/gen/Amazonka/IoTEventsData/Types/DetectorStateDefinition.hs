@@ -81,9 +81,17 @@ detectorStateDefinition_variables = Lens.lens (\DetectorStateDefinition' {variab
 detectorStateDefinition_timers :: Lens.Lens' DetectorStateDefinition [TimerDefinition]
 detectorStateDefinition_timers = Lens.lens (\DetectorStateDefinition' {timers} -> timers) (\s@DetectorStateDefinition' {} a -> s {timers = a} :: DetectorStateDefinition) Prelude.. Lens.coerced
 
-instance Prelude.Hashable DetectorStateDefinition
+instance Prelude.Hashable DetectorStateDefinition where
+  hashWithSalt _salt DetectorStateDefinition' {..} =
+    _salt `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` timers
 
-instance Prelude.NFData DetectorStateDefinition
+instance Prelude.NFData DetectorStateDefinition where
+  rnf DetectorStateDefinition' {..} =
+    Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf timers
 
 instance Core.ToJSON DetectorStateDefinition where
   toJSON DetectorStateDefinition' {..} =

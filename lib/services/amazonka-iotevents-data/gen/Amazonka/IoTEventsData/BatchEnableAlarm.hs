@@ -93,9 +93,13 @@ instance Core.AWSRequest BatchEnableAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchEnableAlarm
+instance Prelude.Hashable BatchEnableAlarm where
+  hashWithSalt _salt BatchEnableAlarm' {..} =
+    _salt `Prelude.hashWithSalt` enableActionRequests
 
-instance Prelude.NFData BatchEnableAlarm
+instance Prelude.NFData BatchEnableAlarm where
+  rnf BatchEnableAlarm' {..} =
+    Prelude.rnf enableActionRequests
 
 instance Core.ToHeaders BatchEnableAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +166,7 @@ batchEnableAlarmResponse_errorEntries = Lens.lens (\BatchEnableAlarmResponse' {e
 batchEnableAlarmResponse_httpStatus :: Lens.Lens' BatchEnableAlarmResponse Prelude.Int
 batchEnableAlarmResponse_httpStatus = Lens.lens (\BatchEnableAlarmResponse' {httpStatus} -> httpStatus) (\s@BatchEnableAlarmResponse' {} a -> s {httpStatus = a} :: BatchEnableAlarmResponse)
 
-instance Prelude.NFData BatchEnableAlarmResponse
+instance Prelude.NFData BatchEnableAlarmResponse where
+  rnf BatchEnableAlarmResponse' {..} =
+    Prelude.rnf errorEntries
+      `Prelude.seq` Prelude.rnf httpStatus

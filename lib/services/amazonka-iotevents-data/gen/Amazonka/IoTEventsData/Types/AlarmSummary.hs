@@ -190,6 +190,20 @@ instance Core.FromJSON AlarmSummary where
             Prelude.<*> (x Core..:? "alarmModelVersion")
       )
 
-instance Prelude.Hashable AlarmSummary
+instance Prelude.Hashable AlarmSummary where
+  hashWithSalt _salt AlarmSummary' {..} =
+    _salt `Prelude.hashWithSalt` keyValue
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` alarmModelVersion
 
-instance Prelude.NFData AlarmSummary
+instance Prelude.NFData AlarmSummary where
+  rnf AlarmSummary' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf alarmModelVersion

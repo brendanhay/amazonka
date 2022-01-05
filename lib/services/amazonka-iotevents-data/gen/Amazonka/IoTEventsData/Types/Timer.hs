@@ -75,6 +75,12 @@ instance Core.FromJSON Timer where
             Prelude.<*> (x Core..: "timestamp")
       )
 
-instance Prelude.Hashable Timer
+instance Prelude.Hashable Timer where
+  hashWithSalt _salt Timer' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData Timer
+instance Prelude.NFData Timer where
+  rnf Timer' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timestamp

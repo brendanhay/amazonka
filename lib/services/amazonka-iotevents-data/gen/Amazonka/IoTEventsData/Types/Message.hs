@@ -103,9 +103,19 @@ message_inputName = Lens.lens (\Message' {inputName} -> inputName) (\s@Message' 
 message_payload :: Lens.Lens' Message Prelude.ByteString
 message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Core._Base64
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt _salt Message' {..} =
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf payload
 
 instance Core.ToJSON Message where
   toJSON Message' {..} =

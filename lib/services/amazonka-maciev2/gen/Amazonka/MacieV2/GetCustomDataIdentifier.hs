@@ -109,9 +109,12 @@ instance Core.AWSRequest GetCustomDataIdentifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCustomDataIdentifier
+instance Prelude.Hashable GetCustomDataIdentifier where
+  hashWithSalt _salt GetCustomDataIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetCustomDataIdentifier
+instance Prelude.NFData GetCustomDataIdentifier where
+  rnf GetCustomDataIdentifier' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetCustomDataIdentifier where
   toHeaders =
@@ -300,3 +303,17 @@ getCustomDataIdentifierResponse_httpStatus = Lens.lens (\GetCustomDataIdentifier
 instance
   Prelude.NFData
     GetCustomDataIdentifierResponse
+  where
+  rnf GetCustomDataIdentifierResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf regex
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf ignoreWords
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf maximumMatchDistance
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

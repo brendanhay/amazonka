@@ -127,9 +127,18 @@ instance Core.AWSRequest CreateInvitations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInvitations
+instance Prelude.Hashable CreateInvitations where
+  hashWithSalt _salt CreateInvitations' {..} =
+    _salt
+      `Prelude.hashWithSalt` disableEmailNotification
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData CreateInvitations
+instance Prelude.NFData CreateInvitations where
+  rnf CreateInvitations' {..} =
+    Prelude.rnf disableEmailNotification
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders CreateInvitations where
   toHeaders =
@@ -204,4 +213,7 @@ createInvitationsResponse_unprocessedAccounts = Lens.lens (\CreateInvitationsRes
 createInvitationsResponse_httpStatus :: Lens.Lens' CreateInvitationsResponse Prelude.Int
 createInvitationsResponse_httpStatus = Lens.lens (\CreateInvitationsResponse' {httpStatus} -> httpStatus) (\s@CreateInvitationsResponse' {} a -> s {httpStatus = a} :: CreateInvitationsResponse)
 
-instance Prelude.NFData CreateInvitationsResponse
+instance Prelude.NFData CreateInvitationsResponse where
+  rnf CreateInvitationsResponse' {..} =
+    Prelude.rnf unprocessedAccounts
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,6 +79,12 @@ instance Core.FromJSON SessionContextAttributes where
             Prelude.<*> (x Core..:? "mfaAuthenticated")
       )
 
-instance Prelude.Hashable SessionContextAttributes
+instance Prelude.Hashable SessionContextAttributes where
+  hashWithSalt _salt SessionContextAttributes' {..} =
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` mfaAuthenticated
 
-instance Prelude.NFData SessionContextAttributes
+instance Prelude.NFData SessionContextAttributes where
+  rnf SessionContextAttributes' {..} =
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf mfaAuthenticated

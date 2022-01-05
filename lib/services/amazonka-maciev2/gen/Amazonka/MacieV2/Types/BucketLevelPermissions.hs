@@ -95,6 +95,14 @@ instance Core.FromJSON BucketLevelPermissions where
             Prelude.<*> (x Core..:? "bucketPolicy")
       )
 
-instance Prelude.Hashable BucketLevelPermissions
+instance Prelude.Hashable BucketLevelPermissions where
+  hashWithSalt _salt BucketLevelPermissions' {..} =
+    _salt `Prelude.hashWithSalt` accessControlList
+      `Prelude.hashWithSalt` blockPublicAccess
+      `Prelude.hashWithSalt` bucketPolicy
 
-instance Prelude.NFData BucketLevelPermissions
+instance Prelude.NFData BucketLevelPermissions where
+  rnf BucketLevelPermissions' {..} =
+    Prelude.rnf accessControlList
+      `Prelude.seq` Prelude.rnf blockPublicAccess
+      `Prelude.seq` Prelude.rnf bucketPolicy

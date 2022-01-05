@@ -104,6 +104,16 @@ instance Core.FromJSON ApiCallDetails where
             Prelude.<*> (x Core..:? "api")
       )
 
-instance Prelude.Hashable ApiCallDetails
+instance Prelude.Hashable ApiCallDetails where
+  hashWithSalt _salt ApiCallDetails' {..} =
+    _salt `Prelude.hashWithSalt` firstSeen
+      `Prelude.hashWithSalt` apiServiceName
+      `Prelude.hashWithSalt` lastSeen
+      `Prelude.hashWithSalt` api
 
-instance Prelude.NFData ApiCallDetails
+instance Prelude.NFData ApiCallDetails where
+  rnf ApiCallDetails' {..} =
+    Prelude.rnf firstSeen
+      `Prelude.seq` Prelude.rnf apiServiceName
+      `Prelude.seq` Prelude.rnf lastSeen
+      `Prelude.seq` Prelude.rnf api

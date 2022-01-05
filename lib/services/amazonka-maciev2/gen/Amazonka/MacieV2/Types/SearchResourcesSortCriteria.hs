@@ -75,9 +75,15 @@ searchResourcesSortCriteria_orderBy = Lens.lens (\SearchResourcesSortCriteria' {
 searchResourcesSortCriteria_attributeName :: Lens.Lens' SearchResourcesSortCriteria (Prelude.Maybe SearchResourcesSortAttributeName)
 searchResourcesSortCriteria_attributeName = Lens.lens (\SearchResourcesSortCriteria' {attributeName} -> attributeName) (\s@SearchResourcesSortCriteria' {} a -> s {attributeName = a} :: SearchResourcesSortCriteria)
 
-instance Prelude.Hashable SearchResourcesSortCriteria
+instance Prelude.Hashable SearchResourcesSortCriteria where
+  hashWithSalt _salt SearchResourcesSortCriteria' {..} =
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData SearchResourcesSortCriteria
+instance Prelude.NFData SearchResourcesSortCriteria where
+  rnf SearchResourcesSortCriteria' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON SearchResourcesSortCriteria where
   toJSON SearchResourcesSortCriteria' {..} =

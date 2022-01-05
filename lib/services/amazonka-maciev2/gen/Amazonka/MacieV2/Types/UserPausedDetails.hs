@@ -103,6 +103,14 @@ instance Core.FromJSON UserPausedDetails where
             Prelude.<*> (x Core..:? "jobPausedAt")
       )
 
-instance Prelude.Hashable UserPausedDetails
+instance Prelude.Hashable UserPausedDetails where
+  hashWithSalt _salt UserPausedDetails' {..} =
+    _salt `Prelude.hashWithSalt` jobExpiresAt
+      `Prelude.hashWithSalt` jobImminentExpirationHealthEventArn
+      `Prelude.hashWithSalt` jobPausedAt
 
-instance Prelude.NFData UserPausedDetails
+instance Prelude.NFData UserPausedDetails where
+  rnf UserPausedDetails' {..} =
+    Prelude.rnf jobExpiresAt
+      `Prelude.seq` Prelude.rnf jobImminentExpirationHealthEventArn
+      `Prelude.seq` Prelude.rnf jobPausedAt

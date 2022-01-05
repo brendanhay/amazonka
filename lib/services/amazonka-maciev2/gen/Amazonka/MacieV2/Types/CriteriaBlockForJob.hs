@@ -68,9 +68,12 @@ instance Core.FromJSON CriteriaBlockForJob where
             Prelude.<$> (x Core..:? "and" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CriteriaBlockForJob
+instance Prelude.Hashable CriteriaBlockForJob where
+  hashWithSalt _salt CriteriaBlockForJob' {..} =
+    _salt `Prelude.hashWithSalt` and
 
-instance Prelude.NFData CriteriaBlockForJob
+instance Prelude.NFData CriteriaBlockForJob where
+  rnf CriteriaBlockForJob' {..} = Prelude.rnf and
 
 instance Core.ToJSON CriteriaBlockForJob where
   toJSON CriteriaBlockForJob' {..} =

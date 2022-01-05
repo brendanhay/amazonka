@@ -95,6 +95,14 @@ instance Core.FromJSON DefaultDetection where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable DefaultDetection
+instance Prelude.Hashable DefaultDetection where
+  hashWithSalt _salt DefaultDetection' {..} =
+    _salt `Prelude.hashWithSalt` occurrences
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DefaultDetection
+instance Prelude.NFData DefaultDetection where
+  rnf DefaultDetection' {..} =
+    Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf type'

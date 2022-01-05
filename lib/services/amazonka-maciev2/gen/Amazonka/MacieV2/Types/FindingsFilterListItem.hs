@@ -111,6 +111,18 @@ instance Core.FromJSON FindingsFilterListItem where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FindingsFilterListItem
+instance Prelude.Hashable FindingsFilterListItem where
+  hashWithSalt _salt FindingsFilterListItem' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData FindingsFilterListItem
+instance Prelude.NFData FindingsFilterListItem where
+  rnf FindingsFilterListItem' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf tags

@@ -125,6 +125,18 @@ instance Core.FromJSON ObjectCountByEncryptionType where
             Prelude.<*> (x Core..:? "customerManaged")
       )
 
-instance Prelude.Hashable ObjectCountByEncryptionType
+instance Prelude.Hashable ObjectCountByEncryptionType where
+  hashWithSalt _salt ObjectCountByEncryptionType' {..} =
+    _salt `Prelude.hashWithSalt` unknown
+      `Prelude.hashWithSalt` s3Managed
+      `Prelude.hashWithSalt` unencrypted
+      `Prelude.hashWithSalt` kmsManaged
+      `Prelude.hashWithSalt` customerManaged
 
-instance Prelude.NFData ObjectCountByEncryptionType
+instance Prelude.NFData ObjectCountByEncryptionType where
+  rnf ObjectCountByEncryptionType' {..} =
+    Prelude.rnf unknown
+      `Prelude.seq` Prelude.rnf s3Managed
+      `Prelude.seq` Prelude.rnf unencrypted
+      `Prelude.seq` Prelude.rnf kmsManaged
+      `Prelude.seq` Prelude.rnf customerManaged

@@ -106,5 +106,11 @@ instance Core.FromJSON ManagedDataIdentifierSummary where
 instance
   Prelude.Hashable
     ManagedDataIdentifierSummary
+  where
+  hashWithSalt _salt ManagedDataIdentifierSummary' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ManagedDataIdentifierSummary
+instance Prelude.NFData ManagedDataIdentifierSummary where
+  rnf ManagedDataIdentifierSummary' {..} =
+    Prelude.rnf category `Prelude.seq` Prelude.rnf id

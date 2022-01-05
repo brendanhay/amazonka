@@ -78,9 +78,15 @@ instance Core.FromJSON S3BucketDefinitionForJob where
             Prelude.<*> (x Core..:? "buckets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable S3BucketDefinitionForJob
+instance Prelude.Hashable S3BucketDefinitionForJob where
+  hashWithSalt _salt S3BucketDefinitionForJob' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` buckets
 
-instance Prelude.NFData S3BucketDefinitionForJob
+instance Prelude.NFData S3BucketDefinitionForJob where
+  rnf S3BucketDefinitionForJob' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf buckets
 
 instance Core.ToJSON S3BucketDefinitionForJob where
   toJSON S3BucketDefinitionForJob' {..} =

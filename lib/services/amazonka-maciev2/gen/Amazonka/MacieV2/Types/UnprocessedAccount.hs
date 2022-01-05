@@ -86,6 +86,14 @@ instance Core.FromJSON UnprocessedAccount where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable UnprocessedAccount
+instance Prelude.Hashable UnprocessedAccount where
+  hashWithSalt _salt UnprocessedAccount' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData UnprocessedAccount
+instance Prelude.NFData UnprocessedAccount where
+  rnf UnprocessedAccount' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

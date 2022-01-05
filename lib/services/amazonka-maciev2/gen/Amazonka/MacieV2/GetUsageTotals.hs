@@ -98,9 +98,12 @@ instance Core.AWSRequest GetUsageTotals where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUsageTotals
+instance Prelude.Hashable GetUsageTotals where
+  hashWithSalt _salt GetUsageTotals' {..} =
+    _salt `Prelude.hashWithSalt` timeRange
 
-instance Prelude.NFData GetUsageTotals
+instance Prelude.NFData GetUsageTotals where
+  rnf GetUsageTotals' {..} = Prelude.rnf timeRange
 
 instance Core.ToHeaders GetUsageTotals where
   toHeaders =
@@ -177,4 +180,8 @@ getUsageTotalsResponse_usageTotals = Lens.lens (\GetUsageTotalsResponse' {usageT
 getUsageTotalsResponse_httpStatus :: Lens.Lens' GetUsageTotalsResponse Prelude.Int
 getUsageTotalsResponse_httpStatus = Lens.lens (\GetUsageTotalsResponse' {httpStatus} -> httpStatus) (\s@GetUsageTotalsResponse' {} a -> s {httpStatus = a} :: GetUsageTotalsResponse)
 
-instance Prelude.NFData GetUsageTotalsResponse
+instance Prelude.NFData GetUsageTotalsResponse where
+  rnf GetUsageTotalsResponse' {..} =
+    Prelude.rnf timeRange
+      `Prelude.seq` Prelude.rnf usageTotals
+      `Prelude.seq` Prelude.rnf httpStatus

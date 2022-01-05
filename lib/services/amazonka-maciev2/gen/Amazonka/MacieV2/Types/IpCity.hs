@@ -55,6 +55,9 @@ instance Core.FromJSON IpCity where
       "IpCity"
       (\x -> IpCity' Prelude.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable IpCity
+instance Prelude.Hashable IpCity where
+  hashWithSalt _salt IpCity' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IpCity
+instance Prelude.NFData IpCity where
+  rnf IpCity' {..} = Prelude.rnf name

@@ -105,6 +105,14 @@ instance Core.FromJSON ObjectLevelStatistics where
             Prelude.<*> (x Core..:? "total")
       )
 
-instance Prelude.Hashable ObjectLevelStatistics
+instance Prelude.Hashable ObjectLevelStatistics where
+  hashWithSalt _salt ObjectLevelStatistics' {..} =
+    _salt `Prelude.hashWithSalt` fileType
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` total
 
-instance Prelude.NFData ObjectLevelStatistics
+instance Prelude.NFData ObjectLevelStatistics where
+  rnf ObjectLevelStatistics' {..} =
+    Prelude.rnf fileType
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf total

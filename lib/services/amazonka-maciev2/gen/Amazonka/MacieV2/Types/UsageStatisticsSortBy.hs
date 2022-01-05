@@ -70,9 +70,14 @@ usageStatisticsSortBy_orderBy = Lens.lens (\UsageStatisticsSortBy' {orderBy} -> 
 usageStatisticsSortBy_key :: Lens.Lens' UsageStatisticsSortBy (Prelude.Maybe UsageStatisticsSortKey)
 usageStatisticsSortBy_key = Lens.lens (\UsageStatisticsSortBy' {key} -> key) (\s@UsageStatisticsSortBy' {} a -> s {key = a} :: UsageStatisticsSortBy)
 
-instance Prelude.Hashable UsageStatisticsSortBy
+instance Prelude.Hashable UsageStatisticsSortBy where
+  hashWithSalt _salt UsageStatisticsSortBy' {..} =
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData UsageStatisticsSortBy
+instance Prelude.NFData UsageStatisticsSortBy where
+  rnf UsageStatisticsSortBy' {..} =
+    Prelude.rnf orderBy `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON UsageStatisticsSortBy where
   toJSON UsageStatisticsSortBy' {..} =

@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     PutClassificationExportConfiguration
+  where
+  hashWithSalt
+    _salt
+    PutClassificationExportConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` configuration
 
 instance
   Prelude.NFData
     PutClassificationExportConfiguration
+  where
+  rnf PutClassificationExportConfiguration' {..} =
+    Prelude.rnf configuration
 
 instance
   Core.ToHeaders
@@ -191,3 +199,7 @@ putClassificationExportConfigurationResponse_httpStatus = Lens.lens (\PutClassif
 instance
   Prelude.NFData
     PutClassificationExportConfigurationResponse
+  where
+  rnf PutClassificationExportConfigurationResponse' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf httpStatus

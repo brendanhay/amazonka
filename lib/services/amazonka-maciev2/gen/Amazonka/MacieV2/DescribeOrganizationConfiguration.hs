@@ -80,10 +80,15 @@ instance
 instance
   Prelude.Hashable
     DescribeOrganizationConfiguration
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeOrganizationConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -169,3 +174,8 @@ describeOrganizationConfigurationResponse_httpStatus = Lens.lens (\DescribeOrgan
 instance
   Prelude.NFData
     DescribeOrganizationConfigurationResponse
+  where
+  rnf DescribeOrganizationConfigurationResponse' {..} =
+    Prelude.rnf maxAccountLimitReached
+      `Prelude.seq` Prelude.rnf autoEnable
+      `Prelude.seq` Prelude.rnf httpStatus

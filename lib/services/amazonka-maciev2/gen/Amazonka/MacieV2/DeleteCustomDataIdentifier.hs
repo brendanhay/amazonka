@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteCustomDataIdentifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomDataIdentifier
+instance Prelude.Hashable DeleteCustomDataIdentifier where
+  hashWithSalt _salt DeleteCustomDataIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteCustomDataIdentifier
+instance Prelude.NFData DeleteCustomDataIdentifier where
+  rnf DeleteCustomDataIdentifier' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteCustomDataIdentifier where
   toHeaders =
@@ -143,3 +146,6 @@ deleteCustomDataIdentifierResponse_httpStatus = Lens.lens (\DeleteCustomDataIden
 instance
   Prelude.NFData
     DeleteCustomDataIdentifierResponse
+  where
+  rnf DeleteCustomDataIdentifierResponse' {..} =
+    Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromJSON TagCriterionForJob where
             Prelude.<*> (x Core..:? "comparator")
       )
 
-instance Prelude.Hashable TagCriterionForJob
+instance Prelude.Hashable TagCriterionForJob where
+  hashWithSalt _salt TagCriterionForJob' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` comparator
 
-instance Prelude.NFData TagCriterionForJob
+instance Prelude.NFData TagCriterionForJob where
+  rnf TagCriterionForJob' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf comparator
 
 instance Core.ToJSON TagCriterionForJob where
   toJSON TagCriterionForJob' {..} =

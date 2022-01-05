@@ -174,8 +174,25 @@ instance Core.FromJSON CriterionAdditionalProperties where
 instance
   Prelude.Hashable
     CriterionAdditionalProperties
+  where
+  hashWithSalt _salt CriterionAdditionalProperties' {..} =
+    _salt `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` lte
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` eqExactMatch
+      `Prelude.hashWithSalt` neq
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` gte
 
-instance Prelude.NFData CriterionAdditionalProperties
+instance Prelude.NFData CriterionAdditionalProperties where
+  rnf CriterionAdditionalProperties' {..} =
+    Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf lte
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf eqExactMatch
+      `Prelude.seq` Prelude.rnf neq
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf gte
 
 instance Core.ToJSON CriterionAdditionalProperties where
   toJSON CriterionAdditionalProperties' {..} =

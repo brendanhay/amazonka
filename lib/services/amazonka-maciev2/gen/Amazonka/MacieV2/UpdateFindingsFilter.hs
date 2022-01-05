@@ -211,9 +211,25 @@ instance Core.AWSRequest UpdateFindingsFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFindingsFilter
+instance Prelude.Hashable UpdateFindingsFilter where
+  hashWithSalt _salt UpdateFindingsFilter' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` findingCriteria
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateFindingsFilter
+instance Prelude.NFData UpdateFindingsFilter where
+  rnf UpdateFindingsFilter' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateFindingsFilter where
   toHeaders =
@@ -295,4 +311,8 @@ updateFindingsFilterResponse_id = Lens.lens (\UpdateFindingsFilterResponse' {id}
 updateFindingsFilterResponse_httpStatus :: Lens.Lens' UpdateFindingsFilterResponse Prelude.Int
 updateFindingsFilterResponse_httpStatus = Lens.lens (\UpdateFindingsFilterResponse' {httpStatus} -> httpStatus) (\s@UpdateFindingsFilterResponse' {} a -> s {httpStatus = a} :: UpdateFindingsFilterResponse)
 
-instance Prelude.NFData UpdateFindingsFilterResponse
+instance Prelude.NFData UpdateFindingsFilterResponse where
+  rnf UpdateFindingsFilterResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

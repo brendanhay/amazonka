@@ -154,9 +154,19 @@ instance Core.AWSRequest SearchResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchResources
+instance Prelude.Hashable SearchResources where
+  hashWithSalt _salt SearchResources' {..} =
+    _salt `Prelude.hashWithSalt` bucketCriteria
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchResources
+instance Prelude.NFData SearchResources where
+  rnf SearchResources' {..} =
+    Prelude.rnf bucketCriteria
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchResources where
   toHeaders =
@@ -245,4 +255,8 @@ searchResourcesResponse_matchingResources = Lens.lens (\SearchResourcesResponse'
 searchResourcesResponse_httpStatus :: Lens.Lens' SearchResourcesResponse Prelude.Int
 searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpStatus} -> httpStatus) (\s@SearchResourcesResponse' {} a -> s {httpStatus = a} :: SearchResourcesResponse)
 
-instance Prelude.NFData SearchResourcesResponse
+instance Prelude.NFData SearchResourcesResponse where
+  rnf SearchResourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf matchingResources
+      `Prelude.seq` Prelude.rnf httpStatus

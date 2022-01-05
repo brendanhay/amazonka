@@ -128,9 +128,13 @@ instance Core.AWSRequest DescribeClassificationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClassificationJob
+instance Prelude.Hashable DescribeClassificationJob where
+  hashWithSalt _salt DescribeClassificationJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeClassificationJob
+instance Prelude.NFData DescribeClassificationJob where
+  rnf DescribeClassificationJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeClassificationJob where
   toHeaders =
@@ -591,3 +595,26 @@ describeClassificationJobResponse_httpStatus = Lens.lens (\DescribeClassificatio
 instance
   Prelude.NFData
     DescribeClassificationJobResponse
+  where
+  rnf DescribeClassificationJobResponse' {..} =
+    Prelude.rnf lastRunErrorStatus
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf initialRun
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf s3JobDefinition
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf userPausedDetails
+      `Prelude.seq` Prelude.rnf samplingPercentage
+      `Prelude.seq` Prelude.rnf managedDataIdentifierSelector
+      `Prelude.seq` Prelude.rnf lastRunTime
+      `Prelude.seq` Prelude.rnf customDataIdentifierIds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf managedDataIdentifierIds
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf scheduleFrequency
+      `Prelude.seq` Prelude.rnf httpStatus

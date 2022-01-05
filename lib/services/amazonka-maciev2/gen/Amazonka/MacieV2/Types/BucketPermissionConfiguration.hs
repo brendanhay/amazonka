@@ -78,5 +78,12 @@ instance Core.FromJSON BucketPermissionConfiguration where
 instance
   Prelude.Hashable
     BucketPermissionConfiguration
+  where
+  hashWithSalt _salt BucketPermissionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` bucketLevelPermissions
+      `Prelude.hashWithSalt` accountLevelPermissions
 
-instance Prelude.NFData BucketPermissionConfiguration
+instance Prelude.NFData BucketPermissionConfiguration where
+  rnf BucketPermissionConfiguration' {..} =
+    Prelude.rnf bucketLevelPermissions
+      `Prelude.seq` Prelude.rnf accountLevelPermissions

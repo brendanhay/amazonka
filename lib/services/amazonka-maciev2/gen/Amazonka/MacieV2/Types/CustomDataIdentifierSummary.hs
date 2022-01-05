@@ -104,6 +104,18 @@ instance Core.FromJSON CustomDataIdentifierSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable CustomDataIdentifierSummary
+instance Prelude.Hashable CustomDataIdentifierSummary where
+  hashWithSalt _salt CustomDataIdentifierSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CustomDataIdentifierSummary
+instance Prelude.NFData CustomDataIdentifierSummary where
+  rnf CustomDataIdentifierSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description

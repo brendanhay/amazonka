@@ -88,6 +88,14 @@ instance Core.FromJSON ServiceLimit where
             Prelude.<*> (x Core..:? "unit")
       )
 
-instance Prelude.Hashable ServiceLimit
+instance Prelude.Hashable ServiceLimit where
+  hashWithSalt _salt ServiceLimit' {..} =
+    _salt `Prelude.hashWithSalt` isServiceLimited
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData ServiceLimit
+instance Prelude.NFData ServiceLimit where
+  rnf ServiceLimit' {..} =
+    Prelude.rnf isServiceLimited
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf unit

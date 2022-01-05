@@ -83,8 +83,15 @@ findingStatisticsSortCriteria_attributeName = Lens.lens (\FindingStatisticsSortC
 instance
   Prelude.Hashable
     FindingStatisticsSortCriteria
+  where
+  hashWithSalt _salt FindingStatisticsSortCriteria' {..} =
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData FindingStatisticsSortCriteria
+instance Prelude.NFData FindingStatisticsSortCriteria where
+  rnf FindingStatisticsSortCriteria' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON FindingStatisticsSortCriteria where
   toJSON FindingStatisticsSortCriteria' {..} =

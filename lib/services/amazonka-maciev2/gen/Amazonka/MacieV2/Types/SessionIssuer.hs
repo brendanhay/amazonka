@@ -120,6 +120,18 @@ instance Core.FromJSON SessionIssuer where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable SessionIssuer
+instance Prelude.Hashable SessionIssuer where
+  hashWithSalt _salt SessionIssuer' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SessionIssuer
+instance Prelude.NFData SessionIssuer where
+  rnf SessionIssuer' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf type'

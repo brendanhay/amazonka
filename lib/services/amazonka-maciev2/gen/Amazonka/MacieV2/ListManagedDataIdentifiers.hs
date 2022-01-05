@@ -93,9 +93,13 @@ instance Core.AWSRequest ListManagedDataIdentifiers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListManagedDataIdentifiers
+instance Prelude.Hashable ListManagedDataIdentifiers where
+  hashWithSalt _salt ListManagedDataIdentifiers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListManagedDataIdentifiers
+instance Prelude.NFData ListManagedDataIdentifiers where
+  rnf ListManagedDataIdentifiers' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListManagedDataIdentifiers where
   toHeaders =
@@ -179,3 +183,8 @@ listManagedDataIdentifiersResponse_httpStatus = Lens.lens (\ListManagedDataIdent
 instance
   Prelude.NFData
     ListManagedDataIdentifiersResponse
+  where
+  rnf ListManagedDataIdentifiersResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

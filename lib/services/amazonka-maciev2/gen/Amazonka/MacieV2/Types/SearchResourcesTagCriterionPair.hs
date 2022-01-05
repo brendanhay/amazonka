@@ -68,10 +68,19 @@ searchResourcesTagCriterionPair_key = Lens.lens (\SearchResourcesTagCriterionPai
 instance
   Prelude.Hashable
     SearchResourcesTagCriterionPair
+  where
+  hashWithSalt
+    _salt
+    SearchResourcesTagCriterionPair' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` key
 
 instance
   Prelude.NFData
     SearchResourcesTagCriterionPair
+  where
+  rnf SearchResourcesTagCriterionPair' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON SearchResourcesTagCriterionPair where
   toJSON SearchResourcesTagCriterionPair' {..} =

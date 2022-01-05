@@ -102,6 +102,13 @@ instance Core.FromJSON BucketPublicAccess where
             Prelude.<*> (x Core..:? "effectivePermission")
       )
 
-instance Prelude.Hashable BucketPublicAccess
+instance Prelude.Hashable BucketPublicAccess where
+  hashWithSalt _salt BucketPublicAccess' {..} =
+    _salt
+      `Prelude.hashWithSalt` permissionConfiguration
+      `Prelude.hashWithSalt` effectivePermission
 
-instance Prelude.NFData BucketPublicAccess
+instance Prelude.NFData BucketPublicAccess where
+  rnf BucketPublicAccess' {..} =
+    Prelude.rnf permissionConfiguration
+      `Prelude.seq` Prelude.rnf effectivePermission

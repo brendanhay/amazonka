@@ -161,9 +161,23 @@ instance Core.AWSRequest ExportApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportApi
+instance Prelude.Hashable ExportApi where
+  hashWithSalt _salt ExportApi' {..} =
+    _salt `Prelude.hashWithSalt` exportVersion
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` includeExtensions
+      `Prelude.hashWithSalt` specification
+      `Prelude.hashWithSalt` outputType
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData ExportApi
+instance Prelude.NFData ExportApi where
+  rnf ExportApi' {..} =
+    Prelude.rnf exportVersion
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf includeExtensions
+      `Prelude.seq` Prelude.rnf specification
+      `Prelude.seq` Prelude.rnf outputType
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders ExportApi where
   toHeaders =
@@ -231,4 +245,7 @@ exportApiResponse_body = Lens.lens (\ExportApiResponse' {body} -> body) (\s@Expo
 exportApiResponse_httpStatus :: Lens.Lens' ExportApiResponse Prelude.Int
 exportApiResponse_httpStatus = Lens.lens (\ExportApiResponse' {httpStatus} -> httpStatus) (\s@ExportApiResponse' {} a -> s {httpStatus = a} :: ExportApiResponse)
 
-instance Prelude.NFData ExportApiResponse
+instance Prelude.NFData ExportApiResponse where
+  rnf ExportApiResponse' {..} =
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf httpStatus

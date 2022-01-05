@@ -124,9 +124,15 @@ instance Core.AWSRequest GetStage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStage
+instance Prelude.Hashable GetStage where
+  hashWithSalt _salt GetStage' {..} =
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetStage
+instance Prelude.NFData GetStage where
+  rnf GetStage' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders GetStage where
   toHeaders =
@@ -334,4 +340,20 @@ getStageResponse_tags = Lens.lens (\GetStageResponse' {tags} -> tags) (\s@GetSta
 getStageResponse_httpStatus :: Lens.Lens' GetStageResponse Prelude.Int
 getStageResponse_httpStatus = Lens.lens (\GetStageResponse' {httpStatus} -> httpStatus) (\s@GetStageResponse' {} a -> s {httpStatus = a} :: GetStageResponse)
 
-instance Prelude.NFData GetStageResponse
+instance Prelude.NFData GetStageResponse where
+  rnf GetStageResponse' {..} =
+    Prelude.rnf lastDeploymentStatusMessage
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf routeSettings
+      `Prelude.seq` Prelude.rnf accessLogSettings
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf autoDeploy
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf defaultRouteSettings
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

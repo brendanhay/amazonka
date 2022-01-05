@@ -106,9 +106,17 @@ instance Core.AWSRequest DeleteRouteSettings where
   response =
     Response.receiveNull DeleteRouteSettingsResponse'
 
-instance Prelude.Hashable DeleteRouteSettings
+instance Prelude.Hashable DeleteRouteSettings where
+  hashWithSalt _salt DeleteRouteSettings' {..} =
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` routeKey
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteRouteSettings
+instance Prelude.NFData DeleteRouteSettings where
+  rnf DeleteRouteSettings' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteRouteSettings where
   toHeaders =
@@ -150,4 +158,5 @@ newDeleteRouteSettingsResponse ::
 newDeleteRouteSettingsResponse =
   DeleteRouteSettingsResponse'
 
-instance Prelude.NFData DeleteRouteSettingsResponse
+instance Prelude.NFData DeleteRouteSettingsResponse where
+  rnf _ = ()

@@ -108,9 +108,17 @@ instance Core.AWSRequest DeleteRouteRequestParameter where
     Response.receiveNull
       DeleteRouteRequestParameterResponse'
 
-instance Prelude.Hashable DeleteRouteRequestParameter
+instance Prelude.Hashable DeleteRouteRequestParameter where
+  hashWithSalt _salt DeleteRouteRequestParameter' {..} =
+    _salt `Prelude.hashWithSalt` requestParameterKey
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` routeId
 
-instance Prelude.NFData DeleteRouteRequestParameter
+instance Prelude.NFData DeleteRouteRequestParameter where
+  rnf DeleteRouteRequestParameter' {..} =
+    Prelude.rnf requestParameterKey
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf routeId
 
 instance Core.ToHeaders DeleteRouteRequestParameter where
   toHeaders =
@@ -155,3 +163,5 @@ newDeleteRouteRequestParameterResponse =
 instance
   Prelude.NFData
     DeleteRouteRequestParameterResponse
+  where
+  rnf _ = ()

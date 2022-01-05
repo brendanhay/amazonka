@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteCorsConfiguration where
     Response.receiveNull
       DeleteCorsConfigurationResponse'
 
-instance Prelude.Hashable DeleteCorsConfiguration
+instance Prelude.Hashable DeleteCorsConfiguration where
+  hashWithSalt _salt DeleteCorsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteCorsConfiguration
+instance Prelude.NFData DeleteCorsConfiguration where
+  rnf DeleteCorsConfiguration' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteCorsConfiguration where
   toHeaders =
@@ -119,3 +122,5 @@ newDeleteCorsConfigurationResponse =
 instance
   Prelude.NFData
     DeleteCorsConfigurationResponse
+  where
+  rnf _ = ()

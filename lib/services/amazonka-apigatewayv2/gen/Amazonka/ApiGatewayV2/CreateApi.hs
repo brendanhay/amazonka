@@ -327,9 +327,37 @@ instance Core.AWSRequest CreateApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApi
+instance Prelude.Hashable CreateApi where
+  hashWithSalt _salt CreateApi' {..} =
+    _salt `Prelude.hashWithSalt` credentialsArn
+      `Prelude.hashWithSalt` disableExecuteApiEndpoint
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` apiKeySelectionExpression
+      `Prelude.hashWithSalt` corsConfiguration
+      `Prelude.hashWithSalt` routeSelectionExpression
+      `Prelude.hashWithSalt` disableSchemaValidation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` routeKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` protocolType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateApi
+instance Prelude.NFData CreateApi where
+  rnf CreateApi' {..} =
+    Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf disableSchemaValidation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateApi where
   toHeaders =
@@ -595,4 +623,22 @@ createApiResponse_tags = Lens.lens (\CreateApiResponse' {tags} -> tags) (\s@Crea
 createApiResponse_httpStatus :: Lens.Lens' CreateApiResponse Prelude.Int
 createApiResponse_httpStatus = Lens.lens (\CreateApiResponse' {httpStatus} -> httpStatus) (\s@CreateApiResponse' {} a -> s {httpStatus = a} :: CreateApiResponse)
 
-instance Prelude.NFData CreateApiResponse
+instance Prelude.NFData CreateApiResponse where
+  rnf CreateApiResponse' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf apiEndpoint
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf importInfo
+      `Prelude.seq` Prelude.rnf disableSchemaValidation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

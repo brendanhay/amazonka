@@ -120,9 +120,15 @@ instance Core.AWSRequest GetApis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApis
+instance Prelude.Hashable GetApis where
+  hashWithSalt _salt GetApis' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetApis
+instance Prelude.NFData GetApis where
+  rnf GetApis' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetApis where
   toHeaders =
@@ -195,4 +201,8 @@ getApisResponse_nextToken = Lens.lens (\GetApisResponse' {nextToken} -> nextToke
 getApisResponse_httpStatus :: Lens.Lens' GetApisResponse Prelude.Int
 getApisResponse_httpStatus = Lens.lens (\GetApisResponse' {httpStatus} -> httpStatus) (\s@GetApisResponse' {} a -> s {httpStatus = a} :: GetApisResponse)
 
-instance Prelude.NFData GetApisResponse
+instance Prelude.NFData GetApisResponse where
+  rnf GetApisResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

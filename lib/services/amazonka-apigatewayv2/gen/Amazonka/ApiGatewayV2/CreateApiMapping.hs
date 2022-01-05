@@ -130,9 +130,19 @@ instance Core.AWSRequest CreateApiMapping where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApiMapping
+instance Prelude.Hashable CreateApiMapping where
+  hashWithSalt _salt CreateApiMapping' {..} =
+    _salt `Prelude.hashWithSalt` apiMappingKey
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData CreateApiMapping
+instance Prelude.NFData CreateApiMapping where
+  rnf CreateApiMapping' {..} =
+    Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders CreateApiMapping where
   toHeaders =
@@ -231,4 +241,10 @@ createApiMappingResponse_apiMappingId = Lens.lens (\CreateApiMappingResponse' {a
 createApiMappingResponse_httpStatus :: Lens.Lens' CreateApiMappingResponse Prelude.Int
 createApiMappingResponse_httpStatus = Lens.lens (\CreateApiMappingResponse' {httpStatus} -> httpStatus) (\s@CreateApiMappingResponse' {} a -> s {httpStatus = a} :: CreateApiMappingResponse)
 
-instance Prelude.NFData CreateApiMappingResponse
+instance Prelude.NFData CreateApiMappingResponse where
+  rnf CreateApiMappingResponse' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf apiMappingId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -617,6 +617,49 @@ instance Core.FromJSON Integration where
                         )
       )
 
-instance Prelude.Hashable Integration
+instance Prelude.Hashable Integration where
+  hashWithSalt _salt Integration' {..} =
+    _salt
+      `Prelude.hashWithSalt` integrationResponseSelectionExpression
+      `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` integrationSubtype
+      `Prelude.hashWithSalt` credentialsArn
+      `Prelude.hashWithSalt` integrationUri
+      `Prelude.hashWithSalt` integrationId
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` integrationMethod
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` payloadFormatVersion
+      `Prelude.hashWithSalt` templateSelectionExpression
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` integrationType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` responseParameters
 
-instance Prelude.NFData Integration
+instance Prelude.NFData Integration where
+  rnf Integration' {..} =
+    Prelude.rnf integrationResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf integrationSubtype
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf integrationUri
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf integrationMethod
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf payloadFormatVersion
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf responseParameters

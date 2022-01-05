@@ -120,9 +120,17 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeployment
+instance Prelude.Hashable CreateDeployment where
+  hashWithSalt _salt CreateDeployment' {..} =
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData CreateDeployment
+instance Prelude.NFData CreateDeployment where
+  rnf CreateDeployment' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders CreateDeployment where
   toHeaders =
@@ -236,4 +244,12 @@ createDeploymentResponse_description = Lens.lens (\CreateDeploymentResponse' {de
 createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
-instance Prelude.NFData CreateDeploymentResponse
+instance Prelude.NFData CreateDeploymentResponse where
+  rnf CreateDeploymentResponse' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf autoDeployed
+      `Prelude.seq` Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

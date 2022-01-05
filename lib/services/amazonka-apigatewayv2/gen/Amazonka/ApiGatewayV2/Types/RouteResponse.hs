@@ -110,6 +110,19 @@ instance Core.FromJSON RouteResponse where
             Prelude.<*> (x Core..: "routeResponseKey")
       )
 
-instance Prelude.Hashable RouteResponse
+instance Prelude.Hashable RouteResponse where
+  hashWithSalt _salt RouteResponse' {..} =
+    _salt
+      `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` responseModels
+      `Prelude.hashWithSalt` routeResponseId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` routeResponseKey
 
-instance Prelude.NFData RouteResponse
+instance Prelude.NFData RouteResponse where
+  rnf RouteResponse' {..} =
+    Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf routeResponseKey

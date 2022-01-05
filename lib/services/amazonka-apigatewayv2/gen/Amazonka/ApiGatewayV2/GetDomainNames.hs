@@ -123,9 +123,15 @@ instance Core.AWSRequest GetDomainNames where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomainNames
+instance Prelude.Hashable GetDomainNames where
+  hashWithSalt _salt GetDomainNames' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetDomainNames
+instance Prelude.NFData GetDomainNames where
+  rnf GetDomainNames' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDomainNames where
   toHeaders =
@@ -198,4 +204,8 @@ getDomainNamesResponse_nextToken = Lens.lens (\GetDomainNamesResponse' {nextToke
 getDomainNamesResponse_httpStatus :: Lens.Lens' GetDomainNamesResponse Prelude.Int
 getDomainNamesResponse_httpStatus = Lens.lens (\GetDomainNamesResponse' {httpStatus} -> httpStatus) (\s@GetDomainNamesResponse' {} a -> s {httpStatus = a} :: GetDomainNamesResponse)
 
-instance Prelude.NFData GetDomainNamesResponse
+instance Prelude.NFData GetDomainNamesResponse where
+  rnf GetDomainNamesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

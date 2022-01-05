@@ -90,9 +90,15 @@ instance Core.FromJSON JWTConfiguration where
             Prelude.<*> (x Core..:? "issuer")
       )
 
-instance Prelude.Hashable JWTConfiguration
+instance Prelude.Hashable JWTConfiguration where
+  hashWithSalt _salt JWTConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` audience
+      `Prelude.hashWithSalt` issuer
 
-instance Prelude.NFData JWTConfiguration
+instance Prelude.NFData JWTConfiguration where
+  rnf JWTConfiguration' {..} =
+    Prelude.rnf audience
+      `Prelude.seq` Prelude.rnf issuer
 
 instance Core.ToJSON JWTConfiguration where
   toJSON JWTConfiguration' {..} =

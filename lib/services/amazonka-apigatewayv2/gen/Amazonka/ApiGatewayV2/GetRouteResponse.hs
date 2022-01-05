@@ -126,9 +126,17 @@ instance Core.AWSRequest GetRouteResponse where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRouteResponse
+instance Prelude.Hashable GetRouteResponse where
+  hashWithSalt _salt GetRouteResponse' {..} =
+    _salt `Prelude.hashWithSalt` routeResponseId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` routeId
 
-instance Prelude.NFData GetRouteResponse
+instance Prelude.NFData GetRouteResponse where
+  rnf GetRouteResponse' {..} =
+    Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf routeId
 
 instance Core.ToHeaders GetRouteResponse where
   toHeaders =
@@ -233,4 +241,11 @@ getRouteResponseResponse_responseParameters = Lens.lens (\GetRouteResponseRespon
 getRouteResponseResponse_httpStatus :: Lens.Lens' GetRouteResponseResponse Prelude.Int
 getRouteResponseResponse_httpStatus = Lens.lens (\GetRouteResponseResponse' {httpStatus} -> httpStatus) (\s@GetRouteResponseResponse' {} a -> s {httpStatus = a} :: GetRouteResponseResponse)
 
-instance Prelude.NFData GetRouteResponseResponse
+instance Prelude.NFData GetRouteResponseResponse where
+  rnf GetRouteResponseResponse' {..} =
+    Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf routeResponseKey
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf httpStatus

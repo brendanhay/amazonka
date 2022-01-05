@@ -65,6 +65,9 @@ instance Core.FromJSON PendingResource where
             Prelude.<$> (x Core..:? "ResourceArn")
       )
 
-instance Prelude.Hashable PendingResource
+instance Prelude.Hashable PendingResource where
+  hashWithSalt _salt PendingResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData PendingResource
+instance Prelude.NFData PendingResource where
+  rnf PendingResource' {..} = Prelude.rnf resourceArn

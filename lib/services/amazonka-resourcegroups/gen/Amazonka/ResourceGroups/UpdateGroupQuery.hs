@@ -128,9 +128,17 @@ instance Core.AWSRequest UpdateGroupQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGroupQuery
+instance Prelude.Hashable UpdateGroupQuery where
+  hashWithSalt _salt UpdateGroupQuery' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` resourceQuery
 
-instance Prelude.NFData UpdateGroupQuery
+instance Prelude.NFData UpdateGroupQuery where
+  rnf UpdateGroupQuery' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf resourceQuery
 
 instance Core.ToHeaders UpdateGroupQuery where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +202,7 @@ updateGroupQueryResponse_groupQuery = Lens.lens (\UpdateGroupQueryResponse' {gro
 updateGroupQueryResponse_httpStatus :: Lens.Lens' UpdateGroupQueryResponse Prelude.Int
 updateGroupQueryResponse_httpStatus = Lens.lens (\UpdateGroupQueryResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupQueryResponse' {} a -> s {httpStatus = a} :: UpdateGroupQueryResponse)
 
-instance Prelude.NFData UpdateGroupQueryResponse
+instance Prelude.NFData UpdateGroupQueryResponse where
+  rnf UpdateGroupQueryResponse' {..} =
+    Prelude.rnf groupQuery
+      `Prelude.seq` Prelude.rnf httpStatus

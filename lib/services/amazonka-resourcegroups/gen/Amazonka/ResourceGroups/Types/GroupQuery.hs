@@ -83,6 +83,12 @@ instance Core.FromJSON GroupQuery where
             Prelude.<*> (x Core..: "ResourceQuery")
       )
 
-instance Prelude.Hashable GroupQuery
+instance Prelude.Hashable GroupQuery where
+  hashWithSalt _salt GroupQuery' {..} =
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` resourceQuery
 
-instance Prelude.NFData GroupQuery
+instance Prelude.NFData GroupQuery where
+  rnf GroupQuery' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf resourceQuery

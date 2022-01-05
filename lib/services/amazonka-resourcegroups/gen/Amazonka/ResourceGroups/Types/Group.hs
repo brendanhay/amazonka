@@ -97,6 +97,14 @@ instance Core.FromJSON Group where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Group
+instance Prelude.Hashable Group where
+  hashWithSalt _salt Group' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Group
+instance Prelude.NFData Group where
+  rnf Group' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupArn
+      `Prelude.seq` Prelude.rnf name

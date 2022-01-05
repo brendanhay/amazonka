@@ -81,6 +81,14 @@ instance Core.FromJSON FailedResource where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable FailedResource
+instance Prelude.Hashable FailedResource where
+  hashWithSalt _salt FailedResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData FailedResource
+instance Prelude.NFData FailedResource where
+  rnf FailedResource' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

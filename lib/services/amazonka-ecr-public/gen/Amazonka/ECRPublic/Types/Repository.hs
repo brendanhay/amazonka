@@ -122,6 +122,18 @@ instance Core.FromJSON Repository where
             Prelude.<*> (x Core..:? "repositoryName")
       )
 
-instance Prelude.Hashable Repository
+instance Prelude.Hashable Repository where
+  hashWithSalt _salt Repository' {..} =
+    _salt `Prelude.hashWithSalt` repositoryArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryUri
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData Repository
+instance Prelude.NFData Repository where
+  rnf Repository' {..} =
+    Prelude.rnf repositoryArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryUri
+      `Prelude.seq` Prelude.rnf repositoryName

@@ -105,6 +105,18 @@ instance Core.FromJSON Image where
             Prelude.<*> (x Core..:? "imageManifest")
       )
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt _salt Image' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` imageManifestMediaType
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageManifest
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageManifestMediaType
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageManifest

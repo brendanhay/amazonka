@@ -70,9 +70,12 @@ instance Core.AWSRequest GetRegistryCatalogData where
             Prelude.<*> (x Core..:> "registryCatalogData")
       )
 
-instance Prelude.Hashable GetRegistryCatalogData
+instance Prelude.Hashable GetRegistryCatalogData where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetRegistryCatalogData
+instance Prelude.NFData GetRegistryCatalogData where
+  rnf _ = ()
 
 instance Core.ToHeaders GetRegistryCatalogData where
   toHeaders =
@@ -144,3 +147,7 @@ getRegistryCatalogDataResponse_registryCatalogData = Lens.lens (\GetRegistryCata
 instance
   Prelude.NFData
     GetRegistryCatalogDataResponse
+  where
+  rnf GetRegistryCatalogDataResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf registryCatalogData

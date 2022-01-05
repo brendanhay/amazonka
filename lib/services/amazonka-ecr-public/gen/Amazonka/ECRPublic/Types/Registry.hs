@@ -129,6 +129,18 @@ instance Core.FromJSON Registry where
             Prelude.<*> (x Core..:? "aliases" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Registry
+instance Prelude.Hashable Registry where
+  hashWithSalt _salt Registry' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` registryArn
+      `Prelude.hashWithSalt` registryUri
+      `Prelude.hashWithSalt` verified
+      `Prelude.hashWithSalt` aliases
 
-instance Prelude.NFData Registry
+instance Prelude.NFData Registry where
+  rnf Registry' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryUri
+      `Prelude.seq` Prelude.rnf verified
+      `Prelude.seq` Prelude.rnf aliases

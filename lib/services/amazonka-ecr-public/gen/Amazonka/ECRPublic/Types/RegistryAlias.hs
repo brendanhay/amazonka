@@ -132,6 +132,16 @@ instance Core.FromJSON RegistryAlias where
             Prelude.<*> (x Core..: "defaultRegistryAlias")
       )
 
-instance Prelude.Hashable RegistryAlias
+instance Prelude.Hashable RegistryAlias where
+  hashWithSalt _salt RegistryAlias' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` primaryRegistryAlias
+      `Prelude.hashWithSalt` defaultRegistryAlias
 
-instance Prelude.NFData RegistryAlias
+instance Prelude.NFData RegistryAlias where
+  rnf RegistryAlias' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf primaryRegistryAlias
+      `Prelude.seq` Prelude.rnf defaultRegistryAlias

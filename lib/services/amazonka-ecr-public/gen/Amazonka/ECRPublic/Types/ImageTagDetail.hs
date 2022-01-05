@@ -82,6 +82,14 @@ instance Core.FromJSON ImageTagDetail where
             Prelude.<*> (x Core..:? "imageTag")
       )
 
-instance Prelude.Hashable ImageTagDetail
+instance Prelude.Hashable ImageTagDetail where
+  hashWithSalt _salt ImageTagDetail' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` imageDetail
+      `Prelude.hashWithSalt` imageTag
 
-instance Prelude.NFData ImageTagDetail
+instance Prelude.NFData ImageTagDetail where
+  rnf ImageTagDetail' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf imageDetail
+      `Prelude.seq` Prelude.rnf imageTag

@@ -133,6 +133,18 @@ instance Core.FromJSON ReferencedImageDetail where
             Prelude.<*> (x Core..:? "imagePushedAt")
       )
 
-instance Prelude.Hashable ReferencedImageDetail
+instance Prelude.Hashable ReferencedImageDetail where
+  hashWithSalt _salt ReferencedImageDetail' {..} =
+    _salt `Prelude.hashWithSalt` imageManifestMediaType
+      `Prelude.hashWithSalt` imageSizeInBytes
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` artifactMediaType
+      `Prelude.hashWithSalt` imagePushedAt
 
-instance Prelude.NFData ReferencedImageDetail
+instance Prelude.NFData ReferencedImageDetail where
+  rnf ReferencedImageDetail' {..} =
+    Prelude.rnf imageManifestMediaType
+      `Prelude.seq` Prelude.rnf imageSizeInBytes
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf artifactMediaType
+      `Prelude.seq` Prelude.rnf imagePushedAt

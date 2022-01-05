@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateTaskExecution where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTaskExecution
+instance Prelude.Hashable UpdateTaskExecution where
+  hashWithSalt _salt UpdateTaskExecution' {..} =
+    _salt `Prelude.hashWithSalt` taskExecutionArn
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData UpdateTaskExecution
+instance Prelude.NFData UpdateTaskExecution where
+  rnf UpdateTaskExecution' {..} =
+    Prelude.rnf taskExecutionArn
+      `Prelude.seq` Prelude.rnf options
 
 instance Core.ToHeaders UpdateTaskExecution where
   toHeaders =
@@ -173,4 +179,6 @@ newUpdateTaskExecutionResponse pHttpStatus_ =
 updateTaskExecutionResponse_httpStatus :: Lens.Lens' UpdateTaskExecutionResponse Prelude.Int
 updateTaskExecutionResponse_httpStatus = Lens.lens (\UpdateTaskExecutionResponse' {httpStatus} -> httpStatus) (\s@UpdateTaskExecutionResponse' {} a -> s {httpStatus = a} :: UpdateTaskExecutionResponse)
 
-instance Prelude.NFData UpdateTaskExecutionResponse
+instance Prelude.NFData UpdateTaskExecutionResponse where
+  rnf UpdateTaskExecutionResponse' {..} =
+    Prelude.rnf httpStatus

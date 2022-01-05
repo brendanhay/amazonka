@@ -749,9 +749,39 @@ instance Core.FromJSON Options where
             Prelude.<*> (x Core..:? "PreserveDevices")
       )
 
-instance Prelude.Hashable Options
+instance Prelude.Hashable Options where
+  hashWithSalt _salt Options' {..} =
+    _salt `Prelude.hashWithSalt` atime
+      `Prelude.hashWithSalt` verifyMode
+      `Prelude.hashWithSalt` taskQueueing
+      `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` posixPermissions
+      `Prelude.hashWithSalt` mtime
+      `Prelude.hashWithSalt` uid
+      `Prelude.hashWithSalt` bytesPerSecond
+      `Prelude.hashWithSalt` securityDescriptorCopyFlags
+      `Prelude.hashWithSalt` gid
+      `Prelude.hashWithSalt` overwriteMode
+      `Prelude.hashWithSalt` transferMode
+      `Prelude.hashWithSalt` preserveDeletedFiles
+      `Prelude.hashWithSalt` preserveDevices
 
-instance Prelude.NFData Options
+instance Prelude.NFData Options where
+  rnf Options' {..} =
+    Prelude.rnf atime
+      `Prelude.seq` Prelude.rnf verifyMode
+      `Prelude.seq` Prelude.rnf taskQueueing
+      `Prelude.seq` Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf posixPermissions
+      `Prelude.seq` Prelude.rnf mtime
+      `Prelude.seq` Prelude.rnf uid
+      `Prelude.seq` Prelude.rnf bytesPerSecond
+      `Prelude.seq` Prelude.rnf securityDescriptorCopyFlags
+      `Prelude.seq` Prelude.rnf gid
+      `Prelude.seq` Prelude.rnf overwriteMode
+      `Prelude.seq` Prelude.rnf transferMode
+      `Prelude.seq` Prelude.rnf preserveDeletedFiles
+      `Prelude.seq` Prelude.rnf preserveDevices
 
 instance Core.ToJSON Options where
   toJSON Options' {..} =

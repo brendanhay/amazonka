@@ -101,9 +101,13 @@ instance Core.AWSRequest DescribeLocationSmb where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocationSmb
+instance Prelude.Hashable DescribeLocationSmb where
+  hashWithSalt _salt DescribeLocationSmb' {..} =
+    _salt `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationSmb
+instance Prelude.NFData DescribeLocationSmb where
+  rnf DescribeLocationSmb' {..} =
+    Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationSmb where
   toHeaders =
@@ -237,4 +241,13 @@ describeLocationSmbResponse_locationArn = Lens.lens (\DescribeLocationSmbRespons
 describeLocationSmbResponse_httpStatus :: Lens.Lens' DescribeLocationSmbResponse Prelude.Int
 describeLocationSmbResponse_httpStatus = Lens.lens (\DescribeLocationSmbResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationSmbResponse' {} a -> s {httpStatus = a} :: DescribeLocationSmbResponse)
 
-instance Prelude.NFData DescribeLocationSmbResponse
+instance Prelude.NFData DescribeLocationSmbResponse where
+  rnf DescribeLocationSmbResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

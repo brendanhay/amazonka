@@ -86,9 +86,15 @@ instance Core.FromJSON Ec2Config where
             Prelude.<*> (x Core..: "SecurityGroupArns")
       )
 
-instance Prelude.Hashable Ec2Config
+instance Prelude.Hashable Ec2Config where
+  hashWithSalt _salt Ec2Config' {..} =
+    _salt `Prelude.hashWithSalt` subnetArn
+      `Prelude.hashWithSalt` securityGroupArns
 
-instance Prelude.NFData Ec2Config
+instance Prelude.NFData Ec2Config where
+  rnf Ec2Config' {..} =
+    Prelude.rnf subnetArn
+      `Prelude.seq` Prelude.rnf securityGroupArns
 
 instance Core.ToJSON Ec2Config where
   toJSON Ec2Config' {..} =

@@ -86,6 +86,14 @@ instance Core.FromJSON TaskListEntry where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable TaskListEntry
+instance Prelude.Hashable TaskListEntry where
+  hashWithSalt _salt TaskListEntry' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TaskListEntry
+instance Prelude.NFData TaskListEntry where
+  rnf TaskListEntry' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf name

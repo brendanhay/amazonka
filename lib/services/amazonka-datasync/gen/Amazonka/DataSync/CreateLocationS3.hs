@@ -199,9 +199,23 @@ instance Core.AWSRequest CreateLocationS3 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationS3
+instance Prelude.Hashable CreateLocationS3 where
+  hashWithSalt _salt CreateLocationS3' {..} =
+    _salt `Prelude.hashWithSalt` agentArns
+      `Prelude.hashWithSalt` s3StorageClass
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` s3BucketArn
+      `Prelude.hashWithSalt` s3Config
 
-instance Prelude.NFData CreateLocationS3
+instance Prelude.NFData CreateLocationS3 where
+  rnf CreateLocationS3' {..} =
+    Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf s3StorageClass
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf s3Config
 
 instance Core.ToHeaders CreateLocationS3 where
   toHeaders =
@@ -282,4 +296,7 @@ createLocationS3Response_locationArn = Lens.lens (\CreateLocationS3Response' {lo
 createLocationS3Response_httpStatus :: Lens.Lens' CreateLocationS3Response Prelude.Int
 createLocationS3Response_httpStatus = Lens.lens (\CreateLocationS3Response' {httpStatus} -> httpStatus) (\s@CreateLocationS3Response' {} a -> s {httpStatus = a} :: CreateLocationS3Response)
 
-instance Prelude.NFData CreateLocationS3Response
+instance Prelude.NFData CreateLocationS3Response where
+  rnf CreateLocationS3Response' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

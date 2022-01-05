@@ -95,9 +95,13 @@ instance Core.AWSRequest DescribeLocationEfs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocationEfs
+instance Prelude.Hashable DescribeLocationEfs where
+  hashWithSalt _salt DescribeLocationEfs' {..} =
+    _salt `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationEfs
+instance Prelude.NFData DescribeLocationEfs where
+  rnf DescribeLocationEfs' {..} =
+    Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationEfs where
   toHeaders =
@@ -194,4 +198,10 @@ describeLocationEfsResponse_ec2Config = Lens.lens (\DescribeLocationEfsResponse'
 describeLocationEfsResponse_httpStatus :: Lens.Lens' DescribeLocationEfsResponse Prelude.Int
 describeLocationEfsResponse_httpStatus = Lens.lens (\DescribeLocationEfsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationEfsResponse' {} a -> s {httpStatus = a} :: DescribeLocationEfsResponse)
 
-instance Prelude.NFData DescribeLocationEfsResponse
+instance Prelude.NFData DescribeLocationEfsResponse where
+  rnf DescribeLocationEfsResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf ec2Config
+      `Prelude.seq` Prelude.rnf httpStatus

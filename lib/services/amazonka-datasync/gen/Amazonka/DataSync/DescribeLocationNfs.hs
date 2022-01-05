@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeLocationNfs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocationNfs
+instance Prelude.Hashable DescribeLocationNfs where
+  hashWithSalt _salt DescribeLocationNfs' {..} =
+    _salt `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationNfs
+instance Prelude.NFData DescribeLocationNfs where
+  rnf DescribeLocationNfs' {..} =
+    Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationNfs where
   toHeaders =
@@ -204,4 +208,11 @@ describeLocationNfsResponse_locationArn = Lens.lens (\DescribeLocationNfsRespons
 describeLocationNfsResponse_httpStatus :: Lens.Lens' DescribeLocationNfsResponse Prelude.Int
 describeLocationNfsResponse_httpStatus = Lens.lens (\DescribeLocationNfsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationNfsResponse' {} a -> s {httpStatus = a} :: DescribeLocationNfsResponse)
 
-instance Prelude.NFData DescribeLocationNfsResponse
+instance Prelude.NFData DescribeLocationNfsResponse where
+  rnf DescribeLocationNfsResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf onPremConfig
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

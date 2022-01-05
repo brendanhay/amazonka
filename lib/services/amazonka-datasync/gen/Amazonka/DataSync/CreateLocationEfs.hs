@@ -206,9 +206,19 @@ instance Core.AWSRequest CreateLocationEfs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationEfs
+instance Prelude.Hashable CreateLocationEfs where
+  hashWithSalt _salt CreateLocationEfs' {..} =
+    _salt `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` efsFilesystemArn
+      `Prelude.hashWithSalt` ec2Config
 
-instance Prelude.NFData CreateLocationEfs
+instance Prelude.NFData CreateLocationEfs where
+  rnf CreateLocationEfs' {..} =
+    Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf efsFilesystemArn
+      `Prelude.seq` Prelude.rnf ec2Config
 
 instance Core.ToHeaders CreateLocationEfs where
   toHeaders =
@@ -287,4 +297,7 @@ createLocationEfsResponse_locationArn = Lens.lens (\CreateLocationEfsResponse' {
 createLocationEfsResponse_httpStatus :: Lens.Lens' CreateLocationEfsResponse Prelude.Int
 createLocationEfsResponse_httpStatus = Lens.lens (\CreateLocationEfsResponse' {httpStatus} -> httpStatus) (\s@CreateLocationEfsResponse' {} a -> s {httpStatus = a} :: CreateLocationEfsResponse)
 
-instance Prelude.NFData CreateLocationEfsResponse
+instance Prelude.NFData CreateLocationEfsResponse where
+  rnf CreateLocationEfsResponse' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

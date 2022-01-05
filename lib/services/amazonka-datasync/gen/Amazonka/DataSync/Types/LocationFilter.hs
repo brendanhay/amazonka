@@ -94,9 +94,17 @@ locationFilter_values = Lens.lens (\LocationFilter' {values} -> values) (\s@Loca
 locationFilter_operator :: Lens.Lens' LocationFilter Operator
 locationFilter_operator = Lens.lens (\LocationFilter' {operator} -> operator) (\s@LocationFilter' {} a -> s {operator = a} :: LocationFilter)
 
-instance Prelude.Hashable LocationFilter
+instance Prelude.Hashable LocationFilter where
+  hashWithSalt _salt LocationFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData LocationFilter
+instance Prelude.NFData LocationFilter where
+  rnf LocationFilter' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON LocationFilter where
   toJSON LocationFilter' {..} =

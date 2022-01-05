@@ -64,9 +64,12 @@ instance Core.FromJSON OnPremConfig where
           OnPremConfig' Prelude.<$> (x Core..: "AgentArns")
       )
 
-instance Prelude.Hashable OnPremConfig
+instance Prelude.Hashable OnPremConfig where
+  hashWithSalt _salt OnPremConfig' {..} =
+    _salt `Prelude.hashWithSalt` agentArns
 
-instance Prelude.NFData OnPremConfig
+instance Prelude.NFData OnPremConfig where
+  rnf OnPremConfig' {..} = Prelude.rnf agentArns
 
 instance Core.ToJSON OnPremConfig where
   toJSON OnPremConfig' {..} =

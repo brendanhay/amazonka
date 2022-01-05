@@ -234,9 +234,29 @@ instance Core.AWSRequest CreateLocationObjectStorage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationObjectStorage
+instance Prelude.Hashable CreateLocationObjectStorage where
+  hashWithSalt _salt CreateLocationObjectStorage' {..} =
+    _salt `Prelude.hashWithSalt` serverPort
+      `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` secretKey
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverHostname
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` agentArns
 
-instance Prelude.NFData CreateLocationObjectStorage
+instance Prelude.NFData CreateLocationObjectStorage where
+  rnf CreateLocationObjectStorage' {..} =
+    Prelude.rnf serverPort
+      `Prelude.seq` Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf secretKey
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverHostname
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf agentArns
 
 instance Core.ToHeaders CreateLocationObjectStorage where
   toHeaders =
@@ -324,3 +344,7 @@ createLocationObjectStorageResponse_httpStatus = Lens.lens (\CreateLocationObjec
 instance
   Prelude.NFData
     CreateLocationObjectStorageResponse
+  where
+  rnf CreateLocationObjectStorageResponse' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

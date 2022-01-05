@@ -261,9 +261,29 @@ instance Core.AWSRequest CreateTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTask
+instance Prelude.Hashable CreateTask where
+  hashWithSalt _salt CreateTask' {..} =
+    _salt `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` includes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceLocationArn
+      `Prelude.hashWithSalt` destinationLocationArn
 
-instance Prelude.NFData CreateTask
+instance Prelude.NFData CreateTask where
+  rnf CreateTask' {..} =
+    Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceLocationArn
+      `Prelude.seq` Prelude.rnf destinationLocationArn
 
 instance Core.ToHeaders CreateTask where
   toHeaders =
@@ -345,4 +365,7 @@ createTaskResponse_taskArn = Lens.lens (\CreateTaskResponse' {taskArn} -> taskAr
 createTaskResponse_httpStatus :: Lens.Lens' CreateTaskResponse Prelude.Int
 createTaskResponse_httpStatus = Lens.lens (\CreateTaskResponse' {httpStatus} -> httpStatus) (\s@CreateTaskResponse' {} a -> s {httpStatus = a} :: CreateTaskResponse)
 
-instance Prelude.NFData CreateTaskResponse
+instance Prelude.NFData CreateTaskResponse where
+  rnf CreateTaskResponse' {..} =
+    Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -223,9 +223,25 @@ instance Core.AWSRequest UpdateLocationSmb where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLocationSmb
+instance Prelude.Hashable UpdateLocationSmb where
+  hashWithSalt _salt UpdateLocationSmb' {..} =
+    _salt `Prelude.hashWithSalt` agentArns
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData UpdateLocationSmb
+instance Prelude.NFData UpdateLocationSmb where
+  rnf UpdateLocationSmb' {..} =
+    Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf locationArn
 
 instance Core.ToHeaders UpdateLocationSmb where
   toHeaders =
@@ -292,4 +308,6 @@ newUpdateLocationSmbResponse pHttpStatus_ =
 updateLocationSmbResponse_httpStatus :: Lens.Lens' UpdateLocationSmbResponse Prelude.Int
 updateLocationSmbResponse_httpStatus = Lens.lens (\UpdateLocationSmbResponse' {httpStatus} -> httpStatus) (\s@UpdateLocationSmbResponse' {} a -> s {httpStatus = a} :: UpdateLocationSmbResponse)
 
-instance Prelude.NFData UpdateLocationSmbResponse
+instance Prelude.NFData UpdateLocationSmbResponse where
+  rnf UpdateLocationSmbResponse' {..} =
+    Prelude.rnf httpStatus

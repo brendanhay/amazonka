@@ -267,9 +267,27 @@ instance Core.AWSRequest CreateLocationSmb where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationSmb
+instance Prelude.Hashable CreateLocationSmb where
+  hashWithSalt _salt CreateLocationSmb' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` serverHostname
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` agentArns
 
-instance Prelude.NFData CreateLocationSmb
+instance Prelude.NFData CreateLocationSmb where
+  rnf CreateLocationSmb' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf serverHostname
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf agentArns
 
 instance Core.ToHeaders CreateLocationSmb where
   toHeaders =
@@ -352,4 +370,7 @@ createLocationSmbResponse_locationArn = Lens.lens (\CreateLocationSmbResponse' {
 createLocationSmbResponse_httpStatus :: Lens.Lens' CreateLocationSmbResponse Prelude.Int
 createLocationSmbResponse_httpStatus = Lens.lens (\CreateLocationSmbResponse' {httpStatus} -> httpStatus) (\s@CreateLocationSmbResponse' {} a -> s {httpStatus = a} :: CreateLocationSmbResponse)
 
-instance Prelude.NFData CreateLocationSmbResponse
+instance Prelude.NFData CreateLocationSmbResponse where
+  rnf CreateLocationSmbResponse' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -148,9 +148,17 @@ instance Core.AWSRequest ListLocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLocations
+instance Prelude.Hashable ListLocations where
+  hashWithSalt _salt ListLocations' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListLocations
+instance Prelude.NFData ListLocations where
+  rnf ListLocations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLocations where
   toHeaders =
@@ -233,4 +241,8 @@ listLocationsResponse_locations = Lens.lens (\ListLocationsResponse' {locations}
 listLocationsResponse_httpStatus :: Lens.Lens' ListLocationsResponse Prelude.Int
 listLocationsResponse_httpStatus = Lens.lens (\ListLocationsResponse' {httpStatus} -> httpStatus) (\s@ListLocationsResponse' {} a -> s {httpStatus = a} :: ListLocationsResponse)
 
-instance Prelude.NFData ListLocationsResponse
+instance Prelude.NFData ListLocationsResponse where
+  rnf ListLocationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf locations
+      `Prelude.seq` Prelude.rnf httpStatus

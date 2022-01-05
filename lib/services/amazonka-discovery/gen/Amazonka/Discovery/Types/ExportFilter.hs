@@ -86,9 +86,17 @@ exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFi
 exportFilter_condition :: Lens.Lens' ExportFilter Prelude.Text
 exportFilter_condition = Lens.lens (\ExportFilter' {condition} -> condition) (\s@ExportFilter' {} a -> s {condition = a} :: ExportFilter)
 
-instance Prelude.Hashable ExportFilter
+instance Prelude.Hashable ExportFilter where
+  hashWithSalt _salt ExportFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData ExportFilter
+instance Prelude.NFData ExportFilter where
+  rnf ExportFilter' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON ExportFilter where
   toJSON ExportFilter' {..} =

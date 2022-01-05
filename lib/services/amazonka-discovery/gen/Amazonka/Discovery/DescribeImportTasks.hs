@@ -119,9 +119,17 @@ instance Core.AWSRequest DescribeImportTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImportTasks
+instance Prelude.Hashable DescribeImportTasks where
+  hashWithSalt _salt DescribeImportTasks' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeImportTasks
+instance Prelude.NFData DescribeImportTasks where
+  rnf DescribeImportTasks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeImportTasks where
   toHeaders =
@@ -205,4 +213,8 @@ describeImportTasksResponse_nextToken = Lens.lens (\DescribeImportTasksResponse'
 describeImportTasksResponse_httpStatus :: Lens.Lens' DescribeImportTasksResponse Prelude.Int
 describeImportTasksResponse_httpStatus = Lens.lens (\DescribeImportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeImportTasksResponse' {} a -> s {httpStatus = a} :: DescribeImportTasksResponse)
 
-instance Prelude.NFData DescribeImportTasksResponse
+instance Prelude.NFData DescribeImportTasksResponse where
+  rnf DescribeImportTasksResponse' {..} =
+    Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

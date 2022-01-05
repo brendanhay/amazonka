@@ -72,9 +72,14 @@ importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@
 importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Prelude.Maybe ImportTaskFilterName)
 importTaskFilter_name = Lens.lens (\ImportTaskFilter' {name} -> name) (\s@ImportTaskFilter' {} a -> s {name = a} :: ImportTaskFilter)
 
-instance Prelude.Hashable ImportTaskFilter
+instance Prelude.Hashable ImportTaskFilter where
+  hashWithSalt _salt ImportTaskFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ImportTaskFilter
+instance Prelude.NFData ImportTaskFilter where
+  rnf ImportTaskFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ImportTaskFilter where
   toJSON ImportTaskFilter' {..} =

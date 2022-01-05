@@ -159,9 +159,19 @@ instance Core.AWSRequest StartExportTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartExportTask
+instance Prelude.Hashable StartExportTask where
+  hashWithSalt _salt StartExportTask' {..} =
+    _salt `Prelude.hashWithSalt` exportDataFormat
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData StartExportTask
+instance Prelude.NFData StartExportTask where
+  rnf StartExportTask' {..} =
+    Prelude.rnf exportDataFormat
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders StartExportTask where
   toHeaders =
@@ -235,4 +245,7 @@ startExportTaskResponse_exportId = Lens.lens (\StartExportTaskResponse' {exportI
 startExportTaskResponse_httpStatus :: Lens.Lens' StartExportTaskResponse Prelude.Int
 startExportTaskResponse_httpStatus = Lens.lens (\StartExportTaskResponse' {httpStatus} -> httpStatus) (\s@StartExportTaskResponse' {} a -> s {httpStatus = a} :: StartExportTaskResponse)
 
-instance Prelude.NFData StartExportTaskResponse
+instance Prelude.NFData StartExportTaskResponse where
+  rnf StartExportTaskResponse' {..} =
+    Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf httpStatus

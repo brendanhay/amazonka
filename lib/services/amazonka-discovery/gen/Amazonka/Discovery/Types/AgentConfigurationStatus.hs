@@ -94,6 +94,14 @@ instance Core.FromJSON AgentConfigurationStatus where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AgentConfigurationStatus
+instance Prelude.Hashable AgentConfigurationStatus where
+  hashWithSalt _salt AgentConfigurationStatus' {..} =
+    _salt `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` operationSucceeded
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AgentConfigurationStatus
+instance Prelude.NFData AgentConfigurationStatus where
+  rnf AgentConfigurationStatus' {..} =
+    Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf operationSucceeded
+      `Prelude.seq` Prelude.rnf description

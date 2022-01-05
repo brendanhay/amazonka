@@ -152,9 +152,21 @@ instance Core.AWSRequest ListServerNeighbors where
             Prelude.<*> (x Core..?> "neighbors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListServerNeighbors
+instance Prelude.Hashable ListServerNeighbors where
+  hashWithSalt _salt ListServerNeighbors' {..} =
+    _salt `Prelude.hashWithSalt` portInformationNeeded
+      `Prelude.hashWithSalt` neighborConfigurationIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` configurationId
 
-instance Prelude.NFData ListServerNeighbors
+instance Prelude.NFData ListServerNeighbors where
+  rnf ListServerNeighbors' {..} =
+    Prelude.rnf portInformationNeeded
+      `Prelude.seq` Prelude.rnf neighborConfigurationIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf configurationId
 
 instance Core.ToHeaders ListServerNeighbors where
   toHeaders =
@@ -261,4 +273,9 @@ listServerNeighborsResponse_httpStatus = Lens.lens (\ListServerNeighborsResponse
 listServerNeighborsResponse_neighbors :: Lens.Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
 listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse' {neighbors} -> neighbors) (\s@ListServerNeighborsResponse' {} a -> s {neighbors = a} :: ListServerNeighborsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListServerNeighborsResponse
+instance Prelude.NFData ListServerNeighborsResponse where
+  rnf ListServerNeighborsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf knownDependencyCount
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf neighbors

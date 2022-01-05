@@ -176,9 +176,17 @@ instance Core.AWSRequest StartImportTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartImportTask
+instance Prelude.Hashable StartImportTask where
+  hashWithSalt _salt StartImportTask' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` importUrl
 
-instance Prelude.NFData StartImportTask
+instance Prelude.NFData StartImportTask where
+  rnf StartImportTask' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf importUrl
 
 instance Core.ToHeaders StartImportTask where
   toHeaders =
@@ -256,4 +264,7 @@ startImportTaskResponse_task = Lens.lens (\StartImportTaskResponse' {task} -> ta
 startImportTaskResponse_httpStatus :: Lens.Lens' StartImportTaskResponse Prelude.Int
 startImportTaskResponse_httpStatus = Lens.lens (\StartImportTaskResponse' {httpStatus} -> httpStatus) (\s@StartImportTaskResponse' {} a -> s {httpStatus = a} :: StartImportTaskResponse)
 
-instance Prelude.NFData StartImportTaskResponse
+instance Prelude.NFData StartImportTaskResponse where
+  rnf StartImportTaskResponse' {..} =
+    Prelude.rnf task
+      `Prelude.seq` Prelude.rnf httpStatus

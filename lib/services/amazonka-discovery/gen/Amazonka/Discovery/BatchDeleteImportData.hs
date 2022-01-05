@@ -99,9 +99,13 @@ instance Core.AWSRequest BatchDeleteImportData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteImportData
+instance Prelude.Hashable BatchDeleteImportData where
+  hashWithSalt _salt BatchDeleteImportData' {..} =
+    _salt `Prelude.hashWithSalt` importTaskIds
 
-instance Prelude.NFData BatchDeleteImportData
+instance Prelude.NFData BatchDeleteImportData where
+  rnf BatchDeleteImportData' {..} =
+    Prelude.rnf importTaskIds
 
 instance Core.ToHeaders BatchDeleteImportData where
   toHeaders =
@@ -175,4 +179,7 @@ batchDeleteImportDataResponse_errors = Lens.lens (\BatchDeleteImportDataResponse
 batchDeleteImportDataResponse_httpStatus :: Lens.Lens' BatchDeleteImportDataResponse Prelude.Int
 batchDeleteImportDataResponse_httpStatus = Lens.lens (\BatchDeleteImportDataResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteImportDataResponse' {} a -> s {httpStatus = a} :: BatchDeleteImportDataResponse)
 
-instance Prelude.NFData BatchDeleteImportDataResponse
+instance Prelude.NFData BatchDeleteImportDataResponse where
+  rnf BatchDeleteImportDataResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

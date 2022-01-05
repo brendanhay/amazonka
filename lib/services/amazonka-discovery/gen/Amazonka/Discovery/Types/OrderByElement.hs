@@ -64,9 +64,15 @@ orderByElement_sortOrder = Lens.lens (\OrderByElement' {sortOrder} -> sortOrder)
 orderByElement_fieldName :: Lens.Lens' OrderByElement Prelude.Text
 orderByElement_fieldName = Lens.lens (\OrderByElement' {fieldName} -> fieldName) (\s@OrderByElement' {} a -> s {fieldName = a} :: OrderByElement)
 
-instance Prelude.Hashable OrderByElement
+instance Prelude.Hashable OrderByElement where
+  hashWithSalt _salt OrderByElement' {..} =
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` fieldName
 
-instance Prelude.NFData OrderByElement
+instance Prelude.NFData OrderByElement where
+  rnf OrderByElement' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf fieldName
 
 instance Core.ToJSON OrderByElement where
   toJSON OrderByElement' {..} =

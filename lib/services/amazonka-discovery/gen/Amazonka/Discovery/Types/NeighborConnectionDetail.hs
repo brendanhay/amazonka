@@ -111,6 +111,18 @@ instance Core.FromJSON NeighborConnectionDetail where
             Prelude.<*> (x Core..: "connectionsCount")
       )
 
-instance Prelude.Hashable NeighborConnectionDetail
+instance Prelude.Hashable NeighborConnectionDetail where
+  hashWithSalt _salt NeighborConnectionDetail' {..} =
+    _salt `Prelude.hashWithSalt` transportProtocol
+      `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` sourceServerId
+      `Prelude.hashWithSalt` destinationServerId
+      `Prelude.hashWithSalt` connectionsCount
 
-instance Prelude.NFData NeighborConnectionDetail
+instance Prelude.NFData NeighborConnectionDetail where
+  rnf NeighborConnectionDetail' {..} =
+    Prelude.rnf transportProtocol
+      `Prelude.seq` Prelude.rnf destinationPort
+      `Prelude.seq` Prelude.rnf sourceServerId
+      `Prelude.seq` Prelude.rnf destinationServerId
+      `Prelude.seq` Prelude.rnf connectionsCount

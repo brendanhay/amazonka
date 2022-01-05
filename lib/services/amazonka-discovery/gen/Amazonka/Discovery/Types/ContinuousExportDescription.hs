@@ -322,6 +322,24 @@ instance Core.FromJSON ContinuousExportDescription where
             Prelude.<*> (x Core..:? "exportId")
       )
 
-instance Prelude.Hashable ContinuousExportDescription
+instance Prelude.Hashable ContinuousExportDescription where
+  hashWithSalt _salt ContinuousExportDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` schemaStorageConfig
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` stopTime
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` exportId
 
-instance Prelude.NFData ContinuousExportDescription
+instance Prelude.NFData ContinuousExportDescription where
+  rnf ContinuousExportDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf schemaStorageConfig
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf stopTime
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf exportId

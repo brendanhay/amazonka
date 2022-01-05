@@ -135,6 +135,24 @@ instance Core.FromJSON Hsm where
             Prelude.<*> (x Core..: "HsmId")
       )
 
-instance Prelude.Hashable Hsm
+instance Prelude.Hashable Hsm where
+  hashWithSalt _salt Hsm' {..} =
+    _salt `Prelude.hashWithSalt` stateMessage
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eniId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` hsmId
 
-instance Prelude.NFData Hsm
+instance Prelude.NFData Hsm where
+  rnf Hsm' {..} =
+    Prelude.rnf stateMessage
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf eniId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf hsmId

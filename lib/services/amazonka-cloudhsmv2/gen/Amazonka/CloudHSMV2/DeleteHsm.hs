@@ -128,9 +128,19 @@ instance Core.AWSRequest DeleteHsm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHsm
+instance Prelude.Hashable DeleteHsm where
+  hashWithSalt _salt DeleteHsm' {..} =
+    _salt `Prelude.hashWithSalt` eniId
+      `Prelude.hashWithSalt` hsmId
+      `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData DeleteHsm
+instance Prelude.NFData DeleteHsm where
+  rnf DeleteHsm' {..} =
+    Prelude.rnf eniId
+      `Prelude.seq` Prelude.rnf hsmId
+      `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders DeleteHsm where
   toHeaders =
@@ -200,4 +210,7 @@ deleteHsmResponse_hsmId = Lens.lens (\DeleteHsmResponse' {hsmId} -> hsmId) (\s@D
 deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Prelude.Int
 deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> httpStatus) (\s@DeleteHsmResponse' {} a -> s {httpStatus = a} :: DeleteHsmResponse)
 
-instance Prelude.NFData DeleteHsmResponse
+instance Prelude.NFData DeleteHsmResponse where
+  rnf DeleteHsmResponse' {..} =
+    Prelude.rnf hsmId
+      `Prelude.seq` Prelude.rnf httpStatus

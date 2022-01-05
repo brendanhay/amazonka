@@ -74,9 +74,14 @@ instance Core.FromJSON BackupRetentionPolicy where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable BackupRetentionPolicy
+instance Prelude.Hashable BackupRetentionPolicy where
+  hashWithSalt _salt BackupRetentionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData BackupRetentionPolicy
+instance Prelude.NFData BackupRetentionPolicy where
+  rnf BackupRetentionPolicy' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON BackupRetentionPolicy where
   toJSON BackupRetentionPolicy' {..} =

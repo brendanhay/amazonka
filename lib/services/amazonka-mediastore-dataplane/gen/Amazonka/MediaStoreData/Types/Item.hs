@@ -112,6 +112,20 @@ instance Core.FromJSON Item where
             Prelude.<*> (x Core..:? "ContentType")
       )
 
-instance Prelude.Hashable Item
+instance Prelude.Hashable Item where
+  hashWithSalt _salt Item' {..} =
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` contentLength
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData Item
+instance Prelude.NFData Item where
+  rnf Item' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf contentLength
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf contentType

@@ -194,9 +194,14 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetObject
+instance Prelude.Hashable GetObject where
+  hashWithSalt _salt GetObject' {..} =
+    _salt `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData GetObject
+instance Prelude.NFData GetObject where
+  rnf GetObject' {..} =
+    Prelude.rnf range `Prelude.seq` Prelude.rnf path
 
 instance Core.ToHeaders GetObject where
   toHeaders GetObject' {..} =

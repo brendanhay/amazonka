@@ -343,4 +343,9 @@ putObjectResponse_contentSHA256 = Lens.lens (\PutObjectResponse' {contentSHA256}
 putObjectResponse_httpStatus :: Lens.Lens' PutObjectResponse Prelude.Int
 putObjectResponse_httpStatus = Lens.lens (\PutObjectResponse' {httpStatus} -> httpStatus) (\s@PutObjectResponse' {} a -> s {httpStatus = a} :: PutObjectResponse)
 
-instance Prelude.NFData PutObjectResponse
+instance Prelude.NFData PutObjectResponse where
+  rnf PutObjectResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf contentSHA256
+      `Prelude.seq` Prelude.rnf httpStatus

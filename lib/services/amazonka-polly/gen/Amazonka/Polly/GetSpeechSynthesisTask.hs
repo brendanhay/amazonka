@@ -89,9 +89,12 @@ instance Core.AWSRequest GetSpeechSynthesisTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSpeechSynthesisTask
+instance Prelude.Hashable GetSpeechSynthesisTask where
+  hashWithSalt _salt GetSpeechSynthesisTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData GetSpeechSynthesisTask
+instance Prelude.NFData GetSpeechSynthesisTask where
+  rnf GetSpeechSynthesisTask' {..} = Prelude.rnf taskId
 
 instance Core.ToHeaders GetSpeechSynthesisTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,3 +152,7 @@ getSpeechSynthesisTaskResponse_httpStatus = Lens.lens (\GetSpeechSynthesisTaskRe
 instance
   Prelude.NFData
     GetSpeechSynthesisTaskResponse
+  where
+  rnf GetSpeechSynthesisTaskResponse' {..} =
+    Prelude.rnf synthesisTask
+      `Prelude.seq` Prelude.rnf httpStatus

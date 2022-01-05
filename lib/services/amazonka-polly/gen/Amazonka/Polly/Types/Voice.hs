@@ -156,6 +156,22 @@ instance Core.FromJSON Voice where
                         )
       )
 
-instance Prelude.Hashable Voice
+instance Prelude.Hashable Voice where
+  hashWithSalt _salt Voice' {..} =
+    _salt `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` languageName
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` additionalLanguageCodes
+      `Prelude.hashWithSalt` supportedEngines
 
-instance Prelude.NFData Voice
+instance Prelude.NFData Voice where
+  rnf Voice' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf languageName
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf additionalLanguageCodes
+      `Prelude.seq` Prelude.rnf supportedEngines

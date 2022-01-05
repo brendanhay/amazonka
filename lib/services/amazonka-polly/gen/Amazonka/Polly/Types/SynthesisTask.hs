@@ -286,6 +286,38 @@ instance Core.FromJSON SynthesisTask where
             Prelude.<*> (x Core..:? "OutputUri")
       )
 
-instance Prelude.Hashable SynthesisTask
+instance Prelude.Hashable SynthesisTask where
+  hashWithSalt _salt SynthesisTask' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` taskStatusReason
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` requestCharacters
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` speechMarkTypes
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` textType
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` lexiconNames
+      `Prelude.hashWithSalt` taskStatus
+      `Prelude.hashWithSalt` outputUri
 
-instance Prelude.NFData SynthesisTask
+instance Prelude.NFData SynthesisTask where
+  rnf SynthesisTask' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf taskStatusReason
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf requestCharacters
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf speechMarkTypes
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf textType
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf lexiconNames
+      `Prelude.seq` Prelude.rnf taskStatus
+      `Prelude.seq` Prelude.rnf outputUri

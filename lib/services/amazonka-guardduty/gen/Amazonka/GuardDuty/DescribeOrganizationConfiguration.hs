@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     DescribeOrganizationConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeOrganizationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` detectorId
 
 instance
   Prelude.NFData
     DescribeOrganizationConfiguration
+  where
+  rnf DescribeOrganizationConfiguration' {..} =
+    Prelude.rnf detectorId
 
 instance
   Core.ToHeaders
@@ -216,3 +224,9 @@ describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens 
 instance
   Prelude.NFData
     DescribeOrganizationConfigurationResponse
+  where
+  rnf DescribeOrganizationConfigurationResponse' {..} =
+    Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoEnable
+      `Prelude.seq` Prelude.rnf memberAccountLimitReached

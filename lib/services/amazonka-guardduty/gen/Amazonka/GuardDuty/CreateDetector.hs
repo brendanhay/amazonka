@@ -132,9 +132,21 @@ instance Core.AWSRequest CreateDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDetector
+instance Prelude.Hashable CreateDetector where
+  hashWithSalt _salt CreateDetector' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` findingPublishingFrequency
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enable
 
-instance Prelude.NFData CreateDetector
+instance Prelude.NFData CreateDetector where
+  rnf CreateDetector' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enable
 
 instance Core.ToHeaders CreateDetector where
   toHeaders =
@@ -205,4 +217,7 @@ createDetectorResponse_detectorId = Lens.lens (\CreateDetectorResponse' {detecto
 createDetectorResponse_httpStatus :: Lens.Lens' CreateDetectorResponse Prelude.Int
 createDetectorResponse_httpStatus = Lens.lens (\CreateDetectorResponse' {httpStatus} -> httpStatus) (\s@CreateDetectorResponse' {} a -> s {httpStatus = a} :: CreateDetectorResponse)
 
-instance Prelude.NFData CreateDetectorResponse
+instance Prelude.NFData CreateDetectorResponse where
+  rnf CreateDetectorResponse' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -109,9 +109,15 @@ instance Core.AWSRequest DeleteMembers where
                         )
       )
 
-instance Prelude.Hashable DeleteMembers
+instance Prelude.Hashable DeleteMembers where
+  hashWithSalt _salt DeleteMembers' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData DeleteMembers
+instance Prelude.NFData DeleteMembers where
+  rnf DeleteMembers' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders DeleteMembers where
   toHeaders =
@@ -180,4 +186,7 @@ deleteMembersResponse_httpStatus = Lens.lens (\DeleteMembersResponse' {httpStatu
 deleteMembersResponse_unprocessedAccounts :: Lens.Lens' DeleteMembersResponse [UnprocessedAccount]
 deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteMembersResponse' {} a -> s {unprocessedAccounts = a} :: DeleteMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DeleteMembersResponse
+instance Prelude.NFData DeleteMembersResponse where
+  rnf DeleteMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

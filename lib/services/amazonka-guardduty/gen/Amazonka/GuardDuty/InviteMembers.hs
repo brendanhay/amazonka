@@ -141,9 +141,20 @@ instance Core.AWSRequest InviteMembers where
                         )
       )
 
-instance Prelude.Hashable InviteMembers
+instance Prelude.Hashable InviteMembers where
+  hashWithSalt _salt InviteMembers' {..} =
+    _salt
+      `Prelude.hashWithSalt` disableEmailNotification
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData InviteMembers
+instance Prelude.NFData InviteMembers where
+  rnf InviteMembers' {..} =
+    Prelude.rnf disableEmailNotification
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders InviteMembers where
   toHeaders =
@@ -219,4 +230,7 @@ inviteMembersResponse_httpStatus = Lens.lens (\InviteMembersResponse' {httpStatu
 inviteMembersResponse_unprocessedAccounts :: Lens.Lens' InviteMembersResponse [UnprocessedAccount]
 inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@InviteMembersResponse' {} a -> s {unprocessedAccounts = a} :: InviteMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData InviteMembersResponse
+instance Prelude.NFData InviteMembersResponse where
+  rnf InviteMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

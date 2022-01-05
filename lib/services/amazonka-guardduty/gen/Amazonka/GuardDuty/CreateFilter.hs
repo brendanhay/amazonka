@@ -517,9 +517,27 @@ instance Core.AWSRequest CreateFilter where
             Prelude.<*> (x Core..:> "name")
       )
 
-instance Prelude.Hashable CreateFilter
+instance Prelude.Hashable CreateFilter where
+  hashWithSalt _salt CreateFilter' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` findingCriteria
 
-instance Prelude.NFData CreateFilter
+instance Prelude.NFData CreateFilter where
+  rnf CreateFilter' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf findingCriteria
 
 instance Core.ToHeaders CreateFilter where
   toHeaders =
@@ -595,4 +613,7 @@ createFilterResponse_httpStatus = Lens.lens (\CreateFilterResponse' {httpStatus}
 createFilterResponse_name :: Lens.Lens' CreateFilterResponse Prelude.Text
 createFilterResponse_name = Lens.lens (\CreateFilterResponse' {name} -> name) (\s@CreateFilterResponse' {} a -> s {name = a} :: CreateFilterResponse)
 
-instance Prelude.NFData CreateFilterResponse
+instance Prelude.NFData CreateFilterResponse where
+  rnf CreateFilterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

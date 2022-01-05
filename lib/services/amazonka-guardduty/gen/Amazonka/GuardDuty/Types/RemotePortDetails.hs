@@ -71,6 +71,11 @@ instance Core.FromJSON RemotePortDetails where
             Prelude.<*> (x Core..:? "port")
       )
 
-instance Prelude.Hashable RemotePortDetails
+instance Prelude.Hashable RemotePortDetails where
+  hashWithSalt _salt RemotePortDetails' {..} =
+    _salt `Prelude.hashWithSalt` portName
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData RemotePortDetails
+instance Prelude.NFData RemotePortDetails where
+  rnf RemotePortDetails' {..} =
+    Prelude.rnf portName `Prelude.seq` Prelude.rnf port

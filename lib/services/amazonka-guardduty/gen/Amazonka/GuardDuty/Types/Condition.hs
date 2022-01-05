@@ -207,9 +207,35 @@ instance Core.FromJSON Condition where
             Prelude.<*> (x Core..:? "greaterThan")
       )
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt _salt Condition' {..} =
+    _salt `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` lessThan
+      `Prelude.hashWithSalt` lte
+      `Prelude.hashWithSalt` greaterThanOrEqual
+      `Prelude.hashWithSalt` lessThanOrEqual
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` equals
+      `Prelude.hashWithSalt` neq
+      `Prelude.hashWithSalt` notEquals
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` gte
+      `Prelude.hashWithSalt` greaterThan
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf lessThan
+      `Prelude.seq` Prelude.rnf lte
+      `Prelude.seq` Prelude.rnf greaterThanOrEqual
+      `Prelude.seq` Prelude.rnf lessThanOrEqual
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf equals
+      `Prelude.seq` Prelude.rnf neq
+      `Prelude.seq` Prelude.rnf notEquals
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf greaterThan
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

@@ -97,9 +97,15 @@ instance Core.AWSRequest DeleteIPSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIPSet
+instance Prelude.Hashable DeleteIPSet where
+  hashWithSalt _salt DeleteIPSet' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` ipSetId
 
-instance Prelude.NFData DeleteIPSet
+instance Prelude.NFData DeleteIPSet where
+  rnf DeleteIPSet' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf ipSetId
 
 instance Core.ToHeaders DeleteIPSet where
   toHeaders =
@@ -151,4 +157,5 @@ newDeleteIPSetResponse pHttpStatus_ =
 deleteIPSetResponse_httpStatus :: Lens.Lens' DeleteIPSetResponse Prelude.Int
 deleteIPSetResponse_httpStatus = Lens.lens (\DeleteIPSetResponse' {httpStatus} -> httpStatus) (\s@DeleteIPSetResponse' {} a -> s {httpStatus = a} :: DeleteIPSetResponse)
 
-instance Prelude.NFData DeleteIPSetResponse
+instance Prelude.NFData DeleteIPSetResponse where
+  rnf DeleteIPSetResponse' {..} = Prelude.rnf httpStatus

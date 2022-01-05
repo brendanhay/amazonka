@@ -73,6 +73,12 @@ instance Core.FromJSON UsageDataSourceResult where
             Prelude.<*> (x Core..:? "dataSource")
       )
 
-instance Prelude.Hashable UsageDataSourceResult
+instance Prelude.Hashable UsageDataSourceResult where
+  hashWithSalt _salt UsageDataSourceResult' {..} =
+    _salt `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` dataSource
 
-instance Prelude.NFData UsageDataSourceResult
+instance Prelude.NFData UsageDataSourceResult where
+  rnf UsageDataSourceResult' {..} =
+    Prelude.rnf total
+      `Prelude.seq` Prelude.rnf dataSource

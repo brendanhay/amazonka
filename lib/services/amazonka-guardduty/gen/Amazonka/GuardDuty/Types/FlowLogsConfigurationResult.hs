@@ -62,6 +62,10 @@ instance Core.FromJSON FlowLogsConfigurationResult where
             Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable FlowLogsConfigurationResult
+instance Prelude.Hashable FlowLogsConfigurationResult where
+  hashWithSalt _salt FlowLogsConfigurationResult' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData FlowLogsConfigurationResult
+instance Prelude.NFData FlowLogsConfigurationResult where
+  rnf FlowLogsConfigurationResult' {..} =
+    Prelude.rnf status

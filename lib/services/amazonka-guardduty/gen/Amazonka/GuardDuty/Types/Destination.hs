@@ -96,6 +96,14 @@ instance Core.FromJSON Destination where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable Destination
+instance Prelude.Hashable Destination where
+  hashWithSalt _salt Destination' {..} =
+    _salt `Prelude.hashWithSalt` destinationId
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Destination
+instance Prelude.NFData Destination where
+  rnf Destination' {..} =
+    Prelude.rnf destinationId
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf status

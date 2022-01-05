@@ -59,6 +59,9 @@ instance Core.FromJSON LocalIpDetails where
             Prelude.<$> (x Core..:? "ipAddressV4")
       )
 
-instance Prelude.Hashable LocalIpDetails
+instance Prelude.Hashable LocalIpDetails where
+  hashWithSalt _salt LocalIpDetails' {..} =
+    _salt `Prelude.hashWithSalt` ipAddressV4
 
-instance Prelude.NFData LocalIpDetails
+instance Prelude.NFData LocalIpDetails where
+  rnf LocalIpDetails' {..} = Prelude.rnf ipAddressV4

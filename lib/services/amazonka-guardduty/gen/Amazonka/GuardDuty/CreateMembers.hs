@@ -122,9 +122,15 @@ instance Core.AWSRequest CreateMembers where
                         )
       )
 
-instance Prelude.Hashable CreateMembers
+instance Prelude.Hashable CreateMembers where
+  hashWithSalt _salt CreateMembers' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` accountDetails
 
-instance Prelude.NFData CreateMembers
+instance Prelude.NFData CreateMembers where
+  rnf CreateMembers' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountDetails
 
 instance Core.ToHeaders CreateMembers where
   toHeaders =
@@ -195,4 +201,7 @@ createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatu
 createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse [UnprocessedAccount]
 createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData CreateMembersResponse
+instance Prelude.NFData CreateMembersResponse where
+  rnf CreateMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

@@ -121,9 +121,17 @@ instance Core.AWSRequest ListPublishingDestinations where
             Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPublishingDestinations
+instance Prelude.Hashable ListPublishingDestinations where
+  hashWithSalt _salt ListPublishingDestinations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData ListPublishingDestinations
+instance Prelude.NFData ListPublishingDestinations where
+  rnf ListPublishingDestinations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders ListPublishingDestinations where
   toHeaders =
@@ -214,3 +222,8 @@ listPublishingDestinationsResponse_destinations = Lens.lens (\ListPublishingDest
 instance
   Prelude.NFData
     ListPublishingDestinationsResponse
+  where
+  rnf ListPublishingDestinationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinations

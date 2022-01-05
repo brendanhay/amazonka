@@ -111,9 +111,15 @@ instance Core.AWSRequest GetThreatIntelSet where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetThreatIntelSet
+instance Prelude.Hashable GetThreatIntelSet where
+  hashWithSalt _salt GetThreatIntelSet' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` threatIntelSetId
 
-instance Prelude.NFData GetThreatIntelSet
+instance Prelude.NFData GetThreatIntelSet where
+  rnf GetThreatIntelSet' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf threatIntelSetId
 
 instance Core.ToHeaders GetThreatIntelSet where
   toHeaders =
@@ -234,4 +240,11 @@ getThreatIntelSetResponse_location = Lens.lens (\GetThreatIntelSetResponse' {loc
 getThreatIntelSetResponse_status :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetStatus
 getThreatIntelSetResponse_status = Lens.lens (\GetThreatIntelSetResponse' {status} -> status) (\s@GetThreatIntelSetResponse' {} a -> s {status = a} :: GetThreatIntelSetResponse)
 
-instance Prelude.NFData GetThreatIntelSetResponse
+instance Prelude.NFData GetThreatIntelSetResponse where
+  rnf GetThreatIntelSetResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf status

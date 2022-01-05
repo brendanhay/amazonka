@@ -99,9 +99,15 @@ instance Core.AWSRequest CreateSampleFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSampleFindings
+instance Prelude.Hashable CreateSampleFindings where
+  hashWithSalt _salt CreateSampleFindings' {..} =
+    _salt `Prelude.hashWithSalt` findingTypes
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData CreateSampleFindings
+instance Prelude.NFData CreateSampleFindings where
+  rnf CreateSampleFindings' {..} =
+    Prelude.rnf findingTypes
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders CreateSampleFindings where
   toHeaders =
@@ -162,4 +168,6 @@ newCreateSampleFindingsResponse pHttpStatus_ =
 createSampleFindingsResponse_httpStatus :: Lens.Lens' CreateSampleFindingsResponse Prelude.Int
 createSampleFindingsResponse_httpStatus = Lens.lens (\CreateSampleFindingsResponse' {httpStatus} -> httpStatus) (\s@CreateSampleFindingsResponse' {} a -> s {httpStatus = a} :: CreateSampleFindingsResponse)
 
-instance Prelude.NFData CreateSampleFindingsResponse
+instance Prelude.NFData CreateSampleFindingsResponse where
+  rnf CreateSampleFindingsResponse' {..} =
+    Prelude.rnf httpStatus

@@ -91,6 +91,16 @@ instance Core.FromJSON AccessKeyDetails where
             Prelude.<*> (x Core..:? "userType")
       )
 
-instance Prelude.Hashable AccessKeyDetails
+instance Prelude.Hashable AccessKeyDetails where
+  hashWithSalt _salt AccessKeyDetails' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` userType
 
-instance Prelude.NFData AccessKeyDetails
+instance Prelude.NFData AccessKeyDetails where
+  rnf AccessKeyDetails' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf userType

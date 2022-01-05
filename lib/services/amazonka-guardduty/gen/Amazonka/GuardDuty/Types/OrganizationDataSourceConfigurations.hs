@@ -62,10 +62,18 @@ organizationDataSourceConfigurations_s3Logs = Lens.lens (\OrganizationDataSource
 instance
   Prelude.Hashable
     OrganizationDataSourceConfigurations
+  where
+  hashWithSalt
+    _salt
+    OrganizationDataSourceConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` s3Logs
 
 instance
   Prelude.NFData
     OrganizationDataSourceConfigurations
+  where
+  rnf OrganizationDataSourceConfigurations' {..} =
+    Prelude.rnf s3Logs
 
 instance
   Core.ToJSON

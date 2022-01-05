@@ -190,6 +190,34 @@ instance Core.FromJSON InstanceDetails where
             Prelude.<*> (x Core..:? "imageDescription")
       )
 
-instance Prelude.Hashable InstanceDetails
+instance Prelude.Hashable InstanceDetails where
+  hashWithSalt _salt InstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` instanceState
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` imageDescription
 
-instance Prelude.NFData InstanceDetails
+instance Prelude.NFData InstanceDetails where
+  rnf InstanceDetails' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf instanceState
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf imageDescription

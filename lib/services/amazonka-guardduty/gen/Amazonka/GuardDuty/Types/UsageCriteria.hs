@@ -74,9 +74,17 @@ usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (
 usageCriteria_dataSources :: Lens.Lens' UsageCriteria [DataSource]
 usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Lens.coerced
 
-instance Prelude.Hashable UsageCriteria
+instance Prelude.Hashable UsageCriteria where
+  hashWithSalt _salt UsageCriteria' {..} =
+    _salt `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` dataSources
 
-instance Prelude.NFData UsageCriteria
+instance Prelude.NFData UsageCriteria where
+  rnf UsageCriteria' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf dataSources
 
 instance Core.ToJSON UsageCriteria where
   toJSON UsageCriteria' {..} =

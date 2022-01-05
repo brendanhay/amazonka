@@ -63,9 +63,12 @@ instance Core.FromJSON FindingCriteria where
             Prelude.<$> (x Core..:? "criterion" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FindingCriteria
+instance Prelude.Hashable FindingCriteria where
+  hashWithSalt _salt FindingCriteria' {..} =
+    _salt `Prelude.hashWithSalt` criterion
 
-instance Prelude.NFData FindingCriteria
+instance Prelude.NFData FindingCriteria where
+  rnf FindingCriteria' {..} = Prelude.rnf criterion
 
 instance Core.ToJSON FindingCriteria where
   toJSON FindingCriteria' {..} =

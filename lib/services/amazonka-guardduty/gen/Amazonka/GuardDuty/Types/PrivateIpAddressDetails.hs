@@ -72,6 +72,12 @@ instance Core.FromJSON PrivateIpAddressDetails where
             Prelude.<*> (x Core..:? "privateDnsName")
       )
 
-instance Prelude.Hashable PrivateIpAddressDetails
+instance Prelude.Hashable PrivateIpAddressDetails where
+  hashWithSalt _salt PrivateIpAddressDetails' {..} =
+    _salt `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` privateDnsName
 
-instance Prelude.NFData PrivateIpAddressDetails
+instance Prelude.NFData PrivateIpAddressDetails where
+  rnf PrivateIpAddressDetails' {..} =
+    Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf privateDnsName

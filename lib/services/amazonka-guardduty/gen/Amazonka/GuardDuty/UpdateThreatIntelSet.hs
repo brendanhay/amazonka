@@ -136,9 +136,21 @@ instance Core.AWSRequest UpdateThreatIntelSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThreatIntelSet
+instance Prelude.Hashable UpdateThreatIntelSet where
+  hashWithSalt _salt UpdateThreatIntelSet' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` activate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` threatIntelSetId
 
-instance Prelude.NFData UpdateThreatIntelSet
+instance Prelude.NFData UpdateThreatIntelSet where
+  rnf UpdateThreatIntelSet' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf activate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf threatIntelSetId
 
 instance Core.ToHeaders UpdateThreatIntelSet where
   toHeaders =
@@ -203,4 +215,6 @@ newUpdateThreatIntelSetResponse pHttpStatus_ =
 updateThreatIntelSetResponse_httpStatus :: Lens.Lens' UpdateThreatIntelSetResponse Prelude.Int
 updateThreatIntelSetResponse_httpStatus = Lens.lens (\UpdateThreatIntelSetResponse' {httpStatus} -> httpStatus) (\s@UpdateThreatIntelSetResponse' {} a -> s {httpStatus = a} :: UpdateThreatIntelSetResponse)
 
-instance Prelude.NFData UpdateThreatIntelSetResponse
+instance Prelude.NFData UpdateThreatIntelSetResponse where
+  rnf UpdateThreatIntelSetResponse' {..} =
+    Prelude.rnf httpStatus

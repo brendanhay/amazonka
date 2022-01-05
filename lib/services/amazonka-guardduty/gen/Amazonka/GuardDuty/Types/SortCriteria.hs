@@ -65,9 +65,15 @@ sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortC
 sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
 sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
 
-instance Prelude.Hashable SortCriteria
+instance Prelude.Hashable SortCriteria where
+  hashWithSalt _salt SortCriteria' {..} =
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData SortCriteria
+instance Prelude.NFData SortCriteria where
+  rnf SortCriteria' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =

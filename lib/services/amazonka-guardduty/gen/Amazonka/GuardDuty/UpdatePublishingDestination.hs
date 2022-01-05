@@ -118,9 +118,17 @@ instance Core.AWSRequest UpdatePublishingDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePublishingDestination
+instance Prelude.Hashable UpdatePublishingDestination where
+  hashWithSalt _salt UpdatePublishingDestination' {..} =
+    _salt `Prelude.hashWithSalt` destinationProperties
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` destinationId
 
-instance Prelude.NFData UpdatePublishingDestination
+instance Prelude.NFData UpdatePublishingDestination where
+  rnf UpdatePublishingDestination' {..} =
+    Prelude.rnf destinationProperties
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf destinationId
 
 instance Core.ToHeaders UpdatePublishingDestination where
   toHeaders =
@@ -187,3 +195,6 @@ updatePublishingDestinationResponse_httpStatus = Lens.lens (\UpdatePublishingDes
 instance
   Prelude.NFData
     UpdatePublishingDestinationResponse
+  where
+  rnf UpdatePublishingDestinationResponse' {..} =
+    Prelude.rnf httpStatus

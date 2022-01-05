@@ -79,6 +79,13 @@ instance Core.FromJSON AccessControlList where
             Prelude.<*> (x Core..:? "allowsPublicReadAccess")
       )
 
-instance Prelude.Hashable AccessControlList
+instance Prelude.Hashable AccessControlList where
+  hashWithSalt _salt AccessControlList' {..} =
+    _salt
+      `Prelude.hashWithSalt` allowsPublicWriteAccess
+      `Prelude.hashWithSalt` allowsPublicReadAccess
 
-instance Prelude.NFData AccessControlList
+instance Prelude.NFData AccessControlList where
+  rnf AccessControlList' {..} =
+    Prelude.rnf allowsPublicWriteAccess
+      `Prelude.seq` Prelude.rnf allowsPublicReadAccess

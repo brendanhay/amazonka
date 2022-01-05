@@ -267,9 +267,27 @@ instance Core.AWSRequest CreateListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateListener
+instance Prelude.Hashable CreateListener where
+  hashWithSalt _salt CreateListener' {..} =
+    _salt `Prelude.hashWithSalt` sslPolicy
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` alpnPolicy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` defaultActions
 
-instance Prelude.NFData CreateListener
+instance Prelude.NFData CreateListener where
+  rnf CreateListener' {..} =
+    Prelude.rnf sslPolicy
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf alpnPolicy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf defaultActions
 
 instance Core.ToHeaders CreateListener where
   toHeaders = Prelude.const Prelude.mempty
@@ -340,4 +358,7 @@ createListenerResponse_listeners = Lens.lens (\CreateListenerResponse' {listener
 createListenerResponse_httpStatus :: Lens.Lens' CreateListenerResponse Prelude.Int
 createListenerResponse_httpStatus = Lens.lens (\CreateListenerResponse' {httpStatus} -> httpStatus) (\s@CreateListenerResponse' {} a -> s {httpStatus = a} :: CreateListenerResponse)
 
-instance Prelude.NFData CreateListenerResponse
+instance Prelude.NFData CreateListenerResponse where
+  rnf CreateListenerResponse' {..} =
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf httpStatus

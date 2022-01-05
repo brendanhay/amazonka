@@ -102,9 +102,15 @@ instance Core.AWSRequest RemoveListenerCertificates where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveListenerCertificates
+instance Prelude.Hashable RemoveListenerCertificates where
+  hashWithSalt _salt RemoveListenerCertificates' {..} =
+    _salt `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` certificates
 
-instance Prelude.NFData RemoveListenerCertificates
+instance Prelude.NFData RemoveListenerCertificates where
+  rnf RemoveListenerCertificates' {..} =
+    Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf certificates
 
 instance Core.ToHeaders RemoveListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +163,6 @@ removeListenerCertificatesResponse_httpStatus = Lens.lens (\RemoveListenerCertif
 instance
   Prelude.NFData
     RemoveListenerCertificatesResponse
+  where
+  rnf RemoveListenerCertificatesResponse' {..} =
+    Prelude.rnf httpStatus

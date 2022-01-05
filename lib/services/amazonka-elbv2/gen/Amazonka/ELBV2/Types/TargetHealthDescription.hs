@@ -80,6 +80,14 @@ instance Core.FromXML TargetHealthDescription where
       Prelude.<*> (x Core..@? "HealthCheckPort")
       Prelude.<*> (x Core..@? "Target")
 
-instance Prelude.Hashable TargetHealthDescription
+instance Prelude.Hashable TargetHealthDescription where
+  hashWithSalt _salt TargetHealthDescription' {..} =
+    _salt `Prelude.hashWithSalt` targetHealth
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData TargetHealthDescription
+instance Prelude.NFData TargetHealthDescription where
+  rnf TargetHealthDescription' {..} =
+    Prelude.rnf targetHealth
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf target

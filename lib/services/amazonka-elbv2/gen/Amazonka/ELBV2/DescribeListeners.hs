@@ -151,9 +151,19 @@ instance Core.AWSRequest DescribeListeners where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeListeners
+instance Prelude.Hashable DescribeListeners where
+  hashWithSalt _salt DescribeListeners' {..} =
+    _salt `Prelude.hashWithSalt` listenerArns
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData DescribeListeners
+instance Prelude.NFData DescribeListeners where
+  rnf DescribeListeners' {..} =
+    Prelude.rnf listenerArns
+      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribeListeners where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,4 +237,8 @@ describeListenersResponse_listeners = Lens.lens (\DescribeListenersResponse' {li
 describeListenersResponse_httpStatus :: Lens.Lens' DescribeListenersResponse Prelude.Int
 describeListenersResponse_httpStatus = Lens.lens (\DescribeListenersResponse' {httpStatus} -> httpStatus) (\s@DescribeListenersResponse' {} a -> s {httpStatus = a} :: DescribeListenersResponse)
 
-instance Prelude.NFData DescribeListenersResponse
+instance Prelude.NFData DescribeListenersResponse where
+  rnf DescribeListenersResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf httpStatus

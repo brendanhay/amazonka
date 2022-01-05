@@ -483,9 +483,45 @@ instance Core.AWSRequest CreateTargetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTargetGroup
+instance Prelude.Hashable CreateTargetGroup where
+  hashWithSalt _salt CreateTargetGroup' {..} =
+    _salt `Prelude.hashWithSalt` protocolVersion
+      `Prelude.hashWithSalt` matcher
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` healthCheckEnabled
+      `Prelude.hashWithSalt` unhealthyThresholdCount
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` healthyThresholdCount
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` healthCheckTimeoutSeconds
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateTargetGroup
+instance Prelude.NFData CreateTargetGroup where
+  rnf CreateTargetGroup' {..} =
+    Prelude.rnf protocolVersion
+      `Prelude.seq` Prelude.rnf matcher
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf healthCheckEnabled
+      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf healthyThresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -564,4 +600,7 @@ createTargetGroupResponse_targetGroups = Lens.lens (\CreateTargetGroupResponse' 
 createTargetGroupResponse_httpStatus :: Lens.Lens' CreateTargetGroupResponse Prelude.Int
 createTargetGroupResponse_httpStatus = Lens.lens (\CreateTargetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateTargetGroupResponse' {} a -> s {httpStatus = a} :: CreateTargetGroupResponse)
 
-instance Prelude.NFData CreateTargetGroupResponse
+instance Prelude.NFData CreateTargetGroupResponse where
+  rnf CreateTargetGroupResponse' {..} =
+    Prelude.rnf targetGroups
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -147,9 +147,19 @@ instance Core.AWSRequest DescribeRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRules
+instance Prelude.Hashable DescribeRules where
+  hashWithSalt _salt DescribeRules' {..} =
+    _salt `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` ruleArns
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData DescribeRules
+instance Prelude.NFData DescribeRules where
+  rnf DescribeRules' {..} =
+    Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf ruleArns
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribeRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,4 +232,8 @@ describeRulesResponse_nextMarker = Lens.lens (\DescribeRulesResponse' {nextMarke
 describeRulesResponse_httpStatus :: Lens.Lens' DescribeRulesResponse Prelude.Int
 describeRulesResponse_httpStatus = Lens.lens (\DescribeRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeRulesResponse' {} a -> s {httpStatus = a} :: DescribeRulesResponse)
 
-instance Prelude.NFData DescribeRulesResponse
+instance Prelude.NFData DescribeRulesResponse where
+  rnf DescribeRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

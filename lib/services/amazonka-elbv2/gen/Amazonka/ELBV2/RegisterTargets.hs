@@ -111,9 +111,15 @@ instance Core.AWSRequest RegisterTargets where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterTargets
+instance Prelude.Hashable RegisterTargets where
+  hashWithSalt _salt RegisterTargets' {..} =
+    _salt `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` targets
 
-instance Prelude.NFData RegisterTargets
+instance Prelude.NFData RegisterTargets where
+  rnf RegisterTargets' {..} =
+    Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToHeaders RegisterTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,4 +165,6 @@ newRegisterTargetsResponse pHttpStatus_ =
 registerTargetsResponse_httpStatus :: Lens.Lens' RegisterTargetsResponse Prelude.Int
 registerTargetsResponse_httpStatus = Lens.lens (\RegisterTargetsResponse' {httpStatus} -> httpStatus) (\s@RegisterTargetsResponse' {} a -> s {httpStatus = a} :: RegisterTargetsResponse)
 
-instance Prelude.NFData RegisterTargetsResponse
+instance Prelude.NFData RegisterTargetsResponse where
+  rnf RegisterTargetsResponse' {..} =
+    Prelude.rnf httpStatus

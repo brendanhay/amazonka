@@ -93,6 +93,16 @@ instance Core.FromXML LoadBalancerAddress where
       Prelude.<*> (x Core..@? "AllocationId")
       Prelude.<*> (x Core..@? "PrivateIPv4Address")
 
-instance Prelude.Hashable LoadBalancerAddress
+instance Prelude.Hashable LoadBalancerAddress where
+  hashWithSalt _salt LoadBalancerAddress' {..} =
+    _salt `Prelude.hashWithSalt` iPv6Address
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` privateIPv4Address
 
-instance Prelude.NFData LoadBalancerAddress
+instance Prelude.NFData LoadBalancerAddress where
+  rnf LoadBalancerAddress' {..} =
+    Prelude.rnf iPv6Address
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf privateIPv4Address

@@ -102,9 +102,15 @@ instance Core.AWSRequest ModifyTargetGroupAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyTargetGroupAttributes
+instance Prelude.Hashable ModifyTargetGroupAttributes where
+  hashWithSalt _salt ModifyTargetGroupAttributes' {..} =
+    _salt `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData ModifyTargetGroupAttributes
+instance Prelude.NFData ModifyTargetGroupAttributes where
+  rnf ModifyTargetGroupAttributes' {..} =
+    Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders ModifyTargetGroupAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,3 +174,7 @@ modifyTargetGroupAttributesResponse_httpStatus = Lens.lens (\ModifyTargetGroupAt
 instance
   Prelude.NFData
     ModifyTargetGroupAttributesResponse
+  where
+  rnf ModifyTargetGroupAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

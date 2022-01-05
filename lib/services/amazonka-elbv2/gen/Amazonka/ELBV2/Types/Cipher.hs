@@ -67,6 +67,11 @@ instance Core.FromXML Cipher where
       Prelude.<$> (x Core..@? "Priority")
       Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable Cipher
+instance Prelude.Hashable Cipher where
+  hashWithSalt _salt Cipher' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Cipher
+instance Prelude.NFData Cipher where
+  rnf Cipher' {..} =
+    Prelude.rnf priority `Prelude.seq` Prelude.rnf name

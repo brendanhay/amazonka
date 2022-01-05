@@ -262,8 +262,35 @@ instance Core.FromXML AuthenticateOidcActionConfig where
 instance
   Prelude.Hashable
     AuthenticateOidcActionConfig
+  where
+  hashWithSalt _salt AuthenticateOidcActionConfig' {..} =
+    _salt `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` useExistingClientSecret
+      `Prelude.hashWithSalt` authenticationRequestExtraParams
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` onUnauthenticatedRequest
+      `Prelude.hashWithSalt` sessionCookieName
+      `Prelude.hashWithSalt` sessionTimeout
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` authorizationEndpoint
+      `Prelude.hashWithSalt` tokenEndpoint
+      `Prelude.hashWithSalt` userInfoEndpoint
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData AuthenticateOidcActionConfig
+instance Prelude.NFData AuthenticateOidcActionConfig where
+  rnf AuthenticateOidcActionConfig' {..} =
+    Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf useExistingClientSecret
+      `Prelude.seq` Prelude.rnf authenticationRequestExtraParams
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf onUnauthenticatedRequest
+      `Prelude.seq` Prelude.rnf sessionCookieName
+      `Prelude.seq` Prelude.rnf sessionTimeout
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf tokenEndpoint
+      `Prelude.seq` Prelude.rnf userInfoEndpoint
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =

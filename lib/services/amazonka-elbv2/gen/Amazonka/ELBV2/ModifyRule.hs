@@ -114,9 +114,17 @@ instance Core.AWSRequest ModifyRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyRule
+instance Prelude.Hashable ModifyRule where
+  hashWithSalt _salt ModifyRule' {..} =
+    _salt `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` ruleArn
 
-instance Prelude.NFData ModifyRule
+instance Prelude.NFData ModifyRule where
+  rnf ModifyRule' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf ruleArn
 
 instance Core.ToHeaders ModifyRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +186,7 @@ modifyRuleResponse_rules = Lens.lens (\ModifyRuleResponse' {rules} -> rules) (\s
 modifyRuleResponse_httpStatus :: Lens.Lens' ModifyRuleResponse Prelude.Int
 modifyRuleResponse_httpStatus = Lens.lens (\ModifyRuleResponse' {httpStatus} -> httpStatus) (\s@ModifyRuleResponse' {} a -> s {httpStatus = a} :: ModifyRuleResponse)
 
-instance Prelude.NFData ModifyRuleResponse
+instance Prelude.NFData ModifyRuleResponse where
+  rnf ModifyRuleResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus

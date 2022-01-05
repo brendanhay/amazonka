@@ -118,6 +118,18 @@ instance Core.FromXML Rule where
       Prelude.<*> (x Core..@? "RuleArn")
       Prelude.<*> (x Core..@? "IsDefault")
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt _salt Rule' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` ruleArn
+      `Prelude.hashWithSalt` isDefault
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf ruleArn
+      `Prelude.seq` Prelude.rnf isDefault

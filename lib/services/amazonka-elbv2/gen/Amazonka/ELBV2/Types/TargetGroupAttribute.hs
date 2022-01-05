@@ -306,9 +306,14 @@ instance Core.FromXML TargetGroupAttribute where
     TargetGroupAttribute'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
 
-instance Prelude.Hashable TargetGroupAttribute
+instance Prelude.Hashable TargetGroupAttribute where
+  hashWithSalt _salt TargetGroupAttribute' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData TargetGroupAttribute
+instance Prelude.NFData TargetGroupAttribute where
+  rnf TargetGroupAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery TargetGroupAttribute where
   toQuery TargetGroupAttribute' {..} =

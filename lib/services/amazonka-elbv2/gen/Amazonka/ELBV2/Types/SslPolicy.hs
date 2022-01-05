@@ -96,6 +96,17 @@ instance Core.FromXML SslPolicy where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable SslPolicy
+instance Prelude.Hashable SslPolicy where
+  hashWithSalt _salt SslPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` supportedLoadBalancerTypes
+      `Prelude.hashWithSalt` ciphers
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sslProtocols
 
-instance Prelude.NFData SslPolicy
+instance Prelude.NFData SslPolicy where
+  rnf SslPolicy' {..} =
+    Prelude.rnf supportedLoadBalancerTypes
+      `Prelude.seq` Prelude.rnf ciphers
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sslProtocols

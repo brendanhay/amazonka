@@ -118,9 +118,15 @@ instance Core.FromXML HttpHeaderConditionConfig where
                   )
       Prelude.<*> (x Core..@? "HttpHeaderName")
 
-instance Prelude.Hashable HttpHeaderConditionConfig
+instance Prelude.Hashable HttpHeaderConditionConfig where
+  hashWithSalt _salt HttpHeaderConditionConfig' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` httpHeaderName
 
-instance Prelude.NFData HttpHeaderConditionConfig
+instance Prelude.NFData HttpHeaderConditionConfig where
+  rnf HttpHeaderConditionConfig' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf httpHeaderName
 
 instance Core.ToQuery HttpHeaderConditionConfig where
   toQuery HttpHeaderConditionConfig' {..} =

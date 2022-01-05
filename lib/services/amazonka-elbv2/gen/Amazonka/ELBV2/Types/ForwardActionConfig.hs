@@ -75,9 +75,15 @@ instance Core.FromXML ForwardActionConfig where
                   )
       Prelude.<*> (x Core..@? "TargetGroupStickinessConfig")
 
-instance Prelude.Hashable ForwardActionConfig
+instance Prelude.Hashable ForwardActionConfig where
+  hashWithSalt _salt ForwardActionConfig' {..} =
+    _salt `Prelude.hashWithSalt` targetGroups
+      `Prelude.hashWithSalt` targetGroupStickinessConfig
 
-instance Prelude.NFData ForwardActionConfig
+instance Prelude.NFData ForwardActionConfig where
+  rnf ForwardActionConfig' {..} =
+    Prelude.rnf targetGroups
+      `Prelude.seq` Prelude.rnf targetGroupStickinessConfig
 
 instance Core.ToQuery ForwardActionConfig where
   toQuery ForwardActionConfig' {..} =

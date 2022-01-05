@@ -181,9 +181,27 @@ instance Core.FromXML Action where
       Prelude.<*> (x Core..@? "AuthenticateOidcConfig")
       Prelude.<*> (x Core..@ "Type")
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt _salt Action' {..} =
+    _salt `Prelude.hashWithSalt` fixedResponseConfig
+      `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` forwardConfig
+      `Prelude.hashWithSalt` redirectConfig
+      `Prelude.hashWithSalt` authenticateCognitoConfig
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` authenticateOidcConfig
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf fixedResponseConfig
+      `Prelude.seq` Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf forwardConfig
+      `Prelude.seq` Prelude.rnf redirectConfig
+      `Prelude.seq` Prelude.rnf authenticateCognitoConfig
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf authenticateOidcConfig
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery Action where
   toQuery Action' {..} =

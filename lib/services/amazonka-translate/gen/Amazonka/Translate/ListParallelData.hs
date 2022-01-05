@@ -103,9 +103,15 @@ instance Core.AWSRequest ListParallelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListParallelData
+instance Prelude.Hashable ListParallelData where
+  hashWithSalt _salt ListParallelData' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListParallelData
+instance Prelude.NFData ListParallelData where
+  rnf ListParallelData' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListParallelData where
   toHeaders =
@@ -191,4 +197,8 @@ listParallelDataResponse_nextToken = Lens.lens (\ListParallelDataResponse' {next
 listParallelDataResponse_httpStatus :: Lens.Lens' ListParallelDataResponse Prelude.Int
 listParallelDataResponse_httpStatus = Lens.lens (\ListParallelDataResponse' {httpStatus} -> httpStatus) (\s@ListParallelDataResponse' {} a -> s {httpStatus = a} :: ListParallelDataResponse)
 
-instance Prelude.NFData ListParallelDataResponse
+instance Prelude.NFData ListParallelDataResponse where
+  rnf ListParallelDataResponse' {..} =
+    Prelude.rnf parallelDataPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

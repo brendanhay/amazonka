@@ -147,9 +147,21 @@ instance Core.AWSRequest CreateParallelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateParallelData
+instance Prelude.Hashable CreateParallelData where
+  hashWithSalt _salt CreateParallelData' {..} =
+    _salt `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parallelDataConfig
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateParallelData
+instance Prelude.NFData CreateParallelData where
+  rnf CreateParallelData' {..} =
+    Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parallelDataConfig
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateParallelData where
   toHeaders =
@@ -236,4 +248,8 @@ createParallelDataResponse_name = Lens.lens (\CreateParallelDataResponse' {name}
 createParallelDataResponse_httpStatus :: Lens.Lens' CreateParallelDataResponse Prelude.Int
 createParallelDataResponse_httpStatus = Lens.lens (\CreateParallelDataResponse' {httpStatus} -> httpStatus) (\s@CreateParallelDataResponse' {} a -> s {httpStatus = a} :: CreateParallelDataResponse)
 
-instance Prelude.NFData CreateParallelDataResponse
+instance Prelude.NFData CreateParallelDataResponse where
+  rnf CreateParallelDataResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribeTextTranslationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTextTranslationJob
+instance Prelude.Hashable DescribeTextTranslationJob where
+  hashWithSalt _salt DescribeTextTranslationJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeTextTranslationJob
+instance Prelude.NFData DescribeTextTranslationJob where
+  rnf DescribeTextTranslationJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeTextTranslationJob where
   toHeaders =
@@ -171,3 +175,7 @@ describeTextTranslationJobResponse_httpStatus = Lens.lens (\DescribeTextTranslat
 instance
   Prelude.NFData
     DescribeTextTranslationJobResponse
+  where
+  rnf DescribeTextTranslationJobResponse' {..} =
+    Prelude.rnf textTranslationJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

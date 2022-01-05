@@ -98,9 +98,12 @@ instance Core.AWSRequest StopTextTranslationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopTextTranslationJob
+instance Prelude.Hashable StopTextTranslationJob where
+  hashWithSalt _salt StopTextTranslationJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopTextTranslationJob
+instance Prelude.NFData StopTextTranslationJob where
+  rnf StopTextTranslationJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StopTextTranslationJob where
   toHeaders =
@@ -184,3 +187,8 @@ stopTextTranslationJobResponse_httpStatus = Lens.lens (\StopTextTranslationJobRe
 instance
   Prelude.NFData
     StopTextTranslationJobResponse
+  where
+  rnf StopTextTranslationJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

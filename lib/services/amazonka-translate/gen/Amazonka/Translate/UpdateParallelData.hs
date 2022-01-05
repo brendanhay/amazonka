@@ -135,9 +135,19 @@ instance Core.AWSRequest UpdateParallelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateParallelData
+instance Prelude.Hashable UpdateParallelData where
+  hashWithSalt _salt UpdateParallelData' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parallelDataConfig
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateParallelData
+instance Prelude.NFData UpdateParallelData where
+  rnf UpdateParallelData' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parallelDataConfig
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders UpdateParallelData where
   toHeaders =
@@ -247,4 +257,10 @@ updateParallelDataResponse_latestUpdateAttemptStatus = Lens.lens (\UpdateParalle
 updateParallelDataResponse_httpStatus :: Lens.Lens' UpdateParallelDataResponse Prelude.Int
 updateParallelDataResponse_httpStatus = Lens.lens (\UpdateParallelDataResponse' {httpStatus} -> httpStatus) (\s@UpdateParallelDataResponse' {} a -> s {httpStatus = a} :: UpdateParallelDataResponse)
 
-instance Prelude.NFData UpdateParallelDataResponse
+instance Prelude.NFData UpdateParallelDataResponse where
+  rnf UpdateParallelDataResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestUpdateAttemptAt
+      `Prelude.seq` Prelude.rnf latestUpdateAttemptStatus
+      `Prelude.seq` Prelude.rnf httpStatus

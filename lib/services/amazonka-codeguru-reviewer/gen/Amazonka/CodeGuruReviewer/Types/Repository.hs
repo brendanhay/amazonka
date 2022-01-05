@@ -85,9 +85,19 @@ repository_s3Bucket = Lens.lens (\Repository' {s3Bucket} -> s3Bucket) (\s@Reposi
 repository_bitbucket :: Lens.Lens' Repository (Prelude.Maybe ThirdPartySourceRepository)
 repository_bitbucket = Lens.lens (\Repository' {bitbucket} -> bitbucket) (\s@Repository' {} a -> s {bitbucket = a} :: Repository)
 
-instance Prelude.Hashable Repository
+instance Prelude.Hashable Repository where
+  hashWithSalt _salt Repository' {..} =
+    _salt `Prelude.hashWithSalt` codeCommit
+      `Prelude.hashWithSalt` gitHubEnterpriseServer
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` bitbucket
 
-instance Prelude.NFData Repository
+instance Prelude.NFData Repository where
+  rnf Repository' {..} =
+    Prelude.rnf codeCommit
+      `Prelude.seq` Prelude.rnf gitHubEnterpriseServer
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf bitbucket
 
 instance Core.ToJSON Repository where
   toJSON Repository' {..} =

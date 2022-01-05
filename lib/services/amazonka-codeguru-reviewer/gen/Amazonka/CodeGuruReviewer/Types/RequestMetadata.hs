@@ -118,9 +118,19 @@ instance Core.FromJSON RequestMetadata where
             Prelude.<*> (x Core..:? "Requester")
       )
 
-instance Prelude.Hashable RequestMetadata
+instance Prelude.Hashable RequestMetadata where
+  hashWithSalt _salt RequestMetadata' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` eventInfo
+      `Prelude.hashWithSalt` vendorName
+      `Prelude.hashWithSalt` requester
 
-instance Prelude.NFData RequestMetadata
+instance Prelude.NFData RequestMetadata where
+  rnf RequestMetadata' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf eventInfo
+      `Prelude.seq` Prelude.rnf vendorName
+      `Prelude.seq` Prelude.rnf requester
 
 instance Core.ToJSON RequestMetadata where
   toJSON RequestMetadata' {..} =

@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     DescribeRecommendationFeedback
+  where
+  hashWithSalt
+    _salt
+    DescribeRecommendationFeedback' {..} =
+      _salt `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` codeReviewArn
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     DescribeRecommendationFeedback
+  where
+  rnf DescribeRecommendationFeedback' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf codeReviewArn
+      `Prelude.seq` Prelude.rnf recommendationId
 
 instance
   Core.ToHeaders
@@ -223,3 +235,7 @@ describeRecommendationFeedbackResponse_httpStatus = Lens.lens (\DescribeRecommen
 instance
   Prelude.NFData
     DescribeRecommendationFeedbackResponse
+  where
+  rnf DescribeRecommendationFeedbackResponse' {..} =
+    Prelude.rnf recommendationFeedback
+      `Prelude.seq` Prelude.rnf httpStatus

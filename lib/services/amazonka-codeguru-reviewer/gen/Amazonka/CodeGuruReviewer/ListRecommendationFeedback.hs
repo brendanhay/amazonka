@@ -178,9 +178,21 @@ instance Core.AWSRequest ListRecommendationFeedback where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRecommendationFeedback
+instance Prelude.Hashable ListRecommendationFeedback where
+  hashWithSalt _salt ListRecommendationFeedback' {..} =
+    _salt `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` recommendationIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` codeReviewArn
 
-instance Prelude.NFData ListRecommendationFeedback
+instance Prelude.NFData ListRecommendationFeedback where
+  rnf ListRecommendationFeedback' {..} =
+    Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf codeReviewArn
 
 instance Core.ToHeaders ListRecommendationFeedback where
   toHeaders =
@@ -277,3 +289,8 @@ listRecommendationFeedbackResponse_httpStatus = Lens.lens (\ListRecommendationFe
 instance
   Prelude.NFData
     ListRecommendationFeedbackResponse
+  where
+  rnf ListRecommendationFeedbackResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationFeedbackSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

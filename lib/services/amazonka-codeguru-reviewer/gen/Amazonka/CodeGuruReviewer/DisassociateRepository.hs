@@ -104,9 +104,13 @@ instance Core.AWSRequest DisassociateRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateRepository
+instance Prelude.Hashable DisassociateRepository where
+  hashWithSalt _salt DisassociateRepository' {..} =
+    _salt `Prelude.hashWithSalt` associationArn
 
-instance Prelude.NFData DisassociateRepository
+instance Prelude.NFData DisassociateRepository where
+  rnf DisassociateRepository' {..} =
+    Prelude.rnf associationArn
 
 instance Core.ToHeaders DisassociateRepository where
   toHeaders =
@@ -205,3 +209,8 @@ disassociateRepositoryResponse_httpStatus = Lens.lens (\DisassociateRepositoryRe
 instance
   Prelude.NFData
     DisassociateRepositoryResponse
+  where
+  rnf DisassociateRepositoryResponse' {..} =
+    Prelude.rnf repositoryAssociation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,9 +92,15 @@ codeReviewType_analysisTypes = Lens.lens (\CodeReviewType' {analysisTypes} -> an
 codeReviewType_repositoryAnalysis :: Lens.Lens' CodeReviewType RepositoryAnalysis
 codeReviewType_repositoryAnalysis = Lens.lens (\CodeReviewType' {repositoryAnalysis} -> repositoryAnalysis) (\s@CodeReviewType' {} a -> s {repositoryAnalysis = a} :: CodeReviewType)
 
-instance Prelude.Hashable CodeReviewType
+instance Prelude.Hashable CodeReviewType where
+  hashWithSalt _salt CodeReviewType' {..} =
+    _salt `Prelude.hashWithSalt` analysisTypes
+      `Prelude.hashWithSalt` repositoryAnalysis
 
-instance Prelude.NFData CodeReviewType
+instance Prelude.NFData CodeReviewType where
+  rnf CodeReviewType' {..} =
+    Prelude.rnf analysisTypes
+      `Prelude.seq` Prelude.rnf repositoryAnalysis
 
 instance Core.ToJSON CodeReviewType where
   toJSON CodeReviewType' {..} =

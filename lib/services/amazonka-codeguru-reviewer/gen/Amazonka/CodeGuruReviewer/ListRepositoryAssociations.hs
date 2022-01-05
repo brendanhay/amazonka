@@ -323,9 +323,23 @@ instance Core.AWSRequest ListRepositoryAssociations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRepositoryAssociations
+instance Prelude.Hashable ListRepositoryAssociations where
+  hashWithSalt _salt ListRepositoryAssociations' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` owners
+      `Prelude.hashWithSalt` providerTypes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListRepositoryAssociations
+instance Prelude.NFData ListRepositoryAssociations where
+  rnf ListRepositoryAssociations' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf owners
+      `Prelude.seq` Prelude.rnf providerTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRepositoryAssociations where
   toHeaders =
@@ -423,3 +437,8 @@ listRepositoryAssociationsResponse_httpStatus = Lens.lens (\ListRepositoryAssoci
 instance
   Prelude.NFData
     ListRepositoryAssociationsResponse
+  where
+  rnf ListRepositoryAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositoryAssociationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

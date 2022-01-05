@@ -154,9 +154,21 @@ instance Core.FromJSON SourceCodeType where
             Prelude.<*> (x Core..:? "BranchDiff")
       )
 
-instance Prelude.Hashable SourceCodeType
+instance Prelude.Hashable SourceCodeType where
+  hashWithSalt _salt SourceCodeType' {..} =
+    _salt `Prelude.hashWithSalt` s3BucketRepository
+      `Prelude.hashWithSalt` requestMetadata
+      `Prelude.hashWithSalt` repositoryHead
+      `Prelude.hashWithSalt` commitDiff
+      `Prelude.hashWithSalt` branchDiff
 
-instance Prelude.NFData SourceCodeType
+instance Prelude.NFData SourceCodeType where
+  rnf SourceCodeType' {..} =
+    Prelude.rnf s3BucketRepository
+      `Prelude.seq` Prelude.rnf requestMetadata
+      `Prelude.seq` Prelude.rnf repositoryHead
+      `Prelude.seq` Prelude.rnf commitDiff
+      `Prelude.seq` Prelude.rnf branchDiff
 
 instance Core.ToJSON SourceCodeType where
   toJSON SourceCodeType' {..} =

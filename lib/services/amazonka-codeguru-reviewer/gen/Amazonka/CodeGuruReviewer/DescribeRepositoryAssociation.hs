@@ -112,8 +112,13 @@ instance
 instance
   Prelude.Hashable
     DescribeRepositoryAssociation
+  where
+  hashWithSalt _salt DescribeRepositoryAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationArn
 
-instance Prelude.NFData DescribeRepositoryAssociation
+instance Prelude.NFData DescribeRepositoryAssociation where
+  rnf DescribeRepositoryAssociation' {..} =
+    Prelude.rnf associationArn
 
 instance Core.ToHeaders DescribeRepositoryAssociation where
   toHeaders =
@@ -212,3 +217,8 @@ describeRepositoryAssociationResponse_httpStatus = Lens.lens (\DescribeRepositor
 instance
   Prelude.NFData
     DescribeRepositoryAssociationResponse
+  where
+  rnf DescribeRepositoryAssociationResponse' {..} =
+    Prelude.rnf repositoryAssociation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

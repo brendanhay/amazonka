@@ -200,9 +200,23 @@ instance Core.AWSRequest ListCodeReviews where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCodeReviews
+instance Prelude.Hashable ListCodeReviews where
+  hashWithSalt _salt ListCodeReviews' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` providerTypes
+      `Prelude.hashWithSalt` repositoryNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ListCodeReviews
+instance Prelude.NFData ListCodeReviews where
+  rnf ListCodeReviews' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf providerTypes
+      `Prelude.seq` Prelude.rnf repositoryNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders ListCodeReviews where
   toHeaders =
@@ -287,4 +301,8 @@ listCodeReviewsResponse_nextToken = Lens.lens (\ListCodeReviewsResponse' {nextTo
 listCodeReviewsResponse_httpStatus :: Lens.Lens' ListCodeReviewsResponse Prelude.Int
 listCodeReviewsResponse_httpStatus = Lens.lens (\ListCodeReviewsResponse' {httpStatus} -> httpStatus) (\s@ListCodeReviewsResponse' {} a -> s {httpStatus = a} :: ListCodeReviewsResponse)
 
-instance Prelude.NFData ListCodeReviewsResponse
+instance Prelude.NFData ListCodeReviewsResponse where
+  rnf ListCodeReviewsResponse' {..} =
+    Prelude.rnf codeReviewSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

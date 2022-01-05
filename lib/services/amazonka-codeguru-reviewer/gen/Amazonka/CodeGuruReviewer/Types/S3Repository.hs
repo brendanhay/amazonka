@@ -68,9 +68,15 @@ s3Repository_name = Lens.lens (\S3Repository' {name} -> name) (\s@S3Repository' 
 s3Repository_bucketName :: Lens.Lens' S3Repository Prelude.Text
 s3Repository_bucketName = Lens.lens (\S3Repository' {bucketName} -> bucketName) (\s@S3Repository' {} a -> s {bucketName = a} :: S3Repository)
 
-instance Prelude.Hashable S3Repository
+instance Prelude.Hashable S3Repository where
+  hashWithSalt _salt S3Repository' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData S3Repository
+instance Prelude.NFData S3Repository where
+  rnf S3Repository' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToJSON S3Repository where
   toJSON S3Repository' {..} =

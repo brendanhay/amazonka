@@ -104,6 +104,12 @@ instance Core.FromJSON MetricsSummary where
             Prelude.<*> (x Core..:? "MeteredLinesOfCodeCount")
       )
 
-instance Prelude.Hashable MetricsSummary
+instance Prelude.Hashable MetricsSummary where
+  hashWithSalt _salt MetricsSummary' {..} =
+    _salt `Prelude.hashWithSalt` findingsCount
+      `Prelude.hashWithSalt` meteredLinesOfCodeCount
 
-instance Prelude.NFData MetricsSummary
+instance Prelude.NFData MetricsSummary where
+  rnf MetricsSummary' {..} =
+    Prelude.rnf findingsCount
+      `Prelude.seq` Prelude.rnf meteredLinesOfCodeCount

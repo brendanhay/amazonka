@@ -104,9 +104,17 @@ thirdPartySourceRepository_connectionArn = Lens.lens (\ThirdPartySourceRepositor
 thirdPartySourceRepository_owner :: Lens.Lens' ThirdPartySourceRepository Prelude.Text
 thirdPartySourceRepository_owner = Lens.lens (\ThirdPartySourceRepository' {owner} -> owner) (\s@ThirdPartySourceRepository' {} a -> s {owner = a} :: ThirdPartySourceRepository)
 
-instance Prelude.Hashable ThirdPartySourceRepository
+instance Prelude.Hashable ThirdPartySourceRepository where
+  hashWithSalt _salt ThirdPartySourceRepository' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` owner
 
-instance Prelude.NFData ThirdPartySourceRepository
+instance Prelude.NFData ThirdPartySourceRepository where
+  rnf ThirdPartySourceRepository' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToJSON ThirdPartySourceRepository where
   toJSON ThirdPartySourceRepository' {..} =

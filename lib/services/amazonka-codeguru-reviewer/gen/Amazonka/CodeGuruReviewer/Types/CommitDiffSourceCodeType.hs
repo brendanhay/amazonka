@@ -92,9 +92,17 @@ instance Core.FromJSON CommitDiffSourceCodeType where
             Prelude.<*> (x Core..:? "DestinationCommit")
       )
 
-instance Prelude.Hashable CommitDiffSourceCodeType
+instance Prelude.Hashable CommitDiffSourceCodeType where
+  hashWithSalt _salt CommitDiffSourceCodeType' {..} =
+    _salt `Prelude.hashWithSalt` sourceCommit
+      `Prelude.hashWithSalt` mergeBaseCommit
+      `Prelude.hashWithSalt` destinationCommit
 
-instance Prelude.NFData CommitDiffSourceCodeType
+instance Prelude.NFData CommitDiffSourceCodeType where
+  rnf CommitDiffSourceCodeType' {..} =
+    Prelude.rnf sourceCommit
+      `Prelude.seq` Prelude.rnf mergeBaseCommit
+      `Prelude.seq` Prelude.rnf destinationCommit
 
 instance Core.ToJSON CommitDiffSourceCodeType where
   toJSON CommitDiffSourceCodeType' {..} =

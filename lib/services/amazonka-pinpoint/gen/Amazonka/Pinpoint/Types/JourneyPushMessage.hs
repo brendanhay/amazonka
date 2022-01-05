@@ -84,9 +84,12 @@ instance Core.FromJSON JourneyPushMessage where
             Prelude.<$> (x Core..:? "TimeToLive")
       )
 
-instance Prelude.Hashable JourneyPushMessage
+instance Prelude.Hashable JourneyPushMessage where
+  hashWithSalt _salt JourneyPushMessage' {..} =
+    _salt `Prelude.hashWithSalt` timeToLive
 
-instance Prelude.NFData JourneyPushMessage
+instance Prelude.NFData JourneyPushMessage where
+  rnf JourneyPushMessage' {..} = Prelude.rnf timeToLive
 
 instance Core.ToJSON JourneyPushMessage where
   toJSON JourneyPushMessage' {..} =

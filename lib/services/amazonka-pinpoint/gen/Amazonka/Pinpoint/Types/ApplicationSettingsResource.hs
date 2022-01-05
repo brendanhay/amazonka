@@ -174,6 +174,18 @@ instance Core.FromJSON ApplicationSettingsResource where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable ApplicationSettingsResource
+instance Prelude.Hashable ApplicationSettingsResource where
+  hashWithSalt _salt ApplicationSettingsResource' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` campaignHook
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData ApplicationSettingsResource
+instance Prelude.NFData ApplicationSettingsResource where
+  rnf ApplicationSettingsResource' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf campaignHook
+      `Prelude.seq` Prelude.rnf applicationId

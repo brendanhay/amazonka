@@ -234,6 +234,32 @@ instance Core.FromJSON SegmentResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable SegmentResponse
+instance Prelude.Hashable SegmentResponse where
+  hashWithSalt _salt SegmentResponse' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` segmentGroups
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` importDefinition
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` segmentType
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData SegmentResponse
+instance Prelude.NFData SegmentResponse where
+  rnf SegmentResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf segmentGroups
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf importDefinition
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentType
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf applicationId

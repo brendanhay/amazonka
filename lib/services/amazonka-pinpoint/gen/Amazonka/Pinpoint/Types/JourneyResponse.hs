@@ -386,6 +386,44 @@ instance Core.FromJSON JourneyResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable JourneyResponse
+instance Prelude.Hashable JourneyResponse where
+  hashWithSalt _salt JourneyResponse' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` activities
+      `Prelude.hashWithSalt` refreshOnSegmentUpdate
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` waitForQuietTime
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` startActivity
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` startCondition
+      `Prelude.hashWithSalt` journeyChannelSettings
+      `Prelude.hashWithSalt` refreshFrequency
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData JourneyResponse
+instance Prelude.NFData JourneyResponse where
+  rnf JourneyResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf refreshOnSegmentUpdate
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf waitForQuietTime
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf startActivity
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf startCondition
+      `Prelude.seq` Prelude.rnf journeyChannelSettings
+      `Prelude.seq` Prelude.rnf refreshFrequency
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf applicationId

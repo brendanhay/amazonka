@@ -181,6 +181,30 @@ instance Core.FromJSON GCMChannelResponse where
             Prelude.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable GCMChannelResponse
+instance Prelude.Hashable GCMChannelResponse where
+  hashWithSalt _salt GCMChannelResponse' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` hasCredential
+      `Prelude.hashWithSalt` credential
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData GCMChannelResponse
+instance Prelude.NFData GCMChannelResponse where
+  rnf GCMChannelResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf credential
+      `Prelude.seq` Prelude.rnf platform

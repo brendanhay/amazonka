@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApnsSandboxChannel
+instance Prelude.Hashable UpdateApnsSandboxChannel where
+  hashWithSalt _salt UpdateApnsSandboxChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` aPNSSandboxChannelRequest
 
-instance Prelude.NFData UpdateApnsSandboxChannel
+instance Prelude.NFData UpdateApnsSandboxChannel where
+  rnf UpdateApnsSandboxChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf aPNSSandboxChannelRequest
 
 instance Core.ToHeaders UpdateApnsSandboxChannel where
   toHeaders =
@@ -190,3 +196,7 @@ updateApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\Update
 instance
   Prelude.NFData
     UpdateApnsSandboxChannelResponse
+  where
+  rnf UpdateApnsSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSSandboxChannelResponse

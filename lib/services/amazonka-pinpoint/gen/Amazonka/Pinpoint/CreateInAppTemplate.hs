@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateInAppTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateInAppTemplate
+instance Prelude.Hashable CreateInAppTemplate where
+  hashWithSalt _salt CreateInAppTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` inAppTemplateRequest
 
-instance Prelude.NFData CreateInAppTemplate
+instance Prelude.NFData CreateInAppTemplate where
+  rnf CreateInAppTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf inAppTemplateRequest
 
 instance Core.ToHeaders CreateInAppTemplate where
   toHeaders =
@@ -188,4 +194,7 @@ createInAppTemplateResponse_httpStatus = Lens.lens (\CreateInAppTemplateResponse
 createInAppTemplateResponse_templateCreateMessageBody :: Lens.Lens' CreateInAppTemplateResponse TemplateCreateMessageBody
 createInAppTemplateResponse_templateCreateMessageBody = Lens.lens (\CreateInAppTemplateResponse' {templateCreateMessageBody} -> templateCreateMessageBody) (\s@CreateInAppTemplateResponse' {} a -> s {templateCreateMessageBody = a} :: CreateInAppTemplateResponse)
 
-instance Prelude.NFData CreateInAppTemplateResponse
+instance Prelude.NFData CreateInAppTemplateResponse where
+  rnf CreateInAppTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf templateCreateMessageBody

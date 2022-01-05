@@ -110,9 +110,15 @@ instance Core.AWSRequest UpdateEndpointsBatch where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEndpointsBatch
+instance Prelude.Hashable UpdateEndpointsBatch where
+  hashWithSalt _salt UpdateEndpointsBatch' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` endpointBatchRequest
 
-instance Prelude.NFData UpdateEndpointsBatch
+instance Prelude.NFData UpdateEndpointsBatch where
+  rnf UpdateEndpointsBatch' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf endpointBatchRequest
 
 instance Core.ToHeaders UpdateEndpointsBatch where
   toHeaders =
@@ -186,4 +192,7 @@ updateEndpointsBatchResponse_httpStatus = Lens.lens (\UpdateEndpointsBatchRespon
 updateEndpointsBatchResponse_messageBody :: Lens.Lens' UpdateEndpointsBatchResponse MessageBody
 updateEndpointsBatchResponse_messageBody = Lens.lens (\UpdateEndpointsBatchResponse' {messageBody} -> messageBody) (\s@UpdateEndpointsBatchResponse' {} a -> s {messageBody = a} :: UpdateEndpointsBatchResponse)
 
-instance Prelude.NFData UpdateEndpointsBatchResponse
+instance Prelude.NFData UpdateEndpointsBatchResponse where
+  rnf UpdateEndpointsBatchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

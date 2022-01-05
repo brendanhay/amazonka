@@ -94,9 +94,15 @@ writeEventStream_roleArn = Lens.lens (\WriteEventStream' {roleArn} -> roleArn) (
 writeEventStream_destinationStreamArn :: Lens.Lens' WriteEventStream Prelude.Text
 writeEventStream_destinationStreamArn = Lens.lens (\WriteEventStream' {destinationStreamArn} -> destinationStreamArn) (\s@WriteEventStream' {} a -> s {destinationStreamArn = a} :: WriteEventStream)
 
-instance Prelude.Hashable WriteEventStream
+instance Prelude.Hashable WriteEventStream where
+  hashWithSalt _salt WriteEventStream' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` destinationStreamArn
 
-instance Prelude.NFData WriteEventStream
+instance Prelude.NFData WriteEventStream where
+  rnf WriteEventStream' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf destinationStreamArn
 
 instance Core.ToJSON WriteEventStream where
   toJSON WriteEventStream' {..} =

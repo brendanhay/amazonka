@@ -88,9 +88,17 @@ instance Core.FromJSON StartCondition where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable StartCondition
+instance Prelude.Hashable StartCondition where
+  hashWithSalt _salt StartCondition' {..} =
+    _salt `Prelude.hashWithSalt` segmentStartCondition
+      `Prelude.hashWithSalt` eventStartCondition
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StartCondition
+instance Prelude.NFData StartCondition where
+  rnf StartCondition' {..} =
+    Prelude.rnf segmentStartCondition
+      `Prelude.seq` Prelude.rnf eventStartCondition
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON StartCondition where
   toJSON StartCondition' {..} =

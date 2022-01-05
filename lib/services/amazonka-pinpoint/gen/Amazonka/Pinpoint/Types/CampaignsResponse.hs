@@ -82,6 +82,12 @@ instance Core.FromJSON CampaignsResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CampaignsResponse
+instance Prelude.Hashable CampaignsResponse where
+  hashWithSalt _salt CampaignsResponse' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` item
 
-instance Prelude.NFData CampaignsResponse
+instance Prelude.NFData CampaignsResponse where
+  rnf CampaignsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

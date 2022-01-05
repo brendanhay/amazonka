@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteEmailChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteEmailChannel
+instance Prelude.Hashable DeleteEmailChannel where
+  hashWithSalt _salt DeleteEmailChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteEmailChannel
+instance Prelude.NFData DeleteEmailChannel where
+  rnf DeleteEmailChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteEmailChannel where
   toHeaders =
@@ -161,4 +165,7 @@ deleteEmailChannelResponse_httpStatus = Lens.lens (\DeleteEmailChannelResponse' 
 deleteEmailChannelResponse_emailChannelResponse :: Lens.Lens' DeleteEmailChannelResponse EmailChannelResponse
 deleteEmailChannelResponse_emailChannelResponse = Lens.lens (\DeleteEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@DeleteEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: DeleteEmailChannelResponse)
 
-instance Prelude.NFData DeleteEmailChannelResponse
+instance Prelude.NFData DeleteEmailChannelResponse where
+  rnf DeleteEmailChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf emailChannelResponse

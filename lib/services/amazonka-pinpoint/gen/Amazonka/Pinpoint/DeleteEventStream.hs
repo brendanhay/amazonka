@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteEventStream where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteEventStream
+instance Prelude.Hashable DeleteEventStream where
+  hashWithSalt _salt DeleteEventStream' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteEventStream
+instance Prelude.NFData DeleteEventStream where
+  rnf DeleteEventStream' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteEventStream where
   toHeaders =
@@ -157,4 +161,7 @@ deleteEventStreamResponse_httpStatus = Lens.lens (\DeleteEventStreamResponse' {h
 deleteEventStreamResponse_eventStream :: Lens.Lens' DeleteEventStreamResponse EventStream
 deleteEventStreamResponse_eventStream = Lens.lens (\DeleteEventStreamResponse' {eventStream} -> eventStream) (\s@DeleteEventStreamResponse' {} a -> s {eventStream = a} :: DeleteEventStreamResponse)
 
-instance Prelude.NFData DeleteEventStreamResponse
+instance Prelude.NFData DeleteEventStreamResponse where
+  rnf DeleteEventStreamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eventStream

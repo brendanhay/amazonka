@@ -72,9 +72,14 @@ instance Core.FromJSON SegmentReference where
             Prelude.<$> (x Core..:? "Version") Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable SegmentReference
+instance Prelude.Hashable SegmentReference where
+  hashWithSalt _salt SegmentReference' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData SegmentReference
+instance Prelude.NFData SegmentReference where
+  rnf SegmentReference' {..} =
+    Prelude.rnf version `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON SegmentReference where
   toJSON SegmentReference' {..} =

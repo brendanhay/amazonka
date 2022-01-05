@@ -145,6 +145,24 @@ instance Core.FromJSON InAppMessageCampaign where
             Prelude.<*> (x Core..:? "DailyCap")
       )
 
-instance Prelude.Hashable InAppMessageCampaign
+instance Prelude.Hashable InAppMessageCampaign where
+  hashWithSalt _salt InAppMessageCampaign' {..} =
+    _salt `Prelude.hashWithSalt` sessionCap
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` treatmentId
+      `Prelude.hashWithSalt` inAppMessage
+      `Prelude.hashWithSalt` totalCap
+      `Prelude.hashWithSalt` dailyCap
 
-instance Prelude.NFData InAppMessageCampaign
+instance Prelude.NFData InAppMessageCampaign where
+  rnf InAppMessageCampaign' {..} =
+    Prelude.rnf sessionCap
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf treatmentId
+      `Prelude.seq` Prelude.rnf inAppMessage
+      `Prelude.seq` Prelude.rnf totalCap
+      `Prelude.seq` Prelude.rnf dailyCap

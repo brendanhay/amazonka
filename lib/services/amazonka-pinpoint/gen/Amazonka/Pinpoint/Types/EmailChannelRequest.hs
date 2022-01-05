@@ -114,9 +114,21 @@ emailChannelRequest_fromAddress = Lens.lens (\EmailChannelRequest' {fromAddress}
 emailChannelRequest_identity :: Lens.Lens' EmailChannelRequest Prelude.Text
 emailChannelRequest_identity = Lens.lens (\EmailChannelRequest' {identity} -> identity) (\s@EmailChannelRequest' {} a -> s {identity = a} :: EmailChannelRequest)
 
-instance Prelude.Hashable EmailChannelRequest
+instance Prelude.Hashable EmailChannelRequest where
+  hashWithSalt _salt EmailChannelRequest' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` configurationSet
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` identity
 
-instance Prelude.NFData EmailChannelRequest
+instance Prelude.NFData EmailChannelRequest where
+  rnf EmailChannelRequest' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf configurationSet
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf identity
 
 instance Core.ToJSON EmailChannelRequest where
   toJSON EmailChannelRequest' {..} =

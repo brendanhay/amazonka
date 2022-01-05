@@ -188,6 +188,30 @@ instance Core.FromJSON InAppTemplateResponse where
             Prelude.<*> (x Core..: "TemplateType")
       )
 
-instance Prelude.Hashable InAppTemplateResponse
+instance Prelude.Hashable InAppTemplateResponse where
+  hashWithSalt _salt InAppTemplateResponse' {..} =
+    _salt `Prelude.hashWithSalt` layout
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` customConfig
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateType
 
-instance Prelude.NFData InAppTemplateResponse
+instance Prelude.NFData InAppTemplateResponse where
+  rnf InAppTemplateResponse' {..} =
+    Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf customConfig
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateType

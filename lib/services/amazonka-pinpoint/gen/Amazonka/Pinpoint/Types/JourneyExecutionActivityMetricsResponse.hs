@@ -215,7 +215,25 @@ instance
 instance
   Prelude.Hashable
     JourneyExecutionActivityMetricsResponse
+  where
+  hashWithSalt
+    _salt
+    JourneyExecutionActivityMetricsResponse' {..} =
+      _salt `Prelude.hashWithSalt` metrics
+        `Prelude.hashWithSalt` journeyId
+        `Prelude.hashWithSalt` lastEvaluatedTime
+        `Prelude.hashWithSalt` journeyActivityId
+        `Prelude.hashWithSalt` activityType
+        `Prelude.hashWithSalt` applicationId
 
 instance
   Prelude.NFData
     JourneyExecutionActivityMetricsResponse
+  where
+  rnf JourneyExecutionActivityMetricsResponse' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf lastEvaluatedTime
+      `Prelude.seq` Prelude.rnf journeyActivityId
+      `Prelude.seq` Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf applicationId

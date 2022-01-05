@@ -77,9 +77,12 @@ instance Core.FromJSON TagsModel where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TagsModel
+instance Prelude.Hashable TagsModel where
+  hashWithSalt _salt TagsModel' {..} =
+    _salt `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagsModel
+instance Prelude.NFData TagsModel where
+  rnf TagsModel' {..} = Prelude.rnf tags
 
 instance Core.ToJSON TagsModel where
   toJSON TagsModel' {..} =

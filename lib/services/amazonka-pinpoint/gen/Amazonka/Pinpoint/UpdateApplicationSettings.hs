@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateApplicationSettings where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApplicationSettings
+instance Prelude.Hashable UpdateApplicationSettings where
+  hashWithSalt _salt UpdateApplicationSettings' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` writeApplicationSettingsRequest
 
-instance Prelude.NFData UpdateApplicationSettings
+instance Prelude.NFData UpdateApplicationSettings where
+  rnf UpdateApplicationSettings' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf writeApplicationSettingsRequest
 
 instance Core.ToHeaders UpdateApplicationSettings where
   toHeaders =
@@ -186,3 +192,7 @@ updateApplicationSettingsResponse_applicationSettingsResource = Lens.lens (\Upda
 instance
   Prelude.NFData
     UpdateApplicationSettingsResponse
+  where
+  rnf UpdateApplicationSettingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationSettingsResource

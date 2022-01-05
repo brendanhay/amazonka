@@ -93,9 +93,13 @@ instance Core.AWSRequest GetApnsVoipSandboxChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApnsVoipSandboxChannel
+instance Prelude.Hashable GetApnsVoipSandboxChannel where
+  hashWithSalt _salt GetApnsVoipSandboxChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetApnsVoipSandboxChannel
+instance Prelude.NFData GetApnsVoipSandboxChannel where
+  rnf GetApnsVoipSandboxChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders GetApnsVoipSandboxChannel where
   toHeaders =
@@ -165,3 +169,7 @@ getApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse = Lens.lens (\G
 instance
   Prelude.NFData
     GetApnsVoipSandboxChannelResponse
+  where
+  rnf GetApnsVoipSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse

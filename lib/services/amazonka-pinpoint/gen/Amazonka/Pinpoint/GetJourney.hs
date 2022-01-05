@@ -102,9 +102,15 @@ instance Core.AWSRequest GetJourney where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetJourney
+instance Prelude.Hashable GetJourney where
+  hashWithSalt _salt GetJourney' {..} =
+    _salt `Prelude.hashWithSalt` journeyId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetJourney
+instance Prelude.NFData GetJourney where
+  rnf GetJourney' {..} =
+    Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders GetJourney where
   toHeaders =
@@ -168,4 +174,7 @@ getJourneyResponse_httpStatus = Lens.lens (\GetJourneyResponse' {httpStatus} -> 
 getJourneyResponse_journeyResponse :: Lens.Lens' GetJourneyResponse JourneyResponse
 getJourneyResponse_journeyResponse = Lens.lens (\GetJourneyResponse' {journeyResponse} -> journeyResponse) (\s@GetJourneyResponse' {} a -> s {journeyResponse = a} :: GetJourneyResponse)
 
-instance Prelude.NFData GetJourneyResponse
+instance Prelude.NFData GetJourneyResponse where
+  rnf GetJourneyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyResponse

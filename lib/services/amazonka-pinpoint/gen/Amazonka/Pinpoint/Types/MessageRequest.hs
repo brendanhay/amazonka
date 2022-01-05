@@ -157,9 +157,23 @@ messageRequest_endpoints = Lens.lens (\MessageRequest' {endpoints} -> endpoints)
 messageRequest_messageConfiguration :: Lens.Lens' MessageRequest DirectMessageConfiguration
 messageRequest_messageConfiguration = Lens.lens (\MessageRequest' {messageConfiguration} -> messageConfiguration) (\s@MessageRequest' {} a -> s {messageConfiguration = a} :: MessageRequest)
 
-instance Prelude.Hashable MessageRequest
+instance Prelude.Hashable MessageRequest where
+  hashWithSalt _salt MessageRequest' {..} =
+    _salt `Prelude.hashWithSalt` traceId
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` addresses
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` messageConfiguration
 
-instance Prelude.NFData MessageRequest
+instance Prelude.NFData MessageRequest where
+  rnf MessageRequest' {..} =
+    Prelude.rnf traceId
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf messageConfiguration
 
 instance Core.ToJSON MessageRequest where
   toJSON MessageRequest' {..} =

@@ -110,8 +110,15 @@ instance Core.AWSRequest GetRecommenderConfigurations where
 instance
   Prelude.Hashable
     GetRecommenderConfigurations
+  where
+  hashWithSalt _salt GetRecommenderConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData GetRecommenderConfigurations
+instance Prelude.NFData GetRecommenderConfigurations where
+  rnf GetRecommenderConfigurations' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders GetRecommenderConfigurations where
   toHeaders =
@@ -178,3 +185,7 @@ getRecommenderConfigurationsResponse_listRecommenderConfigurationsResponse = Len
 instance
   Prelude.NFData
     GetRecommenderConfigurationsResponse
+  where
+  rnf GetRecommenderConfigurationsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf listRecommenderConfigurationsResponse

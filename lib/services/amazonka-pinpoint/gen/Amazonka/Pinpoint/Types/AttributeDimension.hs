@@ -143,9 +143,15 @@ instance Core.FromJSON AttributeDimension where
             Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AttributeDimension
+instance Prelude.Hashable AttributeDimension where
+  hashWithSalt _salt AttributeDimension' {..} =
+    _salt `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData AttributeDimension
+instance Prelude.NFData AttributeDimension where
+  rnf AttributeDimension' {..} =
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =

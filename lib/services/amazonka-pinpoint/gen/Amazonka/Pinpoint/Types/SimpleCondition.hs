@@ -91,9 +91,17 @@ instance Core.FromJSON SimpleCondition where
             Prelude.<*> (x Core..:? "SegmentCondition")
       )
 
-instance Prelude.Hashable SimpleCondition
+instance Prelude.Hashable SimpleCondition where
+  hashWithSalt _salt SimpleCondition' {..} =
+    _salt `Prelude.hashWithSalt` segmentDimensions
+      `Prelude.hashWithSalt` eventCondition
+      `Prelude.hashWithSalt` segmentCondition
 
-instance Prelude.NFData SimpleCondition
+instance Prelude.NFData SimpleCondition where
+  rnf SimpleCondition' {..} =
+    Prelude.rnf segmentDimensions
+      `Prelude.seq` Prelude.rnf eventCondition
+      `Prelude.seq` Prelude.rnf segmentCondition
 
 instance Core.ToJSON SimpleCondition where
   toJSON SimpleCondition' {..} =

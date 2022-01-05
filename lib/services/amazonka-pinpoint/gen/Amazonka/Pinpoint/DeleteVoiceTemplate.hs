@@ -171,9 +171,15 @@ instance Core.AWSRequest DeleteVoiceTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteVoiceTemplate
+instance Prelude.Hashable DeleteVoiceTemplate where
+  hashWithSalt _salt DeleteVoiceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DeleteVoiceTemplate
+instance Prelude.NFData DeleteVoiceTemplate where
+  rnf DeleteVoiceTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteVoiceTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ deleteVoiceTemplateResponse_httpStatus = Lens.lens (\DeleteVoiceTemplateResponse
 deleteVoiceTemplateResponse_messageBody :: Lens.Lens' DeleteVoiceTemplateResponse MessageBody
 deleteVoiceTemplateResponse_messageBody = Lens.lens (\DeleteVoiceTemplateResponse' {messageBody} -> messageBody) (\s@DeleteVoiceTemplateResponse' {} a -> s {messageBody = a} :: DeleteVoiceTemplateResponse)
 
-instance Prelude.NFData DeleteVoiceTemplateResponse
+instance Prelude.NFData DeleteVoiceTemplateResponse where
+  rnf DeleteVoiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

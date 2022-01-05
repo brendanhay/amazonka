@@ -85,6 +85,14 @@ instance Core.FromJSON TemplateCreateMessageBody where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable TemplateCreateMessageBody
+instance Prelude.Hashable TemplateCreateMessageBody where
+  hashWithSalt _salt TemplateCreateMessageBody' {..} =
+    _salt `Prelude.hashWithSalt` requestID
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData TemplateCreateMessageBody
+instance Prelude.NFData TemplateCreateMessageBody where
+  rnf TemplateCreateMessageBody' {..} =
+    Prelude.rnf requestID
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf message

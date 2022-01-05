@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateBaiduChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateBaiduChannel
+instance Prelude.Hashable UpdateBaiduChannel where
+  hashWithSalt _salt UpdateBaiduChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` baiduChannelRequest
 
-instance Prelude.NFData UpdateBaiduChannel
+instance Prelude.NFData UpdateBaiduChannel where
+  rnf UpdateBaiduChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf baiduChannelRequest
 
 instance Core.ToHeaders UpdateBaiduChannel where
   toHeaders =
@@ -183,4 +189,7 @@ updateBaiduChannelResponse_httpStatus = Lens.lens (\UpdateBaiduChannelResponse' 
 updateBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' UpdateBaiduChannelResponse BaiduChannelResponse
 updateBaiduChannelResponse_baiduChannelResponse = Lens.lens (\UpdateBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@UpdateBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: UpdateBaiduChannelResponse)
 
-instance Prelude.NFData UpdateBaiduChannelResponse
+instance Prelude.NFData UpdateBaiduChannelResponse where
+  rnf UpdateBaiduChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf baiduChannelResponse

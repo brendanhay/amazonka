@@ -85,9 +85,15 @@ instance Core.FromJSON WaitTime where
             Prelude.<*> (x Core..:? "WaitUntil")
       )
 
-instance Prelude.Hashable WaitTime
+instance Prelude.Hashable WaitTime where
+  hashWithSalt _salt WaitTime' {..} =
+    _salt `Prelude.hashWithSalt` waitFor
+      `Prelude.hashWithSalt` waitUntil
 
-instance Prelude.NFData WaitTime
+instance Prelude.NFData WaitTime where
+  rnf WaitTime' {..} =
+    Prelude.rnf waitFor
+      `Prelude.seq` Prelude.rnf waitUntil
 
 instance Core.ToJSON WaitTime where
   toJSON WaitTime' {..} =

@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     UpdateRecommenderConfiguration'
+  where
+  hashWithSalt
+    _salt
+    UpdateRecommenderConfiguration'' {..} =
+      _salt `Prelude.hashWithSalt` recommenderId
+        `Prelude.hashWithSalt` updateRecommenderConfiguration
 
 instance
   Prelude.NFData
     UpdateRecommenderConfiguration'
+  where
+  rnf UpdateRecommenderConfiguration'' {..} =
+    Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf updateRecommenderConfiguration
 
 instance
   Core.ToHeaders
@@ -199,3 +209,7 @@ updateRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.l
 instance
   Prelude.NFData
     UpdateRecommenderConfigurationResponse
+  where
+  rnf UpdateRecommenderConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse

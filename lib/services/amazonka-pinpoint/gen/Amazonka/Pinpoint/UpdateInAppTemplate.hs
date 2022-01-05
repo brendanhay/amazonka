@@ -218,9 +218,19 @@ instance Core.AWSRequest UpdateInAppTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateInAppTemplate
+instance Prelude.Hashable UpdateInAppTemplate where
+  hashWithSalt _salt UpdateInAppTemplate' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` createNewVersion
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` inAppTemplateRequest
 
-instance Prelude.NFData UpdateInAppTemplate
+instance Prelude.NFData UpdateInAppTemplate where
+  rnf UpdateInAppTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf createNewVersion
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf inAppTemplateRequest
 
 instance Core.ToHeaders UpdateInAppTemplate where
   toHeaders =
@@ -298,4 +308,7 @@ updateInAppTemplateResponse_httpStatus = Lens.lens (\UpdateInAppTemplateResponse
 updateInAppTemplateResponse_messageBody :: Lens.Lens' UpdateInAppTemplateResponse MessageBody
 updateInAppTemplateResponse_messageBody = Lens.lens (\UpdateInAppTemplateResponse' {messageBody} -> messageBody) (\s@UpdateInAppTemplateResponse' {} a -> s {messageBody = a} :: UpdateInAppTemplateResponse)
 
-instance Prelude.NFData UpdateInAppTemplateResponse
+instance Prelude.NFData UpdateInAppTemplateResponse where
+  rnf UpdateInAppTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

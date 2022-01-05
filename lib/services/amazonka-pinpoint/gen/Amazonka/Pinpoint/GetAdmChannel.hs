@@ -90,9 +90,12 @@ instance Core.AWSRequest GetAdmChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetAdmChannel
+instance Prelude.Hashable GetAdmChannel where
+  hashWithSalt _salt GetAdmChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetAdmChannel
+instance Prelude.NFData GetAdmChannel where
+  rnf GetAdmChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetAdmChannel where
   toHeaders =
@@ -157,4 +160,7 @@ getAdmChannelResponse_httpStatus = Lens.lens (\GetAdmChannelResponse' {httpStatu
 getAdmChannelResponse_aDMChannelResponse :: Lens.Lens' GetAdmChannelResponse ADMChannelResponse
 getAdmChannelResponse_aDMChannelResponse = Lens.lens (\GetAdmChannelResponse' {aDMChannelResponse} -> aDMChannelResponse) (\s@GetAdmChannelResponse' {} a -> s {aDMChannelResponse = a} :: GetAdmChannelResponse)
 
-instance Prelude.NFData GetAdmChannelResponse
+instance Prelude.NFData GetAdmChannelResponse where
+  rnf GetAdmChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aDMChannelResponse

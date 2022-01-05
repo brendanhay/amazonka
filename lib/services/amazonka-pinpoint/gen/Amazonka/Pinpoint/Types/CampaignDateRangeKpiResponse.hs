@@ -179,5 +179,22 @@ instance Core.FromJSON CampaignDateRangeKpiResponse where
 instance
   Prelude.Hashable
     CampaignDateRangeKpiResponse
+  where
+  hashWithSalt _salt CampaignDateRangeKpiResponse' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` kpiResult
+      `Prelude.hashWithSalt` kpiName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData CampaignDateRangeKpiResponse
+instance Prelude.NFData CampaignDateRangeKpiResponse where
+  rnf CampaignDateRangeKpiResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf kpiResult
+      `Prelude.seq` Prelude.rnf kpiName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf applicationId

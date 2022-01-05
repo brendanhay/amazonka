@@ -241,6 +241,38 @@ instance Core.FromJSON EmailChannelResponse where
             Prelude.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable EmailChannelResponse
+instance Prelude.Hashable EmailChannelResponse where
+  hashWithSalt _salt EmailChannelResponse' {..} =
+    _salt `Prelude.hashWithSalt` messagesPerSecond
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` configurationSet
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` hasCredential
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData EmailChannelResponse
+instance Prelude.NFData EmailChannelResponse where
+  rnf EmailChannelResponse' {..} =
+    Prelude.rnf messagesPerSecond
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf configurationSet
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf platform

@@ -51,9 +51,12 @@ newVoiceChannelRequest =
 voiceChannelRequest_enabled :: Lens.Lens' VoiceChannelRequest (Prelude.Maybe Prelude.Bool)
 voiceChannelRequest_enabled = Lens.lens (\VoiceChannelRequest' {enabled} -> enabled) (\s@VoiceChannelRequest' {} a -> s {enabled = a} :: VoiceChannelRequest)
 
-instance Prelude.Hashable VoiceChannelRequest
+instance Prelude.Hashable VoiceChannelRequest where
+  hashWithSalt _salt VoiceChannelRequest' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData VoiceChannelRequest
+instance Prelude.NFData VoiceChannelRequest where
+  rnf VoiceChannelRequest' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON VoiceChannelRequest where
   toJSON VoiceChannelRequest' {..} =

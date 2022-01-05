@@ -80,9 +80,15 @@ instance Core.FromJSON Condition where
             Prelude.<*> (x Core..:? "Conditions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt _salt Condition' {..} =
+    _salt `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` conditions
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf conditions
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

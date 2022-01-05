@@ -76,9 +76,15 @@ instance Core.FromJSON GPSPointDimension where
             Prelude.<*> (x Core..: "Coordinates")
       )
 
-instance Prelude.Hashable GPSPointDimension
+instance Prelude.Hashable GPSPointDimension where
+  hashWithSalt _salt GPSPointDimension' {..} =
+    _salt `Prelude.hashWithSalt` rangeInKilometers
+      `Prelude.hashWithSalt` coordinates
 
-instance Prelude.NFData GPSPointDimension
+instance Prelude.NFData GPSPointDimension where
+  rnf GPSPointDimension' {..} =
+    Prelude.rnf rangeInKilometers
+      `Prelude.seq` Prelude.rnf coordinates
 
 instance Core.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =

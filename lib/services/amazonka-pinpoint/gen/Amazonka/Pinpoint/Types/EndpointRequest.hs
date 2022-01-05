@@ -245,9 +245,33 @@ endpointRequest_optOut = Lens.lens (\EndpointRequest' {optOut} -> optOut) (\s@En
 endpointRequest_channelType :: Lens.Lens' EndpointRequest (Prelude.Maybe ChannelType)
 endpointRequest_channelType = Lens.lens (\EndpointRequest' {channelType} -> channelType) (\s@EndpointRequest' {} a -> s {channelType = a} :: EndpointRequest)
 
-instance Prelude.Hashable EndpointRequest
+instance Prelude.Hashable EndpointRequest where
+  hashWithSalt _salt EndpointRequest' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` demographic
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` effectiveDate
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` optOut
+      `Prelude.hashWithSalt` channelType
 
-instance Prelude.NFData EndpointRequest
+instance Prelude.NFData EndpointRequest where
+  rnf EndpointRequest' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf demographic
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf effectiveDate
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf optOut
+      `Prelude.seq` Prelude.rnf channelType
 
 instance Core.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =

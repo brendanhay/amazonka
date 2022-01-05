@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateAdmChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateAdmChannel
+instance Prelude.Hashable UpdateAdmChannel where
+  hashWithSalt _salt UpdateAdmChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` aDMChannelRequest
 
-instance Prelude.NFData UpdateAdmChannel
+instance Prelude.NFData UpdateAdmChannel where
+  rnf UpdateAdmChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf aDMChannelRequest
 
 instance Core.ToHeaders UpdateAdmChannel where
   toHeaders =
@@ -182,4 +188,7 @@ updateAdmChannelResponse_httpStatus = Lens.lens (\UpdateAdmChannelResponse' {htt
 updateAdmChannelResponse_aDMChannelResponse :: Lens.Lens' UpdateAdmChannelResponse ADMChannelResponse
 updateAdmChannelResponse_aDMChannelResponse = Lens.lens (\UpdateAdmChannelResponse' {aDMChannelResponse} -> aDMChannelResponse) (\s@UpdateAdmChannelResponse' {} a -> s {aDMChannelResponse = a} :: UpdateAdmChannelResponse)
 
-instance Prelude.NFData UpdateAdmChannelResponse
+instance Prelude.NFData UpdateAdmChannelResponse where
+  rnf UpdateAdmChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aDMChannelResponse

@@ -219,9 +219,19 @@ instance Core.AWSRequest UpdatePushTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdatePushTemplate
+instance Prelude.Hashable UpdatePushTemplate where
+  hashWithSalt _salt UpdatePushTemplate' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` createNewVersion
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` pushNotificationTemplateRequest
 
-instance Prelude.NFData UpdatePushTemplate
+instance Prelude.NFData UpdatePushTemplate where
+  rnf UpdatePushTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf createNewVersion
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf pushNotificationTemplateRequest
 
 instance Core.ToHeaders UpdatePushTemplate where
   toHeaders =
@@ -299,4 +309,7 @@ updatePushTemplateResponse_httpStatus = Lens.lens (\UpdatePushTemplateResponse' 
 updatePushTemplateResponse_messageBody :: Lens.Lens' UpdatePushTemplateResponse MessageBody
 updatePushTemplateResponse_messageBody = Lens.lens (\UpdatePushTemplateResponse' {messageBody} -> messageBody) (\s@UpdatePushTemplateResponse' {} a -> s {messageBody = a} :: UpdatePushTemplateResponse)
 
-instance Prelude.NFData UpdatePushTemplateResponse
+instance Prelude.NFData UpdatePushTemplateResponse where
+  rnf UpdatePushTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

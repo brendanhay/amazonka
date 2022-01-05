@@ -91,9 +91,17 @@ instance Core.FromJSON InAppMessageBodyConfig where
             Prelude.<*> (x Core..: "Body")
       )
 
-instance Prelude.Hashable InAppMessageBodyConfig
+instance Prelude.Hashable InAppMessageBodyConfig where
+  hashWithSalt _salt InAppMessageBodyConfig' {..} =
+    _salt `Prelude.hashWithSalt` alignment
+      `Prelude.hashWithSalt` textColor
+      `Prelude.hashWithSalt` body
 
-instance Prelude.NFData InAppMessageBodyConfig
+instance Prelude.NFData InAppMessageBodyConfig where
+  rnf InAppMessageBodyConfig' {..} =
+    Prelude.rnf alignment
+      `Prelude.seq` Prelude.rnf textColor
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToJSON InAppMessageBodyConfig where
   toJSON InAppMessageBodyConfig' {..} =

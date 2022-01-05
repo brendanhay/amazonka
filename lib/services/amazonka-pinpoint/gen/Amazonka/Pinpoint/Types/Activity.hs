@@ -214,9 +214,33 @@ instance Core.FromJSON Activity where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Activity
+instance Prelude.Hashable Activity where
+  hashWithSalt _salt Activity' {..} =
+    _salt `Prelude.hashWithSalt` conditionalSplit
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` multiCondition
+      `Prelude.hashWithSalt` contactCenter
+      `Prelude.hashWithSalt` custom
+      `Prelude.hashWithSalt` wait
+      `Prelude.hashWithSalt` randomSplit
+      `Prelude.hashWithSalt` holdout
+      `Prelude.hashWithSalt` sms
+      `Prelude.hashWithSalt` push
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Activity
+instance Prelude.NFData Activity where
+  rnf Activity' {..} =
+    Prelude.rnf conditionalSplit
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf multiCondition
+      `Prelude.seq` Prelude.rnf contactCenter
+      `Prelude.seq` Prelude.rnf custom
+      `Prelude.seq` Prelude.rnf wait
+      `Prelude.seq` Prelude.rnf randomSplit
+      `Prelude.seq` Prelude.rnf holdout
+      `Prelude.seq` Prelude.rnf sms
+      `Prelude.seq` Prelude.rnf push
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON Activity where
   toJSON Activity' {..} =

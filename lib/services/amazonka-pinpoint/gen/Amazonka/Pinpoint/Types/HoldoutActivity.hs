@@ -92,9 +92,15 @@ instance Core.FromJSON HoldoutActivity where
             Prelude.<*> (x Core..: "Percentage")
       )
 
-instance Prelude.Hashable HoldoutActivity
+instance Prelude.Hashable HoldoutActivity where
+  hashWithSalt _salt HoldoutActivity' {..} =
+    _salt `Prelude.hashWithSalt` nextActivity
+      `Prelude.hashWithSalt` percentage
 
-instance Prelude.NFData HoldoutActivity
+instance Prelude.NFData HoldoutActivity where
+  rnf HoldoutActivity' {..} =
+    Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf percentage
 
 instance Core.ToJSON HoldoutActivity where
   toJSON HoldoutActivity' {..} =

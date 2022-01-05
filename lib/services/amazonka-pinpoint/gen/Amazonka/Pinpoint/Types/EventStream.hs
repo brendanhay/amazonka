@@ -157,6 +157,20 @@ instance Core.FromJSON EventStream where
             Prelude.<*> (x Core..: "DestinationStreamArn")
       )
 
-instance Prelude.Hashable EventStream
+instance Prelude.Hashable EventStream where
+  hashWithSalt _salt EventStream' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedBy
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` destinationStreamArn
 
-instance Prelude.NFData EventStream
+instance Prelude.NFData EventStream where
+  rnf EventStream' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf destinationStreamArn

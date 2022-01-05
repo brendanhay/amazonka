@@ -114,9 +114,23 @@ instance Core.FromJSON SegmentDemographics where
             Prelude.<*> (x Core..:? "DeviceType")
       )
 
-instance Prelude.Hashable SegmentDemographics
+instance Prelude.Hashable SegmentDemographics where
+  hashWithSalt _salt SegmentDemographics' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` appVersion
+      `Prelude.hashWithSalt` channel
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` make
+      `Prelude.hashWithSalt` deviceType
 
-instance Prelude.NFData SegmentDemographics
+instance Prelude.NFData SegmentDemographics where
+  rnf SegmentDemographics' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf appVersion
+      `Prelude.seq` Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf make
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToJSON SegmentDemographics where
   toJSON SegmentDemographics' {..} =

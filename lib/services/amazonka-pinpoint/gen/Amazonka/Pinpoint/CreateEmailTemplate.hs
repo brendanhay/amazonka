@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateEmailTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateEmailTemplate
+instance Prelude.Hashable CreateEmailTemplate where
+  hashWithSalt _salt CreateEmailTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` emailTemplateRequest
 
-instance Prelude.NFData CreateEmailTemplate
+instance Prelude.NFData CreateEmailTemplate where
+  rnf CreateEmailTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf emailTemplateRequest
 
 instance Core.ToHeaders CreateEmailTemplate where
   toHeaders =
@@ -188,4 +194,7 @@ createEmailTemplateResponse_httpStatus = Lens.lens (\CreateEmailTemplateResponse
 createEmailTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateEmailTemplateResponse CreateTemplateMessageBody
 createEmailTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateEmailTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateEmailTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateEmailTemplateResponse)
 
-instance Prelude.NFData CreateEmailTemplateResponse
+instance Prelude.NFData CreateEmailTemplateResponse where
+  rnf CreateEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTemplateMessageBody

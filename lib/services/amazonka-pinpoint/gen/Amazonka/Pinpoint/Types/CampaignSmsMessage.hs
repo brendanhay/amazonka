@@ -144,9 +144,23 @@ instance Core.FromJSON CampaignSmsMessage where
             Prelude.<*> (x Core..:? "EntityId")
       )
 
-instance Prelude.Hashable CampaignSmsMessage
+instance Prelude.Hashable CampaignSmsMessage where
+  hashWithSalt _salt CampaignSmsMessage' {..} =
+    _salt `Prelude.hashWithSalt` originationNumber
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` entityId
 
-instance Prelude.NFData CampaignSmsMessage
+instance Prelude.NFData CampaignSmsMessage where
+  rnf CampaignSmsMessage' {..} =
+    Prelude.rnf originationNumber
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf senderId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToJSON CampaignSmsMessage where
   toJSON CampaignSmsMessage' {..} =

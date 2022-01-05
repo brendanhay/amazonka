@@ -76,9 +76,15 @@ instance Core.FromJSON EventCondition where
             Prelude.<*> (x Core..:? "MessageActivity")
       )
 
-instance Prelude.Hashable EventCondition
+instance Prelude.Hashable EventCondition where
+  hashWithSalt _salt EventCondition' {..} =
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` messageActivity
 
-instance Prelude.NFData EventCondition
+instance Prelude.NFData EventCondition where
+  rnf EventCondition' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf messageActivity
 
 instance Core.ToJSON EventCondition where
   toJSON EventCondition' {..} =

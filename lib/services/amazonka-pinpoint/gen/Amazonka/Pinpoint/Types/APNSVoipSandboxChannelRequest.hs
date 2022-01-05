@@ -151,8 +151,27 @@ aPNSVoipSandboxChannelRequest_tokenKeyId = Lens.lens (\APNSVoipSandboxChannelReq
 instance
   Prelude.Hashable
     APNSVoipSandboxChannelRequest
+  where
+  hashWithSalt _salt APNSVoipSandboxChannelRequest' {..} =
+    _salt `Prelude.hashWithSalt` tokenKey
+      `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` teamId
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` defaultAuthenticationMethod
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` tokenKeyId
 
-instance Prelude.NFData APNSVoipSandboxChannelRequest
+instance Prelude.NFData APNSVoipSandboxChannelRequest where
+  rnf APNSVoipSandboxChannelRequest' {..} =
+    Prelude.rnf tokenKey
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf teamId
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf tokenKeyId
 
 instance Core.ToJSON APNSVoipSandboxChannelRequest where
   toJSON APNSVoipSandboxChannelRequest' {..} =

@@ -71,6 +71,12 @@ instance Core.FromJSON MessageBody where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable MessageBody
+instance Prelude.Hashable MessageBody where
+  hashWithSalt _salt MessageBody' {..} =
+    _salt `Prelude.hashWithSalt` requestID
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData MessageBody
+instance Prelude.NFData MessageBody where
+  rnf MessageBody' {..} =
+    Prelude.rnf requestID
+      `Prelude.seq` Prelude.rnf message

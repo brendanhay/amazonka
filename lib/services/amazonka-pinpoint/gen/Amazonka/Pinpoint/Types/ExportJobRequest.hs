@@ -108,9 +108,19 @@ exportJobRequest_s3UrlPrefix = Lens.lens (\ExportJobRequest' {s3UrlPrefix} -> s3
 exportJobRequest_roleArn :: Lens.Lens' ExportJobRequest Prelude.Text
 exportJobRequest_roleArn = Lens.lens (\ExportJobRequest' {roleArn} -> roleArn) (\s@ExportJobRequest' {} a -> s {roleArn = a} :: ExportJobRequest)
 
-instance Prelude.Hashable ExportJobRequest
+instance Prelude.Hashable ExportJobRequest where
+  hashWithSalt _salt ExportJobRequest' {..} =
+    _salt `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` segmentVersion
+      `Prelude.hashWithSalt` s3UrlPrefix
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ExportJobRequest
+instance Prelude.NFData ExportJobRequest where
+  rnf ExportJobRequest' {..} =
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf segmentVersion
+      `Prelude.seq` Prelude.rnf s3UrlPrefix
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON ExportJobRequest where
   toJSON ExportJobRequest' {..} =

@@ -66,9 +66,13 @@ newUpdateAttributesRequest =
 updateAttributesRequest_blacklist :: Lens.Lens' UpdateAttributesRequest (Prelude.Maybe [Prelude.Text])
 updateAttributesRequest_blacklist = Lens.lens (\UpdateAttributesRequest' {blacklist} -> blacklist) (\s@UpdateAttributesRequest' {} a -> s {blacklist = a} :: UpdateAttributesRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable UpdateAttributesRequest
+instance Prelude.Hashable UpdateAttributesRequest where
+  hashWithSalt _salt UpdateAttributesRequest' {..} =
+    _salt `Prelude.hashWithSalt` blacklist
 
-instance Prelude.NFData UpdateAttributesRequest
+instance Prelude.NFData UpdateAttributesRequest where
+  rnf UpdateAttributesRequest' {..} =
+    Prelude.rnf blacklist
 
 instance Core.ToJSON UpdateAttributesRequest where
   toJSON UpdateAttributesRequest' {..} =

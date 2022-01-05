@@ -258,9 +258,39 @@ baiduMessage_title = Lens.lens (\BaiduMessage' {title} -> title) (\s@BaiduMessag
 baiduMessage_iconReference :: Lens.Lens' BaiduMessage (Prelude.Maybe Prelude.Text)
 baiduMessage_iconReference = Lens.lens (\BaiduMessage' {iconReference} -> iconReference) (\s@BaiduMessage' {} a -> s {iconReference = a} :: BaiduMessage)
 
-instance Prelude.Hashable BaiduMessage
+instance Prelude.Hashable BaiduMessage where
+  hashWithSalt _salt BaiduMessage' {..} =
+    _salt `Prelude.hashWithSalt` substitutions
+      `Prelude.hashWithSalt` silentPush
+      `Prelude.hashWithSalt` imageIconUrl
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` smallImageIconUrl
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` sound
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` iconReference
 
-instance Prelude.NFData BaiduMessage
+instance Prelude.NFData BaiduMessage where
+  rnf BaiduMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf silentPush
+      `Prelude.seq` Prelude.rnf imageIconUrl
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf smallImageIconUrl
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf iconReference
 
 instance Core.ToJSON BaiduMessage where
   toJSON BaiduMessage' {..} =

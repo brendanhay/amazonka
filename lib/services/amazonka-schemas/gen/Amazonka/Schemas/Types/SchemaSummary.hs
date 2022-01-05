@@ -101,6 +101,18 @@ instance Core.FromJSON SchemaSummary where
             Prelude.<*> (x Core..:? "VersionCount")
       )
 
-instance Prelude.Hashable SchemaSummary
+instance Prelude.Hashable SchemaSummary where
+  hashWithSalt _salt SchemaSummary' {..} =
+    _salt `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` versionCount
 
-instance Prelude.NFData SchemaSummary
+instance Prelude.NFData SchemaSummary where
+  rnf SchemaSummary' {..} =
+    Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionCount

@@ -127,9 +127,19 @@ instance Core.AWSRequest ExportSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportSchema
+instance Prelude.Hashable ExportSchema where
+  hashWithSalt _salt ExportSchema' {..} =
+    _salt `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ExportSchema
+instance Prelude.NFData ExportSchema where
+  rnf ExportSchema' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders ExportSchema where
   toHeaders =
@@ -229,4 +239,11 @@ exportSchemaResponse_type = Lens.lens (\ExportSchemaResponse' {type'} -> type') 
 exportSchemaResponse_httpStatus :: Lens.Lens' ExportSchemaResponse Prelude.Int
 exportSchemaResponse_httpStatus = Lens.lens (\ExportSchemaResponse' {httpStatus} -> httpStatus) (\s@ExportSchemaResponse' {} a -> s {httpStatus = a} :: ExportSchemaResponse)
 
-instance Prelude.NFData ExportSchemaResponse
+instance Prelude.NFData ExportSchemaResponse where
+  rnf ExportSchemaResponse' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpStatus

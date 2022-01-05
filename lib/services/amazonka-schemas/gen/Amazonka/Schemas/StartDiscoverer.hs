@@ -88,9 +88,12 @@ instance Core.AWSRequest StartDiscoverer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDiscoverer
+instance Prelude.Hashable StartDiscoverer where
+  hashWithSalt _salt StartDiscoverer' {..} =
+    _salt `Prelude.hashWithSalt` discovererId
 
-instance Prelude.NFData StartDiscoverer
+instance Prelude.NFData StartDiscoverer where
+  rnf StartDiscoverer' {..} = Prelude.rnf discovererId
 
 instance Core.ToHeaders StartDiscoverer where
   toHeaders =
@@ -164,4 +167,8 @@ startDiscovererResponse_discovererId = Lens.lens (\StartDiscovererResponse' {dis
 startDiscovererResponse_httpStatus :: Lens.Lens' StartDiscovererResponse Prelude.Int
 startDiscovererResponse_httpStatus = Lens.lens (\StartDiscovererResponse' {httpStatus} -> httpStatus) (\s@StartDiscovererResponse' {} a -> s {httpStatus = a} :: StartDiscovererResponse)
 
-instance Prelude.NFData StartDiscovererResponse
+instance Prelude.NFData StartDiscovererResponse where
+  rnf StartDiscovererResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf httpStatus

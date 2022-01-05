@@ -107,9 +107,17 @@ instance Core.AWSRequest DeleteSchemaVersion where
   response =
     Response.receiveNull DeleteSchemaVersionResponse'
 
-instance Prelude.Hashable DeleteSchemaVersion
+instance Prelude.Hashable DeleteSchemaVersion where
+  hashWithSalt _salt DeleteSchemaVersion' {..} =
+    _salt `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaName
 
-instance Prelude.NFData DeleteSchemaVersion
+instance Prelude.NFData DeleteSchemaVersion where
+  rnf DeleteSchemaVersion' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaName
 
 instance Core.ToHeaders DeleteSchemaVersion where
   toHeaders =
@@ -151,4 +159,5 @@ newDeleteSchemaVersionResponse ::
 newDeleteSchemaVersionResponse =
   DeleteSchemaVersionResponse'
 
-instance Prelude.NFData DeleteSchemaVersionResponse
+instance Prelude.NFData DeleteSchemaVersionResponse where
+  rnf _ = ()

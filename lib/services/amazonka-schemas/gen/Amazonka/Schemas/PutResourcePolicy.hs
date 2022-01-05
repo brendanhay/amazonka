@@ -112,9 +112,17 @@ instance Core.AWSRequest PutResourcePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourcePolicy
+instance Prelude.Hashable PutResourcePolicy where
+  hashWithSalt _salt PutResourcePolicy' {..} =
+    _salt `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutResourcePolicy
+instance Prelude.NFData PutResourcePolicy where
+  rnf PutResourcePolicy' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
@@ -192,4 +200,8 @@ putResourcePolicyResponse_revisionId = Lens.lens (\PutResourcePolicyResponse' {r
 putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance Prelude.NFData PutResourcePolicyResponse
+instance Prelude.NFData PutResourcePolicyResponse where
+  rnf PutResourcePolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

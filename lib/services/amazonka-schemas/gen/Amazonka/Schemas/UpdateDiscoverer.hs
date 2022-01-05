@@ -123,9 +123,17 @@ instance Core.AWSRequest UpdateDiscoverer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDiscoverer
+instance Prelude.Hashable UpdateDiscoverer where
+  hashWithSalt _salt UpdateDiscoverer' {..} =
+    _salt `Prelude.hashWithSalt` crossAccount
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` discovererId
 
-instance Prelude.NFData UpdateDiscoverer
+instance Prelude.NFData UpdateDiscoverer where
+  rnf UpdateDiscoverer' {..} =
+    Prelude.rnf crossAccount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf discovererId
 
 instance Core.ToHeaders UpdateDiscoverer where
   toHeaders =
@@ -250,4 +258,13 @@ updateDiscovererResponse_discovererArn = Lens.lens (\UpdateDiscovererResponse' {
 updateDiscovererResponse_httpStatus :: Lens.Lens' UpdateDiscovererResponse Prelude.Int
 updateDiscovererResponse_httpStatus = Lens.lens (\UpdateDiscovererResponse' {httpStatus} -> httpStatus) (\s@UpdateDiscovererResponse' {} a -> s {httpStatus = a} :: UpdateDiscovererResponse)
 
-instance Prelude.NFData UpdateDiscovererResponse
+instance Prelude.NFData UpdateDiscovererResponse where
+  rnf UpdateDiscovererResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf crossAccount
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf discovererArn
+      `Prelude.seq` Prelude.rnf httpStatus

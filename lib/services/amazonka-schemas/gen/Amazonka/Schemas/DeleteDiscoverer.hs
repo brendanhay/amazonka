@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteDiscoverer where
   response =
     Response.receiveNull DeleteDiscovererResponse'
 
-instance Prelude.Hashable DeleteDiscoverer
+instance Prelude.Hashable DeleteDiscoverer where
+  hashWithSalt _salt DeleteDiscoverer' {..} =
+    _salt `Prelude.hashWithSalt` discovererId
 
-instance Prelude.NFData DeleteDiscoverer
+instance Prelude.NFData DeleteDiscoverer where
+  rnf DeleteDiscoverer' {..} = Prelude.rnf discovererId
 
 instance Core.ToHeaders DeleteDiscoverer where
   toHeaders =
@@ -115,4 +118,5 @@ newDeleteDiscovererResponse ::
 newDeleteDiscovererResponse =
   DeleteDiscovererResponse'
 
-instance Prelude.NFData DeleteDiscovererResponse
+instance Prelude.NFData DeleteDiscovererResponse where
+  rnf _ = ()

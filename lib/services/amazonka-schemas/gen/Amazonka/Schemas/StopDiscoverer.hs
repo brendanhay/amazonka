@@ -88,9 +88,12 @@ instance Core.AWSRequest StopDiscoverer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopDiscoverer
+instance Prelude.Hashable StopDiscoverer where
+  hashWithSalt _salt StopDiscoverer' {..} =
+    _salt `Prelude.hashWithSalt` discovererId
 
-instance Prelude.NFData StopDiscoverer
+instance Prelude.NFData StopDiscoverer where
+  rnf StopDiscoverer' {..} = Prelude.rnf discovererId
 
 instance Core.ToHeaders StopDiscoverer where
   toHeaders =
@@ -164,4 +167,8 @@ stopDiscovererResponse_discovererId = Lens.lens (\StopDiscovererResponse' {disco
 stopDiscovererResponse_httpStatus :: Lens.Lens' StopDiscovererResponse Prelude.Int
 stopDiscovererResponse_httpStatus = Lens.lens (\StopDiscovererResponse' {httpStatus} -> httpStatus) (\s@StopDiscovererResponse' {} a -> s {httpStatus = a} :: StopDiscovererResponse)
 
-instance Prelude.NFData StopDiscovererResponse
+instance Prelude.NFData StopDiscovererResponse where
+  rnf StopDiscovererResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf httpStatus

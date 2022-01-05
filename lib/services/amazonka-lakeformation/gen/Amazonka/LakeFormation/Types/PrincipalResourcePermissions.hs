@@ -120,5 +120,18 @@ instance Core.FromJSON PrincipalResourcePermissions where
 instance
   Prelude.Hashable
     PrincipalResourcePermissions
+  where
+  hashWithSalt _salt PrincipalResourcePermissions' {..} =
+    _salt `Prelude.hashWithSalt` additionalDetails
+      `Prelude.hashWithSalt` permissionsWithGrantOption
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData PrincipalResourcePermissions
+instance Prelude.NFData PrincipalResourcePermissions where
+  rnf PrincipalResourcePermissions' {..} =
+    Prelude.rnf additionalDetails
+      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf permissions

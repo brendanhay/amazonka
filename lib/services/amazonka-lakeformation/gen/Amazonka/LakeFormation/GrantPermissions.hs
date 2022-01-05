@@ -180,9 +180,21 @@ instance Core.AWSRequest GrantPermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GrantPermissions
+instance Prelude.Hashable GrantPermissions where
+  hashWithSalt _salt GrantPermissions' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` permissionsWithGrantOption
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData GrantPermissions
+instance Prelude.NFData GrantPermissions where
+  rnf GrantPermissions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToHeaders GrantPermissions where
   toHeaders =
@@ -248,4 +260,6 @@ newGrantPermissionsResponse pHttpStatus_ =
 grantPermissionsResponse_httpStatus :: Lens.Lens' GrantPermissionsResponse Prelude.Int
 grantPermissionsResponse_httpStatus = Lens.lens (\GrantPermissionsResponse' {httpStatus} -> httpStatus) (\s@GrantPermissionsResponse' {} a -> s {httpStatus = a} :: GrantPermissionsResponse)
 
-instance Prelude.NFData GrantPermissionsResponse
+instance Prelude.NFData GrantPermissionsResponse where
+  rnf GrantPermissionsResponse' {..} =
+    Prelude.rnf httpStatus

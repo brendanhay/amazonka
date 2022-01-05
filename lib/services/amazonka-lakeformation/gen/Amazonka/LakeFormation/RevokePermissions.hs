@@ -147,9 +147,21 @@ instance Core.AWSRequest RevokePermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokePermissions
+instance Prelude.Hashable RevokePermissions where
+  hashWithSalt _salt RevokePermissions' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` permissionsWithGrantOption
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData RevokePermissions
+instance Prelude.NFData RevokePermissions where
+  rnf RevokePermissions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToHeaders RevokePermissions where
   toHeaders =
@@ -215,4 +227,6 @@ newRevokePermissionsResponse pHttpStatus_ =
 revokePermissionsResponse_httpStatus :: Lens.Lens' RevokePermissionsResponse Prelude.Int
 revokePermissionsResponse_httpStatus = Lens.lens (\RevokePermissionsResponse' {httpStatus} -> httpStatus) (\s@RevokePermissionsResponse' {} a -> s {httpStatus = a} :: RevokePermissionsResponse)
 
-instance Prelude.NFData RevokePermissionsResponse
+instance Prelude.NFData RevokePermissionsResponse where
+  rnf RevokePermissionsResponse' {..} =
+    Prelude.rnf httpStatus

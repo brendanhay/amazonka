@@ -119,9 +119,17 @@ instance Core.AWSRequest AddLFTagsToResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddLFTagsToResource
+instance Prelude.Hashable AddLFTagsToResource where
+  hashWithSalt _salt AddLFTagsToResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` lFTags
 
-instance Prelude.NFData AddLFTagsToResource
+instance Prelude.NFData AddLFTagsToResource where
+  rnf AddLFTagsToResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf lFTags
 
 instance Core.ToHeaders AddLFTagsToResource where
   toHeaders =
@@ -193,4 +201,7 @@ addLFTagsToResourceResponse_failures = Lens.lens (\AddLFTagsToResourceResponse' 
 addLFTagsToResourceResponse_httpStatus :: Lens.Lens' AddLFTagsToResourceResponse Prelude.Int
 addLFTagsToResourceResponse_httpStatus = Lens.lens (\AddLFTagsToResourceResponse' {httpStatus} -> httpStatus) (\s@AddLFTagsToResourceResponse' {} a -> s {httpStatus = a} :: AddLFTagsToResourceResponse)
 
-instance Prelude.NFData AddLFTagsToResourceResponse
+instance Prelude.NFData AddLFTagsToResourceResponse where
+  rnf AddLFTagsToResourceResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

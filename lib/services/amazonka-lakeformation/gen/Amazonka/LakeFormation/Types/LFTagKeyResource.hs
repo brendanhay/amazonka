@@ -94,9 +94,17 @@ instance Core.FromJSON LFTagKeyResource where
             Prelude.<*> (x Core..: "TagValues")
       )
 
-instance Prelude.Hashable LFTagKeyResource
+instance Prelude.Hashable LFTagKeyResource where
+  hashWithSalt _salt LFTagKeyResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` tagValues
 
-instance Prelude.NFData LFTagKeyResource
+instance Prelude.NFData LFTagKeyResource where
+  rnf LFTagKeyResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Core.ToJSON LFTagKeyResource where
   toJSON LFTagKeyResource' {..} =

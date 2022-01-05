@@ -78,5 +78,12 @@ instance Core.FromJSON BatchPermissionsFailureEntry where
 instance
   Prelude.Hashable
     BatchPermissionsFailureEntry
+  where
+  hashWithSalt _salt BatchPermissionsFailureEntry' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` requestEntry
 
-instance Prelude.NFData BatchPermissionsFailureEntry
+instance Prelude.NFData BatchPermissionsFailureEntry where
+  rnf BatchPermissionsFailureEntry' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf requestEntry

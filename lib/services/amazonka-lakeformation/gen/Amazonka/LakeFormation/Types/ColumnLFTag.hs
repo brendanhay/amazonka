@@ -73,6 +73,11 @@ instance Core.FromJSON ColumnLFTag where
             Prelude.<*> (x Core..:? "LFTags")
       )
 
-instance Prelude.Hashable ColumnLFTag
+instance Prelude.Hashable ColumnLFTag where
+  hashWithSalt _salt ColumnLFTag' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lFTags
 
-instance Prelude.NFData ColumnLFTag
+instance Prelude.NFData ColumnLFTag where
+  rnf ColumnLFTag' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf lFTags

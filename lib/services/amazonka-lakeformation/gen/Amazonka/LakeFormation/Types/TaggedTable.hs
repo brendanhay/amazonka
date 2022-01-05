@@ -96,6 +96,16 @@ instance Core.FromJSON TaggedTable where
             Prelude.<*> (x Core..:? "Table")
       )
 
-instance Prelude.Hashable TaggedTable
+instance Prelude.Hashable TaggedTable where
+  hashWithSalt _salt TaggedTable' {..} =
+    _salt `Prelude.hashWithSalt` lFTagsOnTable
+      `Prelude.hashWithSalt` lFTagOnDatabase
+      `Prelude.hashWithSalt` lFTagsOnColumns
+      `Prelude.hashWithSalt` table
 
-instance Prelude.NFData TaggedTable
+instance Prelude.NFData TaggedTable where
+  rnf TaggedTable' {..} =
+    Prelude.rnf lFTagsOnTable
+      `Prelude.seq` Prelude.rnf lFTagOnDatabase
+      `Prelude.seq` Prelude.rnf lFTagsOnColumns
+      `Prelude.seq` Prelude.rnf table

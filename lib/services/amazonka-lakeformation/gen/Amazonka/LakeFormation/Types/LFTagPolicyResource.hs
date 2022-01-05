@@ -97,9 +97,17 @@ instance Core.FromJSON LFTagPolicyResource where
             Prelude.<*> (x Core..: "Expression")
       )
 
-instance Prelude.Hashable LFTagPolicyResource
+instance Prelude.Hashable LFTagPolicyResource where
+  hashWithSalt _salt LFTagPolicyResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData LFTagPolicyResource
+instance Prelude.NFData LFTagPolicyResource where
+  rnf LFTagPolicyResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToJSON LFTagPolicyResource where
   toJSON LFTagPolicyResource' {..} =

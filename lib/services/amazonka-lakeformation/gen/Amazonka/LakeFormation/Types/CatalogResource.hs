@@ -45,9 +45,12 @@ instance Core.FromJSON CatalogResource where
       "CatalogResource"
       (\x -> Prelude.pure CatalogResource')
 
-instance Prelude.Hashable CatalogResource
+instance Prelude.Hashable CatalogResource where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData CatalogResource
+instance Prelude.NFData CatalogResource where
+  rnf _ = ()
 
 instance Core.ToJSON CatalogResource where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

@@ -107,9 +107,15 @@ instance Core.AWSRequest DescribeMigrationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMigrationTask
+instance Prelude.Hashable DescribeMigrationTask where
+  hashWithSalt _salt DescribeMigrationTask' {..} =
+    _salt `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
 
-instance Prelude.NFData DescribeMigrationTask
+instance Prelude.NFData DescribeMigrationTask where
+  rnf DescribeMigrationTask' {..} =
+    Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
 
 instance Core.ToHeaders DescribeMigrationTask where
   toHeaders =
@@ -184,4 +190,7 @@ describeMigrationTaskResponse_migrationTask = Lens.lens (\DescribeMigrationTaskR
 describeMigrationTaskResponse_httpStatus :: Lens.Lens' DescribeMigrationTaskResponse Prelude.Int
 describeMigrationTaskResponse_httpStatus = Lens.lens (\DescribeMigrationTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeMigrationTaskResponse' {} a -> s {httpStatus = a} :: DescribeMigrationTaskResponse)
 
-instance Prelude.NFData DescribeMigrationTaskResponse
+instance Prelude.NFData DescribeMigrationTaskResponse where
+  rnf DescribeMigrationTaskResponse' {..} =
+    Prelude.rnf migrationTask
+      `Prelude.seq` Prelude.rnf httpStatus

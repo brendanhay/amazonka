@@ -132,9 +132,15 @@ instance Core.AWSRequest ListProgressUpdateStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProgressUpdateStreams
+instance Prelude.Hashable ListProgressUpdateStreams where
+  hashWithSalt _salt ListProgressUpdateStreams' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListProgressUpdateStreams
+instance Prelude.NFData ListProgressUpdateStreams where
+  rnf ListProgressUpdateStreams' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProgressUpdateStreams where
   toHeaders =
@@ -226,3 +232,8 @@ listProgressUpdateStreamsResponse_httpStatus = Lens.lens (\ListProgressUpdateStr
 instance
   Prelude.NFData
     ListProgressUpdateStreamsResponse
+  where
+  rnf ListProgressUpdateStreamsResponse' {..} =
+    Prelude.rnf progressUpdateStreamSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

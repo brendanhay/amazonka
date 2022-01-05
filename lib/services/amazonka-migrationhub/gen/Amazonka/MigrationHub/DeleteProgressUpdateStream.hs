@@ -127,9 +127,15 @@ instance Core.AWSRequest DeleteProgressUpdateStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProgressUpdateStream
+instance Prelude.Hashable DeleteProgressUpdateStream where
+  hashWithSalt _salt DeleteProgressUpdateStream' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` progressUpdateStreamName
 
-instance Prelude.NFData DeleteProgressUpdateStream
+instance Prelude.NFData DeleteProgressUpdateStream where
+  rnf DeleteProgressUpdateStream' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStreamName
 
 instance Core.ToHeaders DeleteProgressUpdateStream where
   toHeaders =
@@ -197,3 +203,6 @@ deleteProgressUpdateStreamResponse_httpStatus = Lens.lens (\DeleteProgressUpdate
 instance
   Prelude.NFData
     DeleteProgressUpdateStreamResponse
+  where
+  rnf DeleteProgressUpdateStreamResponse' {..} =
+    Prelude.rnf httpStatus

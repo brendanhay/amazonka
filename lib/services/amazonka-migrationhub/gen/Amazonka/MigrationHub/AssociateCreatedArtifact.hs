@@ -145,9 +145,19 @@ instance Core.AWSRequest AssociateCreatedArtifact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateCreatedArtifact
+instance Prelude.Hashable AssociateCreatedArtifact where
+  hashWithSalt _salt AssociateCreatedArtifact' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` createdArtifact
 
-instance Prelude.NFData AssociateCreatedArtifact
+instance Prelude.NFData AssociateCreatedArtifact where
+  rnf AssociateCreatedArtifact' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf createdArtifact
 
 instance Core.ToHeaders AssociateCreatedArtifact where
   toHeaders =
@@ -219,3 +229,6 @@ associateCreatedArtifactResponse_httpStatus = Lens.lens (\AssociateCreatedArtifa
 instance
   Prelude.NFData
     AssociateCreatedArtifactResponse
+  where
+  rnf AssociateCreatedArtifactResponse' {..} =
+    Prelude.rnf httpStatus

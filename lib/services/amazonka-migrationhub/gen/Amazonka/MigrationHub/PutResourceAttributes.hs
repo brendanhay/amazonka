@@ -206,9 +206,19 @@ instance Core.AWSRequest PutResourceAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourceAttributes
+instance Prelude.Hashable PutResourceAttributes where
+  hashWithSalt _salt PutResourceAttributes' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` resourceAttributeList
 
-instance Prelude.NFData PutResourceAttributes
+instance Prelude.NFData PutResourceAttributes where
+  rnf PutResourceAttributes' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf resourceAttributeList
 
 instance Core.ToHeaders PutResourceAttributes where
   toHeaders =
@@ -279,4 +289,6 @@ newPutResourceAttributesResponse pHttpStatus_ =
 putResourceAttributesResponse_httpStatus :: Lens.Lens' PutResourceAttributesResponse Prelude.Int
 putResourceAttributesResponse_httpStatus = Lens.lens (\PutResourceAttributesResponse' {httpStatus} -> httpStatus) (\s@PutResourceAttributesResponse' {} a -> s {httpStatus = a} :: PutResourceAttributesResponse)
 
-instance Prelude.NFData PutResourceAttributesResponse
+instance Prelude.NFData PutResourceAttributesResponse where
+  rnf PutResourceAttributesResponse' {..} =
+    Prelude.rnf httpStatus

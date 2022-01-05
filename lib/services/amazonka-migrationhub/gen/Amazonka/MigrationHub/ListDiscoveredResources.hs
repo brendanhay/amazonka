@@ -160,9 +160,19 @@ instance Core.AWSRequest ListDiscoveredResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDiscoveredResources
+instance Prelude.Hashable ListDiscoveredResources where
+  hashWithSalt _salt ListDiscoveredResources' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
 
-instance Prelude.NFData ListDiscoveredResources
+instance Prelude.NFData ListDiscoveredResources where
+  rnf ListDiscoveredResources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
 
 instance Core.ToHeaders ListDiscoveredResources where
   toHeaders =
@@ -260,3 +270,8 @@ listDiscoveredResourcesResponse_httpStatus = Lens.lens (\ListDiscoveredResources
 instance
   Prelude.NFData
     ListDiscoveredResourcesResponse
+  where
+  rnf ListDiscoveredResourcesResponse' {..} =
+    Prelude.rnf discoveredResourceList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

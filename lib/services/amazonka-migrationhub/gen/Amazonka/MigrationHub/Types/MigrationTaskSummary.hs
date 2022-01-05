@@ -122,6 +122,20 @@ instance Core.FromJSON MigrationTaskSummary where
             Prelude.<*> (x Core..:? "MigrationTaskName")
       )
 
-instance Prelude.Hashable MigrationTaskSummary
+instance Prelude.Hashable MigrationTaskSummary where
+  hashWithSalt _salt MigrationTaskSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updateDateTime
+      `Prelude.hashWithSalt` progressPercent
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
 
-instance Prelude.NFData MigrationTaskSummary
+instance Prelude.NFData MigrationTaskSummary where
+  rnf MigrationTaskSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updateDateTime
+      `Prelude.seq` Prelude.rnf progressPercent
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName

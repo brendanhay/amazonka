@@ -89,6 +89,14 @@ instance Core.FromJSON DimensionKeyDescription where
             Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DimensionKeyDescription
+instance Prelude.Hashable DimensionKeyDescription where
+  hashWithSalt _salt DimensionKeyDescription' {..} =
+    _salt `Prelude.hashWithSalt` partitions
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData DimensionKeyDescription
+instance Prelude.NFData DimensionKeyDescription where
+  rnf DimensionKeyDescription' {..} =
+    Prelude.rnf partitions
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf dimensions

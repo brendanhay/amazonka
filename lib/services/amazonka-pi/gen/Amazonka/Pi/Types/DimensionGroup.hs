@@ -306,9 +306,17 @@ dimensionGroup_dimensions = Lens.lens (\DimensionGroup' {dimensions} -> dimensio
 dimensionGroup_group :: Lens.Lens' DimensionGroup Prelude.Text
 dimensionGroup_group = Lens.lens (\DimensionGroup' {group'} -> group') (\s@DimensionGroup' {} a -> s {group' = a} :: DimensionGroup)
 
-instance Prelude.Hashable DimensionGroup
+instance Prelude.Hashable DimensionGroup where
+  hashWithSalt _salt DimensionGroup' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` group'
 
-instance Prelude.NFData DimensionGroup
+instance Prelude.NFData DimensionGroup where
+  rnf DimensionGroup' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToJSON DimensionGroup where
   toJSON DimensionGroup' {..} =

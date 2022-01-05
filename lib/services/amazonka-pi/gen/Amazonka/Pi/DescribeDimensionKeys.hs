@@ -400,9 +400,33 @@ instance Core.AWSRequest DescribeDimensionKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDimensionKeys
+instance Prelude.Hashable DescribeDimensionKeys where
+  hashWithSalt _salt DescribeDimensionKeys' {..} =
+    _salt `Prelude.hashWithSalt` periodInSeconds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` partitionBy
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` groupBy
 
-instance Prelude.NFData DescribeDimensionKeys
+instance Prelude.NFData DescribeDimensionKeys where
+  rnf DescribeDimensionKeys' {..} =
+    Prelude.rnf periodInSeconds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf partitionBy
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf groupBy
 
 instance Core.ToHeaders DescribeDimensionKeys where
   toHeaders =
@@ -546,4 +570,11 @@ describeDimensionKeysResponse_partitionKeys = Lens.lens (\DescribeDimensionKeysR
 describeDimensionKeysResponse_httpStatus :: Lens.Lens' DescribeDimensionKeysResponse Prelude.Int
 describeDimensionKeysResponse_httpStatus = Lens.lens (\DescribeDimensionKeysResponse' {httpStatus} -> httpStatus) (\s@DescribeDimensionKeysResponse' {} a -> s {httpStatus = a} :: DescribeDimensionKeysResponse)
 
-instance Prelude.NFData DescribeDimensionKeysResponse
+instance Prelude.NFData DescribeDimensionKeysResponse where
+  rnf DescribeDimensionKeysResponse' {..} =
+    Prelude.rnf alignedEndTime
+      `Prelude.seq` Prelude.rnf alignedStartTime
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf httpStatus

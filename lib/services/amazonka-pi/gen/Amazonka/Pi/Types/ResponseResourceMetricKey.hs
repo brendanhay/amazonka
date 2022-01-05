@@ -123,6 +123,12 @@ instance Core.FromJSON ResponseResourceMetricKey where
             Prelude.<*> (x Core..: "Metric")
       )
 
-instance Prelude.Hashable ResponseResourceMetricKey
+instance Prelude.Hashable ResponseResourceMetricKey where
+  hashWithSalt _salt ResponseResourceMetricKey' {..} =
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData ResponseResourceMetricKey
+instance Prelude.NFData ResponseResourceMetricKey where
+  rnf ResponseResourceMetricKey' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf metric

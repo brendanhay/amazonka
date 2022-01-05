@@ -90,6 +90,14 @@ instance Core.FromJSON LastUpdate where
             Prelude.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable LastUpdate
+instance Prelude.Hashable LastUpdate where
+  hashWithSalt _salt LastUpdate' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData LastUpdate
+instance Prelude.NFData LastUpdate where
+  rnf LastUpdate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf error

@@ -89,9 +89,12 @@ instance Core.AWSRequest CreateWebLoginToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWebLoginToken
+instance Prelude.Hashable CreateWebLoginToken where
+  hashWithSalt _salt CreateWebLoginToken' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateWebLoginToken
+instance Prelude.NFData CreateWebLoginToken where
+  rnf CreateWebLoginToken' {..} = Prelude.rnf name
 
 instance Core.ToHeaders CreateWebLoginToken where
   toHeaders =
@@ -168,4 +171,8 @@ createWebLoginTokenResponse_webToken = Lens.lens (\CreateWebLoginTokenResponse' 
 createWebLoginTokenResponse_httpStatus :: Lens.Lens' CreateWebLoginTokenResponse Prelude.Int
 createWebLoginTokenResponse_httpStatus = Lens.lens (\CreateWebLoginTokenResponse' {httpStatus} -> httpStatus) (\s@CreateWebLoginTokenResponse' {} a -> s {httpStatus = a} :: CreateWebLoginTokenResponse)
 
-instance Prelude.NFData CreateWebLoginTokenResponse
+instance Prelude.NFData CreateWebLoginTokenResponse where
+  rnf CreateWebLoginTokenResponse' {..} =
+    Prelude.rnf webServerHostname
+      `Prelude.seq` Prelude.rnf webToken
+      `Prelude.seq` Prelude.rnf httpStatus

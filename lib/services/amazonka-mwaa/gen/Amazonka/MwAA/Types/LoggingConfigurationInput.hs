@@ -87,9 +87,21 @@ loggingConfigurationInput_dagProcessingLogs = Lens.lens (\LoggingConfigurationIn
 loggingConfigurationInput_workerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_workerLogs = Lens.lens (\LoggingConfigurationInput' {workerLogs} -> workerLogs) (\s@LoggingConfigurationInput' {} a -> s {workerLogs = a} :: LoggingConfigurationInput)
 
-instance Prelude.Hashable LoggingConfigurationInput
+instance Prelude.Hashable LoggingConfigurationInput where
+  hashWithSalt _salt LoggingConfigurationInput' {..} =
+    _salt `Prelude.hashWithSalt` taskLogs
+      `Prelude.hashWithSalt` webserverLogs
+      `Prelude.hashWithSalt` schedulerLogs
+      `Prelude.hashWithSalt` dagProcessingLogs
+      `Prelude.hashWithSalt` workerLogs
 
-instance Prelude.NFData LoggingConfigurationInput
+instance Prelude.NFData LoggingConfigurationInput where
+  rnf LoggingConfigurationInput' {..} =
+    Prelude.rnf taskLogs
+      `Prelude.seq` Prelude.rnf webserverLogs
+      `Prelude.seq` Prelude.rnf schedulerLogs
+      `Prelude.seq` Prelude.rnf dagProcessingLogs
+      `Prelude.seq` Prelude.rnf workerLogs
 
 instance Core.ToJSON LoggingConfigurationInput where
   toJSON LoggingConfigurationInput' {..} =

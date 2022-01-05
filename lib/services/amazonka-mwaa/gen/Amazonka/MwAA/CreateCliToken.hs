@@ -88,9 +88,12 @@ instance Core.AWSRequest CreateCliToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCliToken
+instance Prelude.Hashable CreateCliToken where
+  hashWithSalt _salt CreateCliToken' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateCliToken
+instance Prelude.NFData CreateCliToken where
+  rnf CreateCliToken' {..} = Prelude.rnf name
 
 instance Core.ToHeaders CreateCliToken where
   toHeaders =
@@ -164,4 +167,8 @@ createCliTokenResponse_cliToken = Lens.lens (\CreateCliTokenResponse' {cliToken}
 createCliTokenResponse_httpStatus :: Lens.Lens' CreateCliTokenResponse Prelude.Int
 createCliTokenResponse_httpStatus = Lens.lens (\CreateCliTokenResponse' {httpStatus} -> httpStatus) (\s@CreateCliTokenResponse' {} a -> s {httpStatus = a} :: CreateCliTokenResponse)
 
-instance Prelude.NFData CreateCliTokenResponse
+instance Prelude.NFData CreateCliTokenResponse where
+  rnf CreateCliTokenResponse' {..} =
+    Prelude.rnf webServerHostname
+      `Prelude.seq` Prelude.rnf cliToken
+      `Prelude.seq` Prelude.rnf httpStatus

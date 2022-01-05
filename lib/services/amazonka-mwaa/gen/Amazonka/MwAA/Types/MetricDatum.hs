@@ -103,9 +103,23 @@ metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\
 metricDatum_timestamp :: Lens.Lens' MetricDatum Prelude.UTCTime
 metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Core._Time
 
-instance Prelude.Hashable MetricDatum
+instance Prelude.Hashable MetricDatum where
+  hashWithSalt _salt MetricDatum' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` statisticValues
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData MetricDatum
+instance Prelude.NFData MetricDatum where
+  rnf MetricDatum' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf statisticValues
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON MetricDatum where
   toJSON MetricDatum' {..} =

@@ -81,5 +81,12 @@ instance Core.FromJSON ApplicationDependencySummary where
 instance
   Prelude.Hashable
     ApplicationDependencySummary
+  where
+  hashWithSalt _salt ApplicationDependencySummary' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` semanticVersion
 
-instance Prelude.NFData ApplicationDependencySummary
+instance Prelude.NFData ApplicationDependencySummary where
+  rnf ApplicationDependencySummary' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf semanticVersion

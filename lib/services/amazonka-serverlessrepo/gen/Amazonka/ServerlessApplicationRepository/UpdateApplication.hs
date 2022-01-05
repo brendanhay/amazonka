@@ -223,9 +223,25 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt _salt UpdateApplication' {..} =
+    _salt `Prelude.hashWithSalt` homePageUrl
+      `Prelude.hashWithSalt` readmeBody
+      `Prelude.hashWithSalt` readmeUrl
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf readmeBody
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
@@ -481,4 +497,19 @@ updateApplicationResponse_isVerifiedAuthor = Lens.lens (\UpdateApplicationRespon
 updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
 updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse where
+  rnf UpdateApplicationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf isVerifiedAuthor
+      `Prelude.seq` Prelude.rnf httpStatus

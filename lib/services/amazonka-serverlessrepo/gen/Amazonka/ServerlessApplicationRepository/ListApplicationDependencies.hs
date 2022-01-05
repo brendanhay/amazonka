@@ -145,9 +145,19 @@ instance Core.AWSRequest ListApplicationDependencies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplicationDependencies
+instance Prelude.Hashable ListApplicationDependencies where
+  hashWithSalt _salt ListApplicationDependencies' {..} =
+    _salt `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData ListApplicationDependencies
+instance Prelude.NFData ListApplicationDependencies where
+  rnf ListApplicationDependencies' {..} =
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders ListApplicationDependencies where
   toHeaders =
@@ -227,3 +237,8 @@ listApplicationDependenciesResponse_httpStatus = Lens.lens (\ListApplicationDepe
 instance
   Prelude.NFData
     ListApplicationDependenciesResponse
+  where
+  rnf ListApplicationDependenciesResponse' {..} =
+    Prelude.rnf dependencies
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

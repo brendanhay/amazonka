@@ -188,6 +188,24 @@ instance Core.FromJSON ApplicationSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ApplicationSummary
+instance Prelude.Hashable ApplicationSummary where
+  hashWithSalt _salt ApplicationSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` homePageUrl
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` spdxLicenseId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ApplicationSummary
+instance Prelude.NFData ApplicationSummary where
+  rnf ApplicationSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf name

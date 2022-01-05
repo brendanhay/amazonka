@@ -103,9 +103,19 @@ instance Core.FromJSON ApplicationPolicyStatement where
             Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ApplicationPolicyStatement
+instance Prelude.Hashable ApplicationPolicyStatement where
+  hashWithSalt _salt ApplicationPolicyStatement' {..} =
+    _salt `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` principalOrgIDs
+      `Prelude.hashWithSalt` principals
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData ApplicationPolicyStatement
+instance Prelude.NFData ApplicationPolicyStatement where
+  rnf ApplicationPolicyStatement' {..} =
+    Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf principalOrgIDs
+      `Prelude.seq` Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToJSON ApplicationPolicyStatement where
   toJSON ApplicationPolicyStatement' {..} =

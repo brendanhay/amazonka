@@ -83,9 +83,15 @@ instance Core.FromJSON AuthorizationConfig where
             Prelude.<*> (x Core..: "authorizationType")
       )
 
-instance Prelude.Hashable AuthorizationConfig
+instance Prelude.Hashable AuthorizationConfig where
+  hashWithSalt _salt AuthorizationConfig' {..} =
+    _salt `Prelude.hashWithSalt` awsIamConfig
+      `Prelude.hashWithSalt` authorizationType
 
-instance Prelude.NFData AuthorizationConfig
+instance Prelude.NFData AuthorizationConfig where
+  rnf AuthorizationConfig' {..} =
+    Prelude.rnf awsIamConfig
+      `Prelude.seq` Prelude.rnf authorizationType
 
 instance Core.ToJSON AuthorizationConfig where
   toJSON AuthorizationConfig' {..} =

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteApiCache where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApiCache
+instance Prelude.Hashable DeleteApiCache where
+  hashWithSalt _salt DeleteApiCache' {..} =
+    _salt `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteApiCache
+instance Prelude.NFData DeleteApiCache where
+  rnf DeleteApiCache' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteApiCache where
   toHeaders =
@@ -138,4 +141,6 @@ newDeleteApiCacheResponse pHttpStatus_ =
 deleteApiCacheResponse_httpStatus :: Lens.Lens' DeleteApiCacheResponse Prelude.Int
 deleteApiCacheResponse_httpStatus = Lens.lens (\DeleteApiCacheResponse' {httpStatus} -> httpStatus) (\s@DeleteApiCacheResponse' {} a -> s {httpStatus = a} :: DeleteApiCacheResponse)
 
-instance Prelude.NFData DeleteApiCacheResponse
+instance Prelude.NFData DeleteApiCacheResponse where
+  rnf DeleteApiCacheResponse' {..} =
+    Prelude.rnf httpStatus

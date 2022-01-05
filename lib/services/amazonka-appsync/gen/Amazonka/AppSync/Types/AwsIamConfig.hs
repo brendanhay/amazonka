@@ -74,9 +74,15 @@ instance Core.FromJSON AwsIamConfig where
             Prelude.<*> (x Core..:? "signingRegion")
       )
 
-instance Prelude.Hashable AwsIamConfig
+instance Prelude.Hashable AwsIamConfig where
+  hashWithSalt _salt AwsIamConfig' {..} =
+    _salt `Prelude.hashWithSalt` signingServiceName
+      `Prelude.hashWithSalt` signingRegion
 
-instance Prelude.NFData AwsIamConfig
+instance Prelude.NFData AwsIamConfig where
+  rnf AwsIamConfig' {..} =
+    Prelude.rnf signingServiceName
+      `Prelude.seq` Prelude.rnf signingRegion
 
 instance Core.ToJSON AwsIamConfig where
   toJSON AwsIamConfig' {..} =

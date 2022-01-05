@@ -173,9 +173,29 @@ instance Core.AWSRequest CreateGraphqlApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGraphqlApi
+instance Prelude.Hashable CreateGraphqlApi where
+  hashWithSalt _salt CreateGraphqlApi' {..} =
+    _salt `Prelude.hashWithSalt` xrayEnabled
+      `Prelude.hashWithSalt` openIDConnectConfig
+      `Prelude.hashWithSalt` additionalAuthenticationProviders
+      `Prelude.hashWithSalt` lambdaAuthorizerConfig
+      `Prelude.hashWithSalt` userPoolConfig
+      `Prelude.hashWithSalt` logConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` authenticationType
 
-instance Prelude.NFData CreateGraphqlApi
+instance Prelude.NFData CreateGraphqlApi where
+  rnf CreateGraphqlApi' {..} =
+    Prelude.rnf xrayEnabled
+      `Prelude.seq` Prelude.rnf openIDConnectConfig
+      `Prelude.seq` Prelude.rnf additionalAuthenticationProviders
+      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
+      `Prelude.seq` Prelude.rnf userPoolConfig
+      `Prelude.seq` Prelude.rnf logConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authenticationType
 
 instance Core.ToHeaders CreateGraphqlApi where
   toHeaders =
@@ -254,4 +274,7 @@ createGraphqlApiResponse_graphqlApi = Lens.lens (\CreateGraphqlApiResponse' {gra
 createGraphqlApiResponse_httpStatus :: Lens.Lens' CreateGraphqlApiResponse Prelude.Int
 createGraphqlApiResponse_httpStatus = Lens.lens (\CreateGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@CreateGraphqlApiResponse' {} a -> s {httpStatus = a} :: CreateGraphqlApiResponse)
 
-instance Prelude.NFData CreateGraphqlApiResponse
+instance Prelude.NFData CreateGraphqlApiResponse where
+  rnf CreateGraphqlApiResponse' {..} =
+    Prelude.rnf graphqlApi
+      `Prelude.seq` Prelude.rnf httpStatus

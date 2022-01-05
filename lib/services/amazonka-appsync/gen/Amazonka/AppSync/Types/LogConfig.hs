@@ -155,9 +155,17 @@ instance Core.FromJSON LogConfig where
             Prelude.<*> (x Core..: "cloudWatchLogsRoleArn")
       )
 
-instance Prelude.Hashable LogConfig
+instance Prelude.Hashable LogConfig where
+  hashWithSalt _salt LogConfig' {..} =
+    _salt `Prelude.hashWithSalt` excludeVerboseContent
+      `Prelude.hashWithSalt` fieldLogLevel
+      `Prelude.hashWithSalt` cloudWatchLogsRoleArn
 
-instance Prelude.NFData LogConfig
+instance Prelude.NFData LogConfig where
+  rnf LogConfig' {..} =
+    Prelude.rnf excludeVerboseContent
+      `Prelude.seq` Prelude.rnf fieldLogLevel
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
 
 instance Core.ToJSON LogConfig where
   toJSON LogConfig' {..} =

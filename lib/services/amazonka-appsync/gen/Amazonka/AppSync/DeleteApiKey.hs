@@ -93,9 +93,14 @@ instance Core.AWSRequest DeleteApiKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApiKey
+instance Prelude.Hashable DeleteApiKey where
+  hashWithSalt _salt DeleteApiKey' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteApiKey
+instance Prelude.NFData DeleteApiKey where
+  rnf DeleteApiKey' {..} =
+    Prelude.rnf apiId `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteApiKey where
   toHeaders =
@@ -147,4 +152,6 @@ newDeleteApiKeyResponse pHttpStatus_ =
 deleteApiKeyResponse_httpStatus :: Lens.Lens' DeleteApiKeyResponse Prelude.Int
 deleteApiKeyResponse_httpStatus = Lens.lens (\DeleteApiKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteApiKeyResponse' {} a -> s {httpStatus = a} :: DeleteApiKeyResponse)
 
-instance Prelude.NFData DeleteApiKeyResponse
+instance Prelude.NFData DeleteApiKeyResponse where
+  rnf DeleteApiKeyResponse' {..} =
+    Prelude.rnf httpStatus

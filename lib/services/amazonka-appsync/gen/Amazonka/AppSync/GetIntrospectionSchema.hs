@@ -114,9 +114,17 @@ instance Core.AWSRequest GetIntrospectionSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntrospectionSchema
+instance Prelude.Hashable GetIntrospectionSchema where
+  hashWithSalt _salt GetIntrospectionSchema' {..} =
+    _salt `Prelude.hashWithSalt` includeDirectives
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData GetIntrospectionSchema
+instance Prelude.NFData GetIntrospectionSchema where
+  rnf GetIntrospectionSchema' {..} =
+    Prelude.rnf includeDirectives
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToHeaders GetIntrospectionSchema where
   toHeaders =
@@ -192,3 +200,7 @@ getIntrospectionSchemaResponse_httpStatus = Lens.lens (\GetIntrospectionSchemaRe
 instance
   Prelude.NFData
     GetIntrospectionSchemaResponse
+  where
+  rnf GetIntrospectionSchemaResponse' {..} =
+    Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf httpStatus

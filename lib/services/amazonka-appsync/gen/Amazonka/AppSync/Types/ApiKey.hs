@@ -142,6 +142,16 @@ instance Core.FromJSON ApiKey where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ApiKey
+instance Prelude.Hashable ApiKey where
+  hashWithSalt _salt ApiKey' {..} =
+    _salt `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` deletes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ApiKey
+instance Prelude.NFData ApiKey where
+  rnf ApiKey' {..} =
+    Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description

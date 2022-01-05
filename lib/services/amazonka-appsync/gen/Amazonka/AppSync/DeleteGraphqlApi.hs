@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteGraphqlApi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGraphqlApi
+instance Prelude.Hashable DeleteGraphqlApi where
+  hashWithSalt _salt DeleteGraphqlApi' {..} =
+    _salt `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteGraphqlApi
+instance Prelude.NFData DeleteGraphqlApi where
+  rnf DeleteGraphqlApi' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteGraphqlApi where
   toHeaders =
@@ -136,4 +139,6 @@ newDeleteGraphqlApiResponse pHttpStatus_ =
 deleteGraphqlApiResponse_httpStatus :: Lens.Lens' DeleteGraphqlApiResponse Prelude.Int
 deleteGraphqlApiResponse_httpStatus = Lens.lens (\DeleteGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@DeleteGraphqlApiResponse' {} a -> s {httpStatus = a} :: DeleteGraphqlApiResponse)
 
-instance Prelude.NFData DeleteGraphqlApiResponse
+instance Prelude.NFData DeleteGraphqlApiResponse where
+  rnf DeleteGraphqlApiResponse' {..} =
+    Prelude.rnf httpStatus

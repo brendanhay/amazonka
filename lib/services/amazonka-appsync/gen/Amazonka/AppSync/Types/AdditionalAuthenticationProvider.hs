@@ -105,10 +105,24 @@ instance
 instance
   Prelude.Hashable
     AdditionalAuthenticationProvider
+  where
+  hashWithSalt
+    _salt
+    AdditionalAuthenticationProvider' {..} =
+      _salt `Prelude.hashWithSalt` openIDConnectConfig
+        `Prelude.hashWithSalt` lambdaAuthorizerConfig
+        `Prelude.hashWithSalt` userPoolConfig
+        `Prelude.hashWithSalt` authenticationType
 
 instance
   Prelude.NFData
     AdditionalAuthenticationProvider
+  where
+  rnf AdditionalAuthenticationProvider' {..} =
+    Prelude.rnf openIDConnectConfig
+      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
+      `Prelude.seq` Prelude.rnf userPoolConfig
+      `Prelude.seq` Prelude.rnf authenticationType
 
 instance Core.ToJSON AdditionalAuthenticationProvider where
   toJSON AdditionalAuthenticationProvider' {..} =

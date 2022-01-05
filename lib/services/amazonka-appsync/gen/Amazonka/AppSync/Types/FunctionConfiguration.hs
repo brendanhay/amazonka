@@ -149,6 +149,26 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable FunctionConfiguration
+instance Prelude.Hashable FunctionConfiguration where
+  hashWithSalt _salt FunctionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` requestMappingTemplate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionId
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData FunctionConfiguration
+instance Prelude.NFData FunctionConfiguration where
+  rnf FunctionConfiguration' {..} =
+    Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf requestMappingTemplate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionId
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf description

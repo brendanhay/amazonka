@@ -102,6 +102,18 @@ instance Core.FromJSON Type where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Type
+instance Prelude.Hashable Type where
+  hashWithSalt _salt Type' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Type
+instance Prelude.NFData Type where
+  rnf Type' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

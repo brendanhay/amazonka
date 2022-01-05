@@ -104,6 +104,14 @@ instance Core.FromJSON CloudTrailProperties where
                         )
       )
 
-instance Prelude.Hashable CloudTrailProperties
+instance Prelude.Hashable CloudTrailProperties where
+  hashWithSalt _salt CloudTrailProperties' {..} =
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` trailProperties
 
-instance Prelude.NFData CloudTrailProperties
+instance Prelude.NFData CloudTrailProperties where
+  rnf CloudTrailProperties' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf trailProperties

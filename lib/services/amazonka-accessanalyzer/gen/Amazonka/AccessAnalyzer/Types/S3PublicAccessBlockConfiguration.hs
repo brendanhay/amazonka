@@ -99,10 +99,20 @@ instance
 instance
   Prelude.Hashable
     S3PublicAccessBlockConfiguration
+  where
+  hashWithSalt
+    _salt
+    S3PublicAccessBlockConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` ignorePublicAcls
+        `Prelude.hashWithSalt` restrictPublicBuckets
 
 instance
   Prelude.NFData
     S3PublicAccessBlockConfiguration
+  where
+  rnf S3PublicAccessBlockConfiguration' {..} =
+    Prelude.rnf ignorePublicAcls
+      `Prelude.seq` Prelude.rnf restrictPublicBuckets
 
 instance Core.ToJSON S3PublicAccessBlockConfiguration where
   toJSON S3PublicAccessBlockConfiguration' {..} =

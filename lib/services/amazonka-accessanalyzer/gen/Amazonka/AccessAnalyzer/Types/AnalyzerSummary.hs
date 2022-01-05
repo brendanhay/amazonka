@@ -196,6 +196,26 @@ instance Core.FromJSON AnalyzerSummary where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable AnalyzerSummary
+instance Prelude.Hashable AnalyzerSummary where
+  hashWithSalt _salt AnalyzerSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastResourceAnalyzedAt
+      `Prelude.hashWithSalt` lastResourceAnalyzed
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AnalyzerSummary
+instance Prelude.NFData AnalyzerSummary where
+  rnf AnalyzerSummary' {..} =
+    Prelude.rnf lastResourceAnalyzedAt
+      `Prelude.seq` Prelude.rnf lastResourceAnalyzed
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

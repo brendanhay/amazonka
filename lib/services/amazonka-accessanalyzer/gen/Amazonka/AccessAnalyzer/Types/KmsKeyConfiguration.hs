@@ -97,9 +97,15 @@ instance Core.FromJSON KmsKeyConfiguration where
             Prelude.<*> (x Core..:? "keyPolicies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable KmsKeyConfiguration
+instance Prelude.Hashable KmsKeyConfiguration where
+  hashWithSalt _salt KmsKeyConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` grants
+      `Prelude.hashWithSalt` keyPolicies
 
-instance Prelude.NFData KmsKeyConfiguration
+instance Prelude.NFData KmsKeyConfiguration where
+  rnf KmsKeyConfiguration' {..} =
+    Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf keyPolicies
 
 instance Core.ToJSON KmsKeyConfiguration where
   toJSON KmsKeyConfiguration' {..} =

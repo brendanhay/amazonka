@@ -70,9 +70,13 @@ instance Core.FromJSON IamRoleConfiguration where
             Prelude.<$> (x Core..:? "trustPolicy")
       )
 
-instance Prelude.Hashable IamRoleConfiguration
+instance Prelude.Hashable IamRoleConfiguration where
+  hashWithSalt _salt IamRoleConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` trustPolicy
 
-instance Prelude.NFData IamRoleConfiguration
+instance Prelude.NFData IamRoleConfiguration where
+  rnf IamRoleConfiguration' {..} =
+    Prelude.rnf trustPolicy
 
 instance Core.ToJSON IamRoleConfiguration where
   toJSON IamRoleConfiguration' {..} =

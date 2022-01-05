@@ -155,9 +155,19 @@ instance Core.AWSRequest ListAnalyzedResources where
                         )
       )
 
-instance Prelude.Hashable ListAnalyzedResources
+instance Prelude.Hashable ListAnalyzedResources where
+  hashWithSalt _salt ListAnalyzedResources' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` analyzerArn
 
-instance Prelude.NFData ListAnalyzedResources
+instance Prelude.NFData ListAnalyzedResources where
+  rnf ListAnalyzedResources' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf analyzerArn
 
 instance Core.ToHeaders ListAnalyzedResources where
   toHeaders =
@@ -237,4 +247,8 @@ listAnalyzedResourcesResponse_httpStatus = Lens.lens (\ListAnalyzedResourcesResp
 listAnalyzedResourcesResponse_analyzedResources :: Lens.Lens' ListAnalyzedResourcesResponse [AnalyzedResourceSummary]
 listAnalyzedResourcesResponse_analyzedResources = Lens.lens (\ListAnalyzedResourcesResponse' {analyzedResources} -> analyzedResources) (\s@ListAnalyzedResourcesResponse' {} a -> s {analyzedResources = a} :: ListAnalyzedResourcesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAnalyzedResourcesResponse
+instance Prelude.NFData ListAnalyzedResourcesResponse where
+  rnf ListAnalyzedResourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analyzedResources

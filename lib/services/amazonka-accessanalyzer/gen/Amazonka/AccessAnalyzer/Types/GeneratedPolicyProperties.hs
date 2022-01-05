@@ -94,6 +94,14 @@ instance Core.FromJSON GeneratedPolicyProperties where
             Prelude.<*> (x Core..: "principalArn")
       )
 
-instance Prelude.Hashable GeneratedPolicyProperties
+instance Prelude.Hashable GeneratedPolicyProperties where
+  hashWithSalt _salt GeneratedPolicyProperties' {..} =
+    _salt `Prelude.hashWithSalt` isComplete
+      `Prelude.hashWithSalt` cloudTrailProperties
+      `Prelude.hashWithSalt` principalArn
 
-instance Prelude.NFData GeneratedPolicyProperties
+instance Prelude.NFData GeneratedPolicyProperties where
+  rnf GeneratedPolicyProperties' {..} =
+    Prelude.rnf isComplete
+      `Prelude.seq` Prelude.rnf cloudTrailProperties
+      `Prelude.seq` Prelude.rnf principalArn

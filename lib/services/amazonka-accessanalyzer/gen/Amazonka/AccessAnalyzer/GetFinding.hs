@@ -103,9 +103,15 @@ instance Core.AWSRequest GetFinding where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFinding
+instance Prelude.Hashable GetFinding where
+  hashWithSalt _salt GetFinding' {..} =
+    _salt `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetFinding
+instance Prelude.NFData GetFinding where
+  rnf GetFinding' {..} =
+    Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetFinding where
   toHeaders =
@@ -166,4 +172,7 @@ getFindingResponse_finding = Lens.lens (\GetFindingResponse' {finding} -> findin
 getFindingResponse_httpStatus :: Lens.Lens' GetFindingResponse Prelude.Int
 getFindingResponse_httpStatus = Lens.lens (\GetFindingResponse' {httpStatus} -> httpStatus) (\s@GetFindingResponse' {} a -> s {httpStatus = a} :: GetFindingResponse)
 
-instance Prelude.NFData GetFindingResponse
+instance Prelude.NFData GetFindingResponse where
+  rnf GetFindingResponse' {..} =
+    Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf httpStatus

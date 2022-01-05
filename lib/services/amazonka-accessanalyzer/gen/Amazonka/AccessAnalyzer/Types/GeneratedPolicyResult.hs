@@ -90,6 +90,12 @@ instance Core.FromJSON GeneratedPolicyResult where
             Prelude.<*> (x Core..: "properties")
       )
 
-instance Prelude.Hashable GeneratedPolicyResult
+instance Prelude.Hashable GeneratedPolicyResult where
+  hashWithSalt _salt GeneratedPolicyResult' {..} =
+    _salt `Prelude.hashWithSalt` generatedPolicies
+      `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData GeneratedPolicyResult
+instance Prelude.NFData GeneratedPolicyResult where
+  rnf GeneratedPolicyResult' {..} =
+    Prelude.rnf generatedPolicies
+      `Prelude.seq` Prelude.rnf properties

@@ -127,9 +127,19 @@ instance Core.FromJSON S3BucketConfiguration where
             Prelude.<*> (x Core..:? "bucketPolicy")
       )
 
-instance Prelude.Hashable S3BucketConfiguration
+instance Prelude.Hashable S3BucketConfiguration where
+  hashWithSalt _salt S3BucketConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` accessPoints
+      `Prelude.hashWithSalt` bucketPublicAccessBlock
+      `Prelude.hashWithSalt` bucketAclGrants
+      `Prelude.hashWithSalt` bucketPolicy
 
-instance Prelude.NFData S3BucketConfiguration
+instance Prelude.NFData S3BucketConfiguration where
+  rnf S3BucketConfiguration' {..} =
+    Prelude.rnf accessPoints
+      `Prelude.seq` Prelude.rnf bucketPublicAccessBlock
+      `Prelude.seq` Prelude.rnf bucketAclGrants
+      `Prelude.seq` Prelude.rnf bucketPolicy
 
 instance Core.ToJSON S3BucketConfiguration where
   toJSON S3BucketConfiguration' {..} =

@@ -135,9 +135,21 @@ instance Core.AWSRequest UpdateFindings where
   response =
     Response.receiveNull UpdateFindingsResponse'
 
-instance Prelude.Hashable UpdateFindings
+instance Prelude.Hashable UpdateFindings where
+  hashWithSalt _salt UpdateFindings' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` ids
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateFindings
+instance Prelude.NFData UpdateFindings where
+  rnf UpdateFindings' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateFindings where
   toHeaders =
@@ -182,4 +194,5 @@ newUpdateFindingsResponse ::
   UpdateFindingsResponse
 newUpdateFindingsResponse = UpdateFindingsResponse'
 
-instance Prelude.NFData UpdateFindingsResponse
+instance Prelude.NFData UpdateFindingsResponse where
+  rnf _ = ()

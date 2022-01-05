@@ -72,9 +72,13 @@ instance Core.FromJSON SqsQueueConfiguration where
             Prelude.<$> (x Core..:? "queuePolicy")
       )
 
-instance Prelude.Hashable SqsQueueConfiguration
+instance Prelude.Hashable SqsQueueConfiguration where
+  hashWithSalt _salt SqsQueueConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` queuePolicy
 
-instance Prelude.NFData SqsQueueConfiguration
+instance Prelude.NFData SqsQueueConfiguration where
+  rnf SqsQueueConfiguration' {..} =
+    Prelude.rnf queuePolicy
 
 instance Core.ToJSON SqsQueueConfiguration where
   toJSON SqsQueueConfiguration' {..} =

@@ -120,9 +120,19 @@ instance Core.AWSRequest CreateArchiveRule where
   response =
     Response.receiveNull CreateArchiveRuleResponse'
 
-instance Prelude.Hashable CreateArchiveRule
+instance Prelude.Hashable CreateArchiveRule where
+  hashWithSalt _salt CreateArchiveRule' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` analyzerName
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData CreateArchiveRule
+instance Prelude.NFData CreateArchiveRule where
+  rnf CreateArchiveRule' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf analyzerName
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders CreateArchiveRule where
   toHeaders =
@@ -171,4 +181,5 @@ newCreateArchiveRuleResponse ::
 newCreateArchiveRuleResponse =
   CreateArchiveRuleResponse'
 
-instance Prelude.NFData CreateArchiveRuleResponse
+instance Prelude.NFData CreateArchiveRuleResponse where
+  rnf _ = ()

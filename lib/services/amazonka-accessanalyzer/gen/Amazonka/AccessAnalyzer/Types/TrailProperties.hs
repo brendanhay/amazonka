@@ -96,6 +96,14 @@ instance Core.FromJSON TrailProperties where
             Prelude.<*> (x Core..: "cloudTrailArn")
       )
 
-instance Prelude.Hashable TrailProperties
+instance Prelude.Hashable TrailProperties where
+  hashWithSalt _salt TrailProperties' {..} =
+    _salt `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` allRegions
+      `Prelude.hashWithSalt` cloudTrailArn
 
-instance Prelude.NFData TrailProperties
+instance Prelude.NFData TrailProperties where
+  rnf TrailProperties' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf allRegions
+      `Prelude.seq` Prelude.rnf cloudTrailArn

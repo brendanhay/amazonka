@@ -150,9 +150,18 @@ instance Core.AWSRequest GetGeneratedPolicy where
             Prelude.<*> (x Core..:> "jobDetails")
       )
 
-instance Prelude.Hashable GetGeneratedPolicy
+instance Prelude.Hashable GetGeneratedPolicy where
+  hashWithSalt _salt GetGeneratedPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` includeServiceLevelTemplate
+      `Prelude.hashWithSalt` includeResourcePlaceholders
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetGeneratedPolicy
+instance Prelude.NFData GetGeneratedPolicy where
+  rnf GetGeneratedPolicy' {..} =
+    Prelude.rnf includeServiceLevelTemplate
+      `Prelude.seq` Prelude.rnf includeResourcePlaceholders
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetGeneratedPolicy where
   toHeaders =
@@ -240,4 +249,8 @@ getGeneratedPolicyResponse_generatedPolicyResult = Lens.lens (\GetGeneratedPolic
 getGeneratedPolicyResponse_jobDetails :: Lens.Lens' GetGeneratedPolicyResponse JobDetails
 getGeneratedPolicyResponse_jobDetails = Lens.lens (\GetGeneratedPolicyResponse' {jobDetails} -> jobDetails) (\s@GetGeneratedPolicyResponse' {} a -> s {jobDetails = a} :: GetGeneratedPolicyResponse)
 
-instance Prelude.NFData GetGeneratedPolicyResponse
+instance Prelude.NFData GetGeneratedPolicyResponse where
+  rnf GetGeneratedPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf generatedPolicyResult
+      `Prelude.seq` Prelude.rnf jobDetails

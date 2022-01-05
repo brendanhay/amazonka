@@ -139,9 +139,17 @@ instance Core.AWSRequest StartPolicyGeneration where
             Prelude.<*> (x Core..:> "jobId")
       )
 
-instance Prelude.Hashable StartPolicyGeneration
+instance Prelude.Hashable StartPolicyGeneration where
+  hashWithSalt _salt StartPolicyGeneration' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` cloudTrailDetails
+      `Prelude.hashWithSalt` policyGenerationDetails
 
-instance Prelude.NFData StartPolicyGeneration
+instance Prelude.NFData StartPolicyGeneration where
+  rnf StartPolicyGeneration' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf cloudTrailDetails
+      `Prelude.seq` Prelude.rnf policyGenerationDetails
 
 instance Core.ToHeaders StartPolicyGeneration where
   toHeaders =
@@ -224,4 +232,7 @@ startPolicyGenerationResponse_httpStatus = Lens.lens (\StartPolicyGenerationResp
 startPolicyGenerationResponse_jobId :: Lens.Lens' StartPolicyGenerationResponse Prelude.Text
 startPolicyGenerationResponse_jobId = Lens.lens (\StartPolicyGenerationResponse' {jobId} -> jobId) (\s@StartPolicyGenerationResponse' {} a -> s {jobId = a} :: StartPolicyGenerationResponse)
 
-instance Prelude.NFData StartPolicyGenerationResponse
+instance Prelude.NFData StartPolicyGenerationResponse where
+  rnf StartPolicyGenerationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobId

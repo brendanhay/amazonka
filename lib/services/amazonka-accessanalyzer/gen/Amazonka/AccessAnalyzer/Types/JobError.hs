@@ -75,6 +75,11 @@ instance Core.FromJSON JobError where
             Prelude.<$> (x Core..: "code") Prelude.<*> (x Core..: "message")
       )
 
-instance Prelude.Hashable JobError
+instance Prelude.Hashable JobError where
+  hashWithSalt _salt JobError' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData JobError
+instance Prelude.NFData JobError where
+  rnf JobError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -86,10 +86,20 @@ instance
 instance
   Prelude.Hashable
     NFSOnDeviceServiceConfiguration
+  where
+  hashWithSalt
+    _salt
+    NFSOnDeviceServiceConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` storageLimit
+        `Prelude.hashWithSalt` storageUnit
 
 instance
   Prelude.NFData
     NFSOnDeviceServiceConfiguration
+  where
+  rnf NFSOnDeviceServiceConfiguration' {..} =
+    Prelude.rnf storageLimit
+      `Prelude.seq` Prelude.rnf storageUnit
 
 instance Core.ToJSON NFSOnDeviceServiceConfiguration where
   toJSON NFSOnDeviceServiceConfiguration' {..} =

@@ -67,8 +67,13 @@ instance Core.FromJSON OnDeviceServiceConfiguration where
 instance
   Prelude.Hashable
     OnDeviceServiceConfiguration
+  where
+  hashWithSalt _salt OnDeviceServiceConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` nFSOnDeviceService
 
-instance Prelude.NFData OnDeviceServiceConfiguration
+instance Prelude.NFData OnDeviceServiceConfiguration where
+  rnf OnDeviceServiceConfiguration' {..} =
+    Prelude.rnf nFSOnDeviceService
 
 instance Core.ToJSON OnDeviceServiceConfiguration where
   toJSON OnDeviceServiceConfiguration' {..} =

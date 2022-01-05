@@ -409,9 +409,37 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyARN
+      `Prelude.hashWithSalt` remoteManagement
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` onDeviceServiceConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` taxDocuments
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` shippingOption
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf kmsKeyARN
+      `Prelude.seq` Prelude.rnf remoteManagement
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf forwardingAddressId
+      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf taxDocuments
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf shippingOption
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -496,4 +524,7 @@ createClusterResponse_clusterId = Lens.lens (\CreateClusterResponse' {clusterId}
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf httpStatus

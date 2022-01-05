@@ -138,9 +138,15 @@ instance Core.AWSRequest ListCompatibleImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCompatibleImages
+instance Prelude.Hashable ListCompatibleImages where
+  hashWithSalt _salt ListCompatibleImages' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCompatibleImages
+instance Prelude.NFData ListCompatibleImages where
+  rnf ListCompatibleImages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCompatibleImages where
   toHeaders =
@@ -226,4 +232,8 @@ listCompatibleImagesResponse_nextToken = Lens.lens (\ListCompatibleImagesRespons
 listCompatibleImagesResponse_httpStatus :: Lens.Lens' ListCompatibleImagesResponse Prelude.Int
 listCompatibleImagesResponse_httpStatus = Lens.lens (\ListCompatibleImagesResponse' {httpStatus} -> httpStatus) (\s@ListCompatibleImagesResponse' {} a -> s {httpStatus = a} :: ListCompatibleImagesResponse)
 
-instance Prelude.NFData ListCompatibleImagesResponse
+instance Prelude.NFData ListCompatibleImagesResponse where
+  rnf ListCompatibleImagesResponse' {..} =
+    Prelude.rnf compatibleImages
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -138,6 +138,14 @@ instance Core.FromJSON ShippingDetails where
             Prelude.<*> (x Core..:? "InboundShipment")
       )
 
-instance Prelude.Hashable ShippingDetails
+instance Prelude.Hashable ShippingDetails where
+  hashWithSalt _salt ShippingDetails' {..} =
+    _salt `Prelude.hashWithSalt` shippingOption
+      `Prelude.hashWithSalt` outboundShipment
+      `Prelude.hashWithSalt` inboundShipment
 
-instance Prelude.NFData ShippingDetails
+instance Prelude.NFData ShippingDetails where
+  rnf ShippingDetails' {..} =
+    Prelude.rnf shippingOption
+      `Prelude.seq` Prelude.rnf outboundShipment
+      `Prelude.seq` Prelude.rnf inboundShipment

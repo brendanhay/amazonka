@@ -112,9 +112,15 @@ instance Core.AWSRequest CreateReturnShippingLabel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReturnShippingLabel
+instance Prelude.Hashable CreateReturnShippingLabel where
+  hashWithSalt _salt CreateReturnShippingLabel' {..} =
+    _salt `Prelude.hashWithSalt` shippingOption
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CreateReturnShippingLabel
+instance Prelude.NFData CreateReturnShippingLabel where
+  rnf CreateReturnShippingLabel' {..} =
+    Prelude.rnf shippingOption
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders CreateReturnShippingLabel where
   toHeaders =
@@ -192,3 +198,7 @@ createReturnShippingLabelResponse_httpStatus = Lens.lens (\CreateReturnShippingL
 instance
   Prelude.NFData
     CreateReturnShippingLabelResponse
+  where
+  rnf CreateReturnShippingLabelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

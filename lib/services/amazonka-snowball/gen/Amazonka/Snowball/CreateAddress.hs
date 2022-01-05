@@ -89,9 +89,12 @@ instance Core.AWSRequest CreateAddress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAddress
+instance Prelude.Hashable CreateAddress where
+  hashWithSalt _salt CreateAddress' {..} =
+    _salt `Prelude.hashWithSalt` address
 
-instance Prelude.NFData CreateAddress
+instance Prelude.NFData CreateAddress where
+  rnf CreateAddress' {..} = Prelude.rnf address
 
 instance Core.ToHeaders CreateAddress where
   toHeaders =
@@ -165,4 +168,7 @@ createAddressResponse_addressId = Lens.lens (\CreateAddressResponse' {addressId}
 createAddressResponse_httpStatus :: Lens.Lens' CreateAddressResponse Prelude.Int
 createAddressResponse_httpStatus = Lens.lens (\CreateAddressResponse' {httpStatus} -> httpStatus) (\s@CreateAddressResponse' {} a -> s {httpStatus = a} :: CreateAddressResponse)
 
-instance Prelude.NFData CreateAddressResponse
+instance Prelude.NFData CreateAddressResponse where
+  rnf CreateAddressResponse' {..} =
+    Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf httpStatus

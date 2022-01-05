@@ -125,6 +125,20 @@ instance Core.FromJSON AttributeGroupSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AttributeGroupSummary
+instance Prelude.Hashable AttributeGroupSummary where
+  hashWithSalt _salt AttributeGroupSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AttributeGroupSummary
+instance Prelude.NFData AttributeGroupSummary where
+  rnf AttributeGroupSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf description

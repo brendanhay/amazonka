@@ -142,9 +142,17 @@ instance Core.AWSRequest ListAssociatedResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssociatedResources
+instance Prelude.Hashable ListAssociatedResources where
+  hashWithSalt _salt ListAssociatedResources' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` application
 
-instance Prelude.NFData ListAssociatedResources
+instance Prelude.NFData ListAssociatedResources where
+  rnf ListAssociatedResources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf application
 
 instance Core.ToHeaders ListAssociatedResources where
   toHeaders =
@@ -226,3 +234,8 @@ listAssociatedResourcesResponse_httpStatus = Lens.lens (\ListAssociatedResources
 instance
   Prelude.NFData
     ListAssociatedResourcesResponse
+  where
+  rnf ListAssociatedResourcesResponse' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

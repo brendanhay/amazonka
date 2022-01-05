@@ -127,9 +127,19 @@ instance Core.AWSRequest UpdateAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAttributeGroup
+instance Prelude.Hashable UpdateAttributeGroup where
+  hashWithSalt _salt UpdateAttributeGroup' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` attributeGroup
 
-instance Prelude.NFData UpdateAttributeGroup
+instance Prelude.NFData UpdateAttributeGroup where
+  rnf UpdateAttributeGroup' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf attributeGroup
 
 instance Core.ToHeaders UpdateAttributeGroup where
   toHeaders =
@@ -199,4 +209,7 @@ updateAttributeGroupResponse_attributeGroup = Lens.lens (\UpdateAttributeGroupRe
 updateAttributeGroupResponse_httpStatus :: Lens.Lens' UpdateAttributeGroupResponse Prelude.Int
 updateAttributeGroupResponse_httpStatus = Lens.lens (\UpdateAttributeGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateAttributeGroupResponse' {} a -> s {httpStatus = a} :: UpdateAttributeGroupResponse)
 
-instance Prelude.NFData UpdateAttributeGroupResponse
+instance Prelude.NFData UpdateAttributeGroupResponse where
+  rnf UpdateAttributeGroupResponse' {..} =
+    Prelude.rnf attributeGroup
+      `Prelude.seq` Prelude.rnf httpStatus

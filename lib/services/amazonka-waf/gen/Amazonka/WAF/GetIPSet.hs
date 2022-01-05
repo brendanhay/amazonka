@@ -96,9 +96,12 @@ instance Core.AWSRequest GetIPSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIPSet
+instance Prelude.Hashable GetIPSet where
+  hashWithSalt _salt GetIPSet' {..} =
+    _salt `Prelude.hashWithSalt` iPSetId
 
-instance Prelude.NFData GetIPSet
+instance Prelude.NFData GetIPSet where
+  rnf GetIPSet' {..} = Prelude.rnf iPSetId
 
 instance Core.ToHeaders GetIPSet where
   toHeaders =
@@ -182,4 +185,7 @@ getIPSetResponse_iPSet = Lens.lens (\GetIPSetResponse' {iPSet} -> iPSet) (\s@Get
 getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Prelude.Int
 getIPSetResponse_httpStatus = Lens.lens (\GetIPSetResponse' {httpStatus} -> httpStatus) (\s@GetIPSetResponse' {} a -> s {httpStatus = a} :: GetIPSetResponse)
 
-instance Prelude.NFData GetIPSetResponse
+instance Prelude.NFData GetIPSetResponse where
+  rnf GetIPSetResponse' {..} =
+    Prelude.rnf iPSet
+      `Prelude.seq` Prelude.rnf httpStatus

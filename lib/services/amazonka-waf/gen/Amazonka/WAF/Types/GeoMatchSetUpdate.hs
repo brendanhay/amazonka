@@ -80,9 +80,15 @@ geoMatchSetUpdate_action = Lens.lens (\GeoMatchSetUpdate' {action} -> action) (\
 geoMatchSetUpdate_geoMatchConstraint :: Lens.Lens' GeoMatchSetUpdate GeoMatchConstraint
 geoMatchSetUpdate_geoMatchConstraint = Lens.lens (\GeoMatchSetUpdate' {geoMatchConstraint} -> geoMatchConstraint) (\s@GeoMatchSetUpdate' {} a -> s {geoMatchConstraint = a} :: GeoMatchSetUpdate)
 
-instance Prelude.Hashable GeoMatchSetUpdate
+instance Prelude.Hashable GeoMatchSetUpdate where
+  hashWithSalt _salt GeoMatchSetUpdate' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` geoMatchConstraint
 
-instance Prelude.NFData GeoMatchSetUpdate
+instance Prelude.NFData GeoMatchSetUpdate where
+  rnf GeoMatchSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf geoMatchConstraint
 
 instance Core.ToJSON GeoMatchSetUpdate where
   toJSON GeoMatchSetUpdate' {..} =

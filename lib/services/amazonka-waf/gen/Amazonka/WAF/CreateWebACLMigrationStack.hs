@@ -172,9 +172,17 @@ instance Core.AWSRequest CreateWebACLMigrationStack where
             Prelude.<*> (x Core..:> "S3ObjectUrl")
       )
 
-instance Prelude.Hashable CreateWebACLMigrationStack
+instance Prelude.Hashable CreateWebACLMigrationStack where
+  hashWithSalt _salt CreateWebACLMigrationStack' {..} =
+    _salt `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` ignoreUnsupportedType
 
-instance Prelude.NFData CreateWebACLMigrationStack
+instance Prelude.NFData CreateWebACLMigrationStack where
+  rnf CreateWebACLMigrationStack' {..} =
+    Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf ignoreUnsupportedType
 
 instance Core.ToHeaders CreateWebACLMigrationStack where
   toHeaders =
@@ -256,3 +264,7 @@ createWebACLMigrationStackResponse_s3ObjectUrl = Lens.lens (\CreateWebACLMigrati
 instance
   Prelude.NFData
     CreateWebACLMigrationStackResponse
+  where
+  rnf CreateWebACLMigrationStackResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf s3ObjectUrl

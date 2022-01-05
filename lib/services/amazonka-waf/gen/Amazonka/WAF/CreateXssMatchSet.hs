@@ -137,9 +137,15 @@ instance Core.AWSRequest CreateXssMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateXssMatchSet
+instance Prelude.Hashable CreateXssMatchSet where
+  hashWithSalt _salt CreateXssMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateXssMatchSet
+instance Prelude.NFData CreateXssMatchSet where
+  rnf CreateXssMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateXssMatchSet where
   toHeaders =
@@ -227,4 +233,8 @@ createXssMatchSetResponse_changeToken = Lens.lens (\CreateXssMatchSetResponse' {
 createXssMatchSetResponse_httpStatus :: Lens.Lens' CreateXssMatchSetResponse Prelude.Int
 createXssMatchSetResponse_httpStatus = Lens.lens (\CreateXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateXssMatchSetResponse' {} a -> s {httpStatus = a} :: CreateXssMatchSetResponse)
 
-instance Prelude.NFData CreateXssMatchSetResponse
+instance Prelude.NFData CreateXssMatchSetResponse where
+  rnf CreateXssMatchSetResponse' {..} =
+    Prelude.rnf xssMatchSet
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

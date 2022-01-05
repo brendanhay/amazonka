@@ -104,9 +104,13 @@ instance Core.AWSRequest GetSizeConstraintSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSizeConstraintSet
+instance Prelude.Hashable GetSizeConstraintSet where
+  hashWithSalt _salt GetSizeConstraintSet' {..} =
+    _salt `Prelude.hashWithSalt` sizeConstraintSetId
 
-instance Prelude.NFData GetSizeConstraintSet
+instance Prelude.NFData GetSizeConstraintSet where
+  rnf GetSizeConstraintSet' {..} =
+    Prelude.rnf sizeConstraintSetId
 
 instance Core.ToHeaders GetSizeConstraintSet where
   toHeaders =
@@ -210,4 +214,7 @@ getSizeConstraintSetResponse_sizeConstraintSet = Lens.lens (\GetSizeConstraintSe
 getSizeConstraintSetResponse_httpStatus :: Lens.Lens' GetSizeConstraintSetResponse Prelude.Int
 getSizeConstraintSetResponse_httpStatus = Lens.lens (\GetSizeConstraintSetResponse' {httpStatus} -> httpStatus) (\s@GetSizeConstraintSetResponse' {} a -> s {httpStatus = a} :: GetSizeConstraintSetResponse)
 
-instance Prelude.NFData GetSizeConstraintSetResponse
+instance Prelude.NFData GetSizeConstraintSetResponse where
+  rnf GetSizeConstraintSetResponse' {..} =
+    Prelude.rnf sizeConstraintSet
+      `Prelude.seq` Prelude.rnf httpStatus

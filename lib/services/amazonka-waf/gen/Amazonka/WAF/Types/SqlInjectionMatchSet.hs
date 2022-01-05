@@ -131,6 +131,14 @@ instance Core.FromJSON SqlInjectionMatchSet where
                         )
       )
 
-instance Prelude.Hashable SqlInjectionMatchSet
+instance Prelude.Hashable SqlInjectionMatchSet where
+  hashWithSalt _salt SqlInjectionMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
+      `Prelude.hashWithSalt` sqlInjectionMatchTuples
 
-instance Prelude.NFData SqlInjectionMatchSet
+instance Prelude.NFData SqlInjectionMatchSet where
+  rnf SqlInjectionMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sqlInjectionMatchSetId
+      `Prelude.seq` Prelude.rnf sqlInjectionMatchTuples

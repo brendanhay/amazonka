@@ -89,6 +89,12 @@ instance Core.FromJSON TagInfoForResource where
             Prelude.<*> (x Core..:? "ResourceARN")
       )
 
-instance Prelude.Hashable TagInfoForResource
+instance Prelude.Hashable TagInfoForResource where
+  hashWithSalt _salt TagInfoForResource' {..} =
+    _salt `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData TagInfoForResource
+instance Prelude.NFData TagInfoForResource where
+  rnf TagInfoForResource' {..} =
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf resourceARN

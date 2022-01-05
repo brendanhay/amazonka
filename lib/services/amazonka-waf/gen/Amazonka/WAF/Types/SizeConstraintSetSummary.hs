@@ -111,6 +111,12 @@ instance Core.FromJSON SizeConstraintSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable SizeConstraintSetSummary
+instance Prelude.Hashable SizeConstraintSetSummary where
+  hashWithSalt _salt SizeConstraintSetSummary' {..} =
+    _salt `Prelude.hashWithSalt` sizeConstraintSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SizeConstraintSetSummary
+instance Prelude.NFData SizeConstraintSetSummary where
+  rnf SizeConstraintSetSummary' {..} =
+    Prelude.rnf sizeConstraintSetId
+      `Prelude.seq` Prelude.rnf name

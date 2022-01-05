@@ -179,9 +179,17 @@ instance Core.AWSRequest UpdateRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRuleGroup
+instance Prelude.Hashable UpdateRuleGroup where
+  hashWithSalt _salt UpdateRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` ruleGroupId
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData UpdateRuleGroup
+instance Prelude.NFData UpdateRuleGroup where
+  rnf UpdateRuleGroup' {..} =
+    Prelude.rnf ruleGroupId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateRuleGroup where
   toHeaders =
@@ -259,4 +267,7 @@ updateRuleGroupResponse_changeToken = Lens.lens (\UpdateRuleGroupResponse' {chan
 updateRuleGroupResponse_httpStatus :: Lens.Lens' UpdateRuleGroupResponse Prelude.Int
 updateRuleGroupResponse_httpStatus = Lens.lens (\UpdateRuleGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleGroupResponse' {} a -> s {httpStatus = a} :: UpdateRuleGroupResponse)
 
-instance Prelude.NFData UpdateRuleGroupResponse
+instance Prelude.NFData UpdateRuleGroupResponse where
+  rnf UpdateRuleGroupResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

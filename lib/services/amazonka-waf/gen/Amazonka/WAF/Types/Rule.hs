@@ -158,6 +158,16 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "Predicates" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt _salt Rule' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` predicates
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf predicates

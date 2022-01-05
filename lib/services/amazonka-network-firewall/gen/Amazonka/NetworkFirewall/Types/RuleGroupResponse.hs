@@ -211,6 +211,28 @@ instance Core.FromJSON RuleGroupResponse where
             Prelude.<*> (x Core..: "RuleGroupId")
       )
 
-instance Prelude.Hashable RuleGroupResponse
+instance Prelude.Hashable RuleGroupResponse where
+  hashWithSalt _salt RuleGroupResponse' {..} =
+    _salt `Prelude.hashWithSalt` numberOfAssociations
+      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` consumedCapacity
+      `Prelude.hashWithSalt` ruleGroupStatus
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ruleGroupArn
+      `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` ruleGroupId
 
-instance Prelude.NFData RuleGroupResponse
+instance Prelude.NFData RuleGroupResponse where
+  rnf RuleGroupResponse' {..} =
+    Prelude.rnf numberOfAssociations
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf ruleGroupStatus
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ruleGroupArn
+      `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf ruleGroupId

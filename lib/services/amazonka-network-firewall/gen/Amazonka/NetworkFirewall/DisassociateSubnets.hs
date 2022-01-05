@@ -187,9 +187,19 @@ instance Core.AWSRequest DisassociateSubnets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateSubnets
+instance Prelude.Hashable DisassociateSubnets where
+  hashWithSalt _salt DisassociateSubnets' {..} =
+    _salt `Prelude.hashWithSalt` updateToken
+      `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData DisassociateSubnets
+instance Prelude.NFData DisassociateSubnets where
+  rnf DisassociateSubnets' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToHeaders DisassociateSubnets where
   toHeaders =
@@ -340,4 +350,10 @@ disassociateSubnetsResponse_firewallName = Lens.lens (\DisassociateSubnetsRespon
 disassociateSubnetsResponse_httpStatus :: Lens.Lens' DisassociateSubnetsResponse Prelude.Int
 disassociateSubnetsResponse_httpStatus = Lens.lens (\DisassociateSubnetsResponse' {httpStatus} -> httpStatus) (\s@DisassociateSubnetsResponse' {} a -> s {httpStatus = a} :: DisassociateSubnetsResponse)
 
-instance Prelude.NFData DisassociateSubnetsResponse
+instance Prelude.NFData DisassociateSubnetsResponse where
+  rnf DisassociateSubnetsResponse' {..} =
+    Prelude.rnf subnetMappings
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf httpStatus

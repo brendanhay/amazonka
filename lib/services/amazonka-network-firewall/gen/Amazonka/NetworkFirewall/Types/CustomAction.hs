@@ -98,9 +98,15 @@ instance Core.FromJSON CustomAction where
             Prelude.<*> (x Core..: "ActionDefinition")
       )
 
-instance Prelude.Hashable CustomAction
+instance Prelude.Hashable CustomAction where
+  hashWithSalt _salt CustomAction' {..} =
+    _salt `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` actionDefinition
 
-instance Prelude.NFData CustomAction
+instance Prelude.NFData CustomAction where
+  rnf CustomAction' {..} =
+    Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf actionDefinition
 
 instance Core.ToJSON CustomAction where
   toJSON CustomAction' {..} =

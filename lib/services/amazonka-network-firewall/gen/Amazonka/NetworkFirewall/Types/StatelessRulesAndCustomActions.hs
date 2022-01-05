@@ -92,10 +92,20 @@ instance Core.FromJSON StatelessRulesAndCustomActions where
 instance
   Prelude.Hashable
     StatelessRulesAndCustomActions
+  where
+  hashWithSalt
+    _salt
+    StatelessRulesAndCustomActions' {..} =
+      _salt `Prelude.hashWithSalt` customActions
+        `Prelude.hashWithSalt` statelessRules
 
 instance
   Prelude.NFData
     StatelessRulesAndCustomActions
+  where
+  rnf StatelessRulesAndCustomActions' {..} =
+    Prelude.rnf customActions
+      `Prelude.seq` Prelude.rnf statelessRules
 
 instance Core.ToJSON StatelessRulesAndCustomActions where
   toJSON StatelessRulesAndCustomActions' {..} =

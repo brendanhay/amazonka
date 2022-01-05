@@ -93,9 +93,13 @@ instance Core.AWSRequest DescribeResourcePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeResourcePolicy
+instance Prelude.Hashable DescribeResourcePolicy where
+  hashWithSalt _salt DescribeResourcePolicy' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DescribeResourcePolicy
+instance Prelude.NFData DescribeResourcePolicy where
+  rnf DescribeResourcePolicy' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders DescribeResourcePolicy where
   toHeaders =
@@ -167,3 +171,7 @@ describeResourcePolicyResponse_httpStatus = Lens.lens (\DescribeResourcePolicyRe
 instance
   Prelude.NFData
     DescribeResourcePolicyResponse
+  where
+  rnf DescribeResourcePolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

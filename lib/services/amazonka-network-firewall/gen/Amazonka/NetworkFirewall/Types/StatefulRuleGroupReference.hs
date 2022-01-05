@@ -108,9 +108,15 @@ instance Core.FromJSON StatefulRuleGroupReference where
             Prelude.<*> (x Core..: "ResourceArn")
       )
 
-instance Prelude.Hashable StatefulRuleGroupReference
+instance Prelude.Hashable StatefulRuleGroupReference where
+  hashWithSalt _salt StatefulRuleGroupReference' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData StatefulRuleGroupReference
+instance Prelude.NFData StatefulRuleGroupReference where
+  rnf StatefulRuleGroupReference' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToJSON StatefulRuleGroupReference where
   toJSON StatefulRuleGroupReference' {..} =

@@ -74,9 +74,15 @@ instance Core.FromJSON RuleVariables where
             Prelude.<*> (x Core..:? "IPSets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RuleVariables
+instance Prelude.Hashable RuleVariables where
+  hashWithSalt _salt RuleVariables' {..} =
+    _salt `Prelude.hashWithSalt` portSets
+      `Prelude.hashWithSalt` iPSets
 
-instance Prelude.NFData RuleVariables
+instance Prelude.NFData RuleVariables where
+  rnf RuleVariables' {..} =
+    Prelude.rnf portSets
+      `Prelude.seq` Prelude.rnf iPSets
 
 instance Core.ToJSON RuleVariables where
   toJSON RuleVariables' {..} =

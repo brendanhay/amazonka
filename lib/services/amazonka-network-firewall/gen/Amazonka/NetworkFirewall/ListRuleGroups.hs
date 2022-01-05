@@ -144,9 +144,15 @@ instance Core.AWSRequest ListRuleGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRuleGroups
+instance Prelude.Hashable ListRuleGroups where
+  hashWithSalt _salt ListRuleGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListRuleGroups
+instance Prelude.NFData ListRuleGroups where
+  rnf ListRuleGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRuleGroups where
   toHeaders =
@@ -244,4 +250,8 @@ listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGro
 listRuleGroupsResponse_httpStatus :: Lens.Lens' ListRuleGroupsResponse Prelude.Int
 listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListRuleGroupsResponse)
 
-instance Prelude.NFData ListRuleGroupsResponse
+instance Prelude.NFData ListRuleGroupsResponse where
+  rnf ListRuleGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleGroups
+      `Prelude.seq` Prelude.rnf httpStatus

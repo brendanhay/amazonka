@@ -190,9 +190,19 @@ instance Core.AWSRequest UpdateFirewallDescription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFirewallDescription
+instance Prelude.Hashable UpdateFirewallDescription where
+  hashWithSalt _salt UpdateFirewallDescription' {..} =
+    _salt `Prelude.hashWithSalt` updateToken
+      `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` firewallName
 
-instance Prelude.NFData UpdateFirewallDescription
+instance Prelude.NFData UpdateFirewallDescription where
+  rnf UpdateFirewallDescription' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf firewallName
 
 instance Core.ToHeaders UpdateFirewallDescription where
   toHeaders =
@@ -346,3 +356,10 @@ updateFirewallDescriptionResponse_httpStatus = Lens.lens (\UpdateFirewallDescrip
 instance
   Prelude.NFData
     UpdateFirewallDescriptionResponse
+  where
+  rnf UpdateFirewallDescriptionResponse' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf httpStatus

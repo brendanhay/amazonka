@@ -193,10 +193,22 @@ instance
 instance
   Prelude.Hashable
     DescribeAffectedAccountsForOrganization
+  where
+  hashWithSalt
+    _salt
+    DescribeAffectedAccountsForOrganization' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` eventArn
 
 instance
   Prelude.NFData
     DescribeAffectedAccountsForOrganization
+  where
+  rnf DescribeAffectedAccountsForOrganization' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf eventArn
 
 instance
   Core.ToHeaders
@@ -355,3 +367,10 @@ describeAffectedAccountsForOrganizationResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeAffectedAccountsForOrganizationResponse
+  where
+  rnf
+    DescribeAffectedAccountsForOrganizationResponse' {..} =
+      Prelude.rnf affectedAccounts
+        `Prelude.seq` Prelude.rnf eventScopeCode
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

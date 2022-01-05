@@ -124,7 +124,21 @@ instance
 instance
   Prelude.Hashable
     OrganizationAffectedEntitiesErrorItem
+  where
+  hashWithSalt
+    _salt
+    OrganizationAffectedEntitiesErrorItem' {..} =
+      _salt `Prelude.hashWithSalt` awsAccountId
+        `Prelude.hashWithSalt` eventArn
+        `Prelude.hashWithSalt` errorName
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     OrganizationAffectedEntitiesErrorItem
+  where
+  rnf OrganizationAffectedEntitiesErrorItem' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf eventArn
+      `Prelude.seq` Prelude.rnf errorName
+      `Prelude.seq` Prelude.rnf errorMessage

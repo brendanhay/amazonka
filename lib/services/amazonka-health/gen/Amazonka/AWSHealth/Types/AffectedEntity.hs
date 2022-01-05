@@ -165,6 +165,24 @@ instance Core.FromJSON AffectedEntity where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable AffectedEntity
+instance Prelude.Hashable AffectedEntity where
+  hashWithSalt _salt AffectedEntity' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` entityValue
+      `Prelude.hashWithSalt` entityUrl
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` eventArn
+      `Prelude.hashWithSalt` entityArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData AffectedEntity
+instance Prelude.NFData AffectedEntity where
+  rnf AffectedEntity' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf entityValue
+      `Prelude.seq` Prelude.rnf entityUrl
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf eventArn
+      `Prelude.seq` Prelude.rnf entityArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf statusCode

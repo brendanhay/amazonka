@@ -107,6 +107,14 @@ instance Core.FromJSON EventType where
             Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable EventType
+instance Prelude.Hashable EventType where
+  hashWithSalt _salt EventType' {..} =
+    _salt `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData EventType
+instance Prelude.NFData EventType where
+  rnf EventType' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf code

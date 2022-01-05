@@ -123,9 +123,15 @@ instance Core.AWSRequest DescribeEventDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventDetails
+instance Prelude.Hashable DescribeEventDetails where
+  hashWithSalt _salt DescribeEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` eventArns
 
-instance Prelude.NFData DescribeEventDetails
+instance Prelude.NFData DescribeEventDetails where
+  rnf DescribeEventDetails' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf eventArns
 
 instance Core.ToHeaders DescribeEventDetails where
   toHeaders =
@@ -205,4 +211,8 @@ describeEventDetailsResponse_failedSet = Lens.lens (\DescribeEventDetailsRespons
 describeEventDetailsResponse_httpStatus :: Lens.Lens' DescribeEventDetailsResponse Prelude.Int
 describeEventDetailsResponse_httpStatus = Lens.lens (\DescribeEventDetailsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventDetailsResponse' {} a -> s {httpStatus = a} :: DescribeEventDetailsResponse)
 
-instance Prelude.NFData DescribeEventDetailsResponse
+instance Prelude.NFData DescribeEventDetailsResponse where
+  rnf DescribeEventDetailsResponse' {..} =
+    Prelude.rnf successfulSet
+      `Prelude.seq` Prelude.rnf failedSet
+      `Prelude.seq` Prelude.rnf httpStatus

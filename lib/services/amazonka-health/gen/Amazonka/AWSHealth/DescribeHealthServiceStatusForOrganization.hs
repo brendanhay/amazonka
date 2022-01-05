@@ -83,10 +83,15 @@ instance
 instance
   Prelude.Hashable
     DescribeHealthServiceStatusForOrganization
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeHealthServiceStatusForOrganization
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -177,3 +182,9 @@ describeHealthServiceStatusForOrganizationResponse_httpStatus = Lens.lens (\Desc
 instance
   Prelude.NFData
     DescribeHealthServiceStatusForOrganizationResponse
+  where
+  rnf
+    DescribeHealthServiceStatusForOrganizationResponse' {..} =
+      Prelude.rnf
+        healthServiceAccessStatusForOrganization
+        `Prelude.seq` Prelude.rnf httpStatus

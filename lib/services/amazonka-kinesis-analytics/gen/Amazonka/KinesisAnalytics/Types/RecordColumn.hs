@@ -103,9 +103,17 @@ instance Core.FromJSON RecordColumn where
             Prelude.<*> (x Core..: "SqlType")
       )
 
-instance Prelude.Hashable RecordColumn
+instance Prelude.Hashable RecordColumn where
+  hashWithSalt _salt RecordColumn' {..} =
+    _salt `Prelude.hashWithSalt` mapping
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sqlType
 
-instance Prelude.NFData RecordColumn
+instance Prelude.NFData RecordColumn where
+  rnf RecordColumn' {..} =
+    Prelude.rnf mapping
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sqlType
 
 instance Core.ToJSON RecordColumn where
   toJSON RecordColumn' {..} =

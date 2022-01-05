@@ -107,9 +107,19 @@ referenceDataSourceUpdate_referenceSchemaUpdate = Lens.lens (\ReferenceDataSourc
 referenceDataSourceUpdate_referenceId :: Lens.Lens' ReferenceDataSourceUpdate Prelude.Text
 referenceDataSourceUpdate_referenceId = Lens.lens (\ReferenceDataSourceUpdate' {referenceId} -> referenceId) (\s@ReferenceDataSourceUpdate' {} a -> s {referenceId = a} :: ReferenceDataSourceUpdate)
 
-instance Prelude.Hashable ReferenceDataSourceUpdate
+instance Prelude.Hashable ReferenceDataSourceUpdate where
+  hashWithSalt _salt ReferenceDataSourceUpdate' {..} =
+    _salt `Prelude.hashWithSalt` tableNameUpdate
+      `Prelude.hashWithSalt` s3ReferenceDataSourceUpdate
+      `Prelude.hashWithSalt` referenceSchemaUpdate
+      `Prelude.hashWithSalt` referenceId
 
-instance Prelude.NFData ReferenceDataSourceUpdate
+instance Prelude.NFData ReferenceDataSourceUpdate where
+  rnf ReferenceDataSourceUpdate' {..} =
+    Prelude.rnf tableNameUpdate
+      `Prelude.seq` Prelude.rnf s3ReferenceDataSourceUpdate
+      `Prelude.seq` Prelude.rnf referenceSchemaUpdate
+      `Prelude.seq` Prelude.rnf referenceId
 
 instance Core.ToJSON ReferenceDataSourceUpdate where
   toJSON ReferenceDataSourceUpdate' {..} =

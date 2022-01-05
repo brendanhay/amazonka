@@ -120,9 +120,24 @@ outputUpdate_lambdaOutputUpdate = Lens.lens (\OutputUpdate' {lambdaOutputUpdate}
 outputUpdate_outputId :: Lens.Lens' OutputUpdate Prelude.Text
 outputUpdate_outputId = Lens.lens (\OutputUpdate' {outputId} -> outputId) (\s@OutputUpdate' {} a -> s {outputId = a} :: OutputUpdate)
 
-instance Prelude.Hashable OutputUpdate
+instance Prelude.Hashable OutputUpdate where
+  hashWithSalt _salt OutputUpdate' {..} =
+    _salt
+      `Prelude.hashWithSalt` kinesisStreamsOutputUpdate
+      `Prelude.hashWithSalt` destinationSchemaUpdate
+      `Prelude.hashWithSalt` kinesisFirehoseOutputUpdate
+      `Prelude.hashWithSalt` nameUpdate
+      `Prelude.hashWithSalt` lambdaOutputUpdate
+      `Prelude.hashWithSalt` outputId
 
-instance Prelude.NFData OutputUpdate
+instance Prelude.NFData OutputUpdate where
+  rnf OutputUpdate' {..} =
+    Prelude.rnf kinesisStreamsOutputUpdate
+      `Prelude.seq` Prelude.rnf destinationSchemaUpdate
+      `Prelude.seq` Prelude.rnf kinesisFirehoseOutputUpdate
+      `Prelude.seq` Prelude.rnf nameUpdate
+      `Prelude.seq` Prelude.rnf lambdaOutputUpdate
+      `Prelude.seq` Prelude.rnf outputId
 
 instance Core.ToJSON OutputUpdate where
   toJSON OutputUpdate' {..} =

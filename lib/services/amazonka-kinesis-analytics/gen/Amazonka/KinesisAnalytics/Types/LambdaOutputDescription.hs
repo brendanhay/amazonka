@@ -76,6 +76,12 @@ instance Core.FromJSON LambdaOutputDescription where
             Prelude.<*> (x Core..:? "RoleARN")
       )
 
-instance Prelude.Hashable LambdaOutputDescription
+instance Prelude.Hashable LambdaOutputDescription where
+  hashWithSalt _salt LambdaOutputDescription' {..} =
+    _salt `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData LambdaOutputDescription
+instance Prelude.NFData LambdaOutputDescription where
+  rnf LambdaOutputDescription' {..} =
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN

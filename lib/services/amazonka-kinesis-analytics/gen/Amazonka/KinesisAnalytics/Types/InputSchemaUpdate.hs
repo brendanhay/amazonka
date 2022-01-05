@@ -82,9 +82,17 @@ inputSchemaUpdate_recordEncodingUpdate = Lens.lens (\InputSchemaUpdate' {recordE
 inputSchemaUpdate_recordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe (Prelude.NonEmpty RecordColumn))
 inputSchemaUpdate_recordColumnUpdates = Lens.lens (\InputSchemaUpdate' {recordColumnUpdates} -> recordColumnUpdates) (\s@InputSchemaUpdate' {} a -> s {recordColumnUpdates = a} :: InputSchemaUpdate) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable InputSchemaUpdate
+instance Prelude.Hashable InputSchemaUpdate where
+  hashWithSalt _salt InputSchemaUpdate' {..} =
+    _salt `Prelude.hashWithSalt` recordFormatUpdate
+      `Prelude.hashWithSalt` recordEncodingUpdate
+      `Prelude.hashWithSalt` recordColumnUpdates
 
-instance Prelude.NFData InputSchemaUpdate
+instance Prelude.NFData InputSchemaUpdate where
+  rnf InputSchemaUpdate' {..} =
+    Prelude.rnf recordFormatUpdate
+      `Prelude.seq` Prelude.rnf recordEncodingUpdate
+      `Prelude.seq` Prelude.rnf recordColumnUpdates
 
 instance Core.ToJSON InputSchemaUpdate where
   toJSON InputSchemaUpdate' {..} =

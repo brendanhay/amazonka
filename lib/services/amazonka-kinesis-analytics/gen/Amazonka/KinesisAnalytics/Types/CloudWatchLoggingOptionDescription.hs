@@ -100,7 +100,20 @@ instance
 instance
   Prelude.Hashable
     CloudWatchLoggingOptionDescription
+  where
+  hashWithSalt
+    _salt
+    CloudWatchLoggingOptionDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` cloudWatchLoggingOptionId
+        `Prelude.hashWithSalt` logStreamARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     CloudWatchLoggingOptionDescription
+  where
+  rnf CloudWatchLoggingOptionDescription' {..} =
+    Prelude.rnf cloudWatchLoggingOptionId
+      `Prelude.seq` Prelude.rnf logStreamARN
+      `Prelude.seq` Prelude.rnf roleARN

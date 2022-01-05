@@ -84,8 +84,17 @@ cloudWatchLoggingOptionUpdate_cloudWatchLoggingOptionId = Lens.lens (\CloudWatch
 instance
   Prelude.Hashable
     CloudWatchLoggingOptionUpdate
+  where
+  hashWithSalt _salt CloudWatchLoggingOptionUpdate' {..} =
+    _salt `Prelude.hashWithSalt` roleARNUpdate
+      `Prelude.hashWithSalt` logStreamARNUpdate
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionId
 
-instance Prelude.NFData CloudWatchLoggingOptionUpdate
+instance Prelude.NFData CloudWatchLoggingOptionUpdate where
+  rnf CloudWatchLoggingOptionUpdate' {..} =
+    Prelude.rnf roleARNUpdate
+      `Prelude.seq` Prelude.rnf logStreamARNUpdate
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
 
 instance Core.ToJSON CloudWatchLoggingOptionUpdate where
   toJSON CloudWatchLoggingOptionUpdate' {..} =

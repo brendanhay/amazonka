@@ -94,9 +94,22 @@ applicationUpdate_outputUpdates = Lens.lens (\ApplicationUpdate' {outputUpdates}
 applicationUpdate_applicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Prelude.Maybe Prelude.Text)
 applicationUpdate_applicationCodeUpdate = Lens.lens (\ApplicationUpdate' {applicationCodeUpdate} -> applicationCodeUpdate) (\s@ApplicationUpdate' {} a -> s {applicationCodeUpdate = a} :: ApplicationUpdate)
 
-instance Prelude.Hashable ApplicationUpdate
+instance Prelude.Hashable ApplicationUpdate where
+  hashWithSalt _salt ApplicationUpdate' {..} =
+    _salt
+      `Prelude.hashWithSalt` referenceDataSourceUpdates
+      `Prelude.hashWithSalt` inputUpdates
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
+      `Prelude.hashWithSalt` outputUpdates
+      `Prelude.hashWithSalt` applicationCodeUpdate
 
-instance Prelude.NFData ApplicationUpdate
+instance Prelude.NFData ApplicationUpdate where
+  rnf ApplicationUpdate' {..} =
+    Prelude.rnf referenceDataSourceUpdates
+      `Prelude.seq` Prelude.rnf inputUpdates
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
+      `Prelude.seq` Prelude.rnf outputUpdates
+      `Prelude.seq` Prelude.rnf applicationCodeUpdate
 
 instance Core.ToJSON ApplicationUpdate where
   toJSON ApplicationUpdate' {..} =

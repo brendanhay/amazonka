@@ -232,6 +232,32 @@ instance Core.FromJSON ApplicationDetail where
             Prelude.<*> (x Core..: "ApplicationVersionId")
       )
 
-instance Prelude.Hashable ApplicationDetail
+instance Prelude.Hashable ApplicationDetail where
+  hashWithSalt _salt ApplicationDetail' {..} =
+    _salt `Prelude.hashWithSalt` applicationDescription
+      `Prelude.hashWithSalt` outputDescriptions
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
+      `Prelude.hashWithSalt` referenceDataSourceDescriptions
+      `Prelude.hashWithSalt` inputDescriptions
+      `Prelude.hashWithSalt` applicationCode
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` applicationARN
+      `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationVersionId
 
-instance Prelude.NFData ApplicationDetail
+instance Prelude.NFData ApplicationDetail where
+  rnf ApplicationDetail' {..} =
+    Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf outputDescriptions
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
+      `Prelude.seq` Prelude.rnf inputDescriptions
+      `Prelude.seq` Prelude.rnf applicationCode
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf applicationVersionId

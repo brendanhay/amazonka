@@ -77,9 +77,15 @@ kinesisFirehoseOutput_resourceARN = Lens.lens (\KinesisFirehoseOutput' {resource
 kinesisFirehoseOutput_roleARN :: Lens.Lens' KinesisFirehoseOutput Prelude.Text
 kinesisFirehoseOutput_roleARN = Lens.lens (\KinesisFirehoseOutput' {roleARN} -> roleARN) (\s@KinesisFirehoseOutput' {} a -> s {roleARN = a} :: KinesisFirehoseOutput)
 
-instance Prelude.Hashable KinesisFirehoseOutput
+instance Prelude.Hashable KinesisFirehoseOutput where
+  hashWithSalt _salt KinesisFirehoseOutput' {..} =
+    _salt `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData KinesisFirehoseOutput
+instance Prelude.NFData KinesisFirehoseOutput where
+  rnf KinesisFirehoseOutput' {..} =
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON KinesisFirehoseOutput where
   toJSON KinesisFirehoseOutput' {..} =

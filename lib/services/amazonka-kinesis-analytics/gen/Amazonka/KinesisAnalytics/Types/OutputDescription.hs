@@ -127,6 +127,20 @@ instance Core.FromJSON OutputDescription where
             Prelude.<*> (x Core..:? "LambdaOutputDescription")
       )
 
-instance Prelude.Hashable OutputDescription
+instance Prelude.Hashable OutputDescription where
+  hashWithSalt _salt OutputDescription' {..} =
+    _salt `Prelude.hashWithSalt` outputId
+      `Prelude.hashWithSalt` destinationSchema
+      `Prelude.hashWithSalt` kinesisFirehoseOutputDescription
+      `Prelude.hashWithSalt` kinesisStreamsOutputDescription
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lambdaOutputDescription
 
-instance Prelude.NFData OutputDescription
+instance Prelude.NFData OutputDescription where
+  rnf OutputDescription' {..} =
+    Prelude.rnf outputId
+      `Prelude.seq` Prelude.rnf destinationSchema
+      `Prelude.seq` Prelude.rnf kinesisFirehoseOutputDescription
+      `Prelude.seq` Prelude.rnf kinesisStreamsOutputDescription
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lambdaOutputDescription

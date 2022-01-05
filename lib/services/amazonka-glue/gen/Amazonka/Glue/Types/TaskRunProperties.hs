@@ -107,6 +107,18 @@ instance Core.FromJSON TaskRunProperties where
             Prelude.<*> (x Core..:? "ImportLabelsTaskRunProperties")
       )
 
-instance Prelude.Hashable TaskRunProperties
+instance Prelude.Hashable TaskRunProperties where
+  hashWithSalt _salt TaskRunProperties' {..} =
+    _salt `Prelude.hashWithSalt` taskType
+      `Prelude.hashWithSalt` exportLabelsTaskRunProperties
+      `Prelude.hashWithSalt` labelingSetGenerationTaskRunProperties
+      `Prelude.hashWithSalt` findMatchesTaskRunProperties
+      `Prelude.hashWithSalt` importLabelsTaskRunProperties
 
-instance Prelude.NFData TaskRunProperties
+instance Prelude.NFData TaskRunProperties where
+  rnf TaskRunProperties' {..} =
+    Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf exportLabelsTaskRunProperties
+      `Prelude.seq` Prelude.rnf labelingSetGenerationTaskRunProperties
+      `Prelude.seq` Prelude.rnf findMatchesTaskRunProperties
+      `Prelude.seq` Prelude.rnf importLabelsTaskRunProperties

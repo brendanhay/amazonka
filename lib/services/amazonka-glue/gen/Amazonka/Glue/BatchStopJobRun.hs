@@ -107,9 +107,15 @@ instance Core.AWSRequest BatchStopJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchStopJobRun
+instance Prelude.Hashable BatchStopJobRun where
+  hashWithSalt _salt BatchStopJobRun' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobRunIds
 
-instance Prelude.NFData BatchStopJobRun
+instance Prelude.NFData BatchStopJobRun where
+  rnf BatchStopJobRun' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobRunIds
 
 instance Core.ToHeaders BatchStopJobRun where
   toHeaders =
@@ -193,4 +199,8 @@ batchStopJobRunResponse_errors = Lens.lens (\BatchStopJobRunResponse' {errors} -
 batchStopJobRunResponse_httpStatus :: Lens.Lens' BatchStopJobRunResponse Prelude.Int
 batchStopJobRunResponse_httpStatus = Lens.lens (\BatchStopJobRunResponse' {httpStatus} -> httpStatus) (\s@BatchStopJobRunResponse' {} a -> s {httpStatus = a} :: BatchStopJobRunResponse)
 
-instance Prelude.NFData BatchStopJobRunResponse
+instance Prelude.NFData BatchStopJobRunResponse where
+  rnf BatchStopJobRunResponse' {..} =
+    Prelude.rnf successfulSubmissions
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

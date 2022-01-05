@@ -113,9 +113,17 @@ instance Core.AWSRequest PutWorkflowRunProperties where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutWorkflowRunProperties
+instance Prelude.Hashable PutWorkflowRunProperties where
+  hashWithSalt _salt PutWorkflowRunProperties' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` runProperties
 
-instance Prelude.NFData PutWorkflowRunProperties
+instance Prelude.NFData PutWorkflowRunProperties where
+  rnf PutWorkflowRunProperties' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf runProperties
 
 instance Core.ToHeaders PutWorkflowRunProperties where
   toHeaders =
@@ -182,3 +190,6 @@ putWorkflowRunPropertiesResponse_httpStatus = Lens.lens (\PutWorkflowRunProperti
 instance
   Prelude.NFData
     PutWorkflowRunPropertiesResponse
+  where
+  rnf PutWorkflowRunPropertiesResponse' {..} =
+    Prelude.rnf httpStatus

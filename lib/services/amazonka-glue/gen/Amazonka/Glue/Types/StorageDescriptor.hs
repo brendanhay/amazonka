@@ -213,9 +213,37 @@ instance Core.FromJSON StorageDescriptor where
             Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StorageDescriptor
+instance Prelude.Hashable StorageDescriptor where
+  hashWithSalt _salt StorageDescriptor' {..} =
+    _salt `Prelude.hashWithSalt` sortColumns
+      `Prelude.hashWithSalt` compressed
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` bucketColumns
+      `Prelude.hashWithSalt` serdeInfo
+      `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` numberOfBuckets
+      `Prelude.hashWithSalt` schemaReference
+      `Prelude.hashWithSalt` storedAsSubDirectories
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` inputFormat
+      `Prelude.hashWithSalt` skewedInfo
+      `Prelude.hashWithSalt` columns
 
-instance Prelude.NFData StorageDescriptor
+instance Prelude.NFData StorageDescriptor where
+  rnf StorageDescriptor' {..} =
+    Prelude.rnf sortColumns
+      `Prelude.seq` Prelude.rnf compressed
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf bucketColumns
+      `Prelude.seq` Prelude.rnf serdeInfo
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf numberOfBuckets
+      `Prelude.seq` Prelude.rnf schemaReference
+      `Prelude.seq` Prelude.rnf storedAsSubDirectories
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf inputFormat
+      `Prelude.seq` Prelude.rnf skewedInfo
+      `Prelude.seq` Prelude.rnf columns
 
 instance Core.ToJSON StorageDescriptor where
   toJSON StorageDescriptor' {..} =

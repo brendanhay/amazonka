@@ -173,9 +173,23 @@ connectionInput_connectionType = Lens.lens (\ConnectionInput' {connectionType} -
 connectionInput_connectionProperties :: Lens.Lens' ConnectionInput (Prelude.HashMap ConnectionPropertyKey Prelude.Text)
 connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionProperties} -> connectionProperties) (\s@ConnectionInput' {} a -> s {connectionProperties = a} :: ConnectionInput) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ConnectionInput
+instance Prelude.Hashable ConnectionInput where
+  hashWithSalt _salt ConnectionInput' {..} =
+    _salt `Prelude.hashWithSalt` matchCriteria
+      `Prelude.hashWithSalt` physicalConnectionRequirements
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` connectionProperties
 
-instance Prelude.NFData ConnectionInput
+instance Prelude.NFData ConnectionInput where
+  rnf ConnectionInput' {..} =
+    Prelude.rnf matchCriteria
+      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf connectionProperties
 
 instance Core.ToJSON ConnectionInput where
   toJSON ConnectionInput' {..} =

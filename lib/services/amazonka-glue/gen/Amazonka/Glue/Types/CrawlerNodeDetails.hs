@@ -60,6 +60,9 @@ instance Core.FromJSON CrawlerNodeDetails where
             Prelude.<$> (x Core..:? "Crawls" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CrawlerNodeDetails
+instance Prelude.Hashable CrawlerNodeDetails where
+  hashWithSalt _salt CrawlerNodeDetails' {..} =
+    _salt `Prelude.hashWithSalt` crawls
 
-instance Prelude.NFData CrawlerNodeDetails
+instance Prelude.NFData CrawlerNodeDetails where
+  rnf CrawlerNodeDetails' {..} = Prelude.rnf crawls

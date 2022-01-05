@@ -74,6 +74,12 @@ instance Core.FromJSON PartitionError where
             Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Prelude.Hashable PartitionError
+instance Prelude.Hashable PartitionError where
+  hashWithSalt _salt PartitionError' {..} =
+    _salt `Prelude.hashWithSalt` partitionValues
+      `Prelude.hashWithSalt` errorDetail
 
-instance Prelude.NFData PartitionError
+instance Prelude.NFData PartitionError where
+  rnf PartitionError' {..} =
+    Prelude.rnf partitionValues
+      `Prelude.seq` Prelude.rnf errorDetail

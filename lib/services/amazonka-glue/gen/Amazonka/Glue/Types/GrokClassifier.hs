@@ -145,6 +145,22 @@ instance Core.FromJSON GrokClassifier where
             Prelude.<*> (x Core..: "GrokPattern")
       )
 
-instance Prelude.Hashable GrokClassifier
+instance Prelude.Hashable GrokClassifier where
+  hashWithSalt _salt GrokClassifier' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` customPatterns
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` grokPattern
 
-instance Prelude.NFData GrokClassifier
+instance Prelude.NFData GrokClassifier where
+  rnf GrokClassifier' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf customPatterns
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf grokPattern

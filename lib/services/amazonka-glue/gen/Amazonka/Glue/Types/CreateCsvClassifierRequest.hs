@@ -116,9 +116,25 @@ createCsvClassifierRequest_delimiter = Lens.lens (\CreateCsvClassifierRequest' {
 createCsvClassifierRequest_name :: Lens.Lens' CreateCsvClassifierRequest Prelude.Text
 createCsvClassifierRequest_name = Lens.lens (\CreateCsvClassifierRequest' {name} -> name) (\s@CreateCsvClassifierRequest' {} a -> s {name = a} :: CreateCsvClassifierRequest)
 
-instance Prelude.Hashable CreateCsvClassifierRequest
+instance Prelude.Hashable CreateCsvClassifierRequest where
+  hashWithSalt _salt CreateCsvClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` quoteSymbol
+      `Prelude.hashWithSalt` containsHeader
+      `Prelude.hashWithSalt` disableValueTrimming
+      `Prelude.hashWithSalt` header
+      `Prelude.hashWithSalt` allowSingleColumn
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateCsvClassifierRequest
+instance Prelude.NFData CreateCsvClassifierRequest where
+  rnf CreateCsvClassifierRequest' {..} =
+    Prelude.rnf quoteSymbol
+      `Prelude.seq` Prelude.rnf containsHeader
+      `Prelude.seq` Prelude.rnf disableValueTrimming
+      `Prelude.seq` Prelude.rnf header
+      `Prelude.seq` Prelude.rnf allowSingleColumn
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CreateCsvClassifierRequest where
   toJSON CreateCsvClassifierRequest' {..} =

@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     BatchUpdatePartitionFailureEntry
+  where
+  hashWithSalt
+    _salt
+    BatchUpdatePartitionFailureEntry' {..} =
+      _salt `Prelude.hashWithSalt` partitionValueList
+        `Prelude.hashWithSalt` errorDetail
 
 instance
   Prelude.NFData
     BatchUpdatePartitionFailureEntry
+  where
+  rnf BatchUpdatePartitionFailureEntry' {..} =
+    Prelude.rnf partitionValueList
+      `Prelude.seq` Prelude.rnf errorDetail

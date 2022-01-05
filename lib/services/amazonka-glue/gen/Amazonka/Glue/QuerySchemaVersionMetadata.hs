@@ -152,9 +152,23 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable QuerySchemaVersionMetadata
+instance Prelude.Hashable QuerySchemaVersionMetadata where
+  hashWithSalt _salt QuerySchemaVersionMetadata' {..} =
+    _salt `Prelude.hashWithSalt` schemaVersionId
+      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` metadataList
+      `Prelude.hashWithSalt` schemaVersionNumber
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData QuerySchemaVersionMetadata
+instance Prelude.NFData QuerySchemaVersionMetadata where
+  rnf QuerySchemaVersionMetadata' {..} =
+    Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf metadataList
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders QuerySchemaVersionMetadata where
   toHeaders =
@@ -255,3 +269,9 @@ querySchemaVersionMetadataResponse_httpStatus = Lens.lens (\QuerySchemaVersionMe
 instance
   Prelude.NFData
     QuerySchemaVersionMetadataResponse
+  where
+  rnf QuerySchemaVersionMetadataResponse' {..} =
+    Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf metadataInfoMap
+      `Prelude.seq` Prelude.rnf httpStatus

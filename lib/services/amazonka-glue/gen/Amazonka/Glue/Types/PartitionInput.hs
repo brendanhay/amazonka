@@ -113,9 +113,21 @@ partitionInput_parameters = Lens.lens (\PartitionInput' {parameters} -> paramete
 partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
 partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable PartitionInput
+instance Prelude.Hashable PartitionInput where
+  hashWithSalt _salt PartitionInput' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` lastAnalyzedTime
+      `Prelude.hashWithSalt` storageDescriptor
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` lastAccessTime
 
-instance Prelude.NFData PartitionInput
+instance Prelude.NFData PartitionInput where
+  rnf PartitionInput' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf lastAnalyzedTime
+      `Prelude.seq` Prelude.rnf storageDescriptor
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf lastAccessTime
 
 instance Core.ToJSON PartitionInput where
   toJSON PartitionInput' {..} =

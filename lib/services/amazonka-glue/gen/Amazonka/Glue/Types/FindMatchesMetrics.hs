@@ -209,6 +209,20 @@ instance Core.FromJSON FindMatchesMetrics where
             Prelude.<*> (x Core..:? "ConfusionMatrix")
       )
 
-instance Prelude.Hashable FindMatchesMetrics
+instance Prelude.Hashable FindMatchesMetrics where
+  hashWithSalt _salt FindMatchesMetrics' {..} =
+    _salt `Prelude.hashWithSalt` f1
+      `Prelude.hashWithSalt` areaUnderPRCurve
+      `Prelude.hashWithSalt` recall
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` columnImportances
+      `Prelude.hashWithSalt` confusionMatrix
 
-instance Prelude.NFData FindMatchesMetrics
+instance Prelude.NFData FindMatchesMetrics where
+  rnf FindMatchesMetrics' {..} =
+    Prelude.rnf f1
+      `Prelude.seq` Prelude.rnf areaUnderPRCurve
+      `Prelude.seq` Prelude.rnf recall
+      `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf columnImportances
+      `Prelude.seq` Prelude.rnf confusionMatrix

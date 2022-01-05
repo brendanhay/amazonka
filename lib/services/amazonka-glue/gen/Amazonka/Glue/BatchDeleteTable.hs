@@ -125,9 +125,17 @@ instance Core.AWSRequest BatchDeleteTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteTable
+instance Prelude.Hashable BatchDeleteTable where
+  hashWithSalt _salt BatchDeleteTable' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tablesToDelete
 
-instance Prelude.NFData BatchDeleteTable
+instance Prelude.NFData BatchDeleteTable where
+  rnf BatchDeleteTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tablesToDelete
 
 instance Core.ToHeaders BatchDeleteTable where
   toHeaders =
@@ -200,4 +208,7 @@ batchDeleteTableResponse_errors = Lens.lens (\BatchDeleteTableResponse' {errors}
 batchDeleteTableResponse_httpStatus :: Lens.Lens' BatchDeleteTableResponse Prelude.Int
 batchDeleteTableResponse_httpStatus = Lens.lens (\BatchDeleteTableResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteTableResponse' {} a -> s {httpStatus = a} :: BatchDeleteTableResponse)
 
-instance Prelude.NFData BatchDeleteTableResponse
+instance Prelude.NFData BatchDeleteTableResponse where
+  rnf BatchDeleteTableResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

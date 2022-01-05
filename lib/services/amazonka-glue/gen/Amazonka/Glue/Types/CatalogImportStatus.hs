@@ -81,6 +81,14 @@ instance Core.FromJSON CatalogImportStatus where
             Prelude.<*> (x Core..:? "ImportCompleted")
       )
 
-instance Prelude.Hashable CatalogImportStatus
+instance Prelude.Hashable CatalogImportStatus where
+  hashWithSalt _salt CatalogImportStatus' {..} =
+    _salt `Prelude.hashWithSalt` importedBy
+      `Prelude.hashWithSalt` importTime
+      `Prelude.hashWithSalt` importCompleted
 
-instance Prelude.NFData CatalogImportStatus
+instance Prelude.NFData CatalogImportStatus where
+  rnf CatalogImportStatus' {..} =
+    Prelude.rnf importedBy
+      `Prelude.seq` Prelude.rnf importTime
+      `Prelude.seq` Prelude.rnf importCompleted

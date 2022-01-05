@@ -136,9 +136,19 @@ instance Core.AWSRequest UpdateUserDefinedFunction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUserDefinedFunction
+instance Prelude.Hashable UpdateUserDefinedFunction where
+  hashWithSalt _salt UpdateUserDefinedFunction' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` functionInput
 
-instance Prelude.NFData UpdateUserDefinedFunction
+instance Prelude.NFData UpdateUserDefinedFunction where
+  rnf UpdateUserDefinedFunction' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf functionInput
 
 instance Core.ToHeaders UpdateUserDefinedFunction where
   toHeaders =
@@ -206,3 +216,6 @@ updateUserDefinedFunctionResponse_httpStatus = Lens.lens (\UpdateUserDefinedFunc
 instance
   Prelude.NFData
     UpdateUserDefinedFunctionResponse
+  where
+  rnf UpdateUserDefinedFunctionResponse' {..} =
+    Prelude.rnf httpStatus

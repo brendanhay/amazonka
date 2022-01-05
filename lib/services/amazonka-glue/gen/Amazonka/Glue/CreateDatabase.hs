@@ -99,9 +99,15 @@ instance Core.AWSRequest CreateDatabase where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatabase
+instance Prelude.Hashable CreateDatabase where
+  hashWithSalt _salt CreateDatabase' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseInput
 
-instance Prelude.NFData CreateDatabase
+instance Prelude.NFData CreateDatabase where
+  rnf CreateDatabase' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseInput
 
 instance Core.ToHeaders CreateDatabase where
   toHeaders =
@@ -159,4 +165,6 @@ newCreateDatabaseResponse pHttpStatus_ =
 createDatabaseResponse_httpStatus :: Lens.Lens' CreateDatabaseResponse Prelude.Int
 createDatabaseResponse_httpStatus = Lens.lens (\CreateDatabaseResponse' {httpStatus} -> httpStatus) (\s@CreateDatabaseResponse' {} a -> s {httpStatus = a} :: CreateDatabaseResponse)
 
-instance Prelude.NFData CreateDatabaseResponse
+instance Prelude.NFData CreateDatabaseResponse where
+  rnf CreateDatabaseResponse' {..} =
+    Prelude.rnf httpStatus

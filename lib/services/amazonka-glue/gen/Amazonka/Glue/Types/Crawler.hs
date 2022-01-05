@@ -283,6 +283,46 @@ instance Core.FromJSON Crawler where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Crawler
+instance Prelude.Hashable Crawler where
+  hashWithSalt _salt Crawler' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` schemaChangePolicy
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` lastCrawl
+      `Prelude.hashWithSalt` crawlElapsedTime
+      `Prelude.hashWithSalt` recrawlPolicy
+      `Prelude.hashWithSalt` classifiers
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lineageConfiguration
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` tablePrefix
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Crawler
+instance Prelude.NFData Crawler where
+  rnf Crawler' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf schemaChangePolicy
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf lastCrawl
+      `Prelude.seq` Prelude.rnf crawlElapsedTime
+      `Prelude.seq` Prelude.rnf recrawlPolicy
+      `Prelude.seq` Prelude.rnf classifiers
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf lineageConfiguration
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf tablePrefix
+      `Prelude.seq` Prelude.rnf description

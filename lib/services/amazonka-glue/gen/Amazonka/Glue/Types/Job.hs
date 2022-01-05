@@ -485,6 +485,48 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "CreatedOn")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` nonOverridableArguments
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` executionProperty
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createdOn
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf nonOverridableArguments
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf executionProperty
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createdOn

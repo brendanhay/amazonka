@@ -116,9 +116,17 @@ instance Core.AWSRequest BatchGetBlueprints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetBlueprints
+instance Prelude.Hashable BatchGetBlueprints where
+  hashWithSalt _salt BatchGetBlueprints' {..} =
+    _salt `Prelude.hashWithSalt` includeParameterSpec
+      `Prelude.hashWithSalt` includeBlueprint
+      `Prelude.hashWithSalt` names
 
-instance Prelude.NFData BatchGetBlueprints
+instance Prelude.NFData BatchGetBlueprints where
+  rnf BatchGetBlueprints' {..} =
+    Prelude.rnf includeParameterSpec
+      `Prelude.seq` Prelude.rnf includeBlueprint
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders BatchGetBlueprints where
   toHeaders =
@@ -199,4 +207,8 @@ batchGetBlueprintsResponse_missingBlueprints = Lens.lens (\BatchGetBlueprintsRes
 batchGetBlueprintsResponse_httpStatus :: Lens.Lens' BatchGetBlueprintsResponse Prelude.Int
 batchGetBlueprintsResponse_httpStatus = Lens.lens (\BatchGetBlueprintsResponse' {httpStatus} -> httpStatus) (\s@BatchGetBlueprintsResponse' {} a -> s {httpStatus = a} :: BatchGetBlueprintsResponse)
 
-instance Prelude.NFData BatchGetBlueprintsResponse
+instance Prelude.NFData BatchGetBlueprintsResponse where
+  rnf BatchGetBlueprintsResponse' {..} =
+    Prelude.rnf blueprints
+      `Prelude.seq` Prelude.rnf missingBlueprints
+      `Prelude.seq` Prelude.rnf httpStatus

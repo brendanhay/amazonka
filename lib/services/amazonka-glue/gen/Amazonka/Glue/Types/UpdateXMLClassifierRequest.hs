@@ -88,9 +88,17 @@ updateXMLClassifierRequest_rowTag = Lens.lens (\UpdateXMLClassifierRequest' {row
 updateXMLClassifierRequest_name :: Lens.Lens' UpdateXMLClassifierRequest Prelude.Text
 updateXMLClassifierRequest_name = Lens.lens (\UpdateXMLClassifierRequest' {name} -> name) (\s@UpdateXMLClassifierRequest' {} a -> s {name = a} :: UpdateXMLClassifierRequest)
 
-instance Prelude.Hashable UpdateXMLClassifierRequest
+instance Prelude.Hashable UpdateXMLClassifierRequest where
+  hashWithSalt _salt UpdateXMLClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` rowTag
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateXMLClassifierRequest
+instance Prelude.NFData UpdateXMLClassifierRequest where
+  rnf UpdateXMLClassifierRequest' {..} =
+    Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf rowTag
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON UpdateXMLClassifierRequest where
   toJSON UpdateXMLClassifierRequest' {..} =

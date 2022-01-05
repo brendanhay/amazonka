@@ -136,9 +136,15 @@ instance Core.AWSRequest GetSchemaByDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaByDefinition
+instance Prelude.Hashable GetSchemaByDefinition where
+  hashWithSalt _salt GetSchemaByDefinition' {..} =
+    _salt `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaDefinition
 
-instance Prelude.NFData GetSchemaByDefinition
+instance Prelude.NFData GetSchemaByDefinition where
+  rnf GetSchemaByDefinition' {..} =
+    Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaDefinition
 
 instance Core.ToHeaders GetSchemaByDefinition where
   toHeaders =
@@ -249,4 +255,11 @@ getSchemaByDefinitionResponse_schemaArn = Lens.lens (\GetSchemaByDefinitionRespo
 getSchemaByDefinitionResponse_httpStatus :: Lens.Lens' GetSchemaByDefinitionResponse Prelude.Int
 getSchemaByDefinitionResponse_httpStatus = Lens.lens (\GetSchemaByDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetSchemaByDefinitionResponse' {} a -> s {httpStatus = a} :: GetSchemaByDefinitionResponse)
 
-instance Prelude.NFData GetSchemaByDefinitionResponse
+instance Prelude.NFData GetSchemaByDefinitionResponse where
+  rnf GetSchemaByDefinitionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

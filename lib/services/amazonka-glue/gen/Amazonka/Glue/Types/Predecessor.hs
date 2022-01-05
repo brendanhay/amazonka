@@ -72,6 +72,11 @@ instance Core.FromJSON Predecessor where
             Prelude.<*> (x Core..:? "RunId")
       )
 
-instance Prelude.Hashable Predecessor
+instance Prelude.Hashable Predecessor where
+  hashWithSalt _salt Predecessor' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData Predecessor
+instance Prelude.NFData Predecessor where
+  rnf Predecessor' {..} =
+    Prelude.rnf jobName `Prelude.seq` Prelude.rnf runId

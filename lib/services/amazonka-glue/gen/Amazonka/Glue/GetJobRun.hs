@@ -108,9 +108,17 @@ instance Core.AWSRequest GetJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobRun
+instance Prelude.Hashable GetJobRun where
+  hashWithSalt _salt GetJobRun' {..} =
+    _salt `Prelude.hashWithSalt` predecessorsIncluded
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData GetJobRun
+instance Prelude.NFData GetJobRun where
+  rnf GetJobRun' {..} =
+    Prelude.rnf predecessorsIncluded
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders GetJobRun where
   toHeaders =
@@ -180,4 +188,7 @@ getJobRunResponse_jobRun = Lens.lens (\GetJobRunResponse' {jobRun} -> jobRun) (\
 getJobRunResponse_httpStatus :: Lens.Lens' GetJobRunResponse Prelude.Int
 getJobRunResponse_httpStatus = Lens.lens (\GetJobRunResponse' {httpStatus} -> httpStatus) (\s@GetJobRunResponse' {} a -> s {httpStatus = a} :: GetJobRunResponse)
 
-instance Prelude.NFData GetJobRunResponse
+instance Prelude.NFData GetJobRunResponse where
+  rnf GetJobRunResponse' {..} =
+    Prelude.rnf jobRun
+      `Prelude.seq` Prelude.rnf httpStatus

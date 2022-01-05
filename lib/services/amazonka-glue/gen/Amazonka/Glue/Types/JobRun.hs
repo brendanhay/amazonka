@@ -499,6 +499,52 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable JobRun
+instance Prelude.Hashable JobRun where
+  hashWithSalt _salt JobRun' {..} =
+    _salt `Prelude.hashWithSalt` completedOn
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` triggerName
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` jobRunState
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` executionTime
+      `Prelude.hashWithSalt` predecessorRuns
+      `Prelude.hashWithSalt` previousRunId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` attempt
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData JobRun
+instance Prelude.NFData JobRun where
+  rnf JobRun' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf triggerName
+      `Prelude.seq` Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf jobRunState
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf predecessorRuns
+      `Prelude.seq` Prelude.rnf previousRunId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf errorMessage

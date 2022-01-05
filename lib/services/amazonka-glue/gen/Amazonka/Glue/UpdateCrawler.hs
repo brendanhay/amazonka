@@ -247,9 +247,37 @@ instance Core.AWSRequest UpdateCrawler where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCrawler
+instance Prelude.Hashable UpdateCrawler where
+  hashWithSalt _salt UpdateCrawler' {..} =
+    _salt `Prelude.hashWithSalt` schemaChangePolicy
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` recrawlPolicy
+      `Prelude.hashWithSalt` classifiers
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lineageConfiguration
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` tablePrefix
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateCrawler
+instance Prelude.NFData UpdateCrawler where
+  rnf UpdateCrawler' {..} =
+    Prelude.rnf schemaChangePolicy
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf recrawlPolicy
+      `Prelude.seq` Prelude.rnf classifiers
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf lineageConfiguration
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf tablePrefix
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateCrawler where
   toHeaders =
@@ -320,4 +348,6 @@ newUpdateCrawlerResponse pHttpStatus_ =
 updateCrawlerResponse_httpStatus :: Lens.Lens' UpdateCrawlerResponse Prelude.Int
 updateCrawlerResponse_httpStatus = Lens.lens (\UpdateCrawlerResponse' {httpStatus} -> httpStatus) (\s@UpdateCrawlerResponse' {} a -> s {httpStatus = a} :: UpdateCrawlerResponse)
 
-instance Prelude.NFData UpdateCrawlerResponse
+instance Prelude.NFData UpdateCrawlerResponse where
+  rnf UpdateCrawlerResponse' {..} =
+    Prelude.rnf httpStatus

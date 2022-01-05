@@ -172,9 +172,21 @@ instance Core.AWSRequest GetUserDefinedFunctions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserDefinedFunctions
+instance Prelude.Hashable GetUserDefinedFunctions where
+  hashWithSalt _salt GetUserDefinedFunctions' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` pattern'
 
-instance Prelude.NFData GetUserDefinedFunctions
+instance Prelude.NFData GetUserDefinedFunctions where
+  rnf GetUserDefinedFunctions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf pattern'
 
 instance Core.ToHeaders GetUserDefinedFunctions where
   toHeaders =
@@ -263,3 +275,8 @@ getUserDefinedFunctionsResponse_httpStatus = Lens.lens (\GetUserDefinedFunctions
 instance
   Prelude.NFData
     GetUserDefinedFunctionsResponse
+  where
+  rnf GetUserDefinedFunctionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userDefinedFunctions
+      `Prelude.seq` Prelude.rnf httpStatus

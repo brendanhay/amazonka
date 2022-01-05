@@ -101,9 +101,15 @@ instance Core.AWSRequest BatchDeleteConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteConnection
+instance Prelude.Hashable BatchDeleteConnection where
+  hashWithSalt _salt BatchDeleteConnection' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` connectionNameList
 
-instance Prelude.NFData BatchDeleteConnection
+instance Prelude.NFData BatchDeleteConnection where
+  rnf BatchDeleteConnection' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf connectionNameList
 
 instance Core.ToHeaders BatchDeleteConnection where
   toHeaders =
@@ -190,4 +196,8 @@ batchDeleteConnectionResponse_errors = Lens.lens (\BatchDeleteConnectionResponse
 batchDeleteConnectionResponse_httpStatus :: Lens.Lens' BatchDeleteConnectionResponse Prelude.Int
 batchDeleteConnectionResponse_httpStatus = Lens.lens (\BatchDeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteConnectionResponse' {} a -> s {httpStatus = a} :: BatchDeleteConnectionResponse)
 
-instance Prelude.NFData BatchDeleteConnectionResponse
+instance Prelude.NFData BatchDeleteConnectionResponse where
+  rnf BatchDeleteConnectionResponse' {..} =
+    Prelude.rnf succeeded
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

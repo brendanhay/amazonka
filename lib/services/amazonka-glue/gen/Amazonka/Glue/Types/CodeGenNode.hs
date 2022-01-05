@@ -96,9 +96,19 @@ instance Core.FromJSON CodeGenNode where
             Prelude.<*> (x Core..:? "Args" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CodeGenNode
+instance Prelude.Hashable CodeGenNode where
+  hashWithSalt _salt CodeGenNode' {..} =
+    _salt `Prelude.hashWithSalt` lineNumber
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData CodeGenNode
+instance Prelude.NFData CodeGenNode where
+  rnf CodeGenNode' {..} =
+    Prelude.rnf lineNumber
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf args
 
 instance Core.ToJSON CodeGenNode where
   toJSON CodeGenNode' {..} =

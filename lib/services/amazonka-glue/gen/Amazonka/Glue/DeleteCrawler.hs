@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteCrawler where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCrawler
+instance Prelude.Hashable DeleteCrawler where
+  hashWithSalt _salt DeleteCrawler' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteCrawler
+instance Prelude.NFData DeleteCrawler where
+  rnf DeleteCrawler' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteCrawler where
   toHeaders =
@@ -142,4 +145,6 @@ newDeleteCrawlerResponse pHttpStatus_ =
 deleteCrawlerResponse_httpStatus :: Lens.Lens' DeleteCrawlerResponse Prelude.Int
 deleteCrawlerResponse_httpStatus = Lens.lens (\DeleteCrawlerResponse' {httpStatus} -> httpStatus) (\s@DeleteCrawlerResponse' {} a -> s {httpStatus = a} :: DeleteCrawlerResponse)
 
-instance Prelude.NFData DeleteCrawlerResponse
+instance Prelude.NFData DeleteCrawlerResponse where
+  rnf DeleteCrawlerResponse' {..} =
+    Prelude.rnf httpStatus

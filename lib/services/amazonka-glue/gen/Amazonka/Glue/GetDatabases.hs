@@ -159,9 +159,19 @@ instance Core.AWSRequest GetDatabases where
             Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetDatabases
+instance Prelude.Hashable GetDatabases where
+  hashWithSalt _salt GetDatabases' {..} =
+    _salt `Prelude.hashWithSalt` resourceShareType
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetDatabases
+instance Prelude.NFData GetDatabases where
+  rnf GetDatabases' {..} =
+    Prelude.rnf resourceShareType
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDatabases where
   toHeaders =
@@ -244,4 +254,8 @@ getDatabasesResponse_httpStatus = Lens.lens (\GetDatabasesResponse' {httpStatus}
 getDatabasesResponse_databaseList :: Lens.Lens' GetDatabasesResponse [Database]
 getDatabasesResponse_databaseList = Lens.lens (\GetDatabasesResponse' {databaseList} -> databaseList) (\s@GetDatabasesResponse' {} a -> s {databaseList = a} :: GetDatabasesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetDatabasesResponse
+instance Prelude.NFData GetDatabasesResponse where
+  rnf GetDatabasesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf databaseList

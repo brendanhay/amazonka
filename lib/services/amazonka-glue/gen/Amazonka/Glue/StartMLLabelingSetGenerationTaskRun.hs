@@ -126,10 +126,20 @@ instance
 instance
   Prelude.Hashable
     StartMLLabelingSetGenerationTaskRun
+  where
+  hashWithSalt
+    _salt
+    StartMLLabelingSetGenerationTaskRun' {..} =
+      _salt `Prelude.hashWithSalt` transformId
+        `Prelude.hashWithSalt` outputS3Path
 
 instance
   Prelude.NFData
     StartMLLabelingSetGenerationTaskRun
+  where
+  rnf StartMLLabelingSetGenerationTaskRun' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf outputS3Path
 
 instance
   Core.ToHeaders
@@ -216,3 +226,7 @@ startMLLabelingSetGenerationTaskRunResponse_httpStatus = Lens.lens (\StartMLLabe
 instance
   Prelude.NFData
     StartMLLabelingSetGenerationTaskRunResponse
+  where
+  rnf StartMLLabelingSetGenerationTaskRunResponse' {..} =
+    Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf httpStatus

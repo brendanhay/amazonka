@@ -109,9 +109,15 @@ instance Core.AWSRequest CreateSecurityConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSecurityConfiguration
+instance Prelude.Hashable CreateSecurityConfiguration where
+  hashWithSalt _salt CreateSecurityConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` encryptionConfiguration
 
-instance Prelude.NFData CreateSecurityConfiguration
+instance Prelude.NFData CreateSecurityConfiguration where
+  rnf CreateSecurityConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
 
 instance Core.ToHeaders CreateSecurityConfiguration where
   toHeaders =
@@ -197,3 +203,8 @@ createSecurityConfigurationResponse_httpStatus = Lens.lens (\CreateSecurityConfi
 instance
   Prelude.NFData
     CreateSecurityConfigurationResponse
+  where
+  rnf CreateSecurityConfigurationResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

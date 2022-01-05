@@ -97,9 +97,12 @@ instance Core.AWSRequest GetRegistry where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegistry
+instance Prelude.Hashable GetRegistry where
+  hashWithSalt _salt GetRegistry' {..} =
+    _salt `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData GetRegistry
+instance Prelude.NFData GetRegistry where
+  rnf GetRegistry' {..} = Prelude.rnf registryId
 
 instance Core.ToHeaders GetRegistry where
   toHeaders =
@@ -210,4 +213,12 @@ getRegistryResponse_description = Lens.lens (\GetRegistryResponse' {description}
 getRegistryResponse_httpStatus :: Lens.Lens' GetRegistryResponse Prelude.Int
 getRegistryResponse_httpStatus = Lens.lens (\GetRegistryResponse' {httpStatus} -> httpStatus) (\s@GetRegistryResponse' {} a -> s {httpStatus = a} :: GetRegistryResponse)
 
-instance Prelude.NFData GetRegistryResponse
+instance Prelude.NFData GetRegistryResponse where
+  rnf GetRegistryResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

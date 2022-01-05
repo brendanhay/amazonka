@@ -65,9 +65,13 @@ instance Core.FromJSON NotificationProperty where
             Prelude.<$> (x Core..:? "NotifyDelayAfter")
       )
 
-instance Prelude.Hashable NotificationProperty
+instance Prelude.Hashable NotificationProperty where
+  hashWithSalt _salt NotificationProperty' {..} =
+    _salt `Prelude.hashWithSalt` notifyDelayAfter
 
-instance Prelude.NFData NotificationProperty
+instance Prelude.NFData NotificationProperty where
+  rnf NotificationProperty' {..} =
+    Prelude.rnf notifyDelayAfter
 
 instance Core.ToJSON NotificationProperty where
   toJSON NotificationProperty' {..} =

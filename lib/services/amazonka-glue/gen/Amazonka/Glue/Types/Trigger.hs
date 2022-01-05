@@ -168,6 +168,28 @@ instance Core.FromJSON Trigger where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Trigger
+instance Prelude.Hashable Trigger where
+  hashWithSalt _salt Trigger' {..} =
+    _salt `Prelude.hashWithSalt` workflowName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` predicate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` eventBatchingCondition
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Trigger
+instance Prelude.NFData Trigger where
+  rnf Trigger' {..} =
+    Prelude.rnf workflowName
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf predicate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf eventBatchingCondition
+      `Prelude.seq` Prelude.rnf description

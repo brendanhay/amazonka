@@ -85,9 +85,13 @@ instance Core.AWSRequest StopCrawlerSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopCrawlerSchedule
+instance Prelude.Hashable StopCrawlerSchedule where
+  hashWithSalt _salt StopCrawlerSchedule' {..} =
+    _salt `Prelude.hashWithSalt` crawlerName
 
-instance Prelude.NFData StopCrawlerSchedule
+instance Prelude.NFData StopCrawlerSchedule where
+  rnf StopCrawlerSchedule' {..} =
+    Prelude.rnf crawlerName
 
 instance Core.ToHeaders StopCrawlerSchedule where
   toHeaders =
@@ -147,4 +151,6 @@ newStopCrawlerScheduleResponse pHttpStatus_ =
 stopCrawlerScheduleResponse_httpStatus :: Lens.Lens' StopCrawlerScheduleResponse Prelude.Int
 stopCrawlerScheduleResponse_httpStatus = Lens.lens (\StopCrawlerScheduleResponse' {httpStatus} -> httpStatus) (\s@StopCrawlerScheduleResponse' {} a -> s {httpStatus = a} :: StopCrawlerScheduleResponse)
 
-instance Prelude.NFData StopCrawlerScheduleResponse
+instance Prelude.NFData StopCrawlerScheduleResponse where
+  rnf StopCrawlerScheduleResponse' {..} =
+    Prelude.rnf httpStatus

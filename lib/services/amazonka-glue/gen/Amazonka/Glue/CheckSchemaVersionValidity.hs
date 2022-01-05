@@ -111,9 +111,15 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CheckSchemaVersionValidity
+instance Prelude.Hashable CheckSchemaVersionValidity where
+  hashWithSalt _salt CheckSchemaVersionValidity' {..} =
+    _salt `Prelude.hashWithSalt` dataFormat
+      `Prelude.hashWithSalt` schemaDefinition
 
-instance Prelude.NFData CheckSchemaVersionValidity
+instance Prelude.NFData CheckSchemaVersionValidity where
+  rnf CheckSchemaVersionValidity' {..} =
+    Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf schemaDefinition
 
 instance Core.ToHeaders CheckSchemaVersionValidity where
   toHeaders =
@@ -197,3 +203,8 @@ checkSchemaVersionValidityResponse_httpStatus = Lens.lens (\CheckSchemaVersionVa
 instance
   Prelude.NFData
     CheckSchemaVersionValidityResponse
+  where
+  rnf CheckSchemaVersionValidityResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf valid
+      `Prelude.seq` Prelude.rnf httpStatus

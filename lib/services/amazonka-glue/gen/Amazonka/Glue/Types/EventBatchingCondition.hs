@@ -81,9 +81,15 @@ instance Core.FromJSON EventBatchingCondition where
             Prelude.<*> (x Core..: "BatchSize")
       )
 
-instance Prelude.Hashable EventBatchingCondition
+instance Prelude.Hashable EventBatchingCondition where
+  hashWithSalt _salt EventBatchingCondition' {..} =
+    _salt `Prelude.hashWithSalt` batchWindow
+      `Prelude.hashWithSalt` batchSize
 
-instance Prelude.NFData EventBatchingCondition
+instance Prelude.NFData EventBatchingCondition where
+  rnf EventBatchingCondition' {..} =
+    Prelude.rnf batchWindow
+      `Prelude.seq` Prelude.rnf batchSize
 
 instance Core.ToJSON EventBatchingCondition where
   toJSON EventBatchingCondition' {..} =

@@ -137,9 +137,19 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveSchemaVersionMetadata
+instance Prelude.Hashable RemoveSchemaVersionMetadata where
+  hashWithSalt _salt RemoveSchemaVersionMetadata' {..} =
+    _salt `Prelude.hashWithSalt` schemaVersionId
+      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaVersionNumber
+      `Prelude.hashWithSalt` metadataKeyValue
 
-instance Prelude.NFData RemoveSchemaVersionMetadata
+instance Prelude.NFData RemoveSchemaVersionMetadata where
+  rnf RemoveSchemaVersionMetadata' {..} =
+    Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
+      `Prelude.seq` Prelude.rnf metadataKeyValue
 
 instance Core.ToHeaders RemoveSchemaVersionMetadata where
   toHeaders =
@@ -281,3 +291,14 @@ removeSchemaVersionMetadataResponse_httpStatus = Lens.lens (\RemoveSchemaVersion
 instance
   Prelude.NFData
     RemoveSchemaVersionMetadataResponse
+  where
+  rnf RemoveSchemaVersionMetadataResponse' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf metadataKey
+      `Prelude.seq` Prelude.rnf metadataValue
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf httpStatus

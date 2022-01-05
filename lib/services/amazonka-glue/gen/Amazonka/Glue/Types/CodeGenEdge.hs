@@ -85,9 +85,17 @@ instance Core.FromJSON CodeGenEdge where
             Prelude.<*> (x Core..: "Target")
       )
 
-instance Prelude.Hashable CodeGenEdge
+instance Prelude.Hashable CodeGenEdge where
+  hashWithSalt _salt CodeGenEdge' {..} =
+    _salt `Prelude.hashWithSalt` targetParameter
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData CodeGenEdge
+instance Prelude.NFData CodeGenEdge where
+  rnf CodeGenEdge' {..} =
+    Prelude.rnf targetParameter
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON CodeGenEdge where
   toJSON CodeGenEdge' {..} =

@@ -118,9 +118,17 @@ instance Core.AWSRequest ListDevEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDevEndpoints
+instance Prelude.Hashable ListDevEndpoints where
+  hashWithSalt _salt ListDevEndpoints' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ListDevEndpoints
+instance Prelude.NFData ListDevEndpoints where
+  rnf ListDevEndpoints' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ListDevEndpoints where
   toHeaders =
@@ -205,4 +213,8 @@ listDevEndpointsResponse_devEndpointNames = Lens.lens (\ListDevEndpointsResponse
 listDevEndpointsResponse_httpStatus :: Lens.Lens' ListDevEndpointsResponse Prelude.Int
 listDevEndpointsResponse_httpStatus = Lens.lens (\ListDevEndpointsResponse' {httpStatus} -> httpStatus) (\s@ListDevEndpointsResponse' {} a -> s {httpStatus = a} :: ListDevEndpointsResponse)
 
-instance Prelude.NFData ListDevEndpointsResponse
+instance Prelude.NFData ListDevEndpointsResponse where
+  rnf ListDevEndpointsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf devEndpointNames
+      `Prelude.seq` Prelude.rnf httpStatus

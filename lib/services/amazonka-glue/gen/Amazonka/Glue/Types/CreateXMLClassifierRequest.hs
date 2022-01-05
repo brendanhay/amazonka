@@ -90,9 +90,17 @@ createXMLClassifierRequest_classification = Lens.lens (\CreateXMLClassifierReque
 createXMLClassifierRequest_name :: Lens.Lens' CreateXMLClassifierRequest Prelude.Text
 createXMLClassifierRequest_name = Lens.lens (\CreateXMLClassifierRequest' {name} -> name) (\s@CreateXMLClassifierRequest' {} a -> s {name = a} :: CreateXMLClassifierRequest)
 
-instance Prelude.Hashable CreateXMLClassifierRequest
+instance Prelude.Hashable CreateXMLClassifierRequest where
+  hashWithSalt _salt CreateXMLClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` rowTag
+      `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateXMLClassifierRequest
+instance Prelude.NFData CreateXMLClassifierRequest where
+  rnf CreateXMLClassifierRequest' {..} =
+    Prelude.rnf rowTag
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CreateXMLClassifierRequest where
   toJSON CreateXMLClassifierRequest' {..} =

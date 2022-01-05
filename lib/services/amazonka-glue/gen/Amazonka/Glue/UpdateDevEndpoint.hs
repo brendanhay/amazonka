@@ -192,9 +192,27 @@ instance Core.AWSRequest UpdateDevEndpoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDevEndpoint
+instance Prelude.Hashable UpdateDevEndpoint where
+  hashWithSalt _salt UpdateDevEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` addPublicKeys
+      `Prelude.hashWithSalt` customLibraries
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` deleteArguments
+      `Prelude.hashWithSalt` deletePublicKeys
+      `Prelude.hashWithSalt` updateEtlLibraries
+      `Prelude.hashWithSalt` addArguments
+      `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData UpdateDevEndpoint
+instance Prelude.NFData UpdateDevEndpoint where
+  rnf UpdateDevEndpoint' {..} =
+    Prelude.rnf addPublicKeys
+      `Prelude.seq` Prelude.rnf customLibraries
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf deleteArguments
+      `Prelude.seq` Prelude.rnf deletePublicKeys
+      `Prelude.seq` Prelude.rnf updateEtlLibraries
+      `Prelude.seq` Prelude.rnf addArguments
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance Core.ToHeaders UpdateDevEndpoint where
   toHeaders =
@@ -264,4 +282,6 @@ newUpdateDevEndpointResponse pHttpStatus_ =
 updateDevEndpointResponse_httpStatus :: Lens.Lens' UpdateDevEndpointResponse Prelude.Int
 updateDevEndpointResponse_httpStatus = Lens.lens (\UpdateDevEndpointResponse' {httpStatus} -> httpStatus) (\s@UpdateDevEndpointResponse' {} a -> s {httpStatus = a} :: UpdateDevEndpointResponse)
 
-instance Prelude.NFData UpdateDevEndpointResponse
+instance Prelude.NFData UpdateDevEndpointResponse where
+  rnf UpdateDevEndpointResponse' {..} =
+    Prelude.rnf httpStatus

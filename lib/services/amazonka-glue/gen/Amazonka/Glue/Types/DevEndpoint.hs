@@ -521,6 +521,62 @@ instance Core.FromJSON DevEndpoint where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable DevEndpoint
+instance Prelude.Hashable DevEndpoint where
+  hashWithSalt _salt DevEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` extraPythonLibsS3Path
+      `Prelude.hashWithSalt` lastUpdateStatus
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` lastModifiedTimestamp
+      `Prelude.hashWithSalt` publicKeys
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` privateAddress
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` publicAddress
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` zeppelinRemoteSparkInterpreterPort
+      `Prelude.hashWithSalt` extraJarsS3Path
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` yarnEndpointAddress
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DevEndpoint
+instance Prelude.NFData DevEndpoint where
+  rnf DevEndpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf publicKeys
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf privateAddress
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf publicAddress
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf
+        zeppelinRemoteSparkInterpreterPort
+      `Prelude.seq` Prelude.rnf
+        extraJarsS3Path
+      `Prelude.seq` Prelude.rnf
+        createdTimestamp
+      `Prelude.seq` Prelude.rnf
+        yarnEndpointAddress
+      `Prelude.seq` Prelude.rnf roleArn

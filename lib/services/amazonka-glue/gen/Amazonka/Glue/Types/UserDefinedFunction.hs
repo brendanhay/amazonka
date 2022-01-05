@@ -134,6 +134,24 @@ instance Core.FromJSON UserDefinedFunction where
             Prelude.<*> (x Core..:? "ClassName")
       )
 
-instance Prelude.Hashable UserDefinedFunction
+instance Prelude.Hashable UserDefinedFunction where
+  hashWithSalt _salt UserDefinedFunction' {..} =
+    _salt `Prelude.hashWithSalt` ownerName
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` resourceUris
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` ownerType
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` className
 
-instance Prelude.NFData UserDefinedFunction
+instance Prelude.NFData UserDefinedFunction where
+  rnf UserDefinedFunction' {..} =
+    Prelude.rnf ownerName
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resourceUris
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf ownerType
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf className

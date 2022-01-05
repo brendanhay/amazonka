@@ -125,9 +125,15 @@ instance Core.AWSRequest GetSecurityConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSecurityConfigurations
+instance Prelude.Hashable GetSecurityConfigurations where
+  hashWithSalt _salt GetSecurityConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetSecurityConfigurations
+instance Prelude.NFData GetSecurityConfigurations where
+  rnf GetSecurityConfigurations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetSecurityConfigurations where
   toHeaders =
@@ -213,3 +219,8 @@ getSecurityConfigurationsResponse_httpStatus = Lens.lens (\GetSecurityConfigurat
 instance
   Prelude.NFData
     GetSecurityConfigurationsResponse
+  where
+  rnf GetSecurityConfigurationsResponse' {..} =
+    Prelude.rnf securityConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

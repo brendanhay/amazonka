@@ -143,9 +143,28 @@ instance Core.FromJSON ColumnStatisticsData where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable ColumnStatisticsData
+instance Prelude.Hashable ColumnStatisticsData where
+  hashWithSalt _salt ColumnStatisticsData' {..} =
+    _salt
+      `Prelude.hashWithSalt` binaryColumnStatisticsData
+      `Prelude.hashWithSalt` dateColumnStatisticsData
+      `Prelude.hashWithSalt` booleanColumnStatisticsData
+      `Prelude.hashWithSalt` decimalColumnStatisticsData
+      `Prelude.hashWithSalt` doubleColumnStatisticsData
+      `Prelude.hashWithSalt` stringColumnStatisticsData
+      `Prelude.hashWithSalt` longColumnStatisticsData
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ColumnStatisticsData
+instance Prelude.NFData ColumnStatisticsData where
+  rnf ColumnStatisticsData' {..} =
+    Prelude.rnf binaryColumnStatisticsData
+      `Prelude.seq` Prelude.rnf dateColumnStatisticsData
+      `Prelude.seq` Prelude.rnf booleanColumnStatisticsData
+      `Prelude.seq` Prelude.rnf decimalColumnStatisticsData
+      `Prelude.seq` Prelude.rnf doubleColumnStatisticsData
+      `Prelude.seq` Prelude.rnf stringColumnStatisticsData
+      `Prelude.seq` Prelude.rnf longColumnStatisticsData
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ColumnStatisticsData where
   toJSON ColumnStatisticsData' {..} =

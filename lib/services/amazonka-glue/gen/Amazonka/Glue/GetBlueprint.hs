@@ -107,9 +107,17 @@ instance Core.AWSRequest GetBlueprint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBlueprint
+instance Prelude.Hashable GetBlueprint where
+  hashWithSalt _salt GetBlueprint' {..} =
+    _salt `Prelude.hashWithSalt` includeParameterSpec
+      `Prelude.hashWithSalt` includeBlueprint
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetBlueprint
+instance Prelude.NFData GetBlueprint where
+  rnf GetBlueprint' {..} =
+    Prelude.rnf includeParameterSpec
+      `Prelude.seq` Prelude.rnf includeBlueprint
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetBlueprint where
   toHeaders =
@@ -180,4 +188,7 @@ getBlueprintResponse_blueprint = Lens.lens (\GetBlueprintResponse' {blueprint} -
 getBlueprintResponse_httpStatus :: Lens.Lens' GetBlueprintResponse Prelude.Int
 getBlueprintResponse_httpStatus = Lens.lens (\GetBlueprintResponse' {httpStatus} -> httpStatus) (\s@GetBlueprintResponse' {} a -> s {httpStatus = a} :: GetBlueprintResponse)
 
-instance Prelude.NFData GetBlueprintResponse
+instance Prelude.NFData GetBlueprintResponse where
+  rnf GetBlueprintResponse' {..} =
+    Prelude.rnf blueprint
+      `Prelude.seq` Prelude.rnf httpStatus

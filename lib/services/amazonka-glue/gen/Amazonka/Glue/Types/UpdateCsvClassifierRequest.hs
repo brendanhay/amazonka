@@ -116,9 +116,25 @@ updateCsvClassifierRequest_delimiter = Lens.lens (\UpdateCsvClassifierRequest' {
 updateCsvClassifierRequest_name :: Lens.Lens' UpdateCsvClassifierRequest Prelude.Text
 updateCsvClassifierRequest_name = Lens.lens (\UpdateCsvClassifierRequest' {name} -> name) (\s@UpdateCsvClassifierRequest' {} a -> s {name = a} :: UpdateCsvClassifierRequest)
 
-instance Prelude.Hashable UpdateCsvClassifierRequest
+instance Prelude.Hashable UpdateCsvClassifierRequest where
+  hashWithSalt _salt UpdateCsvClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` quoteSymbol
+      `Prelude.hashWithSalt` containsHeader
+      `Prelude.hashWithSalt` disableValueTrimming
+      `Prelude.hashWithSalt` header
+      `Prelude.hashWithSalt` allowSingleColumn
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateCsvClassifierRequest
+instance Prelude.NFData UpdateCsvClassifierRequest where
+  rnf UpdateCsvClassifierRequest' {..} =
+    Prelude.rnf quoteSymbol
+      `Prelude.seq` Prelude.rnf containsHeader
+      `Prelude.seq` Prelude.rnf disableValueTrimming
+      `Prelude.seq` Prelude.rnf header
+      `Prelude.seq` Prelude.rnf allowSingleColumn
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON UpdateCsvClassifierRequest where
   toJSON UpdateCsvClassifierRequest' {..} =

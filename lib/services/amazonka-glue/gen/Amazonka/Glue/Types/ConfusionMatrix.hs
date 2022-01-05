@@ -109,6 +109,16 @@ instance Core.FromJSON ConfusionMatrix where
             Prelude.<*> (x Core..:? "NumFalsePositives")
       )
 
-instance Prelude.Hashable ConfusionMatrix
+instance Prelude.Hashable ConfusionMatrix where
+  hashWithSalt _salt ConfusionMatrix' {..} =
+    _salt `Prelude.hashWithSalt` numTrueNegatives
+      `Prelude.hashWithSalt` numFalseNegatives
+      `Prelude.hashWithSalt` numTruePositives
+      `Prelude.hashWithSalt` numFalsePositives
 
-instance Prelude.NFData ConfusionMatrix
+instance Prelude.NFData ConfusionMatrix where
+  rnf ConfusionMatrix' {..} =
+    Prelude.rnf numTrueNegatives
+      `Prelude.seq` Prelude.rnf numFalseNegatives
+      `Prelude.seq` Prelude.rnf numTruePositives
+      `Prelude.seq` Prelude.rnf numFalsePositives

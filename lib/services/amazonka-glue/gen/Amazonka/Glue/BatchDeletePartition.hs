@@ -126,9 +126,19 @@ instance Core.AWSRequest BatchDeletePartition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeletePartition
+instance Prelude.Hashable BatchDeletePartition where
+  hashWithSalt _salt BatchDeletePartition' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` partitionsToDelete
 
-instance Prelude.NFData BatchDeletePartition
+instance Prelude.NFData BatchDeletePartition where
+  rnf BatchDeletePartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf partitionsToDelete
 
 instance Core.ToHeaders BatchDeletePartition where
   toHeaders =
@@ -202,4 +212,7 @@ batchDeletePartitionResponse_errors = Lens.lens (\BatchDeletePartitionResponse' 
 batchDeletePartitionResponse_httpStatus :: Lens.Lens' BatchDeletePartitionResponse Prelude.Int
 batchDeletePartitionResponse_httpStatus = Lens.lens (\BatchDeletePartitionResponse' {httpStatus} -> httpStatus) (\s@BatchDeletePartitionResponse' {} a -> s {httpStatus = a} :: BatchDeletePartitionResponse)
 
-instance Prelude.NFData BatchDeletePartitionResponse
+instance Prelude.NFData BatchDeletePartitionResponse where
+  rnf BatchDeletePartitionResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

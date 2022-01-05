@@ -71,9 +71,14 @@ createJsonClassifierRequest_name = Lens.lens (\CreateJsonClassifierRequest' {nam
 createJsonClassifierRequest_jsonPath :: Lens.Lens' CreateJsonClassifierRequest Prelude.Text
 createJsonClassifierRequest_jsonPath = Lens.lens (\CreateJsonClassifierRequest' {jsonPath} -> jsonPath) (\s@CreateJsonClassifierRequest' {} a -> s {jsonPath = a} :: CreateJsonClassifierRequest)
 
-instance Prelude.Hashable CreateJsonClassifierRequest
+instance Prelude.Hashable CreateJsonClassifierRequest where
+  hashWithSalt _salt CreateJsonClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jsonPath
 
-instance Prelude.NFData CreateJsonClassifierRequest
+instance Prelude.NFData CreateJsonClassifierRequest where
+  rnf CreateJsonClassifierRequest' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf jsonPath
 
 instance Core.ToJSON CreateJsonClassifierRequest where
   toJSON CreateJsonClassifierRequest' {..} =

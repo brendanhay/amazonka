@@ -68,9 +68,15 @@ changeBatch_comment = Lens.lens (\ChangeBatch' {comment} -> comment) (\s@ChangeB
 changeBatch_changes :: Lens.Lens' ChangeBatch (Prelude.NonEmpty Change)
 changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeBatch' {} a -> s {changes = a} :: ChangeBatch) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ChangeBatch
+instance Prelude.Hashable ChangeBatch where
+  hashWithSalt _salt ChangeBatch' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` changes
 
-instance Prelude.NFData ChangeBatch
+instance Prelude.NFData ChangeBatch where
+  rnf ChangeBatch' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf changes
 
 instance Core.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =

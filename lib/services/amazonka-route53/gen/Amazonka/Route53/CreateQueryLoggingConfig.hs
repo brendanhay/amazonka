@@ -251,9 +251,15 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateQueryLoggingConfig
+instance Prelude.Hashable CreateQueryLoggingConfig where
+  hashWithSalt _salt CreateQueryLoggingConfig' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
 
-instance Prelude.NFData CreateQueryLoggingConfig
+instance Prelude.NFData CreateQueryLoggingConfig where
+  rnf CreateQueryLoggingConfig' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance Core.ToElement CreateQueryLoggingConfig where
   toElement =
@@ -342,3 +348,8 @@ createQueryLoggingConfigResponse_location = Lens.lens (\CreateQueryLoggingConfig
 instance
   Prelude.NFData
     CreateQueryLoggingConfigResponse
+  where
+  rnf CreateQueryLoggingConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf queryLoggingConfig
+      `Prelude.seq` Prelude.rnf location

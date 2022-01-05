@@ -278,9 +278,21 @@ instance Core.AWSRequest CreateHostedZone where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateHostedZone
+instance Prelude.Hashable CreateHostedZone where
+  hashWithSalt _salt CreateHostedZone' {..} =
+    _salt `Prelude.hashWithSalt` delegationSetId
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` hostedZoneConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` callerReference
 
-instance Prelude.NFData CreateHostedZone
+instance Prelude.NFData CreateHostedZone where
+  rnf CreateHostedZone' {..} =
+    Prelude.rnf delegationSetId
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf hostedZoneConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf callerReference
 
 instance Core.ToElement CreateHostedZone where
   toElement =
@@ -401,4 +413,11 @@ createHostedZoneResponse_delegationSet = Lens.lens (\CreateHostedZoneResponse' {
 createHostedZoneResponse_location :: Lens.Lens' CreateHostedZoneResponse Prelude.Text
 createHostedZoneResponse_location = Lens.lens (\CreateHostedZoneResponse' {location} -> location) (\s@CreateHostedZoneResponse' {} a -> s {location = a} :: CreateHostedZoneResponse)
 
-instance Prelude.NFData CreateHostedZoneResponse
+instance Prelude.NFData CreateHostedZoneResponse where
+  rnf CreateHostedZoneResponse' {..} =
+    Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZone
+      `Prelude.seq` Prelude.rnf changeInfo
+      `Prelude.seq` Prelude.rnf delegationSet
+      `Prelude.seq` Prelude.rnf location

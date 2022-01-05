@@ -157,9 +157,12 @@ instance Core.AWSRequest GetAccountLimit where
             Prelude.<*> (x Core..@ "Count")
       )
 
-instance Prelude.Hashable GetAccountLimit
+instance Prelude.Hashable GetAccountLimit where
+  hashWithSalt _salt GetAccountLimit' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData GetAccountLimit
+instance Prelude.NFData GetAccountLimit where
+  rnf GetAccountLimit' {..} = Prelude.rnf type'
 
 instance Core.ToHeaders GetAccountLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,4 +249,8 @@ getAccountLimitResponse_limit = Lens.lens (\GetAccountLimitResponse' {limit} -> 
 getAccountLimitResponse_count :: Lens.Lens' GetAccountLimitResponse Prelude.Natural
 getAccountLimitResponse_count = Lens.lens (\GetAccountLimitResponse' {count} -> count) (\s@GetAccountLimitResponse' {} a -> s {count = a} :: GetAccountLimitResponse)
 
-instance Prelude.NFData GetAccountLimitResponse
+instance Prelude.NFData GetAccountLimitResponse where
+  rnf GetAccountLimitResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf count

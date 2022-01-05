@@ -106,9 +106,14 @@ instance Core.AWSRequest UpdateHostedZoneComment where
             Prelude.<*> (x Core..@ "HostedZone")
       )
 
-instance Prelude.Hashable UpdateHostedZoneComment
+instance Prelude.Hashable UpdateHostedZoneComment where
+  hashWithSalt _salt UpdateHostedZoneComment' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateHostedZoneComment
+instance Prelude.NFData UpdateHostedZoneComment where
+  rnf UpdateHostedZoneComment' {..} =
+    Prelude.rnf comment `Prelude.seq` Prelude.rnf id
 
 instance Core.ToElement UpdateHostedZoneComment where
   toElement =
@@ -182,3 +187,7 @@ updateHostedZoneCommentResponse_hostedZone = Lens.lens (\UpdateHostedZoneComment
 instance
   Prelude.NFData
     UpdateHostedZoneCommentResponse
+  where
+  rnf UpdateHostedZoneCommentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZone

@@ -255,9 +255,21 @@ instance Core.AWSRequest CreateKeySigningKey where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateKeySigningKey
+instance Prelude.Hashable CreateKeySigningKey where
+  hashWithSalt _salt CreateKeySigningKey' {..} =
+    _salt `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` keyManagementServiceArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CreateKeySigningKey
+instance Prelude.NFData CreateKeySigningKey where
+  rnf CreateKeySigningKey' {..} =
+    Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf keyManagementServiceArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToElement CreateKeySigningKey where
   toElement =
@@ -350,4 +362,9 @@ createKeySigningKeyResponse_keySigningKey = Lens.lens (\CreateKeySigningKeyRespo
 createKeySigningKeyResponse_location :: Lens.Lens' CreateKeySigningKeyResponse Prelude.Text
 createKeySigningKeyResponse_location = Lens.lens (\CreateKeySigningKeyResponse' {location} -> location) (\s@CreateKeySigningKeyResponse' {} a -> s {location = a} :: CreateKeySigningKeyResponse)
 
-instance Prelude.NFData CreateKeySigningKeyResponse
+instance Prelude.NFData CreateKeySigningKeyResponse where
+  rnf CreateKeySigningKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo
+      `Prelude.seq` Prelude.rnf keySigningKey
+      `Prelude.seq` Prelude.rnf location

@@ -168,9 +168,15 @@ instance Core.AWSRequest CreateReusableDelegationSet where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateReusableDelegationSet
+instance Prelude.Hashable CreateReusableDelegationSet where
+  hashWithSalt _salt CreateReusableDelegationSet' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` callerReference
 
-instance Prelude.NFData CreateReusableDelegationSet
+instance Prelude.NFData CreateReusableDelegationSet where
+  rnf CreateReusableDelegationSet' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf callerReference
 
 instance Core.ToElement CreateReusableDelegationSet where
   toElement =
@@ -251,3 +257,8 @@ createReusableDelegationSetResponse_location = Lens.lens (\CreateReusableDelegat
 instance
   Prelude.NFData
     CreateReusableDelegationSetResponse
+  where
+  rnf CreateReusableDelegationSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf delegationSet
+      `Prelude.seq` Prelude.rnf location

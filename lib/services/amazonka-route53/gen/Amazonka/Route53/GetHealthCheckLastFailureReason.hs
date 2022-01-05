@@ -121,10 +121,18 @@ instance
 instance
   Prelude.Hashable
     GetHealthCheckLastFailureReason
+  where
+  hashWithSalt
+    _salt
+    GetHealthCheckLastFailureReason' {..} =
+      _salt `Prelude.hashWithSalt` healthCheckId
 
 instance
   Prelude.NFData
     GetHealthCheckLastFailureReason
+  where
+  rnf GetHealthCheckLastFailureReason' {..} =
+    Prelude.rnf healthCheckId
 
 instance
   Core.ToHeaders
@@ -193,3 +201,7 @@ getHealthCheckLastFailureReasonResponse_healthCheckObservations = Lens.lens (\Ge
 instance
   Prelude.NFData
     GetHealthCheckLastFailureReasonResponse
+  where
+  rnf GetHealthCheckLastFailureReasonResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthCheckObservations

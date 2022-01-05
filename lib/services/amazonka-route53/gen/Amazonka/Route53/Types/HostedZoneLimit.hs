@@ -88,6 +88,11 @@ instance Core.FromXML HostedZoneLimit where
     HostedZoneLimit'
       Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable HostedZoneLimit
+instance Prelude.Hashable HostedZoneLimit where
+  hashWithSalt _salt HostedZoneLimit' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData HostedZoneLimit
+instance Prelude.NFData HostedZoneLimit where
+  rnf HostedZoneLimit' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value

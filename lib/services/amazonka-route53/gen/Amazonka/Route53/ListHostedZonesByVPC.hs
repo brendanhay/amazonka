@@ -183,9 +183,19 @@ instance Core.AWSRequest ListHostedZonesByVPC where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListHostedZonesByVPC
+instance Prelude.Hashable ListHostedZonesByVPC where
+  hashWithSalt _salt ListHostedZonesByVPC' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` vPCRegion
 
-instance Prelude.NFData ListHostedZonesByVPC
+instance Prelude.NFData ListHostedZonesByVPC where
+  rnf ListHostedZonesByVPC' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf vPCRegion
 
 instance Core.ToHeaders ListHostedZonesByVPC where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,4 +288,9 @@ listHostedZonesByVPCResponse_hostedZoneSummaries = Lens.lens (\ListHostedZonesBy
 listHostedZonesByVPCResponse_maxItems :: Lens.Lens' ListHostedZonesByVPCResponse Prelude.Text
 listHostedZonesByVPCResponse_maxItems = Lens.lens (\ListHostedZonesByVPCResponse' {maxItems} -> maxItems) (\s@ListHostedZonesByVPCResponse' {} a -> s {maxItems = a} :: ListHostedZonesByVPCResponse)
 
-instance Prelude.NFData ListHostedZonesByVPCResponse
+instance Prelude.NFData ListHostedZonesByVPCResponse where
+  rnf ListHostedZonesByVPCResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZoneSummaries
+      `Prelude.seq` Prelude.rnf maxItems

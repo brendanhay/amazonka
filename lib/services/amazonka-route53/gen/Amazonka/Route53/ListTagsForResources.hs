@@ -125,9 +125,15 @@ instance Core.AWSRequest ListTagsForResources where
                         )
       )
 
-instance Prelude.Hashable ListTagsForResources
+instance Prelude.Hashable ListTagsForResources where
+  hashWithSalt _salt ListTagsForResources' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceIds
 
-instance Prelude.NFData ListTagsForResources
+instance Prelude.NFData ListTagsForResources where
+  rnf ListTagsForResources' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceIds
 
 instance Core.ToElement ListTagsForResources where
   toElement =
@@ -196,4 +202,7 @@ listTagsForResourcesResponse_httpStatus = Lens.lens (\ListTagsForResourcesRespon
 listTagsForResourcesResponse_resourceTagSets :: Lens.Lens' ListTagsForResourcesResponse [ResourceTagSet]
 listTagsForResourcesResponse_resourceTagSets = Lens.lens (\ListTagsForResourcesResponse' {resourceTagSets} -> resourceTagSets) (\s@ListTagsForResourcesResponse' {} a -> s {resourceTagSets = a} :: ListTagsForResourcesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTagsForResourcesResponse
+instance Prelude.NFData ListTagsForResourcesResponse where
+  rnf ListTagsForResourcesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceTagSets

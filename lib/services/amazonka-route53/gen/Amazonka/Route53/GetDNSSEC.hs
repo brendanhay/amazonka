@@ -89,9 +89,12 @@ instance Core.AWSRequest GetDNSSEC where
                         )
       )
 
-instance Prelude.Hashable GetDNSSEC
+instance Prelude.Hashable GetDNSSEC where
+  hashWithSalt _salt GetDNSSEC' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData GetDNSSEC
+instance Prelude.NFData GetDNSSEC where
+  rnf GetDNSSEC' {..} = Prelude.rnf hostedZoneId
 
 instance Core.ToHeaders GetDNSSEC where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,4 +159,8 @@ getDNSSECResponse_status = Lens.lens (\GetDNSSECResponse' {status} -> status) (\
 getDNSSECResponse_keySigningKeys :: Lens.Lens' GetDNSSECResponse [KeySigningKey]
 getDNSSECResponse_keySigningKeys = Lens.lens (\GetDNSSECResponse' {keySigningKeys} -> keySigningKeys) (\s@GetDNSSECResponse' {} a -> s {keySigningKeys = a} :: GetDNSSECResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetDNSSECResponse
+instance Prelude.NFData GetDNSSECResponse where
+  rnf GetDNSSECResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf keySigningKeys

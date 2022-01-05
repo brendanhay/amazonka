@@ -197,9 +197,17 @@ instance Core.AWSRequest GetGeoLocation where
             Prelude.<*> (x Core..@ "GeoLocationDetails")
       )
 
-instance Prelude.Hashable GetGeoLocation
+instance Prelude.Hashable GetGeoLocation where
+  hashWithSalt _salt GetGeoLocation' {..} =
+    _salt `Prelude.hashWithSalt` subdivisionCode
+      `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` continentCode
 
-instance Prelude.NFData GetGeoLocation
+instance Prelude.NFData GetGeoLocation where
+  rnf GetGeoLocation' {..} =
+    Prelude.rnf subdivisionCode
+      `Prelude.seq` Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf continentCode
 
 instance Core.ToHeaders GetGeoLocation where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,4 +271,7 @@ getGeoLocationResponse_httpStatus = Lens.lens (\GetGeoLocationResponse' {httpSta
 getGeoLocationResponse_geoLocationDetails :: Lens.Lens' GetGeoLocationResponse GeoLocationDetails
 getGeoLocationResponse_geoLocationDetails = Lens.lens (\GetGeoLocationResponse' {geoLocationDetails} -> geoLocationDetails) (\s@GetGeoLocationResponse' {} a -> s {geoLocationDetails = a} :: GetGeoLocationResponse)
 
-instance Prelude.NFData GetGeoLocationResponse
+instance Prelude.NFData GetGeoLocationResponse where
+  rnf GetGeoLocationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf geoLocationDetails

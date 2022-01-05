@@ -1503,9 +1503,37 @@ instance Core.FromXML ResourceRecordSet where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "Type")
 
-instance Prelude.Hashable ResourceRecordSet
+instance Prelude.Hashable ResourceRecordSet where
+  hashWithSalt _salt ResourceRecordSet' {..} =
+    _salt `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` resourceRecords
+      `Prelude.hashWithSalt` aliasTarget
+      `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` trafficPolicyInstanceId
+      `Prelude.hashWithSalt` setIdentifier
+      `Prelude.hashWithSalt` failover
+      `Prelude.hashWithSalt` healthCheckId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` geoLocation
+      `Prelude.hashWithSalt` multiValueAnswer
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ResourceRecordSet
+instance Prelude.NFData ResourceRecordSet where
+  rnf ResourceRecordSet' {..} =
+    Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf resourceRecords
+      `Prelude.seq` Prelude.rnf aliasTarget
+      `Prelude.seq` Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf trafficPolicyInstanceId
+      `Prelude.seq` Prelude.rnf setIdentifier
+      `Prelude.seq` Prelude.rnf failover
+      `Prelude.seq` Prelude.rnf healthCheckId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf geoLocation
+      `Prelude.seq` Prelude.rnf multiValueAnswer
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =

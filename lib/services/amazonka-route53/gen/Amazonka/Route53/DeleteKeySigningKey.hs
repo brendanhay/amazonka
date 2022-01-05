@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteKeySigningKey where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeleteKeySigningKey
+instance Prelude.Hashable DeleteKeySigningKey where
+  hashWithSalt _salt DeleteKeySigningKey' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteKeySigningKey
+instance Prelude.NFData DeleteKeySigningKey where
+  rnf DeleteKeySigningKey' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,4 +169,7 @@ deleteKeySigningKeyResponse_httpStatus = Lens.lens (\DeleteKeySigningKeyResponse
 deleteKeySigningKeyResponse_changeInfo :: Lens.Lens' DeleteKeySigningKeyResponse ChangeInfo
 deleteKeySigningKeyResponse_changeInfo = Lens.lens (\DeleteKeySigningKeyResponse' {changeInfo} -> changeInfo) (\s@DeleteKeySigningKeyResponse' {} a -> s {changeInfo = a} :: DeleteKeySigningKeyResponse)
 
-instance Prelude.NFData DeleteKeySigningKeyResponse
+instance Prelude.NFData DeleteKeySigningKeyResponse where
+  rnf DeleteKeySigningKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

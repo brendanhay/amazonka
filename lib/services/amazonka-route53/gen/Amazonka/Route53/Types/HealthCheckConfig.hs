@@ -1065,9 +1065,47 @@ instance Core.FromXML HealthCheckConfig where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@ "Type")
 
-instance Prelude.Hashable HealthCheckConfig
+instance Prelude.Hashable HealthCheckConfig where
+  hashWithSalt _salt HealthCheckConfig' {..} =
+    _salt `Prelude.hashWithSalt` failureThreshold
+      `Prelude.hashWithSalt` iPAddress
+      `Prelude.hashWithSalt` enableSNI
+      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` searchString
+      `Prelude.hashWithSalt` healthThreshold
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` resourcePath
+      `Prelude.hashWithSalt` insufficientDataHealthStatus
+      `Prelude.hashWithSalt` alarmIdentifier
+      `Prelude.hashWithSalt` measureLatency
+      `Prelude.hashWithSalt` inverted
+      `Prelude.hashWithSalt` fullyQualifiedDomainName
+      `Prelude.hashWithSalt` childHealthChecks
+      `Prelude.hashWithSalt` routingControlArn
+      `Prelude.hashWithSalt` requestInterval
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData HealthCheckConfig
+instance Prelude.NFData HealthCheckConfig where
+  rnf HealthCheckConfig' {..} =
+    Prelude.rnf failureThreshold
+      `Prelude.seq` Prelude.rnf iPAddress
+      `Prelude.seq` Prelude.rnf enableSNI
+      `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf searchString
+      `Prelude.seq` Prelude.rnf healthThreshold
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf resourcePath
+      `Prelude.seq` Prelude.rnf insufficientDataHealthStatus
+      `Prelude.seq` Prelude.rnf alarmIdentifier
+      `Prelude.seq` Prelude.rnf measureLatency
+      `Prelude.seq` Prelude.rnf inverted
+      `Prelude.seq` Prelude.rnf fullyQualifiedDomainName
+      `Prelude.seq` Prelude.rnf childHealthChecks
+      `Prelude.seq` Prelude.rnf routingControlArn
+      `Prelude.seq` Prelude.rnf requestInterval
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToXML HealthCheckConfig where
   toXML HealthCheckConfig' {..} =

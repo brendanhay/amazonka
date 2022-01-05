@@ -101,6 +101,12 @@ instance Core.FromXML HostedZoneOwner where
       Prelude.<$> (x Core..@? "OwningAccount")
       Prelude.<*> (x Core..@? "OwningService")
 
-instance Prelude.Hashable HostedZoneOwner
+instance Prelude.Hashable HostedZoneOwner where
+  hashWithSalt _salt HostedZoneOwner' {..} =
+    _salt `Prelude.hashWithSalt` owningAccount
+      `Prelude.hashWithSalt` owningService
 
-instance Prelude.NFData HostedZoneOwner
+instance Prelude.NFData HostedZoneOwner where
+  rnf HostedZoneOwner' {..} =
+    Prelude.rnf owningAccount
+      `Prelude.seq` Prelude.rnf owningService

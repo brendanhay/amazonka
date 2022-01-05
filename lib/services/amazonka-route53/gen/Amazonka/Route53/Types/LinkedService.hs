@@ -86,6 +86,12 @@ instance Core.FromXML LinkedService where
       Prelude.<$> (x Core..@? "ServicePrincipal")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable LinkedService
+instance Prelude.Hashable LinkedService where
+  hashWithSalt _salt LinkedService' {..} =
+    _salt `Prelude.hashWithSalt` servicePrincipal
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData LinkedService
+instance Prelude.NFData LinkedService where
+  rnf LinkedService' {..} =
+    Prelude.rnf servicePrincipal
+      `Prelude.seq` Prelude.rnf description

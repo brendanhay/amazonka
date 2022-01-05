@@ -149,8 +149,17 @@ instance
 instance
   Prelude.Hashable
     DisassociateVPCFromHostedZone
+  where
+  hashWithSalt _salt DisassociateVPCFromHostedZone' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` vpc
 
-instance Prelude.NFData DisassociateVPCFromHostedZone
+instance Prelude.NFData DisassociateVPCFromHostedZone where
+  rnf DisassociateVPCFromHostedZone' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf vpc
 
 instance Core.ToElement DisassociateVPCFromHostedZone where
   toElement =
@@ -228,3 +237,7 @@ disassociateVPCFromHostedZoneResponse_changeInfo = Lens.lens (\DisassociateVPCFr
 instance
   Prelude.NFData
     DisassociateVPCFromHostedZoneResponse
+  where
+  rnf DisassociateVPCFromHostedZoneResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

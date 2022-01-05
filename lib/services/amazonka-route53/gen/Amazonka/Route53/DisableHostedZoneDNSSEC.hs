@@ -91,9 +91,13 @@ instance Core.AWSRequest DisableHostedZoneDNSSEC where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DisableHostedZoneDNSSEC
+instance Prelude.Hashable DisableHostedZoneDNSSEC where
+  hashWithSalt _salt DisableHostedZoneDNSSEC' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData DisableHostedZoneDNSSEC
+instance Prelude.NFData DisableHostedZoneDNSSEC where
+  rnf DisableHostedZoneDNSSEC' {..} =
+    Prelude.rnf hostedZoneId
 
 instance Core.ToHeaders DisableHostedZoneDNSSEC where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +158,7 @@ disableHostedZoneDNSSECResponse_changeInfo = Lens.lens (\DisableHostedZoneDNSSEC
 instance
   Prelude.NFData
     DisableHostedZoneDNSSECResponse
+  where
+  rnf DisableHostedZoneDNSSECResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

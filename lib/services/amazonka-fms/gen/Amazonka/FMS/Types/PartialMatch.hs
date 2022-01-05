@@ -78,6 +78,12 @@ instance Core.FromJSON PartialMatch where
             Prelude.<*> (x Core..:? "Reference")
       )
 
-instance Prelude.Hashable PartialMatch
+instance Prelude.Hashable PartialMatch where
+  hashWithSalt _salt PartialMatch' {..} =
+    _salt `Prelude.hashWithSalt` targetViolationReasons
+      `Prelude.hashWithSalt` reference
 
-instance Prelude.NFData PartialMatch
+instance Prelude.NFData PartialMatch where
+  rnf PartialMatch' {..} =
+    Prelude.rnf targetViolationReasons
+      `Prelude.seq` Prelude.rnf reference

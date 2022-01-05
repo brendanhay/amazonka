@@ -93,9 +93,17 @@ instance Core.FromJSON App where
             Prelude.<*> (x Core..: "Port")
       )
 
-instance Prelude.Hashable App
+instance Prelude.Hashable App where
+  hashWithSalt _salt App' {..} =
+    _salt `Prelude.hashWithSalt` appName
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData App
+instance Prelude.NFData App where
+  rnf App' {..} =
+    Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON App where
   toJSON App' {..} =

@@ -76,7 +76,18 @@ instance Core.FromJSON DnsDuplicateRuleGroupViolation where
 instance
   Prelude.Hashable
     DnsDuplicateRuleGroupViolation
+  where
+  hashWithSalt
+    _salt
+    DnsDuplicateRuleGroupViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` violationTargetDescription
+        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
     DnsDuplicateRuleGroupViolation
+  where
+  rnf DnsDuplicateRuleGroupViolation' {..} =
+    Prelude.rnf violationTargetDescription
+      `Prelude.seq` Prelude.rnf violationTarget

@@ -105,6 +105,14 @@ instance Core.FromJSON EvaluationResult where
             Prelude.<*> (x Core..:? "EvaluationLimitExceeded")
       )
 
-instance Prelude.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult where
+  hashWithSalt _salt EvaluationResult' {..} =
+    _salt `Prelude.hashWithSalt` violatorCount
+      `Prelude.hashWithSalt` complianceStatus
+      `Prelude.hashWithSalt` evaluationLimitExceeded
 
-instance Prelude.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult where
+  rnf EvaluationResult' {..} =
+    Prelude.rnf violatorCount
+      `Prelude.seq` Prelude.rnf complianceStatus
+      `Prelude.seq` Prelude.rnf evaluationLimitExceeded

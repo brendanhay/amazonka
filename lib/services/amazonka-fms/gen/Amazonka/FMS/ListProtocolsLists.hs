@@ -167,9 +167,17 @@ instance Core.AWSRequest ListProtocolsLists where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProtocolsLists
+instance Prelude.Hashable ListProtocolsLists where
+  hashWithSalt _salt ListProtocolsLists' {..} =
+    _salt `Prelude.hashWithSalt` defaultLists
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListProtocolsLists
+instance Prelude.NFData ListProtocolsLists where
+  rnf ListProtocolsLists' {..} =
+    Prelude.rnf defaultLists
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProtocolsLists where
   toHeaders =
@@ -259,4 +267,8 @@ listProtocolsListsResponse_nextToken = Lens.lens (\ListProtocolsListsResponse' {
 listProtocolsListsResponse_httpStatus :: Lens.Lens' ListProtocolsListsResponse Prelude.Int
 listProtocolsListsResponse_httpStatus = Lens.lens (\ListProtocolsListsResponse' {httpStatus} -> httpStatus) (\s@ListProtocolsListsResponse' {} a -> s {httpStatus = a} :: ListProtocolsListsResponse)
 
-instance Prelude.NFData ListProtocolsListsResponse
+instance Prelude.NFData ListProtocolsListsResponse where
+  rnf ListProtocolsListsResponse' {..} =
+    Prelude.rnf protocolsLists
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -138,6 +138,22 @@ instance Core.FromJSON PolicyComplianceStatus where
             Prelude.<*> (x Core..:? "MemberAccount")
       )
 
-instance Prelude.Hashable PolicyComplianceStatus
+instance Prelude.Hashable PolicyComplianceStatus where
+  hashWithSalt _salt PolicyComplianceStatus' {..} =
+    _salt `Prelude.hashWithSalt` evaluationResults
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` issueInfoMap
+      `Prelude.hashWithSalt` policyOwner
+      `Prelude.hashWithSalt` memberAccount
 
-instance Prelude.NFData PolicyComplianceStatus
+instance Prelude.NFData PolicyComplianceStatus where
+  rnf PolicyComplianceStatus' {..} =
+    Prelude.rnf evaluationResults
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf issueInfoMap
+      `Prelude.seq` Prelude.rnf policyOwner
+      `Prelude.seq` Prelude.rnf memberAccount

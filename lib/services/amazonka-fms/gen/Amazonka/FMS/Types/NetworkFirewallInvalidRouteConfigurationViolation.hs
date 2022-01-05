@@ -249,7 +249,47 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallInvalidRouteConfigurationViolation
+  where
+  hashWithSalt
+    _salt
+    NetworkFirewallInvalidRouteConfigurationViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` actualInternetGatewayRoutes
+        `Prelude.hashWithSalt` routeTableId
+        `Prelude.hashWithSalt` affectedSubnets
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` actualFirewallEndpoint
+        `Prelude.hashWithSalt` expectedFirewallSubnetId
+        `Prelude.hashWithSalt` expectedFirewallSubnetRoutes
+        `Prelude.hashWithSalt` expectedInternetGatewayRoutes
+        `Prelude.hashWithSalt` currentInternetGatewayRouteTable
+        `Prelude.hashWithSalt` violatingRoute
+        `Prelude.hashWithSalt` currentFirewallSubnetRouteTable
+        `Prelude.hashWithSalt` expectedFirewallEndpoint
+        `Prelude.hashWithSalt` isRouteTableUsedInDifferentAZ
+        `Prelude.hashWithSalt` actualFirewallSubnetId
+        `Prelude.hashWithSalt` internetGatewayId
+        `Prelude.hashWithSalt` actualFirewallSubnetRoutes
 
 instance
   Prelude.NFData
     NetworkFirewallInvalidRouteConfigurationViolation
+  where
+  rnf
+    NetworkFirewallInvalidRouteConfigurationViolation' {..} =
+      Prelude.rnf actualInternetGatewayRoutes
+        `Prelude.seq` Prelude.rnf routeTableId
+        `Prelude.seq` Prelude.rnf affectedSubnets
+        `Prelude.seq` Prelude.rnf vpcId
+        `Prelude.seq` Prelude.rnf actualFirewallEndpoint
+        `Prelude.seq` Prelude.rnf expectedFirewallSubnetId
+        `Prelude.seq` Prelude.rnf expectedFirewallSubnetRoutes
+        `Prelude.seq` Prelude.rnf expectedInternetGatewayRoutes
+        `Prelude.seq` Prelude.rnf currentInternetGatewayRouteTable
+        `Prelude.seq` Prelude.rnf violatingRoute
+        `Prelude.seq` Prelude.rnf currentFirewallSubnetRouteTable
+        `Prelude.seq` Prelude.rnf expectedFirewallEndpoint
+        `Prelude.seq` Prelude.rnf isRouteTableUsedInDifferentAZ
+        `Prelude.seq` Prelude.rnf actualFirewallSubnetId
+        `Prelude.seq` Prelude.rnf internetGatewayId
+        `Prelude.seq` Prelude.rnf actualFirewallSubnetRoutes

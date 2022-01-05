@@ -88,6 +88,14 @@ instance Core.FromJSON StatelessRuleGroup where
             Prelude.<*> (x Core..:? "RuleGroupName")
       )
 
-instance Prelude.Hashable StatelessRuleGroup
+instance Prelude.Hashable StatelessRuleGroup where
+  hashWithSalt _salt StatelessRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` ruleGroupName
 
-instance Prelude.NFData StatelessRuleGroup
+instance Prelude.NFData StatelessRuleGroup where
+  rnf StatelessRuleGroup' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf ruleGroupName

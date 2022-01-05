@@ -144,6 +144,24 @@ instance Core.FromJSON RemediationAction where
             Prelude.<*> (x Core..:? "EC2CreateRouteTableAction")
       )
 
-instance Prelude.Hashable RemediationAction
+instance Prelude.Hashable RemediationAction where
+  hashWithSalt _salt RemediationAction' {..} =
+    _salt `Prelude.hashWithSalt` eC2CreateRouteAction
+      `Prelude.hashWithSalt` eC2CopyRouteTableAction
+      `Prelude.hashWithSalt` eC2ReplaceRouteTableAssociationAction
+      `Prelude.hashWithSalt` eC2AssociateRouteTableAction
+      `Prelude.hashWithSalt` eC2ReplaceRouteAction
+      `Prelude.hashWithSalt` eC2DeleteRouteAction
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eC2CreateRouteTableAction
 
-instance Prelude.NFData RemediationAction
+instance Prelude.NFData RemediationAction where
+  rnf RemediationAction' {..} =
+    Prelude.rnf eC2CreateRouteAction
+      `Prelude.seq` Prelude.rnf eC2CopyRouteTableAction
+      `Prelude.seq` Prelude.rnf eC2ReplaceRouteTableAssociationAction
+      `Prelude.seq` Prelude.rnf eC2AssociateRouteTableAction
+      `Prelude.seq` Prelude.rnf eC2ReplaceRouteAction
+      `Prelude.seq` Prelude.rnf eC2DeleteRouteAction
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eC2CreateRouteTableAction

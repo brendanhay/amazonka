@@ -73,9 +73,12 @@ instance Core.AWSRequest GetNotificationChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNotificationChannel
+instance Prelude.Hashable GetNotificationChannel where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetNotificationChannel
+instance Prelude.NFData GetNotificationChannel where
+  rnf _ = ()
 
 instance Core.ToHeaders GetNotificationChannel where
   toHeaders =
@@ -152,3 +155,8 @@ getNotificationChannelResponse_httpStatus = Lens.lens (\GetNotificationChannelRe
 instance
   Prelude.NFData
     GetNotificationChannelResponse
+  where
+  rnf GetNotificationChannelResponse' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf snsRoleName
+      `Prelude.seq` Prelude.rnf httpStatus

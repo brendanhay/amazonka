@@ -144,6 +144,22 @@ instance Core.FromJSON ViolationDetail where
                         )
       )
 
-instance Prelude.Hashable ViolationDetail
+instance Prelude.Hashable ViolationDetail where
+  hashWithSalt _salt ViolationDetail' {..} =
+    _salt `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` resourceDescription
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` memberAccount
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceViolations
 
-instance Prelude.NFData ViolationDetail
+instance Prelude.NFData ViolationDetail where
+  rnf ViolationDetail' {..} =
+    Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceDescription
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf memberAccount
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceViolations

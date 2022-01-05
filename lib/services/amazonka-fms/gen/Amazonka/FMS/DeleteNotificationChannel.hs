@@ -65,9 +65,12 @@ instance Core.AWSRequest DeleteNotificationChannel where
     Response.receiveNull
       DeleteNotificationChannelResponse'
 
-instance Prelude.Hashable DeleteNotificationChannel
+instance Prelude.Hashable DeleteNotificationChannel where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DeleteNotificationChannel
+instance Prelude.NFData DeleteNotificationChannel where
+  rnf _ = ()
 
 instance Core.ToHeaders DeleteNotificationChannel where
   toHeaders =
@@ -111,3 +114,5 @@ newDeleteNotificationChannelResponse =
 instance
   Prelude.NFData
     DeleteNotificationChannelResponse
+  where
+  rnf _ = ()

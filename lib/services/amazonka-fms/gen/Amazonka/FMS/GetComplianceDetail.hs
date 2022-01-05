@@ -126,9 +126,15 @@ instance Core.AWSRequest GetComplianceDetail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetComplianceDetail
+instance Prelude.Hashable GetComplianceDetail where
+  hashWithSalt _salt GetComplianceDetail' {..} =
+    _salt `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` memberAccount
 
-instance Prelude.NFData GetComplianceDetail
+instance Prelude.NFData GetComplianceDetail where
+  rnf GetComplianceDetail' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf memberAccount
 
 instance Core.ToHeaders GetComplianceDetail where
   toHeaders =
@@ -203,4 +209,7 @@ getComplianceDetailResponse_policyComplianceDetail = Lens.lens (\GetComplianceDe
 getComplianceDetailResponse_httpStatus :: Lens.Lens' GetComplianceDetailResponse Prelude.Int
 getComplianceDetailResponse_httpStatus = Lens.lens (\GetComplianceDetailResponse' {httpStatus} -> httpStatus) (\s@GetComplianceDetailResponse' {} a -> s {httpStatus = a} :: GetComplianceDetailResponse)
 
-instance Prelude.NFData GetComplianceDetailResponse
+instance Prelude.NFData GetComplianceDetailResponse where
+  rnf GetComplianceDetailResponse' {..} =
+    Prelude.rnf policyComplianceDetail
+      `Prelude.seq` Prelude.rnf httpStatus

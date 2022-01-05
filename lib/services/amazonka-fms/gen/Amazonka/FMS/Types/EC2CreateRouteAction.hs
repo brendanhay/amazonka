@@ -137,6 +137,23 @@ instance Core.FromJSON EC2CreateRouteAction where
             Prelude.<*> (x Core..: "RouteTableId")
       )
 
-instance Prelude.Hashable EC2CreateRouteAction
+instance Prelude.Hashable EC2CreateRouteAction where
+  hashWithSalt _salt EC2CreateRouteAction' {..} =
+    _salt
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` routeTableId
 
-instance Prelude.NFData EC2CreateRouteAction
+instance Prelude.NFData EC2CreateRouteAction where
+  rnf EC2CreateRouteAction' {..} =
+    Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf routeTableId

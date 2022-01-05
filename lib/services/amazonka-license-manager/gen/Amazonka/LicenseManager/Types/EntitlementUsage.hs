@@ -98,6 +98,16 @@ instance Core.FromJSON EntitlementUsage where
             Prelude.<*> (x Core..: "Unit")
       )
 
-instance Prelude.Hashable EntitlementUsage
+instance Prelude.Hashable EntitlementUsage where
+  hashWithSalt _salt EntitlementUsage' {..} =
+    _salt `Prelude.hashWithSalt` maxCount
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` consumedValue
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData EntitlementUsage
+instance Prelude.NFData EntitlementUsage where
+  rnf EntitlementUsage' {..} =
+    Prelude.rnf maxCount
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf consumedValue
+      `Prelude.seq` Prelude.rnf unit

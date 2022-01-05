@@ -87,6 +87,14 @@ instance Core.FromJSON IssuerDetails where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable IssuerDetails
+instance Prelude.Hashable IssuerDetails where
+  hashWithSalt _salt IssuerDetails' {..} =
+    _salt `Prelude.hashWithSalt` keyFingerprint
+      `Prelude.hashWithSalt` signKey
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IssuerDetails
+instance Prelude.NFData IssuerDetails where
+  rnf IssuerDetails' {..} =
+    Prelude.rnf keyFingerprint
+      `Prelude.seq` Prelude.rnf signKey
+      `Prelude.seq` Prelude.rnf name

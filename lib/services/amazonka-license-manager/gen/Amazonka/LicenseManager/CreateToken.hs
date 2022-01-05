@@ -149,9 +149,21 @@ instance Core.AWSRequest CreateToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateToken
+instance Prelude.Hashable CreateToken where
+  hashWithSalt _salt CreateToken' {..} =
+    _salt `Prelude.hashWithSalt` tokenProperties
+      `Prelude.hashWithSalt` roleArns
+      `Prelude.hashWithSalt` expirationInDays
+      `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateToken
+instance Prelude.NFData CreateToken where
+  rnf CreateToken' {..} =
+    Prelude.rnf tokenProperties
+      `Prelude.seq` Prelude.rnf roleArns
+      `Prelude.seq` Prelude.rnf expirationInDays
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateToken where
   toHeaders =
@@ -244,4 +256,9 @@ createTokenResponse_tokenType = Lens.lens (\CreateTokenResponse' {tokenType} -> 
 createTokenResponse_httpStatus :: Lens.Lens' CreateTokenResponse Prelude.Int
 createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -> httpStatus) (\s@CreateTokenResponse' {} a -> s {httpStatus = a} :: CreateTokenResponse)
 
-instance Prelude.NFData CreateTokenResponse
+instance Prelude.NFData CreateTokenResponse where
+  rnf CreateTokenResponse' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf tokenId
+      `Prelude.seq` Prelude.rnf tokenType
+      `Prelude.seq` Prelude.rnf httpStatus

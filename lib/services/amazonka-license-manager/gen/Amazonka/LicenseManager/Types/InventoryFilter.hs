@@ -75,9 +75,17 @@ inventoryFilter_name = Lens.lens (\InventoryFilter' {name} -> name) (\s@Inventor
 inventoryFilter_condition :: Lens.Lens' InventoryFilter InventoryFilterCondition
 inventoryFilter_condition = Lens.lens (\InventoryFilter' {condition} -> condition) (\s@InventoryFilter' {} a -> s {condition = a} :: InventoryFilter)
 
-instance Prelude.Hashable InventoryFilter
+instance Prelude.Hashable InventoryFilter where
+  hashWithSalt _salt InventoryFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData InventoryFilter
+instance Prelude.NFData InventoryFilter where
+  rnf InventoryFilter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON InventoryFilter where
   toJSON InventoryFilter' {..} =

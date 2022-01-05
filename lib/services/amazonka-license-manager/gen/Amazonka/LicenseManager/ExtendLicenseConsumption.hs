@@ -107,9 +107,15 @@ instance Core.AWSRequest ExtendLicenseConsumption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExtendLicenseConsumption
+instance Prelude.Hashable ExtendLicenseConsumption where
+  hashWithSalt _salt ExtendLicenseConsumption' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` licenseConsumptionToken
 
-instance Prelude.NFData ExtendLicenseConsumption
+instance Prelude.NFData ExtendLicenseConsumption where
+  rnf ExtendLicenseConsumption' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf licenseConsumptionToken
 
 instance Core.ToHeaders ExtendLicenseConsumption where
   toHeaders =
@@ -195,3 +201,8 @@ extendLicenseConsumptionResponse_httpStatus = Lens.lens (\ExtendLicenseConsumpti
 instance
   Prelude.NFData
     ExtendLicenseConsumptionResponse
+  where
+  rnf ExtendLicenseConsumptionResponse' {..} =
+    Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf licenseConsumptionToken
+      `Prelude.seq` Prelude.rnf httpStatus

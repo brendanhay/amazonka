@@ -117,6 +117,20 @@ instance Core.FromJSON LicenseConfigurationUsage where
             Prelude.<*> (x Core..:? "ResourceOwnerId")
       )
 
-instance Prelude.Hashable LicenseConfigurationUsage
+instance Prelude.Hashable LicenseConfigurationUsage where
+  hashWithSalt _salt LicenseConfigurationUsage' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceStatus
+      `Prelude.hashWithSalt` associationTime
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` consumedLicenses
+      `Prelude.hashWithSalt` resourceOwnerId
 
-instance Prelude.NFData LicenseConfigurationUsage
+instance Prelude.NFData LicenseConfigurationUsage where
+  rnf LicenseConfigurationUsage' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceStatus
+      `Prelude.seq` Prelude.rnf associationTime
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf consumedLicenses
+      `Prelude.seq` Prelude.rnf resourceOwnerId

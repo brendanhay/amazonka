@@ -148,9 +148,19 @@ instance Core.AWSRequest ListReceivedGrants where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReceivedGrants
+instance Prelude.Hashable ListReceivedGrants where
+  hashWithSalt _salt ListReceivedGrants' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` grantArns
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListReceivedGrants
+instance Prelude.NFData ListReceivedGrants where
+  rnf ListReceivedGrants' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf grantArns
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReceivedGrants where
   toHeaders =
@@ -232,4 +242,8 @@ listReceivedGrantsResponse_nextToken = Lens.lens (\ListReceivedGrantsResponse' {
 listReceivedGrantsResponse_httpStatus :: Lens.Lens' ListReceivedGrantsResponse Prelude.Int
 listReceivedGrantsResponse_httpStatus = Lens.lens (\ListReceivedGrantsResponse' {httpStatus} -> httpStatus) (\s@ListReceivedGrantsResponse' {} a -> s {httpStatus = a} :: ListReceivedGrantsResponse)
 
-instance Prelude.NFData ListReceivedGrantsResponse
+instance Prelude.NFData ListReceivedGrantsResponse where
+  rnf ListReceivedGrantsResponse' {..} =
+    Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

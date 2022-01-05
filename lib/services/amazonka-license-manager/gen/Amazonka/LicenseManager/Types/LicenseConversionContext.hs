@@ -71,9 +71,13 @@ instance Core.FromJSON LicenseConversionContext where
             Prelude.<$> (x Core..:? "UsageOperation")
       )
 
-instance Prelude.Hashable LicenseConversionContext
+instance Prelude.Hashable LicenseConversionContext where
+  hashWithSalt _salt LicenseConversionContext' {..} =
+    _salt `Prelude.hashWithSalt` usageOperation
 
-instance Prelude.NFData LicenseConversionContext
+instance Prelude.NFData LicenseConversionContext where
+  rnf LicenseConversionContext' {..} =
+    Prelude.rnf usageOperation
 
 instance Core.ToJSON LicenseConversionContext where
   toJSON LicenseConversionContext' {..} =

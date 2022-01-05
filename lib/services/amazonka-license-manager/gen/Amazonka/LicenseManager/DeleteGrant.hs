@@ -112,9 +112,17 @@ instance Core.AWSRequest DeleteGrant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGrant
+instance Prelude.Hashable DeleteGrant where
+  hashWithSalt _salt DeleteGrant' {..} =
+    _salt `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` grantArn
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteGrant
+instance Prelude.NFData DeleteGrant where
+  rnf DeleteGrant' {..} =
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteGrant where
   toHeaders =
@@ -203,4 +211,9 @@ deleteGrantResponse_grantArn = Lens.lens (\DeleteGrantResponse' {grantArn} -> gr
 deleteGrantResponse_httpStatus :: Lens.Lens' DeleteGrantResponse Prelude.Int
 deleteGrantResponse_httpStatus = Lens.lens (\DeleteGrantResponse' {httpStatus} -> httpStatus) (\s@DeleteGrantResponse' {} a -> s {httpStatus = a} :: DeleteGrantResponse)
 
-instance Prelude.NFData DeleteGrantResponse
+instance Prelude.NFData DeleteGrantResponse where
+  rnf DeleteGrantResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf httpStatus

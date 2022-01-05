@@ -74,9 +74,15 @@ instance Core.FromJSON LicenseSpecification where
             Prelude.<*> (x Core..: "LicenseConfigurationArn")
       )
 
-instance Prelude.Hashable LicenseSpecification
+instance Prelude.Hashable LicenseSpecification where
+  hashWithSalt _salt LicenseSpecification' {..} =
+    _salt `Prelude.hashWithSalt` amiAssociationScope
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData LicenseSpecification
+instance Prelude.NFData LicenseSpecification where
+  rnf LicenseSpecification' {..} =
+    Prelude.rnf amiAssociationScope
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance Core.ToJSON LicenseSpecification where
   toJSON LicenseSpecification' {..} =

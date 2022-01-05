@@ -98,10 +98,19 @@ instance
 instance
   Prelude.Hashable
     DeleteLicenseManagerReportGenerator
+  where
+  hashWithSalt
+    _salt
+    DeleteLicenseManagerReportGenerator' {..} =
+      _salt
+        `Prelude.hashWithSalt` licenseManagerReportGeneratorArn
 
 instance
   Prelude.NFData
     DeleteLicenseManagerReportGenerator
+  where
+  rnf DeleteLicenseManagerReportGenerator' {..} =
+    Prelude.rnf licenseManagerReportGeneratorArn
 
 instance
   Core.ToHeaders
@@ -181,3 +190,6 @@ deleteLicenseManagerReportGeneratorResponse_httpStatus = Lens.lens (\DeleteLicen
 instance
   Prelude.NFData
     DeleteLicenseManagerReportGeneratorResponse
+  where
+  rnf DeleteLicenseManagerReportGeneratorResponse' {..} =
+    Prelude.rnf httpStatus

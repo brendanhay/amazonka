@@ -213,6 +213,38 @@ instance Core.FromJSON GrantedLicense where
             Prelude.<*> (x Core..:? "CreateTime")
       )
 
-instance Prelude.Hashable GrantedLicense
+instance Prelude.Hashable GrantedLicense where
+  hashWithSalt _salt GrantedLicense' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` licenseName
+      `Prelude.hashWithSalt` productSKU
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` receivedMetadata
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` consumptionConfiguration
+      `Prelude.hashWithSalt` beneficiary
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` licenseMetadata
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData GrantedLicense
+instance Prelude.NFData GrantedLicense where
+  rnf GrantedLicense' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf licenseName
+      `Prelude.seq` Prelude.rnf productSKU
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf receivedMetadata
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf consumptionConfiguration
+      `Prelude.seq` Prelude.rnf beneficiary
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf licenseMetadata
+      `Prelude.seq` Prelude.rnf createTime

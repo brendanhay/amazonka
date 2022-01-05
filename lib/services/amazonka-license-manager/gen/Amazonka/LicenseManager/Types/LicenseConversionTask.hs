@@ -146,6 +146,26 @@ instance Core.FromJSON LicenseConversionTask where
             Prelude.<*> (x Core..:? "SourceLicenseContext")
       )
 
-instance Prelude.Hashable LicenseConversionTask
+instance Prelude.Hashable LicenseConversionTask where
+  hashWithSalt _salt LicenseConversionTask' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` destinationLicenseContext
+      `Prelude.hashWithSalt` licenseConversionTaskId
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` licenseConversionTime
+      `Prelude.hashWithSalt` sourceLicenseContext
 
-instance Prelude.NFData LicenseConversionTask
+instance Prelude.NFData LicenseConversionTask where
+  rnf LicenseConversionTask' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf destinationLicenseContext
+      `Prelude.seq` Prelude.rnf licenseConversionTaskId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf licenseConversionTime
+      `Prelude.seq` Prelude.rnf sourceLicenseContext

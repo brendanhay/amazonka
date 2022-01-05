@@ -146,10 +146,22 @@ instance
 instance
   Prelude.Hashable
     CreateLicenseConversionTaskForResource
+  where
+  hashWithSalt
+    _salt
+    CreateLicenseConversionTaskForResource' {..} =
+      _salt `Prelude.hashWithSalt` resourceArn
+        `Prelude.hashWithSalt` sourceLicenseContext
+        `Prelude.hashWithSalt` destinationLicenseContext
 
 instance
   Prelude.NFData
     CreateLicenseConversionTaskForResource
+  where
+  rnf CreateLicenseConversionTaskForResource' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf sourceLicenseContext
+      `Prelude.seq` Prelude.rnf destinationLicenseContext
 
 instance
   Core.ToHeaders
@@ -243,3 +255,8 @@ createLicenseConversionTaskForResourceResponse_httpStatus = Lens.lens (\CreateLi
 instance
   Prelude.NFData
     CreateLicenseConversionTaskForResourceResponse
+  where
+  rnf
+    CreateLicenseConversionTaskForResourceResponse' {..} =
+      Prelude.rnf licenseConversionTaskId
+        `Prelude.seq` Prelude.rnf httpStatus

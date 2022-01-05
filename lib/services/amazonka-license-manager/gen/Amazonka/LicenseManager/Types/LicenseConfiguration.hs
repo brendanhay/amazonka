@@ -228,6 +228,40 @@ instance Core.FromJSON LicenseConfiguration where
             Prelude.<*> (x Core..:? "LicenseConfigurationArn")
       )
 
-instance Prelude.Hashable LicenseConfiguration
+instance Prelude.Hashable LicenseConfiguration where
+  hashWithSalt _salt LicenseConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` consumedLicenseSummaryList
+      `Prelude.hashWithSalt` licenseCount
+      `Prelude.hashWithSalt` managedResourceSummaryList
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` licenseCountHardLimit
+      `Prelude.hashWithSalt` disassociateWhenNotFound
+      `Prelude.hashWithSalt` productInformationList
+      `Prelude.hashWithSalt` licenseCountingType
+      `Prelude.hashWithSalt` automatedDiscoveryInformation
+      `Prelude.hashWithSalt` consumedLicenses
+      `Prelude.hashWithSalt` licenseRules
+      `Prelude.hashWithSalt` licenseConfigurationId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData LicenseConfiguration
+instance Prelude.NFData LicenseConfiguration where
+  rnf LicenseConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ownerAccountId
+      `Prelude.seq` Prelude.rnf consumedLicenseSummaryList
+      `Prelude.seq` Prelude.rnf licenseCount
+      `Prelude.seq` Prelude.rnf managedResourceSummaryList
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf licenseCountHardLimit
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+      `Prelude.seq` Prelude.rnf productInformationList
+      `Prelude.seq` Prelude.rnf licenseCountingType
+      `Prelude.seq` Prelude.rnf automatedDiscoveryInformation
+      `Prelude.seq` Prelude.rnf consumedLicenses
+      `Prelude.seq` Prelude.rnf licenseRules
+      `Prelude.seq` Prelude.rnf licenseConfigurationId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn

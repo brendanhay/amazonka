@@ -65,5 +65,10 @@ instance Core.FromJSON AutomatedDiscoveryInformation where
 instance
   Prelude.Hashable
     AutomatedDiscoveryInformation
+  where
+  hashWithSalt _salt AutomatedDiscoveryInformation' {..} =
+    _salt `Prelude.hashWithSalt` lastRunTime
 
-instance Prelude.NFData AutomatedDiscoveryInformation
+instance Prelude.NFData AutomatedDiscoveryInformation where
+  rnf AutomatedDiscoveryInformation' {..} =
+    Prelude.rnf lastRunTime

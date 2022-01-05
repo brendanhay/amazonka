@@ -140,9 +140,19 @@ instance Core.AWSRequest ListLicenses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLicenses
+instance Prelude.Hashable ListLicenses where
+  hashWithSalt _salt ListLicenses' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` licenseArns
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListLicenses
+instance Prelude.NFData ListLicenses where
+  rnf ListLicenses' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf licenseArns
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLicenses where
   toHeaders =
@@ -223,4 +233,8 @@ listLicensesResponse_licenses = Lens.lens (\ListLicensesResponse' {licenses} -> 
 listLicensesResponse_httpStatus :: Lens.Lens' ListLicensesResponse Prelude.Int
 listLicensesResponse_httpStatus = Lens.lens (\ListLicensesResponse' {httpStatus} -> httpStatus) (\s@ListLicensesResponse' {} a -> s {httpStatus = a} :: ListLicensesResponse)
 
-instance Prelude.NFData ListLicensesResponse
+instance Prelude.NFData ListLicensesResponse where
+  rnf ListLicensesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf licenses
+      `Prelude.seq` Prelude.rnf httpStatus

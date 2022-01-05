@@ -153,10 +153,22 @@ instance
 instance
   Prelude.Hashable
     ListAssociationsForLicenseConfiguration
+  where
+  hashWithSalt
+    _salt
+    ListAssociationsForLicenseConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
   Prelude.NFData
     ListAssociationsForLicenseConfiguration
+  where
+  rnf ListAssociationsForLicenseConfiguration' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance
   Core.ToHeaders
@@ -257,3 +269,9 @@ listAssociationsForLicenseConfigurationResponse_httpStatus = Lens.lens (\ListAss
 instance
   Prelude.NFData
     ListAssociationsForLicenseConfigurationResponse
+  where
+  rnf
+    ListAssociationsForLicenseConfigurationResponse' {..} =
+      Prelude.rnf licenseConfigurationAssociations
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

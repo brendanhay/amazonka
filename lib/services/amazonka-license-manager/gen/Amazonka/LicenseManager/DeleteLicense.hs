@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteLicense where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLicense
+instance Prelude.Hashable DeleteLicense where
+  hashWithSalt _salt DeleteLicense' {..} =
+    _salt `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` sourceVersion
 
-instance Prelude.NFData DeleteLicense
+instance Prelude.NFData DeleteLicense where
+  rnf DeleteLicense' {..} =
+    Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf sourceVersion
 
 instance Core.ToHeaders DeleteLicense where
   toHeaders =
@@ -184,4 +190,8 @@ deleteLicenseResponse_deletionDate = Lens.lens (\DeleteLicenseResponse' {deletio
 deleteLicenseResponse_httpStatus :: Lens.Lens' DeleteLicenseResponse Prelude.Int
 deleteLicenseResponse_httpStatus = Lens.lens (\DeleteLicenseResponse' {httpStatus} -> httpStatus) (\s@DeleteLicenseResponse' {} a -> s {httpStatus = a} :: DeleteLicenseResponse)
 
-instance Prelude.NFData DeleteLicenseResponse
+instance Prelude.NFData DeleteLicenseResponse where
+  rnf DeleteLicenseResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -122,9 +122,17 @@ instance Core.AWSRequest GetCanaryRuns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCanaryRuns
+instance Prelude.Hashable GetCanaryRuns where
+  hashWithSalt _salt GetCanaryRuns' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetCanaryRuns
+instance Prelude.NFData GetCanaryRuns where
+  rnf GetCanaryRuns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetCanaryRuns where
   toHeaders =
@@ -210,4 +218,8 @@ getCanaryRunsResponse_canaryRuns = Lens.lens (\GetCanaryRunsResponse' {canaryRun
 getCanaryRunsResponse_httpStatus :: Lens.Lens' GetCanaryRunsResponse Prelude.Int
 getCanaryRunsResponse_httpStatus = Lens.lens (\GetCanaryRunsResponse' {httpStatus} -> httpStatus) (\s@GetCanaryRunsResponse' {} a -> s {httpStatus = a} :: GetCanaryRunsResponse)
 
-instance Prelude.NFData GetCanaryRunsResponse
+instance Prelude.NFData GetCanaryRunsResponse where
+  rnf GetCanaryRunsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf canaryRuns
+      `Prelude.seq` Prelude.rnf httpStatus

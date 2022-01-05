@@ -71,9 +71,13 @@ newArtifactConfigInput =
 artifactConfigInput_s3Encryption :: Lens.Lens' ArtifactConfigInput (Prelude.Maybe S3EncryptionConfig)
 artifactConfigInput_s3Encryption = Lens.lens (\ArtifactConfigInput' {s3Encryption} -> s3Encryption) (\s@ArtifactConfigInput' {} a -> s {s3Encryption = a} :: ArtifactConfigInput)
 
-instance Prelude.Hashable ArtifactConfigInput
+instance Prelude.Hashable ArtifactConfigInput where
+  hashWithSalt _salt ArtifactConfigInput' {..} =
+    _salt `Prelude.hashWithSalt` s3Encryption
 
-instance Prelude.NFData ArtifactConfigInput
+instance Prelude.NFData ArtifactConfigInput where
+  rnf ArtifactConfigInput' {..} =
+    Prelude.rnf s3Encryption
 
 instance Core.ToJSON ArtifactConfigInput where
   toJSON ArtifactConfigInput' {..} =

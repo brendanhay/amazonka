@@ -127,6 +127,12 @@ instance Core.FromJSON CanaryScheduleOutput where
             Prelude.<*> (x Core..:? "Expression")
       )
 
-instance Prelude.Hashable CanaryScheduleOutput
+instance Prelude.Hashable CanaryScheduleOutput where
+  hashWithSalt _salt CanaryScheduleOutput' {..} =
+    _salt `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData CanaryScheduleOutput
+instance Prelude.NFData CanaryScheduleOutput where
+  rnf CanaryScheduleOutput' {..} =
+    Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf expression

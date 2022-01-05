@@ -125,9 +125,15 @@ canaryScheduleInput_durationInSeconds = Lens.lens (\CanaryScheduleInput' {durati
 canaryScheduleInput_expression :: Lens.Lens' CanaryScheduleInput Prelude.Text
 canaryScheduleInput_expression = Lens.lens (\CanaryScheduleInput' {expression} -> expression) (\s@CanaryScheduleInput' {} a -> s {expression = a} :: CanaryScheduleInput)
 
-instance Prelude.Hashable CanaryScheduleInput
+instance Prelude.Hashable CanaryScheduleInput where
+  hashWithSalt _salt CanaryScheduleInput' {..} =
+    _salt `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData CanaryScheduleInput
+instance Prelude.NFData CanaryScheduleInput where
+  rnf CanaryScheduleInput' {..} =
+    Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToJSON CanaryScheduleInput where
   toJSON CanaryScheduleInput' {..} =

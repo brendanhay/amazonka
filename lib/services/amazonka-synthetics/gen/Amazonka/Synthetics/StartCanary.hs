@@ -87,9 +87,12 @@ instance Core.AWSRequest StartCanary where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCanary
+instance Prelude.Hashable StartCanary where
+  hashWithSalt _salt StartCanary' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartCanary
+instance Prelude.NFData StartCanary where
+  rnf StartCanary' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartCanary where
   toHeaders =
@@ -140,4 +143,5 @@ newStartCanaryResponse pHttpStatus_ =
 startCanaryResponse_httpStatus :: Lens.Lens' StartCanaryResponse Prelude.Int
 startCanaryResponse_httpStatus = Lens.lens (\StartCanaryResponse' {httpStatus} -> httpStatus) (\s@StartCanaryResponse' {} a -> s {httpStatus = a} :: StartCanaryResponse)
 
-instance Prelude.NFData StartCanaryResponse
+instance Prelude.NFData StartCanaryResponse where
+  rnf StartCanaryResponse' {..} = Prelude.rnf httpStatus

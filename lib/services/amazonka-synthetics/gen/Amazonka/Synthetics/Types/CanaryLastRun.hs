@@ -73,6 +73,12 @@ instance Core.FromJSON CanaryLastRun where
             Prelude.<*> (x Core..:? "LastRun")
       )
 
-instance Prelude.Hashable CanaryLastRun
+instance Prelude.Hashable CanaryLastRun where
+  hashWithSalt _salt CanaryLastRun' {..} =
+    _salt `Prelude.hashWithSalt` canaryName
+      `Prelude.hashWithSalt` lastRun
 
-instance Prelude.NFData CanaryLastRun
+instance Prelude.NFData CanaryLastRun where
+  rnf CanaryLastRun' {..} =
+    Prelude.rnf canaryName
+      `Prelude.seq` Prelude.rnf lastRun

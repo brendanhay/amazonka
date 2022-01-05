@@ -112,9 +112,12 @@ instance Core.AWSRequest DeleteCanary where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCanary
+instance Prelude.Hashable DeleteCanary where
+  hashWithSalt _salt DeleteCanary' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteCanary
+instance Prelude.NFData DeleteCanary where
+  rnf DeleteCanary' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteCanary where
   toHeaders =
@@ -161,4 +164,6 @@ newDeleteCanaryResponse pHttpStatus_ =
 deleteCanaryResponse_httpStatus :: Lens.Lens' DeleteCanaryResponse Prelude.Int
 deleteCanaryResponse_httpStatus = Lens.lens (\DeleteCanaryResponse' {httpStatus} -> httpStatus) (\s@DeleteCanaryResponse' {} a -> s {httpStatus = a} :: DeleteCanaryResponse)
 
-instance Prelude.NFData DeleteCanaryResponse
+instance Prelude.NFData DeleteCanaryResponse where
+  rnf DeleteCanaryResponse' {..} =
+    Prelude.rnf httpStatus

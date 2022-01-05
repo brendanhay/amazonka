@@ -114,9 +114,15 @@ instance Core.AWSRequest DescribeCanariesLastRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCanariesLastRun
+instance Prelude.Hashable DescribeCanariesLastRun where
+  hashWithSalt _salt DescribeCanariesLastRun' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeCanariesLastRun
+instance Prelude.NFData DescribeCanariesLastRun where
+  rnf DescribeCanariesLastRun' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCanariesLastRun where
   toHeaders =
@@ -204,3 +210,8 @@ describeCanariesLastRunResponse_httpStatus = Lens.lens (\DescribeCanariesLastRun
 instance
   Prelude.NFData
     DescribeCanariesLastRunResponse
+  where
+  rnf DescribeCanariesLastRunResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf canariesLastRun
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -269,6 +269,42 @@ instance Core.FromJSON Canary where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Canary
+instance Prelude.Hashable Canary where
+  hashWithSalt _salt Canary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` successRetentionPeriodInDays
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` artifactS3Location
+      `Prelude.hashWithSalt` runConfig
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` runtimeVersion
+      `Prelude.hashWithSalt` failureRetentionPeriodInDays
+      `Prelude.hashWithSalt` artifactConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` visualReference
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` engineArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Canary
+instance Prelude.NFData Canary where
+  rnf Canary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf successRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf artifactS3Location
+      `Prelude.seq` Prelude.rnf runConfig
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf runtimeVersion
+      `Prelude.seq` Prelude.rnf failureRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf artifactConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf visualReference
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf engineArn
+      `Prelude.seq` Prelude.rnf tags

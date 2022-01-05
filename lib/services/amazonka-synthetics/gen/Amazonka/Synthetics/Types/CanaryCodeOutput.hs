@@ -76,6 +76,12 @@ instance Core.FromJSON CanaryCodeOutput where
             Prelude.<*> (x Core..:? "Handler")
       )
 
-instance Prelude.Hashable CanaryCodeOutput
+instance Prelude.Hashable CanaryCodeOutput where
+  hashWithSalt _salt CanaryCodeOutput' {..} =
+    _salt `Prelude.hashWithSalt` sourceLocationArn
+      `Prelude.hashWithSalt` handler
 
-instance Prelude.NFData CanaryCodeOutput
+instance Prelude.NFData CanaryCodeOutput where
+  rnf CanaryCodeOutput' {..} =
+    Prelude.rnf sourceLocationArn
+      `Prelude.seq` Prelude.rnf handler

@@ -933,9 +933,121 @@ instance Core.AWSRequest CreateDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBInstance
+instance Prelude.Hashable CreateDBInstance where
+  hashWithSalt _salt CreateDBInstance' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` dbSecurityGroups
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` tdeCredentialPassword
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` characterSetName
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` engine
 
-instance Prelude.NFData CreateDBInstance
+instance Prelude.NFData CreateDBInstance where
+  rnf CreateDBInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf dbSecurityGroups
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf tdeCredentialPassword
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf characterSetName
+      `Prelude.seq` Prelude.rnf
+        enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        dbParameterGroupName
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf
+        availabilityZone
+      `Prelude.seq` Prelude.rnf
+        backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf
+        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf
+        vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf
+        multiAZ
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
+      `Prelude.seq` Prelude.rnf
+        optionGroupName
+      `Prelude.seq` Prelude.rnf
+        copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf
+        timezone
+      `Prelude.seq` Prelude.rnf
+        tdeCredentialArn
+      `Prelude.seq` Prelude.rnf
+        domainIAMRoleName
+      `Prelude.seq` Prelude.rnf
+        tags
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        dbName
+      `Prelude.seq` Prelude.rnf
+        dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
+        dbInstanceClass
+      `Prelude.seq` Prelude.rnf
+        engine
 
 instance Core.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -1055,4 +1167,7 @@ createDBInstanceResponse_dbInstance = Lens.lens (\CreateDBInstanceResponse' {dbI
 createDBInstanceResponse_httpStatus :: Lens.Lens' CreateDBInstanceResponse Prelude.Int
 createDBInstanceResponse_httpStatus = Lens.lens (\CreateDBInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateDBInstanceResponse' {} a -> s {httpStatus = a} :: CreateDBInstanceResponse)
 
-instance Prelude.NFData CreateDBInstanceResponse
+instance Prelude.NFData CreateDBInstanceResponse where
+  rnf CreateDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

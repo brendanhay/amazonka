@@ -82,7 +82,18 @@ instance
 instance
   Prelude.Hashable
     ResourcePendingMaintenanceActions
+  where
+  hashWithSalt
+    _salt
+    ResourcePendingMaintenanceActions' {..} =
+      _salt
+        `Prelude.hashWithSalt` pendingMaintenanceActionDetails
+        `Prelude.hashWithSalt` resourceIdentifier
 
 instance
   Prelude.NFData
     ResourcePendingMaintenanceActions
+  where
+  rnf ResourcePendingMaintenanceActions' {..} =
+    Prelude.rnf pendingMaintenanceActionDetails
+      `Prelude.seq` Prelude.rnf resourceIdentifier

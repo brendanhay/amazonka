@@ -122,10 +122,20 @@ instance
 instance
   Prelude.Hashable
     RemoveSourceIdentifierFromSubscription
+  where
+  hashWithSalt
+    _salt
+    RemoveSourceIdentifierFromSubscription' {..} =
+      _salt `Prelude.hashWithSalt` subscriptionName
+        `Prelude.hashWithSalt` sourceIdentifier
 
 instance
   Prelude.NFData
     RemoveSourceIdentifierFromSubscription
+  where
+  rnf RemoveSourceIdentifierFromSubscription' {..} =
+    Prelude.rnf subscriptionName
+      `Prelude.seq` Prelude.rnf sourceIdentifier
 
 instance
   Core.ToHeaders
@@ -197,3 +207,8 @@ removeSourceIdentifierFromSubscriptionResponse_httpStatus = Lens.lens (\RemoveSo
 instance
   Prelude.NFData
     RemoveSourceIdentifierFromSubscriptionResponse
+  where
+  rnf
+    RemoveSourceIdentifierFromSubscriptionResponse' {..} =
+      Prelude.rnf eventSubscription
+        `Prelude.seq` Prelude.rnf httpStatus

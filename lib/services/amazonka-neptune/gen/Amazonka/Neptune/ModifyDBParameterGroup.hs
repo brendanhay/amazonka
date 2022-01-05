@@ -153,9 +153,15 @@ instance Core.AWSRequest ModifyDBParameterGroup where
       "ModifyDBParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyDBParameterGroup
+instance Prelude.Hashable ModifyDBParameterGroup where
+  hashWithSalt _salt ModifyDBParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData ModifyDBParameterGroup
+instance Prelude.NFData ModifyDBParameterGroup where
+  rnf ModifyDBParameterGroup' {..} =
+    Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders ModifyDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

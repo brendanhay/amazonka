@@ -209,10 +209,24 @@ instance
 instance
   Prelude.Hashable
     ModifyDBClusterSnapshotAttribute
+  where
+  hashWithSalt
+    _salt
+    ModifyDBClusterSnapshotAttribute' {..} =
+      _salt `Prelude.hashWithSalt` valuesToAdd
+        `Prelude.hashWithSalt` valuesToRemove
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
+        `Prelude.hashWithSalt` attributeName
 
 instance
   Prelude.NFData
     ModifyDBClusterSnapshotAttribute
+  where
+  rnf ModifyDBClusterSnapshotAttribute' {..} =
+    Prelude.rnf valuesToAdd
+      `Prelude.seq` Prelude.rnf valuesToRemove
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance
   Core.ToHeaders
@@ -292,3 +306,7 @@ modifyDBClusterSnapshotAttributeResponse_httpStatus = Lens.lens (\ModifyDBCluste
 instance
   Prelude.NFData
     ModifyDBClusterSnapshotAttributeResponse
+  where
+  rnf ModifyDBClusterSnapshotAttributeResponse' {..} =
+    Prelude.rnf dbClusterSnapshotAttributesResult
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -186,9 +186,23 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBClusterEndpoint
+instance Prelude.Hashable CreateDBClusterEndpoint where
+  hashWithSalt _salt CreateDBClusterEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` staticMembers
+      `Prelude.hashWithSalt` excludedMembers
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
+      `Prelude.hashWithSalt` endpointType
 
-instance Prelude.NFData CreateDBClusterEndpoint
+instance Prelude.NFData CreateDBClusterEndpoint where
+  rnf CreateDBClusterEndpoint' {..} =
+    Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf endpointType
 
 instance Core.ToHeaders CreateDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -395,3 +409,16 @@ createDBClusterEndpointResponse_httpStatus = Lens.lens (\CreateDBClusterEndpoint
 instance
   Prelude.NFData
     CreateDBClusterEndpointResponse
+  where
+  rnf CreateDBClusterEndpointResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterEndpointArn
+      `Prelude.seq` Prelude.rnf customEndpointType
+      `Prelude.seq` Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbClusterEndpointResourceIdentifier
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf httpStatus

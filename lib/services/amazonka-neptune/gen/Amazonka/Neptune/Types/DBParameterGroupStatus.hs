@@ -78,6 +78,12 @@ instance Core.FromXML DBParameterGroupStatus where
       Prelude.<$> (x Core..@? "DBParameterGroupName")
       Prelude.<*> (x Core..@? "ParameterApplyStatus")
 
-instance Prelude.Hashable DBParameterGroupStatus
+instance Prelude.Hashable DBParameterGroupStatus where
+  hashWithSalt _salt DBParameterGroupStatus' {..} =
+    _salt `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` parameterApplyStatus
 
-instance Prelude.NFData DBParameterGroupStatus
+instance Prelude.NFData DBParameterGroupStatus where
+  rnf DBParameterGroupStatus' {..} =
+    Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf parameterApplyStatus

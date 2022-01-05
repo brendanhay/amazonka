@@ -87,9 +87,15 @@ instance Core.FromJSON GitHubLocation where
             Prelude.<*> (x Core..:? "repository")
       )
 
-instance Prelude.Hashable GitHubLocation
+instance Prelude.Hashable GitHubLocation where
+  hashWithSalt _salt GitHubLocation' {..} =
+    _salt `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` repository
 
-instance Prelude.NFData GitHubLocation
+instance Prelude.NFData GitHubLocation where
+  rnf GitHubLocation' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf repository
 
 instance Core.ToJSON GitHubLocation where
   toJSON GitHubLocation' {..} =

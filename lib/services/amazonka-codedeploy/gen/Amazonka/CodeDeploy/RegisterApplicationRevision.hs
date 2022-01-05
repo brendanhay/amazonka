@@ -113,9 +113,17 @@ instance Core.AWSRequest RegisterApplicationRevision where
     Response.receiveNull
       RegisterApplicationRevisionResponse'
 
-instance Prelude.Hashable RegisterApplicationRevision
+instance Prelude.Hashable RegisterApplicationRevision where
+  hashWithSalt _salt RegisterApplicationRevision' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData RegisterApplicationRevision
+instance Prelude.NFData RegisterApplicationRevision where
+  rnf RegisterApplicationRevision' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf revision
 
 instance Core.ToHeaders RegisterApplicationRevision where
   toHeaders =
@@ -167,3 +175,5 @@ newRegisterApplicationRevisionResponse =
 instance
   Prelude.NFData
     RegisterApplicationRevisionResponse
+  where
+  rnf _ = ()

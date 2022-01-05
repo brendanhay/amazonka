@@ -70,6 +70,11 @@ instance Core.FromJSON AutoScalingGroup where
             Prelude.<$> (x Core..:? "hook") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable AutoScalingGroup
+instance Prelude.Hashable AutoScalingGroup where
+  hashWithSalt _salt AutoScalingGroup' {..} =
+    _salt `Prelude.hashWithSalt` hook
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AutoScalingGroup
+instance Prelude.NFData AutoScalingGroup where
+  rnf AutoScalingGroup' {..} =
+    Prelude.rnf hook `Prelude.seq` Prelude.rnf name

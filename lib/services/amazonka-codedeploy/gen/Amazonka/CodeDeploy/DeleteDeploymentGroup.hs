@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteDeploymentGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDeploymentGroup
+instance Prelude.Hashable DeleteDeploymentGroup where
+  hashWithSalt _salt DeleteDeploymentGroup' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` deploymentGroupName
 
-instance Prelude.NFData DeleteDeploymentGroup
+instance Prelude.NFData DeleteDeploymentGroup where
+  rnf DeleteDeploymentGroup' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf deploymentGroupName
 
 instance Core.ToHeaders DeleteDeploymentGroup where
   toHeaders =
@@ -202,4 +208,7 @@ deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGr
 deleteDeploymentGroupResponse_httpStatus :: Lens.Lens' DeleteDeploymentGroupResponse Prelude.Int
 deleteDeploymentGroupResponse_httpStatus = Lens.lens (\DeleteDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteDeploymentGroupResponse' {} a -> s {httpStatus = a} :: DeleteDeploymentGroupResponse)
 
-instance Prelude.NFData DeleteDeploymentGroupResponse
+instance Prelude.NFData DeleteDeploymentGroupResponse where
+  rnf DeleteDeploymentGroupResponse' {..} =
+    Prelude.rnf hooksNotCleanedUp
+      `Prelude.seq` Prelude.rnf httpStatus

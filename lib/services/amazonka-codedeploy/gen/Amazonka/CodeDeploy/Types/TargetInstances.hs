@@ -104,9 +104,17 @@ instance Core.FromJSON TargetInstances where
                         )
       )
 
-instance Prelude.Hashable TargetInstances
+instance Prelude.Hashable TargetInstances where
+  hashWithSalt _salt TargetInstances' {..} =
+    _salt `Prelude.hashWithSalt` ec2TagSet
+      `Prelude.hashWithSalt` tagFilters
+      `Prelude.hashWithSalt` autoScalingGroups
 
-instance Prelude.NFData TargetInstances
+instance Prelude.NFData TargetInstances where
+  rnf TargetInstances' {..} =
+    Prelude.rnf ec2TagSet
+      `Prelude.seq` Prelude.rnf tagFilters
+      `Prelude.seq` Prelude.rnf autoScalingGroups
 
 instance Core.ToJSON TargetInstances where
   toJSON TargetInstances' {..} =

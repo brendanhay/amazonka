@@ -88,8 +88,13 @@ instance Core.FromJSON GreenFleetProvisioningOption where
 instance
   Prelude.Hashable
     GreenFleetProvisioningOption
+  where
+  hashWithSalt _salt GreenFleetProvisioningOption' {..} =
+    _salt `Prelude.hashWithSalt` action
 
-instance Prelude.NFData GreenFleetProvisioningOption
+instance Prelude.NFData GreenFleetProvisioningOption where
+  rnf GreenFleetProvisioningOption' {..} =
+    Prelude.rnf action
 
 instance Core.ToJSON GreenFleetProvisioningOption where
   toJSON GreenFleetProvisioningOption' {..} =

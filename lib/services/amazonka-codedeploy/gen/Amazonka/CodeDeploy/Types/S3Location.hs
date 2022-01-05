@@ -151,9 +151,21 @@ instance Core.FromJSON S3Location where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt _salt S3Location' {..} =
+    _salt `Prelude.hashWithSalt` bundleType
+      `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf bundleType
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =

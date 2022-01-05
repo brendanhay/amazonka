@@ -130,6 +130,22 @@ instance Core.FromJSON LambdaTarget where
             Prelude.<*> (x Core..:? "lambdaFunctionInfo")
       )
 
-instance Prelude.Hashable LambdaTarget
+instance Prelude.Hashable LambdaTarget where
+  hashWithSalt _salt LambdaTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` lifecycleEvents
+      `Prelude.hashWithSalt` lambdaFunctionInfo
 
-instance Prelude.NFData LambdaTarget
+instance Prelude.NFData LambdaTarget where
+  rnf LambdaTarget' {..} =
+    Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf lifecycleEvents
+      `Prelude.seq` Prelude.rnf lambdaFunctionInfo

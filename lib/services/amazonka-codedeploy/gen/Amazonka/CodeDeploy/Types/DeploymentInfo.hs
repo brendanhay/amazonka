@@ -551,6 +551,73 @@ instance Core.FromJSON DeploymentInfo where
             Prelude.<*> (x Core..:? "ignoreApplicationStopFailures")
       )
 
-instance Prelude.Hashable DeploymentInfo
+instance Prelude.Hashable DeploymentInfo where
+  hashWithSalt _salt DeploymentInfo' {..} =
+    _salt `Prelude.hashWithSalt` creator
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` previousRevision
+      `Prelude.hashWithSalt` instanceTerminationWaitTimeStarted
+      `Prelude.hashWithSalt` deploymentStatusMessages
+      `Prelude.hashWithSalt` relatedDeployments
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` completeTime
+      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+      `Prelude.hashWithSalt` errorInformation
+      `Prelude.hashWithSalt` loadBalancerInfo
+      `Prelude.hashWithSalt` additionalDeploymentStatusInfo
+      `Prelude.hashWithSalt` deploymentOverview
+      `Prelude.hashWithSalt` fileExistsBehavior
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` rollbackInfo
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` targetInstances
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deploymentStyle
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` updateOutdatedInstancesOnly
+      `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` ignoreApplicationStopFailures
 
-instance Prelude.NFData DeploymentInfo
+instance Prelude.NFData DeploymentInfo where
+  rnf DeploymentInfo' {..} =
+    Prelude.rnf creator
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf previousRevision
+      `Prelude.seq` Prelude.rnf instanceTerminationWaitTimeStarted
+      `Prelude.seq` Prelude.rnf deploymentStatusMessages
+      `Prelude.seq` Prelude.rnf relatedDeployments
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf completeTime
+      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+      `Prelude.seq` Prelude.rnf errorInformation
+      `Prelude.seq` Prelude.rnf loadBalancerInfo
+      `Prelude.seq` Prelude.rnf
+        additionalDeploymentStatusInfo
+      `Prelude.seq` Prelude.rnf deploymentOverview
+      `Prelude.seq` Prelude.rnf fileExistsBehavior
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf rollbackInfo
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf targetInstances
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf
+        deploymentStyle
+      `Prelude.seq` Prelude.rnf
+        createTime
+      `Prelude.seq` Prelude.rnf
+        autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf
+        updateOutdatedInstancesOnly
+      `Prelude.seq` Prelude.rnf
+        deploymentGroupName
+      `Prelude.seq` Prelude.rnf
+        ignoreApplicationStopFailures

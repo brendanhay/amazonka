@@ -79,9 +79,15 @@ instance Core.FromJSON RawString where
             Prelude.<*> (x Core..:? "sha256")
       )
 
-instance Prelude.Hashable RawString
+instance Prelude.Hashable RawString where
+  hashWithSalt _salt RawString' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` sha256
 
-instance Prelude.NFData RawString
+instance Prelude.NFData RawString where
+  rnf RawString' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf sha256
 
 instance Core.ToJSON RawString where
   toJSON RawString' {..} =

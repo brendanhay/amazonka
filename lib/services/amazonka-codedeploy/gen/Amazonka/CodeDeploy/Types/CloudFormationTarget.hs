@@ -142,6 +142,22 @@ instance Core.FromJSON CloudFormationTarget where
             Prelude.<*> (x Core..:? "targetVersionWeight")
       )
 
-instance Prelude.Hashable CloudFormationTarget
+instance Prelude.Hashable CloudFormationTarget where
+  hashWithSalt _salt CloudFormationTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` lifecycleEvents
+      `Prelude.hashWithSalt` targetVersionWeight
 
-instance Prelude.NFData CloudFormationTarget
+instance Prelude.NFData CloudFormationTarget where
+  rnf CloudFormationTarget' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf lifecycleEvents
+      `Prelude.seq` Prelude.rnf targetVersionWeight

@@ -75,9 +75,12 @@ instance Core.FromJSON TargetGroupInfo where
           TargetGroupInfo' Prelude.<$> (x Core..:? "name")
       )
 
-instance Prelude.Hashable TargetGroupInfo
+instance Prelude.Hashable TargetGroupInfo where
+  hashWithSalt _salt TargetGroupInfo' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TargetGroupInfo
+instance Prelude.NFData TargetGroupInfo where
+  rnf TargetGroupInfo' {..} = Prelude.rnf name
 
 instance Core.ToJSON TargetGroupInfo where
   toJSON TargetGroupInfo' {..} =

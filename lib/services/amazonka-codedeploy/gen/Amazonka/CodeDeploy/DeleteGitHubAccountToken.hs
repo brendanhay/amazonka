@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteGitHubAccountToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGitHubAccountToken
+instance Prelude.Hashable DeleteGitHubAccountToken where
+  hashWithSalt _salt DeleteGitHubAccountToken' {..} =
+    _salt `Prelude.hashWithSalt` tokenName
 
-instance Prelude.NFData DeleteGitHubAccountToken
+instance Prelude.NFData DeleteGitHubAccountToken where
+  rnf DeleteGitHubAccountToken' {..} =
+    Prelude.rnf tokenName
 
 instance Core.ToHeaders DeleteGitHubAccountToken where
   toHeaders =
@@ -165,3 +169,7 @@ deleteGitHubAccountTokenResponse_httpStatus = Lens.lens (\DeleteGitHubAccountTok
 instance
   Prelude.NFData
     DeleteGitHubAccountTokenResponse
+  where
+  rnf DeleteGitHubAccountTokenResponse' {..} =
+    Prelude.rnf tokenName
+      `Prelude.seq` Prelude.rnf httpStatus

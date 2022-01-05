@@ -88,9 +88,17 @@ instance Core.FromJSON TriggerConfig where
             Prelude.<*> (x Core..:? "triggerTargetArn")
       )
 
-instance Prelude.Hashable TriggerConfig
+instance Prelude.Hashable TriggerConfig where
+  hashWithSalt _salt TriggerConfig' {..} =
+    _salt `Prelude.hashWithSalt` triggerName
+      `Prelude.hashWithSalt` triggerEvents
+      `Prelude.hashWithSalt` triggerTargetArn
 
-instance Prelude.NFData TriggerConfig
+instance Prelude.NFData TriggerConfig where
+  rnf TriggerConfig' {..} =
+    Prelude.rnf triggerName
+      `Prelude.seq` Prelude.rnf triggerEvents
+      `Prelude.seq` Prelude.rnf triggerTargetArn
 
 instance Core.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =

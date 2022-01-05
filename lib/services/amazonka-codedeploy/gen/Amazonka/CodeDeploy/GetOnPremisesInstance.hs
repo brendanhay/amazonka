@@ -91,9 +91,13 @@ instance Core.AWSRequest GetOnPremisesInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOnPremisesInstance
+instance Prelude.Hashable GetOnPremisesInstance where
+  hashWithSalt _salt GetOnPremisesInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData GetOnPremisesInstance
+instance Prelude.NFData GetOnPremisesInstance where
+  rnf GetOnPremisesInstance' {..} =
+    Prelude.rnf instanceName
 
 instance Core.ToHeaders GetOnPremisesInstance where
   toHeaders =
@@ -164,4 +168,7 @@ getOnPremisesInstanceResponse_instanceInfo = Lens.lens (\GetOnPremisesInstanceRe
 getOnPremisesInstanceResponse_httpStatus :: Lens.Lens' GetOnPremisesInstanceResponse Prelude.Int
 getOnPremisesInstanceResponse_httpStatus = Lens.lens (\GetOnPremisesInstanceResponse' {httpStatus} -> httpStatus) (\s@GetOnPremisesInstanceResponse' {} a -> s {httpStatus = a} :: GetOnPremisesInstanceResponse)
 
-instance Prelude.NFData GetOnPremisesInstanceResponse
+instance Prelude.NFData GetOnPremisesInstanceResponse where
+  rnf GetOnPremisesInstanceResponse' {..} =
+    Prelude.rnf instanceInfo
+      `Prelude.seq` Prelude.rnf httpStatus

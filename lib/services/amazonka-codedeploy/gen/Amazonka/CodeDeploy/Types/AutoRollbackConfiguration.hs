@@ -78,9 +78,15 @@ instance Core.FromJSON AutoRollbackConfiguration where
             Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AutoRollbackConfiguration
+instance Prelude.Hashable AutoRollbackConfiguration where
+  hashWithSalt _salt AutoRollbackConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData AutoRollbackConfiguration
+instance Prelude.NFData AutoRollbackConfiguration where
+  rnf AutoRollbackConfiguration' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToJSON AutoRollbackConfiguration where
   toJSON AutoRollbackConfiguration' {..} =

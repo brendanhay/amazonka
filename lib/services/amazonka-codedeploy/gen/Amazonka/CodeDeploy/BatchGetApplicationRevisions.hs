@@ -118,8 +118,15 @@ instance Core.AWSRequest BatchGetApplicationRevisions where
 instance
   Prelude.Hashable
     BatchGetApplicationRevisions
+  where
+  hashWithSalt _salt BatchGetApplicationRevisions' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` revisions
 
-instance Prelude.NFData BatchGetApplicationRevisions
+instance Prelude.NFData BatchGetApplicationRevisions where
+  rnf BatchGetApplicationRevisions' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf revisions
 
 instance Core.ToHeaders BatchGetApplicationRevisions where
   toHeaders =
@@ -217,3 +224,9 @@ batchGetApplicationRevisionsResponse_httpStatus = Lens.lens (\BatchGetApplicatio
 instance
   Prelude.NFData
     BatchGetApplicationRevisionsResponse
+  where
+  rnf BatchGetApplicationRevisionsResponse' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf revisions
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf httpStatus

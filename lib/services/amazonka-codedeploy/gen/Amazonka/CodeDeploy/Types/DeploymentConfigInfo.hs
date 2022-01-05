@@ -121,6 +121,20 @@ instance Core.FromJSON DeploymentConfigInfo where
             Prelude.<*> (x Core..:? "createTime")
       )
 
-instance Prelude.Hashable DeploymentConfigInfo
+instance Prelude.Hashable DeploymentConfigInfo where
+  hashWithSalt _salt DeploymentConfigInfo' {..} =
+    _salt `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` minimumHealthyHosts
+      `Prelude.hashWithSalt` trafficRoutingConfig
+      `Prelude.hashWithSalt` deploymentConfigId
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData DeploymentConfigInfo
+instance Prelude.NFData DeploymentConfigInfo where
+  rnf DeploymentConfigInfo' {..} =
+    Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf minimumHealthyHosts
+      `Prelude.seq` Prelude.rnf trafficRoutingConfig
+      `Prelude.seq` Prelude.rnf deploymentConfigId
+      `Prelude.seq` Prelude.rnf createTime

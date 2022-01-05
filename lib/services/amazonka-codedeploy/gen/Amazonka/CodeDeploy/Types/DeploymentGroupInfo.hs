@@ -384,6 +384,54 @@ instance Core.FromJSON DeploymentGroupInfo where
             Prelude.<*> (x Core..:? "deploymentGroupName")
       )
 
-instance Prelude.Hashable DeploymentGroupInfo
+instance Prelude.Hashable DeploymentGroupInfo where
+  hashWithSalt _salt DeploymentGroupInfo' {..} =
+    _salt `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` ec2TagSet
+      `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` lastAttemptedDeployment
+      `Prelude.hashWithSalt` onPremisesTagSet
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` targetRevision
+      `Prelude.hashWithSalt` ec2TagFilters
+      `Prelude.hashWithSalt` ecsServices
+      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+      `Prelude.hashWithSalt` loadBalancerInfo
+      `Prelude.hashWithSalt` outdatedInstancesStrategy
+      `Prelude.hashWithSalt` onPremisesInstanceTagFilters
+      `Prelude.hashWithSalt` lastSuccessfulDeployment
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` triggerConfigurations
+      `Prelude.hashWithSalt` deploymentGroupId
+      `Prelude.hashWithSalt` autoScalingGroups
+      `Prelude.hashWithSalt` deploymentStyle
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` deploymentGroupName
 
-instance Prelude.NFData DeploymentGroupInfo
+instance Prelude.NFData DeploymentGroupInfo where
+  rnf DeploymentGroupInfo' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf ec2TagSet
+      `Prelude.seq` Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf lastAttemptedDeployment
+      `Prelude.seq` Prelude.rnf onPremisesTagSet
+      `Prelude.seq` Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf targetRevision
+      `Prelude.seq` Prelude.rnf ec2TagFilters
+      `Prelude.seq` Prelude.rnf ecsServices
+      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+      `Prelude.seq` Prelude.rnf loadBalancerInfo
+      `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
+      `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
+      `Prelude.seq` Prelude.rnf lastSuccessfulDeployment
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf triggerConfigurations
+      `Prelude.seq` Prelude.rnf deploymentGroupId
+      `Prelude.seq` Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf deploymentStyle
+      `Prelude.seq` Prelude.rnf
+        autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf
+        deploymentGroupName

@@ -198,6 +198,24 @@ instance Core.FromJSON ECSTaskSet where
             Prelude.<*> (x Core..:? "taskSetLabel")
       )
 
-instance Prelude.Hashable ECSTaskSet
+instance Prelude.Hashable ECSTaskSet where
+  hashWithSalt _salt ECSTaskSet' {..} =
+    _salt `Prelude.hashWithSalt` runningCount
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` identifer
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` pendingCount
+      `Prelude.hashWithSalt` trafficWeight
+      `Prelude.hashWithSalt` targetGroup
+      `Prelude.hashWithSalt` taskSetLabel
 
-instance Prelude.NFData ECSTaskSet
+instance Prelude.NFData ECSTaskSet where
+  rnf ECSTaskSet' {..} =
+    Prelude.rnf runningCount
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf identifer
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf pendingCount
+      `Prelude.seq` Prelude.rnf trafficWeight
+      `Prelude.seq` Prelude.rnf targetGroup
+      `Prelude.seq` Prelude.rnf taskSetLabel

@@ -133,6 +133,22 @@ instance Core.FromJSON InstanceTarget where
                         )
       )
 
-instance Prelude.Hashable InstanceTarget
+instance Prelude.Hashable InstanceTarget where
+  hashWithSalt _salt InstanceTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` instanceLabel
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` lifecycleEvents
 
-instance Prelude.NFData InstanceTarget
+instance Prelude.NFData InstanceTarget where
+  rnf InstanceTarget' {..} =
+    Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf instanceLabel
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf lifecycleEvents

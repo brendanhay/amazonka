@@ -71,9 +71,13 @@ instance Core.FromJSON OnPremisesTagSet where
                         )
       )
 
-instance Prelude.Hashable OnPremisesTagSet
+instance Prelude.Hashable OnPremisesTagSet where
+  hashWithSalt _salt OnPremisesTagSet' {..} =
+    _salt `Prelude.hashWithSalt` onPremisesTagSetList
 
-instance Prelude.NFData OnPremisesTagSet
+instance Prelude.NFData OnPremisesTagSet where
+  rnf OnPremisesTagSet' {..} =
+    Prelude.rnf onPremisesTagSetList
 
 instance Core.ToJSON OnPremisesTagSet where
   toJSON OnPremisesTagSet' {..} =

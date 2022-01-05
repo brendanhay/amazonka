@@ -150,6 +150,16 @@ instance Core.FromJSON Diagnostics where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable Diagnostics
+instance Prelude.Hashable Diagnostics where
+  hashWithSalt _salt Diagnostics' {..} =
+    _salt `Prelude.hashWithSalt` logTail
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` scriptName
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData Diagnostics
+instance Prelude.NFData Diagnostics where
+  rnf Diagnostics' {..} =
+    Prelude.rnf logTail
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf scriptName
+      `Prelude.seq` Prelude.rnf message

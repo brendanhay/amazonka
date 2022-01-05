@@ -160,9 +160,17 @@ instance Core.AWSRequest ListDeploymentTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentTargets
+instance Prelude.Hashable ListDeploymentTargets where
+  hashWithSalt _salt ListDeploymentTargets' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` targetFilters
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeploymentTargets
+instance Prelude.NFData ListDeploymentTargets where
+  rnf ListDeploymentTargets' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf targetFilters
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDeploymentTargets where
   toHeaders =
@@ -249,4 +257,8 @@ listDeploymentTargetsResponse_targetIds = Lens.lens (\ListDeploymentTargetsRespo
 listDeploymentTargetsResponse_httpStatus :: Lens.Lens' ListDeploymentTargetsResponse Prelude.Int
 listDeploymentTargetsResponse_httpStatus = Lens.lens (\ListDeploymentTargetsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentTargetsResponse' {} a -> s {httpStatus = a} :: ListDeploymentTargetsResponse)
 
-instance Prelude.NFData ListDeploymentTargetsResponse
+instance Prelude.NFData ListDeploymentTargetsResponse where
+  rnf ListDeploymentTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf targetIds
+      `Prelude.seq` Prelude.rnf httpStatus

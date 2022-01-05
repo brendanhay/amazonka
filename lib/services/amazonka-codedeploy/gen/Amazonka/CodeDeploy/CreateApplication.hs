@@ -123,9 +123,17 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApplication
+instance Prelude.Hashable CreateApplication where
+  hashWithSalt _salt CreateApplication' {..} =
+    _salt `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData CreateApplication
+instance Prelude.NFData CreateApplication where
+  rnf CreateApplication' {..} =
+    Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders CreateApplication where
   toHeaders =
@@ -201,4 +209,7 @@ createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse'
 createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
 createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
-instance Prelude.NFData CreateApplicationResponse
+instance Prelude.NFData CreateApplicationResponse where
+  rnf CreateApplicationResponse' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf httpStatus

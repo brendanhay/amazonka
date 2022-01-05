@@ -77,6 +77,12 @@ instance Core.FromJSON RevisionInfo where
             Prelude.<*> (x Core..:? "revisionLocation")
       )
 
-instance Prelude.Hashable RevisionInfo
+instance Prelude.Hashable RevisionInfo where
+  hashWithSalt _salt RevisionInfo' {..} =
+    _salt `Prelude.hashWithSalt` genericRevisionInfo
+      `Prelude.hashWithSalt` revisionLocation
 
-instance Prelude.NFData RevisionInfo
+instance Prelude.NFData RevisionInfo where
+  rnf RevisionInfo' {..} =
+    Prelude.rnf genericRevisionInfo
+      `Prelude.seq` Prelude.rnf revisionLocation

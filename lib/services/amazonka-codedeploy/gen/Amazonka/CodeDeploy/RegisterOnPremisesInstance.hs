@@ -106,9 +106,17 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
     Response.receiveNull
       RegisterOnPremisesInstanceResponse'
 
-instance Prelude.Hashable RegisterOnPremisesInstance
+instance Prelude.Hashable RegisterOnPremisesInstance where
+  hashWithSalt _salt RegisterOnPremisesInstance' {..} =
+    _salt `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` iamSessionArn
+      `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData RegisterOnPremisesInstance
+instance Prelude.NFData RegisterOnPremisesInstance where
+  rnf RegisterOnPremisesInstance' {..} =
+    Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf iamSessionArn
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders RegisterOnPremisesInstance where
   toHeaders =
@@ -159,3 +167,5 @@ newRegisterOnPremisesInstanceResponse =
 instance
   Prelude.NFData
     RegisterOnPremisesInstanceResponse
+  where
+  rnf _ = ()

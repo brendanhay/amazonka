@@ -140,6 +140,24 @@ instance Core.FromJSON RoutingProfile where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RoutingProfile
+instance Prelude.Hashable RoutingProfile where
+  hashWithSalt _salt RoutingProfile' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` routingProfileArn
+      `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` defaultOutboundQueueId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` mediaConcurrencies
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RoutingProfile
+instance Prelude.NFData RoutingProfile where
+  rnf RoutingProfile' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf routingProfileArn
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf defaultOutboundQueueId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mediaConcurrencies
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

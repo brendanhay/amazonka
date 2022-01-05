@@ -132,8 +132,17 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceStorageConfig
+  where
+  hashWithSalt _salt DescribeInstanceStorageConfig' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData DescribeInstanceStorageConfig
+instance Prelude.NFData DescribeInstanceStorageConfig where
+  rnf DescribeInstanceStorageConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToHeaders DescribeInstanceStorageConfig where
   toHeaders =
@@ -202,3 +211,7 @@ describeInstanceStorageConfigResponse_httpStatus = Lens.lens (\DescribeInstanceS
 instance
   Prelude.NFData
     DescribeInstanceStorageConfigResponse
+  where
+  rnf DescribeInstanceStorageConfigResponse' {..} =
+    Prelude.rnf storageConfig
+      `Prelude.seq` Prelude.rnf httpStatus

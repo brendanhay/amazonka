@@ -52,9 +52,12 @@ newParticipantDetails pDisplayName_ =
 participantDetails_displayName :: Lens.Lens' ParticipantDetails Prelude.Text
 participantDetails_displayName = Lens.lens (\ParticipantDetails' {displayName} -> displayName) (\s@ParticipantDetails' {} a -> s {displayName = a} :: ParticipantDetails)
 
-instance Prelude.Hashable ParticipantDetails
+instance Prelude.Hashable ParticipantDetails where
+  hashWithSalt _salt ParticipantDetails' {..} =
+    _salt `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData ParticipantDetails
+instance Prelude.NFData ParticipantDetails where
+  rnf ParticipantDetails' {..} = Prelude.rnf displayName
 
 instance Core.ToJSON ParticipantDetails where
   toJSON ParticipantDetails' {..} =

@@ -76,9 +76,15 @@ instance Core.FromJSON QueueQuickConnectConfig where
             Prelude.<*> (x Core..: "ContactFlowId")
       )
 
-instance Prelude.Hashable QueueQuickConnectConfig
+instance Prelude.Hashable QueueQuickConnectConfig where
+  hashWithSalt _salt QueueQuickConnectConfig' {..} =
+    _salt `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` contactFlowId
 
-instance Prelude.NFData QueueQuickConnectConfig
+instance Prelude.NFData QueueQuickConnectConfig where
+  rnf QueueQuickConnectConfig' {..} =
+    Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf contactFlowId
 
 instance Core.ToJSON QueueQuickConnectConfig where
   toJSON QueueQuickConnectConfig' {..} =

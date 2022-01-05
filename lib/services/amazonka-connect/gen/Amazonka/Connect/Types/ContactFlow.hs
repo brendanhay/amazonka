@@ -131,6 +131,22 @@ instance Core.FromJSON ContactFlow where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ContactFlow
+instance Prelude.Hashable ContactFlow where
+  hashWithSalt _salt ContactFlow' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ContactFlow
+instance Prelude.NFData ContactFlow where
+  rnf ContactFlow' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

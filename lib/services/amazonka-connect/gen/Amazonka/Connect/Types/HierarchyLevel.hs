@@ -81,6 +81,14 @@ instance Core.FromJSON HierarchyLevel where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable HierarchyLevel
+instance Prelude.Hashable HierarchyLevel where
+  hashWithSalt _salt HierarchyLevel' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData HierarchyLevel
+instance Prelude.NFData HierarchyLevel where
+  rnf HierarchyLevel' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

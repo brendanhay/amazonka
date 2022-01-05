@@ -147,9 +147,17 @@ instance Core.AWSRequest ListSecurityKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecurityKeys
+instance Prelude.Hashable ListSecurityKeys where
+  hashWithSalt _salt ListSecurityKeys' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListSecurityKeys
+instance Prelude.NFData ListSecurityKeys where
+  rnf ListSecurityKeys' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListSecurityKeys where
   toHeaders =
@@ -228,4 +236,8 @@ listSecurityKeysResponse_securityKeys = Lens.lens (\ListSecurityKeysResponse' {s
 listSecurityKeysResponse_httpStatus :: Lens.Lens' ListSecurityKeysResponse Prelude.Int
 listSecurityKeysResponse_httpStatus = Lens.lens (\ListSecurityKeysResponse' {httpStatus} -> httpStatus) (\s@ListSecurityKeysResponse' {} a -> s {httpStatus = a} :: ListSecurityKeysResponse)
 
-instance Prelude.NFData ListSecurityKeysResponse
+instance Prelude.NFData ListSecurityKeysResponse where
+  rnf ListSecurityKeysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf securityKeys
+      `Prelude.seq` Prelude.rnf httpStatus

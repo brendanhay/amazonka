@@ -159,9 +159,19 @@ instance Core.AWSRequest ListAgentStatuses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAgentStatuses
+instance Prelude.Hashable ListAgentStatuses where
+  hashWithSalt _salt ListAgentStatuses' {..} =
+    _salt `Prelude.hashWithSalt` agentStatusTypes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListAgentStatuses
+instance Prelude.NFData ListAgentStatuses where
+  rnf ListAgentStatuses' {..} =
+    Prelude.rnf agentStatusTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListAgentStatuses where
   toHeaders =
@@ -242,4 +252,8 @@ listAgentStatusesResponse_agentStatusSummaryList = Lens.lens (\ListAgentStatuses
 listAgentStatusesResponse_httpStatus :: Lens.Lens' ListAgentStatusesResponse Prelude.Int
 listAgentStatusesResponse_httpStatus = Lens.lens (\ListAgentStatusesResponse' {httpStatus} -> httpStatus) (\s@ListAgentStatusesResponse' {} a -> s {httpStatus = a} :: ListAgentStatusesResponse)
 
-instance Prelude.NFData ListAgentStatusesResponse
+instance Prelude.NFData ListAgentStatusesResponse where
+  rnf ListAgentStatusesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf agentStatusSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

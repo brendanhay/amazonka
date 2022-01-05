@@ -74,6 +74,12 @@ instance Core.FromJSON HistoricalMetricResult where
             Prelude.<*> (x Core..:? "Dimensions")
       )
 
-instance Prelude.Hashable HistoricalMetricResult
+instance Prelude.Hashable HistoricalMetricResult where
+  hashWithSalt _salt HistoricalMetricResult' {..} =
+    _salt `Prelude.hashWithSalt` collections
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData HistoricalMetricResult
+instance Prelude.NFData HistoricalMetricResult where
+  rnf HistoricalMetricResult' {..} =
+    Prelude.rnf collections
+      `Prelude.seq` Prelude.rnf dimensions

@@ -71,8 +71,16 @@ answerMachineDetectionConfig_awaitAnswerMachinePrompt = Lens.lens (\AnswerMachin
 instance
   Prelude.Hashable
     AnswerMachineDetectionConfig
+  where
+  hashWithSalt _salt AnswerMachineDetectionConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` enableAnswerMachineDetection
+      `Prelude.hashWithSalt` awaitAnswerMachinePrompt
 
-instance Prelude.NFData AnswerMachineDetectionConfig
+instance Prelude.NFData AnswerMachineDetectionConfig where
+  rnf AnswerMachineDetectionConfig' {..} =
+    Prelude.rnf enableAnswerMachineDetection
+      `Prelude.seq` Prelude.rnf awaitAnswerMachinePrompt
 
 instance Core.ToJSON AnswerMachineDetectionConfig where
   toJSON AnswerMachineDetectionConfig' {..} =

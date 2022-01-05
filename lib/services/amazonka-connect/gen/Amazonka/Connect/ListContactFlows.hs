@@ -164,9 +164,19 @@ instance Core.AWSRequest ListContactFlows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContactFlows
+instance Prelude.Hashable ListContactFlows where
+  hashWithSalt _salt ListContactFlows' {..} =
+    _salt `Prelude.hashWithSalt` contactFlowTypes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListContactFlows
+instance Prelude.NFData ListContactFlows where
+  rnf ListContactFlows' {..} =
+    Prelude.rnf contactFlowTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListContactFlows where
   toHeaders =
@@ -247,4 +257,8 @@ listContactFlowsResponse_nextToken = Lens.lens (\ListContactFlowsResponse' {next
 listContactFlowsResponse_httpStatus :: Lens.Lens' ListContactFlowsResponse Prelude.Int
 listContactFlowsResponse_httpStatus = Lens.lens (\ListContactFlowsResponse' {httpStatus} -> httpStatus) (\s@ListContactFlowsResponse' {} a -> s {httpStatus = a} :: ListContactFlowsResponse)
 
-instance Prelude.NFData ListContactFlowsResponse
+instance Prelude.NFData ListContactFlowsResponse where
+  rnf ListContactFlowsResponse' {..} =
+    Prelude.rnf contactFlowSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

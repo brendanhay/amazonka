@@ -98,9 +98,15 @@ instance Core.AWSRequest AssociateApprovedOrigin where
     Response.receiveNull
       AssociateApprovedOriginResponse'
 
-instance Prelude.Hashable AssociateApprovedOrigin
+instance Prelude.Hashable AssociateApprovedOrigin where
+  hashWithSalt _salt AssociateApprovedOrigin' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` origin
 
-instance Prelude.NFData AssociateApprovedOrigin
+instance Prelude.NFData AssociateApprovedOrigin where
+  rnf AssociateApprovedOrigin' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf origin
 
 instance Core.ToHeaders AssociateApprovedOrigin where
   toHeaders =
@@ -149,3 +155,5 @@ newAssociateApprovedOriginResponse =
 instance
   Prelude.NFData
     AssociateApprovedOriginResponse
+  where
+  rnf _ = ()

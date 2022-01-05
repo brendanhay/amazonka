@@ -150,9 +150,17 @@ instance Core.AWSRequest ListHoursOfOperations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListHoursOfOperations
+instance Prelude.Hashable ListHoursOfOperations where
+  hashWithSalt _salt ListHoursOfOperations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListHoursOfOperations
+instance Prelude.NFData ListHoursOfOperations where
+  rnf ListHoursOfOperations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListHoursOfOperations where
   toHeaders =
@@ -231,4 +239,8 @@ listHoursOfOperationsResponse_hoursOfOperationSummaryList = Lens.lens (\ListHour
 listHoursOfOperationsResponse_httpStatus :: Lens.Lens' ListHoursOfOperationsResponse Prelude.Int
 listHoursOfOperationsResponse_httpStatus = Lens.lens (\ListHoursOfOperationsResponse' {httpStatus} -> httpStatus) (\s@ListHoursOfOperationsResponse' {} a -> s {httpStatus = a} :: ListHoursOfOperationsResponse)
 
-instance Prelude.NFData ListHoursOfOperationsResponse
+instance Prelude.NFData ListHoursOfOperationsResponse where
+  rnf ListHoursOfOperationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hoursOfOperationSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

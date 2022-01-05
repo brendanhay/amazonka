@@ -162,9 +162,19 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstanceStorageConfigs
+instance Prelude.Hashable ListInstanceStorageConfigs where
+  hashWithSalt _salt ListInstanceStorageConfigs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ListInstanceStorageConfigs
+instance Prelude.NFData ListInstanceStorageConfigs where
+  rnf ListInstanceStorageConfigs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToHeaders ListInstanceStorageConfigs where
   toHeaders =
@@ -247,3 +257,8 @@ listInstanceStorageConfigsResponse_httpStatus = Lens.lens (\ListInstanceStorageC
 instance
   Prelude.NFData
     ListInstanceStorageConfigsResponse
+  where
+  rnf ListInstanceStorageConfigsResponse' {..} =
+    Prelude.rnf storageConfigs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

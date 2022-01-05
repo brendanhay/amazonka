@@ -84,6 +84,14 @@ instance Core.FromJSON SecurityKey where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable SecurityKey
+instance Prelude.Hashable SecurityKey where
+  hashWithSalt _salt SecurityKey' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData SecurityKey
+instance Prelude.NFData SecurityKey where
+  rnf SecurityKey' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf key

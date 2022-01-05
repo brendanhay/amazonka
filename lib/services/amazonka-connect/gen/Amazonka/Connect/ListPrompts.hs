@@ -139,9 +139,17 @@ instance Core.AWSRequest ListPrompts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPrompts
+instance Prelude.Hashable ListPrompts where
+  hashWithSalt _salt ListPrompts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListPrompts
+instance Prelude.NFData ListPrompts where
+  rnf ListPrompts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListPrompts where
   toHeaders =
@@ -217,4 +225,8 @@ listPromptsResponse_nextToken = Lens.lens (\ListPromptsResponse' {nextToken} -> 
 listPromptsResponse_httpStatus :: Lens.Lens' ListPromptsResponse Prelude.Int
 listPromptsResponse_httpStatus = Lens.lens (\ListPromptsResponse' {httpStatus} -> httpStatus) (\s@ListPromptsResponse' {} a -> s {httpStatus = a} :: ListPromptsResponse)
 
-instance Prelude.NFData ListPromptsResponse
+instance Prelude.NFData ListPromptsResponse where
+  rnf ListPromptsResponse' {..} =
+    Prelude.rnf promptSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -133,6 +133,24 @@ instance Core.FromJSON AgentStatus where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AgentStatus
+instance Prelude.Hashable AgentStatus where
+  hashWithSalt _salt AgentStatus' {..} =
+    _salt `Prelude.hashWithSalt` displayOrder
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` agentStatusId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` agentStatusARN
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AgentStatus
+instance Prelude.NFData AgentStatus where
+  rnf AgentStatus' {..} =
+    Prelude.rnf displayOrder
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf agentStatusId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf agentStatusARN
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

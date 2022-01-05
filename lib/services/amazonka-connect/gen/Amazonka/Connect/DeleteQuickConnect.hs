@@ -94,9 +94,15 @@ instance Core.AWSRequest DeleteQuickConnect where
   response =
     Response.receiveNull DeleteQuickConnectResponse'
 
-instance Prelude.Hashable DeleteQuickConnect
+instance Prelude.Hashable DeleteQuickConnect where
+  hashWithSalt _salt DeleteQuickConnect' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` quickConnectId
 
-instance Prelude.NFData DeleteQuickConnect
+instance Prelude.NFData DeleteQuickConnect where
+  rnf DeleteQuickConnect' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf quickConnectId
 
 instance Core.ToHeaders DeleteQuickConnect where
   toHeaders =
@@ -136,4 +142,5 @@ newDeleteQuickConnectResponse ::
 newDeleteQuickConnectResponse =
   DeleteQuickConnectResponse'
 
-instance Prelude.NFData DeleteQuickConnectResponse
+instance Prelude.NFData DeleteQuickConnectResponse where
+  rnf _ = ()

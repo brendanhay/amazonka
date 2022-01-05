@@ -98,6 +98,16 @@ instance Core.FromJSON QuickConnectSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable QuickConnectSummary
+instance Prelude.Hashable QuickConnectSummary where
+  hashWithSalt _salt QuickConnectSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` quickConnectType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData QuickConnectSummary
+instance Prelude.NFData QuickConnectSummary where
+  rnf QuickConnectSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf quickConnectType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

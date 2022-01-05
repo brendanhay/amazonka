@@ -122,9 +122,23 @@ instance Core.FromJSON InstanceStorageConfig where
             Prelude.<*> (x Core..: "StorageType")
       )
 
-instance Prelude.Hashable InstanceStorageConfig
+instance Prelude.Hashable InstanceStorageConfig where
+  hashWithSalt _salt InstanceStorageConfig' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` kinesisStreamConfig
+      `Prelude.hashWithSalt` kinesisVideoStreamConfig
+      `Prelude.hashWithSalt` s3Config
+      `Prelude.hashWithSalt` kinesisFirehoseConfig
+      `Prelude.hashWithSalt` storageType
 
-instance Prelude.NFData InstanceStorageConfig
+instance Prelude.NFData InstanceStorageConfig where
+  rnf InstanceStorageConfig' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf kinesisStreamConfig
+      `Prelude.seq` Prelude.rnf kinesisVideoStreamConfig
+      `Prelude.seq` Prelude.rnf s3Config
+      `Prelude.seq` Prelude.rnf kinesisFirehoseConfig
+      `Prelude.seq` Prelude.rnf storageType
 
 instance Core.ToJSON InstanceStorageConfig where
   toJSON InstanceStorageConfig' {..} =

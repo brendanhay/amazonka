@@ -106,9 +106,15 @@ instance Core.AWSRequest AssociateSecurityKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSecurityKey
+instance Prelude.Hashable AssociateSecurityKey where
+  hashWithSalt _salt AssociateSecurityKey' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData AssociateSecurityKey
+instance Prelude.NFData AssociateSecurityKey where
+  rnf AssociateSecurityKey' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders AssociateSecurityKey where
   toHeaders =
@@ -178,4 +184,7 @@ associateSecurityKeyResponse_associationId = Lens.lens (\AssociateSecurityKeyRes
 associateSecurityKeyResponse_httpStatus :: Lens.Lens' AssociateSecurityKeyResponse Prelude.Int
 associateSecurityKeyResponse_httpStatus = Lens.lens (\AssociateSecurityKeyResponse' {httpStatus} -> httpStatus) (\s@AssociateSecurityKeyResponse' {} a -> s {httpStatus = a} :: AssociateSecurityKeyResponse)
 
-instance Prelude.NFData AssociateSecurityKeyResponse
+instance Prelude.NFData AssociateSecurityKeyResponse where
+  rnf AssociateSecurityKeyResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf httpStatus

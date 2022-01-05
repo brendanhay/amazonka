@@ -102,6 +102,18 @@ instance Core.FromJSON HierarchyGroup where
             Prelude.<*> (x Core..:? "LevelId")
       )
 
-instance Prelude.Hashable HierarchyGroup
+instance Prelude.Hashable HierarchyGroup where
+  hashWithSalt _salt HierarchyGroup' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hierarchyPath
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` levelId
 
-instance Prelude.NFData HierarchyGroup
+instance Prelude.NFData HierarchyGroup where
+  rnf HierarchyGroup' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf hierarchyPath
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf levelId

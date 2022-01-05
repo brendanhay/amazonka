@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeHoursOfOperation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHoursOfOperation
+instance Prelude.Hashable DescribeHoursOfOperation where
+  hashWithSalt _salt DescribeHoursOfOperation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hoursOfOperationId
 
-instance Prelude.NFData DescribeHoursOfOperation
+instance Prelude.NFData DescribeHoursOfOperation where
+  rnf DescribeHoursOfOperation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
 
 instance Core.ToHeaders DescribeHoursOfOperation where
   toHeaders =
@@ -175,3 +181,7 @@ describeHoursOfOperationResponse_httpStatus = Lens.lens (\DescribeHoursOfOperati
 instance
   Prelude.NFData
     DescribeHoursOfOperationResponse
+  where
+  rnf DescribeHoursOfOperationResponse' {..} =
+    Prelude.rnf hoursOfOperation
+      `Prelude.seq` Prelude.rnf httpStatus

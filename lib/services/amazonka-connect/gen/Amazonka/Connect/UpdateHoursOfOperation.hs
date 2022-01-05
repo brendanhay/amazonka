@@ -137,9 +137,23 @@ instance Core.AWSRequest UpdateHoursOfOperation where
     Response.receiveNull
       UpdateHoursOfOperationResponse'
 
-instance Prelude.Hashable UpdateHoursOfOperation
+instance Prelude.Hashable UpdateHoursOfOperation where
+  hashWithSalt _salt UpdateHoursOfOperation' {..} =
+    _salt `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hoursOfOperationId
 
-instance Prelude.NFData UpdateHoursOfOperation
+instance Prelude.NFData UpdateHoursOfOperation where
+  rnf UpdateHoursOfOperation' {..} =
+    Prelude.rnf config
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
 
 instance Core.ToHeaders UpdateHoursOfOperation where
   toHeaders =
@@ -193,3 +207,5 @@ newUpdateHoursOfOperationResponse =
 instance
   Prelude.NFData
     UpdateHoursOfOperationResponse
+  where
+  rnf _ = ()

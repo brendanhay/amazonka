@@ -162,9 +162,23 @@ instance Core.AWSRequest CreateContactFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContactFlow
+instance Prelude.Hashable CreateContactFlow where
+  hashWithSalt _salt CreateContactFlow' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData CreateContactFlow
+instance Prelude.NFData CreateContactFlow where
+  rnf CreateContactFlow' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders CreateContactFlow where
   toHeaders =
@@ -245,4 +259,8 @@ createContactFlowResponse_contactFlowId = Lens.lens (\CreateContactFlowResponse'
 createContactFlowResponse_httpStatus :: Lens.Lens' CreateContactFlowResponse Prelude.Int
 createContactFlowResponse_httpStatus = Lens.lens (\CreateContactFlowResponse' {httpStatus} -> httpStatus) (\s@CreateContactFlowResponse' {} a -> s {httpStatus = a} :: CreateContactFlowResponse)
 
-instance Prelude.NFData CreateContactFlowResponse
+instance Prelude.NFData CreateContactFlowResponse where
+  rnf CreateContactFlowResponse' {..} =
+    Prelude.rnf contactFlowArn
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf httpStatus

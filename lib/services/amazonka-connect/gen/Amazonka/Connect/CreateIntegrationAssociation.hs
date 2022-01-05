@@ -173,8 +173,25 @@ instance Core.AWSRequest CreateIntegrationAssociation where
 instance
   Prelude.Hashable
     CreateIntegrationAssociation
+  where
+  hashWithSalt _salt CreateIntegrationAssociation' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceApplicationUrl
+      `Prelude.hashWithSalt` sourceApplicationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` integrationType
+      `Prelude.hashWithSalt` integrationArn
 
-instance Prelude.NFData CreateIntegrationAssociation
+instance Prelude.NFData CreateIntegrationAssociation where
+  rnf CreateIntegrationAssociation' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceApplicationUrl
+      `Prelude.seq` Prelude.rnf sourceApplicationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf integrationArn
 
 instance Core.ToHeaders CreateIntegrationAssociation where
   toHeaders =
@@ -267,3 +284,8 @@ createIntegrationAssociationResponse_httpStatus = Lens.lens (\CreateIntegrationA
 instance
   Prelude.NFData
     CreateIntegrationAssociationResponse
+  where
+  rnf CreateIntegrationAssociationResponse' {..} =
+    Prelude.rnf integrationAssociationId
+      `Prelude.seq` Prelude.rnf integrationAssociationArn
+      `Prelude.seq` Prelude.rnf httpStatus

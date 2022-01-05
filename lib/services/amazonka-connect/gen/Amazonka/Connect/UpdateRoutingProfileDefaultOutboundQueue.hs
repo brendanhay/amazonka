@@ -120,10 +120,22 @@ instance
 instance
   Prelude.Hashable
     UpdateRoutingProfileDefaultOutboundQueue
+  where
+  hashWithSalt
+    _salt
+    UpdateRoutingProfileDefaultOutboundQueue' {..} =
+      _salt `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` routingProfileId
+        `Prelude.hashWithSalt` defaultOutboundQueueId
 
 instance
   Prelude.NFData
     UpdateRoutingProfileDefaultOutboundQueue
+  where
+  rnf UpdateRoutingProfileDefaultOutboundQueue' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf defaultOutboundQueueId
 
 instance
   Core.ToHeaders
@@ -190,3 +202,5 @@ newUpdateRoutingProfileDefaultOutboundQueueResponse =
 instance
   Prelude.NFData
     UpdateRoutingProfileDefaultOutboundQueueResponse
+  where
+  rnf _ = ()

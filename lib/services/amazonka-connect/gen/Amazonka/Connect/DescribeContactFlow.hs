@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeContactFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContactFlow
+instance Prelude.Hashable DescribeContactFlow where
+  hashWithSalt _salt DescribeContactFlow' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` contactFlowId
 
-instance Prelude.NFData DescribeContactFlow
+instance Prelude.NFData DescribeContactFlow where
+  rnf DescribeContactFlow' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf contactFlowId
 
 instance Core.ToHeaders DescribeContactFlow where
   toHeaders =
@@ -169,4 +175,7 @@ describeContactFlowResponse_contactFlow = Lens.lens (\DescribeContactFlowRespons
 describeContactFlowResponse_httpStatus :: Lens.Lens' DescribeContactFlowResponse Prelude.Int
 describeContactFlowResponse_httpStatus = Lens.lens (\DescribeContactFlowResponse' {httpStatus} -> httpStatus) (\s@DescribeContactFlowResponse' {} a -> s {httpStatus = a} :: DescribeContactFlowResponse)
 
-instance Prelude.NFData DescribeContactFlowResponse
+instance Prelude.NFData DescribeContactFlowResponse where
+  rnf DescribeContactFlowResponse' {..} =
+    Prelude.rnf contactFlow
+      `Prelude.seq` Prelude.rnf httpStatus

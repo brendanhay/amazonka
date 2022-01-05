@@ -157,6 +157,28 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` outboundCallsEnabled
+      `Prelude.hashWithSalt` inboundCallsEnabled
+      `Prelude.hashWithSalt` instanceAlias
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` instanceStatus
+      `Prelude.hashWithSalt` identityManagementType
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` serviceRole
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf outboundCallsEnabled
+      `Prelude.seq` Prelude.rnf inboundCallsEnabled
+      `Prelude.seq` Prelude.rnf instanceAlias
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf instanceStatus
+      `Prelude.seq` Prelude.rnf identityManagementType
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf serviceRole

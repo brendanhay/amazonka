@@ -92,6 +92,16 @@ instance Core.FromJSON QueueSummary where
             Prelude.<*> (x Core..:? "QueueType")
       )
 
-instance Prelude.Hashable QueueSummary
+instance Prelude.Hashable QueueSummary where
+  hashWithSalt _salt QueueSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` queueType
 
-instance Prelude.NFData QueueSummary
+instance Prelude.NFData QueueSummary where
+  rnf QueueSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf queueType

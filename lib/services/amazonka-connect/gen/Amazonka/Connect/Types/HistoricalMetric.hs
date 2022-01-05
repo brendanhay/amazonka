@@ -98,9 +98,19 @@ instance Core.FromJSON HistoricalMetric where
             Prelude.<*> (x Core..:? "Statistic")
       )
 
-instance Prelude.Hashable HistoricalMetric
+instance Prelude.Hashable HistoricalMetric where
+  hashWithSalt _salt HistoricalMetric' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` statistic
 
-instance Prelude.NFData HistoricalMetric
+instance Prelude.NFData HistoricalMetric where
+  rnf HistoricalMetric' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf statistic
 
 instance Core.ToJSON HistoricalMetric where
   toJSON HistoricalMetric' {..} =

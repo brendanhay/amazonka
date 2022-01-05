@@ -111,9 +111,17 @@ instance Core.AWSRequest UpdateQuickConnectConfig where
     Response.receiveNull
       UpdateQuickConnectConfigResponse'
 
-instance Prelude.Hashable UpdateQuickConnectConfig
+instance Prelude.Hashable UpdateQuickConnectConfig where
+  hashWithSalt _salt UpdateQuickConnectConfig' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` quickConnectId
+      `Prelude.hashWithSalt` quickConnectConfig
 
-instance Prelude.NFData UpdateQuickConnectConfig
+instance Prelude.NFData UpdateQuickConnectConfig where
+  rnf UpdateQuickConnectConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf quickConnectId
+      `Prelude.seq` Prelude.rnf quickConnectConfig
 
 instance Core.ToHeaders UpdateQuickConnectConfig where
   toHeaders =
@@ -166,3 +174,5 @@ newUpdateQuickConnectConfigResponse =
 instance
   Prelude.NFData
     UpdateQuickConnectConfigResponse
+  where
+  rnf _ = ()

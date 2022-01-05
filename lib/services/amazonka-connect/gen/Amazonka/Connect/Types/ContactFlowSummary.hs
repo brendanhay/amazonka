@@ -95,6 +95,16 @@ instance Core.FromJSON ContactFlowSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ContactFlowSummary
+instance Prelude.Hashable ContactFlowSummary where
+  hashWithSalt _salt ContactFlowSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contactFlowType
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ContactFlowSummary
+instance Prelude.NFData ContactFlowSummary where
+  rnf ContactFlowSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contactFlowType
+      `Prelude.seq` Prelude.rnf id

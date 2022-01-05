@@ -81,6 +81,14 @@ instance Core.FromJSON SecurityProfileSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable SecurityProfileSummary
+instance Prelude.Hashable SecurityProfileSummary where
+  hashWithSalt _salt SecurityProfileSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData SecurityProfileSummary
+instance Prelude.NFData SecurityProfileSummary where
+  rnf SecurityProfileSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

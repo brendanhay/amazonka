@@ -75,9 +75,15 @@ instance Core.FromJSON Threshold where
             Prelude.<*> (x Core..:? "Comparison")
       )
 
-instance Prelude.Hashable Threshold
+instance Prelude.Hashable Threshold where
+  hashWithSalt _salt Threshold' {..} =
+    _salt `Prelude.hashWithSalt` thresholdValue
+      `Prelude.hashWithSalt` comparison
 
-instance Prelude.NFData Threshold
+instance Prelude.NFData Threshold where
+  rnf Threshold' {..} =
+    Prelude.rnf thresholdValue
+      `Prelude.seq` Prelude.rnf comparison
 
 instance Core.ToJSON Threshold where
   toJSON Threshold' {..} =

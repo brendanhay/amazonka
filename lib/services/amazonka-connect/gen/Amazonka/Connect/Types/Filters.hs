@@ -65,9 +65,15 @@ filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s
 filters_channels :: Lens.Lens' Filters (Prelude.Maybe [Channel])
 filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Filters
+instance Prelude.Hashable Filters where
+  hashWithSalt _salt Filters' {..} =
+    _salt `Prelude.hashWithSalt` queues
+      `Prelude.hashWithSalt` channels
 
-instance Prelude.NFData Filters
+instance Prelude.NFData Filters where
+  rnf Filters' {..} =
+    Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf channels
 
 instance Core.ToJSON Filters where
   toJSON Filters' {..} =

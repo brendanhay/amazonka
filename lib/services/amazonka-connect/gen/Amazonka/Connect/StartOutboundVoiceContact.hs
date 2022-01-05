@@ -281,9 +281,32 @@ instance Core.AWSRequest StartOutboundVoiceContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartOutboundVoiceContact
+instance Prelude.Hashable StartOutboundVoiceContact where
+  hashWithSalt _salt StartOutboundVoiceContact' {..} =
+    _salt
+      `Prelude.hashWithSalt` answerMachineDetectionConfig
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` trafficType
+      `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` sourcePhoneNumber
+      `Prelude.hashWithSalt` destinationPhoneNumber
+      `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData StartOutboundVoiceContact
+instance Prelude.NFData StartOutboundVoiceContact where
+  rnf StartOutboundVoiceContact' {..} =
+    Prelude.rnf answerMachineDetectionConfig
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf trafficType
+      `Prelude.seq` Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf sourcePhoneNumber
+      `Prelude.seq` Prelude.rnf destinationPhoneNumber
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders StartOutboundVoiceContact where
   toHeaders =
@@ -366,3 +389,7 @@ startOutboundVoiceContactResponse_httpStatus = Lens.lens (\StartOutboundVoiceCon
 instance
   Prelude.NFData
     StartOutboundVoiceContactResponse
+  where
+  rnf StartOutboundVoiceContactResponse' {..} =
+    Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf httpStatus

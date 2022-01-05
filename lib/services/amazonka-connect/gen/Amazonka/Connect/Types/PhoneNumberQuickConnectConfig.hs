@@ -67,8 +67,13 @@ instance Core.FromJSON PhoneNumberQuickConnectConfig where
 instance
   Prelude.Hashable
     PhoneNumberQuickConnectConfig
+  where
+  hashWithSalt _salt PhoneNumberQuickConnectConfig' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumber
 
-instance Prelude.NFData PhoneNumberQuickConnectConfig
+instance Prelude.NFData PhoneNumberQuickConnectConfig where
+  rnf PhoneNumberQuickConnectConfig' {..} =
+    Prelude.rnf phoneNumber
 
 instance Core.ToJSON PhoneNumberQuickConnectConfig where
   toJSON PhoneNumberQuickConnectConfig' {..} =

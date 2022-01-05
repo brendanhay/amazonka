@@ -57,9 +57,12 @@ instance Core.FromJSON LexV2Bot where
           LexV2Bot' Prelude.<$> (x Core..:? "AliasArn")
       )
 
-instance Prelude.Hashable LexV2Bot
+instance Prelude.Hashable LexV2Bot where
+  hashWithSalt _salt LexV2Bot' {..} =
+    _salt `Prelude.hashWithSalt` aliasArn
 
-instance Prelude.NFData LexV2Bot
+instance Prelude.NFData LexV2Bot where
+  rnf LexV2Bot' {..} = Prelude.rnf aliasArn
 
 instance Core.ToJSON LexV2Bot where
   toJSON LexV2Bot' {..} =

@@ -79,9 +79,15 @@ instance Core.FromJSON KinesisFirehoseDestination where
             Prelude.<*> (x Core..:? "DeliveryStreamArn")
       )
 
-instance Prelude.Hashable KinesisFirehoseDestination
+instance Prelude.Hashable KinesisFirehoseDestination where
+  hashWithSalt _salt KinesisFirehoseDestination' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` deliveryStreamArn
 
-instance Prelude.NFData KinesisFirehoseDestination
+instance Prelude.NFData KinesisFirehoseDestination where
+  rnf KinesisFirehoseDestination' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf deliveryStreamArn
 
 instance Core.ToJSON KinesisFirehoseDestination where
   toJSON KinesisFirehoseDestination' {..} =

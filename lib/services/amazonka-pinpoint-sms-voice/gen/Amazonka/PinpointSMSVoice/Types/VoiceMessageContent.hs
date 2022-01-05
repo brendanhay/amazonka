@@ -72,9 +72,18 @@ voiceMessageContent_sSMLMessage = Lens.lens (\VoiceMessageContent' {sSMLMessage}
 voiceMessageContent_plainTextMessage :: Lens.Lens' VoiceMessageContent (Prelude.Maybe PlainTextMessageType)
 voiceMessageContent_plainTextMessage = Lens.lens (\VoiceMessageContent' {plainTextMessage} -> plainTextMessage) (\s@VoiceMessageContent' {} a -> s {plainTextMessage = a} :: VoiceMessageContent)
 
-instance Prelude.Hashable VoiceMessageContent
+instance Prelude.Hashable VoiceMessageContent where
+  hashWithSalt _salt VoiceMessageContent' {..} =
+    _salt
+      `Prelude.hashWithSalt` callInstructionsMessage
+      `Prelude.hashWithSalt` sSMLMessage
+      `Prelude.hashWithSalt` plainTextMessage
 
-instance Prelude.NFData VoiceMessageContent
+instance Prelude.NFData VoiceMessageContent where
+  rnf VoiceMessageContent' {..} =
+    Prelude.rnf callInstructionsMessage
+      `Prelude.seq` Prelude.rnf sSMLMessage
+      `Prelude.seq` Prelude.rnf plainTextMessage
 
 instance Core.ToJSON VoiceMessageContent where
   toJSON VoiceMessageContent' {..} =

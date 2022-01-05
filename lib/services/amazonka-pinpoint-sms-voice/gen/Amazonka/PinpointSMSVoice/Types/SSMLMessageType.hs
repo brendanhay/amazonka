@@ -76,9 +76,17 @@ sSMLMessageType_text = Lens.lens (\SSMLMessageType' {text} -> text) (\s@SSMLMess
 sSMLMessageType_voiceId :: Lens.Lens' SSMLMessageType (Prelude.Maybe Prelude.Text)
 sSMLMessageType_voiceId = Lens.lens (\SSMLMessageType' {voiceId} -> voiceId) (\s@SSMLMessageType' {} a -> s {voiceId = a} :: SSMLMessageType)
 
-instance Prelude.Hashable SSMLMessageType
+instance Prelude.Hashable SSMLMessageType where
+  hashWithSalt _salt SSMLMessageType' {..} =
+    _salt `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` voiceId
 
-instance Prelude.NFData SSMLMessageType
+instance Prelude.NFData SSMLMessageType where
+  rnf SSMLMessageType' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf voiceId
 
 instance Core.ToJSON SSMLMessageType where
   toJSON SSMLMessageType' {..} =

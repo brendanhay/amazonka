@@ -72,9 +72,16 @@ instance Core.FromXML LoadBalancersConfig where
       Prelude.<$> (x Core..@? "classicLoadBalancersConfig")
       Prelude.<*> (x Core..@? "targetGroupsConfig")
 
-instance Prelude.Hashable LoadBalancersConfig
+instance Prelude.Hashable LoadBalancersConfig where
+  hashWithSalt _salt LoadBalancersConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` classicLoadBalancersConfig
+      `Prelude.hashWithSalt` targetGroupsConfig
 
-instance Prelude.NFData LoadBalancersConfig
+instance Prelude.NFData LoadBalancersConfig where
+  rnf LoadBalancersConfig' {..} =
+    Prelude.rnf classicLoadBalancersConfig
+      `Prelude.seq` Prelude.rnf targetGroupsConfig
 
 instance Core.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =

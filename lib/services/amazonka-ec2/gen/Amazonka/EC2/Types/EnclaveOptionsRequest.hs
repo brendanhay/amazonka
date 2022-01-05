@@ -57,9 +57,12 @@ newEnclaveOptionsRequest =
 enclaveOptionsRequest_enabled :: Lens.Lens' EnclaveOptionsRequest (Prelude.Maybe Prelude.Bool)
 enclaveOptionsRequest_enabled = Lens.lens (\EnclaveOptionsRequest' {enabled} -> enabled) (\s@EnclaveOptionsRequest' {} a -> s {enabled = a} :: EnclaveOptionsRequest)
 
-instance Prelude.Hashable EnclaveOptionsRequest
+instance Prelude.Hashable EnclaveOptionsRequest where
+  hashWithSalt _salt EnclaveOptionsRequest' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData EnclaveOptionsRequest
+instance Prelude.NFData EnclaveOptionsRequest where
+  rnf EnclaveOptionsRequest' {..} = Prelude.rnf enabled
 
 instance Core.ToQuery EnclaveOptionsRequest where
   toQuery EnclaveOptionsRequest' {..} =

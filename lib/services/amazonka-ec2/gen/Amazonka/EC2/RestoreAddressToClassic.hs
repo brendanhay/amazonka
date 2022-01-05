@@ -112,9 +112,15 @@ instance Core.AWSRequest RestoreAddressToClassic where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreAddressToClassic
+instance Prelude.Hashable RestoreAddressToClassic where
+  hashWithSalt _salt RestoreAddressToClassic' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` publicIp
 
-instance Prelude.NFData RestoreAddressToClassic
+instance Prelude.NFData RestoreAddressToClassic where
+  rnf RestoreAddressToClassic' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf publicIp
 
 instance Core.ToHeaders RestoreAddressToClassic where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,3 +190,8 @@ restoreAddressToClassicResponse_httpStatus = Lens.lens (\RestoreAddressToClassic
 instance
   Prelude.NFData
     RestoreAddressToClassicResponse
+  where
+  rnf RestoreAddressToClassicResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf httpStatus

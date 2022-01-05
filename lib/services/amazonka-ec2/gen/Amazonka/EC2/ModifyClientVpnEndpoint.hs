@@ -284,9 +284,35 @@ instance Core.AWSRequest ModifyClientVpnEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClientVpnEndpoint
+instance Prelude.Hashable ModifyClientVpnEndpoint where
+  hashWithSalt _salt ModifyClientVpnEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` connectionLogOptions
+      `Prelude.hashWithSalt` splitTunnel
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpnPort
+      `Prelude.hashWithSalt` dnsServers
+      `Prelude.hashWithSalt` clientConnectOptions
+      `Prelude.hashWithSalt` selfServicePortal
+      `Prelude.hashWithSalt` serverCertificateArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientVpnEndpointId
 
-instance Prelude.NFData ModifyClientVpnEndpoint
+instance Prelude.NFData ModifyClientVpnEndpoint where
+  rnf ModifyClientVpnEndpoint' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf connectionLogOptions
+      `Prelude.seq` Prelude.rnf splitTunnel
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf vpnPort
+      `Prelude.seq` Prelude.rnf dnsServers
+      `Prelude.seq` Prelude.rnf clientConnectOptions
+      `Prelude.seq` Prelude.rnf selfServicePortal
+      `Prelude.seq` Prelude.rnf serverCertificateArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance Core.ToHeaders ModifyClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -360,3 +386,7 @@ modifyClientVpnEndpointResponse_httpStatus = Lens.lens (\ModifyClientVpnEndpoint
 instance
   Prelude.NFData
     ModifyClientVpnEndpointResponse
+  where
+  rnf ModifyClientVpnEndpointResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

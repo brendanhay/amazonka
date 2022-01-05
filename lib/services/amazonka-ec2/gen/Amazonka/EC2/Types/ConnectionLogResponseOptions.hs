@@ -92,5 +92,14 @@ instance Core.FromXML ConnectionLogResponseOptions where
 instance
   Prelude.Hashable
     ConnectionLogResponseOptions
+  where
+  hashWithSalt _salt ConnectionLogResponseOptions' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` cloudwatchLogStream
+      `Prelude.hashWithSalt` cloudwatchLogGroup
 
-instance Prelude.NFData ConnectionLogResponseOptions
+instance Prelude.NFData ConnectionLogResponseOptions where
+  rnf ConnectionLogResponseOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf cloudwatchLogStream
+      `Prelude.seq` Prelude.rnf cloudwatchLogGroup

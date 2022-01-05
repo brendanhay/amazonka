@@ -243,9 +243,25 @@ instance Core.AWSRequest CreateImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImage
+instance Prelude.Hashable CreateImage where
+  hashWithSalt _salt CreateImage' {..} =
+    _salt `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` noReboot
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateImage
+instance Prelude.NFData CreateImage where
+  rnf CreateImage' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf noReboot
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,4 +329,7 @@ createImageResponse_imageId = Lens.lens (\CreateImageResponse' {imageId} -> imag
 createImageResponse_httpStatus :: Lens.Lens' CreateImageResponse Prelude.Int
 createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -> httpStatus) (\s@CreateImageResponse' {} a -> s {httpStatus = a} :: CreateImageResponse)
 
-instance Prelude.NFData CreateImageResponse
+instance Prelude.NFData CreateImageResponse where
+  rnf CreateImageResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

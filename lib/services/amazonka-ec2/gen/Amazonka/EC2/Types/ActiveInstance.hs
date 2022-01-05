@@ -98,6 +98,16 @@ instance Core.FromXML ActiveInstance where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "spotInstanceRequestId")
 
-instance Prelude.Hashable ActiveInstance
+instance Prelude.Hashable ActiveInstance where
+  hashWithSalt _salt ActiveInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` instanceHealth
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` spotInstanceRequestId
 
-instance Prelude.NFData ActiveInstance
+instance Prelude.NFData ActiveInstance where
+  rnf ActiveInstance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf instanceHealth
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf spotInstanceRequestId

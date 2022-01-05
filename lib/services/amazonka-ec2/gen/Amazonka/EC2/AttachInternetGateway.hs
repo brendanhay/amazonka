@@ -113,9 +113,17 @@ instance Core.AWSRequest AttachInternetGateway where
   response =
     Response.receiveNull AttachInternetGatewayResponse'
 
-instance Prelude.Hashable AttachInternetGateway
+instance Prelude.Hashable AttachInternetGateway where
+  hashWithSalt _salt AttachInternetGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` internetGatewayId
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData AttachInternetGateway
+instance Prelude.NFData AttachInternetGateway where
+  rnf AttachInternetGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf internetGatewayId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders AttachInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,4 +158,5 @@ newAttachInternetGatewayResponse ::
 newAttachInternetGatewayResponse =
   AttachInternetGatewayResponse'
 
-instance Prelude.NFData AttachInternetGatewayResponse
+instance Prelude.NFData AttachInternetGatewayResponse where
+  rnf _ = ()

@@ -94,6 +94,11 @@ instance Core.FromXML FpgaImageState where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable FpgaImageState
+instance Prelude.Hashable FpgaImageState where
+  hashWithSalt _salt FpgaImageState' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData FpgaImageState
+instance Prelude.NFData FpgaImageState where
+  rnf FpgaImageState' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

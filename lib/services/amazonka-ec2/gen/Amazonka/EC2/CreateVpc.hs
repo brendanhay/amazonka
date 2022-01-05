@@ -257,9 +257,27 @@ instance Core.AWSRequest CreateVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpc
+instance Prelude.Hashable CreateVpc where
+  hashWithSalt _salt CreateVpc' {..} =
+    _salt `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` ipv6CidrBlockNetworkBorderGroup
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ipv6Pool
+      `Prelude.hashWithSalt` amazonProvidedIpv6CidrBlock
+      `Prelude.hashWithSalt` instanceTenancy
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` cidrBlock
 
-instance Prelude.NFData CreateVpc
+instance Prelude.NFData CreateVpc where
+  rnf CreateVpc' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockNetworkBorderGroup
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ipv6Pool
+      `Prelude.seq` Prelude.rnf amazonProvidedIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf instanceTenancy
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf cidrBlock
 
 instance Core.ToHeaders CreateVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -327,4 +345,7 @@ createVpcResponse_vpc = Lens.lens (\CreateVpcResponse' {vpc} -> vpc) (\s@CreateV
 createVpcResponse_httpStatus :: Lens.Lens' CreateVpcResponse Prelude.Int
 createVpcResponse_httpStatus = Lens.lens (\CreateVpcResponse' {httpStatus} -> httpStatus) (\s@CreateVpcResponse' {} a -> s {httpStatus = a} :: CreateVpcResponse)
 
-instance Prelude.NFData CreateVpcResponse
+instance Prelude.NFData CreateVpcResponse where
+  rnf CreateVpcResponse' {..} =
+    Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf httpStatus

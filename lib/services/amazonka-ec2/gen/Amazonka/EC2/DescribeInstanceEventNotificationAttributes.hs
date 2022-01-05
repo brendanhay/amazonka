@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceEventNotificationAttributes
+  where
+  hashWithSalt
+    _salt
+    DescribeInstanceEventNotificationAttributes' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DescribeInstanceEventNotificationAttributes
+  where
+  rnf DescribeInstanceEventNotificationAttributes' {..} =
+    Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -181,3 +189,8 @@ describeInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\Des
 instance
   Prelude.NFData
     DescribeInstanceEventNotificationAttributesResponse
+  where
+  rnf
+    DescribeInstanceEventNotificationAttributesResponse' {..} =
+      Prelude.rnf instanceTagAttribute
+        `Prelude.seq` Prelude.rnf httpStatus

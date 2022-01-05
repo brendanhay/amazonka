@@ -216,9 +216,29 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyTrafficMirrorSession
+instance Prelude.Hashable ModifyTrafficMirrorSession where
+  hashWithSalt _salt ModifyTrafficMirrorSession' {..} =
+    _salt `Prelude.hashWithSalt` removeFields
+      `Prelude.hashWithSalt` trafficMirrorTargetId
+      `Prelude.hashWithSalt` trafficMirrorFilterId
+      `Prelude.hashWithSalt` packetLength
+      `Prelude.hashWithSalt` virtualNetworkId
+      `Prelude.hashWithSalt` sessionNumber
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` trafficMirrorSessionId
 
-instance Prelude.NFData ModifyTrafficMirrorSession
+instance Prelude.NFData ModifyTrafficMirrorSession where
+  rnf ModifyTrafficMirrorSession' {..} =
+    Prelude.rnf removeFields
+      `Prelude.seq` Prelude.rnf trafficMirrorTargetId
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf packetLength
+      `Prelude.seq` Prelude.rnf virtualNetworkId
+      `Prelude.seq` Prelude.rnf sessionNumber
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorSessionId
 
 instance Core.ToHeaders ModifyTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,3 +312,7 @@ modifyTrafficMirrorSessionResponse_httpStatus = Lens.lens (\ModifyTrafficMirrorS
 instance
   Prelude.NFData
     ModifyTrafficMirrorSessionResponse
+  where
+  rnf ModifyTrafficMirrorSessionResponse' {..} =
+    Prelude.rnf trafficMirrorSession
+      `Prelude.seq` Prelude.rnf httpStatus

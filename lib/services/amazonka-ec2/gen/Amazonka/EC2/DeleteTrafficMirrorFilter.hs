@@ -111,9 +111,15 @@ instance Core.AWSRequest DeleteTrafficMirrorFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrafficMirrorFilter
+instance Prelude.Hashable DeleteTrafficMirrorFilter where
+  hashWithSalt _salt DeleteTrafficMirrorFilter' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` trafficMirrorFilterId
 
-instance Prelude.NFData DeleteTrafficMirrorFilter
+instance Prelude.NFData DeleteTrafficMirrorFilter where
+  rnf DeleteTrafficMirrorFilter' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
 
 instance Core.ToHeaders DeleteTrafficMirrorFilter where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,3 +181,7 @@ deleteTrafficMirrorFilterResponse_httpStatus = Lens.lens (\DeleteTrafficMirrorFi
 instance
   Prelude.NFData
     DeleteTrafficMirrorFilterResponse
+  where
+  rnf DeleteTrafficMirrorFilterResponse' {..} =
+    Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -64,9 +64,15 @@ securityGroupRuleUpdate_securityGroupRuleId = Lens.lens (\SecurityGroupRuleUpdat
 securityGroupRuleUpdate_securityGroupRule :: Lens.Lens' SecurityGroupRuleUpdate (Prelude.Maybe SecurityGroupRuleRequest)
 securityGroupRuleUpdate_securityGroupRule = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRule} -> securityGroupRule) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRule = a} :: SecurityGroupRuleUpdate)
 
-instance Prelude.Hashable SecurityGroupRuleUpdate
+instance Prelude.Hashable SecurityGroupRuleUpdate where
+  hashWithSalt _salt SecurityGroupRuleUpdate' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupRuleId
+      `Prelude.hashWithSalt` securityGroupRule
 
-instance Prelude.NFData SecurityGroupRuleUpdate
+instance Prelude.NFData SecurityGroupRuleUpdate where
+  rnf SecurityGroupRuleUpdate' {..} =
+    Prelude.rnf securityGroupRuleId
+      `Prelude.seq` Prelude.rnf securityGroupRule
 
 instance Core.ToQuery SecurityGroupRuleUpdate where
   toQuery SecurityGroupRuleUpdate' {..} =

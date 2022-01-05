@@ -357,8 +357,47 @@ instance Core.FromXML SpotFleetLaunchSpecification where
 instance
   Prelude.Hashable
     SpotFleetLaunchSpecification
+  where
+  hashWithSalt _salt SpotFleetLaunchSpecification' {..} =
+    _salt `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` monitoring
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` addressingType
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` placement
 
-instance Prelude.NFData SpotFleetLaunchSpecification
+instance Prelude.NFData SpotFleetLaunchSpecification where
+  rnf SpotFleetLaunchSpecification' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf addressingType
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf placement
 
 instance Core.ToQuery SpotFleetLaunchSpecification where
   toQuery SpotFleetLaunchSpecification' {..} =

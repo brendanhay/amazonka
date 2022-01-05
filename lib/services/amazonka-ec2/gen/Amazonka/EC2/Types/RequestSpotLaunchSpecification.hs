@@ -255,10 +255,48 @@ requestSpotLaunchSpecification_placement = Lens.lens (\RequestSpotLaunchSpecific
 instance
   Prelude.Hashable
     RequestSpotLaunchSpecification
+  where
+  hashWithSalt
+    _salt
+    RequestSpotLaunchSpecification' {..} =
+      _salt `Prelude.hashWithSalt` securityGroupIds
+        `Prelude.hashWithSalt` securityGroups
+        `Prelude.hashWithSalt` keyName
+        `Prelude.hashWithSalt` networkInterfaces
+        `Prelude.hashWithSalt` ramdiskId
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` kernelId
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` ebsOptimized
+        `Prelude.hashWithSalt` userData
+        `Prelude.hashWithSalt` monitoring
+        `Prelude.hashWithSalt` iamInstanceProfile
+        `Prelude.hashWithSalt` imageId
+        `Prelude.hashWithSalt` addressingType
+        `Prelude.hashWithSalt` blockDeviceMappings
+        `Prelude.hashWithSalt` placement
 
 instance
   Prelude.NFData
     RequestSpotLaunchSpecification
+  where
+  rnf RequestSpotLaunchSpecification' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf addressingType
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf placement
 
 instance Core.ToQuery RequestSpotLaunchSpecification where
   toQuery RequestSpotLaunchSpecification' {..} =

@@ -148,10 +148,22 @@ instance
 instance
   Prelude.Hashable
     AssociateEnclaveCertificateIamRole
+  where
+  hashWithSalt
+    _salt
+    AssociateEnclaveCertificateIamRole' {..} =
+      _salt `Prelude.hashWithSalt` certificateArn
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     AssociateEnclaveCertificateIamRole
+  where
+  rnf AssociateEnclaveCertificateIamRole' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -254,3 +266,9 @@ associateEnclaveCertificateIamRoleResponse_httpStatus = Lens.lens (\AssociateEnc
 instance
   Prelude.NFData
     AssociateEnclaveCertificateIamRoleResponse
+  where
+  rnf AssociateEnclaveCertificateIamRoleResponse' {..} =
+    Prelude.rnf certificateS3BucketName
+      `Prelude.seq` Prelude.rnf certificateS3ObjectKey
+      `Prelude.seq` Prelude.rnf encryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf httpStatus

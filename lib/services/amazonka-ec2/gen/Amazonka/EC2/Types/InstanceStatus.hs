@@ -135,6 +135,22 @@ instance Core.FromXML InstanceStatus where
       Prelude.<*> (x Core..@? "instanceStatus")
       Prelude.<*> (x Core..@? "instanceState")
 
-instance Prelude.Hashable InstanceStatus
+instance Prelude.Hashable InstanceStatus where
+  hashWithSalt _salt InstanceStatus' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` systemStatus
+      `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceStatus
+      `Prelude.hashWithSalt` instanceState
 
-instance Prelude.NFData InstanceStatus
+instance Prelude.NFData InstanceStatus where
+  rnf InstanceStatus' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf systemStatus
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceStatus
+      `Prelude.seq` Prelude.rnf instanceState

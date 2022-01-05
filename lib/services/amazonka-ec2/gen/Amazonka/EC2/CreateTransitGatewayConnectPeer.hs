@@ -201,10 +201,30 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayConnectPeer
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayConnectPeer' {..} =
+      _salt `Prelude.hashWithSalt` bgpOptions
+        `Prelude.hashWithSalt` transitGatewayAddress
+        `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` peerAddress
+        `Prelude.hashWithSalt` insideCidrBlocks
 
 instance
   Prelude.NFData
     CreateTransitGatewayConnectPeer
+  where
+  rnf CreateTransitGatewayConnectPeer' {..} =
+    Prelude.rnf bgpOptions
+      `Prelude.seq` Prelude.rnf transitGatewayAddress
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf peerAddress
+      `Prelude.seq` Prelude.rnf insideCidrBlocks
 
 instance
   Core.ToHeaders
@@ -281,3 +301,7 @@ createTransitGatewayConnectPeerResponse_httpStatus = Lens.lens (\CreateTransitGa
 instance
   Prelude.NFData
     CreateTransitGatewayConnectPeerResponse
+  where
+  rnf CreateTransitGatewayConnectPeerResponse' {..} =
+    Prelude.rnf transitGatewayConnectPeer
+      `Prelude.seq` Prelude.rnf httpStatus

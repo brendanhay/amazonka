@@ -118,10 +118,20 @@ instance
 instance
   Prelude.Hashable
     DeleteLocalGatewayRouteTableVpcAssociation
+  where
+  hashWithSalt
+    _salt
+    DeleteLocalGatewayRouteTableVpcAssociation' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` localGatewayRouteTableVpcAssociationId
 
 instance
   Prelude.NFData
     DeleteLocalGatewayRouteTableVpcAssociation
+  where
+  rnf DeleteLocalGatewayRouteTableVpcAssociation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableVpcAssociationId
 
 instance
   Core.ToHeaders
@@ -197,3 +207,8 @@ deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus = Lens.lens (\Dele
 instance
   Prelude.NFData
     DeleteLocalGatewayRouteTableVpcAssociationResponse
+  where
+  rnf
+    DeleteLocalGatewayRouteTableVpcAssociationResponse' {..} =
+      Prelude.rnf localGatewayRouteTableVpcAssociation
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -72,10 +72,21 @@ deregisterInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\DeregisterIn
 instance
   Prelude.Hashable
     DeregisterInstanceTagAttributeRequest
+  where
+  hashWithSalt
+    _salt
+    DeregisterInstanceTagAttributeRequest' {..} =
+      _salt
+        `Prelude.hashWithSalt` includeAllTagsOfInstance
+        `Prelude.hashWithSalt` instanceTagKeys
 
 instance
   Prelude.NFData
     DeregisterInstanceTagAttributeRequest
+  where
+  rnf DeregisterInstanceTagAttributeRequest' {..} =
+    Prelude.rnf includeAllTagsOfInstance
+      `Prelude.seq` Prelude.rnf instanceTagKeys
 
 instance
   Core.ToQuery

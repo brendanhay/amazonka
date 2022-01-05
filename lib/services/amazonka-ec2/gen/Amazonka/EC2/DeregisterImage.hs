@@ -109,9 +109,15 @@ instance Core.AWSRequest DeregisterImage where
   response =
     Response.receiveNull DeregisterImageResponse'
 
-instance Prelude.Hashable DeregisterImage
+instance Prelude.Hashable DeregisterImage where
+  hashWithSalt _salt DeregisterImage' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData DeregisterImage
+instance Prelude.NFData DeregisterImage where
+  rnf DeregisterImage' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders DeregisterImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +150,5 @@ newDeregisterImageResponse ::
   DeregisterImageResponse
 newDeregisterImageResponse = DeregisterImageResponse'
 
-instance Prelude.NFData DeregisterImageResponse
+instance Prelude.NFData DeregisterImageResponse where
+  rnf _ = ()

@@ -83,6 +83,14 @@ instance Core.FromXML InstanceStatusDetails where
       Prelude.<*> (x Core..@? "impairedSince")
       Prelude.<*> (x Core..@? "name")
 
-instance Prelude.Hashable InstanceStatusDetails
+instance Prelude.Hashable InstanceStatusDetails where
+  hashWithSalt _salt InstanceStatusDetails' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` impairedSince
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InstanceStatusDetails
+instance Prelude.NFData InstanceStatusDetails where
+  rnf InstanceStatusDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf impairedSince
+      `Prelude.seq` Prelude.rnf name

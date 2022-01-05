@@ -129,6 +129,22 @@ instance Core.FromXML TransitGatewayRouteTable where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TransitGatewayRouteTable
+instance Prelude.Hashable TransitGatewayRouteTable where
+  hashWithSalt _salt TransitGatewayRouteTable' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` defaultPropagationRouteTable
+      `Prelude.hashWithSalt` transitGatewayRouteTableId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` defaultAssociationRouteTable
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TransitGatewayRouteTable
+instance Prelude.NFData TransitGatewayRouteTable where
+  rnf TransitGatewayRouteTable' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf defaultPropagationRouteTable
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf defaultAssociationRouteTable
+      `Prelude.seq` Prelude.rnf tags

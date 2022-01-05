@@ -75,9 +75,15 @@ instance Core.FromXML LaunchTemplateConfig where
                   )
       Prelude.<*> (x Core..@? "launchTemplateSpecification")
 
-instance Prelude.Hashable LaunchTemplateConfig
+instance Prelude.Hashable LaunchTemplateConfig where
+  hashWithSalt _salt LaunchTemplateConfig' {..} =
+    _salt `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` launchTemplateSpecification
 
-instance Prelude.NFData LaunchTemplateConfig
+instance Prelude.NFData LaunchTemplateConfig where
+  rnf LaunchTemplateConfig' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf launchTemplateSpecification
 
 instance Core.ToQuery LaunchTemplateConfig where
   toQuery LaunchTemplateConfig' {..} =

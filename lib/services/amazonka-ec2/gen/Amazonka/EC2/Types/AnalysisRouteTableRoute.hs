@@ -176,6 +176,28 @@ instance Core.FromXML AnalysisRouteTableRoute where
       Prelude.<*> (x Core..@? "destinationCidr")
       Prelude.<*> (x Core..@? "destinationPrefixListId")
 
-instance Prelude.Hashable AnalysisRouteTableRoute
+instance Prelude.Hashable AnalysisRouteTableRoute where
+  hashWithSalt _salt AnalysisRouteTableRoute' {..} =
+    _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` egressOnlyInternetGatewayId
+      `Prelude.hashWithSalt` natGatewayId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` destinationCidr
+      `Prelude.hashWithSalt` destinationPrefixListId
 
-instance Prelude.NFData AnalysisRouteTableRoute
+instance Prelude.NFData AnalysisRouteTableRoute where
+  rnf AnalysisRouteTableRoute' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
+      `Prelude.seq` Prelude.rnf natGatewayId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf destinationCidr
+      `Prelude.seq` Prelude.rnf destinationPrefixListId

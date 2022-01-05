@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteNetworkInterface where
     Response.receiveNull
       DeleteNetworkInterfaceResponse'
 
-instance Prelude.Hashable DeleteNetworkInterface
+instance Prelude.Hashable DeleteNetworkInterface where
+  hashWithSalt _salt DeleteNetworkInterface' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData DeleteNetworkInterface
+instance Prelude.NFData DeleteNetworkInterface where
+  rnf DeleteNetworkInterface' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Core.ToHeaders DeleteNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,3 +147,5 @@ newDeleteNetworkInterfaceResponse =
 instance
   Prelude.NFData
     DeleteNetworkInterfaceResponse
+  where
+  rnf _ = ()

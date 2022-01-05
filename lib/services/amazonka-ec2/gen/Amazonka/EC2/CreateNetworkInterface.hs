@@ -354,9 +354,43 @@ instance Core.AWSRequest CreateNetworkInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkInterface
+instance Prelude.Hashable CreateNetworkInterface where
+  hashWithSalt _salt CreateNetworkInterface' {..} =
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` privateIpAddresses
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` interfaceType
+      `Prelude.hashWithSalt` ipv4PrefixCount
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ipv6AddressCount
+      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` ipv6PrefixCount
+      `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData CreateNetworkInterface
+instance Prelude.NFData CreateNetworkInterface where
+  rnf CreateNetworkInterface' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf interfaceType
+      `Prelude.seq` Prelude.rnf ipv4PrefixCount
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf ipv6PrefixCount
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders CreateNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -464,3 +498,8 @@ createNetworkInterfaceResponse_httpStatus = Lens.lens (\CreateNetworkInterfaceRe
 instance
   Prelude.NFData
     CreateNetworkInterfaceResponse
+  where
+  rnf CreateNetworkInterfaceResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf networkInterface
+      `Prelude.seq` Prelude.rnf httpStatus

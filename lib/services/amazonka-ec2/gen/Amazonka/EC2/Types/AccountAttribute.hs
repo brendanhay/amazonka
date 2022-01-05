@@ -73,6 +73,12 @@ instance Core.FromXML AccountAttribute where
                   )
       Prelude.<*> (x Core..@? "attributeName")
 
-instance Prelude.Hashable AccountAttribute
+instance Prelude.Hashable AccountAttribute where
+  hashWithSalt _salt AccountAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attributeValues
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData AccountAttribute
+instance Prelude.NFData AccountAttribute where
+  rnf AccountAttribute' {..} =
+    Prelude.rnf attributeValues
+      `Prelude.seq` Prelude.rnf attributeName

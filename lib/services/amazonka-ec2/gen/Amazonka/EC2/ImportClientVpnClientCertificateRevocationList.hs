@@ -145,10 +145,23 @@ instance
 instance
   Prelude.Hashable
     ImportClientVpnClientCertificateRevocationList
+  where
+  hashWithSalt
+    _salt
+    ImportClientVpnClientCertificateRevocationList' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` clientVpnEndpointId
+        `Prelude.hashWithSalt` certificateRevocationList
 
 instance
   Prelude.NFData
     ImportClientVpnClientCertificateRevocationList
+  where
+  rnf
+    ImportClientVpnClientCertificateRevocationList' {..} =
+      Prelude.rnf dryRun
+        `Prelude.seq` Prelude.rnf clientVpnEndpointId
+        `Prelude.seq` Prelude.rnf certificateRevocationList
 
 instance
   Core.ToHeaders
@@ -225,3 +238,8 @@ importClientVpnClientCertificateRevocationListResponse_httpStatus = Lens.lens (\
 instance
   Prelude.NFData
     ImportClientVpnClientCertificateRevocationListResponse
+  where
+  rnf
+    ImportClientVpnClientCertificateRevocationListResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

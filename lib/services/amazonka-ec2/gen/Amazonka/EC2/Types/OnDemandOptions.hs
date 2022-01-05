@@ -144,6 +144,21 @@ instance Core.FromXML OnDemandOptions where
       Prelude.<*> (x Core..@? "singleInstanceType")
       Prelude.<*> (x Core..@? "allocationStrategy")
 
-instance Prelude.Hashable OnDemandOptions
+instance Prelude.Hashable OnDemandOptions where
+  hashWithSalt _salt OnDemandOptions' {..} =
+    _salt
+      `Prelude.hashWithSalt` capacityReservationOptions
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` maxTotalPrice
+      `Prelude.hashWithSalt` minTargetCapacity
+      `Prelude.hashWithSalt` singleInstanceType
+      `Prelude.hashWithSalt` allocationStrategy
 
-instance Prelude.NFData OnDemandOptions
+instance Prelude.NFData OnDemandOptions where
+  rnf OnDemandOptions' {..} =
+    Prelude.rnf capacityReservationOptions
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone
+      `Prelude.seq` Prelude.rnf maxTotalPrice
+      `Prelude.seq` Prelude.rnf minTargetCapacity
+      `Prelude.seq` Prelude.rnf singleInstanceType
+      `Prelude.seq` Prelude.rnf allocationStrategy

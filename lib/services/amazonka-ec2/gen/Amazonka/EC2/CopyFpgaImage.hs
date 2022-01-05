@@ -155,9 +155,23 @@ instance Core.AWSRequest CopyFpgaImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyFpgaImage
+instance Prelude.Hashable CopyFpgaImage where
+  hashWithSalt _salt CopyFpgaImage' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceFpgaImageId
+      `Prelude.hashWithSalt` sourceRegion
 
-instance Prelude.NFData CopyFpgaImage
+instance Prelude.NFData CopyFpgaImage where
+  rnf CopyFpgaImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceFpgaImageId
+      `Prelude.seq` Prelude.rnf sourceRegion
 
 instance Core.ToHeaders CopyFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +233,7 @@ copyFpgaImageResponse_fpgaImageId = Lens.lens (\CopyFpgaImageResponse' {fpgaImag
 copyFpgaImageResponse_httpStatus :: Lens.Lens' CopyFpgaImageResponse Prelude.Int
 copyFpgaImageResponse_httpStatus = Lens.lens (\CopyFpgaImageResponse' {httpStatus} -> httpStatus) (\s@CopyFpgaImageResponse' {} a -> s {httpStatus = a} :: CopyFpgaImageResponse)
 
-instance Prelude.NFData CopyFpgaImageResponse
+instance Prelude.NFData CopyFpgaImageResponse where
+  rnf CopyFpgaImageResponse' {..} =
+    Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf httpStatus

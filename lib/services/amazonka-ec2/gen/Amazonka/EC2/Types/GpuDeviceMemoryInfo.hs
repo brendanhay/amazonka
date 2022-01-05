@@ -56,6 +56,9 @@ instance Core.FromXML GpuDeviceMemoryInfo where
     GpuDeviceMemoryInfo'
       Prelude.<$> (x Core..@? "sizeInMiB")
 
-instance Prelude.Hashable GpuDeviceMemoryInfo
+instance Prelude.Hashable GpuDeviceMemoryInfo where
+  hashWithSalt _salt GpuDeviceMemoryInfo' {..} =
+    _salt `Prelude.hashWithSalt` sizeInMiB
 
-instance Prelude.NFData GpuDeviceMemoryInfo
+instance Prelude.NFData GpuDeviceMemoryInfo where
+  rnf GpuDeviceMemoryInfo' {..} = Prelude.rnf sizeInMiB

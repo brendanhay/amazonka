@@ -311,9 +311,21 @@ instance Core.AWSRequest DescribeVpcs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcs
+instance Prelude.Hashable DescribeVpcs where
+  hashWithSalt _salt DescribeVpcs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` vpcIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeVpcs
+instance Prelude.NFData DescribeVpcs where
+  rnf DescribeVpcs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeVpcs where
   toHeaders = Prelude.const Prelude.mempty
@@ -387,4 +399,8 @@ describeVpcsResponse_nextToken = Lens.lens (\DescribeVpcsResponse' {nextToken} -
 describeVpcsResponse_httpStatus :: Lens.Lens' DescribeVpcsResponse Prelude.Int
 describeVpcsResponse_httpStatus = Lens.lens (\DescribeVpcsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcsResponse' {} a -> s {httpStatus = a} :: DescribeVpcsResponse)
 
-instance Prelude.NFData DescribeVpcsResponse
+instance Prelude.NFData DescribeVpcsResponse where
+  rnf DescribeVpcsResponse' {..} =
+    Prelude.rnf vpcs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -184,9 +184,23 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpcPeeringConnection
+instance Prelude.Hashable CreateVpcPeeringConnection where
+  hashWithSalt _salt CreateVpcPeeringConnection' {..} =
+    _salt `Prelude.hashWithSalt` peerVpcId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` peerOwnerId
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` peerRegion
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateVpcPeeringConnection
+instance Prelude.NFData CreateVpcPeeringConnection where
+  rnf CreateVpcPeeringConnection' {..} =
+    Prelude.rnf peerVpcId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf peerOwnerId
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf peerRegion
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders CreateVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +268,7 @@ createVpcPeeringConnectionResponse_httpStatus = Lens.lens (\CreateVpcPeeringConn
 instance
   Prelude.NFData
     CreateVpcPeeringConnectionResponse
+  where
+  rnf CreateVpcPeeringConnectionResponse' {..} =
+    Prelude.rnf vpcPeeringConnection
+      `Prelude.seq` Prelude.rnf httpStatus

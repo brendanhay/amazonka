@@ -149,8 +149,19 @@ instance Core.AWSRequest DeleteLaunchTemplateVersions where
 instance
   Prelude.Hashable
     DeleteLaunchTemplateVersions
+  where
+  hashWithSalt _salt DeleteLaunchTemplateVersions' {..} =
+    _salt `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` versions
 
-instance Prelude.NFData DeleteLaunchTemplateVersions
+instance Prelude.NFData DeleteLaunchTemplateVersions where
+  rnf DeleteLaunchTemplateVersions' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf versions
 
 instance Core.ToHeaders DeleteLaunchTemplateVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,3 +242,10 @@ deleteLaunchTemplateVersionsResponse_httpStatus = Lens.lens (\DeleteLaunchTempla
 instance
   Prelude.NFData
     DeleteLaunchTemplateVersionsResponse
+  where
+  rnf DeleteLaunchTemplateVersionsResponse' {..} =
+    Prelude.rnf
+      successfullyDeletedLaunchTemplateVersions
+      `Prelude.seq` Prelude.rnf
+        unsuccessfullyDeletedLaunchTemplateVersions
+      `Prelude.seq` Prelude.rnf httpStatus

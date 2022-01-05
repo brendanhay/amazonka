@@ -263,6 +263,44 @@ instance Core.FromXML InstanceNetworkInterface where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable InstanceNetworkInterface
+instance Prelude.Hashable InstanceNetworkInterface where
+  hashWithSalt _salt InstanceNetworkInterface' {..} =
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` privateIpAddresses
+      `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` sourceDestCheck
+      `Prelude.hashWithSalt` interfaceType
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` attachment
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` association
+      `Prelude.hashWithSalt` ipv6Addresses
 
-instance Prelude.NFData InstanceNetworkInterface
+instance Prelude.NFData InstanceNetworkInterface where
+  rnf InstanceNetworkInterface' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf interfaceType
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf macAddress
+      `Prelude.seq` Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf ipv6Addresses

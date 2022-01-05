@@ -287,8 +287,21 @@ instance Core.AWSRequest DescribeInstanceEventWindows where
 instance
   Prelude.Hashable
     DescribeInstanceEventWindows
+  where
+  hashWithSalt _salt DescribeInstanceEventWindows' {..} =
+    _salt `Prelude.hashWithSalt` instanceEventWindowIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeInstanceEventWindows
+instance Prelude.NFData DescribeInstanceEventWindows where
+  rnf DescribeInstanceEventWindows' {..} =
+    Prelude.rnf instanceEventWindowIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInstanceEventWindows where
   toHeaders = Prelude.const Prelude.mempty
@@ -370,3 +383,8 @@ describeInstanceEventWindowsResponse_httpStatus = Lens.lens (\DescribeInstanceEv
 instance
   Prelude.NFData
     DescribeInstanceEventWindowsResponse
+  where
+  rnf DescribeInstanceEventWindowsResponse' {..} =
+    Prelude.rnf instanceEventWindows
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

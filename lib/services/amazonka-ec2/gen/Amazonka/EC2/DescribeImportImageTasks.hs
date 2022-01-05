@@ -169,9 +169,21 @@ instance Core.AWSRequest DescribeImportImageTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImportImageTasks
+instance Prelude.Hashable DescribeImportImageTasks where
+  hashWithSalt _salt DescribeImportImageTasks' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` importTaskIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeImportImageTasks
+instance Prelude.NFData DescribeImportImageTasks where
+  rnf DescribeImportImageTasks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf importTaskIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeImportImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +266,8 @@ describeImportImageTasksResponse_httpStatus = Lens.lens (\DescribeImportImageTas
 instance
   Prelude.NFData
     DescribeImportImageTasksResponse
+  where
+  rnf DescribeImportImageTasksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf importImageTasks
+      `Prelude.seq` Prelude.rnf httpStatus

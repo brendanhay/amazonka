@@ -70,6 +70,12 @@ instance Core.FromXML UnsuccessfulItem where
       Prelude.<$> (x Core..@? "resourceId")
       Prelude.<*> (x Core..@? "error")
 
-instance Prelude.Hashable UnsuccessfulItem
+instance Prelude.Hashable UnsuccessfulItem where
+  hashWithSalt _salt UnsuccessfulItem' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData UnsuccessfulItem
+instance Prelude.NFData UnsuccessfulItem where
+  rnf UnsuccessfulItem' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf error

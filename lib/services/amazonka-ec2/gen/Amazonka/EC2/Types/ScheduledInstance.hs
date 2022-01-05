@@ -200,6 +200,38 @@ instance Core.FromXML ScheduledInstance where
       Prelude.<*> (x Core..@? "nextSlotStartTime")
       Prelude.<*> (x Core..@? "networkPlatform")
 
-instance Prelude.Hashable ScheduledInstance
+instance Prelude.Hashable ScheduledInstance where
+  hashWithSalt _salt ScheduledInstance' {..} =
+    _salt `Prelude.hashWithSalt` previousSlotEndTime
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` termStartDate
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` scheduledInstanceId
+      `Prelude.hashWithSalt` hourlyPrice
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` slotDurationInHours
+      `Prelude.hashWithSalt` totalScheduledInstanceHours
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` termEndDate
+      `Prelude.hashWithSalt` nextSlotStartTime
+      `Prelude.hashWithSalt` networkPlatform
 
-instance Prelude.NFData ScheduledInstance
+instance Prelude.NFData ScheduledInstance where
+  rnf ScheduledInstance' {..} =
+    Prelude.rnf previousSlotEndTime
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf termStartDate
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf scheduledInstanceId
+      `Prelude.seq` Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf slotDurationInHours
+      `Prelude.seq` Prelude.rnf totalScheduledInstanceHours
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf termEndDate
+      `Prelude.seq` Prelude.rnf nextSlotStartTime
+      `Prelude.seq` Prelude.rnf networkPlatform

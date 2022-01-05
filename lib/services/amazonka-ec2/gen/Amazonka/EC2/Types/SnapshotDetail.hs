@@ -149,6 +149,28 @@ instance Core.FromXML SnapshotDetail where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "snapshotId")
 
-instance Prelude.Hashable SnapshotDetail
+instance Prelude.Hashable SnapshotDetail where
+  hashWithSalt _salt SnapshotDetail' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` userBucket
+      `Prelude.hashWithSalt` diskImageSize
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData SnapshotDetail
+instance Prelude.NFData SnapshotDetail where
+  rnf SnapshotDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf userBucket
+      `Prelude.seq` Prelude.rnf diskImageSize
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf snapshotId

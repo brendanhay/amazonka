@@ -177,9 +177,25 @@ instance Core.AWSRequest CreateFpgaImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFpgaImage
+instance Prelude.Hashable CreateFpgaImage where
+  hashWithSalt _salt CreateFpgaImage' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` logsStorageLocation
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` inputStorageLocation
 
-instance Prelude.NFData CreateFpgaImage
+instance Prelude.NFData CreateFpgaImage where
+  rnf CreateFpgaImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf logsStorageLocation
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf inputStorageLocation
 
 instance Core.ToHeaders CreateFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,4 +270,8 @@ createFpgaImageResponse_fpgaImageGlobalId = Lens.lens (\CreateFpgaImageResponse'
 createFpgaImageResponse_httpStatus :: Lens.Lens' CreateFpgaImageResponse Prelude.Int
 createFpgaImageResponse_httpStatus = Lens.lens (\CreateFpgaImageResponse' {httpStatus} -> httpStatus) (\s@CreateFpgaImageResponse' {} a -> s {httpStatus = a} :: CreateFpgaImageResponse)
 
-instance Prelude.NFData CreateFpgaImageResponse
+instance Prelude.NFData CreateFpgaImageResponse where
+  rnf CreateFpgaImageResponse' {..} =
+    Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf fpgaImageGlobalId
+      `Prelude.seq` Prelude.rnf httpStatus

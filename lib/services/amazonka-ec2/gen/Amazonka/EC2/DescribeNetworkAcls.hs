@@ -335,9 +335,21 @@ instance Core.AWSRequest DescribeNetworkAcls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNetworkAcls
+instance Prelude.Hashable DescribeNetworkAcls where
+  hashWithSalt _salt DescribeNetworkAcls' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` networkAclIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeNetworkAcls
+instance Prelude.NFData DescribeNetworkAcls where
+  rnf DescribeNetworkAcls' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf networkAclIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeNetworkAcls where
   toHeaders = Prelude.const Prelude.mempty
@@ -414,4 +426,8 @@ describeNetworkAclsResponse_nextToken = Lens.lens (\DescribeNetworkAclsResponse'
 describeNetworkAclsResponse_httpStatus :: Lens.Lens' DescribeNetworkAclsResponse Prelude.Int
 describeNetworkAclsResponse_httpStatus = Lens.lens (\DescribeNetworkAclsResponse' {httpStatus} -> httpStatus) (\s@DescribeNetworkAclsResponse' {} a -> s {httpStatus = a} :: DescribeNetworkAclsResponse)
 
-instance Prelude.NFData DescribeNetworkAclsResponse
+instance Prelude.NFData DescribeNetworkAclsResponse where
+  rnf DescribeNetworkAclsResponse' {..} =
+    Prelude.rnf networkAcls
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

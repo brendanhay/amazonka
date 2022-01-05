@@ -212,6 +212,38 @@ instance Core.FromXML FpgaImage where
       Prelude.<*> (x Core..@? "public")
       Prelude.<*> (x Core..@? "fpgaImageGlobalId")
 
-instance Prelude.Hashable FpgaImage
+instance Prelude.Hashable FpgaImage where
+  hashWithSalt _salt FpgaImage' {..} =
+    _salt `Prelude.hashWithSalt` shellVersion
+      `Prelude.hashWithSalt` pciId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` ownerAlias
+      `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` dataRetentionSupport
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` public
+      `Prelude.hashWithSalt` fpgaImageGlobalId
 
-instance Prelude.NFData FpgaImage
+instance Prelude.NFData FpgaImage where
+  rnf FpgaImage' {..} =
+    Prelude.rnf shellVersion
+      `Prelude.seq` Prelude.rnf pciId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf ownerAlias
+      `Prelude.seq` Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf dataRetentionSupport
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf public
+      `Prelude.seq` Prelude.rnf fpgaImageGlobalId

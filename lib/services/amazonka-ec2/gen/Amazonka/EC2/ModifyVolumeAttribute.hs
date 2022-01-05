@@ -119,9 +119,17 @@ instance Core.AWSRequest ModifyVolumeAttribute where
   response =
     Response.receiveNull ModifyVolumeAttributeResponse'
 
-instance Prelude.Hashable ModifyVolumeAttribute
+instance Prelude.Hashable ModifyVolumeAttribute where
+  hashWithSalt _salt ModifyVolumeAttribute' {..} =
+    _salt `Prelude.hashWithSalt` autoEnableIO
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData ModifyVolumeAttribute
+instance Prelude.NFData ModifyVolumeAttribute where
+  rnf ModifyVolumeAttribute' {..} =
+    Prelude.rnf autoEnableIO
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders ModifyVolumeAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,4 +164,5 @@ newModifyVolumeAttributeResponse ::
 newModifyVolumeAttributeResponse =
   ModifyVolumeAttributeResponse'
 
-instance Prelude.NFData ModifyVolumeAttributeResponse
+instance Prelude.NFData ModifyVolumeAttributeResponse where
+  rnf _ = ()

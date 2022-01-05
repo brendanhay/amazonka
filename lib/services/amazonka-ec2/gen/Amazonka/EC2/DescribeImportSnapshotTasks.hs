@@ -171,9 +171,21 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImportSnapshotTasks
+instance Prelude.Hashable DescribeImportSnapshotTasks where
+  hashWithSalt _salt DescribeImportSnapshotTasks' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` importTaskIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeImportSnapshotTasks
+instance Prelude.NFData DescribeImportSnapshotTasks where
+  rnf DescribeImportSnapshotTasks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf importTaskIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeImportSnapshotTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,3 +270,8 @@ describeImportSnapshotTasksResponse_httpStatus = Lens.lens (\DescribeImportSnaps
 instance
   Prelude.NFData
     DescribeImportSnapshotTasksResponse
+  where
+  rnf DescribeImportSnapshotTasksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf importSnapshotTasks
+      `Prelude.seq` Prelude.rnf httpStatus

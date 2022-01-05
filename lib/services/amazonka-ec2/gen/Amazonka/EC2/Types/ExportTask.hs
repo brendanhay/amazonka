@@ -142,6 +142,22 @@ instance Core.FromXML ExportTask where
       Prelude.<*> (x Core..@ "state")
       Prelude.<*> (x Core..@ "statusMessage")
 
-instance Prelude.Hashable ExportTask
+instance Prelude.Hashable ExportTask where
+  hashWithSalt _salt ExportTask' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` exportTaskId
+      `Prelude.hashWithSalt` exportToS3Task
+      `Prelude.hashWithSalt` instanceExportDetails
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData ExportTask
+instance Prelude.NFData ExportTask where
+  rnf ExportTask' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf exportTaskId
+      `Prelude.seq` Prelude.rnf exportToS3Task
+      `Prelude.seq` Prelude.rnf instanceExportDetails
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusMessage

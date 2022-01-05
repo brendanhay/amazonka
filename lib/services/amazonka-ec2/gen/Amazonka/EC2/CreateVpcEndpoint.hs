@@ -302,9 +302,33 @@ instance Core.AWSRequest CreateVpcEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpcEndpoint
+instance Prelude.Hashable CreateVpcEndpoint where
+  hashWithSalt _salt CreateVpcEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcEndpointType
+      `Prelude.hashWithSalt` privateDnsEnabled
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` routeTableIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData CreateVpcEndpoint
+instance Prelude.NFData CreateVpcEndpoint where
+  rnf CreateVpcEndpoint' {..} =
+    Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcEndpointType
+      `Prelude.seq` Prelude.rnf privateDnsEnabled
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf routeTableIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToHeaders CreateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -395,4 +419,8 @@ createVpcEndpointResponse_vpcEndpoint = Lens.lens (\CreateVpcEndpointResponse' {
 createVpcEndpointResponse_httpStatus :: Lens.Lens' CreateVpcEndpointResponse Prelude.Int
 createVpcEndpointResponse_httpStatus = Lens.lens (\CreateVpcEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateVpcEndpointResponse' {} a -> s {httpStatus = a} :: CreateVpcEndpointResponse)
 
-instance Prelude.NFData CreateVpcEndpointResponse
+instance Prelude.NFData CreateVpcEndpointResponse where
+  rnf CreateVpcEndpointResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf vpcEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

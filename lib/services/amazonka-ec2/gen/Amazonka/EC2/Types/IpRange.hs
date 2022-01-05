@@ -88,9 +88,15 @@ instance Core.FromXML IpRange where
       Prelude.<$> (x Core..@? "description")
       Prelude.<*> (x Core..@ "cidrIp")
 
-instance Prelude.Hashable IpRange
+instance Prelude.Hashable IpRange where
+  hashWithSalt _salt IpRange' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cidrIp
 
-instance Prelude.NFData IpRange
+instance Prelude.NFData IpRange where
+  rnf IpRange' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cidrIp
 
 instance Core.ToQuery IpRange where
   toQuery IpRange' {..} =

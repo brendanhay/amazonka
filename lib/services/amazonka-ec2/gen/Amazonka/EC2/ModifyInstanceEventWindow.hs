@@ -213,9 +213,21 @@ instance Core.AWSRequest ModifyInstanceEventWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyInstanceEventWindow
+instance Prelude.Hashable ModifyInstanceEventWindow where
+  hashWithSalt _salt ModifyInstanceEventWindow' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` timeRanges
+      `Prelude.hashWithSalt` instanceEventWindowId
 
-instance Prelude.NFData ModifyInstanceEventWindow
+instance Prelude.NFData ModifyInstanceEventWindow where
+  rnf ModifyInstanceEventWindow' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf timeRanges
+      `Prelude.seq` Prelude.rnf instanceEventWindowId
 
 instance Core.ToHeaders ModifyInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,3 +295,7 @@ modifyInstanceEventWindowResponse_httpStatus = Lens.lens (\ModifyInstanceEventWi
 instance
   Prelude.NFData
     ModifyInstanceEventWindowResponse
+  where
+  rnf ModifyInstanceEventWindowResponse' {..} =
+    Prelude.rnf instanceEventWindow
+      `Prelude.seq` Prelude.rnf httpStatus

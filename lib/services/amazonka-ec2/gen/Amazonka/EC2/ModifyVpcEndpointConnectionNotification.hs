@@ -143,10 +143,24 @@ instance
 instance
   Prelude.Hashable
     ModifyVpcEndpointConnectionNotification
+  where
+  hashWithSalt
+    _salt
+    ModifyVpcEndpointConnectionNotification' {..} =
+      _salt `Prelude.hashWithSalt` connectionEvents
+        `Prelude.hashWithSalt` connectionNotificationArn
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` connectionNotificationId
 
 instance
   Prelude.NFData
     ModifyVpcEndpointConnectionNotification
+  where
+  rnf ModifyVpcEndpointConnectionNotification' {..} =
+    Prelude.rnf connectionEvents
+      `Prelude.seq` Prelude.rnf connectionNotificationArn
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf connectionNotificationId
 
 instance
   Core.ToHeaders
@@ -226,3 +240,8 @@ modifyVpcEndpointConnectionNotificationResponse_httpStatus = Lens.lens (\ModifyV
 instance
   Prelude.NFData
     ModifyVpcEndpointConnectionNotificationResponse
+  where
+  rnf
+    ModifyVpcEndpointConnectionNotificationResponse' {..} =
+      Prelude.rnf returnValue
+        `Prelude.seq` Prelude.rnf httpStatus

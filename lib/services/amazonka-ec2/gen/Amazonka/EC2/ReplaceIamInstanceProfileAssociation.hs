@@ -114,10 +114,20 @@ instance
 instance
   Prelude.Hashable
     ReplaceIamInstanceProfileAssociation
+  where
+  hashWithSalt
+    _salt
+    ReplaceIamInstanceProfileAssociation' {..} =
+      _salt `Prelude.hashWithSalt` iamInstanceProfile
+        `Prelude.hashWithSalt` associationId
 
 instance
   Prelude.NFData
     ReplaceIamInstanceProfileAssociation
+  where
+  rnf ReplaceIamInstanceProfileAssociation' {..} =
+    Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -190,3 +200,7 @@ replaceIamInstanceProfileAssociationResponse_httpStatus = Lens.lens (\ReplaceIam
 instance
   Prelude.NFData
     ReplaceIamInstanceProfileAssociationResponse
+  where
+  rnf ReplaceIamInstanceProfileAssociationResponse' {..} =
+    Prelude.rnf iamInstanceProfileAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

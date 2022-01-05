@@ -169,9 +169,21 @@ instance Core.AWSRequest DescribeExportImageTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExportImageTasks
+instance Prelude.Hashable DescribeExportImageTasks where
+  hashWithSalt _salt DescribeExportImageTasks' {..} =
+    _salt `Prelude.hashWithSalt` exportImageTaskIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeExportImageTasks
+instance Prelude.NFData DescribeExportImageTasks where
+  rnf DescribeExportImageTasks' {..} =
+    Prelude.rnf exportImageTaskIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeExportImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,3 +263,8 @@ describeExportImageTasksResponse_httpStatus = Lens.lens (\DescribeExportImageTas
 instance
   Prelude.NFData
     DescribeExportImageTasksResponse
+  where
+  rnf DescribeExportImageTasksResponse' {..} =
+    Prelude.rnf exportImageTasks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

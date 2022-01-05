@@ -122,7 +122,25 @@ instance
 instance
   Prelude.Hashable
     InstanceNetworkInterfaceAttachment
+  where
+  hashWithSalt
+    _salt
+    InstanceNetworkInterfaceAttachment' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` attachmentId
+        `Prelude.hashWithSalt` networkCardIndex
+        `Prelude.hashWithSalt` attachTime
+        `Prelude.hashWithSalt` deviceIndex
 
 instance
   Prelude.NFData
     InstanceNetworkInterfaceAttachment
+  where
+  rnf InstanceNetworkInterfaceAttachment' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf deviceIndex

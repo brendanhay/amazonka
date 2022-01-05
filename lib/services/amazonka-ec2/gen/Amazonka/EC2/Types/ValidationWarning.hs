@@ -61,6 +61,9 @@ instance Core.FromXML ValidationWarning where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ValidationWarning
+instance Prelude.Hashable ValidationWarning where
+  hashWithSalt _salt ValidationWarning' {..} =
+    _salt `Prelude.hashWithSalt` errors
 
-instance Prelude.NFData ValidationWarning
+instance Prelude.NFData ValidationWarning where
+  rnf ValidationWarning' {..} = Prelude.rnf errors

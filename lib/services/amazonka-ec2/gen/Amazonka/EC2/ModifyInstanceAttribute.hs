@@ -400,9 +400,44 @@ instance Core.AWSRequest ModifyInstanceAttribute where
     Response.receiveNull
       ModifyInstanceAttributeResponse'
 
-instance Prelude.Hashable ModifyInstanceAttribute
+instance Prelude.Hashable ModifyInstanceAttribute where
+  hashWithSalt _salt ModifyInstanceAttribute' {..} =
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` enaSupport
+      `Prelude.hashWithSalt` sourceDestCheck
+      `Prelude.hashWithSalt` disableApiTermination
+      `Prelude.hashWithSalt` kernel
+      `Prelude.hashWithSalt` ramdisk
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` sriovNetSupport
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ModifyInstanceAttribute
+instance Prelude.NFData ModifyInstanceAttribute where
+  rnf ModifyInstanceAttribute' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf disableApiTermination
+      `Prelude.seq` Prelude.rnf kernel
+      `Prelude.seq` Prelude.rnf ramdisk
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf
+        instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ModifyInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -459,3 +494,5 @@ newModifyInstanceAttributeResponse =
 instance
   Prelude.NFData
     ModifyInstanceAttributeResponse
+  where
+  rnf _ = ()

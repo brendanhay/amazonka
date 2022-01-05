@@ -173,10 +173,24 @@ instance
 instance
   Prelude.Hashable
     GetManagedPrefixListAssociations
+  where
+  hashWithSalt
+    _salt
+    GetManagedPrefixListAssociations' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` prefixListId
 
 instance
   Prelude.NFData
     GetManagedPrefixListAssociations
+  where
+  rnf GetManagedPrefixListAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf prefixListId
 
 instance
   Core.ToHeaders
@@ -261,3 +275,8 @@ getManagedPrefixListAssociationsResponse_httpStatus = Lens.lens (\GetManagedPref
 instance
   Prelude.NFData
     GetManagedPrefixListAssociationsResponse
+  where
+  rnf GetManagedPrefixListAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefixListAssociations
+      `Prelude.seq` Prelude.rnf httpStatus

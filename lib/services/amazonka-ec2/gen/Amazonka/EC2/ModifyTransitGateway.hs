@@ -130,9 +130,19 @@ instance Core.AWSRequest ModifyTransitGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyTransitGateway
+instance Prelude.Hashable ModifyTransitGateway where
+  hashWithSalt _salt ModifyTransitGateway' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` transitGatewayId
 
-instance Prelude.NFData ModifyTransitGateway
+instance Prelude.NFData ModifyTransitGateway where
+  rnf ModifyTransitGateway' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance Core.ToHeaders ModifyTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +201,7 @@ modifyTransitGatewayResponse_transitGateway = Lens.lens (\ModifyTransitGatewayRe
 modifyTransitGatewayResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayResponse Prelude.Int
 modifyTransitGatewayResponse_httpStatus = Lens.lens (\ModifyTransitGatewayResponse' {httpStatus} -> httpStatus) (\s@ModifyTransitGatewayResponse' {} a -> s {httpStatus = a} :: ModifyTransitGatewayResponse)
 
-instance Prelude.NFData ModifyTransitGatewayResponse
+instance Prelude.NFData ModifyTransitGatewayResponse where
+  rnf ModifyTransitGatewayResponse' {..} =
+    Prelude.rnf transitGateway
+      `Prelude.seq` Prelude.rnf httpStatus

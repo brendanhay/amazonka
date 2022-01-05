@@ -118,10 +118,20 @@ instance
 instance
   Prelude.Hashable
     GetHostReservationPurchasePreview
+  where
+  hashWithSalt
+    _salt
+    GetHostReservationPurchasePreview' {..} =
+      _salt `Prelude.hashWithSalt` hostIdSet
+        `Prelude.hashWithSalt` offeringId
 
 instance
   Prelude.NFData
     GetHostReservationPurchasePreview
+  where
+  rnf GetHostReservationPurchasePreview' {..} =
+    Prelude.rnf hostIdSet
+      `Prelude.seq` Prelude.rnf offeringId
 
 instance
   Core.ToHeaders
@@ -232,3 +242,10 @@ getHostReservationPurchasePreviewResponse_httpStatus = Lens.lens (\GetHostReserv
 instance
   Prelude.NFData
     GetHostReservationPurchasePreviewResponse
+  where
+  rnf GetHostReservationPurchasePreviewResponse' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf totalHourlyPrice
+      `Prelude.seq` Prelude.rnf totalUpfrontPrice
+      `Prelude.seq` Prelude.rnf purchase
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -67,6 +67,11 @@ instance Core.FromXML AnalysisComponent where
     AnalysisComponent'
       Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
 
-instance Prelude.Hashable AnalysisComponent
+instance Prelude.Hashable AnalysisComponent where
+  hashWithSalt _salt AnalysisComponent' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData AnalysisComponent
+instance Prelude.NFData AnalysisComponent where
+  rnf AnalysisComponent' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id

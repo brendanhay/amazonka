@@ -227,10 +227,26 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceCreditSpecifications
+  where
+  hashWithSalt
+    _salt
+    DescribeInstanceCreditSpecifications' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` instanceIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeInstanceCreditSpecifications
+  where
+  rnf DescribeInstanceCreditSpecifications' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -323,3 +339,8 @@ describeInstanceCreditSpecificationsResponse_httpStatus = Lens.lens (\DescribeIn
 instance
   Prelude.NFData
     DescribeInstanceCreditSpecificationsResponse
+  where
+  rnf DescribeInstanceCreditSpecificationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceCreditSpecifications
+      `Prelude.seq` Prelude.rnf httpStatus

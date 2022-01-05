@@ -112,9 +112,15 @@ instance Core.AWSRequest MonitorInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MonitorInstances
+instance Prelude.Hashable MonitorInstances where
+  hashWithSalt _salt MonitorInstances' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData MonitorInstances
+instance Prelude.NFData MonitorInstances where
+  rnf MonitorInstances' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders MonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesRespo
 monitorInstancesResponse_httpStatus :: Lens.Lens' MonitorInstancesResponse Prelude.Int
 monitorInstancesResponse_httpStatus = Lens.lens (\MonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@MonitorInstancesResponse' {} a -> s {httpStatus = a} :: MonitorInstancesResponse)
 
-instance Prelude.NFData MonitorInstancesResponse
+instance Prelude.NFData MonitorInstancesResponse where
+  rnf MonitorInstancesResponse' {..} =
+    Prelude.rnf instanceMonitorings
+      `Prelude.seq` Prelude.rnf httpStatus

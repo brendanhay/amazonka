@@ -181,9 +181,23 @@ instance Core.AWSRequest ModifyFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyFleet
+instance Prelude.Hashable ModifyFleet where
+  hashWithSalt _salt ModifyFleet' {..} =
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` targetCapacitySpecification
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData ModifyFleet
+instance Prelude.NFData ModifyFleet where
+  rnf ModifyFleet' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetCapacitySpecification
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders ModifyFleet where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,4 +263,7 @@ modifyFleetResponse_return = Lens.lens (\ModifyFleetResponse' {return'} -> retur
 modifyFleetResponse_httpStatus :: Lens.Lens' ModifyFleetResponse Prelude.Int
 modifyFleetResponse_httpStatus = Lens.lens (\ModifyFleetResponse' {httpStatus} -> httpStatus) (\s@ModifyFleetResponse' {} a -> s {httpStatus = a} :: ModifyFleetResponse)
 
-instance Prelude.NFData ModifyFleetResponse
+instance Prelude.NFData ModifyFleetResponse where
+  rnf ModifyFleetResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

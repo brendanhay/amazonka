@@ -148,9 +148,21 @@ instance Core.AWSRequest RevokeClientVpnIngress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeClientVpnIngress
+instance Prelude.Hashable RevokeClientVpnIngress where
+  hashWithSalt _salt RevokeClientVpnIngress' {..} =
+    _salt `Prelude.hashWithSalt` accessGroupId
+      `Prelude.hashWithSalt` revokeAllGroups
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` targetNetworkCidr
 
-instance Prelude.NFData RevokeClientVpnIngress
+instance Prelude.NFData RevokeClientVpnIngress where
+  rnf RevokeClientVpnIngress' {..} =
+    Prelude.rnf accessGroupId
+      `Prelude.seq` Prelude.rnf revokeAllGroups
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf targetNetworkCidr
 
 instance Core.ToHeaders RevokeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,3 +226,7 @@ revokeClientVpnIngressResponse_httpStatus = Lens.lens (\RevokeClientVpnIngressRe
 instance
   Prelude.NFData
     RevokeClientVpnIngressResponse
+  where
+  rnf RevokeClientVpnIngressResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

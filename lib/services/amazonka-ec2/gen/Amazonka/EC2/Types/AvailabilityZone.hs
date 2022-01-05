@@ -208,6 +208,30 @@ instance Core.FromXML AvailabilityZone where
       Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "zoneType")
 
-instance Prelude.Hashable AvailabilityZone
+instance Prelude.Hashable AvailabilityZone where
+  hashWithSalt _salt AvailabilityZone' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` parentZoneId
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` parentZoneName
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` zoneId
+      `Prelude.hashWithSalt` zoneName
+      `Prelude.hashWithSalt` optInStatus
+      `Prelude.hashWithSalt` messages
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` zoneType
 
-instance Prelude.NFData AvailabilityZone
+instance Prelude.NFData AvailabilityZone where
+  rnf AvailabilityZone' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf parentZoneId
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf parentZoneName
+      `Prelude.seq` Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf zoneId
+      `Prelude.seq` Prelude.rnf zoneName
+      `Prelude.seq` Prelude.rnf optInStatus
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf zoneType

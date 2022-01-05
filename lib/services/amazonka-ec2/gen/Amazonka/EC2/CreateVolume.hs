@@ -517,9 +517,37 @@ instance Core.AWSRequest CreateVolume where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateVolume
+instance Prelude.Hashable CreateVolume where
+  hashWithSalt _salt CreateVolume' {..} =
+    _salt `Prelude.hashWithSalt` multiAttachEnabled
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` throughput
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData CreateVolume
+instance Prelude.NFData CreateVolume where
+  rnf CreateVolume' {..} =
+    Prelude.rnf multiAttachEnabled
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders CreateVolume where
   toHeaders = Prelude.const Prelude.mempty

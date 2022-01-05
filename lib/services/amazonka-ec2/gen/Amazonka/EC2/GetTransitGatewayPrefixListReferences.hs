@@ -246,10 +246,26 @@ instance
 instance
   Prelude.Hashable
     GetTransitGatewayPrefixListReferences
+  where
+  hashWithSalt
+    _salt
+    GetTransitGatewayPrefixListReferences' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
 
 instance
   Prelude.NFData
     GetTransitGatewayPrefixListReferences
+  where
+  rnf GetTransitGatewayPrefixListReferences' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
 instance
   Core.ToHeaders
@@ -339,3 +355,9 @@ getTransitGatewayPrefixListReferencesResponse_httpStatus = Lens.lens (\GetTransi
 instance
   Prelude.NFData
     GetTransitGatewayPrefixListReferencesResponse
+  where
+  rnf
+    GetTransitGatewayPrefixListReferencesResponse' {..} =
+      Prelude.rnf transitGatewayPrefixListReferences
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

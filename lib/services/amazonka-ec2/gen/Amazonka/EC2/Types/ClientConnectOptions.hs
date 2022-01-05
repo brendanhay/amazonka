@@ -69,9 +69,15 @@ clientConnectOptions_enabled = Lens.lens (\ClientConnectOptions' {enabled} -> en
 clientConnectOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Text)
 clientConnectOptions_lambdaFunctionArn = Lens.lens (\ClientConnectOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectOptions)
 
-instance Prelude.Hashable ClientConnectOptions
+instance Prelude.Hashable ClientConnectOptions where
+  hashWithSalt _salt ClientConnectOptions' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData ClientConnectOptions
+instance Prelude.NFData ClientConnectOptions where
+  rnf ClientConnectOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lambdaFunctionArn
 
 instance Core.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =

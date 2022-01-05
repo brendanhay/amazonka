@@ -83,9 +83,12 @@ instance Core.AWSRequest CancelExportTask where
   response =
     Response.receiveNull CancelExportTaskResponse'
 
-instance Prelude.Hashable CancelExportTask
+instance Prelude.Hashable CancelExportTask where
+  hashWithSalt _salt CancelExportTask' {..} =
+    _salt `Prelude.hashWithSalt` exportTaskId
 
-instance Prelude.NFData CancelExportTask
+instance Prelude.NFData CancelExportTask where
+  rnf CancelExportTask' {..} = Prelude.rnf exportTaskId
 
 instance Core.ToHeaders CancelExportTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -118,4 +121,5 @@ newCancelExportTaskResponse ::
 newCancelExportTaskResponse =
   CancelExportTaskResponse'
 
-instance Prelude.NFData CancelExportTaskResponse
+instance Prelude.NFData CancelExportTaskResponse where
+  rnf _ = ()

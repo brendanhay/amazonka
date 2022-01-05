@@ -174,10 +174,28 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayVpcAttachment
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayVpcAttachment' {..} =
+      _salt `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` subnetIds
 
 instance
   Prelude.NFData
     CreateTransitGatewayVpcAttachment
+  where
+  rnf CreateTransitGatewayVpcAttachment' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance
   Core.ToHeaders
@@ -257,3 +275,7 @@ createTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\CreateTransit
 instance
   Prelude.NFData
     CreateTransitGatewayVpcAttachmentResponse
+  where
+  rnf CreateTransitGatewayVpcAttachmentResponse' {..} =
+    Prelude.rnf transitGatewayVpcAttachment
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,10 +120,22 @@ instance
 instance
   Prelude.Hashable
     ResetNetworkInterfaceAttribute
+  where
+  hashWithSalt
+    _salt
+    ResetNetworkInterfaceAttribute' {..} =
+      _salt `Prelude.hashWithSalt` sourceDestCheck
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` networkInterfaceId
 
 instance
   Prelude.NFData
     ResetNetworkInterfaceAttribute
+  where
+  rnf ResetNetworkInterfaceAttribute' {..} =
+    Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
   Core.ToHeaders
@@ -166,3 +178,5 @@ newResetNetworkInterfaceAttributeResponse =
 instance
   Prelude.NFData
     ResetNetworkInterfaceAttributeResponse
+  where
+  rnf _ = ()

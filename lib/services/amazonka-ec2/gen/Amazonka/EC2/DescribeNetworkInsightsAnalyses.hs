@@ -228,10 +228,33 @@ instance
 instance
   Prelude.Hashable
     DescribeNetworkInsightsAnalyses
+  where
+  hashWithSalt
+    _salt
+    DescribeNetworkInsightsAnalyses' {..} =
+      _salt
+        `Prelude.hashWithSalt` networkInsightsAnalysisIds
+        `Prelude.hashWithSalt` analysisEndTime
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` networkInsightsPathId
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` analysisStartTime
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeNetworkInsightsAnalyses
+  where
+  rnf DescribeNetworkInsightsAnalyses' {..} =
+    Prelude.rnf networkInsightsAnalysisIds
+      `Prelude.seq` Prelude.rnf analysisEndTime
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf analysisStartTime
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -321,3 +344,8 @@ describeNetworkInsightsAnalysesResponse_httpStatus = Lens.lens (\DescribeNetwork
 instance
   Prelude.NFData
     DescribeNetworkInsightsAnalysesResponse
+  where
+  rnf DescribeNetworkInsightsAnalysesResponse' {..} =
+    Prelude.rnf networkInsightsAnalyses
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

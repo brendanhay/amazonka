@@ -56,9 +56,13 @@ instance Core.FromXML InstanceIpv6Address where
     InstanceIpv6Address'
       Prelude.<$> (x Core..@? "ipv6Address")
 
-instance Prelude.Hashable InstanceIpv6Address
+instance Prelude.Hashable InstanceIpv6Address where
+  hashWithSalt _salt InstanceIpv6Address' {..} =
+    _salt `Prelude.hashWithSalt` ipv6Address
 
-instance Prelude.NFData InstanceIpv6Address
+instance Prelude.NFData InstanceIpv6Address where
+  rnf InstanceIpv6Address' {..} =
+    Prelude.rnf ipv6Address
 
 instance Core.ToQuery InstanceIpv6Address where
   toQuery InstanceIpv6Address' {..} =

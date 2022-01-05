@@ -72,6 +72,12 @@ instance Core.FromXML MovingAddressStatus where
       Prelude.<$> (x Core..@? "moveStatus")
       Prelude.<*> (x Core..@? "publicIp")
 
-instance Prelude.Hashable MovingAddressStatus
+instance Prelude.Hashable MovingAddressStatus where
+  hashWithSalt _salt MovingAddressStatus' {..} =
+    _salt `Prelude.hashWithSalt` moveStatus
+      `Prelude.hashWithSalt` publicIp
 
-instance Prelude.NFData MovingAddressStatus
+instance Prelude.NFData MovingAddressStatus where
+  rnf MovingAddressStatus' {..} =
+    Prelude.rnf moveStatus
+      `Prelude.seq` Prelude.rnf publicIp

@@ -251,6 +251,42 @@ instance Core.FromXML ImportImageTask where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ImportImageTask
+instance Prelude.Hashable ImportImageTask where
+  hashWithSalt _salt ImportImageTask' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` hypervisor
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` licenseSpecifications
+      `Prelude.hashWithSalt` usageOperation
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` snapshotDetails
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` bootMode
+      `Prelude.hashWithSalt` importTaskId
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ImportImageTask
+instance Prelude.NFData ImportImageTask where
+  rnf ImportImageTask' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf snapshotDetails
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

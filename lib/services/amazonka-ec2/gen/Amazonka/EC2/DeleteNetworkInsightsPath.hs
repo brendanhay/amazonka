@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNetworkInsightsPath
+instance Prelude.Hashable DeleteNetworkInsightsPath where
+  hashWithSalt _salt DeleteNetworkInsightsPath' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` networkInsightsPathId
 
-instance Prelude.NFData DeleteNetworkInsightsPath
+instance Prelude.NFData DeleteNetworkInsightsPath where
+  rnf DeleteNetworkInsightsPath' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInsightsPathId
 
 instance Core.ToHeaders DeleteNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,3 +178,7 @@ deleteNetworkInsightsPathResponse_httpStatus = Lens.lens (\DeleteNetworkInsights
 instance
   Prelude.NFData
     DeleteNetworkInsightsPathResponse
+  where
+  rnf DeleteNetworkInsightsPathResponse' {..} =
+    Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf httpStatus

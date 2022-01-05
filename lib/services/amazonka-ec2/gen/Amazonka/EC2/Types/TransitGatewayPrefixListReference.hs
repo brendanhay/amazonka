@@ -119,7 +119,25 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayPrefixListReference
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayPrefixListReference' {..} =
+      _salt `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` prefixListOwnerId
+        `Prelude.hashWithSalt` blackhole
+        `Prelude.hashWithSalt` prefixListId
+        `Prelude.hashWithSalt` transitGatewayAttachment
 
 instance
   Prelude.NFData
     TransitGatewayPrefixListReference
+  where
+  rnf TransitGatewayPrefixListReference' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf prefixListOwnerId
+      `Prelude.seq` Prelude.rnf blackhole
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachment

@@ -202,9 +202,25 @@ instance Core.AWSRequest ModifyInstancePlacement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyInstancePlacement
+instance Prelude.Hashable ModifyInstancePlacement where
+  hashWithSalt _salt ModifyInstancePlacement' {..} =
+    _salt `Prelude.hashWithSalt` affinity
+      `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` partitionNumber
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` hostResourceGroupArn
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ModifyInstancePlacement
+instance Prelude.NFData ModifyInstancePlacement where
+  rnf ModifyInstancePlacement' {..} =
+    Prelude.rnf affinity
+      `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf partitionNumber
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf hostResourceGroupArn
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ModifyInstancePlacement where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,3 +286,7 @@ modifyInstancePlacementResponse_httpStatus = Lens.lens (\ModifyInstancePlacement
 instance
   Prelude.NFData
     ModifyInstancePlacementResponse
+  where
+  rnf ModifyInstancePlacementResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

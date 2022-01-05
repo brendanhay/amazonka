@@ -124,6 +124,22 @@ instance Core.FromXML LocalGatewayRouteTable where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable LocalGatewayRouteTable
+instance Prelude.Hashable LocalGatewayRouteTable where
+  hashWithSalt _salt LocalGatewayRouteTable' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` localGatewayRouteTableArn
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData LocalGatewayRouteTable
+instance Prelude.NFData LocalGatewayRouteTable where
+  rnf LocalGatewayRouteTable' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf tags

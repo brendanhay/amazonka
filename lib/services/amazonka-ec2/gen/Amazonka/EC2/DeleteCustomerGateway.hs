@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteCustomerGateway where
   response =
     Response.receiveNull DeleteCustomerGatewayResponse'
 
-instance Prelude.Hashable DeleteCustomerGateway
+instance Prelude.Hashable DeleteCustomerGateway where
+  hashWithSalt _salt DeleteCustomerGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` customerGatewayId
 
-instance Prelude.NFData DeleteCustomerGateway
+instance Prelude.NFData DeleteCustomerGateway where
+  rnf DeleteCustomerGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf customerGatewayId
 
 instance Core.ToHeaders DeleteCustomerGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,4 +143,5 @@ newDeleteCustomerGatewayResponse ::
 newDeleteCustomerGatewayResponse =
   DeleteCustomerGatewayResponse'
 
-instance Prelude.NFData DeleteCustomerGatewayResponse
+instance Prelude.NFData DeleteCustomerGatewayResponse where
+  rnf _ = ()

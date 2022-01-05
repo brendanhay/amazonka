@@ -66,7 +66,15 @@ instance
 instance
   Prelude.Hashable
     SuccessfulQueuedPurchaseDeletion
+  where
+  hashWithSalt
+    _salt
+    SuccessfulQueuedPurchaseDeletion' {..} =
+      _salt `Prelude.hashWithSalt` reservedInstancesId
 
 instance
   Prelude.NFData
     SuccessfulQueuedPurchaseDeletion
+  where
+  rnf SuccessfulQueuedPurchaseDeletion' {..} =
+    Prelude.rnf reservedInstancesId

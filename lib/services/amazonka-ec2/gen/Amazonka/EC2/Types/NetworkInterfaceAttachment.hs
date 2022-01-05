@@ -133,6 +133,24 @@ instance Core.FromXML NetworkInterfaceAttachment where
       Prelude.<*> (x Core..@? "attachTime")
       Prelude.<*> (x Core..@? "deviceIndex")
 
-instance Prelude.Hashable NetworkInterfaceAttachment
+instance Prelude.Hashable NetworkInterfaceAttachment where
+  hashWithSalt _salt NetworkInterfaceAttachment' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` attachmentId
+      `Prelude.hashWithSalt` networkCardIndex
+      `Prelude.hashWithSalt` instanceOwnerId
+      `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` deviceIndex
 
-instance Prelude.NFData NetworkInterfaceAttachment
+instance Prelude.NFData NetworkInterfaceAttachment where
+  rnf NetworkInterfaceAttachment' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf instanceOwnerId
+      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf deviceIndex

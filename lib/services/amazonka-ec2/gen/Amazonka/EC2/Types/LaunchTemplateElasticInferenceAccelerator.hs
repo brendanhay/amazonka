@@ -77,10 +77,19 @@ launchTemplateElasticInferenceAccelerator_type = Lens.lens (\LaunchTemplateElast
 instance
   Prelude.Hashable
     LaunchTemplateElasticInferenceAccelerator
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateElasticInferenceAccelerator' {..} =
+      _salt `Prelude.hashWithSalt` count
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     LaunchTemplateElasticInferenceAccelerator
+  where
+  rnf LaunchTemplateElasticInferenceAccelerator' {..} =
+    Prelude.rnf count `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToQuery

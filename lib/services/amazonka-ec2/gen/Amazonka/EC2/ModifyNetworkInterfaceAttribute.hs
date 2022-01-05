@@ -181,10 +181,28 @@ instance
 instance
   Prelude.Hashable
     ModifyNetworkInterfaceAttribute
+  where
+  hashWithSalt
+    _salt
+    ModifyNetworkInterfaceAttribute' {..} =
+      _salt `Prelude.hashWithSalt` groups
+        `Prelude.hashWithSalt` sourceDestCheck
+        `Prelude.hashWithSalt` attachment
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` networkInterfaceId
 
 instance
   Prelude.NFData
     ModifyNetworkInterfaceAttribute
+  where
+  rnf ModifyNetworkInterfaceAttribute' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
   Core.ToHeaders
@@ -233,3 +251,5 @@ newModifyNetworkInterfaceAttributeResponse =
 instance
   Prelude.NFData
     ModifyNetworkInterfaceAttributeResponse
+  where
+  rnf _ = ()

@@ -421,9 +421,37 @@ instance Core.AWSRequest CreateFlowLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFlowLogs
+instance Prelude.Hashable CreateFlowLogs where
+  hashWithSalt _salt CreateFlowLogs' {..} =
+    _salt `Prelude.hashWithSalt` logFormat
+      `Prelude.hashWithSalt` maxAggregationInterval
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` logDestination
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` destinationOptions
+      `Prelude.hashWithSalt` deliverLogsPermissionArn
+      `Prelude.hashWithSalt` logDestinationType
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` resourceIds
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` trafficType
 
-instance Prelude.NFData CreateFlowLogs
+instance Prelude.NFData CreateFlowLogs where
+  rnf CreateFlowLogs' {..} =
+    Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf maxAggregationInterval
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf logDestination
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf destinationOptions
+      `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
+      `Prelude.seq` Prelude.rnf logDestinationType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf trafficType
 
 instance Core.ToHeaders CreateFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -518,4 +546,9 @@ createFlowLogsResponse_flowLogIds = Lens.lens (\CreateFlowLogsResponse' {flowLog
 createFlowLogsResponse_httpStatus :: Lens.Lens' CreateFlowLogsResponse Prelude.Int
 createFlowLogsResponse_httpStatus = Lens.lens (\CreateFlowLogsResponse' {httpStatus} -> httpStatus) (\s@CreateFlowLogsResponse' {} a -> s {httpStatus = a} :: CreateFlowLogsResponse)
 
-instance Prelude.NFData CreateFlowLogsResponse
+instance Prelude.NFData CreateFlowLogsResponse where
+  rnf CreateFlowLogsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf flowLogIds
+      `Prelude.seq` Prelude.rnf httpStatus

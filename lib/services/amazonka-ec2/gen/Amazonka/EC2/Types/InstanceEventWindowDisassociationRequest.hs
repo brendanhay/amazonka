@@ -80,10 +80,22 @@ instanceEventWindowDisassociationRequest_dedicatedHostIds = Lens.lens (\Instance
 instance
   Prelude.Hashable
     InstanceEventWindowDisassociationRequest
+  where
+  hashWithSalt
+    _salt
+    InstanceEventWindowDisassociationRequest' {..} =
+      _salt `Prelude.hashWithSalt` instanceTags
+        `Prelude.hashWithSalt` instanceIds
+        `Prelude.hashWithSalt` dedicatedHostIds
 
 instance
   Prelude.NFData
     InstanceEventWindowDisassociationRequest
+  where
+  rnf InstanceEventWindowDisassociationRequest' {..} =
+    Prelude.rnf instanceTags
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf dedicatedHostIds
 
 instance
   Core.ToQuery

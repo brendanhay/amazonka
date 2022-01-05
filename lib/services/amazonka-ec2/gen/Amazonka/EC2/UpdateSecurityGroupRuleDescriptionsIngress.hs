@@ -164,10 +164,27 @@ instance
 instance
   Prelude.Hashable
     UpdateSecurityGroupRuleDescriptionsIngress
+  where
+  hashWithSalt
+    _salt
+    UpdateSecurityGroupRuleDescriptionsIngress' {..} =
+      _salt
+        `Prelude.hashWithSalt` securityGroupRuleDescriptions
+        `Prelude.hashWithSalt` ipPermissions
+        `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     UpdateSecurityGroupRuleDescriptionsIngress
+  where
+  rnf UpdateSecurityGroupRuleDescriptionsIngress' {..} =
+    Prelude.rnf securityGroupRuleDescriptions
+      `Prelude.seq` Prelude.rnf ipPermissions
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -251,3 +268,8 @@ updateSecurityGroupRuleDescriptionsIngressResponse_httpStatus = Lens.lens (\Upda
 instance
   Prelude.NFData
     UpdateSecurityGroupRuleDescriptionsIngressResponse
+  where
+  rnf
+    UpdateSecurityGroupRuleDescriptionsIngressResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -227,9 +227,19 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchTransitGatewayRoutes
+instance Prelude.Hashable SearchTransitGatewayRoutes where
+  hashWithSalt _salt SearchTransitGatewayRoutes' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` transitGatewayRouteTableId
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchTransitGatewayRoutes
+instance Prelude.NFData SearchTransitGatewayRoutes where
+  rnf SearchTransitGatewayRoutes' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders SearchTransitGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,3 +312,8 @@ searchTransitGatewayRoutesResponse_httpStatus = Lens.lens (\SearchTransitGateway
 instance
   Prelude.NFData
     SearchTransitGatewayRoutesResponse
+  where
+  rnf SearchTransitGatewayRoutesResponse' {..} =
+    Prelude.rnf additionalRoutesAvailable
+      `Prelude.seq` Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf httpStatus

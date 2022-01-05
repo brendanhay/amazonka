@@ -66,10 +66,19 @@ scheduledInstancesIamInstanceProfile_name = Lens.lens (\ScheduledInstancesIamIns
 instance
   Prelude.Hashable
     ScheduledInstancesIamInstanceProfile
+  where
+  hashWithSalt
+    _salt
+    ScheduledInstancesIamInstanceProfile' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     ScheduledInstancesIamInstanceProfile
+  where
+  rnf ScheduledInstancesIamInstanceProfile' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToQuery

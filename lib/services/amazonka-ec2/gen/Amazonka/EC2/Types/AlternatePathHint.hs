@@ -68,6 +68,12 @@ instance Core.FromXML AlternatePathHint where
       Prelude.<$> (x Core..@? "componentArn")
       Prelude.<*> (x Core..@? "componentId")
 
-instance Prelude.Hashable AlternatePathHint
+instance Prelude.Hashable AlternatePathHint where
+  hashWithSalt _salt AlternatePathHint' {..} =
+    _salt `Prelude.hashWithSalt` componentArn
+      `Prelude.hashWithSalt` componentId
 
-instance Prelude.NFData AlternatePathHint
+instance Prelude.NFData AlternatePathHint where
+  rnf AlternatePathHint' {..} =
+    Prelude.rnf componentArn
+      `Prelude.seq` Prelude.rnf componentId

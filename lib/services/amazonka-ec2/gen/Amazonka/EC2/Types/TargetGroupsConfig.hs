@@ -60,9 +60,13 @@ instance Core.FromXML TargetGroupsConfig where
                       Prelude.>>= Core.may (Core.parseXMLList1 "item")
                   )
 
-instance Prelude.Hashable TargetGroupsConfig
+instance Prelude.Hashable TargetGroupsConfig where
+  hashWithSalt _salt TargetGroupsConfig' {..} =
+    _salt `Prelude.hashWithSalt` targetGroups
 
-instance Prelude.NFData TargetGroupsConfig
+instance Prelude.NFData TargetGroupsConfig where
+  rnf TargetGroupsConfig' {..} =
+    Prelude.rnf targetGroups
 
 instance Core.ToQuery TargetGroupsConfig where
   toQuery TargetGroupsConfig' {..} =

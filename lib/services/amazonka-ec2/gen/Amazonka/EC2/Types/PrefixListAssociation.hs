@@ -69,6 +69,12 @@ instance Core.FromXML PrefixListAssociation where
       Prelude.<$> (x Core..@? "resourceId")
       Prelude.<*> (x Core..@? "resourceOwner")
 
-instance Prelude.Hashable PrefixListAssociation
+instance Prelude.Hashable PrefixListAssociation where
+  hashWithSalt _salt PrefixListAssociation' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceOwner
 
-instance Prelude.NFData PrefixListAssociation
+instance Prelude.NFData PrefixListAssociation where
+  rnf PrefixListAssociation' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceOwner

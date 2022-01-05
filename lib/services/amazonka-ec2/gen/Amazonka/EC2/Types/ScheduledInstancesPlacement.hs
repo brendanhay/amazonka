@@ -63,9 +63,15 @@ scheduledInstancesPlacement_availabilityZone = Lens.lens (\ScheduledInstancesPla
 scheduledInstancesPlacement_groupName :: Lens.Lens' ScheduledInstancesPlacement (Prelude.Maybe Prelude.Text)
 scheduledInstancesPlacement_groupName = Lens.lens (\ScheduledInstancesPlacement' {groupName} -> groupName) (\s@ScheduledInstancesPlacement' {} a -> s {groupName = a} :: ScheduledInstancesPlacement)
 
-instance Prelude.Hashable ScheduledInstancesPlacement
+instance Prelude.Hashable ScheduledInstancesPlacement where
+  hashWithSalt _salt ScheduledInstancesPlacement' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData ScheduledInstancesPlacement
+instance Prelude.NFData ScheduledInstancesPlacement where
+  rnf ScheduledInstancesPlacement' {..} =
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToQuery ScheduledInstancesPlacement where
   toQuery ScheduledInstancesPlacement' {..} =

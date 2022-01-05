@@ -151,5 +151,27 @@ instance Core.FromXML LocalGatewayVirtualInterface where
 instance
   Prelude.Hashable
     LocalGatewayVirtualInterface
+  where
+  hashWithSalt _salt LocalGatewayVirtualInterface' {..} =
+    _salt
+      `Prelude.hashWithSalt` localGatewayVirtualInterfaceId
+      `Prelude.hashWithSalt` localBgpAsn
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` localAddress
+      `Prelude.hashWithSalt` peerBgpAsn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` peerAddress
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData LocalGatewayVirtualInterface
+instance Prelude.NFData LocalGatewayVirtualInterface where
+  rnf LocalGatewayVirtualInterface' {..} =
+    Prelude.rnf localGatewayVirtualInterfaceId
+      `Prelude.seq` Prelude.rnf localBgpAsn
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf localAddress
+      `Prelude.seq` Prelude.rnf peerBgpAsn
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf peerAddress
+      `Prelude.seq` Prelude.rnf tags

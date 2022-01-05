@@ -386,9 +386,31 @@ instance Core.AWSRequest CopySnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopySnapshot
+instance Prelude.Hashable CopySnapshot where
+  hashWithSalt _salt CopySnapshot' {..} =
+    _salt `Prelude.hashWithSalt` destinationOutpostArn
+      `Prelude.hashWithSalt` presignedUrl
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` sourceSnapshotId
 
-instance Prelude.NFData CopySnapshot
+instance Prelude.NFData CopySnapshot where
+  rnf CopySnapshot' {..} =
+    Prelude.rnf destinationOutpostArn
+      `Prelude.seq` Prelude.rnf presignedUrl
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf sourceSnapshotId
 
 instance Core.ToHeaders CopySnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -466,4 +488,8 @@ copySnapshotResponse_snapshotId = Lens.lens (\CopySnapshotResponse' {snapshotId}
 copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Prelude.Int
 copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus} -> httpStatus) (\s@CopySnapshotResponse' {} a -> s {httpStatus = a} :: CopySnapshotResponse)
 
-instance Prelude.NFData CopySnapshotResponse
+instance Prelude.NFData CopySnapshotResponse where
+  rnf CopySnapshotResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf httpStatus

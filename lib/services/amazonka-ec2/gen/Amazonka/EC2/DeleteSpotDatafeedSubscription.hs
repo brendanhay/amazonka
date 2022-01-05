@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DeleteSpotDatafeedSubscription
+  where
+  hashWithSalt
+    _salt
+    DeleteSpotDatafeedSubscription' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DeleteSpotDatafeedSubscription
+  where
+  rnf DeleteSpotDatafeedSubscription' {..} =
+    Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -140,3 +148,5 @@ newDeleteSpotDatafeedSubscriptionResponse =
 instance
   Prelude.NFData
     DeleteSpotDatafeedSubscriptionResponse
+  where
+  rnf _ = ()

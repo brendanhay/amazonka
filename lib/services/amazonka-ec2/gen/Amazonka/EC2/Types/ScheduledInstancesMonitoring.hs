@@ -57,8 +57,13 @@ scheduledInstancesMonitoring_enabled = Lens.lens (\ScheduledInstancesMonitoring'
 instance
   Prelude.Hashable
     ScheduledInstancesMonitoring
+  where
+  hashWithSalt _salt ScheduledInstancesMonitoring' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData ScheduledInstancesMonitoring
+instance Prelude.NFData ScheduledInstancesMonitoring where
+  rnf ScheduledInstancesMonitoring' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToQuery ScheduledInstancesMonitoring where
   toQuery ScheduledInstancesMonitoring' {..} =

@@ -117,10 +117,26 @@ launchTemplateSpotMarketOptionsRequest_maxPrice = Lens.lens (\LaunchTemplateSpot
 instance
   Prelude.Hashable
     LaunchTemplateSpotMarketOptionsRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateSpotMarketOptionsRequest' {..} =
+      _salt `Prelude.hashWithSalt` blockDurationMinutes
+        `Prelude.hashWithSalt` instanceInterruptionBehavior
+        `Prelude.hashWithSalt` validUntil
+        `Prelude.hashWithSalt` spotInstanceType
+        `Prelude.hashWithSalt` maxPrice
 
 instance
   Prelude.NFData
     LaunchTemplateSpotMarketOptionsRequest
+  where
+  rnf LaunchTemplateSpotMarketOptionsRequest' {..} =
+    Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf spotInstanceType
+      `Prelude.seq` Prelude.rnf maxPrice
 
 instance
   Core.ToQuery

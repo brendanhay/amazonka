@@ -221,9 +221,19 @@ instance Core.AWSRequest ExportTransitGatewayRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportTransitGatewayRoutes
+instance Prelude.Hashable ExportTransitGatewayRoutes where
+  hashWithSalt _salt ExportTransitGatewayRoutes' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` transitGatewayRouteTableId
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData ExportTransitGatewayRoutes
+instance Prelude.NFData ExportTransitGatewayRoutes where
+  rnf ExportTransitGatewayRoutes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToHeaders ExportTransitGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,3 +301,7 @@ exportTransitGatewayRoutesResponse_httpStatus = Lens.lens (\ExportTransitGateway
 instance
   Prelude.NFData
     ExportTransitGatewayRoutesResponse
+  where
+  rnf ExportTransitGatewayRoutesResponse' {..} =
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf httpStatus

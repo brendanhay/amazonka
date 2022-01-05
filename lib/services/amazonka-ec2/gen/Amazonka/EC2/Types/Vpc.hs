@@ -176,6 +176,29 @@ instance Core.FromXML Vpc where
       Prelude.<*> (x Core..@ "state")
       Prelude.<*> (x Core..@ "vpcId")
 
-instance Prelude.Hashable Vpc
+instance Prelude.Hashable Vpc where
+  hashWithSalt _salt Vpc' {..} =
+    _salt
+      `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
+      `Prelude.hashWithSalt` cidrBlockAssociationSet
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` dhcpOptionsId
+      `Prelude.hashWithSalt` instanceTenancy
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData Vpc
+instance Prelude.NFData Vpc where
+  rnf Vpc' {..} =
+    Prelude.rnf ipv6CidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf cidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
+      `Prelude.seq` Prelude.rnf instanceTenancy
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf vpcId

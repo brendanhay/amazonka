@@ -313,6 +313,32 @@ instance Core.FromXML NatGateway where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable NatGateway
+instance Prelude.Hashable NatGateway where
+  hashWithSalt _salt NatGateway' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` connectivityType
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` failureMessage
+      `Prelude.hashWithSalt` natGatewayId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` deleteTime
+      `Prelude.hashWithSalt` provisionedBandwidth
+      `Prelude.hashWithSalt` natGatewayAddresses
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData NatGateway
+instance Prelude.NFData NatGateway where
+  rnf NatGateway' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf connectivityType
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf natGatewayId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf deleteTime
+      `Prelude.seq` Prelude.rnf provisionedBandwidth
+      `Prelude.seq` Prelude.rnf natGatewayAddresses
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf tags

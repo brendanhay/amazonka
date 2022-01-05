@@ -104,6 +104,18 @@ instance Core.FromXML HostProperties where
       Prelude.<*> (x Core..@? "cores")
       Prelude.<*> (x Core..@? "sockets")
 
-instance Prelude.Hashable HostProperties
+instance Prelude.Hashable HostProperties where
+  hashWithSalt _salt HostProperties' {..} =
+    _salt `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` totalVCpus
+      `Prelude.hashWithSalt` cores
+      `Prelude.hashWithSalt` sockets
 
-instance Prelude.NFData HostProperties
+instance Prelude.NFData HostProperties where
+  rnf HostProperties' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf totalVCpus
+      `Prelude.seq` Prelude.rnf cores
+      `Prelude.seq` Prelude.rnf sockets

@@ -161,9 +161,17 @@ instance Core.AWSRequest DescribeImageAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageAttribute
+instance Prelude.Hashable DescribeImageAttribute where
+  hashWithSalt _salt DescribeImageAttribute' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData DescribeImageAttribute
+instance Prelude.NFData DescribeImageAttribute where
+  rnf DescribeImageAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders DescribeImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,3 +309,15 @@ describeImageAttributeResponse_httpStatus = Lens.lens (\DescribeImageAttributeRe
 instance
   Prelude.NFData
     DescribeImageAttributeResponse
+  where
+  rnf DescribeImageAttributeResponse' {..} =
+    Prelude.rnf launchPermissions
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf httpStatus

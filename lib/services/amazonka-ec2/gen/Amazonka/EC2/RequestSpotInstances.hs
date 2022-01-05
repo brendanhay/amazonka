@@ -387,9 +387,37 @@ instance Core.AWSRequest RequestSpotInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RequestSpotInstances
+instance Prelude.Hashable RequestSpotInstances where
+  hashWithSalt _salt RequestSpotInstances' {..} =
+    _salt `Prelude.hashWithSalt` blockDurationMinutes
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` launchSpecification
+      `Prelude.hashWithSalt` availabilityZoneGroup
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` launchGroup
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData RequestSpotInstances
+instance Prelude.NFData RequestSpotInstances where
+  rnf RequestSpotInstances' {..} =
+    Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf launchSpecification
+      `Prelude.seq` Prelude.rnf availabilityZoneGroup
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf launchGroup
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders RequestSpotInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -465,4 +493,7 @@ requestSpotInstancesResponse_spotInstanceRequests = Lens.lens (\RequestSpotInsta
 requestSpotInstancesResponse_httpStatus :: Lens.Lens' RequestSpotInstancesResponse Prelude.Int
 requestSpotInstancesResponse_httpStatus = Lens.lens (\RequestSpotInstancesResponse' {httpStatus} -> httpStatus) (\s@RequestSpotInstancesResponse' {} a -> s {httpStatus = a} :: RequestSpotInstancesResponse)
 
-instance Prelude.NFData RequestSpotInstancesResponse
+instance Prelude.NFData RequestSpotInstancesResponse where
+  rnf RequestSpotInstancesResponse' {..} =
+    Prelude.rnf spotInstanceRequests
+      `Prelude.seq` Prelude.rnf httpStatus

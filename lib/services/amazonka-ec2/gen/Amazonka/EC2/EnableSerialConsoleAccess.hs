@@ -100,9 +100,13 @@ instance Core.AWSRequest EnableSerialConsoleAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableSerialConsoleAccess
+instance Prelude.Hashable EnableSerialConsoleAccess where
+  hashWithSalt _salt EnableSerialConsoleAccess' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData EnableSerialConsoleAccess
+instance Prelude.NFData EnableSerialConsoleAccess where
+  rnf EnableSerialConsoleAccess' {..} =
+    Prelude.rnf dryRun
 
 instance Core.ToHeaders EnableSerialConsoleAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,3 +172,7 @@ enableSerialConsoleAccessResponse_httpStatus = Lens.lens (\EnableSerialConsoleAc
 instance
   Prelude.NFData
     EnableSerialConsoleAccessResponse
+  where
+  rnf EnableSerialConsoleAccessResponse' {..} =
+    Prelude.rnf serialConsoleAccessEnabled
+      `Prelude.seq` Prelude.rnf httpStatus

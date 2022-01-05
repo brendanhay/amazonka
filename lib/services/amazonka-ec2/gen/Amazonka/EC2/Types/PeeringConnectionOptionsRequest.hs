@@ -89,10 +89,25 @@ peeringConnectionOptionsRequest_allowDnsResolutionFromRemoteVpc = Lens.lens (\Pe
 instance
   Prelude.Hashable
     PeeringConnectionOptionsRequest
+  where
+  hashWithSalt
+    _salt
+    PeeringConnectionOptionsRequest' {..} =
+      _salt
+        `Prelude.hashWithSalt` allowEgressFromLocalVpcToRemoteClassicLink
+        `Prelude.hashWithSalt` allowEgressFromLocalClassicLinkToRemoteVpc
+        `Prelude.hashWithSalt` allowDnsResolutionFromRemoteVpc
 
 instance
   Prelude.NFData
     PeeringConnectionOptionsRequest
+  where
+  rnf PeeringConnectionOptionsRequest' {..} =
+    Prelude.rnf
+      allowEgressFromLocalVpcToRemoteClassicLink
+      `Prelude.seq` Prelude.rnf
+        allowEgressFromLocalClassicLinkToRemoteVpc
+      `Prelude.seq` Prelude.rnf allowDnsResolutionFromRemoteVpc
 
 instance Core.ToQuery PeeringConnectionOptionsRequest where
   toQuery PeeringConnectionOptionsRequest' {..} =

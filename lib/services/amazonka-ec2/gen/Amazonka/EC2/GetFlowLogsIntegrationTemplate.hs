@@ -159,10 +159,24 @@ instance
 instance
   Prelude.Hashable
     GetFlowLogsIntegrationTemplate
+  where
+  hashWithSalt
+    _salt
+    GetFlowLogsIntegrationTemplate' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` flowLogId
+        `Prelude.hashWithSalt` configDeliveryS3DestinationArn
+        `Prelude.hashWithSalt` integrateServices
 
 instance
   Prelude.NFData
     GetFlowLogsIntegrationTemplate
+  where
+  rnf GetFlowLogsIntegrationTemplate' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf flowLogId
+      `Prelude.seq` Prelude.rnf configDeliveryS3DestinationArn
+      `Prelude.seq` Prelude.rnf integrateServices
 
 instance
   Core.ToHeaders
@@ -232,3 +246,7 @@ getFlowLogsIntegrationTemplateResponse_httpStatus = Lens.lens (\GetFlowLogsInteg
 instance
   Prelude.NFData
     GetFlowLogsIntegrationTemplateResponse
+  where
+  rnf GetFlowLogsIntegrationTemplateResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -73,6 +73,12 @@ instance Core.FromXML ProcessorInfo where
                   )
       Prelude.<*> (x Core..@? "sustainedClockSpeedInGhz")
 
-instance Prelude.Hashable ProcessorInfo
+instance Prelude.Hashable ProcessorInfo where
+  hashWithSalt _salt ProcessorInfo' {..} =
+    _salt `Prelude.hashWithSalt` supportedArchitectures
+      `Prelude.hashWithSalt` sustainedClockSpeedInGhz
 
-instance Prelude.NFData ProcessorInfo
+instance Prelude.NFData ProcessorInfo where
+  rnf ProcessorInfo' {..} =
+    Prelude.rnf supportedArchitectures
+      `Prelude.seq` Prelude.rnf sustainedClockSpeedInGhz

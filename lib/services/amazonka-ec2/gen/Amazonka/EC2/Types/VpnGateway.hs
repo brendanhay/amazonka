@@ -132,6 +132,22 @@ instance Core.FromXML VpnGateway where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VpnGateway
+instance Prelude.Hashable VpnGateway where
+  hashWithSalt _salt VpnGateway' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` vpcAttachments
+      `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData VpnGateway
+instance Prelude.NFData VpnGateway where
+  rnf VpnGateway' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf vpcAttachments
+      `Prelude.seq` Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tags

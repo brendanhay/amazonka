@@ -56,6 +56,9 @@ instance Core.FromXML Ipv6CidrBlock where
     Ipv6CidrBlock'
       Prelude.<$> (x Core..@? "ipv6CidrBlock")
 
-instance Prelude.Hashable Ipv6CidrBlock
+instance Prelude.Hashable Ipv6CidrBlock where
+  hashWithSalt _salt Ipv6CidrBlock' {..} =
+    _salt `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData Ipv6CidrBlock
+instance Prelude.NFData Ipv6CidrBlock where
+  rnf Ipv6CidrBlock' {..} = Prelude.rnf ipv6CidrBlock

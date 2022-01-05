@@ -170,9 +170,19 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSpotFleetInstances
+instance Prelude.Hashable DescribeSpotFleetInstances where
+  hashWithSalt _salt DescribeSpotFleetInstances' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` spotFleetRequestId
 
-instance Prelude.NFData DescribeSpotFleetInstances
+instance Prelude.NFData DescribeSpotFleetInstances where
+  rnf DescribeSpotFleetInstances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
 
 instance Core.ToHeaders DescribeSpotFleetInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,3 +271,9 @@ describeSpotFleetInstancesResponse_httpStatus = Lens.lens (\DescribeSpotFleetIns
 instance
   Prelude.NFData
     DescribeSpotFleetInstancesResponse
+  where
+  rnf DescribeSpotFleetInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
+      `Prelude.seq` Prelude.rnf activeInstances
+      `Prelude.seq` Prelude.rnf httpStatus

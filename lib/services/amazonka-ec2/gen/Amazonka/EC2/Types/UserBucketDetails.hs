@@ -68,6 +68,12 @@ instance Core.FromXML UserBucketDetails where
       Prelude.<$> (x Core..@? "s3Key")
       Prelude.<*> (x Core..@? "s3Bucket")
 
-instance Prelude.Hashable UserBucketDetails
+instance Prelude.Hashable UserBucketDetails where
+  hashWithSalt _salt UserBucketDetails' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData UserBucketDetails
+instance Prelude.NFData UserBucketDetails where
+  rnf UserBucketDetails' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3Bucket

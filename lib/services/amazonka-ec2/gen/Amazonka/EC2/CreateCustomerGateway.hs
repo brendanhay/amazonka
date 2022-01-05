@@ -211,9 +211,25 @@ instance Core.AWSRequest CreateCustomerGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomerGateway
+instance Prelude.Hashable CreateCustomerGateway where
+  hashWithSalt _salt CreateCustomerGateway' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` bgpAsn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateCustomerGateway
+instance Prelude.NFData CreateCustomerGateway where
+  rnf CreateCustomerGateway' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf bgpAsn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateCustomerGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,4 +297,7 @@ createCustomerGatewayResponse_customerGateway = Lens.lens (\CreateCustomerGatewa
 createCustomerGatewayResponse_httpStatus :: Lens.Lens' CreateCustomerGatewayResponse Prelude.Int
 createCustomerGatewayResponse_httpStatus = Lens.lens (\CreateCustomerGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateCustomerGatewayResponse' {} a -> s {httpStatus = a} :: CreateCustomerGatewayResponse)
 
-instance Prelude.NFData CreateCustomerGatewayResponse
+instance Prelude.NFData CreateCustomerGatewayResponse where
+  rnf CreateCustomerGatewayResponse' {..} =
+    Prelude.rnf customerGateway
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -70,6 +70,12 @@ instance Core.FromXML SubnetAssociation where
       Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "subnetId")
 
-instance Prelude.Hashable SubnetAssociation
+instance Prelude.Hashable SubnetAssociation where
+  hashWithSalt _salt SubnetAssociation' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData SubnetAssociation
+instance Prelude.NFData SubnetAssociation where
+  rnf SubnetAssociation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf subnetId

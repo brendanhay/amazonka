@@ -139,10 +139,22 @@ instance
 instance
   Prelude.Hashable
     DescribeNetworkInterfaceAttribute
+  where
+  hashWithSalt
+    _salt
+    DescribeNetworkInterfaceAttribute' {..} =
+      _salt `Prelude.hashWithSalt` attribute
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` networkInterfaceId
 
 instance
   Prelude.NFData
     DescribeNetworkInterfaceAttribute
+  where
+  rnf DescribeNetworkInterfaceAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
   Core.ToHeaders
@@ -256,3 +268,11 @@ describeNetworkInterfaceAttributeResponse_httpStatus = Lens.lens (\DescribeNetwo
 instance
   Prelude.NFData
     DescribeNetworkInterfaceAttributeResponse
+  where
+  rnf DescribeNetworkInterfaceAttributeResponse' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

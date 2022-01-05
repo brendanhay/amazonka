@@ -118,6 +118,20 @@ instance Core.FromXML AuthorizationRule where
       Prelude.<*> (x Core..@? "destinationCidr")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable AuthorizationRule
+instance Prelude.Hashable AuthorizationRule where
+  hashWithSalt _salt AuthorizationRule' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` accessAll
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` destinationCidr
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AuthorizationRule
+instance Prelude.NFData AuthorizationRule where
+  rnf AuthorizationRule' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf accessAll
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf destinationCidr
+      `Prelude.seq` Prelude.rnf description

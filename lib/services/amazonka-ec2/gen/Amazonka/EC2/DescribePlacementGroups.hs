@@ -194,9 +194,19 @@ instance Core.AWSRequest DescribePlacementGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePlacementGroups
+instance Prelude.Hashable DescribePlacementGroups where
+  hashWithSalt _salt DescribePlacementGroups' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` groupNames
+      `Prelude.hashWithSalt` groupIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribePlacementGroups
+instance Prelude.NFData DescribePlacementGroups where
+  rnf DescribePlacementGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf groupNames
+      `Prelude.seq` Prelude.rnf groupIds
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribePlacementGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,3 +274,7 @@ describePlacementGroupsResponse_httpStatus = Lens.lens (\DescribePlacementGroups
 instance
   Prelude.NFData
     DescribePlacementGroupsResponse
+  where
+  rnf DescribePlacementGroupsResponse' {..} =
+    Prelude.rnf placementGroups
+      `Prelude.seq` Prelude.rnf httpStatus

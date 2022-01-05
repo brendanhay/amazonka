@@ -237,9 +237,33 @@ instance Core.AWSRequest ModifyVpcEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpcEndpoint
+instance Prelude.Hashable ModifyVpcEndpoint where
+  hashWithSalt _salt ModifyVpcEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` removeRouteTableIds
+      `Prelude.hashWithSalt` resetPolicy
+      `Prelude.hashWithSalt` addRouteTableIds
+      `Prelude.hashWithSalt` privateDnsEnabled
+      `Prelude.hashWithSalt` addSubnetIds
+      `Prelude.hashWithSalt` removeSubnetIds
+      `Prelude.hashWithSalt` addSecurityGroupIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` removeSecurityGroupIds
+      `Prelude.hashWithSalt` vpcEndpointId
 
-instance Prelude.NFData ModifyVpcEndpoint
+instance Prelude.NFData ModifyVpcEndpoint where
+  rnf ModifyVpcEndpoint' {..} =
+    Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf removeRouteTableIds
+      `Prelude.seq` Prelude.rnf resetPolicy
+      `Prelude.seq` Prelude.rnf addRouteTableIds
+      `Prelude.seq` Prelude.rnf privateDnsEnabled
+      `Prelude.seq` Prelude.rnf addSubnetIds
+      `Prelude.seq` Prelude.rnf removeSubnetIds
+      `Prelude.seq` Prelude.rnf addSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf removeSecurityGroupIds
+      `Prelude.seq` Prelude.rnf vpcEndpointId
 
 instance Core.ToHeaders ModifyVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,4 +348,7 @@ modifyVpcEndpointResponse_return = Lens.lens (\ModifyVpcEndpointResponse' {retur
 modifyVpcEndpointResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointResponse Prelude.Int
 modifyVpcEndpointResponse_httpStatus = Lens.lens (\ModifyVpcEndpointResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcEndpointResponse' {} a -> s {httpStatus = a} :: ModifyVpcEndpointResponse)
 
-instance Prelude.NFData ModifyVpcEndpointResponse
+instance Prelude.NFData ModifyVpcEndpointResponse where
+  rnf ModifyVpcEndpointResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

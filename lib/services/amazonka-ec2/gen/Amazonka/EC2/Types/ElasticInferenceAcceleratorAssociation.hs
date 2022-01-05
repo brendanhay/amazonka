@@ -108,7 +108,24 @@ instance
 instance
   Prelude.Hashable
     ElasticInferenceAcceleratorAssociation
+  where
+  hashWithSalt
+    _salt
+    ElasticInferenceAcceleratorAssociation' {..} =
+      _salt
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationState
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationTime
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorArn
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationId
 
 instance
   Prelude.NFData
     ElasticInferenceAcceleratorAssociation
+  where
+  rnf ElasticInferenceAcceleratorAssociation' {..} =
+    Prelude.rnf
+      elasticInferenceAcceleratorAssociationState
+      `Prelude.seq` Prelude.rnf
+        elasticInferenceAcceleratorAssociationTime
+      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorArn
+      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorAssociationId

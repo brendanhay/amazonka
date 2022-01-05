@@ -384,6 +384,50 @@ instance Core.FromXML FleetData where
                   )
       Prelude.<*> (x Core..@? "activityStatus")
 
-instance Prelude.Hashable FleetData
+instance Prelude.Hashable FleetData where
+  hashWithSalt _salt FleetData' {..} =
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` targetCapacitySpecification
+      `Prelude.hashWithSalt` spotOptions
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` onDemandOptions
+      `Prelude.hashWithSalt` fleetState
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` terminateInstancesWithExpiration
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` fulfilledCapacity
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` replaceUnhealthyInstances
+      `Prelude.hashWithSalt` fulfilledOnDemandCapacity
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` activityStatus
 
-instance Prelude.NFData FleetData
+instance Prelude.NFData FleetData where
+  rnf FleetData' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf targetCapacitySpecification
+      `Prelude.seq` Prelude.rnf spotOptions
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf onDemandOptions
+      `Prelude.seq` Prelude.rnf fleetState
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf terminateInstancesWithExpiration
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf fulfilledCapacity
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
+      `Prelude.seq` Prelude.rnf fulfilledOnDemandCapacity
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf activityStatus

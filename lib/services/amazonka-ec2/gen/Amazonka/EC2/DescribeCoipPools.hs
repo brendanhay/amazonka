@@ -182,9 +182,21 @@ instance Core.AWSRequest DescribeCoipPools where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCoipPools
+instance Prelude.Hashable DescribeCoipPools where
+  hashWithSalt _salt DescribeCoipPools' {..} =
+    _salt `Prelude.hashWithSalt` poolIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeCoipPools
+instance Prelude.NFData DescribeCoipPools where
+  rnf DescribeCoipPools' {..} =
+    Prelude.rnf poolIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCoipPools where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,4 +271,8 @@ describeCoipPoolsResponse_nextToken = Lens.lens (\DescribeCoipPoolsResponse' {ne
 describeCoipPoolsResponse_httpStatus :: Lens.Lens' DescribeCoipPoolsResponse Prelude.Int
 describeCoipPoolsResponse_httpStatus = Lens.lens (\DescribeCoipPoolsResponse' {httpStatus} -> httpStatus) (\s@DescribeCoipPoolsResponse' {} a -> s {httpStatus = a} :: DescribeCoipPoolsResponse)
 
-instance Prelude.NFData DescribeCoipPoolsResponse
+instance Prelude.NFData DescribeCoipPoolsResponse where
+  rnf DescribeCoipPoolsResponse' {..} =
+    Prelude.rnf coipPools
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

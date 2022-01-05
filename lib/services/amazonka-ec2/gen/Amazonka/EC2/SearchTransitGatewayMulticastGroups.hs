@@ -250,10 +250,26 @@ instance
 instance
   Prelude.Hashable
     SearchTransitGatewayMulticastGroups
+  where
+  hashWithSalt
+    _salt
+    SearchTransitGatewayMulticastGroups' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     SearchTransitGatewayMulticastGroups
+  where
+  rnf SearchTransitGatewayMulticastGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -344,3 +360,8 @@ searchTransitGatewayMulticastGroupsResponse_httpStatus = Lens.lens (\SearchTrans
 instance
   Prelude.NFData
     SearchTransitGatewayMulticastGroupsResponse
+  where
+  rnf SearchTransitGatewayMulticastGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf multicastGroups
+      `Prelude.seq` Prelude.rnf httpStatus

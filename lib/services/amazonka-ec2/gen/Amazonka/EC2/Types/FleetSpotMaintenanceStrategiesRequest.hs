@@ -62,10 +62,18 @@ fleetSpotMaintenanceStrategiesRequest_capacityRebalance = Lens.lens (\FleetSpotM
 instance
   Prelude.Hashable
     FleetSpotMaintenanceStrategiesRequest
+  where
+  hashWithSalt
+    _salt
+    FleetSpotMaintenanceStrategiesRequest' {..} =
+      _salt `Prelude.hashWithSalt` capacityRebalance
 
 instance
   Prelude.NFData
     FleetSpotMaintenanceStrategiesRequest
+  where
+  rnf FleetSpotMaintenanceStrategiesRequest' {..} =
+    Prelude.rnf capacityRebalance
 
 instance
   Core.ToQuery

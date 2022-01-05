@@ -536,6 +536,122 @@ instance Core.FromXML Explanation where
       Prelude.<*> (x Core..@? "destinationVpc")
       Prelude.<*> (x Core..@? "attachedTo")
 
-instance Prelude.Hashable Explanation
+instance Prelude.Hashable Explanation where
+  hashWithSalt _salt Explanation' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` cidrs
+      `Prelude.hashWithSalt` component
+      `Prelude.hashWithSalt` loadBalancerTargetGroups
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` prefixList
+      `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` loadBalancerListenerPort
+      `Prelude.hashWithSalt` portRanges
+      `Prelude.hashWithSalt` addresses
+      `Prelude.hashWithSalt` classicLoadBalancerListener
+      `Prelude.hashWithSalt` ingressRouteTable
+      `Prelude.hashWithSalt` networkInterface
+      `Prelude.hashWithSalt` loadBalancerTarget
+      `Prelude.hashWithSalt` subnet
+      `Prelude.hashWithSalt` natGateway
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` explanationCode
+      `Prelude.hashWithSalt` securityGroup
+      `Prelude.hashWithSalt` elasticLoadBalancerListener
+      `Prelude.hashWithSalt` loadBalancerTargetGroup
+      `Prelude.hashWithSalt` customerGateway
+      `Prelude.hashWithSalt` subnetRouteTable
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` routeTable
+      `Prelude.hashWithSalt` securityGroupRule
+      `Prelude.hashWithSalt` packetField
+      `Prelude.hashWithSalt` loadBalancerTargetPort
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` vpnGateway
+      `Prelude.hashWithSalt` sourceVpc
+      `Prelude.hashWithSalt` aclRule
+      `Prelude.hashWithSalt` internetGateway
+      `Prelude.hashWithSalt` missingComponent
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` vpnConnection
+      `Prelude.hashWithSalt` routeTableRoute
+      `Prelude.hashWithSalt` vpcEndpoint
+      `Prelude.hashWithSalt` vpcPeeringConnection
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` destinationVpc
+      `Prelude.hashWithSalt` attachedTo
 
-instance Prelude.NFData Explanation
+instance Prelude.NFData Explanation where
+  rnf Explanation' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf cidrs
+      `Prelude.seq` Prelude.rnf component
+      `Prelude.seq` Prelude.rnf loadBalancerTargetGroups
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf prefixList
+      `Prelude.seq` Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf loadBalancerListenerPort
+      `Prelude.seq` Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf classicLoadBalancerListener
+      `Prelude.seq` Prelude.rnf ingressRouteTable
+      `Prelude.seq` Prelude.rnf networkInterface
+      `Prelude.seq` Prelude.rnf loadBalancerTarget
+      `Prelude.seq` Prelude.rnf subnet
+      `Prelude.seq` Prelude.rnf natGateway
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf explanationCode
+      `Prelude.seq` Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf
+        elasticLoadBalancerListener
+      `Prelude.seq` Prelude.rnf
+        loadBalancerTargetGroup
+      `Prelude.seq` Prelude.rnf
+        customerGateway
+      `Prelude.seq` Prelude.rnf
+        subnetRouteTable
+      `Prelude.seq` Prelude.rnf
+        availabilityZones
+      `Prelude.seq` Prelude.rnf
+        loadBalancerArn
+      `Prelude.seq` Prelude.rnf
+        routeTable
+      `Prelude.seq` Prelude.rnf
+        securityGroupRule
+      `Prelude.seq` Prelude.rnf
+        packetField
+      `Prelude.seq` Prelude.rnf
+        loadBalancerTargetPort
+      `Prelude.seq` Prelude.rnf
+        vpc
+      `Prelude.seq` Prelude.rnf
+        vpnGateway
+      `Prelude.seq` Prelude.rnf
+        sourceVpc
+      `Prelude.seq` Prelude.rnf
+        aclRule
+      `Prelude.seq` Prelude.rnf
+        internetGateway
+      `Prelude.seq` Prelude.rnf
+        missingComponent
+      `Prelude.seq` Prelude.rnf
+        acl
+      `Prelude.seq` Prelude.rnf
+        vpnConnection
+      `Prelude.seq` Prelude.rnf
+        routeTableRoute
+      `Prelude.seq` Prelude.rnf
+        vpcEndpoint
+      `Prelude.seq` Prelude.rnf
+        vpcPeeringConnection
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        destinationVpc
+      `Prelude.seq` Prelude.rnf
+        attachedTo

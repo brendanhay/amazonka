@@ -107,9 +107,15 @@ instance Core.AWSRequest DeleteFpgaImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFpgaImage
+instance Prelude.Hashable DeleteFpgaImage where
+  hashWithSalt _salt DeleteFpgaImage' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` fpgaImageId
 
-instance Prelude.NFData DeleteFpgaImage
+instance Prelude.NFData DeleteFpgaImage where
+  rnf DeleteFpgaImage' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf fpgaImageId
 
 instance Core.ToHeaders DeleteFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +172,7 @@ deleteFpgaImageResponse_return = Lens.lens (\DeleteFpgaImageResponse' {return'} 
 deleteFpgaImageResponse_httpStatus :: Lens.Lens' DeleteFpgaImageResponse Prelude.Int
 deleteFpgaImageResponse_httpStatus = Lens.lens (\DeleteFpgaImageResponse' {httpStatus} -> httpStatus) (\s@DeleteFpgaImageResponse' {} a -> s {httpStatus = a} :: DeleteFpgaImageResponse)
 
-instance Prelude.NFData DeleteFpgaImageResponse
+instance Prelude.NFData DeleteFpgaImageResponse where
+  rnf DeleteFpgaImageResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

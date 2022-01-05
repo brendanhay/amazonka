@@ -94,9 +94,13 @@ instance Core.AWSRequest DisassociateSubnetCidrBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateSubnetCidrBlock
+instance Prelude.Hashable DisassociateSubnetCidrBlock where
+  hashWithSalt _salt DisassociateSubnetCidrBlock' {..} =
+    _salt `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData DisassociateSubnetCidrBlock
+instance Prelude.NFData DisassociateSubnetCidrBlock where
+  rnf DisassociateSubnetCidrBlock' {..} =
+    Prelude.rnf associationId
 
 instance Core.ToHeaders DisassociateSubnetCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,3 +172,8 @@ disassociateSubnetCidrBlockResponse_httpStatus = Lens.lens (\DisassociateSubnetC
 instance
   Prelude.NFData
     DisassociateSubnetCidrBlockResponse
+  where
+  rnf DisassociateSubnetCidrBlockResponse' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

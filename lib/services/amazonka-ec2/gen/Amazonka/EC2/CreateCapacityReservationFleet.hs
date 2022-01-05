@@ -332,10 +332,34 @@ instance
 instance
   Prelude.Hashable
     CreateCapacityReservationFleet
+  where
+  hashWithSalt
+    _salt
+    CreateCapacityReservationFleet' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` endDate
+        `Prelude.hashWithSalt` instanceMatchCriteria
+        `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` tenancy
+        `Prelude.hashWithSalt` allocationStrategy
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` instanceTypeSpecifications
+        `Prelude.hashWithSalt` totalTargetCapacity
 
 instance
   Prelude.NFData
     CreateCapacityReservationFleet
+  where
+  rnf CreateCapacityReservationFleet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceTypeSpecifications
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
 
 instance
   Core.ToHeaders
@@ -516,3 +540,17 @@ createCapacityReservationFleetResponse_httpStatus = Lens.lens (\CreateCapacityRe
 instance
   Prelude.NFData
     CreateCapacityReservationFleetResponse
+  where
+  rnf CreateCapacityReservationFleetResponse' {..} =
+    Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf totalFulfilledCapacity
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf fleetCapacityReservations
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

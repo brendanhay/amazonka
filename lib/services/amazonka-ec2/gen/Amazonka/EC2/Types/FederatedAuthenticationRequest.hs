@@ -70,10 +70,20 @@ federatedAuthenticationRequest_selfServiceSAMLProviderArn = Lens.lens (\Federate
 instance
   Prelude.Hashable
     FederatedAuthenticationRequest
+  where
+  hashWithSalt
+    _salt
+    FederatedAuthenticationRequest' {..} =
+      _salt `Prelude.hashWithSalt` sAMLProviderArn
+        `Prelude.hashWithSalt` selfServiceSAMLProviderArn
 
 instance
   Prelude.NFData
     FederatedAuthenticationRequest
+  where
+  rnf FederatedAuthenticationRequest' {..} =
+    Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf selfServiceSAMLProviderArn
 
 instance Core.ToQuery FederatedAuthenticationRequest where
   toQuery FederatedAuthenticationRequest' {..} =

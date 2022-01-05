@@ -56,6 +56,9 @@ instance Core.FromXML PoolCidrBlock where
     PoolCidrBlock'
       Prelude.<$> (x Core..@? "poolCidrBlock")
 
-instance Prelude.Hashable PoolCidrBlock
+instance Prelude.Hashable PoolCidrBlock where
+  hashWithSalt _salt PoolCidrBlock' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData PoolCidrBlock
+instance Prelude.NFData PoolCidrBlock where
+  rnf PoolCidrBlock' {..} = Prelude.rnf cidr

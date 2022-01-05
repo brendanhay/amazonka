@@ -131,10 +131,22 @@ instance
 instance
   Prelude.Hashable
     AssociateTransitGatewayRouteTable
+  where
+  hashWithSalt
+    _salt
+    AssociateTransitGatewayRouteTable' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance
   Prelude.NFData
     AssociateTransitGatewayRouteTable
+  where
+  rnf AssociateTransitGatewayRouteTable' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
   Core.ToHeaders
@@ -210,3 +222,7 @@ associateTransitGatewayRouteTableResponse_httpStatus = Lens.lens (\AssociateTran
 instance
   Prelude.NFData
     AssociateTransitGatewayRouteTableResponse
+  where
+  rnf AssociateTransitGatewayRouteTableResponse' {..} =
+    Prelude.rnf association
+      `Prelude.seq` Prelude.rnf httpStatus

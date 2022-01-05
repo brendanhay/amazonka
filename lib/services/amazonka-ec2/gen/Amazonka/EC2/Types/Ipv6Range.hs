@@ -86,9 +86,15 @@ instance Core.FromXML Ipv6Range where
       Prelude.<$> (x Core..@? "cidrIpv6")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable Ipv6Range
+instance Prelude.Hashable Ipv6Range where
+  hashWithSalt _salt Ipv6Range' {..} =
+    _salt `Prelude.hashWithSalt` cidrIpv6
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Ipv6Range
+instance Prelude.NFData Ipv6Range where
+  rnf Ipv6Range' {..} =
+    Prelude.rnf cidrIpv6
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery Ipv6Range where
   toQuery Ipv6Range' {..} =

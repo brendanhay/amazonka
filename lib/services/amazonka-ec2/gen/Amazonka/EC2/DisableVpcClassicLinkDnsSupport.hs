@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     DisableVpcClassicLinkDnsSupport
+  where
+  hashWithSalt
+    _salt
+    DisableVpcClassicLinkDnsSupport' {..} =
+      _salt `Prelude.hashWithSalt` vpcId
 
 instance
   Prelude.NFData
     DisableVpcClassicLinkDnsSupport
+  where
+  rnf DisableVpcClassicLinkDnsSupport' {..} =
+    Prelude.rnf vpcId
 
 instance
   Core.ToHeaders
@@ -169,3 +177,7 @@ disableVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\DisableVpcClass
 instance
   Prelude.NFData
     DisableVpcClassicLinkDnsSupportResponse
+  where
+  rnf DisableVpcClassicLinkDnsSupportResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

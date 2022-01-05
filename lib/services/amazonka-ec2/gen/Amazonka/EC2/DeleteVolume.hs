@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteVolume where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVolumeResponse'
 
-instance Prelude.Hashable DeleteVolume
+instance Prelude.Hashable DeleteVolume where
+  hashWithSalt _salt DeleteVolume' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData DeleteVolume
+instance Prelude.NFData DeleteVolume where
+  rnf DeleteVolume' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders DeleteVolume where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,4 +143,5 @@ newDeleteVolumeResponse ::
   DeleteVolumeResponse
 newDeleteVolumeResponse = DeleteVolumeResponse'
 
-instance Prelude.NFData DeleteVolumeResponse
+instance Prelude.NFData DeleteVolumeResponse where
+  rnf _ = ()

@@ -112,9 +112,17 @@ instance Core.AWSRequest DetachInternetGateway where
   response =
     Response.receiveNull DetachInternetGatewayResponse'
 
-instance Prelude.Hashable DetachInternetGateway
+instance Prelude.Hashable DetachInternetGateway where
+  hashWithSalt _salt DetachInternetGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` internetGatewayId
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData DetachInternetGateway
+instance Prelude.NFData DetachInternetGateway where
+  rnf DetachInternetGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf internetGatewayId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders DetachInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +157,5 @@ newDetachInternetGatewayResponse ::
 newDetachInternetGatewayResponse =
   DetachInternetGatewayResponse'
 
-instance Prelude.NFData DetachInternetGatewayResponse
+instance Prelude.NFData DetachInternetGatewayResponse where
+  rnf _ = ()

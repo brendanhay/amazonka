@@ -73,9 +73,17 @@ diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} 
 diskImage_description :: Lens.Lens' DiskImage (Prelude.Maybe Prelude.Text)
 diskImage_description = Lens.lens (\DiskImage' {description} -> description) (\s@DiskImage' {} a -> s {description = a} :: DiskImage)
 
-instance Prelude.Hashable DiskImage
+instance Prelude.Hashable DiskImage where
+  hashWithSalt _salt DiskImage' {..} =
+    _salt `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` volume
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DiskImage
+instance Prelude.NFData DiskImage where
+  rnf DiskImage' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf volume
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery DiskImage where
   toQuery DiskImage' {..} =

@@ -127,9 +127,17 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTransitGatewayRoute
+instance Prelude.Hashable DeleteTransitGatewayRoute where
+  hashWithSalt _salt DeleteTransitGatewayRoute' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` transitGatewayRouteTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
 
-instance Prelude.NFData DeleteTransitGatewayRoute
+instance Prelude.NFData DeleteTransitGatewayRoute where
+  rnf DeleteTransitGatewayRoute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
 
 instance Core.ToHeaders DeleteTransitGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +200,7 @@ deleteTransitGatewayRouteResponse_httpStatus = Lens.lens (\DeleteTransitGatewayR
 instance
   Prelude.NFData
     DeleteTransitGatewayRouteResponse
+  where
+  rnf DeleteTransitGatewayRouteResponse' {..} =
+    Prelude.rnf route
+      `Prelude.seq` Prelude.rnf httpStatus

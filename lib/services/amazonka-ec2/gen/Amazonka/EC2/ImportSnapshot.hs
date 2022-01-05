@@ -307,9 +307,29 @@ instance Core.AWSRequest ImportSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportSnapshot
+instance Prelude.Hashable ImportSnapshot where
+  hashWithSalt _salt ImportSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` diskContainer
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientData
 
-instance Prelude.NFData ImportSnapshot
+instance Prelude.NFData ImportSnapshot where
+  rnf ImportSnapshot' {..} =
+    Prelude.rnf diskContainer
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientData
 
 instance Core.ToHeaders ImportSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -404,4 +424,10 @@ importSnapshotResponse_tags = Lens.lens (\ImportSnapshotResponse' {tags} -> tags
 importSnapshotResponse_httpStatus :: Lens.Lens' ImportSnapshotResponse Prelude.Int
 importSnapshotResponse_httpStatus = Lens.lens (\ImportSnapshotResponse' {httpStatus} -> httpStatus) (\s@ImportSnapshotResponse' {} a -> s {httpStatus = a} :: ImportSnapshotResponse)
 
-instance Prelude.NFData ImportSnapshotResponse
+instance Prelude.NFData ImportSnapshotResponse where
+  rnf ImportSnapshotResponse' {..} =
+    Prelude.rnf snapshotTaskDetail
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

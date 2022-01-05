@@ -65,7 +65,16 @@ instance
 instance
   Prelude.Hashable
     ImportImageLicenseConfigurationResponse
+  where
+  hashWithSalt
+    _salt
+    ImportImageLicenseConfigurationResponse' {..} =
+      _salt
+        `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
   Prelude.NFData
     ImportImageLicenseConfigurationResponse
+  where
+  rnf ImportImageLicenseConfigurationResponse' {..} =
+    Prelude.rnf licenseConfigurationArn

@@ -76,7 +76,16 @@ instance Core.FromXML VpcPeeringConnectionStateReason where
 instance
   Prelude.Hashable
     VpcPeeringConnectionStateReason
+  where
+  hashWithSalt
+    _salt
+    VpcPeeringConnectionStateReason' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     VpcPeeringConnectionStateReason
+  where
+  rnf VpcPeeringConnectionStateReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

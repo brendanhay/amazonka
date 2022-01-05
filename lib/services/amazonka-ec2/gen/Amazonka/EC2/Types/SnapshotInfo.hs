@@ -177,6 +177,30 @@ instance Core.FromXML SnapshotInfo where
                   )
       Prelude.<*> (x Core..@? "snapshotId")
 
-instance Prelude.Hashable SnapshotInfo
+instance Prelude.Hashable SnapshotInfo where
+  hashWithSalt _salt SnapshotInfo' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData SnapshotInfo
+instance Prelude.NFData SnapshotInfo where
+  rnf SnapshotInfo' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotId

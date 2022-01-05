@@ -126,9 +126,19 @@ instance Core.AWSRequest DeleteNetworkAclEntry where
   response =
     Response.receiveNull DeleteNetworkAclEntryResponse'
 
-instance Prelude.Hashable DeleteNetworkAclEntry
+instance Prelude.Hashable DeleteNetworkAclEntry where
+  hashWithSalt _salt DeleteNetworkAclEntry' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` ruleNumber
 
-instance Prelude.NFData DeleteNetworkAclEntry
+instance Prelude.NFData DeleteNetworkAclEntry where
+  rnf DeleteNetworkAclEntry' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf ruleNumber
 
 instance Core.ToHeaders DeleteNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +174,5 @@ newDeleteNetworkAclEntryResponse ::
 newDeleteNetworkAclEntryResponse =
   DeleteNetworkAclEntryResponse'
 
-instance Prelude.NFData DeleteNetworkAclEntryResponse
+instance Prelude.NFData DeleteNetworkAclEntryResponse where
+  rnf _ = ()

@@ -73,10 +73,20 @@ launchTemplateCpuOptionsRequest_threadsPerCore = Lens.lens (\LaunchTemplateCpuOp
 instance
   Prelude.Hashable
     LaunchTemplateCpuOptionsRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateCpuOptionsRequest' {..} =
+      _salt `Prelude.hashWithSalt` coreCount
+        `Prelude.hashWithSalt` threadsPerCore
 
 instance
   Prelude.NFData
     LaunchTemplateCpuOptionsRequest
+  where
+  rnf LaunchTemplateCpuOptionsRequest' {..} =
+    Prelude.rnf coreCount
+      `Prelude.seq` Prelude.rnf threadsPerCore
 
 instance Core.ToQuery LaunchTemplateCpuOptionsRequest where
   toQuery LaunchTemplateCpuOptionsRequest' {..} =

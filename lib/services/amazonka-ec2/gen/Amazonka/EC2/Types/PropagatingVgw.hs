@@ -56,6 +56,9 @@ instance Core.FromXML PropagatingVgw where
     PropagatingVgw'
       Prelude.<$> (x Core..@? "gatewayId")
 
-instance Prelude.Hashable PropagatingVgw
+instance Prelude.Hashable PropagatingVgw where
+  hashWithSalt _salt PropagatingVgw' {..} =
+    _salt `Prelude.hashWithSalt` gatewayId
 
-instance Prelude.NFData PropagatingVgw
+instance Prelude.NFData PropagatingVgw where
+  rnf PropagatingVgw' {..} = Prelude.rnf gatewayId

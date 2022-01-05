@@ -73,7 +73,17 @@ instance Core.FromXML NetworkInterfacePermissionState where
 instance
   Prelude.Hashable
     NetworkInterfacePermissionState
+  where
+  hashWithSalt
+    _salt
+    NetworkInterfacePermissionState' {..} =
+      _salt `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` statusMessage
 
 instance
   Prelude.NFData
     NetworkInterfacePermissionState
+  where
+  rnf NetworkInterfacePermissionState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusMessage

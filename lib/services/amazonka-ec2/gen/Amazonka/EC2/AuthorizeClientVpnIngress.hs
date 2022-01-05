@@ -186,9 +186,25 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AuthorizeClientVpnIngress
+instance Prelude.Hashable AuthorizeClientVpnIngress where
+  hashWithSalt _salt AuthorizeClientVpnIngress' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` accessGroupId
+      `Prelude.hashWithSalt` authorizeAllGroups
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` targetNetworkCidr
 
-instance Prelude.NFData AuthorizeClientVpnIngress
+instance Prelude.NFData AuthorizeClientVpnIngress where
+  rnf AuthorizeClientVpnIngress' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf accessGroupId
+      `Prelude.seq` Prelude.rnf authorizeAllGroups
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf targetNetworkCidr
 
 instance Core.ToHeaders AuthorizeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +270,7 @@ authorizeClientVpnIngressResponse_httpStatus = Lens.lens (\AuthorizeClientVpnIng
 instance
   Prelude.NFData
     AuthorizeClientVpnIngressResponse
+  where
+  rnf AuthorizeClientVpnIngressResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

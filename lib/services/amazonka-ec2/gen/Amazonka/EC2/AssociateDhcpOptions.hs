@@ -125,9 +125,17 @@ instance Core.AWSRequest AssociateDhcpOptions where
   response =
     Response.receiveNull AssociateDhcpOptionsResponse'
 
-instance Prelude.Hashable AssociateDhcpOptions
+instance Prelude.Hashable AssociateDhcpOptions where
+  hashWithSalt _salt AssociateDhcpOptions' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` dhcpOptionsId
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData AssociateDhcpOptions
+instance Prelude.NFData AssociateDhcpOptions where
+  rnf AssociateDhcpOptions' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders AssociateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +170,5 @@ newAssociateDhcpOptionsResponse ::
 newAssociateDhcpOptionsResponse =
   AssociateDhcpOptionsResponse'
 
-instance Prelude.NFData AssociateDhcpOptionsResponse
+instance Prelude.NFData AssociateDhcpOptionsResponse where
+  rnf _ = ()

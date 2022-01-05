@@ -171,10 +171,38 @@ importInstanceLaunchSpecification_placement = Lens.lens (\ImportInstanceLaunchSp
 instance
   Prelude.Hashable
     ImportInstanceLaunchSpecification
+  where
+  hashWithSalt
+    _salt
+    ImportInstanceLaunchSpecification' {..} =
+      _salt `Prelude.hashWithSalt` additionalInfo
+        `Prelude.hashWithSalt` groupNames
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` groupIds
+        `Prelude.hashWithSalt` userData
+        `Prelude.hashWithSalt` monitoring
+        `Prelude.hashWithSalt` privateIpAddress
+        `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
+        `Prelude.hashWithSalt` architecture
+        `Prelude.hashWithSalt` placement
 
 instance
   Prelude.NFData
     ImportInstanceLaunchSpecification
+  where
+  rnf ImportInstanceLaunchSpecification' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf groupNames
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf groupIds
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf placement
 
 instance
   Core.ToQuery

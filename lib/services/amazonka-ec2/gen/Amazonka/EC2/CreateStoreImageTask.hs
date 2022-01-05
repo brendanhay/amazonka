@@ -151,9 +151,19 @@ instance Core.AWSRequest CreateStoreImageTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStoreImageTask
+instance Prelude.Hashable CreateStoreImageTask where
+  hashWithSalt _salt CreateStoreImageTask' {..} =
+    _salt `Prelude.hashWithSalt` s3ObjectTags
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData CreateStoreImageTask
+instance Prelude.NFData CreateStoreImageTask where
+  rnf CreateStoreImageTask' {..} =
+    Prelude.rnf s3ObjectTags
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders CreateStoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,4 +226,7 @@ createStoreImageTaskResponse_objectKey = Lens.lens (\CreateStoreImageTaskRespons
 createStoreImageTaskResponse_httpStatus :: Lens.Lens' CreateStoreImageTaskResponse Prelude.Int
 createStoreImageTaskResponse_httpStatus = Lens.lens (\CreateStoreImageTaskResponse' {httpStatus} -> httpStatus) (\s@CreateStoreImageTaskResponse' {} a -> s {httpStatus = a} :: CreateStoreImageTaskResponse)
 
-instance Prelude.NFData CreateStoreImageTaskResponse
+instance Prelude.NFData CreateStoreImageTaskResponse where
+  rnf CreateStoreImageTaskResponse' {..} =
+    Prelude.rnf objectKey
+      `Prelude.seq` Prelude.rnf httpStatus

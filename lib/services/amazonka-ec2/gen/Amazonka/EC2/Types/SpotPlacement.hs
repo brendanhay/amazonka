@@ -94,9 +94,17 @@ instance Core.FromXML SpotPlacement where
       Prelude.<*> (x Core..@? "tenancy")
       Prelude.<*> (x Core..@? "groupName")
 
-instance Prelude.Hashable SpotPlacement
+instance Prelude.Hashable SpotPlacement where
+  hashWithSalt _salt SpotPlacement' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData SpotPlacement
+instance Prelude.NFData SpotPlacement where
+  rnf SpotPlacement' {..} =
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToQuery SpotPlacement where
   toQuery SpotPlacement' {..} =

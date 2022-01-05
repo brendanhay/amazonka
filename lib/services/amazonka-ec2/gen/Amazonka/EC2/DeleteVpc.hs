@@ -100,9 +100,14 @@ instance Core.AWSRequest DeleteVpc where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVpcResponse'
 
-instance Prelude.Hashable DeleteVpc
+instance Prelude.Hashable DeleteVpc where
+  hashWithSalt _salt DeleteVpc' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData DeleteVpc
+instance Prelude.NFData DeleteVpc where
+  rnf DeleteVpc' {..} =
+    Prelude.rnf dryRun `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders DeleteVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +140,5 @@ newDeleteVpcResponse ::
   DeleteVpcResponse
 newDeleteVpcResponse = DeleteVpcResponse'
 
-instance Prelude.NFData DeleteVpcResponse
+instance Prelude.NFData DeleteVpcResponse where
+  rnf _ = ()

@@ -142,9 +142,17 @@ instance Core.AWSRequest ModifyVpcAttribute where
   response =
     Response.receiveNull ModifyVpcAttributeResponse'
 
-instance Prelude.Hashable ModifyVpcAttribute
+instance Prelude.Hashable ModifyVpcAttribute where
+  hashWithSalt _salt ModifyVpcAttribute' {..} =
+    _salt `Prelude.hashWithSalt` enableDnsHostnames
+      `Prelude.hashWithSalt` enableDnsSupport
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData ModifyVpcAttribute
+instance Prelude.NFData ModifyVpcAttribute where
+  rnf ModifyVpcAttribute' {..} =
+    Prelude.rnf enableDnsHostnames
+      `Prelude.seq` Prelude.rnf enableDnsSupport
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders ModifyVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,4 +187,5 @@ newModifyVpcAttributeResponse ::
 newModifyVpcAttributeResponse =
   ModifyVpcAttributeResponse'
 
-instance Prelude.NFData ModifyVpcAttributeResponse
+instance Prelude.NFData ModifyVpcAttributeResponse where
+  rnf _ = ()

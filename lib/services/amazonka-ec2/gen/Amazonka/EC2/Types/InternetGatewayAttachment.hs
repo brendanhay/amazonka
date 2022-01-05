@@ -79,6 +79,11 @@ instance Core.FromXML InternetGatewayAttachment where
     InternetGatewayAttachment'
       Prelude.<$> (x Core..@ "state") Prelude.<*> (x Core..@ "vpcId")
 
-instance Prelude.Hashable InternetGatewayAttachment
+instance Prelude.Hashable InternetGatewayAttachment where
+  hashWithSalt _salt InternetGatewayAttachment' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData InternetGatewayAttachment
+instance Prelude.NFData InternetGatewayAttachment where
+  rnf InternetGatewayAttachment' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf vpcId

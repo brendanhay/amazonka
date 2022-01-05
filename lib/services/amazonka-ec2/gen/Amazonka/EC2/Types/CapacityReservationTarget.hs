@@ -67,9 +67,15 @@ capacityReservationTarget_capacityReservationId = Lens.lens (\CapacityReservatio
 capacityReservationTarget_capacityReservationResourceGroupArn :: Lens.Lens' CapacityReservationTarget (Prelude.Maybe Prelude.Text)
 capacityReservationTarget_capacityReservationResourceGroupArn = Lens.lens (\CapacityReservationTarget' {capacityReservationResourceGroupArn} -> capacityReservationResourceGroupArn) (\s@CapacityReservationTarget' {} a -> s {capacityReservationResourceGroupArn = a} :: CapacityReservationTarget)
 
-instance Prelude.Hashable CapacityReservationTarget
+instance Prelude.Hashable CapacityReservationTarget where
+  hashWithSalt _salt CapacityReservationTarget' {..} =
+    _salt `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` capacityReservationResourceGroupArn
 
-instance Prelude.NFData CapacityReservationTarget
+instance Prelude.NFData CapacityReservationTarget where
+  rnf CapacityReservationTarget' {..} =
+    Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
 
 instance Core.ToQuery CapacityReservationTarget where
   toQuery CapacityReservationTarget' {..} =

@@ -205,9 +205,31 @@ instance Core.AWSRequest ModifyImageAttribute where
   response =
     Response.receiveNull ModifyImageAttributeResponse'
 
-instance Prelude.Hashable ModifyImageAttribute
+instance Prelude.Hashable ModifyImageAttribute where
+  hashWithSalt _salt ModifyImageAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` userGroups
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` launchPermission
+      `Prelude.hashWithSalt` operationType
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData ModifyImageAttribute
+instance Prelude.NFData ModifyImageAttribute where
+  rnf ModifyImageAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf userGroups
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf launchPermission
+      `Prelude.seq` Prelude.rnf operationType
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders ModifyImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,4 +278,5 @@ newModifyImageAttributeResponse ::
 newModifyImageAttributeResponse =
   ModifyImageAttributeResponse'
 
-instance Prelude.NFData ModifyImageAttributeResponse
+instance Prelude.NFData ModifyImageAttributeResponse where
+  rnf _ = ()

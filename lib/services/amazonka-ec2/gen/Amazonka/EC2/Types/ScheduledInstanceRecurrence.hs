@@ -114,6 +114,18 @@ instance Core.FromXML ScheduledInstanceRecurrence where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ScheduledInstanceRecurrence
+instance Prelude.Hashable ScheduledInstanceRecurrence where
+  hashWithSalt _salt ScheduledInstanceRecurrence' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` occurrenceRelativeToEnd
+      `Prelude.hashWithSalt` occurrenceUnit
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` occurrenceDaySet
 
-instance Prelude.NFData ScheduledInstanceRecurrence
+instance Prelude.NFData ScheduledInstanceRecurrence where
+  rnf ScheduledInstanceRecurrence' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf occurrenceRelativeToEnd
+      `Prelude.seq` Prelude.rnf occurrenceUnit
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf occurrenceDaySet

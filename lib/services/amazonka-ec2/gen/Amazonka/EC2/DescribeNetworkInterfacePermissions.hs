@@ -209,10 +209,24 @@ instance
 instance
   Prelude.Hashable
     DescribeNetworkInterfacePermissions
+  where
+  hashWithSalt
+    _salt
+    DescribeNetworkInterfacePermissions' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` networkInterfacePermissionIds
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeNetworkInterfacePermissions
+  where
+  rnf DescribeNetworkInterfacePermissions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf networkInterfacePermissionIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -302,3 +316,8 @@ describeNetworkInterfacePermissionsResponse_httpStatus = Lens.lens (\DescribeNet
 instance
   Prelude.NFData
     DescribeNetworkInterfacePermissionsResponse
+  where
+  rnf DescribeNetworkInterfacePermissionsResponse' {..} =
+    Prelude.rnf networkInterfacePermissions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

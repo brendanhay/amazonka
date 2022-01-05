@@ -218,10 +218,35 @@ instance
 instance
   Prelude.Hashable
     ModifyVpcEndpointServiceConfiguration
+  where
+  hashWithSalt
+    _salt
+    ModifyVpcEndpointServiceConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` removeGatewayLoadBalancerArns
+        `Prelude.hashWithSalt` removePrivateDnsName
+        `Prelude.hashWithSalt` addGatewayLoadBalancerArns
+        `Prelude.hashWithSalt` removeNetworkLoadBalancerArns
+        `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` addNetworkLoadBalancerArns
+        `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` serviceId
 
 instance
   Prelude.NFData
     ModifyVpcEndpointServiceConfiguration
+  where
+  rnf ModifyVpcEndpointServiceConfiguration' {..} =
+    Prelude.rnf removeGatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf removePrivateDnsName
+      `Prelude.seq` Prelude.rnf addGatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf removeNetworkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf addNetworkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf serviceId
 
 instance
   Core.ToHeaders
@@ -313,3 +338,8 @@ modifyVpcEndpointServiceConfigurationResponse_httpStatus = Lens.lens (\ModifyVpc
 instance
   Prelude.NFData
     ModifyVpcEndpointServiceConfigurationResponse
+  where
+  rnf
+    ModifyVpcEndpointServiceConfigurationResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

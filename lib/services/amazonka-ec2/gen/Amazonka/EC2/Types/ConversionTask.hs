@@ -133,6 +133,22 @@ instance Core.FromXML ConversionTask where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ConversionTask
+instance Prelude.Hashable ConversionTask where
+  hashWithSalt _salt ConversionTask' {..} =
+    _salt `Prelude.hashWithSalt` importInstance
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` importVolume
+      `Prelude.hashWithSalt` conversionTaskId
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ConversionTask
+instance Prelude.NFData ConversionTask where
+  rnf ConversionTask' {..} =
+    Prelude.rnf importInstance
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf importVolume
+      `Prelude.seq` Prelude.rnf conversionTaskId
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf tags

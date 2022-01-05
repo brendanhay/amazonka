@@ -183,9 +183,21 @@ instance Core.AWSRequest ModifyVpnConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpnConnection
+instance Prelude.Hashable ModifyVpnConnection where
+  hashWithSalt _salt ModifyVpnConnection' {..} =
+    _salt `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` customerGatewayId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpnConnectionId
 
-instance Prelude.NFData ModifyVpnConnection
+instance Prelude.NFData ModifyVpnConnection where
+  rnf ModifyVpnConnection' {..} =
+    Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf customerGatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpnConnectionId
 
 instance Core.ToHeaders ModifyVpnConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,4 +257,7 @@ modifyVpnConnectionResponse_vpnConnection = Lens.lens (\ModifyVpnConnectionRespo
 modifyVpnConnectionResponse_httpStatus :: Lens.Lens' ModifyVpnConnectionResponse Prelude.Int
 modifyVpnConnectionResponse_httpStatus = Lens.lens (\ModifyVpnConnectionResponse' {httpStatus} -> httpStatus) (\s@ModifyVpnConnectionResponse' {} a -> s {httpStatus = a} :: ModifyVpnConnectionResponse)
 
-instance Prelude.NFData ModifyVpnConnectionResponse
+instance Prelude.NFData ModifyVpnConnectionResponse where
+  rnf ModifyVpnConnectionResponse' {..} =
+    Prelude.rnf vpnConnection
+      `Prelude.seq` Prelude.rnf httpStatus

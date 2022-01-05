@@ -92,6 +92,14 @@ instance Core.FromXML InstanceTypeOffering where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "locationType")
 
-instance Prelude.Hashable InstanceTypeOffering
+instance Prelude.Hashable InstanceTypeOffering where
+  hashWithSalt _salt InstanceTypeOffering' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` locationType
 
-instance Prelude.NFData InstanceTypeOffering
+instance Prelude.NFData InstanceTypeOffering where
+  rnf InstanceTypeOffering' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf locationType

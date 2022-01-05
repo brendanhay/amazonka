@@ -69,5 +69,10 @@ instance Core.FromXML LaunchTemplateEnclaveOptions where
 instance
   Prelude.Hashable
     LaunchTemplateEnclaveOptions
+  where
+  hashWithSalt _salt LaunchTemplateEnclaveOptions' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LaunchTemplateEnclaveOptions
+instance Prelude.NFData LaunchTemplateEnclaveOptions where
+  rnf LaunchTemplateEnclaveOptions' {..} =
+    Prelude.rnf enabled

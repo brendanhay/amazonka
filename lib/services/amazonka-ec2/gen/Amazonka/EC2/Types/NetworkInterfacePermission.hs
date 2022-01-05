@@ -111,6 +111,20 @@ instance Core.FromXML NetworkInterfacePermission where
       Prelude.<*> (x Core..@? "awsService")
       Prelude.<*> (x Core..@? "permission")
 
-instance Prelude.Hashable NetworkInterfacePermission
+instance Prelude.Hashable NetworkInterfacePermission where
+  hashWithSalt _salt NetworkInterfacePermission' {..} =
+    _salt `Prelude.hashWithSalt` permissionState
+      `Prelude.hashWithSalt` networkInterfacePermissionId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` awsService
+      `Prelude.hashWithSalt` permission
 
-instance Prelude.NFData NetworkInterfacePermission
+instance Prelude.NFData NetworkInterfacePermission where
+  rnf NetworkInterfacePermission' {..} =
+    Prelude.rnf permissionState
+      `Prelude.seq` Prelude.rnf networkInterfacePermissionId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf awsService
+      `Prelude.seq` Prelude.rnf permission

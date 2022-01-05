@@ -86,10 +86,23 @@ modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport = Lens.lens (\ModifyT
 instance
   Prelude.Hashable
     ModifyTransitGatewayVpcAttachmentRequestOptions
+  where
+  hashWithSalt
+    _salt
+    ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
+      _salt `Prelude.hashWithSalt` ipv6Support
+        `Prelude.hashWithSalt` applianceModeSupport
+        `Prelude.hashWithSalt` dnsSupport
 
 instance
   Prelude.NFData
     ModifyTransitGatewayVpcAttachmentRequestOptions
+  where
+  rnf
+    ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
+      Prelude.rnf ipv6Support
+        `Prelude.seq` Prelude.rnf applianceModeSupport
+        `Prelude.seq` Prelude.rnf dnsSupport
 
 instance
   Core.ToQuery

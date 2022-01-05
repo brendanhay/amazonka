@@ -74,6 +74,12 @@ instance Core.FromXML TrafficMirrorPortRange where
       Prelude.<$> (x Core..@? "fromPort")
       Prelude.<*> (x Core..@? "toPort")
 
-instance Prelude.Hashable TrafficMirrorPortRange
+instance Prelude.Hashable TrafficMirrorPortRange where
+  hashWithSalt _salt TrafficMirrorPortRange' {..} =
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` toPort
 
-instance Prelude.NFData TrafficMirrorPortRange
+instance Prelude.NFData TrafficMirrorPortRange where
+  rnf TrafficMirrorPortRange' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort

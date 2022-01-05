@@ -68,6 +68,11 @@ instance Core.FromXML PeeringAttachmentStatus where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable PeeringAttachmentStatus
+instance Prelude.Hashable PeeringAttachmentStatus where
+  hashWithSalt _salt PeeringAttachmentStatus' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData PeeringAttachmentStatus
+instance Prelude.NFData PeeringAttachmentStatus where
+  rnf PeeringAttachmentStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

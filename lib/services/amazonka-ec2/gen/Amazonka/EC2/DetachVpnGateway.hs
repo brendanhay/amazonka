@@ -120,9 +120,17 @@ instance Core.AWSRequest DetachVpnGateway where
   response =
     Response.receiveNull DetachVpnGatewayResponse'
 
-instance Prelude.Hashable DetachVpnGateway
+instance Prelude.Hashable DetachVpnGateway where
+  hashWithSalt _salt DetachVpnGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpnGatewayId
 
-instance Prelude.NFData DetachVpnGateway
+instance Prelude.NFData DetachVpnGateway where
+  rnf DetachVpnGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf vpnGatewayId
 
 instance Core.ToHeaders DetachVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +165,5 @@ newDetachVpnGatewayResponse ::
 newDetachVpnGatewayResponse =
   DetachVpnGatewayResponse'
 
-instance Prelude.NFData DetachVpnGatewayResponse
+instance Prelude.NFData DetachVpnGatewayResponse where
+  rnf _ = ()

@@ -105,9 +105,15 @@ instance Core.AWSRequest AssociateIamInstanceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateIamInstanceProfile
+instance Prelude.Hashable AssociateIamInstanceProfile where
+  hashWithSalt _salt AssociateIamInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateIamInstanceProfile
+instance Prelude.NFData AssociateIamInstanceProfile where
+  rnf AssociateIamInstanceProfile' {..} =
+    Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders AssociateIamInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,3 +176,7 @@ associateIamInstanceProfileResponse_httpStatus = Lens.lens (\AssociateIamInstanc
 instance
   Prelude.NFData
     AssociateIamInstanceProfileResponse
+  where
+  rnf AssociateIamInstanceProfileResponse' {..} =
+    Prelude.rnf iamInstanceProfileAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

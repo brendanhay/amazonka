@@ -79,6 +79,14 @@ instance Core.FromXML InstanceStateChange where
       Prelude.<*> (x Core..@? "currentState")
       Prelude.<*> (x Core..@? "previousState")
 
-instance Prelude.Hashable InstanceStateChange
+instance Prelude.Hashable InstanceStateChange where
+  hashWithSalt _salt InstanceStateChange' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` currentState
+      `Prelude.hashWithSalt` previousState
 
-instance Prelude.NFData InstanceStateChange
+instance Prelude.NFData InstanceStateChange where
+  rnf InstanceStateChange' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf currentState
+      `Prelude.seq` Prelude.rnf previousState

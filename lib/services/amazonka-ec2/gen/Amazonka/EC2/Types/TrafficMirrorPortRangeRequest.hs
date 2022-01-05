@@ -72,8 +72,15 @@ trafficMirrorPortRangeRequest_toPort = Lens.lens (\TrafficMirrorPortRangeRequest
 instance
   Prelude.Hashable
     TrafficMirrorPortRangeRequest
+  where
+  hashWithSalt _salt TrafficMirrorPortRangeRequest' {..} =
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` toPort
 
-instance Prelude.NFData TrafficMirrorPortRangeRequest
+instance Prelude.NFData TrafficMirrorPortRangeRequest where
+  rnf TrafficMirrorPortRangeRequest' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
 
 instance Core.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =

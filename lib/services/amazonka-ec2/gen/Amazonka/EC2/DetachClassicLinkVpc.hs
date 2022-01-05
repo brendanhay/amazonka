@@ -122,9 +122,17 @@ instance Core.AWSRequest DetachClassicLinkVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachClassicLinkVpc
+instance Prelude.Hashable DetachClassicLinkVpc where
+  hashWithSalt _salt DetachClassicLinkVpc' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData DetachClassicLinkVpc
+instance Prelude.NFData DetachClassicLinkVpc where
+  rnf DetachClassicLinkVpc' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders DetachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +191,7 @@ detachClassicLinkVpcResponse_return = Lens.lens (\DetachClassicLinkVpcResponse' 
 detachClassicLinkVpcResponse_httpStatus :: Lens.Lens' DetachClassicLinkVpcResponse Prelude.Int
 detachClassicLinkVpcResponse_httpStatus = Lens.lens (\DetachClassicLinkVpcResponse' {httpStatus} -> httpStatus) (\s@DetachClassicLinkVpcResponse' {} a -> s {httpStatus = a} :: DetachClassicLinkVpcResponse)
 
-instance Prelude.NFData DetachClassicLinkVpcResponse
+instance Prelude.NFData DetachClassicLinkVpcResponse where
+  rnf DetachClassicLinkVpcResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

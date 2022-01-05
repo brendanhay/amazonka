@@ -76,7 +76,16 @@ instance
 instance
   Prelude.Hashable
     ClientVpnEndpointAttributeStatus
+  where
+  hashWithSalt
+    _salt
+    ClientVpnEndpointAttributeStatus' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     ClientVpnEndpointAttributeStatus
+  where
+  rnf ClientVpnEndpointAttributeStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -71,6 +71,12 @@ instance Core.FromXML FpgaInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable FpgaInfo
+instance Prelude.Hashable FpgaInfo where
+  hashWithSalt _salt FpgaInfo' {..} =
+    _salt `Prelude.hashWithSalt` totalFpgaMemoryInMiB
+      `Prelude.hashWithSalt` fpgas
 
-instance Prelude.NFData FpgaInfo
+instance Prelude.NFData FpgaInfo where
+  rnf FpgaInfo' {..} =
+    Prelude.rnf totalFpgaMemoryInMiB
+      `Prelude.seq` Prelude.rnf fpgas

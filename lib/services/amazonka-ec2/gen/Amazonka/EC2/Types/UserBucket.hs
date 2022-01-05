@@ -62,9 +62,15 @@ userBucket_s3Key = Lens.lens (\UserBucket' {s3Key} -> s3Key) (\s@UserBucket' {} 
 userBucket_s3Bucket :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
 userBucket_s3Bucket = Lens.lens (\UserBucket' {s3Bucket} -> s3Bucket) (\s@UserBucket' {} a -> s {s3Bucket = a} :: UserBucket)
 
-instance Prelude.Hashable UserBucket
+instance Prelude.Hashable UserBucket where
+  hashWithSalt _salt UserBucket' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData UserBucket
+instance Prelude.NFData UserBucket where
+  rnf UserBucket' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToQuery UserBucket where
   toQuery UserBucket' {..} =

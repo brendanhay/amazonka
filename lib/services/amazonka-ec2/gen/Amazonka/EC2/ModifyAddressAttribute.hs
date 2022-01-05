@@ -120,9 +120,17 @@ instance Core.AWSRequest ModifyAddressAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAddressAttribute
+instance Prelude.Hashable ModifyAddressAttribute where
+  hashWithSalt _salt ModifyAddressAttribute' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` allocationId
 
-instance Prelude.NFData ModifyAddressAttribute
+instance Prelude.NFData ModifyAddressAttribute where
+  rnf ModifyAddressAttribute' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf allocationId
 
 instance Core.ToHeaders ModifyAddressAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,3 +192,7 @@ modifyAddressAttributeResponse_httpStatus = Lens.lens (\ModifyAddressAttributeRe
 instance
   Prelude.NFData
     ModifyAddressAttributeResponse
+  where
+  rnf ModifyAddressAttributeResponse' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,9 +72,15 @@ instance Core.FromXML TagSpecification where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TagSpecification
+instance Prelude.Hashable TagSpecification where
+  hashWithSalt _salt TagSpecification' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagSpecification
+instance Prelude.NFData TagSpecification where
+  rnf TagSpecification' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToQuery TagSpecification where
   toQuery TagSpecification' {..} =

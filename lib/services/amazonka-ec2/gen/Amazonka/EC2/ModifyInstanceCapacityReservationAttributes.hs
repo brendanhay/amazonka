@@ -133,10 +133,22 @@ instance
 instance
   Prelude.Hashable
     ModifyInstanceCapacityReservationAttributes
+  where
+  hashWithSalt
+    _salt
+    ModifyInstanceCapacityReservationAttributes' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` capacityReservationSpecification
 
 instance
   Prelude.NFData
     ModifyInstanceCapacityReservationAttributes
+  where
+  rnf ModifyInstanceCapacityReservationAttributes' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf capacityReservationSpecification
 
 instance
   Core.ToHeaders
@@ -213,3 +225,8 @@ modifyInstanceCapacityReservationAttributesResponse_httpStatus = Lens.lens (\Mod
 instance
   Prelude.NFData
     ModifyInstanceCapacityReservationAttributesResponse
+  where
+  rnf
+    ModifyInstanceCapacityReservationAttributesResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

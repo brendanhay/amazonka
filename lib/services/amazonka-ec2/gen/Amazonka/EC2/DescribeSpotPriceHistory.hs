@@ -292,9 +292,29 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSpotPriceHistory
+instance Prelude.Hashable DescribeSpotPriceHistory where
+  hashWithSalt _salt DescribeSpotPriceHistory' {..} =
+    _salt `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` productDescriptions
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeSpotPriceHistory
+instance Prelude.NFData DescribeSpotPriceHistory where
+  rnf DescribeSpotPriceHistory' {..} =
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf productDescriptions
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeSpotPriceHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -383,3 +403,8 @@ describeSpotPriceHistoryResponse_httpStatus = Lens.lens (\DescribeSpotPriceHisto
 instance
   Prelude.NFData
     DescribeSpotPriceHistoryResponse
+  where
+  rnf DescribeSpotPriceHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf spotPriceHistory
+      `Prelude.seq` Prelude.rnf httpStatus

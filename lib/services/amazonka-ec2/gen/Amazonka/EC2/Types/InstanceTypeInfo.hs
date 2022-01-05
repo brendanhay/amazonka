@@ -331,6 +331,59 @@ instance Core.FromXML InstanceTypeInfo where
       Prelude.<*> (x Core..@? "dedicatedHostsSupported")
       Prelude.<*> (x Core..@? "hibernationSupported")
 
-instance Prelude.Hashable InstanceTypeInfo
+instance Prelude.Hashable InstanceTypeInfo where
+  hashWithSalt _salt InstanceTypeInfo' {..} =
+    _salt `Prelude.hashWithSalt` hypervisor
+      `Prelude.hashWithSalt` currentGeneration
+      `Prelude.hashWithSalt` memoryInfo
+      `Prelude.hashWithSalt` placementGroupInfo
+      `Prelude.hashWithSalt` supportedBootModes
+      `Prelude.hashWithSalt` supportedRootDeviceTypes
+      `Prelude.hashWithSalt` supportedUsageClasses
+      `Prelude.hashWithSalt` instanceStorageSupported
+      `Prelude.hashWithSalt` fpgaInfo
+      `Prelude.hashWithSalt` burstablePerformanceSupported
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` gpuInfo
+      `Prelude.hashWithSalt` supportedVirtualizationTypes
+      `Prelude.hashWithSalt` ebsInfo
+      `Prelude.hashWithSalt` autoRecoverySupported
+      `Prelude.hashWithSalt` inferenceAcceleratorInfo
+      `Prelude.hashWithSalt` bareMetal
+      `Prelude.hashWithSalt` networkInfo
+      `Prelude.hashWithSalt` processorInfo
+      `Prelude.hashWithSalt` freeTierEligible
+      `Prelude.hashWithSalt` vCpuInfo
+      `Prelude.hashWithSalt` instanceStorageInfo
+      `Prelude.hashWithSalt` dedicatedHostsSupported
+      `Prelude.hashWithSalt` hibernationSupported
 
-instance Prelude.NFData InstanceTypeInfo
+instance Prelude.NFData InstanceTypeInfo where
+  rnf InstanceTypeInfo' {..} =
+    Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf memoryInfo
+      `Prelude.seq` Prelude.rnf placementGroupInfo
+      `Prelude.seq` Prelude.rnf supportedBootModes
+      `Prelude.seq` Prelude.rnf supportedRootDeviceTypes
+      `Prelude.seq` Prelude.rnf supportedUsageClasses
+      `Prelude.seq` Prelude.rnf instanceStorageSupported
+      `Prelude.seq` Prelude.rnf fpgaInfo
+      `Prelude.seq` Prelude.rnf burstablePerformanceSupported
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf gpuInfo
+      `Prelude.seq` Prelude.rnf supportedVirtualizationTypes
+      `Prelude.seq` Prelude.rnf ebsInfo
+      `Prelude.seq` Prelude.rnf autoRecoverySupported
+      `Prelude.seq` Prelude.rnf inferenceAcceleratorInfo
+      `Prelude.seq` Prelude.rnf bareMetal
+      `Prelude.seq` Prelude.rnf networkInfo
+      `Prelude.seq` Prelude.rnf processorInfo
+      `Prelude.seq` Prelude.rnf freeTierEligible
+      `Prelude.seq` Prelude.rnf vCpuInfo
+      `Prelude.seq` Prelude.rnf
+        instanceStorageInfo
+      `Prelude.seq` Prelude.rnf
+        dedicatedHostsSupported
+      `Prelude.seq` Prelude.rnf
+        hibernationSupported

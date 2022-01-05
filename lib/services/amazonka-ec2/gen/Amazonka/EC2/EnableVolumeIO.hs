@@ -99,9 +99,15 @@ instance Core.AWSRequest EnableVolumeIO where
   response =
     Response.receiveNull EnableVolumeIOResponse'
 
-instance Prelude.Hashable EnableVolumeIO
+instance Prelude.Hashable EnableVolumeIO where
+  hashWithSalt _salt EnableVolumeIO' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData EnableVolumeIO
+instance Prelude.NFData EnableVolumeIO where
+  rnf EnableVolumeIO' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders EnableVolumeIO where
   toHeaders = Prelude.const Prelude.mempty
@@ -134,4 +140,5 @@ newEnableVolumeIOResponse ::
   EnableVolumeIOResponse
 newEnableVolumeIOResponse = EnableVolumeIOResponse'
 
-instance Prelude.NFData EnableVolumeIOResponse
+instance Prelude.NFData EnableVolumeIOResponse where
+  rnf _ = ()

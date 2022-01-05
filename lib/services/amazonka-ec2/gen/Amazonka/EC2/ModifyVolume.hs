@@ -312,9 +312,25 @@ instance Core.AWSRequest ModifyVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVolume
+instance Prelude.Hashable ModifyVolume where
+  hashWithSalt _salt ModifyVolume' {..} =
+    _salt `Prelude.hashWithSalt` multiAttachEnabled
+      `Prelude.hashWithSalt` throughput
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData ModifyVolume
+instance Prelude.NFData ModifyVolume where
+  rnf ModifyVolume' {..} =
+    Prelude.rnf multiAttachEnabled
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders ModifyVolume where
   toHeaders = Prelude.const Prelude.mempty
@@ -377,4 +393,7 @@ modifyVolumeResponse_volumeModification = Lens.lens (\ModifyVolumeResponse' {vol
 modifyVolumeResponse_httpStatus :: Lens.Lens' ModifyVolumeResponse Prelude.Int
 modifyVolumeResponse_httpStatus = Lens.lens (\ModifyVolumeResponse' {httpStatus} -> httpStatus) (\s@ModifyVolumeResponse' {} a -> s {httpStatus = a} :: ModifyVolumeResponse)
 
-instance Prelude.NFData ModifyVolumeResponse
+instance Prelude.NFData ModifyVolumeResponse where
+  rnf ModifyVolumeResponse' {..} =
+    Prelude.rnf volumeModification
+      `Prelude.seq` Prelude.rnf httpStatus

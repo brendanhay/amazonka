@@ -186,9 +186,25 @@ instance Core.AWSRequest ModifyManagedPrefixList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyManagedPrefixList
+instance Prelude.Hashable ModifyManagedPrefixList where
+  hashWithSalt _salt ModifyManagedPrefixList' {..} =
+    _salt `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` removeEntries
+      `Prelude.hashWithSalt` prefixListName
+      `Prelude.hashWithSalt` addEntries
+      `Prelude.hashWithSalt` maxEntries
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` prefixListId
 
-instance Prelude.NFData ModifyManagedPrefixList
+instance Prelude.NFData ModifyManagedPrefixList where
+  rnf ModifyManagedPrefixList' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf removeEntries
+      `Prelude.seq` Prelude.rnf prefixListName
+      `Prelude.seq` Prelude.rnf addEntries
+      `Prelude.seq` Prelude.rnf maxEntries
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf prefixListId
 
 instance Core.ToHeaders ModifyManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,3 +274,7 @@ modifyManagedPrefixListResponse_httpStatus = Lens.lens (\ModifyManagedPrefixList
 instance
   Prelude.NFData
     ModifyManagedPrefixListResponse
+  where
+  rnf ModifyManagedPrefixListResponse' {..} =
+    Prelude.rnf prefixList
+      `Prelude.seq` Prelude.rnf httpStatus

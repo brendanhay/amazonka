@@ -142,6 +142,24 @@ instance Core.FromXML VpnConnectionOptions where
       Prelude.<*> (x Core..@? "localIpv6NetworkCidr")
       Prelude.<*> (x Core..@? "staticRoutesOnly")
 
-instance Prelude.Hashable VpnConnectionOptions
+instance Prelude.Hashable VpnConnectionOptions where
+  hashWithSalt _salt VpnConnectionOptions' {..} =
+    _salt `Prelude.hashWithSalt` tunnelInsideIpVersion
+      `Prelude.hashWithSalt` remoteIpv4NetworkCidr
+      `Prelude.hashWithSalt` enableAcceleration
+      `Prelude.hashWithSalt` localIpv4NetworkCidr
+      `Prelude.hashWithSalt` remoteIpv6NetworkCidr
+      `Prelude.hashWithSalt` tunnelOptions
+      `Prelude.hashWithSalt` localIpv6NetworkCidr
+      `Prelude.hashWithSalt` staticRoutesOnly
 
-instance Prelude.NFData VpnConnectionOptions
+instance Prelude.NFData VpnConnectionOptions where
+  rnf VpnConnectionOptions' {..} =
+    Prelude.rnf tunnelInsideIpVersion
+      `Prelude.seq` Prelude.rnf remoteIpv4NetworkCidr
+      `Prelude.seq` Prelude.rnf enableAcceleration
+      `Prelude.seq` Prelude.rnf localIpv4NetworkCidr
+      `Prelude.seq` Prelude.rnf remoteIpv6NetworkCidr
+      `Prelude.seq` Prelude.rnf tunnelOptions
+      `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
+      `Prelude.seq` Prelude.rnf staticRoutesOnly

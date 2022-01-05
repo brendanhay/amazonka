@@ -181,9 +181,19 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePublicIpv4Pools
+instance Prelude.Hashable DescribePublicIpv4Pools where
+  hashWithSalt _salt DescribePublicIpv4Pools' {..} =
+    _salt `Prelude.hashWithSalt` poolIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribePublicIpv4Pools
+instance Prelude.NFData DescribePublicIpv4Pools where
+  rnf DescribePublicIpv4Pools' {..} =
+    Prelude.rnf poolIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribePublicIpv4Pools where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,3 +270,8 @@ describePublicIpv4PoolsResponse_httpStatus = Lens.lens (\DescribePublicIpv4Pools
 instance
   Prelude.NFData
     DescribePublicIpv4PoolsResponse
+  where
+  rnf DescribePublicIpv4PoolsResponse' {..} =
+    Prelude.rnf publicIpv4Pools
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

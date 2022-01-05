@@ -59,6 +59,11 @@ instance Core.FromXML LicenseConfiguration where
     LicenseConfiguration'
       Prelude.<$> (x Core..@? "licenseConfigurationArn")
 
-instance Prelude.Hashable LicenseConfiguration
+instance Prelude.Hashable LicenseConfiguration where
+  hashWithSalt _salt LicenseConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData LicenseConfiguration
+instance Prelude.NFData LicenseConfiguration where
+  rnf LicenseConfiguration' {..} =
+    Prelude.rnf licenseConfigurationArn

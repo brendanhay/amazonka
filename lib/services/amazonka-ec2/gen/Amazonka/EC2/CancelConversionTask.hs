@@ -116,9 +116,17 @@ instance Core.AWSRequest CancelConversionTask where
   response =
     Response.receiveNull CancelConversionTaskResponse'
 
-instance Prelude.Hashable CancelConversionTask
+instance Prelude.Hashable CancelConversionTask where
+  hashWithSalt _salt CancelConversionTask' {..} =
+    _salt `Prelude.hashWithSalt` reasonMessage
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` conversionTaskId
 
-instance Prelude.NFData CancelConversionTask
+instance Prelude.NFData CancelConversionTask where
+  rnf CancelConversionTask' {..} =
+    Prelude.rnf reasonMessage
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf conversionTaskId
 
 instance Core.ToHeaders CancelConversionTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,4 +161,5 @@ newCancelConversionTaskResponse ::
 newCancelConversionTaskResponse =
   CancelConversionTaskResponse'
 
-instance Prelude.NFData CancelConversionTaskResponse
+instance Prelude.NFData CancelConversionTaskResponse where
+  rnf _ = ()

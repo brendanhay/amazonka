@@ -240,9 +240,21 @@ instance Core.AWSRequest DescribeInternetGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInternetGateways
+instance Prelude.Hashable DescribeInternetGateways where
+  hashWithSalt _salt DescribeInternetGateways' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` internetGatewayIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeInternetGateways
+instance Prelude.NFData DescribeInternetGateways where
+  rnf DescribeInternetGateways' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf internetGatewayIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInternetGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,3 +334,8 @@ describeInternetGatewaysResponse_httpStatus = Lens.lens (\DescribeInternetGatewa
 instance
   Prelude.NFData
     DescribeInternetGatewaysResponse
+  where
+  rnf DescribeInternetGatewaysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf internetGateways
+      `Prelude.seq` Prelude.rnf httpStatus

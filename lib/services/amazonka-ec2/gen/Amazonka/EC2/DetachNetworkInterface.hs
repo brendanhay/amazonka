@@ -156,9 +156,17 @@ instance Core.AWSRequest DetachNetworkInterface where
     Response.receiveNull
       DetachNetworkInterfaceResponse'
 
-instance Prelude.Hashable DetachNetworkInterface
+instance Prelude.Hashable DetachNetworkInterface where
+  hashWithSalt _salt DetachNetworkInterface' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attachmentId
 
-instance Prelude.NFData DetachNetworkInterface
+instance Prelude.NFData DetachNetworkInterface where
+  rnf DetachNetworkInterface' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attachmentId
 
 instance Core.ToHeaders DetachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,3 +204,5 @@ newDetachNetworkInterfaceResponse =
 instance
   Prelude.NFData
     DetachNetworkInterfaceResponse
+  where
+  rnf _ = ()

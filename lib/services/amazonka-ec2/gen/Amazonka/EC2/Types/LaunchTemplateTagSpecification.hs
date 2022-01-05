@@ -76,7 +76,17 @@ instance Core.FromXML LaunchTemplateTagSpecification where
 instance
   Prelude.Hashable
     LaunchTemplateTagSpecification
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateTagSpecification' {..} =
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     LaunchTemplateTagSpecification
+  where
+  rnf LaunchTemplateTagSpecification' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags

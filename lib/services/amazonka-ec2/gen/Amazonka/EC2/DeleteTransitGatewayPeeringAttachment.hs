@@ -117,10 +117,20 @@ instance
 instance
   Prelude.Hashable
     DeleteTransitGatewayPeeringAttachment
+  where
+  hashWithSalt
+    _salt
+    DeleteTransitGatewayPeeringAttachment' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance
   Prelude.NFData
     DeleteTransitGatewayPeeringAttachment
+  where
+  rnf DeleteTransitGatewayPeeringAttachment' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
   Core.ToHeaders
@@ -194,3 +204,8 @@ deleteTransitGatewayPeeringAttachmentResponse_httpStatus = Lens.lens (\DeleteTra
 instance
   Prelude.NFData
     DeleteTransitGatewayPeeringAttachmentResponse
+  where
+  rnf
+    DeleteTransitGatewayPeeringAttachmentResponse' {..} =
+      Prelude.rnf transitGatewayPeeringAttachment
+        `Prelude.seq` Prelude.rnf httpStatus

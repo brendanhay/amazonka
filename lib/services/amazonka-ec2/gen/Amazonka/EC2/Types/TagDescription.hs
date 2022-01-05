@@ -101,6 +101,16 @@ instance Core.FromXML TagDescription where
       Prelude.<*> (x Core..@ "key")
       Prelude.<*> (x Core..@ "value")
 
-instance Prelude.Hashable TagDescription
+instance Prelude.Hashable TagDescription where
+  hashWithSalt _salt TagDescription' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData TagDescription
+instance Prelude.NFData TagDescription where
+  rnf TagDescription' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value

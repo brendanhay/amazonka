@@ -155,6 +155,24 @@ instance Core.FromXML CustomerGateway where
       Prelude.<*> (x Core..@ "state")
       Prelude.<*> (x Core..@ "type")
 
-instance Prelude.Hashable CustomerGateway
+instance Prelude.Hashable CustomerGateway where
+  hashWithSalt _salt CustomerGateway' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` bgpAsn
+      `Prelude.hashWithSalt` customerGatewayId
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CustomerGateway
+instance Prelude.NFData CustomerGateway where
+  rnf CustomerGateway' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf bgpAsn
+      `Prelude.seq` Prelude.rnf customerGatewayId
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'

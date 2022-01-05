@@ -77,7 +77,19 @@ instance
 instance
   Prelude.Hashable
     FailedCapacityReservationFleetCancellationResult
+  where
+  hashWithSalt
+    _salt
+    FailedCapacityReservationFleetCancellationResult' {..} =
+      _salt
+        `Prelude.hashWithSalt` capacityReservationFleetId
+        `Prelude.hashWithSalt` cancelCapacityReservationFleetError
 
 instance
   Prelude.NFData
     FailedCapacityReservationFleetCancellationResult
+  where
+  rnf
+    FailedCapacityReservationFleetCancellationResult' {..} =
+      Prelude.rnf capacityReservationFleetId
+        `Prelude.seq` Prelude.rnf cancelCapacityReservationFleetError

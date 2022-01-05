@@ -79,6 +79,14 @@ instance Core.FromXML DiskInfo where
       Prelude.<*> (x Core..@? "sizeInGB")
       Prelude.<*> (x Core..@? "type")
 
-instance Prelude.Hashable DiskInfo
+instance Prelude.Hashable DiskInfo where
+  hashWithSalt _salt DiskInfo' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` sizeInGB
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DiskInfo
+instance Prelude.NFData DiskInfo where
+  rnf DiskInfo' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf sizeInGB
+      `Prelude.seq` Prelude.rnf type'

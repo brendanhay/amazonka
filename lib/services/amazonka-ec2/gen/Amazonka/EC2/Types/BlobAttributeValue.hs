@@ -56,9 +56,12 @@ newBlobAttributeValue =
 blobAttributeValue_value :: Lens.Lens' BlobAttributeValue (Prelude.Maybe Prelude.ByteString)
 blobAttributeValue_value = Lens.lens (\BlobAttributeValue' {value} -> value) (\s@BlobAttributeValue' {} a -> s {value = a} :: BlobAttributeValue) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable BlobAttributeValue
+instance Prelude.Hashable BlobAttributeValue where
+  hashWithSalt _salt BlobAttributeValue' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData BlobAttributeValue
+instance Prelude.NFData BlobAttributeValue where
+  rnf BlobAttributeValue' {..} = Prelude.rnf value
 
 instance Core.ToQuery BlobAttributeValue where
   toQuery BlobAttributeValue' {..} =

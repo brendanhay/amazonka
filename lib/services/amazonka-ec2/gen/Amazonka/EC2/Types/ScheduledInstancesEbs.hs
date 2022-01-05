@@ -156,9 +156,23 @@ scheduledInstancesEbs_volumeType = Lens.lens (\ScheduledInstancesEbs' {volumeTyp
 scheduledInstancesEbs_snapshotId :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Text)
 scheduledInstancesEbs_snapshotId = Lens.lens (\ScheduledInstancesEbs' {snapshotId} -> snapshotId) (\s@ScheduledInstancesEbs' {} a -> s {snapshotId = a} :: ScheduledInstancesEbs)
 
-instance Prelude.Hashable ScheduledInstancesEbs
+instance Prelude.Hashable ScheduledInstancesEbs where
+  hashWithSalt _salt ScheduledInstancesEbs' {..} =
+    _salt `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData ScheduledInstancesEbs
+instance Prelude.NFData ScheduledInstancesEbs where
+  rnf ScheduledInstancesEbs' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToQuery ScheduledInstancesEbs where
   toQuery ScheduledInstancesEbs' {..} =

@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     DeleteTransitGatewayMulticastDomain
+  where
+  hashWithSalt
+    _salt
+    DeleteTransitGatewayMulticastDomain' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
 
 instance
   Prelude.NFData
     DeleteTransitGatewayMulticastDomain
+  where
+  rnf DeleteTransitGatewayMulticastDomain' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
 
 instance
   Core.ToHeaders
@@ -193,3 +203,7 @@ deleteTransitGatewayMulticastDomainResponse_httpStatus = Lens.lens (\DeleteTrans
 instance
   Prelude.NFData
     DeleteTransitGatewayMulticastDomainResponse
+  where
+  rnf DeleteTransitGatewayMulticastDomainResponse' {..} =
+    Prelude.rnf transitGatewayMulticastDomain
+      `Prelude.seq` Prelude.rnf httpStatus

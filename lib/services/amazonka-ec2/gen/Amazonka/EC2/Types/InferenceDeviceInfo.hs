@@ -79,6 +79,14 @@ instance Core.FromXML InferenceDeviceInfo where
       Prelude.<*> (x Core..@? "count")
       Prelude.<*> (x Core..@? "name")
 
-instance Prelude.Hashable InferenceDeviceInfo
+instance Prelude.Hashable InferenceDeviceInfo where
+  hashWithSalt _salt InferenceDeviceInfo' {..} =
+    _salt `Prelude.hashWithSalt` manufacturer
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InferenceDeviceInfo
+instance Prelude.NFData InferenceDeviceInfo where
+  rnf InferenceDeviceInfo' {..} =
+    Prelude.rnf manufacturer
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf name

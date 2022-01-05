@@ -65,9 +65,14 @@ loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {r
 loadPermissionModifications_add :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
 loadPermissionModifications_add = Lens.lens (\LoadPermissionModifications' {add} -> add) (\s@LoadPermissionModifications' {} a -> s {add = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable LoadPermissionModifications
+instance Prelude.Hashable LoadPermissionModifications where
+  hashWithSalt _salt LoadPermissionModifications' {..} =
+    _salt `Prelude.hashWithSalt` remove
+      `Prelude.hashWithSalt` add
 
-instance Prelude.NFData LoadPermissionModifications
+instance Prelude.NFData LoadPermissionModifications where
+  rnf LoadPermissionModifications' {..} =
+    Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
 instance Core.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =

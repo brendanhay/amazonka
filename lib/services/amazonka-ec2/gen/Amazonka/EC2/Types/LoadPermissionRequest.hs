@@ -63,9 +63,14 @@ loadPermissionRequest_group = Lens.lens (\LoadPermissionRequest' {group'} -> gro
 loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe Prelude.Text)
 loadPermissionRequest_userId = Lens.lens (\LoadPermissionRequest' {userId} -> userId) (\s@LoadPermissionRequest' {} a -> s {userId = a} :: LoadPermissionRequest)
 
-instance Prelude.Hashable LoadPermissionRequest
+instance Prelude.Hashable LoadPermissionRequest where
+  hashWithSalt _salt LoadPermissionRequest' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData LoadPermissionRequest
+instance Prelude.NFData LoadPermissionRequest where
+  rnf LoadPermissionRequest' {..} =
+    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToQuery LoadPermissionRequest where
   toQuery LoadPermissionRequest' {..} =

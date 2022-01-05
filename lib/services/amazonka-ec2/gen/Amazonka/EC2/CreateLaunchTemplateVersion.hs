@@ -199,9 +199,25 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLaunchTemplateVersion
+instance Prelude.Hashable CreateLaunchTemplateVersion where
+  hashWithSalt _salt CreateLaunchTemplateVersion' {..} =
+    _salt `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` launchTemplateData
 
-instance Prelude.NFData CreateLaunchTemplateVersion
+instance Prelude.NFData CreateLaunchTemplateVersion where
+  rnf CreateLaunchTemplateVersion' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf launchTemplateData
 
 instance Core.ToHeaders CreateLaunchTemplateVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,3 +300,8 @@ createLaunchTemplateVersionResponse_httpStatus = Lens.lens (\CreateLaunchTemplat
 instance
   Prelude.NFData
     CreateLaunchTemplateVersionResponse
+  where
+  rnf CreateLaunchTemplateVersionResponse' {..} =
+    Prelude.rnf launchTemplateVersion
+      `Prelude.seq` Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf httpStatus

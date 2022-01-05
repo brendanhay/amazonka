@@ -145,6 +145,24 @@ instance Core.FromXML VpcEndpointConnection where
       Prelude.<*> (x Core..@? "serviceId")
       Prelude.<*> (x Core..@? "vpcEndpointId")
 
-instance Prelude.Hashable VpcEndpointConnection
+instance Prelude.Hashable VpcEndpointConnection where
+  hashWithSalt _salt VpcEndpointConnection' {..} =
+    _salt `Prelude.hashWithSalt` vpcEndpointOwner
+      `Prelude.hashWithSalt` networkLoadBalancerArns
+      `Prelude.hashWithSalt` dnsEntries
+      `Prelude.hashWithSalt` vpcEndpointState
+      `Prelude.hashWithSalt` gatewayLoadBalancerArns
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` vpcEndpointId
 
-instance Prelude.NFData VpcEndpointConnection
+instance Prelude.NFData VpcEndpointConnection where
+  rnf VpcEndpointConnection' {..} =
+    Prelude.rnf vpcEndpointOwner
+      `Prelude.seq` Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf dnsEntries
+      `Prelude.seq` Prelude.rnf vpcEndpointState
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf vpcEndpointId

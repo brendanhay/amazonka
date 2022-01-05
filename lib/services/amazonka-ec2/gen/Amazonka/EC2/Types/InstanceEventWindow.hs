@@ -126,6 +126,22 @@ instance Core.FromXML InstanceEventWindow where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable InstanceEventWindow
+instance Prelude.Hashable InstanceEventWindow where
+  hashWithSalt _salt InstanceEventWindow' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` associationTarget
+      `Prelude.hashWithSalt` instanceEventWindowId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeRanges
 
-instance Prelude.NFData InstanceEventWindow
+instance Prelude.NFData InstanceEventWindow where
+  rnf InstanceEventWindow' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf associationTarget
+      `Prelude.seq` Prelude.rnf instanceEventWindowId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeRanges

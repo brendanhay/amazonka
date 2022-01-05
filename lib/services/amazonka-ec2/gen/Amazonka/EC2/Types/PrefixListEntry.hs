@@ -68,6 +68,12 @@ instance Core.FromXML PrefixListEntry where
       Prelude.<$> (x Core..@? "cidr")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable PrefixListEntry
+instance Prelude.Hashable PrefixListEntry where
+  hashWithSalt _salt PrefixListEntry' {..} =
+    _salt `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PrefixListEntry
+instance Prelude.NFData PrefixListEntry where
+  rnf PrefixListEntry' {..} =
+    Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf description

@@ -125,9 +125,21 @@ instance Core.FromXML S3Storage where
       Prelude.<*> (x Core..@? "uploadPolicySignature")
       Prelude.<*> (x Core..@? "AWSAccessKeyId")
 
-instance Prelude.Hashable S3Storage
+instance Prelude.Hashable S3Storage where
+  hashWithSalt _salt S3Storage' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` uploadPolicy
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` uploadPolicySignature
+      `Prelude.hashWithSalt` aWSAccessKeyId
 
-instance Prelude.NFData S3Storage
+instance Prelude.NFData S3Storage where
+  rnf S3Storage' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf uploadPolicy
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf uploadPolicySignature
+      `Prelude.seq` Prelude.rnf aWSAccessKeyId
 
 instance Core.ToQuery S3Storage where
   toQuery S3Storage' {..} =

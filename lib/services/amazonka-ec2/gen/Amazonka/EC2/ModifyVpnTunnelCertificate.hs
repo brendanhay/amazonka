@@ -123,9 +123,17 @@ instance Core.AWSRequest ModifyVpnTunnelCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpnTunnelCertificate
+instance Prelude.Hashable ModifyVpnTunnelCertificate where
+  hashWithSalt _salt ModifyVpnTunnelCertificate' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpnConnectionId
+      `Prelude.hashWithSalt` vpnTunnelOutsideIpAddress
 
-instance Prelude.NFData ModifyVpnTunnelCertificate
+instance Prelude.NFData ModifyVpnTunnelCertificate where
+  rnf ModifyVpnTunnelCertificate' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpnConnectionId
+      `Prelude.seq` Prelude.rnf vpnTunnelOutsideIpAddress
 
 instance Core.ToHeaders ModifyVpnTunnelCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,3 +195,7 @@ modifyVpnTunnelCertificateResponse_httpStatus = Lens.lens (\ModifyVpnTunnelCerti
 instance
   Prelude.NFData
     ModifyVpnTunnelCertificateResponse
+  where
+  rnf ModifyVpnTunnelCertificateResponse' {..} =
+    Prelude.rnf vpnConnection
+      `Prelude.seq` Prelude.rnf httpStatus

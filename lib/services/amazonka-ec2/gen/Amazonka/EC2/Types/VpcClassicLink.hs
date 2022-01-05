@@ -81,6 +81,14 @@ instance Core.FromXML VpcClassicLink where
                   )
       Prelude.<*> (x Core..@? "classicLinkEnabled")
 
-instance Prelude.Hashable VpcClassicLink
+instance Prelude.Hashable VpcClassicLink where
+  hashWithSalt _salt VpcClassicLink' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` classicLinkEnabled
 
-instance Prelude.NFData VpcClassicLink
+instance Prelude.NFData VpcClassicLink where
+  rnf VpcClassicLink' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf classicLinkEnabled

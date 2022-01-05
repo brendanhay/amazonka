@@ -90,6 +90,16 @@ instance Core.FromXML AddressAttribute where
       Prelude.<*> (x Core..@? "publicIp")
       Prelude.<*> (x Core..@? "ptrRecord")
 
-instance Prelude.Hashable AddressAttribute
+instance Prelude.Hashable AddressAttribute where
+  hashWithSalt _salt AddressAttribute' {..} =
+    _salt `Prelude.hashWithSalt` ptrRecordUpdate
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` ptrRecord
 
-instance Prelude.NFData AddressAttribute
+instance Prelude.NFData AddressAttribute where
+  rnf AddressAttribute' {..} =
+    Prelude.rnf ptrRecordUpdate
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf ptrRecord

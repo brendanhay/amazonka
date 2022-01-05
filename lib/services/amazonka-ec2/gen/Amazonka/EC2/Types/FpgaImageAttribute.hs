@@ -104,6 +104,18 @@ instance Core.FromXML FpgaImageAttribute where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable FpgaImageAttribute
+instance Prelude.Hashable FpgaImageAttribute where
+  hashWithSalt _salt FpgaImageAttribute' {..} =
+    _salt `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` loadPermissions
 
-instance Prelude.NFData FpgaImageAttribute
+instance Prelude.NFData FpgaImageAttribute where
+  rnf FpgaImageAttribute' {..} =
+    Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf loadPermissions

@@ -194,9 +194,21 @@ instance Core.AWSRequest DescribeMovingAddresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMovingAddresses
+instance Prelude.Hashable DescribeMovingAddresses where
+  hashWithSalt _salt DescribeMovingAddresses' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` publicIps
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeMovingAddresses
+instance Prelude.NFData DescribeMovingAddresses where
+  rnf DescribeMovingAddresses' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf publicIps
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeMovingAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,3 +286,8 @@ describeMovingAddressesResponse_httpStatus = Lens.lens (\DescribeMovingAddresses
 instance
   Prelude.NFData
     DescribeMovingAddressesResponse
+  where
+  rnf DescribeMovingAddressesResponse' {..} =
+    Prelude.rnf movingAddressStatuses
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,9 +120,17 @@ instance Core.AWSRequest UnassignIpv6Addresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnassignIpv6Addresses
+instance Prelude.Hashable UnassignIpv6Addresses where
+  hashWithSalt _salt UnassignIpv6Addresses' {..} =
+    _salt `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData UnassignIpv6Addresses
+instance Prelude.NFData UnassignIpv6Addresses where
+  rnf UnassignIpv6Addresses' {..} =
+    Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Core.ToHeaders UnassignIpv6Addresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +213,9 @@ unassignIpv6AddressesResponse_unassignedIpv6Addresses = Lens.lens (\UnassignIpv6
 unassignIpv6AddressesResponse_httpStatus :: Lens.Lens' UnassignIpv6AddressesResponse Prelude.Int
 unassignIpv6AddressesResponse_httpStatus = Lens.lens (\UnassignIpv6AddressesResponse' {httpStatus} -> httpStatus) (\s@UnassignIpv6AddressesResponse' {} a -> s {httpStatus = a} :: UnassignIpv6AddressesResponse)
 
-instance Prelude.NFData UnassignIpv6AddressesResponse
+instance Prelude.NFData UnassignIpv6AddressesResponse where
+  rnf UnassignIpv6AddressesResponse' {..} =
+    Prelude.rnf unassignedIpv6Prefixes
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf unassignedIpv6Addresses
+      `Prelude.seq` Prelude.rnf httpStatus

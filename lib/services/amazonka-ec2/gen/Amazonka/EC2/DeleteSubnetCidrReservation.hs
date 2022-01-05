@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSubnetCidrReservation
+instance Prelude.Hashable DeleteSubnetCidrReservation where
+  hashWithSalt _salt DeleteSubnetCidrReservation' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` subnetCidrReservationId
 
-instance Prelude.NFData DeleteSubnetCidrReservation
+instance Prelude.NFData DeleteSubnetCidrReservation where
+  rnf DeleteSubnetCidrReservation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf subnetCidrReservationId
 
 instance Core.ToHeaders DeleteSubnetCidrReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +182,7 @@ deleteSubnetCidrReservationResponse_httpStatus = Lens.lens (\DeleteSubnetCidrRes
 instance
   Prelude.NFData
     DeleteSubnetCidrReservationResponse
+  where
+  rnf DeleteSubnetCidrReservationResponse' {..} =
+    Prelude.rnf deletedSubnetCidrReservation
+      `Prelude.seq` Prelude.rnf httpStatus

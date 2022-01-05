@@ -71,6 +71,12 @@ instance Core.FromXML AssociatedTargetNetwork where
       Prelude.<$> (x Core..@? "networkId")
       Prelude.<*> (x Core..@? "networkType")
 
-instance Prelude.Hashable AssociatedTargetNetwork
+instance Prelude.Hashable AssociatedTargetNetwork where
+  hashWithSalt _salt AssociatedTargetNetwork' {..} =
+    _salt `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` networkType
 
-instance Prelude.NFData AssociatedTargetNetwork
+instance Prelude.NFData AssociatedTargetNetwork where
+  rnf AssociatedTargetNetwork' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf networkType

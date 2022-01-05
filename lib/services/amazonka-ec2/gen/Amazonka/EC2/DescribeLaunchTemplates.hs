@@ -221,9 +221,23 @@ instance Core.AWSRequest DescribeLaunchTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLaunchTemplates
+instance Prelude.Hashable DescribeLaunchTemplates where
+  hashWithSalt _salt DescribeLaunchTemplates' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` launchTemplateIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` launchTemplateNames
 
-instance Prelude.NFData DescribeLaunchTemplates
+instance Prelude.NFData DescribeLaunchTemplates where
+  rnf DescribeLaunchTemplates' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf launchTemplateIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf launchTemplateNames
 
 instance Core.ToHeaders DescribeLaunchTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,3 +321,8 @@ describeLaunchTemplatesResponse_httpStatus = Lens.lens (\DescribeLaunchTemplates
 instance
   Prelude.NFData
     DescribeLaunchTemplatesResponse
+  where
+  rnf DescribeLaunchTemplatesResponse' {..} =
+    Prelude.rnf launchTemplates
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

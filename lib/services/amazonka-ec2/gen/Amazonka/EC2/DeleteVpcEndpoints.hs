@@ -130,9 +130,15 @@ instance Core.AWSRequest DeleteVpcEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVpcEndpoints
+instance Prelude.Hashable DeleteVpcEndpoints where
+  hashWithSalt _salt DeleteVpcEndpoints' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcEndpointIds
 
-instance Prelude.NFData DeleteVpcEndpoints
+instance Prelude.NFData DeleteVpcEndpoints where
+  rnf DeleteVpcEndpoints' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcEndpointIds
 
 instance Core.ToHeaders DeleteVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,4 +198,7 @@ deleteVpcEndpointsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointsResponse
 deleteVpcEndpointsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointsResponse Prelude.Int
 deleteVpcEndpointsResponse_httpStatus = Lens.lens (\DeleteVpcEndpointsResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcEndpointsResponse' {} a -> s {httpStatus = a} :: DeleteVpcEndpointsResponse)
 
-instance Prelude.NFData DeleteVpcEndpointsResponse
+instance Prelude.NFData DeleteVpcEndpointsResponse where
+  rnf DeleteVpcEndpointsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf httpStatus

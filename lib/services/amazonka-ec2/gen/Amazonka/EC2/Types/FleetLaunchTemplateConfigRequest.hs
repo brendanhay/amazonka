@@ -84,10 +84,20 @@ fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\Fleet
 instance
   Prelude.Hashable
     FleetLaunchTemplateConfigRequest
+  where
+  hashWithSalt
+    _salt
+    FleetLaunchTemplateConfigRequest' {..} =
+      _salt `Prelude.hashWithSalt` overrides
+        `Prelude.hashWithSalt` launchTemplateSpecification
 
 instance
   Prelude.NFData
     FleetLaunchTemplateConfigRequest
+  where
+  rnf FleetLaunchTemplateConfigRequest' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf launchTemplateSpecification
 
 instance
   Core.ToQuery

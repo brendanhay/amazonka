@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteSubnet where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteSubnetResponse'
 
-instance Prelude.Hashable DeleteSubnet
+instance Prelude.Hashable DeleteSubnet where
+  hashWithSalt _salt DeleteSubnet' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData DeleteSubnet
+instance Prelude.NFData DeleteSubnet where
+  rnf DeleteSubnet' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders DeleteSubnet where
   toHeaders = Prelude.const Prelude.mempty
@@ -131,4 +137,5 @@ newDeleteSubnetResponse ::
   DeleteSubnetResponse
 newDeleteSubnetResponse = DeleteSubnetResponse'
 
-instance Prelude.NFData DeleteSubnetResponse
+instance Prelude.NFData DeleteSubnetResponse where
+  rnf _ = ()

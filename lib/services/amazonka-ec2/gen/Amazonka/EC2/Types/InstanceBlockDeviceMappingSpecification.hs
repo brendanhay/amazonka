@@ -88,10 +88,24 @@ instanceBlockDeviceMappingSpecification_deviceName = Lens.lens (\InstanceBlockDe
 instance
   Prelude.Hashable
     InstanceBlockDeviceMappingSpecification
+  where
+  hashWithSalt
+    _salt
+    InstanceBlockDeviceMappingSpecification' {..} =
+      _salt `Prelude.hashWithSalt` virtualName
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` ebs
+        `Prelude.hashWithSalt` deviceName
 
 instance
   Prelude.NFData
     InstanceBlockDeviceMappingSpecification
+  where
+  rnf InstanceBlockDeviceMappingSpecification' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf noDevice
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance
   Core.ToQuery

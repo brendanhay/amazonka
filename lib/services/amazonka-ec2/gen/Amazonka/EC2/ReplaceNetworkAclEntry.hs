@@ -234,9 +234,31 @@ instance Core.AWSRequest ReplaceNetworkAclEntry where
     Response.receiveNull
       ReplaceNetworkAclEntryResponse'
 
-instance Prelude.Hashable ReplaceNetworkAclEntry
+instance Prelude.Hashable ReplaceNetworkAclEntry where
+  hashWithSalt _salt ReplaceNetworkAclEntry' {..} =
+    _salt `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` icmpTypeCode
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` ruleNumber
 
-instance Prelude.NFData ReplaceNetworkAclEntry
+instance Prelude.NFData ReplaceNetworkAclEntry where
+  rnf ReplaceNetworkAclEntry' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf icmpTypeCode
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf ruleNumber
 
 instance Core.ToHeaders ReplaceNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,3 +303,5 @@ newReplaceNetworkAclEntryResponse =
 instance
   Prelude.NFData
     ReplaceNetworkAclEntryResponse
+  where
+  rnf _ = ()

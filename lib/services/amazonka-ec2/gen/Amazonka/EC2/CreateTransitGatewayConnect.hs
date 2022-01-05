@@ -142,9 +142,19 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTransitGatewayConnect
+instance Prelude.Hashable CreateTransitGatewayConnect where
+  hashWithSalt _salt CreateTransitGatewayConnect' {..} =
+    _salt `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` transportTransitGatewayAttachmentId
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData CreateTransitGatewayConnect
+instance Prelude.NFData CreateTransitGatewayConnect where
+  rnf CreateTransitGatewayConnect' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf options
 
 instance Core.ToHeaders CreateTransitGatewayConnect where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +223,7 @@ createTransitGatewayConnectResponse_httpStatus = Lens.lens (\CreateTransitGatewa
 instance
   Prelude.NFData
     CreateTransitGatewayConnectResponse
+  where
+  rnf CreateTransitGatewayConnectResponse' {..} =
+    Prelude.rnf transitGatewayConnect
+      `Prelude.seq` Prelude.rnf httpStatus

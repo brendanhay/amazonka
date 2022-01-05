@@ -115,9 +115,17 @@ instance Core.AWSRequest ResetImageAttribute where
   response =
     Response.receiveNull ResetImageAttributeResponse'
 
-instance Prelude.Hashable ResetImageAttribute
+instance Prelude.Hashable ResetImageAttribute where
+  hashWithSalt _salt ResetImageAttribute' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData ResetImageAttribute
+instance Prelude.NFData ResetImageAttribute where
+  rnf ResetImageAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders ResetImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,4 +160,5 @@ newResetImageAttributeResponse ::
 newResetImageAttributeResponse =
   ResetImageAttributeResponse'
 
-instance Prelude.NFData ResetImageAttributeResponse
+instance Prelude.NFData ResetImageAttributeResponse where
+  rnf _ = ()

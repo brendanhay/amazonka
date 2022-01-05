@@ -80,6 +80,14 @@ instance Core.FromXML TerminateConnectionStatus where
       Prelude.<*> (x Core..@? "connectionId")
       Prelude.<*> (x Core..@? "previousStatus")
 
-instance Prelude.Hashable TerminateConnectionStatus
+instance Prelude.Hashable TerminateConnectionStatus where
+  hashWithSalt _salt TerminateConnectionStatus' {..} =
+    _salt `Prelude.hashWithSalt` currentStatus
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` previousStatus
 
-instance Prelude.NFData TerminateConnectionStatus
+instance Prelude.NFData TerminateConnectionStatus where
+  rnf TerminateConnectionStatus' {..} =
+    Prelude.rnf currentStatus
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf previousStatus

@@ -79,9 +79,15 @@ instance Core.FromJSON S3Configuration where
             Prelude.<*> (x Core..: "KmsKeyId")
       )
 
-instance Prelude.Hashable S3Configuration
+instance Prelude.Hashable S3Configuration where
+  hashWithSalt _salt S3Configuration' {..} =
+    _salt `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData S3Configuration
+instance Prelude.NFData S3Configuration where
+  rnf S3Configuration' {..} =
+    Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =

@@ -114,9 +114,17 @@ instance Core.AWSRequest ListFHIRDatastores where
                         )
       )
 
-instance Prelude.Hashable ListFHIRDatastores
+instance Prelude.Hashable ListFHIRDatastores where
+  hashWithSalt _salt ListFHIRDatastores' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListFHIRDatastores
+instance Prelude.NFData ListFHIRDatastores where
+  rnf ListFHIRDatastores' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFHIRDatastores where
   toHeaders =
@@ -197,4 +205,8 @@ listFHIRDatastoresResponse_httpStatus = Lens.lens (\ListFHIRDatastoresResponse' 
 listFHIRDatastoresResponse_datastorePropertiesList :: Lens.Lens' ListFHIRDatastoresResponse [DatastoreProperties]
 listFHIRDatastoresResponse_datastorePropertiesList = Lens.lens (\ListFHIRDatastoresResponse' {datastorePropertiesList} -> datastorePropertiesList) (\s@ListFHIRDatastoresResponse' {} a -> s {datastorePropertiesList = a} :: ListFHIRDatastoresResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFHIRDatastoresResponse
+instance Prelude.NFData ListFHIRDatastoresResponse where
+  rnf ListFHIRDatastoresResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datastorePropertiesList

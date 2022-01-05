@@ -171,6 +171,26 @@ instance Core.FromJSON ExportJobProperties where
             Prelude.<*> (x Core..: "OutputDataConfig")
       )
 
-instance Prelude.Hashable ExportJobProperties
+instance Prelude.Hashable ExportJobProperties where
+  hashWithSalt _salt ExportJobProperties' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` datastoreId
+      `Prelude.hashWithSalt` outputDataConfig
 
-instance Prelude.NFData ExportJobProperties
+instance Prelude.NFData ExportJobProperties where
+  rnf ExportJobProperties' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf outputDataConfig

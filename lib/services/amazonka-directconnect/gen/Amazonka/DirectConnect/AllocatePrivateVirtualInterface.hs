@@ -154,10 +154,22 @@ instance
 instance
   Prelude.Hashable
     AllocatePrivateVirtualInterface
+  where
+  hashWithSalt
+    _salt
+    AllocatePrivateVirtualInterface' {..} =
+      _salt `Prelude.hashWithSalt` connectionId
+        `Prelude.hashWithSalt` ownerAccount
+        `Prelude.hashWithSalt` newPrivateVirtualInterfaceAllocation'
 
 instance
   Prelude.NFData
     AllocatePrivateVirtualInterface
+  where
+  rnf AllocatePrivateVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf newPrivateVirtualInterfaceAllocation'
 
 instance
   Core.ToHeaders

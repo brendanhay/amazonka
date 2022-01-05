@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteInterconnect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInterconnect
+instance Prelude.Hashable DeleteInterconnect where
+  hashWithSalt _salt DeleteInterconnect' {..} =
+    _salt `Prelude.hashWithSalt` interconnectId
 
-instance Prelude.NFData DeleteInterconnect
+instance Prelude.NFData DeleteInterconnect where
+  rnf DeleteInterconnect' {..} =
+    Prelude.rnf interconnectId
 
 instance Core.ToHeaders DeleteInterconnect where
   toHeaders =
@@ -215,4 +219,7 @@ deleteInterconnectResponse_interconnectState = Lens.lens (\DeleteInterconnectRes
 deleteInterconnectResponse_httpStatus :: Lens.Lens' DeleteInterconnectResponse Prelude.Int
 deleteInterconnectResponse_httpStatus = Lens.lens (\DeleteInterconnectResponse' {httpStatus} -> httpStatus) (\s@DeleteInterconnectResponse' {} a -> s {httpStatus = a} :: DeleteInterconnectResponse)
 
-instance Prelude.NFData DeleteInterconnectResponse
+instance Prelude.NFData DeleteInterconnectResponse where
+  rnf DeleteInterconnectResponse' {..} =
+    Prelude.rnf interconnectState
+      `Prelude.seq` Prelude.rnf httpStatus

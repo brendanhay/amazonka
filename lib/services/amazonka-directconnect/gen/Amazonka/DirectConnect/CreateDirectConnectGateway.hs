@@ -117,9 +117,15 @@ instance Core.AWSRequest CreateDirectConnectGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDirectConnectGateway
+instance Prelude.Hashable CreateDirectConnectGateway where
+  hashWithSalt _salt CreateDirectConnectGateway' {..} =
+    _salt `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` directConnectGatewayName
 
-instance Prelude.NFData CreateDirectConnectGateway
+instance Prelude.NFData CreateDirectConnectGateway where
+  rnf CreateDirectConnectGateway' {..} =
+    Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf directConnectGatewayName
 
 instance Core.ToHeaders CreateDirectConnectGateway where
   toHeaders =
@@ -196,3 +202,7 @@ createDirectConnectGatewayResponse_httpStatus = Lens.lens (\CreateDirectConnectG
 instance
   Prelude.NFData
     CreateDirectConnectGatewayResponse
+  where
+  rnf CreateDirectConnectGatewayResponse' {..} =
+    Prelude.rnf directConnectGateway
+      `Prelude.seq` Prelude.rnf httpStatus

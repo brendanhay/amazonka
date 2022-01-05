@@ -162,10 +162,34 @@ newPrivateVirtualInterfaceAllocation_asn = Lens.lens (\NewPrivateVirtualInterfac
 instance
   Prelude.Hashable
     NewPrivateVirtualInterfaceAllocation
+  where
+  hashWithSalt
+    _salt
+    NewPrivateVirtualInterfaceAllocation' {..} =
+      _salt `Prelude.hashWithSalt` mtu
+        `Prelude.hashWithSalt` customerAddress
+        `Prelude.hashWithSalt` amazonAddress
+        `Prelude.hashWithSalt` addressFamily
+        `Prelude.hashWithSalt` authKey
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` virtualInterfaceName
+        `Prelude.hashWithSalt` vlan
+        `Prelude.hashWithSalt` asn
 
 instance
   Prelude.NFData
     NewPrivateVirtualInterfaceAllocation
+  where
+  rnf NewPrivateVirtualInterfaceAllocation' {..} =
+    Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf asn
 
 instance
   Core.ToJSON

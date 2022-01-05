@@ -341,6 +341,50 @@ instance Core.FromJSON Lag where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable Lag
+instance Prelude.Hashable Lag where
+  hashWithSalt _salt Lag' {..} =
+    _salt `Prelude.hashWithSalt` lagId
+      `Prelude.hashWithSalt` macSecCapable
+      `Prelude.hashWithSalt` connectionsBandwidth
+      `Prelude.hashWithSalt` minimumLinks
+      `Prelude.hashWithSalt` lagName
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` awsDevice
+      `Prelude.hashWithSalt` hasLogicalRedundancy
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` allowsHostedConnections
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` numberOfConnections
+      `Prelude.hashWithSalt` jumboFrameCapable
+      `Prelude.hashWithSalt` lagState
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` macSecKeys
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` awsDeviceV2
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Lag
+instance Prelude.NFData Lag where
+  rnf Lag' {..} =
+    Prelude.rnf lagId
+      `Prelude.seq` Prelude.rnf macSecCapable
+      `Prelude.seq` Prelude.rnf connectionsBandwidth
+      `Prelude.seq` Prelude.rnf minimumLinks
+      `Prelude.seq` Prelude.rnf lagName
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf awsDevice
+      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf allowsHostedConnections
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf numberOfConnections
+      `Prelude.seq` Prelude.rnf jumboFrameCapable
+      `Prelude.seq` Prelude.rnf lagState
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf macSecKeys
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf awsDeviceV2
+      `Prelude.seq` Prelude.rnf tags

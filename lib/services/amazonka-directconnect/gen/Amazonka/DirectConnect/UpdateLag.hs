@@ -161,9 +161,19 @@ instance Core.AWSRequest UpdateLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateLag
+instance Prelude.Hashable UpdateLag where
+  hashWithSalt _salt UpdateLag' {..} =
+    _salt `Prelude.hashWithSalt` minimumLinks
+      `Prelude.hashWithSalt` lagName
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData UpdateLag
+instance Prelude.NFData UpdateLag where
+  rnf UpdateLag' {..} =
+    Prelude.rnf minimumLinks
+      `Prelude.seq` Prelude.rnf lagName
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf lagId
 
 instance Core.ToHeaders UpdateLag where
   toHeaders =

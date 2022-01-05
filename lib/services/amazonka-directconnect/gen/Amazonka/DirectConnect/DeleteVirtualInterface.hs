@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteVirtualInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVirtualInterface
+instance Prelude.Hashable DeleteVirtualInterface where
+  hashWithSalt _salt DeleteVirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData DeleteVirtualInterface
+instance Prelude.NFData DeleteVirtualInterface where
+  rnf DeleteVirtualInterface' {..} =
+    Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders DeleteVirtualInterface where
   toHeaders =
@@ -261,3 +265,7 @@ deleteVirtualInterfaceResponse_httpStatus = Lens.lens (\DeleteVirtualInterfaceRe
 instance
   Prelude.NFData
     DeleteVirtualInterfaceResponse
+  where
+  rnf DeleteVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterfaceState
+      `Prelude.seq` Prelude.rnf httpStatus

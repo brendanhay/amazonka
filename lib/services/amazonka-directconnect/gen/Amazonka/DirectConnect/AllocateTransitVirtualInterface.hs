@@ -139,10 +139,22 @@ instance
 instance
   Prelude.Hashable
     AllocateTransitVirtualInterface
+  where
+  hashWithSalt
+    _salt
+    AllocateTransitVirtualInterface' {..} =
+      _salt `Prelude.hashWithSalt` connectionId
+        `Prelude.hashWithSalt` ownerAccount
+        `Prelude.hashWithSalt` newTransitVirtualInterfaceAllocation'
 
 instance
   Prelude.NFData
     AllocateTransitVirtualInterface
+  where
+  rnf AllocateTransitVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf newTransitVirtualInterfaceAllocation'
 
 instance
   Core.ToHeaders
@@ -223,3 +235,7 @@ allocateTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\AllocateTransit
 instance
   Prelude.NFData
     AllocateTransitVirtualInterfaceResponse
+  where
+  rnf AllocateTransitVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterface
+      `Prelude.seq` Prelude.rnf httpStatus

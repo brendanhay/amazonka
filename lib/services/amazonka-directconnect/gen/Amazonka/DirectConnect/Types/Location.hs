@@ -120,6 +120,20 @@ instance Core.FromJSON Location where
                         )
       )
 
-instance Prelude.Hashable Location
+instance Prelude.Hashable Location where
+  hashWithSalt _salt Location' {..} =
+    _salt `Prelude.hashWithSalt` availablePortSpeeds
+      `Prelude.hashWithSalt` locationName
+      `Prelude.hashWithSalt` locationCode
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` availableProviders
+      `Prelude.hashWithSalt` availableMacSecPortSpeeds
 
-instance Prelude.NFData Location
+instance Prelude.NFData Location where
+  rnf Location' {..} =
+    Prelude.rnf availablePortSpeeds
+      `Prelude.seq` Prelude.rnf locationName
+      `Prelude.seq` Prelude.rnf locationCode
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf availableProviders
+      `Prelude.seq` Prelude.rnf availableMacSecPortSpeeds

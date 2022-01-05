@@ -82,9 +82,12 @@ instance Core.AWSRequest DescribeLags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLags
+instance Prelude.Hashable DescribeLags where
+  hashWithSalt _salt DescribeLags' {..} =
+    _salt `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData DescribeLags
+instance Prelude.NFData DescribeLags where
+  rnf DescribeLags' {..} = Prelude.rnf lagId
 
 instance Core.ToHeaders DescribeLags where
   toHeaders =
@@ -152,4 +155,7 @@ describeLagsResponse_lags = Lens.lens (\DescribeLagsResponse' {lags} -> lags) (\
 describeLagsResponse_httpStatus :: Lens.Lens' DescribeLagsResponse Prelude.Int
 describeLagsResponse_httpStatus = Lens.lens (\DescribeLagsResponse' {httpStatus} -> httpStatus) (\s@DescribeLagsResponse' {} a -> s {httpStatus = a} :: DescribeLagsResponse)
 
-instance Prelude.NFData DescribeLagsResponse
+instance Prelude.NFData DescribeLagsResponse where
+  rnf DescribeLagsResponse' {..} =
+    Prelude.rnf lags
+      `Prelude.seq` Prelude.rnf httpStatus

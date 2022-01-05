@@ -125,9 +125,17 @@ instance Core.AWSRequest DescribeLoa where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLoa
+instance Prelude.Hashable DescribeLoa where
+  hashWithSalt _salt DescribeLoa' {..} =
+    _salt `Prelude.hashWithSalt` loaContentType
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DescribeLoa
+instance Prelude.NFData DescribeLoa where
+  rnf DescribeLoa' {..} =
+    Prelude.rnf loaContentType
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders DescribeLoa where
   toHeaders =
@@ -222,4 +230,8 @@ describeLoaResponse_loaContentType = Lens.lens (\DescribeLoaResponse' {loaConten
 describeLoaResponse_httpStatus :: Lens.Lens' DescribeLoaResponse Prelude.Int
 describeLoaResponse_httpStatus = Lens.lens (\DescribeLoaResponse' {httpStatus} -> httpStatus) (\s@DescribeLoaResponse' {} a -> s {httpStatus = a} :: DescribeLoaResponse)
 
-instance Prelude.NFData DescribeLoaResponse
+instance Prelude.NFData DescribeLoaResponse where
+  rnf DescribeLoaResponse' {..} =
+    Prelude.rnf loaContent
+      `Prelude.seq` Prelude.rnf loaContentType
+      `Prelude.seq` Prelude.rnf httpStatus

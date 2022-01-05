@@ -446,6 +446,60 @@ instance Core.FromJSON VirtualInterface where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable VirtualInterface
+instance Prelude.Hashable VirtualInterface where
+  hashWithSalt _salt VirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` bgpPeers
+      `Prelude.hashWithSalt` virtualGatewayId
+      `Prelude.hashWithSalt` mtu
+      `Prelude.hashWithSalt` routeFilterPrefixes
+      `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` virtualInterfaceState
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` directConnectGatewayId
+      `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` virtualInterfaceType
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` jumboFrameCapable
+      `Prelude.hashWithSalt` customerRouterConfig
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` virtualInterfaceName
+      `Prelude.hashWithSalt` awsDeviceV2
+      `Prelude.hashWithSalt` virtualInterfaceId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData VirtualInterface
+instance Prelude.NFData VirtualInterface where
+  rnf VirtualInterface' {..} =
+    Prelude.rnf bgpPeers
+      `Prelude.seq` Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf routeFilterPrefixes
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf virtualInterfaceState
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf virtualInterfaceType
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf jumboFrameCapable
+      `Prelude.seq` Prelude.rnf customerRouterConfig
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf
+        virtualInterfaceName
+      `Prelude.seq` Prelude.rnf awsDeviceV2
+      `Prelude.seq` Prelude.rnf
+        virtualInterfaceId
+      `Prelude.seq` Prelude.rnf tags

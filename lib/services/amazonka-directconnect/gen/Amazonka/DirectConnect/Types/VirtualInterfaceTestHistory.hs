@@ -135,6 +135,24 @@ instance Core.FromJSON VirtualInterfaceTestHistory where
             Prelude.<*> (x Core..:? "virtualInterfaceId")
       )
 
-instance Prelude.Hashable VirtualInterfaceTestHistory
+instance Prelude.Hashable VirtualInterfaceTestHistory where
+  hashWithSalt _salt VirtualInterfaceTestHistory' {..} =
+    _salt `Prelude.hashWithSalt` bgpPeers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` testDurationInMinutes
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` testId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData VirtualInterfaceTestHistory
+instance Prelude.NFData VirtualInterfaceTestHistory where
+  rnf VirtualInterfaceTestHistory' {..} =
+    Prelude.rnf bgpPeers
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf testDurationInMinutes
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf testId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf virtualInterfaceId

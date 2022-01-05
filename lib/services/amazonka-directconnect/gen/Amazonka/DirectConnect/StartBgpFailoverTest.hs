@@ -133,9 +133,17 @@ instance Core.AWSRequest StartBgpFailoverTest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartBgpFailoverTest
+instance Prelude.Hashable StartBgpFailoverTest where
+  hashWithSalt _salt StartBgpFailoverTest' {..} =
+    _salt `Prelude.hashWithSalt` bgpPeers
+      `Prelude.hashWithSalt` testDurationInMinutes
+      `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData StartBgpFailoverTest
+instance Prelude.NFData StartBgpFailoverTest where
+  rnf StartBgpFailoverTest' {..} =
+    Prelude.rnf bgpPeers
+      `Prelude.seq` Prelude.rnf testDurationInMinutes
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders StartBgpFailoverTest where
   toHeaders =
@@ -209,4 +217,7 @@ startBgpFailoverTestResponse_virtualInterfaceTest = Lens.lens (\StartBgpFailover
 startBgpFailoverTestResponse_httpStatus :: Lens.Lens' StartBgpFailoverTestResponse Prelude.Int
 startBgpFailoverTestResponse_httpStatus = Lens.lens (\StartBgpFailoverTestResponse' {httpStatus} -> httpStatus) (\s@StartBgpFailoverTestResponse' {} a -> s {httpStatus = a} :: StartBgpFailoverTestResponse)
 
-instance Prelude.NFData StartBgpFailoverTestResponse
+instance Prelude.NFData StartBgpFailoverTestResponse where
+  rnf StartBgpFailoverTestResponse' {..} =
+    Prelude.rnf virtualInterfaceTest
+      `Prelude.seq` Prelude.rnf httpStatus

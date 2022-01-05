@@ -95,6 +95,16 @@ instance Core.FromJSON AssociatedGateway where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable AssociatedGateway
+instance Prelude.Hashable AssociatedGateway where
+  hashWithSalt _salt AssociatedGateway' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AssociatedGateway
+instance Prelude.NFData AssociatedGateway where
+  rnf AssociatedGateway' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf type'

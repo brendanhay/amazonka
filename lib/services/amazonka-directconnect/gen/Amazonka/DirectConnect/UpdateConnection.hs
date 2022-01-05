@@ -140,9 +140,17 @@ instance Core.AWSRequest UpdateConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateConnection
+instance Prelude.Hashable UpdateConnection where
+  hashWithSalt _salt UpdateConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData UpdateConnection
+instance Prelude.NFData UpdateConnection where
+  rnf UpdateConnection' {..} =
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders UpdateConnection where
   toHeaders =

@@ -116,9 +116,17 @@ instance Core.AWSRequest RequestServiceQuotaIncrease where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RequestServiceQuotaIncrease
+instance Prelude.Hashable RequestServiceQuotaIncrease where
+  hashWithSalt _salt RequestServiceQuotaIncrease' {..} =
+    _salt `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` quotaCode
+      `Prelude.hashWithSalt` desiredValue
 
-instance Prelude.NFData RequestServiceQuotaIncrease
+instance Prelude.NFData RequestServiceQuotaIncrease where
+  rnf RequestServiceQuotaIncrease' {..} =
+    Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf quotaCode
+      `Prelude.seq` Prelude.rnf desiredValue
 
 instance Core.ToHeaders RequestServiceQuotaIncrease where
   toHeaders =
@@ -193,3 +201,7 @@ requestServiceQuotaIncreaseResponse_httpStatus = Lens.lens (\RequestServiceQuota
 instance
   Prelude.NFData
     RequestServiceQuotaIncreaseResponse
+  where
+  rnf RequestServiceQuotaIncreaseResponse' {..} =
+    Prelude.rnf requestedQuota
+      `Prelude.seq` Prelude.rnf httpStatus

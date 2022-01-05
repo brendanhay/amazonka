@@ -122,10 +122,23 @@ instance
 instance
   Prelude.Hashable
     DeleteServiceQuotaIncreaseRequestFromTemplate
+  where
+  hashWithSalt
+    _salt
+    DeleteServiceQuotaIncreaseRequestFromTemplate' {..} =
+      _salt `Prelude.hashWithSalt` serviceCode
+        `Prelude.hashWithSalt` quotaCode
+        `Prelude.hashWithSalt` awsRegion
 
 instance
   Prelude.NFData
     DeleteServiceQuotaIncreaseRequestFromTemplate
+  where
+  rnf
+    DeleteServiceQuotaIncreaseRequestFromTemplate' {..} =
+      Prelude.rnf serviceCode
+        `Prelude.seq` Prelude.rnf quotaCode
+        `Prelude.seq` Prelude.rnf awsRegion
 
 instance
   Core.ToHeaders
@@ -205,3 +218,7 @@ deleteServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+  where
+  rnf
+    DeleteServiceQuotaIncreaseRequestFromTemplateResponse' {..} =
+      Prelude.rnf httpStatus

@@ -163,10 +163,24 @@ instance
 instance
   Prelude.Hashable
     ListServiceQuotaIncreaseRequestsInTemplate
+  where
+  hashWithSalt
+    _salt
+    ListServiceQuotaIncreaseRequestsInTemplate' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` serviceCode
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListServiceQuotaIncreaseRequestsInTemplate
+  where
+  rnf ListServiceQuotaIncreaseRequestsInTemplate' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -270,3 +284,10 @@ listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus = Lens.lens (\List
 instance
   Prelude.NFData
     ListServiceQuotaIncreaseRequestsInTemplateResponse
+  where
+  rnf
+    ListServiceQuotaIncreaseRequestsInTemplateResponse' {..} =
+      Prelude.rnf
+        serviceQuotaIncreaseRequestInTemplateList
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -174,6 +174,32 @@ instance Core.FromJSON ServiceQuota where
             Prelude.<*> (x Core..:? "QuotaName")
       )
 
-instance Prelude.Hashable ServiceQuota
+instance Prelude.Hashable ServiceQuota where
+  hashWithSalt _salt ServiceQuota' {..} =
+    _salt `Prelude.hashWithSalt` globalQuota
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` quotaArn
+      `Prelude.hashWithSalt` usageMetric
+      `Prelude.hashWithSalt` errorReason
+      `Prelude.hashWithSalt` adjustable
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` quotaCode
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` quotaName
 
-instance Prelude.NFData ServiceQuota
+instance Prelude.NFData ServiceQuota where
+  rnf ServiceQuota' {..} =
+    Prelude.rnf globalQuota
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf quotaArn
+      `Prelude.seq` Prelude.rnf usageMetric
+      `Prelude.seq` Prelude.rnf errorReason
+      `Prelude.seq` Prelude.rnf adjustable
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf quotaCode
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf quotaName

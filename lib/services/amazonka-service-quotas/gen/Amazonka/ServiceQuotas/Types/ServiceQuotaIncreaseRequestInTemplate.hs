@@ -138,7 +138,29 @@ instance
 instance
   Prelude.Hashable
     ServiceQuotaIncreaseRequestInTemplate
+  where
+  hashWithSalt
+    _salt
+    ServiceQuotaIncreaseRequestInTemplate' {..} =
+      _salt `Prelude.hashWithSalt` globalQuota
+        `Prelude.hashWithSalt` desiredValue
+        `Prelude.hashWithSalt` serviceName
+        `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` serviceCode
+        `Prelude.hashWithSalt` quotaCode
+        `Prelude.hashWithSalt` unit
+        `Prelude.hashWithSalt` quotaName
 
 instance
   Prelude.NFData
     ServiceQuotaIncreaseRequestInTemplate
+  where
+  rnf ServiceQuotaIncreaseRequestInTemplate' {..} =
+    Prelude.rnf globalQuota
+      `Prelude.seq` Prelude.rnf desiredValue
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf quotaCode
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf quotaName

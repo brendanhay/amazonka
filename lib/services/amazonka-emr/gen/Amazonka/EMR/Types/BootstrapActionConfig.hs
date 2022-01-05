@@ -68,9 +68,15 @@ bootstrapActionConfig_name = Lens.lens (\BootstrapActionConfig' {name} -> name) 
 bootstrapActionConfig_scriptBootstrapAction :: Lens.Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bootstrapActionConfig_scriptBootstrapAction = Lens.lens (\BootstrapActionConfig' {scriptBootstrapAction} -> scriptBootstrapAction) (\s@BootstrapActionConfig' {} a -> s {scriptBootstrapAction = a} :: BootstrapActionConfig)
 
-instance Prelude.Hashable BootstrapActionConfig
+instance Prelude.Hashable BootstrapActionConfig where
+  hashWithSalt _salt BootstrapActionConfig' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scriptBootstrapAction
 
-instance Prelude.NFData BootstrapActionConfig
+instance Prelude.NFData BootstrapActionConfig where
+  rnf BootstrapActionConfig' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scriptBootstrapAction
 
 instance Core.ToJSON BootstrapActionConfig where
   toJSON BootstrapActionConfig' {..} =

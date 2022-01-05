@@ -83,9 +83,15 @@ instance Core.FromJSON ScalingAction where
             Prelude.<*> (x Core..: "SimpleScalingPolicyConfiguration")
       )
 
-instance Prelude.Hashable ScalingAction
+instance Prelude.Hashable ScalingAction where
+  hashWithSalt _salt ScalingAction' {..} =
+    _salt `Prelude.hashWithSalt` market
+      `Prelude.hashWithSalt` simpleScalingPolicyConfiguration
 
-instance Prelude.NFData ScalingAction
+instance Prelude.NFData ScalingAction where
+  rnf ScalingAction' {..} =
+    Prelude.rnf market
+      `Prelude.seq` Prelude.rnf simpleScalingPolicyConfiguration
 
 instance Core.ToJSON ScalingAction where
   toJSON ScalingAction' {..} =

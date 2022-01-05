@@ -76,7 +76,16 @@ instance Core.FromJSON InstanceGroupStateChangeReason where
 instance
   Prelude.Hashable
     InstanceGroupStateChangeReason
+  where
+  hashWithSalt
+    _salt
+    InstanceGroupStateChangeReason' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     InstanceGroupStateChangeReason
+  where
+  rnf InstanceGroupStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

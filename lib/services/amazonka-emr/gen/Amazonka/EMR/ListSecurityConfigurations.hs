@@ -119,9 +119,13 @@ instance Core.AWSRequest ListSecurityConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecurityConfigurations
+instance Prelude.Hashable ListSecurityConfigurations where
+  hashWithSalt _salt ListSecurityConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListSecurityConfigurations
+instance Prelude.NFData ListSecurityConfigurations where
+  rnf ListSecurityConfigurations' {..} =
+    Prelude.rnf marker
 
 instance Core.ToHeaders ListSecurityConfigurations where
   toHeaders =
@@ -208,3 +212,8 @@ listSecurityConfigurationsResponse_httpStatus = Lens.lens (\ListSecurityConfigur
 instance
   Prelude.NFData
     ListSecurityConfigurationsResponse
+  where
+  rnf ListSecurityConfigurationsResponse' {..} =
+    Prelude.rnf securityConfigurations
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

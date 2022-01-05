@@ -181,9 +181,31 @@ instanceGroupConfig_instanceType = Lens.lens (\InstanceGroupConfig' {instanceTyp
 instanceGroupConfig_instanceCount :: Lens.Lens' InstanceGroupConfig Prelude.Int
 instanceGroupConfig_instanceCount = Lens.lens (\InstanceGroupConfig' {instanceCount} -> instanceCount) (\s@InstanceGroupConfig' {} a -> s {instanceCount = a} :: InstanceGroupConfig)
 
-instance Prelude.Hashable InstanceGroupConfig
+instance Prelude.Hashable InstanceGroupConfig where
+  hashWithSalt _salt InstanceGroupConfig' {..} =
+    _salt `Prelude.hashWithSalt` ebsConfiguration
+      `Prelude.hashWithSalt` bidPrice
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` market
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` autoScalingPolicy
+      `Prelude.hashWithSalt` instanceRole
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData InstanceGroupConfig
+instance Prelude.NFData InstanceGroupConfig where
+  rnf InstanceGroupConfig' {..} =
+    Prelude.rnf ebsConfiguration
+      `Prelude.seq` Prelude.rnf bidPrice
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf market
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf instanceRole
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceCount
 
 instance Core.ToJSON InstanceGroupConfig where
   toJSON InstanceGroupConfig' {..} =

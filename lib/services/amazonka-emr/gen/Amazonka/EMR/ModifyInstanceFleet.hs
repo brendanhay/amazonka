@@ -96,9 +96,15 @@ instance Core.AWSRequest ModifyInstanceFleet where
   response =
     Response.receiveNull ModifyInstanceFleetResponse'
 
-instance Prelude.Hashable ModifyInstanceFleet
+instance Prelude.Hashable ModifyInstanceFleet where
+  hashWithSalt _salt ModifyInstanceFleet' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` instanceFleet
 
-instance Prelude.NFData ModifyInstanceFleet
+instance Prelude.NFData ModifyInstanceFleet where
+  rnf ModifyInstanceFleet' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf instanceFleet
 
 instance Core.ToHeaders ModifyInstanceFleet where
   toHeaders =
@@ -146,4 +152,5 @@ newModifyInstanceFleetResponse ::
 newModifyInstanceFleetResponse =
   ModifyInstanceFleetResponse'
 
-instance Prelude.NFData ModifyInstanceFleetResponse
+instance Prelude.NFData ModifyInstanceFleetResponse where
+  rnf _ = ()

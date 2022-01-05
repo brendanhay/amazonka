@@ -108,9 +108,19 @@ instance Core.FromJSON Application where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable Application
+instance Prelude.Hashable Application where
+  hashWithSalt _salt Application' {..} =
+    _salt `Prelude.hashWithSalt` args
+      `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData Application
+instance Prelude.NFData Application where
+  rnf Application' {..} =
+    Prelude.rnf args
+      `Prelude.seq` Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON Application where
   toJSON Application' {..} =

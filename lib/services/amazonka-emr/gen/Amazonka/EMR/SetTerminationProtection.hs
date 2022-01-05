@@ -124,9 +124,15 @@ instance Core.AWSRequest SetTerminationProtection where
     Response.receiveNull
       SetTerminationProtectionResponse'
 
-instance Prelude.Hashable SetTerminationProtection
+instance Prelude.Hashable SetTerminationProtection where
+  hashWithSalt _salt SetTerminationProtection' {..} =
+    _salt `Prelude.hashWithSalt` jobFlowIds
+      `Prelude.hashWithSalt` terminationProtected
 
-instance Prelude.NFData SetTerminationProtection
+instance Prelude.NFData SetTerminationProtection where
+  rnf SetTerminationProtection' {..} =
+    Prelude.rnf jobFlowIds
+      `Prelude.seq` Prelude.rnf terminationProtected
 
 instance Core.ToHeaders SetTerminationProtection where
   toHeaders =
@@ -179,3 +185,5 @@ newSetTerminationProtectionResponse =
 instance
   Prelude.NFData
     SetTerminationProtectionResponse
+  where
+  rnf _ = ()

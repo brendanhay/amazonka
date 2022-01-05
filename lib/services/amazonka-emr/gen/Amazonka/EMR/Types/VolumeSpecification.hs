@@ -93,9 +93,17 @@ instance Core.FromJSON VolumeSpecification where
             Prelude.<*> (x Core..: "SizeInGB")
       )
 
-instance Prelude.Hashable VolumeSpecification
+instance Prelude.Hashable VolumeSpecification where
+  hashWithSalt _salt VolumeSpecification' {..} =
+    _salt `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` sizeInGB
 
-instance Prelude.NFData VolumeSpecification
+instance Prelude.NFData VolumeSpecification where
+  rnf VolumeSpecification' {..} =
+    Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf sizeInGB
 
 instance Core.ToJSON VolumeSpecification where
   toJSON VolumeSpecification' {..} =

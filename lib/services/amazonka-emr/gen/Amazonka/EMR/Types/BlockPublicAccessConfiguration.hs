@@ -123,10 +123,21 @@ instance Core.FromJSON BlockPublicAccessConfiguration where
 instance
   Prelude.Hashable
     BlockPublicAccessConfiguration
+  where
+  hashWithSalt
+    _salt
+    BlockPublicAccessConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` permittedPublicSecurityGroupRuleRanges
+        `Prelude.hashWithSalt` blockPublicSecurityGroupRules
 
 instance
   Prelude.NFData
     BlockPublicAccessConfiguration
+  where
+  rnf BlockPublicAccessConfiguration' {..} =
+    Prelude.rnf permittedPublicSecurityGroupRuleRanges
+      `Prelude.seq` Prelude.rnf blockPublicSecurityGroupRules
 
 instance Core.ToJSON BlockPublicAccessConfiguration where
   toJSON BlockPublicAccessConfiguration' {..} =

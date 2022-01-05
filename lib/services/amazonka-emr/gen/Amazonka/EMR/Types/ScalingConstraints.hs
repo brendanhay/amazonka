@@ -89,9 +89,15 @@ instance Core.FromJSON ScalingConstraints where
             Prelude.<*> (x Core..: "MaxCapacity")
       )
 
-instance Prelude.Hashable ScalingConstraints
+instance Prelude.Hashable ScalingConstraints where
+  hashWithSalt _salt ScalingConstraints' {..} =
+    _salt `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` maxCapacity
 
-instance Prelude.NFData ScalingConstraints
+instance Prelude.NFData ScalingConstraints where
+  rnf ScalingConstraints' {..} =
+    Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
 
 instance Core.ToJSON ScalingConstraints where
   toJSON ScalingConstraints' {..} =

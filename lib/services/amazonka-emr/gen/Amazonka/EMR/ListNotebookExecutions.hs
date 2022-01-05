@@ -251,9 +251,21 @@ instance Core.AWSRequest ListNotebookExecutions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNotebookExecutions
+instance Prelude.Hashable ListNotebookExecutions where
+  hashWithSalt _salt ListNotebookExecutions' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListNotebookExecutions
+instance Prelude.NFData ListNotebookExecutions where
+  rnf ListNotebookExecutions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf to
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListNotebookExecutions where
   toHeaders =
@@ -342,3 +354,8 @@ listNotebookExecutionsResponse_httpStatus = Lens.lens (\ListNotebookExecutionsRe
 instance
   Prelude.NFData
     ListNotebookExecutionsResponse
+  where
+  rnf ListNotebookExecutionsResponse' {..} =
+    Prelude.rnf notebookExecutions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

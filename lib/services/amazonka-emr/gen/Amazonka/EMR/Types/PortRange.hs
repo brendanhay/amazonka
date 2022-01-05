@@ -75,9 +75,15 @@ instance Core.FromJSON PortRange where
             Prelude.<*> (x Core..: "MinRange")
       )
 
-instance Prelude.Hashable PortRange
+instance Prelude.Hashable PortRange where
+  hashWithSalt _salt PortRange' {..} =
+    _salt `Prelude.hashWithSalt` maxRange
+      `Prelude.hashWithSalt` minRange
 
-instance Prelude.NFData PortRange
+instance Prelude.NFData PortRange where
+  rnf PortRange' {..} =
+    Prelude.rnf maxRange
+      `Prelude.seq` Prelude.rnf minRange
 
 instance Core.ToJSON PortRange where
   toJSON PortRange' {..} =

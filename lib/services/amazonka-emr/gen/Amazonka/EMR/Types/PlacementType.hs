@@ -86,9 +86,15 @@ placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones}
 placementType_availabilityZone :: Lens.Lens' PlacementType (Prelude.Maybe Prelude.Text)
 placementType_availabilityZone = Lens.lens (\PlacementType' {availabilityZone} -> availabilityZone) (\s@PlacementType' {} a -> s {availabilityZone = a} :: PlacementType)
 
-instance Prelude.Hashable PlacementType
+instance Prelude.Hashable PlacementType where
+  hashWithSalt _salt PlacementType' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData PlacementType
+instance Prelude.NFData PlacementType where
+  rnf PlacementType' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToJSON PlacementType where
   toJSON PlacementType' {..} =

@@ -96,9 +96,17 @@ instance Core.FromJSON InstanceResizePolicy where
             Prelude.<*> (x Core..:? "InstanceTerminationTimeout")
       )
 
-instance Prelude.Hashable InstanceResizePolicy
+instance Prelude.Hashable InstanceResizePolicy where
+  hashWithSalt _salt InstanceResizePolicy' {..} =
+    _salt `Prelude.hashWithSalt` instancesToProtect
+      `Prelude.hashWithSalt` instancesToTerminate
+      `Prelude.hashWithSalt` instanceTerminationTimeout
 
-instance Prelude.NFData InstanceResizePolicy
+instance Prelude.NFData InstanceResizePolicy where
+  rnf InstanceResizePolicy' {..} =
+    Prelude.rnf instancesToProtect
+      `Prelude.seq` Prelude.rnf instancesToTerminate
+      `Prelude.seq` Prelude.rnf instanceTerminationTimeout
 
 instance Core.ToJSON InstanceResizePolicy where
   toJSON InstanceResizePolicy' {..} =

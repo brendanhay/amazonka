@@ -155,10 +155,22 @@ instance
 instance
   Prelude.Hashable
     SimpleScalingPolicyConfiguration
+  where
+  hashWithSalt
+    _salt
+    SimpleScalingPolicyConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` adjustmentType
+        `Prelude.hashWithSalt` coolDown
+        `Prelude.hashWithSalt` scalingAdjustment
 
 instance
   Prelude.NFData
     SimpleScalingPolicyConfiguration
+  where
+  rnf SimpleScalingPolicyConfiguration' {..} =
+    Prelude.rnf adjustmentType
+      `Prelude.seq` Prelude.rnf coolDown
+      `Prelude.seq` Prelude.rnf scalingAdjustment
 
 instance Core.ToJSON SimpleScalingPolicyConfiguration where
   toJSON SimpleScalingPolicyConfiguration' {..} =

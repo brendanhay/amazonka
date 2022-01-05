@@ -127,9 +127,15 @@ instance Core.AWSRequest ListInstanceFleets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstanceFleets
+instance Prelude.Hashable ListInstanceFleets where
+  hashWithSalt _salt ListInstanceFleets' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData ListInstanceFleets
+instance Prelude.NFData ListInstanceFleets where
+  rnf ListInstanceFleets' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ListInstanceFleets where
   toHeaders =
@@ -209,4 +215,8 @@ listInstanceFleetsResponse_marker = Lens.lens (\ListInstanceFleetsResponse' {mar
 listInstanceFleetsResponse_httpStatus :: Lens.Lens' ListInstanceFleetsResponse Prelude.Int
 listInstanceFleetsResponse_httpStatus = Lens.lens (\ListInstanceFleetsResponse' {httpStatus} -> httpStatus) (\s@ListInstanceFleetsResponse' {} a -> s {httpStatus = a} :: ListInstanceFleetsResponse)
 
-instance Prelude.NFData ListInstanceFleetsResponse
+instance Prelude.NFData ListInstanceFleetsResponse where
+  rnf ListInstanceFleetsResponse' {..} =
+    Prelude.rnf instanceFleets
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

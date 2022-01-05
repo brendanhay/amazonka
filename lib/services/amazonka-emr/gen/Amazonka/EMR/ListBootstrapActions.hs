@@ -129,9 +129,15 @@ instance Core.AWSRequest ListBootstrapActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBootstrapActions
+instance Prelude.Hashable ListBootstrapActions where
+  hashWithSalt _salt ListBootstrapActions' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData ListBootstrapActions
+instance Prelude.NFData ListBootstrapActions where
+  rnf ListBootstrapActions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ListBootstrapActions where
   toHeaders =
@@ -213,4 +219,8 @@ listBootstrapActionsResponse_marker = Lens.lens (\ListBootstrapActionsResponse' 
 listBootstrapActionsResponse_httpStatus :: Lens.Lens' ListBootstrapActionsResponse Prelude.Int
 listBootstrapActionsResponse_httpStatus = Lens.lens (\ListBootstrapActionsResponse' {httpStatus} -> httpStatus) (\s@ListBootstrapActionsResponse' {} a -> s {httpStatus = a} :: ListBootstrapActionsResponse)
 
-instance Prelude.NFData ListBootstrapActionsResponse
+instance Prelude.NFData ListBootstrapActionsResponse where
+  rnf ListBootstrapActionsResponse' {..} =
+    Prelude.rnf bootstrapActions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -90,9 +90,13 @@ instance Core.AWSRequest RemoveAutoTerminationPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveAutoTerminationPolicy
+instance Prelude.Hashable RemoveAutoTerminationPolicy where
+  hashWithSalt _salt RemoveAutoTerminationPolicy' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData RemoveAutoTerminationPolicy
+instance Prelude.NFData RemoveAutoTerminationPolicy where
+  rnf RemoveAutoTerminationPolicy' {..} =
+    Prelude.rnf clusterId
 
 instance Core.ToHeaders RemoveAutoTerminationPolicy where
   toHeaders =
@@ -155,3 +159,6 @@ removeAutoTerminationPolicyResponse_httpStatus = Lens.lens (\RemoveAutoTerminati
 instance
   Prelude.NFData
     RemoveAutoTerminationPolicyResponse
+  where
+  rnf RemoveAutoTerminationPolicyResponse' {..} =
+    Prelude.rnf httpStatus

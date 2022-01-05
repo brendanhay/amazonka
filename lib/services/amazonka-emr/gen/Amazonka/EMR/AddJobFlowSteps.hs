@@ -127,9 +127,15 @@ instance Core.AWSRequest AddJobFlowSteps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddJobFlowSteps
+instance Prelude.Hashable AddJobFlowSteps where
+  hashWithSalt _salt AddJobFlowSteps' {..} =
+    _salt `Prelude.hashWithSalt` jobFlowId
+      `Prelude.hashWithSalt` steps
 
-instance Prelude.NFData AddJobFlowSteps
+instance Prelude.NFData AddJobFlowSteps where
+  rnf AddJobFlowSteps' {..} =
+    Prelude.rnf jobFlowId
+      `Prelude.seq` Prelude.rnf steps
 
 instance Core.ToHeaders AddJobFlowSteps where
   toHeaders =
@@ -201,4 +207,7 @@ addJobFlowStepsResponse_stepIds = Lens.lens (\AddJobFlowStepsResponse' {stepIds}
 addJobFlowStepsResponse_httpStatus :: Lens.Lens' AddJobFlowStepsResponse Prelude.Int
 addJobFlowStepsResponse_httpStatus = Lens.lens (\AddJobFlowStepsResponse' {httpStatus} -> httpStatus) (\s@AddJobFlowStepsResponse' {} a -> s {httpStatus = a} :: AddJobFlowStepsResponse)
 
-instance Prelude.NFData AddJobFlowStepsResponse
+instance Prelude.NFData AddJobFlowStepsResponse where
+  rnf AddJobFlowStepsResponse' {..} =
+    Prelude.rnf stepIds
+      `Prelude.seq` Prelude.rnf httpStatus

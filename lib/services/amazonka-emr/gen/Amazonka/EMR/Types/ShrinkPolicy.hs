@@ -80,9 +80,15 @@ instance Core.FromJSON ShrinkPolicy where
             Prelude.<*> (x Core..:? "InstanceResizePolicy")
       )
 
-instance Prelude.Hashable ShrinkPolicy
+instance Prelude.Hashable ShrinkPolicy where
+  hashWithSalt _salt ShrinkPolicy' {..} =
+    _salt `Prelude.hashWithSalt` decommissionTimeout
+      `Prelude.hashWithSalt` instanceResizePolicy
 
-instance Prelude.NFData ShrinkPolicy
+instance Prelude.NFData ShrinkPolicy where
+  rnf ShrinkPolicy' {..} =
+    Prelude.rnf decommissionTimeout
+      `Prelude.seq` Prelude.rnf instanceResizePolicy
 
 instance Core.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =

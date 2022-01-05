@@ -109,9 +109,19 @@ instance Core.FromJSON ScalingRule where
             Prelude.<*> (x Core..: "Trigger")
       )
 
-instance Prelude.Hashable ScalingRule
+instance Prelude.Hashable ScalingRule where
+  hashWithSalt _salt ScalingRule' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` trigger
 
-instance Prelude.NFData ScalingRule
+instance Prelude.NFData ScalingRule where
+  rnf ScalingRule' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf trigger
 
 instance Core.ToJSON ScalingRule where
   toJSON ScalingRule' {..} =

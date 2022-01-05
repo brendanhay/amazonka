@@ -112,9 +112,15 @@ instance Core.AWSRequest ModifyCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCluster
+instance Prelude.Hashable ModifyCluster where
+  hashWithSalt _salt ModifyCluster' {..} =
+    _salt `Prelude.hashWithSalt` stepConcurrencyLevel
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData ModifyCluster
+instance Prelude.NFData ModifyCluster where
+  rnf ModifyCluster' {..} =
+    Prelude.rnf stepConcurrencyLevel
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ModifyCluster where
   toHeaders =
@@ -186,4 +192,7 @@ modifyClusterResponse_stepConcurrencyLevel = Lens.lens (\ModifyClusterResponse' 
 modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Prelude.NFData ModifyClusterResponse
+instance Prelude.NFData ModifyClusterResponse where
+  rnf ModifyClusterResponse' {..} =
+    Prelude.rnf stepConcurrencyLevel
+      `Prelude.seq` Prelude.rnf httpStatus

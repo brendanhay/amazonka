@@ -148,9 +148,17 @@ stepConfig_name = Lens.lens (\StepConfig' {name} -> name) (\s@StepConfig' {} a -
 stepConfig_hadoopJarStep :: Lens.Lens' StepConfig HadoopJarStepConfig
 stepConfig_hadoopJarStep = Lens.lens (\StepConfig' {hadoopJarStep} -> hadoopJarStep) (\s@StepConfig' {} a -> s {hadoopJarStep = a} :: StepConfig)
 
-instance Prelude.Hashable StepConfig
+instance Prelude.Hashable StepConfig where
+  hashWithSalt _salt StepConfig' {..} =
+    _salt `Prelude.hashWithSalt` actionOnFailure
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hadoopJarStep
 
-instance Prelude.NFData StepConfig
+instance Prelude.NFData StepConfig where
+  rnf StepConfig' {..} =
+    Prelude.rnf actionOnFailure
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf hadoopJarStep
 
 instance Core.ToJSON StepConfig where
   toJSON StepConfig' {..} =

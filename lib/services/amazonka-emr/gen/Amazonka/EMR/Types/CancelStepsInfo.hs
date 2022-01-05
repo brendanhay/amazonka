@@ -86,6 +86,14 @@ instance Core.FromJSON CancelStepsInfo where
             Prelude.<*> (x Core..:? "Reason")
       )
 
-instance Prelude.Hashable CancelStepsInfo
+instance Prelude.Hashable CancelStepsInfo where
+  hashWithSalt _salt CancelStepsInfo' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` stepId
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData CancelStepsInfo
+instance Prelude.NFData CancelStepsInfo where
+  rnf CancelStepsInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf stepId
+      `Prelude.seq` Prelude.rnf reason

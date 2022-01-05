@@ -61,9 +61,15 @@ releaseLabelFilter_application = Lens.lens (\ReleaseLabelFilter' {application} -
 releaseLabelFilter_prefix :: Lens.Lens' ReleaseLabelFilter (Prelude.Maybe Prelude.Text)
 releaseLabelFilter_prefix = Lens.lens (\ReleaseLabelFilter' {prefix} -> prefix) (\s@ReleaseLabelFilter' {} a -> s {prefix = a} :: ReleaseLabelFilter)
 
-instance Prelude.Hashable ReleaseLabelFilter
+instance Prelude.Hashable ReleaseLabelFilter where
+  hashWithSalt _salt ReleaseLabelFilter' {..} =
+    _salt `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData ReleaseLabelFilter
+instance Prelude.NFData ReleaseLabelFilter where
+  rnf ReleaseLabelFilter' {..} =
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON ReleaseLabelFilter where
   toJSON ReleaseLabelFilter' {..} =

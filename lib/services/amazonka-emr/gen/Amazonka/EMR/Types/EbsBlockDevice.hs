@@ -79,6 +79,12 @@ instance Core.FromJSON EbsBlockDevice where
             Prelude.<*> (x Core..:? "VolumeSpecification")
       )
 
-instance Prelude.Hashable EbsBlockDevice
+instance Prelude.Hashable EbsBlockDevice where
+  hashWithSalt _salt EbsBlockDevice' {..} =
+    _salt `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` volumeSpecification
 
-instance Prelude.NFData EbsBlockDevice
+instance Prelude.NFData EbsBlockDevice where
+  rnf EbsBlockDevice' {..} =
+    Prelude.rnf device
+      `Prelude.seq` Prelude.rnf volumeSpecification

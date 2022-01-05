@@ -75,6 +75,11 @@ instance Core.FromJSON StepStateChangeReason where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable StepStateChangeReason
+instance Prelude.Hashable StepStateChangeReason where
+  hashWithSalt _salt StepStateChangeReason' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData StepStateChangeReason
+instance Prelude.NFData StepStateChangeReason where
+  rnf StepStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

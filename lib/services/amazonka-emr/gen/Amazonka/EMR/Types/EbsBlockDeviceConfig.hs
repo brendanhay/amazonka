@@ -75,9 +75,15 @@ ebsBlockDeviceConfig_volumesPerInstance = Lens.lens (\EbsBlockDeviceConfig' {vol
 ebsBlockDeviceConfig_volumeSpecification :: Lens.Lens' EbsBlockDeviceConfig VolumeSpecification
 ebsBlockDeviceConfig_volumeSpecification = Lens.lens (\EbsBlockDeviceConfig' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDeviceConfig' {} a -> s {volumeSpecification = a} :: EbsBlockDeviceConfig)
 
-instance Prelude.Hashable EbsBlockDeviceConfig
+instance Prelude.Hashable EbsBlockDeviceConfig where
+  hashWithSalt _salt EbsBlockDeviceConfig' {..} =
+    _salt `Prelude.hashWithSalt` volumesPerInstance
+      `Prelude.hashWithSalt` volumeSpecification
 
-instance Prelude.NFData EbsBlockDeviceConfig
+instance Prelude.NFData EbsBlockDeviceConfig where
+  rnf EbsBlockDeviceConfig' {..} =
+    Prelude.rnf volumesPerInstance
+      `Prelude.seq` Prelude.rnf volumeSpecification
 
 instance Core.ToJSON EbsBlockDeviceConfig where
   toJSON EbsBlockDeviceConfig' {..} =

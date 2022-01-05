@@ -107,9 +107,15 @@ instance Core.AWSRequest PutManagedScalingPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutManagedScalingPolicy
+instance Prelude.Hashable PutManagedScalingPolicy where
+  hashWithSalt _salt PutManagedScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` managedScalingPolicy
 
-instance Prelude.NFData PutManagedScalingPolicy
+instance Prelude.NFData PutManagedScalingPolicy where
+  rnf PutManagedScalingPolicy' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf managedScalingPolicy
 
 instance Core.ToHeaders PutManagedScalingPolicy where
   toHeaders =
@@ -177,3 +183,6 @@ putManagedScalingPolicyResponse_httpStatus = Lens.lens (\PutManagedScalingPolicy
 instance
   Prelude.NFData
     PutManagedScalingPolicyResponse
+  where
+  rnf PutManagedScalingPolicyResponse' {..} =
+    Prelude.rnf httpStatus

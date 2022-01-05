@@ -130,9 +130,17 @@ instance Core.AWSRequest PutAutoScalingPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAutoScalingPolicy
+instance Prelude.Hashable PutAutoScalingPolicy where
+  hashWithSalt _salt PutAutoScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` autoScalingPolicy
 
-instance Prelude.NFData PutAutoScalingPolicy
+instance Prelude.NFData PutAutoScalingPolicy where
+  rnf PutAutoScalingPolicy' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf autoScalingPolicy
 
 instance Core.ToHeaders PutAutoScalingPolicy where
   toHeaders =
@@ -239,4 +247,10 @@ putAutoScalingPolicyResponse_instanceGroupId = Lens.lens (\PutAutoScalingPolicyR
 putAutoScalingPolicyResponse_httpStatus :: Lens.Lens' PutAutoScalingPolicyResponse Prelude.Int
 putAutoScalingPolicyResponse_httpStatus = Lens.lens (\PutAutoScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutAutoScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutAutoScalingPolicyResponse)
 
-instance Prelude.NFData PutAutoScalingPolicyResponse
+instance Prelude.NFData PutAutoScalingPolicyResponse where
+  rnf PutAutoScalingPolicyResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf httpStatus

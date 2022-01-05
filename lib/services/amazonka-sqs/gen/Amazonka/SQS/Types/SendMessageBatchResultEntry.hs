@@ -172,6 +172,20 @@ instance Core.FromXML SendMessageBatchResultEntry where
       Prelude.<*> (x Core..@ "MessageId")
       Prelude.<*> (x Core..@ "MD5OfMessageBody")
 
-instance Prelude.Hashable SendMessageBatchResultEntry
+instance Prelude.Hashable SendMessageBatchResultEntry where
+  hashWithSalt _salt SendMessageBatchResultEntry' {..} =
+    _salt `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` mD5OfMessageSystemAttributes
+      `Prelude.hashWithSalt` mD5OfMessageAttributes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` mD5OfMessageBody
 
-instance Prelude.NFData SendMessageBatchResultEntry
+instance Prelude.NFData SendMessageBatchResultEntry where
+  rnf SendMessageBatchResultEntry' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf mD5OfMessageSystemAttributes
+      `Prelude.seq` Prelude.rnf mD5OfMessageAttributes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf mD5OfMessageBody

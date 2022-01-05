@@ -123,9 +123,15 @@ instance Core.AWSRequest DeleteMessageBatch where
             Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
 
-instance Prelude.Hashable DeleteMessageBatch
+instance Prelude.Hashable DeleteMessageBatch where
+  hashWithSalt _salt DeleteMessageBatch' {..} =
+    _salt `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData DeleteMessageBatch
+instance Prelude.NFData DeleteMessageBatch where
+  rnf DeleteMessageBatch' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders DeleteMessageBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,4 +204,8 @@ deleteMessageBatchResponse_successful = Lens.lens (\DeleteMessageBatchResponse' 
 deleteMessageBatchResponse_failed :: Lens.Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {failed} -> failed) (\s@DeleteMessageBatchResponse' {} a -> s {failed = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DeleteMessageBatchResponse
+instance Prelude.NFData DeleteMessageBatchResponse where
+  rnf DeleteMessageBatchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf failed

@@ -141,9 +141,15 @@ instance Core.AWSRequest SendMessageBatch where
             Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
 
-instance Prelude.Hashable SendMessageBatch
+instance Prelude.Hashable SendMessageBatch where
+  hashWithSalt _salt SendMessageBatch' {..} =
+    _salt `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData SendMessageBatch
+instance Prelude.NFData SendMessageBatch where
+  rnf SendMessageBatch' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders SendMessageBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +225,8 @@ sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {suc
 sendMessageBatchResponse_failed :: Lens.Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SendMessageBatchResponse
+instance Prelude.NFData SendMessageBatchResponse where
+  rnf SendMessageBatchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf failed

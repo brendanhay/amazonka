@@ -60,5 +60,10 @@ instance Core.FromXML DeleteMessageBatchResultEntry where
 instance
   Prelude.Hashable
     DeleteMessageBatchResultEntry
+  where
+  hashWithSalt _salt DeleteMessageBatchResultEntry' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteMessageBatchResultEntry
+instance Prelude.NFData DeleteMessageBatchResultEntry where
+  rnf DeleteMessageBatchResultEntry' {..} =
+    Prelude.rnf id

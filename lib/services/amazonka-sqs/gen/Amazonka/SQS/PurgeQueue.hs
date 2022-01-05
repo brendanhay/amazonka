@@ -97,9 +97,12 @@ instance Core.AWSRequest PurgeQueue where
   request = Request.postQuery defaultService
   response = Response.receiveNull PurgeQueueResponse'
 
-instance Prelude.Hashable PurgeQueue
+instance Prelude.Hashable PurgeQueue where
+  hashWithSalt _salt PurgeQueue' {..} =
+    _salt `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData PurgeQueue
+instance Prelude.NFData PurgeQueue where
+  rnf PurgeQueue' {..} = Prelude.rnf queueUrl
 
 instance Core.ToHeaders PurgeQueue where
   toHeaders = Prelude.const Prelude.mempty
@@ -131,4 +134,5 @@ newPurgeQueueResponse ::
   PurgeQueueResponse
 newPurgeQueueResponse = PurgeQueueResponse'
 
-instance Prelude.NFData PurgeQueueResponse
+instance Prelude.NFData PurgeQueueResponse where
+  rnf _ = ()

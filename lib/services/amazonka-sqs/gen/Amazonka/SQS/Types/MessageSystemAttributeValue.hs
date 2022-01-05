@@ -130,9 +130,21 @@ messageSystemAttributeValue_binaryListValues = Lens.lens (\MessageSystemAttribut
 messageSystemAttributeValue_dataType :: Lens.Lens' MessageSystemAttributeValue Prelude.Text
 messageSystemAttributeValue_dataType = Lens.lens (\MessageSystemAttributeValue' {dataType} -> dataType) (\s@MessageSystemAttributeValue' {} a -> s {dataType = a} :: MessageSystemAttributeValue)
 
-instance Prelude.Hashable MessageSystemAttributeValue
+instance Prelude.Hashable MessageSystemAttributeValue where
+  hashWithSalt _salt MessageSystemAttributeValue' {..} =
+    _salt `Prelude.hashWithSalt` binaryValue
+      `Prelude.hashWithSalt` stringListValues
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` binaryListValues
+      `Prelude.hashWithSalt` dataType
 
-instance Prelude.NFData MessageSystemAttributeValue
+instance Prelude.NFData MessageSystemAttributeValue where
+  rnf MessageSystemAttributeValue' {..} =
+    Prelude.rnf binaryValue
+      `Prelude.seq` Prelude.rnf stringListValues
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf binaryListValues
+      `Prelude.seq` Prelude.rnf dataType
 
 instance Core.ToQuery MessageSystemAttributeValue where
   toQuery MessageSystemAttributeValue' {..} =

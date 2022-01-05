@@ -97,6 +97,16 @@ instance Core.FromXML BatchResultErrorEntry where
       Prelude.<*> (x Core..@ "SenderFault")
       Prelude.<*> (x Core..@ "Code")
 
-instance Prelude.Hashable BatchResultErrorEntry
+instance Prelude.Hashable BatchResultErrorEntry where
+  hashWithSalt _salt BatchResultErrorEntry' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` senderFault
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData BatchResultErrorEntry
+instance Prelude.NFData BatchResultErrorEntry where
+  rnf BatchResultErrorEntry' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf senderFault
+      `Prelude.seq` Prelude.rnf code

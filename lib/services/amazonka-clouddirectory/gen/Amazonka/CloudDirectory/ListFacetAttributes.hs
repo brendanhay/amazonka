@@ -146,9 +146,19 @@ instance Core.AWSRequest ListFacetAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFacetAttributes
+instance Prelude.Hashable ListFacetAttributes where
+  hashWithSalt _salt ListFacetAttributes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ListFacetAttributes
+instance Prelude.NFData ListFacetAttributes where
+  rnf ListFacetAttributes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ListFacetAttributes where
   toHeaders ListFacetAttributes' {..} =
@@ -221,4 +231,8 @@ listFacetAttributesResponse_attributes = Lens.lens (\ListFacetAttributesResponse
 listFacetAttributesResponse_httpStatus :: Lens.Lens' ListFacetAttributesResponse Prelude.Int
 listFacetAttributesResponse_httpStatus = Lens.lens (\ListFacetAttributesResponse' {httpStatus} -> httpStatus) (\s@ListFacetAttributesResponse' {} a -> s {httpStatus = a} :: ListFacetAttributesResponse)
 
-instance Prelude.NFData ListFacetAttributesResponse
+instance Prelude.NFData ListFacetAttributesResponse where
+  rnf ListFacetAttributesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

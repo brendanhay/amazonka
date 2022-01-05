@@ -136,9 +136,21 @@ instance Core.AWSRequest CreateIndex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIndex
+instance Prelude.Hashable CreateIndex where
+  hashWithSalt _salt CreateIndex' {..} =
+    _salt `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` orderedIndexedAttributeList
+      `Prelude.hashWithSalt` isUnique
 
-instance Prelude.NFData CreateIndex
+instance Prelude.NFData CreateIndex where
+  rnf CreateIndex' {..} =
+    Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
+      `Prelude.seq` Prelude.rnf isUnique
 
 instance Core.ToHeaders CreateIndex where
   toHeaders CreateIndex' {..} =
@@ -207,4 +219,7 @@ createIndexResponse_objectIdentifier = Lens.lens (\CreateIndexResponse' {objectI
 createIndexResponse_httpStatus :: Lens.Lens' CreateIndexResponse Prelude.Int
 createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -> httpStatus) (\s@CreateIndexResponse' {} a -> s {httpStatus = a} :: CreateIndexResponse)
 
-instance Prelude.NFData CreateIndexResponse
+instance Prelude.NFData CreateIndexResponse where
+  rnf CreateIndexResponse' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

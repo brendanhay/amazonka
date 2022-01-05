@@ -64,9 +64,16 @@ objectAttributeAction_objectAttributeActionType = Lens.lens (\ObjectAttributeAct
 objectAttributeAction_objectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe TypedAttributeValue)
 objectAttributeAction_objectAttributeUpdateValue = Lens.lens (\ObjectAttributeAction' {objectAttributeUpdateValue} -> objectAttributeUpdateValue) (\s@ObjectAttributeAction' {} a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
 
-instance Prelude.Hashable ObjectAttributeAction
+instance Prelude.Hashable ObjectAttributeAction where
+  hashWithSalt _salt ObjectAttributeAction' {..} =
+    _salt
+      `Prelude.hashWithSalt` objectAttributeActionType
+      `Prelude.hashWithSalt` objectAttributeUpdateValue
 
-instance Prelude.NFData ObjectAttributeAction
+instance Prelude.NFData ObjectAttributeAction where
+  rnf ObjectAttributeAction' {..} =
+    Prelude.rnf objectAttributeActionType
+      `Prelude.seq` Prelude.rnf objectAttributeUpdateValue
 
 instance Core.ToJSON ObjectAttributeAction where
   toJSON ObjectAttributeAction' {..} =

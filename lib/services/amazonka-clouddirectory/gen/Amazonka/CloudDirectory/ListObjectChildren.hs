@@ -151,9 +151,21 @@ instance Core.AWSRequest ListObjectChildren where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectChildren
+instance Prelude.Hashable ListObjectChildren where
+  hashWithSalt _salt ListObjectChildren' {..} =
+    _salt `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData ListObjectChildren
+instance Prelude.NFData ListObjectChildren where
+  rnf ListObjectChildren' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders ListObjectChildren where
   toHeaders ListObjectChildren' {..} =
@@ -232,4 +244,8 @@ listObjectChildrenResponse_nextToken = Lens.lens (\ListObjectChildrenResponse' {
 listObjectChildrenResponse_httpStatus :: Lens.Lens' ListObjectChildrenResponse Prelude.Int
 listObjectChildrenResponse_httpStatus = Lens.lens (\ListObjectChildrenResponse' {httpStatus} -> httpStatus) (\s@ListObjectChildrenResponse' {} a -> s {httpStatus = a} :: ListObjectChildrenResponse)
 
-instance Prelude.NFData ListObjectChildrenResponse
+instance Prelude.NFData ListObjectChildrenResponse where
+  rnf ListObjectChildrenResponse' {..} =
+    Prelude.rnf children
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -118,9 +118,17 @@ instance Core.AWSRequest AttachToIndex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachToIndex
+instance Prelude.Hashable AttachToIndex where
+  hashWithSalt _salt AttachToIndex' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` indexReference
+      `Prelude.hashWithSalt` targetReference
 
-instance Prelude.NFData AttachToIndex
+instance Prelude.NFData AttachToIndex where
+  rnf AttachToIndex' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf indexReference
+      `Prelude.seq` Prelude.rnf targetReference
 
 instance Core.ToHeaders AttachToIndex where
   toHeaders AttachToIndex' {..} =
@@ -185,4 +193,7 @@ attachToIndexResponse_attachedObjectIdentifier = Lens.lens (\AttachToIndexRespon
 attachToIndexResponse_httpStatus :: Lens.Lens' AttachToIndexResponse Prelude.Int
 attachToIndexResponse_httpStatus = Lens.lens (\AttachToIndexResponse' {httpStatus} -> httpStatus) (\s@AttachToIndexResponse' {} a -> s {httpStatus = a} :: AttachToIndexResponse)
 
-instance Prelude.NFData AttachToIndexResponse
+instance Prelude.NFData AttachToIndexResponse where
+  rnf AttachToIndexResponse' {..} =
+    Prelude.rnf attachedObjectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

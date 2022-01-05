@@ -112,9 +112,12 @@ instance Core.FromJSON ObjectReference where
           ObjectReference' Prelude.<$> (x Core..:? "Selector")
       )
 
-instance Prelude.Hashable ObjectReference
+instance Prelude.Hashable ObjectReference where
+  hashWithSalt _salt ObjectReference' {..} =
+    _salt `Prelude.hashWithSalt` selector
 
-instance Prelude.NFData ObjectReference
+instance Prelude.NFData ObjectReference where
+  rnf ObjectReference' {..} = Prelude.rnf selector
 
 instance Core.ToJSON ObjectReference where
   toJSON ObjectReference' {..} =

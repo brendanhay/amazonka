@@ -62,6 +62,11 @@ instance Core.FromJSON BatchDetachObjectResponse where
             Prelude.<$> (x Core..:? "detachedObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchDetachObjectResponse
+instance Prelude.Hashable BatchDetachObjectResponse where
+  hashWithSalt _salt BatchDetachObjectResponse' {..} =
+    _salt
+      `Prelude.hashWithSalt` detachedObjectIdentifier
 
-instance Prelude.NFData BatchDetachObjectResponse
+instance Prelude.NFData BatchDetachObjectResponse where
+  rnf BatchDetachObjectResponse' {..} =
+    Prelude.rnf detachedObjectIdentifier

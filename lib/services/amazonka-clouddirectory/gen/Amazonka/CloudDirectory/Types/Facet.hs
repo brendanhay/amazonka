@@ -98,6 +98,14 @@ instance Core.FromJSON Facet where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Facet
+instance Prelude.Hashable Facet where
+  hashWithSalt _salt Facet' {..} =
+    _salt `Prelude.hashWithSalt` facetStyle
+      `Prelude.hashWithSalt` objectType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Facet
+instance Prelude.NFData Facet where
+  rnf Facet' {..} =
+    Prelude.rnf facetStyle
+      `Prelude.seq` Prelude.rnf objectType
+      `Prelude.seq` Prelude.rnf name

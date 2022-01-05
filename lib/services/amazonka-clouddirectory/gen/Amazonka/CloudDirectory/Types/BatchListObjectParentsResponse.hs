@@ -76,7 +76,17 @@ instance Core.FromJSON BatchListObjectParentsResponse where
 instance
   Prelude.Hashable
     BatchListObjectParentsResponse
+  where
+  hashWithSalt
+    _salt
+    BatchListObjectParentsResponse' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` parentLinks
 
 instance
   Prelude.NFData
     BatchListObjectParentsResponse
+  where
+  rnf BatchListObjectParentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parentLinks

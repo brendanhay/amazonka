@@ -71,8 +71,15 @@ typedLinkFacetAttributeUpdate_action = Lens.lens (\TypedLinkFacetAttributeUpdate
 instance
   Prelude.Hashable
     TypedLinkFacetAttributeUpdate
+  where
+  hashWithSalt _salt TypedLinkFacetAttributeUpdate' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData TypedLinkFacetAttributeUpdate
+instance Prelude.NFData TypedLinkFacetAttributeUpdate where
+  rnf TypedLinkFacetAttributeUpdate' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON TypedLinkFacetAttributeUpdate where
   toJSON TypedLinkFacetAttributeUpdate' {..} =

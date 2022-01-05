@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     BatchGetObjectInformationResponse
+  where
+  hashWithSalt
+    _salt
+    BatchGetObjectInformationResponse' {..} =
+      _salt `Prelude.hashWithSalt` objectIdentifier
+        `Prelude.hashWithSalt` schemaFacets
 
 instance
   Prelude.NFData
     BatchGetObjectInformationResponse
+  where
+  rnf BatchGetObjectInformationResponse' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf schemaFacets

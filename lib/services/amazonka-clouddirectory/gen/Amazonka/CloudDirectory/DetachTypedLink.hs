@@ -98,9 +98,15 @@ instance Core.AWSRequest DetachTypedLink where
   response =
     Response.receiveNull DetachTypedLinkResponse'
 
-instance Prelude.Hashable DetachTypedLink
+instance Prelude.Hashable DetachTypedLink where
+  hashWithSalt _salt DetachTypedLink' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` typedLinkSpecifier
 
-instance Prelude.NFData DetachTypedLink
+instance Prelude.NFData DetachTypedLink where
+  rnf DetachTypedLink' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf typedLinkSpecifier
 
 instance Core.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =
@@ -138,4 +144,5 @@ newDetachTypedLinkResponse ::
   DetachTypedLinkResponse
 newDetachTypedLinkResponse = DetachTypedLinkResponse'
 
-instance Prelude.NFData DetachTypedLinkResponse
+instance Prelude.NFData DetachTypedLinkResponse where
+  rnf _ = ()

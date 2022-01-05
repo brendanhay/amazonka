@@ -120,9 +120,17 @@ instance Core.AWSRequest DetachObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachObject
+instance Prelude.Hashable DetachObject where
+  hashWithSalt _salt DetachObject' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` linkName
 
-instance Prelude.NFData DetachObject
+instance Prelude.NFData DetachObject where
+  rnf DetachObject' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf linkName
 
 instance Core.ToHeaders DetachObject where
   toHeaders DetachObject' {..} =
@@ -186,4 +194,7 @@ detachObjectResponse_detachedObjectIdentifier = Lens.lens (\DetachObjectResponse
 detachObjectResponse_httpStatus :: Lens.Lens' DetachObjectResponse Prelude.Int
 detachObjectResponse_httpStatus = Lens.lens (\DetachObjectResponse' {httpStatus} -> httpStatus) (\s@DetachObjectResponse' {} a -> s {httpStatus = a} :: DetachObjectResponse)
 
-instance Prelude.NFData DetachObjectResponse
+instance Prelude.NFData DetachObjectResponse where
+  rnf DetachObjectResponse' {..} =
+    Prelude.rnf detachedObjectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

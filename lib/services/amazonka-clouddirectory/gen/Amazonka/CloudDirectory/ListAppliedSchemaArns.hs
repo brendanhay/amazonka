@@ -148,9 +148,19 @@ instance Core.AWSRequest ListAppliedSchemaArns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAppliedSchemaArns
+instance Prelude.Hashable ListAppliedSchemaArns where
+  hashWithSalt _salt ListAppliedSchemaArns' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData ListAppliedSchemaArns
+instance Prelude.NFData ListAppliedSchemaArns where
+  rnf ListAppliedSchemaArns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders ListAppliedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,4 +232,8 @@ listAppliedSchemaArnsResponse_nextToken = Lens.lens (\ListAppliedSchemaArnsRespo
 listAppliedSchemaArnsResponse_httpStatus :: Lens.Lens' ListAppliedSchemaArnsResponse Prelude.Int
 listAppliedSchemaArnsResponse_httpStatus = Lens.lens (\ListAppliedSchemaArnsResponse' {httpStatus} -> httpStatus) (\s@ListAppliedSchemaArnsResponse' {} a -> s {httpStatus = a} :: ListAppliedSchemaArnsResponse)
 
-instance Prelude.NFData ListAppliedSchemaArnsResponse
+instance Prelude.NFData ListAppliedSchemaArnsResponse where
+  rnf ListAppliedSchemaArnsResponse' {..} =
+    Prelude.rnf schemaArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

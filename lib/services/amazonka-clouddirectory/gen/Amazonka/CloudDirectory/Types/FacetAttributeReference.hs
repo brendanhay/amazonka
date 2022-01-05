@@ -94,9 +94,15 @@ instance Core.FromJSON FacetAttributeReference where
             Prelude.<*> (x Core..: "TargetAttributeName")
       )
 
-instance Prelude.Hashable FacetAttributeReference
+instance Prelude.Hashable FacetAttributeReference where
+  hashWithSalt _salt FacetAttributeReference' {..} =
+    _salt `Prelude.hashWithSalt` targetFacetName
+      `Prelude.hashWithSalt` targetAttributeName
 
-instance Prelude.NFData FacetAttributeReference
+instance Prelude.NFData FacetAttributeReference where
+  rnf FacetAttributeReference' {..} =
+    Prelude.rnf targetFacetName
+      `Prelude.seq` Prelude.rnf targetAttributeName
 
 instance Core.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =

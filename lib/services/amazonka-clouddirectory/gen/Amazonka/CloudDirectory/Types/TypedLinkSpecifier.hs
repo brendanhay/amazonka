@@ -112,9 +112,19 @@ instance Core.FromJSON TypedLinkSpecifier where
                         )
       )
 
-instance Prelude.Hashable TypedLinkSpecifier
+instance Prelude.Hashable TypedLinkSpecifier where
+  hashWithSalt _salt TypedLinkSpecifier' {..} =
+    _salt `Prelude.hashWithSalt` typedLinkFacet
+      `Prelude.hashWithSalt` sourceObjectReference
+      `Prelude.hashWithSalt` targetObjectReference
+      `Prelude.hashWithSalt` identityAttributeValues
 
-instance Prelude.NFData TypedLinkSpecifier
+instance Prelude.NFData TypedLinkSpecifier where
+  rnf TypedLinkSpecifier' {..} =
+    Prelude.rnf typedLinkFacet
+      `Prelude.seq` Prelude.rnf sourceObjectReference
+      `Prelude.seq` Prelude.rnf targetObjectReference
+      `Prelude.seq` Prelude.rnf identityAttributeValues
 
 instance Core.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =

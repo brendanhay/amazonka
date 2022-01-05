@@ -95,9 +95,17 @@ typedLinkFacet_attributes = Lens.lens (\TypedLinkFacet' {attributes} -> attribut
 typedLinkFacet_identityAttributeOrder :: Lens.Lens' TypedLinkFacet [Prelude.Text]
 typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@TypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: TypedLinkFacet) Prelude.. Lens.coerced
 
-instance Prelude.Hashable TypedLinkFacet
+instance Prelude.Hashable TypedLinkFacet where
+  hashWithSalt _salt TypedLinkFacet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` identityAttributeOrder
 
-instance Prelude.NFData TypedLinkFacet
+instance Prelude.NFData TypedLinkFacet where
+  rnf TypedLinkFacet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf identityAttributeOrder
 
 instance Core.ToJSON TypedLinkFacet where
   toJSON TypedLinkFacet' {..} =

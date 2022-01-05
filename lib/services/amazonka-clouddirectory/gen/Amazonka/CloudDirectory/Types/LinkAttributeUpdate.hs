@@ -64,9 +64,15 @@ linkAttributeUpdate_attributeAction = Lens.lens (\LinkAttributeUpdate' {attribut
 linkAttributeUpdate_attributeKey :: Lens.Lens' LinkAttributeUpdate (Prelude.Maybe AttributeKey)
 linkAttributeUpdate_attributeKey = Lens.lens (\LinkAttributeUpdate' {attributeKey} -> attributeKey) (\s@LinkAttributeUpdate' {} a -> s {attributeKey = a} :: LinkAttributeUpdate)
 
-instance Prelude.Hashable LinkAttributeUpdate
+instance Prelude.Hashable LinkAttributeUpdate where
+  hashWithSalt _salt LinkAttributeUpdate' {..} =
+    _salt `Prelude.hashWithSalt` attributeAction
+      `Prelude.hashWithSalt` attributeKey
 
-instance Prelude.NFData LinkAttributeUpdate
+instance Prelude.NFData LinkAttributeUpdate where
+  rnf LinkAttributeUpdate' {..} =
+    Prelude.rnf attributeAction
+      `Prelude.seq` Prelude.rnf attributeKey
 
 instance Core.ToJSON LinkAttributeUpdate where
   toJSON LinkAttributeUpdate' {..} =

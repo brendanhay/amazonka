@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateLinkAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLinkAttributes
+instance Prelude.Hashable UpdateLinkAttributes where
+  hashWithSalt _salt UpdateLinkAttributes' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` typedLinkSpecifier
+      `Prelude.hashWithSalt` attributeUpdates
 
-instance Prelude.NFData UpdateLinkAttributes
+instance Prelude.NFData UpdateLinkAttributes where
+  rnf UpdateLinkAttributes' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf typedLinkSpecifier
+      `Prelude.seq` Prelude.rnf attributeUpdates
 
 instance Core.ToHeaders UpdateLinkAttributes where
   toHeaders UpdateLinkAttributes' {..} =
@@ -177,4 +185,6 @@ newUpdateLinkAttributesResponse pHttpStatus_ =
 updateLinkAttributesResponse_httpStatus :: Lens.Lens' UpdateLinkAttributesResponse Prelude.Int
 updateLinkAttributesResponse_httpStatus = Lens.lens (\UpdateLinkAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateLinkAttributesResponse' {} a -> s {httpStatus = a} :: UpdateLinkAttributesResponse)
 
-instance Prelude.NFData UpdateLinkAttributesResponse
+instance Prelude.NFData UpdateLinkAttributesResponse where
+  rnf UpdateLinkAttributesResponse' {..} =
+    Prelude.rnf httpStatus

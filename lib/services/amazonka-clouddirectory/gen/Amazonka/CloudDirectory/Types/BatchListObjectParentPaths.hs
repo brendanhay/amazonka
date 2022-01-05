@@ -80,9 +80,17 @@ batchListObjectParentPaths_maxResults = Lens.lens (\BatchListObjectParentPaths' 
 batchListObjectParentPaths_objectReference :: Lens.Lens' BatchListObjectParentPaths ObjectReference
 batchListObjectParentPaths_objectReference = Lens.lens (\BatchListObjectParentPaths' {objectReference} -> objectReference) (\s@BatchListObjectParentPaths' {} a -> s {objectReference = a} :: BatchListObjectParentPaths)
 
-instance Prelude.Hashable BatchListObjectParentPaths
+instance Prelude.Hashable BatchListObjectParentPaths where
+  hashWithSalt _salt BatchListObjectParentPaths' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchListObjectParentPaths
+instance Prelude.NFData BatchListObjectParentPaths where
+  rnf BatchListObjectParentPaths' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchListObjectParentPaths where
   toJSON BatchListObjectParentPaths' {..} =

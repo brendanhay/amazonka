@@ -66,5 +66,10 @@ instance Core.FromJSON BatchAttachTypedLinkResponse where
 instance
   Prelude.Hashable
     BatchAttachTypedLinkResponse
+  where
+  hashWithSalt _salt BatchAttachTypedLinkResponse' {..} =
+    _salt `Prelude.hashWithSalt` typedLinkSpecifier
 
-instance Prelude.NFData BatchAttachTypedLinkResponse
+instance Prelude.NFData BatchAttachTypedLinkResponse where
+  rnf BatchAttachTypedLinkResponse' {..} =
+    Prelude.rnf typedLinkSpecifier

@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     BatchListOutgoingTypedLinksResponse
+  where
+  hashWithSalt
+    _salt
+    BatchListOutgoingTypedLinksResponse' {..} =
+      _salt `Prelude.hashWithSalt` typedLinkSpecifiers
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     BatchListOutgoingTypedLinksResponse
+  where
+  rnf BatchListOutgoingTypedLinksResponse' {..} =
+    Prelude.rnf typedLinkSpecifiers
+      `Prelude.seq` Prelude.rnf nextToken

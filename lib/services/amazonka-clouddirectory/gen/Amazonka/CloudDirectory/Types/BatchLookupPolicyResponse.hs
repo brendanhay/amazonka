@@ -81,6 +81,12 @@ instance Core.FromJSON BatchLookupPolicyResponse where
                         )
       )
 
-instance Prelude.Hashable BatchLookupPolicyResponse
+instance Prelude.Hashable BatchLookupPolicyResponse where
+  hashWithSalt _salt BatchLookupPolicyResponse' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` policyToPathList
 
-instance Prelude.NFData BatchLookupPolicyResponse
+instance Prelude.NFData BatchLookupPolicyResponse where
+  rnf BatchLookupPolicyResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf policyToPathList

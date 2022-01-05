@@ -142,9 +142,21 @@ instance Core.AWSRequest GetObjectAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectAttributes
+instance Prelude.Hashable GetObjectAttributes where
+  hashWithSalt _salt GetObjectAttributes' {..} =
+    _salt `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` attributeNames
 
-instance Prelude.NFData GetObjectAttributes
+instance Prelude.NFData GetObjectAttributes where
+  rnf GetObjectAttributes' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf attributeNames
 
 instance Core.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
@@ -212,4 +224,7 @@ getObjectAttributesResponse_attributes = Lens.lens (\GetObjectAttributesResponse
 getObjectAttributesResponse_httpStatus :: Lens.Lens' GetObjectAttributesResponse Prelude.Int
 getObjectAttributesResponse_httpStatus = Lens.lens (\GetObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@GetObjectAttributesResponse' {} a -> s {httpStatus = a} :: GetObjectAttributesResponse)
 
-instance Prelude.NFData GetObjectAttributesResponse
+instance Prelude.NFData GetObjectAttributesResponse where
+  rnf GetObjectAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

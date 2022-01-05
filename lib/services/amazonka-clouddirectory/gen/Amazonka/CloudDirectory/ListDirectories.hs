@@ -132,9 +132,17 @@ instance Core.AWSRequest ListDirectories where
             Prelude.<*> (x Core..?> "Directories" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDirectories
+instance Prelude.Hashable ListDirectories where
+  hashWithSalt _salt ListDirectories' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDirectories
+instance Prelude.NFData ListDirectories where
+  rnf ListDirectories' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDirectories where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,4 +216,8 @@ listDirectoriesResponse_httpStatus = Lens.lens (\ListDirectoriesResponse' {httpS
 listDirectoriesResponse_directories :: Lens.Lens' ListDirectoriesResponse [Directory]
 listDirectoriesResponse_directories = Lens.lens (\ListDirectoriesResponse' {directories} -> directories) (\s@ListDirectoriesResponse' {} a -> s {directories = a} :: ListDirectoriesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDirectoriesResponse
+instance Prelude.NFData ListDirectoriesResponse where
+  rnf ListDirectoriesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf directories

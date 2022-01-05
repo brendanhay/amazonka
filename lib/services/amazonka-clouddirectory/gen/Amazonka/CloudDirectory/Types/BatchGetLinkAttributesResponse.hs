@@ -66,7 +66,15 @@ instance Core.FromJSON BatchGetLinkAttributesResponse where
 instance
   Prelude.Hashable
     BatchGetLinkAttributesResponse
+  where
+  hashWithSalt
+    _salt
+    BatchGetLinkAttributesResponse' {..} =
+      _salt `Prelude.hashWithSalt` attributes
 
 instance
   Prelude.NFData
     BatchGetLinkAttributesResponse
+  where
+  rnf BatchGetLinkAttributesResponse' {..} =
+    Prelude.rnf attributes

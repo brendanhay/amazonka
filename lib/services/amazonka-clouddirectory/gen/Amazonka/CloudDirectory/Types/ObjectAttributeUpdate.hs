@@ -64,9 +64,15 @@ objectAttributeUpdate_objectAttributeAction = Lens.lens (\ObjectAttributeUpdate'
 objectAttributeUpdate_objectAttributeKey :: Lens.Lens' ObjectAttributeUpdate (Prelude.Maybe AttributeKey)
 objectAttributeUpdate_objectAttributeKey = Lens.lens (\ObjectAttributeUpdate' {objectAttributeKey} -> objectAttributeKey) (\s@ObjectAttributeUpdate' {} a -> s {objectAttributeKey = a} :: ObjectAttributeUpdate)
 
-instance Prelude.Hashable ObjectAttributeUpdate
+instance Prelude.Hashable ObjectAttributeUpdate where
+  hashWithSalt _salt ObjectAttributeUpdate' {..} =
+    _salt `Prelude.hashWithSalt` objectAttributeAction
+      `Prelude.hashWithSalt` objectAttributeKey
 
-instance Prelude.NFData ObjectAttributeUpdate
+instance Prelude.NFData ObjectAttributeUpdate where
+  rnf ObjectAttributeUpdate' {..} =
+    Prelude.rnf objectAttributeAction
+      `Prelude.seq` Prelude.rnf objectAttributeKey
 
 instance Core.ToJSON ObjectAttributeUpdate where
   toJSON ObjectAttributeUpdate' {..} =

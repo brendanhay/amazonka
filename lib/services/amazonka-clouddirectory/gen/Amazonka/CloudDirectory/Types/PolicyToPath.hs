@@ -74,6 +74,11 @@ instance Core.FromJSON PolicyToPath where
             Prelude.<*> (x Core..:? "Policies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PolicyToPath
+instance Prelude.Hashable PolicyToPath where
+  hashWithSalt _salt PolicyToPath' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` policies
 
-instance Prelude.NFData PolicyToPath
+instance Prelude.NFData PolicyToPath where
+  rnf PolicyToPath' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf policies

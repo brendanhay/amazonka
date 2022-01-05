@@ -81,9 +81,17 @@ batchAttachObject_childReference = Lens.lens (\BatchAttachObject' {childReferenc
 batchAttachObject_linkName :: Lens.Lens' BatchAttachObject Prelude.Text
 batchAttachObject_linkName = Lens.lens (\BatchAttachObject' {linkName} -> linkName) (\s@BatchAttachObject' {} a -> s {linkName = a} :: BatchAttachObject)
 
-instance Prelude.Hashable BatchAttachObject
+instance Prelude.Hashable BatchAttachObject where
+  hashWithSalt _salt BatchAttachObject' {..} =
+    _salt `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` childReference
+      `Prelude.hashWithSalt` linkName
 
-instance Prelude.NFData BatchAttachObject
+instance Prelude.NFData BatchAttachObject where
+  rnf BatchAttachObject' {..} =
+    Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf childReference
+      `Prelude.seq` Prelude.rnf linkName
 
 instance Core.ToJSON BatchAttachObject where
   toJSON BatchAttachObject' {..} =

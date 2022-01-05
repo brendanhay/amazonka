@@ -62,6 +62,10 @@ instance Core.FromJSON BatchCreateObjectResponse where
             Prelude.<$> (x Core..:? "ObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchCreateObjectResponse
+instance Prelude.Hashable BatchCreateObjectResponse where
+  hashWithSalt _salt BatchCreateObjectResponse' {..} =
+    _salt `Prelude.hashWithSalt` objectIdentifier
 
-instance Prelude.NFData BatchCreateObjectResponse
+instance Prelude.NFData BatchCreateObjectResponse where
+  rnf BatchCreateObjectResponse' {..} =
+    Prelude.rnf objectIdentifier

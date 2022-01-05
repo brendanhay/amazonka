@@ -49,5 +49,9 @@ instance Core.FromJSON BatchAddFacetToObjectResponse where
 instance
   Prelude.Hashable
     BatchAddFacetToObjectResponse
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData BatchAddFacetToObjectResponse
+instance Prelude.NFData BatchAddFacetToObjectResponse where
+  rnf _ = ()

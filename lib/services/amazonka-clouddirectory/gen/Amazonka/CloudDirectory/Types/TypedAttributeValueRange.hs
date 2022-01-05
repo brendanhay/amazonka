@@ -87,9 +87,19 @@ typedAttributeValueRange_startMode = Lens.lens (\TypedAttributeValueRange' {star
 typedAttributeValueRange_endMode :: Lens.Lens' TypedAttributeValueRange RangeMode
 typedAttributeValueRange_endMode = Lens.lens (\TypedAttributeValueRange' {endMode} -> endMode) (\s@TypedAttributeValueRange' {} a -> s {endMode = a} :: TypedAttributeValueRange)
 
-instance Prelude.Hashable TypedAttributeValueRange
+instance Prelude.Hashable TypedAttributeValueRange where
+  hashWithSalt _salt TypedAttributeValueRange' {..} =
+    _salt `Prelude.hashWithSalt` endValue
+      `Prelude.hashWithSalt` startValue
+      `Prelude.hashWithSalt` startMode
+      `Prelude.hashWithSalt` endMode
 
-instance Prelude.NFData TypedAttributeValueRange
+instance Prelude.NFData TypedAttributeValueRange where
+  rnf TypedAttributeValueRange' {..} =
+    Prelude.rnf endValue
+      `Prelude.seq` Prelude.rnf startValue
+      `Prelude.seq` Prelude.rnf startMode
+      `Prelude.seq` Prelude.rnf endMode
 
 instance Core.ToJSON TypedAttributeValueRange where
   toJSON TypedAttributeValueRange' {..} =

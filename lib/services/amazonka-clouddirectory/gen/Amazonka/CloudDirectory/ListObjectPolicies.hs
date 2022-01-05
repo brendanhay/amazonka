@@ -173,9 +173,21 @@ instance Core.AWSRequest ListObjectPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectPolicies
+instance Prelude.Hashable ListObjectPolicies where
+  hashWithSalt _salt ListObjectPolicies' {..} =
+    _salt `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData ListObjectPolicies
+instance Prelude.NFData ListObjectPolicies where
+  rnf ListObjectPolicies' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders ListObjectPolicies where
   toHeaders ListObjectPolicies' {..} =
@@ -251,4 +263,8 @@ listObjectPoliciesResponse_attachedPolicyIds = Lens.lens (\ListObjectPoliciesRes
 listObjectPoliciesResponse_httpStatus :: Lens.Lens' ListObjectPoliciesResponse Prelude.Int
 listObjectPoliciesResponse_httpStatus = Lens.lens (\ListObjectPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListObjectPoliciesResponse' {} a -> s {httpStatus = a} :: ListObjectPoliciesResponse)
 
-instance Prelude.NFData ListObjectPoliciesResponse
+instance Prelude.NFData ListObjectPoliciesResponse where
+  rnf ListObjectPoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attachedPolicyIds
+      `Prelude.seq` Prelude.rnf httpStatus

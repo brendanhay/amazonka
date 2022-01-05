@@ -187,9 +187,23 @@ instance Core.AWSRequest ListObjectAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectAttributes
+instance Prelude.Hashable ListObjectAttributes where
+  hashWithSalt _salt ListObjectAttributes' {..} =
+    _salt `Prelude.hashWithSalt` facetFilter
+      `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData ListObjectAttributes
+instance Prelude.NFData ListObjectAttributes where
+  rnf ListObjectAttributes' {..} =
+    Prelude.rnf facetFilter
+      `Prelude.seq` Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
@@ -269,4 +283,8 @@ listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesRespon
 listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Prelude.Int
 listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@ListObjectAttributesResponse' {} a -> s {httpStatus = a} :: ListObjectAttributesResponse)
 
-instance Prelude.NFData ListObjectAttributesResponse
+instance Prelude.NFData ListObjectAttributesResponse where
+  rnf ListObjectAttributesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

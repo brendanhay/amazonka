@@ -58,9 +58,13 @@ newBatchGetObjectInformation pObjectReference_ =
 batchGetObjectInformation_objectReference :: Lens.Lens' BatchGetObjectInformation ObjectReference
 batchGetObjectInformation_objectReference = Lens.lens (\BatchGetObjectInformation' {objectReference} -> objectReference) (\s@BatchGetObjectInformation' {} a -> s {objectReference = a} :: BatchGetObjectInformation)
 
-instance Prelude.Hashable BatchGetObjectInformation
+instance Prelude.Hashable BatchGetObjectInformation where
+  hashWithSalt _salt BatchGetObjectInformation' {..} =
+    _salt `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchGetObjectInformation
+instance Prelude.NFData BatchGetObjectInformation where
+  rnf BatchGetObjectInformation' {..} =
+    Prelude.rnf objectReference
 
 instance Core.ToJSON BatchGetObjectInformation where
   toJSON BatchGetObjectInformation' {..} =

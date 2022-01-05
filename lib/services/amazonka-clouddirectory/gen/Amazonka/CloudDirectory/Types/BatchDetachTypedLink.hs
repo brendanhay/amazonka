@@ -58,9 +58,13 @@ newBatchDetachTypedLink pTypedLinkSpecifier_ =
 batchDetachTypedLink_typedLinkSpecifier :: Lens.Lens' BatchDetachTypedLink TypedLinkSpecifier
 batchDetachTypedLink_typedLinkSpecifier = Lens.lens (\BatchDetachTypedLink' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@BatchDetachTypedLink' {} a -> s {typedLinkSpecifier = a} :: BatchDetachTypedLink)
 
-instance Prelude.Hashable BatchDetachTypedLink
+instance Prelude.Hashable BatchDetachTypedLink where
+  hashWithSalt _salt BatchDetachTypedLink' {..} =
+    _salt `Prelude.hashWithSalt` typedLinkSpecifier
 
-instance Prelude.NFData BatchDetachTypedLink
+instance Prelude.NFData BatchDetachTypedLink where
+  rnf BatchDetachTypedLink' {..} =
+    Prelude.rnf typedLinkSpecifier
 
 instance Core.ToJSON BatchDetachTypedLink where
   toJSON BatchDetachTypedLink' {..} =

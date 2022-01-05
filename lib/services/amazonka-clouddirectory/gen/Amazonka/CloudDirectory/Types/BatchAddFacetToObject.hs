@@ -79,9 +79,17 @@ batchAddFacetToObject_objectAttributeList = Lens.lens (\BatchAddFacetToObject' {
 batchAddFacetToObject_objectReference :: Lens.Lens' BatchAddFacetToObject ObjectReference
 batchAddFacetToObject_objectReference = Lens.lens (\BatchAddFacetToObject' {objectReference} -> objectReference) (\s@BatchAddFacetToObject' {} a -> s {objectReference = a} :: BatchAddFacetToObject)
 
-instance Prelude.Hashable BatchAddFacetToObject
+instance Prelude.Hashable BatchAddFacetToObject where
+  hashWithSalt _salt BatchAddFacetToObject' {..} =
+    _salt `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` objectAttributeList
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchAddFacetToObject
+instance Prelude.NFData BatchAddFacetToObject where
+  rnf BatchAddFacetToObject' {..} =
+    Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf objectAttributeList
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchAddFacetToObject where
   toJSON BatchAddFacetToObject' {..} =

@@ -75,9 +75,17 @@ batchLookupPolicy_maxResults = Lens.lens (\BatchLookupPolicy' {maxResults} -> ma
 batchLookupPolicy_objectReference :: Lens.Lens' BatchLookupPolicy ObjectReference
 batchLookupPolicy_objectReference = Lens.lens (\BatchLookupPolicy' {objectReference} -> objectReference) (\s@BatchLookupPolicy' {} a -> s {objectReference = a} :: BatchLookupPolicy)
 
-instance Prelude.Hashable BatchLookupPolicy
+instance Prelude.Hashable BatchLookupPolicy where
+  hashWithSalt _salt BatchLookupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchLookupPolicy
+instance Prelude.NFData BatchLookupPolicy where
+  rnf BatchLookupPolicy' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchLookupPolicy where
   toJSON BatchLookupPolicy' {..} =

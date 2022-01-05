@@ -129,9 +129,17 @@ instance Core.AWSRequest UpgradeAppliedSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpgradeAppliedSchema
+instance Prelude.Hashable UpgradeAppliedSchema where
+  hashWithSalt _salt UpgradeAppliedSchema' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` publishedSchemaArn
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData UpgradeAppliedSchema
+instance Prelude.NFData UpgradeAppliedSchema where
+  rnf UpgradeAppliedSchema' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf publishedSchemaArn
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders UpgradeAppliedSchema where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,4 +211,8 @@ upgradeAppliedSchemaResponse_upgradedSchemaArn = Lens.lens (\UpgradeAppliedSchem
 upgradeAppliedSchemaResponse_httpStatus :: Lens.Lens' UpgradeAppliedSchemaResponse Prelude.Int
 upgradeAppliedSchemaResponse_httpStatus = Lens.lens (\UpgradeAppliedSchemaResponse' {httpStatus} -> httpStatus) (\s@UpgradeAppliedSchemaResponse' {} a -> s {httpStatus = a} :: UpgradeAppliedSchemaResponse)
 
-instance Prelude.NFData UpgradeAppliedSchemaResponse
+instance Prelude.NFData UpgradeAppliedSchemaResponse where
+  rnf UpgradeAppliedSchemaResponse' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf upgradedSchemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSchema
+instance Prelude.Hashable DeleteSchema where
+  hashWithSalt _salt DeleteSchema' {..} =
+    _salt `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData DeleteSchema
+instance Prelude.NFData DeleteSchema where
+  rnf DeleteSchema' {..} = Prelude.rnf schemaArn
 
 instance Core.ToHeaders DeleteSchema where
   toHeaders DeleteSchema' {..} =
@@ -149,4 +152,7 @@ deleteSchemaResponse_schemaArn = Lens.lens (\DeleteSchemaResponse' {schemaArn} -
 deleteSchemaResponse_httpStatus :: Lens.Lens' DeleteSchemaResponse Prelude.Int
 deleteSchemaResponse_httpStatus = Lens.lens (\DeleteSchemaResponse' {httpStatus} -> httpStatus) (\s@DeleteSchemaResponse' {} a -> s {httpStatus = a} :: DeleteSchemaResponse)
 
-instance Prelude.NFData DeleteSchemaResponse
+instance Prelude.NFData DeleteSchemaResponse where
+  rnf DeleteSchemaResponse' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -76,9 +76,17 @@ batchListPolicyAttachments_maxResults = Lens.lens (\BatchListPolicyAttachments' 
 batchListPolicyAttachments_policyReference :: Lens.Lens' BatchListPolicyAttachments ObjectReference
 batchListPolicyAttachments_policyReference = Lens.lens (\BatchListPolicyAttachments' {policyReference} -> policyReference) (\s@BatchListPolicyAttachments' {} a -> s {policyReference = a} :: BatchListPolicyAttachments)
 
-instance Prelude.Hashable BatchListPolicyAttachments
+instance Prelude.Hashable BatchListPolicyAttachments where
+  hashWithSalt _salt BatchListPolicyAttachments' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` policyReference
 
-instance Prelude.NFData BatchListPolicyAttachments
+instance Prelude.NFData BatchListPolicyAttachments where
+  rnf BatchListPolicyAttachments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf policyReference
 
 instance Core.ToJSON BatchListPolicyAttachments where
   toJSON BatchListPolicyAttachments' {..} =

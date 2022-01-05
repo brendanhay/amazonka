@@ -114,9 +114,17 @@ instance Core.AWSRequest RemoveFacetFromObject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFacetFromObject
+instance Prelude.Hashable RemoveFacetFromObject where
+  hashWithSalt _salt RemoveFacetFromObject' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData RemoveFacetFromObject
+instance Prelude.NFData RemoveFacetFromObject where
+  rnf RemoveFacetFromObject' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders RemoveFacetFromObject where
   toHeaders RemoveFacetFromObject' {..} =
@@ -171,4 +179,6 @@ newRemoveFacetFromObjectResponse pHttpStatus_ =
 removeFacetFromObjectResponse_httpStatus :: Lens.Lens' RemoveFacetFromObjectResponse Prelude.Int
 removeFacetFromObjectResponse_httpStatus = Lens.lens (\RemoveFacetFromObjectResponse' {httpStatus} -> httpStatus) (\s@RemoveFacetFromObjectResponse' {} a -> s {httpStatus = a} :: RemoveFacetFromObjectResponse)
 
-instance Prelude.NFData RemoveFacetFromObjectResponse
+instance Prelude.NFData RemoveFacetFromObjectResponse where
+  rnf RemoveFacetFromObjectResponse' {..} =
+    Prelude.rnf httpStatus

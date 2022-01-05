@@ -90,9 +90,12 @@ instance Core.AWSRequest GetSchemaAsJson where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaAsJson
+instance Prelude.Hashable GetSchemaAsJson where
+  hashWithSalt _salt GetSchemaAsJson' {..} =
+    _salt `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData GetSchemaAsJson
+instance Prelude.NFData GetSchemaAsJson where
+  rnf GetSchemaAsJson' {..} = Prelude.rnf schemaArn
 
 instance Core.ToHeaders GetSchemaAsJson where
   toHeaders GetSchemaAsJson' {..} =
@@ -158,4 +161,8 @@ getSchemaAsJsonResponse_name = Lens.lens (\GetSchemaAsJsonResponse' {name} -> na
 getSchemaAsJsonResponse_httpStatus :: Lens.Lens' GetSchemaAsJsonResponse Prelude.Int
 getSchemaAsJsonResponse_httpStatus = Lens.lens (\GetSchemaAsJsonResponse' {httpStatus} -> httpStatus) (\s@GetSchemaAsJsonResponse' {} a -> s {httpStatus = a} :: GetSchemaAsJsonResponse)
 
-instance Prelude.NFData GetSchemaAsJsonResponse
+instance Prelude.NFData GetSchemaAsJsonResponse where
+  rnf GetSchemaAsJsonResponse' {..} =
+    Prelude.rnf document
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

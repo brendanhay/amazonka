@@ -140,9 +140,17 @@ instance Core.AWSRequest ListTypedLinkFacetNames where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTypedLinkFacetNames
+instance Prelude.Hashable ListTypedLinkFacetNames where
+  hashWithSalt _salt ListTypedLinkFacetNames' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData ListTypedLinkFacetNames
+instance Prelude.NFData ListTypedLinkFacetNames where
+  rnf ListTypedLinkFacetNames' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf schemaArn
 
 instance Core.ToHeaders ListTypedLinkFacetNames where
   toHeaders ListTypedLinkFacetNames' {..} =
@@ -217,3 +225,8 @@ listTypedLinkFacetNamesResponse_httpStatus = Lens.lens (\ListTypedLinkFacetNames
 instance
   Prelude.NFData
     ListTypedLinkFacetNamesResponse
+  where
+  rnf ListTypedLinkFacetNamesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf facetNames
+      `Prelude.seq` Prelude.rnf httpStatus

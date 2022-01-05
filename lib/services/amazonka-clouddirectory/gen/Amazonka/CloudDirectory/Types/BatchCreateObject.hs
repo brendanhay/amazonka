@@ -107,9 +107,21 @@ batchCreateObject_schemaFacet = Lens.lens (\BatchCreateObject' {schemaFacet} -> 
 batchCreateObject_objectAttributeList :: Lens.Lens' BatchCreateObject [AttributeKeyAndValue]
 batchCreateObject_objectAttributeList = Lens.lens (\BatchCreateObject' {objectAttributeList} -> objectAttributeList) (\s@BatchCreateObject' {} a -> s {objectAttributeList = a} :: BatchCreateObject) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchCreateObject
+instance Prelude.Hashable BatchCreateObject where
+  hashWithSalt _salt BatchCreateObject' {..} =
+    _salt `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` batchReferenceName
+      `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` objectAttributeList
 
-instance Prelude.NFData BatchCreateObject
+instance Prelude.NFData BatchCreateObject where
+  rnf BatchCreateObject' {..} =
+    Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf batchReferenceName
+      `Prelude.seq` Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf objectAttributeList
 
 instance Core.ToJSON BatchCreateObject where
   toJSON BatchCreateObject' {..} =

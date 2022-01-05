@@ -104,9 +104,15 @@ instance Core.AWSRequest ListMetricStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMetricStreams
+instance Prelude.Hashable ListMetricStreams where
+  hashWithSalt _salt ListMetricStreams' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListMetricStreams
+instance Prelude.NFData ListMetricStreams where
+  rnf ListMetricStreams' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMetricStreams where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,4 +185,8 @@ listMetricStreamsResponse_nextToken = Lens.lens (\ListMetricStreamsResponse' {ne
 listMetricStreamsResponse_httpStatus :: Lens.Lens' ListMetricStreamsResponse Prelude.Int
 listMetricStreamsResponse_httpStatus = Lens.lens (\ListMetricStreamsResponse' {httpStatus} -> httpStatus) (\s@ListMetricStreamsResponse' {} a -> s {httpStatus = a} :: ListMetricStreamsResponse)
 
-instance Prelude.NFData ListMetricStreamsResponse
+instance Prelude.NFData ListMetricStreamsResponse where
+  rnf ListMetricStreamsResponse' {..} =
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

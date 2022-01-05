@@ -143,9 +143,15 @@ instance Core.AWSRequest ListDashboards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDashboards
+instance Prelude.Hashable ListDashboards where
+  hashWithSalt _salt ListDashboards' {..} =
+    _salt `Prelude.hashWithSalt` dashboardNamePrefix
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDashboards
+instance Prelude.NFData ListDashboards where
+  rnf ListDashboards' {..} =
+    Prelude.rnf dashboardNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDashboards where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,4 +218,8 @@ listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToke
 listDashboardsResponse_httpStatus :: Lens.Lens' ListDashboardsResponse Prelude.Int
 listDashboardsResponse_httpStatus = Lens.lens (\ListDashboardsResponse' {httpStatus} -> httpStatus) (\s@ListDashboardsResponse' {} a -> s {httpStatus = a} :: ListDashboardsResponse)
 
-instance Prelude.NFData ListDashboardsResponse
+instance Prelude.NFData ListDashboardsResponse where
+  rnf ListDashboardsResponse' {..} =
+    Prelude.rnf dashboardEntries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

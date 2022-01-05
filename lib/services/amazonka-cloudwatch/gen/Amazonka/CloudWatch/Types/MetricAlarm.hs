@@ -403,6 +403,67 @@ instance Core.FromXML MetricAlarm where
       Prelude.<*> (x Core..@? "Statistic")
       Prelude.<*> (x Core..@? "ExtendedStatistic")
 
-instance Prelude.Hashable MetricAlarm
+instance Prelude.Hashable MetricAlarm where
+  hashWithSalt _salt MetricAlarm' {..} =
+    _salt `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` stateUpdatedTimestamp
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` treatMissingData
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` alarmDescription
+      `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` thresholdMetricId
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` oKActions
+      `Prelude.hashWithSalt` evaluateLowSampleCountPercentile
+      `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` datapointsToAlarm
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` alarmConfigurationUpdatedTimestamp
+      `Prelude.hashWithSalt` actionsEnabled
+      `Prelude.hashWithSalt` insufficientDataActions
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` stateReasonData
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` alarmArn
+      `Prelude.hashWithSalt` alarmActions
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` extendedStatistic
 
-instance Prelude.NFData MetricAlarm
+instance Prelude.NFData MetricAlarm where
+  rnf MetricAlarm' {..} =
+    Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf stateUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf treatMissingData
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf alarmDescription
+      `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf thresholdMetricId
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf oKActions
+      `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf datapointsToAlarm
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf
+        alarmConfigurationUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf actionsEnabled
+      `Prelude.seq` Prelude.rnf
+        insufficientDataActions
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf stateReasonData
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf alarmArn
+      `Prelude.seq` Prelude.rnf
+        alarmActions
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf
+        statistic
+      `Prelude.seq` Prelude.rnf
+        extendedStatistic

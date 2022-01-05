@@ -131,6 +131,22 @@ instance Core.FromXML MetricStreamEntry where
       Prelude.<*> (x Core..@? "Name")
       Prelude.<*> (x Core..@? "CreationDate")
 
-instance Prelude.Hashable MetricStreamEntry
+instance Prelude.Hashable MetricStreamEntry where
+  hashWithSalt _salt MetricStreamEntry' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` firehoseArn
+      `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` lastUpdateDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData MetricStreamEntry
+instance Prelude.NFData MetricStreamEntry where
+  rnf MetricStreamEntry' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf firehoseArn
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDate

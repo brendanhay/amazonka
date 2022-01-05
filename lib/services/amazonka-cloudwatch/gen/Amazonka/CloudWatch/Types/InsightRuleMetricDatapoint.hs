@@ -218,6 +218,24 @@ instance Core.FromXML InsightRuleMetricDatapoint where
       Prelude.<*> (x Core..@? "Sum")
       Prelude.<*> (x Core..@ "Timestamp")
 
-instance Prelude.Hashable InsightRuleMetricDatapoint
+instance Prelude.Hashable InsightRuleMetricDatapoint where
+  hashWithSalt _salt InsightRuleMetricDatapoint' {..} =
+    _salt `Prelude.hashWithSalt` maxContributorValue
+      `Prelude.hashWithSalt` sampleCount
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` uniqueContributors
+      `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData InsightRuleMetricDatapoint
+instance Prelude.NFData InsightRuleMetricDatapoint where
+  rnf InsightRuleMetricDatapoint' {..} =
+    Prelude.rnf maxContributorValue
+      `Prelude.seq` Prelude.rnf sampleCount
+      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf uniqueContributors
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf timestamp

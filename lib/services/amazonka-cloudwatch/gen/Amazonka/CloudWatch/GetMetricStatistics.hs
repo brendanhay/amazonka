@@ -463,9 +463,29 @@ instance Core.AWSRequest GetMetricStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMetricStatistics
+instance Prelude.Hashable GetMetricStatistics where
+  hashWithSalt _salt GetMetricStatistics' {..} =
+    _salt `Prelude.hashWithSalt` extendedStatistics
+      `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` period
 
-instance Prelude.NFData GetMetricStatistics
+instance Prelude.NFData GetMetricStatistics where
+  rnf GetMetricStatistics' {..} =
+    Prelude.rnf extendedStatistics
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf period
 
 instance Core.ToHeaders GetMetricStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -547,4 +567,8 @@ getMetricStatisticsResponse_label = Lens.lens (\GetMetricStatisticsResponse' {la
 getMetricStatisticsResponse_httpStatus :: Lens.Lens' GetMetricStatisticsResponse Prelude.Int
 getMetricStatisticsResponse_httpStatus = Lens.lens (\GetMetricStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetMetricStatisticsResponse' {} a -> s {httpStatus = a} :: GetMetricStatisticsResponse)
 
-instance Prelude.NFData GetMetricStatisticsResponse
+instance Prelude.NFData GetMetricStatisticsResponse where
+  rnf GetMetricStatisticsResponse' {..} =
+    Prelude.rnf datapoints
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf httpStatus

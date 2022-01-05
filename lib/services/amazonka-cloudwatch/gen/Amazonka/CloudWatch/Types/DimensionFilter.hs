@@ -63,9 +63,14 @@ dimensionFilter_value = Lens.lens (\DimensionFilter' {value} -> value) (\s@Dimen
 dimensionFilter_name :: Lens.Lens' DimensionFilter Prelude.Text
 dimensionFilter_name = Lens.lens (\DimensionFilter' {name} -> name) (\s@DimensionFilter' {} a -> s {name = a} :: DimensionFilter)
 
-instance Prelude.Hashable DimensionFilter
+instance Prelude.Hashable DimensionFilter where
+  hashWithSalt _salt DimensionFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DimensionFilter
+instance Prelude.NFData DimensionFilter where
+  rnf DimensionFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery DimensionFilter where
   toQuery DimensionFilter' {..} =

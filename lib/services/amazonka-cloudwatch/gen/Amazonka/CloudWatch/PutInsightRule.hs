@@ -174,9 +174,19 @@ instance Core.AWSRequest PutInsightRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutInsightRule
+instance Prelude.Hashable PutInsightRule where
+  hashWithSalt _salt PutInsightRule' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ruleState
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` ruleDefinition
 
-instance Prelude.NFData PutInsightRule
+instance Prelude.NFData PutInsightRule where
+  rnf PutInsightRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ruleState
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf ruleDefinition
 
 instance Core.ToHeaders PutInsightRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,4 +236,6 @@ newPutInsightRuleResponse pHttpStatus_ =
 putInsightRuleResponse_httpStatus :: Lens.Lens' PutInsightRuleResponse Prelude.Int
 putInsightRuleResponse_httpStatus = Lens.lens (\PutInsightRuleResponse' {httpStatus} -> httpStatus) (\s@PutInsightRuleResponse' {} a -> s {httpStatus = a} :: PutInsightRuleResponse)
 
-instance Prelude.NFData PutInsightRuleResponse
+instance Prelude.NFData PutInsightRuleResponse where
+  rnf PutInsightRuleResponse' {..} =
+    Prelude.rnf httpStatus

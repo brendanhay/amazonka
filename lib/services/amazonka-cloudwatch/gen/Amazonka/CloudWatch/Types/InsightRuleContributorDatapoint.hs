@@ -82,7 +82,17 @@ instance Core.FromXML InsightRuleContributorDatapoint where
 instance
   Prelude.Hashable
     InsightRuleContributorDatapoint
+  where
+  hashWithSalt
+    _salt
+    InsightRuleContributorDatapoint' {..} =
+      _salt `Prelude.hashWithSalt` timestamp
+        `Prelude.hashWithSalt` approximateValue
 
 instance
   Prelude.NFData
     InsightRuleContributorDatapoint
+  where
+  rnf InsightRuleContributorDatapoint' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf approximateValue

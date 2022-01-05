@@ -303,9 +303,25 @@ instance Core.AWSRequest PutMetricStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutMetricStream
+instance Prelude.Hashable PutMetricStream where
+  hashWithSalt _salt PutMetricStream' {..} =
+    _salt `Prelude.hashWithSalt` includeFilters
+      `Prelude.hashWithSalt` excludeFilters
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` firehoseArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` outputFormat
 
-instance Prelude.NFData PutMetricStream
+instance Prelude.NFData PutMetricStream where
+  rnf PutMetricStream' {..} =
+    Prelude.rnf includeFilters
+      `Prelude.seq` Prelude.rnf excludeFilters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf firehoseArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputFormat
 
 instance Core.ToHeaders PutMetricStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -377,4 +393,7 @@ putMetricStreamResponse_arn = Lens.lens (\PutMetricStreamResponse' {arn} -> arn)
 putMetricStreamResponse_httpStatus :: Lens.Lens' PutMetricStreamResponse Prelude.Int
 putMetricStreamResponse_httpStatus = Lens.lens (\PutMetricStreamResponse' {httpStatus} -> httpStatus) (\s@PutMetricStreamResponse' {} a -> s {httpStatus = a} :: PutMetricStreamResponse)
 
-instance Prelude.NFData PutMetricStreamResponse
+instance Prelude.NFData PutMetricStreamResponse where
+  rnf PutMetricStreamResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

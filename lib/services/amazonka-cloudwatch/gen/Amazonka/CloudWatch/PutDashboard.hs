@@ -148,9 +148,15 @@ instance Core.AWSRequest PutDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDashboard
+instance Prelude.Hashable PutDashboard where
+  hashWithSalt _salt PutDashboard' {..} =
+    _salt `Prelude.hashWithSalt` dashboardName
+      `Prelude.hashWithSalt` dashboardBody
 
-instance Prelude.NFData PutDashboard
+instance Prelude.NFData PutDashboard where
+  rnf PutDashboard' {..} =
+    Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf dashboardBody
 
 instance Core.ToHeaders PutDashboard where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,4 +238,7 @@ putDashboardResponse_dashboardValidationMessages = Lens.lens (\PutDashboardRespo
 putDashboardResponse_httpStatus :: Lens.Lens' PutDashboardResponse Prelude.Int
 putDashboardResponse_httpStatus = Lens.lens (\PutDashboardResponse' {httpStatus} -> httpStatus) (\s@PutDashboardResponse' {} a -> s {httpStatus = a} :: PutDashboardResponse)
 
-instance Prelude.NFData PutDashboardResponse
+instance Prelude.NFData PutDashboardResponse where
+  rnf PutDashboardResponse' {..} =
+    Prelude.rnf dashboardValidationMessages
+      `Prelude.seq` Prelude.rnf httpStatus

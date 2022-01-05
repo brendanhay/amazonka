@@ -91,9 +91,19 @@ statisticSet_minimum = Lens.lens (\StatisticSet' {minimum} -> minimum) (\s@Stati
 statisticSet_maximum :: Lens.Lens' StatisticSet Prelude.Double
 statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
 
-instance Prelude.Hashable StatisticSet
+instance Prelude.Hashable StatisticSet where
+  hashWithSalt _salt StatisticSet' {..} =
+    _salt `Prelude.hashWithSalt` sampleCount
+      `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` maximum
 
-instance Prelude.NFData StatisticSet
+instance Prelude.NFData StatisticSet where
+  rnf StatisticSet' {..} =
+    Prelude.rnf sampleCount
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf maximum
 
 instance Core.ToQuery StatisticSet where
   toQuery StatisticSet' {..} =

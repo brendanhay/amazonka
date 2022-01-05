@@ -93,9 +93,12 @@ instance Core.AWSRequest GetDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDashboard
+instance Prelude.Hashable GetDashboard where
+  hashWithSalt _salt GetDashboard' {..} =
+    _salt `Prelude.hashWithSalt` dashboardName
 
-instance Prelude.NFData GetDashboard
+instance Prelude.NFData GetDashboard where
+  rnf GetDashboard' {..} = Prelude.rnf dashboardName
 
 instance Core.ToHeaders GetDashboard where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,4 +182,9 @@ getDashboardResponse_dashboardArn = Lens.lens (\GetDashboardResponse' {dashboard
 getDashboardResponse_httpStatus :: Lens.Lens' GetDashboardResponse Prelude.Int
 getDashboardResponse_httpStatus = Lens.lens (\GetDashboardResponse' {httpStatus} -> httpStatus) (\s@GetDashboardResponse' {} a -> s {httpStatus = a} :: GetDashboardResponse)
 
-instance Prelude.NFData GetDashboardResponse
+instance Prelude.NFData GetDashboardResponse where
+  rnf GetDashboardResponse' {..} =
+    Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf dashboardBody
+      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf httpStatus

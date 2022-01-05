@@ -66,7 +66,16 @@ instance
 instance
   Prelude.Hashable
     DBInstanceAutomatedBackupsReplication
+  where
+  hashWithSalt
+    _salt
+    DBInstanceAutomatedBackupsReplication' {..} =
+      _salt
+        `Prelude.hashWithSalt` dbInstanceAutomatedBackupsArn
 
 instance
   Prelude.NFData
     DBInstanceAutomatedBackupsReplication
+  where
+  rnf DBInstanceAutomatedBackupsReplication' {..} =
+    Prelude.rnf dbInstanceAutomatedBackupsArn

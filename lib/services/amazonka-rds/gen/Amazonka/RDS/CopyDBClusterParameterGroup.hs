@@ -188,9 +188,19 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyDBClusterParameterGroup
+instance Prelude.Hashable CopyDBClusterParameterGroup where
+  hashWithSalt _salt CopyDBClusterParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceDBClusterParameterGroupIdentifier
+      `Prelude.hashWithSalt` targetDBClusterParameterGroupIdentifier
+      `Prelude.hashWithSalt` targetDBClusterParameterGroupDescription
 
-instance Prelude.NFData CopyDBClusterParameterGroup
+instance Prelude.NFData CopyDBClusterParameterGroup where
+  rnf CopyDBClusterParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceDBClusterParameterGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetDBClusterParameterGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetDBClusterParameterGroupDescription
 
 instance Core.ToHeaders CopyDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,3 +269,7 @@ copyDBClusterParameterGroupResponse_httpStatus = Lens.lens (\CopyDBClusterParame
 instance
   Prelude.NFData
     CopyDBClusterParameterGroupResponse
+  where
+  rnf CopyDBClusterParameterGroupResponse' {..} =
+    Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

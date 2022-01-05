@@ -118,9 +118,17 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
     Response.receiveNull
       RemoveRoleFromDBInstanceResponse'
 
-instance Prelude.Hashable RemoveRoleFromDBInstance
+instance Prelude.Hashable RemoveRoleFromDBInstance where
+  hashWithSalt _salt RemoveRoleFromDBInstance' {..} =
+    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` featureName
 
-instance Prelude.NFData RemoveRoleFromDBInstance
+instance Prelude.NFData RemoveRoleFromDBInstance where
+  rnf RemoveRoleFromDBInstance' {..} =
+    Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf featureName
 
 instance Core.ToHeaders RemoveRoleFromDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,3 +166,5 @@ newRemoveRoleFromDBInstanceResponse =
 instance
   Prelude.NFData
     RemoveRoleFromDBInstanceResponse
+  where
+  rnf _ = ()

@@ -181,9 +181,19 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBSecurityGroups
+instance Prelude.Hashable DescribeDBSecurityGroups where
+  hashWithSalt _salt DescribeDBSecurityGroups' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` dbSecurityGroupName
 
-instance Prelude.NFData DescribeDBSecurityGroups
+instance Prelude.NFData DescribeDBSecurityGroups where
+  rnf DescribeDBSecurityGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
 instance Core.ToHeaders DescribeDBSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,3 +276,8 @@ describeDBSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeDBSecurityGrou
 instance
   Prelude.NFData
     DescribeDBSecurityGroupsResponse
+  where
+  rnf DescribeDBSecurityGroupsResponse' {..} =
+    Prelude.rnf dbSecurityGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

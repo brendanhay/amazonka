@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteDBProxy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDBProxy
+instance Prelude.Hashable DeleteDBProxy where
+  hashWithSalt _salt DeleteDBProxy' {..} =
+    _salt `Prelude.hashWithSalt` dbProxyName
 
-instance Prelude.NFData DeleteDBProxy
+instance Prelude.NFData DeleteDBProxy where
+  rnf DeleteDBProxy' {..} = Prelude.rnf dbProxyName
 
 instance Core.ToHeaders DeleteDBProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,7 @@ deleteDBProxyResponse_dbProxy = Lens.lens (\DeleteDBProxyResponse' {dbProxy} -> 
 deleteDBProxyResponse_httpStatus :: Lens.Lens' DeleteDBProxyResponse Prelude.Int
 deleteDBProxyResponse_httpStatus = Lens.lens (\DeleteDBProxyResponse' {httpStatus} -> httpStatus) (\s@DeleteDBProxyResponse' {} a -> s {httpStatus = a} :: DeleteDBProxyResponse)
 
-instance Prelude.NFData DeleteDBProxyResponse
+instance Prelude.NFData DeleteDBProxyResponse where
+  rnf DeleteDBProxyResponse' {..} =
+    Prelude.rnf dbProxy
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -196,10 +196,24 @@ instance
 instance
   Prelude.Hashable
     DescribeCustomAvailabilityZones
+  where
+  hashWithSalt
+    _salt
+    DescribeCustomAvailabilityZones' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` customAvailabilityZoneId
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
 
 instance
   Prelude.NFData
     DescribeCustomAvailabilityZones
+  where
+  rnf DescribeCustomAvailabilityZones' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Core.ToHeaders
@@ -292,3 +306,8 @@ describeCustomAvailabilityZonesResponse_httpStatus = Lens.lens (\DescribeCustomA
 instance
   Prelude.NFData
     DescribeCustomAvailabilityZonesResponse
+  where
+  rnf DescribeCustomAvailabilityZonesResponse' {..} =
+    Prelude.rnf customAvailabilityZones
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

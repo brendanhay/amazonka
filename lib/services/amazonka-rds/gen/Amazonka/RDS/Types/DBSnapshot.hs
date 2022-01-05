@@ -423,6 +423,79 @@ instance Core.FromXML DBSnapshot where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "StorageType")
 
-instance Prelude.Hashable DBSnapshot
+instance Prelude.Hashable DBSnapshot where
+  hashWithSalt _salt DBSnapshot' {..} =
+    _salt
+      `Prelude.hashWithSalt` originalSnapshotCreateTime
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dbSnapshotArn
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` sourceDBSnapshotIdentifier
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` snapshotCreateTime
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` percentProgress
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` storageType
 
-instance Prelude.NFData DBSnapshot
+instance Prelude.NFData DBSnapshot where
+  rnf DBSnapshot' {..} =
+    Prelude.rnf originalSnapshotCreateTime
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbSnapshotArn
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf
+        sourceDBSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf
+        snapshotCreateTime
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
+      `Prelude.seq` Prelude.rnf
+        dbiResourceId
+      `Prelude.seq` Prelude.rnf
+        optionGroupName
+      `Prelude.seq` Prelude.rnf
+        timezone
+      `Prelude.seq` Prelude.rnf
+        tdeCredentialArn
+      `Prelude.seq` Prelude.rnf
+        percentProgress
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        storageType

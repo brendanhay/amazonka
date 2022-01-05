@@ -844,9 +844,64 @@ instance Core.AWSRequest ModifyDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBCluster
+instance Prelude.Hashable ModifyDBCluster where
+  hashWithSalt _salt ModifyDBCluster' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` enableGlobalWriteForwarding
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` enableHttpEndpoint
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` scalingConfiguration
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` newDBClusterIdentifier'
+      `Prelude.hashWithSalt` dbInstanceParameterGroupName
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData ModifyDBCluster
+instance Prelude.NFData ModifyDBCluster where
+  rnf ModifyDBCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf enableGlobalWriteForwarding
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf enableHttpEndpoint
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf scalingConfiguration
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf
+        newDBClusterIdentifier'
+      `Prelude.seq` Prelude.rnf
+        dbInstanceParameterGroupName
+      `Prelude.seq` Prelude.rnf
+        domainIAMRoleName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
 
 instance Core.ToHeaders ModifyDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -939,4 +994,7 @@ modifyDBClusterResponse_dbCluster = Lens.lens (\ModifyDBClusterResponse' {dbClus
 modifyDBClusterResponse_httpStatus :: Lens.Lens' ModifyDBClusterResponse Prelude.Int
 modifyDBClusterResponse_httpStatus = Lens.lens (\ModifyDBClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyDBClusterResponse' {} a -> s {httpStatus = a} :: ModifyDBClusterResponse)
 
-instance Prelude.NFData ModifyDBClusterResponse
+instance Prelude.NFData ModifyDBClusterResponse where
+  rnf ModifyDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

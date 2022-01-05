@@ -106,6 +106,16 @@ instance Core.FromXML GlobalClusterMember where
       Prelude.<*> (x Core..@? "IsWriter")
       Prelude.<*> (x Core..@? "GlobalWriteForwardingStatus")
 
-instance Prelude.Hashable GlobalClusterMember
+instance Prelude.Hashable GlobalClusterMember where
+  hashWithSalt _salt GlobalClusterMember' {..} =
+    _salt `Prelude.hashWithSalt` readers
+      `Prelude.hashWithSalt` dbClusterArn
+      `Prelude.hashWithSalt` isWriter
+      `Prelude.hashWithSalt` globalWriteForwardingStatus
 
-instance Prelude.NFData GlobalClusterMember
+instance Prelude.NFData GlobalClusterMember where
+  rnf GlobalClusterMember' {..} =
+    Prelude.rnf readers
+      `Prelude.seq` Prelude.rnf dbClusterArn
+      `Prelude.seq` Prelude.rnf isWriter
+      `Prelude.seq` Prelude.rnf globalWriteForwardingStatus

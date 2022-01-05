@@ -194,9 +194,17 @@ instance Core.AWSRequest ModifyDBSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBSnapshot
+instance Prelude.Hashable ModifyDBSnapshot where
+  hashWithSalt _salt ModifyDBSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
 
-instance Prelude.NFData ModifyDBSnapshot
+instance Prelude.NFData ModifyDBSnapshot where
+  rnf ModifyDBSnapshot' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
 
 instance Core.ToHeaders ModifyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,4 +262,7 @@ modifyDBSnapshotResponse_dbSnapshot = Lens.lens (\ModifyDBSnapshotResponse' {dbS
 modifyDBSnapshotResponse_httpStatus :: Lens.Lens' ModifyDBSnapshotResponse Prelude.Int
 modifyDBSnapshotResponse_httpStatus = Lens.lens (\ModifyDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@ModifyDBSnapshotResponse' {} a -> s {httpStatus = a} :: ModifyDBSnapshotResponse)
 
-instance Prelude.NFData ModifyDBSnapshotResponse
+instance Prelude.NFData ModifyDBSnapshotResponse where
+  rnf ModifyDBSnapshotResponse' {..} =
+    Prelude.rnf dbSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

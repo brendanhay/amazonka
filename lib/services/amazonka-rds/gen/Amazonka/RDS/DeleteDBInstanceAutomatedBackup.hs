@@ -117,10 +117,20 @@ instance
 instance
   Prelude.Hashable
     DeleteDBInstanceAutomatedBackup
+  where
+  hashWithSalt
+    _salt
+    DeleteDBInstanceAutomatedBackup' {..} =
+      _salt `Prelude.hashWithSalt` dbiResourceId
+        `Prelude.hashWithSalt` dbInstanceAutomatedBackupsArn
 
 instance
   Prelude.NFData
     DeleteDBInstanceAutomatedBackup
+  where
+  rnf DeleteDBInstanceAutomatedBackup' {..} =
+    Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsArn
 
 instance
   Core.ToHeaders
@@ -187,3 +197,7 @@ deleteDBInstanceAutomatedBackupResponse_httpStatus = Lens.lens (\DeleteDBInstanc
 instance
   Prelude.NFData
     DeleteDBInstanceAutomatedBackupResponse
+  where
+  rnf DeleteDBInstanceAutomatedBackupResponse' {..} =
+    Prelude.rnf dbInstanceAutomatedBackup
+      `Prelude.seq` Prelude.rnf httpStatus

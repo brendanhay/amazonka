@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteInstallationMedia where
       "DeleteInstallationMediaResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteInstallationMedia
+instance Prelude.Hashable DeleteInstallationMedia where
+  hashWithSalt _salt DeleteInstallationMedia' {..} =
+    _salt `Prelude.hashWithSalt` installationMediaId
 
-instance Prelude.NFData DeleteInstallationMedia
+instance Prelude.NFData DeleteInstallationMedia where
+  rnf DeleteInstallationMedia' {..} =
+    Prelude.rnf installationMediaId
 
 instance Core.ToHeaders DeleteInstallationMedia where
   toHeaders = Prelude.const Prelude.mempty

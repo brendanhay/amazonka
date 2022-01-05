@@ -135,6 +135,14 @@ instance Core.FromXML FailoverState where
       Prelude.<*> (x Core..@? "ToDbClusterArn")
       Prelude.<*> (x Core..@? "FromDbClusterArn")
 
-instance Prelude.Hashable FailoverState
+instance Prelude.Hashable FailoverState where
+  hashWithSalt _salt FailoverState' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` toDbClusterArn
+      `Prelude.hashWithSalt` fromDbClusterArn
 
-instance Prelude.NFData FailoverState
+instance Prelude.NFData FailoverState where
+  rnf FailoverState' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf toDbClusterArn
+      `Prelude.seq` Prelude.rnf fromDbClusterArn

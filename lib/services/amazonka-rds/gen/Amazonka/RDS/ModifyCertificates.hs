@@ -144,9 +144,15 @@ instance Core.AWSRequest ModifyCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCertificates
+instance Prelude.Hashable ModifyCertificates where
+  hashWithSalt _salt ModifyCertificates' {..} =
+    _salt `Prelude.hashWithSalt` certificateIdentifier
+      `Prelude.hashWithSalt` removeCustomerOverride
 
-instance Prelude.NFData ModifyCertificates
+instance Prelude.NFData ModifyCertificates where
+  rnf ModifyCertificates' {..} =
+    Prelude.rnf certificateIdentifier
+      `Prelude.seq` Prelude.rnf removeCustomerOverride
 
 instance Core.ToHeaders ModifyCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +211,7 @@ modifyCertificatesResponse_certificate = Lens.lens (\ModifyCertificatesResponse'
 modifyCertificatesResponse_httpStatus :: Lens.Lens' ModifyCertificatesResponse Prelude.Int
 modifyCertificatesResponse_httpStatus = Lens.lens (\ModifyCertificatesResponse' {httpStatus} -> httpStatus) (\s@ModifyCertificatesResponse' {} a -> s {httpStatus = a} :: ModifyCertificatesResponse)
 
-instance Prelude.NFData ModifyCertificatesResponse
+instance Prelude.NFData ModifyCertificatesResponse where
+  rnf ModifyCertificatesResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,6 +94,18 @@ instance Core.FromXML SourceRegion where
       Prelude.<*> (x Core..@? "RegionName")
       Prelude.<*> (x Core..@? "Endpoint")
 
-instance Prelude.Hashable SourceRegion
+instance Prelude.Hashable SourceRegion where
+  hashWithSalt _salt SourceRegion' {..} =
+    _salt
+      `Prelude.hashWithSalt` supportsDBInstanceAutomatedBackupsReplication
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData SourceRegion
+instance Prelude.NFData SourceRegion where
+  rnf SourceRegion' {..} =
+    Prelude.rnf
+      supportsDBInstanceAutomatedBackupsReplication
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf endpoint

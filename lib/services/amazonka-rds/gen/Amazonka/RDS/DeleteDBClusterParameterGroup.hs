@@ -121,8 +121,14 @@ instance
 instance
   Prelude.Hashable
     DeleteDBClusterParameterGroup
+  where
+  hashWithSalt _salt DeleteDBClusterParameterGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
 
-instance Prelude.NFData DeleteDBClusterParameterGroup
+instance Prelude.NFData DeleteDBClusterParameterGroup where
+  rnf DeleteDBClusterParameterGroup' {..} =
+    Prelude.rnf dbClusterParameterGroupName
 
 instance Core.ToHeaders DeleteDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,3 +167,5 @@ newDeleteDBClusterParameterGroupResponse =
 instance
   Prelude.NFData
     DeleteDBClusterParameterGroupResponse
+  where
+  rnf _ = ()

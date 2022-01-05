@@ -225,9 +225,17 @@ instance Core.AWSRequest PromoteReadReplica where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PromoteReadReplica
+instance Prelude.Hashable PromoteReadReplica where
+  hashWithSalt _salt PromoteReadReplica' {..} =
+    _salt `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` dbInstanceIdentifier
 
-instance Prelude.NFData PromoteReadReplica
+instance Prelude.NFData PromoteReadReplica where
+  rnf PromoteReadReplica' {..} =
+    Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders PromoteReadReplica where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,4 +295,7 @@ promoteReadReplicaResponse_dbInstance = Lens.lens (\PromoteReadReplicaResponse' 
 promoteReadReplicaResponse_httpStatus :: Lens.Lens' PromoteReadReplicaResponse Prelude.Int
 promoteReadReplicaResponse_httpStatus = Lens.lens (\PromoteReadReplicaResponse' {httpStatus} -> httpStatus) (\s@PromoteReadReplicaResponse' {} a -> s {httpStatus = a} :: PromoteReadReplicaResponse)
 
-instance Prelude.NFData PromoteReadReplicaResponse
+instance Prelude.NFData PromoteReadReplicaResponse where
+  rnf PromoteReadReplicaResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

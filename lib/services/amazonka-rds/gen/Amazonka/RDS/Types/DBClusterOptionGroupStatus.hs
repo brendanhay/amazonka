@@ -68,6 +68,12 @@ instance Core.FromXML DBClusterOptionGroupStatus where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "DBClusterOptionGroupName")
 
-instance Prelude.Hashable DBClusterOptionGroupStatus
+instance Prelude.Hashable DBClusterOptionGroupStatus where
+  hashWithSalt _salt DBClusterOptionGroupStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dbClusterOptionGroupName
 
-instance Prelude.NFData DBClusterOptionGroupStatus
+instance Prelude.NFData DBClusterOptionGroupStatus where
+  rnf DBClusterOptionGroupStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbClusterOptionGroupName

@@ -266,9 +266,21 @@ instance Core.AWSRequest DescribeOptionGroupOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOptionGroupOptions
+instance Prelude.Hashable DescribeOptionGroupOptions where
+  hashWithSalt _salt DescribeOptionGroupOptions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` engineName
 
-instance Prelude.NFData DescribeOptionGroupOptions
+instance Prelude.NFData DescribeOptionGroupOptions where
+  rnf DescribeOptionGroupOptions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf engineName
 
 instance Core.ToHeaders DescribeOptionGroupOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -350,3 +362,8 @@ describeOptionGroupOptionsResponse_httpStatus = Lens.lens (\DescribeOptionGroupO
 instance
   Prelude.NFData
     DescribeOptionGroupOptionsResponse
+  where
+  rnf DescribeOptionGroupOptionsResponse' {..} =
+    Prelude.rnf optionGroupOptions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

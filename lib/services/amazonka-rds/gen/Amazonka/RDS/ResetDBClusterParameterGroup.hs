@@ -143,8 +143,17 @@ instance Core.AWSRequest ResetDBClusterParameterGroup where
 instance
   Prelude.Hashable
     ResetDBClusterParameterGroup
+  where
+  hashWithSalt _salt ResetDBClusterParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` resetAllParameters
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
 
-instance Prelude.NFData ResetDBClusterParameterGroup
+instance Prelude.NFData ResetDBClusterParameterGroup where
+  rnf ResetDBClusterParameterGroup' {..} =
+    Prelude.rnf resetAllParameters
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
 instance Core.ToHeaders ResetDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

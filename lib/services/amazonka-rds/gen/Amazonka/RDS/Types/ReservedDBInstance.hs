@@ -226,6 +226,40 @@ instance Core.FromXML ReservedDBInstance where
       Prelude.<*> (x Core..@? "FixedPrice")
       Prelude.<*> (x Core..@? "Duration")
 
-instance Prelude.Hashable ReservedDBInstance
+instance Prelude.Hashable ReservedDBInstance where
+  hashWithSalt _salt ReservedDBInstance' {..} =
+    _salt `Prelude.hashWithSalt` dbInstanceCount
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` leaseId
+      `Prelude.hashWithSalt` reservedDBInstanceId
+      `Prelude.hashWithSalt` reservedDBInstanceArn
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` reservedDBInstancesOfferingId
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData ReservedDBInstance
+instance Prelude.NFData ReservedDBInstance where
+  rnf ReservedDBInstance' {..} =
+    Prelude.rnf dbInstanceCount
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf leaseId
+      `Prelude.seq` Prelude.rnf reservedDBInstanceId
+      `Prelude.seq` Prelude.rnf reservedDBInstanceArn
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration

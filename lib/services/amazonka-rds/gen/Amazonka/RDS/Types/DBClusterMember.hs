@@ -105,6 +105,16 @@ instance Core.FromXML DBClusterMember where
       Prelude.<*> (x Core..@? "IsClusterWriter")
       Prelude.<*> (x Core..@? "DBClusterParameterGroupStatus")
 
-instance Prelude.Hashable DBClusterMember
+instance Prelude.Hashable DBClusterMember where
+  hashWithSalt _salt DBClusterMember' {..} =
+    _salt `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` isClusterWriter
+      `Prelude.hashWithSalt` dbClusterParameterGroupStatus
 
-instance Prelude.NFData DBClusterMember
+instance Prelude.NFData DBClusterMember where
+  rnf DBClusterMember' {..} =
+    Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf isClusterWriter
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus

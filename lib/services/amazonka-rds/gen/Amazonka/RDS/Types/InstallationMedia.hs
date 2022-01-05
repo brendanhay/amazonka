@@ -132,6 +132,24 @@ instance Core.FromXML InstallationMedia where
       Prelude.<*> (x Core..@? "CustomAvailabilityZoneId")
       Prelude.<*> (x Core..@? "FailureCause")
 
-instance Prelude.Hashable InstallationMedia
+instance Prelude.Hashable InstallationMedia where
+  hashWithSalt _salt InstallationMedia' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` installationMediaId
+      `Prelude.hashWithSalt` engineInstallationMediaPath
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` oSInstallationMediaPath
+      `Prelude.hashWithSalt` customAvailabilityZoneId
+      `Prelude.hashWithSalt` failureCause
 
-instance Prelude.NFData InstallationMedia
+instance Prelude.NFData InstallationMedia where
+  rnf InstallationMedia' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf installationMediaId
+      `Prelude.seq` Prelude.rnf engineInstallationMediaPath
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf oSInstallationMediaPath
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf failureCause

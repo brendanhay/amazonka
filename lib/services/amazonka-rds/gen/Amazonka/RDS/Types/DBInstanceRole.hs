@@ -123,6 +123,14 @@ instance Core.FromXML DBInstanceRole where
       Prelude.<*> (x Core..@? "FeatureName")
       Prelude.<*> (x Core..@? "RoleArn")
 
-instance Prelude.Hashable DBInstanceRole
+instance Prelude.Hashable DBInstanceRole where
+  hashWithSalt _salt DBInstanceRole' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DBInstanceRole
+instance Prelude.NFData DBInstanceRole where
+  rnf DBInstanceRole' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn

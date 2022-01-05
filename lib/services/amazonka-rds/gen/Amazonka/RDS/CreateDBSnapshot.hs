@@ -166,9 +166,17 @@ instance Core.AWSRequest CreateDBSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBSnapshot
+instance Prelude.Hashable CreateDBSnapshot where
+  hashWithSalt _salt CreateDBSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
+      `Prelude.hashWithSalt` dbInstanceIdentifier
 
-instance Prelude.NFData CreateDBSnapshot
+instance Prelude.NFData CreateDBSnapshot where
+  rnf CreateDBSnapshot' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders CreateDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,4 +236,7 @@ createDBSnapshotResponse_dbSnapshot = Lens.lens (\CreateDBSnapshotResponse' {dbS
 createDBSnapshotResponse_httpStatus :: Lens.Lens' CreateDBSnapshotResponse Prelude.Int
 createDBSnapshotResponse_httpStatus = Lens.lens (\CreateDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateDBSnapshotResponse' {} a -> s {httpStatus = a} :: CreateDBSnapshotResponse)
 
-instance Prelude.NFData CreateDBSnapshotResponse
+instance Prelude.NFData CreateDBSnapshotResponse where
+  rnf CreateDBSnapshotResponse' {..} =
+    Prelude.rnf dbSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

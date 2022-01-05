@@ -56,6 +56,9 @@ instance Core.FromXML Timezone where
   parseXML x =
     Timezone' Prelude.<$> (x Core..@? "TimezoneName")
 
-instance Prelude.Hashable Timezone
+instance Prelude.Hashable Timezone where
+  hashWithSalt _salt Timezone' {..} =
+    _salt `Prelude.hashWithSalt` timezoneName
 
-instance Prelude.NFData Timezone
+instance Prelude.NFData Timezone where
+  rnf Timezone' {..} = Prelude.rnf timezoneName

@@ -116,9 +116,15 @@ instance Core.AWSRequest DescribeEventCategories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventCategories
+instance Prelude.Hashable DescribeEventCategories where
+  hashWithSalt _salt DescribeEventCategories' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeEventCategories
+instance Prelude.NFData DescribeEventCategories where
+  rnf DescribeEventCategories' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeEventCategories where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +189,7 @@ describeEventCategoriesResponse_httpStatus = Lens.lens (\DescribeEventCategories
 instance
   Prelude.NFData
     DescribeEventCategoriesResponse
+  where
+  rnf DescribeEventCategoriesResponse' {..} =
+    Prelude.rnf eventCategoriesMapList
+      `Prelude.seq` Prelude.rnf httpStatus

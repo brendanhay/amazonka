@@ -154,8 +154,19 @@ instance Core.AWSRequest CreateCustomAvailabilityZone where
 instance
   Prelude.Hashable
     CreateCustomAvailabilityZone
+  where
+  hashWithSalt _salt CreateCustomAvailabilityZone' {..} =
+    _salt `Prelude.hashWithSalt` vpnTunnelOriginatorIP
+      `Prelude.hashWithSalt` newVpnTunnelName'
+      `Prelude.hashWithSalt` existingVpnId
+      `Prelude.hashWithSalt` customAvailabilityZoneName
 
-instance Prelude.NFData CreateCustomAvailabilityZone
+instance Prelude.NFData CreateCustomAvailabilityZone where
+  rnf CreateCustomAvailabilityZone' {..} =
+    Prelude.rnf vpnTunnelOriginatorIP
+      `Prelude.seq` Prelude.rnf newVpnTunnelName'
+      `Prelude.seq` Prelude.rnf existingVpnId
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneName
 
 instance Core.ToHeaders CreateCustomAvailabilityZone where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,3 +232,7 @@ createCustomAvailabilityZoneResponse_httpStatus = Lens.lens (\CreateCustomAvaila
 instance
   Prelude.NFData
     CreateCustomAvailabilityZoneResponse
+  where
+  rnf CreateCustomAvailabilityZoneResponse' {..} =
+    Prelude.rnf customAvailabilityZone
+      `Prelude.seq` Prelude.rnf httpStatus

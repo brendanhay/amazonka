@@ -106,9 +106,21 @@ userAuthConfig_secretArn = Lens.lens (\UserAuthConfig' {secretArn} -> secretArn)
 userAuthConfig_description :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
 userAuthConfig_description = Lens.lens (\UserAuthConfig' {description} -> description) (\s@UserAuthConfig' {} a -> s {description = a} :: UserAuthConfig)
 
-instance Prelude.Hashable UserAuthConfig
+instance Prelude.Hashable UserAuthConfig where
+  hashWithSalt _salt UserAuthConfig' {..} =
+    _salt `Prelude.hashWithSalt` iAMAuth
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` authScheme
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UserAuthConfig
+instance Prelude.NFData UserAuthConfig where
+  rnf UserAuthConfig' {..} =
+    Prelude.rnf iAMAuth
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf authScheme
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery UserAuthConfig where
   toQuery UserAuthConfig' {..} =

@@ -75,7 +75,17 @@ instance
 instance
   Prelude.Hashable
     MinimumEngineVersionPerAllowedValue
+  where
+  hashWithSalt
+    _salt
+    MinimumEngineVersionPerAllowedValue' {..} =
+      _salt `Prelude.hashWithSalt` minimumEngineVersion
+        `Prelude.hashWithSalt` allowedValue
 
 instance
   Prelude.NFData
     MinimumEngineVersionPerAllowedValue
+  where
+  rnf MinimumEngineVersionPerAllowedValue' {..} =
+    Prelude.rnf minimumEngineVersion
+      `Prelude.seq` Prelude.rnf allowedValue

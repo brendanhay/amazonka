@@ -934,6 +934,162 @@ instance Core.FromXML DBCluster where
                       Prelude.>>= Core.may (Core.parseXMLList "DBClusterOptionGroup")
                   )
 
-instance Prelude.Hashable DBCluster
+instance Prelude.Hashable DBCluster where
+  hashWithSalt _salt DBCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` backtrackConsumedChangeRecords
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` automaticRestartTime
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` dbClusterMembers
+      `Prelude.hashWithSalt` readReplicaIdentifiers
+      `Prelude.hashWithSalt` replicationSourceIdentifier
+      `Prelude.hashWithSalt` activityStreamKinesisStreamName
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` dbClusterParameterGroup
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` globalWriteForwardingRequested
+      `Prelude.hashWithSalt` earliestBacktrackTime
+      `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` dbClusterResourceId
+      `Prelude.hashWithSalt` earliestRestorableTime
+      `Prelude.hashWithSalt` customEndpoints
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` httpEndpointEnabled
+      `Prelude.hashWithSalt` dbClusterArn
+      `Prelude.hashWithSalt` cloneGroupId
+      `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` crossAccountClone
+      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` characterSetName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` associatedRoles
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` activityStreamMode
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` engineMode
+      `Prelude.hashWithSalt` enabledCloudwatchLogsExports
+      `Prelude.hashWithSalt` activityStreamStatus
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` scalingConfigurationInfo
+      `Prelude.hashWithSalt` activityStreamKmsKeyId
+      `Prelude.hashWithSalt` percentProgress
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` readerEndpoint
+      `Prelude.hashWithSalt` globalWriteForwardingStatus
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` domainMemberships
+      `Prelude.hashWithSalt` dbClusterOptionGroupMemberships
 
-instance Prelude.NFData DBCluster
+instance Prelude.NFData DBCluster where
+  rnf DBCluster' {..} =
+    Prelude.rnf backtrackConsumedChangeRecords
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf automaticRestartTime
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterMembers
+      `Prelude.seq` Prelude.rnf readReplicaIdentifiers
+      `Prelude.seq` Prelude.rnf replicationSourceIdentifier
+      `Prelude.seq` Prelude.rnf activityStreamKinesisStreamName
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf
+        iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf
+        globalWriteForwardingRequested
+      `Prelude.seq` Prelude.rnf earliestBacktrackTime
+      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf
+        dbClusterResourceId
+      `Prelude.seq` Prelude.rnf
+        earliestRestorableTime
+      `Prelude.seq` Prelude.rnf
+        customEndpoints
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf
+        httpEndpointEnabled
+      `Prelude.seq` Prelude.rnf
+        dbClusterArn
+      `Prelude.seq` Prelude.rnf
+        cloneGroupId
+      `Prelude.seq` Prelude.rnf
+        latestRestorableTime
+      `Prelude.seq` Prelude.rnf
+        crossAccountClone
+      `Prelude.seq` Prelude.rnf
+        capacity
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        availabilityZones
+      `Prelude.seq` Prelude.rnf
+        characterSetName
+      `Prelude.seq` Prelude.rnf
+        kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf
+        associatedRoles
+      `Prelude.seq` Prelude.rnf
+        vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf
+        backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf
+        dbSubnetGroup
+      `Prelude.seq` Prelude.rnf
+        activityStreamMode
+      `Prelude.seq` Prelude.rnf
+        databaseName
+      `Prelude.seq` Prelude.rnf
+        multiAZ
+      `Prelude.seq` Prelude.rnf
+        engineMode
+      `Prelude.seq` Prelude.rnf
+        enabledCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        activityStreamStatus
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
+      `Prelude.seq` Prelude.rnf
+        copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf
+        clusterCreateTime
+      `Prelude.seq` Prelude.rnf
+        endpoint
+      `Prelude.seq` Prelude.rnf
+        scalingConfigurationInfo
+      `Prelude.seq` Prelude.rnf
+        activityStreamKmsKeyId
+      `Prelude.seq` Prelude.rnf
+        percentProgress
+      `Prelude.seq` Prelude.rnf
+        pendingModifiedValues
+      `Prelude.seq` Prelude.rnf
+        readerEndpoint
+      `Prelude.seq` Prelude.rnf
+        globalWriteForwardingStatus
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        domainMemberships
+      `Prelude.seq` Prelude.rnf
+        dbClusterOptionGroupMemberships

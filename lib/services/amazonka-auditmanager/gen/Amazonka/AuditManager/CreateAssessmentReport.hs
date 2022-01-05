@@ -111,9 +111,17 @@ instance Core.AWSRequest CreateAssessmentReport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssessmentReport
+instance Prelude.Hashable CreateAssessmentReport where
+  hashWithSalt _salt CreateAssessmentReport' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` assessmentId
 
-instance Prelude.NFData CreateAssessmentReport
+instance Prelude.NFData CreateAssessmentReport where
+  rnf CreateAssessmentReport' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf assessmentId
 
 instance Core.ToHeaders CreateAssessmentReport where
   toHeaders =
@@ -185,3 +193,7 @@ createAssessmentReportResponse_httpStatus = Lens.lens (\CreateAssessmentReportRe
 instance
   Prelude.NFData
     CreateAssessmentReportResponse
+  where
+  rnf CreateAssessmentReportResponse' {..} =
+    Prelude.rnf assessmentReport
+      `Prelude.seq` Prelude.rnf httpStatus

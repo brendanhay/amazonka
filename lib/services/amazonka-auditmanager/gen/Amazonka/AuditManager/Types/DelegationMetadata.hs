@@ -122,6 +122,22 @@ instance Core.FromJSON DelegationMetadata where
             Prelude.<*> (x Core..:? "assessmentName")
       )
 
-instance Prelude.Hashable DelegationMetadata
+instance Prelude.Hashable DelegationMetadata where
+  hashWithSalt _salt DelegationMetadata' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` controlSetName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` assessmentName
 
-instance Prelude.NFData DelegationMetadata
+instance Prelude.NFData DelegationMetadata where
+  rnf DelegationMetadata' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf controlSetName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf assessmentName

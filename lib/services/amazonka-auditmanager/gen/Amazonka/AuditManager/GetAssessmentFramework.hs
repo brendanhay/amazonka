@@ -89,9 +89,13 @@ instance Core.AWSRequest GetAssessmentFramework where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssessmentFramework
+instance Prelude.Hashable GetAssessmentFramework where
+  hashWithSalt _salt GetAssessmentFramework' {..} =
+    _salt `Prelude.hashWithSalt` frameworkId
 
-instance Prelude.NFData GetAssessmentFramework
+instance Prelude.NFData GetAssessmentFramework where
+  rnf GetAssessmentFramework' {..} =
+    Prelude.rnf frameworkId
 
 instance Core.ToHeaders GetAssessmentFramework where
   toHeaders =
@@ -154,3 +158,7 @@ getAssessmentFrameworkResponse_httpStatus = Lens.lens (\GetAssessmentFrameworkRe
 instance
   Prelude.NFData
     GetAssessmentFrameworkResponse
+  where
+  rnf GetAssessmentFrameworkResponse' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf httpStatus

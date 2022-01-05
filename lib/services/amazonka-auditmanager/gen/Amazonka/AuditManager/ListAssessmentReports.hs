@@ -103,9 +103,15 @@ instance Core.AWSRequest ListAssessmentReports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssessmentReports
+instance Prelude.Hashable ListAssessmentReports where
+  hashWithSalt _salt ListAssessmentReports' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListAssessmentReports
+instance Prelude.NFData ListAssessmentReports where
+  rnf ListAssessmentReports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssessmentReports where
   toHeaders =
@@ -179,4 +185,8 @@ listAssessmentReportsResponse_nextToken = Lens.lens (\ListAssessmentReportsRespo
 listAssessmentReportsResponse_httpStatus :: Lens.Lens' ListAssessmentReportsResponse Prelude.Int
 listAssessmentReportsResponse_httpStatus = Lens.lens (\ListAssessmentReportsResponse' {httpStatus} -> httpStatus) (\s@ListAssessmentReportsResponse' {} a -> s {httpStatus = a} :: ListAssessmentReportsResponse)
 
-instance Prelude.NFData ListAssessmentReportsResponse
+instance Prelude.NFData ListAssessmentReportsResponse where
+  rnf ListAssessmentReportsResponse' {..} =
+    Prelude.rnf assessmentReports
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

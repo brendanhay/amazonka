@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     AssociateAssessmentReportEvidenceFolder
+  where
+  hashWithSalt
+    _salt
+    AssociateAssessmentReportEvidenceFolder' {..} =
+      _salt `Prelude.hashWithSalt` assessmentId
+        `Prelude.hashWithSalt` evidenceFolderId
 
 instance
   Prelude.NFData
     AssociateAssessmentReportEvidenceFolder
+  where
+  rnf AssociateAssessmentReportEvidenceFolder' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf evidenceFolderId
 
 instance
   Core.ToHeaders
@@ -192,3 +202,7 @@ associateAssessmentReportEvidenceFolderResponse_httpStatus = Lens.lens (\Associa
 instance
   Prelude.NFData
     AssociateAssessmentReportEvidenceFolderResponse
+  where
+  rnf
+    AssociateAssessmentReportEvidenceFolderResponse' {..} =
+      Prelude.rnf httpStatus

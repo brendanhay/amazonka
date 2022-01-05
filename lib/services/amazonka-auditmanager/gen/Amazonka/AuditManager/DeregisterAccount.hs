@@ -70,9 +70,12 @@ instance Core.AWSRequest DeregisterAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterAccount
+instance Prelude.Hashable DeregisterAccount where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DeregisterAccount
+instance Prelude.NFData DeregisterAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders DeregisterAccount where
   toHeaders =
@@ -133,4 +136,7 @@ deregisterAccountResponse_status = Lens.lens (\DeregisterAccountResponse' {statu
 deregisterAccountResponse_httpStatus :: Lens.Lens' DeregisterAccountResponse Prelude.Int
 deregisterAccountResponse_httpStatus = Lens.lens (\DeregisterAccountResponse' {httpStatus} -> httpStatus) (\s@DeregisterAccountResponse' {} a -> s {httpStatus = a} :: DeregisterAccountResponse)
 
-instance Prelude.NFData DeregisterAccountResponse
+instance Prelude.NFData DeregisterAccountResponse where
+  rnf DeregisterAccountResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

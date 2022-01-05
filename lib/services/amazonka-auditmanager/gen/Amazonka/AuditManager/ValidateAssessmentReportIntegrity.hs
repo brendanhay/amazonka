@@ -108,10 +108,18 @@ instance
 instance
   Prelude.Hashable
     ValidateAssessmentReportIntegrity
+  where
+  hashWithSalt
+    _salt
+    ValidateAssessmentReportIntegrity' {..} =
+      _salt `Prelude.hashWithSalt` s3RelativePath
 
 instance
   Prelude.NFData
     ValidateAssessmentReportIntegrity
+  where
+  rnf ValidateAssessmentReportIntegrity' {..} =
+    Prelude.rnf s3RelativePath
 
 instance
   Core.ToHeaders
@@ -239,3 +247,11 @@ validateAssessmentReportIntegrityResponse_httpStatus = Lens.lens (\ValidateAsses
 instance
   Prelude.NFData
     ValidateAssessmentReportIntegrityResponse
+  where
+  rnf ValidateAssessmentReportIntegrityResponse' {..} =
+    Prelude.rnf signatureValid
+      `Prelude.seq` Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf signatureDateTime
+      `Prelude.seq` Prelude.rnf signatureAlgorithm
+      `Prelude.seq` Prelude.rnf signatureKeyId
+      `Prelude.seq` Prelude.rnf httpStatus

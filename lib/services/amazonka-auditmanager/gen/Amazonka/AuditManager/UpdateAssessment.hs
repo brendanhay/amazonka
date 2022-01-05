@@ -143,9 +143,23 @@ instance Core.AWSRequest UpdateAssessment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAssessment
+instance Prelude.Hashable UpdateAssessment where
+  hashWithSalt _salt UpdateAssessment' {..} =
+    _salt `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` assessmentDescription
+      `Prelude.hashWithSalt` assessmentReportsDestination
+      `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` scope
 
-instance Prelude.NFData UpdateAssessment
+instance Prelude.NFData UpdateAssessment where
+  rnf UpdateAssessment' {..} =
+    Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf assessmentDescription
+      `Prelude.seq` Prelude.rnf assessmentReportsDestination
+      `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf scope
 
 instance Core.ToHeaders UpdateAssessment where
   toHeaders =
@@ -223,4 +237,7 @@ updateAssessmentResponse_assessment = Lens.lens (\UpdateAssessmentResponse' {ass
 updateAssessmentResponse_httpStatus :: Lens.Lens' UpdateAssessmentResponse Prelude.Int
 updateAssessmentResponse_httpStatus = Lens.lens (\UpdateAssessmentResponse' {httpStatus} -> httpStatus) (\s@UpdateAssessmentResponse' {} a -> s {httpStatus = a} :: UpdateAssessmentResponse)
 
-instance Prelude.NFData UpdateAssessmentResponse
+instance Prelude.NFData UpdateAssessmentResponse where
+  rnf UpdateAssessmentResponse' {..} =
+    Prelude.rnf assessment
+      `Prelude.seq` Prelude.rnf httpStatus

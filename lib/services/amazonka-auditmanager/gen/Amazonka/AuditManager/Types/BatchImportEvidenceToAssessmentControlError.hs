@@ -98,7 +98,19 @@ instance
 instance
   Prelude.Hashable
     BatchImportEvidenceToAssessmentControlError
+  where
+  hashWithSalt
+    _salt
+    BatchImportEvidenceToAssessmentControlError' {..} =
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` manualEvidence
 
 instance
   Prelude.NFData
     BatchImportEvidenceToAssessmentControlError
+  where
+  rnf BatchImportEvidenceToAssessmentControlError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf manualEvidence

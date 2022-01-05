@@ -79,9 +79,15 @@ instance Core.FromJSON SourceKeyword where
             Prelude.<*> (x Core..:? "keywordValue")
       )
 
-instance Prelude.Hashable SourceKeyword
+instance Prelude.Hashable SourceKeyword where
+  hashWithSalt _salt SourceKeyword' {..} =
+    _salt `Prelude.hashWithSalt` keywordInputType
+      `Prelude.hashWithSalt` keywordValue
 
-instance Prelude.NFData SourceKeyword
+instance Prelude.NFData SourceKeyword where
+  rnf SourceKeyword' {..} =
+    Prelude.rnf keywordInputType
+      `Prelude.seq` Prelude.rnf keywordValue
 
 instance Core.ToJSON SourceKeyword where
   toJSON SourceKeyword' {..} =

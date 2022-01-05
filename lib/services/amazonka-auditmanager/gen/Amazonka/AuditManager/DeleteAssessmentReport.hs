@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteAssessmentReport where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAssessmentReport
+instance Prelude.Hashable DeleteAssessmentReport where
+  hashWithSalt _salt DeleteAssessmentReport' {..} =
+    _salt `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` assessmentReportId
 
-instance Prelude.NFData DeleteAssessmentReport
+instance Prelude.NFData DeleteAssessmentReport where
+  rnf DeleteAssessmentReport' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf assessmentReportId
 
 instance Core.ToHeaders DeleteAssessmentReport where
   toHeaders =
@@ -161,3 +167,6 @@ deleteAssessmentReportResponse_httpStatus = Lens.lens (\DeleteAssessmentReportRe
 instance
   Prelude.NFData
     DeleteAssessmentReportResponse
+  where
+  rnf DeleteAssessmentReportResponse' {..} =
+    Prelude.rnf httpStatus

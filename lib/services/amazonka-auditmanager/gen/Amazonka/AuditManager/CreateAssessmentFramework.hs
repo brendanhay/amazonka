@@ -134,9 +134,21 @@ instance Core.AWSRequest CreateAssessmentFramework where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssessmentFramework
+instance Prelude.Hashable CreateAssessmentFramework where
+  hashWithSalt _salt CreateAssessmentFramework' {..} =
+    _salt `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controlSets
 
-instance Prelude.NFData CreateAssessmentFramework
+instance Prelude.NFData CreateAssessmentFramework where
+  rnf CreateAssessmentFramework' {..} =
+    Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controlSets
 
 instance Core.ToHeaders CreateAssessmentFramework where
   toHeaders =
@@ -213,3 +225,7 @@ createAssessmentFrameworkResponse_httpStatus = Lens.lens (\CreateAssessmentFrame
 instance
   Prelude.NFData
     CreateAssessmentFrameworkResponse
+  where
+  rnf CreateAssessmentFrameworkResponse' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf httpStatus

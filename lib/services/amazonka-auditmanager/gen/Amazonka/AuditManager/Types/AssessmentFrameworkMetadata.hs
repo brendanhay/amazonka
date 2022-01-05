@@ -166,6 +166,30 @@ instance Core.FromJSON AssessmentFrameworkMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AssessmentFrameworkMetadata
+instance Prelude.Hashable AssessmentFrameworkMetadata where
+  hashWithSalt _salt AssessmentFrameworkMetadata' {..} =
+    _salt `Prelude.hashWithSalt` controlsCount
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` controlSetsCount
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` logo
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AssessmentFrameworkMetadata
+instance Prelude.NFData AssessmentFrameworkMetadata where
+  rnf AssessmentFrameworkMetadata' {..} =
+    Prelude.rnf controlsCount
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf controlSetsCount
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf logo
+      `Prelude.seq` Prelude.rnf description

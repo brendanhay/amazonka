@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DeregisterOrganizationAdminAccount
+  where
+  hashWithSalt
+    _salt
+    DeregisterOrganizationAdminAccount' {..} =
+      _salt `Prelude.hashWithSalt` adminAccountId
 
 instance
   Prelude.NFData
     DeregisterOrganizationAdminAccount
+  where
+  rnf DeregisterOrganizationAdminAccount' {..} =
+    Prelude.rnf adminAccountId
 
 instance
   Core.ToHeaders
@@ -178,3 +186,6 @@ deregisterOrganizationAdminAccountResponse_httpStatus = Lens.lens (\DeregisterOr
 instance
   Prelude.NFData
     DeregisterOrganizationAdminAccountResponse
+  where
+  rnf DeregisterOrganizationAdminAccountResponse' {..} =
+    Prelude.rnf httpStatus

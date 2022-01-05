@@ -78,10 +78,22 @@ updateAssessmentFrameworkControlSet_name = Lens.lens (\UpdateAssessmentFramework
 instance
   Prelude.Hashable
     UpdateAssessmentFrameworkControlSet
+  where
+  hashWithSalt
+    _salt
+    UpdateAssessmentFrameworkControlSet' {..} =
+      _salt `Prelude.hashWithSalt` controls
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     UpdateAssessmentFrameworkControlSet
+  where
+  rnf UpdateAssessmentFrameworkControlSet' {..} =
+    Prelude.rnf controls
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

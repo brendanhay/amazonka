@@ -115,9 +115,17 @@ instance Core.AWSRequest ListKeywordsForDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListKeywordsForDataSource
+instance Prelude.Hashable ListKeywordsForDataSource where
+  hashWithSalt _salt ListKeywordsForDataSource' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData ListKeywordsForDataSource
+instance Prelude.NFData ListKeywordsForDataSource where
+  rnf ListKeywordsForDataSource' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToHeaders ListKeywordsForDataSource where
   toHeaders =
@@ -192,3 +200,8 @@ listKeywordsForDataSourceResponse_httpStatus = Lens.lens (\ListKeywordsForDataSo
 instance
   Prelude.NFData
     ListKeywordsForDataSourceResponse
+  where
+  rnf ListKeywordsForDataSourceResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf httpStatus

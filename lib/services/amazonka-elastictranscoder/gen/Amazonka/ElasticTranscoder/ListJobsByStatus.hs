@@ -155,9 +155,17 @@ instance Core.AWSRequest ListJobsByStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobsByStatus
+instance Prelude.Hashable ListJobsByStatus where
+  hashWithSalt _salt ListJobsByStatus' {..} =
+    _salt `Prelude.hashWithSalt` ascending
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListJobsByStatus
+instance Prelude.NFData ListJobsByStatus where
+  rnf ListJobsByStatus' {..} =
+    Prelude.rnf ascending
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders ListJobsByStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,4 +241,8 @@ listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> 
 listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Prelude.Int
 listJobsByStatusResponse_httpStatus = Lens.lens (\ListJobsByStatusResponse' {httpStatus} -> httpStatus) (\s@ListJobsByStatusResponse' {} a -> s {httpStatus = a} :: ListJobsByStatusResponse)
 
-instance Prelude.NFData ListJobsByStatusResponse
+instance Prelude.NFData ListJobsByStatusResponse where
+  rnf ListJobsByStatusResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus

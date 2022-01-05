@@ -269,9 +269,25 @@ instance Core.FromJSON Artwork where
             Prelude.<*> (x Core..:? "MaxWidth")
       )
 
-instance Prelude.Hashable Artwork
+instance Prelude.Hashable Artwork where
+  hashWithSalt _salt Artwork' {..} =
+    _salt `Prelude.hashWithSalt` sizingPolicy
+      `Prelude.hashWithSalt` albumArtFormat
+      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` inputKey
+      `Prelude.hashWithSalt` paddingPolicy
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` maxWidth
 
-instance Prelude.NFData Artwork
+instance Prelude.NFData Artwork where
+  rnf Artwork' {..} =
+    Prelude.rnf sizingPolicy
+      `Prelude.seq` Prelude.rnf albumArtFormat
+      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf inputKey
+      `Prelude.seq` Prelude.rnf paddingPolicy
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf maxWidth
 
 instance Core.ToJSON Artwork where
   toJSON Artwork' {..} =

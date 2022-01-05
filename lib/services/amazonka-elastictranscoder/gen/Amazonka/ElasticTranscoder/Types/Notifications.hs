@@ -107,9 +107,19 @@ instance Core.FromJSON Notifications where
             Prelude.<*> (x Core..:? "Completed")
       )
 
-instance Prelude.Hashable Notifications
+instance Prelude.Hashable Notifications where
+  hashWithSalt _salt Notifications' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` warning
+      `Prelude.hashWithSalt` progressing
+      `Prelude.hashWithSalt` completed
 
-instance Prelude.NFData Notifications
+instance Prelude.NFData Notifications where
+  rnf Notifications' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf progressing
+      `Prelude.seq` Prelude.rnf completed
 
 instance Core.ToJSON Notifications where
   toJSON Notifications' {..} =

@@ -220,9 +220,19 @@ instance Core.FromJSON AudioCodecOptions where
             Prelude.<*> (x Core..:? "BitOrder")
       )
 
-instance Prelude.Hashable AudioCodecOptions
+instance Prelude.Hashable AudioCodecOptions where
+  hashWithSalt _salt AudioCodecOptions' {..} =
+    _salt `Prelude.hashWithSalt` signed
+      `Prelude.hashWithSalt` bitDepth
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` bitOrder
 
-instance Prelude.NFData AudioCodecOptions
+instance Prelude.NFData AudioCodecOptions where
+  rnf AudioCodecOptions' {..} =
+    Prelude.rnf signed
+      `Prelude.seq` Prelude.rnf bitDepth
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf bitOrder
 
 instance Core.ToJSON AudioCodecOptions where
   toJSON AudioCodecOptions' {..} =

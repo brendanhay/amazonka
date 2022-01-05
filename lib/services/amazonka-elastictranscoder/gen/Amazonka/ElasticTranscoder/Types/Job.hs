@@ -326,6 +326,32 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "Timing")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` playlists
+      `Prelude.hashWithSalt` outputKeyPrefix
+      `Prelude.hashWithSalt` timing
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf playlists
+      `Prelude.seq` Prelude.rnf outputKeyPrefix
+      `Prelude.seq` Prelude.rnf timing

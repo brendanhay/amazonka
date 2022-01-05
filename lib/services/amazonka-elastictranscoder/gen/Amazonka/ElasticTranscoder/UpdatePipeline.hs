@@ -668,9 +668,27 @@ instance Core.AWSRequest UpdatePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline where
+  hashWithSalt _salt UpdatePipeline' {..} =
+    _salt `Prelude.hashWithSalt` inputBucket
+      `Prelude.hashWithSalt` contentConfig
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` awsKmsKeyArn
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` thumbnailConfig
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline where
+  rnf UpdatePipeline' {..} =
+    Prelude.rnf inputBucket
+      `Prelude.seq` Prelude.rnf contentConfig
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf awsKmsKeyArn
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf thumbnailConfig
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -763,4 +781,8 @@ updatePipelineResponse_pipeline = Lens.lens (\UpdatePipelineResponse' {pipeline}
 updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Prelude.Int
 updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineResponse' {} a -> s {httpStatus = a} :: UpdatePipelineResponse)
 
-instance Prelude.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse where
+  rnf UpdatePipelineResponse' {..} =
+    Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf httpStatus

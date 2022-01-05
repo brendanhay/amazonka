@@ -74,6 +74,12 @@ instance Core.FromJSON CompatibleKafkaVersion where
                         )
       )
 
-instance Prelude.Hashable CompatibleKafkaVersion
+instance Prelude.Hashable CompatibleKafkaVersion where
+  hashWithSalt _salt CompatibleKafkaVersion' {..} =
+    _salt `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` targetVersions
 
-instance Prelude.NFData CompatibleKafkaVersion
+instance Prelude.NFData CompatibleKafkaVersion where
+  rnf CompatibleKafkaVersion' {..} =
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf targetVersions

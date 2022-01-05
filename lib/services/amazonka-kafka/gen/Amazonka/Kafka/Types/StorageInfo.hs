@@ -60,9 +60,12 @@ instance Core.FromJSON StorageInfo where
             Prelude.<$> (x Core..:? "ebsStorageInfo")
       )
 
-instance Prelude.Hashable StorageInfo
+instance Prelude.Hashable StorageInfo where
+  hashWithSalt _salt StorageInfo' {..} =
+    _salt `Prelude.hashWithSalt` ebsStorageInfo
 
-instance Prelude.NFData StorageInfo
+instance Prelude.NFData StorageInfo where
+  rnf StorageInfo' {..} = Prelude.rnf ebsStorageInfo
 
 instance Core.ToJSON StorageInfo where
   toJSON StorageInfo' {..} =

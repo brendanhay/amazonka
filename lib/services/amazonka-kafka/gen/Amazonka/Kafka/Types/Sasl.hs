@@ -72,9 +72,14 @@ instance Core.FromJSON Sasl where
             Prelude.<$> (x Core..:? "iam") Prelude.<*> (x Core..:? "scram")
       )
 
-instance Prelude.Hashable Sasl
+instance Prelude.Hashable Sasl where
+  hashWithSalt _salt Sasl' {..} =
+    _salt `Prelude.hashWithSalt` iam
+      `Prelude.hashWithSalt` scram
 
-instance Prelude.NFData Sasl
+instance Prelude.NFData Sasl where
+  rnf Sasl' {..} =
+    Prelude.rnf iam `Prelude.seq` Prelude.rnf scram
 
 instance Core.ToJSON Sasl where
   toJSON Sasl' {..} =

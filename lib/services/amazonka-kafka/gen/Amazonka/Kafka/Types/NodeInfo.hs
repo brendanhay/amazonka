@@ -114,6 +114,20 @@ instance Core.FromJSON NodeInfo where
             Prelude.<*> (x Core..:? "nodeType")
       )
 
-instance Prelude.Hashable NodeInfo
+instance Prelude.Hashable NodeInfo where
+  hashWithSalt _salt NodeInfo' {..} =
+    _salt `Prelude.hashWithSalt` addedToClusterTime
+      `Prelude.hashWithSalt` nodeARN
+      `Prelude.hashWithSalt` zookeeperNodeInfo
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` brokerNodeInfo
+      `Prelude.hashWithSalt` nodeType
 
-instance Prelude.NFData NodeInfo
+instance Prelude.NFData NodeInfo where
+  rnf NodeInfo' {..} =
+    Prelude.rnf addedToClusterTime
+      `Prelude.seq` Prelude.rnf nodeARN
+      `Prelude.seq` Prelude.rnf zookeeperNodeInfo
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf brokerNodeInfo
+      `Prelude.seq` Prelude.rnf nodeType

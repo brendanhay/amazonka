@@ -84,9 +84,17 @@ instance Core.FromJSON ClientAuthentication where
             Prelude.<*> (x Core..:? "unauthenticated")
       )
 
-instance Prelude.Hashable ClientAuthentication
+instance Prelude.Hashable ClientAuthentication where
+  hashWithSalt _salt ClientAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` sasl
+      `Prelude.hashWithSalt` tls
+      `Prelude.hashWithSalt` unauthenticated
 
-instance Prelude.NFData ClientAuthentication
+instance Prelude.NFData ClientAuthentication where
+  rnf ClientAuthentication' {..} =
+    Prelude.rnf sasl
+      `Prelude.seq` Prelude.rnf tls
+      `Prelude.seq` Prelude.rnf unauthenticated
 
 instance Core.ToJSON ClientAuthentication where
   toJSON ClientAuthentication' {..} =

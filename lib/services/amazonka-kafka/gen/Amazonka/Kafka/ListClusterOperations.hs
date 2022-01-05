@@ -146,9 +146,17 @@ instance Core.AWSRequest ListClusterOperations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListClusterOperations
+instance Prelude.Hashable ListClusterOperations where
+  hashWithSalt _salt ListClusterOperations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData ListClusterOperations
+instance Prelude.NFData ListClusterOperations where
+  rnf ListClusterOperations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clusterArn
 
 instance Core.ToHeaders ListClusterOperations where
   toHeaders =
@@ -230,4 +238,8 @@ listClusterOperationsResponse_nextToken = Lens.lens (\ListClusterOperationsRespo
 listClusterOperationsResponse_httpStatus :: Lens.Lens' ListClusterOperationsResponse Prelude.Int
 listClusterOperationsResponse_httpStatus = Lens.lens (\ListClusterOperationsResponse' {httpStatus} -> httpStatus) (\s@ListClusterOperationsResponse' {} a -> s {httpStatus = a} :: ListClusterOperationsResponse)
 
-instance Prelude.NFData ListClusterOperationsResponse
+instance Prelude.NFData ListClusterOperationsResponse where
+  rnf ListClusterOperationsResponse' {..} =
+    Prelude.rnf clusterOperationInfoList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

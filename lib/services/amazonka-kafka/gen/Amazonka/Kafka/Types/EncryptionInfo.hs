@@ -75,9 +75,15 @@ instance Core.FromJSON EncryptionInfo where
             Prelude.<*> (x Core..:? "encryptionInTransit")
       )
 
-instance Prelude.Hashable EncryptionInfo
+instance Prelude.Hashable EncryptionInfo where
+  hashWithSalt _salt EncryptionInfo' {..} =
+    _salt `Prelude.hashWithSalt` encryptionAtRest
+      `Prelude.hashWithSalt` encryptionInTransit
 
-instance Prelude.NFData EncryptionInfo
+instance Prelude.NFData EncryptionInfo where
+  rnf EncryptionInfo' {..} =
+    Prelude.rnf encryptionAtRest
+      `Prelude.seq` Prelude.rnf encryptionInTransit
 
 instance Core.ToJSON EncryptionInfo where
   toJSON EncryptionInfo' {..} =

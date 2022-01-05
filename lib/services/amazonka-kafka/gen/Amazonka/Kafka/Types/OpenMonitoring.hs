@@ -61,6 +61,9 @@ instance Core.FromJSON OpenMonitoring where
           OpenMonitoring' Prelude.<$> (x Core..: "prometheus")
       )
 
-instance Prelude.Hashable OpenMonitoring
+instance Prelude.Hashable OpenMonitoring where
+  hashWithSalt _salt OpenMonitoring' {..} =
+    _salt `Prelude.hashWithSalt` prometheus
 
-instance Prelude.NFData OpenMonitoring
+instance Prelude.NFData OpenMonitoring where
+  rnf OpenMonitoring' {..} = Prelude.rnf prometheus

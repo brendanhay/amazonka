@@ -211,9 +211,33 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` configurationInfo
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` encryptionInfo
+      `Prelude.hashWithSalt` brokerNodeGroupInfo
+      `Prelude.hashWithSalt` kafkaVersion
+      `Prelude.hashWithSalt` numberOfBrokerNodes
+      `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf configurationInfo
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encryptionInfo
+      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
+      `Prelude.seq` Prelude.rnf kafkaVersion
+      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -316,4 +340,9 @@ createClusterResponse_clusterName = Lens.lens (\CreateClusterResponse' {clusterN
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf httpStatus

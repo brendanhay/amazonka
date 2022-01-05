@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeClusterOperation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterOperation
+instance Prelude.Hashable DescribeClusterOperation where
+  hashWithSalt _salt DescribeClusterOperation' {..} =
+    _salt `Prelude.hashWithSalt` clusterOperationArn
 
-instance Prelude.NFData DescribeClusterOperation
+instance Prelude.NFData DescribeClusterOperation where
+  rnf DescribeClusterOperation' {..} =
+    Prelude.rnf clusterOperationArn
 
 instance Core.ToHeaders DescribeClusterOperation where
   toHeaders =
@@ -157,3 +161,7 @@ describeClusterOperationResponse_httpStatus = Lens.lens (\DescribeClusterOperati
 instance
   Prelude.NFData
     DescribeClusterOperationResponse
+  where
+  rnf DescribeClusterOperationResponse' {..} =
+    Prelude.rnf clusterOperationInfo
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -55,9 +55,12 @@ instance Core.FromJSON Scram where
       "Scram"
       (\x -> Scram' Prelude.<$> (x Core..:? "enabled"))
 
-instance Prelude.Hashable Scram
+instance Prelude.Hashable Scram where
+  hashWithSalt _salt Scram' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData Scram
+instance Prelude.NFData Scram where
+  rnf Scram' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON Scram where
   toJSON Scram' {..} =

@@ -263,9 +263,32 @@ instance Core.AWSRequest CreateImageRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImageRecipe
+instance Prelude.Hashable CreateImageRecipe where
+  hashWithSalt _salt CreateImageRecipe' {..} =
+    _salt
+      `Prelude.hashWithSalt` additionalInstanceConfiguration
+      `Prelude.hashWithSalt` workingDirectory
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` components
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateImageRecipe
+instance Prelude.NFData CreateImageRecipe where
+  rnf CreateImageRecipe' {..} =
+    Prelude.rnf additionalInstanceConfiguration
+      `Prelude.seq` Prelude.rnf workingDirectory
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf components
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateImageRecipe where
   toHeaders =
@@ -365,4 +388,9 @@ createImageRecipeResponse_imageRecipeArn = Lens.lens (\CreateImageRecipeResponse
 createImageRecipeResponse_httpStatus :: Lens.Lens' CreateImageRecipeResponse Prelude.Int
 createImageRecipeResponse_httpStatus = Lens.lens (\CreateImageRecipeResponse' {httpStatus} -> httpStatus) (\s@CreateImageRecipeResponse' {} a -> s {httpStatus = a} :: CreateImageRecipeResponse)
 
-instance Prelude.NFData CreateImageRecipeResponse
+instance Prelude.NFData CreateImageRecipeResponse where
+  rnf CreateImageRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf httpStatus

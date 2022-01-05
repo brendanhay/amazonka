@@ -275,9 +275,33 @@ instance Core.AWSRequest CreateComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComponent
+instance Prelude.Hashable CreateComponent where
+  hashWithSalt _salt CreateComponent' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` changeDescription
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateComponent
+instance Prelude.NFData CreateComponent where
+  rnf CreateComponent' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf changeDescription
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateComponent where
   toHeaders =
@@ -377,4 +401,9 @@ createComponentResponse_componentBuildVersionArn = Lens.lens (\CreateComponentRe
 createComponentResponse_httpStatus :: Lens.Lens' CreateComponentResponse Prelude.Int
 createComponentResponse_httpStatus = Lens.lens (\CreateComponentResponse' {httpStatus} -> httpStatus) (\s@CreateComponentResponse' {} a -> s {httpStatus = a} :: CreateComponentResponse)
 
-instance Prelude.NFData CreateComponentResponse
+instance Prelude.NFData CreateComponentResponse where
+  rnf CreateComponentResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf componentBuildVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

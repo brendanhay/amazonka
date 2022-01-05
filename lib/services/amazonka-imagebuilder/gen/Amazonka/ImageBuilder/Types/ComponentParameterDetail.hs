@@ -100,6 +100,16 @@ instance Core.FromJSON ComponentParameterDetail where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ComponentParameterDetail
+instance Prelude.Hashable ComponentParameterDetail where
+  hashWithSalt _salt ComponentParameterDetail' {..} =
+    _salt `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ComponentParameterDetail
+instance Prelude.NFData ComponentParameterDetail where
+  rnf ComponentParameterDetail' {..} =
+    Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

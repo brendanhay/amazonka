@@ -116,9 +116,22 @@ instance Core.FromJSON Distribution where
             Prelude.<*> (x Core..: "region")
       )
 
-instance Prelude.Hashable Distribution
+instance Prelude.Hashable Distribution where
+  hashWithSalt _salt Distribution' {..} =
+    _salt
+      `Prelude.hashWithSalt` amiDistributionConfiguration
+      `Prelude.hashWithSalt` launchTemplateConfigurations
+      `Prelude.hashWithSalt` licenseConfigurationArns
+      `Prelude.hashWithSalt` containerDistributionConfiguration
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData Distribution
+instance Prelude.NFData Distribution where
+  rnf Distribution' {..} =
+    Prelude.rnf amiDistributionConfiguration
+      `Prelude.seq` Prelude.rnf launchTemplateConfigurations
+      `Prelude.seq` Prelude.rnf licenseConfigurationArns
+      `Prelude.seq` Prelude.rnf containerDistributionConfiguration
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON Distribution where
   toJSON Distribution' {..} =

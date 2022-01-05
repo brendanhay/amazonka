@@ -72,6 +72,11 @@ instance Core.FromJSON ImageState where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable ImageState
+instance Prelude.Hashable ImageState where
+  hashWithSalt _salt ImageState' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData ImageState
+instance Prelude.NFData ImageState where
+  rnf ImageState' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf reason

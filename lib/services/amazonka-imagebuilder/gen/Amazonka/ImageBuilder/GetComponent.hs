@@ -92,9 +92,14 @@ instance Core.AWSRequest GetComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetComponent
+instance Prelude.Hashable GetComponent where
+  hashWithSalt _salt GetComponent' {..} =
+    _salt
+      `Prelude.hashWithSalt` componentBuildVersionArn
 
-instance Prelude.NFData GetComponent
+instance Prelude.NFData GetComponent where
+  rnf GetComponent' {..} =
+    Prelude.rnf componentBuildVersionArn
 
 instance Core.ToHeaders GetComponent where
   toHeaders =
@@ -164,4 +169,8 @@ getComponentResponse_component = Lens.lens (\GetComponentResponse' {component} -
 getComponentResponse_httpStatus :: Lens.Lens' GetComponentResponse Prelude.Int
 getComponentResponse_httpStatus = Lens.lens (\GetComponentResponse' {httpStatus} -> httpStatus) (\s@GetComponentResponse' {} a -> s {httpStatus = a} :: GetComponentResponse)
 
-instance Prelude.NFData GetComponentResponse
+instance Prelude.NFData GetComponentResponse where
+  rnf GetComponentResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf component
+      `Prelude.seq` Prelude.rnf httpStatus

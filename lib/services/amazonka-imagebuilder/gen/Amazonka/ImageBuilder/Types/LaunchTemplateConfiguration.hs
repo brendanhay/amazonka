@@ -87,9 +87,17 @@ instance Core.FromJSON LaunchTemplateConfiguration where
             Prelude.<*> (x Core..: "launchTemplateId")
       )
 
-instance Prelude.Hashable LaunchTemplateConfiguration
+instance Prelude.Hashable LaunchTemplateConfiguration where
+  hashWithSalt _salt LaunchTemplateConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` setDefaultVersion
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` launchTemplateId
 
-instance Prelude.NFData LaunchTemplateConfiguration
+instance Prelude.NFData LaunchTemplateConfiguration where
+  rnf LaunchTemplateConfiguration' {..} =
+    Prelude.rnf setDefaultVersion
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance Core.ToJSON LaunchTemplateConfiguration where
   toJSON LaunchTemplateConfiguration' {..} =

@@ -114,6 +114,20 @@ instance Core.FromJSON Ami where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Ami
+instance Prelude.Hashable Ami where
+  hashWithSalt _salt Ami' {..} =
+    _salt `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Ami
+instance Prelude.NFData Ami where
+  rnf Ami' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf description

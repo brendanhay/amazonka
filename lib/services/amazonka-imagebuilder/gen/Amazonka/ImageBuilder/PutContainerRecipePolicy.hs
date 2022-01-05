@@ -116,9 +116,15 @@ instance Core.AWSRequest PutContainerRecipePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutContainerRecipePolicy
+instance Prelude.Hashable PutContainerRecipePolicy where
+  hashWithSalt _salt PutContainerRecipePolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerRecipeArn
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutContainerRecipePolicy
+instance Prelude.NFData PutContainerRecipePolicy where
+  rnf PutContainerRecipePolicy' {..} =
+    Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutContainerRecipePolicy where
   toHeaders =
@@ -201,3 +207,8 @@ putContainerRecipePolicyResponse_httpStatus = Lens.lens (\PutContainerRecipePoli
 instance
   Prelude.NFData
     PutContainerRecipePolicyResponse
+  where
+  rnf PutContainerRecipePolicyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf httpStatus

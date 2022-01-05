@@ -128,7 +128,27 @@ instance
 instance
   Prelude.Hashable
     DistributionConfigurationSummary
+  where
+  hashWithSalt
+    _salt
+    DistributionConfigurationSummary' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` regions
+        `Prelude.hashWithSalt` dateUpdated
+        `Prelude.hashWithSalt` dateCreated
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     DistributionConfigurationSummary
+  where
+  rnf DistributionConfigurationSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

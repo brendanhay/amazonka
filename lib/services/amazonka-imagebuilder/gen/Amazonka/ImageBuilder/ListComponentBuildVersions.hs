@@ -132,9 +132,17 @@ instance Core.AWSRequest ListComponentBuildVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListComponentBuildVersions
+instance Prelude.Hashable ListComponentBuildVersions where
+  hashWithSalt _salt ListComponentBuildVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` componentVersionArn
 
-instance Prelude.NFData ListComponentBuildVersions
+instance Prelude.NFData ListComponentBuildVersions where
+  rnf ListComponentBuildVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf componentVersionArn
 
 instance Core.ToHeaders ListComponentBuildVersions where
   toHeaders =
@@ -233,3 +241,9 @@ listComponentBuildVersionsResponse_httpStatus = Lens.lens (\ListComponentBuildVe
 instance
   Prelude.NFData
     ListComponentBuildVersionsResponse
+  where
+  rnf ListComponentBuildVersionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf componentSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

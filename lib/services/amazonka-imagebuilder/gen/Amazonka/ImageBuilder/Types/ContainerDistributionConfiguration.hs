@@ -93,10 +93,22 @@ instance
 instance
   Prelude.Hashable
     ContainerDistributionConfiguration
+  where
+  hashWithSalt
+    _salt
+    ContainerDistributionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` containerTags
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` targetRepository
 
 instance
   Prelude.NFData
     ContainerDistributionConfiguration
+  where
+  rnf ContainerDistributionConfiguration' {..} =
+    Prelude.rnf containerTags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targetRepository
 
 instance
   Core.ToJSON

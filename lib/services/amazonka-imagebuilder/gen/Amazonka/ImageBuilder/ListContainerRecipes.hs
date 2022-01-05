@@ -158,9 +158,19 @@ instance Core.AWSRequest ListContainerRecipes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContainerRecipes
+instance Prelude.Hashable ListContainerRecipes where
+  hashWithSalt _salt ListContainerRecipes' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListContainerRecipes
+instance Prelude.NFData ListContainerRecipes where
+  rnf ListContainerRecipes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListContainerRecipes where
   toHeaders =
@@ -256,4 +266,9 @@ listContainerRecipesResponse_nextToken = Lens.lens (\ListContainerRecipesRespons
 listContainerRecipesResponse_httpStatus :: Lens.Lens' ListContainerRecipesResponse Prelude.Int
 listContainerRecipesResponse_httpStatus = Lens.lens (\ListContainerRecipesResponse' {httpStatus} -> httpStatus) (\s@ListContainerRecipesResponse' {} a -> s {httpStatus = a} :: ListContainerRecipesResponse)
 
-instance Prelude.NFData ListContainerRecipesResponse
+instance Prelude.NFData ListContainerRecipesResponse where
+  rnf ListContainerRecipesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf containerRecipeSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

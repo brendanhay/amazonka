@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     ListDistributionConfigurations
+  where
+  hashWithSalt
+    _salt
+    ListDistributionConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListDistributionConfigurations
+  where
+  rnf ListDistributionConfigurations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -229,3 +241,9 @@ listDistributionConfigurationsResponse_httpStatus = Lens.lens (\ListDistribution
 instance
   Prelude.NFData
     ListDistributionConfigurationsResponse
+  where
+  rnf ListDistributionConfigurationsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf distributionConfigurationSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

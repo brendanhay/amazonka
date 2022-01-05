@@ -122,6 +122,22 @@ instance Core.FromJSON ImageRecipeSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ImageRecipeSummary
+instance Prelude.Hashable ImageRecipeSummary where
+  hashWithSalt _salt ImageRecipeSummary' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ImageRecipeSummary
+instance Prelude.NFData ImageRecipeSummary where
+  rnf ImageRecipeSummary' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

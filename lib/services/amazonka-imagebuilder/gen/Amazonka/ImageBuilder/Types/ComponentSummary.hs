@@ -183,6 +183,32 @@ instance Core.FromJSON ComponentSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ComponentSummary
+instance Prelude.Hashable ComponentSummary where
+  hashWithSalt _salt ComponentSummary' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` changeDescription
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ComponentSummary
+instance Prelude.NFData ComponentSummary where
+  rnf ComponentSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf changeDescription
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

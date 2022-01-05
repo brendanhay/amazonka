@@ -148,7 +148,31 @@ instance
 instance
   Prelude.Hashable
     InfrastructureConfigurationSummary
+  where
+  hashWithSalt
+    _salt
+    InfrastructureConfigurationSummary' {..} =
+      _salt `Prelude.hashWithSalt` instanceTypes
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` resourceTags
+        `Prelude.hashWithSalt` dateUpdated
+        `Prelude.hashWithSalt` dateCreated
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` instanceProfileName
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     InfrastructureConfigurationSummary
+  where
+  rnf InfrastructureConfigurationSummary' {..} =
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

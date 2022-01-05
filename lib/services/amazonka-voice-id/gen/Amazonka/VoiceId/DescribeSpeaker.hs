@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeSpeaker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSpeaker
+instance Prelude.Hashable DescribeSpeaker where
+  hashWithSalt _salt DescribeSpeaker' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` speakerId
 
-instance Prelude.NFData DescribeSpeaker
+instance Prelude.NFData DescribeSpeaker where
+  rnf DescribeSpeaker' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf speakerId
 
 instance Core.ToHeaders DescribeSpeaker where
   toHeaders =
@@ -170,4 +176,7 @@ describeSpeakerResponse_speaker = Lens.lens (\DescribeSpeakerResponse' {speaker}
 describeSpeakerResponse_httpStatus :: Lens.Lens' DescribeSpeakerResponse Prelude.Int
 describeSpeakerResponse_httpStatus = Lens.lens (\DescribeSpeakerResponse' {httpStatus} -> httpStatus) (\s@DescribeSpeakerResponse' {} a -> s {httpStatus = a} :: DescribeSpeakerResponse)
 
-instance Prelude.NFData DescribeSpeakerResponse
+instance Prelude.NFData DescribeSpeakerResponse where
+  rnf DescribeSpeakerResponse' {..} =
+    Prelude.rnf speaker
+      `Prelude.seq` Prelude.rnf httpStatus

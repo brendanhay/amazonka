@@ -87,9 +87,16 @@ instance Core.FromJSON RegistrationConfig where
             Prelude.<*> (x Core..:? "FraudsterSimilarityThreshold")
       )
 
-instance Prelude.Hashable RegistrationConfig
+instance Prelude.Hashable RegistrationConfig where
+  hashWithSalt _salt RegistrationConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` duplicateRegistrationAction
+      `Prelude.hashWithSalt` fraudsterSimilarityThreshold
 
-instance Prelude.NFData RegistrationConfig
+instance Prelude.NFData RegistrationConfig where
+  rnf RegistrationConfig' {..} =
+    Prelude.rnf duplicateRegistrationAction
+      `Prelude.seq` Prelude.rnf fraudsterSimilarityThreshold
 
 instance Core.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =

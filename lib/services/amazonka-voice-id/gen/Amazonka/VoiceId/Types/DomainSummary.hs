@@ -136,6 +136,24 @@ instance Core.FromJSON DomainSummary where
             Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
       )
 
-instance Prelude.Hashable DomainSummary
+instance Prelude.Hashable DomainSummary where
+  hashWithSalt _salt DomainSummary' {..} =
+    _salt `Prelude.hashWithSalt` domainStatus
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
 
-instance Prelude.NFData DomainSummary
+instance Prelude.NFData DomainSummary where
+  rnf DomainSummary' {..} =
+    Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration

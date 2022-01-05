@@ -114,9 +114,15 @@ instance Core.AWSRequest EvaluateSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EvaluateSession
+instance Prelude.Hashable EvaluateSession where
+  hashWithSalt _salt EvaluateSession' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` sessionNameOrId
 
-instance Prelude.NFData EvaluateSession
+instance Prelude.NFData EvaluateSession where
+  rnf EvaluateSession' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf sessionNameOrId
 
 instance Core.ToHeaders EvaluateSession where
   toHeaders =
@@ -261,4 +267,12 @@ evaluateSessionResponse_sessionName = Lens.lens (\EvaluateSessionResponse' {sess
 evaluateSessionResponse_httpStatus :: Lens.Lens' EvaluateSessionResponse Prelude.Int
 evaluateSessionResponse_httpStatus = Lens.lens (\EvaluateSessionResponse' {httpStatus} -> httpStatus) (\s@EvaluateSessionResponse' {} a -> s {httpStatus = a} :: EvaluateSessionResponse)
 
-instance Prelude.NFData EvaluateSessionResponse
+instance Prelude.NFData EvaluateSessionResponse where
+  rnf EvaluateSessionResponse' {..} =
+    Prelude.rnf fraudDetectionResult
+      `Prelude.seq` Prelude.rnf streamingStatus
+      `Prelude.seq` Prelude.rnf authenticationResult
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf sessionName
+      `Prelude.seq` Prelude.rnf httpStatus

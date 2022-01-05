@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteFraudster where
   response =
     Response.receiveNull DeleteFraudsterResponse'
 
-instance Prelude.Hashable DeleteFraudster
+instance Prelude.Hashable DeleteFraudster where
+  hashWithSalt _salt DeleteFraudster' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` fraudsterId
 
-instance Prelude.NFData DeleteFraudster
+instance Prelude.NFData DeleteFraudster where
+  rnf DeleteFraudster' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf fraudsterId
 
 instance Core.ToHeaders DeleteFraudster where
   toHeaders =
@@ -137,4 +143,5 @@ newDeleteFraudsterResponse ::
   DeleteFraudsterResponse
 newDeleteFraudsterResponse = DeleteFraudsterResponse'
 
-instance Prelude.NFData DeleteFraudsterResponse
+instance Prelude.NFData DeleteFraudsterResponse where
+  rnf _ = ()

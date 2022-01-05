@@ -198,8 +198,25 @@ instance
 instance
   Prelude.Hashable
     StartFraudsterRegistrationJob
+  where
+  hashWithSalt _salt StartFraudsterRegistrationJob' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` registrationConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
 
-instance Prelude.NFData StartFraudsterRegistrationJob
+instance Prelude.NFData StartFraudsterRegistrationJob where
+  rnf StartFraudsterRegistrationJob' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf registrationConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
 
 instance Core.ToHeaders StartFraudsterRegistrationJob where
   toHeaders =
@@ -282,3 +299,7 @@ startFraudsterRegistrationJobResponse_httpStatus = Lens.lens (\StartFraudsterReg
 instance
   Prelude.NFData
     StartFraudsterRegistrationJobResponse
+  where
+  rnf StartFraudsterRegistrationJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

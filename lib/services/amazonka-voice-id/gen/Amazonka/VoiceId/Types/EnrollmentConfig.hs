@@ -86,9 +86,15 @@ instance Core.FromJSON EnrollmentConfig where
             Prelude.<*> (x Core..:? "ExistingEnrollmentAction")
       )
 
-instance Prelude.Hashable EnrollmentConfig
+instance Prelude.Hashable EnrollmentConfig where
+  hashWithSalt _salt EnrollmentConfig' {..} =
+    _salt `Prelude.hashWithSalt` fraudDetectionConfig
+      `Prelude.hashWithSalt` existingEnrollmentAction
 
-instance Prelude.NFData EnrollmentConfig
+instance Prelude.NFData EnrollmentConfig where
+  rnf EnrollmentConfig' {..} =
+    Prelude.rnf fraudDetectionConfig
+      `Prelude.seq` Prelude.rnf existingEnrollmentAction
 
 instance Core.ToJSON EnrollmentConfig where
   toJSON EnrollmentConfig' {..} =

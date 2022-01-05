@@ -211,6 +211,32 @@ instance Core.FromJSON SpeakerEnrollmentJob where
             Prelude.<*> (x Core..:? "JobStatus")
       )
 
-instance Prelude.Hashable SpeakerEnrollmentJob
+instance Prelude.Hashable SpeakerEnrollmentJob where
+  hashWithSalt _salt SpeakerEnrollmentJob' {..} =
+    _salt `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` endedAt
+      `Prelude.hashWithSalt` enrollmentConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` jobProgress
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` jobStatus
 
-instance Prelude.NFData SpeakerEnrollmentJob
+instance Prelude.NFData SpeakerEnrollmentJob where
+  rnf SpeakerEnrollmentJob' {..} =
+    Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf enrollmentConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf jobProgress
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf jobStatus

@@ -81,6 +81,14 @@ instance Core.FromJSON Fraudster where
             Prelude.<*> (x Core..:? "DomainId")
       )
 
-instance Prelude.Hashable Fraudster
+instance Prelude.Hashable Fraudster where
+  hashWithSalt _salt Fraudster' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` generatedFraudsterId
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData Fraudster
+instance Prelude.NFData Fraudster where
+  rnf Fraudster' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf generatedFraudsterId
+      `Prelude.seq` Prelude.rnf domainId

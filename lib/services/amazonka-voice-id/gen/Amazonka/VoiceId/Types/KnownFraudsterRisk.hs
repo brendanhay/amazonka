@@ -81,6 +81,12 @@ instance Core.FromJSON KnownFraudsterRisk where
             Prelude.<*> (x Core..: "RiskScore")
       )
 
-instance Prelude.Hashable KnownFraudsterRisk
+instance Prelude.Hashable KnownFraudsterRisk where
+  hashWithSalt _salt KnownFraudsterRisk' {..} =
+    _salt `Prelude.hashWithSalt` generatedFraudsterId
+      `Prelude.hashWithSalt` riskScore
 
-instance Prelude.NFData KnownFraudsterRisk
+instance Prelude.NFData KnownFraudsterRisk where
+  rnf KnownFraudsterRisk' {..} =
+    Prelude.rnf generatedFraudsterId
+      `Prelude.seq` Prelude.rnf riskScore

@@ -91,9 +91,12 @@ instance Core.AWSRequest VerifyTrust where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VerifyTrust
+instance Prelude.Hashable VerifyTrust where
+  hashWithSalt _salt VerifyTrust' {..} =
+    _salt `Prelude.hashWithSalt` trustId
 
-instance Prelude.NFData VerifyTrust
+instance Prelude.NFData VerifyTrust where
+  rnf VerifyTrust' {..} = Prelude.rnf trustId
 
 instance Core.ToHeaders VerifyTrust where
   toHeaders =
@@ -163,4 +166,7 @@ verifyTrustResponse_trustId = Lens.lens (\VerifyTrustResponse' {trustId} -> trus
 verifyTrustResponse_httpStatus :: Lens.Lens' VerifyTrustResponse Prelude.Int
 verifyTrustResponse_httpStatus = Lens.lens (\VerifyTrustResponse' {httpStatus} -> httpStatus) (\s@VerifyTrustResponse' {} a -> s {httpStatus = a} :: VerifyTrustResponse)
 
-instance Prelude.NFData VerifyTrustResponse
+instance Prelude.NFData VerifyTrustResponse where
+  rnf VerifyTrustResponse' {..} =
+    Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf httpStatus

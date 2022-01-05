@@ -168,9 +168,19 @@ instance Core.AWSRequest ShareDirectory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ShareDirectory
+instance Prelude.Hashable ShareDirectory where
+  hashWithSalt _salt ShareDirectory' {..} =
+    _salt `Prelude.hashWithSalt` shareNotes
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` shareTarget
+      `Prelude.hashWithSalt` shareMethod
 
-instance Prelude.NFData ShareDirectory
+instance Prelude.NFData ShareDirectory where
+  rnf ShareDirectory' {..} =
+    Prelude.rnf shareNotes
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf shareTarget
+      `Prelude.seq` Prelude.rnf shareMethod
 
 instance Core.ToHeaders ShareDirectory where
   toHeaders =
@@ -246,4 +256,7 @@ shareDirectoryResponse_sharedDirectoryId = Lens.lens (\ShareDirectoryResponse' {
 shareDirectoryResponse_httpStatus :: Lens.Lens' ShareDirectoryResponse Prelude.Int
 shareDirectoryResponse_httpStatus = Lens.lens (\ShareDirectoryResponse' {httpStatus} -> httpStatus) (\s@ShareDirectoryResponse' {} a -> s {httpStatus = a} :: ShareDirectoryResponse)
 
-instance Prelude.NFData ShareDirectoryResponse
+instance Prelude.NFData ShareDirectoryResponse where
+  rnf ShareDirectoryResponse' {..} =
+    Prelude.rnf sharedDirectoryId
+      `Prelude.seq` Prelude.rnf httpStatus

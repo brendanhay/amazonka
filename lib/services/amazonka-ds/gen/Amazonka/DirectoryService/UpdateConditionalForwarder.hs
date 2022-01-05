@@ -123,9 +123,17 @@ instance Core.AWSRequest UpdateConditionalForwarder where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConditionalForwarder
+instance Prelude.Hashable UpdateConditionalForwarder where
+  hashWithSalt _salt UpdateConditionalForwarder' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` remoteDomainName
+      `Prelude.hashWithSalt` dnsIpAddrs
 
-instance Prelude.NFData UpdateConditionalForwarder
+instance Prelude.NFData UpdateConditionalForwarder where
+  rnf UpdateConditionalForwarder' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf remoteDomainName
+      `Prelude.seq` Prelude.rnf dnsIpAddrs
 
 instance Core.ToHeaders UpdateConditionalForwarder where
   toHeaders =
@@ -194,3 +202,6 @@ updateConditionalForwarderResponse_httpStatus = Lens.lens (\UpdateConditionalFor
 instance
   Prelude.NFData
     UpdateConditionalForwarderResponse
+  where
+  rnf UpdateConditionalForwarderResponse' {..} =
+    Prelude.rnf httpStatus

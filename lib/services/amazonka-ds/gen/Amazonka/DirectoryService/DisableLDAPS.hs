@@ -99,9 +99,15 @@ instance Core.AWSRequest DisableLDAPS where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableLDAPS
+instance Prelude.Hashable DisableLDAPS where
+  hashWithSalt _salt DisableLDAPS' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DisableLDAPS
+instance Prelude.NFData DisableLDAPS where
+  rnf DisableLDAPS' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders DisableLDAPS where
   toHeaders =
@@ -160,4 +166,6 @@ newDisableLDAPSResponse pHttpStatus_ =
 disableLDAPSResponse_httpStatus :: Lens.Lens' DisableLDAPSResponse Prelude.Int
 disableLDAPSResponse_httpStatus = Lens.lens (\DisableLDAPSResponse' {httpStatus} -> httpStatus) (\s@DisableLDAPSResponse' {} a -> s {httpStatus = a} :: DisableLDAPSResponse)
 
-instance Prelude.NFData DisableLDAPSResponse
+instance Prelude.NFData DisableLDAPSResponse where
+  rnf DisableLDAPSResponse' {..} =
+    Prelude.rnf httpStatus

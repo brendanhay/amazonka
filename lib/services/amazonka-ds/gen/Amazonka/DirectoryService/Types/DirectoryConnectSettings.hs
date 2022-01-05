@@ -116,9 +116,19 @@ directoryConnectSettings_customerDnsIps = Lens.lens (\DirectoryConnectSettings' 
 directoryConnectSettings_customerUserName :: Lens.Lens' DirectoryConnectSettings Prelude.Text
 directoryConnectSettings_customerUserName = Lens.lens (\DirectoryConnectSettings' {customerUserName} -> customerUserName) (\s@DirectoryConnectSettings' {} a -> s {customerUserName = a} :: DirectoryConnectSettings)
 
-instance Prelude.Hashable DirectoryConnectSettings
+instance Prelude.Hashable DirectoryConnectSettings where
+  hashWithSalt _salt DirectoryConnectSettings' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` customerDnsIps
+      `Prelude.hashWithSalt` customerUserName
 
-instance Prelude.NFData DirectoryConnectSettings
+instance Prelude.NFData DirectoryConnectSettings where
+  rnf DirectoryConnectSettings' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf customerDnsIps
+      `Prelude.seq` Prelude.rnf customerUserName
 
 instance Core.ToJSON DirectoryConnectSettings where
   toJSON DirectoryConnectSettings' {..} =

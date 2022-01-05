@@ -107,9 +107,15 @@ instance Core.AWSRequest UnshareDirectory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnshareDirectory
+instance Prelude.Hashable UnshareDirectory where
+  hashWithSalt _salt UnshareDirectory' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` unshareTarget
 
-instance Prelude.NFData UnshareDirectory
+instance Prelude.NFData UnshareDirectory where
+  rnf UnshareDirectory' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf unshareTarget
 
 instance Core.ToHeaders UnshareDirectory where
   toHeaders =
@@ -184,4 +190,7 @@ unshareDirectoryResponse_sharedDirectoryId = Lens.lens (\UnshareDirectoryRespons
 unshareDirectoryResponse_httpStatus :: Lens.Lens' UnshareDirectoryResponse Prelude.Int
 unshareDirectoryResponse_httpStatus = Lens.lens (\UnshareDirectoryResponse' {httpStatus} -> httpStatus) (\s@UnshareDirectoryResponse' {} a -> s {httpStatus = a} :: UnshareDirectoryResponse)
 
-instance Prelude.NFData UnshareDirectoryResponse
+instance Prelude.NFData UnshareDirectoryResponse where
+  rnf UnshareDirectoryResponse' {..} =
+    Prelude.rnf sharedDirectoryId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -149,6 +149,26 @@ instance Core.FromJSON RegionDescription where
             Prelude.<*> (x Core..:? "VpcSettings")
       )
 
-instance Prelude.Hashable RegionDescription
+instance Prelude.Hashable RegionDescription where
+  hashWithSalt _salt RegionDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` desiredNumberOfDomainControllers
+      `Prelude.hashWithSalt` regionType
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` statusLastUpdatedDateTime
+      `Prelude.hashWithSalt` vpcSettings
 
-instance Prelude.NFData RegionDescription
+instance Prelude.NFData RegionDescription where
+  rnf RegionDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf desiredNumberOfDomainControllers
+      `Prelude.seq` Prelude.rnf regionType
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf statusLastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf vpcSettings

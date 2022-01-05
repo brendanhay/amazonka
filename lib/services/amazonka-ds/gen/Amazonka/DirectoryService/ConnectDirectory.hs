@@ -172,9 +172,25 @@ instance Core.AWSRequest ConnectDirectory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConnectDirectory
+instance Prelude.Hashable ConnectDirectory where
+  hashWithSalt _salt ConnectDirectory' {..} =
+    _salt `Prelude.hashWithSalt` shortName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` connectSettings
 
-instance Prelude.NFData ConnectDirectory
+instance Prelude.NFData ConnectDirectory where
+  rnf ConnectDirectory' {..} =
+    Prelude.rnf shortName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf connectSettings
 
 instance Core.ToHeaders ConnectDirectory where
   toHeaders =
@@ -253,4 +269,7 @@ connectDirectoryResponse_directoryId = Lens.lens (\ConnectDirectoryResponse' {di
 connectDirectoryResponse_httpStatus :: Lens.Lens' ConnectDirectoryResponse Prelude.Int
 connectDirectoryResponse_httpStatus = Lens.lens (\ConnectDirectoryResponse' {httpStatus} -> httpStatus) (\s@ConnectDirectoryResponse' {} a -> s {httpStatus = a} :: ConnectDirectoryResponse)
 
-instance Prelude.NFData ConnectDirectoryResponse
+instance Prelude.NFData ConnectDirectoryResponse where
+  rnf ConnectDirectoryResponse' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf httpStatus

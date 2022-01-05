@@ -93,9 +93,13 @@ instance Core.AWSRequest RejectSharedDirectory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectSharedDirectory
+instance Prelude.Hashable RejectSharedDirectory where
+  hashWithSalt _salt RejectSharedDirectory' {..} =
+    _salt `Prelude.hashWithSalt` sharedDirectoryId
 
-instance Prelude.NFData RejectSharedDirectory
+instance Prelude.NFData RejectSharedDirectory where
+  rnf RejectSharedDirectory' {..} =
+    Prelude.rnf sharedDirectoryId
 
 instance Core.ToHeaders RejectSharedDirectory where
   toHeaders =
@@ -166,4 +170,7 @@ rejectSharedDirectoryResponse_sharedDirectoryId = Lens.lens (\RejectSharedDirect
 rejectSharedDirectoryResponse_httpStatus :: Lens.Lens' RejectSharedDirectoryResponse Prelude.Int
 rejectSharedDirectoryResponse_httpStatus = Lens.lens (\RejectSharedDirectoryResponse' {httpStatus} -> httpStatus) (\s@RejectSharedDirectoryResponse' {} a -> s {httpStatus = a} :: RejectSharedDirectoryResponse)
 
-instance Prelude.NFData RejectSharedDirectoryResponse
+instance Prelude.NFData RejectSharedDirectoryResponse where
+  rnf RejectSharedDirectoryResponse' {..} =
+    Prelude.rnf sharedDirectoryId
+      `Prelude.seq` Prelude.rnf httpStatus

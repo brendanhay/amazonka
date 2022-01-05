@@ -172,6 +172,30 @@ instance Core.FromJSON Trust where
             Prelude.<*> (x Core..:? "CreatedDateTime")
       )
 
-instance Prelude.Hashable Trust
+instance Prelude.Hashable Trust where
+  hashWithSalt _salt Trust' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` trustState
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` trustDirection
+      `Prelude.hashWithSalt` stateLastUpdatedDateTime
+      `Prelude.hashWithSalt` trustType
+      `Prelude.hashWithSalt` trustStateReason
+      `Prelude.hashWithSalt` selectiveAuth
+      `Prelude.hashWithSalt` remoteDomainName
+      `Prelude.hashWithSalt` trustId
+      `Prelude.hashWithSalt` createdDateTime
 
-instance Prelude.NFData Trust
+instance Prelude.NFData Trust where
+  rnf Trust' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf trustState
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf trustDirection
+      `Prelude.seq` Prelude.rnf stateLastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf trustType
+      `Prelude.seq` Prelude.rnf trustStateReason
+      `Prelude.seq` Prelude.rnf selectiveAuth
+      `Prelude.seq` Prelude.rnf remoteDomainName
+      `Prelude.seq` Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf createdDateTime

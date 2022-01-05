@@ -88,9 +88,12 @@ instance Core.AWSRequest DisableRadius where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableRadius
+instance Prelude.Hashable DisableRadius where
+  hashWithSalt _salt DisableRadius' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DisableRadius
+instance Prelude.NFData DisableRadius where
+  rnf DisableRadius' {..} = Prelude.rnf directoryId
 
 instance Core.ToHeaders DisableRadius where
   toHeaders =
@@ -149,4 +152,6 @@ newDisableRadiusResponse pHttpStatus_ =
 disableRadiusResponse_httpStatus :: Lens.Lens' DisableRadiusResponse Prelude.Int
 disableRadiusResponse_httpStatus = Lens.lens (\DisableRadiusResponse' {httpStatus} -> httpStatus) (\s@DisableRadiusResponse' {} a -> s {httpStatus = a} :: DisableRadiusResponse)
 
-instance Prelude.NFData DisableRadiusResponse
+instance Prelude.NFData DisableRadiusResponse where
+  rnf DisableRadiusResponse' {..} =
+    Prelude.rnf httpStatus

@@ -99,9 +99,15 @@ instance Core.AWSRequest UpdateTrust where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrust
+instance Prelude.Hashable UpdateTrust where
+  hashWithSalt _salt UpdateTrust' {..} =
+    _salt `Prelude.hashWithSalt` selectiveAuth
+      `Prelude.hashWithSalt` trustId
 
-instance Prelude.NFData UpdateTrust
+instance Prelude.NFData UpdateTrust where
+  rnf UpdateTrust' {..} =
+    Prelude.rnf selectiveAuth
+      `Prelude.seq` Prelude.rnf trustId
 
 instance Core.ToHeaders UpdateTrust where
   toHeaders =
@@ -179,4 +185,8 @@ updateTrustResponse_trustId = Lens.lens (\UpdateTrustResponse' {trustId} -> trus
 updateTrustResponse_httpStatus :: Lens.Lens' UpdateTrustResponse Prelude.Int
 updateTrustResponse_httpStatus = Lens.lens (\UpdateTrustResponse' {httpStatus} -> httpStatus) (\s@UpdateTrustResponse' {} a -> s {httpStatus = a} :: UpdateTrustResponse)
 
-instance Prelude.NFData UpdateTrustResponse
+instance Prelude.NFData UpdateTrustResponse where
+  rnf UpdateTrustResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf httpStatus

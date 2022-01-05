@@ -64,9 +64,14 @@ unshareTarget_id = Lens.lens (\UnshareTarget' {id} -> id) (\s@UnshareTarget' {} 
 unshareTarget_type :: Lens.Lens' UnshareTarget TargetType
 unshareTarget_type = Lens.lens (\UnshareTarget' {type'} -> type') (\s@UnshareTarget' {} a -> s {type' = a} :: UnshareTarget)
 
-instance Prelude.Hashable UnshareTarget
+instance Prelude.Hashable UnshareTarget where
+  hashWithSalt _salt UnshareTarget' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UnshareTarget
+instance Prelude.NFData UnshareTarget where
+  rnf UnshareTarget' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON UnshareTarget where
   toJSON UnshareTarget' {..} =

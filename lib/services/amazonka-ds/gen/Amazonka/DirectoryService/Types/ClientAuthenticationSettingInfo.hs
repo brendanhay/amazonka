@@ -103,7 +103,19 @@ instance
 instance
   Prelude.Hashable
     ClientAuthenticationSettingInfo
+  where
+  hashWithSalt
+    _salt
+    ClientAuthenticationSettingInfo' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` lastUpdatedDateTime
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ClientAuthenticationSettingInfo
+  where
+  rnf ClientAuthenticationSettingInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf type'

@@ -189,9 +189,26 @@ instance Core.AWSRequest CreateTrust where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrust
+instance Prelude.Hashable CreateTrust where
+  hashWithSalt _salt CreateTrust' {..} =
+    _salt
+      `Prelude.hashWithSalt` conditionalForwarderIpAddrs
+      `Prelude.hashWithSalt` trustType
+      `Prelude.hashWithSalt` selectiveAuth
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` remoteDomainName
+      `Prelude.hashWithSalt` trustPassword
+      `Prelude.hashWithSalt` trustDirection
 
-instance Prelude.NFData CreateTrust
+instance Prelude.NFData CreateTrust where
+  rnf CreateTrust' {..} =
+    Prelude.rnf conditionalForwarderIpAddrs
+      `Prelude.seq` Prelude.rnf trustType
+      `Prelude.seq` Prelude.rnf selectiveAuth
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf remoteDomainName
+      `Prelude.seq` Prelude.rnf trustPassword
+      `Prelude.seq` Prelude.rnf trustDirection
 
 instance Core.ToHeaders CreateTrust where
   toHeaders =
@@ -271,4 +288,7 @@ createTrustResponse_trustId = Lens.lens (\CreateTrustResponse' {trustId} -> trus
 createTrustResponse_httpStatus :: Lens.Lens' CreateTrustResponse Prelude.Int
 createTrustResponse_httpStatus = Lens.lens (\CreateTrustResponse' {httpStatus} -> httpStatus) (\s@CreateTrustResponse' {} a -> s {httpStatus = a} :: CreateTrustResponse)
 
-instance Prelude.NFData CreateTrustResponse
+instance Prelude.NFData CreateTrustResponse where
+  rnf CreateTrustResponse' {..} =
+    Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,9 +72,12 @@ instance Core.AWSRequest GetDirectoryLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDirectoryLimits
+instance Prelude.Hashable GetDirectoryLimits where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetDirectoryLimits
+instance Prelude.NFData GetDirectoryLimits where
+  rnf _ = ()
 
 instance Core.ToHeaders GetDirectoryLimits where
   toHeaders =
@@ -144,4 +147,7 @@ getDirectoryLimitsResponse_directoryLimits = Lens.lens (\GetDirectoryLimitsRespo
 getDirectoryLimitsResponse_httpStatus :: Lens.Lens' GetDirectoryLimitsResponse Prelude.Int
 getDirectoryLimitsResponse_httpStatus = Lens.lens (\GetDirectoryLimitsResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryLimitsResponse' {} a -> s {httpStatus = a} :: GetDirectoryLimitsResponse)
 
-instance Prelude.NFData GetDirectoryLimitsResponse
+instance Prelude.NFData GetDirectoryLimitsResponse where
+  rnf GetDirectoryLimitsResponse' {..} =
+    Prelude.rnf directoryLimits
+      `Prelude.seq` Prelude.rnf httpStatus

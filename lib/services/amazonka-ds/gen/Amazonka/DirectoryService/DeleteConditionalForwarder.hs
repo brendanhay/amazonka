@@ -107,9 +107,15 @@ instance Core.AWSRequest DeleteConditionalForwarder where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConditionalForwarder
+instance Prelude.Hashable DeleteConditionalForwarder where
+  hashWithSalt _salt DeleteConditionalForwarder' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` remoteDomainName
 
-instance Prelude.NFData DeleteConditionalForwarder
+instance Prelude.NFData DeleteConditionalForwarder where
+  rnf DeleteConditionalForwarder' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf remoteDomainName
 
 instance Core.ToHeaders DeleteConditionalForwarder where
   toHeaders =
@@ -177,3 +183,6 @@ deleteConditionalForwarderResponse_httpStatus = Lens.lens (\DeleteConditionalFor
 instance
   Prelude.NFData
     DeleteConditionalForwarderResponse
+  where
+  rnf DeleteConditionalForwarderResponse' {..} =
+    Prelude.rnf httpStatus

@@ -382,6 +382,62 @@ instance Core.FromJSON DirectoryDescription where
             Prelude.<*> (x Core..:? "ShareNotes")
       )
 
-instance Prelude.Hashable DirectoryDescription
+instance Prelude.Hashable DirectoryDescription where
+  hashWithSalt _salt DirectoryDescription' {..} =
+    _salt `Prelude.hashWithSalt` edition
+      `Prelude.hashWithSalt` radiusStatus
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` accessUrl
+      `Prelude.hashWithSalt` shortName
+      `Prelude.hashWithSalt` regionsInfo
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` desiredNumberOfDomainControllers
+      `Prelude.hashWithSalt` radiusSettings
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` shareMethod
+      `Prelude.hashWithSalt` stageLastUpdatedDateTime
+      `Prelude.hashWithSalt` ssoEnabled
+      `Prelude.hashWithSalt` dnsIpAddrs
+      `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` stageReason
+      `Prelude.hashWithSalt` connectSettings
+      `Prelude.hashWithSalt` ownerDirectoryDescription
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` shareNotes
 
-instance Prelude.NFData DirectoryDescription
+instance Prelude.NFData DirectoryDescription where
+  rnf DirectoryDescription' {..} =
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf radiusStatus
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf accessUrl
+      `Prelude.seq` Prelude.rnf shortName
+      `Prelude.seq` Prelude.rnf regionsInfo
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf desiredNumberOfDomainControllers
+      `Prelude.seq` Prelude.rnf radiusSettings
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf shareMethod
+      `Prelude.seq` Prelude.rnf stageLastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf ssoEnabled
+      `Prelude.seq` Prelude.rnf dnsIpAddrs
+      `Prelude.seq` Prelude.rnf vpcSettings
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf stageReason
+      `Prelude.seq` Prelude.rnf
+        connectSettings
+      `Prelude.seq` Prelude.rnf
+        ownerDirectoryDescription
+      `Prelude.seq` Prelude.rnf
+        description
+      `Prelude.seq` Prelude.rnf
+        shareNotes

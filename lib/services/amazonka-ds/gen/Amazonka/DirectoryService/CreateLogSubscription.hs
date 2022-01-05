@@ -106,9 +106,15 @@ instance Core.AWSRequest CreateLogSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLogSubscription
+instance Prelude.Hashable CreateLogSubscription where
+  hashWithSalt _salt CreateLogSubscription' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData CreateLogSubscription
+instance Prelude.NFData CreateLogSubscription where
+  rnf CreateLogSubscription' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders CreateLogSubscription where
   toHeaders =
@@ -170,4 +176,6 @@ newCreateLogSubscriptionResponse pHttpStatus_ =
 createLogSubscriptionResponse_httpStatus :: Lens.Lens' CreateLogSubscriptionResponse Prelude.Int
 createLogSubscriptionResponse_httpStatus = Lens.lens (\CreateLogSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateLogSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateLogSubscriptionResponse)
 
-instance Prelude.NFData CreateLogSubscriptionResponse
+instance Prelude.NFData CreateLogSubscriptionResponse where
+  rnf CreateLogSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

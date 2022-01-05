@@ -67,9 +67,12 @@ instance Core.FromJSON ClientCertAuthSettings where
             Prelude.<$> (x Core..:? "OCSPUrl")
       )
 
-instance Prelude.Hashable ClientCertAuthSettings
+instance Prelude.Hashable ClientCertAuthSettings where
+  hashWithSalt _salt ClientCertAuthSettings' {..} =
+    _salt `Prelude.hashWithSalt` oCSPUrl
 
-instance Prelude.NFData ClientCertAuthSettings
+instance Prelude.NFData ClientCertAuthSettings where
+  rnf ClientCertAuthSettings' {..} = Prelude.rnf oCSPUrl
 
 instance Core.ToJSON ClientCertAuthSettings where
   toJSON ClientCertAuthSettings' {..} =

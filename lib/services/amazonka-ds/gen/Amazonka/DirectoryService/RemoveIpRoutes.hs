@@ -99,9 +99,15 @@ instance Core.AWSRequest RemoveIpRoutes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveIpRoutes
+instance Prelude.Hashable RemoveIpRoutes where
+  hashWithSalt _salt RemoveIpRoutes' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` cidrIps
 
-instance Prelude.NFData RemoveIpRoutes
+instance Prelude.NFData RemoveIpRoutes where
+  rnf RemoveIpRoutes' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf cidrIps
 
 instance Core.ToHeaders RemoveIpRoutes where
   toHeaders =
@@ -160,4 +166,6 @@ newRemoveIpRoutesResponse pHttpStatus_ =
 removeIpRoutesResponse_httpStatus :: Lens.Lens' RemoveIpRoutesResponse Prelude.Int
 removeIpRoutesResponse_httpStatus = Lens.lens (\RemoveIpRoutesResponse' {httpStatus} -> httpStatus) (\s@RemoveIpRoutesResponse' {} a -> s {httpStatus = a} :: RemoveIpRoutesResponse)
 
-instance Prelude.NFData RemoveIpRoutesResponse
+instance Prelude.NFData RemoveIpRoutesResponse where
+  rnf RemoveIpRoutesResponse' {..} =
+    Prelude.rnf httpStatus

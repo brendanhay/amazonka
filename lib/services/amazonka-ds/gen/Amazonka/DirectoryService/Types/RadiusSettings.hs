@@ -151,9 +151,27 @@ instance Core.FromJSON RadiusSettings where
             Prelude.<*> (x Core..:? "RadiusPort")
       )
 
-instance Prelude.Hashable RadiusSettings
+instance Prelude.Hashable RadiusSettings where
+  hashWithSalt _salt RadiusSettings' {..} =
+    _salt `Prelude.hashWithSalt` displayLabel
+      `Prelude.hashWithSalt` radiusRetries
+      `Prelude.hashWithSalt` authenticationProtocol
+      `Prelude.hashWithSalt` radiusServers
+      `Prelude.hashWithSalt` useSameUsername
+      `Prelude.hashWithSalt` sharedSecret
+      `Prelude.hashWithSalt` radiusTimeout
+      `Prelude.hashWithSalt` radiusPort
 
-instance Prelude.NFData RadiusSettings
+instance Prelude.NFData RadiusSettings where
+  rnf RadiusSettings' {..} =
+    Prelude.rnf displayLabel
+      `Prelude.seq` Prelude.rnf radiusRetries
+      `Prelude.seq` Prelude.rnf authenticationProtocol
+      `Prelude.seq` Prelude.rnf radiusServers
+      `Prelude.seq` Prelude.rnf useSameUsername
+      `Prelude.seq` Prelude.rnf sharedSecret
+      `Prelude.seq` Prelude.rnf radiusTimeout
+      `Prelude.seq` Prelude.rnf radiusPort
 
 instance Core.ToJSON RadiusSettings where
   toJSON RadiusSettings' {..} =

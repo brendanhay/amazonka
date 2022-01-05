@@ -170,9 +170,17 @@ instance Core.AWSRequest DescribeDirectories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDirectories
+instance Prelude.Hashable DescribeDirectories where
+  hashWithSalt _salt DescribeDirectories' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` directoryIds
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeDirectories
+instance Prelude.NFData DescribeDirectories where
+  rnf DescribeDirectories' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directoryIds
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeDirectories where
   toHeaders =
@@ -276,4 +284,8 @@ describeDirectoriesResponse_nextToken = Lens.lens (\DescribeDirectoriesResponse'
 describeDirectoriesResponse_httpStatus :: Lens.Lens' DescribeDirectoriesResponse Prelude.Int
 describeDirectoriesResponse_httpStatus = Lens.lens (\DescribeDirectoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeDirectoriesResponse' {} a -> s {httpStatus = a} :: DescribeDirectoriesResponse)
 
-instance Prelude.NFData DescribeDirectoriesResponse
+instance Prelude.NFData DescribeDirectoriesResponse where
+  rnf DescribeDirectoriesResponse' {..} =
+    Prelude.rnf directoryDescriptions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

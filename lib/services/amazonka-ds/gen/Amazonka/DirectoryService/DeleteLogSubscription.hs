@@ -84,9 +84,13 @@ instance Core.AWSRequest DeleteLogSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLogSubscription
+instance Prelude.Hashable DeleteLogSubscription where
+  hashWithSalt _salt DeleteLogSubscription' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DeleteLogSubscription
+instance Prelude.NFData DeleteLogSubscription where
+  rnf DeleteLogSubscription' {..} =
+    Prelude.rnf directoryId
 
 instance Core.ToHeaders DeleteLogSubscription where
   toHeaders =
@@ -146,4 +150,6 @@ newDeleteLogSubscriptionResponse pHttpStatus_ =
 deleteLogSubscriptionResponse_httpStatus :: Lens.Lens' DeleteLogSubscriptionResponse Prelude.Int
 deleteLogSubscriptionResponse_httpStatus = Lens.lens (\DeleteLogSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteLogSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteLogSubscriptionResponse)
 
-instance Prelude.NFData DeleteLogSubscriptionResponse
+instance Prelude.NFData DeleteLogSubscriptionResponse where
+  rnf DeleteLogSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

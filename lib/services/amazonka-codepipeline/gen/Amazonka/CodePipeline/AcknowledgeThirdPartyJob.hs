@@ -130,9 +130,17 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcknowledgeThirdPartyJob
+instance Prelude.Hashable AcknowledgeThirdPartyJob where
+  hashWithSalt _salt AcknowledgeThirdPartyJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` nonce
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData AcknowledgeThirdPartyJob
+instance Prelude.NFData AcknowledgeThirdPartyJob where
+  rnf AcknowledgeThirdPartyJob' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf nonce
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders AcknowledgeThirdPartyJob where
   toHeaders =
@@ -209,3 +217,7 @@ acknowledgeThirdPartyJobResponse_httpStatus = Lens.lens (\AcknowledgeThirdPartyJ
 instance
   Prelude.NFData
     AcknowledgeThirdPartyJobResponse
+  where
+  rnf AcknowledgeThirdPartyJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

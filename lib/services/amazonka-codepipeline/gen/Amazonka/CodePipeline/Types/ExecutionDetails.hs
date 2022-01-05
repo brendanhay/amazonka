@@ -77,9 +77,17 @@ executionDetails_externalExecutionId = Lens.lens (\ExecutionDetails' {externalEx
 executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Natural)
 executionDetails_percentComplete = Lens.lens (\ExecutionDetails' {percentComplete} -> percentComplete) (\s@ExecutionDetails' {} a -> s {percentComplete = a} :: ExecutionDetails)
 
-instance Prelude.Hashable ExecutionDetails
+instance Prelude.Hashable ExecutionDetails where
+  hashWithSalt _salt ExecutionDetails' {..} =
+    _salt `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` externalExecutionId
+      `Prelude.hashWithSalt` percentComplete
 
-instance Prelude.NFData ExecutionDetails
+instance Prelude.NFData ExecutionDetails where
+  rnf ExecutionDetails' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf externalExecutionId
+      `Prelude.seq` Prelude.rnf percentComplete
 
 instance Core.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =

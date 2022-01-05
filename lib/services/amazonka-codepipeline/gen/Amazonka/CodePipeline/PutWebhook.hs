@@ -116,9 +116,14 @@ instance Core.AWSRequest PutWebhook where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutWebhook
+instance Prelude.Hashable PutWebhook where
+  hashWithSalt _salt PutWebhook' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` webhook
 
-instance Prelude.NFData PutWebhook
+instance Prelude.NFData PutWebhook where
+  rnf PutWebhook' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf webhook
 
 instance Core.ToHeaders PutWebhook where
   toHeaders =
@@ -191,4 +196,7 @@ putWebhookResponse_webhook = Lens.lens (\PutWebhookResponse' {webhook} -> webhoo
 putWebhookResponse_httpStatus :: Lens.Lens' PutWebhookResponse Prelude.Int
 putWebhookResponse_httpStatus = Lens.lens (\PutWebhookResponse' {httpStatus} -> httpStatus) (\s@PutWebhookResponse' {} a -> s {httpStatus = a} :: PutWebhookResponse)
 
-instance Prelude.NFData PutWebhookResponse
+instance Prelude.NFData PutWebhookResponse where
+  rnf PutWebhookResponse' {..} =
+    Prelude.rnf webhook
+      `Prelude.seq` Prelude.rnf httpStatus

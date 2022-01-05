@@ -113,6 +113,18 @@ instance Core.FromJSON PipelineContext where
             Prelude.<*> (x Core..:? "pipelineExecutionId")
       )
 
-instance Prelude.Hashable PipelineContext
+instance Prelude.Hashable PipelineContext where
+  hashWithSalt _salt PipelineContext' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` pipelineExecutionId
 
-instance Prelude.NFData PipelineContext
+instance Prelude.NFData PipelineContext where
+  rnf PipelineContext' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pipelineExecutionId

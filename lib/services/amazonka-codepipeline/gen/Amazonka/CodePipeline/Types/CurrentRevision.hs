@@ -86,9 +86,19 @@ currentRevision_revision = Lens.lens (\CurrentRevision' {revision} -> revision) 
 currentRevision_changeIdentifier :: Lens.Lens' CurrentRevision Prelude.Text
 currentRevision_changeIdentifier = Lens.lens (\CurrentRevision' {changeIdentifier} -> changeIdentifier) (\s@CurrentRevision' {} a -> s {changeIdentifier = a} :: CurrentRevision)
 
-instance Prelude.Hashable CurrentRevision
+instance Prelude.Hashable CurrentRevision where
+  hashWithSalt _salt CurrentRevision' {..} =
+    _salt `Prelude.hashWithSalt` revisionSummary
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` changeIdentifier
 
-instance Prelude.NFData CurrentRevision
+instance Prelude.NFData CurrentRevision where
+  rnf CurrentRevision' {..} =
+    Prelude.rnf revisionSummary
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf changeIdentifier
 
 instance Core.ToJSON CurrentRevision where
   toJSON CurrentRevision' {..} =

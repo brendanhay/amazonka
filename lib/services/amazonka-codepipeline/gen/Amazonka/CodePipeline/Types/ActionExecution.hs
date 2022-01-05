@@ -183,6 +183,28 @@ instance Core.FromJSON ActionExecution where
             Prelude.<*> (x Core..:? "actionExecutionId")
       )
 
-instance Prelude.Hashable ActionExecution
+instance Prelude.Hashable ActionExecution where
+  hashWithSalt _salt ActionExecution' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedBy
+      `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastStatusChange
+      `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` externalExecutionUrl
+      `Prelude.hashWithSalt` externalExecutionId
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` percentComplete
+      `Prelude.hashWithSalt` actionExecutionId
 
-instance Prelude.NFData ActionExecution
+instance Prelude.NFData ActionExecution where
+  rnf ActionExecution' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastStatusChange
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf externalExecutionUrl
+      `Prelude.seq` Prelude.rnf externalExecutionId
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf percentComplete
+      `Prelude.seq` Prelude.rnf actionExecutionId

@@ -190,6 +190,20 @@ instance Core.FromJSON PipelineExecution where
                         )
       )
 
-instance Prelude.Hashable PipelineExecution
+instance Prelude.Hashable PipelineExecution where
+  hashWithSalt _salt PipelineExecution' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` statusSummary
+      `Prelude.hashWithSalt` pipelineVersion
+      `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` artifactRevisions
 
-instance Prelude.NFData PipelineExecution
+instance Prelude.NFData PipelineExecution where
+  rnf PipelineExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf statusSummary
+      `Prelude.seq` Prelude.rnf pipelineVersion
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf artifactRevisions

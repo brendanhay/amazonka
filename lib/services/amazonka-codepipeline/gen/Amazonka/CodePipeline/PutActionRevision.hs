@@ -139,9 +139,19 @@ instance Core.AWSRequest PutActionRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutActionRevision
+instance Prelude.Hashable PutActionRevision where
+  hashWithSalt _salt PutActionRevision' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` actionRevision
 
-instance Prelude.NFData PutActionRevision
+instance Prelude.NFData PutActionRevision where
+  rnf PutActionRevision' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf actionRevision
 
 instance Core.ToHeaders PutActionRevision where
   toHeaders =
@@ -229,4 +239,8 @@ putActionRevisionResponse_pipelineExecutionId = Lens.lens (\PutActionRevisionRes
 putActionRevisionResponse_httpStatus :: Lens.Lens' PutActionRevisionResponse Prelude.Int
 putActionRevisionResponse_httpStatus = Lens.lens (\PutActionRevisionResponse' {httpStatus} -> httpStatus) (\s@PutActionRevisionResponse' {} a -> s {httpStatus = a} :: PutActionRevisionResponse)
 
-instance Prelude.NFData PutActionRevisionResponse
+instance Prelude.NFData PutActionRevisionResponse where
+  rnf PutActionRevisionResponse' {..} =
+    Prelude.rnf newRevision'
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

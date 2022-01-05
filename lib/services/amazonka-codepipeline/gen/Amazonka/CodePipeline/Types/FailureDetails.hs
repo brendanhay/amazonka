@@ -76,9 +76,17 @@ failureDetails_type = Lens.lens (\FailureDetails' {type'} -> type') (\s@FailureD
 failureDetails_message :: Lens.Lens' FailureDetails Prelude.Text
 failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@FailureDetails' {} a -> s {message = a} :: FailureDetails)
 
-instance Prelude.Hashable FailureDetails
+instance Prelude.Hashable FailureDetails where
+  hashWithSalt _salt FailureDetails' {..} =
+    _salt `Prelude.hashWithSalt` externalExecutionId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData FailureDetails
+instance Prelude.NFData FailureDetails where
+  rnf FailureDetails' {..} =
+    Prelude.rnf externalExecutionId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
 
 instance Core.ToJSON FailureDetails where
   toJSON FailureDetails' {..} =

@@ -72,9 +72,14 @@ instance Core.FromJSON BlockerDeclaration where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable BlockerDeclaration
+instance Prelude.Hashable BlockerDeclaration where
+  hashWithSalt _salt BlockerDeclaration' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData BlockerDeclaration
+instance Prelude.NFData BlockerDeclaration where
+  rnf BlockerDeclaration' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON BlockerDeclaration where
   toJSON BlockerDeclaration' {..} =

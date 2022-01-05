@@ -86,6 +86,14 @@ instance Core.FromJSON Artifact where
             Prelude.<*> (x Core..:? "revision")
       )
 
-instance Prelude.Hashable Artifact
+instance Prelude.Hashable Artifact where
+  hashWithSalt _salt Artifact' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData Artifact
+instance Prelude.NFData Artifact where
+  rnf Artifact' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf revision

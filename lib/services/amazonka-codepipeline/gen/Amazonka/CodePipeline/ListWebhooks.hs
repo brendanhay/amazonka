@@ -128,9 +128,15 @@ instance Core.AWSRequest ListWebhooks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWebhooks
+instance Prelude.Hashable ListWebhooks where
+  hashWithSalt _salt ListWebhooks' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWebhooks
+instance Prelude.NFData ListWebhooks where
+  rnf ListWebhooks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWebhooks where
   toHeaders =
@@ -218,4 +224,8 @@ listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> 
 listWebhooksResponse_httpStatus :: Lens.Lens' ListWebhooksResponse Prelude.Int
 listWebhooksResponse_httpStatus = Lens.lens (\ListWebhooksResponse' {httpStatus} -> httpStatus) (\s@ListWebhooksResponse' {} a -> s {httpStatus = a} :: ListWebhooksResponse)
 
-instance Prelude.NFData ListWebhooksResponse
+instance Prelude.NFData ListWebhooksResponse where
+  rnf ListWebhooksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf webhooks
+      `Prelude.seq` Prelude.rnf httpStatus

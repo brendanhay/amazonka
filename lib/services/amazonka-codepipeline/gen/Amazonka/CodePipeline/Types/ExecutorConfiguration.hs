@@ -76,9 +76,16 @@ instance Core.FromJSON ExecutorConfiguration where
             Prelude.<*> (x Core..:? "jobWorkerExecutorConfiguration")
       )
 
-instance Prelude.Hashable ExecutorConfiguration
+instance Prelude.Hashable ExecutorConfiguration where
+  hashWithSalt _salt ExecutorConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` lambdaExecutorConfiguration
+      `Prelude.hashWithSalt` jobWorkerExecutorConfiguration
 
-instance Prelude.NFData ExecutorConfiguration
+instance Prelude.NFData ExecutorConfiguration where
+  rnf ExecutorConfiguration' {..} =
+    Prelude.rnf lambdaExecutorConfiguration
+      `Prelude.seq` Prelude.rnf jobWorkerExecutorConfiguration
 
 instance Core.ToJSON ExecutorConfiguration where
   toJSON ExecutorConfiguration' {..} =

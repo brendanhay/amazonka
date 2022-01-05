@@ -161,9 +161,23 @@ instance Core.FromJSON PipelineDeclaration where
             Prelude.<*> (x Core..:? "stages" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PipelineDeclaration
+instance Prelude.Hashable PipelineDeclaration where
+  hashWithSalt _salt PipelineDeclaration' {..} =
+    _salt `Prelude.hashWithSalt` artifactStores
+      `Prelude.hashWithSalt` artifactStore
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` stages
 
-instance Prelude.NFData PipelineDeclaration
+instance Prelude.NFData PipelineDeclaration where
+  rnf PipelineDeclaration' {..} =
+    Prelude.rnf artifactStores
+      `Prelude.seq` Prelude.rnf artifactStore
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf stages
 
 instance Core.ToJSON PipelineDeclaration where
   toJSON PipelineDeclaration' {..} =

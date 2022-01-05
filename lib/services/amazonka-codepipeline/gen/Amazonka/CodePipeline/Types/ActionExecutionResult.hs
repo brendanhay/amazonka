@@ -88,6 +88,14 @@ instance Core.FromJSON ActionExecutionResult where
             Prelude.<*> (x Core..:? "externalExecutionSummary")
       )
 
-instance Prelude.Hashable ActionExecutionResult
+instance Prelude.Hashable ActionExecutionResult where
+  hashWithSalt _salt ActionExecutionResult' {..} =
+    _salt `Prelude.hashWithSalt` externalExecutionUrl
+      `Prelude.hashWithSalt` externalExecutionId
+      `Prelude.hashWithSalt` externalExecutionSummary
 
-instance Prelude.NFData ActionExecutionResult
+instance Prelude.NFData ActionExecutionResult where
+  rnf ActionExecutionResult' {..} =
+    Prelude.rnf externalExecutionUrl
+      `Prelude.seq` Prelude.rnf externalExecutionId
+      `Prelude.seq` Prelude.rnf externalExecutionSummary

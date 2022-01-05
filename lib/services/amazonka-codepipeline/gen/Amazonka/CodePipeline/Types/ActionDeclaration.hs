@@ -211,9 +211,29 @@ instance Core.FromJSON ActionDeclaration where
             Prelude.<*> (x Core..: "actionTypeId")
       )
 
-instance Prelude.Hashable ActionDeclaration
+instance Prelude.Hashable ActionDeclaration where
+  hashWithSalt _salt ActionDeclaration' {..} =
+    _salt `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` runOrder
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` actionTypeId
 
-instance Prelude.NFData ActionDeclaration
+instance Prelude.NFData ActionDeclaration where
+  rnf ActionDeclaration' {..} =
+    Prelude.rnf outputArtifacts
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf runOrder
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf actionTypeId
 
 instance Core.ToJSON ActionDeclaration where
   toJSON ActionDeclaration' {..} =

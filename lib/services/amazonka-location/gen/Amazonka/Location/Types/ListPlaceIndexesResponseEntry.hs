@@ -179,5 +179,20 @@ instance Core.FromJSON ListPlaceIndexesResponseEntry where
 instance
   Prelude.Hashable
     ListPlaceIndexesResponseEntry
+  where
+  hashWithSalt _salt ListPlaceIndexesResponseEntry' {..} =
+    _salt `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` updateTime
 
-instance Prelude.NFData ListPlaceIndexesResponseEntry
+instance Prelude.NFData ListPlaceIndexesResponseEntry where
+  rnf ListPlaceIndexesResponseEntry' {..} =
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf updateTime

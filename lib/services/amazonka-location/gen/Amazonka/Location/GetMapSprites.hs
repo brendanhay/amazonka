@@ -140,9 +140,15 @@ instance Core.AWSRequest GetMapSprites where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMapSprites
+instance Prelude.Hashable GetMapSprites where
+  hashWithSalt _salt GetMapSprites' {..} =
+    _salt `Prelude.hashWithSalt` fileName
+      `Prelude.hashWithSalt` mapName
 
-instance Prelude.NFData GetMapSprites
+instance Prelude.NFData GetMapSprites where
+  rnf GetMapSprites' {..} =
+    Prelude.rnf fileName
+      `Prelude.seq` Prelude.rnf mapName
 
 instance Core.ToHeaders GetMapSprites where
   toHeaders =
@@ -220,4 +226,8 @@ getMapSpritesResponse_contentType = Lens.lens (\GetMapSpritesResponse' {contentT
 getMapSpritesResponse_httpStatus :: Lens.Lens' GetMapSpritesResponse Prelude.Int
 getMapSpritesResponse_httpStatus = Lens.lens (\GetMapSpritesResponse' {httpStatus} -> httpStatus) (\s@GetMapSpritesResponse' {} a -> s {httpStatus = a} :: GetMapSpritesResponse)
 
-instance Prelude.NFData GetMapSpritesResponse
+instance Prelude.NFData GetMapSpritesResponse where
+  rnf GetMapSpritesResponse' {..} =
+    Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf httpStatus

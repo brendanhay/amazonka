@@ -125,9 +125,15 @@ instance Core.AWSRequest BatchEvaluateGeofences where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchEvaluateGeofences
+instance Prelude.Hashable BatchEvaluateGeofences where
+  hashWithSalt _salt BatchEvaluateGeofences' {..} =
+    _salt `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` devicePositionUpdates
 
-instance Prelude.NFData BatchEvaluateGeofences
+instance Prelude.NFData BatchEvaluateGeofences where
+  rnf BatchEvaluateGeofences' {..} =
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf devicePositionUpdates
 
 instance Core.ToHeaders BatchEvaluateGeofences where
   toHeaders =
@@ -207,3 +213,7 @@ batchEvaluateGeofencesResponse_errors = Lens.lens (\BatchEvaluateGeofencesRespon
 instance
   Prelude.NFData
     BatchEvaluateGeofencesResponse
+  where
+  rnf BatchEvaluateGeofencesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

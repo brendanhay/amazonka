@@ -87,8 +87,15 @@ batchPutGeofenceRequestEntry_geometry = Lens.lens (\BatchPutGeofenceRequestEntry
 instance
   Prelude.Hashable
     BatchPutGeofenceRequestEntry
+  where
+  hashWithSalt _salt BatchPutGeofenceRequestEntry' {..} =
+    _salt `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` geometry
 
-instance Prelude.NFData BatchPutGeofenceRequestEntry
+instance Prelude.NFData BatchPutGeofenceRequestEntry where
+  rnf BatchPutGeofenceRequestEntry' {..} =
+    Prelude.rnf geofenceId
+      `Prelude.seq` Prelude.rnf geometry
 
 instance Core.ToJSON BatchPutGeofenceRequestEntry where
   toJSON BatchPutGeofenceRequestEntry' {..} =

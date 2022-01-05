@@ -152,9 +152,17 @@ instance Core.AWSRequest ListTrackerConsumers where
             Prelude.<*> (x Core..?> "ConsumerArns" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListTrackerConsumers
+instance Prelude.Hashable ListTrackerConsumers where
+  hashWithSalt _salt ListTrackerConsumers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` trackerName
 
-instance Prelude.NFData ListTrackerConsumers
+instance Prelude.NFData ListTrackerConsumers where
+  rnf ListTrackerConsumers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders ListTrackerConsumers where
   toHeaders =
@@ -244,4 +252,8 @@ listTrackerConsumersResponse_httpStatus = Lens.lens (\ListTrackerConsumersRespon
 listTrackerConsumersResponse_consumerArns :: Lens.Lens' ListTrackerConsumersResponse [Prelude.Text]
 listTrackerConsumersResponse_consumerArns = Lens.lens (\ListTrackerConsumersResponse' {consumerArns} -> consumerArns) (\s@ListTrackerConsumersResponse' {} a -> s {consumerArns = a} :: ListTrackerConsumersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTrackerConsumersResponse
+instance Prelude.NFData ListTrackerConsumersResponse where
+  rnf ListTrackerConsumersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumerArns

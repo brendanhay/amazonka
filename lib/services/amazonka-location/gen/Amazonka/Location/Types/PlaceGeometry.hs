@@ -76,6 +76,9 @@ instance Core.FromJSON PlaceGeometry where
           PlaceGeometry' Prelude.<$> (x Core..:? "Point")
       )
 
-instance Prelude.Hashable PlaceGeometry
+instance Prelude.Hashable PlaceGeometry where
+  hashWithSalt _salt PlaceGeometry' {..} =
+    _salt `Prelude.hashWithSalt` point
 
-instance Prelude.NFData PlaceGeometry
+instance Prelude.NFData PlaceGeometry where
+  rnf PlaceGeometry' {..} = Prelude.rnf point

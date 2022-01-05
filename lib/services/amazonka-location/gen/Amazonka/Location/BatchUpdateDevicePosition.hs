@@ -114,9 +114,15 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchUpdateDevicePosition
+instance Prelude.Hashable BatchUpdateDevicePosition where
+  hashWithSalt _salt BatchUpdateDevicePosition' {..} =
+    _salt `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` updates
 
-instance Prelude.NFData BatchUpdateDevicePosition
+instance Prelude.NFData BatchUpdateDevicePosition where
+  rnf BatchUpdateDevicePosition' {..} =
+    Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf updates
 
 instance Core.ToHeaders BatchUpdateDevicePosition where
   toHeaders =
@@ -192,3 +198,7 @@ batchUpdateDevicePositionResponse_errors = Lens.lens (\BatchUpdateDevicePosition
 instance
   Prelude.NFData
     BatchUpdateDevicePositionResponse
+  where
+  rnf BatchUpdateDevicePositionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

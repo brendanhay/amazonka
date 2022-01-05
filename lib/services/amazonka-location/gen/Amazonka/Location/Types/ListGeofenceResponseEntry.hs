@@ -163,6 +163,18 @@ instance Core.FromJSON ListGeofenceResponseEntry where
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
-instance Prelude.Hashable ListGeofenceResponseEntry
+instance Prelude.Hashable ListGeofenceResponseEntry where
+  hashWithSalt _salt ListGeofenceResponseEntry' {..} =
+    _salt `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updateTime
 
-instance Prelude.NFData ListGeofenceResponseEntry
+instance Prelude.NFData ListGeofenceResponseEntry where
+  rnf ListGeofenceResponseEntry' {..} =
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf geofenceId
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updateTime

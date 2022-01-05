@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteTracker where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTracker
+instance Prelude.Hashable DeleteTracker where
+  hashWithSalt _salt DeleteTracker' {..} =
+    _salt `Prelude.hashWithSalt` trackerName
 
-instance Prelude.NFData DeleteTracker
+instance Prelude.NFData DeleteTracker where
+  rnf DeleteTracker' {..} = Prelude.rnf trackerName
 
 instance Core.ToHeaders DeleteTracker where
   toHeaders =
@@ -138,4 +141,6 @@ newDeleteTrackerResponse pHttpStatus_ =
 deleteTrackerResponse_httpStatus :: Lens.Lens' DeleteTrackerResponse Prelude.Int
 deleteTrackerResponse_httpStatus = Lens.lens (\DeleteTrackerResponse' {httpStatus} -> httpStatus) (\s@DeleteTrackerResponse' {} a -> s {httpStatus = a} :: DeleteTrackerResponse)
 
-instance Prelude.NFData DeleteTrackerResponse
+instance Prelude.NFData DeleteTrackerResponse where
+  rnf DeleteTrackerResponse' {..} =
+    Prelude.rnf httpStatus

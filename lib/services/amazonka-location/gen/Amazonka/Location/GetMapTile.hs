@@ -131,9 +131,19 @@ instance Core.AWSRequest GetMapTile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMapTile
+instance Prelude.Hashable GetMapTile where
+  hashWithSalt _salt GetMapTile' {..} =
+    _salt `Prelude.hashWithSalt` mapName
+      `Prelude.hashWithSalt` x
+      `Prelude.hashWithSalt` y
+      `Prelude.hashWithSalt` z
 
-instance Prelude.NFData GetMapTile
+instance Prelude.NFData GetMapTile where
+  rnf GetMapTile' {..} =
+    Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf x
+      `Prelude.seq` Prelude.rnf y
+      `Prelude.seq` Prelude.rnf z
 
 instance Core.ToHeaders GetMapTile where
   toHeaders =
@@ -212,4 +222,8 @@ getMapTileResponse_contentType = Lens.lens (\GetMapTileResponse' {contentType} -
 getMapTileResponse_httpStatus :: Lens.Lens' GetMapTileResponse Prelude.Int
 getMapTileResponse_httpStatus = Lens.lens (\GetMapTileResponse' {httpStatus} -> httpStatus) (\s@GetMapTileResponse' {} a -> s {httpStatus = a} :: GetMapTileResponse)
 
-instance Prelude.NFData GetMapTileResponse
+instance Prelude.NFData GetMapTileResponse where
+  rnf GetMapTileResponse' {..} =
+    Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf httpStatus

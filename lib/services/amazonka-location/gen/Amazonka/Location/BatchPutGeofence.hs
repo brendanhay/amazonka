@@ -105,9 +105,15 @@ instance Core.AWSRequest BatchPutGeofence where
             Prelude.<*> (x Core..?> "Successes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchPutGeofence
+instance Prelude.Hashable BatchPutGeofence where
+  hashWithSalt _salt BatchPutGeofence' {..} =
+    _salt `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData BatchPutGeofence
+instance Prelude.NFData BatchPutGeofence where
+  rnf BatchPutGeofence' {..} =
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders BatchPutGeofence where
   toHeaders =
@@ -192,4 +198,8 @@ batchPutGeofenceResponse_errors = Lens.lens (\BatchPutGeofenceResponse' {errors}
 batchPutGeofenceResponse_successes :: Lens.Lens' BatchPutGeofenceResponse [BatchPutGeofenceSuccess]
 batchPutGeofenceResponse_successes = Lens.lens (\BatchPutGeofenceResponse' {successes} -> successes) (\s@BatchPutGeofenceResponse' {} a -> s {successes = a} :: BatchPutGeofenceResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchPutGeofenceResponse
+instance Prelude.NFData BatchPutGeofenceResponse where
+  rnf BatchPutGeofenceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf successes

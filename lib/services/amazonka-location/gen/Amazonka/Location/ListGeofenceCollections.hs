@@ -135,9 +135,15 @@ instance Core.AWSRequest ListGeofenceCollections where
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListGeofenceCollections
+instance Prelude.Hashable ListGeofenceCollections where
+  hashWithSalt _salt ListGeofenceCollections' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListGeofenceCollections
+instance Prelude.NFData ListGeofenceCollections where
+  rnf ListGeofenceCollections' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListGeofenceCollections where
   toHeaders =
@@ -223,3 +229,8 @@ listGeofenceCollectionsResponse_entries = Lens.lens (\ListGeofenceCollectionsRes
 instance
   Prelude.NFData
     ListGeofenceCollectionsResponse
+  where
+  rnf ListGeofenceCollectionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entries

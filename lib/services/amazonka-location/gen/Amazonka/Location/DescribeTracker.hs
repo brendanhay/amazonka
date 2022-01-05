@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeTracker where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable DescribeTracker
+instance Prelude.Hashable DescribeTracker where
+  hashWithSalt _salt DescribeTracker' {..} =
+    _salt `Prelude.hashWithSalt` trackerName
 
-instance Prelude.NFData DescribeTracker
+instance Prelude.NFData DescribeTracker where
+  rnf DescribeTracker' {..} = Prelude.rnf trackerName
 
 instance Core.ToHeaders DescribeTracker where
   toHeaders =
@@ -305,4 +308,16 @@ describeTrackerResponse_trackerName = Lens.lens (\DescribeTrackerResponse' {trac
 describeTrackerResponse_updateTime :: Lens.Lens' DescribeTrackerResponse Prelude.UTCTime
 describeTrackerResponse_updateTime = Lens.lens (\DescribeTrackerResponse' {updateTime} -> updateTime) (\s@DescribeTrackerResponse' {} a -> s {updateTime = a} :: DescribeTrackerResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeTrackerResponse
+instance Prelude.NFData DescribeTrackerResponse where
+  rnf DescribeTrackerResponse' {..} =
+    Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf positionFiltering
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf trackerArn
+      `Prelude.seq` Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf updateTime

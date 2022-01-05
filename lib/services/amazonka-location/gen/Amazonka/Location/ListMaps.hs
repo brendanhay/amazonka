@@ -129,9 +129,15 @@ instance Core.AWSRequest ListMaps where
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListMaps
+instance Prelude.Hashable ListMaps where
+  hashWithSalt _salt ListMaps' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListMaps
+instance Prelude.NFData ListMaps where
+  rnf ListMaps' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMaps where
   toHeaders =
@@ -212,4 +218,8 @@ listMapsResponse_httpStatus = Lens.lens (\ListMapsResponse' {httpStatus} -> http
 listMapsResponse_entries :: Lens.Lens' ListMapsResponse [ListMapsResponseEntry]
 listMapsResponse_entries = Lens.lens (\ListMapsResponse' {entries} -> entries) (\s@ListMapsResponse' {} a -> s {entries = a} :: ListMapsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListMapsResponse
+instance Prelude.NFData ListMapsResponse where
+  rnf ListMapsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entries

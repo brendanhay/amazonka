@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteGeofenceCollection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGeofenceCollection
+instance Prelude.Hashable DeleteGeofenceCollection where
+  hashWithSalt _salt DeleteGeofenceCollection' {..} =
+    _salt `Prelude.hashWithSalt` collectionName
 
-instance Prelude.NFData DeleteGeofenceCollection
+instance Prelude.NFData DeleteGeofenceCollection where
+  rnf DeleteGeofenceCollection' {..} =
+    Prelude.rnf collectionName
 
 instance Core.ToHeaders DeleteGeofenceCollection where
   toHeaders =
@@ -149,3 +153,6 @@ deleteGeofenceCollectionResponse_httpStatus = Lens.lens (\DeleteGeofenceCollecti
 instance
   Prelude.NFData
     DeleteGeofenceCollectionResponse
+  where
+  rnf DeleteGeofenceCollectionResponse' {..} =
+    Prelude.rnf httpStatus

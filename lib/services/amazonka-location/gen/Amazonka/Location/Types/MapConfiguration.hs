@@ -189,9 +189,12 @@ instance Core.FromJSON MapConfiguration where
           MapConfiguration' Prelude.<$> (x Core..: "Style")
       )
 
-instance Prelude.Hashable MapConfiguration
+instance Prelude.Hashable MapConfiguration where
+  hashWithSalt _salt MapConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` style
 
-instance Prelude.NFData MapConfiguration
+instance Prelude.NFData MapConfiguration where
+  rnf MapConfiguration' {..} = Prelude.rnf style
 
 instance Core.ToJSON MapConfiguration where
   toJSON MapConfiguration' {..} =

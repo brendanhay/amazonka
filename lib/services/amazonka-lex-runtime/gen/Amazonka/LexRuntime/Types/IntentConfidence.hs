@@ -65,6 +65,9 @@ instance Core.FromJSON IntentConfidence where
           IntentConfidence' Prelude.<$> (x Core..:? "score")
       )
 
-instance Prelude.Hashable IntentConfidence
+instance Prelude.Hashable IntentConfidence where
+  hashWithSalt _salt IntentConfidence' {..} =
+    _salt `Prelude.hashWithSalt` score
 
-instance Prelude.NFData IntentConfidence
+instance Prelude.NFData IntentConfidence where
+  rnf IntentConfidence' {..} = Prelude.rnf score

@@ -238,9 +238,25 @@ instance Core.FromJSON DialogAction where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable DialogAction
+instance Prelude.Hashable DialogAction where
+  hashWithSalt _salt DialogAction' {..} =
+    _salt `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` fulfillmentState
+      `Prelude.hashWithSalt` messageFormat
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` slotToElicit
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DialogAction
+instance Prelude.NFData DialogAction where
+  rnf DialogAction' {..} =
+    Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf fulfillmentState
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf slotToElicit
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON DialogAction where
   toJSON DialogAction' {..} =

@@ -79,6 +79,12 @@ instance Core.FromJSON SentimentResponse where
             Prelude.<*> (x Core..:? "sentimentLabel")
       )
 
-instance Prelude.Hashable SentimentResponse
+instance Prelude.Hashable SentimentResponse where
+  hashWithSalt _salt SentimentResponse' {..} =
+    _salt `Prelude.hashWithSalt` sentimentScore
+      `Prelude.hashWithSalt` sentimentLabel
 
-instance Prelude.NFData SentimentResponse
+instance Prelude.NFData SentimentResponse where
+  rnf SentimentResponse' {..} =
+    Prelude.rnf sentimentScore
+      `Prelude.seq` Prelude.rnf sentimentLabel

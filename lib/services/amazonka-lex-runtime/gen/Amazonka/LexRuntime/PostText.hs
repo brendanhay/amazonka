@@ -353,9 +353,25 @@ instance Core.AWSRequest PostText where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PostText
+instance Prelude.Hashable PostText where
+  hashWithSalt _salt PostText' {..} =
+    _salt `Prelude.hashWithSalt` activeContexts
+      `Prelude.hashWithSalt` requestAttributes
+      `Prelude.hashWithSalt` sessionAttributes
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` inputText
 
-instance Prelude.NFData PostText
+instance Prelude.NFData PostText where
+  rnf PostText' {..} =
+    Prelude.rnf activeContexts
+      `Prelude.seq` Prelude.rnf requestAttributes
+      `Prelude.seq` Prelude.rnf sessionAttributes
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf inputText
 
 instance Core.ToHeaders PostText where
   toHeaders =
@@ -877,4 +893,20 @@ postTextResponse_sessionAttributes = Lens.lens (\PostTextResponse' {sessionAttri
 postTextResponse_httpStatus :: Lens.Lens' PostTextResponse Prelude.Int
 postTextResponse_httpStatus = Lens.lens (\PostTextResponse' {httpStatus} -> httpStatus) (\s@PostTextResponse' {} a -> s {httpStatus = a} :: PostTextResponse)
 
-instance Prelude.NFData PostTextResponse
+instance Prelude.NFData PostTextResponse where
+  rnf PostTextResponse' {..} =
+    Prelude.rnf sentimentResponse
+      `Prelude.seq` Prelude.rnf nluIntentConfidence
+      `Prelude.seq` Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf responseCard
+      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf dialogState
+      `Prelude.seq` Prelude.rnf activeContexts
+      `Prelude.seq` Prelude.rnf alternativeIntents
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf slotToElicit
+      `Prelude.seq` Prelude.rnf sessionAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

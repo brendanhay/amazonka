@@ -921,9 +921,31 @@ instance Core.AWSRequest CreateKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKey
+instance Prelude.Hashable CreateKey where
+  hashWithSalt _salt CreateKey' {..} =
+    _salt `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` keySpec
+      `Prelude.hashWithSalt` customerMasterKeySpec
+      `Prelude.hashWithSalt` keyUsage
+      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` customKeyStoreId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` multiRegion
 
-instance Prelude.NFData CreateKey
+instance Prelude.NFData CreateKey where
+  rnf CreateKey' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf customerMasterKeySpec
+      `Prelude.seq` Prelude.rnf keyUsage
+      `Prelude.seq` Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf customKeyStoreId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf multiRegion
 
 instance Core.ToHeaders CreateKey where
   toHeaders =
@@ -1002,4 +1024,7 @@ createKeyResponse_keyMetadata = Lens.lens (\CreateKeyResponse' {keyMetadata} -> 
 createKeyResponse_httpStatus :: Lens.Lens' CreateKeyResponse Prelude.Int
 createKeyResponse_httpStatus = Lens.lens (\CreateKeyResponse' {httpStatus} -> httpStatus) (\s@CreateKeyResponse' {} a -> s {httpStatus = a} :: CreateKeyResponse)
 
-instance Prelude.NFData CreateKeyResponse
+instance Prelude.NFData CreateKeyResponse where
+  rnf CreateKeyResponse' {..} =
+    Prelude.rnf keyMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

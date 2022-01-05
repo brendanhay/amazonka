@@ -164,9 +164,14 @@ instance Core.AWSRequest RevokeGrant where
   request = Request.postJSON defaultService
   response = Response.receiveNull RevokeGrantResponse'
 
-instance Prelude.Hashable RevokeGrant
+instance Prelude.Hashable RevokeGrant where
+  hashWithSalt _salt RevokeGrant' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` grantId
 
-instance Prelude.NFData RevokeGrant
+instance Prelude.NFData RevokeGrant where
+  rnf RevokeGrant' {..} =
+    Prelude.rnf keyId `Prelude.seq` Prelude.rnf grantId
 
 instance Core.ToHeaders RevokeGrant where
   toHeaders =
@@ -210,4 +215,5 @@ newRevokeGrantResponse ::
   RevokeGrantResponse
 newRevokeGrantResponse = RevokeGrantResponse'
 
-instance Prelude.NFData RevokeGrantResponse
+instance Prelude.NFData RevokeGrantResponse where
+  rnf _ = ()

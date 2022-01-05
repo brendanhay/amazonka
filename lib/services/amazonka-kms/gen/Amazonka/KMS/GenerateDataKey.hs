@@ -371,9 +371,21 @@ instance Core.AWSRequest GenerateDataKey where
             Prelude.<*> (x Core..:> "CiphertextBlob")
       )
 
-instance Prelude.Hashable GenerateDataKey
+instance Prelude.Hashable GenerateDataKey where
+  hashWithSalt _salt GenerateDataKey' {..} =
+    _salt `Prelude.hashWithSalt` keySpec
+      `Prelude.hashWithSalt` encryptionContext
+      `Prelude.hashWithSalt` numberOfBytes
+      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData GenerateDataKey
+instance Prelude.NFData GenerateDataKey where
+  rnf GenerateDataKey' {..} =
+    Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf encryptionContext
+      `Prelude.seq` Prelude.rnf numberOfBytes
+      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders GenerateDataKey where
   toHeaders =
@@ -515,4 +527,9 @@ generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaint
 generateDataKeyResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
 generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyResponse) Prelude.. Core._Base64
 
-instance Prelude.NFData GenerateDataKeyResponse
+instance Prelude.NFData GenerateDataKeyResponse where
+  rnf GenerateDataKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf plaintext
+      `Prelude.seq` Prelude.rnf ciphertextBlob

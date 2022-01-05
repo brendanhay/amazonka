@@ -94,6 +94,14 @@ instance Core.FromJSON MultiRegionConfiguration where
             Prelude.<*> (x Core..:? "MultiRegionKeyType")
       )
 
-instance Prelude.Hashable MultiRegionConfiguration
+instance Prelude.Hashable MultiRegionConfiguration where
+  hashWithSalt _salt MultiRegionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` primaryKey
+      `Prelude.hashWithSalt` replicaKeys
+      `Prelude.hashWithSalt` multiRegionKeyType
 
-instance Prelude.NFData MultiRegionConfiguration
+instance Prelude.NFData MultiRegionConfiguration where
+  rnf MultiRegionConfiguration' {..} =
+    Prelude.rnf primaryKey
+      `Prelude.seq` Prelude.rnf replicaKeys
+      `Prelude.seq` Prelude.rnf multiRegionKeyType

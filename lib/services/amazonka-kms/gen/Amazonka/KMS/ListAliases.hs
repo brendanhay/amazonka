@@ -236,9 +236,17 @@ instance Core.AWSRequest ListAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAliases
+instance Prelude.Hashable ListAliases where
+  hashWithSalt _salt ListAliases' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListAliases
+instance Prelude.NFData ListAliases where
+  rnf ListAliases' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListAliases where
   toHeaders =
@@ -337,4 +345,9 @@ listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Prelude.NFData ListAliasesResponse
+instance Prelude.NFData ListAliasesResponse where
+  rnf ListAliasesResponse' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

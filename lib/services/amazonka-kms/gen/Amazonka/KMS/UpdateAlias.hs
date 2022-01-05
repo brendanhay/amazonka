@@ -225,9 +225,15 @@ instance Core.AWSRequest UpdateAlias where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateAliasResponse'
 
-instance Prelude.Hashable UpdateAlias
+instance Prelude.Hashable UpdateAlias where
+  hashWithSalt _salt UpdateAlias' {..} =
+    _salt `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` targetKeyId
 
-instance Prelude.NFData UpdateAlias
+instance Prelude.NFData UpdateAlias where
+  rnf UpdateAlias' {..} =
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf targetKeyId
 
 instance Core.ToHeaders UpdateAlias where
   toHeaders =
@@ -271,4 +277,5 @@ newUpdateAliasResponse ::
   UpdateAliasResponse
 newUpdateAliasResponse = UpdateAliasResponse'
 
-instance Prelude.NFData UpdateAliasResponse
+instance Prelude.NFData UpdateAliasResponse where
+  rnf _ = ()

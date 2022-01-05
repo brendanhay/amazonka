@@ -146,9 +146,13 @@ instance Core.AWSRequest DeleteImportedKeyMaterial where
     Response.receiveNull
       DeleteImportedKeyMaterialResponse'
 
-instance Prelude.Hashable DeleteImportedKeyMaterial
+instance Prelude.Hashable DeleteImportedKeyMaterial where
+  hashWithSalt _salt DeleteImportedKeyMaterial' {..} =
+    _salt `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData DeleteImportedKeyMaterial
+instance Prelude.NFData DeleteImportedKeyMaterial where
+  rnf DeleteImportedKeyMaterial' {..} =
+    Prelude.rnf keyId
 
 instance Core.ToHeaders DeleteImportedKeyMaterial where
   toHeaders =
@@ -196,3 +200,5 @@ newDeleteImportedKeyMaterialResponse =
 instance
   Prelude.NFData
     DeleteImportedKeyMaterialResponse
+  where
+  rnf _ = ()

@@ -249,9 +249,15 @@ instance Core.AWSRequest GetPublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPublicKey
+instance Prelude.Hashable GetPublicKey where
+  hashWithSalt _salt GetPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData GetPublicKey
+instance Prelude.NFData GetPublicKey where
+  rnf GetPublicKey' {..} =
+    Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders GetPublicKey where
   toHeaders =
@@ -459,4 +465,13 @@ getPublicKeyResponse_keyUsage = Lens.lens (\GetPublicKeyResponse' {keyUsage} -> 
 getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Prelude.Int
 getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetPublicKeyResponse' {} a -> s {httpStatus = a} :: GetPublicKeyResponse)
 
-instance Prelude.NFData GetPublicKeyResponse
+instance Prelude.NFData GetPublicKeyResponse where
+  rnf GetPublicKeyResponse' {..} =
+    Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf customerMasterKeySpec
+      `Prelude.seq` Prelude.rnf encryptionAlgorithms
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf signingAlgorithms
+      `Prelude.seq` Prelude.rnf keyUsage
+      `Prelude.seq` Prelude.rnf httpStatus

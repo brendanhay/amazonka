@@ -220,9 +220,19 @@ instance Core.AWSRequest DescribeCustomKeyStores where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomKeyStores
+instance Prelude.Hashable DescribeCustomKeyStores where
+  hashWithSalt _salt DescribeCustomKeyStores' {..} =
+    _salt `Prelude.hashWithSalt` customKeyStoreName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` customKeyStoreId
 
-instance Prelude.NFData DescribeCustomKeyStores
+instance Prelude.NFData DescribeCustomKeyStores where
+  rnf DescribeCustomKeyStores' {..} =
+    Prelude.rnf customKeyStoreName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf customKeyStoreId
 
 instance Core.ToHeaders DescribeCustomKeyStores where
   toHeaders =
@@ -330,3 +340,9 @@ describeCustomKeyStoresResponse_httpStatus = Lens.lens (\DescribeCustomKeyStores
 instance
   Prelude.NFData
     DescribeCustomKeyStoresResponse
+  where
+  rnf DescribeCustomKeyStoresResponse' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf customKeyStores
+      `Prelude.seq` Prelude.rnf httpStatus

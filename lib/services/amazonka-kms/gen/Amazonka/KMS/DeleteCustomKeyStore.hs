@@ -142,9 +142,13 @@ instance Core.AWSRequest DeleteCustomKeyStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomKeyStore
+instance Prelude.Hashable DeleteCustomKeyStore where
+  hashWithSalt _salt DeleteCustomKeyStore' {..} =
+    _salt `Prelude.hashWithSalt` customKeyStoreId
 
-instance Prelude.NFData DeleteCustomKeyStore
+instance Prelude.NFData DeleteCustomKeyStore where
+  rnf DeleteCustomKeyStore' {..} =
+    Prelude.rnf customKeyStoreId
 
 instance Core.ToHeaders DeleteCustomKeyStore where
   toHeaders =
@@ -206,4 +210,6 @@ newDeleteCustomKeyStoreResponse pHttpStatus_ =
 deleteCustomKeyStoreResponse_httpStatus :: Lens.Lens' DeleteCustomKeyStoreResponse Prelude.Int
 deleteCustomKeyStoreResponse_httpStatus = Lens.lens (\DeleteCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: DeleteCustomKeyStoreResponse)
 
-instance Prelude.NFData DeleteCustomKeyStoreResponse
+instance Prelude.NFData DeleteCustomKeyStoreResponse where
+  rnf DeleteCustomKeyStoreResponse' {..} =
+    Prelude.rnf httpStatus

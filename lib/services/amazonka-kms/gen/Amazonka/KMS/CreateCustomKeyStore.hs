@@ -224,9 +224,19 @@ instance Core.AWSRequest CreateCustomKeyStore where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomKeyStore
+instance Prelude.Hashable CreateCustomKeyStore where
+  hashWithSalt _salt CreateCustomKeyStore' {..} =
+    _salt `Prelude.hashWithSalt` customKeyStoreName
+      `Prelude.hashWithSalt` cloudHsmClusterId
+      `Prelude.hashWithSalt` trustAnchorCertificate
+      `Prelude.hashWithSalt` keyStorePassword
 
-instance Prelude.NFData CreateCustomKeyStore
+instance Prelude.NFData CreateCustomKeyStore where
+  rnf CreateCustomKeyStore' {..} =
+    Prelude.rnf customKeyStoreName
+      `Prelude.seq` Prelude.rnf cloudHsmClusterId
+      `Prelude.seq` Prelude.rnf trustAnchorCertificate
+      `Prelude.seq` Prelude.rnf keyStorePassword
 
 instance Core.ToHeaders CreateCustomKeyStore where
   toHeaders =
@@ -305,4 +315,7 @@ createCustomKeyStoreResponse_customKeyStoreId = Lens.lens (\CreateCustomKeyStore
 createCustomKeyStoreResponse_httpStatus :: Lens.Lens' CreateCustomKeyStoreResponse Prelude.Int
 createCustomKeyStoreResponse_httpStatus = Lens.lens (\CreateCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@CreateCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: CreateCustomKeyStoreResponse)
 
-instance Prelude.NFData CreateCustomKeyStoreResponse
+instance Prelude.NFData CreateCustomKeyStoreResponse where
+  rnf CreateCustomKeyStoreResponse' {..} =
+    Prelude.rnf customKeyStoreId
+      `Prelude.seq` Prelude.rnf httpStatus

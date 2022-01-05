@@ -167,9 +167,12 @@ instance Core.AWSRequest EnableKeyRotation where
   response =
     Response.receiveNull EnableKeyRotationResponse'
 
-instance Prelude.Hashable EnableKeyRotation
+instance Prelude.Hashable EnableKeyRotation where
+  hashWithSalt _salt EnableKeyRotation' {..} =
+    _salt `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData EnableKeyRotation
+instance Prelude.NFData EnableKeyRotation where
+  rnf EnableKeyRotation' {..} = Prelude.rnf keyId
 
 instance Core.ToHeaders EnableKeyRotation where
   toHeaders =
@@ -214,4 +217,5 @@ newEnableKeyRotationResponse ::
 newEnableKeyRotationResponse =
   EnableKeyRotationResponse'
 
-instance Prelude.NFData EnableKeyRotationResponse
+instance Prelude.NFData EnableKeyRotationResponse where
+  rnf _ = ()

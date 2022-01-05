@@ -286,9 +286,20 @@ instance Core.AWSRequest PutKeyPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutKeyPolicyResponse'
 
-instance Prelude.Hashable PutKeyPolicy
+instance Prelude.Hashable PutKeyPolicy where
+  hashWithSalt _salt PutKeyPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutKeyPolicy
+instance Prelude.NFData PutKeyPolicy where
+  rnf PutKeyPolicy' {..} =
+    Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutKeyPolicy where
   toHeaders =
@@ -335,4 +346,5 @@ newPutKeyPolicyResponse ::
   PutKeyPolicyResponse
 newPutKeyPolicyResponse = PutKeyPolicyResponse'
 
-instance Prelude.NFData PutKeyPolicyResponse
+instance Prelude.NFData PutKeyPolicyResponse where
+  rnf _ = ()

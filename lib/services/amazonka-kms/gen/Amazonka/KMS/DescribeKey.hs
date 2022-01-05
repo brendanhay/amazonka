@@ -255,9 +255,15 @@ instance Core.AWSRequest DescribeKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeKey
+instance Prelude.Hashable DescribeKey where
+  hashWithSalt _salt DescribeKey' {..} =
+    _salt `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData DescribeKey
+instance Prelude.NFData DescribeKey where
+  rnf DescribeKey' {..} =
+    Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders DescribeKey where
   toHeaders =
@@ -325,4 +331,7 @@ describeKeyResponse_keyMetadata = Lens.lens (\DescribeKeyResponse' {keyMetadata}
 describeKeyResponse_httpStatus :: Lens.Lens' DescribeKeyResponse Prelude.Int
 describeKeyResponse_httpStatus = Lens.lens (\DescribeKeyResponse' {httpStatus} -> httpStatus) (\s@DescribeKeyResponse' {} a -> s {httpStatus = a} :: DescribeKeyResponse)
 
-instance Prelude.NFData DescribeKeyResponse
+instance Prelude.NFData DescribeKeyResponse where
+  rnf DescribeKeyResponse' {..} =
+    Prelude.rnf keyMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,9 +94,17 @@ instance Core.FromJSON BatchGetRecordIdentifier where
             Prelude.<*> (x Core..: "RecordIdentifiersValueAsString")
       )
 
-instance Prelude.Hashable BatchGetRecordIdentifier
+instance Prelude.Hashable BatchGetRecordIdentifier where
+  hashWithSalt _salt BatchGetRecordIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` featureNames
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` recordIdentifiersValueAsString
 
-instance Prelude.NFData BatchGetRecordIdentifier
+instance Prelude.NFData BatchGetRecordIdentifier where
+  rnf BatchGetRecordIdentifier' {..} =
+    Prelude.rnf featureNames
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf recordIdentifiersValueAsString
 
 instance Core.ToJSON BatchGetRecordIdentifier where
   toJSON BatchGetRecordIdentifier' {..} =

@@ -130,9 +130,25 @@ instance Core.FromJSON Field where
             Prelude.<*> (x Core..:? "isNull")
       )
 
-instance Prelude.Hashable Field
+instance Prelude.Hashable Field where
+  hashWithSalt _salt Field' {..} =
+    _salt `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` longValue
+      `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` arrayValue
+      `Prelude.hashWithSalt` blobValue
+      `Prelude.hashWithSalt` isNull
 
-instance Prelude.NFData Field
+instance Prelude.NFData Field where
+  rnf Field' {..} =
+    Prelude.rnf doubleValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf longValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf arrayValue
+      `Prelude.seq` Prelude.rnf blobValue
+      `Prelude.seq` Prelude.rnf isNull
 
 instance Core.ToJSON Field where
   toJSON Field' {..} =

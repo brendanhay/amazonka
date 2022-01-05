@@ -248,9 +248,31 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteStatement
+instance Prelude.Hashable ExecuteStatement where
+  hashWithSalt _salt ExecuteStatement' {..} =
+    _salt `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` includeResultMetadata
+      `Prelude.hashWithSalt` resultSetOptions
+      `Prelude.hashWithSalt` continueAfterTimeout
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` sql
 
-instance Prelude.NFData ExecuteStatement
+instance Prelude.NFData ExecuteStatement where
+  rnf ExecuteStatement' {..} =
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf includeResultMetadata
+      `Prelude.seq` Prelude.rnf resultSetOptions
+      `Prelude.seq` Prelude.rnf continueAfterTimeout
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf sql
 
 instance Core.ToHeaders ExecuteStatement where
   toHeaders =
@@ -364,4 +386,10 @@ executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementRe
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
 executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@ExecuteStatementResponse' {} a -> s {httpStatus = a} :: ExecuteStatementResponse)
 
-instance Prelude.NFData ExecuteStatementResponse
+instance Prelude.NFData ExecuteStatementResponse where
+  rnf ExecuteStatementResponse' {..} =
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf columnMetadata
+      `Prelude.seq` Prelude.rnf generatedFields
+      `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+      `Prelude.seq` Prelude.rnf httpStatus

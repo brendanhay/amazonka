@@ -62,6 +62,9 @@ instance Core.FromJSON UpdateResult where
                         )
       )
 
-instance Prelude.Hashable UpdateResult
+instance Prelude.Hashable UpdateResult where
+  hashWithSalt _salt UpdateResult' {..} =
+    _salt `Prelude.hashWithSalt` generatedFields
 
-instance Prelude.NFData UpdateResult
+instance Prelude.NFData UpdateResult where
+  rnf UpdateResult' {..} = Prelude.rnf generatedFields

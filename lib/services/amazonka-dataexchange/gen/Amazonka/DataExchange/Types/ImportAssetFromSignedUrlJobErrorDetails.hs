@@ -71,7 +71,15 @@ instance
 instance
   Prelude.Hashable
     ImportAssetFromSignedUrlJobErrorDetails
+  where
+  hashWithSalt
+    _salt
+    ImportAssetFromSignedUrlJobErrorDetails' {..} =
+      _salt `Prelude.hashWithSalt` assetName
 
 instance
   Prelude.NFData
     ImportAssetFromSignedUrlJobErrorDetails
+  where
+  rnf ImportAssetFromSignedUrlJobErrorDetails' {..} =
+    Prelude.rnf assetName

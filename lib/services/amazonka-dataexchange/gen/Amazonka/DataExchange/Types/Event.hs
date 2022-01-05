@@ -59,9 +59,12 @@ instance Core.FromJSON Event where
           Event' Prelude.<$> (x Core..:? "RevisionPublished")
       )
 
-instance Prelude.Hashable Event
+instance Prelude.Hashable Event where
+  hashWithSalt _salt Event' {..} =
+    _salt `Prelude.hashWithSalt` revisionPublished
 
-instance Prelude.NFData Event
+instance Prelude.NFData Event where
+  rnf Event' {..} = Prelude.rnf revisionPublished
 
 instance Core.ToJSON Event where
   toJSON Event' {..} =

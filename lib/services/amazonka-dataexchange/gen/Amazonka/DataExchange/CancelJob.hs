@@ -74,9 +74,12 @@ instance Core.AWSRequest CancelJob where
   request = Request.delete defaultService
   response = Response.receiveNull CancelJobResponse'
 
-instance Prelude.Hashable CancelJob
+instance Prelude.Hashable CancelJob where
+  hashWithSalt _salt CancelJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CancelJob
+instance Prelude.NFData CancelJob where
+  rnf CancelJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders CancelJob where
   toHeaders =
@@ -110,4 +113,5 @@ newCancelJobResponse ::
   CancelJobResponse
 newCancelJobResponse = CancelJobResponse'
 
-instance Prelude.NFData CancelJobResponse
+instance Prelude.NFData CancelJobResponse where
+  rnf _ = ()

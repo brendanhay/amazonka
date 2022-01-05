@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     RedshiftDataShareAssetSourceEntry
+  where
+  hashWithSalt
+    _salt
+    RedshiftDataShareAssetSourceEntry' {..} =
+      _salt `Prelude.hashWithSalt` dataShareArn
 
 instance
   Prelude.NFData
     RedshiftDataShareAssetSourceEntry
+  where
+  rnf RedshiftDataShareAssetSourceEntry' {..} =
+    Prelude.rnf dataShareArn
 
 instance
   Core.ToJSON

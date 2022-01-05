@@ -136,6 +136,20 @@ instance Core.FromJSON EventActionEntry where
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
-instance Prelude.Hashable EventActionEntry
+instance Prelude.Hashable EventActionEntry where
+  hashWithSalt _salt EventActionEntry' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData EventActionEntry
+instance Prelude.NFData EventActionEntry where
+  rnf EventActionEntry' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf event
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf updatedAt

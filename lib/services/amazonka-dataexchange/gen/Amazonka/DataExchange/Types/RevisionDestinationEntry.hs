@@ -92,9 +92,17 @@ instance Core.FromJSON RevisionDestinationEntry where
             Prelude.<*> (x Core..: "RevisionId")
       )
 
-instance Prelude.Hashable RevisionDestinationEntry
+instance Prelude.Hashable RevisionDestinationEntry where
+  hashWithSalt _salt RevisionDestinationEntry' {..} =
+    _salt `Prelude.hashWithSalt` keyPattern
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData RevisionDestinationEntry
+instance Prelude.NFData RevisionDestinationEntry where
+  rnf RevisionDestinationEntry' {..} =
+    Prelude.rnf keyPattern
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToJSON RevisionDestinationEntry where
   toJSON RevisionDestinationEntry' {..} =

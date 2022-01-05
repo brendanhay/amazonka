@@ -61,9 +61,12 @@ instance Core.FromJSON RevisionPublished where
             Prelude.<$> (x Core..: "DataSetId")
       )
 
-instance Prelude.Hashable RevisionPublished
+instance Prelude.Hashable RevisionPublished where
+  hashWithSalt _salt RevisionPublished' {..} =
+    _salt `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData RevisionPublished
+instance Prelude.NFData RevisionPublished where
+  rnf RevisionPublished' {..} = Prelude.rnf dataSetId
 
 instance Core.ToJSON RevisionPublished where
   toJSON RevisionPublished' {..} =

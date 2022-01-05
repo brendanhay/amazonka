@@ -82,10 +82,23 @@ importAssetsFromRedshiftDataSharesRequestDetails_revisionId = Lens.lens (\Import
 instance
   Prelude.Hashable
     ImportAssetsFromRedshiftDataSharesRequestDetails
+  where
+  hashWithSalt
+    _salt
+    ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
+      _salt `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ImportAssetsFromRedshiftDataSharesRequestDetails
+  where
+  rnf
+    ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
+      Prelude.rnf dataSetId
+        `Prelude.seq` Prelude.rnf assetSources
+        `Prelude.seq` Prelude.rnf revisionId
 
 instance
   Core.ToJSON

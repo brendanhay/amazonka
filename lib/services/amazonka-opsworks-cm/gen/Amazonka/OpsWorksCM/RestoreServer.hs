@@ -153,9 +153,19 @@ instance Core.AWSRequest RestoreServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreServer
+instance Prelude.Hashable RestoreServer where
+  hashWithSalt _salt RestoreServer' {..} =
+    _salt `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData RestoreServer
+instance Prelude.NFData RestoreServer where
+  rnf RestoreServer' {..} =
+    Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders RestoreServer where
   toHeaders =
@@ -226,4 +236,7 @@ restoreServerResponse_server = Lens.lens (\RestoreServerResponse' {server} -> se
 restoreServerResponse_httpStatus :: Lens.Lens' RestoreServerResponse Prelude.Int
 restoreServerResponse_httpStatus = Lens.lens (\RestoreServerResponse' {httpStatus} -> httpStatus) (\s@RestoreServerResponse' {} a -> s {httpStatus = a} :: RestoreServerResponse)
 
-instance Prelude.NFData RestoreServerResponse
+instance Prelude.NFData RestoreServerResponse where
+  rnf RestoreServerResponse' {..} =
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf httpStatus

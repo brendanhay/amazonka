@@ -172,9 +172,17 @@ instance Core.AWSRequest AssociateNode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateNode
+instance Prelude.Hashable AssociateNode where
+  hashWithSalt _salt AssociateNode' {..} =
+    _salt `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` engineAttributes
 
-instance Prelude.NFData AssociateNode
+instance Prelude.NFData AssociateNode where
+  rnf AssociateNode' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf engineAttributes
 
 instance Core.ToHeaders AssociateNode where
   toHeaders =
@@ -253,4 +261,7 @@ associateNodeResponse_nodeAssociationStatusToken = Lens.lens (\AssociateNodeResp
 associateNodeResponse_httpStatus :: Lens.Lens' AssociateNodeResponse Prelude.Int
 associateNodeResponse_httpStatus = Lens.lens (\AssociateNodeResponse' {httpStatus} -> httpStatus) (\s@AssociateNodeResponse' {} a -> s {httpStatus = a} :: AssociateNodeResponse)
 
-instance Prelude.NFData AssociateNodeResponse
+instance Prelude.NFData AssociateNodeResponse where
+  rnf AssociateNodeResponse' {..} =
+    Prelude.rnf nodeAssociationStatusToken
+      `Prelude.seq` Prelude.rnf httpStatus

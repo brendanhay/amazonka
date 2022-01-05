@@ -130,9 +130,21 @@ instance Core.AWSRequest UpdateServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServer
+instance Prelude.Hashable UpdateServer where
+  hashWithSalt _salt UpdateServer' {..} =
+    _salt `Prelude.hashWithSalt` disableAutomatedBackup
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionCount
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData UpdateServer
+instance Prelude.NFData UpdateServer where
+  rnf UpdateServer' {..} =
+    Prelude.rnf disableAutomatedBackup
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionCount
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders UpdateServer where
   toHeaders =
@@ -209,4 +221,7 @@ updateServerResponse_server = Lens.lens (\UpdateServerResponse' {server} -> serv
 updateServerResponse_httpStatus :: Lens.Lens' UpdateServerResponse Prelude.Int
 updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus} -> httpStatus) (\s@UpdateServerResponse' {} a -> s {httpStatus = a} :: UpdateServerResponse)
 
-instance Prelude.NFData UpdateServerResponse
+instance Prelude.NFData UpdateServerResponse where
+  rnf UpdateServerResponse' {..} =
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf httpStatus

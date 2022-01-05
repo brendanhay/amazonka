@@ -172,9 +172,17 @@ instance Core.AWSRequest CreateBackup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackup
+instance Prelude.Hashable CreateBackup where
+  hashWithSalt _salt CreateBackup' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData CreateBackup
+instance Prelude.NFData CreateBackup where
+  rnf CreateBackup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders CreateBackup where
   toHeaders =
@@ -245,4 +253,7 @@ createBackupResponse_backup = Lens.lens (\CreateBackupResponse' {backup} -> back
 createBackupResponse_httpStatus :: Lens.Lens' CreateBackupResponse Prelude.Int
 createBackupResponse_httpStatus = Lens.lens (\CreateBackupResponse' {httpStatus} -> httpStatus) (\s@CreateBackupResponse' {} a -> s {httpStatus = a} :: CreateBackupResponse)
 
-instance Prelude.NFData CreateBackupResponse
+instance Prelude.NFData CreateBackupResponse where
+  rnf CreateBackupResponse' {..} =
+    Prelude.rnf backup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -187,9 +187,17 @@ instance Core.AWSRequest ExportServerEngineAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportServerEngineAttribute
+instance Prelude.Hashable ExportServerEngineAttribute where
+  hashWithSalt _salt ExportServerEngineAttribute' {..} =
+    _salt `Prelude.hashWithSalt` inputAttributes
+      `Prelude.hashWithSalt` exportAttributeName
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData ExportServerEngineAttribute
+instance Prelude.NFData ExportServerEngineAttribute where
+  rnf ExportServerEngineAttribute' {..} =
+    Prelude.rnf inputAttributes
+      `Prelude.seq` Prelude.rnf exportAttributeName
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders ExportServerEngineAttribute where
   toHeaders =
@@ -275,3 +283,8 @@ exportServerEngineAttributeResponse_httpStatus = Lens.lens (\ExportServerEngineA
 instance
   Prelude.NFData
     ExportServerEngineAttributeResponse
+  where
+  rnf ExportServerEngineAttributeResponse' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf engineAttribute
+      `Prelude.seq` Prelude.rnf httpStatus

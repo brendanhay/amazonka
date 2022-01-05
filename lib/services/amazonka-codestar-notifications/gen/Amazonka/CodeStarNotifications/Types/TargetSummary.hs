@@ -82,6 +82,14 @@ instance Core.FromJSON TargetSummary where
             Prelude.<*> (x Core..:? "TargetStatus")
       )
 
-instance Prelude.Hashable TargetSummary
+instance Prelude.Hashable TargetSummary where
+  hashWithSalt _salt TargetSummary' {..} =
+    _salt `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` targetStatus
 
-instance Prelude.NFData TargetSummary
+instance Prelude.NFData TargetSummary where
+  rnf TargetSummary' {..} =
+    Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf targetAddress
+      `Prelude.seq` Prelude.rnf targetStatus

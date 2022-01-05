@@ -76,9 +76,14 @@ listTargetsFilter_name = Lens.lens (\ListTargetsFilter' {name} -> name) (\s@List
 listTargetsFilter_value :: Lens.Lens' ListTargetsFilter Prelude.Text
 listTargetsFilter_value = Lens.lens (\ListTargetsFilter' {value} -> value) (\s@ListTargetsFilter' {} a -> s {value = a} :: ListTargetsFilter)
 
-instance Prelude.Hashable ListTargetsFilter
+instance Prelude.Hashable ListTargetsFilter where
+  hashWithSalt _salt ListTargetsFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ListTargetsFilter
+instance Prelude.NFData ListTargetsFilter where
+  rnf ListTargetsFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ListTargetsFilter where
   toJSON ListTargetsFilter' {..} =

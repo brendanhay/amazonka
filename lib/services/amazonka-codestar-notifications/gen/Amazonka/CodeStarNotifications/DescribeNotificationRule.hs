@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeNotificationRule where
             Prelude.<*> (x Core..:> "Arn")
       )
 
-instance Prelude.Hashable DescribeNotificationRule
+instance Prelude.Hashable DescribeNotificationRule where
+  hashWithSalt _salt DescribeNotificationRule' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DescribeNotificationRule
+instance Prelude.NFData DescribeNotificationRule where
+  rnf DescribeNotificationRule' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DescribeNotificationRule where
   toHeaders =
@@ -294,3 +297,17 @@ describeNotificationRuleResponse_arn = Lens.lens (\DescribeNotificationRuleRespo
 instance
   Prelude.NFData
     DescribeNotificationRuleResponse
+  where
+  rnf DescribeNotificationRuleResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf detailType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn

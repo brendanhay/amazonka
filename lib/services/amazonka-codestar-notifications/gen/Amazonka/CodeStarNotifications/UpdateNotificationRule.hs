@@ -159,9 +159,23 @@ instance Core.AWSRequest UpdateNotificationRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNotificationRule
+instance Prelude.Hashable UpdateNotificationRule where
+  hashWithSalt _salt UpdateNotificationRule' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` eventTypeIds
+      `Prelude.hashWithSalt` detailType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData UpdateNotificationRule
+instance Prelude.NFData UpdateNotificationRule where
+  rnf UpdateNotificationRule' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf eventTypeIds
+      `Prelude.seq` Prelude.rnf detailType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateNotificationRule where
   toHeaders =
@@ -226,3 +240,6 @@ updateNotificationRuleResponse_httpStatus = Lens.lens (\UpdateNotificationRuleRe
 instance
   Prelude.NFData
     UpdateNotificationRuleResponse
+  where
+  rnf UpdateNotificationRuleResponse' {..} =
+    Prelude.rnf httpStatus

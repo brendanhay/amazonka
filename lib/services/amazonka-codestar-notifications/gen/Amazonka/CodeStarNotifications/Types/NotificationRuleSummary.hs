@@ -70,6 +70,11 @@ instance Core.FromJSON NotificationRuleSummary where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable NotificationRuleSummary
+instance Prelude.Hashable NotificationRuleSummary where
+  hashWithSalt _salt NotificationRuleSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData NotificationRuleSummary
+instance Prelude.NFData NotificationRuleSummary where
+  rnf NotificationRuleSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id

@@ -99,10 +99,18 @@ instance Core.FromJSON DataPreProcessingConfiguration where
 instance
   Prelude.Hashable
     DataPreProcessingConfiguration
+  where
+  hashWithSalt
+    _salt
+    DataPreProcessingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` targetSamplingRate
 
 instance
   Prelude.NFData
     DataPreProcessingConfiguration
+  where
+  rnf DataPreProcessingConfiguration' {..} =
+    Prelude.rnf targetSamplingRate
 
 instance Core.ToJSON DataPreProcessingConfiguration where
   toJSON DataPreProcessingConfiguration' {..} =

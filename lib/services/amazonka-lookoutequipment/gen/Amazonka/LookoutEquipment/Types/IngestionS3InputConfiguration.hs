@@ -84,8 +84,14 @@ instance Core.FromJSON IngestionS3InputConfiguration where
 instance
   Prelude.Hashable
     IngestionS3InputConfiguration
+  where
+  hashWithSalt _salt IngestionS3InputConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData IngestionS3InputConfiguration
+instance Prelude.NFData IngestionS3InputConfiguration where
+  rnf IngestionS3InputConfiguration' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToJSON IngestionS3InputConfiguration where
   toJSON IngestionS3InputConfiguration' {..} =

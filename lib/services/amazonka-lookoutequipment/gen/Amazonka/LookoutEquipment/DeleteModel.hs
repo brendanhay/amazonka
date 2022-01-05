@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteModel where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteModelResponse'
 
-instance Prelude.Hashable DeleteModel
+instance Prelude.Hashable DeleteModel where
+  hashWithSalt _salt DeleteModel' {..} =
+    _salt `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData DeleteModel
+instance Prelude.NFData DeleteModel where
+  rnf DeleteModel' {..} = Prelude.rnf modelName
 
 instance Core.ToHeaders DeleteModel where
   toHeaders =
@@ -122,4 +125,5 @@ newDeleteModelResponse ::
   DeleteModelResponse
 newDeleteModelResponse = DeleteModelResponse'
 
-instance Prelude.NFData DeleteModelResponse
+instance Prelude.NFData DeleteModelResponse where
+  rnf _ = ()

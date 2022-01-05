@@ -69,9 +69,13 @@ instance Core.FromJSON LabelsInputConfiguration where
             Prelude.<$> (x Core..: "S3InputConfiguration")
       )
 
-instance Prelude.Hashable LabelsInputConfiguration
+instance Prelude.Hashable LabelsInputConfiguration where
+  hashWithSalt _salt LabelsInputConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` s3InputConfiguration
 
-instance Prelude.NFData LabelsInputConfiguration
+instance Prelude.NFData LabelsInputConfiguration where
+  rnf LabelsInputConfiguration' {..} =
+    Prelude.rnf s3InputConfiguration
 
 instance Core.ToJSON LabelsInputConfiguration where
   toJSON LabelsInputConfiguration' {..} =

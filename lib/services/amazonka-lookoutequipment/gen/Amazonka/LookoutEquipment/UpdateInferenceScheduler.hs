@@ -182,9 +182,23 @@ instance Core.AWSRequest UpdateInferenceScheduler where
     Response.receiveNull
       UpdateInferenceSchedulerResponse'
 
-instance Prelude.Hashable UpdateInferenceScheduler
+instance Prelude.Hashable UpdateInferenceScheduler where
+  hashWithSalt _salt UpdateInferenceScheduler' {..} =
+    _salt `Prelude.hashWithSalt` dataUploadFrequency
+      `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` dataOutputConfiguration
+      `Prelude.hashWithSalt` dataInputConfiguration
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inferenceSchedulerName
 
-instance Prelude.NFData UpdateInferenceScheduler
+instance Prelude.NFData UpdateInferenceScheduler where
+  rnf UpdateInferenceScheduler' {..} =
+    Prelude.rnf dataUploadFrequency
+      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf dataOutputConfiguration
+      `Prelude.seq` Prelude.rnf dataInputConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
 instance Core.ToHeaders UpdateInferenceScheduler where
   toHeaders =
@@ -245,3 +259,5 @@ newUpdateInferenceSchedulerResponse =
 instance
   Prelude.NFData
     UpdateInferenceSchedulerResponse
+  where
+  rnf _ = ()

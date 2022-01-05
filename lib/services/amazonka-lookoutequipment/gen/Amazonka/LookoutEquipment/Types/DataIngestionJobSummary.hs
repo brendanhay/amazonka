@@ -111,6 +111,19 @@ instance Core.FromJSON DataIngestionJobSummary where
             Prelude.<*> (x Core..:? "DatasetName")
       )
 
-instance Prelude.Hashable DataIngestionJobSummary
+instance Prelude.Hashable DataIngestionJobSummary where
+  hashWithSalt _salt DataIngestionJobSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` ingestionInputConfiguration
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` datasetName
 
-instance Prelude.NFData DataIngestionJobSummary
+instance Prelude.NFData DataIngestionJobSummary where
+  rnf DataIngestionJobSummary' {..} =
+    Prelude.rnf ingestionInputConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf datasetName

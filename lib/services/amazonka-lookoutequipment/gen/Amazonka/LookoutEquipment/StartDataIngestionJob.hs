@@ -141,9 +141,19 @@ instance Core.AWSRequest StartDataIngestionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDataIngestionJob
+instance Prelude.Hashable StartDataIngestionJob where
+  hashWithSalt _salt StartDataIngestionJob' {..} =
+    _salt `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` ingestionInputConfiguration
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartDataIngestionJob
+instance Prelude.NFData StartDataIngestionJob where
+  rnf StartDataIngestionJob' {..} =
+    Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf ingestionInputConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders StartDataIngestionJob where
   toHeaders =
@@ -228,4 +238,8 @@ startDataIngestionJobResponse_jobId = Lens.lens (\StartDataIngestionJobResponse'
 startDataIngestionJobResponse_httpStatus :: Lens.Lens' StartDataIngestionJobResponse Prelude.Int
 startDataIngestionJobResponse_httpStatus = Lens.lens (\StartDataIngestionJobResponse' {httpStatus} -> httpStatus) (\s@StartDataIngestionJobResponse' {} a -> s {httpStatus = a} :: StartDataIngestionJobResponse)
 
-instance Prelude.NFData StartDataIngestionJobResponse
+instance Prelude.NFData StartDataIngestionJobResponse where
+  rnf StartDataIngestionJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

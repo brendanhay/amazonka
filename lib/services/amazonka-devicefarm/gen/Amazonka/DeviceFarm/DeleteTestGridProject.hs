@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteTestGridProject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTestGridProject
+instance Prelude.Hashable DeleteTestGridProject where
+  hashWithSalt _salt DeleteTestGridProject' {..} =
+    _salt `Prelude.hashWithSalt` projectArn
 
-instance Prelude.NFData DeleteTestGridProject
+instance Prelude.NFData DeleteTestGridProject where
+  rnf DeleteTestGridProject' {..} =
+    Prelude.rnf projectArn
 
 instance Core.ToHeaders DeleteTestGridProject where
   toHeaders =
@@ -153,4 +157,6 @@ newDeleteTestGridProjectResponse pHttpStatus_ =
 deleteTestGridProjectResponse_httpStatus :: Lens.Lens' DeleteTestGridProjectResponse Prelude.Int
 deleteTestGridProjectResponse_httpStatus = Lens.lens (\DeleteTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteTestGridProjectResponse' {} a -> s {httpStatus = a} :: DeleteTestGridProjectResponse)
 
-instance Prelude.NFData DeleteTestGridProjectResponse
+instance Prelude.NFData DeleteTestGridProjectResponse where
+  rnf DeleteTestGridProjectResponse' {..} =
+    Prelude.rnf httpStatus

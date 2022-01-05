@@ -71,6 +71,12 @@ instance Core.FromJSON OfferingPromotion where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable OfferingPromotion
+instance Prelude.Hashable OfferingPromotion where
+  hashWithSalt _salt OfferingPromotion' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData OfferingPromotion
+instance Prelude.NFData OfferingPromotion where
+  rnf OfferingPromotion' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description

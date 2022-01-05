@@ -73,6 +73,12 @@ instance Core.FromJSON RecurringCharge where
             Prelude.<*> (x Core..:? "cost")
       )
 
-instance Prelude.Hashable RecurringCharge
+instance Prelude.Hashable RecurringCharge where
+  hashWithSalt _salt RecurringCharge' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` cost
 
-instance Prelude.NFData RecurringCharge
+instance Prelude.NFData RecurringCharge where
+  rnf RecurringCharge' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf cost

@@ -133,9 +133,12 @@ instance Core.AWSRequest GetOfferingStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOfferingStatus
+instance Prelude.Hashable GetOfferingStatus where
+  hashWithSalt _salt GetOfferingStatus' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetOfferingStatus
+instance Prelude.NFData GetOfferingStatus where
+  rnf GetOfferingStatus' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders GetOfferingStatus where
   toHeaders =
@@ -230,4 +233,9 @@ getOfferingStatusResponse_nextToken = Lens.lens (\GetOfferingStatusResponse' {ne
 getOfferingStatusResponse_httpStatus :: Lens.Lens' GetOfferingStatusResponse Prelude.Int
 getOfferingStatusResponse_httpStatus = Lens.lens (\GetOfferingStatusResponse' {httpStatus} -> httpStatus) (\s@GetOfferingStatusResponse' {} a -> s {httpStatus = a} :: GetOfferingStatusResponse)
 
-instance Prelude.NFData GetOfferingStatusResponse
+instance Prelude.NFData GetOfferingStatusResponse where
+  rnf GetOfferingStatusResponse' {..} =
+    Prelude.rnf nextPeriod
+      `Prelude.seq` Prelude.rnf current
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

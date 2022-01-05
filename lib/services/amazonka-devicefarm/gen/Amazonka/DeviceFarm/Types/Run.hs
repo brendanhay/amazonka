@@ -681,6 +681,79 @@ instance Core.FromJSON Run where
             Prelude.<*> (x Core..:? "deviceSelectionResult")
       )
 
-instance Prelude.Hashable Run
+instance Prelude.Hashable Run where
+  hashWithSalt _salt Run' {..} =
+    _salt `Prelude.hashWithSalt` billingMethod
+      `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` customerArtifactPaths
+      `Prelude.hashWithSalt` eventCount
+      `Prelude.hashWithSalt` counters
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` seed
+      `Prelude.hashWithSalt` radios
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` testSpecArn
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` jobTimeoutMinutes
+      `Prelude.hashWithSalt` completedJobs
+      `Prelude.hashWithSalt` resultCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appUpload
+      `Prelude.hashWithSalt` parsingResultUrl
+      `Prelude.hashWithSalt` networkProfile
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` webUrl
+      `Prelude.hashWithSalt` totalJobs
+      `Prelude.hashWithSalt` devicePoolArn
+      `Prelude.hashWithSalt` started
+      `Prelude.hashWithSalt` deviceSelectionResult
 
-instance Prelude.NFData Run
+instance Prelude.NFData Run where
+  rnf Run' {..} =
+    Prelude.rnf billingMethod
+      `Prelude.seq` Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf customerArtifactPaths
+      `Prelude.seq` Prelude.rnf eventCount
+      `Prelude.seq` Prelude.rnf counters
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf seed
+      `Prelude.seq` Prelude.rnf radios
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf testSpecArn
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf jobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf completedJobs
+      `Prelude.seq` Prelude.rnf resultCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appUpload
+      `Prelude.seq` Prelude.rnf
+        parsingResultUrl
+      `Prelude.seq` Prelude.rnf
+        networkProfile
+      `Prelude.seq` Prelude.rnf
+        deviceMinutes
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf
+        message
+      `Prelude.seq` Prelude.rnf
+        webUrl
+      `Prelude.seq` Prelude.rnf
+        totalJobs
+      `Prelude.seq` Prelude.rnf
+        devicePoolArn
+      `Prelude.seq` Prelude.rnf
+        started
+      `Prelude.seq` Prelude.rnf
+        deviceSelectionResult

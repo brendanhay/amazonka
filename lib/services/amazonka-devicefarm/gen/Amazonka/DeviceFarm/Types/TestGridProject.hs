@@ -103,6 +103,18 @@ instance Core.FromJSON TestGridProject where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable TestGridProject
+instance Prelude.Hashable TestGridProject where
+  hashWithSalt _salt TestGridProject' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData TestGridProject
+instance Prelude.NFData TestGridProject where
+  rnf TestGridProject' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf description

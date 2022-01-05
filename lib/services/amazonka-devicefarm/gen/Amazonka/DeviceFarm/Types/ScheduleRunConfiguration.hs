@@ -154,9 +154,29 @@ scheduleRunConfiguration_auxiliaryApps = Lens.lens (\ScheduleRunConfiguration' {
 scheduleRunConfiguration_vpceConfigurationArns :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe [Prelude.Text])
 scheduleRunConfiguration_vpceConfigurationArns = Lens.lens (\ScheduleRunConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@ScheduleRunConfiguration' {} a -> s {vpceConfigurationArns = a} :: ScheduleRunConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable ScheduleRunConfiguration
+instance Prelude.Hashable ScheduleRunConfiguration where
+  hashWithSalt _salt ScheduleRunConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` billingMethod
+      `Prelude.hashWithSalt` customerArtifactPaths
+      `Prelude.hashWithSalt` radios
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` networkProfileArn
+      `Prelude.hashWithSalt` extraDataPackageArn
+      `Prelude.hashWithSalt` auxiliaryApps
+      `Prelude.hashWithSalt` vpceConfigurationArns
 
-instance Prelude.NFData ScheduleRunConfiguration
+instance Prelude.NFData ScheduleRunConfiguration where
+  rnf ScheduleRunConfiguration' {..} =
+    Prelude.rnf billingMethod
+      `Prelude.seq` Prelude.rnf customerArtifactPaths
+      `Prelude.seq` Prelude.rnf radios
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf networkProfileArn
+      `Prelude.seq` Prelude.rnf extraDataPackageArn
+      `Prelude.seq` Prelude.rnf auxiliaryApps
+      `Prelude.seq` Prelude.rnf vpceConfigurationArns
 
 instance Core.ToJSON ScheduleRunConfiguration where
   toJSON ScheduleRunConfiguration' {..} =

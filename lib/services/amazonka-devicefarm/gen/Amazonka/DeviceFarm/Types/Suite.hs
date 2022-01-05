@@ -403,6 +403,30 @@ instance Core.FromJSON Suite where
             Prelude.<*> (x Core..:? "started")
       )
 
-instance Prelude.Hashable Suite
+instance Prelude.Hashable Suite where
+  hashWithSalt _salt Suite' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` counters
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` started
 
-instance Prelude.NFData Suite
+instance Prelude.NFData Suite where
+  rnf Suite' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf counters
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deviceMinutes
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf started

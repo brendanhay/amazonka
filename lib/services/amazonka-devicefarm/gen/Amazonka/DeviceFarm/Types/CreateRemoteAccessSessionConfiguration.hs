@@ -68,10 +68,20 @@ createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\Creat
 instance
   Prelude.Hashable
     CreateRemoteAccessSessionConfiguration
+  where
+  hashWithSalt
+    _salt
+    CreateRemoteAccessSessionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` billingMethod
+        `Prelude.hashWithSalt` vpceConfigurationArns
 
 instance
   Prelude.NFData
     CreateRemoteAccessSessionConfiguration
+  where
+  rnf CreateRemoteAccessSessionConfiguration' {..} =
+    Prelude.rnf billingMethod
+      `Prelude.seq` Prelude.rnf vpceConfigurationArns
 
 instance
   Core.ToJSON

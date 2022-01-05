@@ -115,8 +115,15 @@ instance Core.AWSRequest InstallToRemoteAccessSession where
 instance
   Prelude.Hashable
     InstallToRemoteAccessSession
+  where
+  hashWithSalt _salt InstallToRemoteAccessSession' {..} =
+    _salt `Prelude.hashWithSalt` remoteAccessSessionArn
+      `Prelude.hashWithSalt` appArn
 
-instance Prelude.NFData InstallToRemoteAccessSession
+instance Prelude.NFData InstallToRemoteAccessSession where
+  rnf InstallToRemoteAccessSession' {..} =
+    Prelude.rnf remoteAccessSessionArn
+      `Prelude.seq` Prelude.rnf appArn
 
 instance Core.ToHeaders InstallToRemoteAccessSession where
   toHeaders =
@@ -196,3 +203,7 @@ installToRemoteAccessSessionResponse_httpStatus = Lens.lens (\InstallToRemoteAcc
 instance
   Prelude.NFData
     InstallToRemoteAccessSessionResponse
+  where
+  rnf InstallToRemoteAccessSessionResponse' {..} =
+    Prelude.rnf appUpload
+      `Prelude.seq` Prelude.rnf httpStatus

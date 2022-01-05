@@ -125,9 +125,19 @@ instance Core.AWSRequest UpdateUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUpload
+instance Prelude.Hashable UpdateUpload where
+  hashWithSalt _salt UpdateUpload' {..} =
+    _salt `Prelude.hashWithSalt` editContent
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData UpdateUpload
+instance Prelude.NFData UpdateUpload where
+  rnf UpdateUpload' {..} =
+    Prelude.rnf editContent
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateUpload where
   toHeaders =
@@ -199,4 +209,7 @@ updateUploadResponse_upload = Lens.lens (\UpdateUploadResponse' {upload} -> uplo
 updateUploadResponse_httpStatus :: Lens.Lens' UpdateUploadResponse Prelude.Int
 updateUploadResponse_httpStatus = Lens.lens (\UpdateUploadResponse' {httpStatus} -> httpStatus) (\s@UpdateUploadResponse' {} a -> s {httpStatus = a} :: UpdateUploadResponse)
 
-instance Prelude.NFData UpdateUploadResponse
+instance Prelude.NFData UpdateUploadResponse where
+  rnf UpdateUploadResponse' {..} =
+    Prelude.rnf upload
+      `Prelude.seq` Prelude.rnf httpStatus

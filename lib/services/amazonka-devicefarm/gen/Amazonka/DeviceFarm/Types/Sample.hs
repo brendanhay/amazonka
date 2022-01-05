@@ -211,6 +211,14 @@ instance Core.FromJSON Sample where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Sample
+instance Prelude.Hashable Sample where
+  hashWithSalt _salt Sample' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Sample
+instance Prelude.NFData Sample where
+  rnf Sample' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf type'

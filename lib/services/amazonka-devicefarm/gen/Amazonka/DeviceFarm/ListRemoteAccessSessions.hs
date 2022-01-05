@@ -139,9 +139,14 @@ instance Core.AWSRequest ListRemoteAccessSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRemoteAccessSessions
+instance Prelude.Hashable ListRemoteAccessSessions where
+  hashWithSalt _salt ListRemoteAccessSessions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListRemoteAccessSessions
+instance Prelude.NFData ListRemoteAccessSessions where
+  rnf ListRemoteAccessSessions' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListRemoteAccessSessions where
   toHeaders =
@@ -236,3 +241,8 @@ listRemoteAccessSessionsResponse_httpStatus = Lens.lens (\ListRemoteAccessSessio
 instance
   Prelude.NFData
     ListRemoteAccessSessionsResponse
+  where
+  rnf ListRemoteAccessSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf remoteAccessSessions
+      `Prelude.seq` Prelude.rnf httpStatus

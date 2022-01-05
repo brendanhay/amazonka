@@ -326,9 +326,17 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt _salt Rule' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =

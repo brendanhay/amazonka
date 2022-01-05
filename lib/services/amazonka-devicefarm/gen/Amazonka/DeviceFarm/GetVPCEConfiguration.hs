@@ -90,9 +90,12 @@ instance Core.AWSRequest GetVPCEConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVPCEConfiguration
+instance Prelude.Hashable GetVPCEConfiguration where
+  hashWithSalt _salt GetVPCEConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetVPCEConfiguration
+instance Prelude.NFData GetVPCEConfiguration where
+  rnf GetVPCEConfiguration' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetVPCEConfiguration where
   toHeaders =
@@ -164,4 +167,7 @@ getVPCEConfigurationResponse_vpceConfiguration = Lens.lens (\GetVPCEConfiguratio
 getVPCEConfigurationResponse_httpStatus :: Lens.Lens' GetVPCEConfigurationResponse Prelude.Int
 getVPCEConfigurationResponse_httpStatus = Lens.lens (\GetVPCEConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetVPCEConfigurationResponse' {} a -> s {httpStatus = a} :: GetVPCEConfigurationResponse)
 
-instance Prelude.NFData GetVPCEConfigurationResponse
+instance Prelude.NFData GetVPCEConfigurationResponse where
+  rnf GetVPCEConfigurationResponse' {..} =
+    Prelude.rnf vpceConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

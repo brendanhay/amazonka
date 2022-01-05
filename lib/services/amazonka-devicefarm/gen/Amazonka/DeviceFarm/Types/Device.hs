@@ -324,6 +324,50 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "fleetName")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt _salt Device' {..} =
+    _salt `Prelude.hashWithSalt` carrier
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` manufacturer
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` remoteAccessEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` formFactor
+      `Prelude.hashWithSalt` fleetType
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` availability
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` radio
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` remoteDebugEnabled
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` heapSize
+      `Prelude.hashWithSalt` fleetName
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf carrier
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf manufacturer
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf remoteAccessEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf formFactor
+      `Prelude.seq` Prelude.rnf fleetType
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf availability
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf radio
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf remoteDebugEnabled
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf heapSize
+      `Prelude.seq` Prelude.rnf fleetName

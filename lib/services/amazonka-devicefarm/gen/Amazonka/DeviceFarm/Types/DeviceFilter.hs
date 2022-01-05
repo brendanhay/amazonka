@@ -372,9 +372,17 @@ instance Core.FromJSON DeviceFilter where
             Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeviceFilter
+instance Prelude.Hashable DeviceFilter where
+  hashWithSalt _salt DeviceFilter' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData DeviceFilter
+instance Prelude.NFData DeviceFilter where
+  rnf DeviceFilter' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON DeviceFilter where
   toJSON DeviceFilter' {..} =

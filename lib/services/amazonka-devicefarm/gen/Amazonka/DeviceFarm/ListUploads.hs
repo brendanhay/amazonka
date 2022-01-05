@@ -338,9 +338,17 @@ instance Core.AWSRequest ListUploads where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUploads
+instance Prelude.Hashable ListUploads where
+  hashWithSalt _salt ListUploads' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListUploads
+instance Prelude.NFData ListUploads where
+  rnf ListUploads' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListUploads where
   toHeaders =
@@ -428,4 +436,8 @@ listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uplo
 listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Prelude.Int
 listUploadsResponse_httpStatus = Lens.lens (\ListUploadsResponse' {httpStatus} -> httpStatus) (\s@ListUploadsResponse' {} a -> s {httpStatus = a} :: ListUploadsResponse)
 
-instance Prelude.NFData ListUploadsResponse
+instance Prelude.NFData ListUploadsResponse where
+  rnf ListUploadsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf uploads
+      `Prelude.seq` Prelude.rnf httpStatus

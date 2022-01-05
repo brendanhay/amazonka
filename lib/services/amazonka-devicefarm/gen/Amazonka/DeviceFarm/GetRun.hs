@@ -85,9 +85,12 @@ instance Core.AWSRequest GetRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRun
+instance Prelude.Hashable GetRun where
+  hashWithSalt _salt GetRun' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetRun
+instance Prelude.NFData GetRun where
+  rnf GetRun' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetRun where
   toHeaders =
@@ -155,4 +158,7 @@ getRunResponse_run = Lens.lens (\GetRunResponse' {run} -> run) (\s@GetRunRespons
 getRunResponse_httpStatus :: Lens.Lens' GetRunResponse Prelude.Int
 getRunResponse_httpStatus = Lens.lens (\GetRunResponse' {httpStatus} -> httpStatus) (\s@GetRunResponse' {} a -> s {httpStatus = a} :: GetRunResponse)
 
-instance Prelude.NFData GetRunResponse
+instance Prelude.NFData GetRunResponse where
+  rnf GetRunResponse' {..} =
+    Prelude.rnf run
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -157,9 +157,23 @@ instance Core.AWSRequest UpdateInstanceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInstanceProfile
+instance Prelude.Hashable UpdateInstanceProfile where
+  hashWithSalt _salt UpdateInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` rebootAfterUse
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` packageCleanup
+      `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData UpdateInstanceProfile
+instance Prelude.NFData UpdateInstanceProfile where
+  rnf UpdateInstanceProfile' {..} =
+    Prelude.rnf rebootAfterUse
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf packageCleanup
+      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateInstanceProfile where
   toHeaders =
@@ -237,4 +251,7 @@ updateInstanceProfileResponse_instanceProfile = Lens.lens (\UpdateInstanceProfil
 updateInstanceProfileResponse_httpStatus :: Lens.Lens' UpdateInstanceProfileResponse Prelude.Int
 updateInstanceProfileResponse_httpStatus = Lens.lens (\UpdateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateInstanceProfileResponse' {} a -> s {httpStatus = a} :: UpdateInstanceProfileResponse)
 
-instance Prelude.NFData UpdateInstanceProfileResponse
+instance Prelude.NFData UpdateInstanceProfileResponse where
+  rnf UpdateInstanceProfileResponse' {..} =
+    Prelude.rnf instanceProfile
+      `Prelude.seq` Prelude.rnf httpStatus

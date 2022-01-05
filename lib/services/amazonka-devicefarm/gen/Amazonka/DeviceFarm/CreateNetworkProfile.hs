@@ -228,9 +228,35 @@ instance Core.AWSRequest CreateNetworkProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkProfile
+instance Prelude.Hashable CreateNetworkProfile where
+  hashWithSalt _salt CreateNetworkProfile' {..} =
+    _salt `Prelude.hashWithSalt` uplinkJitterMs
+      `Prelude.hashWithSalt` uplinkLossPercent
+      `Prelude.hashWithSalt` downlinkJitterMs
+      `Prelude.hashWithSalt` downlinkLossPercent
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` uplinkDelayMs
+      `Prelude.hashWithSalt` uplinkBandwidthBits
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` downlinkDelayMs
+      `Prelude.hashWithSalt` downlinkBandwidthBits
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateNetworkProfile
+instance Prelude.NFData CreateNetworkProfile where
+  rnf CreateNetworkProfile' {..} =
+    Prelude.rnf uplinkJitterMs
+      `Prelude.seq` Prelude.rnf uplinkLossPercent
+      `Prelude.seq` Prelude.rnf downlinkJitterMs
+      `Prelude.seq` Prelude.rnf downlinkLossPercent
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf uplinkDelayMs
+      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf downlinkDelayMs
+      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateNetworkProfile where
   toHeaders =
@@ -321,4 +347,7 @@ createNetworkProfileResponse_networkProfile = Lens.lens (\CreateNetworkProfileRe
 createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Prelude.Int
 createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkProfileResponse' {} a -> s {httpStatus = a} :: CreateNetworkProfileResponse)
 
-instance Prelude.NFData CreateNetworkProfileResponse
+instance Prelude.NFData CreateNetworkProfileResponse where
+  rnf CreateNetworkProfileResponse' {..} =
+    Prelude.rnf networkProfile
+      `Prelude.seq` Prelude.rnf httpStatus

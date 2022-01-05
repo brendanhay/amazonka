@@ -91,6 +91,14 @@ instance Core.FromJSON DeviceMinutes where
             Prelude.<*> (x Core..:? "unmetered")
       )
 
-instance Prelude.Hashable DeviceMinutes
+instance Prelude.Hashable DeviceMinutes where
+  hashWithSalt _salt DeviceMinutes' {..} =
+    _salt `Prelude.hashWithSalt` metered
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` unmetered
 
-instance Prelude.NFData DeviceMinutes
+instance Prelude.NFData DeviceMinutes where
+  rnf DeviceMinutes' {..} =
+    Prelude.rnf metered
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf unmetered

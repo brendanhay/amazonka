@@ -89,9 +89,12 @@ instance Core.AWSRequest GetTestGridProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTestGridProject
+instance Prelude.Hashable GetTestGridProject where
+  hashWithSalt _salt GetTestGridProject' {..} =
+    _salt `Prelude.hashWithSalt` projectArn
 
-instance Prelude.NFData GetTestGridProject
+instance Prelude.NFData GetTestGridProject where
+  rnf GetTestGridProject' {..} = Prelude.rnf projectArn
 
 instance Core.ToHeaders GetTestGridProject where
   toHeaders =
@@ -160,4 +163,7 @@ getTestGridProjectResponse_testGridProject = Lens.lens (\GetTestGridProjectRespo
 getTestGridProjectResponse_httpStatus :: Lens.Lens' GetTestGridProjectResponse Prelude.Int
 getTestGridProjectResponse_httpStatus = Lens.lens (\GetTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@GetTestGridProjectResponse' {} a -> s {httpStatus = a} :: GetTestGridProjectResponse)
 
-instance Prelude.NFData GetTestGridProjectResponse
+instance Prelude.NFData GetTestGridProjectResponse where
+  rnf GetTestGridProjectResponse' {..} =
+    Prelude.rnf testGridProject
+      `Prelude.seq` Prelude.rnf httpStatus

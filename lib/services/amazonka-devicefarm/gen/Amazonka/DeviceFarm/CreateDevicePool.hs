@@ -153,9 +153,21 @@ instance Core.AWSRequest CreateDevicePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDevicePool
+instance Prelude.Hashable CreateDevicePool where
+  hashWithSalt _salt CreateDevicePool' {..} =
+    _salt `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData CreateDevicePool
+instance Prelude.NFData CreateDevicePool where
+  rnf CreateDevicePool' {..} =
+    Prelude.rnf maxDevices
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToHeaders CreateDevicePool where
   toHeaders =
@@ -231,4 +243,7 @@ createDevicePoolResponse_devicePool = Lens.lens (\CreateDevicePoolResponse' {dev
 createDevicePoolResponse_httpStatus :: Lens.Lens' CreateDevicePoolResponse Prelude.Int
 createDevicePoolResponse_httpStatus = Lens.lens (\CreateDevicePoolResponse' {httpStatus} -> httpStatus) (\s@CreateDevicePoolResponse' {} a -> s {httpStatus = a} :: CreateDevicePoolResponse)
 
-instance Prelude.NFData CreateDevicePoolResponse
+instance Prelude.NFData CreateDevicePoolResponse where
+  rnf CreateDevicePoolResponse' {..} =
+    Prelude.rnf devicePool
+      `Prelude.seq` Prelude.rnf httpStatus

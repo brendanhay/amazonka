@@ -87,9 +87,12 @@ instance Core.AWSRequest GetDevicePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDevicePool
+instance Prelude.Hashable GetDevicePool where
+  hashWithSalt _salt GetDevicePool' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetDevicePool
+instance Prelude.NFData GetDevicePool where
+  rnf GetDevicePool' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetDevicePool where
   toHeaders =
@@ -160,4 +163,7 @@ getDevicePoolResponse_devicePool = Lens.lens (\GetDevicePoolResponse' {devicePoo
 getDevicePoolResponse_httpStatus :: Lens.Lens' GetDevicePoolResponse Prelude.Int
 getDevicePoolResponse_httpStatus = Lens.lens (\GetDevicePoolResponse' {httpStatus} -> httpStatus) (\s@GetDevicePoolResponse' {} a -> s {httpStatus = a} :: GetDevicePoolResponse)
 
-instance Prelude.NFData GetDevicePoolResponse
+instance Prelude.NFData GetDevicePoolResponse where
+  rnf GetDevicePoolResponse' {..} =
+    Prelude.rnf devicePool
+      `Prelude.seq` Prelude.rnf httpStatus

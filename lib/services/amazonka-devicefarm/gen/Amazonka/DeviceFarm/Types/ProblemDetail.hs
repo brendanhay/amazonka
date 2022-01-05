@@ -70,6 +70,11 @@ instance Core.FromJSON ProblemDetail where
             Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ProblemDetail
+instance Prelude.Hashable ProblemDetail where
+  hashWithSalt _salt ProblemDetail' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ProblemDetail
+instance Prelude.NFData ProblemDetail where
+  rnf ProblemDetail' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

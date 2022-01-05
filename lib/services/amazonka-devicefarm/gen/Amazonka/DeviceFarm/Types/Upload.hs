@@ -404,6 +404,28 @@ instance Core.FromJSON Upload where
             Prelude.<*> (x Core..:? "contentType")
       )
 
-instance Prelude.Hashable Upload
+instance Prelude.Hashable Upload where
+  hashWithSalt _salt Upload' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData Upload
+instance Prelude.NFData Upload where
+  rnf Upload' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf contentType

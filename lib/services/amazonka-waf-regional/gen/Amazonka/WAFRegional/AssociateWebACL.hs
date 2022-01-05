@@ -136,9 +136,15 @@ instance Core.AWSRequest AssociateWebACL where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateWebACL
+instance Prelude.Hashable AssociateWebACL where
+  hashWithSalt _salt AssociateWebACL' {..} =
+    _salt `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData AssociateWebACL
+instance Prelude.NFData AssociateWebACL where
+  rnf AssociateWebACL' {..} =
+    Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders AssociateWebACL where
   toHeaders =
@@ -197,4 +203,6 @@ newAssociateWebACLResponse pHttpStatus_ =
 associateWebACLResponse_httpStatus :: Lens.Lens' AssociateWebACLResponse Prelude.Int
 associateWebACLResponse_httpStatus = Lens.lens (\AssociateWebACLResponse' {httpStatus} -> httpStatus) (\s@AssociateWebACLResponse' {} a -> s {httpStatus = a} :: AssociateWebACLResponse)
 
-instance Prelude.NFData AssociateWebACLResponse
+instance Prelude.NFData AssociateWebACLResponse where
+  rnf AssociateWebACLResponse' {..} =
+    Prelude.rnf httpStatus

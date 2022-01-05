@@ -98,9 +98,13 @@ instance Core.AWSRequest GetPermissionPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPermissionPolicy
+instance Prelude.Hashable GetPermissionPolicy where
+  hashWithSalt _salt GetPermissionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetPermissionPolicy
+instance Prelude.NFData GetPermissionPolicy where
+  rnf GetPermissionPolicy' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetPermissionPolicy where
   toHeaders =
@@ -169,4 +173,7 @@ getPermissionPolicyResponse_policy = Lens.lens (\GetPermissionPolicyResponse' {p
 getPermissionPolicyResponse_httpStatus :: Lens.Lens' GetPermissionPolicyResponse Prelude.Int
 getPermissionPolicyResponse_httpStatus = Lens.lens (\GetPermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPermissionPolicyResponse' {} a -> s {httpStatus = a} :: GetPermissionPolicyResponse)
 
-instance Prelude.NFData GetPermissionPolicyResponse
+instance Prelude.NFData GetPermissionPolicyResponse where
+  rnf GetPermissionPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

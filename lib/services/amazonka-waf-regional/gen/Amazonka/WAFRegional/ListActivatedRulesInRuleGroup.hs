@@ -151,8 +151,17 @@ instance
 instance
   Prelude.Hashable
     ListActivatedRulesInRuleGroup
+  where
+  hashWithSalt _salt ListActivatedRulesInRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` ruleGroupId
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListActivatedRulesInRuleGroup
+instance Prelude.NFData ListActivatedRulesInRuleGroup where
+  rnf ListActivatedRulesInRuleGroup' {..} =
+    Prelude.rnf ruleGroupId
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListActivatedRulesInRuleGroup where
   toHeaders =
@@ -248,3 +257,8 @@ listActivatedRulesInRuleGroupResponse_httpStatus = Lens.lens (\ListActivatedRule
 instance
   Prelude.NFData
     ListActivatedRulesInRuleGroupResponse
+  where
+  rnf ListActivatedRulesInRuleGroupResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf activatedRules
+      `Prelude.seq` Prelude.rnf httpStatus

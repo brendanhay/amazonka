@@ -131,9 +131,15 @@ instance Core.AWSRequest ListByteMatchSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListByteMatchSets
+instance Prelude.Hashable ListByteMatchSets where
+  hashWithSalt _salt ListByteMatchSets' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListByteMatchSets
+instance Prelude.NFData ListByteMatchSets where
+  rnf ListByteMatchSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListByteMatchSets where
   toHeaders =
@@ -225,4 +231,8 @@ listByteMatchSetsResponse_nextMarker = Lens.lens (\ListByteMatchSetsResponse' {n
 listByteMatchSetsResponse_httpStatus :: Lens.Lens' ListByteMatchSetsResponse Prelude.Int
 listByteMatchSetsResponse_httpStatus = Lens.lens (\ListByteMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListByteMatchSetsResponse' {} a -> s {httpStatus = a} :: ListByteMatchSetsResponse)
 
-instance Prelude.NFData ListByteMatchSetsResponse
+instance Prelude.NFData ListByteMatchSetsResponse where
+  rnf ListByteMatchSetsResponse' {..} =
+    Prelude.rnf byteMatchSets
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

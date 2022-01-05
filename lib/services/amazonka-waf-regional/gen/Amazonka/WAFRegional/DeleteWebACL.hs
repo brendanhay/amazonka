@@ -121,9 +121,15 @@ instance Core.AWSRequest DeleteWebACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWebACL
+instance Prelude.Hashable DeleteWebACL where
+  hashWithSalt _salt DeleteWebACL' {..} =
+    _salt `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData DeleteWebACL
+instance Prelude.NFData DeleteWebACL where
+  rnf DeleteWebACL' {..} =
+    Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteWebACL where
   toHeaders =
@@ -200,4 +206,7 @@ deleteWebACLResponse_changeToken = Lens.lens (\DeleteWebACLResponse' {changeToke
 deleteWebACLResponse_httpStatus :: Lens.Lens' DeleteWebACLResponse Prelude.Int
 deleteWebACLResponse_httpStatus = Lens.lens (\DeleteWebACLResponse' {httpStatus} -> httpStatus) (\s@DeleteWebACLResponse' {} a -> s {httpStatus = a} :: DeleteWebACLResponse)
 
-instance Prelude.NFData DeleteWebACLResponse
+instance Prelude.NFData DeleteWebACLResponse where
+  rnf DeleteWebACLResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -125,9 +125,12 @@ instance Core.AWSRequest DisassociateWebACL where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateWebACL
+instance Prelude.Hashable DisassociateWebACL where
+  hashWithSalt _salt DisassociateWebACL' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DisassociateWebACL
+instance Prelude.NFData DisassociateWebACL where
+  rnf DisassociateWebACL' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders DisassociateWebACL where
   toHeaders =
@@ -187,4 +190,6 @@ newDisassociateWebACLResponse pHttpStatus_ =
 disassociateWebACLResponse_httpStatus :: Lens.Lens' DisassociateWebACLResponse Prelude.Int
 disassociateWebACLResponse_httpStatus = Lens.lens (\DisassociateWebACLResponse' {httpStatus} -> httpStatus) (\s@DisassociateWebACLResponse' {} a -> s {httpStatus = a} :: DisassociateWebACLResponse)
 
-instance Prelude.NFData DisassociateWebACLResponse
+instance Prelude.NFData DisassociateWebACLResponse where
+  rnf DisassociateWebACLResponse' {..} =
+    Prelude.rnf httpStatus

@@ -123,9 +123,15 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRateBasedRuleManagedKeys
+instance Prelude.Hashable GetRateBasedRuleManagedKeys where
+  hashWithSalt _salt GetRateBasedRuleManagedKeys' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData GetRateBasedRuleManagedKeys
+instance Prelude.NFData GetRateBasedRuleManagedKeys where
+  rnf GetRateBasedRuleManagedKeys' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf ruleId
 
 instance Core.ToHeaders GetRateBasedRuleManagedKeys where
   toHeaders =
@@ -211,3 +217,8 @@ getRateBasedRuleManagedKeysResponse_httpStatus = Lens.lens (\GetRateBasedRuleMan
 instance
   Prelude.NFData
     GetRateBasedRuleManagedKeysResponse
+  where
+  rnf GetRateBasedRuleManagedKeysResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf managedKeys
+      `Prelude.seq` Prelude.rnf httpStatus

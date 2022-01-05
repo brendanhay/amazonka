@@ -140,9 +140,15 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSqlInjectionMatchSets
+instance Prelude.Hashable ListSqlInjectionMatchSets where
+  hashWithSalt _salt ListSqlInjectionMatchSets' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListSqlInjectionMatchSets
+instance Prelude.NFData ListSqlInjectionMatchSets where
+  rnf ListSqlInjectionMatchSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
@@ -242,3 +248,8 @@ listSqlInjectionMatchSetsResponse_httpStatus = Lens.lens (\ListSqlInjectionMatch
 instance
   Prelude.NFData
     ListSqlInjectionMatchSetsResponse
+  where
+  rnf ListSqlInjectionMatchSetsResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf sqlInjectionMatchSets
+      `Prelude.seq` Prelude.rnf httpStatus

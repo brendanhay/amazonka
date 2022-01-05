@@ -138,9 +138,15 @@ instance Core.AWSRequest CreateSizeConstraintSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSizeConstraintSet
+instance Prelude.Hashable CreateSizeConstraintSet where
+  hashWithSalt _salt CreateSizeConstraintSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateSizeConstraintSet
+instance Prelude.NFData CreateSizeConstraintSet where
+  rnf CreateSizeConstraintSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateSizeConstraintSet where
   toHeaders =
@@ -229,3 +235,8 @@ createSizeConstraintSetResponse_httpStatus = Lens.lens (\CreateSizeConstraintSet
 instance
   Prelude.NFData
     CreateSizeConstraintSetResponse
+  where
+  rnf CreateSizeConstraintSetResponse' {..} =
+    Prelude.rnf sizeConstraintSet
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

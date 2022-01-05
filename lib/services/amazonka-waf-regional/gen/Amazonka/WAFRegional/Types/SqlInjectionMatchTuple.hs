@@ -310,9 +310,15 @@ instance Core.FromJSON SqlInjectionMatchTuple where
             Prelude.<*> (x Core..: "TextTransformation")
       )
 
-instance Prelude.Hashable SqlInjectionMatchTuple
+instance Prelude.Hashable SqlInjectionMatchTuple where
+  hashWithSalt _salt SqlInjectionMatchTuple' {..} =
+    _salt `Prelude.hashWithSalt` fieldToMatch
+      `Prelude.hashWithSalt` textTransformation
 
-instance Prelude.NFData SqlInjectionMatchTuple
+instance Prelude.NFData SqlInjectionMatchTuple where
+  rnf SqlInjectionMatchTuple' {..} =
+    Prelude.rnf fieldToMatch
+      `Prelude.seq` Prelude.rnf textTransformation
 
 instance Core.ToJSON SqlInjectionMatchTuple where
   toJSON SqlInjectionMatchTuple' {..} =

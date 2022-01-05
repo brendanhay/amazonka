@@ -307,9 +307,15 @@ instance Core.FromJSON XssMatchTuple where
             Prelude.<*> (x Core..: "TextTransformation")
       )
 
-instance Prelude.Hashable XssMatchTuple
+instance Prelude.Hashable XssMatchTuple where
+  hashWithSalt _salt XssMatchTuple' {..} =
+    _salt `Prelude.hashWithSalt` fieldToMatch
+      `Prelude.hashWithSalt` textTransformation
 
-instance Prelude.NFData XssMatchTuple
+instance Prelude.NFData XssMatchTuple where
+  rnf XssMatchTuple' {..} =
+    Prelude.rnf fieldToMatch
+      `Prelude.seq` Prelude.rnf textTransformation
 
 instance Core.ToJSON XssMatchTuple where
   toJSON XssMatchTuple' {..} =

@@ -124,9 +124,13 @@ instance Core.AWSRequest GetWebACLForResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWebACLForResource
+instance Prelude.Hashable GetWebACLForResource where
+  hashWithSalt _salt GetWebACLForResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetWebACLForResource
+instance Prelude.NFData GetWebACLForResource where
+  rnf GetWebACLForResource' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetWebACLForResource where
   toHeaders =
@@ -201,4 +205,7 @@ getWebACLForResourceResponse_webACLSummary = Lens.lens (\GetWebACLForResourceRes
 getWebACLForResourceResponse_httpStatus :: Lens.Lens' GetWebACLForResourceResponse Prelude.Int
 getWebACLForResourceResponse_httpStatus = Lens.lens (\GetWebACLForResourceResponse' {httpStatus} -> httpStatus) (\s@GetWebACLForResourceResponse' {} a -> s {httpStatus = a} :: GetWebACLForResourceResponse)
 
-instance Prelude.NFData GetWebACLForResourceResponse
+instance Prelude.NFData GetWebACLForResourceResponse where
+  rnf GetWebACLForResourceResponse' {..} =
+    Prelude.rnf webACLSummary
+      `Prelude.seq` Prelude.rnf httpStatus

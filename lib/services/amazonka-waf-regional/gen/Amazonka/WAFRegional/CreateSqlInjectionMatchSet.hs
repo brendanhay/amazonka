@@ -141,9 +141,15 @@ instance Core.AWSRequest CreateSqlInjectionMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSqlInjectionMatchSet
+instance Prelude.Hashable CreateSqlInjectionMatchSet where
+  hashWithSalt _salt CreateSqlInjectionMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateSqlInjectionMatchSet
+instance Prelude.NFData CreateSqlInjectionMatchSet where
+  rnf CreateSqlInjectionMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateSqlInjectionMatchSet where
   toHeaders =
@@ -237,3 +243,8 @@ createSqlInjectionMatchSetResponse_httpStatus = Lens.lens (\CreateSqlInjectionMa
 instance
   Prelude.NFData
     CreateSqlInjectionMatchSetResponse
+  where
+  rnf CreateSqlInjectionMatchSetResponse' {..} =
+    Prelude.rnf sqlInjectionMatchSet
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

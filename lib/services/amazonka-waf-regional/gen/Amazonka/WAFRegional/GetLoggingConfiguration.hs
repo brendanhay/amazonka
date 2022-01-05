@@ -101,9 +101,13 @@ instance Core.AWSRequest GetLoggingConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggingConfiguration
+instance Prelude.Hashable GetLoggingConfiguration where
+  hashWithSalt _salt GetLoggingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetLoggingConfiguration
+instance Prelude.NFData GetLoggingConfiguration where
+  rnf GetLoggingConfiguration' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetLoggingConfiguration where
   toHeaders =
@@ -175,3 +179,7 @@ getLoggingConfigurationResponse_httpStatus = Lens.lens (\GetLoggingConfiguration
 instance
   Prelude.NFData
     GetLoggingConfigurationResponse
+  where
+  rnf GetLoggingConfigurationResponse' {..} =
+    Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

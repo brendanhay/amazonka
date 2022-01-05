@@ -174,9 +174,25 @@ instance Core.FromJSON CrossRegionCopyRule where
             Prelude.<*> (x Core..: "Encrypted")
       )
 
-instance Prelude.Hashable CrossRegionCopyRule
+instance Prelude.Hashable CrossRegionCopyRule where
+  hashWithSalt _salt CrossRegionCopyRule' {..} =
+    _salt `Prelude.hashWithSalt` deprecateRule
+      `Prelude.hashWithSalt` targetRegion
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` cmkArn
+      `Prelude.hashWithSalt` retainRule
+      `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` encrypted
 
-instance Prelude.NFData CrossRegionCopyRule
+instance Prelude.NFData CrossRegionCopyRule where
+  rnf CrossRegionCopyRule' {..} =
+    Prelude.rnf deprecateRule
+      `Prelude.seq` Prelude.rnf targetRegion
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf cmkArn
+      `Prelude.seq` Prelude.rnf retainRule
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf encrypted
 
 instance Core.ToJSON CrossRegionCopyRule where
   toJSON CrossRegionCopyRule' {..} =

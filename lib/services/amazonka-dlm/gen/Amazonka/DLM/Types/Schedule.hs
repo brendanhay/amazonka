@@ -196,9 +196,31 @@ instance Core.FromJSON Schedule where
             Prelude.<*> (x Core..:? "FastRestoreRule")
       )
 
-instance Prelude.Hashable Schedule
+instance Prelude.Hashable Schedule where
+  hashWithSalt _salt Schedule' {..} =
+    _salt `Prelude.hashWithSalt` variableTags
+      `Prelude.hashWithSalt` createRule
+      `Prelude.hashWithSalt` deprecateRule
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` shareRules
+      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` retainRule
+      `Prelude.hashWithSalt` crossRegionCopyRules
+      `Prelude.hashWithSalt` fastRestoreRule
 
-instance Prelude.NFData Schedule
+instance Prelude.NFData Schedule where
+  rnf Schedule' {..} =
+    Prelude.rnf variableTags
+      `Prelude.seq` Prelude.rnf createRule
+      `Prelude.seq` Prelude.rnf deprecateRule
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf shareRules
+      `Prelude.seq` Prelude.rnf tagsToAdd
+      `Prelude.seq` Prelude.rnf retainRule
+      `Prelude.seq` Prelude.rnf crossRegionCopyRules
+      `Prelude.seq` Prelude.rnf fastRestoreRule
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =

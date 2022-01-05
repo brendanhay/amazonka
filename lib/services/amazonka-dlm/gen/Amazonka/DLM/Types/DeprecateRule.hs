@@ -103,9 +103,17 @@ instance Core.FromJSON DeprecateRule where
             Prelude.<*> (x Core..:? "IntervalUnit")
       )
 
-instance Prelude.Hashable DeprecateRule
+instance Prelude.Hashable DeprecateRule where
+  hashWithSalt _salt DeprecateRule' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` intervalUnit
 
-instance Prelude.NFData DeprecateRule
+instance Prelude.NFData DeprecateRule where
+  rnf DeprecateRule' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON DeprecateRule where
   toJSON DeprecateRule' {..} =

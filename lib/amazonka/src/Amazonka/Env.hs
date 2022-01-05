@@ -28,6 +28,15 @@ module Amazonka.Env
     once,
     timeout,
 
+    -- * 'Env' Lenses
+    -- $envLenses
+    envRegion,
+    envLogger,
+    envRetryCheck,
+    envOverride,
+    envManager,
+    envAuth,
+
     -- * Retry HTTP Exceptions
     retryConnectionFailure,
   )
@@ -37,6 +46,7 @@ import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Lens (Lens)
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
@@ -48,7 +58,7 @@ type EnvNoAuth = Env' Proxy
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
--- Lenses from 'AWSEnv' can be used to further configure the resulting 'Env'.
+-- Lenses can be used to further configure the resulting 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -170,3 +180,28 @@ once = override (serviceRetry . retryAttempts .~ 0)
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env -> Env
 timeout n = override (serviceTimeout ?~ n)
+
+-- $envLenses
+--
+-- We provide lenses for 'Env'', though you are of course free to use
+-- the @generic-lens@ package.
+
+envRegion :: Lens' (Env' withAuth) Region
+envRegion f env = f (_envRegion env) <&> \r -> env {_envRegion = r}
+
+envLogger :: Lens' (Env' withAuth) Logger
+envLogger f env = f (_envLogger env) <&> \l -> env {_envLogger = l}
+
+envRetryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
+envRetryCheck f env =
+  f (_envRetryCheck env) <&> \rc -> env {_envRetryCheck = rc}
+
+envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
+envOverride f env = f (_envOverride env) <&> \o -> env {_envOverride = o}
+
+envManager :: Lens' (Env' withAuth) Client.Manager
+envManager f env = f (_envManager env) <&> \m -> env {_envManager = m}
+
+envAuth ::
+  Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
+envAuth f env = f (_envAuth env) <&> \a -> env {_envAuth = a}

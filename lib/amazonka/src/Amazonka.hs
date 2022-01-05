@@ -33,6 +33,14 @@ module Amazonka
     Env.once,
     Env.timeout,
 
+    -- *** Lenses
+    Env.envRegion,
+    Env.envLogger,
+    Env.envRetryCheck,
+    Env.envOverride,
+    Env.envManager,
+    Env.envAuth,
+
     -- ** Running AWS Actions
     runResourceT,
 

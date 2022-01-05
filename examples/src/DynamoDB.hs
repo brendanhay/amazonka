@@ -9,6 +9,8 @@
 -- you can omit the 'setEndpoint' and 'reconfigure' steps below.
 module DynamoDB where
 
+import Amazonka
+import Amazonka.DynamoDB as DynamoDB
 import Control.Lens
 import Control.Monad.IO.Class
 import Data.Conduit
@@ -18,8 +20,6 @@ import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Amazonka
-import Amazonka.DynamoDB as DynamoDB
 import System.IO
 
 printTables ::
@@ -37,7 +37,7 @@ printTables region secure host port = do
   let dynamo = setEndpoint secure host port DynamoDB.defaultService
 
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . configure dynamo . within region
+  env <- newEnv Discover <&> set envLogger lgr . configure dynamo . within region
 
   runResourceT $ do
     say $ "Listing all tables in region " <> toText region
@@ -65,7 +65,7 @@ insertItem region secure host port table item = do
   let dynamo = setEndpoint secure host port DynamoDB.defaultService
 
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . within region . configure dynamo
+  env <- newEnv Discover <&> set envLogger lgr . within region . configure dynamo
 
   runResourceT $ do
     say $

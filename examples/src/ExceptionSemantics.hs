@@ -5,6 +5,8 @@
 
 module ExceptionSemantics where
 
+import Amazonka
+import Amazonka.DynamoDB
 import Control.Exception.Lens
 import Control.Lens
 import Control.Monad.Catch
@@ -15,8 +17,6 @@ import Data.Generics.Product
 import Data.List.NonEmpty (NonEmpty (..))
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Amazonka
-import Amazonka.DynamoDB
 import System.IO
 
 exceptions ::
@@ -27,7 +27,7 @@ exceptions ::
   IO ()
 exceptions r n = do
   lgr <- newLogger Info stdout
-  env <- newEnv Discover <&> set (field @"_envLogger") lgr . within r
+  env <- newEnv Discover <&> set envLogger lgr . within r
 
   let scan = newScan n & field @"attributesToGet" ?~ "foo" :| []
 

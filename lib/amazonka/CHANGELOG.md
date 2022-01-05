@@ -3,6 +3,15 @@
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/compare/2.0.0-rc1...2.0.0)
 
+### Changed
+
+- `amazonka-dynamodb`: Mark various fields as required
+[\#724](https://github.com/brendanhay/amazonka/pull/724)
+- `amazonka-dynamodb`: Provide a sum type for `AttributeValue`
+[\#724](https://github.com/brendanhay/amazonka/pull/724)
+- `amazonka-dynamodb-streams`: Provide a sum type for `AttributeValue`
+[\#724](https://github.com/brendanhay/amazonka/pull/724)
+
 ### Fixed
 
 - Lenses for the `Env'` data type have been manually provided, as `generic-lens` cannot always derive them when required.

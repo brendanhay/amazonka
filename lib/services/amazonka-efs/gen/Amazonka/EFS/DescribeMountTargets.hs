@@ -204,9 +204,21 @@ instance Core.AWSRequest DescribeMountTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMountTargets
+instance Prelude.Hashable DescribeMountTargets where
+  hashWithSalt _salt DescribeMountTargets' {..} =
+    _salt `Prelude.hashWithSalt` accessPointId
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` mountTargetId
 
-instance Prelude.NFData DescribeMountTargets
+instance Prelude.NFData DescribeMountTargets where
+  rnf DescribeMountTargets' {..} =
+    Prelude.rnf accessPointId
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf mountTargetId
 
 instance Core.ToHeaders DescribeMountTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,4 +307,9 @@ describeMountTargetsResponse_nextMarker = Lens.lens (\DescribeMountTargetsRespon
 describeMountTargetsResponse_httpStatus :: Lens.Lens' DescribeMountTargetsResponse Prelude.Int
 describeMountTargetsResponse_httpStatus = Lens.lens (\DescribeMountTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeMountTargetsResponse' {} a -> s {httpStatus = a} :: DescribeMountTargetsResponse)
 
-instance Prelude.NFData DescribeMountTargetsResponse
+instance Prelude.NFData DescribeMountTargetsResponse where
+  rnf DescribeMountTargetsResponse' {..} =
+    Prelude.rnf mountTargets
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

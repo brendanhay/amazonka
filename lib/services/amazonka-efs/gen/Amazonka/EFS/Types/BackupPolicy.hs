@@ -97,9 +97,12 @@ instance Core.FromJSON BackupPolicy where
           BackupPolicy' Prelude.<$> (x Core..: "Status")
       )
 
-instance Prelude.Hashable BackupPolicy
+instance Prelude.Hashable BackupPolicy where
+  hashWithSalt _salt BackupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData BackupPolicy
+instance Prelude.NFData BackupPolicy where
+  rnf BackupPolicy' {..} = Prelude.rnf status
 
 instance Core.ToJSON BackupPolicy where
   toJSON BackupPolicy' {..} =

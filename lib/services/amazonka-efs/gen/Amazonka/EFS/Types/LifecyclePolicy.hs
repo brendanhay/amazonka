@@ -97,9 +97,15 @@ instance Core.FromJSON LifecyclePolicy where
             Prelude.<*> (x Core..:? "TransitionToPrimaryStorageClass")
       )
 
-instance Prelude.Hashable LifecyclePolicy
+instance Prelude.Hashable LifecyclePolicy where
+  hashWithSalt _salt LifecyclePolicy' {..} =
+    _salt `Prelude.hashWithSalt` transitionToIA
+      `Prelude.hashWithSalt` transitionToPrimaryStorageClass
 
-instance Prelude.NFData LifecyclePolicy
+instance Prelude.NFData LifecyclePolicy where
+  rnf LifecyclePolicy' {..} =
+    Prelude.rnf transitionToIA
+      `Prelude.seq` Prelude.rnf transitionToPrimaryStorageClass
 
 instance Core.ToJSON LifecyclePolicy where
   toJSON LifecyclePolicy' {..} =

@@ -114,9 +114,15 @@ instance Core.AWSRequest DescribeAccountPreferences where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountPreferences
+instance Prelude.Hashable DescribeAccountPreferences where
+  hashWithSalt _salt DescribeAccountPreferences' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeAccountPreferences
+instance Prelude.NFData DescribeAccountPreferences where
+  rnf DescribeAccountPreferences' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,3 +197,8 @@ describeAccountPreferencesResponse_httpStatus = Lens.lens (\DescribeAccountPrefe
 instance
   Prelude.NFData
     DescribeAccountPreferencesResponse
+  where
+  rnf DescribeAccountPreferencesResponse' {..} =
+    Prelude.rnf resourceIdPreference
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

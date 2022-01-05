@@ -83,9 +83,13 @@ instance Core.AWSRequest DeleteAccessPoint where
   response =
     Response.receiveNull DeleteAccessPointResponse'
 
-instance Prelude.Hashable DeleteAccessPoint
+instance Prelude.Hashable DeleteAccessPoint where
+  hashWithSalt _salt DeleteAccessPoint' {..} =
+    _salt `Prelude.hashWithSalt` accessPointId
 
-instance Prelude.NFData DeleteAccessPoint
+instance Prelude.NFData DeleteAccessPoint where
+  rnf DeleteAccessPoint' {..} =
+    Prelude.rnf accessPointId
 
 instance Core.ToHeaders DeleteAccessPoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -115,4 +119,5 @@ newDeleteAccessPointResponse ::
 newDeleteAccessPointResponse =
   DeleteAccessPointResponse'
 
-instance Prelude.NFData DeleteAccessPointResponse
+instance Prelude.NFData DeleteAccessPointResponse where
+  rnf _ = ()

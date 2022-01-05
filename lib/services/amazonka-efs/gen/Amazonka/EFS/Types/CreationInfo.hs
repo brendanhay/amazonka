@@ -111,9 +111,17 @@ instance Core.FromJSON CreationInfo where
             Prelude.<*> (x Core..: "Permissions")
       )
 
-instance Prelude.Hashable CreationInfo
+instance Prelude.Hashable CreationInfo where
+  hashWithSalt _salt CreationInfo' {..} =
+    _salt `Prelude.hashWithSalt` ownerUid
+      `Prelude.hashWithSalt` ownerGid
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData CreationInfo
+instance Prelude.NFData CreationInfo where
+  rnf CreationInfo' {..} =
+    Prelude.rnf ownerUid
+      `Prelude.seq` Prelude.rnf ownerGid
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToJSON CreationInfo where
   toJSON CreationInfo' {..} =

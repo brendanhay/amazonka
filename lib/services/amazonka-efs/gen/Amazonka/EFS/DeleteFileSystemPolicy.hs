@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteFileSystemPolicy where
     Response.receiveNull
       DeleteFileSystemPolicyResponse'
 
-instance Prelude.Hashable DeleteFileSystemPolicy
+instance Prelude.Hashable DeleteFileSystemPolicy where
+  hashWithSalt _salt DeleteFileSystemPolicy' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData DeleteFileSystemPolicy
+instance Prelude.NFData DeleteFileSystemPolicy where
+  rnf DeleteFileSystemPolicy' {..} =
+    Prelude.rnf fileSystemId
 
 instance Core.ToHeaders DeleteFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -126,3 +130,5 @@ newDeleteFileSystemPolicyResponse =
 instance
   Prelude.NFData
     DeleteFileSystemPolicyResponse
+  where
+  rnf _ = ()

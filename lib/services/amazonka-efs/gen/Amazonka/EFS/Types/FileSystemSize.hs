@@ -115,6 +115,16 @@ instance Core.FromJSON FileSystemSize where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable FileSystemSize
+instance Prelude.Hashable FileSystemSize where
+  hashWithSalt _salt FileSystemSize' {..} =
+    _salt `Prelude.hashWithSalt` valueInIA
+      `Prelude.hashWithSalt` valueInStandard
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData FileSystemSize
+instance Prelude.NFData FileSystemSize where
+  rnf FileSystemSize' {..} =
+    Prelude.rnf valueInIA
+      `Prelude.seq` Prelude.rnf valueInStandard
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf value

@@ -121,9 +121,13 @@ instance Core.AWSRequest PutAccountPreferences where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccountPreferences
+instance Prelude.Hashable PutAccountPreferences where
+  hashWithSalt _salt PutAccountPreferences' {..} =
+    _salt `Prelude.hashWithSalt` resourceIdType
 
-instance Prelude.NFData PutAccountPreferences
+instance Prelude.NFData PutAccountPreferences where
+  rnf PutAccountPreferences' {..} =
+    Prelude.rnf resourceIdType
 
 instance Core.ToHeaders PutAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +186,7 @@ putAccountPreferencesResponse_resourceIdPreference = Lens.lens (\PutAccountPrefe
 putAccountPreferencesResponse_httpStatus :: Lens.Lens' PutAccountPreferencesResponse Prelude.Int
 putAccountPreferencesResponse_httpStatus = Lens.lens (\PutAccountPreferencesResponse' {httpStatus} -> httpStatus) (\s@PutAccountPreferencesResponse' {} a -> s {httpStatus = a} :: PutAccountPreferencesResponse)
 
-instance Prelude.NFData PutAccountPreferencesResponse
+instance Prelude.NFData PutAccountPreferencesResponse where
+  rnf PutAccountPreferencesResponse' {..} =
+    Prelude.rnf resourceIdPreference
+      `Prelude.seq` Prelude.rnf httpStatus

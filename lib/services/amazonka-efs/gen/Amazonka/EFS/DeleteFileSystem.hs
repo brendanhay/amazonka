@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteFileSystem where
   response =
     Response.receiveNull DeleteFileSystemResponse'
 
-instance Prelude.Hashable DeleteFileSystem
+instance Prelude.Hashable DeleteFileSystem where
+  hashWithSalt _salt DeleteFileSystem' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData DeleteFileSystem
+instance Prelude.NFData DeleteFileSystem where
+  rnf DeleteFileSystem' {..} = Prelude.rnf fileSystemId
 
 instance Core.ToHeaders DeleteFileSystem where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,4 +128,5 @@ newDeleteFileSystemResponse ::
 newDeleteFileSystemResponse =
   DeleteFileSystemResponse'
 
-instance Prelude.NFData DeleteFileSystemResponse
+instance Prelude.NFData DeleteFileSystemResponse where
+  rnf _ = ()

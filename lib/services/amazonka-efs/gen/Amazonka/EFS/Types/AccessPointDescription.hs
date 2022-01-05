@@ -174,6 +174,28 @@ instance Core.FromJSON AccessPointDescription where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AccessPointDescription
+instance Prelude.Hashable AccessPointDescription where
+  hashWithSalt _salt AccessPointDescription' {..} =
+    _salt `Prelude.hashWithSalt` posixUser
+      `Prelude.hashWithSalt` rootDirectory
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` accessPointId
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` accessPointArn
+      `Prelude.hashWithSalt` lifeCycleState
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AccessPointDescription
+instance Prelude.NFData AccessPointDescription where
+  rnf AccessPointDescription' {..} =
+    Prelude.rnf posixUser
+      `Prelude.seq` Prelude.rnf rootDirectory
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf accessPointId
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf accessPointArn
+      `Prelude.seq` Prelude.rnf lifeCycleState
+      `Prelude.seq` Prelude.rnf tags

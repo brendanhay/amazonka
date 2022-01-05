@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     DescribeLifecycleConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeLifecycleConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fileSystemId
 
 instance
   Prelude.NFData
     DescribeLifecycleConfiguration
+  where
+  rnf DescribeLifecycleConfiguration' {..} =
+    Prelude.rnf fileSystemId
 
 instance
   Core.ToHeaders

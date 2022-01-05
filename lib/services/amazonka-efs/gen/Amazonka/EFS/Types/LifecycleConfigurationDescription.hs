@@ -72,7 +72,15 @@ instance
 instance
   Prelude.Hashable
     LifecycleConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    LifecycleConfigurationDescription' {..} =
+      _salt `Prelude.hashWithSalt` lifecyclePolicies
 
 instance
   Prelude.NFData
     LifecycleConfigurationDescription
+  where
+  rnf LifecycleConfigurationDescription' {..} =
+    Prelude.rnf lifecyclePolicies

@@ -70,6 +70,12 @@ instance Core.FromJSON FileSystemPolicyDescription where
             Prelude.<*> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable FileSystemPolicyDescription
+instance Prelude.Hashable FileSystemPolicyDescription where
+  hashWithSalt _salt FileSystemPolicyDescription' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData FileSystemPolicyDescription
+instance Prelude.NFData FileSystemPolicyDescription where
+  rnf FileSystemPolicyDescription' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf policy

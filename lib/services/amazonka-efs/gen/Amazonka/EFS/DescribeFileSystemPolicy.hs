@@ -88,9 +88,13 @@ instance Core.AWSRequest DescribeFileSystemPolicy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeFileSystemPolicy
+instance Prelude.Hashable DescribeFileSystemPolicy where
+  hashWithSalt _salt DescribeFileSystemPolicy' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData DescribeFileSystemPolicy
+instance Prelude.NFData DescribeFileSystemPolicy where
+  rnf DescribeFileSystemPolicy' {..} =
+    Prelude.rnf fileSystemId
 
 instance Core.ToHeaders DescribeFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty

@@ -113,9 +113,15 @@ instance Core.FromJSON RootDirectory where
             Prelude.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable RootDirectory
+instance Prelude.Hashable RootDirectory where
+  hashWithSalt _salt RootDirectory' {..} =
+    _salt `Prelude.hashWithSalt` creationInfo
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData RootDirectory
+instance Prelude.NFData RootDirectory where
+  rnf RootDirectory' {..} =
+    Prelude.rnf creationInfo
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON RootDirectory where
   toJSON RootDirectory' {..} =

@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeEnvironments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEnvironments
+instance Prelude.Hashable DescribeEnvironments where
+  hashWithSalt _salt DescribeEnvironments' {..} =
+    _salt `Prelude.hashWithSalt` environmentIds
 
-instance Prelude.NFData DescribeEnvironments
+instance Prelude.NFData DescribeEnvironments where
+  rnf DescribeEnvironments' {..} =
+    Prelude.rnf environmentIds
 
 instance Core.ToHeaders DescribeEnvironments where
   toHeaders =
@@ -162,4 +166,7 @@ describeEnvironmentsResponse_environments = Lens.lens (\DescribeEnvironmentsResp
 describeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentsResponse Prelude.Int
 describeEnvironmentsResponse_httpStatus = Lens.lens (\DescribeEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentsResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentsResponse)
 
-instance Prelude.NFData DescribeEnvironmentsResponse
+instance Prelude.NFData DescribeEnvironmentsResponse where
+  rnf DescribeEnvironmentsResponse' {..} =
+    Prelude.rnf environments
+      `Prelude.seq` Prelude.rnf httpStatus

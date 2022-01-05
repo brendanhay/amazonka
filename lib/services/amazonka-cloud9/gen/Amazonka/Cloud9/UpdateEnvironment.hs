@@ -150,9 +150,20 @@ instance Core.AWSRequest UpdateEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEnvironment
+instance Prelude.Hashable UpdateEnvironment where
+  hashWithSalt _salt UpdateEnvironment' {..} =
+    _salt
+      `Prelude.hashWithSalt` managedCredentialsAction
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData UpdateEnvironment
+instance Prelude.NFData UpdateEnvironment where
+  rnf UpdateEnvironment' {..} =
+    Prelude.rnf managedCredentialsAction
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders UpdateEnvironment where
   toHeaders =
@@ -218,4 +229,6 @@ newUpdateEnvironmentResponse pHttpStatus_ =
 updateEnvironmentResponse_httpStatus :: Lens.Lens' UpdateEnvironmentResponse Prelude.Int
 updateEnvironmentResponse_httpStatus = Lens.lens (\UpdateEnvironmentResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentResponse)
 
-instance Prelude.NFData UpdateEnvironmentResponse
+instance Prelude.NFData UpdateEnvironmentResponse where
+  rnf UpdateEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus

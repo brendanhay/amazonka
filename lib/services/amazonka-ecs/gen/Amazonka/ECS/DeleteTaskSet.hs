@@ -138,9 +138,19 @@ instance Core.AWSRequest DeleteTaskSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTaskSet
+instance Prelude.Hashable DeleteTaskSet where
+  hashWithSalt _salt DeleteTaskSet' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` taskSet
 
-instance Prelude.NFData DeleteTaskSet
+instance Prelude.NFData DeleteTaskSet where
+  rnf DeleteTaskSet' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf taskSet
 
 instance Core.ToHeaders DeleteTaskSet where
   toHeaders =
@@ -212,4 +222,7 @@ deleteTaskSetResponse_taskSet = Lens.lens (\DeleteTaskSetResponse' {taskSet} -> 
 deleteTaskSetResponse_httpStatus :: Lens.Lens' DeleteTaskSetResponse Prelude.Int
 deleteTaskSetResponse_httpStatus = Lens.lens (\DeleteTaskSetResponse' {httpStatus} -> httpStatus) (\s@DeleteTaskSetResponse' {} a -> s {httpStatus = a} :: DeleteTaskSetResponse)
 
-instance Prelude.NFData DeleteTaskSetResponse
+instance Prelude.NFData DeleteTaskSetResponse where
+  rnf DeleteTaskSetResponse' {..} =
+    Prelude.rnf taskSet
+      `Prelude.seq` Prelude.rnf httpStatus

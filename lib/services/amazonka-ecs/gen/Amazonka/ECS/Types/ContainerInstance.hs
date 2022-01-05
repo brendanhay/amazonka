@@ -484,6 +484,42 @@ instance Core.FromJSON ContainerInstance where
                         )
       )
 
-instance Prelude.Hashable ContainerInstance
+instance Prelude.Hashable ContainerInstance where
+  hashWithSalt _salt ContainerInstance' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` runningTasksCount
+      `Prelude.hashWithSalt` remainingResources
+      `Prelude.hashWithSalt` ec2InstanceId
+      `Prelude.hashWithSalt` containerInstanceArn
+      `Prelude.hashWithSalt` agentConnected
+      `Prelude.hashWithSalt` versionInfo
+      `Prelude.hashWithSalt` agentUpdateStatus
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` pendingTasksCount
+      `Prelude.hashWithSalt` capacityProviderName
+      `Prelude.hashWithSalt` registeredAt
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` registeredResources
 
-instance Prelude.NFData ContainerInstance
+instance Prelude.NFData ContainerInstance where
+  rnf ContainerInstance' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf runningTasksCount
+      `Prelude.seq` Prelude.rnf remainingResources
+      `Prelude.seq` Prelude.rnf ec2InstanceId
+      `Prelude.seq` Prelude.rnf containerInstanceArn
+      `Prelude.seq` Prelude.rnf agentConnected
+      `Prelude.seq` Prelude.rnf versionInfo
+      `Prelude.seq` Prelude.rnf agentUpdateStatus
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf pendingTasksCount
+      `Prelude.seq` Prelude.rnf capacityProviderName
+      `Prelude.seq` Prelude.rnf registeredAt
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registeredResources

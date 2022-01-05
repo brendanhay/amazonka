@@ -210,9 +210,17 @@ instance Core.AWSRequest CreateCapacityProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCapacityProvider
+instance Prelude.Hashable CreateCapacityProvider where
+  hashWithSalt _salt CreateCapacityProvider' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` autoScalingGroupProvider
 
-instance Prelude.NFData CreateCapacityProvider
+instance Prelude.NFData CreateCapacityProvider where
+  rnf CreateCapacityProvider' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoScalingGroupProvider
 
 instance Core.ToHeaders CreateCapacityProvider where
   toHeaders =
@@ -290,3 +298,7 @@ createCapacityProviderResponse_httpStatus = Lens.lens (\CreateCapacityProviderRe
 instance
   Prelude.NFData
     CreateCapacityProviderResponse
+  where
+  rnf CreateCapacityProviderResponse' {..} =
+    Prelude.rnf capacityProvider
+      `Prelude.seq` Prelude.rnf httpStatus

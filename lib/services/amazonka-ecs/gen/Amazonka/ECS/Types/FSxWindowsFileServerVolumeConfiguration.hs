@@ -111,10 +111,22 @@ instance
 instance
   Prelude.Hashable
     FSxWindowsFileServerVolumeConfiguration
+  where
+  hashWithSalt
+    _salt
+    FSxWindowsFileServerVolumeConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fileSystemId
+        `Prelude.hashWithSalt` rootDirectory
+        `Prelude.hashWithSalt` authorizationConfig
 
 instance
   Prelude.NFData
     FSxWindowsFileServerVolumeConfiguration
+  where
+  rnf FSxWindowsFileServerVolumeConfiguration' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf rootDirectory
+      `Prelude.seq` Prelude.rnf authorizationConfig
 
 instance
   Core.ToJSON

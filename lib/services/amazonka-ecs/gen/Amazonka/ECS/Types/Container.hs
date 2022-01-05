@@ -256,6 +256,42 @@ instance Core.FromJSON Container where
             Prelude.<*> (x Core..:? "memoryReservation")
       )
 
-instance Prelude.Hashable Container
+instance Prelude.Hashable Container where
+  hashWithSalt _salt Container' {..} =
+    _salt `Prelude.hashWithSalt` gpuIds
+      `Prelude.hashWithSalt` networkBindings
+      `Prelude.hashWithSalt` managedAgents
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` containerArn
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` runtimeId
+      `Prelude.hashWithSalt` memoryReservation
 
-instance Prelude.NFData Container
+instance Prelude.NFData Container where
+  rnf Container' {..} =
+    Prelude.rnf gpuIds
+      `Prelude.seq` Prelude.rnf networkBindings
+      `Prelude.seq` Prelude.rnf managedAgents
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf containerArn
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf runtimeId
+      `Prelude.seq` Prelude.rnf memoryReservation

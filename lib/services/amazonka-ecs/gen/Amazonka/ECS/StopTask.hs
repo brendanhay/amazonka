@@ -137,9 +137,17 @@ instance Core.AWSRequest StopTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopTask
+instance Prelude.Hashable StopTask where
+  hashWithSalt _salt StopTask' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` task
 
-instance Prelude.NFData StopTask
+instance Prelude.NFData StopTask where
+  rnf StopTask' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf task
 
 instance Core.ToHeaders StopTask where
   toHeaders =
@@ -210,4 +218,7 @@ stopTaskResponse_task = Lens.lens (\StopTaskResponse' {task} -> task) (\s@StopTa
 stopTaskResponse_httpStatus :: Lens.Lens' StopTaskResponse Prelude.Int
 stopTaskResponse_httpStatus = Lens.lens (\StopTaskResponse' {httpStatus} -> httpStatus) (\s@StopTaskResponse' {} a -> s {httpStatus = a} :: StopTaskResponse)
 
-instance Prelude.NFData StopTaskResponse
+instance Prelude.NFData StopTaskResponse where
+  rnf StopTaskResponse' {..} =
+    Prelude.rnf task
+      `Prelude.seq` Prelude.rnf httpStatus

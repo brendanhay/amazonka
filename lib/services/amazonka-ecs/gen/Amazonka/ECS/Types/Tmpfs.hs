@@ -94,9 +94,17 @@ instance Core.FromJSON Tmpfs where
             Prelude.<*> (x Core..: "size")
       )
 
-instance Prelude.Hashable Tmpfs
+instance Prelude.Hashable Tmpfs where
+  hashWithSalt _salt Tmpfs' {..} =
+    _salt `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` containerPath
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData Tmpfs
+instance Prelude.NFData Tmpfs where
+  rnf Tmpfs' {..} =
+    Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf containerPath
+      `Prelude.seq` Prelude.rnf size
 
 instance Core.ToJSON Tmpfs where
   toJSON Tmpfs' {..} =

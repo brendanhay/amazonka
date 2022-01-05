@@ -323,9 +323,24 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` capacityProviders
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf defaultCapacityProviderStrategy
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -401,4 +416,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -538,9 +538,37 @@ instance Core.AWSRequest UpdateService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateService
+instance Prelude.Hashable UpdateService where
+  hashWithSalt _salt UpdateService' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` forceNewDeployment
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` deploymentConfiguration
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData UpdateService
+instance Prelude.NFData UpdateService where
+  rnf UpdateService' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf forceNewDeployment
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriodSeconds
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf deploymentConfiguration
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToHeaders UpdateService where
   toHeaders =
@@ -631,4 +659,7 @@ updateServiceResponse_service = Lens.lens (\UpdateServiceResponse' {service} -> 
 updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Prelude.Int
 updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceResponse' {} a -> s {httpStatus = a} :: UpdateServiceResponse)
 
-instance Prelude.NFData UpdateServiceResponse
+instance Prelude.NFData UpdateServiceResponse where
+  rnf UpdateServiceResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

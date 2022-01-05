@@ -196,8 +196,17 @@ instance
 instance
   Prelude.Hashable
     UpdateContainerInstancesState
+  where
+  hashWithSalt _salt UpdateContainerInstancesState' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` containerInstances
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateContainerInstancesState
+instance Prelude.NFData UpdateContainerInstancesState where
+  rnf UpdateContainerInstancesState' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerInstances
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateContainerInstancesState where
   toHeaders =
@@ -282,3 +291,8 @@ updateContainerInstancesStateResponse_httpStatus = Lens.lens (\UpdateContainerIn
 instance
   Prelude.NFData
     UpdateContainerInstancesStateResponse
+  where
+  rnf UpdateContainerInstancesStateResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf containerInstances
+      `Prelude.seq` Prelude.rnf httpStatus

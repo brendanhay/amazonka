@@ -73,9 +73,14 @@ platformDevice_id = Lens.lens (\PlatformDevice' {id} -> id) (\s@PlatformDevice' 
 platformDevice_type :: Lens.Lens' PlatformDevice PlatformDeviceType
 platformDevice_type = Lens.lens (\PlatformDevice' {type'} -> type') (\s@PlatformDevice' {} a -> s {type' = a} :: PlatformDevice)
 
-instance Prelude.Hashable PlatformDevice
+instance Prelude.Hashable PlatformDevice where
+  hashWithSalt _salt PlatformDevice' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData PlatformDevice
+instance Prelude.NFData PlatformDevice where
+  rnf PlatformDevice' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON PlatformDevice where
   toJSON PlatformDevice' {..} =

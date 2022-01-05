@@ -438,9 +438,37 @@ instance Core.AWSRequest CreateTaskSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTaskSet
+instance Prelude.Hashable CreateTaskSet where
+  hashWithSalt _salt CreateTaskSet' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` taskDefinition
 
-instance Prelude.NFData CreateTaskSet
+instance Prelude.NFData CreateTaskSet where
+  rnf CreateTaskSet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf taskDefinition
 
 instance Core.ToHeaders CreateTaskSet where
   toHeaders =
@@ -535,4 +563,7 @@ createTaskSetResponse_taskSet = Lens.lens (\CreateTaskSetResponse' {taskSet} -> 
 createTaskSetResponse_httpStatus :: Lens.Lens' CreateTaskSetResponse Prelude.Int
 createTaskSetResponse_httpStatus = Lens.lens (\CreateTaskSetResponse' {httpStatus} -> httpStatus) (\s@CreateTaskSetResponse' {} a -> s {httpStatus = a} :: CreateTaskSetResponse)
 
-instance Prelude.NFData CreateTaskSetResponse
+instance Prelude.NFData CreateTaskSetResponse where
+  rnf CreateTaskSetResponse' {..} =
+    Prelude.rnf taskSet
+      `Prelude.seq` Prelude.rnf httpStatus

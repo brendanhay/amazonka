@@ -111,9 +111,15 @@ instance Core.AWSRequest DeleteAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAttributes
+instance Prelude.Hashable DeleteAttributes where
+  hashWithSalt _salt DeleteAttributes' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData DeleteAttributes
+instance Prelude.NFData DeleteAttributes where
+  rnf DeleteAttributes' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders DeleteAttributes where
   toHeaders =
@@ -187,4 +193,7 @@ deleteAttributesResponse_attributes = Lens.lens (\DeleteAttributesResponse' {att
 deleteAttributesResponse_httpStatus :: Lens.Lens' DeleteAttributesResponse Prelude.Int
 deleteAttributesResponse_httpStatus = Lens.lens (\DeleteAttributesResponse' {httpStatus} -> httpStatus) (\s@DeleteAttributesResponse' {} a -> s {httpStatus = a} :: DeleteAttributesResponse)
 
-instance Prelude.NFData DeleteAttributesResponse
+instance Prelude.NFData DeleteAttributesResponse where
+  rnf DeleteAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

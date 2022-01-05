@@ -63,9 +63,14 @@ instance Core.FromJSON ClusterConfiguration where
             Prelude.<$> (x Core..:? "executeCommandConfiguration")
       )
 
-instance Prelude.Hashable ClusterConfiguration
+instance Prelude.Hashable ClusterConfiguration where
+  hashWithSalt _salt ClusterConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` executeCommandConfiguration
 
-instance Prelude.NFData ClusterConfiguration
+instance Prelude.NFData ClusterConfiguration where
+  rnf ClusterConfiguration' {..} =
+    Prelude.rnf executeCommandConfiguration
 
 instance Core.ToJSON ClusterConfiguration where
   toJSON ClusterConfiguration' {..} =

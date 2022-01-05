@@ -183,9 +183,19 @@ instance Core.AWSRequest DescribeCapacityProviders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCapacityProviders
+instance Prelude.Hashable DescribeCapacityProviders where
+  hashWithSalt _salt DescribeCapacityProviders' {..} =
+    _salt `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` capacityProviders
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeCapacityProviders
+instance Prelude.NFData DescribeCapacityProviders where
+  rnf DescribeCapacityProviders' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCapacityProviders where
   toHeaders =
@@ -289,3 +299,9 @@ describeCapacityProvidersResponse_httpStatus = Lens.lens (\DescribeCapacityProvi
 instance
   Prelude.NFData
     DescribeCapacityProvidersResponse
+  where
+  rnf DescribeCapacityProvidersResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf httpStatus

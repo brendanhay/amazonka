@@ -90,6 +90,14 @@ instance Core.FromJSON Session where
             Prelude.<*> (x Core..:? "sessionId")
       )
 
-instance Prelude.Hashable Session
+instance Prelude.Hashable Session where
+  hashWithSalt _salt Session' {..} =
+    _salt `Prelude.hashWithSalt` streamUrl
+      `Prelude.hashWithSalt` tokenValue
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData Session
+instance Prelude.NFData Session where
+  rnf Session' {..} =
+    Prelude.rnf streamUrl
+      `Prelude.seq` Prelude.rnf tokenValue
+      `Prelude.seq` Prelude.rnf sessionId

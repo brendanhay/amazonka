@@ -140,9 +140,17 @@ instance Core.FromJSON AutoScalingGroupProvider where
             Prelude.<*> (x Core..: "autoScalingGroupArn")
       )
 
-instance Prelude.Hashable AutoScalingGroupProvider
+instance Prelude.Hashable AutoScalingGroupProvider where
+  hashWithSalt _salt AutoScalingGroupProvider' {..} =
+    _salt `Prelude.hashWithSalt` managedScaling
+      `Prelude.hashWithSalt` managedTerminationProtection
+      `Prelude.hashWithSalt` autoScalingGroupArn
 
-instance Prelude.NFData AutoScalingGroupProvider
+instance Prelude.NFData AutoScalingGroupProvider where
+  rnf AutoScalingGroupProvider' {..} =
+    Prelude.rnf managedScaling
+      `Prelude.seq` Prelude.rnf managedTerminationProtection
+      `Prelude.seq` Prelude.rnf autoScalingGroupArn
 
 instance Core.ToJSON AutoScalingGroupProvider where
   toJSON AutoScalingGroupProvider' {..} =

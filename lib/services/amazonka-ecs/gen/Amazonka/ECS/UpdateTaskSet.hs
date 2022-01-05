@@ -143,9 +143,19 @@ instance Core.AWSRequest UpdateTaskSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTaskSet
+instance Prelude.Hashable UpdateTaskSet where
+  hashWithSalt _salt UpdateTaskSet' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` taskSet
+      `Prelude.hashWithSalt` scale
 
-instance Prelude.NFData UpdateTaskSet
+instance Prelude.NFData UpdateTaskSet where
+  rnf UpdateTaskSet' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf taskSet
+      `Prelude.seq` Prelude.rnf scale
 
 instance Core.ToHeaders UpdateTaskSet where
   toHeaders =
@@ -217,4 +227,7 @@ updateTaskSetResponse_taskSet = Lens.lens (\UpdateTaskSetResponse' {taskSet} -> 
 updateTaskSetResponse_httpStatus :: Lens.Lens' UpdateTaskSetResponse Prelude.Int
 updateTaskSetResponse_httpStatus = Lens.lens (\UpdateTaskSetResponse' {httpStatus} -> httpStatus) (\s@UpdateTaskSetResponse' {} a -> s {httpStatus = a} :: UpdateTaskSetResponse)
 
-instance Prelude.NFData UpdateTaskSetResponse
+instance Prelude.NFData UpdateTaskSetResponse where
+  rnf UpdateTaskSetResponse' {..} =
+    Prelude.rnf taskSet
+      `Prelude.seq` Prelude.rnf httpStatus

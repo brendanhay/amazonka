@@ -88,6 +88,14 @@ instance Core.FromJSON Setting where
             Prelude.<*> (x Core..:? "principalArn")
       )
 
-instance Prelude.Hashable Setting
+instance Prelude.Hashable Setting where
+  hashWithSalt _salt Setting' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` principalArn
 
-instance Prelude.NFData Setting
+instance Prelude.NFData Setting where
+  rnf Setting' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf principalArn

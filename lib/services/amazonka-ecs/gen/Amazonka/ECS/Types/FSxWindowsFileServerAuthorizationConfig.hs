@@ -106,10 +106,20 @@ instance
 instance
   Prelude.Hashable
     FSxWindowsFileServerAuthorizationConfig
+  where
+  hashWithSalt
+    _salt
+    FSxWindowsFileServerAuthorizationConfig' {..} =
+      _salt `Prelude.hashWithSalt` credentialsParameter
+        `Prelude.hashWithSalt` domain
 
 instance
   Prelude.NFData
     FSxWindowsFileServerAuthorizationConfig
+  where
+  rnf FSxWindowsFileServerAuthorizationConfig' {..} =
+    Prelude.rnf credentialsParameter
+      `Prelude.seq` Prelude.rnf domain
 
 instance
   Core.ToJSON

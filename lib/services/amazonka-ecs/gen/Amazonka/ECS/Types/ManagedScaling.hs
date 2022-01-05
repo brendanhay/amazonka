@@ -141,9 +141,21 @@ instance Core.FromJSON ManagedScaling where
             Prelude.<*> (x Core..:? "instanceWarmupPeriod")
       )
 
-instance Prelude.Hashable ManagedScaling
+instance Prelude.Hashable ManagedScaling where
+  hashWithSalt _salt ManagedScaling' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` maximumScalingStepSize
+      `Prelude.hashWithSalt` targetCapacity
+      `Prelude.hashWithSalt` minimumScalingStepSize
+      `Prelude.hashWithSalt` instanceWarmupPeriod
 
-instance Prelude.NFData ManagedScaling
+instance Prelude.NFData ManagedScaling where
+  rnf ManagedScaling' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maximumScalingStepSize
+      `Prelude.seq` Prelude.rnf targetCapacity
+      `Prelude.seq` Prelude.rnf minimumScalingStepSize
+      `Prelude.seq` Prelude.rnf instanceWarmupPeriod
 
 instance Core.ToJSON ManagedScaling where
   toJSON ManagedScaling' {..} =

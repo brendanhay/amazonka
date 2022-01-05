@@ -180,9 +180,17 @@ instance Core.FromJSON ProxyConfiguration where
             Prelude.<*> (x Core..: "containerName")
       )
 
-instance Prelude.Hashable ProxyConfiguration
+instance Prelude.Hashable ProxyConfiguration where
+  hashWithSalt _salt ProxyConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData ProxyConfiguration
+instance Prelude.NFData ProxyConfiguration where
+  rnf ProxyConfiguration' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf containerName
 
 instance Core.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =

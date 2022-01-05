@@ -92,9 +92,15 @@ instance Core.FromJSON SystemControl where
             Prelude.<*> (x Core..:? "namespace")
       )
 
-instance Prelude.Hashable SystemControl
+instance Prelude.Hashable SystemControl where
+  hashWithSalt _salt SystemControl' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData SystemControl
+instance Prelude.NFData SystemControl where
+  rnf SystemControl' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToJSON SystemControl where
   toJSON SystemControl' {..} =

@@ -138,9 +138,19 @@ instance Core.AWSRequest DescribeTaskSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTaskSets
+instance Prelude.Hashable DescribeTaskSets where
+  hashWithSalt _salt DescribeTaskSets' {..} =
+    _salt `Prelude.hashWithSalt` taskSets
+      `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData DescribeTaskSets
+instance Prelude.NFData DescribeTaskSets where
+  rnf DescribeTaskSets' {..} =
+    Prelude.rnf taskSets
+      `Prelude.seq` Prelude.rnf include
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToHeaders DescribeTaskSets where
   toHeaders =
@@ -222,4 +232,8 @@ describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failu
 describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Prelude.Int
 describeTaskSetsResponse_httpStatus = Lens.lens (\DescribeTaskSetsResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskSetsResponse' {} a -> s {httpStatus = a} :: DescribeTaskSetsResponse)
 
-instance Prelude.NFData DescribeTaskSetsResponse
+instance Prelude.NFData DescribeTaskSetsResponse where
+  rnf DescribeTaskSetsResponse' {..} =
+    Prelude.rnf taskSets
+      `Prelude.seq` Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

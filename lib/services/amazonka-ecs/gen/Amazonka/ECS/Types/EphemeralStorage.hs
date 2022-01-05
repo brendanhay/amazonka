@@ -75,9 +75,12 @@ instance Core.FromJSON EphemeralStorage where
             Prelude.<$> (x Core..: "sizeInGiB")
       )
 
-instance Prelude.Hashable EphemeralStorage
+instance Prelude.Hashable EphemeralStorage where
+  hashWithSalt _salt EphemeralStorage' {..} =
+    _salt `Prelude.hashWithSalt` sizeInGiB
 
-instance Prelude.NFData EphemeralStorage
+instance Prelude.NFData EphemeralStorage where
+  rnf EphemeralStorage' {..} = Prelude.rnf sizeInGiB
 
 instance Core.ToJSON EphemeralStorage where
   toJSON EphemeralStorage' {..} =

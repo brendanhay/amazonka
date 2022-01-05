@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateCapacityProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCapacityProvider
+instance Prelude.Hashable UpdateCapacityProvider where
+  hashWithSalt _salt UpdateCapacityProvider' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` autoScalingGroupProvider
 
-instance Prelude.NFData UpdateCapacityProvider
+instance Prelude.NFData UpdateCapacityProvider where
+  rnf UpdateCapacityProvider' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoScalingGroupProvider
 
 instance Core.ToHeaders UpdateCapacityProvider where
   toHeaders =
@@ -185,3 +191,7 @@ updateCapacityProviderResponse_httpStatus = Lens.lens (\UpdateCapacityProviderRe
 instance
   Prelude.NFData
     UpdateCapacityProviderResponse
+  where
+  rnf UpdateCapacityProviderResponse' {..} =
+    Prelude.rnf capacityProvider
+      `Prelude.seq` Prelude.rnf httpStatus

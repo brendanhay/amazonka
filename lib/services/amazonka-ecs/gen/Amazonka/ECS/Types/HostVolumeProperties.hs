@@ -92,9 +92,13 @@ instance Core.FromJSON HostVolumeProperties where
             Prelude.<$> (x Core..:? "sourcePath")
       )
 
-instance Prelude.Hashable HostVolumeProperties
+instance Prelude.Hashable HostVolumeProperties where
+  hashWithSalt _salt HostVolumeProperties' {..} =
+    _salt `Prelude.hashWithSalt` sourcePath
 
-instance Prelude.NFData HostVolumeProperties
+instance Prelude.NFData HostVolumeProperties where
+  rnf HostVolumeProperties' {..} =
+    Prelude.rnf sourcePath
 
 instance Core.ToJSON HostVolumeProperties where
   toJSON HostVolumeProperties' {..} =

@@ -214,9 +214,17 @@ instance Core.FromJSON LogConfiguration where
             Prelude.<*> (x Core..: "logDriver")
       )
 
-instance Prelude.Hashable LogConfiguration
+instance Prelude.Hashable LogConfiguration where
+  hashWithSalt _salt LogConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` secretOptions
+      `Prelude.hashWithSalt` logDriver
 
-instance Prelude.NFData LogConfiguration
+instance Prelude.NFData LogConfiguration where
+  rnf LogConfiguration' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf secretOptions
+      `Prelude.seq` Prelude.rnf logDriver
 
 instance Core.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =

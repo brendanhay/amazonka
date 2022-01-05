@@ -90,9 +90,14 @@ instance Core.FromJSON ClusterSetting where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ClusterSetting
+instance Prelude.Hashable ClusterSetting where
+  hashWithSalt _salt ClusterSetting' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ClusterSetting
+instance Prelude.NFData ClusterSetting where
+  rnf ClusterSetting' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ClusterSetting where
   toJSON ClusterSetting' {..} =

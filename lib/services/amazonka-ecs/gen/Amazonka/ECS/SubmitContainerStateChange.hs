@@ -163,9 +163,27 @@ instance Core.AWSRequest SubmitContainerStateChange where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SubmitContainerStateChange
+instance Prelude.Hashable SubmitContainerStateChange where
+  hashWithSalt _salt SubmitContainerStateChange' {..} =
+    _salt `Prelude.hashWithSalt` networkBindings
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` runtimeId
 
-instance Prelude.NFData SubmitContainerStateChange
+instance Prelude.NFData SubmitContainerStateChange where
+  rnf SubmitContainerStateChange' {..} =
+    Prelude.rnf networkBindings
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf runtimeId
 
 instance Core.ToHeaders SubmitContainerStateChange where
   toHeaders =
@@ -246,3 +264,7 @@ submitContainerStateChangeResponse_httpStatus = Lens.lens (\SubmitContainerState
 instance
   Prelude.NFData
     SubmitContainerStateChangeResponse
+  where
+  rnf SubmitContainerStateChangeResponse' {..} =
+    Prelude.rnf acknowledgment
+      `Prelude.seq` Prelude.rnf httpStatus

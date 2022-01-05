@@ -120,9 +120,17 @@ instance Core.AWSRequest CreateWorkspace where
             Prelude.<*> (x Core..:> "workspaceId")
       )
 
-instance Prelude.Hashable CreateWorkspace
+instance Prelude.Hashable CreateWorkspace where
+  hashWithSalt _salt CreateWorkspace' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateWorkspace
+instance Prelude.NFData CreateWorkspace where
+  rnf CreateWorkspace' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateWorkspace where
   toHeaders =
@@ -228,4 +236,10 @@ createWorkspaceResponse_status = Lens.lens (\CreateWorkspaceResponse' {status} -
 createWorkspaceResponse_workspaceId :: Lens.Lens' CreateWorkspaceResponse Prelude.Text
 createWorkspaceResponse_workspaceId = Lens.lens (\CreateWorkspaceResponse' {workspaceId} -> workspaceId) (\s@CreateWorkspaceResponse' {} a -> s {workspaceId = a} :: CreateWorkspaceResponse)
 
-instance Prelude.NFData CreateWorkspaceResponse
+instance Prelude.NFData CreateWorkspaceResponse where
+  rnf CreateWorkspaceResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf workspaceId

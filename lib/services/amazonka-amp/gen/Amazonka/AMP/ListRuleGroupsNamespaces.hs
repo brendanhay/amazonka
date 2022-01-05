@@ -157,9 +157,19 @@ instance Core.AWSRequest ListRuleGroupsNamespaces where
                         )
       )
 
-instance Prelude.Hashable ListRuleGroupsNamespaces
+instance Prelude.Hashable ListRuleGroupsNamespaces where
+  hashWithSalt _salt ListRuleGroupsNamespaces' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData ListRuleGroupsNamespaces
+instance Prelude.NFData ListRuleGroupsNamespaces where
+  rnf ListRuleGroupsNamespaces' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders ListRuleGroupsNamespaces where
   toHeaders =
@@ -241,3 +251,8 @@ listRuleGroupsNamespacesResponse_ruleGroupsNamespaces = Lens.lens (\ListRuleGrou
 instance
   Prelude.NFData
     ListRuleGroupsNamespacesResponse
+  where
+  rnf ListRuleGroupsNamespacesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleGroupsNamespaces

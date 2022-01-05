@@ -142,9 +142,19 @@ instance Core.AWSRequest PutRuleGroupsNamespace where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable PutRuleGroupsNamespace
+instance Prelude.Hashable PutRuleGroupsNamespace where
+  hashWithSalt _salt PutRuleGroupsNamespace' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData PutRuleGroupsNamespace
+instance Prelude.NFData PutRuleGroupsNamespace where
+  rnf PutRuleGroupsNamespace' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders PutRuleGroupsNamespace where
   toHeaders =
@@ -259,3 +269,10 @@ putRuleGroupsNamespaceResponse_status = Lens.lens (\PutRuleGroupsNamespaceRespon
 instance
   Prelude.NFData
     PutRuleGroupsNamespaceResponse
+  where
+  rnf PutRuleGroupsNamespaceResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

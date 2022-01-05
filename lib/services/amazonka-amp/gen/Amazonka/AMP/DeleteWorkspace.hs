@@ -94,9 +94,15 @@ instance Core.AWSRequest DeleteWorkspace where
   response =
     Response.receiveNull DeleteWorkspaceResponse'
 
-instance Prelude.Hashable DeleteWorkspace
+instance Prelude.Hashable DeleteWorkspace where
+  hashWithSalt _salt DeleteWorkspace' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DeleteWorkspace
+instance Prelude.NFData DeleteWorkspace where
+  rnf DeleteWorkspace' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders DeleteWorkspace where
   toHeaders =
@@ -132,4 +138,5 @@ newDeleteWorkspaceResponse ::
   DeleteWorkspaceResponse
 newDeleteWorkspaceResponse = DeleteWorkspaceResponse'
 
-instance Prelude.NFData DeleteWorkspaceResponse
+instance Prelude.NFData DeleteWorkspaceResponse where
+  rnf _ = ()

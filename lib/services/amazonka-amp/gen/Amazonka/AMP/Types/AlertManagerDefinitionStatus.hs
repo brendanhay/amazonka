@@ -78,5 +78,12 @@ instance Core.FromJSON AlertManagerDefinitionStatus where
 instance
   Prelude.Hashable
     AlertManagerDefinitionStatus
+  where
+  hashWithSalt _salt AlertManagerDefinitionStatus' {..} =
+    _salt `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData AlertManagerDefinitionStatus
+instance Prelude.NFData AlertManagerDefinitionStatus where
+  rnf AlertManagerDefinitionStatus' {..} =
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf statusCode

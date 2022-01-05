@@ -120,7 +120,21 @@ instance
 instance
   Prelude.Hashable
     AlertManagerDefinitionDescription
+  where
+  hashWithSalt
+    _salt
+    AlertManagerDefinitionDescription' {..} =
+      _salt `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` data'
+        `Prelude.hashWithSalt` modifiedAt
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AlertManagerDefinitionDescription
+  where
+  rnf AlertManagerDefinitionDescription' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf status

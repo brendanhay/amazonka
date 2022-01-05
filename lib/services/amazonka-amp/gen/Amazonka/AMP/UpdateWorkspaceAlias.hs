@@ -105,9 +105,17 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
   response =
     Response.receiveNull UpdateWorkspaceAliasResponse'
 
-instance Prelude.Hashable UpdateWorkspaceAlias
+instance Prelude.Hashable UpdateWorkspaceAlias where
+  hashWithSalt _salt UpdateWorkspaceAlias' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData UpdateWorkspaceAlias
+instance Prelude.NFData UpdateWorkspaceAlias where
+  rnf UpdateWorkspaceAlias' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders UpdateWorkspaceAlias where
   toHeaders =
@@ -152,4 +160,5 @@ newUpdateWorkspaceAliasResponse ::
 newUpdateWorkspaceAliasResponse =
   UpdateWorkspaceAliasResponse'
 
-instance Prelude.NFData UpdateWorkspaceAliasResponse
+instance Prelude.NFData UpdateWorkspaceAliasResponse where
+  rnf _ = ()

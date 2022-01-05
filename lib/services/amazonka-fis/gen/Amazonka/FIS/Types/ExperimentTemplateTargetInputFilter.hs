@@ -67,10 +67,19 @@ experimentTemplateTargetInputFilter_values = Lens.lens (\ExperimentTemplateTarge
 instance
   Prelude.Hashable
     ExperimentTemplateTargetInputFilter
+  where
+  hashWithSalt
+    _salt
+    ExperimentTemplateTargetInputFilter' {..} =
+      _salt `Prelude.hashWithSalt` path
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     ExperimentTemplateTargetInputFilter
+  where
+  rnf ExperimentTemplateTargetInputFilter' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf values
 
 instance
   Core.ToJSON

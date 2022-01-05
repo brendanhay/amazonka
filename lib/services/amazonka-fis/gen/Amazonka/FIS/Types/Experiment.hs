@@ -168,6 +168,30 @@ instance Core.FromJSON Experiment where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable Experiment
+instance Prelude.Hashable Experiment where
+  hashWithSalt _salt Experiment' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` experimentTemplateId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` stopConditions
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData Experiment
+instance Prelude.NFData Experiment where
+  rnf Experiment' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf experimentTemplateId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stopConditions
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn

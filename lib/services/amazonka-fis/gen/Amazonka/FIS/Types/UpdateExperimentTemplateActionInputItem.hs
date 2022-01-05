@@ -98,10 +98,26 @@ updateExperimentTemplateActionInputItem_description = Lens.lens (\UpdateExperime
 instance
   Prelude.Hashable
     UpdateExperimentTemplateActionInputItem
+  where
+  hashWithSalt
+    _salt
+    UpdateExperimentTemplateActionInputItem' {..} =
+      _salt `Prelude.hashWithSalt` startAfter
+        `Prelude.hashWithSalt` actionId
+        `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` description
 
 instance
   Prelude.NFData
     UpdateExperimentTemplateActionInputItem
+  where
+  rnf UpdateExperimentTemplateActionInputItem' {..} =
+    Prelude.rnf startAfter
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf description
 
 instance
   Core.ToJSON

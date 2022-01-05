@@ -92,6 +92,16 @@ instance Core.FromJSON ActionSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ActionSummary
+instance Prelude.Hashable ActionSummary where
+  hashWithSalt _salt ActionSummary' {..} =
+    _salt `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ActionSummary
+instance Prelude.NFData ActionSummary where
+  rnf ActionSummary' {..} =
+    Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

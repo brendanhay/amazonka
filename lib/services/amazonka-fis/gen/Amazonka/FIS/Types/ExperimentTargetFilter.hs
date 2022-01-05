@@ -71,6 +71,11 @@ instance Core.FromJSON ExperimentTargetFilter where
             Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ExperimentTargetFilter
+instance Prelude.Hashable ExperimentTargetFilter where
+  hashWithSalt _salt ExperimentTargetFilter' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ExperimentTargetFilter
+instance Prelude.NFData ExperimentTargetFilter where
+  rnf ExperimentTargetFilter' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf values

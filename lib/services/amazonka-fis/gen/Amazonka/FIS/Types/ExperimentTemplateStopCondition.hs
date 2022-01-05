@@ -78,7 +78,16 @@ instance
 instance
   Prelude.Hashable
     ExperimentTemplateStopCondition
+  where
+  hashWithSalt
+    _salt
+    ExperimentTemplateStopCondition' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` source
 
 instance
   Prelude.NFData
     ExperimentTemplateStopCondition
+  where
+  rnf ExperimentTemplateStopCondition' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf source

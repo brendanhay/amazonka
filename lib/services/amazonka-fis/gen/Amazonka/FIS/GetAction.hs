@@ -83,9 +83,12 @@ instance Core.AWSRequest GetAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAction
+instance Prelude.Hashable GetAction where
+  hashWithSalt _salt GetAction' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetAction
+instance Prelude.NFData GetAction where
+  rnf GetAction' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetAction where
   toHeaders =
@@ -143,4 +146,7 @@ getActionResponse_action = Lens.lens (\GetActionResponse' {action} -> action) (\
 getActionResponse_httpStatus :: Lens.Lens' GetActionResponse Prelude.Int
 getActionResponse_httpStatus = Lens.lens (\GetActionResponse' {httpStatus} -> httpStatus) (\s@GetActionResponse' {} a -> s {httpStatus = a} :: GetActionResponse)
 
-instance Prelude.NFData GetActionResponse
+instance Prelude.NFData GetActionResponse where
+  rnf GetActionResponse' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf httpStatus

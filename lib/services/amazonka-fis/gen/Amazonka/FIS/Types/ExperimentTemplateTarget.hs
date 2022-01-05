@@ -106,6 +106,18 @@ instance Core.FromJSON ExperimentTemplateTarget where
             Prelude.<*> (x Core..:? "selectionMode")
       )
 
-instance Prelude.Hashable ExperimentTemplateTarget
+instance Prelude.Hashable ExperimentTemplateTarget where
+  hashWithSalt _salt ExperimentTemplateTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` selectionMode
 
-instance Prelude.NFData ExperimentTemplateTarget
+instance Prelude.NFData ExperimentTemplateTarget where
+  rnf ExperimentTemplateTarget' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf selectionMode

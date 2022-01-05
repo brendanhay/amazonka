@@ -161,10 +161,20 @@ instance
 instance
   Prelude.Hashable
     ListEndpointsByPlatformApplication
+  where
+  hashWithSalt
+    _salt
+    ListEndpointsByPlatformApplication' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` platformApplicationArn
 
 instance
   Prelude.NFData
     ListEndpointsByPlatformApplication
+  where
+  rnf ListEndpointsByPlatformApplication' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf platformApplicationArn
 
 instance
   Core.ToHeaders
@@ -255,3 +265,8 @@ listEndpointsByPlatformApplicationResponse_httpStatus = Lens.lens (\ListEndpoint
 instance
   Prelude.NFData
     ListEndpointsByPlatformApplicationResponse
+  where
+  rnf ListEndpointsByPlatformApplicationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf httpStatus

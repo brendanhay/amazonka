@@ -92,9 +92,12 @@ instance Core.AWSRequest GetTopicAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTopicAttributes
+instance Prelude.Hashable GetTopicAttributes where
+  hashWithSalt _salt GetTopicAttributes' {..} =
+    _salt `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData GetTopicAttributes
+instance Prelude.NFData GetTopicAttributes where
+  rnf GetTopicAttributes' {..} = Prelude.rnf topicArn
 
 instance Core.ToHeaders GetTopicAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -336,4 +339,7 @@ getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' 
 getTopicAttributesResponse_httpStatus :: Lens.Lens' GetTopicAttributesResponse Prelude.Int
 getTopicAttributesResponse_httpStatus = Lens.lens (\GetTopicAttributesResponse' {httpStatus} -> httpStatus) (\s@GetTopicAttributesResponse' {} a -> s {httpStatus = a} :: GetTopicAttributesResponse)
 
-instance Prelude.NFData GetTopicAttributesResponse
+instance Prelude.NFData GetTopicAttributesResponse where
+  rnf GetTopicAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

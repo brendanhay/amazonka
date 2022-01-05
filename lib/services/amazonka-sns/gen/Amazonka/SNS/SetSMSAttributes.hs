@@ -326,9 +326,12 @@ instance Core.AWSRequest SetSMSAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetSMSAttributes
+instance Prelude.Hashable SetSMSAttributes where
+  hashWithSalt _salt SetSMSAttributes' {..} =
+    _salt `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData SetSMSAttributes
+instance Prelude.NFData SetSMSAttributes where
+  rnf SetSMSAttributes' {..} = Prelude.rnf attributes
 
 instance Core.ToHeaders SetSMSAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -379,4 +382,6 @@ newSetSMSAttributesResponse pHttpStatus_ =
 setSMSAttributesResponse_httpStatus :: Lens.Lens' SetSMSAttributesResponse Prelude.Int
 setSMSAttributesResponse_httpStatus = Lens.lens (\SetSMSAttributesResponse' {httpStatus} -> httpStatus) (\s@SetSMSAttributesResponse' {} a -> s {httpStatus = a} :: SetSMSAttributesResponse)
 
-instance Prelude.NFData SetSMSAttributesResponse
+instance Prelude.NFData SetSMSAttributesResponse where
+  rnf SetSMSAttributesResponse' {..} =
+    Prelude.rnf httpStatus

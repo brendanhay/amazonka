@@ -222,9 +222,17 @@ instance Core.AWSRequest SetSubscriptionAttributes where
     Response.receiveNull
       SetSubscriptionAttributesResponse'
 
-instance Prelude.Hashable SetSubscriptionAttributes
+instance Prelude.Hashable SetSubscriptionAttributes where
+  hashWithSalt _salt SetSubscriptionAttributes' {..} =
+    _salt `Prelude.hashWithSalt` attributeValue
+      `Prelude.hashWithSalt` subscriptionArn
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData SetSubscriptionAttributes
+instance Prelude.NFData SetSubscriptionAttributes where
+  rnf SetSubscriptionAttributes' {..} =
+    Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToHeaders SetSubscriptionAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -262,3 +270,5 @@ newSetSubscriptionAttributesResponse =
 instance
   Prelude.NFData
     SetSubscriptionAttributesResponse
+  where
+  rnf _ = ()

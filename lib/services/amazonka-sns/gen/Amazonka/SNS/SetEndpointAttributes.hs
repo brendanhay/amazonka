@@ -139,9 +139,15 @@ instance Core.AWSRequest SetEndpointAttributes where
   response =
     Response.receiveNull SetEndpointAttributesResponse'
 
-instance Prelude.Hashable SetEndpointAttributes
+instance Prelude.Hashable SetEndpointAttributes where
+  hashWithSalt _salt SetEndpointAttributes' {..} =
+    _salt `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData SetEndpointAttributes
+instance Prelude.NFData SetEndpointAttributes where
+  rnf SetEndpointAttributes' {..} =
+    Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders SetEndpointAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +182,5 @@ newSetEndpointAttributesResponse ::
 newSetEndpointAttributesResponse =
   SetEndpointAttributesResponse'
 
-instance Prelude.NFData SetEndpointAttributesResponse
+instance Prelude.NFData SetEndpointAttributesResponse where
+  rnf _ = ()

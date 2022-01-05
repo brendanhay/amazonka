@@ -80,9 +80,15 @@ filter_attributePath = Lens.lens (\Filter' {attributePath} -> attributePath) (\s
 filter_attributeValue :: Lens.Lens' Filter Prelude.Text
 filter_attributeValue = Lens.lens (\Filter' {attributeValue} -> attributeValue) (\s@Filter' {} a -> s {attributeValue = a} :: Filter) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable Filter
+instance Prelude.Hashable Filter where
+  hashWithSalt _salt Filter' {..} =
+    _salt `Prelude.hashWithSalt` attributePath
+      `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData Filter
+instance Prelude.NFData Filter where
+  rnf Filter' {..} =
+    Prelude.rnf attributePath
+      `Prelude.seq` Prelude.rnf attributeValue
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =

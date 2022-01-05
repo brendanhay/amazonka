@@ -368,9 +368,21 @@ instance Core.AWSRequest CreateLedger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLedger
+instance Prelude.Hashable CreateLedger where
+  hashWithSalt _salt CreateLedger' {..} =
+    _salt `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` permissionsMode
 
-instance Prelude.NFData CreateLedger
+instance Prelude.NFData CreateLedger where
+  rnf CreateLedger' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf permissionsMode
 
 instance Core.ToHeaders CreateLedger where
   toHeaders =
@@ -525,4 +537,13 @@ createLedgerResponse_permissionsMode = Lens.lens (\CreateLedgerResponse' {permis
 createLedgerResponse_httpStatus :: Lens.Lens' CreateLedgerResponse Prelude.Int
 createLedgerResponse_httpStatus = Lens.lens (\CreateLedgerResponse' {httpStatus} -> httpStatus) (\s@CreateLedgerResponse' {} a -> s {httpStatus = a} :: CreateLedgerResponse)
 
-instance Prelude.NFData CreateLedgerResponse
+instance Prelude.NFData CreateLedgerResponse where
+  rnf CreateLedgerResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf permissionsMode
+      `Prelude.seq` Prelude.rnf httpStatus

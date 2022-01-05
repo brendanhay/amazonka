@@ -102,9 +102,15 @@ instance Core.FromJSON KinesisConfiguration where
             Prelude.<*> (x Core..: "StreamArn")
       )
 
-instance Prelude.Hashable KinesisConfiguration
+instance Prelude.Hashable KinesisConfiguration where
+  hashWithSalt _salt KinesisConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` aggregationEnabled
+      `Prelude.hashWithSalt` streamArn
 
-instance Prelude.NFData KinesisConfiguration
+instance Prelude.NFData KinesisConfiguration where
+  rnf KinesisConfiguration' {..} =
+    Prelude.rnf aggregationEnabled
+      `Prelude.seq` Prelude.rnf streamArn
 
 instance Core.ToJSON KinesisConfiguration where
   toJSON KinesisConfiguration' {..} =

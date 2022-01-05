@@ -112,9 +112,15 @@ instance Core.AWSRequest ListLedgers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLedgers
+instance Prelude.Hashable ListLedgers where
+  hashWithSalt _salt ListLedgers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListLedgers
+instance Prelude.NFData ListLedgers where
+  rnf ListLedgers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLedgers where
   toHeaders =
@@ -208,4 +214,8 @@ listLedgersResponse_nextToken = Lens.lens (\ListLedgersResponse' {nextToken} -> 
 listLedgersResponse_httpStatus :: Lens.Lens' ListLedgersResponse Prelude.Int
 listLedgersResponse_httpStatus = Lens.lens (\ListLedgersResponse' {httpStatus} -> httpStatus) (\s@ListLedgersResponse' {} a -> s {httpStatus = a} :: ListLedgersResponse)
 
-instance Prelude.NFData ListLedgersResponse
+instance Prelude.NFData ListLedgersResponse where
+  rnf ListLedgersResponse' {..} =
+    Prelude.rnf ledgers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

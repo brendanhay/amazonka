@@ -109,9 +109,15 @@ instance Core.AWSRequest CancelJournalKinesisStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelJournalKinesisStream
+instance Prelude.Hashable CancelJournalKinesisStream where
+  hashWithSalt _salt CancelJournalKinesisStream' {..} =
+    _salt `Prelude.hashWithSalt` ledgerName
+      `Prelude.hashWithSalt` streamId
 
-instance Prelude.NFData CancelJournalKinesisStream
+instance Prelude.NFData CancelJournalKinesisStream where
+  rnf CancelJournalKinesisStream' {..} =
+    Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf streamId
 
 instance Core.ToHeaders CancelJournalKinesisStream where
   toHeaders =
@@ -178,3 +184,7 @@ cancelJournalKinesisStreamResponse_httpStatus = Lens.lens (\CancelJournalKinesis
 instance
   Prelude.NFData
     CancelJournalKinesisStreamResponse
+  where
+  rnf CancelJournalKinesisStreamResponse' {..} =
+    Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf httpStatus

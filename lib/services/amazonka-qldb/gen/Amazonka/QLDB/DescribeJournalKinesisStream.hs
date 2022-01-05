@@ -117,8 +117,15 @@ instance Core.AWSRequest DescribeJournalKinesisStream where
 instance
   Prelude.Hashable
     DescribeJournalKinesisStream
+  where
+  hashWithSalt _salt DescribeJournalKinesisStream' {..} =
+    _salt `Prelude.hashWithSalt` ledgerName
+      `Prelude.hashWithSalt` streamId
 
-instance Prelude.NFData DescribeJournalKinesisStream
+instance Prelude.NFData DescribeJournalKinesisStream where
+  rnf DescribeJournalKinesisStream' {..} =
+    Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf streamId
 
 instance Core.ToHeaders DescribeJournalKinesisStream where
   toHeaders =
@@ -188,3 +195,7 @@ describeJournalKinesisStreamResponse_httpStatus = Lens.lens (\DescribeJournalKin
 instance
   Prelude.NFData
     DescribeJournalKinesisStreamResponse
+  where
+  rnf DescribeJournalKinesisStreamResponse' {..} =
+    Prelude.rnf stream
+      `Prelude.seq` Prelude.rnf httpStatus

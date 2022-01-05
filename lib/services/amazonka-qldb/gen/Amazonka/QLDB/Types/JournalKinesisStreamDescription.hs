@@ -225,7 +225,35 @@ instance
 instance
   Prelude.Hashable
     JournalKinesisStreamDescription
+  where
+  hashWithSalt
+    _salt
+    JournalKinesisStreamDescription' {..} =
+      _salt `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` inclusiveStartTime
+        `Prelude.hashWithSalt` errorCause
+        `Prelude.hashWithSalt` exclusiveEndTime
+        `Prelude.hashWithSalt` ledgerName
+        `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` streamId
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` kinesisConfiguration
+        `Prelude.hashWithSalt` streamName
 
 instance
   Prelude.NFData
     JournalKinesisStreamDescription
+  where
+  rnf JournalKinesisStreamDescription' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf inclusiveStartTime
+      `Prelude.seq` Prelude.rnf errorCause
+      `Prelude.seq` Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf kinesisConfiguration
+      `Prelude.seq` Prelude.rnf streamName

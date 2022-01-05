@@ -84,9 +84,17 @@ instance Core.FromJSON ConnectionHeaderParameter where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable ConnectionHeaderParameter
+instance Prelude.Hashable ConnectionHeaderParameter where
+  hashWithSalt _salt ConnectionHeaderParameter' {..} =
+    _salt `Prelude.hashWithSalt` isValueSecret
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ConnectionHeaderParameter
+instance Prelude.NFData ConnectionHeaderParameter where
+  rnf ConnectionHeaderParameter' {..} =
+    Prelude.rnf isValueSecret
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ConnectionHeaderParameter where
   toJSON ConnectionHeaderParameter' {..} =

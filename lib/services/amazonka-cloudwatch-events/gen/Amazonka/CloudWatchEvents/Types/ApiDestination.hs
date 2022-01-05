@@ -146,6 +146,26 @@ instance Core.FromJSON ApiDestination where
             Prelude.<*> (x Core..:? "ApiDestinationArn")
       )
 
-instance Prelude.Hashable ApiDestination
+instance Prelude.Hashable ApiDestination where
+  hashWithSalt _salt ApiDestination' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` invocationEndpoint
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` invocationRateLimitPerSecond
+      `Prelude.hashWithSalt` apiDestinationState
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` apiDestinationArn
 
-instance Prelude.NFData ApiDestination
+instance Prelude.NFData ApiDestination where
+  rnf ApiDestination' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf invocationEndpoint
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
+      `Prelude.seq` Prelude.rnf apiDestinationState
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf apiDestinationArn

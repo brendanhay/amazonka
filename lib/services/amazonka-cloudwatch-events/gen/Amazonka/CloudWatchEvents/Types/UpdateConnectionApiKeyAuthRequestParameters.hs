@@ -66,10 +66,20 @@ updateConnectionApiKeyAuthRequestParameters_apiKeyName = Lens.lens (\UpdateConne
 instance
   Prelude.Hashable
     UpdateConnectionApiKeyAuthRequestParameters
+  where
+  hashWithSalt
+    _salt
+    UpdateConnectionApiKeyAuthRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` apiKeyValue
+        `Prelude.hashWithSalt` apiKeyName
 
 instance
   Prelude.NFData
     UpdateConnectionApiKeyAuthRequestParameters
+  where
+  rnf UpdateConnectionApiKeyAuthRequestParameters' {..} =
+    Prelude.rnf apiKeyValue
+      `Prelude.seq` Prelude.rnf apiKeyName
 
 instance
   Core.ToJSON

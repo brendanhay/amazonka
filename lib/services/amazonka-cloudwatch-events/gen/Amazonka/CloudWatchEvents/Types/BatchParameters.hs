@@ -121,9 +121,19 @@ instance Core.FromJSON BatchParameters where
             Prelude.<*> (x Core..: "JobName")
       )
 
-instance Prelude.Hashable BatchParameters
+instance Prelude.Hashable BatchParameters where
+  hashWithSalt _salt BatchParameters' {..} =
+    _salt `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` arrayProperties
+      `Prelude.hashWithSalt` jobDefinition
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData BatchParameters
+instance Prelude.NFData BatchParameters where
+  rnf BatchParameters' {..} =
+    Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf arrayProperties
+      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToJSON BatchParameters where
   toJSON BatchParameters' {..} =

@@ -82,6 +82,14 @@ instance Core.FromJSON PutPartnerEventsResultEntry where
             Prelude.<*> (x Core..:? "EventId")
       )
 
-instance Prelude.Hashable PutPartnerEventsResultEntry
+instance Prelude.Hashable PutPartnerEventsResultEntry where
+  hashWithSalt _salt PutPartnerEventsResultEntry' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData PutPartnerEventsResultEntry
+instance Prelude.NFData PutPartnerEventsResultEntry where
+  rnf PutPartnerEventsResultEntry' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf eventId

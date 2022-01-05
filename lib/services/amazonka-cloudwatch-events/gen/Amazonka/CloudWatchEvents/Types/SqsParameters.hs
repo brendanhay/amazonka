@@ -60,9 +60,12 @@ instance Core.FromJSON SqsParameters where
             Prelude.<$> (x Core..:? "MessageGroupId")
       )
 
-instance Prelude.Hashable SqsParameters
+instance Prelude.Hashable SqsParameters where
+  hashWithSalt _salt SqsParameters' {..} =
+    _salt `Prelude.hashWithSalt` messageGroupId
 
-instance Prelude.NFData SqsParameters
+instance Prelude.NFData SqsParameters where
+  rnf SqsParameters' {..} = Prelude.rnf messageGroupId
 
 instance Core.ToJSON SqsParameters where
   toJSON SqsParameters' {..} =

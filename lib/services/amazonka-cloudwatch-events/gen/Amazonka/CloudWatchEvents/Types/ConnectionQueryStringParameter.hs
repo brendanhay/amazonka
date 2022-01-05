@@ -88,10 +88,22 @@ instance Core.FromJSON ConnectionQueryStringParameter where
 instance
   Prelude.Hashable
     ConnectionQueryStringParameter
+  where
+  hashWithSalt
+    _salt
+    ConnectionQueryStringParameter' {..} =
+      _salt `Prelude.hashWithSalt` isValueSecret
+        `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` key
 
 instance
   Prelude.NFData
     ConnectionQueryStringParameter
+  where
+  rnf ConnectionQueryStringParameter' {..} =
+    Prelude.rnf isValueSecret
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ConnectionQueryStringParameter where
   toJSON ConnectionQueryStringParameter' {..} =

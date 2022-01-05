@@ -106,10 +106,24 @@ createConnectionOAuthRequestParameters_httpMethod = Lens.lens (\CreateConnection
 instance
   Prelude.Hashable
     CreateConnectionOAuthRequestParameters
+  where
+  hashWithSalt
+    _salt
+    CreateConnectionOAuthRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` oAuthHttpParameters
+        `Prelude.hashWithSalt` clientParameters
+        `Prelude.hashWithSalt` authorizationEndpoint
+        `Prelude.hashWithSalt` httpMethod
 
 instance
   Prelude.NFData
     CreateConnectionOAuthRequestParameters
+  where
+  rnf CreateConnectionOAuthRequestParameters' {..} =
+    Prelude.rnf oAuthHttpParameters
+      `Prelude.seq` Prelude.rnf clientParameters
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf httpMethod
 
 instance
   Core.ToJSON

@@ -133,6 +133,24 @@ instance Core.FromJSON Connection where
             Prelude.<*> (x Core..:? "ConnectionState")
       )
 
-instance Prelude.Hashable Connection
+instance Prelude.Hashable Connection where
+  hashWithSalt _salt Connection' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastAuthorizedTime
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` connectionState
 
-instance Prelude.NFData Connection
+instance Prelude.NFData Connection where
+  rnf Connection' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf connectionState

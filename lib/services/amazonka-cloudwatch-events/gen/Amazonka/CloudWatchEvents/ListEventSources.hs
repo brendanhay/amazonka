@@ -123,9 +123,17 @@ instance Core.AWSRequest ListEventSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventSources
+instance Prelude.Hashable ListEventSources where
+  hashWithSalt _salt ListEventSources' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListEventSources
+instance Prelude.NFData ListEventSources where
+  rnf ListEventSources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListEventSources where
   toHeaders =
@@ -207,4 +215,8 @@ listEventSourcesResponse_eventSources = Lens.lens (\ListEventSourcesResponse' {e
 listEventSourcesResponse_httpStatus :: Lens.Lens' ListEventSourcesResponse Prelude.Int
 listEventSourcesResponse_httpStatus = Lens.lens (\ListEventSourcesResponse' {httpStatus} -> httpStatus) (\s@ListEventSourcesResponse' {} a -> s {httpStatus = a} :: ListEventSourcesResponse)
 
-instance Prelude.NFData ListEventSourcesResponse
+instance Prelude.NFData ListEventSourcesResponse where
+  rnf ListEventSourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventSources
+      `Prelude.seq` Prelude.rnf httpStatus

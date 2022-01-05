@@ -147,9 +147,19 @@ instance Core.AWSRequest RemoveTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveTargets
+instance Prelude.Hashable RemoveTargets where
+  hashWithSalt _salt RemoveTargets' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` rule
+      `Prelude.hashWithSalt` ids
 
-instance Prelude.NFData RemoveTargets
+instance Prelude.NFData RemoveTargets where
+  rnf RemoveTargets' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf ids
 
 instance Core.ToHeaders RemoveTargets where
   toHeaders =
@@ -229,4 +239,8 @@ removeTargetsResponse_failedEntries = Lens.lens (\RemoveTargetsResponse' {failed
 removeTargetsResponse_httpStatus :: Lens.Lens' RemoveTargetsResponse Prelude.Int
 removeTargetsResponse_httpStatus = Lens.lens (\RemoveTargetsResponse' {httpStatus} -> httpStatus) (\s@RemoveTargetsResponse' {} a -> s {httpStatus = a} :: RemoveTargetsResponse)
 
-instance Prelude.NFData RemoveTargetsResponse
+instance Prelude.NFData RemoveTargetsResponse where
+  rnf RemoveTargetsResponse' {..} =
+    Prelude.rnf failedEntryCount
+      `Prelude.seq` Prelude.rnf failedEntries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -134,10 +134,22 @@ instance
 instance
   Prelude.Hashable
     ListPartnerEventSourceAccounts
+  where
+  hashWithSalt
+    _salt
+    ListPartnerEventSourceAccounts' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` eventSourceName
 
 instance
   Prelude.NFData
     ListPartnerEventSourceAccounts
+  where
+  rnf ListPartnerEventSourceAccounts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf eventSourceName
 
 instance
   Core.ToHeaders
@@ -229,3 +241,8 @@ listPartnerEventSourceAccountsResponse_httpStatus = Lens.lens (\ListPartnerEvent
 instance
   Prelude.NFData
     ListPartnerEventSourceAccountsResponse
+  where
+  rnf ListPartnerEventSourceAccountsResponse' {..} =
+    Prelude.rnf partnerEventSourceAccounts
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

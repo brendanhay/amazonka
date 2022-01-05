@@ -69,7 +69,15 @@ instance
 instance
   Prelude.Hashable
     ConnectionOAuthClientResponseParameters
+  where
+  hashWithSalt
+    _salt
+    ConnectionOAuthClientResponseParameters' {..} =
+      _salt `Prelude.hashWithSalt` clientID
 
 instance
   Prelude.NFData
     ConnectionOAuthClientResponseParameters
+  where
+  rnf ConnectionOAuthClientResponseParameters' {..} =
+    Prelude.rnf clientID

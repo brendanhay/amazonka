@@ -97,9 +97,12 @@ instance Core.AWSRequest DescribeEventSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventSource
+instance Prelude.Hashable DescribeEventSource where
+  hashWithSalt _salt DescribeEventSource' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeEventSource
+instance Prelude.NFData DescribeEventSource where
+  rnf DescribeEventSource' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeEventSource where
   toHeaders =
@@ -231,4 +234,12 @@ describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResp
 describeEventSourceResponse_httpStatus :: Lens.Lens' DescribeEventSourceResponse Prelude.Int
 describeEventSourceResponse_httpStatus = Lens.lens (\DescribeEventSourceResponse' {httpStatus} -> httpStatus) (\s@DescribeEventSourceResponse' {} a -> s {httpStatus = a} :: DescribeEventSourceResponse)
 
-instance Prelude.NFData DescribeEventSourceResponse
+instance Prelude.NFData DescribeEventSourceResponse where
+  rnf DescribeEventSourceResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf httpStatus

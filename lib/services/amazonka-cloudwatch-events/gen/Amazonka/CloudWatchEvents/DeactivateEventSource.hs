@@ -85,9 +85,12 @@ instance Core.AWSRequest DeactivateEventSource where
   response =
     Response.receiveNull DeactivateEventSourceResponse'
 
-instance Prelude.Hashable DeactivateEventSource
+instance Prelude.Hashable DeactivateEventSource where
+  hashWithSalt _salt DeactivateEventSource' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeactivateEventSource
+instance Prelude.NFData DeactivateEventSource where
+  rnf DeactivateEventSource' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeactivateEventSource where
   toHeaders =
@@ -132,4 +135,5 @@ newDeactivateEventSourceResponse ::
 newDeactivateEventSourceResponse =
   DeactivateEventSourceResponse'
 
-instance Prelude.NFData DeactivateEventSourceResponse
+instance Prelude.NFData DeactivateEventSourceResponse where
+  rnf _ = ()

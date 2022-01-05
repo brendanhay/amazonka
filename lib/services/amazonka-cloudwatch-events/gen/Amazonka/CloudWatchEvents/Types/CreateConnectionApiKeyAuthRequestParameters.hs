@@ -71,10 +71,20 @@ createConnectionApiKeyAuthRequestParameters_apiKeyValue = Lens.lens (\CreateConn
 instance
   Prelude.Hashable
     CreateConnectionApiKeyAuthRequestParameters
+  where
+  hashWithSalt
+    _salt
+    CreateConnectionApiKeyAuthRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` apiKeyName
+        `Prelude.hashWithSalt` apiKeyValue
 
 instance
   Prelude.NFData
     CreateConnectionApiKeyAuthRequestParameters
+  where
+  rnf CreateConnectionApiKeyAuthRequestParameters' {..} =
+    Prelude.rnf apiKeyName
+      `Prelude.seq` Prelude.rnf apiKeyValue
 
 instance
   Core.ToJSON

@@ -127,9 +127,19 @@ instance Core.AWSRequest ListApiDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApiDestinations
+instance Prelude.Hashable ListApiDestinations where
+  hashWithSalt _salt ListApiDestinations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` connectionArn
 
-instance Prelude.NFData ListApiDestinations
+instance Prelude.NFData ListApiDestinations where
+  rnf ListApiDestinations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf connectionArn
 
 instance Core.ToHeaders ListApiDestinations where
   toHeaders =
@@ -217,4 +227,8 @@ listApiDestinationsResponse_nextToken = Lens.lens (\ListApiDestinationsResponse'
 listApiDestinationsResponse_httpStatus :: Lens.Lens' ListApiDestinationsResponse Prelude.Int
 listApiDestinationsResponse_httpStatus = Lens.lens (\ListApiDestinationsResponse' {httpStatus} -> httpStatus) (\s@ListApiDestinationsResponse' {} a -> s {httpStatus = a} :: ListApiDestinationsResponse)
 
-instance Prelude.NFData ListApiDestinationsResponse
+instance Prelude.NFData ListApiDestinationsResponse where
+  rnf ListApiDestinationsResponse' {..} =
+    Prelude.rnf apiDestinations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

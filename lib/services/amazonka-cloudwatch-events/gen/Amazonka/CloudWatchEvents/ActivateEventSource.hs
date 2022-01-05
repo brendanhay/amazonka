@@ -79,9 +79,12 @@ instance Core.AWSRequest ActivateEventSource where
   response =
     Response.receiveNull ActivateEventSourceResponse'
 
-instance Prelude.Hashable ActivateEventSource
+instance Prelude.Hashable ActivateEventSource where
+  hashWithSalt _salt ActivateEventSource' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ActivateEventSource
+instance Prelude.NFData ActivateEventSource where
+  rnf ActivateEventSource' {..} = Prelude.rnf name
 
 instance Core.ToHeaders ActivateEventSource where
   toHeaders =
@@ -126,4 +129,5 @@ newActivateEventSourceResponse ::
 newActivateEventSourceResponse =
   ActivateEventSourceResponse'
 
-instance Prelude.NFData ActivateEventSourceResponse
+instance Prelude.NFData ActivateEventSourceResponse where
+  rnf _ = ()

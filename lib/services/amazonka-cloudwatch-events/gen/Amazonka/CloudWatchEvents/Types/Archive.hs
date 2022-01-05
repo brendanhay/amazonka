@@ -138,6 +138,24 @@ instance Core.FromJSON Archive where
             Prelude.<*> (x Core..:? "StateReason")
       )
 
-instance Prelude.Hashable Archive
+instance Prelude.Hashable Archive where
+  hashWithSalt _salt Archive' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` sizeBytes
+      `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eventCount
+      `Prelude.hashWithSalt` archiveName
+      `Prelude.hashWithSalt` retentionDays
+      `Prelude.hashWithSalt` stateReason
 
-instance Prelude.NFData Archive
+instance Prelude.NFData Archive where
+  rnf Archive' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sizeBytes
+      `Prelude.seq` Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf eventCount
+      `Prelude.seq` Prelude.rnf archiveName
+      `Prelude.seq` Prelude.rnf retentionDays
+      `Prelude.seq` Prelude.rnf stateReason

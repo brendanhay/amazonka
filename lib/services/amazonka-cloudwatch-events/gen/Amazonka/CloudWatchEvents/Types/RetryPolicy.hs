@@ -82,9 +82,16 @@ instance Core.FromJSON RetryPolicy where
             Prelude.<*> (x Core..:? "MaximumRetryAttempts")
       )
 
-instance Prelude.Hashable RetryPolicy
+instance Prelude.Hashable RetryPolicy where
+  hashWithSalt _salt RetryPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` maximumEventAgeInSeconds
+      `Prelude.hashWithSalt` maximumRetryAttempts
 
-instance Prelude.NFData RetryPolicy
+instance Prelude.NFData RetryPolicy where
+  rnf RetryPolicy' {..} =
+    Prelude.rnf maximumEventAgeInSeconds
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
 
 instance Core.ToJSON RetryPolicy where
   toJSON RetryPolicy' {..} =

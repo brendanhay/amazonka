@@ -115,6 +115,16 @@ instance Core.FromJSON PartnerEventSourceAccount where
             Prelude.<*> (x Core..:? "ExpirationTime")
       )
 
-instance Prelude.Hashable PartnerEventSourceAccount
+instance Prelude.Hashable PartnerEventSourceAccount where
+  hashWithSalt _salt PartnerEventSourceAccount' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` expirationTime
 
-instance Prelude.NFData PartnerEventSourceAccount
+instance Prelude.NFData PartnerEventSourceAccount where
+  rnf PartnerEventSourceAccount' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf expirationTime

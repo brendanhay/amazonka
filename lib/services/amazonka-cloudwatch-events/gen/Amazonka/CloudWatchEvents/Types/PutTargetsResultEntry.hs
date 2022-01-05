@@ -87,6 +87,14 @@ instance Core.FromJSON PutTargetsResultEntry where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable PutTargetsResultEntry
+instance Prelude.Hashable PutTargetsResultEntry where
+  hashWithSalt _salt PutTargetsResultEntry' {..} =
+    _salt `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData PutTargetsResultEntry
+instance Prelude.NFData PutTargetsResultEntry where
+  rnf PutTargetsResultEntry' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

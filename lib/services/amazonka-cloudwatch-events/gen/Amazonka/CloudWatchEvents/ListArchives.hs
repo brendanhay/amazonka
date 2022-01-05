@@ -134,9 +134,21 @@ instance Core.AWSRequest ListArchives where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListArchives
+instance Prelude.Hashable ListArchives where
+  hashWithSalt _salt ListArchives' {..} =
+    _salt `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListArchives
+instance Prelude.NFData ListArchives where
+  rnf ListArchives' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListArchives where
   toHeaders =
@@ -220,4 +232,8 @@ listArchivesResponse_nextToken = Lens.lens (\ListArchivesResponse' {nextToken} -
 listArchivesResponse_httpStatus :: Lens.Lens' ListArchivesResponse Prelude.Int
 listArchivesResponse_httpStatus = Lens.lens (\ListArchivesResponse' {httpStatus} -> httpStatus) (\s@ListArchivesResponse' {} a -> s {httpStatus = a} :: ListArchivesResponse)
 
-instance Prelude.NFData ListArchivesResponse
+instance Prelude.NFData ListArchivesResponse where
+  rnf ListArchivesResponse' {..} =
+    Prelude.rnf archives
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -135,9 +135,17 @@ instance Core.AWSRequest ListBranches where
             Prelude.<*> (x Core..?> "branches" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListBranches
+instance Prelude.Hashable ListBranches where
+  hashWithSalt _salt ListBranches' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData ListBranches
+instance Prelude.NFData ListBranches where
+  rnf ListBranches' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders ListBranches where
   toHeaders =
@@ -214,4 +222,8 @@ listBranchesResponse_httpStatus = Lens.lens (\ListBranchesResponse' {httpStatus}
 listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse [Branch]
 listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListBranchesResponse
+instance Prelude.NFData ListBranchesResponse where
+  rnf ListBranchesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf branches

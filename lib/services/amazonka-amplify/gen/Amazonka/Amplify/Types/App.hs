@@ -338,6 +338,57 @@ instance Core.FromJSON App where
             Prelude.<*> (x Core..: "enableBasicAuth")
       )
 
-instance Prelude.Hashable App
+instance Prelude.Hashable App where
+  hashWithSalt _salt App' {..} =
+    _salt `Prelude.hashWithSalt` customHeaders
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` enableBranchAutoDeletion
+      `Prelude.hashWithSalt` customRules
+      `Prelude.hashWithSalt` iamServiceRoleArn
+      `Prelude.hashWithSalt` autoBranchCreationPatterns
+      `Prelude.hashWithSalt` productionBranch
+      `Prelude.hashWithSalt` autoBranchCreationConfig
+      `Prelude.hashWithSalt` enableAutoBranchCreation
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` defaultDomain
+      `Prelude.hashWithSalt` enableBranchAutoBuild
+      `Prelude.hashWithSalt` enableBasicAuth
 
-instance Prelude.NFData App
+instance Prelude.NFData App where
+  rnf App' {..} =
+    Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
+      `Prelude.seq` Prelude.rnf customRules
+      `Prelude.seq` Prelude.rnf iamServiceRoleArn
+      `Prelude.seq` Prelude.rnf autoBranchCreationPatterns
+      `Prelude.seq` Prelude.rnf productionBranch
+      `Prelude.seq` Prelude.rnf autoBranchCreationConfig
+      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf
+        environmentVariables
+      `Prelude.seq` Prelude.rnf defaultDomain
+      `Prelude.seq` Prelude.rnf
+        enableBranchAutoBuild
+      `Prelude.seq` Prelude.rnf
+        enableBasicAuth

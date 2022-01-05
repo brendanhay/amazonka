@@ -91,6 +91,14 @@ instance Core.FromJSON SubDomain where
             Prelude.<*> (x Core..: "dnsRecord")
       )
 
-instance Prelude.Hashable SubDomain
+instance Prelude.Hashable SubDomain where
+  hashWithSalt _salt SubDomain' {..} =
+    _salt `Prelude.hashWithSalt` subDomainSetting
+      `Prelude.hashWithSalt` verified
+      `Prelude.hashWithSalt` dnsRecord
 
-instance Prelude.NFData SubDomain
+instance Prelude.NFData SubDomain where
+  rnf SubDomain' {..} =
+    Prelude.rnf subDomainSetting
+      `Prelude.seq` Prelude.rnf verified
+      `Prelude.seq` Prelude.rnf dnsRecord

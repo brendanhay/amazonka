@@ -289,9 +289,49 @@ instance Core.AWSRequest CreateApp where
             Prelude.<*> (x Core..:> "app")
       )
 
-instance Prelude.Hashable CreateApp
+instance Prelude.Hashable CreateApp where
+  hashWithSalt _salt CreateApp' {..} =
+    _salt `Prelude.hashWithSalt` enableBranchAutoBuild
+      `Prelude.hashWithSalt` oauthToken
+      `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` customHeaders
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` enableBranchAutoDeletion
+      `Prelude.hashWithSalt` customRules
+      `Prelude.hashWithSalt` iamServiceRoleArn
+      `Prelude.hashWithSalt` autoBranchCreationPatterns
+      `Prelude.hashWithSalt` autoBranchCreationConfig
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` enableAutoBranchCreation
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateApp
+instance Prelude.NFData CreateApp where
+  rnf CreateApp' {..} =
+    Prelude.rnf enableBranchAutoBuild
+      `Prelude.seq` Prelude.rnf oauthToken
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
+      `Prelude.seq` Prelude.rnf customRules
+      `Prelude.seq` Prelude.rnf iamServiceRoleArn
+      `Prelude.seq` Prelude.rnf autoBranchCreationPatterns
+      `Prelude.seq` Prelude.rnf autoBranchCreationConfig
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateApp where
   toHeaders =
@@ -384,4 +424,7 @@ createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> ht
 createAppResponse_app :: Lens.Lens' CreateAppResponse App
 createAppResponse_app = Lens.lens (\CreateAppResponse' {app} -> app) (\s@CreateAppResponse' {} a -> s {app = a} :: CreateAppResponse)
 
-instance Prelude.NFData CreateAppResponse
+instance Prelude.NFData CreateAppResponse where
+  rnf CreateAppResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf app

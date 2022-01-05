@@ -147,9 +147,19 @@ instance Core.AWSRequest ListJobs where
             Prelude.<*> (x Core..?> "jobSummaries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListJobs
+instance Prelude.Hashable ListJobs where
+  hashWithSalt _salt ListJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData ListJobs
+instance Prelude.NFData ListJobs where
+  rnf ListJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders ListJobs where
   toHeaders =
@@ -231,4 +241,8 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 listJobsResponse_jobSummaries :: Lens.Lens' ListJobsResponse [JobSummary]
 listJobsResponse_jobSummaries = Lens.lens (\ListJobsResponse' {jobSummaries} -> jobSummaries) (\s@ListJobsResponse' {} a -> s {jobSummaries = a} :: ListJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse where
+  rnf ListJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSummaries

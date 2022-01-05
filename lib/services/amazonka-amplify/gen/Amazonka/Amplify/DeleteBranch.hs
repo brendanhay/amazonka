@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteBranch where
             Prelude.<*> (x Core..:> "branch")
       )
 
-instance Prelude.Hashable DeleteBranch
+instance Prelude.Hashable DeleteBranch where
+  hashWithSalt _salt DeleteBranch' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData DeleteBranch
+instance Prelude.NFData DeleteBranch where
+  rnf DeleteBranch' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders DeleteBranch where
   toHeaders =
@@ -172,4 +178,7 @@ deleteBranchResponse_httpStatus = Lens.lens (\DeleteBranchResponse' {httpStatus}
 deleteBranchResponse_branch :: Lens.Lens' DeleteBranchResponse Branch
 deleteBranchResponse_branch = Lens.lens (\DeleteBranchResponse' {branch} -> branch) (\s@DeleteBranchResponse' {} a -> s {branch = a} :: DeleteBranchResponse)
 
-instance Prelude.NFData DeleteBranchResponse
+instance Prelude.NFData DeleteBranchResponse where
+  rnf DeleteBranchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf branch

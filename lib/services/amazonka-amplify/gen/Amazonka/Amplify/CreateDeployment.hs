@@ -126,9 +126,17 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (x Core..:> "zipUploadUrl")
       )
 
-instance Prelude.Hashable CreateDeployment
+instance Prelude.Hashable CreateDeployment where
+  hashWithSalt _salt CreateDeployment' {..} =
+    _salt `Prelude.hashWithSalt` fileMap
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData CreateDeployment
+instance Prelude.NFData CreateDeployment where
+  rnf CreateDeployment' {..} =
+    Prelude.rnf fileMap
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders CreateDeployment where
   toHeaders =
@@ -229,4 +237,9 @@ createDeploymentResponse_fileUploadUrls = Lens.lens (\CreateDeploymentResponse' 
 createDeploymentResponse_zipUploadUrl :: Lens.Lens' CreateDeploymentResponse Prelude.Text
 createDeploymentResponse_zipUploadUrl = Lens.lens (\CreateDeploymentResponse' {zipUploadUrl} -> zipUploadUrl) (\s@CreateDeploymentResponse' {} a -> s {zipUploadUrl = a} :: CreateDeploymentResponse)
 
-instance Prelude.NFData CreateDeploymentResponse
+instance Prelude.NFData CreateDeploymentResponse where
+  rnf CreateDeploymentResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fileUploadUrls
+      `Prelude.seq` Prelude.rnf zipUploadUrl

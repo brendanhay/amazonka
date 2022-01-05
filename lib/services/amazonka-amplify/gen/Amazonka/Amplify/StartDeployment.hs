@@ -132,9 +132,19 @@ instance Core.AWSRequest StartDeployment where
             Prelude.<*> (x Core..:> "jobSummary")
       )
 
-instance Prelude.Hashable StartDeployment
+instance Prelude.Hashable StartDeployment where
+  hashWithSalt _salt StartDeployment' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` sourceUrl
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData StartDeployment
+instance Prelude.NFData StartDeployment where
+  rnf StartDeployment' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf sourceUrl
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders StartDeployment where
   toHeaders =
@@ -211,4 +221,7 @@ startDeploymentResponse_httpStatus = Lens.lens (\StartDeploymentResponse' {httpS
 startDeploymentResponse_jobSummary :: Lens.Lens' StartDeploymentResponse JobSummary
 startDeploymentResponse_jobSummary = Lens.lens (\StartDeploymentResponse' {jobSummary} -> jobSummary) (\s@StartDeploymentResponse' {} a -> s {jobSummary = a} :: StartDeploymentResponse)
 
-instance Prelude.NFData StartDeploymentResponse
+instance Prelude.NFData StartDeploymentResponse where
+  rnf StartDeploymentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSummary

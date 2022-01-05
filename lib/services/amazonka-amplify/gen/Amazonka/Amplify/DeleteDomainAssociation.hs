@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteDomainAssociation where
             Prelude.<*> (x Core..:> "domainAssociation")
       )
 
-instance Prelude.Hashable DeleteDomainAssociation
+instance Prelude.Hashable DeleteDomainAssociation where
+  hashWithSalt _salt DeleteDomainAssociation' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteDomainAssociation
+instance Prelude.NFData DeleteDomainAssociation where
+  rnf DeleteDomainAssociation' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DeleteDomainAssociation where
   toHeaders =
@@ -174,3 +180,7 @@ deleteDomainAssociationResponse_domainAssociation = Lens.lens (\DeleteDomainAsso
 instance
   Prelude.NFData
     DeleteDomainAssociationResponse
+  where
+  rnf DeleteDomainAssociationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainAssociation

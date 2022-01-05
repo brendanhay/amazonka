@@ -144,9 +144,17 @@ instance Core.AWSRequest ListDomainAssociations where
                         )
       )
 
-instance Prelude.Hashable ListDomainAssociations
+instance Prelude.Hashable ListDomainAssociations where
+  hashWithSalt _salt ListDomainAssociations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData ListDomainAssociations
+instance Prelude.NFData ListDomainAssociations where
+  rnf ListDomainAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders ListDomainAssociations where
   toHeaders =
@@ -227,3 +235,8 @@ listDomainAssociationsResponse_domainAssociations = Lens.lens (\ListDomainAssoci
 instance
   Prelude.NFData
     ListDomainAssociationsResponse
+  where
+  rnf ListDomainAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainAssociations

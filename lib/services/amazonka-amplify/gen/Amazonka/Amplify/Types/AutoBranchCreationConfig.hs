@@ -170,9 +170,31 @@ instance Core.FromJSON AutoBranchCreationConfig where
             Prelude.<*> (x Core..:? "pullRequestEnvironmentName")
       )
 
-instance Prelude.Hashable AutoBranchCreationConfig
+instance Prelude.Hashable AutoBranchCreationConfig where
+  hashWithSalt _salt AutoBranchCreationConfig' {..} =
+    _salt `Prelude.hashWithSalt` framework
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` enablePullRequestPreview
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` enablePerformanceMode
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` enableAutoBuild
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` pullRequestEnvironmentName
 
-instance Prelude.NFData AutoBranchCreationConfig
+instance Prelude.NFData AutoBranchCreationConfig where
+  rnf AutoBranchCreationConfig' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf enablePullRequestPreview
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf enablePerformanceMode
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf enableAutoBuild
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
 
 instance Core.ToJSON AutoBranchCreationConfig where
   toJSON AutoBranchCreationConfig' {..} =

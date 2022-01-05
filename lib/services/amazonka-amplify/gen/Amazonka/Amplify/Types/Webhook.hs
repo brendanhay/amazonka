@@ -142,6 +142,22 @@ instance Core.FromJSON Webhook where
             Prelude.<*> (x Core..: "updateTime")
       )
 
-instance Prelude.Hashable Webhook
+instance Prelude.Hashable Webhook where
+  hashWithSalt _salt Webhook' {..} =
+    _salt `Prelude.hashWithSalt` webhookArn
+      `Prelude.hashWithSalt` webhookId
+      `Prelude.hashWithSalt` webhookUrl
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` updateTime
 
-instance Prelude.NFData Webhook
+instance Prelude.NFData Webhook where
+  rnf Webhook' {..} =
+    Prelude.rnf webhookArn
+      `Prelude.seq` Prelude.rnf webhookId
+      `Prelude.seq` Prelude.rnf webhookUrl
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime

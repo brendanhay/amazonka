@@ -142,9 +142,21 @@ instance Core.AWSRequest ListArtifacts where
             Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListArtifacts
+instance Prelude.Hashable ListArtifacts where
+  hashWithSalt _salt ListArtifacts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData ListArtifacts
+instance Prelude.NFData ListArtifacts where
+  rnf ListArtifacts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders ListArtifacts where
   toHeaders =
@@ -228,4 +240,8 @@ listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatu
 listArtifactsResponse_artifacts :: Lens.Lens' ListArtifactsResponse [Artifact]
 listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts} -> artifacts) (\s@ListArtifactsResponse' {} a -> s {artifacts = a} :: ListArtifactsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListArtifactsResponse
+instance Prelude.NFData ListArtifactsResponse where
+  rnf ListArtifactsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf artifacts

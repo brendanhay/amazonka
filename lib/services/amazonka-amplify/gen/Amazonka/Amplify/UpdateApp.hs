@@ -289,9 +289,49 @@ instance Core.AWSRequest UpdateApp where
             Prelude.<*> (x Core..:> "app")
       )
 
-instance Prelude.Hashable UpdateApp
+instance Prelude.Hashable UpdateApp where
+  hashWithSalt _salt UpdateApp' {..} =
+    _salt `Prelude.hashWithSalt` enableBranchAutoBuild
+      `Prelude.hashWithSalt` oauthToken
+      `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` customHeaders
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` enableBranchAutoDeletion
+      `Prelude.hashWithSalt` customRules
+      `Prelude.hashWithSalt` iamServiceRoleArn
+      `Prelude.hashWithSalt` autoBranchCreationPatterns
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` autoBranchCreationConfig
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` enableAutoBranchCreation
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData UpdateApp
+instance Prelude.NFData UpdateApp where
+  rnf UpdateApp' {..} =
+    Prelude.rnf enableBranchAutoBuild
+      `Prelude.seq` Prelude.rnf oauthToken
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
+      `Prelude.seq` Prelude.rnf customRules
+      `Prelude.seq` Prelude.rnf iamServiceRoleArn
+      `Prelude.seq` Prelude.rnf autoBranchCreationPatterns
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf autoBranchCreationConfig
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders UpdateApp where
   toHeaders =
@@ -387,4 +427,7 @@ updateAppResponse_httpStatus = Lens.lens (\UpdateAppResponse' {httpStatus} -> ht
 updateAppResponse_app :: Lens.Lens' UpdateAppResponse App
 updateAppResponse_app = Lens.lens (\UpdateAppResponse' {app} -> app) (\s@UpdateAppResponse' {} a -> s {app = a} :: UpdateAppResponse)
 
-instance Prelude.NFData UpdateAppResponse
+instance Prelude.NFData UpdateAppResponse where
+  rnf UpdateAppResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf app

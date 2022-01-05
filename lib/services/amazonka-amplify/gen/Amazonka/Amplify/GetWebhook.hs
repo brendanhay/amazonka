@@ -87,9 +87,12 @@ instance Core.AWSRequest GetWebhook where
             Prelude.<*> (x Core..:> "webhook")
       )
 
-instance Prelude.Hashable GetWebhook
+instance Prelude.Hashable GetWebhook where
+  hashWithSalt _salt GetWebhook' {..} =
+    _salt `Prelude.hashWithSalt` webhookId
 
-instance Prelude.NFData GetWebhook
+instance Prelude.NFData GetWebhook where
+  rnf GetWebhook' {..} = Prelude.rnf webhookId
 
 instance Core.ToHeaders GetWebhook where
   toHeaders =
@@ -151,4 +154,7 @@ getWebhookResponse_httpStatus = Lens.lens (\GetWebhookResponse' {httpStatus} -> 
 getWebhookResponse_webhook :: Lens.Lens' GetWebhookResponse Webhook
 getWebhookResponse_webhook = Lens.lens (\GetWebhookResponse' {webhook} -> webhook) (\s@GetWebhookResponse' {} a -> s {webhook = a} :: GetWebhookResponse)
 
-instance Prelude.NFData GetWebhookResponse
+instance Prelude.NFData GetWebhookResponse where
+  rnf GetWebhookResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf webhook

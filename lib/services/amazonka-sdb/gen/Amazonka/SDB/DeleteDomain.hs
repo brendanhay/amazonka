@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteDomain where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteDomainResponse'
 
-instance Prelude.Hashable DeleteDomain
+instance Prelude.Hashable DeleteDomain where
+  hashWithSalt _salt DeleteDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteDomain
+instance Prelude.NFData DeleteDomain where
+  rnf DeleteDomain' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders DeleteDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -110,4 +113,5 @@ newDeleteDomainResponse ::
   DeleteDomainResponse
 newDeleteDomainResponse = DeleteDomainResponse'
 
-instance Prelude.NFData DeleteDomainResponse
+instance Prelude.NFData DeleteDomainResponse where
+  rnf _ = ()

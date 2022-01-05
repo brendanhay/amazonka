@@ -88,9 +88,12 @@ instance Core.AWSRequest CreateDomain where
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateDomainResponse'
 
-instance Prelude.Hashable CreateDomain
+instance Prelude.Hashable CreateDomain where
+  hashWithSalt _salt CreateDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CreateDomain
+instance Prelude.NFData CreateDomain where
+  rnf CreateDomain' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders CreateDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,4 +125,5 @@ newCreateDomainResponse ::
   CreateDomainResponse
 newCreateDomainResponse = CreateDomainResponse'
 
-instance Prelude.NFData CreateDomainResponse
+instance Prelude.NFData CreateDomainResponse where
+  rnf _ = ()

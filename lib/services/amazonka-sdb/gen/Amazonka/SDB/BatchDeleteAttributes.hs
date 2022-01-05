@@ -96,9 +96,15 @@ instance Core.AWSRequest BatchDeleteAttributes where
   response =
     Response.receiveNull BatchDeleteAttributesResponse'
 
-instance Prelude.Hashable BatchDeleteAttributes
+instance Prelude.Hashable BatchDeleteAttributes where
+  hashWithSalt _salt BatchDeleteAttributes' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData BatchDeleteAttributes
+instance Prelude.NFData BatchDeleteAttributes where
+  rnf BatchDeleteAttributes' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToHeaders BatchDeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -132,4 +138,5 @@ newBatchDeleteAttributesResponse ::
 newBatchDeleteAttributesResponse =
   BatchDeleteAttributesResponse'
 
-instance Prelude.NFData BatchDeleteAttributesResponse
+instance Prelude.NFData BatchDeleteAttributesResponse where
+  rnf _ = ()

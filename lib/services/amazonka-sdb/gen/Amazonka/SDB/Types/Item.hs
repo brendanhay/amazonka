@@ -79,6 +79,14 @@ instance Core.FromXML Item where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (Core.parseXMLList "Attribute" x)
 
-instance Prelude.Hashable Item
+instance Prelude.Hashable Item where
+  hashWithSalt _salt Item' {..} =
+    _salt `Prelude.hashWithSalt` alternateNameEncoding
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData Item
+instance Prelude.NFData Item where
+  rnf Item' {..} =
+    Prelude.rnf alternateNameEncoding
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes

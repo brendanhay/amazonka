@@ -136,9 +136,15 @@ instance Core.AWSRequest BatchPutAttributes where
   response =
     Response.receiveNull BatchPutAttributesResponse'
 
-instance Prelude.Hashable BatchPutAttributes
+instance Prelude.Hashable BatchPutAttributes where
+  hashWithSalt _salt BatchPutAttributes' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData BatchPutAttributes
+instance Prelude.NFData BatchPutAttributes where
+  rnf BatchPutAttributes' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToHeaders BatchPutAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,5 @@ newBatchPutAttributesResponse ::
 newBatchPutAttributesResponse =
   BatchPutAttributesResponse'
 
-instance Prelude.NFData BatchPutAttributesResponse
+instance Prelude.NFData BatchPutAttributesResponse where
+  rnf _ = ()

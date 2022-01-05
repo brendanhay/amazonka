@@ -101,9 +101,12 @@ instance Core.AWSRequest DomainMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DomainMetadata
+instance Prelude.Hashable DomainMetadata where
+  hashWithSalt _salt DomainMetadata' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DomainMetadata
+instance Prelude.NFData DomainMetadata where
+  rnf DomainMetadata' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders DomainMetadata where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,4 +217,13 @@ domainMetadataResponse_timestamp = Lens.lens (\DomainMetadataResponse' {timestam
 domainMetadataResponse_httpStatus :: Lens.Lens' DomainMetadataResponse Prelude.Int
 domainMetadataResponse_httpStatus = Lens.lens (\DomainMetadataResponse' {httpStatus} -> httpStatus) (\s@DomainMetadataResponse' {} a -> s {httpStatus = a} :: DomainMetadataResponse)
 
-instance Prelude.NFData DomainMetadataResponse
+instance Prelude.NFData DomainMetadataResponse where
+  rnf DomainMetadataResponse' {..} =
+    Prelude.rnf itemNamesSizeBytes
+      `Prelude.seq` Prelude.rnf attributeValuesSizeBytes
+      `Prelude.seq` Prelude.rnf attributeNameCount
+      `Prelude.seq` Prelude.rnf attributeNamesSizeBytes
+      `Prelude.seq` Prelude.rnf attributeValueCount
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf httpStatus

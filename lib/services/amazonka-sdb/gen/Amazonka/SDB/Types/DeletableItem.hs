@@ -60,9 +60,15 @@ deletableItem_attributes = Lens.lens (\DeletableItem' {attributes} -> attributes
 deletableItem_name :: Lens.Lens' DeletableItem Prelude.Text
 deletableItem_name = Lens.lens (\DeletableItem' {name} -> name) (\s@DeletableItem' {} a -> s {name = a} :: DeletableItem)
 
-instance Prelude.Hashable DeletableItem
+instance Prelude.Hashable DeletableItem where
+  hashWithSalt _salt DeletableItem' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeletableItem
+instance Prelude.NFData DeletableItem where
+  rnf DeletableItem' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery DeletableItem where
   toQuery DeletableItem' {..} =

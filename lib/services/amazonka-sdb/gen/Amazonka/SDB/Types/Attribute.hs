@@ -90,9 +90,19 @@ instance Core.FromXML Attribute where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Attribute
+instance Prelude.Hashable Attribute where
+  hashWithSalt _salt Attribute' {..} =
+    _salt `Prelude.hashWithSalt` alternateValueEncoding
+      `Prelude.hashWithSalt` alternateNameEncoding
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Attribute
+instance Prelude.NFData Attribute where
+  rnf Attribute' {..} =
+    Prelude.rnf alternateValueEncoding
+      `Prelude.seq` Prelude.rnf alternateNameEncoding
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery Attribute where
   toQuery Attribute' {..} =

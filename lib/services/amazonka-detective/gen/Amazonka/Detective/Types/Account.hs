@@ -66,9 +66,15 @@ account_accountId = Lens.lens (\Account' {accountId} -> accountId) (\s@Account' 
 account_emailAddress :: Lens.Lens' Account Prelude.Text
 account_emailAddress = Lens.lens (\Account' {emailAddress} -> emailAddress) (\s@Account' {} a -> s {emailAddress = a} :: Account)
 
-instance Prelude.Hashable Account
+instance Prelude.Hashable Account where
+  hashWithSalt _salt Account' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData Account
+instance Prelude.NFData Account where
+  rnf Account' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON Account where
   toJSON Account' {..} =

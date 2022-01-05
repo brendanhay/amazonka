@@ -141,10 +141,20 @@ instance
 instance
   Prelude.Hashable
     ListCustomVerificationEmailTemplates
+  where
+  hashWithSalt
+    _salt
+    ListCustomVerificationEmailTemplates' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` pageSize
 
 instance
   Prelude.NFData
     ListCustomVerificationEmailTemplates
+  where
+  rnf ListCustomVerificationEmailTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance
   Core.ToHeaders
@@ -245,3 +255,8 @@ listCustomVerificationEmailTemplatesResponse_httpStatus = Lens.lens (\ListCustom
 instance
   Prelude.NFData
     ListCustomVerificationEmailTemplatesResponse
+  where
+  rnf ListCustomVerificationEmailTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf customVerificationEmailTemplates
+      `Prelude.seq` Prelude.rnf httpStatus

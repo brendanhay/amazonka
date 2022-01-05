@@ -90,6 +90,16 @@ instance Core.FromJSON ImportJobSummary where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable ImportJobSummary
+instance Prelude.Hashable ImportJobSummary where
+  hashWithSalt _salt ImportJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` importDestination
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData ImportJobSummary
+instance Prelude.NFData ImportJobSummary where
+  rnf ImportJobSummary' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf importDestination
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf createdTimestamp

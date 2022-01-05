@@ -173,10 +173,22 @@ instance
 instance
   Prelude.Hashable
     PutEmailIdentityDkimSigningAttributes
+  where
+  hashWithSalt
+    _salt
+    PutEmailIdentityDkimSigningAttributes' {..} =
+      _salt `Prelude.hashWithSalt` signingAttributes
+        `Prelude.hashWithSalt` emailIdentity
+        `Prelude.hashWithSalt` signingAttributesOrigin
 
 instance
   Prelude.NFData
     PutEmailIdentityDkimSigningAttributes
+  where
+  rnf PutEmailIdentityDkimSigningAttributes' {..} =
+    Prelude.rnf signingAttributes
+      `Prelude.seq` Prelude.rnf emailIdentity
+      `Prelude.seq` Prelude.rnf signingAttributesOrigin
 
 instance
   Core.ToHeaders
@@ -408,3 +420,9 @@ putEmailIdentityDkimSigningAttributesResponse_httpStatus = Lens.lens (\PutEmailI
 instance
   Prelude.NFData
     PutEmailIdentityDkimSigningAttributesResponse
+  where
+  rnf
+    PutEmailIdentityDkimSigningAttributesResponse' {..} =
+      Prelude.rnf dkimStatus
+        `Prelude.seq` Prelude.rnf dkimTokens
+        `Prelude.seq` Prelude.rnf httpStatus

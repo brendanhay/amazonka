@@ -137,8 +137,15 @@ instance
 instance
   Prelude.Hashable
     ListDeliverabilityTestReports
+  where
+  hashWithSalt _salt ListDeliverabilityTestReports' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListDeliverabilityTestReports
+instance Prelude.NFData ListDeliverabilityTestReports where
+  rnf ListDeliverabilityTestReports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListDeliverabilityTestReports where
   toHeaders =
@@ -230,3 +237,8 @@ listDeliverabilityTestReportsResponse_deliverabilityTestReports = Lens.lens (\Li
 instance
   Prelude.NFData
     ListDeliverabilityTestReportsResponse
+  where
+  rnf ListDeliverabilityTestReportsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deliverabilityTestReports

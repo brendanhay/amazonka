@@ -159,6 +159,14 @@ instance Core.FromJSON MailFromAttributes where
             Prelude.<*> (x Core..: "BehaviorOnMxFailure")
       )
 
-instance Prelude.Hashable MailFromAttributes
+instance Prelude.Hashable MailFromAttributes where
+  hashWithSalt _salt MailFromAttributes' {..} =
+    _salt `Prelude.hashWithSalt` mailFromDomain
+      `Prelude.hashWithSalt` mailFromDomainStatus
+      `Prelude.hashWithSalt` behaviorOnMxFailure
 
-instance Prelude.NFData MailFromAttributes
+instance Prelude.NFData MailFromAttributes where
+  rnf MailFromAttributes' {..} =
+    Prelude.rnf mailFromDomain
+      `Prelude.seq` Prelude.rnf mailFromDomainStatus
+      `Prelude.seq` Prelude.rnf behaviorOnMxFailure

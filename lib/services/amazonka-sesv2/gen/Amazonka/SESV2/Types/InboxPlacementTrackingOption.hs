@@ -81,8 +81,15 @@ instance Core.FromJSON InboxPlacementTrackingOption where
 instance
   Prelude.Hashable
     InboxPlacementTrackingOption
+  where
+  hashWithSalt _salt InboxPlacementTrackingOption' {..} =
+    _salt `Prelude.hashWithSalt` trackedIsps
+      `Prelude.hashWithSalt` global
 
-instance Prelude.NFData InboxPlacementTrackingOption
+instance Prelude.NFData InboxPlacementTrackingOption where
+  rnf InboxPlacementTrackingOption' {..} =
+    Prelude.rnf trackedIsps
+      `Prelude.seq` Prelude.rnf global
 
 instance Core.ToJSON InboxPlacementTrackingOption where
   toJSON InboxPlacementTrackingOption' {..} =

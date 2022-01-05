@@ -153,9 +153,17 @@ instance Core.AWSRequest UpdateEmailIdentityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEmailIdentityPolicy
+instance Prelude.Hashable UpdateEmailIdentityPolicy where
+  hashWithSalt _salt UpdateEmailIdentityPolicy' {..} =
+    _salt `Prelude.hashWithSalt` emailIdentity
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData UpdateEmailIdentityPolicy
+instance Prelude.NFData UpdateEmailIdentityPolicy where
+  rnf UpdateEmailIdentityPolicy' {..} =
+    Prelude.rnf emailIdentity
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders UpdateEmailIdentityPolicy where
   toHeaders =
@@ -223,3 +231,6 @@ updateEmailIdentityPolicyResponse_httpStatus = Lens.lens (\UpdateEmailIdentityPo
 instance
   Prelude.NFData
     UpdateEmailIdentityPolicyResponse
+  where
+  rnf UpdateEmailIdentityPolicyResponse' {..} =
+    Prelude.rnf httpStatus

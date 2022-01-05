@@ -79,9 +79,15 @@ instance Core.FromJSON TopicPreference where
             Prelude.<*> (x Core..: "SubscriptionStatus")
       )
 
-instance Prelude.Hashable TopicPreference
+instance Prelude.Hashable TopicPreference where
+  hashWithSalt _salt TopicPreference' {..} =
+    _salt `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` subscriptionStatus
 
-instance Prelude.NFData TopicPreference
+instance Prelude.NFData TopicPreference where
+  rnf TopicPreference' {..} =
+    Prelude.rnf topicName
+      `Prelude.seq` Prelude.rnf subscriptionStatus
 
 instance Core.ToJSON TopicPreference where
   toJSON TopicPreference' {..} =

@@ -115,9 +115,15 @@ instance Core.AWSRequest TestRenderEmailTemplate where
             Prelude.<*> (x Core..:> "RenderedTemplate")
       )
 
-instance Prelude.Hashable TestRenderEmailTemplate
+instance Prelude.Hashable TestRenderEmailTemplate where
+  hashWithSalt _salt TestRenderEmailTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateData
 
-instance Prelude.NFData TestRenderEmailTemplate
+instance Prelude.NFData TestRenderEmailTemplate where
+  rnf TestRenderEmailTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateData
 
 instance Core.ToHeaders TestRenderEmailTemplate where
   toHeaders =
@@ -202,3 +208,7 @@ testRenderEmailTemplateResponse_renderedTemplate = Lens.lens (\TestRenderEmailTe
 instance
   Prelude.NFData
     TestRenderEmailTemplateResponse
+  where
+  rnf TestRenderEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf renderedTemplate

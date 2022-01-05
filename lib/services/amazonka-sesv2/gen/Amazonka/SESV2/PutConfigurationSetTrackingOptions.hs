@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     PutConfigurationSetTrackingOptions
+  where
+  hashWithSalt
+    _salt
+    PutConfigurationSetTrackingOptions' {..} =
+      _salt `Prelude.hashWithSalt` customRedirectDomain
+        `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     PutConfigurationSetTrackingOptions
+  where
+  rnf PutConfigurationSetTrackingOptions' {..} =
+    Prelude.rnf customRedirectDomain
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
   Core.ToHeaders
@@ -194,3 +204,6 @@ putConfigurationSetTrackingOptionsResponse_httpStatus = Lens.lens (\PutConfigura
 instance
   Prelude.NFData
     PutConfigurationSetTrackingOptionsResponse
+  where
+  rnf PutConfigurationSetTrackingOptionsResponse' {..} =
+    Prelude.rnf httpStatus

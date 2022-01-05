@@ -188,9 +188,19 @@ instance Core.AWSRequest CreateEmailIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEmailIdentity
+instance Prelude.Hashable CreateEmailIdentity where
+  hashWithSalt _salt CreateEmailIdentity' {..} =
+    _salt `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` dkimSigningAttributes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` emailIdentity
 
-instance Prelude.NFData CreateEmailIdentity
+instance Prelude.NFData CreateEmailIdentity where
+  rnf CreateEmailIdentity' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf dkimSigningAttributes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf emailIdentity
 
 instance Core.ToHeaders CreateEmailIdentity where
   toHeaders =
@@ -300,4 +310,9 @@ createEmailIdentityResponse_identityType = Lens.lens (\CreateEmailIdentityRespon
 createEmailIdentityResponse_httpStatus :: Lens.Lens' CreateEmailIdentityResponse Prelude.Int
 createEmailIdentityResponse_httpStatus = Lens.lens (\CreateEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@CreateEmailIdentityResponse' {} a -> s {httpStatus = a} :: CreateEmailIdentityResponse)
 
-instance Prelude.NFData CreateEmailIdentityResponse
+instance Prelude.NFData CreateEmailIdentityResponse where
+  rnf CreateEmailIdentityResponse' {..} =
+    Prelude.rnf dkimAttributes
+      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,6 +72,12 @@ instance Core.FromJSON EmailTemplateMetadata where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable EmailTemplateMetadata
+instance Prelude.Hashable EmailTemplateMetadata where
+  hashWithSalt _salt EmailTemplateMetadata' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData EmailTemplateMetadata
+instance Prelude.NFData EmailTemplateMetadata where
+  rnf EmailTemplateMetadata' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf createdTimestamp

@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteContact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContact
+instance Prelude.Hashable DeleteContact where
+  hashWithSalt _salt DeleteContact' {..} =
+    _salt `Prelude.hashWithSalt` contactListName
+      `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData DeleteContact
+instance Prelude.NFData DeleteContact where
+  rnf DeleteContact' {..} =
+    Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToHeaders DeleteContact where
   toHeaders =
@@ -152,4 +158,6 @@ newDeleteContactResponse pHttpStatus_ =
 deleteContactResponse_httpStatus :: Lens.Lens' DeleteContactResponse Prelude.Int
 deleteContactResponse_httpStatus = Lens.lens (\DeleteContactResponse' {httpStatus} -> httpStatus) (\s@DeleteContactResponse' {} a -> s {httpStatus = a} :: DeleteContactResponse)
 
-instance Prelude.NFData DeleteContactResponse
+instance Prelude.NFData DeleteContactResponse where
+  rnf DeleteContactResponse' {..} =
+    Prelude.rnf httpStatus

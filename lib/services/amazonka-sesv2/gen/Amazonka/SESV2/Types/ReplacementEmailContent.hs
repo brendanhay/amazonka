@@ -56,9 +56,13 @@ newReplacementEmailContent =
 replacementEmailContent_replacementTemplate :: Lens.Lens' ReplacementEmailContent (Prelude.Maybe ReplacementTemplate)
 replacementEmailContent_replacementTemplate = Lens.lens (\ReplacementEmailContent' {replacementTemplate} -> replacementTemplate) (\s@ReplacementEmailContent' {} a -> s {replacementTemplate = a} :: ReplacementEmailContent)
 
-instance Prelude.Hashable ReplacementEmailContent
+instance Prelude.Hashable ReplacementEmailContent where
+  hashWithSalt _salt ReplacementEmailContent' {..} =
+    _salt `Prelude.hashWithSalt` replacementTemplate
 
-instance Prelude.NFData ReplacementEmailContent
+instance Prelude.NFData ReplacementEmailContent where
+  rnf ReplacementEmailContent' {..} =
+    Prelude.rnf replacementTemplate
 
 instance Core.ToJSON ReplacementEmailContent where
   toJSON ReplacementEmailContent' {..} =

@@ -116,9 +116,15 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContact
+instance Prelude.Hashable GetContact where
+  hashWithSalt _salt GetContact' {..} =
+    _salt `Prelude.hashWithSalt` contactListName
+      `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData GetContact
+instance Prelude.NFData GetContact where
+  rnf GetContact' {..} =
+    Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToHeaders GetContact where
   toHeaders =
@@ -251,4 +257,14 @@ getContactResponse_topicPreferences = Lens.lens (\GetContactResponse' {topicPref
 getContactResponse_httpStatus :: Lens.Lens' GetContactResponse Prelude.Int
 getContactResponse_httpStatus = Lens.lens (\GetContactResponse' {httpStatus} -> httpStatus) (\s@GetContactResponse' {} a -> s {httpStatus = a} :: GetContactResponse)
 
-instance Prelude.NFData GetContactResponse
+instance Prelude.NFData GetContactResponse where
+  rnf GetContactResponse' {..} =
+    Prelude.rnf unsubscribeAll
+      `Prelude.seq` Prelude.rnf attributesData
+      `Prelude.seq` Prelude.rnf topicDefaultPreferences
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf topicPreferences
+      `Prelude.seq` Prelude.rnf httpStatus

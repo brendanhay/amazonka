@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteSuppressedDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSuppressedDestination
+instance Prelude.Hashable DeleteSuppressedDestination where
+  hashWithSalt _salt DeleteSuppressedDestination' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData DeleteSuppressedDestination
+instance Prelude.NFData DeleteSuppressedDestination where
+  rnf DeleteSuppressedDestination' {..} =
+    Prelude.rnf emailAddress
 
 instance Core.ToHeaders DeleteSuppressedDestination where
   toHeaders =
@@ -154,3 +158,6 @@ deleteSuppressedDestinationResponse_httpStatus = Lens.lens (\DeleteSuppressedDes
 instance
   Prelude.NFData
     DeleteSuppressedDestinationResponse
+  where
+  rnf DeleteSuppressedDestinationResponse' {..} =
+    Prelude.rnf httpStatus

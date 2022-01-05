@@ -106,9 +106,15 @@ instance Core.AWSRequest CreateImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImportJob
+instance Prelude.Hashable CreateImportJob where
+  hashWithSalt _salt CreateImportJob' {..} =
+    _salt `Prelude.hashWithSalt` importDestination
+      `Prelude.hashWithSalt` importDataSource
 
-instance Prelude.NFData CreateImportJob
+instance Prelude.NFData CreateImportJob where
+  rnf CreateImportJob' {..} =
+    Prelude.rnf importDestination
+      `Prelude.seq` Prelude.rnf importDataSource
 
 instance Core.ToHeaders CreateImportJob where
   toHeaders =
@@ -179,4 +185,7 @@ createImportJobResponse_jobId = Lens.lens (\CreateImportJobResponse' {jobId} -> 
 createImportJobResponse_httpStatus :: Lens.Lens' CreateImportJobResponse Prelude.Int
 createImportJobResponse_httpStatus = Lens.lens (\CreateImportJobResponse' {httpStatus} -> httpStatus) (\s@CreateImportJobResponse' {} a -> s {httpStatus = a} :: CreateImportJobResponse)
 
-instance Prelude.NFData CreateImportJobResponse
+instance Prelude.NFData CreateImportJobResponse where
+  rnf CreateImportJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

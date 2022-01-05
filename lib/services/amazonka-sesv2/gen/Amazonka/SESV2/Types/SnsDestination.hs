@@ -67,9 +67,12 @@ instance Core.FromJSON SnsDestination where
           SnsDestination' Prelude.<$> (x Core..: "TopicArn")
       )
 
-instance Prelude.Hashable SnsDestination
+instance Prelude.Hashable SnsDestination where
+  hashWithSalt _salt SnsDestination' {..} =
+    _salt `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData SnsDestination
+instance Prelude.NFData SnsDestination where
+  rnf SnsDestination' {..} = Prelude.rnf topicArn
 
 instance Core.ToJSON SnsDestination where
   toJSON SnsDestination' {..} =

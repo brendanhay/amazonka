@@ -85,9 +85,17 @@ instance Core.FromJSON EmailTemplateContent where
             Prelude.<*> (x Core..:? "Html")
       )
 
-instance Prelude.Hashable EmailTemplateContent
+instance Prelude.Hashable EmailTemplateContent where
+  hashWithSalt _salt EmailTemplateContent' {..} =
+    _salt `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` html
 
-instance Prelude.NFData EmailTemplateContent
+instance Prelude.NFData EmailTemplateContent where
+  rnf EmailTemplateContent' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf html
 
 instance Core.ToJSON EmailTemplateContent where
   toJSON EmailTemplateContent' {..} =

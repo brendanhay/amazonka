@@ -144,6 +144,20 @@ instance Core.FromJSON AccountDetails where
             Prelude.<*> (x Core..:? "WebsiteURL")
       )
 
-instance Prelude.Hashable AccountDetails
+instance Prelude.Hashable AccountDetails where
+  hashWithSalt _salt AccountDetails' {..} =
+    _salt `Prelude.hashWithSalt` reviewDetails
+      `Prelude.hashWithSalt` mailType
+      `Prelude.hashWithSalt` useCaseDescription
+      `Prelude.hashWithSalt` contactLanguage
+      `Prelude.hashWithSalt` additionalContactEmailAddresses
+      `Prelude.hashWithSalt` websiteURL
 
-instance Prelude.NFData AccountDetails
+instance Prelude.NFData AccountDetails where
+  rnf AccountDetails' {..} =
+    Prelude.rnf reviewDetails
+      `Prelude.seq` Prelude.rnf mailType
+      `Prelude.seq` Prelude.rnf useCaseDescription
+      `Prelude.seq` Prelude.rnf contactLanguage
+      `Prelude.seq` Prelude.rnf additionalContactEmailAddresses
+      `Prelude.seq` Prelude.rnf websiteURL

@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     PutAccountDedicatedIpWarmupAttributes
+  where
+  hashWithSalt
+    _salt
+    PutAccountDedicatedIpWarmupAttributes' {..} =
+      _salt `Prelude.hashWithSalt` autoWarmupEnabled
 
 instance
   Prelude.NFData
     PutAccountDedicatedIpWarmupAttributes
+  where
+  rnf PutAccountDedicatedIpWarmupAttributes' {..} =
+    Prelude.rnf autoWarmupEnabled
 
 instance
   Core.ToHeaders
@@ -186,3 +194,7 @@ putAccountDedicatedIpWarmupAttributesResponse_httpStatus = Lens.lens (\PutAccoun
 instance
   Prelude.NFData
     PutAccountDedicatedIpWarmupAttributesResponse
+  where
+  rnf
+    PutAccountDedicatedIpWarmupAttributesResponse' {..} =
+      Prelude.rnf httpStatus

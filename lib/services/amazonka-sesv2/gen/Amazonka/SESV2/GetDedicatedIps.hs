@@ -126,9 +126,17 @@ instance Core.AWSRequest GetDedicatedIps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDedicatedIps
+instance Prelude.Hashable GetDedicatedIps where
+  hashWithSalt _salt GetDedicatedIps' {..} =
+    _salt `Prelude.hashWithSalt` poolName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData GetDedicatedIps
+instance Prelude.NFData GetDedicatedIps where
+  rnf GetDedicatedIps' {..} =
+    Prelude.rnf poolName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders GetDedicatedIps where
   toHeaders =
@@ -212,4 +220,8 @@ getDedicatedIpsResponse_dedicatedIps = Lens.lens (\GetDedicatedIpsResponse' {ded
 getDedicatedIpsResponse_httpStatus :: Lens.Lens' GetDedicatedIpsResponse Prelude.Int
 getDedicatedIpsResponse_httpStatus = Lens.lens (\GetDedicatedIpsResponse' {httpStatus} -> httpStatus) (\s@GetDedicatedIpsResponse' {} a -> s {httpStatus = a} :: GetDedicatedIpsResponse)
 
-instance Prelude.NFData GetDedicatedIpsResponse
+instance Prelude.NFData GetDedicatedIpsResponse where
+  rnf GetDedicatedIpsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dedicatedIps
+      `Prelude.seq` Prelude.rnf httpStatus

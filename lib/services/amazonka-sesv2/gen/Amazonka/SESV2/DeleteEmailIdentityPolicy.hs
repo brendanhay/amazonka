@@ -128,9 +128,15 @@ instance Core.AWSRequest DeleteEmailIdentityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEmailIdentityPolicy
+instance Prelude.Hashable DeleteEmailIdentityPolicy where
+  hashWithSalt _salt DeleteEmailIdentityPolicy' {..} =
+    _salt `Prelude.hashWithSalt` emailIdentity
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData DeleteEmailIdentityPolicy
+instance Prelude.NFData DeleteEmailIdentityPolicy where
+  rnf DeleteEmailIdentityPolicy' {..} =
+    Prelude.rnf emailIdentity
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders DeleteEmailIdentityPolicy where
   toHeaders =
@@ -191,3 +197,6 @@ deleteEmailIdentityPolicyResponse_httpStatus = Lens.lens (\DeleteEmailIdentityPo
 instance
   Prelude.NFData
     DeleteEmailIdentityPolicyResponse
+  where
+  rnf DeleteEmailIdentityPolicyResponse' {..} =
+    Prelude.rnf httpStatus

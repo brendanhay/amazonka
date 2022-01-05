@@ -191,7 +191,31 @@ instance
 instance
   Prelude.Hashable
     EnvironmentAccountConnectionSummary
+  where
+  hashWithSalt
+    _salt
+    EnvironmentAccountConnectionSummary' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` environmentAccountId
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` lastModifiedAt
+        `Prelude.hashWithSalt` managementAccountId
+        `Prelude.hashWithSalt` requestedAt
+        `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     EnvironmentAccountConnectionSummary
+  where
+  rnf EnvironmentAccountConnectionSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf environmentAccountId
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf managementAccountId
+      `Prelude.seq` Prelude.rnf requestedAt
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf status

@@ -130,8 +130,17 @@ instance Core.AWSRequest DeleteServiceTemplateVersion where
 instance
   Prelude.Hashable
     DeleteServiceTemplateVersion
+  where
+  hashWithSalt _salt DeleteServiceTemplateVersion' {..} =
+    _salt `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` minorVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DeleteServiceTemplateVersion
+instance Prelude.NFData DeleteServiceTemplateVersion where
+  rnf DeleteServiceTemplateVersion' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteServiceTemplateVersion where
   toHeaders =
@@ -206,3 +215,7 @@ deleteServiceTemplateVersionResponse_httpStatus = Lens.lens (\DeleteServiceTempl
 instance
   Prelude.NFData
     DeleteServiceTemplateVersionResponse
+  where
+  rnf DeleteServiceTemplateVersionResponse' {..} =
+    Prelude.rnf serviceTemplateVersion
+      `Prelude.seq` Prelude.rnf httpStatus

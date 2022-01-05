@@ -188,8 +188,25 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
 instance
   Prelude.Hashable
     CreateServiceTemplateVersion
+  where
+  hashWithSalt _salt CreateServiceTemplateVersion' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` compatibleEnvironmentTemplates
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData CreateServiceTemplateVersion
+instance Prelude.NFData CreateServiceTemplateVersion where
+  rnf CreateServiceTemplateVersion' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders CreateServiceTemplateVersion where
   toHeaders =
@@ -279,3 +296,7 @@ createServiceTemplateVersionResponse_serviceTemplateVersion = Lens.lens (\Create
 instance
   Prelude.NFData
     CreateServiceTemplateVersionResponse
+  where
+  rnf CreateServiceTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplateVersion

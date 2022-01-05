@@ -128,9 +128,15 @@ instance Core.AWSRequest ListEnvironmentTemplates where
             Prelude.<*> (x Core..?> "templates" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListEnvironmentTemplates
+instance Prelude.Hashable ListEnvironmentTemplates where
+  hashWithSalt _salt ListEnvironmentTemplates' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListEnvironmentTemplates
+instance Prelude.NFData ListEnvironmentTemplates where
+  rnf ListEnvironmentTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEnvironmentTemplates where
   toHeaders =
@@ -219,3 +225,8 @@ listEnvironmentTemplatesResponse_templates = Lens.lens (\ListEnvironmentTemplate
 instance
   Prelude.NFData
     ListEnvironmentTemplatesResponse
+  where
+  rnf ListEnvironmentTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf templates

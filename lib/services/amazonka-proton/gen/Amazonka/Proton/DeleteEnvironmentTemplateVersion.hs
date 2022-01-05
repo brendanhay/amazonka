@@ -133,10 +133,22 @@ instance
 instance
   Prelude.Hashable
     DeleteEnvironmentTemplateVersion
+  where
+  hashWithSalt
+    _salt
+    DeleteEnvironmentTemplateVersion' {..} =
+      _salt `Prelude.hashWithSalt` majorVersion
+        `Prelude.hashWithSalt` minorVersion
+        `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     DeleteEnvironmentTemplateVersion
+  where
+  rnf DeleteEnvironmentTemplateVersion' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance
   Core.ToHeaders
@@ -221,3 +233,7 @@ deleteEnvironmentTemplateVersionResponse_httpStatus = Lens.lens (\DeleteEnvironm
 instance
   Prelude.NFData
     DeleteEnvironmentTemplateVersionResponse
+  where
+  rnf DeleteEnvironmentTemplateVersionResponse' {..} =
+    Prelude.rnf environmentTemplateVersion
+      `Prelude.seq` Prelude.rnf httpStatus

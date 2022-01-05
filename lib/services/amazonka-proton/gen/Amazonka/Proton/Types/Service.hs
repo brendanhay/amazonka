@@ -222,6 +222,34 @@ instance Core.FromJSON Service where
             Prelude.<*> (x Core..: "templateName")
       )
 
-instance Prelude.Hashable Service
+instance Prelude.Hashable Service where
+  hashWithSalt _salt Service' {..} =
+    _salt `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` repositoryId
+      `Prelude.hashWithSalt` pipeline
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` repositoryConnectionArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastModifiedAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData Service
+instance Prelude.NFData Service where
+  rnf Service' {..} =
+    Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf repositoryId
+      `Prelude.seq` Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf repositoryConnectionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf templateName

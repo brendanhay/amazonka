@@ -260,9 +260,31 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (x Core..:> "service")
       )
 
-instance Prelude.Hashable CreateService
+instance Prelude.Hashable CreateService where
+  hashWithSalt _salt CreateService' {..} =
+    _salt `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` repositoryId
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` repositoryConnectionArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData CreateService
+instance Prelude.NFData CreateService where
+  rnf CreateService' {..} =
+    Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf repositoryId
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf repositoryConnectionArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders CreateService where
   toHeaders =
@@ -347,4 +369,7 @@ createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatu
 createServiceResponse_service :: Lens.Lens' CreateServiceResponse Service
 createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> service) (\s@CreateServiceResponse' {} a -> s {service = a} :: CreateServiceResponse)
 
-instance Prelude.NFData CreateServiceResponse
+instance Prelude.NFData CreateServiceResponse where
+  rnf CreateServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf service

@@ -86,9 +86,12 @@ instance Core.AWSRequest GetServiceTemplate where
             Prelude.<*> (x Core..:> "serviceTemplate")
       )
 
-instance Prelude.Hashable GetServiceTemplate
+instance Prelude.Hashable GetServiceTemplate where
+  hashWithSalt _salt GetServiceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetServiceTemplate
+instance Prelude.NFData GetServiceTemplate where
+  rnf GetServiceTemplate' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetServiceTemplate where
   toHeaders =
@@ -161,4 +164,7 @@ getServiceTemplateResponse_httpStatus = Lens.lens (\GetServiceTemplateResponse' 
 getServiceTemplateResponse_serviceTemplate :: Lens.Lens' GetServiceTemplateResponse ServiceTemplate
 getServiceTemplateResponse_serviceTemplate = Lens.lens (\GetServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@GetServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: GetServiceTemplateResponse)
 
-instance Prelude.NFData GetServiceTemplateResponse
+instance Prelude.NFData GetServiceTemplateResponse where
+  rnf GetServiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplate

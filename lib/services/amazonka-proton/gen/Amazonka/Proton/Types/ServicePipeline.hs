@@ -188,6 +188,29 @@ instance Core.FromJSON ServicePipeline where
             Prelude.<*> (x Core..: "templateName")
       )
 
-instance Prelude.Hashable ServicePipeline
+instance Prelude.Hashable ServicePipeline where
+  hashWithSalt _salt ServicePipeline' {..} =
+    _salt
+      `Prelude.hashWithSalt` deploymentStatusMessage
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` lastDeploymentAttemptedAt
+      `Prelude.hashWithSalt` lastDeploymentSucceededAt
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData ServicePipeline
+instance Prelude.NFData ServicePipeline where
+  rnf ServicePipeline' {..} =
+    Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
+      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf templateName

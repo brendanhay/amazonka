@@ -122,9 +122,17 @@ instance Core.AWSRequest GetServiceTemplateVersion where
             Prelude.<*> (x Core..:> "serviceTemplateVersion")
       )
 
-instance Prelude.Hashable GetServiceTemplateVersion
+instance Prelude.Hashable GetServiceTemplateVersion where
+  hashWithSalt _salt GetServiceTemplateVersion' {..} =
+    _salt `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` minorVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData GetServiceTemplateVersion
+instance Prelude.NFData GetServiceTemplateVersion where
+  rnf GetServiceTemplateVersion' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders GetServiceTemplateVersion where
   toHeaders =
@@ -204,3 +212,7 @@ getServiceTemplateVersionResponse_serviceTemplateVersion = Lens.lens (\GetServic
 instance
   Prelude.NFData
     GetServiceTemplateVersionResponse
+  where
+  rnf GetServiceTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplateVersion

@@ -148,10 +148,26 @@ instance
 instance
   Prelude.Hashable
     UpdateEnvironmentTemplateVersion
+  where
+  hashWithSalt
+    _salt
+    UpdateEnvironmentTemplateVersion' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` majorVersion
+        `Prelude.hashWithSalt` minorVersion
+        `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     UpdateEnvironmentTemplateVersion
+  where
+  rnf UpdateEnvironmentTemplateVersion' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance
   Core.ToHeaders
@@ -242,3 +258,7 @@ updateEnvironmentTemplateVersionResponse_environmentTemplateVersion = Lens.lens 
 instance
   Prelude.NFData
     UpdateEnvironmentTemplateVersionResponse
+  where
+  rnf UpdateEnvironmentTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplateVersion

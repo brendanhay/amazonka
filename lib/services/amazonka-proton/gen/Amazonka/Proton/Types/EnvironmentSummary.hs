@@ -245,6 +245,39 @@ instance Core.FromJSON EnvironmentSummary where
             Prelude.<*> (x Core..: "templateName")
       )
 
-instance Prelude.Hashable EnvironmentSummary
+instance Prelude.Hashable EnvironmentSummary where
+  hashWithSalt _salt EnvironmentSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` deploymentStatusMessage
+      `Prelude.hashWithSalt` environmentAccountId
+      `Prelude.hashWithSalt` provisioning
+      `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` environmentAccountConnectionId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` lastDeploymentAttemptedAt
+      `Prelude.hashWithSalt` lastDeploymentSucceededAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData EnvironmentSummary
+instance Prelude.NFData EnvironmentSummary where
+  rnf EnvironmentSummary' {..} =
+    Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf environmentAccountId
+      `Prelude.seq` Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
+      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf templateName

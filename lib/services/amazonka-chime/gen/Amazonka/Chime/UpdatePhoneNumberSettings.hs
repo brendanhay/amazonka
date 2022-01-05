@@ -84,9 +84,13 @@ instance Core.AWSRequest UpdatePhoneNumberSettings where
     Response.receiveNull
       UpdatePhoneNumberSettingsResponse'
 
-instance Prelude.Hashable UpdatePhoneNumberSettings
+instance Prelude.Hashable UpdatePhoneNumberSettings where
+  hashWithSalt _salt UpdatePhoneNumberSettings' {..} =
+    _salt `Prelude.hashWithSalt` callingName
 
-instance Prelude.NFData UpdatePhoneNumberSettings
+instance Prelude.NFData UpdatePhoneNumberSettings where
+  rnf UpdatePhoneNumberSettings' {..} =
+    Prelude.rnf callingName
 
 instance Core.ToHeaders UpdatePhoneNumberSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,3 +126,5 @@ newUpdatePhoneNumberSettingsResponse =
 instance
   Prelude.NFData
     UpdatePhoneNumberSettingsResponse
+  where
+  rnf _ = ()

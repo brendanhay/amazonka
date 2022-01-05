@@ -85,9 +85,15 @@ instance Core.FromJSON VoiceConnectorItem where
             Prelude.<*> (x Core..: "Priority")
       )
 
-instance Prelude.Hashable VoiceConnectorItem
+instance Prelude.Hashable VoiceConnectorItem where
+  hashWithSalt _salt VoiceConnectorItem' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData VoiceConnectorItem
+instance Prelude.NFData VoiceConnectorItem where
+  rnf VoiceConnectorItem' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToJSON VoiceConnectorItem where
   toJSON VoiceConnectorItem' {..} =

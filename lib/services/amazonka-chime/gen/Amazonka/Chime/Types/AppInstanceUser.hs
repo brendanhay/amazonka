@@ -102,6 +102,18 @@ instance Core.FromJSON AppInstanceUser where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable AppInstanceUser
+instance Prelude.Hashable AppInstanceUser where
+  hashWithSalt _salt AppInstanceUser' {..} =
+    _salt `Prelude.hashWithSalt` appInstanceUserArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
-instance Prelude.NFData AppInstanceUser
+instance Prelude.NFData AppInstanceUser where
+  rnf AppInstanceUser' {..} =
+    Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

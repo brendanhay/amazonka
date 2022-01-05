@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     DisassociatePhoneNumbersFromVoiceConnector
+  where
+  hashWithSalt
+    _salt
+    DisassociatePhoneNumbersFromVoiceConnector' {..} =
+      _salt `Prelude.hashWithSalt` voiceConnectorId
+        `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance
   Prelude.NFData
     DisassociatePhoneNumbersFromVoiceConnector
+  where
+  rnf DisassociatePhoneNumbersFromVoiceConnector' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
 instance
   Core.ToHeaders
@@ -204,3 +214,8 @@ disassociatePhoneNumbersFromVoiceConnectorResponse_httpStatus = Lens.lens (\Disa
 instance
   Prelude.NFData
     DisassociatePhoneNumbersFromVoiceConnectorResponse
+  where
+  rnf
+    DisassociatePhoneNumbersFromVoiceConnectorResponse' {..} =
+      Prelude.rnf phoneNumberErrors
+        `Prelude.seq` Prelude.rnf httpStatus

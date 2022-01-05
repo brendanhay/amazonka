@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateBot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBot
+instance Prelude.Hashable UpdateBot where
+  hashWithSalt _salt UpdateBot' {..} =
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` botId
 
-instance Prelude.NFData UpdateBot
+instance Prelude.NFData UpdateBot where
+  rnf UpdateBot' {..} =
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf botId
 
 instance Core.ToHeaders UpdateBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,4 +181,7 @@ updateBotResponse_bot = Lens.lens (\UpdateBotResponse' {bot} -> bot) (\s@UpdateB
 updateBotResponse_httpStatus :: Lens.Lens' UpdateBotResponse Prelude.Int
 updateBotResponse_httpStatus = Lens.lens (\UpdateBotResponse' {httpStatus} -> httpStatus) (\s@UpdateBotResponse' {} a -> s {httpStatus = a} :: UpdateBotResponse)
 
-instance Prelude.NFData UpdateBotResponse
+instance Prelude.NFData UpdateBotResponse where
+  rnf UpdateBotResponse' {..} =
+    Prelude.rnf bot
+      `Prelude.seq` Prelude.rnf httpStatus

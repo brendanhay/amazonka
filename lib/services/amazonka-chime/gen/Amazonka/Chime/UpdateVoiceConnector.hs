@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateVoiceConnector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVoiceConnector
+instance Prelude.Hashable UpdateVoiceConnector where
+  hashWithSalt _salt UpdateVoiceConnector' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` requireEncryption
 
-instance Prelude.NFData UpdateVoiceConnector
+instance Prelude.NFData UpdateVoiceConnector where
+  rnf UpdateVoiceConnector' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf requireEncryption
 
 instance Core.ToHeaders UpdateVoiceConnector where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +188,7 @@ updateVoiceConnectorResponse_voiceConnector = Lens.lens (\UpdateVoiceConnectorRe
 updateVoiceConnectorResponse_httpStatus :: Lens.Lens' UpdateVoiceConnectorResponse Prelude.Int
 updateVoiceConnectorResponse_httpStatus = Lens.lens (\UpdateVoiceConnectorResponse' {httpStatus} -> httpStatus) (\s@UpdateVoiceConnectorResponse' {} a -> s {httpStatus = a} :: UpdateVoiceConnectorResponse)
 
-instance Prelude.NFData UpdateVoiceConnectorResponse
+instance Prelude.NFData UpdateVoiceConnectorResponse where
+  rnf UpdateVoiceConnectorResponse' {..} =
+    Prelude.rnf voiceConnector
+      `Prelude.seq` Prelude.rnf httpStatus

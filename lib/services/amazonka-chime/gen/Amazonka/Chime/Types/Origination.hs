@@ -88,9 +88,15 @@ instance Core.FromJSON Origination where
             Prelude.<*> (x Core..:? "Disabled")
       )
 
-instance Prelude.Hashable Origination
+instance Prelude.Hashable Origination where
+  hashWithSalt _salt Origination' {..} =
+    _salt `Prelude.hashWithSalt` routes
+      `Prelude.hashWithSalt` disabled
 
-instance Prelude.NFData Origination
+instance Prelude.NFData Origination where
+  rnf Origination' {..} =
+    Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf disabled
 
 instance Core.ToJSON Origination where
   toJSON Origination' {..} =

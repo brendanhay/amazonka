@@ -103,9 +103,15 @@ instance Core.AWSRequest BatchCreateAttendee where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCreateAttendee
+instance Prelude.Hashable BatchCreateAttendee where
+  hashWithSalt _salt BatchCreateAttendee' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` attendees
 
-instance Prelude.NFData BatchCreateAttendee
+instance Prelude.NFData BatchCreateAttendee where
+  rnf BatchCreateAttendee' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf attendees
 
 instance Core.ToHeaders BatchCreateAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +187,8 @@ batchCreateAttendeeResponse_errors = Lens.lens (\BatchCreateAttendeeResponse' {e
 batchCreateAttendeeResponse_httpStatus :: Lens.Lens' BatchCreateAttendeeResponse Prelude.Int
 batchCreateAttendeeResponse_httpStatus = Lens.lens (\BatchCreateAttendeeResponse' {httpStatus} -> httpStatus) (\s@BatchCreateAttendeeResponse' {} a -> s {httpStatus = a} :: BatchCreateAttendeeResponse)
 
-instance Prelude.NFData BatchCreateAttendeeResponse
+instance Prelude.NFData BatchCreateAttendeeResponse where
+  rnf BatchCreateAttendeeResponse' {..} =
+    Prelude.rnf attendees
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

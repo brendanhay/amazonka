@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdatePhoneNumber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePhoneNumber
+instance Prelude.Hashable UpdatePhoneNumber where
+  hashWithSalt _salt UpdatePhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` callingName
+      `Prelude.hashWithSalt` phoneNumberId
 
-instance Prelude.NFData UpdatePhoneNumber
+instance Prelude.NFData UpdatePhoneNumber where
+  rnf UpdatePhoneNumber' {..} =
+    Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf callingName
+      `Prelude.seq` Prelude.rnf phoneNumberId
 
 instance Core.ToHeaders UpdatePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +190,7 @@ updatePhoneNumberResponse_phoneNumber = Lens.lens (\UpdatePhoneNumberResponse' {
 updatePhoneNumberResponse_httpStatus :: Lens.Lens' UpdatePhoneNumberResponse Prelude.Int
 updatePhoneNumberResponse_httpStatus = Lens.lens (\UpdatePhoneNumberResponse' {httpStatus} -> httpStatus) (\s@UpdatePhoneNumberResponse' {} a -> s {httpStatus = a} :: UpdatePhoneNumberResponse)
 
-instance Prelude.NFData UpdatePhoneNumberResponse
+instance Prelude.NFData UpdatePhoneNumberResponse where
+  rnf UpdatePhoneNumberResponse' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf httpStatus

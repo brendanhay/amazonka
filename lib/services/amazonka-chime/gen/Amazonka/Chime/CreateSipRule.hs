@@ -167,9 +167,21 @@ instance Core.AWSRequest CreateSipRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSipRule
+instance Prelude.Hashable CreateSipRule where
+  hashWithSalt _salt CreateSipRule' {..} =
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` triggerType
+      `Prelude.hashWithSalt` triggerValue
+      `Prelude.hashWithSalt` targetApplications
 
-instance Prelude.NFData CreateSipRule
+instance Prelude.NFData CreateSipRule where
+  rnf CreateSipRule' {..} =
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf triggerType
+      `Prelude.seq` Prelude.rnf triggerValue
+      `Prelude.seq` Prelude.rnf targetApplications
 
 instance Core.ToHeaders CreateSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,4 +246,7 @@ createSipRuleResponse_sipRule = Lens.lens (\CreateSipRuleResponse' {sipRule} -> 
 createSipRuleResponse_httpStatus :: Lens.Lens' CreateSipRuleResponse Prelude.Int
 createSipRuleResponse_httpStatus = Lens.lens (\CreateSipRuleResponse' {httpStatus} -> httpStatus) (\s@CreateSipRuleResponse' {} a -> s {httpStatus = a} :: CreateSipRuleResponse)
 
-instance Prelude.NFData CreateSipRuleResponse
+instance Prelude.NFData CreateSipRuleResponse where
+  rnf CreateSipRuleResponse' {..} =
+    Prelude.rnf sipRule
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,17 @@ instance Core.AWSRequest CreateBot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBot
+instance Prelude.Hashable CreateBot where
+  hashWithSalt _salt CreateBot' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData CreateBot
+instance Prelude.NFData CreateBot where
+  rnf CreateBot' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders CreateBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,4 +178,7 @@ createBotResponse_bot = Lens.lens (\CreateBotResponse' {bot} -> bot) (\s@CreateB
 createBotResponse_httpStatus :: Lens.Lens' CreateBotResponse Prelude.Int
 createBotResponse_httpStatus = Lens.lens (\CreateBotResponse' {httpStatus} -> httpStatus) (\s@CreateBotResponse' {} a -> s {httpStatus = a} :: CreateBotResponse)
 
-instance Prelude.NFData CreateBotResponse
+instance Prelude.NFData CreateBotResponse where
+  rnf CreateBotResponse' {..} =
+    Prelude.rnf bot
+      `Prelude.seq` Prelude.rnf httpStatus

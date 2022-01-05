@@ -114,6 +114,20 @@ instance Core.FromJSON PhoneNumberCapabilities where
             Prelude.<*> (x Core..:? "OutboundSMS")
       )
 
-instance Prelude.Hashable PhoneNumberCapabilities
+instance Prelude.Hashable PhoneNumberCapabilities where
+  hashWithSalt _salt PhoneNumberCapabilities' {..} =
+    _salt `Prelude.hashWithSalt` outboundMMS
+      `Prelude.hashWithSalt` inboundCall
+      `Prelude.hashWithSalt` inboundSMS
+      `Prelude.hashWithSalt` inboundMMS
+      `Prelude.hashWithSalt` outboundCall
+      `Prelude.hashWithSalt` outboundSMS
 
-instance Prelude.NFData PhoneNumberCapabilities
+instance Prelude.NFData PhoneNumberCapabilities where
+  rnf PhoneNumberCapabilities' {..} =
+    Prelude.rnf outboundMMS
+      `Prelude.seq` Prelude.rnf inboundCall
+      `Prelude.seq` Prelude.rnf inboundSMS
+      `Prelude.seq` Prelude.rnf inboundMMS
+      `Prelude.seq` Prelude.rnf outboundCall
+      `Prelude.seq` Prelude.rnf outboundSMS

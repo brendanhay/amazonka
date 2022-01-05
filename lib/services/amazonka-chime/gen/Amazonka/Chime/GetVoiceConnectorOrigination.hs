@@ -93,8 +93,13 @@ instance Core.AWSRequest GetVoiceConnectorOrigination where
 instance
   Prelude.Hashable
     GetVoiceConnectorOrigination
+  where
+  hashWithSalt _salt GetVoiceConnectorOrigination' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData GetVoiceConnectorOrigination
+instance Prelude.NFData GetVoiceConnectorOrigination where
+  rnf GetVoiceConnectorOrigination' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance Core.ToHeaders GetVoiceConnectorOrigination where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,3 +157,7 @@ getVoiceConnectorOriginationResponse_httpStatus = Lens.lens (\GetVoiceConnectorO
 instance
   Prelude.NFData
     GetVoiceConnectorOriginationResponse
+  where
+  rnf GetVoiceConnectorOriginationResponse' {..} =
+    Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf httpStatus

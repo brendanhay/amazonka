@@ -100,9 +100,15 @@ instance Core.AWSRequest BatchUpdateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdateUser
+instance Prelude.Hashable BatchUpdateUser where
+  hashWithSalt _salt BatchUpdateUser' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` updateUserRequestItems
 
-instance Prelude.NFData BatchUpdateUser
+instance Prelude.NFData BatchUpdateUser where
+  rnf BatchUpdateUser' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf updateUserRequestItems
 
 instance Core.ToHeaders BatchUpdateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +177,7 @@ batchUpdateUserResponse_userErrors = Lens.lens (\BatchUpdateUserResponse' {userE
 batchUpdateUserResponse_httpStatus :: Lens.Lens' BatchUpdateUserResponse Prelude.Int
 batchUpdateUserResponse_httpStatus = Lens.lens (\BatchUpdateUserResponse' {httpStatus} -> httpStatus) (\s@BatchUpdateUserResponse' {} a -> s {httpStatus = a} :: BatchUpdateUserResponse)
 
-instance Prelude.NFData BatchUpdateUserResponse
+instance Prelude.NFData BatchUpdateUserResponse where
+  rnf BatchUpdateUserResponse' {..} =
+    Prelude.rnf userErrors
+      `Prelude.seq` Prelude.rnf httpStatus

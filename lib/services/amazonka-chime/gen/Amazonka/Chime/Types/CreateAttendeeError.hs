@@ -86,6 +86,14 @@ instance Core.FromJSON CreateAttendeeError where
             Prelude.<*> (x Core..:? "ExternalUserId")
       )
 
-instance Prelude.Hashable CreateAttendeeError
+instance Prelude.Hashable CreateAttendeeError where
+  hashWithSalt _salt CreateAttendeeError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` externalUserId
 
-instance Prelude.NFData CreateAttendeeError
+instance Prelude.NFData CreateAttendeeError where
+  rnf CreateAttendeeError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf externalUserId

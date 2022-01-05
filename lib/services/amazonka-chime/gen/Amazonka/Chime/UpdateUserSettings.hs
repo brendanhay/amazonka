@@ -107,9 +107,17 @@ instance Core.AWSRequest UpdateUserSettings where
   response =
     Response.receiveNull UpdateUserSettingsResponse'
 
-instance Prelude.Hashable UpdateUserSettings
+instance Prelude.Hashable UpdateUserSettings where
+  hashWithSalt _salt UpdateUserSettings' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userSettings
 
-instance Prelude.NFData UpdateUserSettings
+instance Prelude.NFData UpdateUserSettings where
+  rnf UpdateUserSettings' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf userSettings
 
 instance Core.ToHeaders UpdateUserSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +157,5 @@ newUpdateUserSettingsResponse ::
 newUpdateUserSettingsResponse =
   UpdateUserSettingsResponse'
 
-instance Prelude.NFData UpdateUserSettingsResponse
+instance Prelude.NFData UpdateUserSettingsResponse where
+  rnf _ = ()

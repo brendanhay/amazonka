@@ -191,6 +191,34 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..: "UserId")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` userInvitationStatus
+      `Prelude.hashWithSalt` personalPIN
+      `Prelude.hashWithSalt` primaryProvisionedNumber
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` registeredOn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userRegistrationStatus
+      `Prelude.hashWithSalt` invitedOn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` primaryEmail
+      `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf userInvitationStatus
+      `Prelude.seq` Prelude.rnf personalPIN
+      `Prelude.seq` Prelude.rnf primaryProvisionedNumber
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf registeredOn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userRegistrationStatus
+      `Prelude.seq` Prelude.rnf invitedOn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf primaryEmail
+      `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf userId

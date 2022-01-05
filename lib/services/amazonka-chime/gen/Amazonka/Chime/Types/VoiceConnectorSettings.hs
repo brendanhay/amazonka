@@ -63,9 +63,13 @@ instance Core.FromJSON VoiceConnectorSettings where
             Prelude.<$> (x Core..:? "CdrBucket")
       )
 
-instance Prelude.Hashable VoiceConnectorSettings
+instance Prelude.Hashable VoiceConnectorSettings where
+  hashWithSalt _salt VoiceConnectorSettings' {..} =
+    _salt `Prelude.hashWithSalt` cdrBucket
 
-instance Prelude.NFData VoiceConnectorSettings
+instance Prelude.NFData VoiceConnectorSettings where
+  rnf VoiceConnectorSettings' {..} =
+    Prelude.rnf cdrBucket
 
 instance Core.ToJSON VoiceConnectorSettings where
   toJSON VoiceConnectorSettings' {..} =

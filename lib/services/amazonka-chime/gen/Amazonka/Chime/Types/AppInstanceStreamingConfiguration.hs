@@ -86,10 +86,20 @@ instance
 instance
   Prelude.Hashable
     AppInstanceStreamingConfiguration
+  where
+  hashWithSalt
+    _salt
+    AppInstanceStreamingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` appInstanceDataType
+        `Prelude.hashWithSalt` resourceArn
 
 instance
   Prelude.NFData
     AppInstanceStreamingConfiguration
+  where
+  rnf AppInstanceStreamingConfiguration' {..} =
+    Prelude.rnf appInstanceDataType
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance
   Core.ToJSON

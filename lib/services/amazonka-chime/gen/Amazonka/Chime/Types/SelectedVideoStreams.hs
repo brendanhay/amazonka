@@ -76,9 +76,15 @@ instance Core.FromJSON SelectedVideoStreams where
             Prelude.<*> (x Core..:? "ExternalUserIds")
       )
 
-instance Prelude.Hashable SelectedVideoStreams
+instance Prelude.Hashable SelectedVideoStreams where
+  hashWithSalt _salt SelectedVideoStreams' {..} =
+    _salt `Prelude.hashWithSalt` attendeeIds
+      `Prelude.hashWithSalt` externalUserIds
 
-instance Prelude.NFData SelectedVideoStreams
+instance Prelude.NFData SelectedVideoStreams where
+  rnf SelectedVideoStreams' {..} =
+    Prelude.rnf attendeeIds
+      `Prelude.seq` Prelude.rnf externalUserIds
 
 instance Core.ToJSON SelectedVideoStreams where
   toJSON SelectedVideoStreams' {..} =

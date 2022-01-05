@@ -117,9 +117,17 @@ instance Core.AWSRequest CreateAttendee where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAttendee
+instance Prelude.Hashable CreateAttendee where
+  hashWithSalt _salt CreateAttendee' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` externalUserId
 
-instance Prelude.NFData CreateAttendee
+instance Prelude.NFData CreateAttendee where
+  rnf CreateAttendee' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf externalUserId
 
 instance Core.ToHeaders CreateAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +188,7 @@ createAttendeeResponse_attendee = Lens.lens (\CreateAttendeeResponse' {attendee}
 createAttendeeResponse_httpStatus :: Lens.Lens' CreateAttendeeResponse Prelude.Int
 createAttendeeResponse_httpStatus = Lens.lens (\CreateAttendeeResponse' {httpStatus} -> httpStatus) (\s@CreateAttendeeResponse' {} a -> s {httpStatus = a} :: CreateAttendeeResponse)
 
-instance Prelude.NFData CreateAttendeeResponse
+instance Prelude.NFData CreateAttendeeResponse where
+  rnf CreateAttendeeResponse' {..} =
+    Prelude.rnf attendee
+      `Prelude.seq` Prelude.rnf httpStatus

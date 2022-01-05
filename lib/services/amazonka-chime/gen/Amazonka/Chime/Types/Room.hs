@@ -111,6 +111,20 @@ instance Core.FromJSON Room where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable Room
+instance Prelude.Hashable Room where
+  hashWithSalt _salt Room' {..} =
+    _salt `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData Room
+instance Prelude.NFData Room where
+  rnf Room' {..} =
+    Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roomId
+      `Prelude.seq` Prelude.rnf createdTimestamp

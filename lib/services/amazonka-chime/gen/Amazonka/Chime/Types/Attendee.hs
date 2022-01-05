@@ -92,6 +92,14 @@ instance Core.FromJSON Attendee where
             Prelude.<*> (x Core..:? "ExternalUserId")
       )
 
-instance Prelude.Hashable Attendee
+instance Prelude.Hashable Attendee where
+  hashWithSalt _salt Attendee' {..} =
+    _salt `Prelude.hashWithSalt` attendeeId
+      `Prelude.hashWithSalt` joinToken
+      `Prelude.hashWithSalt` externalUserId
 
-instance Prelude.NFData Attendee
+instance Prelude.NFData Attendee where
+  rnf Attendee' {..} =
+    Prelude.rnf attendeeId
+      `Prelude.seq` Prelude.rnf joinToken
+      `Prelude.seq` Prelude.rnf externalUserId

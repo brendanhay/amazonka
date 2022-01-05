@@ -83,9 +83,13 @@ instance Core.AWSRequest DeleteVoiceConnectorGroup where
     Response.receiveNull
       DeleteVoiceConnectorGroupResponse'
 
-instance Prelude.Hashable DeleteVoiceConnectorGroup
+instance Prelude.Hashable DeleteVoiceConnectorGroup where
+  hashWithSalt _salt DeleteVoiceConnectorGroup' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorGroupId
 
-instance Prelude.NFData DeleteVoiceConnectorGroup
+instance Prelude.NFData DeleteVoiceConnectorGroup where
+  rnf DeleteVoiceConnectorGroup' {..} =
+    Prelude.rnf voiceConnectorGroupId
 
 instance Core.ToHeaders DeleteVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -118,3 +122,5 @@ newDeleteVoiceConnectorGroupResponse =
 instance
   Prelude.NFData
     DeleteVoiceConnectorGroupResponse
+  where
+  rnf _ = ()

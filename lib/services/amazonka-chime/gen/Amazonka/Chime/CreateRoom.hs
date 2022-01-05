@@ -108,9 +108,17 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoom
+instance Prelude.Hashable CreateRoom where
+  hashWithSalt _salt CreateRoom' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateRoom
+instance Prelude.NFData CreateRoom where
+  rnf CreateRoom' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateRoom where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +179,7 @@ createRoomResponse_room = Lens.lens (\CreateRoomResponse' {room} -> room) (\s@Cr
 createRoomResponse_httpStatus :: Lens.Lens' CreateRoomResponse Prelude.Int
 createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> httpStatus) (\s@CreateRoomResponse' {} a -> s {httpStatus = a} :: CreateRoomResponse)
 
-instance Prelude.NFData CreateRoomResponse
+instance Prelude.NFData CreateRoomResponse where
+  rnf CreateRoomResponse' {..} =
+    Prelude.rnf room
+      `Prelude.seq` Prelude.rnf httpStatus

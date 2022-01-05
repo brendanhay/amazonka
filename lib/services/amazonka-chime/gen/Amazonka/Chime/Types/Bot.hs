@@ -146,6 +146,26 @@ instance Core.FromJSON Bot where
             Prelude.<*> (x Core..:? "BotType")
       )
 
-instance Prelude.Hashable Bot
+instance Prelude.Hashable Bot where
+  hashWithSalt _salt Bot' {..} =
+    _salt `Prelude.hashWithSalt` securityToken
+      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` botId
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` botEmail
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` botType
 
-instance Prelude.NFData Bot
+instance Prelude.NFData Bot where
+  rnf Bot' {..} =
+    Prelude.rnf securityToken
+      `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf botEmail
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf botType

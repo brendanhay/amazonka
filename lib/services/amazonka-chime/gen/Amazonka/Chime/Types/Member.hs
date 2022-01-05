@@ -103,6 +103,18 @@ instance Core.FromJSON Member where
             Prelude.<*> (x Core..:? "AccountId")
       )
 
-instance Prelude.Hashable Member
+instance Prelude.Hashable Member where
+  hashWithSalt _salt Member' {..} =
+    _salt `Prelude.hashWithSalt` fullName
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData Member
+instance Prelude.NFData Member where
+  rnf Member' {..} =
+    Prelude.rnf fullName
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf memberType
+      `Prelude.seq` Prelude.rnf accountId

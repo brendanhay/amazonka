@@ -82,9 +82,13 @@ instance Core.AWSRequest DeletePhoneNumber where
   response =
     Response.receiveNull DeletePhoneNumberResponse'
 
-instance Prelude.Hashable DeletePhoneNumber
+instance Prelude.Hashable DeletePhoneNumber where
+  hashWithSalt _salt DeletePhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberId
 
-instance Prelude.NFData DeletePhoneNumber
+instance Prelude.NFData DeletePhoneNumber where
+  rnf DeletePhoneNumber' {..} =
+    Prelude.rnf phoneNumberId
 
 instance Core.ToHeaders DeletePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -112,4 +116,5 @@ newDeletePhoneNumberResponse ::
 newDeletePhoneNumberResponse =
   DeletePhoneNumberResponse'
 
-instance Prelude.NFData DeletePhoneNumberResponse
+instance Prelude.NFData DeletePhoneNumberResponse where
+  rnf _ = ()

@@ -104,9 +104,15 @@ instance Core.AWSRequest GetProxySession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProxySession
+instance Prelude.Hashable GetProxySession where
+  hashWithSalt _salt GetProxySession' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` proxySessionId
 
-instance Prelude.NFData GetProxySession
+instance Prelude.NFData GetProxySession where
+  rnf GetProxySession' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf proxySessionId
 
 instance Core.ToHeaders GetProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,7 @@ getProxySessionResponse_proxySession = Lens.lens (\GetProxySessionResponse' {pro
 getProxySessionResponse_httpStatus :: Lens.Lens' GetProxySessionResponse Prelude.Int
 getProxySessionResponse_httpStatus = Lens.lens (\GetProxySessionResponse' {httpStatus} -> httpStatus) (\s@GetProxySessionResponse' {} a -> s {httpStatus = a} :: GetProxySessionResponse)
 
-instance Prelude.NFData GetProxySessionResponse
+instance Prelude.NFData GetProxySessionResponse where
+  rnf GetProxySessionResponse' {..} =
+    Prelude.rnf proxySession
+      `Prelude.seq` Prelude.rnf httpStatus

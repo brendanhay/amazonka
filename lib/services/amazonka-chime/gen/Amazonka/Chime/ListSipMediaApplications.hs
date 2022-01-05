@@ -104,9 +104,15 @@ instance Core.AWSRequest ListSipMediaApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSipMediaApplications
+instance Prelude.Hashable ListSipMediaApplications where
+  hashWithSalt _salt ListSipMediaApplications' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSipMediaApplications
+instance Prelude.NFData ListSipMediaApplications where
+  rnf ListSipMediaApplications' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSipMediaApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,3 +178,8 @@ listSipMediaApplicationsResponse_httpStatus = Lens.lens (\ListSipMediaApplicatio
 instance
   Prelude.NFData
     ListSipMediaApplicationsResponse
+  where
+  rnf ListSipMediaApplicationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sipMediaApplications
+      `Prelude.seq` Prelude.rnf httpStatus

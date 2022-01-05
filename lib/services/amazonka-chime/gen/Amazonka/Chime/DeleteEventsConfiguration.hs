@@ -93,9 +93,15 @@ instance Core.AWSRequest DeleteEventsConfiguration where
     Response.receiveNull
       DeleteEventsConfigurationResponse'
 
-instance Prelude.Hashable DeleteEventsConfiguration
+instance Prelude.Hashable DeleteEventsConfiguration where
+  hashWithSalt _salt DeleteEventsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` botId
 
-instance Prelude.NFData DeleteEventsConfiguration
+instance Prelude.NFData DeleteEventsConfiguration where
+  rnf DeleteEventsConfiguration' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf botId
 
 instance Core.ToHeaders DeleteEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -131,3 +137,5 @@ newDeleteEventsConfigurationResponse =
 instance
   Prelude.NFData
     DeleteEventsConfigurationResponse
+  where
+  rnf _ = ()

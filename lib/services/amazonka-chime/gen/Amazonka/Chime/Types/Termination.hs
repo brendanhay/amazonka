@@ -110,9 +110,21 @@ instance Core.FromJSON Termination where
                         )
       )
 
-instance Prelude.Hashable Termination
+instance Prelude.Hashable Termination where
+  hashWithSalt _salt Termination' {..} =
+    _salt `Prelude.hashWithSalt` defaultPhoneNumber
+      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` callingRegions
+      `Prelude.hashWithSalt` cpsLimit
+      `Prelude.hashWithSalt` cidrAllowedList
 
-instance Prelude.NFData Termination
+instance Prelude.NFData Termination where
+  rnf Termination' {..} =
+    Prelude.rnf defaultPhoneNumber
+      `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf callingRegions
+      `Prelude.seq` Prelude.rnf cpsLimit
+      `Prelude.seq` Prelude.rnf cidrAllowedList
 
 instance Core.ToJSON Termination where
   toJSON Termination' {..} =

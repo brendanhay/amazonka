@@ -90,9 +90,13 @@ instance Core.AWSRequest RestorePhoneNumber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestorePhoneNumber
+instance Prelude.Hashable RestorePhoneNumber where
+  hashWithSalt _salt RestorePhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberId
 
-instance Prelude.NFData RestorePhoneNumber
+instance Prelude.NFData RestorePhoneNumber where
+  rnf RestorePhoneNumber' {..} =
+    Prelude.rnf phoneNumberId
 
 instance Core.ToHeaders RestorePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +153,7 @@ restorePhoneNumberResponse_phoneNumber = Lens.lens (\RestorePhoneNumberResponse'
 restorePhoneNumberResponse_httpStatus :: Lens.Lens' RestorePhoneNumberResponse Prelude.Int
 restorePhoneNumberResponse_httpStatus = Lens.lens (\RestorePhoneNumberResponse' {httpStatus} -> httpStatus) (\s@RestorePhoneNumberResponse' {} a -> s {httpStatus = a} :: RestorePhoneNumberResponse)
 
-instance Prelude.NFData RestorePhoneNumberResponse
+instance Prelude.NFData RestorePhoneNumberResponse where
+  rnf RestorePhoneNumberResponse' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf httpStatus

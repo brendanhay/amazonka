@@ -106,9 +106,17 @@ instance Core.AWSRequest DeleteRoomMembership where
   response =
     Response.receiveNull DeleteRoomMembershipResponse'
 
-instance Prelude.Hashable DeleteRoomMembership
+instance Prelude.Hashable DeleteRoomMembership where
+  hashWithSalt _salt DeleteRoomMembership' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData DeleteRoomMembership
+instance Prelude.NFData DeleteRoomMembership where
+  rnf DeleteRoomMembership' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf roomId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders DeleteRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +150,5 @@ newDeleteRoomMembershipResponse ::
 newDeleteRoomMembershipResponse =
   DeleteRoomMembershipResponse'
 
-instance Prelude.NFData DeleteRoomMembershipResponse
+instance Prelude.NFData DeleteRoomMembershipResponse where
+  rnf _ = ()

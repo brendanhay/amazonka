@@ -73,9 +73,16 @@ instance Core.FromJSON AlexaForBusinessMetadata where
             Prelude.<*> (x Core..:? "IsAlexaForBusinessEnabled")
       )
 
-instance Prelude.Hashable AlexaForBusinessMetadata
+instance Prelude.Hashable AlexaForBusinessMetadata where
+  hashWithSalt _salt AlexaForBusinessMetadata' {..} =
+    _salt
+      `Prelude.hashWithSalt` alexaForBusinessRoomArn
+      `Prelude.hashWithSalt` isAlexaForBusinessEnabled
 
-instance Prelude.NFData AlexaForBusinessMetadata
+instance Prelude.NFData AlexaForBusinessMetadata where
+  rnf AlexaForBusinessMetadata' {..} =
+    Prelude.rnf alexaForBusinessRoomArn
+      `Prelude.seq` Prelude.rnf isAlexaForBusinessEnabled
 
 instance Core.ToJSON AlexaForBusinessMetadata where
   toJSON AlexaForBusinessMetadata' {..} =

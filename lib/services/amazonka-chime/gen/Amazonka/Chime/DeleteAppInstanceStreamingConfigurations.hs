@@ -89,10 +89,18 @@ instance
 instance
   Prelude.Hashable
     DeleteAppInstanceStreamingConfigurations
+  where
+  hashWithSalt
+    _salt
+    DeleteAppInstanceStreamingConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` appInstanceArn
 
 instance
   Prelude.NFData
     DeleteAppInstanceStreamingConfigurations
+  where
+  rnf DeleteAppInstanceStreamingConfigurations' {..} =
+    Prelude.rnf appInstanceArn
 
 instance
   Core.ToHeaders
@@ -135,3 +143,5 @@ newDeleteAppInstanceStreamingConfigurationsResponse =
 instance
   Prelude.NFData
     DeleteAppInstanceStreamingConfigurationsResponse
+  where
+  rnf _ = ()

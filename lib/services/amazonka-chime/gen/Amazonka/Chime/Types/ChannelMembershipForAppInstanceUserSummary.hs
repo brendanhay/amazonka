@@ -79,7 +79,18 @@ instance
 instance
   Prelude.Hashable
     ChannelMembershipForAppInstanceUserSummary
+  where
+  hashWithSalt
+    _salt
+    ChannelMembershipForAppInstanceUserSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserMembershipSummary
+        `Prelude.hashWithSalt` channelSummary
 
 instance
   Prelude.NFData
     ChannelMembershipForAppInstanceUserSummary
+  where
+  rnf ChannelMembershipForAppInstanceUserSummary' {..} =
+    Prelude.rnf appInstanceUserMembershipSummary
+      `Prelude.seq` Prelude.rnf channelSummary

@@ -113,6 +113,20 @@ instance Core.FromJSON ChannelSummary where
             Prelude.<*> (x Core..:? "Metadata")
       )
 
-instance Prelude.Hashable ChannelSummary
+instance Prelude.Hashable ChannelSummary where
+  hashWithSalt _salt ChannelSummary' {..} =
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` lastMessageTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metadata
 
-instance Prelude.NFData ChannelSummary
+instance Prelude.NFData ChannelSummary where
+  rnf ChannelSummary' {..} =
+    Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf lastMessageTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata

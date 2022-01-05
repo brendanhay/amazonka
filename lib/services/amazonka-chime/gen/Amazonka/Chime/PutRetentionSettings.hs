@@ -114,9 +114,15 @@ instance Core.AWSRequest PutRetentionSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRetentionSettings
+instance Prelude.Hashable PutRetentionSettings where
+  hashWithSalt _salt PutRetentionSettings' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` retentionSettings
 
-instance Prelude.NFData PutRetentionSettings
+instance Prelude.NFData PutRetentionSettings where
+  rnf PutRetentionSettings' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf retentionSettings
 
 instance Core.ToHeaders PutRetentionSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,4 +198,8 @@ putRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\PutRetentio
 putRetentionSettingsResponse_httpStatus :: Lens.Lens' PutRetentionSettingsResponse Prelude.Int
 putRetentionSettingsResponse_httpStatus = Lens.lens (\PutRetentionSettingsResponse' {httpStatus} -> httpStatus) (\s@PutRetentionSettingsResponse' {} a -> s {httpStatus = a} :: PutRetentionSettingsResponse)
 
-instance Prelude.NFData PutRetentionSettingsResponse
+instance Prelude.NFData PutRetentionSettingsResponse where
+  rnf PutRetentionSettingsResponse' {..} =
+    Prelude.rnf retentionSettings
+      `Prelude.seq` Prelude.rnf initiateDeletionTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

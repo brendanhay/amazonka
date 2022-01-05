@@ -87,6 +87,14 @@ instance Core.FromJSON PhoneNumberAssociation where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable PhoneNumberAssociation
+instance Prelude.Hashable PhoneNumberAssociation where
+  hashWithSalt _salt PhoneNumberAssociation' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` associatedTimestamp
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PhoneNumberAssociation
+instance Prelude.NFData PhoneNumberAssociation where
+  rnf PhoneNumberAssociation' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf associatedTimestamp
+      `Prelude.seq` Prelude.rnf name

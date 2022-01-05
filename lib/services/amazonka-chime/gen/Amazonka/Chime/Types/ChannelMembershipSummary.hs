@@ -60,6 +60,10 @@ instance Core.FromJSON ChannelMembershipSummary where
             Prelude.<$> (x Core..:? "Member")
       )
 
-instance Prelude.Hashable ChannelMembershipSummary
+instance Prelude.Hashable ChannelMembershipSummary where
+  hashWithSalt _salt ChannelMembershipSummary' {..} =
+    _salt `Prelude.hashWithSalt` member
 
-instance Prelude.NFData ChannelMembershipSummary
+instance Prelude.NFData ChannelMembershipSummary where
+  rnf ChannelMembershipSummary' {..} =
+    Prelude.rnf member

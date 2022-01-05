@@ -151,9 +151,23 @@ instance Core.AWSRequest CreateAppInstanceUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAppInstanceUser
+instance Prelude.Hashable CreateAppInstanceUser where
+  hashWithSalt _salt CreateAppInstanceUser' {..} =
+    _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` appInstanceArn
+      `Prelude.hashWithSalt` appInstanceUserId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateAppInstanceUser
+instance Prelude.NFData CreateAppInstanceUser where
+  rnf CreateAppInstanceUser' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf appInstanceUserId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateAppInstanceUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +233,7 @@ createAppInstanceUserResponse_appInstanceUserArn = Lens.lens (\CreateAppInstance
 createAppInstanceUserResponse_httpStatus :: Lens.Lens' CreateAppInstanceUserResponse Prelude.Int
 createAppInstanceUserResponse_httpStatus = Lens.lens (\CreateAppInstanceUserResponse' {httpStatus} -> httpStatus) (\s@CreateAppInstanceUserResponse' {} a -> s {httpStatus = a} :: CreateAppInstanceUserResponse)
 
-instance Prelude.NFData CreateAppInstanceUserResponse
+instance Prelude.NFData CreateAppInstanceUserResponse where
+  rnf CreateAppInstanceUserResponse' {..} =
+    Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf httpStatus

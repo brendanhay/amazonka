@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteMediaCapturePipeline where
     Response.receiveNull
       DeleteMediaCapturePipelineResponse'
 
-instance Prelude.Hashable DeleteMediaCapturePipeline
+instance Prelude.Hashable DeleteMediaCapturePipeline where
+  hashWithSalt _salt DeleteMediaCapturePipeline' {..} =
+    _salt `Prelude.hashWithSalt` mediaPipelineId
 
-instance Prelude.NFData DeleteMediaCapturePipeline
+instance Prelude.NFData DeleteMediaCapturePipeline where
+  rnf DeleteMediaCapturePipeline' {..} =
+    Prelude.rnf mediaPipelineId
 
 instance Core.ToHeaders DeleteMediaCapturePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -116,3 +120,5 @@ newDeleteMediaCapturePipelineResponse =
 instance
   Prelude.NFData
     DeleteMediaCapturePipelineResponse
+  where
+  rnf _ = ()

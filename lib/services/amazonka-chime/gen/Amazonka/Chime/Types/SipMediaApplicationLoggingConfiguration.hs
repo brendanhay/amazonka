@@ -68,10 +68,19 @@ instance
 instance
   Prelude.Hashable
     SipMediaApplicationLoggingConfiguration
+  where
+  hashWithSalt
+    _salt
+    SipMediaApplicationLoggingConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` enableSipMediaApplicationMessageLogs
 
 instance
   Prelude.NFData
     SipMediaApplicationLoggingConfiguration
+  where
+  rnf SipMediaApplicationLoggingConfiguration' {..} =
+    Prelude.rnf enableSipMediaApplicationMessageLogs
 
 instance
   Core.ToJSON

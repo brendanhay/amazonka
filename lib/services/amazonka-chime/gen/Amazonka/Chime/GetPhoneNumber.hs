@@ -87,9 +87,12 @@ instance Core.AWSRequest GetPhoneNumber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPhoneNumber
+instance Prelude.Hashable GetPhoneNumber where
+  hashWithSalt _salt GetPhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberId
 
-instance Prelude.NFData GetPhoneNumber
+instance Prelude.NFData GetPhoneNumber where
+  rnf GetPhoneNumber' {..} = Prelude.rnf phoneNumberId
 
 instance Core.ToHeaders GetPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,4 +144,7 @@ getPhoneNumberResponse_phoneNumber = Lens.lens (\GetPhoneNumberResponse' {phoneN
 getPhoneNumberResponse_httpStatus :: Lens.Lens' GetPhoneNumberResponse Prelude.Int
 getPhoneNumberResponse_httpStatus = Lens.lens (\GetPhoneNumberResponse' {httpStatus} -> httpStatus) (\s@GetPhoneNumberResponse' {} a -> s {httpStatus = a} :: GetPhoneNumberResponse)
 
-instance Prelude.NFData GetPhoneNumberResponse
+instance Prelude.NFData GetPhoneNumberResponse where
+  rnf GetPhoneNumberResponse' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf httpStatus

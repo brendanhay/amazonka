@@ -155,6 +155,26 @@ instance Core.FromJSON MediaCapturePipeline where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable MediaCapturePipeline
+instance Prelude.Hashable MediaCapturePipeline where
+  hashWithSalt _salt MediaCapturePipeline' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` sinkType
+      `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
+      `Prelude.hashWithSalt` sinkArn
+      `Prelude.hashWithSalt` mediaPipelineId
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData MediaCapturePipeline
+instance Prelude.NFData MediaCapturePipeline where
+  rnf MediaCapturePipeline' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf sinkType
+      `Prelude.seq` Prelude.rnf chimeSdkMeetingConfiguration
+      `Prelude.seq` Prelude.rnf sinkArn
+      `Prelude.seq` Prelude.rnf mediaPipelineId
+      `Prelude.seq` Prelude.rnf createdTimestamp

@@ -177,9 +177,27 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchAvailablePhoneNumbers
+instance Prelude.Hashable SearchAvailablePhoneNumbers where
+  hashWithSalt _salt SearchAvailablePhoneNumbers' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tollFreePrefix
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` areaCode
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchAvailablePhoneNumbers
+instance Prelude.NFData SearchAvailablePhoneNumbers where
+  rnf SearchAvailablePhoneNumbers' {..} =
+    Prelude.rnf phoneNumberType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tollFreePrefix
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf areaCode
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchAvailablePhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,3 +270,8 @@ searchAvailablePhoneNumbersResponse_httpStatus = Lens.lens (\SearchAvailablePhon
 instance
   Prelude.NFData
     SearchAvailablePhoneNumbersResponse
+  where
+  rnf SearchAvailablePhoneNumbersResponse' {..} =
+    Prelude.rnf e164PhoneNumbers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -101,9 +101,15 @@ instance Core.AWSRequest GetUserSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserSettings
+instance Prelude.Hashable GetUserSettings where
+  hashWithSalt _salt GetUserSettings' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData GetUserSettings
+instance Prelude.NFData GetUserSettings where
+  rnf GetUserSettings' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetUserSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +166,7 @@ getUserSettingsResponse_userSettings = Lens.lens (\GetUserSettingsResponse' {use
 getUserSettingsResponse_httpStatus :: Lens.Lens' GetUserSettingsResponse Prelude.Int
 getUserSettingsResponse_httpStatus = Lens.lens (\GetUserSettingsResponse' {httpStatus} -> httpStatus) (\s@GetUserSettingsResponse' {} a -> s {httpStatus = a} :: GetUserSettingsResponse)
 
-instance Prelude.NFData GetUserSettingsResponse
+instance Prelude.NFData GetUserSettingsResponse where
+  rnf GetUserSettingsResponse' {..} =
+    Prelude.rnf userSettings
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,10 +111,21 @@ instance
 instance
   Prelude.Hashable
     PutSipMediaApplicationLoggingConfiguration
+  where
+  hashWithSalt
+    _salt
+    PutSipMediaApplicationLoggingConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` sipMediaApplicationLoggingConfiguration
+        `Prelude.hashWithSalt` sipMediaApplicationId
 
 instance
   Prelude.NFData
     PutSipMediaApplicationLoggingConfiguration
+  where
+  rnf PutSipMediaApplicationLoggingConfiguration' {..} =
+    Prelude.rnf sipMediaApplicationLoggingConfiguration
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
 instance
   Core.ToHeaders
@@ -196,3 +207,8 @@ putSipMediaApplicationLoggingConfigurationResponse_httpStatus = Lens.lens (\PutS
 instance
   Prelude.NFData
     PutSipMediaApplicationLoggingConfigurationResponse
+  where
+  rnf
+    PutSipMediaApplicationLoggingConfigurationResponse' {..} =
+      Prelude.rnf sipMediaApplicationLoggingConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

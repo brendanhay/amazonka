@@ -92,6 +92,16 @@ instance Core.FromJSON ChannelBan where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable ChannelBan
+instance Prelude.Hashable ChannelBan where
+  hashWithSalt _salt ChannelBan' {..} =
+    _salt `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` member
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData ChannelBan
+instance Prelude.NFData ChannelBan where
+  rnf ChannelBan' {..} =
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf member
+      `Prelude.seq` Prelude.rnf createdTimestamp

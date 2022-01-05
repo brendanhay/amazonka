@@ -73,6 +73,12 @@ instance Core.FromJSON TerminationHealth where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable TerminationHealth
+instance Prelude.Hashable TerminationHealth where
+  hashWithSalt _salt TerminationHealth' {..} =
+    _salt `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData TerminationHealth
+instance Prelude.NFData TerminationHealth where
+  rnf TerminationHealth' {..} =
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf timestamp

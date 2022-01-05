@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     GetVoiceConnectorTerminationHealth
+  where
+  hashWithSalt
+    _salt
+    GetVoiceConnectorTerminationHealth' {..} =
+      _salt `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     GetVoiceConnectorTerminationHealth
+  where
+  rnf GetVoiceConnectorTerminationHealth' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -169,3 +177,7 @@ getVoiceConnectorTerminationHealthResponse_httpStatus = Lens.lens (\GetVoiceConn
 instance
   Prelude.NFData
     GetVoiceConnectorTerminationHealthResponse
+  where
+  rnf GetVoiceConnectorTerminationHealthResponse' {..} =
+    Prelude.rnf terminationHealth
+      `Prelude.seq` Prelude.rnf httpStatus

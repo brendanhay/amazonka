@@ -104,10 +104,20 @@ instance
 instance
   Prelude.Hashable
     DeleteVoiceConnectorTerminationCredentials
+  where
+  hashWithSalt
+    _salt
+    DeleteVoiceConnectorTerminationCredentials' {..} =
+      _salt `Prelude.hashWithSalt` usernames
+        `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     DeleteVoiceConnectorTerminationCredentials
+  where
+  rnf DeleteVoiceConnectorTerminationCredentials' {..} =
+    Prelude.rnf usernames
+      `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -164,3 +174,5 @@ newDeleteVoiceConnectorTerminationCredentialsResponse =
 instance
   Prelude.NFData
     DeleteVoiceConnectorTerminationCredentialsResponse
+  where
+  rnf _ = ()

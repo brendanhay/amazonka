@@ -96,9 +96,15 @@ instance Core.AWSRequest GetBot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBot
+instance Prelude.Hashable GetBot where
+  hashWithSalt _salt GetBot' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` botId
 
-instance Prelude.NFData GetBot
+instance Prelude.NFData GetBot where
+  rnf GetBot' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf botId
 
 instance Core.ToHeaders GetBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,4 +159,7 @@ getBotResponse_bot = Lens.lens (\GetBotResponse' {bot} -> bot) (\s@GetBotRespons
 getBotResponse_httpStatus :: Lens.Lens' GetBotResponse Prelude.Int
 getBotResponse_httpStatus = Lens.lens (\GetBotResponse' {httpStatus} -> httpStatus) (\s@GetBotResponse' {} a -> s {httpStatus = a} :: GetBotResponse)
 
-instance Prelude.NFData GetBotResponse
+instance Prelude.NFData GetBotResponse where
+  rnf GetBotResponse' {..} =
+    Prelude.rnf bot
+      `Prelude.seq` Prelude.rnf httpStatus

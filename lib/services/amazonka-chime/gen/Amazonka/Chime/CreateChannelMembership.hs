@@ -162,9 +162,19 @@ instance Core.AWSRequest CreateChannelMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannelMembership
+instance Prelude.Hashable CreateChannelMembership where
+  hashWithSalt _salt CreateChannelMembership' {..} =
+    _salt `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` memberArn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateChannelMembership
+instance Prelude.NFData CreateChannelMembership where
+  rnf CreateChannelMembership' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf memberArn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateChannelMembership where
   toHeaders CreateChannelMembership' {..} =
@@ -239,3 +249,8 @@ createChannelMembershipResponse_httpStatus = Lens.lens (\CreateChannelMembership
 instance
   Prelude.NFData
     CreateChannelMembershipResponse
+  where
+  rnf CreateChannelMembershipResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf member
+      `Prelude.seq` Prelude.rnf httpStatus

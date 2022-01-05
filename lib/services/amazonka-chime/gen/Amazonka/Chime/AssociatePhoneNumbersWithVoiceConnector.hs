@@ -130,10 +130,22 @@ instance
 instance
   Prelude.Hashable
     AssociatePhoneNumbersWithVoiceConnector
+  where
+  hashWithSalt
+    _salt
+    AssociatePhoneNumbersWithVoiceConnector' {..} =
+      _salt `Prelude.hashWithSalt` forceAssociate
+        `Prelude.hashWithSalt` voiceConnectorId
+        `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance
   Prelude.NFData
     AssociatePhoneNumbersWithVoiceConnector
+  where
+  rnf AssociatePhoneNumbersWithVoiceConnector' {..} =
+    Prelude.rnf forceAssociate
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
 instance
   Core.ToHeaders
@@ -222,3 +234,8 @@ associatePhoneNumbersWithVoiceConnectorResponse_httpStatus = Lens.lens (\Associa
 instance
   Prelude.NFData
     AssociatePhoneNumbersWithVoiceConnectorResponse
+  where
+  rnf
+    AssociatePhoneNumbersWithVoiceConnectorResponse' {..} =
+      Prelude.rnf phoneNumberErrors
+        `Prelude.seq` Prelude.rnf httpStatus

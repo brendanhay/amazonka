@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     ListVoiceConnectorTerminationCredentials
+  where
+  hashWithSalt
+    _salt
+    ListVoiceConnectorTerminationCredentials' {..} =
+      _salt `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     ListVoiceConnectorTerminationCredentials
+  where
+  rnf ListVoiceConnectorTerminationCredentials' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -169,3 +177,8 @@ listVoiceConnectorTerminationCredentialsResponse_httpStatus = Lens.lens (\ListVo
 instance
   Prelude.NFData
     ListVoiceConnectorTerminationCredentialsResponse
+  where
+  rnf
+    ListVoiceConnectorTerminationCredentialsResponse' {..} =
+      Prelude.rnf usernames
+        `Prelude.seq` Prelude.rnf httpStatus

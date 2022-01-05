@@ -161,9 +161,21 @@ instance Core.AWSRequest GetProducts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProducts
+instance Prelude.Hashable GetProducts where
+  hashWithSalt _salt GetProducts' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` formatVersion
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetProducts
+instance Prelude.NFData GetProducts where
+  rnf GetProducts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf formatVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetProducts where
   toHeaders =
@@ -258,4 +270,9 @@ getProductsResponse_priceList = Lens.lens (\GetProductsResponse' {priceList} -> 
 getProductsResponse_httpStatus :: Lens.Lens' GetProductsResponse Prelude.Int
 getProductsResponse_httpStatus = Lens.lens (\GetProductsResponse' {httpStatus} -> httpStatus) (\s@GetProductsResponse' {} a -> s {httpStatus = a} :: GetProductsResponse)
 
-instance Prelude.NFData GetProductsResponse
+instance Prelude.NFData GetProductsResponse where
+  rnf GetProductsResponse' {..} =
+    Prelude.rnf formatVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf priceList
+      `Prelude.seq` Prelude.rnf httpStatus

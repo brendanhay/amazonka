@@ -80,6 +80,12 @@ instance Core.FromJSON Categories where
                         )
       )
 
-instance Prelude.Hashable Categories
+instance Prelude.Hashable Categories where
+  hashWithSalt _salt Categories' {..} =
+    _salt `Prelude.hashWithSalt` matchedCategories
+      `Prelude.hashWithSalt` matchedDetails
 
-instance Prelude.NFData Categories
+instance Prelude.NFData Categories where
+  rnf Categories' {..} =
+    Prelude.rnf matchedCategories
+      `Prelude.seq` Prelude.rnf matchedDetails

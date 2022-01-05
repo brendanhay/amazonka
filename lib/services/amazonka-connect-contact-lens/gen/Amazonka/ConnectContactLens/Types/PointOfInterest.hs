@@ -81,6 +81,12 @@ instance Core.FromJSON PointOfInterest where
             Prelude.<*> (x Core..: "EndOffsetMillis")
       )
 
-instance Prelude.Hashable PointOfInterest
+instance Prelude.Hashable PointOfInterest where
+  hashWithSalt _salt PointOfInterest' {..} =
+    _salt `Prelude.hashWithSalt` beginOffsetMillis
+      `Prelude.hashWithSalt` endOffsetMillis
 
-instance Prelude.NFData PointOfInterest
+instance Prelude.NFData PointOfInterest where
+  rnf PointOfInterest' {..} =
+    Prelude.rnf beginOffsetMillis
+      `Prelude.seq` Prelude.rnf endOffsetMillis

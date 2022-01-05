@@ -165,9 +165,25 @@ instance Core.AWSRequest CreateConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection where
+  hashWithSalt _salt CreateConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectedLinkId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` connectedDeviceId
 
-instance Prelude.NFData CreateConnection
+instance Prelude.NFData CreateConnection where
+  rnf CreateConnection' {..} =
+    Prelude.rnf connectedLinkId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf connectedDeviceId
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =
@@ -245,4 +261,7 @@ createConnectionResponse_connection = Lens.lens (\CreateConnectionResponse' {con
 createConnectionResponse_httpStatus :: Lens.Lens' CreateConnectionResponse Prelude.Int
 createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionResponse' {} a -> s {httpStatus = a} :: CreateConnectionResponse)
 
-instance Prelude.NFData CreateConnectionResponse
+instance Prelude.NFData CreateConnectionResponse where
+  rnf CreateConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

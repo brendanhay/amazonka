@@ -143,9 +143,19 @@ instance Core.AWSRequest UpdateSite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSite
+instance Prelude.Hashable UpdateSite where
+  hashWithSalt _salt UpdateSite' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` siteId
 
-instance Prelude.NFData UpdateSite
+instance Prelude.NFData UpdateSite where
+  rnf UpdateSite' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf siteId
 
 instance Core.ToHeaders UpdateSite where
   toHeaders =
@@ -217,4 +227,7 @@ updateSiteResponse_site = Lens.lens (\UpdateSiteResponse' {site} -> site) (\s@Up
 updateSiteResponse_httpStatus :: Lens.Lens' UpdateSiteResponse Prelude.Int
 updateSiteResponse_httpStatus = Lens.lens (\UpdateSiteResponse' {httpStatus} -> httpStatus) (\s@UpdateSiteResponse' {} a -> s {httpStatus = a} :: UpdateSiteResponse)
 
-instance Prelude.NFData UpdateSiteResponse
+instance Prelude.NFData UpdateSiteResponse where
+  rnf UpdateSiteResponse' {..} =
+    Prelude.rnf site
+      `Prelude.seq` Prelude.rnf httpStatus

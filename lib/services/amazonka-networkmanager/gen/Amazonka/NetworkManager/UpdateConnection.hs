@@ -138,9 +138,21 @@ instance Core.AWSRequest UpdateConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnection
+instance Prelude.Hashable UpdateConnection where
+  hashWithSalt _salt UpdateConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectedLinkId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData UpdateConnection
+instance Prelude.NFData UpdateConnection where
+  rnf UpdateConnection' {..} =
+    Prelude.rnf connectedLinkId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders UpdateConnection where
   toHeaders =
@@ -215,4 +227,7 @@ updateConnectionResponse_connection = Lens.lens (\UpdateConnectionResponse' {con
 updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Prelude.Int
 updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectionResponse' {} a -> s {httpStatus = a} :: UpdateConnectionResponse)
 
-instance Prelude.NFData UpdateConnectionResponse
+instance Prelude.NFData UpdateConnectionResponse where
+  rnf UpdateConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

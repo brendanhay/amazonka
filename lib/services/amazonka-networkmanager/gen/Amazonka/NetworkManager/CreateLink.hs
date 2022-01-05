@@ -180,9 +180,25 @@ instance Core.AWSRequest CreateLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLink
+instance Prelude.Hashable CreateLink where
+  hashWithSalt _salt CreateLink' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` siteId
 
-instance Prelude.NFData CreateLink
+instance Prelude.NFData CreateLink where
+  rnf CreateLink' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf siteId
 
 instance Core.ToHeaders CreateLink where
   toHeaders =
@@ -257,4 +273,7 @@ createLinkResponse_link = Lens.lens (\CreateLinkResponse' {link} -> link) (\s@Cr
 createLinkResponse_httpStatus :: Lens.Lens' CreateLinkResponse Prelude.Int
 createLinkResponse_httpStatus = Lens.lens (\CreateLinkResponse' {httpStatus} -> httpStatus) (\s@CreateLinkResponse' {} a -> s {httpStatus = a} :: CreateLinkResponse)
 
-instance Prelude.NFData CreateLinkResponse
+instance Prelude.NFData CreateLinkResponse where
+  rnf CreateLinkResponse' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf httpStatus

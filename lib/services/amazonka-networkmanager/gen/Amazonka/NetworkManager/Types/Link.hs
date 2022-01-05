@@ -164,6 +164,30 @@ instance Core.FromJSON Link where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Link
+instance Prelude.Hashable Link where
+  hashWithSalt _salt Link' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` linkArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Link
+instance Prelude.NFData Link where
+  rnf Link' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf linkArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf tags

@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteSite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSite
+instance Prelude.Hashable DeleteSite where
+  hashWithSalt _salt DeleteSite' {..} =
+    _salt `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` siteId
 
-instance Prelude.NFData DeleteSite
+instance Prelude.NFData DeleteSite where
+  rnf DeleteSite' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf siteId
 
 instance Core.ToHeaders DeleteSite where
   toHeaders =
@@ -164,4 +170,7 @@ deleteSiteResponse_site = Lens.lens (\DeleteSiteResponse' {site} -> site) (\s@De
 deleteSiteResponse_httpStatus :: Lens.Lens' DeleteSiteResponse Prelude.Int
 deleteSiteResponse_httpStatus = Lens.lens (\DeleteSiteResponse' {httpStatus} -> httpStatus) (\s@DeleteSiteResponse' {} a -> s {httpStatus = a} :: DeleteSiteResponse)
 
-instance Prelude.NFData DeleteSiteResponse
+instance Prelude.NFData DeleteSiteResponse where
+  rnf DeleteSiteResponse' {..} =
+    Prelude.rnf site
+      `Prelude.seq` Prelude.rnf httpStatus

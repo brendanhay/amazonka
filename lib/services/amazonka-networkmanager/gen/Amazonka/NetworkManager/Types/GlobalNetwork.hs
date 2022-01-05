@@ -113,6 +113,20 @@ instance Core.FromJSON GlobalNetwork where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable GlobalNetwork
+instance Prelude.Hashable GlobalNetwork where
+  hashWithSalt _salt GlobalNetwork' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` globalNetworkArn
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData GlobalNetwork
+instance Prelude.NFData GlobalNetwork where
+  rnf GlobalNetwork' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf globalNetworkArn
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

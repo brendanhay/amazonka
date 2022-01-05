@@ -139,9 +139,19 @@ instance Core.AWSRequest GetSites where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSites
+instance Prelude.Hashable GetSites where
+  hashWithSalt _salt GetSites' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` siteIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData GetSites
+instance Prelude.NFData GetSites where
+  rnf GetSites' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf siteIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders GetSites where
   toHeaders =
@@ -219,4 +229,8 @@ getSitesResponse_sites = Lens.lens (\GetSitesResponse' {sites} -> sites) (\s@Get
 getSitesResponse_httpStatus :: Lens.Lens' GetSitesResponse Prelude.Int
 getSitesResponse_httpStatus = Lens.lens (\GetSitesResponse' {httpStatus} -> httpStatus) (\s@GetSitesResponse' {} a -> s {httpStatus = a} :: GetSitesResponse)
 
-instance Prelude.NFData GetSitesResponse
+instance Prelude.NFData GetSitesResponse where
+  rnf GetSitesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sites
+      `Prelude.seq` Prelude.rnf httpStatus

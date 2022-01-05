@@ -74,9 +74,15 @@ instance Core.FromJSON AWSLocation where
             Prelude.<*> (x Core..:? "SubnetArn")
       )
 
-instance Prelude.Hashable AWSLocation
+instance Prelude.Hashable AWSLocation where
+  hashWithSalt _salt AWSLocation' {..} =
+    _salt `Prelude.hashWithSalt` zone
+      `Prelude.hashWithSalt` subnetArn
 
-instance Prelude.NFData AWSLocation
+instance Prelude.NFData AWSLocation where
+  rnf AWSLocation' {..} =
+    Prelude.rnf zone
+      `Prelude.seq` Prelude.rnf subnetArn
 
 instance Core.ToJSON AWSLocation where
   toJSON AWSLocation' {..} =

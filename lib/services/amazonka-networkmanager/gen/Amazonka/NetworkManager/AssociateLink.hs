@@ -117,9 +117,17 @@ instance Core.AWSRequest AssociateLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateLink
+instance Prelude.Hashable AssociateLink where
+  hashWithSalt _salt AssociateLink' {..} =
+    _salt `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` linkId
 
-instance Prelude.NFData AssociateLink
+instance Prelude.NFData AssociateLink where
+  rnf AssociateLink' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId
 
 instance Core.ToHeaders AssociateLink where
   toHeaders =
@@ -191,4 +199,7 @@ associateLinkResponse_linkAssociation = Lens.lens (\AssociateLinkResponse' {link
 associateLinkResponse_httpStatus :: Lens.Lens' AssociateLinkResponse Prelude.Int
 associateLinkResponse_httpStatus = Lens.lens (\AssociateLinkResponse' {httpStatus} -> httpStatus) (\s@AssociateLinkResponse' {} a -> s {httpStatus = a} :: AssociateLinkResponse)
 
-instance Prelude.NFData AssociateLinkResponse
+instance Prelude.NFData AssociateLinkResponse where
+  rnf AssociateLinkResponse' {..} =
+    Prelude.rnf linkAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

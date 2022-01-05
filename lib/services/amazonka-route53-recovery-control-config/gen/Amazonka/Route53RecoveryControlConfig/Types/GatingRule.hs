@@ -206,6 +206,24 @@ instance Core.FromJSON GatingRule where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable GatingRule
+instance Prelude.Hashable GatingRule where
+  hashWithSalt _salt GatingRule' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` targetControls
+      `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` safetyRuleArn
+      `Prelude.hashWithSalt` gatingControls
+      `Prelude.hashWithSalt` ruleConfig
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GatingRule
+instance Prelude.NFData GatingRule where
+  rnf GatingRule' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf targetControls
+      `Prelude.seq` Prelude.rnf controlPanelArn
+      `Prelude.seq` Prelude.rnf safetyRuleArn
+      `Prelude.seq` Prelude.rnf gatingControls
+      `Prelude.seq` Prelude.rnf ruleConfig
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf name

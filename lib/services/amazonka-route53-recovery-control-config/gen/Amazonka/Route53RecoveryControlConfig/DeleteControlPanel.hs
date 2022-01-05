@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteControlPanel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteControlPanel
+instance Prelude.Hashable DeleteControlPanel where
+  hashWithSalt _salt DeleteControlPanel' {..} =
+    _salt `Prelude.hashWithSalt` controlPanelArn
 
-instance Prelude.NFData DeleteControlPanel
+instance Prelude.NFData DeleteControlPanel where
+  rnf DeleteControlPanel' {..} =
+    Prelude.rnf controlPanelArn
 
 instance Core.ToHeaders DeleteControlPanel where
   toHeaders =
@@ -143,4 +147,6 @@ newDeleteControlPanelResponse pHttpStatus_ =
 deleteControlPanelResponse_httpStatus :: Lens.Lens' DeleteControlPanelResponse Prelude.Int
 deleteControlPanelResponse_httpStatus = Lens.lens (\DeleteControlPanelResponse' {httpStatus} -> httpStatus) (\s@DeleteControlPanelResponse' {} a -> s {httpStatus = a} :: DeleteControlPanelResponse)
 
-instance Prelude.NFData DeleteControlPanelResponse
+instance Prelude.NFData DeleteControlPanelResponse where
+  rnf DeleteControlPanelResponse' {..} =
+    Prelude.rnf httpStatus

@@ -139,9 +139,19 @@ instance Core.AWSRequest CreateRoutingControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoutingControl
+instance Prelude.Hashable CreateRoutingControl where
+  hashWithSalt _salt CreateRoutingControl' {..} =
+    _salt `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` routingControlName
 
-instance Prelude.NFData CreateRoutingControl
+instance Prelude.NFData CreateRoutingControl where
+  rnf CreateRoutingControl' {..} =
+    Prelude.rnf controlPanelArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf routingControlName
 
 instance Core.ToHeaders CreateRoutingControl where
   toHeaders =
@@ -212,4 +222,7 @@ createRoutingControlResponse_routingControl = Lens.lens (\CreateRoutingControlRe
 createRoutingControlResponse_httpStatus :: Lens.Lens' CreateRoutingControlResponse Prelude.Int
 createRoutingControlResponse_httpStatus = Lens.lens (\CreateRoutingControlResponse' {httpStatus} -> httpStatus) (\s@CreateRoutingControlResponse' {} a -> s {httpStatus = a} :: CreateRoutingControlResponse)
 
-instance Prelude.NFData CreateRoutingControlResponse
+instance Prelude.NFData CreateRoutingControlResponse where
+  rnf CreateRoutingControlResponse' {..} =
+    Prelude.rnf routingControl
+      `Prelude.seq` Prelude.rnf httpStatus

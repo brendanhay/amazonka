@@ -91,6 +91,12 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "ASSERTION")
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt _salt Rule' {..} =
+    _salt `Prelude.hashWithSalt` gating
+      `Prelude.hashWithSalt` assertion
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf gating
+      `Prelude.seq` Prelude.rnf assertion

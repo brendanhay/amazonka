@@ -100,6 +100,16 @@ instance Core.FromJSON RoutingControl where
             Prelude.<*> (x Core..:? "RoutingControlArn")
       )
 
-instance Prelude.Hashable RoutingControl
+instance Prelude.Hashable RoutingControl where
+  hashWithSalt _salt RoutingControl' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingControlArn
 
-instance Prelude.NFData RoutingControl
+instance Prelude.NFData RoutingControl where
+  rnf RoutingControl' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf controlPanelArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingControlArn

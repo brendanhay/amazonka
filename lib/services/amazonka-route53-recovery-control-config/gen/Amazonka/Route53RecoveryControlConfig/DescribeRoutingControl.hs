@@ -99,9 +99,13 @@ instance Core.AWSRequest DescribeRoutingControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRoutingControl
+instance Prelude.Hashable DescribeRoutingControl where
+  hashWithSalt _salt DescribeRoutingControl' {..} =
+    _salt `Prelude.hashWithSalt` routingControlArn
 
-instance Prelude.NFData DescribeRoutingControl
+instance Prelude.NFData DescribeRoutingControl where
+  rnf DescribeRoutingControl' {..} =
+    Prelude.rnf routingControlArn
 
 instance Core.ToHeaders DescribeRoutingControl where
   toHeaders =
@@ -164,3 +168,7 @@ describeRoutingControlResponse_httpStatus = Lens.lens (\DescribeRoutingControlRe
 instance
   Prelude.NFData
     DescribeRoutingControlResponse
+  where
+  rnf DescribeRoutingControlResponse' {..} =
+    Prelude.rnf routingControl
+      `Prelude.seq` Prelude.rnf httpStatus

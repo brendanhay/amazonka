@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeControlPanel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeControlPanel
+instance Prelude.Hashable DescribeControlPanel where
+  hashWithSalt _salt DescribeControlPanel' {..} =
+    _salt `Prelude.hashWithSalt` controlPanelArn
 
-instance Prelude.NFData DescribeControlPanel
+instance Prelude.NFData DescribeControlPanel where
+  rnf DescribeControlPanel' {..} =
+    Prelude.rnf controlPanelArn
 
 instance Core.ToHeaders DescribeControlPanel where
   toHeaders =
@@ -154,4 +158,7 @@ describeControlPanelResponse_controlPanel = Lens.lens (\DescribeControlPanelResp
 describeControlPanelResponse_httpStatus :: Lens.Lens' DescribeControlPanelResponse Prelude.Int
 describeControlPanelResponse_httpStatus = Lens.lens (\DescribeControlPanelResponse' {httpStatus} -> httpStatus) (\s@DescribeControlPanelResponse' {} a -> s {httpStatus = a} :: DescribeControlPanelResponse)
 
-instance Prelude.NFData DescribeControlPanelResponse
+instance Prelude.NFData DescribeControlPanelResponse where
+  rnf DescribeControlPanelResponse' {..} =
+    Prelude.rnf controlPanel
+      `Prelude.seq` Prelude.rnf httpStatus

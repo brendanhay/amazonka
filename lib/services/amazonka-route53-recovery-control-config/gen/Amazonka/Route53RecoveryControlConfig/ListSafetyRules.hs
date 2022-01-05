@@ -114,9 +114,17 @@ instance Core.AWSRequest ListSafetyRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSafetyRules
+instance Prelude.Hashable ListSafetyRules where
+  hashWithSalt _salt ListSafetyRules' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` controlPanelArn
 
-instance Prelude.NFData ListSafetyRules
+instance Prelude.NFData ListSafetyRules where
+  rnf ListSafetyRules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf controlPanelArn
 
 instance Core.ToHeaders ListSafetyRules where
   toHeaders =
@@ -192,4 +200,8 @@ listSafetyRulesResponse_safetyRules = Lens.lens (\ListSafetyRulesResponse' {safe
 listSafetyRulesResponse_httpStatus :: Lens.Lens' ListSafetyRulesResponse Prelude.Int
 listSafetyRulesResponse_httpStatus = Lens.lens (\ListSafetyRulesResponse' {httpStatus} -> httpStatus) (\s@ListSafetyRulesResponse' {} a -> s {httpStatus = a} :: ListSafetyRulesResponse)
 
-instance Prelude.NFData ListSafetyRulesResponse
+instance Prelude.NFData ListSafetyRulesResponse where
+  rnf ListSafetyRulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf safetyRules
+      `Prelude.seq` Prelude.rnf httpStatus

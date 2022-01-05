@@ -119,9 +119,17 @@ instance Core.AWSRequest ListRoutingControls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRoutingControls
+instance Prelude.Hashable ListRoutingControls where
+  hashWithSalt _salt ListRoutingControls' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` controlPanelArn
 
-instance Prelude.NFData ListRoutingControls
+instance Prelude.NFData ListRoutingControls where
+  rnf ListRoutingControls' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf controlPanelArn
 
 instance Core.ToHeaders ListRoutingControls where
   toHeaders =
@@ -197,4 +205,8 @@ listRoutingControlsResponse_routingControls = Lens.lens (\ListRoutingControlsRes
 listRoutingControlsResponse_httpStatus :: Lens.Lens' ListRoutingControlsResponse Prelude.Int
 listRoutingControlsResponse_httpStatus = Lens.lens (\ListRoutingControlsResponse' {httpStatus} -> httpStatus) (\s@ListRoutingControlsResponse' {} a -> s {httpStatus = a} :: ListRoutingControlsResponse)
 
-instance Prelude.NFData ListRoutingControlsResponse
+instance Prelude.NFData ListRoutingControlsResponse where
+  rnf ListRoutingControlsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf routingControls
+      `Prelude.seq` Prelude.rnf httpStatus

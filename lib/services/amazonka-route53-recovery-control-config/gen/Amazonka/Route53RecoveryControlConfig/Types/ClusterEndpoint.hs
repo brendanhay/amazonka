@@ -84,6 +84,12 @@ instance Core.FromJSON ClusterEndpoint where
             Prelude.<*> (x Core..:? "Endpoint")
       )
 
-instance Prelude.Hashable ClusterEndpoint
+instance Prelude.Hashable ClusterEndpoint where
+  hashWithSalt _salt ClusterEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData ClusterEndpoint
+instance Prelude.NFData ClusterEndpoint where
+  rnf ClusterEndpoint' {..} =
+    Prelude.rnf region
+      `Prelude.seq` Prelude.rnf endpoint

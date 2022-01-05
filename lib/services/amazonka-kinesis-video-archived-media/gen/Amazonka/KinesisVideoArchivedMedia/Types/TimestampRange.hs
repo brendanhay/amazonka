@@ -72,9 +72,15 @@ timestampRange_startTimestamp = Lens.lens (\TimestampRange' {startTimestamp} -> 
 timestampRange_endTimestamp :: Lens.Lens' TimestampRange Prelude.UTCTime
 timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endTimestamp) (\s@TimestampRange' {} a -> s {endTimestamp = a} :: TimestampRange) Prelude.. Core._Time
 
-instance Prelude.Hashable TimestampRange
+instance Prelude.Hashable TimestampRange where
+  hashWithSalt _salt TimestampRange' {..} =
+    _salt `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` endTimestamp
 
-instance Prelude.NFData TimestampRange
+instance Prelude.NFData TimestampRange where
+  rnf TimestampRange' {..} =
+    Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf endTimestamp
 
 instance Core.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =

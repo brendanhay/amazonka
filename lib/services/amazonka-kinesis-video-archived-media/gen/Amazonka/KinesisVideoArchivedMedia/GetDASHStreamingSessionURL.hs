@@ -627,9 +627,28 @@ instance Core.AWSRequest GetDASHStreamingSessionURL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDASHStreamingSessionURL
+instance Prelude.Hashable GetDASHStreamingSessionURL where
+  hashWithSalt _salt GetDASHStreamingSessionURL' {..} =
+    _salt
+      `Prelude.hashWithSalt` displayFragmentTimestamp
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` dASHFragmentSelector
+      `Prelude.hashWithSalt` maxManifestFragmentResults
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` displayFragmentNumber
 
-instance Prelude.NFData GetDASHStreamingSessionURL
+instance Prelude.NFData GetDASHStreamingSessionURL where
+  rnf GetDASHStreamingSessionURL' {..} =
+    Prelude.rnf displayFragmentTimestamp
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf dASHFragmentSelector
+      `Prelude.seq` Prelude.rnf maxManifestFragmentResults
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf displayFragmentNumber
 
 instance Core.ToHeaders GetDASHStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
@@ -704,3 +723,7 @@ getDASHStreamingSessionURLResponse_httpStatus = Lens.lens (\GetDASHStreamingSess
 instance
   Prelude.NFData
     GetDASHStreamingSessionURLResponse
+  where
+  rnf GetDASHStreamingSessionURLResponse' {..} =
+    Prelude.rnf dASHStreamingSessionURL
+      `Prelude.seq` Prelude.rnf httpStatus

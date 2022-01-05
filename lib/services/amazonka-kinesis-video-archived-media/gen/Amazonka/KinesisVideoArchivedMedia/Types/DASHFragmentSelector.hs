@@ -155,9 +155,15 @@ dASHFragmentSelector_fragmentSelectorType = Lens.lens (\DASHFragmentSelector' {f
 dASHFragmentSelector_timestampRange :: Lens.Lens' DASHFragmentSelector (Prelude.Maybe DASHTimestampRange)
 dASHFragmentSelector_timestampRange = Lens.lens (\DASHFragmentSelector' {timestampRange} -> timestampRange) (\s@DASHFragmentSelector' {} a -> s {timestampRange = a} :: DASHFragmentSelector)
 
-instance Prelude.Hashable DASHFragmentSelector
+instance Prelude.Hashable DASHFragmentSelector where
+  hashWithSalt _salt DASHFragmentSelector' {..} =
+    _salt `Prelude.hashWithSalt` fragmentSelectorType
+      `Prelude.hashWithSalt` timestampRange
 
-instance Prelude.NFData DASHFragmentSelector
+instance Prelude.NFData DASHFragmentSelector where
+  rnf DASHFragmentSelector' {..} =
+    Prelude.rnf fragmentSelectorType
+      `Prelude.seq` Prelude.rnf timestampRange
 
 instance Core.ToJSON DASHFragmentSelector where
   toJSON DASHFragmentSelector' {..} =

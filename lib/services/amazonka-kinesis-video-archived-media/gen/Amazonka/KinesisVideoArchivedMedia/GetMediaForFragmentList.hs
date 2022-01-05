@@ -152,9 +152,17 @@ instance Core.AWSRequest GetMediaForFragmentList where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetMediaForFragmentList
+instance Prelude.Hashable GetMediaForFragmentList where
+  hashWithSalt _salt GetMediaForFragmentList' {..} =
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` fragments
 
-instance Prelude.NFData GetMediaForFragmentList
+instance Prelude.NFData GetMediaForFragmentList where
+  rnf GetMediaForFragmentList' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf fragments
 
 instance Core.ToHeaders GetMediaForFragmentList where
   toHeaders = Prelude.const Prelude.mempty

@@ -93,7 +93,19 @@ instance
 instance
   Prelude.Hashable
     PendingModifiedRelationalDatabaseValues
+  where
+  hashWithSalt
+    _salt
+    PendingModifiedRelationalDatabaseValues' {..} =
+      _salt `Prelude.hashWithSalt` engineVersion
+        `Prelude.hashWithSalt` masterUserPassword
+        `Prelude.hashWithSalt` backupRetentionEnabled
 
 instance
   Prelude.NFData
     PendingModifiedRelationalDatabaseValues
+  where
+  rnf PendingModifiedRelationalDatabaseValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf backupRetentionEnabled

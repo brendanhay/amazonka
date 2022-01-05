@@ -143,6 +143,26 @@ instance Core.FromJSON RelationalDatabaseBundle where
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
-instance Prelude.Hashable RelationalDatabaseBundle
+instance Prelude.Hashable RelationalDatabaseBundle where
+  hashWithSalt _salt RelationalDatabaseBundle' {..} =
+    _salt `Prelude.hashWithSalt` isEncrypted
+      `Prelude.hashWithSalt` cpuCount
+      `Prelude.hashWithSalt` transferPerMonthInGb
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` diskSizeInGb
+      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` ramSizeInGb
 
-instance Prelude.NFData RelationalDatabaseBundle
+instance Prelude.NFData RelationalDatabaseBundle where
+  rnf RelationalDatabaseBundle' {..} =
+    Prelude.rnf isEncrypted
+      `Prelude.seq` Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf diskSizeInGb
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf ramSizeInGb

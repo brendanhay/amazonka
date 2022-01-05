@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDistribution
+instance Prelude.Hashable DeleteDistribution where
+  hashWithSalt _salt DeleteDistribution' {..} =
+    _salt `Prelude.hashWithSalt` distributionName
 
-instance Prelude.NFData DeleteDistribution
+instance Prelude.NFData DeleteDistribution where
+  rnf DeleteDistribution' {..} =
+    Prelude.rnf distributionName
 
 instance Core.ToHeaders DeleteDistribution where
   toHeaders =
@@ -176,4 +180,7 @@ deleteDistributionResponse_operation = Lens.lens (\DeleteDistributionResponse' {
 deleteDistributionResponse_httpStatus :: Lens.Lens' DeleteDistributionResponse Prelude.Int
 deleteDistributionResponse_httpStatus = Lens.lens (\DeleteDistributionResponse' {httpStatus} -> httpStatus) (\s@DeleteDistributionResponse' {} a -> s {httpStatus = a} :: DeleteDistributionResponse)
 
-instance Prelude.NFData DeleteDistributionResponse
+instance Prelude.NFData DeleteDistributionResponse where
+  rnf DeleteDistributionResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

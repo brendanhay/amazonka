@@ -100,9 +100,15 @@ instance Core.AWSRequest DisableAddOn where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableAddOn
+instance Prelude.Hashable DisableAddOn where
+  hashWithSalt _salt DisableAddOn' {..} =
+    _salt `Prelude.hashWithSalt` addOnType
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData DisableAddOn
+instance Prelude.NFData DisableAddOn where
+  rnf DisableAddOn' {..} =
+    Prelude.rnf addOnType
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders DisableAddOn where
   toHeaders =
@@ -178,4 +184,7 @@ disableAddOnResponse_operations = Lens.lens (\DisableAddOnResponse' {operations}
 disableAddOnResponse_httpStatus :: Lens.Lens' DisableAddOnResponse Prelude.Int
 disableAddOnResponse_httpStatus = Lens.lens (\DisableAddOnResponse' {httpStatus} -> httpStatus) (\s@DisableAddOnResponse' {} a -> s {httpStatus = a} :: DisableAddOnResponse)
 
-instance Prelude.NFData DisableAddOnResponse
+instance Prelude.NFData DisableAddOnResponse where
+  rnf DisableAddOnResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

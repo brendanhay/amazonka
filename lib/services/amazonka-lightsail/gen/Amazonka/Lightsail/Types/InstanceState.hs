@@ -70,6 +70,11 @@ instance Core.FromJSON InstanceState where
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable InstanceState
+instance Prelude.Hashable InstanceState where
+  hashWithSalt _salt InstanceState' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData InstanceState
+instance Prelude.NFData InstanceState where
+  rnf InstanceState' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf code

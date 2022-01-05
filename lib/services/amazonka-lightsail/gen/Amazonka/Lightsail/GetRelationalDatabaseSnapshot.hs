@@ -97,8 +97,14 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseSnapshot
+  where
+  hashWithSalt _salt GetRelationalDatabaseSnapshot' {..} =
+    _salt
+      `Prelude.hashWithSalt` relationalDatabaseSnapshotName
 
-instance Prelude.NFData GetRelationalDatabaseSnapshot
+instance Prelude.NFData GetRelationalDatabaseSnapshot where
+  rnf GetRelationalDatabaseSnapshot' {..} =
+    Prelude.rnf relationalDatabaseSnapshotName
 
 instance Core.ToHeaders GetRelationalDatabaseSnapshot where
   toHeaders =
@@ -174,3 +180,7 @@ getRelationalDatabaseSnapshotResponse_httpStatus = Lens.lens (\GetRelationalData
 instance
   Prelude.NFData
     GetRelationalDatabaseSnapshotResponse
+  where
+  rnf GetRelationalDatabaseSnapshotResponse' {..} =
+    Prelude.rnf relationalDatabaseSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

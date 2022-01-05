@@ -89,9 +89,13 @@ instance Core.AWSRequest GetRelationalDatabase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRelationalDatabase
+instance Prelude.Hashable GetRelationalDatabase where
+  hashWithSalt _salt GetRelationalDatabase' {..} =
+    _salt `Prelude.hashWithSalt` relationalDatabaseName
 
-instance Prelude.NFData GetRelationalDatabase
+instance Prelude.NFData GetRelationalDatabase where
+  rnf GetRelationalDatabase' {..} =
+    Prelude.rnf relationalDatabaseName
 
 instance Core.ToHeaders GetRelationalDatabase where
   toHeaders =
@@ -164,4 +168,7 @@ getRelationalDatabaseResponse_relationalDatabase = Lens.lens (\GetRelationalData
 getRelationalDatabaseResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseResponse Prelude.Int
 getRelationalDatabaseResponse_httpStatus = Lens.lens (\GetRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseResponse)
 
-instance Prelude.NFData GetRelationalDatabaseResponse
+instance Prelude.NFData GetRelationalDatabaseResponse where
+  rnf GetRelationalDatabaseResponse' {..} =
+    Prelude.rnf relationalDatabase
+      `Prelude.seq` Prelude.rnf httpStatus

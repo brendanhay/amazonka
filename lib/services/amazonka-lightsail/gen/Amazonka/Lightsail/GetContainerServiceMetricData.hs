@@ -312,8 +312,23 @@ instance
 instance
   Prelude.Hashable
     GetContainerServiceMetricData
+  where
+  hashWithSalt _salt GetContainerServiceMetricData' {..} =
+    _salt `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` statistics
 
-instance Prelude.NFData GetContainerServiceMetricData
+instance Prelude.NFData GetContainerServiceMetricData where
+  rnf GetContainerServiceMetricData' {..} =
+    Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf statistics
 
 instance Core.ToHeaders GetContainerServiceMetricData where
   toHeaders =
@@ -400,3 +415,8 @@ getContainerServiceMetricDataResponse_httpStatus = Lens.lens (\GetContainerServi
 instance
   Prelude.NFData
     GetContainerServiceMetricDataResponse
+  where
+  rnf GetContainerServiceMetricDataResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf httpStatus

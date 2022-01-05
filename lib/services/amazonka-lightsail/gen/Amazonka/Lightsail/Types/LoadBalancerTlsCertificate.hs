@@ -581,6 +581,60 @@ instance Core.FromJSON LoadBalancerTlsCertificate where
             Prelude.<*> (x Core..:? "notAfter")
       )
 
-instance Prelude.Hashable LoadBalancerTlsCertificate
+instance Prelude.Hashable LoadBalancerTlsCertificate where
+  hashWithSalt _salt LoadBalancerTlsCertificate' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` serial
+      `Prelude.hashWithSalt` isAttached
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` revocationReason
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` renewalSummary
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` domainValidationRecords
+      `Prelude.hashWithSalt` issuedAt
+      `Prelude.hashWithSalt` keyAlgorithm
+      `Prelude.hashWithSalt` signatureAlgorithm
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notAfter
 
-instance Prelude.NFData LoadBalancerTlsCertificate
+instance Prelude.NFData LoadBalancerTlsCertificate where
+  rnf LoadBalancerTlsCertificate' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf serial
+      `Prelude.seq` Prelude.rnf isAttached
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf revocationReason
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSummary
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf
+        domainValidationRecords
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf
+        signatureAlgorithm
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notAfter

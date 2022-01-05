@@ -149,10 +149,28 @@ instance
 instance
   Prelude.Hashable
     ContainerServiceHealthCheckConfig
+  where
+  hashWithSalt
+    _salt
+    ContainerServiceHealthCheckConfig' {..} =
+      _salt `Prelude.hashWithSalt` healthyThreshold
+        `Prelude.hashWithSalt` path
+        `Prelude.hashWithSalt` successCodes
+        `Prelude.hashWithSalt` intervalSeconds
+        `Prelude.hashWithSalt` timeoutSeconds
+        `Prelude.hashWithSalt` unhealthyThreshold
 
 instance
   Prelude.NFData
     ContainerServiceHealthCheckConfig
+  where
+  rnf ContainerServiceHealthCheckConfig' {..} =
+    Prelude.rnf healthyThreshold
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf successCodes
+      `Prelude.seq` Prelude.rnf intervalSeconds
+      `Prelude.seq` Prelude.rnf timeoutSeconds
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
 
 instance
   Core.ToJSON

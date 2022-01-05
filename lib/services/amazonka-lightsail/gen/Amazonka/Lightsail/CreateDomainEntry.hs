@@ -114,9 +114,15 @@ instance Core.AWSRequest CreateDomainEntry where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomainEntry
+instance Prelude.Hashable CreateDomainEntry where
+  hashWithSalt _salt CreateDomainEntry' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` domainEntry
 
-instance Prelude.NFData CreateDomainEntry
+instance Prelude.NFData CreateDomainEntry where
+  rnf CreateDomainEntry' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainEntry
 
 instance Core.ToHeaders CreateDomainEntry where
   toHeaders =
@@ -193,4 +199,7 @@ createDomainEntryResponse_operation = Lens.lens (\CreateDomainEntryResponse' {op
 createDomainEntryResponse_httpStatus :: Lens.Lens' CreateDomainEntryResponse Prelude.Int
 createDomainEntryResponse_httpStatus = Lens.lens (\CreateDomainEntryResponse' {httpStatus} -> httpStatus) (\s@CreateDomainEntryResponse' {} a -> s {httpStatus = a} :: CreateDomainEntryResponse)
 
-instance Prelude.NFData CreateDomainEntryResponse
+instance Prelude.NFData CreateDomainEntryResponse where
+  rnf CreateDomainEntryResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

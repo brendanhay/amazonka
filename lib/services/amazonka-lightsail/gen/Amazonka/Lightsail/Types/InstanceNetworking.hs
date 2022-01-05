@@ -78,6 +78,12 @@ instance Core.FromJSON InstanceNetworking where
             Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InstanceNetworking
+instance Prelude.Hashable InstanceNetworking where
+  hashWithSalt _salt InstanceNetworking' {..} =
+    _salt `Prelude.hashWithSalt` monthlyTransfer
+      `Prelude.hashWithSalt` ports
 
-instance Prelude.NFData InstanceNetworking
+instance Prelude.NFData InstanceNetworking where
+  rnf InstanceNetworking' {..} =
+    Prelude.rnf monthlyTransfer
+      `Prelude.seq` Prelude.rnf ports

@@ -138,9 +138,27 @@ instance Core.FromJSON RelationalDatabaseParameter where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable RelationalDatabaseParameter
+instance Prelude.Hashable RelationalDatabaseParameter where
+  hashWithSalt _salt RelationalDatabaseParameter' {..} =
+    _salt `Prelude.hashWithSalt` applyType
+      `Prelude.hashWithSalt` parameterValue
+      `Prelude.hashWithSalt` applyMethod
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RelationalDatabaseParameter
+instance Prelude.NFData RelationalDatabaseParameter where
+  rnf RelationalDatabaseParameter' {..} =
+    Prelude.rnf applyType
+      `Prelude.seq` Prelude.rnf parameterValue
+      `Prelude.seq` Prelude.rnf applyMethod
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON RelationalDatabaseParameter where
   toJSON RelationalDatabaseParameter' {..} =

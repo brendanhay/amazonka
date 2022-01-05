@@ -85,9 +85,15 @@ instance Core.FromJSON CookieObject where
             Prelude.<*> (x Core..:? "option")
       )
 
-instance Prelude.Hashable CookieObject
+instance Prelude.Hashable CookieObject where
+  hashWithSalt _salt CookieObject' {..} =
+    _salt `Prelude.hashWithSalt` cookiesAllowList
+      `Prelude.hashWithSalt` option
 
-instance Prelude.NFData CookieObject
+instance Prelude.NFData CookieObject where
+  rnf CookieObject' {..} =
+    Prelude.rnf cookiesAllowList
+      `Prelude.seq` Prelude.rnf option
 
 instance Core.ToJSON CookieObject where
   toJSON CookieObject' {..} =

@@ -116,9 +116,15 @@ instance Core.AWSRequest DeleteBucketAccessKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBucketAccessKey
+instance Prelude.Hashable DeleteBucketAccessKey where
+  hashWithSalt _salt DeleteBucketAccessKey' {..} =
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData DeleteBucketAccessKey
+instance Prelude.NFData DeleteBucketAccessKey where
+  rnf DeleteBucketAccessKey' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf accessKeyId
 
 instance Core.ToHeaders DeleteBucketAccessKey where
   toHeaders =
@@ -195,4 +201,7 @@ deleteBucketAccessKeyResponse_operations = Lens.lens (\DeleteBucketAccessKeyResp
 deleteBucketAccessKeyResponse_httpStatus :: Lens.Lens' DeleteBucketAccessKeyResponse Prelude.Int
 deleteBucketAccessKeyResponse_httpStatus = Lens.lens (\DeleteBucketAccessKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteBucketAccessKeyResponse' {} a -> s {httpStatus = a} :: DeleteBucketAccessKeyResponse)
 
-instance Prelude.NFData DeleteBucketAccessKeyResponse
+instance Prelude.NFData DeleteBucketAccessKeyResponse where
+  rnf DeleteBucketAccessKeyResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

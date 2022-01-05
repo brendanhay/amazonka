@@ -59,6 +59,9 @@ instance Core.FromJSON DiskSnapshotInfo where
             Prelude.<$> (x Core..:? "sizeInGb")
       )
 
-instance Prelude.Hashable DiskSnapshotInfo
+instance Prelude.Hashable DiskSnapshotInfo where
+  hashWithSalt _salt DiskSnapshotInfo' {..} =
+    _salt `Prelude.hashWithSalt` sizeInGb
 
-instance Prelude.NFData DiskSnapshotInfo
+instance Prelude.NFData DiskSnapshotInfo where
+  rnf DiskSnapshotInfo' {..} = Prelude.rnf sizeInGb

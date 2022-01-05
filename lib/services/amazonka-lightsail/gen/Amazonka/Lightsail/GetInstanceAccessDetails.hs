@@ -105,9 +105,15 @@ instance Core.AWSRequest GetInstanceAccessDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstanceAccessDetails
+instance Prelude.Hashable GetInstanceAccessDetails where
+  hashWithSalt _salt GetInstanceAccessDetails' {..} =
+    _salt `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData GetInstanceAccessDetails
+instance Prelude.NFData GetInstanceAccessDetails where
+  rnf GetInstanceAccessDetails' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders GetInstanceAccessDetails where
   toHeaders =
@@ -184,3 +190,7 @@ getInstanceAccessDetailsResponse_httpStatus = Lens.lens (\GetInstanceAccessDetai
 instance
   Prelude.NFData
     GetInstanceAccessDetailsResponse
+  where
+  rnf GetInstanceAccessDetailsResponse' {..} =
+    Prelude.rnf accessDetails
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -157,6 +157,18 @@ instance Core.FromJSON ContainerServiceDeployment where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable ContainerServiceDeployment
+instance Prelude.Hashable ContainerServiceDeployment where
+  hashWithSalt _salt ContainerServiceDeployment' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` publicEndpoint
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData ContainerServiceDeployment
+instance Prelude.NFData ContainerServiceDeployment where
+  rnf ContainerServiceDeployment' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf publicEndpoint
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf version

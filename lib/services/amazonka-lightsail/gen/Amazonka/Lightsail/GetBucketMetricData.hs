@@ -330,9 +330,25 @@ instance Core.AWSRequest GetBucketMetricData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketMetricData
+instance Prelude.Hashable GetBucketMetricData where
+  hashWithSalt _salt GetBucketMetricData' {..} =
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData GetBucketMetricData
+instance Prelude.NFData GetBucketMetricData where
+  rnf GetBucketMetricData' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToHeaders GetBucketMetricData where
   toHeaders =
@@ -417,4 +433,8 @@ getBucketMetricDataResponse_metricData = Lens.lens (\GetBucketMetricDataResponse
 getBucketMetricDataResponse_httpStatus :: Lens.Lens' GetBucketMetricDataResponse Prelude.Int
 getBucketMetricDataResponse_httpStatus = Lens.lens (\GetBucketMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetBucketMetricDataResponse' {} a -> s {httpStatus = a} :: GetBucketMetricDataResponse)
 
-instance Prelude.NFData GetBucketMetricDataResponse
+instance Prelude.NFData GetBucketMetricDataResponse where
+  rnf GetBucketMetricDataResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -74,9 +74,16 @@ addOnRequest_autoSnapshotAddOnRequest = Lens.lens (\AddOnRequest' {autoSnapshotA
 addOnRequest_addOnType :: Lens.Lens' AddOnRequest AddOnType
 addOnRequest_addOnType = Lens.lens (\AddOnRequest' {addOnType} -> addOnType) (\s@AddOnRequest' {} a -> s {addOnType = a} :: AddOnRequest)
 
-instance Prelude.Hashable AddOnRequest
+instance Prelude.Hashable AddOnRequest where
+  hashWithSalt _salt AddOnRequest' {..} =
+    _salt
+      `Prelude.hashWithSalt` autoSnapshotAddOnRequest
+      `Prelude.hashWithSalt` addOnType
 
-instance Prelude.NFData AddOnRequest
+instance Prelude.NFData AddOnRequest where
+  rnf AddOnRequest' {..} =
+    Prelude.rnf autoSnapshotAddOnRequest
+      `Prelude.seq` Prelude.rnf addOnType
 
 instance Core.ToJSON AddOnRequest where
   toJSON AddOnRequest' {..} =

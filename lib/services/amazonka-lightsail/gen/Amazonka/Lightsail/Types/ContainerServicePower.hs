@@ -118,6 +118,20 @@ instance Core.FromJSON ContainerServicePower where
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
-instance Prelude.Hashable ContainerServicePower
+instance Prelude.Hashable ContainerServicePower where
+  hashWithSalt _salt ContainerServicePower' {..} =
+    _salt `Prelude.hashWithSalt` powerId
+      `Prelude.hashWithSalt` cpuCount
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` ramSizeInGb
 
-instance Prelude.NFData ContainerServicePower
+instance Prelude.NFData ContainerServicePower where
+  rnf ContainerServicePower' {..} =
+    Prelude.rnf powerId
+      `Prelude.seq` Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf ramSizeInGb

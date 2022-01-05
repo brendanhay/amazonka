@@ -90,7 +90,19 @@ instance
 instance
   Prelude.Hashable
     CloudFormationStackRecordSourceInfo
+  where
+  hashWithSalt
+    _salt
+    CloudFormationStackRecordSourceInfo' {..} =
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     CloudFormationStackRecordSourceInfo
+  where
+  rnf CloudFormationStackRecordSourceInfo' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name

@@ -252,10 +252,28 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseLogEvents
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseLogEvents' {..} =
+      _salt `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` startFromHead
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` pageToken
+        `Prelude.hashWithSalt` relationalDatabaseName
+        `Prelude.hashWithSalt` logStreamName
 
 instance
   Prelude.NFData
     GetRelationalDatabaseLogEvents
+  where
+  rnf GetRelationalDatabaseLogEvents' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf startFromHead
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf logStreamName
 
 instance
   Core.ToHeaders
@@ -368,3 +386,9 @@ getRelationalDatabaseLogEventsResponse_httpStatus = Lens.lens (\GetRelationalDat
 instance
   Prelude.NFData
     GetRelationalDatabaseLogEventsResponse
+  where
+  rnf GetRelationalDatabaseLogEventsResponse' {..} =
+    Prelude.rnf nextBackwardToken
+      `Prelude.seq` Prelude.rnf resourceLogEvents
+      `Prelude.seq` Prelude.rnf nextForwardToken
+      `Prelude.seq` Prelude.rnf httpStatus

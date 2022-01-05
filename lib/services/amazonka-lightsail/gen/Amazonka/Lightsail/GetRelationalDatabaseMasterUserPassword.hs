@@ -139,10 +139,20 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseMasterUserPassword
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseMasterUserPassword' {..} =
+      _salt `Prelude.hashWithSalt` passwordVersion
+        `Prelude.hashWithSalt` relationalDatabaseName
 
 instance
   Prelude.NFData
     GetRelationalDatabaseMasterUserPassword
+  where
+  rnf GetRelationalDatabaseMasterUserPassword' {..} =
+    Prelude.rnf passwordVersion
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance
   Core.ToHeaders
@@ -246,3 +256,9 @@ getRelationalDatabaseMasterUserPasswordResponse_httpStatus = Lens.lens (\GetRela
 instance
   Prelude.NFData
     GetRelationalDatabaseMasterUserPasswordResponse
+  where
+  rnf
+    GetRelationalDatabaseMasterUserPasswordResponse' {..} =
+      Prelude.rnf masterUserPassword
+        `Prelude.seq` Prelude.rnf createdAt
+        `Prelude.seq` Prelude.rnf httpStatus

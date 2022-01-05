@@ -496,9 +496,25 @@ instance Core.AWSRequest GetDistributionMetricData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionMetricData
+instance Prelude.Hashable GetDistributionMetricData where
+  hashWithSalt _salt GetDistributionMetricData' {..} =
+    _salt `Prelude.hashWithSalt` distributionName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` statistics
 
-instance Prelude.NFData GetDistributionMetricData
+instance Prelude.NFData GetDistributionMetricData where
+  rnf GetDistributionMetricData' {..} =
+    Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf statistics
 
 instance Core.ToHeaders GetDistributionMetricData where
   toHeaders =
@@ -587,3 +603,8 @@ getDistributionMetricDataResponse_httpStatus = Lens.lens (\GetDistributionMetric
 instance
   Prelude.NFData
     GetDistributionMetricDataResponse
+  where
+  rnf GetDistributionMetricDataResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf httpStatus

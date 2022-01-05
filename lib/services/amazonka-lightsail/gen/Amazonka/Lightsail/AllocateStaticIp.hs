@@ -86,9 +86,12 @@ instance Core.AWSRequest AllocateStaticIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AllocateStaticIp
+instance Prelude.Hashable AllocateStaticIp where
+  hashWithSalt _salt AllocateStaticIp' {..} =
+    _salt `Prelude.hashWithSalt` staticIpName
 
-instance Prelude.NFData AllocateStaticIp
+instance Prelude.NFData AllocateStaticIp where
+  rnf AllocateStaticIp' {..} = Prelude.rnf staticIpName
 
 instance Core.ToHeaders AllocateStaticIp where
   toHeaders =
@@ -163,4 +166,7 @@ allocateStaticIpResponse_operations = Lens.lens (\AllocateStaticIpResponse' {ope
 allocateStaticIpResponse_httpStatus :: Lens.Lens' AllocateStaticIpResponse Prelude.Int
 allocateStaticIpResponse_httpStatus = Lens.lens (\AllocateStaticIpResponse' {httpStatus} -> httpStatus) (\s@AllocateStaticIpResponse' {} a -> s {httpStatus = a} :: AllocateStaticIpResponse)
 
-instance Prelude.NFData AllocateStaticIpResponse
+instance Prelude.NFData AllocateStaticIpResponse where
+  rnf AllocateStaticIpResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

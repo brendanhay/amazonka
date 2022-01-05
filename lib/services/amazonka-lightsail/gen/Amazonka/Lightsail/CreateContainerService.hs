@@ -349,9 +349,23 @@ instance Core.AWSRequest CreateContainerService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContainerService
+instance Prelude.Hashable CreateContainerService where
+  hashWithSalt _salt CreateContainerService' {..} =
+    _salt `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deployment
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` power
+      `Prelude.hashWithSalt` scale
 
-instance Prelude.NFData CreateContainerService
+instance Prelude.NFData CreateContainerService where
+  rnf CreateContainerService' {..} =
+    Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deployment
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf power
+      `Prelude.seq` Prelude.rnf scale
 
 instance Core.ToHeaders CreateContainerService where
   toHeaders =
@@ -430,3 +444,7 @@ createContainerServiceResponse_httpStatus = Lens.lens (\CreateContainerServiceRe
 instance
   Prelude.NFData
     CreateContainerServiceResponse
+  where
+  rnf CreateContainerServiceResponse' {..} =
+    Prelude.rnf containerService
+      `Prelude.seq` Prelude.rnf httpStatus

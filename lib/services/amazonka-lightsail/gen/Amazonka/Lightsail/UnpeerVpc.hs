@@ -68,9 +68,12 @@ instance Core.AWSRequest UnpeerVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnpeerVpc
+instance Prelude.Hashable UnpeerVpc where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData UnpeerVpc
+instance Prelude.NFData UnpeerVpc where
+  rnf _ = ()
 
 instance Core.ToHeaders UnpeerVpc where
   toHeaders =
@@ -140,4 +143,7 @@ unpeerVpcResponse_operation = Lens.lens (\UnpeerVpcResponse' {operation} -> oper
 unpeerVpcResponse_httpStatus :: Lens.Lens' UnpeerVpcResponse Prelude.Int
 unpeerVpcResponse_httpStatus = Lens.lens (\UnpeerVpcResponse' {httpStatus} -> httpStatus) (\s@UnpeerVpcResponse' {} a -> s {httpStatus = a} :: UnpeerVpcResponse)
 
-instance Prelude.NFData UnpeerVpcResponse
+instance Prelude.NFData UnpeerVpcResponse where
+  rnf UnpeerVpcResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

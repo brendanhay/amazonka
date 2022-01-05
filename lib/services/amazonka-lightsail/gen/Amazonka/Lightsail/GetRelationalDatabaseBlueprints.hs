@@ -141,10 +141,18 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseBlueprints
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseBlueprints' {..} =
+      _salt `Prelude.hashWithSalt` pageToken
 
 instance
   Prelude.NFData
     GetRelationalDatabaseBlueprints
+  where
+  rnf GetRelationalDatabaseBlueprints' {..} =
+    Prelude.rnf pageToken
 
 instance
   Core.ToHeaders
@@ -253,3 +261,8 @@ getRelationalDatabaseBlueprintsResponse_httpStatus = Lens.lens (\GetRelationalDa
 instance
   Prelude.NFData
     GetRelationalDatabaseBlueprintsResponse
+  where
+  rnf GetRelationalDatabaseBlueprintsResponse' {..} =
+    Prelude.rnf blueprints
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -372,9 +372,31 @@ instance Core.AWSRequest UpdateRelationalDatabase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRelationalDatabase
+instance Prelude.Hashable UpdateRelationalDatabase where
+  hashWithSalt _salt UpdateRelationalDatabase' {..} =
+    _salt `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` enableBackupRetention
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` caCertificateIdentifier
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` rotateMasterUserPassword
+      `Prelude.hashWithSalt` disableBackupRetention
+      `Prelude.hashWithSalt` relationalDatabaseName
 
-instance Prelude.NFData UpdateRelationalDatabase
+instance Prelude.NFData UpdateRelationalDatabase where
+  rnf UpdateRelationalDatabase' {..} =
+    Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf enableBackupRetention
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf caCertificateIdentifier
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf rotateMasterUserPassword
+      `Prelude.seq` Prelude.rnf disableBackupRetention
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance Core.ToHeaders UpdateRelationalDatabase where
   toHeaders =
@@ -474,3 +496,7 @@ updateRelationalDatabaseResponse_httpStatus = Lens.lens (\UpdateRelationalDataba
 instance
   Prelude.NFData
     UpdateRelationalDatabaseResponse
+  where
+  rnf UpdateRelationalDatabaseResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

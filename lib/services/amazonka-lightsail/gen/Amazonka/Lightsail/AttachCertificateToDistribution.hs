@@ -167,10 +167,20 @@ instance
 instance
   Prelude.Hashable
     AttachCertificateToDistribution
+  where
+  hashWithSalt
+    _salt
+    AttachCertificateToDistribution' {..} =
+      _salt `Prelude.hashWithSalt` distributionName
+        `Prelude.hashWithSalt` certificateName
 
 instance
   Prelude.NFData
     AttachCertificateToDistribution
+  where
+  rnf AttachCertificateToDistribution' {..} =
+    Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf certificateName
 
 instance
   Core.ToHeaders
@@ -256,3 +266,7 @@ attachCertificateToDistributionResponse_httpStatus = Lens.lens (\AttachCertifica
 instance
   Prelude.NFData
     AttachCertificateToDistributionResponse
+  where
+  rnf AttachCertificateToDistributionResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

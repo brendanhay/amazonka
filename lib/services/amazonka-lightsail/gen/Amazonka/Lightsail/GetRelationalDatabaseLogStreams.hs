@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseLogStreams
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseLogStreams' {..} =
+      _salt `Prelude.hashWithSalt` relationalDatabaseName
 
 instance
   Prelude.NFData
     GetRelationalDatabaseLogStreams
+  where
+  rnf GetRelationalDatabaseLogStreams' {..} =
+    Prelude.rnf relationalDatabaseName
 
 instance
   Core.ToHeaders
@@ -183,3 +191,7 @@ getRelationalDatabaseLogStreamsResponse_httpStatus = Lens.lens (\GetRelationalDa
 instance
   Prelude.NFData
     GetRelationalDatabaseLogStreamsResponse
+  where
+  rnf GetRelationalDatabaseLogStreamsResponse' {..} =
+    Prelude.rnf logStreams
+      `Prelude.seq` Prelude.rnf httpStatus

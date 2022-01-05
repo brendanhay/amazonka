@@ -137,8 +137,15 @@ instance
 instance
   Prelude.Hashable
     AttachInstancesToLoadBalancer
+  where
+  hashWithSalt _salt AttachInstancesToLoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` instanceNames
 
-instance Prelude.NFData AttachInstancesToLoadBalancer
+instance Prelude.NFData AttachInstancesToLoadBalancer where
+  rnf AttachInstancesToLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf instanceNames
 
 instance Core.ToHeaders AttachInstancesToLoadBalancer where
   toHeaders =
@@ -220,3 +227,7 @@ attachInstancesToLoadBalancerResponse_httpStatus = Lens.lens (\AttachInstancesTo
 instance
   Prelude.NFData
     AttachInstancesToLoadBalancerResponse
+  where
+  rnf AttachInstancesToLoadBalancerResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

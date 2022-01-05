@@ -63,6 +63,10 @@ instance Core.FromJSON MonthlyTransfer where
             Prelude.<$> (x Core..:? "gbPerMonthAllocated")
       )
 
-instance Prelude.Hashable MonthlyTransfer
+instance Prelude.Hashable MonthlyTransfer where
+  hashWithSalt _salt MonthlyTransfer' {..} =
+    _salt `Prelude.hashWithSalt` gbPerMonthAllocated
 
-instance Prelude.NFData MonthlyTransfer
+instance Prelude.NFData MonthlyTransfer where
+  rnf MonthlyTransfer' {..} =
+    Prelude.rnf gbPerMonthAllocated

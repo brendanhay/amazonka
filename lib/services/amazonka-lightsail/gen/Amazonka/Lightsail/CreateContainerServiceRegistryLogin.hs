@@ -98,10 +98,15 @@ instance
 instance
   Prelude.Hashable
     CreateContainerServiceRegistryLogin
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     CreateContainerServiceRegistryLogin
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -185,3 +190,7 @@ createContainerServiceRegistryLoginResponse_httpStatus = Lens.lens (\CreateConta
 instance
   Prelude.NFData
     CreateContainerServiceRegistryLoginResponse
+  where
+  rnf CreateContainerServiceRegistryLoginResponse' {..} =
+    Prelude.rnf registryLogin
+      `Prelude.seq` Prelude.rnf httpStatus

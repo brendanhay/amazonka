@@ -98,6 +98,16 @@ instance Core.FromJSON AutoSnapshotDetails where
             Prelude.<*> (x Core..:? "date")
       )
 
-instance Prelude.Hashable AutoSnapshotDetails
+instance Prelude.Hashable AutoSnapshotDetails where
+  hashWithSalt _salt AutoSnapshotDetails' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` fromAttachedDisks
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` date
 
-instance Prelude.NFData AutoSnapshotDetails
+instance Prelude.NFData AutoSnapshotDetails where
+  rnf AutoSnapshotDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf fromAttachedDisks
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf date

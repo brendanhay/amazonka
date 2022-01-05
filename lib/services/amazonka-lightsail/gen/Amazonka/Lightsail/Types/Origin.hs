@@ -102,6 +102,16 @@ instance Core.FromJSON Origin where
             Prelude.<*> (x Core..:? "protocolPolicy")
       )
 
-instance Prelude.Hashable Origin
+instance Prelude.Hashable Origin where
+  hashWithSalt _salt Origin' {..} =
+    _salt `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` protocolPolicy
 
-instance Prelude.NFData Origin
+instance Prelude.NFData Origin where
+  rnf Origin' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf protocolPolicy

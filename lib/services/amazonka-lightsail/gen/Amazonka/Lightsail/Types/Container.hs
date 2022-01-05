@@ -111,9 +111,19 @@ instance Core.FromJSON Container where
             Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Container
+instance Prelude.Hashable Container where
+  hashWithSalt _salt Container' {..} =
+    _salt `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` ports
 
-instance Prelude.NFData Container
+instance Prelude.NFData Container where
+  rnf Container' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf ports
 
 instance Core.ToJSON Container where
   toJSON Container' {..} =

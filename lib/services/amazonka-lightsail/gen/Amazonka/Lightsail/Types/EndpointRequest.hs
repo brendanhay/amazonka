@@ -79,9 +79,17 @@ endpointRequest_containerName = Lens.lens (\EndpointRequest' {containerName} -> 
 endpointRequest_containerPort :: Lens.Lens' EndpointRequest Prelude.Int
 endpointRequest_containerPort = Lens.lens (\EndpointRequest' {containerPort} -> containerPort) (\s@EndpointRequest' {} a -> s {containerPort = a} :: EndpointRequest)
 
-instance Prelude.Hashable EndpointRequest
+instance Prelude.Hashable EndpointRequest where
+  hashWithSalt _salt EndpointRequest' {..} =
+    _salt `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` containerPort
 
-instance Prelude.NFData EndpointRequest
+instance Prelude.NFData EndpointRequest where
+  rnf EndpointRequest' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf containerPort
 
 instance Core.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =

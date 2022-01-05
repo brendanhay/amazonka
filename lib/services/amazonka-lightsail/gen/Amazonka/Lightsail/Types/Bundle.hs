@@ -189,6 +189,30 @@ instance Core.FromJSON Bundle where
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
-instance Prelude.Hashable Bundle
+instance Prelude.Hashable Bundle where
+  hashWithSalt _salt Bundle' {..} =
+    _salt `Prelude.hashWithSalt` cpuCount
+      `Prelude.hashWithSalt` transferPerMonthInGb
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` power
+      `Prelude.hashWithSalt` diskSizeInGb
+      `Prelude.hashWithSalt` supportedPlatforms
+      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` ramSizeInGb
 
-instance Prelude.NFData Bundle
+instance Prelude.NFData Bundle where
+  rnf Bundle' {..} =
+    Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf power
+      `Prelude.seq` Prelude.rnf diskSizeInGb
+      `Prelude.seq` Prelude.rnf supportedPlatforms
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf ramSizeInGb

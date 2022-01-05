@@ -104,9 +104,13 @@ instance Core.AWSRequest ResetDistributionCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetDistributionCache
+instance Prelude.Hashable ResetDistributionCache where
+  hashWithSalt _salt ResetDistributionCache' {..} =
+    _salt `Prelude.hashWithSalt` distributionName
 
-instance Prelude.NFData ResetDistributionCache
+instance Prelude.NFData ResetDistributionCache where
+  rnf ResetDistributionCache' {..} =
+    Prelude.rnf distributionName
 
 instance Core.ToHeaders ResetDistributionCache where
   toHeaders =
@@ -207,3 +211,9 @@ resetDistributionCacheResponse_httpStatus = Lens.lens (\ResetDistributionCacheRe
 instance
   Prelude.NFData
     ResetDistributionCacheResponse
+  where
+  rnf ResetDistributionCacheResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf httpStatus

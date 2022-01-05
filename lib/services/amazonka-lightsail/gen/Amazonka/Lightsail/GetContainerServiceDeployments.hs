@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     GetContainerServiceDeployments
+  where
+  hashWithSalt
+    _salt
+    GetContainerServiceDeployments' {..} =
+      _salt `Prelude.hashWithSalt` serviceName
 
 instance
   Prelude.NFData
     GetContainerServiceDeployments
+  where
+  rnf GetContainerServiceDeployments' {..} =
+    Prelude.rnf serviceName
 
 instance
   Core.ToHeaders
@@ -185,3 +193,7 @@ getContainerServiceDeploymentsResponse_httpStatus = Lens.lens (\GetContainerServ
 instance
   Prelude.NFData
     GetContainerServiceDeploymentsResponse
+  where
+  rnf GetContainerServiceDeploymentsResponse' {..} =
+    Prelude.rnf deployments
+      `Prelude.seq` Prelude.rnf httpStatus

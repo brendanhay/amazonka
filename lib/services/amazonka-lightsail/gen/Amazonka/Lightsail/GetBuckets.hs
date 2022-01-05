@@ -137,9 +137,17 @@ instance Core.AWSRequest GetBuckets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBuckets
+instance Prelude.Hashable GetBuckets where
+  hashWithSalt _salt GetBuckets' {..} =
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` includeConnectedResources
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetBuckets
+instance Prelude.NFData GetBuckets where
+  rnf GetBuckets' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf includeConnectedResources
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetBuckets where
   toHeaders =
@@ -239,4 +247,8 @@ getBucketsResponse_buckets = Lens.lens (\GetBucketsResponse' {buckets} -> bucket
 getBucketsResponse_httpStatus :: Lens.Lens' GetBucketsResponse Prelude.Int
 getBucketsResponse_httpStatus = Lens.lens (\GetBucketsResponse' {httpStatus} -> httpStatus) (\s@GetBucketsResponse' {} a -> s {httpStatus = a} :: GetBucketsResponse)
 
-instance Prelude.NFData GetBucketsResponse
+instance Prelude.NFData GetBucketsResponse where
+  rnf GetBucketsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf httpStatus

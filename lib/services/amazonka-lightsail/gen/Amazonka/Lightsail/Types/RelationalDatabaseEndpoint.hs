@@ -72,6 +72,11 @@ instance Core.FromJSON RelationalDatabaseEndpoint where
             Prelude.<*> (x Core..:? "port")
       )
 
-instance Prelude.Hashable RelationalDatabaseEndpoint
+instance Prelude.Hashable RelationalDatabaseEndpoint where
+  hashWithSalt _salt RelationalDatabaseEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData RelationalDatabaseEndpoint
+instance Prelude.NFData RelationalDatabaseEndpoint where
+  rnf RelationalDatabaseEndpoint' {..} =
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port

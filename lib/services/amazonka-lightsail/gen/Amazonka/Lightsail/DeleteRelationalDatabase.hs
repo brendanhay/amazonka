@@ -169,9 +169,17 @@ instance Core.AWSRequest DeleteRelationalDatabase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRelationalDatabase
+instance Prelude.Hashable DeleteRelationalDatabase where
+  hashWithSalt _salt DeleteRelationalDatabase' {..} =
+    _salt `Prelude.hashWithSalt` skipFinalSnapshot
+      `Prelude.hashWithSalt` finalRelationalDatabaseSnapshotName
+      `Prelude.hashWithSalt` relationalDatabaseName
 
-instance Prelude.NFData DeleteRelationalDatabase
+instance Prelude.NFData DeleteRelationalDatabase where
+  rnf DeleteRelationalDatabase' {..} =
+    Prelude.rnf skipFinalSnapshot
+      `Prelude.seq` Prelude.rnf finalRelationalDatabaseSnapshotName
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance Core.ToHeaders DeleteRelationalDatabase where
   toHeaders =
@@ -257,3 +265,7 @@ deleteRelationalDatabaseResponse_httpStatus = Lens.lens (\DeleteRelationalDataba
 instance
   Prelude.NFData
     DeleteRelationalDatabaseResponse
+  where
+  rnf DeleteRelationalDatabaseResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

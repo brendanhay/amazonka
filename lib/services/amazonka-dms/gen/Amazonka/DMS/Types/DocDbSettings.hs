@@ -252,9 +252,33 @@ instance Core.FromJSON DocDbSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable DocDbSettings
+instance Prelude.Hashable DocDbSettings where
+  hashWithSalt _salt DocDbSettings' {..} =
+    _salt `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` nestingLevel
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` docsToInvestigate
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` extractDocId
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData DocDbSettings
+instance Prelude.NFData DocDbSettings where
+  rnf DocDbSettings' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf nestingLevel
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf docsToInvestigate
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf extractDocId
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON DocDbSettings where
   toJSON DocDbSettings' {..} =

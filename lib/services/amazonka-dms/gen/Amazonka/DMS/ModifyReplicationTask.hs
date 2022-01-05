@@ -313,9 +313,30 @@ instance Core.AWSRequest ModifyReplicationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReplicationTask
+instance Prelude.Hashable ModifyReplicationTask where
+  hashWithSalt _salt ModifyReplicationTask' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicationTaskSettings
+      `Prelude.hashWithSalt` replicationTaskIdentifier
+      `Prelude.hashWithSalt` cdcStartPosition
+      `Prelude.hashWithSalt` tableMappings
+      `Prelude.hashWithSalt` migrationType
+      `Prelude.hashWithSalt` taskData
+      `Prelude.hashWithSalt` cdcStopPosition
+      `Prelude.hashWithSalt` cdcStartTime
+      `Prelude.hashWithSalt` replicationTaskArn
 
-instance Prelude.NFData ModifyReplicationTask
+instance Prelude.NFData ModifyReplicationTask where
+  rnf ModifyReplicationTask' {..} =
+    Prelude.rnf replicationTaskSettings
+      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
+      `Prelude.seq` Prelude.rnf cdcStartPosition
+      `Prelude.seq` Prelude.rnf tableMappings
+      `Prelude.seq` Prelude.rnf migrationType
+      `Prelude.seq` Prelude.rnf taskData
+      `Prelude.seq` Prelude.rnf cdcStopPosition
+      `Prelude.seq` Prelude.rnf cdcStartTime
+      `Prelude.seq` Prelude.rnf replicationTaskArn
 
 instance Core.ToHeaders ModifyReplicationTask where
   toHeaders =
@@ -400,4 +421,7 @@ modifyReplicationTaskResponse_replicationTask = Lens.lens (\ModifyReplicationTas
 modifyReplicationTaskResponse_httpStatus :: Lens.Lens' ModifyReplicationTaskResponse Prelude.Int
 modifyReplicationTaskResponse_httpStatus = Lens.lens (\ModifyReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationTaskResponse' {} a -> s {httpStatus = a} :: ModifyReplicationTaskResponse)
 
-instance Prelude.NFData ModifyReplicationTaskResponse
+instance Prelude.NFData ModifyReplicationTaskResponse where
+  rnf ModifyReplicationTaskResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

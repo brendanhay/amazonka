@@ -337,9 +337,39 @@ instance Core.FromJSON MicrosoftSQLServerSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable MicrosoftSQLServerSettings
+instance Prelude.Hashable MicrosoftSQLServerSettings where
+  hashWithSalt _salt MicrosoftSQLServerSettings' {..} =
+    _salt `Prelude.hashWithSalt` bcpPacketSize
+      `Prelude.hashWithSalt` useBcpFullLoad
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` querySingleAlwaysOnNode
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` safeguardPolicy
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` readBackupOnly
+      `Prelude.hashWithSalt` useThirdPartyBackupDevice
+      `Prelude.hashWithSalt` controlTablesFileGroup
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData MicrosoftSQLServerSettings
+instance Prelude.NFData MicrosoftSQLServerSettings where
+  rnf MicrosoftSQLServerSettings' {..} =
+    Prelude.rnf bcpPacketSize
+      `Prelude.seq` Prelude.rnf useBcpFullLoad
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf querySingleAlwaysOnNode
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf safeguardPolicy
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf readBackupOnly
+      `Prelude.seq` Prelude.rnf useThirdPartyBackupDevice
+      `Prelude.seq` Prelude.rnf controlTablesFileGroup
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON MicrosoftSQLServerSettings where
   toJSON MicrosoftSQLServerSettings' {..} =

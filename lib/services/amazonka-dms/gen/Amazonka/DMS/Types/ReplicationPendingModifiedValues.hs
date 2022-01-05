@@ -126,7 +126,21 @@ instance
 instance
   Prelude.Hashable
     ReplicationPendingModifiedValues
+  where
+  hashWithSalt
+    _salt
+    ReplicationPendingModifiedValues' {..} =
+      _salt `Prelude.hashWithSalt` engineVersion
+        `Prelude.hashWithSalt` multiAZ
+        `Prelude.hashWithSalt` allocatedStorage
+        `Prelude.hashWithSalt` replicationInstanceClass
 
 instance
   Prelude.NFData
     ReplicationPendingModifiedValues
+  where
+  rnf ReplicationPendingModifiedValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf replicationInstanceClass

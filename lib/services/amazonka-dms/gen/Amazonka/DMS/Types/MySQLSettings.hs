@@ -345,9 +345,39 @@ instance Core.FromJSON MySQLSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable MySQLSettings
+instance Prelude.Hashable MySQLSettings where
+  hashWithSalt _salt MySQLSettings' {..} =
+    _salt `Prelude.hashWithSalt` maxFileSize
+      `Prelude.hashWithSalt` targetDbType
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` cleanSourceMetadataOnMismatch
+      `Prelude.hashWithSalt` parallelLoadThreads
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` eventsPollInterval
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` afterConnectScript
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` serverTimezone
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData MySQLSettings
+instance Prelude.NFData MySQLSettings where
+  rnf MySQLSettings' {..} =
+    Prelude.rnf maxFileSize
+      `Prelude.seq` Prelude.rnf targetDbType
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf cleanSourceMetadataOnMismatch
+      `Prelude.seq` Prelude.rnf parallelLoadThreads
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf eventsPollInterval
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf afterConnectScript
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf serverTimezone
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON MySQLSettings where
   toJSON MySQLSettings' {..} =

@@ -296,5 +296,32 @@ instance Core.FromJSON ReplicationTaskAssessmentRun where
 instance
   Prelude.Hashable
     ReplicationTaskAssessmentRun
+  where
+  hashWithSalt _salt ReplicationTaskAssessmentRun' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` replicationTaskAssessmentRunCreationDate
+      `Prelude.hashWithSalt` assessmentProgress
+      `Prelude.hashWithSalt` resultKmsKeyArn
+      `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` resultLocationBucket
+      `Prelude.hashWithSalt` resultLocationFolder
+      `Prelude.hashWithSalt` resultEncryptionMode
+      `Prelude.hashWithSalt` assessmentRunName
+      `Prelude.hashWithSalt` replicationTaskAssessmentRunArn
+      `Prelude.hashWithSalt` lastFailureMessage
 
-instance Prelude.NFData ReplicationTaskAssessmentRun
+instance Prelude.NFData ReplicationTaskAssessmentRun where
+  rnf ReplicationTaskAssessmentRun' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf replicationTaskAssessmentRunCreationDate
+      `Prelude.seq` Prelude.rnf assessmentProgress
+      `Prelude.seq` Prelude.rnf resultKmsKeyArn
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf resultLocationBucket
+      `Prelude.seq` Prelude.rnf resultLocationFolder
+      `Prelude.seq` Prelude.rnf resultEncryptionMode
+      `Prelude.seq` Prelude.rnf assessmentRunName
+      `Prelude.seq` Prelude.rnf replicationTaskAssessmentRunArn
+      `Prelude.seq` Prelude.rnf lastFailureMessage

@@ -566,6 +566,87 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt _salt Endpoint' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dmsTransferSettings
+      `Prelude.hashWithSalt` mySQLSettings
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` microsoftSQLServerSettings
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` docDbSettings
+      `Prelude.hashWithSalt` engineDisplayName
+      `Prelude.hashWithSalt` postgreSQLSettings
+      `Prelude.hashWithSalt` extraConnectionAttributes
+      `Prelude.hashWithSalt` kafkaSettings
+      `Prelude.hashWithSalt` oracleSettings
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` redshiftSettings
+      `Prelude.hashWithSalt` elasticsearchSettings
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` redisSettings
+      `Prelude.hashWithSalt` neptuneSettings
+      `Prelude.hashWithSalt` iBMDb2Settings
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` mongoDbSettings
+      `Prelude.hashWithSalt` sslMode
+      `Prelude.hashWithSalt` sybaseSettings
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` s3Settings
+      `Prelude.hashWithSalt` kinesisSettings
+      `Prelude.hashWithSalt` endpointIdentifier
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` dynamoDbSettings
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dmsTransferSettings
+      `Prelude.seq` Prelude.rnf mySQLSettings
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf microsoftSQLServerSettings
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf docDbSettings
+      `Prelude.seq` Prelude.rnf engineDisplayName
+      `Prelude.seq` Prelude.rnf postgreSQLSettings
+      `Prelude.seq` Prelude.rnf extraConnectionAttributes
+      `Prelude.seq` Prelude.rnf kafkaSettings
+      `Prelude.seq` Prelude.rnf oracleSettings
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf redshiftSettings
+      `Prelude.seq` Prelude.rnf elasticsearchSettings
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf
+        externalTableDefinition
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf redisSettings
+      `Prelude.seq` Prelude.rnf neptuneSettings
+      `Prelude.seq` Prelude.rnf iBMDb2Settings
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        mongoDbSettings
+      `Prelude.seq` Prelude.rnf sslMode
+      `Prelude.seq` Prelude.rnf
+        sybaseSettings
+      `Prelude.seq` Prelude.rnf
+        databaseName
+      `Prelude.seq` Prelude.rnf
+        s3Settings
+      `Prelude.seq` Prelude.rnf
+        kinesisSettings
+      `Prelude.seq` Prelude.rnf
+        endpointIdentifier
+      `Prelude.seq` Prelude.rnf
+        externalId
+      `Prelude.seq` Prelude.rnf
+        dynamoDbSettings
+      `Prelude.seq` Prelude.rnf
+        endpointArn
+      `Prelude.seq` Prelude.rnf
+        port

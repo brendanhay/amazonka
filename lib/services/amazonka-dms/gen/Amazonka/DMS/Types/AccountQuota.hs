@@ -82,6 +82,14 @@ instance Core.FromJSON AccountQuota where
             Prelude.<*> (x Core..:? "AccountQuotaName")
       )
 
-instance Prelude.Hashable AccountQuota
+instance Prelude.Hashable AccountQuota where
+  hashWithSalt _salt AccountQuota' {..} =
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` used
+      `Prelude.hashWithSalt` accountQuotaName
 
-instance Prelude.NFData AccountQuota
+instance Prelude.NFData AccountQuota where
+  rnf AccountQuota' {..} =
+    Prelude.rnf max
+      `Prelude.seq` Prelude.rnf used
+      `Prelude.seq` Prelude.rnf accountQuotaName

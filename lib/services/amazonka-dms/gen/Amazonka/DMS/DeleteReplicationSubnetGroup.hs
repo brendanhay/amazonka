@@ -93,8 +93,14 @@ instance Core.AWSRequest DeleteReplicationSubnetGroup where
 instance
   Prelude.Hashable
     DeleteReplicationSubnetGroup
+  where
+  hashWithSalt _salt DeleteReplicationSubnetGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
 
-instance Prelude.NFData DeleteReplicationSubnetGroup
+instance Prelude.NFData DeleteReplicationSubnetGroup where
+  rnf DeleteReplicationSubnetGroup' {..} =
+    Prelude.rnf replicationSubnetGroupIdentifier
 
 instance Core.ToHeaders DeleteReplicationSubnetGroup where
   toHeaders =
@@ -163,3 +169,6 @@ deleteReplicationSubnetGroupResponse_httpStatus = Lens.lens (\DeleteReplicationS
 instance
   Prelude.NFData
     DeleteReplicationSubnetGroupResponse
+  where
+  rnf DeleteReplicationSubnetGroupResponse' {..} =
+    Prelude.rnf httpStatus

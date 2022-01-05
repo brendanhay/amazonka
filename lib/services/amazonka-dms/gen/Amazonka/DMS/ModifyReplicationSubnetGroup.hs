@@ -116,8 +116,18 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
 instance
   Prelude.Hashable
     ModifyReplicationSubnetGroup
+  where
+  hashWithSalt _salt ModifyReplicationSubnetGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicationSubnetGroupDescription
+      `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData ModifyReplicationSubnetGroup
+instance Prelude.NFData ModifyReplicationSubnetGroup where
+  rnf ModifyReplicationSubnetGroup' {..} =
+    Prelude.rnf replicationSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
@@ -198,3 +208,7 @@ modifyReplicationSubnetGroupResponse_httpStatus = Lens.lens (\ModifyReplicationS
 instance
   Prelude.NFData
     ModifyReplicationSubnetGroupResponse
+  where
+  rnf ModifyReplicationSubnetGroupResponse' {..} =
+    Prelude.rnf replicationSubnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

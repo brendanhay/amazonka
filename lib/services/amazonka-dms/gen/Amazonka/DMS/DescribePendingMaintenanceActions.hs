@@ -155,10 +155,24 @@ instance
 instance
   Prelude.Hashable
     DescribePendingMaintenanceActions
+  where
+  hashWithSalt
+    _salt
+    DescribePendingMaintenanceActions' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` replicationInstanceArn
 
 instance
   Prelude.NFData
     DescribePendingMaintenanceActions
+  where
+  rnf DescribePendingMaintenanceActions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
 
 instance
   Core.ToHeaders
@@ -265,3 +279,8 @@ describePendingMaintenanceActionsResponse_httpStatus = Lens.lens (\DescribePendi
 instance
   Prelude.NFData
     DescribePendingMaintenanceActionsResponse
+  where
+  rnf DescribePendingMaintenanceActionsResponse' {..} =
+    Prelude.rnf pendingMaintenanceActions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

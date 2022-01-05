@@ -157,7 +157,27 @@ instance
 instance
   Prelude.Hashable
     ReplicationTaskAssessmentResult
+  where
+  hashWithSalt
+    _salt
+    ReplicationTaskAssessmentResult' {..} =
+      _salt `Prelude.hashWithSalt` assessmentResults
+        `Prelude.hashWithSalt` assessmentResultsFile
+        `Prelude.hashWithSalt` replicationTaskIdentifier
+        `Prelude.hashWithSalt` assessmentStatus
+        `Prelude.hashWithSalt` s3ObjectUrl
+        `Prelude.hashWithSalt` replicationTaskLastAssessmentDate
+        `Prelude.hashWithSalt` replicationTaskArn
 
 instance
   Prelude.NFData
     ReplicationTaskAssessmentResult
+  where
+  rnf ReplicationTaskAssessmentResult' {..} =
+    Prelude.rnf assessmentResults
+      `Prelude.seq` Prelude.rnf assessmentResultsFile
+      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
+      `Prelude.seq` Prelude.rnf assessmentStatus
+      `Prelude.seq` Prelude.rnf s3ObjectUrl
+      `Prelude.seq` Prelude.rnf replicationTaskLastAssessmentDate
+      `Prelude.seq` Prelude.rnf replicationTaskArn

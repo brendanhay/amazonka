@@ -501,6 +501,58 @@ instance Core.FromJSON ReplicationInstance where
             Prelude.<*> (x Core..:? "PendingModifiedValues")
       )
 
-instance Prelude.Hashable ReplicationInstance
+instance Prelude.Hashable ReplicationInstance where
+  hashWithSalt _salt ReplicationInstance' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` replicationInstancePublicIpAddresses
+      `Prelude.hashWithSalt` replicationSubnetGroup
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` freeUntil
+      `Prelude.hashWithSalt` replicationInstanceStatus
+      `Prelude.hashWithSalt` replicationInstancePrivateIpAddresses
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` replicationInstancePrivateIpAddress
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` secondaryAvailabilityZone
+      `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` dnsNameServers
+      `Prelude.hashWithSalt` replicationInstancePublicIpAddress
+      `Prelude.hashWithSalt` replicationInstanceClass
+      `Prelude.hashWithSalt` replicationInstanceIdentifier
+      `Prelude.hashWithSalt` pendingModifiedValues
 
-instance Prelude.NFData ReplicationInstance
+instance Prelude.NFData ReplicationInstance where
+  rnf ReplicationInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf replicationInstancePublicIpAddresses
+      `Prelude.seq` Prelude.rnf replicationSubnetGroup
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf freeUntil
+      `Prelude.seq` Prelude.rnf replicationInstanceStatus
+      `Prelude.seq` Prelude.rnf replicationInstancePrivateIpAddresses
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf replicationInstancePrivateIpAddress
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf secondaryAvailabilityZone
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf dnsNameServers
+      `Prelude.seq` Prelude.rnf
+        replicationInstancePublicIpAddress
+      `Prelude.seq` Prelude.rnf
+        replicationInstanceClass
+      `Prelude.seq` Prelude.rnf
+        replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
+        pendingModifiedValues

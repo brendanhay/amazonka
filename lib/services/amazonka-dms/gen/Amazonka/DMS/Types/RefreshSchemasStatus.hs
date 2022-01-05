@@ -106,6 +106,18 @@ instance Core.FromJSON RefreshSchemasStatus where
             Prelude.<*> (x Core..:? "LastFailureMessage")
       )
 
-instance Prelude.Hashable RefreshSchemasStatus
+instance Prelude.Hashable RefreshSchemasStatus where
+  hashWithSalt _salt RefreshSchemasStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastRefreshDate
+      `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` lastFailureMessage
 
-instance Prelude.NFData RefreshSchemasStatus
+instance Prelude.NFData RefreshSchemasStatus where
+  rnf RefreshSchemasStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastRefreshDate
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf lastFailureMessage

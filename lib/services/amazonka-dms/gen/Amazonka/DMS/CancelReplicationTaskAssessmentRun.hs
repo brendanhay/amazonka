@@ -105,10 +105,19 @@ instance
 instance
   Prelude.Hashable
     CancelReplicationTaskAssessmentRun
+  where
+  hashWithSalt
+    _salt
+    CancelReplicationTaskAssessmentRun' {..} =
+      _salt
+        `Prelude.hashWithSalt` replicationTaskAssessmentRunArn
 
 instance
   Prelude.NFData
     CancelReplicationTaskAssessmentRun
+  where
+  rnf CancelReplicationTaskAssessmentRun' {..} =
+    Prelude.rnf replicationTaskAssessmentRunArn
 
 instance
   Core.ToHeaders
@@ -202,3 +211,7 @@ cancelReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\CancelReplic
 instance
   Prelude.NFData
     CancelReplicationTaskAssessmentRunResponse
+  where
+  rnf CancelReplicationTaskAssessmentRunResponse' {..} =
+    Prelude.rnf replicationTaskAssessmentRun
+      `Prelude.seq` Prelude.rnf httpStatus

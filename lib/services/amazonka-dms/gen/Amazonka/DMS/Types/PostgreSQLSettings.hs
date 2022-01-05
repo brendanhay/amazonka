@@ -407,9 +407,47 @@ instance Core.FromJSON PostgreSQLSettings where
             Prelude.<*> (x Core..:? "HeartbeatEnable")
       )
 
-instance Prelude.Hashable PostgreSQLSettings
+instance Prelude.Hashable PostgreSQLSettings where
+  hashWithSalt _salt PostgreSQLSettings' {..} =
+    _salt `Prelude.hashWithSalt` executeTimeout
+      `Prelude.hashWithSalt` maxFileSize
+      `Prelude.hashWithSalt` failTasksOnLobTruncation
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` ddlArtifactsSchema
+      `Prelude.hashWithSalt` slotName
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` heartbeatFrequency
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` afterConnectScript
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` captureDdls
+      `Prelude.hashWithSalt` pluginName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` heartbeatSchema
+      `Prelude.hashWithSalt` heartbeatEnable
 
-instance Prelude.NFData PostgreSQLSettings
+instance Prelude.NFData PostgreSQLSettings where
+  rnf PostgreSQLSettings' {..} =
+    Prelude.rnf executeTimeout
+      `Prelude.seq` Prelude.rnf maxFileSize
+      `Prelude.seq` Prelude.rnf failTasksOnLobTruncation
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf ddlArtifactsSchema
+      `Prelude.seq` Prelude.rnf slotName
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf heartbeatFrequency
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf afterConnectScript
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf captureDdls
+      `Prelude.seq` Prelude.rnf pluginName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf heartbeatSchema
+      `Prelude.seq` Prelude.rnf heartbeatEnable
 
 instance Core.ToJSON PostgreSQLSettings where
   toJSON PostgreSQLSettings' {..} =

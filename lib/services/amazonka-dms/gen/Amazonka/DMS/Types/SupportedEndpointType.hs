@@ -133,6 +133,18 @@ instance Core.FromJSON SupportedEndpointType where
             Prelude.<*> (x Core..:? "SupportsCDC")
       )
 
-instance Prelude.Hashable SupportedEndpointType
+instance Prelude.Hashable SupportedEndpointType where
+  hashWithSalt _salt SupportedEndpointType' {..} =
+    _salt `Prelude.hashWithSalt` engineDisplayName
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` replicationInstanceEngineMinimumVersion
+      `Prelude.hashWithSalt` supportsCDC
 
-instance Prelude.NFData SupportedEndpointType
+instance Prelude.NFData SupportedEndpointType where
+  rnf SupportedEndpointType' {..} =
+    Prelude.rnf engineDisplayName
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf replicationInstanceEngineMinimumVersion
+      `Prelude.seq` Prelude.rnf supportsCDC

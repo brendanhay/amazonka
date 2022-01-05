@@ -193,5 +193,26 @@ instance Core.FromJSON OrderableReplicationInstance where
 instance
   Prelude.Hashable
     OrderableReplicationInstance
+  where
+  hashWithSalt _salt OrderableReplicationInstance' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` minAllocatedStorage
+      `Prelude.hashWithSalt` releaseStatus
+      `Prelude.hashWithSalt` includedAllocatedStorage
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` maxAllocatedStorage
+      `Prelude.hashWithSalt` replicationInstanceClass
+      `Prelude.hashWithSalt` defaultAllocatedStorage
+      `Prelude.hashWithSalt` storageType
 
-instance Prelude.NFData OrderableReplicationInstance
+instance Prelude.NFData OrderableReplicationInstance where
+  rnf OrderableReplicationInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf minAllocatedStorage
+      `Prelude.seq` Prelude.rnf releaseStatus
+      `Prelude.seq` Prelude.rnf includedAllocatedStorage
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf replicationInstanceClass
+      `Prelude.seq` Prelude.rnf defaultAllocatedStorage
+      `Prelude.seq` Prelude.rnf storageType

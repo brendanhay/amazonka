@@ -320,9 +320,39 @@ instance Core.FromJSON MongoDbSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable MongoDbSettings
+instance Prelude.Hashable MongoDbSettings where
+  hashWithSalt _salt MongoDbSettings' {..} =
+    _salt `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` authMechanism
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` nestingLevel
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` docsToInvestigate
+      `Prelude.hashWithSalt` authSource
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` extractDocId
+      `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData MongoDbSettings
+instance Prelude.NFData MongoDbSettings where
+  rnf MongoDbSettings' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf authMechanism
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf nestingLevel
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf docsToInvestigate
+      `Prelude.seq` Prelude.rnf authSource
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf extractDocId
+      `Prelude.seq` Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON MongoDbSettings where
   toJSON MongoDbSettings' {..} =

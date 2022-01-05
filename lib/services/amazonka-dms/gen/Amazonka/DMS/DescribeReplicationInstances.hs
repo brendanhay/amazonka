@@ -177,8 +177,17 @@ instance Core.AWSRequest DescribeReplicationInstances where
 instance
   Prelude.Hashable
     DescribeReplicationInstances
+  where
+  hashWithSalt _salt DescribeReplicationInstances' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeReplicationInstances
+instance Prelude.NFData DescribeReplicationInstances where
+  rnf DescribeReplicationInstances' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeReplicationInstances where
   toHeaders =
@@ -271,3 +280,8 @@ describeReplicationInstancesResponse_httpStatus = Lens.lens (\DescribeReplicatio
 instance
   Prelude.NFData
     DescribeReplicationInstancesResponse
+  where
+  rnf DescribeReplicationInstancesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf replicationInstances
+      `Prelude.seq` Prelude.rnf httpStatus

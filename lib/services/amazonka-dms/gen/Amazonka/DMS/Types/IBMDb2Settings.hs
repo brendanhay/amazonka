@@ -205,9 +205,31 @@ instance Core.FromJSON IBMDb2Settings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable IBMDb2Settings
+instance Prelude.Hashable IBMDb2Settings where
+  hashWithSalt _salt IBMDb2Settings' {..} =
+    _salt `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` currentLsn
+      `Prelude.hashWithSalt` setDataCaptureChanges
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` maxKBytesPerRead
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData IBMDb2Settings
+instance Prelude.NFData IBMDb2Settings where
+  rnf IBMDb2Settings' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf currentLsn
+      `Prelude.seq` Prelude.rnf setDataCaptureChanges
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf maxKBytesPerRead
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON IBMDb2Settings where
   toJSON IBMDb2Settings' {..} =

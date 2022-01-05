@@ -661,9 +661,80 @@ instance Core.FromJSON RedshiftSettings where
             Prelude.<*> (x Core..:? "FileTransferUploadStreams")
       )
 
-instance Prelude.Hashable RedshiftSettings
+instance Prelude.Hashable RedshiftSettings where
+  hashWithSalt _salt RedshiftSettings' {..} =
+    _salt `Prelude.hashWithSalt` emptyAsNull
+      `Prelude.hashWithSalt` caseSensitiveNames
+      `Prelude.hashWithSalt` maxFileSize
+      `Prelude.hashWithSalt` replaceChars
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` connectionTimeout
+      `Prelude.hashWithSalt` loadTimeout
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` explicitIds
+      `Prelude.hashWithSalt` bucketFolder
+      `Prelude.hashWithSalt` truncateColumns
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` replaceInvalidChars
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` dateFormat
+      `Prelude.hashWithSalt` removeQuotes
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` acceptAnyDate
+      `Prelude.hashWithSalt` afterConnectScript
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` writeBufferSize
+      `Prelude.hashWithSalt` compUpdate
+      `Prelude.hashWithSalt` trimBlanks
+      `Prelude.hashWithSalt` timeFormat
+      `Prelude.hashWithSalt` serverSideEncryptionKmsKeyId
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` fileTransferUploadStreams
 
-instance Prelude.NFData RedshiftSettings
+instance Prelude.NFData RedshiftSettings where
+  rnf RedshiftSettings' {..} =
+    Prelude.rnf emptyAsNull
+      `Prelude.seq` Prelude.rnf caseSensitiveNames
+      `Prelude.seq` Prelude.rnf maxFileSize
+      `Prelude.seq` Prelude.rnf replaceChars
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf connectionTimeout
+      `Prelude.seq` Prelude.rnf loadTimeout
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf explicitIds
+      `Prelude.seq` Prelude.rnf bucketFolder
+      `Prelude.seq` Prelude.rnf truncateColumns
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf replaceInvalidChars
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf dateFormat
+      `Prelude.seq` Prelude.rnf removeQuotes
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf acceptAnyDate
+      `Prelude.seq` Prelude.rnf
+        afterConnectScript
+      `Prelude.seq` Prelude.rnf
+        secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf
+        writeBufferSize
+      `Prelude.seq` Prelude.rnf
+        compUpdate
+      `Prelude.seq` Prelude.rnf
+        trimBlanks
+      `Prelude.seq` Prelude.rnf
+        timeFormat
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        fileTransferUploadStreams
 
 instance Core.ToJSON RedshiftSettings where
   toJSON RedshiftSettings' {..} =

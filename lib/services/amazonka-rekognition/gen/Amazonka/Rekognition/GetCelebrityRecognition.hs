@@ -197,9 +197,19 @@ instance Core.AWSRequest GetCelebrityRecognition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCelebrityRecognition
+instance Prelude.Hashable GetCelebrityRecognition where
+  hashWithSalt _salt GetCelebrityRecognition' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetCelebrityRecognition
+instance Prelude.NFData GetCelebrityRecognition where
+  rnf GetCelebrityRecognition' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetCelebrityRecognition where
   toHeaders =
@@ -323,3 +333,11 @@ getCelebrityRecognitionResponse_httpStatus = Lens.lens (\GetCelebrityRecognition
 instance
   Prelude.NFData
     GetCelebrityRecognitionResponse
+  where
+  rnf GetCelebrityRecognitionResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf videoMetadata
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf celebrities
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

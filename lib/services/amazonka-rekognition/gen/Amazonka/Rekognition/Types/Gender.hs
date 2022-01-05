@@ -88,6 +88,12 @@ instance Core.FromJSON Gender where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Gender
+instance Prelude.Hashable Gender where
+  hashWithSalt _salt Gender' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData Gender
+instance Prelude.NFData Gender where
+  rnf Gender' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

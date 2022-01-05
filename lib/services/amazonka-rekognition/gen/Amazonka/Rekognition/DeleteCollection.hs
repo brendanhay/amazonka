@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteCollection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCollection
+instance Prelude.Hashable DeleteCollection where
+  hashWithSalt _salt DeleteCollection' {..} =
+    _salt `Prelude.hashWithSalt` collectionId
 
-instance Prelude.NFData DeleteCollection
+instance Prelude.NFData DeleteCollection where
+  rnf DeleteCollection' {..} = Prelude.rnf collectionId
 
 instance Core.ToHeaders DeleteCollection where
   toHeaders =
@@ -162,4 +165,7 @@ deleteCollectionResponse_statusCode = Lens.lens (\DeleteCollectionResponse' {sta
 deleteCollectionResponse_httpStatus :: Lens.Lens' DeleteCollectionResponse Prelude.Int
 deleteCollectionResponse_httpStatus = Lens.lens (\DeleteCollectionResponse' {httpStatus} -> httpStatus) (\s@DeleteCollectionResponse' {} a -> s {httpStatus = a} :: DeleteCollectionResponse)
 
-instance Prelude.NFData DeleteCollectionResponse
+instance Prelude.NFData DeleteCollectionResponse where
+  rnf DeleteCollectionResponse' {..} =
+    Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpStatus

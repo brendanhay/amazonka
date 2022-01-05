@@ -153,9 +153,14 @@ instance Core.AWSRequest DetectText where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectText
+instance Prelude.Hashable DetectText where
+  hashWithSalt _salt DetectText' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData DetectText
+instance Prelude.NFData DetectText where
+  rnf DetectText' {..} =
+    Prelude.rnf filters `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectText where
   toHeaders =
@@ -235,4 +240,8 @@ detectTextResponse_textModelVersion = Lens.lens (\DetectTextResponse' {textModel
 detectTextResponse_httpStatus :: Lens.Lens' DetectTextResponse Prelude.Int
 detectTextResponse_httpStatus = Lens.lens (\DetectTextResponse' {httpStatus} -> httpStatus) (\s@DetectTextResponse' {} a -> s {httpStatus = a} :: DetectTextResponse)
 
-instance Prelude.NFData DetectTextResponse
+instance Prelude.NFData DetectTextResponse where
+  rnf DetectTextResponse' {..} =
+    Prelude.rnf textDetections
+      `Prelude.seq` Prelude.rnf textModelVersion
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -77,9 +77,15 @@ notificationChannel_sNSTopicArn = Lens.lens (\NotificationChannel' {sNSTopicArn}
 notificationChannel_roleArn :: Lens.Lens' NotificationChannel Prelude.Text
 notificationChannel_roleArn = Lens.lens (\NotificationChannel' {roleArn} -> roleArn) (\s@NotificationChannel' {} a -> s {roleArn = a} :: NotificationChannel)
 
-instance Prelude.Hashable NotificationChannel
+instance Prelude.Hashable NotificationChannel where
+  hashWithSalt _salt NotificationChannel' {..} =
+    _salt `Prelude.hashWithSalt` sNSTopicArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData NotificationChannel
+instance Prelude.NFData NotificationChannel where
+  rnf NotificationChannel' {..} =
+    Prelude.rnf sNSTopicArn
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON NotificationChannel where
   toJSON NotificationChannel' {..} =

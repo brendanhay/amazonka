@@ -220,9 +220,17 @@ instance Core.AWSRequest DetectLabels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectLabels
+instance Prelude.Hashable DetectLabels where
+  hashWithSalt _salt DetectLabels' {..} =
+    _salt `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` maxLabels
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData DetectLabels
+instance Prelude.NFData DetectLabels where
+  rnf DetectLabels' {..} =
+    Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf maxLabels
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectLabels where
   toHeaders =
@@ -353,4 +361,9 @@ detectLabelsResponse_labelModelVersion = Lens.lens (\DetectLabelsResponse' {labe
 detectLabelsResponse_httpStatus :: Lens.Lens' DetectLabelsResponse Prelude.Int
 detectLabelsResponse_httpStatus = Lens.lens (\DetectLabelsResponse' {httpStatus} -> httpStatus) (\s@DetectLabelsResponse' {} a -> s {httpStatus = a} :: DetectLabelsResponse)
 
-instance Prelude.NFData DetectLabelsResponse
+instance Prelude.NFData DetectLabelsResponse where
+  rnf DetectLabelsResponse' {..} =
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf orientationCorrection
+      `Prelude.seq` Prelude.rnf labelModelVersion
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -75,6 +75,12 @@ instance Core.FromJSON MouthOpen where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable MouthOpen
+instance Prelude.Hashable MouthOpen where
+  hashWithSalt _salt MouthOpen' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData MouthOpen
+instance Prelude.NFData MouthOpen where
+  rnf MouthOpen' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

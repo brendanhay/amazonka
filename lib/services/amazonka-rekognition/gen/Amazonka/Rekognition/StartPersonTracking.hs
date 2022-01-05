@@ -161,9 +161,19 @@ instance Core.AWSRequest StartPersonTracking where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartPersonTracking
+instance Prelude.Hashable StartPersonTracking where
+  hashWithSalt _salt StartPersonTracking' {..} =
+    _salt `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` video
 
-instance Prelude.NFData StartPersonTracking
+instance Prelude.NFData StartPersonTracking where
+  rnf StartPersonTracking' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf video
 
 instance Core.ToHeaders StartPersonTracking where
   toHeaders =
@@ -241,4 +251,7 @@ startPersonTrackingResponse_jobId = Lens.lens (\StartPersonTrackingResponse' {jo
 startPersonTrackingResponse_httpStatus :: Lens.Lens' StartPersonTrackingResponse Prelude.Int
 startPersonTrackingResponse_httpStatus = Lens.lens (\StartPersonTrackingResponse' {httpStatus} -> httpStatus) (\s@StartPersonTrackingResponse' {} a -> s {httpStatus = a} :: StartPersonTrackingResponse)
 
-instance Prelude.NFData StartPersonTrackingResponse
+instance Prelude.NFData StartPersonTrackingResponse where
+  rnf StartPersonTrackingResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

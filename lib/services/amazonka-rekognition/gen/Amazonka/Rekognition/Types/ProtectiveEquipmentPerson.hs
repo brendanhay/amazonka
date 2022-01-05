@@ -105,6 +105,16 @@ instance Core.FromJSON ProtectiveEquipmentPerson where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ProtectiveEquipmentPerson
+instance Prelude.Hashable ProtectiveEquipmentPerson where
+  hashWithSalt _salt ProtectiveEquipmentPerson' {..} =
+    _salt `Prelude.hashWithSalt` bodyParts
+      `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ProtectiveEquipmentPerson
+instance Prelude.NFData ProtectiveEquipmentPerson where
+  rnf ProtectiveEquipmentPerson' {..} =
+    Prelude.rnf bodyParts
+      `Prelude.seq` Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf id

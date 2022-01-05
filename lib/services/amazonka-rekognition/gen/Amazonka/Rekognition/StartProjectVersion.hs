@@ -126,9 +126,15 @@ instance Core.AWSRequest StartProjectVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartProjectVersion
+instance Prelude.Hashable StartProjectVersion where
+  hashWithSalt _salt StartProjectVersion' {..} =
+    _salt `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` minInferenceUnits
 
-instance Prelude.NFData StartProjectVersion
+instance Prelude.NFData StartProjectVersion where
+  rnf StartProjectVersion' {..} =
+    Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf minInferenceUnits
 
 instance Core.ToHeaders StartProjectVersion where
   toHeaders =
@@ -201,4 +207,7 @@ startProjectVersionResponse_status = Lens.lens (\StartProjectVersionResponse' {s
 startProjectVersionResponse_httpStatus :: Lens.Lens' StartProjectVersionResponse Prelude.Int
 startProjectVersionResponse_httpStatus = Lens.lens (\StartProjectVersionResponse' {httpStatus} -> httpStatus) (\s@StartProjectVersionResponse' {} a -> s {httpStatus = a} :: StartProjectVersionResponse)
 
-instance Prelude.NFData StartProjectVersionResponse
+instance Prelude.NFData StartProjectVersionResponse where
+  rnf StartProjectVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

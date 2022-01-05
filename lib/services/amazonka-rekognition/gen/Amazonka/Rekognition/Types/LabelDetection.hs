@@ -76,6 +76,12 @@ instance Core.FromJSON LabelDetection where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable LabelDetection
+instance Prelude.Hashable LabelDetection where
+  hashWithSalt _salt LabelDetection' {..} =
+    _salt `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData LabelDetection
+instance Prelude.NFData LabelDetection where
+  rnf LabelDetection' {..} =
+    Prelude.rnf label
+      `Prelude.seq` Prelude.rnf timestamp

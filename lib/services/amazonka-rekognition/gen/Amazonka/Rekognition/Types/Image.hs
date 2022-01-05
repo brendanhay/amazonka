@@ -96,9 +96,15 @@ image_s3Object = Lens.lens (\Image' {s3Object} -> s3Object) (\s@Image' {} a -> s
 image_bytes :: Lens.Lens' Image (Prelude.Maybe Prelude.ByteString)
 image_bytes = Lens.lens (\Image' {bytes} -> bytes) (\s@Image' {} a -> s {bytes = a} :: Image) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt _salt Image' {..} =
+    _salt `Prelude.hashWithSalt` s3Object
+      `Prelude.hashWithSalt` bytes
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf s3Object
+      `Prelude.seq` Prelude.rnf bytes
 
 instance Core.ToJSON Image where
   toJSON Image' {..} =

@@ -52,9 +52,12 @@ newVideo = Video' {s3Object = Prelude.Nothing}
 video_s3Object :: Lens.Lens' Video (Prelude.Maybe S3Object)
 video_s3Object = Lens.lens (\Video' {s3Object} -> s3Object) (\s@Video' {} a -> s {s3Object = a} :: Video)
 
-instance Prelude.Hashable Video
+instance Prelude.Hashable Video where
+  hashWithSalt _salt Video' {..} =
+    _salt `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData Video
+instance Prelude.NFData Video where
+  rnf Video' {..} = Prelude.rnf s3Object
 
 instance Core.ToJSON Video where
   toJSON Video' {..} =

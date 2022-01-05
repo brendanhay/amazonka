@@ -201,9 +201,21 @@ instance Core.AWSRequest StartContentModeration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartContentModeration
+instance Prelude.Hashable StartContentModeration where
+  hashWithSalt _salt StartContentModeration' {..} =
+    _salt `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` video
 
-instance Prelude.NFData StartContentModeration
+instance Prelude.NFData StartContentModeration where
+  rnf StartContentModeration' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf video
 
 instance Core.ToHeaders StartContentModeration where
   toHeaders =
@@ -285,3 +297,7 @@ startContentModerationResponse_httpStatus = Lens.lens (\StartContentModerationRe
 instance
   Prelude.NFData
     StartContentModerationResponse
+  where
+  rnf StartContentModerationResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

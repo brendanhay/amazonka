@@ -246,9 +246,25 @@ instance Core.AWSRequest CreateProjectVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProjectVersion
+instance Prelude.Hashable CreateProjectVersion where
+  hashWithSalt _salt CreateProjectVersion' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` trainingData
+      `Prelude.hashWithSalt` testingData
 
-instance Prelude.NFData CreateProjectVersion
+instance Prelude.NFData CreateProjectVersion where
+  rnf CreateProjectVersion' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf trainingData
+      `Prelude.seq` Prelude.rnf testingData
 
 instance Core.ToHeaders CreateProjectVersion where
   toHeaders =
@@ -330,4 +346,7 @@ createProjectVersionResponse_projectVersionArn = Lens.lens (\CreateProjectVersio
 createProjectVersionResponse_httpStatus :: Lens.Lens' CreateProjectVersionResponse Prelude.Int
 createProjectVersionResponse_httpStatus = Lens.lens (\CreateProjectVersionResponse' {httpStatus} -> httpStatus) (\s@CreateProjectVersionResponse' {} a -> s {httpStatus = a} :: CreateProjectVersionResponse)
 
-instance Prelude.NFData CreateProjectVersionResponse
+instance Prelude.NFData CreateProjectVersionResponse where
+  rnf CreateProjectVersionResponse' {..} =
+    Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -106,6 +106,18 @@ instance Core.FromJSON Face where
             Prelude.<*> (x Core..:? "ImageId")
       )
 
-instance Prelude.Hashable Face
+instance Prelude.Hashable Face where
+  hashWithSalt _salt Face' {..} =
+    _salt `Prelude.hashWithSalt` faceId
+      `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` externalImageId
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData Face
+instance Prelude.NFData Face where
+  rnf Face' {..} =
+    Prelude.rnf faceId
+      `Prelude.seq` Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf externalImageId
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf imageId

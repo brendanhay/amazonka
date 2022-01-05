@@ -122,6 +122,12 @@ instance Core.FromJSON UnindexedFace where
             Prelude.<*> (x Core..:? "FaceDetail")
       )
 
-instance Prelude.Hashable UnindexedFace
+instance Prelude.Hashable UnindexedFace where
+  hashWithSalt _salt UnindexedFace' {..} =
+    _salt `Prelude.hashWithSalt` reasons
+      `Prelude.hashWithSalt` faceDetail
 
-instance Prelude.NFData UnindexedFace
+instance Prelude.NFData UnindexedFace where
+  rnf UnindexedFace' {..} =
+    Prelude.rnf reasons
+      `Prelude.seq` Prelude.rnf faceDetail

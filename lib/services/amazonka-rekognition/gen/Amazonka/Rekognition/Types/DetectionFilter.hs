@@ -90,9 +90,17 @@ detectionFilter_minBoundingBoxWidth = Lens.lens (\DetectionFilter' {minBoundingB
 detectionFilter_minConfidence :: Lens.Lens' DetectionFilter (Prelude.Maybe Prelude.Double)
 detectionFilter_minConfidence = Lens.lens (\DetectionFilter' {minConfidence} -> minConfidence) (\s@DetectionFilter' {} a -> s {minConfidence = a} :: DetectionFilter)
 
-instance Prelude.Hashable DetectionFilter
+instance Prelude.Hashable DetectionFilter where
+  hashWithSalt _salt DetectionFilter' {..} =
+    _salt `Prelude.hashWithSalt` minBoundingBoxHeight
+      `Prelude.hashWithSalt` minBoundingBoxWidth
+      `Prelude.hashWithSalt` minConfidence
 
-instance Prelude.NFData DetectionFilter
+instance Prelude.NFData DetectionFilter where
+  rnf DetectionFilter' {..} =
+    Prelude.rnf minBoundingBoxHeight
+      `Prelude.seq` Prelude.rnf minBoundingBoxWidth
+      `Prelude.seq` Prelude.rnf minConfidence
 
 instance Core.ToJSON DetectionFilter where
   toJSON DetectionFilter' {..} =

@@ -165,9 +165,17 @@ instance Core.AWSRequest DetectModerationLabels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectModerationLabels
+instance Prelude.Hashable DetectModerationLabels where
+  hashWithSalt _salt DetectModerationLabels' {..} =
+    _salt `Prelude.hashWithSalt` humanLoopConfig
+      `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData DetectModerationLabels
+instance Prelude.NFData DetectModerationLabels where
+  rnf DetectModerationLabels' {..} =
+    Prelude.rnf humanLoopConfig
+      `Prelude.seq` Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectModerationLabels where
   toHeaders =
@@ -267,3 +275,9 @@ detectModerationLabelsResponse_httpStatus = Lens.lens (\DetectModerationLabelsRe
 instance
   Prelude.NFData
     DetectModerationLabelsResponse
+  where
+  rnf DetectModerationLabelsResponse' {..} =
+    Prelude.rnf humanLoopActivationOutput
+      `Prelude.seq` Prelude.rnf moderationModelVersion
+      `Prelude.seq` Prelude.rnf moderationLabels
+      `Prelude.seq` Prelude.rnf httpStatus

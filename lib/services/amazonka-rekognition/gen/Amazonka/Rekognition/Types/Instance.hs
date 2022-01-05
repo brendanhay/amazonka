@@ -76,6 +76,12 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf confidence

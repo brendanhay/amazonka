@@ -78,6 +78,12 @@ instance Core.FromJSON FaceRecord where
             Prelude.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable FaceRecord
+instance Prelude.Hashable FaceRecord where
+  hashWithSalt _salt FaceRecord' {..} =
+    _salt `Prelude.hashWithSalt` faceDetail
+      `Prelude.hashWithSalt` face
 
-instance Prelude.NFData FaceRecord
+instance Prelude.NFData FaceRecord where
+  rnf FaceRecord' {..} =
+    Prelude.rnf faceDetail
+      `Prelude.seq` Prelude.rnf face

@@ -75,6 +75,12 @@ instance Core.FromJSON ShotSegment where
             Prelude.<*> (x Core..:? "Index")
       )
 
-instance Prelude.Hashable ShotSegment
+instance Prelude.Hashable ShotSegment where
+  hashWithSalt _salt ShotSegment' {..} =
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` index
 
-instance Prelude.NFData ShotSegment
+instance Prelude.NFData ShotSegment where
+  rnf ShotSegment' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf index

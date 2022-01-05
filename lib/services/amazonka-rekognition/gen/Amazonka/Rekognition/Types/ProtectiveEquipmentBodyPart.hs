@@ -94,6 +94,14 @@ instance Core.FromJSON ProtectiveEquipmentBodyPart where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ProtectiveEquipmentBodyPart
+instance Prelude.Hashable ProtectiveEquipmentBodyPart where
+  hashWithSalt _salt ProtectiveEquipmentBodyPart' {..} =
+    _salt `Prelude.hashWithSalt` equipmentDetections
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ProtectiveEquipmentBodyPart
+instance Prelude.NFData ProtectiveEquipmentBodyPart where
+  rnf ProtectiveEquipmentBodyPart' {..} =
+    Prelude.rnf equipmentDetections
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf name

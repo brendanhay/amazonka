@@ -94,6 +94,14 @@ instance Core.FromJSON CustomLabel where
             Prelude.<*> (x Core..:? "Geometry")
       )
 
-instance Prelude.Hashable CustomLabel
+instance Prelude.Hashable CustomLabel where
+  hashWithSalt _salt CustomLabel' {..} =
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` geometry
 
-instance Prelude.NFData CustomLabel
+instance Prelude.NFData CustomLabel where
+  rnf CustomLabel' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf geometry

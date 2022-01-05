@@ -72,6 +72,12 @@ instance Core.FromJSON Smile where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Smile
+instance Prelude.Hashable Smile where
+  hashWithSalt _salt Smile' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData Smile
+instance Prelude.NFData Smile where
+  rnf Smile' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

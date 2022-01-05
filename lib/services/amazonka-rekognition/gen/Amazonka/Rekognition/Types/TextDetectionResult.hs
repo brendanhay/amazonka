@@ -78,6 +78,12 @@ instance Core.FromJSON TextDetectionResult where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable TextDetectionResult
+instance Prelude.Hashable TextDetectionResult where
+  hashWithSalt _salt TextDetectionResult' {..} =
+    _salt `Prelude.hashWithSalt` textDetection
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData TextDetectionResult
+instance Prelude.NFData TextDetectionResult where
+  rnf TextDetectionResult' {..} =
+    Prelude.rnf textDetection
+      `Prelude.seq` Prelude.rnf timestamp

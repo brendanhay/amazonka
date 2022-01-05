@@ -70,9 +70,15 @@ startTextDetectionFilters_regionsOfInterest = Lens.lens (\StartTextDetectionFilt
 startTextDetectionFilters_wordFilter :: Lens.Lens' StartTextDetectionFilters (Prelude.Maybe DetectionFilter)
 startTextDetectionFilters_wordFilter = Lens.lens (\StartTextDetectionFilters' {wordFilter} -> wordFilter) (\s@StartTextDetectionFilters' {} a -> s {wordFilter = a} :: StartTextDetectionFilters)
 
-instance Prelude.Hashable StartTextDetectionFilters
+instance Prelude.Hashable StartTextDetectionFilters where
+  hashWithSalt _salt StartTextDetectionFilters' {..} =
+    _salt `Prelude.hashWithSalt` regionsOfInterest
+      `Prelude.hashWithSalt` wordFilter
 
-instance Prelude.NFData StartTextDetectionFilters
+instance Prelude.NFData StartTextDetectionFilters where
+  rnf StartTextDetectionFilters' {..} =
+    Prelude.rnf regionsOfInterest
+      `Prelude.seq` Prelude.rnf wordFilter
 
 instance Core.ToJSON StartTextDetectionFilters where
   toJSON StartTextDetectionFilters' {..} =

@@ -84,8 +84,15 @@ instance Core.FromJSON TrialComponentParameterValue where
 instance
   Prelude.Hashable
     TrialComponentParameterValue
+  where
+  hashWithSalt _salt TrialComponentParameterValue' {..} =
+    _salt `Prelude.hashWithSalt` numberValue
+      `Prelude.hashWithSalt` stringValue
 
-instance Prelude.NFData TrialComponentParameterValue
+instance Prelude.NFData TrialComponentParameterValue where
+  rnf TrialComponentParameterValue' {..} =
+    Prelude.rnf numberValue
+      `Prelude.seq` Prelude.rnf stringValue
 
 instance Core.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =

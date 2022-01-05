@@ -110,9 +110,13 @@ instance Core.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource where
+  hashWithSalt _salt ListTagsForResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource where
+  rnf ListTagsForResource' {..} =
+    Prelude.rnf resourceName
 
 instance Core.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty

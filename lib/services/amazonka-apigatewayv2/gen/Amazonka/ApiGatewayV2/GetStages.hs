@@ -132,9 +132,17 @@ instance Core.AWSRequest GetStages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStages
+instance Prelude.Hashable GetStages where
+  hashWithSalt _salt GetStages' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetStages
+instance Prelude.NFData GetStages where
+  rnf GetStages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders GetStages where
   toHeaders =
@@ -209,4 +217,8 @@ getStagesResponse_nextToken = Lens.lens (\GetStagesResponse' {nextToken} -> next
 getStagesResponse_httpStatus :: Lens.Lens' GetStagesResponse Prelude.Int
 getStagesResponse_httpStatus = Lens.lens (\GetStagesResponse' {httpStatus} -> httpStatus) (\s@GetStagesResponse' {} a -> s {httpStatus = a} :: GetStagesResponse)
 
-instance Prelude.NFData GetStagesResponse
+instance Prelude.NFData GetStagesResponse where
+  rnf GetStagesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -196,6 +196,28 @@ instance Core.FromJSON AssetEntry where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable AssetEntry
+instance Prelude.Hashable AssetEntry where
+  hashWithSalt _salt AssetEntry' {..} =
+    _salt `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` assetType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` assetDetails
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssetEntry
+instance Prelude.NFData AssetEntry where
+  rnf AssetEntry' {..} =
+    Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf assetDetails
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf name

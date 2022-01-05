@@ -65,9 +65,15 @@ templateLocation_s3Bucket = Lens.lens (\TemplateLocation' {s3Bucket} -> s3Bucket
 templateLocation_s3Key :: Lens.Lens' TemplateLocation Prelude.Text
 templateLocation_s3Key = Lens.lens (\TemplateLocation' {s3Key} -> s3Key) (\s@TemplateLocation' {} a -> s {s3Key = a} :: TemplateLocation)
 
-instance Prelude.Hashable TemplateLocation
+instance Prelude.Hashable TemplateLocation where
+  hashWithSalt _salt TemplateLocation' {..} =
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Key
 
-instance Prelude.NFData TemplateLocation
+instance Prelude.NFData TemplateLocation where
+  rnf TemplateLocation' {..} =
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Key
 
 instance Core.ToJSON TemplateLocation where
   toJSON TemplateLocation' {..} =

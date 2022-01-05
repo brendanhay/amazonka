@@ -152,9 +152,23 @@ instance Core.AWSRequest AddProfilePermission where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddProfilePermission
+instance Prelude.Hashable AddProfilePermission where
+  hashWithSalt _salt AddProfilePermission' {..} =
+    _salt `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData AddProfilePermission
+instance Prelude.NFData AddProfilePermission where
+  rnf AddProfilePermission' {..} =
+    Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf profileName
 
 instance Core.ToHeaders AddProfilePermission where
   toHeaders =
@@ -230,4 +244,7 @@ addProfilePermissionResponse_revisionId = Lens.lens (\AddProfilePermissionRespon
 addProfilePermissionResponse_httpStatus :: Lens.Lens' AddProfilePermissionResponse Prelude.Int
 addProfilePermissionResponse_httpStatus = Lens.lens (\AddProfilePermissionResponse' {httpStatus} -> httpStatus) (\s@AddProfilePermissionResponse' {} a -> s {httpStatus = a} :: AddProfilePermissionResponse)
 
-instance Prelude.NFData AddProfilePermissionResponse
+instance Prelude.NFData AddProfilePermissionResponse where
+  rnf AddProfilePermissionResponse' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

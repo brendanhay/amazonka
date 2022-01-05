@@ -67,6 +67,10 @@ instance Core.FromJSON CandidateArtifactLocations where
             Prelude.<$> (x Core..: "Explainability")
       )
 
-instance Prelude.Hashable CandidateArtifactLocations
+instance Prelude.Hashable CandidateArtifactLocations where
+  hashWithSalt _salt CandidateArtifactLocations' {..} =
+    _salt `Prelude.hashWithSalt` explainability
 
-instance Prelude.NFData CandidateArtifactLocations
+instance Prelude.NFData CandidateArtifactLocations where
+  rnf CandidateArtifactLocations' {..} =
+    Prelude.rnf explainability

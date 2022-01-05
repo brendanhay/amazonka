@@ -187,6 +187,24 @@ instance Core.FromXML CPUUtilization where
       Prelude.<*> (x Core..@? "IOWait")
       Prelude.<*> (x Core..@? "Nice")
 
-instance Prelude.Hashable CPUUtilization
+instance Prelude.Hashable CPUUtilization where
+  hashWithSalt _salt CPUUtilization' {..} =
+    _salt `Prelude.hashWithSalt` softIRQ
+      `Prelude.hashWithSalt` idle
+      `Prelude.hashWithSalt` irq
+      `Prelude.hashWithSalt` system
+      `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` iOWait
+      `Prelude.hashWithSalt` nice
 
-instance Prelude.NFData CPUUtilization
+instance Prelude.NFData CPUUtilization where
+  rnf CPUUtilization' {..} =
+    Prelude.rnf softIRQ
+      `Prelude.seq` Prelude.rnf idle
+      `Prelude.seq` Prelude.rnf irq
+      `Prelude.seq` Prelude.rnf system
+      `Prelude.seq` Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf iOWait
+      `Prelude.seq` Prelude.rnf nice

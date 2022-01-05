@@ -134,8 +134,17 @@ instance
 instance
   Prelude.Hashable
     MergePullRequestByFastForward
+  where
+  hashWithSalt _salt MergePullRequestByFastForward' {..} =
+    _salt `Prelude.hashWithSalt` sourceCommitId
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData MergePullRequestByFastForward
+instance Prelude.NFData MergePullRequestByFastForward where
+  rnf MergePullRequestByFastForward' {..} =
+    Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders MergePullRequestByFastForward where
   toHeaders =
@@ -212,3 +221,7 @@ mergePullRequestByFastForwardResponse_httpStatus = Lens.lens (\MergePullRequestB
 instance
   Prelude.NFData
     MergePullRequestByFastForwardResponse
+  where
+  rnf MergePullRequestByFastForwardResponse' {..} =
+    Prelude.rnf pullRequest
+      `Prelude.seq` Prelude.rnf httpStatus

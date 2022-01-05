@@ -72,6 +72,12 @@ instance Core.FromJSON UnprocessedAccount where
             Prelude.<*> (x Core..:? "Reason")
       )
 
-instance Prelude.Hashable UnprocessedAccount
+instance Prelude.Hashable UnprocessedAccount where
+  hashWithSalt _salt UnprocessedAccount' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData UnprocessedAccount
+instance Prelude.NFData UnprocessedAccount where
+  rnf UnprocessedAccount' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf reason

@@ -132,10 +132,22 @@ instance
 instance
   Prelude.Hashable
     EnableTransitGatewayRouteTablePropagation
+  where
+  hashWithSalt
+    _salt
+    EnableTransitGatewayRouteTablePropagation' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance
   Prelude.NFData
     EnableTransitGatewayRouteTablePropagation
+  where
+  rnf EnableTransitGatewayRouteTablePropagation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
   Core.ToHeaders
@@ -213,3 +225,8 @@ enableTransitGatewayRouteTablePropagationResponse_httpStatus = Lens.lens (\Enabl
 instance
   Prelude.NFData
     EnableTransitGatewayRouteTablePropagationResponse
+  where
+  rnf
+    EnableTransitGatewayRouteTablePropagationResponse' {..} =
+      Prelude.rnf propagation
+        `Prelude.seq` Prelude.rnf httpStatus

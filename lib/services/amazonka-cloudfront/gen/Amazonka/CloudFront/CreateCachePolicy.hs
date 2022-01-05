@@ -116,9 +116,13 @@ instance Core.AWSRequest CreateCachePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCachePolicy
+instance Prelude.Hashable CreateCachePolicy where
+  hashWithSalt _salt CreateCachePolicy' {..} =
+    _salt `Prelude.hashWithSalt` cachePolicyConfig
 
-instance Prelude.NFData CreateCachePolicy
+instance Prelude.NFData CreateCachePolicy where
+  rnf CreateCachePolicy' {..} =
+    Prelude.rnf cachePolicyConfig
 
 instance Core.ToElement CreateCachePolicy where
   toElement CreateCachePolicy' {..} =
@@ -192,4 +196,9 @@ createCachePolicyResponse_location = Lens.lens (\CreateCachePolicyResponse' {loc
 createCachePolicyResponse_httpStatus :: Lens.Lens' CreateCachePolicyResponse Prelude.Int
 createCachePolicyResponse_httpStatus = Lens.lens (\CreateCachePolicyResponse' {httpStatus} -> httpStatus) (\s@CreateCachePolicyResponse' {} a -> s {httpStatus = a} :: CreateCachePolicyResponse)
 
-instance Prelude.NFData CreateCachePolicyResponse
+instance Prelude.NFData CreateCachePolicyResponse where
+  rnf CreateCachePolicyResponse' {..} =
+    Prelude.rnf cachePolicy
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus

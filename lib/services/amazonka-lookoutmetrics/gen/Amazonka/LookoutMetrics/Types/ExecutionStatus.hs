@@ -82,6 +82,14 @@ instance Core.FromJSON ExecutionStatus where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable ExecutionStatus
+instance Prelude.Hashable ExecutionStatus where
+  hashWithSalt _salt ExecutionStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ExecutionStatus
+instance Prelude.NFData ExecutionStatus where
+  rnf ExecutionStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf timestamp

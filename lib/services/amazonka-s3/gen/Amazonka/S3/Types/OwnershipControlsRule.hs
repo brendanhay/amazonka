@@ -61,9 +61,13 @@ instance Core.FromXML OwnershipControlsRule where
     OwnershipControlsRule'
       Prelude.<$> (x Core..@ "ObjectOwnership")
 
-instance Prelude.Hashable OwnershipControlsRule
+instance Prelude.Hashable OwnershipControlsRule where
+  hashWithSalt _salt OwnershipControlsRule' {..} =
+    _salt `Prelude.hashWithSalt` objectOwnership
 
-instance Prelude.NFData OwnershipControlsRule
+instance Prelude.NFData OwnershipControlsRule where
+  rnf OwnershipControlsRule' {..} =
+    Prelude.rnf objectOwnership
 
 instance Core.ToXML OwnershipControlsRule where
   toXML OwnershipControlsRule' {..} =

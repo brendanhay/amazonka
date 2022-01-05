@@ -58,9 +58,13 @@ newUserContextDataType =
 userContextDataType_encodedData :: Lens.Lens' UserContextDataType (Prelude.Maybe Prelude.Text)
 userContextDataType_encodedData = Lens.lens (\UserContextDataType' {encodedData} -> encodedData) (\s@UserContextDataType' {} a -> s {encodedData = a} :: UserContextDataType)
 
-instance Prelude.Hashable UserContextDataType
+instance Prelude.Hashable UserContextDataType where
+  hashWithSalt _salt UserContextDataType' {..} =
+    _salt `Prelude.hashWithSalt` encodedData
 
-instance Prelude.NFData UserContextDataType
+instance Prelude.NFData UserContextDataType where
+  rnf UserContextDataType' {..} =
+    Prelude.rnf encodedData
 
 instance Core.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =

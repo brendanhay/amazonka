@@ -170,9 +170,23 @@ instance Core.AWSRequest UpdateGatewayRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateGatewayRoute
+instance Prelude.Hashable UpdateGatewayRoute where
+  hashWithSalt _salt UpdateGatewayRoute' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` gatewayRouteName
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData UpdateGatewayRoute
+instance Prelude.NFData UpdateGatewayRoute where
+  rnf UpdateGatewayRoute' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf gatewayRouteName
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders UpdateGatewayRoute where
   toHeaders =
@@ -252,4 +266,7 @@ updateGatewayRouteResponse_httpStatus = Lens.lens (\UpdateGatewayRouteResponse' 
 updateGatewayRouteResponse_gatewayRoute :: Lens.Lens' UpdateGatewayRouteResponse GatewayRouteData
 updateGatewayRouteResponse_gatewayRoute = Lens.lens (\UpdateGatewayRouteResponse' {gatewayRoute} -> gatewayRoute) (\s@UpdateGatewayRouteResponse' {} a -> s {gatewayRoute = a} :: UpdateGatewayRouteResponse)
 
-instance Prelude.NFData UpdateGatewayRouteResponse
+instance Prelude.NFData UpdateGatewayRouteResponse where
+  rnf UpdateGatewayRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayRoute

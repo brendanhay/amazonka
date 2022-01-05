@@ -127,10 +127,24 @@ instance
 instance
   Prelude.Hashable
     CreateBackendAuthResourceConfig
+  where
+  hashWithSalt
+    _salt
+    CreateBackendAuthResourceConfig' {..} =
+      _salt `Prelude.hashWithSalt` identityPoolConfigs
+        `Prelude.hashWithSalt` authResources
+        `Prelude.hashWithSalt` userPoolConfigs
+        `Prelude.hashWithSalt` service
 
 instance
   Prelude.NFData
     CreateBackendAuthResourceConfig
+  where
+  rnf CreateBackendAuthResourceConfig' {..} =
+    Prelude.rnf identityPoolConfigs
+      `Prelude.seq` Prelude.rnf authResources
+      `Prelude.seq` Prelude.rnf userPoolConfigs
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToJSON CreateBackendAuthResourceConfig where
   toJSON CreateBackendAuthResourceConfig' {..} =

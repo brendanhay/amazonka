@@ -117,9 +117,19 @@ instance Core.AWSRequest UpdateInsight where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInsight
+instance Prelude.Hashable UpdateInsight where
+  hashWithSalt _salt UpdateInsight' {..} =
+    _salt `Prelude.hashWithSalt` groupByAttribute
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` insightArn
 
-instance Prelude.NFData UpdateInsight
+instance Prelude.NFData UpdateInsight where
+  rnf UpdateInsight' {..} =
+    Prelude.rnf groupByAttribute
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf insightArn
 
 instance Core.ToHeaders UpdateInsight where
   toHeaders =
@@ -178,4 +188,6 @@ newUpdateInsightResponse pHttpStatus_ =
 updateInsightResponse_httpStatus :: Lens.Lens' UpdateInsightResponse Prelude.Int
 updateInsightResponse_httpStatus = Lens.lens (\UpdateInsightResponse' {httpStatus} -> httpStatus) (\s@UpdateInsightResponse' {} a -> s {httpStatus = a} :: UpdateInsightResponse)
 
-instance Prelude.NFData UpdateInsightResponse
+instance Prelude.NFData UpdateInsightResponse where
+  rnf UpdateInsightResponse' {..} =
+    Prelude.rnf httpStatus

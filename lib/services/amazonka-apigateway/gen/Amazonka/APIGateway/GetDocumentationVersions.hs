@@ -139,9 +139,17 @@ instance Core.AWSRequest GetDocumentationVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentationVersions
+instance Prelude.Hashable GetDocumentationVersions where
+  hashWithSalt _salt GetDocumentationVersions' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetDocumentationVersions
+instance Prelude.NFData GetDocumentationVersions where
+  rnf GetDocumentationVersions' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetDocumentationVersions where
   toHeaders =
@@ -223,3 +231,8 @@ getDocumentationVersionsResponse_httpStatus = Lens.lens (\GetDocumentationVersio
 instance
   Prelude.NFData
     GetDocumentationVersionsResponse
+  where
+  rnf GetDocumentationVersionsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

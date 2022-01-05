@@ -190,10 +190,27 @@ instance
 instance
   Prelude.Hashable
     CreateLoadBalancerTlsCertificate
+  where
+  hashWithSalt
+    _salt
+    CreateLoadBalancerTlsCertificate' {..} =
+      _salt
+        `Prelude.hashWithSalt` certificateAlternativeNames
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` certificateName
+        `Prelude.hashWithSalt` certificateDomainName
 
 instance
   Prelude.NFData
     CreateLoadBalancerTlsCertificate
+  where
+  rnf CreateLoadBalancerTlsCertificate' {..} =
+    Prelude.rnf certificateAlternativeNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf certificateDomainName
 
 instance
   Core.ToHeaders
@@ -289,3 +306,7 @@ createLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\CreateLoadBala
 instance
   Prelude.NFData
     CreateLoadBalancerTlsCertificateResponse
+  where
+  rnf CreateLoadBalancerTlsCertificateResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

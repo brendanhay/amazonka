@@ -111,6 +111,16 @@ instance Core.FromJSON TableDataImportJobMetadata where
             Prelude.<*> (x Core..: "dataSource")
       )
 
-instance Prelude.Hashable TableDataImportJobMetadata
+instance Prelude.Hashable TableDataImportJobMetadata where
+  hashWithSalt _salt TableDataImportJobMetadata' {..} =
+    _salt `Prelude.hashWithSalt` submitter
+      `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` importOptions
+      `Prelude.hashWithSalt` dataSource
 
-instance Prelude.NFData TableDataImportJobMetadata
+instance Prelude.NFData TableDataImportJobMetadata where
+  rnf TableDataImportJobMetadata' {..} =
+    Prelude.rnf submitter
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf importOptions
+      `Prelude.seq` Prelude.rnf dataSource

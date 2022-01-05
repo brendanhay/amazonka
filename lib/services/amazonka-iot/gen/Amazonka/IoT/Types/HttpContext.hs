@@ -61,9 +61,15 @@ httpContext_headers = Lens.lens (\HttpContext' {headers} -> headers) (\s@HttpCon
 httpContext_queryString :: Lens.Lens' HttpContext (Prelude.Maybe Prelude.Text)
 httpContext_queryString = Lens.lens (\HttpContext' {queryString} -> queryString) (\s@HttpContext' {} a -> s {queryString = a} :: HttpContext)
 
-instance Prelude.Hashable HttpContext
+instance Prelude.Hashable HttpContext where
+  hashWithSalt _salt HttpContext' {..} =
+    _salt `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData HttpContext
+instance Prelude.NFData HttpContext where
+  rnf HttpContext' {..} =
+    Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToJSON HttpContext where
   toJSON HttpContext' {..} =

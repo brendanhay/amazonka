@@ -84,8 +84,15 @@ instance Core.FromJSON ConformancePackInputParameter where
 instance
   Prelude.Hashable
     ConformancePackInputParameter
+  where
+  hashWithSalt _salt ConformancePackInputParameter' {..} =
+    _salt `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` parameterValue
 
-instance Prelude.NFData ConformancePackInputParameter
+instance Prelude.NFData ConformancePackInputParameter where
+  rnf ConformancePackInputParameter' {..} =
+    Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf parameterValue
 
 instance Core.ToJSON ConformancePackInputParameter where
   toJSON ConformancePackInputParameter' {..} =

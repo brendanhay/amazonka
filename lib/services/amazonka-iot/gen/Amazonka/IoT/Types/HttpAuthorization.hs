@@ -62,9 +62,12 @@ instance Core.FromJSON HttpAuthorization where
           HttpAuthorization' Prelude.<$> (x Core..:? "sigv4")
       )
 
-instance Prelude.Hashable HttpAuthorization
+instance Prelude.Hashable HttpAuthorization where
+  hashWithSalt _salt HttpAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` sigv4
 
-instance Prelude.NFData HttpAuthorization
+instance Prelude.NFData HttpAuthorization where
+  rnf HttpAuthorization' {..} = Prelude.rnf sigv4
 
 instance Core.ToJSON HttpAuthorization where
   toJSON HttpAuthorization' {..} =

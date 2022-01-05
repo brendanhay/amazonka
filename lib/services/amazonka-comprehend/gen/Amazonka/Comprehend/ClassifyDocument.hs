@@ -105,9 +105,15 @@ instance Core.AWSRequest ClassifyDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ClassifyDocument
+instance Prelude.Hashable ClassifyDocument where
+  hashWithSalt _salt ClassifyDocument' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData ClassifyDocument
+instance Prelude.NFData ClassifyDocument where
+  rnf ClassifyDocument' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf endpointArn
 
 instance Core.ToHeaders ClassifyDocument where
   toHeaders =
@@ -213,4 +219,8 @@ classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classe
 classifyDocumentResponse_httpStatus :: Lens.Lens' ClassifyDocumentResponse Prelude.Int
 classifyDocumentResponse_httpStatus = Lens.lens (\ClassifyDocumentResponse' {httpStatus} -> httpStatus) (\s@ClassifyDocumentResponse' {} a -> s {httpStatus = a} :: ClassifyDocumentResponse)
 
-instance Prelude.NFData ClassifyDocumentResponse
+instance Prelude.NFData ClassifyDocumentResponse where
+  rnf ClassifyDocumentResponse' {..} =
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf classes
+      `Prelude.seq` Prelude.rnf httpStatus

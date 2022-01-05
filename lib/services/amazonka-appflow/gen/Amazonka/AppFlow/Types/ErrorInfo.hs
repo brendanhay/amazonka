@@ -72,6 +72,12 @@ instance Core.FromJSON ErrorInfo where
             Prelude.<*> (x Core..:? "putFailuresCount")
       )
 
-instance Prelude.Hashable ErrorInfo
+instance Prelude.Hashable ErrorInfo where
+  hashWithSalt _salt ErrorInfo' {..} =
+    _salt `Prelude.hashWithSalt` executionMessage
+      `Prelude.hashWithSalt` putFailuresCount
 
-instance Prelude.NFData ErrorInfo
+instance Prelude.NFData ErrorInfo where
+  rnf ErrorInfo' {..} =
+    Prelude.rnf executionMessage
+      `Prelude.seq` Prelude.rnf putFailuresCount

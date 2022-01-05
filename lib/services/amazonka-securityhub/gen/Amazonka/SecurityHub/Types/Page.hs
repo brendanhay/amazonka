@@ -89,9 +89,17 @@ instance Core.FromJSON Page where
             Prelude.<*> (x Core..:? "PageNumber")
       )
 
-instance Prelude.Hashable Page
+instance Prelude.Hashable Page where
+  hashWithSalt _salt Page' {..} =
+    _salt `Prelude.hashWithSalt` offsetRange
+      `Prelude.hashWithSalt` lineRange
+      `Prelude.hashWithSalt` pageNumber
 
-instance Prelude.NFData Page
+instance Prelude.NFData Page where
+  rnf Page' {..} =
+    Prelude.rnf offsetRange
+      `Prelude.seq` Prelude.rnf lineRange
+      `Prelude.seq` Prelude.rnf pageNumber
 
 instance Core.ToJSON Page where
   toJSON Page' {..} =

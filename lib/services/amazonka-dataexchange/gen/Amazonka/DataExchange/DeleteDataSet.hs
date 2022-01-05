@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteDataSet where
   response =
     Response.receiveNull DeleteDataSetResponse'
 
-instance Prelude.Hashable DeleteDataSet
+instance Prelude.Hashable DeleteDataSet where
+  hashWithSalt _salt DeleteDataSet' {..} =
+    _salt `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData DeleteDataSet
+instance Prelude.NFData DeleteDataSet where
+  rnf DeleteDataSet' {..} = Prelude.rnf dataSetId
 
 instance Core.ToHeaders DeleteDataSet where
   toHeaders =
@@ -114,4 +117,5 @@ newDeleteDataSetResponse ::
   DeleteDataSetResponse
 newDeleteDataSetResponse = DeleteDataSetResponse'
 
-instance Prelude.NFData DeleteDataSetResponse
+instance Prelude.NFData DeleteDataSetResponse where
+  rnf _ = ()

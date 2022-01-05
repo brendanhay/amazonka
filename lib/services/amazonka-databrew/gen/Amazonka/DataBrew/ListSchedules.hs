@@ -130,9 +130,17 @@ instance Core.AWSRequest ListSchedules where
             Prelude.<*> (x Core..?> "Schedules" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListSchedules
+instance Prelude.Hashable ListSchedules where
+  hashWithSalt _salt ListSchedules' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSchedules
+instance Prelude.NFData ListSchedules where
+  rnf ListSchedules' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSchedules where
   toHeaders =
@@ -206,4 +214,8 @@ listSchedulesResponse_httpStatus = Lens.lens (\ListSchedulesResponse' {httpStatu
 listSchedulesResponse_schedules :: Lens.Lens' ListSchedulesResponse [Schedule]
 listSchedulesResponse_schedules = Lens.lens (\ListSchedulesResponse' {schedules} -> schedules) (\s@ListSchedulesResponse' {} a -> s {schedules = a} :: ListSchedulesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListSchedulesResponse
+instance Prelude.NFData ListSchedulesResponse where
+  rnf ListSchedulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf schedules

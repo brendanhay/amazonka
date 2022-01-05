@@ -122,9 +122,19 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterDBProxyTargets
+instance Prelude.Hashable DeregisterDBProxyTargets where
+  hashWithSalt _salt DeregisterDBProxyTargets' {..} =
+    _salt `Prelude.hashWithSalt` dbClusterIdentifiers
+      `Prelude.hashWithSalt` dbInstanceIdentifiers
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` dbProxyName
 
-instance Prelude.NFData DeregisterDBProxyTargets
+instance Prelude.NFData DeregisterDBProxyTargets where
+  rnf DeregisterDBProxyTargets' {..} =
+    Prelude.rnf dbClusterIdentifiers
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifiers
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf dbProxyName
 
 instance Core.ToHeaders DeregisterDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,3 +196,6 @@ deregisterDBProxyTargetsResponse_httpStatus = Lens.lens (\DeregisterDBProxyTarge
 instance
   Prelude.NFData
     DeregisterDBProxyTargetsResponse
+  where
+  rnf DeregisterDBProxyTargetsResponse' {..} =
+    Prelude.rnf httpStatus

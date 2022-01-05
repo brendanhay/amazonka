@@ -95,10 +95,22 @@ nodeConfigurationOptionsFilter_name = Lens.lens (\NodeConfigurationOptionsFilter
 instance
   Prelude.Hashable
     NodeConfigurationOptionsFilter
+  where
+  hashWithSalt
+    _salt
+    NodeConfigurationOptionsFilter' {..} =
+      _salt `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` operator
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     NodeConfigurationOptionsFilter
+  where
+  rnf NodeConfigurationOptionsFilter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery NodeConfigurationOptionsFilter where
   toQuery NodeConfigurationOptionsFilter' {..} =

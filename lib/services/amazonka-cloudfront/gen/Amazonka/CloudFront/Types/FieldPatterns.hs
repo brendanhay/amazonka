@@ -72,9 +72,15 @@ instance Core.FromXML FieldPatterns where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable FieldPatterns
+instance Prelude.Hashable FieldPatterns where
+  hashWithSalt _salt FieldPatterns' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData FieldPatterns
+instance Prelude.NFData FieldPatterns where
+  rnf FieldPatterns' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML FieldPatterns where
   toXML FieldPatterns' {..} =

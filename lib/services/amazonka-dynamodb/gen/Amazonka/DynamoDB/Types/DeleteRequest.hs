@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.DeleteRequest where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,9 +69,12 @@ instance Core.FromJSON DeleteRequest where
             Prelude.<$> (x Core..:? "Key" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeleteRequest
+instance Prelude.Hashable DeleteRequest where
+  hashWithSalt _salt DeleteRequest' {..} =
+    _salt `Prelude.hashWithSalt` key
 
-instance Prelude.NFData DeleteRequest
+instance Prelude.NFData DeleteRequest where
+  rnf DeleteRequest' {..} = Prelude.rnf key
 
 instance Core.ToJSON DeleteRequest where
   toJSON DeleteRequest' {..} =

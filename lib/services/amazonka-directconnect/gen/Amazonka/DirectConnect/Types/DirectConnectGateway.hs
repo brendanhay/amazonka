@@ -156,6 +156,20 @@ instance Core.FromJSON DirectConnectGateway where
             Prelude.<*> (x Core..:? "ownerAccount")
       )
 
-instance Prelude.Hashable DirectConnectGateway
+instance Prelude.Hashable DirectConnectGateway where
+  hashWithSalt _salt DirectConnectGateway' {..} =
+    _salt `Prelude.hashWithSalt` directConnectGatewayId
+      `Prelude.hashWithSalt` stateChangeError
+      `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` directConnectGatewayName
+      `Prelude.hashWithSalt` directConnectGatewayState
+      `Prelude.hashWithSalt` ownerAccount
 
-instance Prelude.NFData DirectConnectGateway
+instance Prelude.NFData DirectConnectGateway where
+  rnf DirectConnectGateway' {..} =
+    Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf stateChangeError
+      `Prelude.seq` Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf directConnectGatewayName
+      `Prelude.seq` Prelude.rnf directConnectGatewayState
+      `Prelude.seq` Prelude.rnf ownerAccount

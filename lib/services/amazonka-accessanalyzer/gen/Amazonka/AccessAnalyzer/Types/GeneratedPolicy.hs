@@ -69,6 +69,9 @@ instance Core.FromJSON GeneratedPolicy where
           GeneratedPolicy' Prelude.<$> (x Core..: "policy")
       )
 
-instance Prelude.Hashable GeneratedPolicy
+instance Prelude.Hashable GeneratedPolicy where
+  hashWithSalt _salt GeneratedPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData GeneratedPolicy
+instance Prelude.NFData GeneratedPolicy where
+  rnf GeneratedPolicy' {..} = Prelude.rnf policy

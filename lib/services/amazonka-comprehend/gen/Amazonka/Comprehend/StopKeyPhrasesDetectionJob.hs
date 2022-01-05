@@ -100,9 +100,13 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopKeyPhrasesDetectionJob
+instance Prelude.Hashable StopKeyPhrasesDetectionJob where
+  hashWithSalt _salt StopKeyPhrasesDetectionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopKeyPhrasesDetectionJob
+instance Prelude.NFData StopKeyPhrasesDetectionJob where
+  rnf StopKeyPhrasesDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders StopKeyPhrasesDetectionJob where
   toHeaders =
@@ -189,3 +193,8 @@ stopKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\StopKeyPhrasesDetect
 instance
   Prelude.NFData
     StopKeyPhrasesDetectionJobResponse
+  where
+  rnf StopKeyPhrasesDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

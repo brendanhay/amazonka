@@ -337,9 +337,33 @@ instance Core.AWSRequest ModifyReplicationInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReplicationInstance
+instance Prelude.Hashable ModifyReplicationInstance where
+  hashWithSalt _salt ModifyReplicationInstance' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` replicationInstanceClass
+      `Prelude.hashWithSalt` replicationInstanceIdentifier
+      `Prelude.hashWithSalt` replicationInstanceArn
 
-instance Prelude.NFData ModifyReplicationInstance
+instance Prelude.NFData ModifyReplicationInstance where
+  rnf ModifyReplicationInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf replicationInstanceClass
+      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
 
 instance Core.ToHeaders ModifyReplicationInstance where
   toHeaders =
@@ -435,3 +459,7 @@ modifyReplicationInstanceResponse_httpStatus = Lens.lens (\ModifyReplicationInst
 instance
   Prelude.NFData
     ModifyReplicationInstanceResponse
+  where
+  rnf ModifyReplicationInstanceResponse' {..} =
+    Prelude.rnf replicationInstance
+      `Prelude.seq` Prelude.rnf httpStatus

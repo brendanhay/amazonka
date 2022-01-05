@@ -132,6 +132,16 @@ instance Core.FromJSON PortfolioShareDetail where
             Prelude.<*> (x Core..:? "Accepted")
       )
 
-instance Prelude.Hashable PortfolioShareDetail
+instance Prelude.Hashable PortfolioShareDetail where
+  hashWithSalt _salt PortfolioShareDetail' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` shareTagOptions
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` accepted
 
-instance Prelude.NFData PortfolioShareDetail
+instance Prelude.NFData PortfolioShareDetail where
+  rnf PortfolioShareDetail' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf shareTagOptions
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf accepted

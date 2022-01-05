@@ -108,9 +108,15 @@ instance Core.AWSRequest DescribeAuditSuppression where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuditSuppression
+instance Prelude.Hashable DescribeAuditSuppression where
+  hashWithSalt _salt DescribeAuditSuppression' {..} =
+    _salt `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` resourceIdentifier
 
-instance Prelude.NFData DescribeAuditSuppression
+instance Prelude.NFData DescribeAuditSuppression where
+  rnf DescribeAuditSuppression' {..} =
+    Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance Core.ToHeaders DescribeAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,3 +213,11 @@ describeAuditSuppressionResponse_httpStatus = Lens.lens (\DescribeAuditSuppressi
 instance
   Prelude.NFData
     DescribeAuditSuppressionResponse
+  where
+  rnf DescribeAuditSuppressionResponse' {..} =
+    Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf suppressIndefinitely
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

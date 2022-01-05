@@ -177,6 +177,22 @@ instance Core.FromXML TypeConfigurationDetails where
       Prelude.<*> (x Core..@? "Configuration")
       Prelude.<*> (x Core..@? "IsDefaultConfiguration")
 
-instance Prelude.Hashable TypeConfigurationDetails
+instance Prelude.Hashable TypeConfigurationDetails where
+  hashWithSalt _salt TypeConfigurationDetails' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` typeArn
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` isDefaultConfiguration
 
-instance Prelude.NFData TypeConfigurationDetails
+instance Prelude.NFData TypeConfigurationDetails where
+  rnf TypeConfigurationDetails' {..} =
+    Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf typeArn
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf isDefaultConfiguration

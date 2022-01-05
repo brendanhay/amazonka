@@ -109,6 +109,20 @@ instance Core.FromXML AlarmHistoryItem where
       Prelude.<*> (x Core..@? "HistorySummary")
       Prelude.<*> (x Core..@? "Timestamp")
 
-instance Prelude.Hashable AlarmHistoryItem
+instance Prelude.Hashable AlarmHistoryItem where
+  hashWithSalt _salt AlarmHistoryItem' {..} =
+    _salt `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` historyItemType
+      `Prelude.hashWithSalt` historyData
+      `Prelude.hashWithSalt` alarmType
+      `Prelude.hashWithSalt` historySummary
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData AlarmHistoryItem
+instance Prelude.NFData AlarmHistoryItem where
+  rnf AlarmHistoryItem' {..} =
+    Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf historyItemType
+      `Prelude.seq` Prelude.rnf historyData
+      `Prelude.seq` Prelude.rnf alarmType
+      `Prelude.seq` Prelude.rnf historySummary
+      `Prelude.seq` Prelude.rnf timestamp

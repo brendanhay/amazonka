@@ -440,6 +440,9 @@ module Amazonka.DynamoDB
 
     -- * Types
 
+    -- ** Common
+    module Amazonka.DynamoDB.Internal,
+
     -- ** AttributeAction
     AttributeAction (..),
 
@@ -543,10 +546,6 @@ module Amazonka.DynamoDB
     -- ** AttributeDefinition
     AttributeDefinition (AttributeDefinition'),
     newAttributeDefinition,
-
-    -- ** AttributeValue
-    AttributeValue (AttributeValue'),
-    newAttributeValue,
 
     -- ** AttributeValueUpdate
     AttributeValueUpdate (AttributeValueUpdate'),
@@ -945,6 +944,7 @@ import Amazonka.DynamoDB.ExecuteStatement
 import Amazonka.DynamoDB.ExecuteTransaction
 import Amazonka.DynamoDB.ExportTableToPointInTime
 import Amazonka.DynamoDB.GetItem
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Lens
 import Amazonka.DynamoDB.ListBackups
 import Amazonka.DynamoDB.ListContributorInsights

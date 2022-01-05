@@ -99,9 +99,21 @@ oAuthCredentials_clientId = Lens.lens (\OAuthCredentials' {clientId} -> clientId
 oAuthCredentials_clientSecret :: Lens.Lens' OAuthCredentials Prelude.Text
 oAuthCredentials_clientSecret = Lens.lens (\OAuthCredentials' {clientSecret} -> clientSecret) (\s@OAuthCredentials' {} a -> s {clientSecret = a} :: OAuthCredentials) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable OAuthCredentials
+instance Prelude.Hashable OAuthCredentials where
+  hashWithSalt _salt OAuthCredentials' {..} =
+    _salt `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` oAuthRequest
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` clientSecret
 
-instance Prelude.NFData OAuthCredentials
+instance Prelude.NFData OAuthCredentials where
+  rnf OAuthCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf oAuthRequest
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance Core.ToJSON OAuthCredentials where
   toJSON OAuthCredentials' {..} =

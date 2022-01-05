@@ -126,9 +126,17 @@ instance Core.AWSRequest DeleteOTAUpdate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOTAUpdate
+instance Prelude.Hashable DeleteOTAUpdate where
+  hashWithSalt _salt DeleteOTAUpdate' {..} =
+    _salt `Prelude.hashWithSalt` forceDeleteAWSJob
+      `Prelude.hashWithSalt` deleteStream
+      `Prelude.hashWithSalt` otaUpdateId
 
-instance Prelude.NFData DeleteOTAUpdate
+instance Prelude.NFData DeleteOTAUpdate where
+  rnf DeleteOTAUpdate' {..} =
+    Prelude.rnf forceDeleteAWSJob
+      `Prelude.seq` Prelude.rnf deleteStream
+      `Prelude.seq` Prelude.rnf otaUpdateId
 
 instance Core.ToHeaders DeleteOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +180,6 @@ newDeleteOTAUpdateResponse pHttpStatus_ =
 deleteOTAUpdateResponse_httpStatus :: Lens.Lens' DeleteOTAUpdateResponse Prelude.Int
 deleteOTAUpdateResponse_httpStatus = Lens.lens (\DeleteOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@DeleteOTAUpdateResponse' {} a -> s {httpStatus = a} :: DeleteOTAUpdateResponse)
 
-instance Prelude.NFData DeleteOTAUpdateResponse
+instance Prelude.NFData DeleteOTAUpdateResponse where
+  rnf DeleteOTAUpdateResponse' {..} =
+    Prelude.rnf httpStatus

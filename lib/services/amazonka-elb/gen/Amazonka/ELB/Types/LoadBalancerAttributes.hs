@@ -179,9 +179,21 @@ instance Core.FromXML LoadBalancerAttributes where
       Prelude.<*> (x Core..@? "ConnectionSettings")
       Prelude.<*> (x Core..@? "ConnectionDraining")
 
-instance Prelude.Hashable LoadBalancerAttributes
+instance Prelude.Hashable LoadBalancerAttributes where
+  hashWithSalt _salt LoadBalancerAttributes' {..} =
+    _salt `Prelude.hashWithSalt` crossZoneLoadBalancing
+      `Prelude.hashWithSalt` accessLog
+      `Prelude.hashWithSalt` additionalAttributes
+      `Prelude.hashWithSalt` connectionSettings
+      `Prelude.hashWithSalt` connectionDraining
 
-instance Prelude.NFData LoadBalancerAttributes
+instance Prelude.NFData LoadBalancerAttributes where
+  rnf LoadBalancerAttributes' {..} =
+    Prelude.rnf crossZoneLoadBalancing
+      `Prelude.seq` Prelude.rnf accessLog
+      `Prelude.seq` Prelude.rnf additionalAttributes
+      `Prelude.seq` Prelude.rnf connectionSettings
+      `Prelude.seq` Prelude.rnf connectionDraining
 
 instance Core.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =

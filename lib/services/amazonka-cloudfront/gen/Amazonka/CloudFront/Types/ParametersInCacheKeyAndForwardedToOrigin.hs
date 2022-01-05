@@ -332,10 +332,27 @@ instance
 instance
   Prelude.Hashable
     ParametersInCacheKeyAndForwardedToOrigin
+  where
+  hashWithSalt
+    _salt
+    ParametersInCacheKeyAndForwardedToOrigin' {..} =
+      _salt
+        `Prelude.hashWithSalt` enableAcceptEncodingBrotli
+        `Prelude.hashWithSalt` enableAcceptEncodingGzip
+        `Prelude.hashWithSalt` headersConfig
+        `Prelude.hashWithSalt` cookiesConfig
+        `Prelude.hashWithSalt` queryStringsConfig
 
 instance
   Prelude.NFData
     ParametersInCacheKeyAndForwardedToOrigin
+  where
+  rnf ParametersInCacheKeyAndForwardedToOrigin' {..} =
+    Prelude.rnf enableAcceptEncodingBrotli
+      `Prelude.seq` Prelude.rnf enableAcceptEncodingGzip
+      `Prelude.seq` Prelude.rnf headersConfig
+      `Prelude.seq` Prelude.rnf cookiesConfig
+      `Prelude.seq` Prelude.rnf queryStringsConfig
 
 instance
   Core.ToXML

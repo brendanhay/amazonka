@@ -139,10 +139,20 @@ instance
 instance
   Prelude.Hashable
     AcceptDomainTransferFromAnotherAwsAccount
+  where
+  hashWithSalt
+    _salt
+    AcceptDomainTransferFromAnotherAwsAccount' {..} =
+      _salt `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` password
 
 instance
   Prelude.NFData
     AcceptDomainTransferFromAnotherAwsAccount
+  where
+  rnf AcceptDomainTransferFromAnotherAwsAccount' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToHeaders
@@ -239,3 +249,8 @@ acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus = Lens.lens (\Accep
 instance
   Prelude.NFData
     AcceptDomainTransferFromAnotherAwsAccountResponse
+  where
+  rnf
+    AcceptDomainTransferFromAnotherAwsAccountResponse' {..} =
+      Prelude.rnf operationId
+        `Prelude.seq` Prelude.rnf httpStatus

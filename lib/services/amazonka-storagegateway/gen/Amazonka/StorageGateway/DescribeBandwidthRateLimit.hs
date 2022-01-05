@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeBandwidthRateLimit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBandwidthRateLimit
+instance Prelude.Hashable DescribeBandwidthRateLimit where
+  hashWithSalt _salt DescribeBandwidthRateLimit' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeBandwidthRateLimit
+instance Prelude.NFData DescribeBandwidthRateLimit where
+  rnf DescribeBandwidthRateLimit' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeBandwidthRateLimit where
   toHeaders =
@@ -204,3 +208,9 @@ describeBandwidthRateLimitResponse_httpStatus = Lens.lens (\DescribeBandwidthRat
 instance
   Prelude.NFData
     DescribeBandwidthRateLimitResponse
+  where
+  rnf DescribeBandwidthRateLimitResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -121,9 +121,15 @@ instance Core.AWSRequest DescribeProductView where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProductView
+instance Prelude.Hashable DescribeProductView where
+  hashWithSalt _salt DescribeProductView' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeProductView
+instance Prelude.NFData DescribeProductView where
+  rnf DescribeProductView' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribeProductView where
   toHeaders =
@@ -204,4 +210,8 @@ describeProductViewResponse_provisioningArtifacts = Lens.lens (\DescribeProductV
 describeProductViewResponse_httpStatus :: Lens.Lens' DescribeProductViewResponse Prelude.Int
 describeProductViewResponse_httpStatus = Lens.lens (\DescribeProductViewResponse' {httpStatus} -> httpStatus) (\s@DescribeProductViewResponse' {} a -> s {httpStatus = a} :: DescribeProductViewResponse)
 
-instance Prelude.NFData DescribeProductViewResponse
+instance Prelude.NFData DescribeProductViewResponse where
+  rnf DescribeProductViewResponse' {..} =
+    Prelude.rnf productViewSummary
+      `Prelude.seq` Prelude.rnf provisioningArtifacts
+      `Prelude.seq` Prelude.rnf httpStatus

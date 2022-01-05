@@ -221,7 +221,25 @@ instance Core.FromJSON WorkflowExecutionConfiguration where
 instance
   Prelude.Hashable
     WorkflowExecutionConfiguration
+  where
+  hashWithSalt
+    _salt
+    WorkflowExecutionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` lambdaRole
+        `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` taskStartToCloseTimeout
+        `Prelude.hashWithSalt` executionStartToCloseTimeout
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` childPolicy
 
 instance
   Prelude.NFData
     WorkflowExecutionConfiguration
+  where
+  rnf WorkflowExecutionConfiguration' {..} =
+    Prelude.rnf lambdaRole
+      `Prelude.seq` Prelude.rnf taskPriority
+      `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf childPolicy

@@ -154,9 +154,23 @@ instance Core.AWSRequest UpdateSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSchema
+instance Prelude.Hashable UpdateSchema where
+  hashWithSalt _salt UpdateSchema' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` clientTokenId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaName
 
-instance Prelude.NFData UpdateSchema
+instance Prelude.NFData UpdateSchema where
+  rnf UpdateSchema' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf clientTokenId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaName
 
 instance Core.ToHeaders UpdateSchema where
   toHeaders =
@@ -293,4 +307,14 @@ updateSchemaResponse_tags = Lens.lens (\UpdateSchemaResponse' {tags} -> tags) (\
 updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Prelude.Int
 updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus} -> httpStatus) (\s@UpdateSchemaResponse' {} a -> s {httpStatus = a} :: UpdateSchemaResponse)
 
-instance Prelude.NFData UpdateSchemaResponse
+instance Prelude.NFData UpdateSchemaResponse where
+  rnf UpdateSchemaResponse' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf versionCreatedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

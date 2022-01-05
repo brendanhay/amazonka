@@ -392,9 +392,27 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMultipartUploads
+instance Prelude.Hashable ListMultipartUploads where
+  hashWithSalt _salt ListMultipartUploads' {..} =
+    _salt `Prelude.hashWithSalt` keyMarker
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` uploadIdMarker
+      `Prelude.hashWithSalt` maxUploads
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData ListMultipartUploads
+instance Prelude.NFData ListMultipartUploads where
+  rnf ListMultipartUploads' {..} =
+    Prelude.rnf keyMarker
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf uploadIdMarker
+      `Prelude.seq` Prelude.rnf maxUploads
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders ListMultipartUploads where
   toHeaders ListMultipartUploads' {..} =
@@ -623,4 +641,18 @@ listMultipartUploadsResponse_delimiter = Lens.lens (\ListMultipartUploadsRespons
 listMultipartUploadsResponse_httpStatus :: Lens.Lens' ListMultipartUploadsResponse Prelude.Int
 listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsResponse' {httpStatus} -> httpStatus) (\s@ListMultipartUploadsResponse' {} a -> s {httpStatus = a} :: ListMultipartUploadsResponse)
 
-instance Prelude.NFData ListMultipartUploadsResponse
+instance Prelude.NFData ListMultipartUploadsResponse where
+  rnf ListMultipartUploadsResponse' {..} =
+    Prelude.rnf keyMarker
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf commonPrefixes
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf uploadIdMarker
+      `Prelude.seq` Prelude.rnf maxUploads
+      `Prelude.seq` Prelude.rnf nextKeyMarker
+      `Prelude.seq` Prelude.rnf uploads
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf nextUploadIdMarker
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf httpStatus

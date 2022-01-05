@@ -59,6 +59,9 @@ instance Core.FromJSON HoneycodeMetadata where
             Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable HoneycodeMetadata
+instance Prelude.Hashable HoneycodeMetadata where
+  hashWithSalt _salt HoneycodeMetadata' {..} =
+    _salt `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData HoneycodeMetadata
+instance Prelude.NFData HoneycodeMetadata where
+  rnf HoneycodeMetadata' {..} = Prelude.rnf oAuthScopes

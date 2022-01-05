@@ -688,9 +688,45 @@ instance Core.AWSRequest CreateChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChangeSet
+instance Prelude.Hashable CreateChangeSet where
+  hashWithSalt _salt CreateChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` changeSetType
+      `Prelude.hashWithSalt` usePreviousTemplate
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` notificationARNs
+      `Prelude.hashWithSalt` includeNestedStacks
+      `Prelude.hashWithSalt` resourcesToImport
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` rollbackConfiguration
+      `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` changeSetName
 
-instance Prelude.NFData CreateChangeSet
+instance Prelude.NFData CreateChangeSet where
+  rnf CreateChangeSet' {..} =
+    Prelude.rnf changeSetType
+      `Prelude.seq` Prelude.rnf usePreviousTemplate
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf includeNestedStacks
+      `Prelude.seq` Prelude.rnf resourcesToImport
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf rollbackConfiguration
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf changeSetName
 
 instance Core.ToHeaders CreateChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -792,4 +828,8 @@ createChangeSetResponse_stackId = Lens.lens (\CreateChangeSetResponse' {stackId}
 createChangeSetResponse_httpStatus :: Lens.Lens' CreateChangeSetResponse Prelude.Int
 createChangeSetResponse_httpStatus = Lens.lens (\CreateChangeSetResponse' {httpStatus} -> httpStatus) (\s@CreateChangeSetResponse' {} a -> s {httpStatus = a} :: CreateChangeSetResponse)
 
-instance Prelude.NFData CreateChangeSetResponse
+instance Prelude.NFData CreateChangeSetResponse where
+  rnf CreateChangeSetResponse' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

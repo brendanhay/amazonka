@@ -90,9 +90,17 @@ instance Core.FromJSON Ulimit where
             Prelude.<*> (x Core..: "softLimit")
       )
 
-instance Prelude.Hashable Ulimit
+instance Prelude.Hashable Ulimit where
+  hashWithSalt _salt Ulimit' {..} =
+    _salt `Prelude.hashWithSalt` hardLimit
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` softLimit
 
-instance Prelude.NFData Ulimit
+instance Prelude.NFData Ulimit where
+  rnf Ulimit' {..} =
+    Prelude.rnf hardLimit
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf softLimit
 
 instance Core.ToJSON Ulimit where
   toJSON Ulimit' {..} =

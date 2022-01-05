@@ -284,6 +284,40 @@ instance Core.FromXML ScalingPolicy where
       Prelude.<*> (x Core..@? "MetricAggregationType")
       Prelude.<*> (x Core..@? "MinAdjustmentMagnitude")
 
-instance Prelude.Hashable ScalingPolicy
+instance Prelude.Hashable ScalingPolicy where
+  hashWithSalt _salt ScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` minAdjustmentStep
+      `Prelude.hashWithSalt` estimatedInstanceWarmup
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` stepAdjustments
+      `Prelude.hashWithSalt` targetTrackingConfiguration
+      `Prelude.hashWithSalt` adjustmentType
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` predictiveScalingConfiguration
+      `Prelude.hashWithSalt` scalingAdjustment
+      `Prelude.hashWithSalt` cooldown
+      `Prelude.hashWithSalt` policyARN
+      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` metricAggregationType
+      `Prelude.hashWithSalt` minAdjustmentMagnitude
 
-instance Prelude.NFData ScalingPolicy
+instance Prelude.NFData ScalingPolicy where
+  rnf ScalingPolicy' {..} =
+    Prelude.rnf minAdjustmentStep
+      `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf stepAdjustments
+      `Prelude.seq` Prelude.rnf targetTrackingConfiguration
+      `Prelude.seq` Prelude.rnf adjustmentType
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
+      `Prelude.seq` Prelude.rnf scalingAdjustment
+      `Prelude.seq` Prelude.rnf cooldown
+      `Prelude.seq` Prelude.rnf policyARN
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf metricAggregationType
+      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude

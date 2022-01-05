@@ -178,9 +178,21 @@ instance Core.AWSRequest CreateLanguageModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLanguageModel
+instance Prelude.Hashable CreateLanguageModel where
+  hashWithSalt _salt CreateLanguageModel' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` baseModelName
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` inputDataConfig
 
-instance Prelude.NFData CreateLanguageModel
+instance Prelude.NFData CreateLanguageModel where
+  rnf CreateLanguageModel' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf baseModelName
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf inputDataConfig
 
 instance Core.ToHeaders CreateLanguageModel where
   toHeaders =
@@ -303,4 +315,11 @@ createLanguageModelResponse_modelStatus = Lens.lens (\CreateLanguageModelRespons
 createLanguageModelResponse_httpStatus :: Lens.Lens' CreateLanguageModelResponse Prelude.Int
 createLanguageModelResponse_httpStatus = Lens.lens (\CreateLanguageModelResponse' {httpStatus} -> httpStatus) (\s@CreateLanguageModelResponse' {} a -> s {httpStatus = a} :: CreateLanguageModelResponse)
 
-instance Prelude.NFData CreateLanguageModelResponse
+instance Prelude.NFData CreateLanguageModelResponse where
+  rnf CreateLanguageModelResponse' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf baseModelName
+      `Prelude.seq` Prelude.rnf modelStatus
+      `Prelude.seq` Prelude.rnf httpStatus

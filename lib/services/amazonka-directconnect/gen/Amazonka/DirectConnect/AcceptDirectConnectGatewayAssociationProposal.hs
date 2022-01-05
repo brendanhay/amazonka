@@ -154,10 +154,27 @@ instance
 instance
   Prelude.Hashable
     AcceptDirectConnectGatewayAssociationProposal
+  where
+  hashWithSalt
+    _salt
+    AcceptDirectConnectGatewayAssociationProposal' {..} =
+      _salt
+        `Prelude.hashWithSalt` overrideAllowedPrefixesToDirectConnectGateway
+        `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` proposalId
+        `Prelude.hashWithSalt` associatedGatewayOwnerAccount
 
 instance
   Prelude.NFData
     AcceptDirectConnectGatewayAssociationProposal
+  where
+  rnf
+    AcceptDirectConnectGatewayAssociationProposal' {..} =
+      Prelude.rnf
+        overrideAllowedPrefixesToDirectConnectGateway
+        `Prelude.seq` Prelude.rnf directConnectGatewayId
+        `Prelude.seq` Prelude.rnf proposalId
+        `Prelude.seq` Prelude.rnf associatedGatewayOwnerAccount
 
 instance
   Core.ToHeaders
@@ -256,3 +273,8 @@ acceptDirectConnectGatewayAssociationProposalResponse_httpStatus = Lens.lens (\A
 instance
   Prelude.NFData
     AcceptDirectConnectGatewayAssociationProposalResponse
+  where
+  rnf
+    AcceptDirectConnectGatewayAssociationProposalResponse' {..} =
+      Prelude.rnf directConnectGatewayAssociation
+        `Prelude.seq` Prelude.rnf httpStatus

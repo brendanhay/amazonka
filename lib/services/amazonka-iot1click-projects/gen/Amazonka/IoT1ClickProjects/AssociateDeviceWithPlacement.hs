@@ -139,8 +139,19 @@ instance Core.AWSRequest AssociateDeviceWithPlacement where
 instance
   Prelude.Hashable
     AssociateDeviceWithPlacement
+  where
+  hashWithSalt _salt AssociateDeviceWithPlacement' {..} =
+    _salt `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` deviceTemplateName
 
-instance Prelude.NFData AssociateDeviceWithPlacement
+instance Prelude.NFData AssociateDeviceWithPlacement where
+  rnf AssociateDeviceWithPlacement' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf placementName
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf deviceTemplateName
 
 instance Core.ToHeaders AssociateDeviceWithPlacement where
   toHeaders =
@@ -207,3 +218,6 @@ associateDeviceWithPlacementResponse_httpStatus = Lens.lens (\AssociateDeviceWit
 instance
   Prelude.NFData
     AssociateDeviceWithPlacementResponse
+  where
+  rnf AssociateDeviceWithPlacementResponse' {..} =
+    Prelude.rnf httpStatus

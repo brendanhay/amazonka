@@ -244,9 +244,22 @@ instance Core.AWSRequest ImportInstallationMedia where
       "ImportInstallationMediaResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ImportInstallationMedia
+instance Prelude.Hashable ImportInstallationMedia where
+  hashWithSalt _salt ImportInstallationMedia' {..} =
+    _salt
+      `Prelude.hashWithSalt` customAvailabilityZoneId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` engineInstallationMediaPath
+      `Prelude.hashWithSalt` oSInstallationMediaPath
 
-instance Prelude.NFData ImportInstallationMedia
+instance Prelude.NFData ImportInstallationMedia where
+  rnf ImportInstallationMedia' {..} =
+    Prelude.rnf customAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf engineInstallationMediaPath
+      `Prelude.seq` Prelude.rnf oSInstallationMediaPath
 
 instance Core.ToHeaders ImportInstallationMedia where
   toHeaders = Prelude.const Prelude.mempty

@@ -89,6 +89,14 @@ instance Core.FromJSON PersonDetail where
             Prelude.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable PersonDetail
+instance Prelude.Hashable PersonDetail where
+  hashWithSalt _salt PersonDetail' {..} =
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` face
 
-instance Prelude.NFData PersonDetail
+instance Prelude.NFData PersonDetail where
+  rnf PersonDetail' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf index
+      `Prelude.seq` Prelude.rnf face

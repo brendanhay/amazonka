@@ -172,6 +172,22 @@ instance Core.FromJSON Problem where
             Prelude.<*> (x Core..:? "suite")
       )
 
-instance Prelude.Hashable Problem
+instance Prelude.Hashable Problem where
+  hashWithSalt _salt Problem' {..} =
+    _salt `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` run
+      `Prelude.hashWithSalt` job
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` suite
 
-instance Prelude.NFData Problem
+instance Prelude.NFData Problem where
+  rnf Problem' {..} =
+    Prelude.rnf device
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf run
+      `Prelude.seq` Prelude.rnf job
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf suite

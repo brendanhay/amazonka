@@ -52,9 +52,12 @@ newVolumeDetail pSize_ = VolumeDetail' {size = pSize_}
 volumeDetail_size :: Lens.Lens' VolumeDetail Prelude.Integer
 volumeDetail_size = Lens.lens (\VolumeDetail' {size} -> size) (\s@VolumeDetail' {} a -> s {size = a} :: VolumeDetail)
 
-instance Prelude.Hashable VolumeDetail
+instance Prelude.Hashable VolumeDetail where
+  hashWithSalt _salt VolumeDetail' {..} =
+    _salt `Prelude.hashWithSalt` size
 
-instance Prelude.NFData VolumeDetail
+instance Prelude.NFData VolumeDetail where
+  rnf VolumeDetail' {..} = Prelude.rnf size
 
 instance Core.ToQuery VolumeDetail where
   toQuery VolumeDetail' {..} =

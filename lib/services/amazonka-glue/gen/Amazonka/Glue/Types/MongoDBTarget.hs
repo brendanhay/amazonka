@@ -105,9 +105,17 @@ instance Core.FromJSON MongoDBTarget where
             Prelude.<*> (x Core..:? "ScanAll")
       )
 
-instance Prelude.Hashable MongoDBTarget
+instance Prelude.Hashable MongoDBTarget where
+  hashWithSalt _salt MongoDBTarget' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` scanAll
 
-instance Prelude.NFData MongoDBTarget
+instance Prelude.NFData MongoDBTarget where
+  rnf MongoDBTarget' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf scanAll
 
 instance Core.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =

@@ -20,8 +20,8 @@
 module Amazonka.DynamoDB.Types.AttributeValueUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AttributeAction
-import Amazonka.DynamoDB.Types.AttributeValue
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -304,9 +304,14 @@ attributeValueUpdate_value = Lens.lens (\AttributeValueUpdate' {value} -> value)
 attributeValueUpdate_action :: Lens.Lens' AttributeValueUpdate (Prelude.Maybe AttributeAction)
 attributeValueUpdate_action = Lens.lens (\AttributeValueUpdate' {action} -> action) (\s@AttributeValueUpdate' {} a -> s {action = a} :: AttributeValueUpdate)
 
-instance Prelude.Hashable AttributeValueUpdate
+instance Prelude.Hashable AttributeValueUpdate where
+  hashWithSalt _salt AttributeValueUpdate' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData AttributeValueUpdate
+instance Prelude.NFData AttributeValueUpdate where
+  rnf AttributeValueUpdate' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON AttributeValueUpdate where
   toJSON AttributeValueUpdate' {..} =

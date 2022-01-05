@@ -89,6 +89,14 @@ instance Core.FromJSON SanitizationWarning where
             Prelude.<*> (x Core..: "reason")
       )
 
-instance Prelude.Hashable SanitizationWarning
+instance Prelude.Hashable SanitizationWarning where
+  hashWithSalt _salt SanitizationWarning' {..} =
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` elementName
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData SanitizationWarning
+instance Prelude.NFData SanitizationWarning where
+  rnf SanitizationWarning' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf elementName
+      `Prelude.seq` Prelude.rnf reason

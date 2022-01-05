@@ -185,8 +185,23 @@ instance Core.AWSRequest PostCommentForComparedCommit where
 instance
   Prelude.Hashable
     PostCommentForComparedCommit
+  where
+  hashWithSalt _salt PostCommentForComparedCommit' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` afterCommitId
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData PostCommentForComparedCommit
+instance Prelude.NFData PostCommentForComparedCommit where
+  rnf PostCommentForComparedCommit' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders PostCommentForComparedCommit where
   toHeaders =
@@ -330,3 +345,13 @@ postCommentForComparedCommitResponse_httpStatus = Lens.lens (\PostCommentForComp
 instance
   Prelude.NFData
     PostCommentForComparedCommitResponse
+  where
+  rnf PostCommentForComparedCommitResponse' {..} =
+    Prelude.rnf beforeBlobId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf afterBlobId
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

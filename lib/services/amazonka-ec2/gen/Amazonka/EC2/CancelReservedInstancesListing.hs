@@ -106,10 +106,19 @@ instance
 instance
   Prelude.Hashable
     CancelReservedInstancesListing
+  where
+  hashWithSalt
+    _salt
+    CancelReservedInstancesListing' {..} =
+      _salt
+        `Prelude.hashWithSalt` reservedInstancesListingId
 
 instance
   Prelude.NFData
     CancelReservedInstancesListing
+  where
+  rnf CancelReservedInstancesListing' {..} =
+    Prelude.rnf reservedInstancesListingId
 
 instance
   Core.ToHeaders
@@ -178,3 +187,7 @@ cancelReservedInstancesListingResponse_httpStatus = Lens.lens (\CancelReservedIn
 instance
   Prelude.NFData
     CancelReservedInstancesListingResponse
+  where
+  rnf CancelReservedInstancesListingResponse' {..} =
+    Prelude.rnf reservedInstancesListings
+      `Prelude.seq` Prelude.rnf httpStatus

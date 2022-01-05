@@ -174,8 +174,23 @@ instance Core.AWSRequest GetProvisionedProductOutputs where
 instance
   Prelude.Hashable
     GetProvisionedProductOutputs
+  where
+  hashWithSalt _salt GetProvisionedProductOutputs' {..} =
+    _salt `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` outputKeys
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` provisionedProductId
 
-instance Prelude.NFData GetProvisionedProductOutputs
+instance Prelude.NFData GetProvisionedProductOutputs where
+  rnf GetProvisionedProductOutputs' {..} =
+    Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf outputKeys
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf provisionedProductId
 
 instance Core.ToHeaders GetProvisionedProductOutputs where
   toHeaders =
@@ -274,3 +289,8 @@ getProvisionedProductOutputsResponse_httpStatus = Lens.lens (\GetProvisionedProd
 instance
   Prelude.NFData
     GetProvisionedProductOutputsResponse
+  where
+  rnf GetProvisionedProductOutputsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf httpStatus

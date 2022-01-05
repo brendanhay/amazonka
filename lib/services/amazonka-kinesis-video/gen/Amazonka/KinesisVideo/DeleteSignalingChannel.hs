@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteSignalingChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSignalingChannel
+instance Prelude.Hashable DeleteSignalingChannel where
+  hashWithSalt _salt DeleteSignalingChannel' {..} =
+    _salt `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` channelARN
 
-instance Prelude.NFData DeleteSignalingChannel
+instance Prelude.NFData DeleteSignalingChannel where
+  rnf DeleteSignalingChannel' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf channelARN
 
 instance Core.ToHeaders DeleteSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,3 +170,6 @@ deleteSignalingChannelResponse_httpStatus = Lens.lens (\DeleteSignalingChannelRe
 instance
   Prelude.NFData
     DeleteSignalingChannelResponse
+  where
+  rnf DeleteSignalingChannelResponse' {..} =
+    Prelude.rnf httpStatus

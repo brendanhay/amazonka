@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateSchedule where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable UpdateSchedule
+instance Prelude.Hashable UpdateSchedule where
+  hashWithSalt _salt UpdateSchedule' {..} =
+    _salt `Prelude.hashWithSalt` jobNames
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateSchedule
+instance Prelude.NFData UpdateSchedule where
+  rnf UpdateSchedule' {..} =
+    Prelude.rnf jobNames
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateSchedule where
   toHeaders =
@@ -191,4 +199,7 @@ updateScheduleResponse_httpStatus = Lens.lens (\UpdateScheduleResponse' {httpSta
 updateScheduleResponse_name :: Lens.Lens' UpdateScheduleResponse Prelude.Text
 updateScheduleResponse_name = Lens.lens (\UpdateScheduleResponse' {name} -> name) (\s@UpdateScheduleResponse' {} a -> s {name = a} :: UpdateScheduleResponse)
 
-instance Prelude.NFData UpdateScheduleResponse
+instance Prelude.NFData UpdateScheduleResponse where
+  rnf UpdateScheduleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

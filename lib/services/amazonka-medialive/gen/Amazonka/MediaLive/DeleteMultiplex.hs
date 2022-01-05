@@ -108,9 +108,12 @@ instance Core.AWSRequest DeleteMultiplex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMultiplex
+instance Prelude.Hashable DeleteMultiplex where
+  hashWithSalt _salt DeleteMultiplex' {..} =
+    _salt `Prelude.hashWithSalt` multiplexId
 
-instance Prelude.NFData DeleteMultiplex
+instance Prelude.NFData DeleteMultiplex where
+  rnf DeleteMultiplex' {..} = Prelude.rnf multiplexId
 
 instance Core.ToHeaders DeleteMultiplex where
   toHeaders =
@@ -252,4 +255,16 @@ deleteMultiplexResponse_tags = Lens.lens (\DeleteMultiplexResponse' {tags} -> ta
 deleteMultiplexResponse_httpStatus :: Lens.Lens' DeleteMultiplexResponse Prelude.Int
 deleteMultiplexResponse_httpStatus = Lens.lens (\DeleteMultiplexResponse' {httpStatus} -> httpStatus) (\s@DeleteMultiplexResponse' {} a -> s {httpStatus = a} :: DeleteMultiplexResponse)
 
-instance Prelude.NFData DeleteMultiplexResponse
+instance Prelude.NFData DeleteMultiplexResponse where
+  rnf DeleteMultiplexResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf programCount
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

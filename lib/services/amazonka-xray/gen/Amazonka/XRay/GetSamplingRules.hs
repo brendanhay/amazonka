@@ -112,9 +112,12 @@ instance Core.AWSRequest GetSamplingRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSamplingRules
+instance Prelude.Hashable GetSamplingRules where
+  hashWithSalt _salt GetSamplingRules' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetSamplingRules
+instance Prelude.NFData GetSamplingRules where
+  rnf GetSamplingRules' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders GetSamplingRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +183,8 @@ getSamplingRulesResponse_nextToken = Lens.lens (\GetSamplingRulesResponse' {next
 getSamplingRulesResponse_httpStatus :: Lens.Lens' GetSamplingRulesResponse Prelude.Int
 getSamplingRulesResponse_httpStatus = Lens.lens (\GetSamplingRulesResponse' {httpStatus} -> httpStatus) (\s@GetSamplingRulesResponse' {} a -> s {httpStatus = a} :: GetSamplingRulesResponse)
 
-instance Prelude.NFData GetSamplingRulesResponse
+instance Prelude.NFData GetSamplingRulesResponse where
+  rnf GetSamplingRulesResponse' {..} =
+    Prelude.rnf samplingRuleRecords
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateDetectorVersionStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDetectorVersionStatus
+instance Prelude.Hashable UpdateDetectorVersionStatus where
+  hashWithSalt _salt UpdateDetectorVersionStatus' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateDetectorVersionStatus
+instance Prelude.NFData UpdateDetectorVersionStatus where
+  rnf UpdateDetectorVersionStatus' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf detectorVersionId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateDetectorVersionStatus where
   toHeaders =
@@ -185,3 +193,6 @@ updateDetectorVersionStatusResponse_httpStatus = Lens.lens (\UpdateDetectorVersi
 instance
   Prelude.NFData
     UpdateDetectorVersionStatusResponse
+  where
+  rnf UpdateDetectorVersionStatusResponse' {..} =
+    Prelude.rnf httpStatus

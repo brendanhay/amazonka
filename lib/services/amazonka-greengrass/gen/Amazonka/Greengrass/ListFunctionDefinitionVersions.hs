@@ -146,10 +146,22 @@ instance
 instance
   Prelude.Hashable
     ListFunctionDefinitionVersions
+  where
+  hashWithSalt
+    _salt
+    ListFunctionDefinitionVersions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` functionDefinitionId
 
 instance
   Prelude.NFData
     ListFunctionDefinitionVersions
+  where
+  rnf ListFunctionDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf functionDefinitionId
 
 instance
   Core.ToHeaders
@@ -235,3 +247,8 @@ listFunctionDefinitionVersionsResponse_httpStatus = Lens.lens (\ListFunctionDefi
 instance
   Prelude.NFData
     ListFunctionDefinitionVersionsResponse
+  where
+  rnf ListFunctionDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

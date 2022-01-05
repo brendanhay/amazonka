@@ -71,6 +71,12 @@ instance Core.FromJSON GroupNameAndArn where
             Prelude.<*> (x Core..:? "groupName")
       )
 
-instance Prelude.Hashable GroupNameAndArn
+instance Prelude.Hashable GroupNameAndArn where
+  hashWithSalt _salt GroupNameAndArn' {..} =
+    _salt `Prelude.hashWithSalt` groupArn
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData GroupNameAndArn
+instance Prelude.NFData GroupNameAndArn where
+  rnf GroupNameAndArn' {..} =
+    Prelude.rnf groupArn
+      `Prelude.seq` Prelude.rnf groupName

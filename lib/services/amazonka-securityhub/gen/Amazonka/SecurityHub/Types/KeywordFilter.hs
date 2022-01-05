@@ -58,9 +58,12 @@ instance Core.FromJSON KeywordFilter where
           KeywordFilter' Prelude.<$> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable KeywordFilter
+instance Prelude.Hashable KeywordFilter where
+  hashWithSalt _salt KeywordFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData KeywordFilter
+instance Prelude.NFData KeywordFilter where
+  rnf KeywordFilter' {..} = Prelude.rnf value
 
 instance Core.ToJSON KeywordFilter where
   toJSON KeywordFilter' {..} =

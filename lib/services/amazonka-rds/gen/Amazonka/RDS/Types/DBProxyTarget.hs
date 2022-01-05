@@ -159,6 +159,24 @@ instance Core.FromXML DBProxyTarget where
       Prelude.<*> (x Core..@? "Endpoint")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable DBProxyTarget
+instance Prelude.Hashable DBProxyTarget where
+  hashWithSalt _salt DBProxyTarget' {..} =
+    _salt `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` targetHealth
+      `Prelude.hashWithSalt` trackedClusterId
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` rdsResourceId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData DBProxyTarget
+instance Prelude.NFData DBProxyTarget where
+  rnf DBProxyTarget' {..} =
+    Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf targetHealth
+      `Prelude.seq` Prelude.rnf trackedClusterId
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf rdsResourceId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf port

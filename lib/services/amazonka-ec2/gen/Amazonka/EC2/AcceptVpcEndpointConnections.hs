@@ -124,8 +124,17 @@ instance Core.AWSRequest AcceptVpcEndpointConnections where
 instance
   Prelude.Hashable
     AcceptVpcEndpointConnections
+  where
+  hashWithSalt _salt AcceptVpcEndpointConnections' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` vpcEndpointIds
 
-instance Prelude.NFData AcceptVpcEndpointConnections
+instance Prelude.NFData AcceptVpcEndpointConnections where
+  rnf AcceptVpcEndpointConnections' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf vpcEndpointIds
 
 instance Core.ToHeaders AcceptVpcEndpointConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +201,7 @@ acceptVpcEndpointConnectionsResponse_httpStatus = Lens.lens (\AcceptVpcEndpointC
 instance
   Prelude.NFData
     AcceptVpcEndpointConnectionsResponse
+  where
+  rnf AcceptVpcEndpointConnectionsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf httpStatus

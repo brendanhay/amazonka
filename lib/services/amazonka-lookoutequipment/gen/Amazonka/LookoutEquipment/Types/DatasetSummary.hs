@@ -96,6 +96,16 @@ instance Core.FromJSON DatasetSummary where
             Prelude.<*> (x Core..:? "DatasetName")
       )
 
-instance Prelude.Hashable DatasetSummary
+instance Prelude.Hashable DatasetSummary where
+  hashWithSalt _salt DatasetSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` datasetName
 
-instance Prelude.NFData DatasetSummary
+instance Prelude.NFData DatasetSummary where
+  rnf DatasetSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf datasetName

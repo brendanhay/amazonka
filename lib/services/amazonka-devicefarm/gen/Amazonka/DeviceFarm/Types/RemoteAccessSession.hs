@@ -481,6 +481,50 @@ instance Core.FromJSON RemoteAccessSession where
             Prelude.<*> (x Core..:? "started")
       )
 
-instance Prelude.Hashable RemoteAccessSession
+instance Prelude.Hashable RemoteAccessSession where
+  hashWithSalt _salt RemoteAccessSession' {..} =
+    _salt `Prelude.hashWithSalt` billingMethod
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` deviceUdid
+      `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` remoteRecordEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` remoteRecordAppArn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` remoteDebugEnabled
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` hostAddress
+      `Prelude.hashWithSalt` interactionMode
+      `Prelude.hashWithSalt` started
 
-instance Prelude.NFData RemoteAccessSession
+instance Prelude.NFData RemoteAccessSession where
+  rnf RemoteAccessSession' {..} =
+    Prelude.rnf billingMethod
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf deviceUdid
+      `Prelude.seq` Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf remoteRecordEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf remoteRecordAppArn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deviceMinutes
+      `Prelude.seq` Prelude.rnf remoteDebugEnabled
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf hostAddress
+      `Prelude.seq` Prelude.rnf interactionMode
+      `Prelude.seq` Prelude.rnf started

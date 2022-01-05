@@ -83,9 +83,12 @@ instance Core.AWSRequest DisableTopicRule where
   response =
     Response.receiveNull DisableTopicRuleResponse'
 
-instance Prelude.Hashable DisableTopicRule
+instance Prelude.Hashable DisableTopicRule where
+  hashWithSalt _salt DisableTopicRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData DisableTopicRule
+instance Prelude.NFData DisableTopicRule where
+  rnf DisableTopicRule' {..} = Prelude.rnf ruleName
 
 instance Core.ToHeaders DisableTopicRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -116,4 +119,5 @@ newDisableTopicRuleResponse ::
 newDisableTopicRuleResponse =
   DisableTopicRuleResponse'
 
-instance Prelude.NFData DisableTopicRuleResponse
+instance Prelude.NFData DisableTopicRuleResponse where
+  rnf _ = ()

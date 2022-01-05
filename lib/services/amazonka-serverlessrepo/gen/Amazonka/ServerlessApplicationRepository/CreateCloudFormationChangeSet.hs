@@ -423,8 +423,37 @@ instance
 instance
   Prelude.Hashable
     CreateCloudFormationChangeSet
+  where
+  hashWithSalt _salt CreateCloudFormationChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` rollbackConfiguration
+      `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData CreateCloudFormationChangeSet
+instance Prelude.NFData CreateCloudFormationChangeSet where
+  rnf CreateCloudFormationChangeSet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf rollbackConfiguration
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders CreateCloudFormationChangeSet where
   toHeaders =
@@ -558,3 +587,10 @@ createCloudFormationChangeSetResponse_httpStatus = Lens.lens (\CreateCloudFormat
 instance
   Prelude.NFData
     CreateCloudFormationChangeSetResponse
+  where
+  rnf CreateCloudFormationChangeSetResponse' {..} =
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

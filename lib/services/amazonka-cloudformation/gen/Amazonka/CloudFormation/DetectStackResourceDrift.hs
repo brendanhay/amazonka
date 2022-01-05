@@ -118,9 +118,15 @@ instance Core.AWSRequest DetectStackResourceDrift where
             Prelude.<*> (x Core..@ "StackResourceDrift")
       )
 
-instance Prelude.Hashable DetectStackResourceDrift
+instance Prelude.Hashable DetectStackResourceDrift where
+  hashWithSalt _salt DetectStackResourceDrift' {..} =
+    _salt `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` logicalResourceId
 
-instance Prelude.NFData DetectStackResourceDrift
+instance Prelude.NFData DetectStackResourceDrift where
+  rnf DetectStackResourceDrift' {..} =
+    Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf logicalResourceId
 
 instance Core.ToHeaders DetectStackResourceDrift where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,3 +197,7 @@ detectStackResourceDriftResponse_stackResourceDrift = Lens.lens (\DetectStackRes
 instance
   Prelude.NFData
     DetectStackResourceDriftResponse
+  where
+  rnf DetectStackResourceDriftResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stackResourceDrift

@@ -192,9 +192,17 @@ instance Core.AWSRequest ListRetirableGrants where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ListRetirableGrants
+instance Prelude.Hashable ListRetirableGrants where
+  hashWithSalt _salt ListRetirableGrants' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` retiringPrincipal
 
-instance Prelude.NFData ListRetirableGrants
+instance Prelude.NFData ListRetirableGrants where
+  rnf ListRetirableGrants' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf retiringPrincipal
 
 instance Core.ToHeaders ListRetirableGrants where
   toHeaders =

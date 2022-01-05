@@ -75,6 +75,13 @@ instance Core.FromJSON DimensionContribution where
             Prelude.<*> (x Core..:? "DimensionName")
       )
 
-instance Prelude.Hashable DimensionContribution
+instance Prelude.Hashable DimensionContribution where
+  hashWithSalt _salt DimensionContribution' {..} =
+    _salt
+      `Prelude.hashWithSalt` dimensionValueContributionList
+      `Prelude.hashWithSalt` dimensionName
 
-instance Prelude.NFData DimensionContribution
+instance Prelude.NFData DimensionContribution where
+  rnf DimensionContribution' {..} =
+    Prelude.rnf dimensionValueContributionList
+      `Prelude.seq` Prelude.rnf dimensionName

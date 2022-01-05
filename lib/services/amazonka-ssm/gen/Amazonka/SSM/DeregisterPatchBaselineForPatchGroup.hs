@@ -114,10 +114,20 @@ instance
 instance
   Prelude.Hashable
     DeregisterPatchBaselineForPatchGroup
+  where
+  hashWithSalt
+    _salt
+    DeregisterPatchBaselineForPatchGroup' {..} =
+      _salt `Prelude.hashWithSalt` baselineId
+        `Prelude.hashWithSalt` patchGroup
 
 instance
   Prelude.NFData
     DeregisterPatchBaselineForPatchGroup
+  where
+  rnf DeregisterPatchBaselineForPatchGroup' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf patchGroup
 
 instance
   Core.ToHeaders
@@ -213,3 +223,8 @@ deregisterPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\Deregister
 instance
   Prelude.NFData
     DeregisterPatchBaselineForPatchGroupResponse
+  where
+  rnf DeregisterPatchBaselineForPatchGroupResponse' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf patchGroup
+      `Prelude.seq` Prelude.rnf httpStatus

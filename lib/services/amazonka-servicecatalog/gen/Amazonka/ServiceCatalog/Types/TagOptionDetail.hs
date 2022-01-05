@@ -101,6 +101,18 @@ instance Core.FromJSON TagOptionDetail where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable TagOptionDetail
+instance Prelude.Hashable TagOptionDetail where
+  hashWithSalt _salt TagOptionDetail' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData TagOptionDetail
+instance Prelude.NFData TagOptionDetail where
+  rnf TagOptionDetail' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf id

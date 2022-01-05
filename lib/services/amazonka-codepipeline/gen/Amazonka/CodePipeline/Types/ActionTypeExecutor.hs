@@ -139,9 +139,19 @@ instance Core.FromJSON ActionTypeExecutor where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ActionTypeExecutor
+instance Prelude.Hashable ActionTypeExecutor where
+  hashWithSalt _salt ActionTypeExecutor' {..} =
+    _salt `Prelude.hashWithSalt` jobTimeout
+      `Prelude.hashWithSalt` policyStatementsTemplate
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ActionTypeExecutor
+instance Prelude.NFData ActionTypeExecutor where
+  rnf ActionTypeExecutor' {..} =
+    Prelude.rnf jobTimeout
+      `Prelude.seq` Prelude.rnf policyStatementsTemplate
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ActionTypeExecutor where
   toJSON ActionTypeExecutor' {..} =

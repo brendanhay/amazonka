@@ -124,9 +124,17 @@ instance Core.AWSRequest ConfirmProductInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmProductInstance
+instance Prelude.Hashable ConfirmProductInstance where
+  hashWithSalt _salt ConfirmProductInstance' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` productCode
 
-instance Prelude.NFData ConfirmProductInstance
+instance Prelude.NFData ConfirmProductInstance where
+  rnf ConfirmProductInstance' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf productCode
 
 instance Core.ToHeaders ConfirmProductInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +214,8 @@ confirmProductInstanceResponse_httpStatus = Lens.lens (\ConfirmProductInstanceRe
 instance
   Prelude.NFData
     ConfirmProductInstanceResponse
+  where
+  rnf ConfirmProductInstanceResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf httpStatus

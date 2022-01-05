@@ -108,9 +108,17 @@ instance Core.AWSRequest ModifyUserGroup where
       "ModifyUserGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyUserGroup
+instance Prelude.Hashable ModifyUserGroup where
+  hashWithSalt _salt ModifyUserGroup' {..} =
+    _salt `Prelude.hashWithSalt` userIdsToAdd
+      `Prelude.hashWithSalt` userIdsToRemove
+      `Prelude.hashWithSalt` userGroupId
 
-instance Prelude.NFData ModifyUserGroup
+instance Prelude.NFData ModifyUserGroup where
+  rnf ModifyUserGroup' {..} =
+    Prelude.rnf userIdsToAdd
+      `Prelude.seq` Prelude.rnf userIdsToRemove
+      `Prelude.seq` Prelude.rnf userGroupId
 
 instance Core.ToHeaders ModifyUserGroup where
   toHeaders = Prelude.const Prelude.mempty

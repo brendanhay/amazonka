@@ -68,6 +68,11 @@ instance Core.FromXML BundleTaskError where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable BundleTaskError
+instance Prelude.Hashable BundleTaskError where
+  hashWithSalt _salt BundleTaskError' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData BundleTaskError
+instance Prelude.NFData BundleTaskError where
+  rnf BundleTaskError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

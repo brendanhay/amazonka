@@ -92,6 +92,12 @@ instance Core.FromJSON EffectivePatch where
             Prelude.<*> (x Core..:? "PatchStatus")
       )
 
-instance Prelude.Hashable EffectivePatch
+instance Prelude.Hashable EffectivePatch where
+  hashWithSalt _salt EffectivePatch' {..} =
+    _salt `Prelude.hashWithSalt` patch
+      `Prelude.hashWithSalt` patchStatus
 
-instance Prelude.NFData EffectivePatch
+instance Prelude.NFData EffectivePatch where
+  rnf EffectivePatch' {..} =
+    Prelude.rnf patch
+      `Prelude.seq` Prelude.rnf patchStatus

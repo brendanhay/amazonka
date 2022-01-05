@@ -78,9 +78,17 @@ instance Core.FromJSON S3 where
             Prelude.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable S3
+instance Prelude.Hashable S3 where
+  hashWithSalt _salt S3' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData S3
+instance Prelude.NFData S3 where
+  rnf S3' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON S3 where
   toJSON S3' {..} =

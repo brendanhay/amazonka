@@ -121,9 +121,17 @@ instance Core.FromJSON AutomatedAbrSettings where
             Prelude.<*> (x Core..:? "minAbrBitrate")
       )
 
-instance Prelude.Hashable AutomatedAbrSettings
+instance Prelude.Hashable AutomatedAbrSettings where
+  hashWithSalt _salt AutomatedAbrSettings' {..} =
+    _salt `Prelude.hashWithSalt` maxRenditions
+      `Prelude.hashWithSalt` maxAbrBitrate
+      `Prelude.hashWithSalt` minAbrBitrate
 
-instance Prelude.NFData AutomatedAbrSettings
+instance Prelude.NFData AutomatedAbrSettings where
+  rnf AutomatedAbrSettings' {..} =
+    Prelude.rnf maxRenditions
+      `Prelude.seq` Prelude.rnf maxAbrBitrate
+      `Prelude.seq` Prelude.rnf minAbrBitrate
 
 instance Core.ToJSON AutomatedAbrSettings where
   toJSON AutomatedAbrSettings' {..} =

@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteUser where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteUserResponse'
 
-instance Prelude.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser where
+  hashWithSalt _salt DeleteUser' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DeleteUser
+instance Prelude.NFData DeleteUser where
+  rnf DeleteUser' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
@@ -137,4 +143,5 @@ newDeleteUserResponse ::
   DeleteUserResponse
 newDeleteUserResponse = DeleteUserResponse'
 
-instance Prelude.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse where
+  rnf _ = ()

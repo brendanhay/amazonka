@@ -86,9 +86,12 @@ instance Core.AWSRequest GetTrail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTrail
+instance Prelude.Hashable GetTrail where
+  hashWithSalt _salt GetTrail' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetTrail
+instance Prelude.NFData GetTrail where
+  rnf GetTrail' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetTrail where
   toHeaders =
@@ -155,4 +158,7 @@ getTrailResponse_trail = Lens.lens (\GetTrailResponse' {trail} -> trail) (\s@Get
 getTrailResponse_httpStatus :: Lens.Lens' GetTrailResponse Prelude.Int
 getTrailResponse_httpStatus = Lens.lens (\GetTrailResponse' {httpStatus} -> httpStatus) (\s@GetTrailResponse' {} a -> s {httpStatus = a} :: GetTrailResponse)
 
-instance Prelude.NFData GetTrailResponse
+instance Prelude.NFData GetTrailResponse where
+  rnf GetTrailResponse' {..} =
+    Prelude.rnf trail
+      `Prelude.seq` Prelude.rnf httpStatus

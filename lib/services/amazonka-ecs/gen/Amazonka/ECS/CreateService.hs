@@ -1054,9 +1054,58 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateService
+instance Prelude.Hashable CreateService where
+  hashWithSalt _salt CreateService' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` deploymentController
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` schedulingStrategy
+      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deploymentConfiguration
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData CreateService
+instance Prelude.NFData CreateService where
+  rnf CreateService' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf deploymentController
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf schedulingStrategy
+      `Prelude.seq` Prelude.rnf
+        healthCheckGracePeriodSeconds
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf
+        capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        deploymentConfiguration
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToHeaders CreateService where
   toHeaders =
@@ -1192,4 +1241,7 @@ createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> 
 createServiceResponse_httpStatus :: Lens.Lens' CreateServiceResponse Prelude.Int
 createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatus} -> httpStatus) (\s@CreateServiceResponse' {} a -> s {httpStatus = a} :: CreateServiceResponse)
 
-instance Prelude.NFData CreateServiceResponse
+instance Prelude.NFData CreateServiceResponse where
+  rnf CreateServiceResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

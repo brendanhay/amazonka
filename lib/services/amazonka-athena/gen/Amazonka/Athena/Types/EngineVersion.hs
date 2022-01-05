@@ -96,9 +96,15 @@ instance Core.FromJSON EngineVersion where
             Prelude.<*> (x Core..:? "SelectedEngineVersion")
       )
 
-instance Prelude.Hashable EngineVersion
+instance Prelude.Hashable EngineVersion where
+  hashWithSalt _salt EngineVersion' {..} =
+    _salt `Prelude.hashWithSalt` effectiveEngineVersion
+      `Prelude.hashWithSalt` selectedEngineVersion
 
-instance Prelude.NFData EngineVersion
+instance Prelude.NFData EngineVersion where
+  rnf EngineVersion' {..} =
+    Prelude.rnf effectiveEngineVersion
+      `Prelude.seq` Prelude.rnf selectedEngineVersion
 
 instance Core.ToJSON EngineVersion where
   toJSON EngineVersion' {..} =

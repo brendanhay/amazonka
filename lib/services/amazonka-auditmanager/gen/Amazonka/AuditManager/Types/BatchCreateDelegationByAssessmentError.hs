@@ -93,7 +93,20 @@ instance
 instance
   Prelude.Hashable
     BatchCreateDelegationByAssessmentError
+  where
+  hashWithSalt
+    _salt
+    BatchCreateDelegationByAssessmentError' {..} =
+      _salt
+        `Prelude.hashWithSalt` createDelegationRequest
+        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     BatchCreateDelegationByAssessmentError
+  where
+  rnf BatchCreateDelegationByAssessmentError' {..} =
+    Prelude.rnf createDelegationRequest
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

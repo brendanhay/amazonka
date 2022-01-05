@@ -97,6 +97,16 @@ instance Core.FromJSON OrganizationEventDetails where
             Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OrganizationEventDetails
+instance Prelude.Hashable OrganizationEventDetails where
+  hashWithSalt _salt OrganizationEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` eventDescription
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` eventMetadata
 
-instance Prelude.NFData OrganizationEventDetails
+instance Prelude.NFData OrganizationEventDetails where
+  rnf OrganizationEventDetails' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf eventDescription
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf eventMetadata

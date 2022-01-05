@@ -105,9 +105,14 @@ instance Core.AWSRequest DeleteDBClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDBClusterSnapshot
+instance Prelude.Hashable DeleteDBClusterSnapshot where
+  hashWithSalt _salt DeleteDBClusterSnapshot' {..} =
+    _salt
+      `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
 
-instance Prelude.NFData DeleteDBClusterSnapshot
+instance Prelude.NFData DeleteDBClusterSnapshot where
+  rnf DeleteDBClusterSnapshot' {..} =
+    Prelude.rnf dbClusterSnapshotIdentifier
 
 instance Core.ToHeaders DeleteDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +172,7 @@ deleteDBClusterSnapshotResponse_httpStatus = Lens.lens (\DeleteDBClusterSnapshot
 instance
   Prelude.NFData
     DeleteDBClusterSnapshotResponse
+  where
+  rnf DeleteDBClusterSnapshotResponse' {..} =
+    Prelude.rnf dbClusterSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

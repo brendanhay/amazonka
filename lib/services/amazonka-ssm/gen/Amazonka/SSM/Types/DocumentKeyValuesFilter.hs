@@ -132,9 +132,14 @@ documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -
 documentKeyValuesFilter_key :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe Prelude.Text)
 documentKeyValuesFilter_key = Lens.lens (\DocumentKeyValuesFilter' {key} -> key) (\s@DocumentKeyValuesFilter' {} a -> s {key = a} :: DocumentKeyValuesFilter)
 
-instance Prelude.Hashable DocumentKeyValuesFilter
+instance Prelude.Hashable DocumentKeyValuesFilter where
+  hashWithSalt _salt DocumentKeyValuesFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData DocumentKeyValuesFilter
+instance Prelude.NFData DocumentKeyValuesFilter where
+  rnf DocumentKeyValuesFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON DocumentKeyValuesFilter where
   toJSON DocumentKeyValuesFilter' {..} =

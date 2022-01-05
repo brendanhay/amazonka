@@ -79,9 +79,12 @@ instance Core.AWSRequest GetNamespaceDeletionStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNamespaceDeletionStatus
+instance Prelude.Hashable GetNamespaceDeletionStatus where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetNamespaceDeletionStatus
+instance Prelude.NFData GetNamespaceDeletionStatus where
+  rnf _ = ()
 
 instance Core.ToHeaders GetNamespaceDeletionStatus where
   toHeaders =
@@ -185,3 +188,11 @@ getNamespaceDeletionStatusResponse_httpStatus = Lens.lens (\GetNamespaceDeletion
 instance
   Prelude.NFData
     GetNamespaceDeletionStatusResponse
+  where
+  rnf GetNamespaceDeletionStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf httpStatus

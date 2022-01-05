@@ -110,9 +110,15 @@ instance Core.AWSRequest GetIntegration where
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
 
-instance Prelude.Hashable GetIntegration
+instance Prelude.Hashable GetIntegration where
+  hashWithSalt _salt GetIntegration' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData GetIntegration
+instance Prelude.NFData GetIntegration where
+  rnf GetIntegration' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToHeaders GetIntegration where
   toHeaders =
@@ -239,4 +245,12 @@ getIntegrationResponse_createdAt = Lens.lens (\GetIntegrationResponse' {createdA
 getIntegrationResponse_lastUpdatedAt :: Lens.Lens' GetIntegrationResponse Prelude.UTCTime
 getIntegrationResponse_lastUpdatedAt = Lens.lens (\GetIntegrationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIntegrationResponse' {} a -> s {lastUpdatedAt = a} :: GetIntegrationResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetIntegrationResponse
+instance Prelude.NFData GetIntegrationResponse where
+  rnf GetIntegrationResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

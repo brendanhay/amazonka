@@ -438,9 +438,41 @@ instance Core.AWSRequest CreateNotebookInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNotebookInstance
+instance Prelude.Hashable CreateNotebookInstance where
+  hashWithSalt _salt CreateNotebookInstance' {..} =
+    _salt `Prelude.hashWithSalt` acceleratorTypes
+      `Prelude.hashWithSalt` platformIdentifier
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` additionalCodeRepositories
+      `Prelude.hashWithSalt` lifecycleConfigName
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` defaultCodeRepository
+      `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` rootAccess
+      `Prelude.hashWithSalt` directInternetAccess
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notebookInstanceName
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateNotebookInstance
+instance Prelude.NFData CreateNotebookInstance where
+  rnf CreateNotebookInstance' {..} =
+    Prelude.rnf acceleratorTypes
+      `Prelude.seq` Prelude.rnf platformIdentifier
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf additionalCodeRepositories
+      `Prelude.seq` Prelude.rnf lifecycleConfigName
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf defaultCodeRepository
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf rootAccess
+      `Prelude.seq` Prelude.rnf directInternetAccess
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notebookInstanceName
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateNotebookInstance where
   toHeaders =
@@ -538,3 +570,7 @@ createNotebookInstanceResponse_httpStatus = Lens.lens (\CreateNotebookInstanceRe
 instance
   Prelude.NFData
     CreateNotebookInstanceResponse
+  where
+  rnf CreateNotebookInstanceResponse' {..} =
+    Prelude.rnf notebookInstanceArn
+      `Prelude.seq` Prelude.rnf httpStatus

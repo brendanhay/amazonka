@@ -231,9 +231,32 @@ instance Core.FromJSON KinesisSettings where
             Prelude.<*> (x Core..:? "IncludeNullAndEmpty")
       )
 
-instance Prelude.Hashable KinesisSettings
+instance Prelude.Hashable KinesisSettings where
+  hashWithSalt _salt KinesisSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` includeTransactionDetails
+      `Prelude.hashWithSalt` includeTableAlterOperations
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` partitionIncludeSchemaTable
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` includeControlDetails
+      `Prelude.hashWithSalt` noHexPrefix
+      `Prelude.hashWithSalt` includePartitionValue
+      `Prelude.hashWithSalt` messageFormat
+      `Prelude.hashWithSalt` includeNullAndEmpty
 
-instance Prelude.NFData KinesisSettings
+instance Prelude.NFData KinesisSettings where
+  rnf KinesisSettings' {..} =
+    Prelude.rnf includeTransactionDetails
+      `Prelude.seq` Prelude.rnf includeTableAlterOperations
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf includeControlDetails
+      `Prelude.seq` Prelude.rnf noHexPrefix
+      `Prelude.seq` Prelude.rnf includePartitionValue
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf includeNullAndEmpty
 
 instance Core.ToJSON KinesisSettings where
   toJSON KinesisSettings' {..} =

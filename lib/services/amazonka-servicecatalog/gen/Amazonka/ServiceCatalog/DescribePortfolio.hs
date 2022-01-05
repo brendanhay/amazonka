@@ -125,9 +125,15 @@ instance Core.AWSRequest DescribePortfolio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePortfolio
+instance Prelude.Hashable DescribePortfolio where
+  hashWithSalt _salt DescribePortfolio' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribePortfolio
+instance Prelude.NFData DescribePortfolio where
+  rnf DescribePortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribePortfolio where
   toHeaders =
@@ -226,4 +232,10 @@ describePortfolioResponse_tags = Lens.lens (\DescribePortfolioResponse' {tags} -
 describePortfolioResponse_httpStatus :: Lens.Lens' DescribePortfolioResponse Prelude.Int
 describePortfolioResponse_httpStatus = Lens.lens (\DescribePortfolioResponse' {httpStatus} -> httpStatus) (\s@DescribePortfolioResponse' {} a -> s {httpStatus = a} :: DescribePortfolioResponse)
 
-instance Prelude.NFData DescribePortfolioResponse
+instance Prelude.NFData DescribePortfolioResponse where
+  rnf DescribePortfolioResponse' {..} =
+    Prelude.rnf portfolioDetail
+      `Prelude.seq` Prelude.rnf tagOptions
+      `Prelude.seq` Prelude.rnf budgets
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

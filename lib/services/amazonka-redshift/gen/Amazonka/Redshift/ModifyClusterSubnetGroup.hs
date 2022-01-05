@@ -117,9 +117,17 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterSubnetGroup
+instance Prelude.Hashable ModifyClusterSubnetGroup where
+  hashWithSalt _salt ModifyClusterSubnetGroup' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData ModifyClusterSubnetGroup
+instance Prelude.NFData ModifyClusterSubnetGroup where
+  rnf ModifyClusterSubnetGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToHeaders ModifyClusterSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +190,7 @@ modifyClusterSubnetGroupResponse_httpStatus = Lens.lens (\ModifyClusterSubnetGro
 instance
   Prelude.NFData
     ModifyClusterSubnetGroupResponse
+  where
+  rnf ModifyClusterSubnetGroupResponse' {..} =
+    Prelude.rnf clusterSubnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

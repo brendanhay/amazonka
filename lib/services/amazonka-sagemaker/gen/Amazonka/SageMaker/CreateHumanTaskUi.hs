@@ -117,9 +117,17 @@ instance Core.AWSRequest CreateHumanTaskUi where
             Prelude.<*> (x Core..:> "HumanTaskUiArn")
       )
 
-instance Prelude.Hashable CreateHumanTaskUi
+instance Prelude.Hashable CreateHumanTaskUi where
+  hashWithSalt _salt CreateHumanTaskUi' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` humanTaskUiName
+      `Prelude.hashWithSalt` uiTemplate
 
-instance Prelude.NFData CreateHumanTaskUi
+instance Prelude.NFData CreateHumanTaskUi where
+  rnf CreateHumanTaskUi' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf humanTaskUiName
+      `Prelude.seq` Prelude.rnf uiTemplate
 
 instance Core.ToHeaders CreateHumanTaskUi where
   toHeaders =
@@ -199,4 +207,7 @@ createHumanTaskUiResponse_httpStatus = Lens.lens (\CreateHumanTaskUiResponse' {h
 createHumanTaskUiResponse_humanTaskUiArn :: Lens.Lens' CreateHumanTaskUiResponse Prelude.Text
 createHumanTaskUiResponse_humanTaskUiArn = Lens.lens (\CreateHumanTaskUiResponse' {humanTaskUiArn} -> humanTaskUiArn) (\s@CreateHumanTaskUiResponse' {} a -> s {humanTaskUiArn = a} :: CreateHumanTaskUiResponse)
 
-instance Prelude.NFData CreateHumanTaskUiResponse
+instance Prelude.NFData CreateHumanTaskUiResponse where
+  rnf CreateHumanTaskUiResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf humanTaskUiArn

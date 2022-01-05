@@ -237,9 +237,39 @@ instance Core.AWSRequest CreateProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProfile
+instance Prelude.Hashable CreateProfile where
+  hashWithSalt _salt CreateProfile' {..} =
+    _salt `Prelude.hashWithSalt` setupModeDisabled
+      `Prelude.hashWithSalt` pSTNEnabled
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` meetingRoomConfiguration
+      `Prelude.hashWithSalt` dataRetentionOptIn
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` maxVolumeLimit
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` temperatureUnit
+      `Prelude.hashWithSalt` wakeWord
 
-instance Prelude.NFData CreateProfile
+instance Prelude.NFData CreateProfile where
+  rnf CreateProfile' {..} =
+    Prelude.rnf setupModeDisabled
+      `Prelude.seq` Prelude.rnf pSTNEnabled
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf meetingRoomConfiguration
+      `Prelude.seq` Prelude.rnf dataRetentionOptIn
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf maxVolumeLimit
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf temperatureUnit
+      `Prelude.seq` Prelude.rnf wakeWord
 
 instance Core.ToHeaders CreateProfile where
   toHeaders =
@@ -328,4 +358,7 @@ createProfileResponse_profileArn = Lens.lens (\CreateProfileResponse' {profileAr
 createProfileResponse_httpStatus :: Lens.Lens' CreateProfileResponse Prelude.Int
 createProfileResponse_httpStatus = Lens.lens (\CreateProfileResponse' {httpStatus} -> httpStatus) (\s@CreateProfileResponse' {} a -> s {httpStatus = a} :: CreateProfileResponse)
 
-instance Prelude.NFData CreateProfileResponse
+instance Prelude.NFData CreateProfileResponse where
+  rnf CreateProfileResponse' {..} =
+    Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf httpStatus

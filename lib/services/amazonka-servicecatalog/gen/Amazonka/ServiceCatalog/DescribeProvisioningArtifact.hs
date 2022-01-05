@@ -163,8 +163,23 @@ instance Core.AWSRequest DescribeProvisioningArtifact where
 instance
   Prelude.Hashable
     DescribeProvisioningArtifact
+  where
+  hashWithSalt _salt DescribeProvisioningArtifact' {..} =
+    _salt `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` verbose
+      `Prelude.hashWithSalt` provisioningArtifactName
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData DescribeProvisioningArtifact
+instance Prelude.NFData DescribeProvisioningArtifact where
+  rnf DescribeProvisioningArtifact' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf verbose
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
 
 instance Core.ToHeaders DescribeProvisioningArtifact where
   toHeaders =
@@ -264,3 +279,9 @@ describeProvisioningArtifactResponse_httpStatus = Lens.lens (\DescribeProvisioni
 instance
   Prelude.NFData
     DescribeProvisioningArtifactResponse
+  where
+  rnf DescribeProvisioningArtifactResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf info
+      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf httpStatus

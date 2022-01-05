@@ -227,9 +227,23 @@ instance Core.AWSRequest TestDNSAnswer where
             Prelude.<*> (x Core..@ "Protocol")
       )
 
-instance Prelude.Hashable TestDNSAnswer
+instance Prelude.Hashable TestDNSAnswer where
+  hashWithSalt _salt TestDNSAnswer' {..} =
+    _salt `Prelude.hashWithSalt` resolverIP
+      `Prelude.hashWithSalt` eDNS0ClientSubnetIP
+      `Prelude.hashWithSalt` eDNS0ClientSubnetMask
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` recordName
+      `Prelude.hashWithSalt` recordType
 
-instance Prelude.NFData TestDNSAnswer
+instance Prelude.NFData TestDNSAnswer where
+  rnf TestDNSAnswer' {..} =
+    Prelude.rnf resolverIP
+      `Prelude.seq` Prelude.rnf eDNS0ClientSubnetIP
+      `Prelude.seq` Prelude.rnf eDNS0ClientSubnetMask
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf recordName
+      `Prelude.seq` Prelude.rnf recordType
 
 instance Core.ToHeaders TestDNSAnswer where
   toHeaders = Prelude.const Prelude.mempty
@@ -371,4 +385,12 @@ testDNSAnswerResponse_responseCode = Lens.lens (\TestDNSAnswerResponse' {respons
 testDNSAnswerResponse_protocol :: Lens.Lens' TestDNSAnswerResponse Prelude.Text
 testDNSAnswerResponse_protocol = Lens.lens (\TestDNSAnswerResponse' {protocol} -> protocol) (\s@TestDNSAnswerResponse' {} a -> s {protocol = a} :: TestDNSAnswerResponse)
 
-instance Prelude.NFData TestDNSAnswerResponse
+instance Prelude.NFData TestDNSAnswerResponse where
+  rnf TestDNSAnswerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nameserver
+      `Prelude.seq` Prelude.rnf recordName
+      `Prelude.seq` Prelude.rnf recordType
+      `Prelude.seq` Prelude.rnf recordData
+      `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf protocol

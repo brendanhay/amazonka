@@ -85,5 +85,14 @@ instance Core.FromJSON FindMatchesTaskRunProperties where
 instance
   Prelude.Hashable
     FindMatchesTaskRunProperties
+  where
+  hashWithSalt _salt FindMatchesTaskRunProperties' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobRunId
 
-instance Prelude.NFData FindMatchesTaskRunProperties
+instance Prelude.NFData FindMatchesTaskRunProperties where
+  rnf FindMatchesTaskRunProperties' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobRunId

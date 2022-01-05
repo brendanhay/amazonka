@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     DescribeTrustedAdvisorCheckSummaries
+  where
+  hashWithSalt
+    _salt
+    DescribeTrustedAdvisorCheckSummaries' {..} =
+      _salt `Prelude.hashWithSalt` checkIds
 
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckSummaries
+  where
+  rnf DescribeTrustedAdvisorCheckSummaries' {..} =
+    Prelude.rnf checkIds
 
 instance
   Core.ToHeaders
@@ -197,3 +205,7 @@ describeTrustedAdvisorCheckSummariesResponse_summaries = Lens.lens (\DescribeTru
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckSummariesResponse
+  where
+  rnf DescribeTrustedAdvisorCheckSummariesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

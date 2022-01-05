@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -89,10 +90,20 @@ updateGlobalSecondaryIndexAction_provisionedThroughput = Lens.lens (\UpdateGloba
 instance
   Prelude.Hashable
     UpdateGlobalSecondaryIndexAction
+  where
+  hashWithSalt
+    _salt
+    UpdateGlobalSecondaryIndexAction' {..} =
+      _salt `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedThroughput
 
 instance
   Prelude.NFData
     UpdateGlobalSecondaryIndexAction
+  where
+  rnf UpdateGlobalSecondaryIndexAction' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf provisionedThroughput
 
 instance Core.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =

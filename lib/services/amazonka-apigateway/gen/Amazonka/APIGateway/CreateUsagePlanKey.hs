@@ -120,9 +120,17 @@ instance Core.AWSRequest CreateUsagePlanKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateUsagePlanKey
+instance Prelude.Hashable CreateUsagePlanKey where
+  hashWithSalt _salt CreateUsagePlanKey' {..} =
+    _salt `Prelude.hashWithSalt` usagePlanId
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` keyType
 
-instance Prelude.NFData CreateUsagePlanKey
+instance Prelude.NFData CreateUsagePlanKey where
+  rnf CreateUsagePlanKey' {..} =
+    Prelude.rnf usagePlanId
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyType
 
 instance Core.ToHeaders CreateUsagePlanKey where
   toHeaders =

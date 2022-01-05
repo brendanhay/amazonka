@@ -134,9 +134,17 @@ instance Core.AWSRequest GetModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetModels
+instance Prelude.Hashable GetModels where
+  hashWithSalt _salt GetModels' {..} =
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetModels
+instance Prelude.NFData GetModels where
+  rnf GetModels' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetModels where
   toHeaders =
@@ -208,4 +216,8 @@ getModelsResponse_position = Lens.lens (\GetModelsResponse' {position} -> positi
 getModelsResponse_httpStatus :: Lens.Lens' GetModelsResponse Prelude.Int
 getModelsResponse_httpStatus = Lens.lens (\GetModelsResponse' {httpStatus} -> httpStatus) (\s@GetModelsResponse' {} a -> s {httpStatus = a} :: GetModelsResponse)
 
-instance Prelude.NFData GetModelsResponse
+instance Prelude.NFData GetModelsResponse where
+  rnf GetModelsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

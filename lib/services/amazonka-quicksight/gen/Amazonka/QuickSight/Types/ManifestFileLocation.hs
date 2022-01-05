@@ -74,9 +74,14 @@ instance Core.FromJSON ManifestFileLocation where
             Prelude.<$> (x Core..: "Bucket") Prelude.<*> (x Core..: "Key")
       )
 
-instance Prelude.Hashable ManifestFileLocation
+instance Prelude.Hashable ManifestFileLocation where
+  hashWithSalt _salt ManifestFileLocation' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ManifestFileLocation
+instance Prelude.NFData ManifestFileLocation where
+  rnf ManifestFileLocation' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ManifestFileLocation where
   toJSON ManifestFileLocation' {..} =

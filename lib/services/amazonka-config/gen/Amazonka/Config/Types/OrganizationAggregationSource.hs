@@ -91,8 +91,17 @@ instance Core.FromJSON OrganizationAggregationSource where
 instance
   Prelude.Hashable
     OrganizationAggregationSource
+  where
+  hashWithSalt _salt OrganizationAggregationSource' {..} =
+    _salt `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` allAwsRegions
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData OrganizationAggregationSource
+instance Prelude.NFData OrganizationAggregationSource where
+  rnf OrganizationAggregationSource' {..} =
+    Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf allAwsRegions
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON OrganizationAggregationSource where
   toJSON OrganizationAggregationSource' {..} =

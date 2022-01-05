@@ -93,6 +93,16 @@ instance Core.FromXML DashboardEntry where
       Prelude.<*> (x Core..@? "LastModified")
       Prelude.<*> (x Core..@? "DashboardArn")
 
-instance Prelude.Hashable DashboardEntry
+instance Prelude.Hashable DashboardEntry where
+  hashWithSalt _salt DashboardEntry' {..} =
+    _salt `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` dashboardName
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` dashboardArn
 
-instance Prelude.NFData DashboardEntry
+instance Prelude.NFData DashboardEntry where
+  rnf DashboardEntry' {..} =
+    Prelude.rnf size
+      `Prelude.seq` Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf dashboardArn

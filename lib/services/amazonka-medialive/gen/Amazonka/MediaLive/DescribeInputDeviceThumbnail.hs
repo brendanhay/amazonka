@@ -116,8 +116,15 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
 instance
   Prelude.Hashable
     DescribeInputDeviceThumbnail
+  where
+  hashWithSalt _salt DescribeInputDeviceThumbnail' {..} =
+    _salt `Prelude.hashWithSalt` inputDeviceId
+      `Prelude.hashWithSalt` accept
 
-instance Prelude.NFData DescribeInputDeviceThumbnail
+instance Prelude.NFData DescribeInputDeviceThumbnail where
+  rnf DescribeInputDeviceThumbnail' {..} =
+    Prelude.rnf inputDeviceId
+      `Prelude.seq` Prelude.rnf accept
 
 instance Core.ToHeaders DescribeInputDeviceThumbnail where
   toHeaders DescribeInputDeviceThumbnail' {..} =

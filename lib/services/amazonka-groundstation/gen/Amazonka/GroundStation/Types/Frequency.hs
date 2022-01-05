@@ -75,9 +75,14 @@ instance Core.FromJSON Frequency where
             Prelude.<$> (x Core..: "units") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable Frequency
+instance Prelude.Hashable Frequency where
+  hashWithSalt _salt Frequency' {..} =
+    _salt `Prelude.hashWithSalt` units
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Frequency
+instance Prelude.NFData Frequency where
+  rnf Frequency' {..} =
+    Prelude.rnf units `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Frequency where
   toJSON Frequency' {..} =

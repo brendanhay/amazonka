@@ -153,9 +153,21 @@ instance Core.AWSRequest ImportVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportVolume
+instance Prelude.Hashable ImportVolume where
+  hashWithSalt _salt ImportVolume' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` volume
 
-instance Prelude.NFData ImportVolume
+instance Prelude.NFData ImportVolume where
+  rnf ImportVolume' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf volume
 
 instance Core.ToHeaders ImportVolume where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,4 +228,7 @@ importVolumeResponse_conversionTask = Lens.lens (\ImportVolumeResponse' {convers
 importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Prelude.Int
 importVolumeResponse_httpStatus = Lens.lens (\ImportVolumeResponse' {httpStatus} -> httpStatus) (\s@ImportVolumeResponse' {} a -> s {httpStatus = a} :: ImportVolumeResponse)
 
-instance Prelude.NFData ImportVolumeResponse
+instance Prelude.NFData ImportVolumeResponse where
+  rnf ImportVolumeResponse' {..} =
+    Prelude.rnf conversionTask
+      `Prelude.seq` Prelude.rnf httpStatus

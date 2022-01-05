@@ -459,9 +459,43 @@ instance Core.AWSRequest CreateHIT where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHIT
+instance Prelude.Hashable CreateHIT where
+  hashWithSalt _salt CreateHIT' {..} =
+    _salt `Prelude.hashWithSalt` hITReviewPolicy
+      `Prelude.hashWithSalt` uniqueRequestToken
+      `Prelude.hashWithSalt` autoApprovalDelayInSeconds
+      `Prelude.hashWithSalt` requesterAnnotation
+      `Prelude.hashWithSalt` maxAssignments
+      `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` hITLayoutId
+      `Prelude.hashWithSalt` hITLayoutParameters
+      `Prelude.hashWithSalt` qualificationRequirements
+      `Prelude.hashWithSalt` question
+      `Prelude.hashWithSalt` assignmentReviewPolicy
+      `Prelude.hashWithSalt` lifetimeInSeconds
+      `Prelude.hashWithSalt` assignmentDurationInSeconds
+      `Prelude.hashWithSalt` reward
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateHIT
+instance Prelude.NFData CreateHIT where
+  rnf CreateHIT' {..} =
+    Prelude.rnf hITReviewPolicy
+      `Prelude.seq` Prelude.rnf uniqueRequestToken
+      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
+      `Prelude.seq` Prelude.rnf requesterAnnotation
+      `Prelude.seq` Prelude.rnf maxAssignments
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf hITLayoutId
+      `Prelude.seq` Prelude.rnf hITLayoutParameters
+      `Prelude.seq` Prelude.rnf qualificationRequirements
+      `Prelude.seq` Prelude.rnf question
+      `Prelude.seq` Prelude.rnf assignmentReviewPolicy
+      `Prelude.seq` Prelude.rnf lifetimeInSeconds
+      `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
+      `Prelude.seq` Prelude.rnf reward
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateHIT where
   toHeaders =
@@ -563,4 +597,7 @@ createHITResponse_hit = Lens.lens (\CreateHITResponse' {hit} -> hit) (\s@CreateH
 createHITResponse_httpStatus :: Lens.Lens' CreateHITResponse Prelude.Int
 createHITResponse_httpStatus = Lens.lens (\CreateHITResponse' {httpStatus} -> httpStatus) (\s@CreateHITResponse' {} a -> s {httpStatus = a} :: CreateHITResponse)
 
-instance Prelude.NFData CreateHITResponse
+instance Prelude.NFData CreateHITResponse where
+  rnf CreateHITResponse' {..} =
+    Prelude.rnf hit
+      `Prelude.seq` Prelude.rnf httpStatus

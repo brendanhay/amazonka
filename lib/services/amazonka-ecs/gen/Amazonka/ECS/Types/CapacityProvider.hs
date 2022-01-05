@@ -251,6 +251,22 @@ instance Core.FromJSON CapacityProvider where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CapacityProvider
+instance Prelude.Hashable CapacityProvider where
+  hashWithSalt _salt CapacityProvider' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updateStatusReason
+      `Prelude.hashWithSalt` autoScalingGroupProvider
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` updateStatus
+      `Prelude.hashWithSalt` capacityProviderArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CapacityProvider
+instance Prelude.NFData CapacityProvider where
+  rnf CapacityProvider' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updateStatusReason
+      `Prelude.seq` Prelude.rnf autoScalingGroupProvider
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf capacityProviderArn
+      `Prelude.seq` Prelude.rnf tags

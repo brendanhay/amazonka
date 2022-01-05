@@ -139,9 +139,17 @@ instance Core.AWSRequest ModifyAvailabilityZoneGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAvailabilityZoneGroup
+instance Prelude.Hashable ModifyAvailabilityZoneGroup where
+  hashWithSalt _salt ModifyAvailabilityZoneGroup' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` optInStatus
 
-instance Prelude.NFData ModifyAvailabilityZoneGroup
+instance Prelude.NFData ModifyAvailabilityZoneGroup where
+  rnf ModifyAvailabilityZoneGroup' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf optInStatus
 
 instance Core.ToHeaders ModifyAvailabilityZoneGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,3 +213,7 @@ modifyAvailabilityZoneGroupResponse_httpStatus = Lens.lens (\ModifyAvailabilityZ
 instance
   Prelude.NFData
     ModifyAvailabilityZoneGroupResponse
+  where
+  rnf ModifyAvailabilityZoneGroupResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

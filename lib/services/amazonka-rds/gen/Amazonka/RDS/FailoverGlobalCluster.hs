@@ -156,9 +156,16 @@ instance Core.AWSRequest FailoverGlobalCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FailoverGlobalCluster
+instance Prelude.Hashable FailoverGlobalCluster where
+  hashWithSalt _salt FailoverGlobalCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` targetDbClusterIdentifier
 
-instance Prelude.NFData FailoverGlobalCluster
+instance Prelude.NFData FailoverGlobalCluster where
+  rnf FailoverGlobalCluster' {..} =
+    Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf targetDbClusterIdentifier
 
 instance Core.ToHeaders FailoverGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +224,7 @@ failoverGlobalClusterResponse_globalCluster = Lens.lens (\FailoverGlobalClusterR
 failoverGlobalClusterResponse_httpStatus :: Lens.Lens' FailoverGlobalClusterResponse Prelude.Int
 failoverGlobalClusterResponse_httpStatus = Lens.lens (\FailoverGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@FailoverGlobalClusterResponse' {} a -> s {httpStatus = a} :: FailoverGlobalClusterResponse)
 
-instance Prelude.NFData FailoverGlobalClusterResponse
+instance Prelude.NFData FailoverGlobalClusterResponse where
+  rnf FailoverGlobalClusterResponse' {..} =
+    Prelude.rnf globalCluster
+      `Prelude.seq` Prelude.rnf httpStatus

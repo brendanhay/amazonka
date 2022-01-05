@@ -276,9 +276,21 @@ instance Core.AWSRequest DescribeTransitGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTransitGateways
+instance Prelude.Hashable DescribeTransitGateways where
+  hashWithSalt _salt DescribeTransitGateways' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` transitGatewayIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeTransitGateways
+instance Prelude.NFData DescribeTransitGateways where
+  rnf DescribeTransitGateways' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf transitGatewayIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTransitGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -358,3 +370,8 @@ describeTransitGatewaysResponse_httpStatus = Lens.lens (\DescribeTransitGateways
 instance
   Prelude.NFData
     DescribeTransitGatewaysResponse
+  where
+  rnf DescribeTransitGatewaysResponse' {..} =
+    Prelude.rnf transitGateways
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

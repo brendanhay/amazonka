@@ -177,9 +177,27 @@ instance Core.AWSRequest CreateFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFunction
+instance Prelude.Hashable CreateFunction where
+  hashWithSalt _salt CreateFunction' {..} =
+    _salt `Prelude.hashWithSalt` requestMappingTemplate
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` functionVersion
 
-instance Prelude.NFData CreateFunction
+instance Prelude.NFData CreateFunction where
+  rnf CreateFunction' {..} =
+    Prelude.rnf requestMappingTemplate
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf functionVersion
 
 instance Core.ToHeaders CreateFunction where
   toHeaders =
@@ -257,4 +275,7 @@ createFunctionResponse_functionConfiguration = Lens.lens (\CreateFunctionRespons
 createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Prelude.Int
 createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpStatus} -> httpStatus) (\s@CreateFunctionResponse' {} a -> s {httpStatus = a} :: CreateFunctionResponse)
 
-instance Prelude.NFData CreateFunctionResponse
+instance Prelude.NFData CreateFunctionResponse where
+  rnf CreateFunctionResponse' {..} =
+    Prelude.rnf functionConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

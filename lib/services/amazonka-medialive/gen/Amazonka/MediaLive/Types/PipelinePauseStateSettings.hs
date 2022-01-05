@@ -65,9 +65,13 @@ instance Core.FromJSON PipelinePauseStateSettings where
             Prelude.<$> (x Core..: "pipelineId")
       )
 
-instance Prelude.Hashable PipelinePauseStateSettings
+instance Prelude.Hashable PipelinePauseStateSettings where
+  hashWithSalt _salt PipelinePauseStateSettings' {..} =
+    _salt `Prelude.hashWithSalt` pipelineId
 
-instance Prelude.NFData PipelinePauseStateSettings
+instance Prelude.NFData PipelinePauseStateSettings where
+  rnf PipelinePauseStateSettings' {..} =
+    Prelude.rnf pipelineId
 
 instance Core.ToJSON PipelinePauseStateSettings where
   toJSON PipelinePauseStateSettings' {..} =

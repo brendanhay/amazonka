@@ -63,9 +63,14 @@ sort_key = Lens.lens (\Sort' {key} -> key) (\s@Sort' {} a -> s {key = a} :: Sort
 sort_value :: Lens.Lens' Sort SortValue
 sort_value = Lens.lens (\Sort' {value} -> value) (\s@Sort' {} a -> s {value = a} :: Sort)
 
-instance Prelude.Hashable Sort
+instance Prelude.Hashable Sort where
+  hashWithSalt _salt Sort' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Sort
+instance Prelude.NFData Sort where
+  rnf Sort' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Sort where
   toJSON Sort' {..} =

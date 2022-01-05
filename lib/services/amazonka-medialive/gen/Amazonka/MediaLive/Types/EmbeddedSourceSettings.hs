@@ -106,9 +106,19 @@ instance Core.FromJSON EmbeddedSourceSettings where
             Prelude.<*> (x Core..:? "source608ChannelNumber")
       )
 
-instance Prelude.Hashable EmbeddedSourceSettings
+instance Prelude.Hashable EmbeddedSourceSettings where
+  hashWithSalt _salt EmbeddedSourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` scte20Detection
+      `Prelude.hashWithSalt` source608TrackNumber
+      `Prelude.hashWithSalt` source608ChannelNumber
 
-instance Prelude.NFData EmbeddedSourceSettings
+instance Prelude.NFData EmbeddedSourceSettings where
+  rnf EmbeddedSourceSettings' {..} =
+    Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf scte20Detection
+      `Prelude.seq` Prelude.rnf source608TrackNumber
+      `Prelude.seq` Prelude.rnf source608ChannelNumber
 
 instance Core.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =

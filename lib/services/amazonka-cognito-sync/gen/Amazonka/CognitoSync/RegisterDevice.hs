@@ -139,9 +139,19 @@ instance Core.AWSRequest RegisterDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterDevice
+instance Prelude.Hashable RegisterDevice where
+  hashWithSalt _salt RegisterDevice' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData RegisterDevice
+instance Prelude.NFData RegisterDevice where
+  rnf RegisterDevice' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf token
 
 instance Core.ToHeaders RegisterDevice where
   toHeaders =
@@ -216,4 +226,7 @@ registerDeviceResponse_deviceId = Lens.lens (\RegisterDeviceResponse' {deviceId}
 registerDeviceResponse_httpStatus :: Lens.Lens' RegisterDeviceResponse Prelude.Int
 registerDeviceResponse_httpStatus = Lens.lens (\RegisterDeviceResponse' {httpStatus} -> httpStatus) (\s@RegisterDeviceResponse' {} a -> s {httpStatus = a} :: RegisterDeviceResponse)
 
-instance Prelude.NFData RegisterDeviceResponse
+instance Prelude.NFData RegisterDeviceResponse where
+  rnf RegisterDeviceResponse' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf httpStatus

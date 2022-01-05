@@ -94,9 +94,17 @@ instance Core.FromJSON NielsenWatermarksSettings where
             Prelude.<*> (x Core..:? "nielsenDistributionType")
       )
 
-instance Prelude.Hashable NielsenWatermarksSettings
+instance Prelude.Hashable NielsenWatermarksSettings where
+  hashWithSalt _salt NielsenWatermarksSettings' {..} =
+    _salt `Prelude.hashWithSalt` nielsenCbetSettings
+      `Prelude.hashWithSalt` nielsenNaesIiNwSettings
+      `Prelude.hashWithSalt` nielsenDistributionType
 
-instance Prelude.NFData NielsenWatermarksSettings
+instance Prelude.NFData NielsenWatermarksSettings where
+  rnf NielsenWatermarksSettings' {..} =
+    Prelude.rnf nielsenCbetSettings
+      `Prelude.seq` Prelude.rnf nielsenNaesIiNwSettings
+      `Prelude.seq` Prelude.rnf nielsenDistributionType
 
 instance Core.ToJSON NielsenWatermarksSettings where
   toJSON NielsenWatermarksSettings' {..} =

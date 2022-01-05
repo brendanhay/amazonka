@@ -148,9 +148,15 @@ instance Core.FromJSON AccessConfiguration where
                         )
       )
 
-instance Prelude.Hashable AccessConfiguration
+instance Prelude.Hashable AccessConfiguration where
+  hashWithSalt _salt AccessConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` accessType
+      `Prelude.hashWithSalt` secretsManagerAccessTokenConfiguration
 
-instance Prelude.NFData AccessConfiguration
+instance Prelude.NFData AccessConfiguration where
+  rnf AccessConfiguration' {..} =
+    Prelude.rnf accessType
+      `Prelude.seq` Prelude.rnf secretsManagerAccessTokenConfiguration
 
 instance Core.ToJSON AccessConfiguration where
   toJSON AccessConfiguration' {..} =

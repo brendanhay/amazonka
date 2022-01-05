@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteDevEndpoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDevEndpoint
+instance Prelude.Hashable DeleteDevEndpoint where
+  hashWithSalt _salt DeleteDevEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData DeleteDevEndpoint
+instance Prelude.NFData DeleteDevEndpoint where
+  rnf DeleteDevEndpoint' {..} = Prelude.rnf endpointName
 
 instance Core.ToHeaders DeleteDevEndpoint where
   toHeaders =
@@ -144,4 +147,6 @@ newDeleteDevEndpointResponse pHttpStatus_ =
 deleteDevEndpointResponse_httpStatus :: Lens.Lens' DeleteDevEndpointResponse Prelude.Int
 deleteDevEndpointResponse_httpStatus = Lens.lens (\DeleteDevEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteDevEndpointResponse' {} a -> s {httpStatus = a} :: DeleteDevEndpointResponse)
 
-instance Prelude.NFData DeleteDevEndpointResponse
+instance Prelude.NFData DeleteDevEndpointResponse where
+  rnf DeleteDevEndpointResponse' {..} =
+    Prelude.rnf httpStatus

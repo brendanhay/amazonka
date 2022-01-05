@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsElbLoadBalancerSourceSecurityGroup
+  where
+  hashWithSalt
+    _salt
+    AwsElbLoadBalancerSourceSecurityGroup' {..} =
+      _salt `Prelude.hashWithSalt` ownerAlias
+        `Prelude.hashWithSalt` groupName
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerSourceSecurityGroup
+  where
+  rnf AwsElbLoadBalancerSourceSecurityGroup' {..} =
+    Prelude.rnf ownerAlias
+      `Prelude.seq` Prelude.rnf groupName
 
 instance
   Core.ToJSON

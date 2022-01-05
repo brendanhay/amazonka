@@ -106,6 +106,16 @@ instance Core.FromJSON MetricDataPoint where
             Prelude.<*> (x Core..:? "tpr")
       )
 
-instance Prelude.Hashable MetricDataPoint
+instance Prelude.Hashable MetricDataPoint where
+  hashWithSalt _salt MetricDataPoint' {..} =
+    _salt `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` fpr
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` tpr
 
-instance Prelude.NFData MetricDataPoint
+instance Prelude.NFData MetricDataPoint where
+  rnf MetricDataPoint' {..} =
+    Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf fpr
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf tpr

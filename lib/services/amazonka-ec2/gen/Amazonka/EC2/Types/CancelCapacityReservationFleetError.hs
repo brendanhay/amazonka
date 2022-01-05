@@ -75,7 +75,16 @@ instance
 instance
   Prelude.Hashable
     CancelCapacityReservationFleetError
+  where
+  hashWithSalt
+    _salt
+    CancelCapacityReservationFleetError' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     CancelCapacityReservationFleetError
+  where
+  rnf CancelCapacityReservationFleetError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

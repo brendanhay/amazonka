@@ -138,9 +138,23 @@ instance Core.FromJSON AwsS3ObjectDetails where
             Prelude.<*> (x Core..:? "ContentType")
       )
 
-instance Prelude.Hashable AwsS3ObjectDetails
+instance Prelude.Hashable AwsS3ObjectDetails where
+  hashWithSalt _salt AwsS3ObjectDetails' {..} =
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` sSEKMSKeyId
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData AwsS3ObjectDetails
+instance Prelude.NFData AwsS3ObjectDetails where
+  rnf AwsS3ObjectDetails' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToJSON AwsS3ObjectDetails where
   toJSON AwsS3ObjectDetails' {..} =

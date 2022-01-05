@@ -165,9 +165,22 @@ instance Core.AWSRequest CreateAssessmentTemplate where
             Prelude.<*> (x Core..:> "assessmentTemplateArn")
       )
 
-instance Prelude.Hashable CreateAssessmentTemplate
+instance Prelude.Hashable CreateAssessmentTemplate where
+  hashWithSalt _salt CreateAssessmentTemplate' {..} =
+    _salt
+      `Prelude.hashWithSalt` userAttributesForFindings
+      `Prelude.hashWithSalt` assessmentTargetArn
+      `Prelude.hashWithSalt` assessmentTemplateName
+      `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` rulesPackageArns
 
-instance Prelude.NFData CreateAssessmentTemplate
+instance Prelude.NFData CreateAssessmentTemplate where
+  rnf CreateAssessmentTemplate' {..} =
+    Prelude.rnf userAttributesForFindings
+      `Prelude.seq` Prelude.rnf assessmentTargetArn
+      `Prelude.seq` Prelude.rnf assessmentTemplateName
+      `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf rulesPackageArns
 
 instance Core.ToHeaders CreateAssessmentTemplate where
   toHeaders =
@@ -256,3 +269,7 @@ createAssessmentTemplateResponse_assessmentTemplateArn = Lens.lens (\CreateAsses
 instance
   Prelude.NFData
     CreateAssessmentTemplateResponse
+  where
+  rnf CreateAssessmentTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assessmentTemplateArn

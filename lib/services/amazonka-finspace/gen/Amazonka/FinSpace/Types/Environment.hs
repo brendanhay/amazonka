@@ -180,6 +180,32 @@ instance Core.FromJSON Environment where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Environment
+instance Prelude.Hashable Environment where
+  hashWithSalt _salt Environment' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` federationParameters
+      `Prelude.hashWithSalt` dedicatedServiceAccountId
+      `Prelude.hashWithSalt` environmentUrl
+      `Prelude.hashWithSalt` federationMode
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentArn
+      `Prelude.hashWithSalt` sageMakerStudioDomainUrl
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Environment
+instance Prelude.NFData Environment where
+  rnf Environment' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf federationParameters
+      `Prelude.seq` Prelude.rnf dedicatedServiceAccountId
+      `Prelude.seq` Prelude.rnf environmentUrl
+      `Prelude.seq` Prelude.rnf federationMode
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf sageMakerStudioDomainUrl
+      `Prelude.seq` Prelude.rnf description

@@ -189,10 +189,36 @@ instance
 instance
   Prelude.Hashable
     DescribeSavingsPlansOfferingRates
+  where
+  hashWithSalt
+    _salt
+    DescribeSavingsPlansOfferingRates' {..} =
+      _salt `Prelude.hashWithSalt` savingsPlanOfferingIds
+        `Prelude.hashWithSalt` serviceCodes
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` savingsPlanTypes
+        `Prelude.hashWithSalt` products
+        `Prelude.hashWithSalt` savingsPlanPaymentOptions
+        `Prelude.hashWithSalt` usageTypes
+        `Prelude.hashWithSalt` operations
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeSavingsPlansOfferingRates
+  where
+  rnf DescribeSavingsPlansOfferingRates' {..} =
+    Prelude.rnf savingsPlanOfferingIds
+      `Prelude.seq` Prelude.rnf serviceCodes
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf savingsPlanTypes
+      `Prelude.seq` Prelude.rnf products
+      `Prelude.seq` Prelude.rnf savingsPlanPaymentOptions
+      `Prelude.seq` Prelude.rnf usageTypes
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -299,3 +325,8 @@ describeSavingsPlansOfferingRatesResponse_httpStatus = Lens.lens (\DescribeSavin
 instance
   Prelude.NFData
     DescribeSavingsPlansOfferingRatesResponse
+  where
+  rnf DescribeSavingsPlansOfferingRatesResponse' {..} =
+    Prelude.rnf searchResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

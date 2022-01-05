@@ -114,10 +114,20 @@ instance
 instance
   Prelude.Hashable
     UpdateConfigurationSetSendingEnabled
+  where
+  hashWithSalt
+    _salt
+    UpdateConfigurationSetSendingEnabled' {..} =
+      _salt `Prelude.hashWithSalt` configurationSetName
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     UpdateConfigurationSetSendingEnabled
+  where
+  rnf UpdateConfigurationSetSendingEnabled' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf enabled
 
 instance
   Core.ToHeaders
@@ -165,3 +175,5 @@ newUpdateConfigurationSetSendingEnabledResponse =
 instance
   Prelude.NFData
     UpdateConfigurationSetSendingEnabledResponse
+  where
+  rnf _ = ()

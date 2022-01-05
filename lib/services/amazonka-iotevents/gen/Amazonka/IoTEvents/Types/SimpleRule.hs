@@ -98,9 +98,17 @@ instance Core.FromJSON SimpleRule where
             Prelude.<*> (x Core..: "threshold")
       )
 
-instance Prelude.Hashable SimpleRule
+instance Prelude.Hashable SimpleRule where
+  hashWithSalt _salt SimpleRule' {..} =
+    _salt `Prelude.hashWithSalt` inputProperty
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` threshold
 
-instance Prelude.NFData SimpleRule
+instance Prelude.NFData SimpleRule where
+  rnf SimpleRule' {..} =
+    Prelude.rnf inputProperty
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf threshold
 
 instance Core.ToJSON SimpleRule where
   toJSON SimpleRule' {..} =

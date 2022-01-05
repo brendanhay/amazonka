@@ -268,9 +268,35 @@ instance Core.AWSRequest DescribeEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvents
+instance Prelude.Hashable DescribeEvents where
+  hashWithSalt _salt DescribeEvents' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData DescribeEvents
+instance Prelude.NFData DescribeEvents where
+  rnf DescribeEvents' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders DescribeEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -355,4 +381,8 @@ describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> 
 describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance Prelude.NFData DescribeEventsResponse
+instance Prelude.NFData DescribeEventsResponse where
+  rnf DescribeEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

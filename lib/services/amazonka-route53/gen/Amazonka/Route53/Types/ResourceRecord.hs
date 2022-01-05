@@ -89,9 +89,12 @@ instance Core.FromXML ResourceRecord where
   parseXML x =
     ResourceRecord' Prelude.<$> (x Core..@ "Value")
 
-instance Prelude.Hashable ResourceRecord
+instance Prelude.Hashable ResourceRecord where
+  hashWithSalt _salt ResourceRecord' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ResourceRecord
+instance Prelude.NFData ResourceRecord where
+  rnf ResourceRecord' {..} = Prelude.rnf value
 
 instance Core.ToXML ResourceRecord where
   toXML ResourceRecord' {..} =

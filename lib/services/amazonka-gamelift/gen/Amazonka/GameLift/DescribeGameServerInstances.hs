@@ -198,9 +198,19 @@ instance Core.AWSRequest DescribeGameServerInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGameServerInstances
+instance Prelude.Hashable DescribeGameServerInstances where
+  hashWithSalt _salt DescribeGameServerInstances' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData DescribeGameServerInstances
+instance Prelude.NFData DescribeGameServerInstances where
+  rnf DescribeGameServerInstances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders DescribeGameServerInstances where
   toHeaders =
@@ -292,3 +302,8 @@ describeGameServerInstancesResponse_httpStatus = Lens.lens (\DescribeGameServerI
 instance
   Prelude.NFData
     DescribeGameServerInstancesResponse
+  where
+  rnf DescribeGameServerInstancesResponse' {..} =
+    Prelude.rnf gameServerInstances
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

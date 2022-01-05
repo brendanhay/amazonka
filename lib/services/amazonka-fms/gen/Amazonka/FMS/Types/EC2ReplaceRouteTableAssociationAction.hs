@@ -98,7 +98,19 @@ instance
 instance
   Prelude.Hashable
     EC2ReplaceRouteTableAssociationAction
+  where
+  hashWithSalt
+    _salt
+    EC2ReplaceRouteTableAssociationAction' {..} =
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` routeTableId
 
 instance
   Prelude.NFData
     EC2ReplaceRouteTableAssociationAction
+  where
+  rnf EC2ReplaceRouteTableAssociationAction' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf routeTableId

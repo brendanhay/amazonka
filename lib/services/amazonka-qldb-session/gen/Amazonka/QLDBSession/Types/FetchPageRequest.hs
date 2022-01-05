@@ -65,9 +65,15 @@ fetchPageRequest_transactionId = Lens.lens (\FetchPageRequest' {transactionId} -
 fetchPageRequest_nextPageToken :: Lens.Lens' FetchPageRequest Prelude.Text
 fetchPageRequest_nextPageToken = Lens.lens (\FetchPageRequest' {nextPageToken} -> nextPageToken) (\s@FetchPageRequest' {} a -> s {nextPageToken = a} :: FetchPageRequest)
 
-instance Prelude.Hashable FetchPageRequest
+instance Prelude.Hashable FetchPageRequest where
+  hashWithSalt _salt FetchPageRequest' {..} =
+    _salt `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData FetchPageRequest
+instance Prelude.NFData FetchPageRequest where
+  rnf FetchPageRequest' {..} =
+    Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf nextPageToken
 
 instance Core.ToJSON FetchPageRequest where
   toJSON FetchPageRequest' {..} =

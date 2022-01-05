@@ -186,10 +186,22 @@ instance
 instance
   Prelude.Hashable
     ListFunctionEventInvokeConfigs
+  where
+  hashWithSalt
+    _salt
+    ListFunctionEventInvokeConfigs' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     ListFunctionEventInvokeConfigs
+  where
+  rnf ListFunctionEventInvokeConfigs' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf functionName
 
 instance
   Core.ToHeaders
@@ -264,3 +276,8 @@ listFunctionEventInvokeConfigsResponse_httpStatus = Lens.lens (\ListFunctionEven
 instance
   Prelude.NFData
     ListFunctionEventInvokeConfigsResponse
+  where
+  rnf ListFunctionEventInvokeConfigsResponse' {..} =
+    Prelude.rnf functionEventInvokeConfigs
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

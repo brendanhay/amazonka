@@ -126,9 +126,17 @@ instance Core.AWSRequest CreateConnection where
             Prelude.<*> (x Core..:> "Connection")
       )
 
-instance Prelude.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection where
+  hashWithSalt _salt CreateConnection' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` providerType
 
-instance Prelude.NFData CreateConnection
+instance Prelude.NFData CreateConnection where
+  rnf CreateConnection' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf providerType
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =
@@ -204,4 +212,7 @@ createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {htt
 createConnectionResponse_connection :: Lens.Lens' CreateConnectionResponse Connection
 createConnectionResponse_connection = Lens.lens (\CreateConnectionResponse' {connection} -> connection) (\s@CreateConnectionResponse' {} a -> s {connection = a} :: CreateConnectionResponse)
 
-instance Prelude.NFData CreateConnectionResponse
+instance Prelude.NFData CreateConnectionResponse where
+  rnf CreateConnectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connection

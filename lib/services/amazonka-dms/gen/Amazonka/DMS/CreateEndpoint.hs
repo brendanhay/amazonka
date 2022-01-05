@@ -717,9 +717,88 @@ instance Core.AWSRequest CreateEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEndpoint
+instance Prelude.Hashable CreateEndpoint where
+  hashWithSalt _salt CreateEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` dmsTransferSettings
+      `Prelude.hashWithSalt` mySQLSettings
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` microsoftSQLServerSettings
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` docDbSettings
+      `Prelude.hashWithSalt` postgreSQLSettings
+      `Prelude.hashWithSalt` extraConnectionAttributes
+      `Prelude.hashWithSalt` kafkaSettings
+      `Prelude.hashWithSalt` oracleSettings
+      `Prelude.hashWithSalt` redshiftSettings
+      `Prelude.hashWithSalt` elasticsearchSettings
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` redisSettings
+      `Prelude.hashWithSalt` neptuneSettings
+      `Prelude.hashWithSalt` iBMDb2Settings
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` mongoDbSettings
+      `Prelude.hashWithSalt` sslMode
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` sybaseSettings
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` s3Settings
+      `Prelude.hashWithSalt` kinesisSettings
+      `Prelude.hashWithSalt` dynamoDbSettings
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` endpointIdentifier
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` engineName
 
-instance Prelude.NFData CreateEndpoint
+instance Prelude.NFData CreateEndpoint where
+  rnf CreateEndpoint' {..} =
+    Prelude.rnf dmsTransferSettings
+      `Prelude.seq` Prelude.rnf mySQLSettings
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf microsoftSQLServerSettings
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf docDbSettings
+      `Prelude.seq` Prelude.rnf postgreSQLSettings
+      `Prelude.seq` Prelude.rnf extraConnectionAttributes
+      `Prelude.seq` Prelude.rnf kafkaSettings
+      `Prelude.seq` Prelude.rnf oracleSettings
+      `Prelude.seq` Prelude.rnf redshiftSettings
+      `Prelude.seq` Prelude.rnf elasticsearchSettings
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf externalTableDefinition
+      `Prelude.seq` Prelude.rnf redisSettings
+      `Prelude.seq` Prelude.rnf neptuneSettings
+      `Prelude.seq` Prelude.rnf iBMDb2Settings
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mongoDbSettings
+      `Prelude.seq` Prelude.rnf sslMode
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf
+        sybaseSettings
+      `Prelude.seq` Prelude.rnf
+        databaseName
+      `Prelude.seq` Prelude.rnf
+        s3Settings
+      `Prelude.seq` Prelude.rnf
+        kinesisSettings
+      `Prelude.seq` Prelude.rnf
+        dynamoDbSettings
+      `Prelude.seq` Prelude.rnf
+        resourceIdentifier
+      `Prelude.seq` Prelude.rnf
+        tags
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        endpointIdentifier
+      `Prelude.seq` Prelude.rnf
+        endpointType
+      `Prelude.seq` Prelude.rnf
+        engineName
 
 instance Core.ToHeaders CreateEndpoint where
   toHeaders =
@@ -840,4 +919,7 @@ createEndpointResponse_endpoint = Lens.lens (\CreateEndpointResponse' {endpoint}
 createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Prelude.Int
 createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointResponse' {} a -> s {httpStatus = a} :: CreateEndpointResponse)
 
-instance Prelude.NFData CreateEndpointResponse
+instance Prelude.NFData CreateEndpointResponse where
+  rnf CreateEndpointResponse' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf httpStatus

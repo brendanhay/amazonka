@@ -117,6 +117,16 @@ instance Core.FromJSON BucketCountByEncryptionType where
             Prelude.<*> (x Core..:? "kmsManaged")
       )
 
-instance Prelude.Hashable BucketCountByEncryptionType
+instance Prelude.Hashable BucketCountByEncryptionType where
+  hashWithSalt _salt BucketCountByEncryptionType' {..} =
+    _salt `Prelude.hashWithSalt` unknown
+      `Prelude.hashWithSalt` s3Managed
+      `Prelude.hashWithSalt` unencrypted
+      `Prelude.hashWithSalt` kmsManaged
 
-instance Prelude.NFData BucketCountByEncryptionType
+instance Prelude.NFData BucketCountByEncryptionType where
+  rnf BucketCountByEncryptionType' {..} =
+    Prelude.rnf unknown
+      `Prelude.seq` Prelude.rnf s3Managed
+      `Prelude.seq` Prelude.rnf unencrypted
+      `Prelude.seq` Prelude.rnf kmsManaged

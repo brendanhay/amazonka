@@ -119,9 +119,17 @@ instance Core.AWSRequest CancelImportTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelImportTask
+instance Prelude.Hashable CancelImportTask where
+  hashWithSalt _salt CancelImportTask' {..} =
+    _salt `Prelude.hashWithSalt` cancelReason
+      `Prelude.hashWithSalt` importTaskId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CancelImportTask
+instance Prelude.NFData CancelImportTask where
+  rnf CancelImportTask' {..} =
+    Prelude.rnf cancelReason
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders CancelImportTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +205,9 @@ cancelImportTaskResponse_previousState = Lens.lens (\CancelImportTaskResponse' {
 cancelImportTaskResponse_httpStatus :: Lens.Lens' CancelImportTaskResponse Prelude.Int
 cancelImportTaskResponse_httpStatus = Lens.lens (\CancelImportTaskResponse' {httpStatus} -> httpStatus) (\s@CancelImportTaskResponse' {} a -> s {httpStatus = a} :: CancelImportTaskResponse)
 
-instance Prelude.NFData CancelImportTaskResponse
+instance Prelude.NFData CancelImportTaskResponse where
+  rnf CancelImportTaskResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf previousState
+      `Prelude.seq` Prelude.rnf httpStatus

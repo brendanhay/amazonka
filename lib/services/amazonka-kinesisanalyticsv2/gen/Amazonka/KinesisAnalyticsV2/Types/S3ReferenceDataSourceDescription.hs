@@ -113,7 +113,19 @@ instance
 instance
   Prelude.Hashable
     S3ReferenceDataSourceDescription
+  where
+  hashWithSalt
+    _salt
+    S3ReferenceDataSourceDescription' {..} =
+      _salt `Prelude.hashWithSalt` referenceRoleARN
+        `Prelude.hashWithSalt` bucketARN
+        `Prelude.hashWithSalt` fileKey
 
 instance
   Prelude.NFData
     S3ReferenceDataSourceDescription
+  where
+  rnf S3ReferenceDataSourceDescription' {..} =
+    Prelude.rnf referenceRoleARN
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf fileKey

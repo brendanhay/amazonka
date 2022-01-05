@@ -102,9 +102,12 @@ instance Core.AWSRequest GetSigningPlatform where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSigningPlatform
+instance Prelude.Hashable GetSigningPlatform where
+  hashWithSalt _salt GetSigningPlatform' {..} =
+    _salt `Prelude.hashWithSalt` platformId
 
-instance Prelude.NFData GetSigningPlatform
+instance Prelude.NFData GetSigningPlatform where
+  rnf GetSigningPlatform' {..} = Prelude.rnf platformId
 
 instance Core.ToHeaders GetSigningPlatform where
   toHeaders =
@@ -242,4 +245,15 @@ getSigningPlatformResponse_target = Lens.lens (\GetSigningPlatformResponse' {tar
 getSigningPlatformResponse_httpStatus :: Lens.Lens' GetSigningPlatformResponse Prelude.Int
 getSigningPlatformResponse_httpStatus = Lens.lens (\GetSigningPlatformResponse' {httpStatus} -> httpStatus) (\s@GetSigningPlatformResponse' {} a -> s {httpStatus = a} :: GetSigningPlatformResponse)
 
-instance Prelude.NFData GetSigningPlatformResponse
+instance Prelude.NFData GetSigningPlatformResponse where
+  rnf GetSigningPlatformResponse' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf signingConfiguration
+      `Prelude.seq` Prelude.rnf partner
+      `Prelude.seq` Prelude.rnf revocationSupported
+      `Prelude.seq` Prelude.rnf signingImageFormat
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf maxSizeInMB
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -95,6 +95,16 @@ instance Core.FromXML NatGatewayAddress where
       Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "publicIp")
 
-instance Prelude.Hashable NatGatewayAddress
+instance Prelude.Hashable NatGatewayAddress where
+  hashWithSalt _salt NatGatewayAddress' {..} =
+    _salt `Prelude.hashWithSalt` privateIp
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` publicIp
 
-instance Prelude.NFData NatGatewayAddress
+instance Prelude.NFData NatGatewayAddress where
+  rnf NatGatewayAddress' {..} =
+    Prelude.rnf privateIp
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf publicIp

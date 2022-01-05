@@ -169,10 +169,22 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceDeploymentConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsServiceDeploymentConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` minimumHealthyPercent
+        `Prelude.hashWithSalt` maximumPercent
+        `Prelude.hashWithSalt` deploymentCircuitBreaker
 
 instance
   Prelude.NFData
     AwsEcsServiceDeploymentConfigurationDetails
+  where
+  rnf AwsEcsServiceDeploymentConfigurationDetails' {..} =
+    Prelude.rnf minimumHealthyPercent
+      `Prelude.seq` Prelude.rnf maximumPercent
+      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
 
 instance
   Core.ToJSON

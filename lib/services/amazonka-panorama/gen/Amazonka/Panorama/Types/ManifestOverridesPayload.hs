@@ -64,9 +64,13 @@ instance Core.FromJSON ManifestOverridesPayload where
             Prelude.<$> (x Core..:? "PayloadData")
       )
 
-instance Prelude.Hashable ManifestOverridesPayload
+instance Prelude.Hashable ManifestOverridesPayload where
+  hashWithSalt _salt ManifestOverridesPayload' {..} =
+    _salt `Prelude.hashWithSalt` payloadData
 
-instance Prelude.NFData ManifestOverridesPayload
+instance Prelude.NFData ManifestOverridesPayload where
+  rnf ManifestOverridesPayload' {..} =
+    Prelude.rnf payloadData
 
 instance Core.ToJSON ManifestOverridesPayload where
   toJSON ManifestOverridesPayload' {..} =

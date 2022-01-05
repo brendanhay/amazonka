@@ -87,9 +87,15 @@ instance Core.FromJSON SourceAuth where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable SourceAuth
+instance Prelude.Hashable SourceAuth where
+  hashWithSalt _salt SourceAuth' {..} =
+    _salt `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SourceAuth
+instance Prelude.NFData SourceAuth where
+  rnf SourceAuth' {..} =
+    Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SourceAuth where
   toJSON SourceAuth' {..} =

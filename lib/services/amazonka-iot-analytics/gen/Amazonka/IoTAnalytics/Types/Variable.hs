@@ -113,9 +113,21 @@ instance Core.FromJSON Variable where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Variable
+instance Prelude.Hashable Variable where
+  hashWithSalt _salt Variable' {..} =
+    _salt `Prelude.hashWithSalt` outputFileUriValue
+      `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` datasetContentVersionValue
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Variable
+instance Prelude.NFData Variable where
+  rnf Variable' {..} =
+    Prelude.rnf outputFileUriValue
+      `Prelude.seq` Prelude.rnf doubleValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf datasetContentVersionValue
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Variable where
   toJSON Variable' {..} =

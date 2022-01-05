@@ -93,6 +93,16 @@ instance Core.FromJSON DiskResourceUtilization where
             Prelude.<*> (x Core..:? "DiskReadBytesPerSecond")
       )
 
-instance Prelude.Hashable DiskResourceUtilization
+instance Prelude.Hashable DiskResourceUtilization where
+  hashWithSalt _salt DiskResourceUtilization' {..} =
+    _salt `Prelude.hashWithSalt` diskWriteOpsPerSecond
+      `Prelude.hashWithSalt` diskReadOpsPerSecond
+      `Prelude.hashWithSalt` diskWriteBytesPerSecond
+      `Prelude.hashWithSalt` diskReadBytesPerSecond
 
-instance Prelude.NFData DiskResourceUtilization
+instance Prelude.NFData DiskResourceUtilization where
+  rnf DiskResourceUtilization' {..} =
+    Prelude.rnf diskWriteOpsPerSecond
+      `Prelude.seq` Prelude.rnf diskReadOpsPerSecond
+      `Prelude.seq` Prelude.rnf diskWriteBytesPerSecond
+      `Prelude.seq` Prelude.rnf diskReadBytesPerSecond

@@ -106,9 +106,17 @@ instance Core.FromJSON CognitoStreams where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable CognitoStreams
+instance Prelude.Hashable CognitoStreams where
+  hashWithSalt _salt CognitoStreams' {..} =
+    _salt `Prelude.hashWithSalt` streamingStatus
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CognitoStreams
+instance Prelude.NFData CognitoStreams where
+  rnf CognitoStreams' {..} =
+    Prelude.rnf streamingStatus
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON CognitoStreams where
   toJSON CognitoStreams' {..} =

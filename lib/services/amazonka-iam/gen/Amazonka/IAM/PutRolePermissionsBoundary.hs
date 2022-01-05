@@ -113,9 +113,15 @@ instance Core.AWSRequest PutRolePermissionsBoundary where
     Response.receiveNull
       PutRolePermissionsBoundaryResponse'
 
-instance Prelude.Hashable PutRolePermissionsBoundary
+instance Prelude.Hashable PutRolePermissionsBoundary where
+  hashWithSalt _salt PutRolePermissionsBoundary' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` permissionsBoundary
 
-instance Prelude.NFData PutRolePermissionsBoundary
+instance Prelude.NFData PutRolePermissionsBoundary where
+  rnf PutRolePermissionsBoundary' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf permissionsBoundary
 
 instance Core.ToHeaders PutRolePermissionsBoundary where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,3 +158,5 @@ newPutRolePermissionsBoundaryResponse =
 instance
   Prelude.NFData
     PutRolePermissionsBoundaryResponse
+  where
+  rnf _ = ()

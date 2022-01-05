@@ -938,10 +938,81 @@ instance
 instance
   Prelude.Hashable
     RestoreDBInstanceFromDBSnapshot
+  where
+  hashWithSalt
+    _salt
+    RestoreDBInstanceFromDBSnapshot' {..} =
+      _salt `Prelude.hashWithSalt` deletionProtection
+        `Prelude.hashWithSalt` publiclyAccessible
+        `Prelude.hashWithSalt` autoMinorVersionUpgrade
+        `Prelude.hashWithSalt` dbSubnetGroupName
+        `Prelude.hashWithSalt` iops
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` enableCustomerOwnedIp
+        `Prelude.hashWithSalt` engine
+        `Prelude.hashWithSalt` tdeCredentialPassword
+        `Prelude.hashWithSalt` processorFeatures
+        `Prelude.hashWithSalt` dbInstanceClass
+        `Prelude.hashWithSalt` licenseModel
+        `Prelude.hashWithSalt` dbParameterGroupName
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` vpcSecurityGroupIds
+        `Prelude.hashWithSalt` multiAZ
+        `Prelude.hashWithSalt` optionGroupName
+        `Prelude.hashWithSalt` copyTagsToSnapshot
+        `Prelude.hashWithSalt` tdeCredentialArn
+        `Prelude.hashWithSalt` domainIAMRoleName
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+        `Prelude.hashWithSalt` useDefaultProcessorFeatures
+        `Prelude.hashWithSalt` storageType
+        `Prelude.hashWithSalt` enableCloudwatchLogsExports
+        `Prelude.hashWithSalt` dbName
+        `Prelude.hashWithSalt` dbInstanceIdentifier
+        `Prelude.hashWithSalt` dbSnapshotIdentifier
 
 instance
   Prelude.NFData
     RestoreDBInstanceFromDBSnapshot
+  where
+  rnf RestoreDBInstanceFromDBSnapshot' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf enableCustomerOwnedIp
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf tdeCredentialPassword
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        useDefaultProcessorFeatures
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        dbName
+      `Prelude.seq` Prelude.rnf
+        dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
+        dbSnapshotIdentifier
 
 instance
   Core.ToHeaders
@@ -1053,3 +1124,7 @@ restoreDBInstanceFromDBSnapshotResponse_httpStatus = Lens.lens (\RestoreDBInstan
 instance
   Prelude.NFData
     RestoreDBInstanceFromDBSnapshotResponse
+  where
+  rnf RestoreDBInstanceFromDBSnapshotResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -114,9 +114,16 @@ instance Core.AWSRequest DeleteStream where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStreamResponse'
 
-instance Prelude.Hashable DeleteStream
+instance Prelude.Hashable DeleteStream where
+  hashWithSalt _salt DeleteStream' {..} =
+    _salt
+      `Prelude.hashWithSalt` enforceConsumerDeletion
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData DeleteStream
+instance Prelude.NFData DeleteStream where
+  rnf DeleteStream' {..} =
+    Prelude.rnf enforceConsumerDeletion
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders DeleteStream where
   toHeaders =
@@ -163,4 +170,5 @@ newDeleteStreamResponse ::
   DeleteStreamResponse
 newDeleteStreamResponse = DeleteStreamResponse'
 
-instance Prelude.NFData DeleteStreamResponse
+instance Prelude.NFData DeleteStreamResponse where
+  rnf _ = ()

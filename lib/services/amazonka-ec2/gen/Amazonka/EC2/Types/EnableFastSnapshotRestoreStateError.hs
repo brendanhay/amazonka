@@ -75,7 +75,16 @@ instance
 instance
   Prelude.Hashable
     EnableFastSnapshotRestoreStateError
+  where
+  hashWithSalt
+    _salt
+    EnableFastSnapshotRestoreStateError' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     EnableFastSnapshotRestoreStateError
+  where
+  rnf EnableFastSnapshotRestoreStateError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

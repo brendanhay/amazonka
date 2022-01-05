@@ -230,9 +230,25 @@ instance Core.AWSRequest ReportInstanceStatus where
   response =
     Response.receiveNull ReportInstanceStatusResponse'
 
-instance Prelude.Hashable ReportInstanceStatus
+instance Prelude.Hashable ReportInstanceStatus where
+  hashWithSalt _salt ReportInstanceStatus' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` reasonCodes
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReportInstanceStatus
+instance Prelude.NFData ReportInstanceStatus where
+  rnf ReportInstanceStatus' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf reasonCodes
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders ReportInstanceStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,4 +287,5 @@ newReportInstanceStatusResponse ::
 newReportInstanceStatusResponse =
   ReportInstanceStatusResponse'
 
-instance Prelude.NFData ReportInstanceStatusResponse
+instance Prelude.NFData ReportInstanceStatusResponse where
+  rnf _ = ()

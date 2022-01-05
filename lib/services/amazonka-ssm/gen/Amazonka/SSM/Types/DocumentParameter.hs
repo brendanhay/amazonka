@@ -102,6 +102,16 @@ instance Core.FromJSON DocumentParameter where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable DocumentParameter
+instance Prelude.Hashable DocumentParameter where
+  hashWithSalt _salt DocumentParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DocumentParameter
+instance Prelude.NFData DocumentParameter where
+  rnf DocumentParameter' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

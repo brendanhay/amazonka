@@ -151,7 +151,21 @@ instance
 instance
   Prelude.Hashable
     WorkflowExecutionTerminatedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    WorkflowExecutionTerminatedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` reason
+        `Prelude.hashWithSalt` details
+        `Prelude.hashWithSalt` childPolicy
 
 instance
   Prelude.NFData
     WorkflowExecutionTerminatedEventAttributes
+  where
+  rnf WorkflowExecutionTerminatedEventAttributes' {..} =
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf childPolicy

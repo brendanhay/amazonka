@@ -72,6 +72,12 @@ instance Core.FromJSON Participant where
             Prelude.<*> (x Core..:? "ProxyPhoneNumber")
       )
 
-instance Prelude.Hashable Participant
+instance Prelude.Hashable Participant where
+  hashWithSalt _salt Participant' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` proxyPhoneNumber
 
-instance Prelude.NFData Participant
+instance Prelude.NFData Participant where
+  rnf Participant' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf proxyPhoneNumber

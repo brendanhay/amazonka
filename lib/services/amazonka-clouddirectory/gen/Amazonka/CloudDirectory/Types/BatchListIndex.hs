@@ -86,9 +86,19 @@ batchListIndex_maxResults = Lens.lens (\BatchListIndex' {maxResults} -> maxResul
 batchListIndex_indexReference :: Lens.Lens' BatchListIndex ObjectReference
 batchListIndex_indexReference = Lens.lens (\BatchListIndex' {indexReference} -> indexReference) (\s@BatchListIndex' {} a -> s {indexReference = a} :: BatchListIndex)
 
-instance Prelude.Hashable BatchListIndex
+instance Prelude.Hashable BatchListIndex where
+  hashWithSalt _salt BatchListIndex' {..} =
+    _salt `Prelude.hashWithSalt` rangesOnIndexedValues
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` indexReference
 
-instance Prelude.NFData BatchListIndex
+instance Prelude.NFData BatchListIndex where
+  rnf BatchListIndex' {..} =
+    Prelude.rnf rangesOnIndexedValues
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf indexReference
 
 instance Core.ToJSON BatchListIndex where
   toJSON BatchListIndex' {..} =

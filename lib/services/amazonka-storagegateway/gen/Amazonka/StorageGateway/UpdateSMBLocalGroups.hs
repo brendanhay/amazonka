@@ -103,9 +103,15 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSMBLocalGroups
+instance Prelude.Hashable UpdateSMBLocalGroups where
+  hashWithSalt _salt UpdateSMBLocalGroups' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` sMBLocalGroups
 
-instance Prelude.NFData UpdateSMBLocalGroups
+instance Prelude.NFData UpdateSMBLocalGroups where
+  rnf UpdateSMBLocalGroups' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf sMBLocalGroups
 
 instance Core.ToHeaders UpdateSMBLocalGroups where
   toHeaders =
@@ -176,4 +182,7 @@ updateSMBLocalGroupsResponse_gatewayARN = Lens.lens (\UpdateSMBLocalGroupsRespon
 updateSMBLocalGroupsResponse_httpStatus :: Lens.Lens' UpdateSMBLocalGroupsResponse Prelude.Int
 updateSMBLocalGroupsResponse_httpStatus = Lens.lens (\UpdateSMBLocalGroupsResponse' {httpStatus} -> httpStatus) (\s@UpdateSMBLocalGroupsResponse' {} a -> s {httpStatus = a} :: UpdateSMBLocalGroupsResponse)
 
-instance Prelude.NFData UpdateSMBLocalGroupsResponse
+instance Prelude.NFData UpdateSMBLocalGroupsResponse where
+  rnf UpdateSMBLocalGroupsResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

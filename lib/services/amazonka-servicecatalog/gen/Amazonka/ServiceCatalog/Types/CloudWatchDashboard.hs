@@ -58,6 +58,9 @@ instance Core.FromJSON CloudWatchDashboard where
           CloudWatchDashboard' Prelude.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable CloudWatchDashboard
+instance Prelude.Hashable CloudWatchDashboard where
+  hashWithSalt _salt CloudWatchDashboard' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CloudWatchDashboard
+instance Prelude.NFData CloudWatchDashboard where
+  rnf CloudWatchDashboard' {..} = Prelude.rnf name

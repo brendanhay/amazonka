@@ -196,9 +196,17 @@ instance Core.AWSRequest GetDomainSuggestions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomainSuggestions
+instance Prelude.Hashable GetDomainSuggestions where
+  hashWithSalt _salt GetDomainSuggestions' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` suggestionCount
+      `Prelude.hashWithSalt` onlyAvailable
 
-instance Prelude.NFData GetDomainSuggestions
+instance Prelude.NFData GetDomainSuggestions where
+  rnf GetDomainSuggestions' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf suggestionCount
+      `Prelude.seq` Prelude.rnf onlyAvailable
 
 instance Core.ToHeaders GetDomainSuggestions where
   toHeaders =
@@ -278,4 +286,7 @@ getDomainSuggestionsResponse_suggestionsList = Lens.lens (\GetDomainSuggestionsR
 getDomainSuggestionsResponse_httpStatus :: Lens.Lens' GetDomainSuggestionsResponse Prelude.Int
 getDomainSuggestionsResponse_httpStatus = Lens.lens (\GetDomainSuggestionsResponse' {httpStatus} -> httpStatus) (\s@GetDomainSuggestionsResponse' {} a -> s {httpStatus = a} :: GetDomainSuggestionsResponse)
 
-instance Prelude.NFData GetDomainSuggestionsResponse
+instance Prelude.NFData GetDomainSuggestionsResponse where
+  rnf GetDomainSuggestionsResponse' {..} =
+    Prelude.rnf suggestionsList
+      `Prelude.seq` Prelude.rnf httpStatus

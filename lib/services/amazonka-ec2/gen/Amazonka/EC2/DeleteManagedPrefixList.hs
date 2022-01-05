@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteManagedPrefixList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteManagedPrefixList
+instance Prelude.Hashable DeleteManagedPrefixList where
+  hashWithSalt _salt DeleteManagedPrefixList' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` prefixListId
 
-instance Prelude.NFData DeleteManagedPrefixList
+instance Prelude.NFData DeleteManagedPrefixList where
+  rnf DeleteManagedPrefixList' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf prefixListId
 
 instance Core.ToHeaders DeleteManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,3 +177,7 @@ deleteManagedPrefixListResponse_httpStatus = Lens.lens (\DeleteManagedPrefixList
 instance
   Prelude.NFData
     DeleteManagedPrefixListResponse
+  where
+  rnf DeleteManagedPrefixListResponse' {..} =
+    Prelude.rnf prefixList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -106,10 +106,20 @@ instance
 instance
   Prelude.Hashable
     CreateGroupCertificateAuthority
+  where
+  hashWithSalt
+    _salt
+    CreateGroupCertificateAuthority' {..} =
+      _salt `Prelude.hashWithSalt` amznClientToken
+        `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
     CreateGroupCertificateAuthority
+  where
+  rnf CreateGroupCertificateAuthority' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf groupId
 
 instance
   Core.ToHeaders
@@ -179,3 +189,7 @@ createGroupCertificateAuthorityResponse_httpStatus = Lens.lens (\CreateGroupCert
 instance
   Prelude.NFData
     CreateGroupCertificateAuthorityResponse
+  where
+  rnf CreateGroupCertificateAuthorityResponse' {..} =
+    Prelude.rnf groupCertificateAuthorityArn
+      `Prelude.seq` Prelude.rnf httpStatus

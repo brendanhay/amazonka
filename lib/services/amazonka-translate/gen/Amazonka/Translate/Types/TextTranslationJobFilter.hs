@@ -94,9 +94,19 @@ textTranslationJobFilter_jobName = Lens.lens (\TextTranslationJobFilter' {jobNam
 textTranslationJobFilter_jobStatus :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe JobStatus)
 textTranslationJobFilter_jobStatus = Lens.lens (\TextTranslationJobFilter' {jobStatus} -> jobStatus) (\s@TextTranslationJobFilter' {} a -> s {jobStatus = a} :: TextTranslationJobFilter)
 
-instance Prelude.Hashable TextTranslationJobFilter
+instance Prelude.Hashable TextTranslationJobFilter where
+  hashWithSalt _salt TextTranslationJobFilter' {..} =
+    _salt `Prelude.hashWithSalt` submittedBeforeTime
+      `Prelude.hashWithSalt` submittedAfterTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobStatus
 
-instance Prelude.NFData TextTranslationJobFilter
+instance Prelude.NFData TextTranslationJobFilter where
+  rnf TextTranslationJobFilter' {..} =
+    Prelude.rnf submittedBeforeTime
+      `Prelude.seq` Prelude.rnf submittedAfterTime
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToJSON TextTranslationJobFilter where
   toJSON TextTranslationJobFilter' {..} =

@@ -210,9 +210,25 @@ instance Core.FromJSON Schedule where
             Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Prelude.Hashable Schedule
+instance Prelude.Hashable Schedule where
+  hashWithSalt _salt Schedule' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` isLocalTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData Schedule
+instance Prelude.NFData Schedule where
+  rnf Schedule' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf isLocalTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =

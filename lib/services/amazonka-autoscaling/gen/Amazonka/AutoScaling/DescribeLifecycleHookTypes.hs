@@ -81,9 +81,12 @@ instance Core.AWSRequest DescribeLifecycleHookTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLifecycleHookTypes
+instance Prelude.Hashable DescribeLifecycleHookTypes where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeLifecycleHookTypes
+instance Prelude.NFData DescribeLifecycleHookTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLifecycleHookTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,3 +147,7 @@ describeLifecycleHookTypesResponse_httpStatus = Lens.lens (\DescribeLifecycleHoo
 instance
   Prelude.NFData
     DescribeLifecycleHookTypesResponse
+  where
+  rnf DescribeLifecycleHookTypesResponse' {..} =
+    Prelude.rnf lifecycleHookTypes
+      `Prelude.seq` Prelude.rnf httpStatus

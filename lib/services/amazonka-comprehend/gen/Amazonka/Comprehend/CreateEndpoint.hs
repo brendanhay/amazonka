@@ -180,9 +180,23 @@ instance Core.AWSRequest CreateEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEndpoint
+instance Prelude.Hashable CreateEndpoint where
+  hashWithSalt _salt CreateEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` desiredInferenceUnits
 
-instance Prelude.NFData CreateEndpoint
+instance Prelude.NFData CreateEndpoint where
+  rnf CreateEndpoint' {..} =
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf desiredInferenceUnits
 
 instance Core.ToHeaders CreateEndpoint where
   toHeaders =
@@ -262,4 +276,7 @@ createEndpointResponse_endpointArn = Lens.lens (\CreateEndpointResponse' {endpoi
 createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Prelude.Int
 createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointResponse' {} a -> s {httpStatus = a} :: CreateEndpointResponse)
 
-instance Prelude.NFData CreateEndpointResponse
+instance Prelude.NFData CreateEndpointResponse where
+  rnf CreateEndpointResponse' {..} =
+    Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf httpStatus

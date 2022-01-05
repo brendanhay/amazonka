@@ -82,7 +82,17 @@ instance
 instance
   Prelude.Hashable
     BatchListObjectAttributesResponse
+  where
+  hashWithSalt
+    _salt
+    BatchListObjectAttributesResponse' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` attributes
 
 instance
   Prelude.NFData
     BatchListObjectAttributesResponse
+  where
+  rnf BatchListObjectAttributesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributes

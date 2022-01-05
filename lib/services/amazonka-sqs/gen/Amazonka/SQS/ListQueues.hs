@@ -161,9 +161,17 @@ instance Core.AWSRequest ListQueues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListQueues
+instance Prelude.Hashable ListQueues where
+  hashWithSalt _salt ListQueues' {..} =
+    _salt `Prelude.hashWithSalt` queueNamePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListQueues
+instance Prelude.NFData ListQueues where
+  rnf ListQueues' {..} =
+    Prelude.rnf queueNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListQueues where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,4 +249,8 @@ listQueuesResponse_nextToken = Lens.lens (\ListQueuesResponse' {nextToken} -> ne
 listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Prelude.Int
 listQueuesResponse_httpStatus = Lens.lens (\ListQueuesResponse' {httpStatus} -> httpStatus) (\s@ListQueuesResponse' {} a -> s {httpStatus = a} :: ListQueuesResponse)
 
-instance Prelude.NFData ListQueuesResponse
+instance Prelude.NFData ListQueuesResponse where
+  rnf ListQueuesResponse' {..} =
+    Prelude.rnf queueUrls
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

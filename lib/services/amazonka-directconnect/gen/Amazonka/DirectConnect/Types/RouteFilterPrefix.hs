@@ -62,9 +62,12 @@ instance Core.FromJSON RouteFilterPrefix where
           RouteFilterPrefix' Prelude.<$> (x Core..:? "cidr")
       )
 
-instance Prelude.Hashable RouteFilterPrefix
+instance Prelude.Hashable RouteFilterPrefix where
+  hashWithSalt _salt RouteFilterPrefix' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData RouteFilterPrefix
+instance Prelude.NFData RouteFilterPrefix where
+  rnf RouteFilterPrefix' {..} = Prelude.rnf cidr
 
 instance Core.ToJSON RouteFilterPrefix where
   toJSON RouteFilterPrefix' {..} =

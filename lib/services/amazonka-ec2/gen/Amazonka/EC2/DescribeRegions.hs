@@ -165,9 +165,19 @@ instance Core.AWSRequest DescribeRegions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRegions
+instance Prelude.Hashable DescribeRegions where
+  hashWithSalt _salt DescribeRegions' {..} =
+    _salt `Prelude.hashWithSalt` regionNames
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` allRegions
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeRegions
+instance Prelude.NFData DescribeRegions where
+  rnf DescribeRegions' {..} =
+    Prelude.rnf regionNames
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf allRegions
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,4 +240,7 @@ describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions}
 describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int
 describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeRegionsResponse' {} a -> s {httpStatus = a} :: DescribeRegionsResponse)
 
-instance Prelude.NFData DescribeRegionsResponse
+instance Prelude.NFData DescribeRegionsResponse where
+  rnf DescribeRegionsResponse' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf httpStatus

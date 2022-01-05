@@ -66,9 +66,14 @@ delete_quiet = Lens.lens (\Delete' {quiet} -> quiet) (\s@Delete' {} a -> s {quie
 delete_objects :: Lens.Lens' Delete [ObjectIdentifier]
 delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Prelude.. Lens.coerced
 
-instance Prelude.Hashable Delete
+instance Prelude.Hashable Delete where
+  hashWithSalt _salt Delete' {..} =
+    _salt `Prelude.hashWithSalt` quiet
+      `Prelude.hashWithSalt` objects
 
-instance Prelude.NFData Delete
+instance Prelude.NFData Delete where
+  rnf Delete' {..} =
+    Prelude.rnf quiet `Prelude.seq` Prelude.rnf objects
 
 instance Core.ToXML Delete where
   toXML Delete' {..} =

@@ -119,9 +119,24 @@ instance Core.FromJSON DataCaptureConfig where
             Prelude.<*> (x Core..: "CaptureOptions")
       )
 
-instance Prelude.Hashable DataCaptureConfig
+instance Prelude.Hashable DataCaptureConfig where
+  hashWithSalt _salt DataCaptureConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` captureContentTypeHeader
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` enableCapture
+      `Prelude.hashWithSalt` initialSamplingPercentage
+      `Prelude.hashWithSalt` destinationS3Uri
+      `Prelude.hashWithSalt` captureOptions
 
-instance Prelude.NFData DataCaptureConfig
+instance Prelude.NFData DataCaptureConfig where
+  rnf DataCaptureConfig' {..} =
+    Prelude.rnf captureContentTypeHeader
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf enableCapture
+      `Prelude.seq` Prelude.rnf initialSamplingPercentage
+      `Prelude.seq` Prelude.rnf destinationS3Uri
+      `Prelude.seq` Prelude.rnf captureOptions
 
 instance Core.ToJSON DataCaptureConfig where
   toJSON DataCaptureConfig' {..} =

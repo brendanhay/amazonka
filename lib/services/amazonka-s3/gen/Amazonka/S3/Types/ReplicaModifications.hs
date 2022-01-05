@@ -67,9 +67,12 @@ instance Core.FromXML ReplicaModifications where
     ReplicaModifications'
       Prelude.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable ReplicaModifications
+instance Prelude.Hashable ReplicaModifications where
+  hashWithSalt _salt ReplicaModifications' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReplicaModifications
+instance Prelude.NFData ReplicaModifications where
+  rnf ReplicaModifications' {..} = Prelude.rnf status
 
 instance Core.ToXML ReplicaModifications where
   toXML ReplicaModifications' {..} =

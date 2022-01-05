@@ -90,9 +90,17 @@ instance Core.FromJSON JobResource where
             Prelude.<*> (x Core..:? "S3Resources" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobResource
+instance Prelude.Hashable JobResource where
+  hashWithSalt _salt JobResource' {..} =
+    _salt `Prelude.hashWithSalt` ec2AmiResources
+      `Prelude.hashWithSalt` lambdaResources
+      `Prelude.hashWithSalt` s3Resources
 
-instance Prelude.NFData JobResource
+instance Prelude.NFData JobResource where
+  rnf JobResource' {..} =
+    Prelude.rnf ec2AmiResources
+      `Prelude.seq` Prelude.rnf lambdaResources
+      `Prelude.seq` Prelude.rnf s3Resources
 
 instance Core.ToJSON JobResource where
   toJSON JobResource' {..} =

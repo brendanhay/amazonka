@@ -78,9 +78,15 @@ instance Core.FromJSON BorrowConfiguration where
             Prelude.<*> (x Core..: "MaxTimeToLiveInMinutes")
       )
 
-instance Prelude.Hashable BorrowConfiguration
+instance Prelude.Hashable BorrowConfiguration where
+  hashWithSalt _salt BorrowConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` allowEarlyCheckIn
+      `Prelude.hashWithSalt` maxTimeToLiveInMinutes
 
-instance Prelude.NFData BorrowConfiguration
+instance Prelude.NFData BorrowConfiguration where
+  rnf BorrowConfiguration' {..} =
+    Prelude.rnf allowEarlyCheckIn
+      `Prelude.seq` Prelude.rnf maxTimeToLiveInMinutes
 
 instance Core.ToJSON BorrowConfiguration where
   toJSON BorrowConfiguration' {..} =

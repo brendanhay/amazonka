@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteReusableDelegationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReusableDelegationSet
+instance Prelude.Hashable DeleteReusableDelegationSet where
+  hashWithSalt _salt DeleteReusableDelegationSet' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteReusableDelegationSet
+instance Prelude.NFData DeleteReusableDelegationSet where
+  rnf DeleteReusableDelegationSet' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteReusableDelegationSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,3 +148,6 @@ deleteReusableDelegationSetResponse_httpStatus = Lens.lens (\DeleteReusableDeleg
 instance
   Prelude.NFData
     DeleteReusableDelegationSetResponse
+  where
+  rnf DeleteReusableDelegationSetResponse' {..} =
+    Prelude.rnf httpStatus

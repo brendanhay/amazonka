@@ -101,9 +101,19 @@ instance Core.FromJSON ModelVersion where
             Prelude.<*> (x Core..: "modelVersionNumber")
       )
 
-instance Prelude.Hashable ModelVersion
+instance Prelude.Hashable ModelVersion where
+  hashWithSalt _salt ModelVersion' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelVersionNumber
 
-instance Prelude.NFData ModelVersion
+instance Prelude.NFData ModelVersion where
+  rnf ModelVersion' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelVersionNumber
 
 instance Core.ToJSON ModelVersion where
   toJSON ModelVersion' {..} =

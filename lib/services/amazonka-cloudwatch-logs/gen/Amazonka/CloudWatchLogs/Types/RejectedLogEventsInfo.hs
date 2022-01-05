@@ -82,6 +82,14 @@ instance Core.FromJSON RejectedLogEventsInfo where
             Prelude.<*> (x Core..:? "expiredLogEventEndIndex")
       )
 
-instance Prelude.Hashable RejectedLogEventsInfo
+instance Prelude.Hashable RejectedLogEventsInfo where
+  hashWithSalt _salt RejectedLogEventsInfo' {..} =
+    _salt `Prelude.hashWithSalt` tooOldLogEventEndIndex
+      `Prelude.hashWithSalt` tooNewLogEventStartIndex
+      `Prelude.hashWithSalt` expiredLogEventEndIndex
 
-instance Prelude.NFData RejectedLogEventsInfo
+instance Prelude.NFData RejectedLogEventsInfo where
+  rnf RejectedLogEventsInfo' {..} =
+    Prelude.rnf tooOldLogEventEndIndex
+      `Prelude.seq` Prelude.rnf tooNewLogEventStartIndex
+      `Prelude.seq` Prelude.rnf expiredLogEventEndIndex

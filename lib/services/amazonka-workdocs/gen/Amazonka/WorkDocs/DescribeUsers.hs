@@ -215,9 +215,31 @@ instance Core.AWSRequest DescribeUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUsers
+instance Prelude.Hashable DescribeUsers where
+  hashWithSalt _salt DescribeUsers' {..} =
+    _salt `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` fields
 
-instance Prelude.NFData DescribeUsers
+instance Prelude.NFData DescribeUsers where
+  rnf DescribeUsers' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf fields
 
 instance Core.ToHeaders DescribeUsers where
   toHeaders DescribeUsers' {..} =
@@ -303,4 +325,9 @@ describeUsersResponse_marker = Lens.lens (\DescribeUsersResponse' {marker} -> ma
 describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Prelude.Int
 describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatus} -> httpStatus) (\s@DescribeUsersResponse' {} a -> s {httpStatus = a} :: DescribeUsersResponse)
 
-instance Prelude.NFData DescribeUsersResponse
+instance Prelude.NFData DescribeUsersResponse where
+  rnf DescribeUsersResponse' {..} =
+    Prelude.rnf users
+      `Prelude.seq` Prelude.rnf totalNumberOfUsers
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

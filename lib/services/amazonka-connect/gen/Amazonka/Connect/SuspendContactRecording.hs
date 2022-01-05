@@ -127,9 +127,17 @@ instance Core.AWSRequest SuspendContactRecording where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SuspendContactRecording
+instance Prelude.Hashable SuspendContactRecording where
+  hashWithSalt _salt SuspendContactRecording' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` initialContactId
 
-instance Prelude.NFData SuspendContactRecording
+instance Prelude.NFData SuspendContactRecording where
+  rnf SuspendContactRecording' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf initialContactId
 
 instance Core.ToHeaders SuspendContactRecording where
   toHeaders =
@@ -192,3 +200,6 @@ suspendContactRecordingResponse_httpStatus = Lens.lens (\SuspendContactRecording
 instance
   Prelude.NFData
     SuspendContactRecordingResponse
+  where
+  rnf SuspendContactRecordingResponse' {..} =
+    Prelude.rnf httpStatus

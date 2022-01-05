@@ -68,6 +68,10 @@ instance Core.FromJSON ArtifactConfigOutput where
             Prelude.<$> (x Core..:? "S3Encryption")
       )
 
-instance Prelude.Hashable ArtifactConfigOutput
+instance Prelude.Hashable ArtifactConfigOutput where
+  hashWithSalt _salt ArtifactConfigOutput' {..} =
+    _salt `Prelude.hashWithSalt` s3Encryption
 
-instance Prelude.NFData ArtifactConfigOutput
+instance Prelude.NFData ArtifactConfigOutput where
+  rnf ArtifactConfigOutput' {..} =
+    Prelude.rnf s3Encryption

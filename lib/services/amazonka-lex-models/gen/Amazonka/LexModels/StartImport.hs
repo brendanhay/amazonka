@@ -197,9 +197,19 @@ instance Core.AWSRequest StartImport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartImport
+instance Prelude.Hashable StartImport where
+  hashWithSalt _salt StartImport' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` mergeStrategy
 
-instance Prelude.NFData StartImport
+instance Prelude.NFData StartImport where
+  rnf StartImport' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf mergeStrategy
 
 instance Core.ToHeaders StartImport where
   toHeaders =
@@ -326,4 +336,13 @@ startImportResponse_tags = Lens.lens (\StartImportResponse' {tags} -> tags) (\s@
 startImportResponse_httpStatus :: Lens.Lens' StartImportResponse Prelude.Int
 startImportResponse_httpStatus = Lens.lens (\StartImportResponse' {httpStatus} -> httpStatus) (\s@StartImportResponse' {} a -> s {httpStatus = a} :: StartImportResponse)
 
-instance Prelude.NFData StartImportResponse
+instance Prelude.NFData StartImportResponse where
+  rnf StartImportResponse' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf importId
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mergeStrategy
+      `Prelude.seq` Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -77,7 +77,17 @@ instance Core.FromJSON RealtimeContactAnalysisSegment where
 instance
   Prelude.Hashable
     RealtimeContactAnalysisSegment
+  where
+  hashWithSalt
+    _salt
+    RealtimeContactAnalysisSegment' {..} =
+      _salt `Prelude.hashWithSalt` categories
+        `Prelude.hashWithSalt` transcript
 
 instance
   Prelude.NFData
     RealtimeContactAnalysisSegment
+  where
+  rnf RealtimeContactAnalysisSegment' {..} =
+    Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf transcript

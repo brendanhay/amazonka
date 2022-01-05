@@ -141,9 +141,21 @@ instance Core.AWSRequest ListProblems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProblems
+instance Prelude.Hashable ListProblems where
+  hashWithSalt _salt ListProblems' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListProblems
+instance Prelude.NFData ListProblems where
+  rnf ListProblems' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProblems where
   toHeaders =
@@ -229,4 +241,8 @@ listProblemsResponse_problemList = Lens.lens (\ListProblemsResponse' {problemLis
 listProblemsResponse_httpStatus :: Lens.Lens' ListProblemsResponse Prelude.Int
 listProblemsResponse_httpStatus = Lens.lens (\ListProblemsResponse' {httpStatus} -> httpStatus) (\s@ListProblemsResponse' {} a -> s {httpStatus = a} :: ListProblemsResponse)
 
-instance Prelude.NFData ListProblemsResponse
+instance Prelude.NFData ListProblemsResponse where
+  rnf ListProblemsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf problemList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -83,6 +83,12 @@ instance Core.FromJSON BuiltinIntentMetadata where
                         )
       )
 
-instance Prelude.Hashable BuiltinIntentMetadata
+instance Prelude.Hashable BuiltinIntentMetadata where
+  hashWithSalt _salt BuiltinIntentMetadata' {..} =
+    _salt `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` supportedLocales
 
-instance Prelude.NFData BuiltinIntentMetadata
+instance Prelude.NFData BuiltinIntentMetadata where
+  rnf BuiltinIntentMetadata' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf supportedLocales

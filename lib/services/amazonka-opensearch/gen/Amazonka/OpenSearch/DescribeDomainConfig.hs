@@ -91,9 +91,13 @@ instance Core.AWSRequest DescribeDomainConfig where
             Prelude.<*> (x Core..:> "DomainConfig")
       )
 
-instance Prelude.Hashable DescribeDomainConfig
+instance Prelude.Hashable DescribeDomainConfig where
+  hashWithSalt _salt DescribeDomainConfig' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeDomainConfig
+instance Prelude.NFData DescribeDomainConfig where
+  rnf DescribeDomainConfig' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeDomainConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +162,7 @@ describeDomainConfigResponse_httpStatus = Lens.lens (\DescribeDomainConfigRespon
 describeDomainConfigResponse_domainConfig :: Lens.Lens' DescribeDomainConfigResponse DomainConfig
 describeDomainConfigResponse_domainConfig = Lens.lens (\DescribeDomainConfigResponse' {domainConfig} -> domainConfig) (\s@DescribeDomainConfigResponse' {} a -> s {domainConfig = a} :: DescribeDomainConfigResponse)
 
-instance Prelude.NFData DescribeDomainConfigResponse
+instance Prelude.NFData DescribeDomainConfigResponse where
+  rnf DescribeDomainConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainConfig

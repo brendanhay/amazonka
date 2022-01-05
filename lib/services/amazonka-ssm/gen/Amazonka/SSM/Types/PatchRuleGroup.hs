@@ -60,9 +60,12 @@ instance Core.FromJSON PatchRuleGroup where
             Prelude.<$> (x Core..:? "PatchRules" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PatchRuleGroup
+instance Prelude.Hashable PatchRuleGroup where
+  hashWithSalt _salt PatchRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` patchRules
 
-instance Prelude.NFData PatchRuleGroup
+instance Prelude.NFData PatchRuleGroup where
+  rnf PatchRuleGroup' {..} = Prelude.rnf patchRules
 
 instance Core.ToJSON PatchRuleGroup where
   toJSON PatchRuleGroup' {..} =

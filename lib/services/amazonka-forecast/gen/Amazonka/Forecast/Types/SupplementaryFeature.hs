@@ -512,9 +512,14 @@ instance Core.FromJSON SupplementaryFeature where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable SupplementaryFeature
+instance Prelude.Hashable SupplementaryFeature where
+  hashWithSalt _salt SupplementaryFeature' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData SupplementaryFeature
+instance Prelude.NFData SupplementaryFeature where
+  rnf SupplementaryFeature' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SupplementaryFeature where
   toJSON SupplementaryFeature' {..} =

@@ -118,9 +118,15 @@ instance Core.AWSRequest GetFileUploadURL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFileUploadURL
+instance Prelude.Hashable GetFileUploadURL where
+  hashWithSalt _salt GetFileUploadURL' {..} =
+    _salt `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` questionIdentifier
 
-instance Prelude.NFData GetFileUploadURL
+instance Prelude.NFData GetFileUploadURL where
+  rnf GetFileUploadURL' {..} =
+    Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf questionIdentifier
 
 instance Core.ToHeaders GetFileUploadURL where
   toHeaders =
@@ -192,4 +198,7 @@ getFileUploadURLResponse_fileUploadURL = Lens.lens (\GetFileUploadURLResponse' {
 getFileUploadURLResponse_httpStatus :: Lens.Lens' GetFileUploadURLResponse Prelude.Int
 getFileUploadURLResponse_httpStatus = Lens.lens (\GetFileUploadURLResponse' {httpStatus} -> httpStatus) (\s@GetFileUploadURLResponse' {} a -> s {httpStatus = a} :: GetFileUploadURLResponse)
 
-instance Prelude.NFData GetFileUploadURLResponse
+instance Prelude.NFData GetFileUploadURLResponse where
+  rnf GetFileUploadURLResponse' {..} =
+    Prelude.rnf fileUploadURL
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -71,6 +71,10 @@ instance Core.FromJSON MedicalTranscript where
             Prelude.<$> (x Core..:? "TranscriptFileUri")
       )
 
-instance Prelude.Hashable MedicalTranscript
+instance Prelude.Hashable MedicalTranscript where
+  hashWithSalt _salt MedicalTranscript' {..} =
+    _salt `Prelude.hashWithSalt` transcriptFileUri
 
-instance Prelude.NFData MedicalTranscript
+instance Prelude.NFData MedicalTranscript where
+  rnf MedicalTranscript' {..} =
+    Prelude.rnf transcriptFileUri

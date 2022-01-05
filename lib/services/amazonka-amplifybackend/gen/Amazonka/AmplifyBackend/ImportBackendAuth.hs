@@ -164,9 +164,23 @@ instance Core.AWSRequest ImportBackendAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportBackendAuth
+instance Prelude.Hashable ImportBackendAuth where
+  hashWithSalt _salt ImportBackendAuth' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` nativeClientId
+      `Prelude.hashWithSalt` webClientId
 
-instance Prelude.NFData ImportBackendAuth
+instance Prelude.NFData ImportBackendAuth where
+  rnf ImportBackendAuth' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf nativeClientId
+      `Prelude.seq` Prelude.rnf webClientId
 
 instance Core.ToHeaders ImportBackendAuth where
   toHeaders =
@@ -289,4 +303,12 @@ importBackendAuthResponse_backendEnvironmentName = Lens.lens (\ImportBackendAuth
 importBackendAuthResponse_httpStatus :: Lens.Lens' ImportBackendAuthResponse Prelude.Int
 importBackendAuthResponse_httpStatus = Lens.lens (\ImportBackendAuthResponse' {httpStatus} -> httpStatus) (\s@ImportBackendAuthResponse' {} a -> s {httpStatus = a} :: ImportBackendAuthResponse)
 
-instance Prelude.NFData ImportBackendAuthResponse
+instance Prelude.NFData ImportBackendAuthResponse where
+  rnf ImportBackendAuthResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -135,6 +135,24 @@ instance Core.FromJSON TopicRule where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable TopicRule
+instance Prelude.Hashable TopicRule where
+  hashWithSalt _salt TopicRule' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` awsIotSqlVersion
+      `Prelude.hashWithSalt` errorAction
+      `Prelude.hashWithSalt` ruleDisabled
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` sql
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData TopicRule
+instance Prelude.NFData TopicRule where
+  rnf TopicRule' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf awsIotSqlVersion
+      `Prelude.seq` Prelude.rnf errorAction
+      `Prelude.seq` Prelude.rnf ruleDisabled
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf sql
+      `Prelude.seq` Prelude.rnf description

@@ -160,9 +160,15 @@ instance Core.AWSRequest SuspendProcesses where
   response =
     Response.receiveNull SuspendProcessesResponse'
 
-instance Prelude.Hashable SuspendProcesses
+instance Prelude.Hashable SuspendProcesses where
+  hashWithSalt _salt SuspendProcesses' {..} =
+    _salt `Prelude.hashWithSalt` scalingProcesses
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData SuspendProcesses
+instance Prelude.NFData SuspendProcesses where
+  rnf SuspendProcesses' {..} =
+    Prelude.rnf scalingProcesses
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders SuspendProcesses where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,4 +206,5 @@ newSuspendProcessesResponse ::
 newSuspendProcessesResponse =
   SuspendProcessesResponse'
 
-instance Prelude.NFData SuspendProcessesResponse
+instance Prelude.NFData SuspendProcessesResponse where
+  rnf _ = ()

@@ -77,10 +77,20 @@ launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecif
 instance
   Prelude.Hashable
     LaunchTemplateTagSpecificationRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateTagSpecificationRequest' {..} =
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     LaunchTemplateTagSpecificationRequest
+  where
+  rnf LaunchTemplateTagSpecificationRequest' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Core.ToQuery

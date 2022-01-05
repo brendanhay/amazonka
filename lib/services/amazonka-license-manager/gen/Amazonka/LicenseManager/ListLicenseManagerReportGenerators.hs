@@ -123,10 +123,22 @@ instance
 instance
   Prelude.Hashable
     ListLicenseManagerReportGenerators
+  where
+  hashWithSalt
+    _salt
+    ListLicenseManagerReportGenerators' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListLicenseManagerReportGenerators
+  where
+  rnf ListLicenseManagerReportGenerators' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -227,3 +239,8 @@ listLicenseManagerReportGeneratorsResponse_httpStatus = Lens.lens (\ListLicenseM
 instance
   Prelude.NFData
     ListLicenseManagerReportGeneratorsResponse
+  where
+  rnf ListLicenseManagerReportGeneratorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reportGenerators
+      `Prelude.seq` Prelude.rnf httpStatus

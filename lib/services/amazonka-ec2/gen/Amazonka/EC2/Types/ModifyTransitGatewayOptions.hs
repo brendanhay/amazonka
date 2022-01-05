@@ -146,9 +146,29 @@ modifyTransitGatewayOptions_addTransitGatewayCidrBlocks = Lens.lens (\ModifyTran
 modifyTransitGatewayOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe DnsSupportValue)
 modifyTransitGatewayOptions_dnsSupport = Lens.lens (\ModifyTransitGatewayOptions' {dnsSupport} -> dnsSupport) (\s@ModifyTransitGatewayOptions' {} a -> s {dnsSupport = a} :: ModifyTransitGatewayOptions)
 
-instance Prelude.Hashable ModifyTransitGatewayOptions
+instance Prelude.Hashable ModifyTransitGatewayOptions where
+  hashWithSalt _salt ModifyTransitGatewayOptions' {..} =
+    _salt `Prelude.hashWithSalt` vpnEcmpSupport
+      `Prelude.hashWithSalt` autoAcceptSharedAttachments
+      `Prelude.hashWithSalt` propagationDefaultRouteTableId
+      `Prelude.hashWithSalt` removeTransitGatewayCidrBlocks
+      `Prelude.hashWithSalt` defaultRouteTableAssociation
+      `Prelude.hashWithSalt` associationDefaultRouteTableId
+      `Prelude.hashWithSalt` defaultRouteTablePropagation
+      `Prelude.hashWithSalt` addTransitGatewayCidrBlocks
+      `Prelude.hashWithSalt` dnsSupport
 
-instance Prelude.NFData ModifyTransitGatewayOptions
+instance Prelude.NFData ModifyTransitGatewayOptions where
+  rnf ModifyTransitGatewayOptions' {..} =
+    Prelude.rnf vpnEcmpSupport
+      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
+      `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
+      `Prelude.seq` Prelude.rnf removeTransitGatewayCidrBlocks
+      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
+      `Prelude.seq` Prelude.rnf associationDefaultRouteTableId
+      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
+      `Prelude.seq` Prelude.rnf addTransitGatewayCidrBlocks
+      `Prelude.seq` Prelude.rnf dnsSupport
 
 instance Core.ToQuery ModifyTransitGatewayOptions where
   toQuery ModifyTransitGatewayOptions' {..} =

@@ -338,9 +338,23 @@ instance Core.AWSRequest RegisterType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterType
+instance Prelude.Hashable RegisterType where
+  hashWithSalt _salt RegisterType' {..} =
+    _salt `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` loggingConfig
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` schemaHandlerPackage
 
-instance Prelude.NFData RegisterType
+instance Prelude.NFData RegisterType where
+  rnf RegisterType' {..} =
+    Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf schemaHandlerPackage
 
 instance Core.ToHeaders RegisterType where
   toHeaders = Prelude.const Prelude.mempty
@@ -414,4 +428,7 @@ registerTypeResponse_registrationToken = Lens.lens (\RegisterTypeResponse' {regi
 registerTypeResponse_httpStatus :: Lens.Lens' RegisterTypeResponse Prelude.Int
 registerTypeResponse_httpStatus = Lens.lens (\RegisterTypeResponse' {httpStatus} -> httpStatus) (\s@RegisterTypeResponse' {} a -> s {httpStatus = a} :: RegisterTypeResponse)
 
-instance Prelude.NFData RegisterTypeResponse
+instance Prelude.NFData RegisterTypeResponse where
+  rnf RegisterTypeResponse' {..} =
+    Prelude.rnf registrationToken
+      `Prelude.seq` Prelude.rnf httpStatus

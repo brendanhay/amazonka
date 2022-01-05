@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteLoadBalancer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoadBalancer
+instance Prelude.Hashable DeleteLoadBalancer where
+  hashWithSalt _salt DeleteLoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData DeleteLoadBalancer
+instance Prelude.NFData DeleteLoadBalancer where
+  rnf DeleteLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
 
 instance Core.ToHeaders DeleteLoadBalancer where
   toHeaders =
@@ -176,4 +180,7 @@ deleteLoadBalancerResponse_operations = Lens.lens (\DeleteLoadBalancerResponse' 
 deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int
 deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerResponse)
 
-instance Prelude.NFData DeleteLoadBalancerResponse
+instance Prelude.NFData DeleteLoadBalancerResponse where
+  rnf DeleteLoadBalancerResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,9 +79,12 @@ instance Core.AWSRequest LaunchApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LaunchApp
+instance Prelude.Hashable LaunchApp where
+  hashWithSalt _salt LaunchApp' {..} =
+    _salt `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData LaunchApp
+instance Prelude.NFData LaunchApp where
+  rnf LaunchApp' {..} = Prelude.rnf appId
 
 instance Core.ToHeaders LaunchApp where
   toHeaders =
@@ -138,4 +141,5 @@ newLaunchAppResponse pHttpStatus_ =
 launchAppResponse_httpStatus :: Lens.Lens' LaunchAppResponse Prelude.Int
 launchAppResponse_httpStatus = Lens.lens (\LaunchAppResponse' {httpStatus} -> httpStatus) (\s@LaunchAppResponse' {} a -> s {httpStatus = a} :: LaunchAppResponse)
 
-instance Prelude.NFData LaunchAppResponse
+instance Prelude.NFData LaunchAppResponse where
+  rnf LaunchAppResponse' {..} = Prelude.rnf httpStatus

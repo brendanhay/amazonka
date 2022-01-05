@@ -102,9 +102,17 @@ instance Core.AWSRequest AssociateBot where
   request = Request.putJSON defaultService
   response = Response.receiveNull AssociateBotResponse'
 
-instance Prelude.Hashable AssociateBot
+instance Prelude.Hashable AssociateBot where
+  hashWithSalt _salt AssociateBot' {..} =
+    _salt `Prelude.hashWithSalt` lexBot
+      `Prelude.hashWithSalt` lexV2Bot
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateBot
+instance Prelude.NFData AssociateBot where
+  rnf AssociateBot' {..} =
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf lexV2Bot
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders AssociateBot where
   toHeaders =
@@ -148,4 +156,5 @@ newAssociateBotResponse ::
   AssociateBotResponse
 newAssociateBotResponse = AssociateBotResponse'
 
-instance Prelude.NFData AssociateBotResponse
+instance Prelude.NFData AssociateBotResponse where
+  rnf _ = ()

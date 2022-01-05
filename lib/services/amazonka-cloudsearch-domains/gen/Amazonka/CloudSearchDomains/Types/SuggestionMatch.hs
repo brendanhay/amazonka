@@ -85,6 +85,14 @@ instance Core.FromJSON SuggestionMatch where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable SuggestionMatch
+instance Prelude.Hashable SuggestionMatch where
+  hashWithSalt _salt SuggestionMatch' {..} =
+    _salt `Prelude.hashWithSalt` suggestion
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData SuggestionMatch
+instance Prelude.NFData SuggestionMatch where
+  rnf SuggestionMatch' {..} =
+    Prelude.rnf suggestion
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf id

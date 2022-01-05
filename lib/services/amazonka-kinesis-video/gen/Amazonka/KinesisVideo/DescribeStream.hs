@@ -97,9 +97,15 @@ instance Core.AWSRequest DescribeStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStream
+instance Prelude.Hashable DescribeStream where
+  hashWithSalt _salt DescribeStream' {..} =
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData DescribeStream
+instance Prelude.NFData DescribeStream where
+  rnf DescribeStream' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders DescribeStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,7 @@ describeStreamResponse_streamInfo = Lens.lens (\DescribeStreamResponse' {streamI
 describeStreamResponse_httpStatus :: Lens.Lens' DescribeStreamResponse Prelude.Int
 describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpStatus} -> httpStatus) (\s@DescribeStreamResponse' {} a -> s {httpStatus = a} :: DescribeStreamResponse)
 
-instance Prelude.NFData DescribeStreamResponse
+instance Prelude.NFData DescribeStreamResponse where
+  rnf DescribeStreamResponse' {..} =
+    Prelude.rnf streamInfo
+      `Prelude.seq` Prelude.rnf httpStatus

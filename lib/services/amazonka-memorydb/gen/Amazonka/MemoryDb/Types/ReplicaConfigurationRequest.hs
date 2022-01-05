@@ -53,9 +53,13 @@ newReplicaConfigurationRequest =
 replicaConfigurationRequest_replicaCount :: Lens.Lens' ReplicaConfigurationRequest (Prelude.Maybe Prelude.Int)
 replicaConfigurationRequest_replicaCount = Lens.lens (\ReplicaConfigurationRequest' {replicaCount} -> replicaCount) (\s@ReplicaConfigurationRequest' {} a -> s {replicaCount = a} :: ReplicaConfigurationRequest)
 
-instance Prelude.Hashable ReplicaConfigurationRequest
+instance Prelude.Hashable ReplicaConfigurationRequest where
+  hashWithSalt _salt ReplicaConfigurationRequest' {..} =
+    _salt `Prelude.hashWithSalt` replicaCount
 
-instance Prelude.NFData ReplicaConfigurationRequest
+instance Prelude.NFData ReplicaConfigurationRequest where
+  rnf ReplicaConfigurationRequest' {..} =
+    Prelude.rnf replicaCount
 
 instance Core.ToJSON ReplicaConfigurationRequest where
   toJSON ReplicaConfigurationRequest' {..} =

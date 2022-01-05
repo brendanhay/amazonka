@@ -74,9 +74,12 @@ instance Core.AWSRequest GetDistributionBundles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionBundles
+instance Prelude.Hashable GetDistributionBundles where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetDistributionBundles
+instance Prelude.NFData GetDistributionBundles where
+  rnf _ = ()
 
 instance Core.ToHeaders GetDistributionBundles where
   toHeaders =
@@ -144,3 +147,7 @@ getDistributionBundlesResponse_httpStatus = Lens.lens (\GetDistributionBundlesRe
 instance
   Prelude.NFData
     GetDistributionBundlesResponse
+  where
+  rnf GetDistributionBundlesResponse' {..} =
+    Prelude.rnf bundles
+      `Prelude.seq` Prelude.rnf httpStatus

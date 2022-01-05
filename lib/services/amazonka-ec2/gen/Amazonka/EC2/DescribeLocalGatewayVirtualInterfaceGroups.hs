@@ -206,10 +206,26 @@ instance
 instance
   Prelude.Hashable
     DescribeLocalGatewayVirtualInterfaceGroups
+  where
+  hashWithSalt
+    _salt
+    DescribeLocalGatewayVirtualInterfaceGroups' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeLocalGatewayVirtualInterfaceGroups
+  where
+  rnf DescribeLocalGatewayVirtualInterfaceGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -305,3 +321,9 @@ describeLocalGatewayVirtualInterfaceGroupsResponse_httpStatus = Lens.lens (\Desc
 instance
   Prelude.NFData
     DescribeLocalGatewayVirtualInterfaceGroupsResponse
+  where
+  rnf
+    DescribeLocalGatewayVirtualInterfaceGroupsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroups
+        `Prelude.seq` Prelude.rnf httpStatus

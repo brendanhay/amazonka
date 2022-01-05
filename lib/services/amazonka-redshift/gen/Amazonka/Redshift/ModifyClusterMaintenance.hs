@@ -152,9 +152,24 @@ instance Core.AWSRequest ModifyClusterMaintenance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterMaintenance
+instance Prelude.Hashable ModifyClusterMaintenance where
+  hashWithSalt _salt ModifyClusterMaintenance' {..} =
+    _salt
+      `Prelude.hashWithSalt` deferMaintenanceEndTime
+      `Prelude.hashWithSalt` deferMaintenance
+      `Prelude.hashWithSalt` deferMaintenanceDuration
+      `Prelude.hashWithSalt` deferMaintenanceStartTime
+      `Prelude.hashWithSalt` deferMaintenanceIdentifier
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ModifyClusterMaintenance
+instance Prelude.NFData ModifyClusterMaintenance where
+  rnf ModifyClusterMaintenance' {..} =
+    Prelude.rnf deferMaintenanceEndTime
+      `Prelude.seq` Prelude.rnf deferMaintenance
+      `Prelude.seq` Prelude.rnf deferMaintenanceDuration
+      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
+      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ModifyClusterMaintenance where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,3 +237,7 @@ modifyClusterMaintenanceResponse_httpStatus = Lens.lens (\ModifyClusterMaintenan
 instance
   Prelude.NFData
     ModifyClusterMaintenanceResponse
+  where
+  rnf ModifyClusterMaintenanceResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

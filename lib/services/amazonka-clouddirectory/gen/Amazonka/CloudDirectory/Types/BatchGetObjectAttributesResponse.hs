@@ -69,7 +69,15 @@ instance
 instance
   Prelude.Hashable
     BatchGetObjectAttributesResponse
+  where
+  hashWithSalt
+    _salt
+    BatchGetObjectAttributesResponse' {..} =
+      _salt `Prelude.hashWithSalt` attributes
 
 instance
   Prelude.NFData
     BatchGetObjectAttributesResponse
+  where
+  rnf BatchGetObjectAttributesResponse' {..} =
+    Prelude.rnf attributes

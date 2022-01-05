@@ -293,9 +293,27 @@ instance Core.AWSRequest GetResourceMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceMetrics
+instance Prelude.Hashable GetResourceMetrics where
+  hashWithSalt _salt GetResourceMetrics' {..} =
+    _salt `Prelude.hashWithSalt` periodInSeconds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` metricQueries
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData GetResourceMetrics
+instance Prelude.NFData GetResourceMetrics where
+  rnf GetResourceMetrics' {..} =
+    Prelude.rnf periodInSeconds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf metricQueries
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders GetResourceMetrics where
   toHeaders =
@@ -442,4 +460,11 @@ getResourceMetricsResponse_nextToken = Lens.lens (\GetResourceMetricsResponse' {
 getResourceMetricsResponse_httpStatus :: Lens.Lens' GetResourceMetricsResponse Prelude.Int
 getResourceMetricsResponse_httpStatus = Lens.lens (\GetResourceMetricsResponse' {httpStatus} -> httpStatus) (\s@GetResourceMetricsResponse' {} a -> s {httpStatus = a} :: GetResourceMetricsResponse)
 
-instance Prelude.NFData GetResourceMetricsResponse
+instance Prelude.NFData GetResourceMetricsResponse where
+  rnf GetResourceMetricsResponse' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf metricList
+      `Prelude.seq` Prelude.rnf alignedEndTime
+      `Prelude.seq` Prelude.rnf alignedStartTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

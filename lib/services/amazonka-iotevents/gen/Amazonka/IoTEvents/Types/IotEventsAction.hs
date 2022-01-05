@@ -78,9 +78,15 @@ instance Core.FromJSON IotEventsAction where
             Prelude.<*> (x Core..: "inputName")
       )
 
-instance Prelude.Hashable IotEventsAction
+instance Prelude.Hashable IotEventsAction where
+  hashWithSalt _salt IotEventsAction' {..} =
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` inputName
 
-instance Prelude.NFData IotEventsAction
+instance Prelude.NFData IotEventsAction where
+  rnf IotEventsAction' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf inputName
 
 instance Core.ToJSON IotEventsAction where
   toJSON IotEventsAction' {..} =

@@ -76,9 +76,15 @@ instance Core.FromJSON TimeInNanos where
             Prelude.<*> (x Core..: "timeInSeconds")
       )
 
-instance Prelude.Hashable TimeInNanos
+instance Prelude.Hashable TimeInNanos where
+  hashWithSalt _salt TimeInNanos' {..} =
+    _salt `Prelude.hashWithSalt` offsetInNanos
+      `Prelude.hashWithSalt` timeInSeconds
 
-instance Prelude.NFData TimeInNanos
+instance Prelude.NFData TimeInNanos where
+  rnf TimeInNanos' {..} =
+    Prelude.rnf offsetInNanos
+      `Prelude.seq` Prelude.rnf timeInSeconds
 
 instance Core.ToJSON TimeInNanos where
   toJSON TimeInNanos' {..} =

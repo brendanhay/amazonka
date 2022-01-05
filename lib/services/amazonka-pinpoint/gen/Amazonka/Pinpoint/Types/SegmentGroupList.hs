@@ -86,9 +86,15 @@ instance Core.FromJSON SegmentGroupList where
             Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SegmentGroupList
+instance Prelude.Hashable SegmentGroupList where
+  hashWithSalt _salt SegmentGroupList' {..} =
+    _salt `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData SegmentGroupList
+instance Prelude.NFData SegmentGroupList where
+  rnf SegmentGroupList' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf groups
 
 instance Core.ToJSON SegmentGroupList where
   toJSON SegmentGroupList' {..} =

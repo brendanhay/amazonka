@@ -100,7 +100,21 @@ instance
 instance
   Prelude.Hashable
     DirectoryVpcSettingsDescription
+  where
+  hashWithSalt
+    _salt
+    DirectoryVpcSettingsDescription' {..} =
+      _salt `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` securityGroupId
+        `Prelude.hashWithSalt` availabilityZones
 
 instance
   Prelude.NFData
     DirectoryVpcSettingsDescription
+  where
+  rnf DirectoryVpcSettingsDescription' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf securityGroupId
+      `Prelude.seq` Prelude.rnf availabilityZones

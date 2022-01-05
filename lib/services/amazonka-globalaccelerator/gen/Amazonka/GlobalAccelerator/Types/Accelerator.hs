@@ -195,6 +195,26 @@ instance Core.FromJSON Accelerator where
             Prelude.<*> (x Core..:? "DnsName")
       )
 
-instance Prelude.Hashable Accelerator
+instance Prelude.Hashable Accelerator where
+  hashWithSalt _salt Accelerator' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ipSets
+      `Prelude.hashWithSalt` dnsName
 
-instance Prelude.NFData Accelerator
+instance Prelude.NFData Accelerator where
+  rnf Accelerator' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ipSets
+      `Prelude.seq` Prelude.rnf dnsName

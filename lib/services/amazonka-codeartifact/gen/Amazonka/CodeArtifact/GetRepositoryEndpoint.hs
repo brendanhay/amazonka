@@ -157,9 +157,19 @@ instance Core.AWSRequest GetRepositoryEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepositoryEndpoint
+instance Prelude.Hashable GetRepositoryEndpoint where
+  hashWithSalt _salt GetRepositoryEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData GetRepositoryEndpoint
+instance Prelude.NFData GetRepositoryEndpoint where
+  rnf GetRepositoryEndpoint' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToHeaders GetRepositoryEndpoint where
   toHeaders =
@@ -223,4 +233,7 @@ getRepositoryEndpointResponse_repositoryEndpoint = Lens.lens (\GetRepositoryEndp
 getRepositoryEndpointResponse_httpStatus :: Lens.Lens' GetRepositoryEndpointResponse Prelude.Int
 getRepositoryEndpointResponse_httpStatus = Lens.lens (\GetRepositoryEndpointResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryEndpointResponse' {} a -> s {httpStatus = a} :: GetRepositoryEndpointResponse)
 
-instance Prelude.NFData GetRepositoryEndpointResponse
+instance Prelude.NFData GetRepositoryEndpointResponse where
+  rnf GetRepositoryEndpointResponse' {..} =
+    Prelude.rnf repositoryEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

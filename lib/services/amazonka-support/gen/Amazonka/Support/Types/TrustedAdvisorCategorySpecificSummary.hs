@@ -73,7 +73,15 @@ instance
 instance
   Prelude.Hashable
     TrustedAdvisorCategorySpecificSummary
+  where
+  hashWithSalt
+    _salt
+    TrustedAdvisorCategorySpecificSummary' {..} =
+      _salt `Prelude.hashWithSalt` costOptimizing
 
 instance
   Prelude.NFData
     TrustedAdvisorCategorySpecificSummary
+  where
+  rnf TrustedAdvisorCategorySpecificSummary' {..} =
+    Prelude.rnf costOptimizing

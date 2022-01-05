@@ -60,6 +60,9 @@ instance Core.FromJSON OriginDetails where
           OriginDetails' Prelude.<$> (x Core..: "ProductId")
       )
 
-instance Prelude.Hashable OriginDetails
+instance Prelude.Hashable OriginDetails where
+  hashWithSalt _salt OriginDetails' {..} =
+    _salt `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData OriginDetails
+instance Prelude.NFData OriginDetails where
+  rnf OriginDetails' {..} = Prelude.rnf productId

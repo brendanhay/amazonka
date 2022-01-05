@@ -112,6 +112,18 @@ instance Core.FromXML PublicKeySummary where
       Prelude.<*> (x Core..@ "CreatedTime")
       Prelude.<*> (x Core..@ "EncodedKey")
 
-instance Prelude.Hashable PublicKeySummary
+instance Prelude.Hashable PublicKeySummary where
+  hashWithSalt _salt PublicKeySummary' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` encodedKey
 
-instance Prelude.NFData PublicKeySummary
+instance Prelude.NFData PublicKeySummary where
+  rnf PublicKeySummary' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf encodedKey

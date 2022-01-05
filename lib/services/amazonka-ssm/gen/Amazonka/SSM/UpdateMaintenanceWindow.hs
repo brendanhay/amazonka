@@ -320,9 +320,37 @@ instance Core.AWSRequest UpdateMaintenanceWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMaintenanceWindow
+instance Prelude.Hashable UpdateMaintenanceWindow where
+  hashWithSalt _salt UpdateMaintenanceWindow' {..} =
+    _salt `Prelude.hashWithSalt` replace
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` scheduleTimezone
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cutoff
+      `Prelude.hashWithSalt` allowUnassociatedTargets
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` windowId
 
-instance Prelude.NFData UpdateMaintenanceWindow
+instance Prelude.NFData UpdateMaintenanceWindow where
+  rnf UpdateMaintenanceWindow' {..} =
+    Prelude.rnf replace
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf scheduleTimezone
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf allowUnassociatedTargets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf windowId
 
 instance Core.ToHeaders UpdateMaintenanceWindow where
   toHeaders =
@@ -548,3 +576,18 @@ updateMaintenanceWindowResponse_httpStatus = Lens.lens (\UpdateMaintenanceWindow
 instance
   Prelude.NFData
     UpdateMaintenanceWindowResponse
+  where
+  rnf UpdateMaintenanceWindowResponse' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf scheduleTimezone
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf allowUnassociatedTargets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf httpStatus

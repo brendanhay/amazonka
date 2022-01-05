@@ -69,9 +69,13 @@ instance Core.FromXML ObjectLockRule where
     ObjectLockRule'
       Prelude.<$> (x Core..@? "DefaultRetention")
 
-instance Prelude.Hashable ObjectLockRule
+instance Prelude.Hashable ObjectLockRule where
+  hashWithSalt _salt ObjectLockRule' {..} =
+    _salt `Prelude.hashWithSalt` defaultRetention
 
-instance Prelude.NFData ObjectLockRule
+instance Prelude.NFData ObjectLockRule where
+  rnf ObjectLockRule' {..} =
+    Prelude.rnf defaultRetention
 
 instance Core.ToXML ObjectLockRule where
   toXML ObjectLockRule' {..} =

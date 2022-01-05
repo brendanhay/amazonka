@@ -74,7 +74,17 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateIamInstanceProfileSpecification
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateIamInstanceProfileSpecification' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     LaunchTemplateIamInstanceProfileSpecification
+  where
+  rnf
+    LaunchTemplateIamInstanceProfileSpecification' {..} =
+      Prelude.rnf arn `Prelude.seq` Prelude.rnf name

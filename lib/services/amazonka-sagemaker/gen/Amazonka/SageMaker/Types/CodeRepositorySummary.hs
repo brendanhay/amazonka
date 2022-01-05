@@ -121,6 +121,18 @@ instance Core.FromJSON CodeRepositorySummary where
             Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Prelude.Hashable CodeRepositorySummary
+instance Prelude.Hashable CodeRepositorySummary where
+  hashWithSalt _salt CodeRepositorySummary' {..} =
+    _salt `Prelude.hashWithSalt` gitConfig
+      `Prelude.hashWithSalt` codeRepositoryName
+      `Prelude.hashWithSalt` codeRepositoryArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData CodeRepositorySummary
+instance Prelude.NFData CodeRepositorySummary where
+  rnf CodeRepositorySummary' {..} =
+    Prelude.rnf gitConfig
+      `Prelude.seq` Prelude.rnf codeRepositoryName
+      `Prelude.seq` Prelude.rnf codeRepositoryArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime

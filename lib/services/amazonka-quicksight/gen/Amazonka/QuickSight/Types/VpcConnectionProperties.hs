@@ -64,9 +64,13 @@ instance Core.FromJSON VpcConnectionProperties where
             Prelude.<$> (x Core..: "VpcConnectionArn")
       )
 
-instance Prelude.Hashable VpcConnectionProperties
+instance Prelude.Hashable VpcConnectionProperties where
+  hashWithSalt _salt VpcConnectionProperties' {..} =
+    _salt `Prelude.hashWithSalt` vpcConnectionArn
 
-instance Prelude.NFData VpcConnectionProperties
+instance Prelude.NFData VpcConnectionProperties where
+  rnf VpcConnectionProperties' {..} =
+    Prelude.rnf vpcConnectionArn
 
 instance Core.ToJSON VpcConnectionProperties where
   toJSON VpcConnectionProperties' {..} =

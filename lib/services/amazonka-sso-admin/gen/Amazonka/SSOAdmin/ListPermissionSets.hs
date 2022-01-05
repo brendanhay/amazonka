@@ -146,9 +146,17 @@ instance Core.AWSRequest ListPermissionSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPermissionSets
+instance Prelude.Hashable ListPermissionSets where
+  hashWithSalt _salt ListPermissionSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceArn
 
-instance Prelude.NFData ListPermissionSets
+instance Prelude.NFData ListPermissionSets where
+  rnf ListPermissionSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceArn
 
 instance Core.ToHeaders ListPermissionSets where
   toHeaders =
@@ -232,4 +240,8 @@ listPermissionSetsResponse_nextToken = Lens.lens (\ListPermissionSetsResponse' {
 listPermissionSetsResponse_httpStatus :: Lens.Lens' ListPermissionSetsResponse Prelude.Int
 listPermissionSetsResponse_httpStatus = Lens.lens (\ListPermissionSetsResponse' {httpStatus} -> httpStatus) (\s@ListPermissionSetsResponse' {} a -> s {httpStatus = a} :: ListPermissionSetsResponse)
 
-instance Prelude.NFData ListPermissionSetsResponse
+instance Prelude.NFData ListPermissionSetsResponse where
+  rnf ListPermissionSetsResponse' {..} =
+    Prelude.rnf permissionSets
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

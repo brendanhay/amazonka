@@ -106,9 +106,19 @@ instance Core.FromJSON ContainerDetails where
             Prelude.<*> (x Core..:? "LaunchedAt")
       )
 
-instance Prelude.Hashable ContainerDetails
+instance Prelude.Hashable ContainerDetails where
+  hashWithSalt _salt ContainerDetails' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` launchedAt
 
-instance Prelude.NFData ContainerDetails
+instance Prelude.NFData ContainerDetails where
+  rnf ContainerDetails' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf launchedAt
 
 instance Core.ToJSON ContainerDetails where
   toJSON ContainerDetails' {..} =

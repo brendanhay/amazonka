@@ -65,6 +65,10 @@ instance Core.FromJSON RelatedObservations where
                         )
       )
 
-instance Prelude.Hashable RelatedObservations
+instance Prelude.Hashable RelatedObservations where
+  hashWithSalt _salt RelatedObservations' {..} =
+    _salt `Prelude.hashWithSalt` observationList
 
-instance Prelude.NFData RelatedObservations
+instance Prelude.NFData RelatedObservations where
+  rnf RelatedObservations' {..} =
+    Prelude.rnf observationList

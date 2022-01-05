@@ -110,8 +110,14 @@ instance Core.AWSRequest DeleteResolverQueryLogConfig where
 instance
   Prelude.Hashable
     DeleteResolverQueryLogConfig
+  where
+  hashWithSalt _salt DeleteResolverQueryLogConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` resolverQueryLogConfigId
 
-instance Prelude.NFData DeleteResolverQueryLogConfig
+instance Prelude.NFData DeleteResolverQueryLogConfig where
+  rnf DeleteResolverQueryLogConfig' {..} =
+    Prelude.rnf resolverQueryLogConfigId
 
 instance Core.ToHeaders DeleteResolverQueryLogConfig where
   toHeaders =
@@ -190,3 +196,7 @@ deleteResolverQueryLogConfigResponse_httpStatus = Lens.lens (\DeleteResolverQuer
 instance
   Prelude.NFData
     DeleteResolverQueryLogConfigResponse
+  where
+  rnf DeleteResolverQueryLogConfigResponse' {..} =
+    Prelude.rnf resolverQueryLogConfig
+      `Prelude.seq` Prelude.rnf httpStatus

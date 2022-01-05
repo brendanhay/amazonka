@@ -112,10 +112,20 @@ instance
 instance
   Prelude.Hashable
     PutAppInstanceRetentionSettings
+  where
+  hashWithSalt
+    _salt
+    PutAppInstanceRetentionSettings' {..} =
+      _salt `Prelude.hashWithSalt` appInstanceArn
+        `Prelude.hashWithSalt` appInstanceRetentionSettings
 
 instance
   Prelude.NFData
     PutAppInstanceRetentionSettings
+  where
+  rnf PutAppInstanceRetentionSettings' {..} =
+    Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf appInstanceRetentionSettings
 
 instance
   Core.ToHeaders
@@ -198,3 +208,8 @@ putAppInstanceRetentionSettingsResponse_httpStatus = Lens.lens (\PutAppInstanceR
 instance
   Prelude.NFData
     PutAppInstanceRetentionSettingsResponse
+  where
+  rnf PutAppInstanceRetentionSettingsResponse' {..} =
+    Prelude.rnf appInstanceRetentionSettings
+      `Prelude.seq` Prelude.rnf initiateDeletionTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

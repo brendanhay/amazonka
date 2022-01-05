@@ -107,7 +107,23 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayAttachmentBgpConfiguration
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayAttachmentBgpConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` transitGatewayAsn
+        `Prelude.hashWithSalt` peerAsn
+        `Prelude.hashWithSalt` transitGatewayAddress
+        `Prelude.hashWithSalt` bgpStatus
+        `Prelude.hashWithSalt` peerAddress
 
 instance
   Prelude.NFData
     TransitGatewayAttachmentBgpConfiguration
+  where
+  rnf TransitGatewayAttachmentBgpConfiguration' {..} =
+    Prelude.rnf transitGatewayAsn
+      `Prelude.seq` Prelude.rnf peerAsn
+      `Prelude.seq` Prelude.rnf transitGatewayAddress
+      `Prelude.seq` Prelude.rnf bgpStatus
+      `Prelude.seq` Prelude.rnf peerAddress

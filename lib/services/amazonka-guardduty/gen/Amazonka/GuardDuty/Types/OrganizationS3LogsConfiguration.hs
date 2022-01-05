@@ -62,10 +62,18 @@ organizationS3LogsConfiguration_autoEnable = Lens.lens (\OrganizationS3LogsConfi
 instance
   Prelude.Hashable
     OrganizationS3LogsConfiguration
+  where
+  hashWithSalt
+    _salt
+    OrganizationS3LogsConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` autoEnable
 
 instance
   Prelude.NFData
     OrganizationS3LogsConfiguration
+  where
+  rnf OrganizationS3LogsConfiguration' {..} =
+    Prelude.rnf autoEnable
 
 instance Core.ToJSON OrganizationS3LogsConfiguration where
   toJSON OrganizationS3LogsConfiguration' {..} =

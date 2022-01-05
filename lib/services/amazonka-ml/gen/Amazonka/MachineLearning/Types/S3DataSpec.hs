@@ -441,9 +441,19 @@ s3DataSpec_dataRearrangement = Lens.lens (\S3DataSpec' {dataRearrangement} -> da
 s3DataSpec_dataLocationS3 :: Lens.Lens' S3DataSpec Prelude.Text
 s3DataSpec_dataLocationS3 = Lens.lens (\S3DataSpec' {dataLocationS3} -> dataLocationS3) (\s@S3DataSpec' {} a -> s {dataLocationS3 = a} :: S3DataSpec)
 
-instance Prelude.Hashable S3DataSpec
+instance Prelude.Hashable S3DataSpec where
+  hashWithSalt _salt S3DataSpec' {..} =
+    _salt `Prelude.hashWithSalt` dataSchema
+      `Prelude.hashWithSalt` dataSchemaLocationS3
+      `Prelude.hashWithSalt` dataRearrangement
+      `Prelude.hashWithSalt` dataLocationS3
 
-instance Prelude.NFData S3DataSpec
+instance Prelude.NFData S3DataSpec where
+  rnf S3DataSpec' {..} =
+    Prelude.rnf dataSchema
+      `Prelude.seq` Prelude.rnf dataSchemaLocationS3
+      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf dataLocationS3
 
 instance Core.ToJSON S3DataSpec where
   toJSON S3DataSpec' {..} =

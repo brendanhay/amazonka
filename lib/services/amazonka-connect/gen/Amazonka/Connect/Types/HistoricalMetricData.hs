@@ -72,6 +72,11 @@ instance Core.FromJSON HistoricalMetricData where
             Prelude.<*> (x Core..:? "Metric")
       )
 
-instance Prelude.Hashable HistoricalMetricData
+instance Prelude.Hashable HistoricalMetricData where
+  hashWithSalt _salt HistoricalMetricData' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData HistoricalMetricData
+instance Prelude.NFData HistoricalMetricData where
+  rnf HistoricalMetricData' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf metric

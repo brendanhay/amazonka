@@ -112,9 +112,17 @@ instance Core.AWSRequest StopJob where
             Prelude.<*> (x Core..:> "jobSummary")
       )
 
-instance Prelude.Hashable StopJob
+instance Prelude.Hashable StopJob where
+  hashWithSalt _salt StopJob' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopJob
+instance Prelude.NFData StopJob where
+  rnf StopJob' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders StopJob where
   toHeaders =
@@ -184,4 +192,7 @@ stopJobResponse_httpStatus = Lens.lens (\StopJobResponse' {httpStatus} -> httpSt
 stopJobResponse_jobSummary :: Lens.Lens' StopJobResponse JobSummary
 stopJobResponse_jobSummary = Lens.lens (\StopJobResponse' {jobSummary} -> jobSummary) (\s@StopJobResponse' {} a -> s {jobSummary = a} :: StopJobResponse)
 
-instance Prelude.NFData StopJobResponse
+instance Prelude.NFData StopJobResponse where
+  rnf StopJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSummary

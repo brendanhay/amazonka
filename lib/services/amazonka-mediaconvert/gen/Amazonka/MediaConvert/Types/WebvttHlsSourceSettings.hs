@@ -91,9 +91,17 @@ instance Core.FromJSON WebvttHlsSourceSettings where
             Prelude.<*> (x Core..:? "renditionLanguageCode")
       )
 
-instance Prelude.Hashable WebvttHlsSourceSettings
+instance Prelude.Hashable WebvttHlsSourceSettings where
+  hashWithSalt _salt WebvttHlsSourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` renditionName
+      `Prelude.hashWithSalt` renditionGroupId
+      `Prelude.hashWithSalt` renditionLanguageCode
 
-instance Prelude.NFData WebvttHlsSourceSettings
+instance Prelude.NFData WebvttHlsSourceSettings where
+  rnf WebvttHlsSourceSettings' {..} =
+    Prelude.rnf renditionName
+      `Prelude.seq` Prelude.rnf renditionGroupId
+      `Prelude.seq` Prelude.rnf renditionLanguageCode
 
 instance Core.ToJSON WebvttHlsSourceSettings where
   toJSON WebvttHlsSourceSettings' {..} =

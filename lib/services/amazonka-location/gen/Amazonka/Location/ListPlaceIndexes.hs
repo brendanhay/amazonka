@@ -137,9 +137,15 @@ instance Core.AWSRequest ListPlaceIndexes where
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPlaceIndexes
+instance Prelude.Hashable ListPlaceIndexes where
+  hashWithSalt _salt ListPlaceIndexes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPlaceIndexes
+instance Prelude.NFData ListPlaceIndexes where
+  rnf ListPlaceIndexes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPlaceIndexes where
   toHeaders =
@@ -221,4 +227,8 @@ listPlaceIndexesResponse_httpStatus = Lens.lens (\ListPlaceIndexesResponse' {htt
 listPlaceIndexesResponse_entries :: Lens.Lens' ListPlaceIndexesResponse [ListPlaceIndexesResponseEntry]
 listPlaceIndexesResponse_entries = Lens.lens (\ListPlaceIndexesResponse' {entries} -> entries) (\s@ListPlaceIndexesResponse' {} a -> s {entries = a} :: ListPlaceIndexesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPlaceIndexesResponse
+instance Prelude.NFData ListPlaceIndexesResponse where
+  rnf ListPlaceIndexesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entries

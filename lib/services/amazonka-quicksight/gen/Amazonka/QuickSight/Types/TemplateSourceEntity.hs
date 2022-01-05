@@ -64,9 +64,15 @@ templateSourceEntity_sourceAnalysis = Lens.lens (\TemplateSourceEntity' {sourceA
 templateSourceEntity_sourceTemplate :: Lens.Lens' TemplateSourceEntity (Prelude.Maybe TemplateSourceTemplate)
 templateSourceEntity_sourceTemplate = Lens.lens (\TemplateSourceEntity' {sourceTemplate} -> sourceTemplate) (\s@TemplateSourceEntity' {} a -> s {sourceTemplate = a} :: TemplateSourceEntity)
 
-instance Prelude.Hashable TemplateSourceEntity
+instance Prelude.Hashable TemplateSourceEntity where
+  hashWithSalt _salt TemplateSourceEntity' {..} =
+    _salt `Prelude.hashWithSalt` sourceAnalysis
+      `Prelude.hashWithSalt` sourceTemplate
 
-instance Prelude.NFData TemplateSourceEntity
+instance Prelude.NFData TemplateSourceEntity where
+  rnf TemplateSourceEntity' {..} =
+    Prelude.rnf sourceAnalysis
+      `Prelude.seq` Prelude.rnf sourceTemplate
 
 instance Core.ToJSON TemplateSourceEntity where
   toJSON TemplateSourceEntity' {..} =

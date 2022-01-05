@@ -68,8 +68,15 @@ startSegmentDetectionFilters_shotFilter = Lens.lens (\StartSegmentDetectionFilte
 instance
   Prelude.Hashable
     StartSegmentDetectionFilters
+  where
+  hashWithSalt _salt StartSegmentDetectionFilters' {..} =
+    _salt `Prelude.hashWithSalt` technicalCueFilter
+      `Prelude.hashWithSalt` shotFilter
 
-instance Prelude.NFData StartSegmentDetectionFilters
+instance Prelude.NFData StartSegmentDetectionFilters where
+  rnf StartSegmentDetectionFilters' {..} =
+    Prelude.rnf technicalCueFilter
+      `Prelude.seq` Prelude.rnf shotFilter
 
 instance Core.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =

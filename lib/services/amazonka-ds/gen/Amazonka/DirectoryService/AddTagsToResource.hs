@@ -98,9 +98,15 @@ instance Core.AWSRequest AddTagsToResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddTagsToResource
+instance Prelude.Hashable AddTagsToResource where
+  hashWithSalt _salt AddTagsToResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AddTagsToResource
+instance Prelude.NFData AddTagsToResource where
+  rnf AddTagsToResource' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders AddTagsToResource where
   toHeaders =
@@ -162,4 +168,6 @@ newAddTagsToResourceResponse pHttpStatus_ =
 addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Prelude.Int
 addTagsToResourceResponse_httpStatus = Lens.lens (\AddTagsToResourceResponse' {httpStatus} -> httpStatus) (\s@AddTagsToResourceResponse' {} a -> s {httpStatus = a} :: AddTagsToResourceResponse)
 
-instance Prelude.NFData AddTagsToResourceResponse
+instance Prelude.NFData AddTagsToResourceResponse where
+  rnf AddTagsToResourceResponse' {..} =
+    Prelude.rnf httpStatus

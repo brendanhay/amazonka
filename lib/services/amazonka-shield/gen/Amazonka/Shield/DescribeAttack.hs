@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeAttack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAttack
+instance Prelude.Hashable DescribeAttack where
+  hashWithSalt _salt DescribeAttack' {..} =
+    _salt `Prelude.hashWithSalt` attackId
 
-instance Prelude.NFData DescribeAttack
+instance Prelude.NFData DescribeAttack where
+  rnf DescribeAttack' {..} = Prelude.rnf attackId
 
 instance Core.ToHeaders DescribeAttack where
   toHeaders =
@@ -156,4 +159,7 @@ describeAttackResponse_attack = Lens.lens (\DescribeAttackResponse' {attack} -> 
 describeAttackResponse_httpStatus :: Lens.Lens' DescribeAttackResponse Prelude.Int
 describeAttackResponse_httpStatus = Lens.lens (\DescribeAttackResponse' {httpStatus} -> httpStatus) (\s@DescribeAttackResponse' {} a -> s {httpStatus = a} :: DescribeAttackResponse)
 
-instance Prelude.NFData DescribeAttackResponse
+instance Prelude.NFData DescribeAttackResponse where
+  rnf DescribeAttackResponse' {..} =
+    Prelude.rnf attack
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -310,9 +310,38 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJob
+instance Prelude.Hashable CreateJob where
+  hashWithSalt _salt CreateJob' {..} =
+    _salt
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` documentSource
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` jobTemplateArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` targetSelection
+      `Prelude.hashWithSalt` timeoutConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` targets
 
-instance Prelude.NFData CreateJob
+instance Prelude.NFData CreateJob where
+  rnf CreateJob' {..} =
+    Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf documentSource
+      `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targetSelection
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -404,4 +433,9 @@ createJobResponse_description = Lens.lens (\CreateJobResponse' {description} -> 
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
 createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance Prelude.NFData CreateJobResponse
+instance Prelude.NFData CreateJobResponse where
+  rnf CreateJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

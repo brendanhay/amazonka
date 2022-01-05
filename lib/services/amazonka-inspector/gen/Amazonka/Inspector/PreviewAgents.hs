@@ -145,9 +145,17 @@ instance Core.AWSRequest PreviewAgents where
             Prelude.<*> (x Core..?> "agentPreviews" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable PreviewAgents
+instance Prelude.Hashable PreviewAgents where
+  hashWithSalt _salt PreviewAgents' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` previewAgentsArn
 
-instance Prelude.NFData PreviewAgents
+instance Prelude.NFData PreviewAgents where
+  rnf PreviewAgents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf previewAgentsArn
 
 instance Core.ToHeaders PreviewAgents where
   toHeaders =
@@ -237,4 +245,8 @@ previewAgentsResponse_httpStatus = Lens.lens (\PreviewAgentsResponse' {httpStatu
 previewAgentsResponse_agentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
 previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentPreviews} -> agentPreviews) (\s@PreviewAgentsResponse' {} a -> s {agentPreviews = a} :: PreviewAgentsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData PreviewAgentsResponse
+instance Prelude.NFData PreviewAgentsResponse where
+  rnf PreviewAgentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf agentPreviews

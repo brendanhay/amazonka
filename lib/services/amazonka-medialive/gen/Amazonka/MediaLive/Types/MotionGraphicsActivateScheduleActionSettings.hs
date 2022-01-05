@@ -106,10 +106,24 @@ instance
 instance
   Prelude.Hashable
     MotionGraphicsActivateScheduleActionSettings
+  where
+  hashWithSalt
+    _salt
+    MotionGraphicsActivateScheduleActionSettings' {..} =
+      _salt `Prelude.hashWithSalt` url
+        `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` passwordParam
+        `Prelude.hashWithSalt` duration
 
 instance
   Prelude.NFData
     MotionGraphicsActivateScheduleActionSettings
+  where
+  rnf MotionGraphicsActivateScheduleActionSettings' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf duration
 
 instance
   Core.ToJSON

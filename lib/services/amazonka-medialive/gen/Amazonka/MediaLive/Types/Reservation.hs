@@ -253,6 +253,44 @@ instance Core.FromJSON Reservation where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Reservation
+instance Prelude.Hashable Reservation where
+  hashWithSalt _salt Reservation' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` resourceSpecification
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reservationId
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` durationUnits
+      `Prelude.hashWithSalt` offeringDescription
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Reservation
+instance Prelude.NFData Reservation where
+  rnf Reservation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf resourceSpecification
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reservationId
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf durationUnits
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf tags

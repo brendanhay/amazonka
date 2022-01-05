@@ -87,9 +87,13 @@ instance Core.AWSRequest PutLoggingOptions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLoggingOptions
+instance Prelude.Hashable PutLoggingOptions where
+  hashWithSalt _salt PutLoggingOptions' {..} =
+    _salt `Prelude.hashWithSalt` loggingOptions
 
-instance Prelude.NFData PutLoggingOptions
+instance Prelude.NFData PutLoggingOptions where
+  rnf PutLoggingOptions' {..} =
+    Prelude.rnf loggingOptions
 
 instance Core.ToHeaders PutLoggingOptions where
   toHeaders =
@@ -147,4 +151,6 @@ newPutLoggingOptionsResponse pHttpStatus_ =
 putLoggingOptionsResponse_httpStatus :: Lens.Lens' PutLoggingOptionsResponse Prelude.Int
 putLoggingOptionsResponse_httpStatus = Lens.lens (\PutLoggingOptionsResponse' {httpStatus} -> httpStatus) (\s@PutLoggingOptionsResponse' {} a -> s {httpStatus = a} :: PutLoggingOptionsResponse)
 
-instance Prelude.NFData PutLoggingOptionsResponse
+instance Prelude.NFData PutLoggingOptionsResponse where
+  rnf PutLoggingOptionsResponse' {..} =
+    Prelude.rnf httpStatus

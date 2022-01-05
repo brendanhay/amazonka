@@ -190,9 +190,19 @@ instance Core.AWSRequest GetPersonTracking where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPersonTracking
+instance Prelude.Hashable GetPersonTracking where
+  hashWithSalt _salt GetPersonTracking' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetPersonTracking
+instance Prelude.NFData GetPersonTracking where
+  rnf GetPersonTracking' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetPersonTracking where
   toHeaders =
@@ -319,4 +329,11 @@ getPersonTrackingResponse_persons = Lens.lens (\GetPersonTrackingResponse' {pers
 getPersonTrackingResponse_httpStatus :: Lens.Lens' GetPersonTrackingResponse Prelude.Int
 getPersonTrackingResponse_httpStatus = Lens.lens (\GetPersonTrackingResponse' {httpStatus} -> httpStatus) (\s@GetPersonTrackingResponse' {} a -> s {httpStatus = a} :: GetPersonTrackingResponse)
 
-instance Prelude.NFData GetPersonTrackingResponse
+instance Prelude.NFData GetPersonTrackingResponse where
+  rnf GetPersonTrackingResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf videoMetadata
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf persons
+      `Prelude.seq` Prelude.rnf httpStatus

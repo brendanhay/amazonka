@@ -172,9 +172,19 @@ instance Core.AWSRequest GetBuiltinIntents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBuiltinIntents
+instance Prelude.Hashable GetBuiltinIntents where
+  hashWithSalt _salt GetBuiltinIntents' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` signatureContains
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetBuiltinIntents
+instance Prelude.NFData GetBuiltinIntents where
+  rnf GetBuiltinIntents' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf signatureContains
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetBuiltinIntents where
   toHeaders =
@@ -259,4 +269,8 @@ getBuiltinIntentsResponse_nextToken = Lens.lens (\GetBuiltinIntentsResponse' {ne
 getBuiltinIntentsResponse_httpStatus :: Lens.Lens' GetBuiltinIntentsResponse Prelude.Int
 getBuiltinIntentsResponse_httpStatus = Lens.lens (\GetBuiltinIntentsResponse' {httpStatus} -> httpStatus) (\s@GetBuiltinIntentsResponse' {} a -> s {httpStatus = a} :: GetBuiltinIntentsResponse)
 
-instance Prelude.NFData GetBuiltinIntentsResponse
+instance Prelude.NFData GetBuiltinIntentsResponse where
+  rnf GetBuiltinIntentsResponse' {..} =
+    Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

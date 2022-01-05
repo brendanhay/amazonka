@@ -75,9 +75,15 @@ instance Core.FromJSON IngestedEventsTimeWindow where
             Prelude.<*> (x Core..: "endTime")
       )
 
-instance Prelude.Hashable IngestedEventsTimeWindow
+instance Prelude.Hashable IngestedEventsTimeWindow where
+  hashWithSalt _salt IngestedEventsTimeWindow' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData IngestedEventsTimeWindow
+instance Prelude.NFData IngestedEventsTimeWindow where
+  rnf IngestedEventsTimeWindow' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON IngestedEventsTimeWindow where
   toJSON IngestedEventsTimeWindow' {..} =

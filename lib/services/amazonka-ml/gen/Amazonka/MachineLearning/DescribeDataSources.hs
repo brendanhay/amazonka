@@ -348,9 +348,33 @@ instance Core.AWSRequest DescribeDataSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataSources
+instance Prelude.Hashable DescribeDataSources where
+  hashWithSalt _salt DescribeDataSources' {..} =
+    _salt `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` ne
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` filterVariable
+      `Prelude.hashWithSalt` le
 
-instance Prelude.NFData DescribeDataSources
+instance Prelude.NFData DescribeDataSources where
+  rnf DescribeDataSources' {..} =
+    Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf ne
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf filterVariable
+      `Prelude.seq` Prelude.rnf le
 
 instance Core.ToHeaders DescribeDataSources where
   toHeaders =
@@ -446,4 +470,8 @@ describeDataSourcesResponse_nextToken = Lens.lens (\DescribeDataSourcesResponse'
 describeDataSourcesResponse_httpStatus :: Lens.Lens' DescribeDataSourcesResponse Prelude.Int
 describeDataSourcesResponse_httpStatus = Lens.lens (\DescribeDataSourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeDataSourcesResponse' {} a -> s {httpStatus = a} :: DescribeDataSourcesResponse)
 
-instance Prelude.NFData DescribeDataSourcesResponse
+instance Prelude.NFData DescribeDataSourcesResponse where
+  rnf DescribeDataSourcesResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

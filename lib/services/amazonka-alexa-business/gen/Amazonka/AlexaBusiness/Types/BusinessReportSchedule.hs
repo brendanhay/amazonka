@@ -142,6 +142,24 @@ instance Core.FromJSON BusinessReportSchedule where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable BusinessReportSchedule
+instance Prelude.Hashable BusinessReportSchedule where
+  hashWithSalt _salt BusinessReportSchedule' {..} =
+    _salt `Prelude.hashWithSalt` s3KeyPrefix
+      `Prelude.hashWithSalt` lastBusinessReport
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` scheduleName
+      `Prelude.hashWithSalt` scheduleArn
+      `Prelude.hashWithSalt` contentRange
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData BusinessReportSchedule
+instance Prelude.NFData BusinessReportSchedule where
+  rnf BusinessReportSchedule' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf lastBusinessReport
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf scheduleName
+      `Prelude.seq` Prelude.rnf scheduleArn
+      `Prelude.seq` Prelude.rnf contentRange
+      `Prelude.seq` Prelude.rnf s3BucketName

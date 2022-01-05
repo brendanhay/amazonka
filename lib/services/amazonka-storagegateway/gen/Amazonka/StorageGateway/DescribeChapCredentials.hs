@@ -100,9 +100,13 @@ instance Core.AWSRequest DescribeChapCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChapCredentials
+instance Prelude.Hashable DescribeChapCredentials where
+  hashWithSalt _salt DescribeChapCredentials' {..} =
+    _salt `Prelude.hashWithSalt` targetARN
 
-instance Prelude.NFData DescribeChapCredentials
+instance Prelude.NFData DescribeChapCredentials where
+  rnf DescribeChapCredentials' {..} =
+    Prelude.rnf targetARN
 
 instance Core.ToHeaders DescribeChapCredentials where
   toHeaders =
@@ -224,3 +228,7 @@ describeChapCredentialsResponse_httpStatus = Lens.lens (\DescribeChapCredentials
 instance
   Prelude.NFData
     DescribeChapCredentialsResponse
+  where
+  rnf DescribeChapCredentialsResponse' {..} =
+    Prelude.rnf chapCredentials
+      `Prelude.seq` Prelude.rnf httpStatus

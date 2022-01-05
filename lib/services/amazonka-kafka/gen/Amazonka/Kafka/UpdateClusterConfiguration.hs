@@ -122,9 +122,17 @@ instance Core.AWSRequest UpdateClusterConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterConfiguration
+instance Prelude.Hashable UpdateClusterConfiguration where
+  hashWithSalt _salt UpdateClusterConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` configurationInfo
 
-instance Prelude.NFData UpdateClusterConfiguration
+instance Prelude.NFData UpdateClusterConfiguration where
+  rnf UpdateClusterConfiguration' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf configurationInfo
 
 instance Core.ToHeaders UpdateClusterConfiguration where
   toHeaders =
@@ -210,3 +218,8 @@ updateClusterConfigurationResponse_httpStatus = Lens.lens (\UpdateClusterConfigu
 instance
   Prelude.NFData
     UpdateClusterConfigurationResponse
+  where
+  rnf UpdateClusterConfigurationResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterOperationArn
+      `Prelude.seq` Prelude.rnf httpStatus

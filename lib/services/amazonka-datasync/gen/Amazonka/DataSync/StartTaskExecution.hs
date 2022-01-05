@@ -146,9 +146,19 @@ instance Core.AWSRequest StartTaskExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTaskExecution
+instance Prelude.Hashable StartTaskExecution where
+  hashWithSalt _salt StartTaskExecution' {..} =
+    _salt `Prelude.hashWithSalt` overrideOptions
+      `Prelude.hashWithSalt` includes
+      `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` taskArn
 
-instance Prelude.NFData StartTaskExecution
+instance Prelude.NFData StartTaskExecution where
+  rnf StartTaskExecution' {..} =
+    Prelude.rnf overrideOptions
+      `Prelude.seq` Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf taskArn
 
 instance Core.ToHeaders StartTaskExecution where
   toHeaders =
@@ -227,4 +237,7 @@ startTaskExecutionResponse_taskExecutionArn = Lens.lens (\StartTaskExecutionResp
 startTaskExecutionResponse_httpStatus :: Lens.Lens' StartTaskExecutionResponse Prelude.Int
 startTaskExecutionResponse_httpStatus = Lens.lens (\StartTaskExecutionResponse' {httpStatus} -> httpStatus) (\s@StartTaskExecutionResponse' {} a -> s {httpStatus = a} :: StartTaskExecutionResponse)
 
-instance Prelude.NFData StartTaskExecutionResponse
+instance Prelude.NFData StartTaskExecutionResponse where
+  rnf StartTaskExecutionResponse' {..} =
+    Prelude.rnf taskExecutionArn
+      `Prelude.seq` Prelude.rnf httpStatus

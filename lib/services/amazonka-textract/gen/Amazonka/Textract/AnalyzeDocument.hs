@@ -180,9 +180,17 @@ instance Core.AWSRequest AnalyzeDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AnalyzeDocument
+instance Prelude.Hashable AnalyzeDocument where
+  hashWithSalt _salt AnalyzeDocument' {..} =
+    _salt `Prelude.hashWithSalt` humanLoopConfig
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` featureTypes
 
-instance Prelude.NFData AnalyzeDocument
+instance Prelude.NFData AnalyzeDocument where
+  rnf AnalyzeDocument' {..} =
+    Prelude.rnf humanLoopConfig
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf featureTypes
 
 instance Core.ToHeaders AnalyzeDocument where
   toHeaders =
@@ -280,4 +288,10 @@ analyzeDocumentResponse_analyzeDocumentModelVersion = Lens.lens (\AnalyzeDocumen
 analyzeDocumentResponse_httpStatus :: Lens.Lens' AnalyzeDocumentResponse Prelude.Int
 analyzeDocumentResponse_httpStatus = Lens.lens (\AnalyzeDocumentResponse' {httpStatus} -> httpStatus) (\s@AnalyzeDocumentResponse' {} a -> s {httpStatus = a} :: AnalyzeDocumentResponse)
 
-instance Prelude.NFData AnalyzeDocumentResponse
+instance Prelude.NFData AnalyzeDocumentResponse where
+  rnf AnalyzeDocumentResponse' {..} =
+    Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf blocks
+      `Prelude.seq` Prelude.rnf humanLoopActivationOutput
+      `Prelude.seq` Prelude.rnf analyzeDocumentModelVersion
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -134,9 +134,19 @@ instance Core.AWSRequest CreateCoreDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCoreDefinition
+instance Prelude.Hashable CreateCoreDefinition where
+  hashWithSalt _salt CreateCoreDefinition' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateCoreDefinition
+instance Prelude.NFData CreateCoreDefinition where
+  rnf CreateCoreDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf initialVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateCoreDefinition where
   toHeaders CreateCoreDefinition' {..} =
@@ -262,4 +272,13 @@ createCoreDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\CreateCoreDefini
 createCoreDefinitionResponse_httpStatus :: Lens.Lens' CreateCoreDefinitionResponse Prelude.Int
 createCoreDefinitionResponse_httpStatus = Lens.lens (\CreateCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateCoreDefinitionResponse' {} a -> s {httpStatus = a} :: CreateCoreDefinitionResponse)
 
-instance Prelude.NFData CreateCoreDefinitionResponse
+instance Prelude.NFData CreateCoreDefinitionResponse where
+  rnf CreateCoreDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

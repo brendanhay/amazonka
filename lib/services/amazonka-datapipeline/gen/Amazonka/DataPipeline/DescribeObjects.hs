@@ -169,9 +169,19 @@ instance Core.AWSRequest DescribeObjects where
                         )
       )
 
-instance Prelude.Hashable DescribeObjects
+instance Prelude.Hashable DescribeObjects where
+  hashWithSalt _salt DescribeObjects' {..} =
+    _salt `Prelude.hashWithSalt` evaluateExpressions
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` objectIds
 
-instance Prelude.NFData DescribeObjects
+instance Prelude.NFData DescribeObjects where
+  rnf DescribeObjects' {..} =
+    Prelude.rnf evaluateExpressions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf objectIds
 
 instance Core.ToHeaders DescribeObjects where
   toHeaders =
@@ -271,4 +281,9 @@ describeObjectsResponse_httpStatus = Lens.lens (\DescribeObjectsResponse' {httpS
 describeObjectsResponse_pipelineObjects :: Lens.Lens' DescribeObjectsResponse [PipelineObject]
 describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {pipelineObjects} -> pipelineObjects) (\s@DescribeObjectsResponse' {} a -> s {pipelineObjects = a} :: DescribeObjectsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeObjectsResponse
+instance Prelude.NFData DescribeObjectsResponse where
+  rnf DescribeObjectsResponse' {..} =
+    Prelude.rnf hasMoreResults
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipelineObjects

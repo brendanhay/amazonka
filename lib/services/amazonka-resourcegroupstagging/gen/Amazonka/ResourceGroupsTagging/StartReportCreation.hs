@@ -112,9 +112,12 @@ instance Core.AWSRequest StartReportCreation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartReportCreation
+instance Prelude.Hashable StartReportCreation where
+  hashWithSalt _salt StartReportCreation' {..} =
+    _salt `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData StartReportCreation
+instance Prelude.NFData StartReportCreation where
+  rnf StartReportCreation' {..} = Prelude.rnf s3Bucket
 
 instance Core.ToHeaders StartReportCreation where
   toHeaders =
@@ -174,4 +177,6 @@ newStartReportCreationResponse pHttpStatus_ =
 startReportCreationResponse_httpStatus :: Lens.Lens' StartReportCreationResponse Prelude.Int
 startReportCreationResponse_httpStatus = Lens.lens (\StartReportCreationResponse' {httpStatus} -> httpStatus) (\s@StartReportCreationResponse' {} a -> s {httpStatus = a} :: StartReportCreationResponse)
 
-instance Prelude.NFData StartReportCreationResponse
+instance Prelude.NFData StartReportCreationResponse where
+  rnf StartReportCreationResponse' {..} =
+    Prelude.rnf httpStatus

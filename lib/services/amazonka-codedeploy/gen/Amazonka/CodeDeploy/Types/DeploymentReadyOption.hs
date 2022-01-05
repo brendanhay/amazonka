@@ -110,9 +110,15 @@ instance Core.FromJSON DeploymentReadyOption where
             Prelude.<*> (x Core..:? "waitTimeInMinutes")
       )
 
-instance Prelude.Hashable DeploymentReadyOption
+instance Prelude.Hashable DeploymentReadyOption where
+  hashWithSalt _salt DeploymentReadyOption' {..} =
+    _salt `Prelude.hashWithSalt` actionOnTimeout
+      `Prelude.hashWithSalt` waitTimeInMinutes
 
-instance Prelude.NFData DeploymentReadyOption
+instance Prelude.NFData DeploymentReadyOption where
+  rnf DeploymentReadyOption' {..} =
+    Prelude.rnf actionOnTimeout
+      `Prelude.seq` Prelude.rnf waitTimeInMinutes
 
 instance Core.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =

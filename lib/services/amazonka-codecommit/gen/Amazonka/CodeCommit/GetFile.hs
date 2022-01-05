@@ -134,9 +134,17 @@ instance Core.AWSRequest GetFile where
             Prelude.<*> (x Core..:> "fileContent")
       )
 
-instance Prelude.Hashable GetFile
+instance Prelude.Hashable GetFile where
+  hashWithSalt _salt GetFile' {..} =
+    _salt `Prelude.hashWithSalt` commitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` filePath
 
-instance Prelude.NFData GetFile
+instance Prelude.NFData GetFile where
+  rnf GetFile' {..} =
+    Prelude.rnf commitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf filePath
 
 instance Core.ToHeaders GetFile where
   toHeaders =
@@ -305,4 +313,12 @@ getFileResponse_fileSize = Lens.lens (\GetFileResponse' {fileSize} -> fileSize) 
 getFileResponse_fileContent :: Lens.Lens' GetFileResponse Prelude.ByteString
 getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> fileContent) (\s@GetFileResponse' {} a -> s {fileContent = a} :: GetFileResponse) Prelude.. Core._Base64
 
-instance Prelude.NFData GetFileResponse
+instance Prelude.NFData GetFileResponse where
+  rnf GetFileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf fileContent

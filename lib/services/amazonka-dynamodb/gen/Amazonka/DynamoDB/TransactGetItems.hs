@@ -133,9 +133,15 @@ instance Core.AWSRequest TransactGetItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TransactGetItems
+instance Prelude.Hashable TransactGetItems where
+  hashWithSalt _salt TransactGetItems' {..} =
+    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` transactItems
 
-instance Prelude.NFData TransactGetItems
+instance Prelude.NFData TransactGetItems where
+  rnf TransactGetItems' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf transactItems
 
 instance Core.ToHeaders TransactGetItems where
   toHeaders =
@@ -253,4 +259,8 @@ transactGetItemsResponse_consumedCapacity = Lens.lens (\TransactGetItemsResponse
 transactGetItemsResponse_httpStatus :: Lens.Lens' TransactGetItemsResponse Prelude.Int
 transactGetItemsResponse_httpStatus = Lens.lens (\TransactGetItemsResponse' {httpStatus} -> httpStatus) (\s@TransactGetItemsResponse' {} a -> s {httpStatus = a} :: TransactGetItemsResponse)
 
-instance Prelude.NFData TransactGetItemsResponse
+instance Prelude.NFData TransactGetItemsResponse where
+  rnf TransactGetItemsResponse' {..} =
+    Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus

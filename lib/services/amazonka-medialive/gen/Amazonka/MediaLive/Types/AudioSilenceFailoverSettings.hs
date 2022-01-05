@@ -89,8 +89,16 @@ instance Core.FromJSON AudioSilenceFailoverSettings where
 instance
   Prelude.Hashable
     AudioSilenceFailoverSettings
+  where
+  hashWithSalt _salt AudioSilenceFailoverSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` audioSilenceThresholdMsec
+      `Prelude.hashWithSalt` audioSelectorName
 
-instance Prelude.NFData AudioSilenceFailoverSettings
+instance Prelude.NFData AudioSilenceFailoverSettings where
+  rnf AudioSilenceFailoverSettings' {..} =
+    Prelude.rnf audioSilenceThresholdMsec
+      `Prelude.seq` Prelude.rnf audioSelectorName
 
 instance Core.ToJSON AudioSilenceFailoverSettings where
   toJSON AudioSilenceFailoverSettings' {..} =

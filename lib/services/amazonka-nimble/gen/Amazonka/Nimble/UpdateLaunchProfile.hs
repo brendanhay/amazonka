@@ -189,9 +189,27 @@ instance Core.AWSRequest UpdateLaunchProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLaunchProfile
+instance Prelude.Hashable UpdateLaunchProfile where
+  hashWithSalt _salt UpdateLaunchProfile' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` launchProfileProtocolVersions
+      `Prelude.hashWithSalt` streamConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` studioComponentIds
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` launchProfileId
 
-instance Prelude.NFData UpdateLaunchProfile
+instance Prelude.NFData UpdateLaunchProfile where
+  rnf UpdateLaunchProfile' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
+      `Prelude.seq` Prelude.rnf streamConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf studioComponentIds
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf launchProfileId
 
 instance Core.ToHeaders UpdateLaunchProfile where
   toHeaders UpdateLaunchProfile' {..} =
@@ -267,4 +285,7 @@ updateLaunchProfileResponse_launchProfile = Lens.lens (\UpdateLaunchProfileRespo
 updateLaunchProfileResponse_httpStatus :: Lens.Lens' UpdateLaunchProfileResponse Prelude.Int
 updateLaunchProfileResponse_httpStatus = Lens.lens (\UpdateLaunchProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateLaunchProfileResponse' {} a -> s {httpStatus = a} :: UpdateLaunchProfileResponse)
 
-instance Prelude.NFData UpdateLaunchProfileResponse
+instance Prelude.NFData UpdateLaunchProfileResponse where
+  rnf UpdateLaunchProfileResponse' {..} =
+    Prelude.rnf launchProfile
+      `Prelude.seq` Prelude.rnf httpStatus

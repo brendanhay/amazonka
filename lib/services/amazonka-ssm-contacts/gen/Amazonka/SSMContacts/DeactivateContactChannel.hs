@@ -91,9 +91,13 @@ instance Core.AWSRequest DeactivateContactChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeactivateContactChannel
+instance Prelude.Hashable DeactivateContactChannel where
+  hashWithSalt _salt DeactivateContactChannel' {..} =
+    _salt `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData DeactivateContactChannel
+instance Prelude.NFData DeactivateContactChannel where
+  rnf DeactivateContactChannel' {..} =
+    Prelude.rnf contactChannelId
 
 instance Core.ToHeaders DeactivateContactChannel where
   toHeaders =
@@ -158,3 +162,6 @@ deactivateContactChannelResponse_httpStatus = Lens.lens (\DeactivateContactChann
 instance
   Prelude.NFData
     DeactivateContactChannelResponse
+  where
+  rnf DeactivateContactChannelResponse' {..} =
+    Prelude.rnf httpStatus

@@ -156,6 +156,24 @@ instance Core.FromJSON CloudFormationStackRecord where
             Prelude.<*> (x Core..:? "sourceInfo" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CloudFormationStackRecord
+instance Prelude.Hashable CloudFormationStackRecord where
+  hashWithSalt _salt CloudFormationStackRecord' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` destinationInfo
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceInfo
 
-instance Prelude.NFData CloudFormationStackRecord
+instance Prelude.NFData CloudFormationStackRecord where
+  rnf CloudFormationStackRecord' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationInfo
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceInfo

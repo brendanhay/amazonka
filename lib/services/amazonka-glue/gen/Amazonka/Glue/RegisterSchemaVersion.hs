@@ -147,9 +147,15 @@ instance Core.AWSRequest RegisterSchemaVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterSchemaVersion
+instance Prelude.Hashable RegisterSchemaVersion where
+  hashWithSalt _salt RegisterSchemaVersion' {..} =
+    _salt `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaDefinition
 
-instance Prelude.NFData RegisterSchemaVersion
+instance Prelude.NFData RegisterSchemaVersion where
+  rnf RegisterSchemaVersion' {..} =
+    Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaDefinition
 
 instance Core.ToHeaders RegisterSchemaVersion where
   toHeaders =
@@ -242,4 +248,9 @@ registerSchemaVersionResponse_versionNumber = Lens.lens (\RegisterSchemaVersionR
 registerSchemaVersionResponse_httpStatus :: Lens.Lens' RegisterSchemaVersionResponse Prelude.Int
 registerSchemaVersionResponse_httpStatus = Lens.lens (\RegisterSchemaVersionResponse' {httpStatus} -> httpStatus) (\s@RegisterSchemaVersionResponse' {} a -> s {httpStatus = a} :: RegisterSchemaVersionResponse)
 
-instance Prelude.NFData RegisterSchemaVersionResponse
+instance Prelude.NFData RegisterSchemaVersionResponse where
+  rnf RegisterSchemaVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf httpStatus

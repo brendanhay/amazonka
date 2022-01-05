@@ -205,9 +205,19 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePrincipalIdFormat
+instance Prelude.Hashable DescribePrincipalIdFormat where
+  hashWithSalt _salt DescribePrincipalIdFormat' {..} =
+    _salt `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribePrincipalIdFormat
+instance Prelude.NFData DescribePrincipalIdFormat where
+  rnf DescribePrincipalIdFormat' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribePrincipalIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,3 +293,8 @@ describePrincipalIdFormatResponse_httpStatus = Lens.lens (\DescribePrincipalIdFo
 instance
   Prelude.NFData
     DescribePrincipalIdFormatResponse
+  where
+  rnf DescribePrincipalIdFormatResponse' {..} =
+    Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

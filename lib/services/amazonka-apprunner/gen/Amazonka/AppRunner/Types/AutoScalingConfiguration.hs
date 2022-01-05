@@ -232,6 +232,28 @@ instance Core.FromJSON AutoScalingConfiguration where
             Prelude.<*> (x Core..:? "MaxConcurrency")
       )
 
-instance Prelude.Hashable AutoScalingConfiguration
+instance Prelude.Hashable AutoScalingConfiguration where
+  hashWithSalt _salt AutoScalingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` autoScalingConfigurationName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` autoScalingConfigurationRevision
+      `Prelude.hashWithSalt` autoScalingConfigurationArn
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` deletedAt
+      `Prelude.hashWithSalt` latest
+      `Prelude.hashWithSalt` maxConcurrency
 
-instance Prelude.NFData AutoScalingConfiguration
+instance Prelude.NFData AutoScalingConfiguration where
+  rnf AutoScalingConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationRevision
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationArn
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf deletedAt
+      `Prelude.seq` Prelude.rnf latest
+      `Prelude.seq` Prelude.rnf maxConcurrency

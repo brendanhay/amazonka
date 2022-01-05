@@ -132,9 +132,19 @@ instance Core.FromJSON SMSMessageActivity where
             Prelude.<*> (x Core..:? "MessageConfig")
       )
 
-instance Prelude.Hashable SMSMessageActivity
+instance Prelude.Hashable SMSMessageActivity where
+  hashWithSalt _salt SMSMessageActivity' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateVersion
+      `Prelude.hashWithSalt` nextActivity
+      `Prelude.hashWithSalt` messageConfig
 
-instance Prelude.NFData SMSMessageActivity
+instance Prelude.NFData SMSMessageActivity where
+  rnf SMSMessageActivity' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateVersion
+      `Prelude.seq` Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf messageConfig
 
 instance Core.ToJSON SMSMessageActivity where
   toJSON SMSMessageActivity' {..} =

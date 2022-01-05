@@ -84,9 +84,12 @@ instance Core.AWSRequest Unsubscribe where
   request = Request.postQuery defaultService
   response = Response.receiveNull UnsubscribeResponse'
 
-instance Prelude.Hashable Unsubscribe
+instance Prelude.Hashable Unsubscribe where
+  hashWithSalt _salt Unsubscribe' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionArn
 
-instance Prelude.NFData Unsubscribe
+instance Prelude.NFData Unsubscribe where
+  rnf Unsubscribe' {..} = Prelude.rnf subscriptionArn
 
 instance Core.ToHeaders Unsubscribe where
   toHeaders = Prelude.const Prelude.mempty
@@ -118,4 +121,5 @@ newUnsubscribeResponse ::
   UnsubscribeResponse
 newUnsubscribeResponse = UnsubscribeResponse'
 
-instance Prelude.NFData UnsubscribeResponse
+instance Prelude.NFData UnsubscribeResponse where
+  rnf _ = ()

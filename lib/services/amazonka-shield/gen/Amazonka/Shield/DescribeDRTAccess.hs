@@ -74,9 +74,12 @@ instance Core.AWSRequest DescribeDRTAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDRTAccess
+instance Prelude.Hashable DescribeDRTAccess where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeDRTAccess
+instance Prelude.NFData DescribeDRTAccess where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeDRTAccess where
   toHeaders =
@@ -153,4 +156,8 @@ describeDRTAccessResponse_roleArn = Lens.lens (\DescribeDRTAccessResponse' {role
 describeDRTAccessResponse_httpStatus :: Lens.Lens' DescribeDRTAccessResponse Prelude.Int
 describeDRTAccessResponse_httpStatus = Lens.lens (\DescribeDRTAccessResponse' {httpStatus} -> httpStatus) (\s@DescribeDRTAccessResponse' {} a -> s {httpStatus = a} :: DescribeDRTAccessResponse)
 
-instance Prelude.NFData DescribeDRTAccessResponse
+instance Prelude.NFData DescribeDRTAccessResponse where
+  rnf DescribeDRTAccessResponse' {..} =
+    Prelude.rnf logBucketList
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

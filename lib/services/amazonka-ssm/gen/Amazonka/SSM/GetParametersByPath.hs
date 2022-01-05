@@ -237,9 +237,23 @@ instance Core.AWSRequest GetParametersByPath where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetParametersByPath
+instance Prelude.Hashable GetParametersByPath where
+  hashWithSalt _salt GetParametersByPath' {..} =
+    _salt `Prelude.hashWithSalt` withDecryption
+      `Prelude.hashWithSalt` parameterFilters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` recursive
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData GetParametersByPath
+instance Prelude.NFData GetParametersByPath where
+  rnf GetParametersByPath' {..} =
+    Prelude.rnf withDecryption
+      `Prelude.seq` Prelude.rnf parameterFilters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recursive
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToHeaders GetParametersByPath where
   toHeaders =
@@ -328,4 +342,8 @@ getParametersByPathResponse_parameters = Lens.lens (\GetParametersByPathResponse
 getParametersByPathResponse_httpStatus :: Lens.Lens' GetParametersByPathResponse Prelude.Int
 getParametersByPathResponse_httpStatus = Lens.lens (\GetParametersByPathResponse' {httpStatus} -> httpStatus) (\s@GetParametersByPathResponse' {} a -> s {httpStatus = a} :: GetParametersByPathResponse)
 
-instance Prelude.NFData GetParametersByPathResponse
+instance Prelude.NFData GetParametersByPathResponse where
+  rnf GetParametersByPathResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf httpStatus

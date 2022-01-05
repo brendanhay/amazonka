@@ -130,9 +130,15 @@ instance Core.AWSRequest GetBucketWebsite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketWebsite
+instance Prelude.Hashable GetBucketWebsite where
+  hashWithSalt _salt GetBucketWebsite' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetBucketWebsite
+instance Prelude.NFData GetBucketWebsite where
+  rnf GetBucketWebsite' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketWebsite where
   toHeaders GetBucketWebsite' {..} =
@@ -223,4 +229,10 @@ getBucketWebsiteResponse_routingRules = Lens.lens (\GetBucketWebsiteResponse' {r
 getBucketWebsiteResponse_httpStatus :: Lens.Lens' GetBucketWebsiteResponse Prelude.Int
 getBucketWebsiteResponse_httpStatus = Lens.lens (\GetBucketWebsiteResponse' {httpStatus} -> httpStatus) (\s@GetBucketWebsiteResponse' {} a -> s {httpStatus = a} :: GetBucketWebsiteResponse)
 
-instance Prelude.NFData GetBucketWebsiteResponse
+instance Prelude.NFData GetBucketWebsiteResponse where
+  rnf GetBucketWebsiteResponse' {..} =
+    Prelude.rnf redirectAllRequestsTo
+      `Prelude.seq` Prelude.rnf errorDocument
+      `Prelude.seq` Prelude.rnf indexDocument
+      `Prelude.seq` Prelude.rnf routingRules
+      `Prelude.seq` Prelude.rnf httpStatus

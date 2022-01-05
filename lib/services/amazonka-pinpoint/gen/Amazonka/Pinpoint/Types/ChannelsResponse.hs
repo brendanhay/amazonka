@@ -65,6 +65,9 @@ instance Core.FromJSON ChannelsResponse where
             Prelude.<$> (x Core..:? "Channels" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ChannelsResponse
+instance Prelude.Hashable ChannelsResponse where
+  hashWithSalt _salt ChannelsResponse' {..} =
+    _salt `Prelude.hashWithSalt` channels
 
-instance Prelude.NFData ChannelsResponse
+instance Prelude.NFData ChannelsResponse where
+  rnf ChannelsResponse' {..} = Prelude.rnf channels

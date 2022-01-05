@@ -83,9 +83,15 @@ rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rol
 rollbackConfiguration_monitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Prelude.Maybe Prelude.Int)
 rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguration' {monitoringTimeInMinutes} -> monitoringTimeInMinutes) (\s@RollbackConfiguration' {} a -> s {monitoringTimeInMinutes = a} :: RollbackConfiguration)
 
-instance Prelude.Hashable RollbackConfiguration
+instance Prelude.Hashable RollbackConfiguration where
+  hashWithSalt _salt RollbackConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` rollbackTriggers
+      `Prelude.hashWithSalt` monitoringTimeInMinutes
 
-instance Prelude.NFData RollbackConfiguration
+instance Prelude.NFData RollbackConfiguration where
+  rnf RollbackConfiguration' {..} =
+    Prelude.rnf rollbackTriggers
+      `Prelude.seq` Prelude.rnf monitoringTimeInMinutes
 
 instance Core.ToJSON RollbackConfiguration where
   toJSON RollbackConfiguration' {..} =

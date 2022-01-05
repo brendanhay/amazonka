@@ -140,6 +140,20 @@ instance Core.FromXML DistributionList where
       Prelude.<*> (x Core..@ "IsTruncated")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable DistributionList
+instance Prelude.Hashable DistributionList where
+  hashWithSalt _salt DistributionList' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData DistributionList
+instance Prelude.NFData DistributionList where
+  rnf DistributionList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf quantity

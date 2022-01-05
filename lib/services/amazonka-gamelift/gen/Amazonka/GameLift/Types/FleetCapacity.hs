@@ -137,6 +137,18 @@ instance Core.FromJSON FleetCapacity where
             Prelude.<*> (x Core..:? "InstanceCounts")
       )
 
-instance Prelude.Hashable FleetCapacity
+instance Prelude.Hashable FleetCapacity where
+  hashWithSalt _salt FleetCapacity' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` instanceCounts
 
-instance Prelude.NFData FleetCapacity
+instance Prelude.NFData FleetCapacity where
+  rnf FleetCapacity' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf instanceCounts

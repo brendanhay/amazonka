@@ -74,6 +74,12 @@ instance Core.FromJSON BatchReadOperationResponse where
             Prelude.<*> (x Core..:? "SuccessfulResponse")
       )
 
-instance Prelude.Hashable BatchReadOperationResponse
+instance Prelude.Hashable BatchReadOperationResponse where
+  hashWithSalt _salt BatchReadOperationResponse' {..} =
+    _salt `Prelude.hashWithSalt` exceptionResponse
+      `Prelude.hashWithSalt` successfulResponse
 
-instance Prelude.NFData BatchReadOperationResponse
+instance Prelude.NFData BatchReadOperationResponse where
+  rnf BatchReadOperationResponse' {..} =
+    Prelude.rnf exceptionResponse
+      `Prelude.seq` Prelude.rnf successfulResponse

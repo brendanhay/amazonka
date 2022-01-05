@@ -135,10 +135,20 @@ instance
 instance
   Prelude.Hashable
     DeleteServiceSpecificCredential
+  where
+  hashWithSalt
+    _salt
+    DeleteServiceSpecificCredential' {..} =
+      _salt `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` serviceSpecificCredentialId
 
 instance
   Prelude.NFData
     DeleteServiceSpecificCredential
+  where
+  rnf DeleteServiceSpecificCredential' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
 
 instance
   Core.ToHeaders
@@ -181,3 +191,5 @@ newDeleteServiceSpecificCredentialResponse =
 instance
   Prelude.NFData
     DeleteServiceSpecificCredentialResponse
+  where
+  rnf _ = ()

@@ -78,9 +78,15 @@ instance Core.FromXML Range where
       Prelude.<$> (x Core..@ "StartTime")
       Prelude.<*> (x Core..@ "EndTime")
 
-instance Prelude.Hashable Range
+instance Prelude.Hashable Range where
+  hashWithSalt _salt Range' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData Range
+instance Prelude.NFData Range where
+  rnf Range' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToQuery Range where
   toQuery Range' {..} =

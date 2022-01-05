@@ -129,9 +129,19 @@ instance Core.AWSRequest GenerateAccessLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateAccessLogs
+instance Prelude.Hashable GenerateAccessLogs where
+  hashWithSalt _salt GenerateAccessLogs' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData GenerateAccessLogs
+instance Prelude.NFData GenerateAccessLogs where
+  rnf GenerateAccessLogs' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders GenerateAccessLogs where
   toHeaders =
@@ -203,4 +213,7 @@ generateAccessLogsResponse_logUrl = Lens.lens (\GenerateAccessLogsResponse' {log
 generateAccessLogsResponse_httpStatus :: Lens.Lens' GenerateAccessLogsResponse Prelude.Int
 generateAccessLogsResponse_httpStatus = Lens.lens (\GenerateAccessLogsResponse' {httpStatus} -> httpStatus) (\s@GenerateAccessLogsResponse' {} a -> s {httpStatus = a} :: GenerateAccessLogsResponse)
 
-instance Prelude.NFData GenerateAccessLogsResponse
+instance Prelude.NFData GenerateAccessLogsResponse where
+  rnf GenerateAccessLogsResponse' {..} =
+    Prelude.rnf logUrl
+      `Prelude.seq` Prelude.rnf httpStatus

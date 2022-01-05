@@ -140,6 +140,20 @@ instance Core.FromJSON Framework where
             Prelude.<*> (x Core..:? "FrameworkName")
       )
 
-instance Prelude.Hashable Framework
+instance Prelude.Hashable Framework where
+  hashWithSalt _salt Framework' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` frameworkDescription
+      `Prelude.hashWithSalt` numberOfControls
+      `Prelude.hashWithSalt` frameworkArn
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` frameworkName
 
-instance Prelude.NFData Framework
+instance Prelude.NFData Framework where
+  rnf Framework' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf frameworkDescription
+      `Prelude.seq` Prelude.rnf numberOfControls
+      `Prelude.seq` Prelude.rnf frameworkArn
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf frameworkName

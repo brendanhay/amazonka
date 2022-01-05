@@ -78,6 +78,12 @@ instance Core.FromJSON TerminologyDataLocation where
             Prelude.<*> (x Core..: "Location")
       )
 
-instance Prelude.Hashable TerminologyDataLocation
+instance Prelude.Hashable TerminologyDataLocation where
+  hashWithSalt _salt TerminologyDataLocation' {..} =
+    _salt `Prelude.hashWithSalt` repositoryType
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData TerminologyDataLocation
+instance Prelude.NFData TerminologyDataLocation where
+  rnf TerminologyDataLocation' {..} =
+    Prelude.rnf repositoryType
+      `Prelude.seq` Prelude.rnf location

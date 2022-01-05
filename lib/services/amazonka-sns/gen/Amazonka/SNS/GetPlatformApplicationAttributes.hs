@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     GetPlatformApplicationAttributes
+  where
+  hashWithSalt
+    _salt
+    GetPlatformApplicationAttributes' {..} =
+      _salt `Prelude.hashWithSalt` platformApplicationArn
 
 instance
   Prelude.NFData
     GetPlatformApplicationAttributes
+  where
+  rnf GetPlatformApplicationAttributes' {..} =
+    Prelude.rnf platformApplicationArn
 
 instance
   Core.ToHeaders
@@ -218,3 +226,7 @@ getPlatformApplicationAttributesResponse_httpStatus = Lens.lens (\GetPlatformApp
 instance
   Prelude.NFData
     GetPlatformApplicationAttributesResponse
+  where
+  rnf GetPlatformApplicationAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

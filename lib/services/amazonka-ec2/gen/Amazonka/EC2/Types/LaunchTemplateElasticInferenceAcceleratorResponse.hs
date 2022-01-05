@@ -83,7 +83,17 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateElasticInferenceAcceleratorResponse
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateElasticInferenceAcceleratorResponse' {..} =
+      _salt `Prelude.hashWithSalt` count
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     LaunchTemplateElasticInferenceAcceleratorResponse
+  where
+  rnf
+    LaunchTemplateElasticInferenceAcceleratorResponse' {..} =
+      Prelude.rnf count `Prelude.seq` Prelude.rnf type'

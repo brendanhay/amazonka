@@ -111,9 +111,15 @@ instance Core.AWSRequest UntagInstanceProfile where
   response =
     Response.receiveNull UntagInstanceProfileResponse'
 
-instance Prelude.Hashable UntagInstanceProfile
+instance Prelude.Hashable UntagInstanceProfile where
+  hashWithSalt _salt UntagInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` instanceProfileName
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagInstanceProfile
+instance Prelude.NFData UntagInstanceProfile where
+  rnf UntagInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,4 +153,5 @@ newUntagInstanceProfileResponse ::
 newUntagInstanceProfileResponse =
   UntagInstanceProfileResponse'
 
-instance Prelude.NFData UntagInstanceProfileResponse
+instance Prelude.NFData UntagInstanceProfileResponse where
+  rnf _ = ()

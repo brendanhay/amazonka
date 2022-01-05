@@ -81,6 +81,14 @@ instance Core.FromJSON RowInfo where
             Prelude.<*> (x Core..:? "RowsDropped")
       )
 
-instance Prelude.Hashable RowInfo
+instance Prelude.Hashable RowInfo where
+  hashWithSalt _salt RowInfo' {..} =
+    _salt `Prelude.hashWithSalt` rowsIngested
+      `Prelude.hashWithSalt` totalRowsInDataset
+      `Prelude.hashWithSalt` rowsDropped
 
-instance Prelude.NFData RowInfo
+instance Prelude.NFData RowInfo where
+  rnf RowInfo' {..} =
+    Prelude.rnf rowsIngested
+      `Prelude.seq` Prelude.rnf totalRowsInDataset
+      `Prelude.seq` Prelude.rnf rowsDropped

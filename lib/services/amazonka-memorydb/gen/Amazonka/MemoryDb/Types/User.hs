@@ -128,6 +128,22 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "MinimumEngineVersion")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` aCLNames
+      `Prelude.hashWithSalt` minimumEngineVersion
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf accessString
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf aCLNames
+      `Prelude.seq` Prelude.rnf minimumEngineVersion

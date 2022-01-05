@@ -129,9 +129,12 @@ instance Core.AWSRequest ListLunaClients where
             Prelude.<*> (x Core..?> "ClientList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListLunaClients
+instance Prelude.Hashable ListLunaClients where
+  hashWithSalt _salt ListLunaClients' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLunaClients
+instance Prelude.NFData ListLunaClients where
+  rnf ListLunaClients' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders ListLunaClients where
   toHeaders =
@@ -212,4 +215,8 @@ listLunaClientsResponse_httpStatus = Lens.lens (\ListLunaClientsResponse' {httpS
 listLunaClientsResponse_clientList :: Lens.Lens' ListLunaClientsResponse [Prelude.Text]
 listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListLunaClientsResponse
+instance Prelude.NFData ListLunaClientsResponse where
+  rnf ListLunaClientsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clientList

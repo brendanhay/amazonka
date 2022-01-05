@@ -126,9 +126,17 @@ instance Core.AWSRequest UpdateClusterVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterVersion
+instance Prelude.Hashable UpdateClusterVersion where
+  hashWithSalt _salt UpdateClusterVersion' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData UpdateClusterVersion
+instance Prelude.NFData UpdateClusterVersion where
+  rnf UpdateClusterVersion' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders UpdateClusterVersion where
   toHeaders =
@@ -198,4 +206,7 @@ updateClusterVersionResponse_update = Lens.lens (\UpdateClusterVersionResponse' 
 updateClusterVersionResponse_httpStatus :: Lens.Lens' UpdateClusterVersionResponse Prelude.Int
 updateClusterVersionResponse_httpStatus = Lens.lens (\UpdateClusterVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterVersionResponse' {} a -> s {httpStatus = a} :: UpdateClusterVersionResponse)
 
-instance Prelude.NFData UpdateClusterVersionResponse
+instance Prelude.NFData UpdateClusterVersionResponse where
+  rnf UpdateClusterVersionResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

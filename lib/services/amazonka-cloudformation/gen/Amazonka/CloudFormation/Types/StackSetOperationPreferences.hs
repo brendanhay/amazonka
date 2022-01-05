@@ -263,8 +263,23 @@ instance Core.FromXML StackSetOperationPreferences where
 instance
   Prelude.Hashable
     StackSetOperationPreferences
+  where
+  hashWithSalt _salt StackSetOperationPreferences' {..} =
+    _salt `Prelude.hashWithSalt` regionOrder
+      `Prelude.hashWithSalt` maxConcurrentCount
+      `Prelude.hashWithSalt` maxConcurrentPercentage
+      `Prelude.hashWithSalt` failureToleranceCount
+      `Prelude.hashWithSalt` regionConcurrencyType
+      `Prelude.hashWithSalt` failureTolerancePercentage
 
-instance Prelude.NFData StackSetOperationPreferences
+instance Prelude.NFData StackSetOperationPreferences where
+  rnf StackSetOperationPreferences' {..} =
+    Prelude.rnf regionOrder
+      `Prelude.seq` Prelude.rnf maxConcurrentCount
+      `Prelude.seq` Prelude.rnf maxConcurrentPercentage
+      `Prelude.seq` Prelude.rnf failureToleranceCount
+      `Prelude.seq` Prelude.rnf regionConcurrencyType
+      `Prelude.seq` Prelude.rnf failureTolerancePercentage
 
 instance Core.ToQuery StackSetOperationPreferences where
   toQuery StackSetOperationPreferences' {..} =

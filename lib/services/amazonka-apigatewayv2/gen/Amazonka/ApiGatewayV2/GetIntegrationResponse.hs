@@ -129,9 +129,17 @@ instance Core.AWSRequest GetIntegrationResponse where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntegrationResponse
+instance Prelude.Hashable GetIntegrationResponse where
+  hashWithSalt _salt GetIntegrationResponse' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` integrationResponseId
+      `Prelude.hashWithSalt` integrationId
 
-instance Prelude.NFData GetIntegrationResponse
+instance Prelude.NFData GetIntegrationResponse where
+  rnf GetIntegrationResponse' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf integrationId
 
 instance Core.ToHeaders GetIntegrationResponse where
   toHeaders =
@@ -321,3 +329,12 @@ getIntegrationResponseResponse_httpStatus = Lens.lens (\GetIntegrationResponseRe
 instance
   Prelude.NFData
     GetIntegrationResponseResponse
+  where
+  rnf GetIntegrationResponseResponse' {..} =
+    Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf integrationResponseKey
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf httpStatus

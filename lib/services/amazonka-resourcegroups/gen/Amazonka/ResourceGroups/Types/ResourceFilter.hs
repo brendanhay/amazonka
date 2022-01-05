@@ -70,9 +70,14 @@ resourceFilter_name = Lens.lens (\ResourceFilter' {name} -> name) (\s@ResourceFi
 resourceFilter_values :: Lens.Lens' ResourceFilter (Prelude.NonEmpty Prelude.Text)
 resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@ResourceFilter' {} a -> s {values = a} :: ResourceFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ResourceFilter
+instance Prelude.Hashable ResourceFilter where
+  hashWithSalt _salt ResourceFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ResourceFilter
+instance Prelude.NFData ResourceFilter where
+  rnf ResourceFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ResourceFilter where
   toJSON ResourceFilter' {..} =

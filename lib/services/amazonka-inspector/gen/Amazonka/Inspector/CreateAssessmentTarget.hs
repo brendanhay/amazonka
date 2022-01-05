@@ -121,9 +121,15 @@ instance Core.AWSRequest CreateAssessmentTarget where
             Prelude.<*> (x Core..:> "assessmentTargetArn")
       )
 
-instance Prelude.Hashable CreateAssessmentTarget
+instance Prelude.Hashable CreateAssessmentTarget where
+  hashWithSalt _salt CreateAssessmentTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupArn
+      `Prelude.hashWithSalt` assessmentTargetName
 
-instance Prelude.NFData CreateAssessmentTarget
+instance Prelude.NFData CreateAssessmentTarget where
+  rnf CreateAssessmentTarget' {..} =
+    Prelude.rnf resourceGroupArn
+      `Prelude.seq` Prelude.rnf assessmentTargetName
 
 instance Core.ToHeaders CreateAssessmentTarget where
   toHeaders =
@@ -205,3 +211,7 @@ createAssessmentTargetResponse_assessmentTargetArn = Lens.lens (\CreateAssessmen
 instance
   Prelude.NFData
     CreateAssessmentTargetResponse
+  where
+  rnf CreateAssessmentTargetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assessmentTargetArn

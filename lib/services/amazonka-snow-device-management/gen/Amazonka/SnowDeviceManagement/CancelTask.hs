@@ -92,9 +92,12 @@ instance Core.AWSRequest CancelTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelTask
+instance Prelude.Hashable CancelTask where
+  hashWithSalt _salt CancelTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData CancelTask
+instance Prelude.NFData CancelTask where
+  rnf CancelTask' {..} = Prelude.rnf taskId
 
 instance Core.ToHeaders CancelTask where
   toHeaders =
@@ -156,4 +159,7 @@ cancelTaskResponse_taskId = Lens.lens (\CancelTaskResponse' {taskId} -> taskId) 
 cancelTaskResponse_httpStatus :: Lens.Lens' CancelTaskResponse Prelude.Int
 cancelTaskResponse_httpStatus = Lens.lens (\CancelTaskResponse' {httpStatus} -> httpStatus) (\s@CancelTaskResponse' {} a -> s {httpStatus = a} :: CancelTaskResponse)
 
-instance Prelude.NFData CancelTaskResponse
+instance Prelude.NFData CancelTaskResponse where
+  rnf CancelTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

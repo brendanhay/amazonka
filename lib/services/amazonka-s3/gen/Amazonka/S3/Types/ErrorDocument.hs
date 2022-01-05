@@ -71,9 +71,12 @@ instance Core.FromXML ErrorDocument where
   parseXML x =
     ErrorDocument' Prelude.<$> (x Core..@ "Key")
 
-instance Prelude.Hashable ErrorDocument
+instance Prelude.Hashable ErrorDocument where
+  hashWithSalt _salt ErrorDocument' {..} =
+    _salt `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ErrorDocument
+instance Prelude.NFData ErrorDocument where
+  rnf ErrorDocument' {..} = Prelude.rnf key
 
 instance Core.ToXML ErrorDocument where
   toXML ErrorDocument' {..} =

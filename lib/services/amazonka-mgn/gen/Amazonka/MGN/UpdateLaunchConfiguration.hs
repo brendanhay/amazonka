@@ -151,9 +151,26 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateLaunchConfiguration
+instance Prelude.Hashable UpdateLaunchConfiguration where
+  hashWithSalt _salt UpdateLaunchConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
+      `Prelude.hashWithSalt` launchDisposition
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` licensing
+      `Prelude.hashWithSalt` copyPrivateIp
+      `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData UpdateLaunchConfiguration
+instance Prelude.NFData UpdateLaunchConfiguration where
+  rnf UpdateLaunchConfiguration' {..} =
+    Prelude.rnf targetInstanceTypeRightSizingMethod
+      `Prelude.seq` Prelude.rnf launchDisposition
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf licensing
+      `Prelude.seq` Prelude.rnf copyPrivateIp
+      `Prelude.seq` Prelude.rnf sourceServerID
 
 instance Core.ToHeaders UpdateLaunchConfiguration where
   toHeaders =

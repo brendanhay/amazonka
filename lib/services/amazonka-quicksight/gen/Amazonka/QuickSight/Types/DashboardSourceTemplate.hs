@@ -67,9 +67,15 @@ dashboardSourceTemplate_dataSetReferences = Lens.lens (\DashboardSourceTemplate'
 dashboardSourceTemplate_arn :: Lens.Lens' DashboardSourceTemplate Prelude.Text
 dashboardSourceTemplate_arn = Lens.lens (\DashboardSourceTemplate' {arn} -> arn) (\s@DashboardSourceTemplate' {} a -> s {arn = a} :: DashboardSourceTemplate)
 
-instance Prelude.Hashable DashboardSourceTemplate
+instance Prelude.Hashable DashboardSourceTemplate where
+  hashWithSalt _salt DashboardSourceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` dataSetReferences
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DashboardSourceTemplate
+instance Prelude.NFData DashboardSourceTemplate where
+  rnf DashboardSourceTemplate' {..} =
+    Prelude.rnf dataSetReferences
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON DashboardSourceTemplate where
   toJSON DashboardSourceTemplate' {..} =

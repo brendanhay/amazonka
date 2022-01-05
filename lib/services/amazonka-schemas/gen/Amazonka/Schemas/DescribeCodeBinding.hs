@@ -132,9 +132,19 @@ instance Core.AWSRequest DescribeCodeBinding where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCodeBinding
+instance Prelude.Hashable DescribeCodeBinding where
+  hashWithSalt _salt DescribeCodeBinding' {..} =
+    _salt `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` language
 
-instance Prelude.NFData DescribeCodeBinding
+instance Prelude.NFData DescribeCodeBinding where
+  rnf DescribeCodeBinding' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf language
 
 instance Core.ToHeaders DescribeCodeBinding where
   toHeaders =
@@ -229,4 +239,10 @@ describeCodeBindingResponse_lastModified = Lens.lens (\DescribeCodeBindingRespon
 describeCodeBindingResponse_httpStatus :: Lens.Lens' DescribeCodeBindingResponse Prelude.Int
 describeCodeBindingResponse_httpStatus = Lens.lens (\DescribeCodeBindingResponse' {httpStatus} -> httpStatus) (\s@DescribeCodeBindingResponse' {} a -> s {httpStatus = a} :: DescribeCodeBindingResponse)
 
-instance Prelude.NFData DescribeCodeBindingResponse
+instance Prelude.NFData DescribeCodeBindingResponse where
+  rnf DescribeCodeBindingResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf httpStatus

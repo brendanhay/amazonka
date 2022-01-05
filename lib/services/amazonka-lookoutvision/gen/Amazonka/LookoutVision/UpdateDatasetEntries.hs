@@ -176,9 +176,19 @@ instance Core.AWSRequest UpdateDatasetEntries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDatasetEntries
+instance Prelude.Hashable UpdateDatasetEntries where
+  hashWithSalt _salt UpdateDatasetEntries' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` changes
 
-instance Prelude.NFData UpdateDatasetEntries
+instance Prelude.NFData UpdateDatasetEntries where
+  rnf UpdateDatasetEntries' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf changes
 
 instance Core.ToHeaders UpdateDatasetEntries where
   toHeaders UpdateDatasetEntries' {..} =
@@ -247,4 +257,7 @@ updateDatasetEntriesResponse_status = Lens.lens (\UpdateDatasetEntriesResponse' 
 updateDatasetEntriesResponse_httpStatus :: Lens.Lens' UpdateDatasetEntriesResponse Prelude.Int
 updateDatasetEntriesResponse_httpStatus = Lens.lens (\UpdateDatasetEntriesResponse' {httpStatus} -> httpStatus) (\s@UpdateDatasetEntriesResponse' {} a -> s {httpStatus = a} :: UpdateDatasetEntriesResponse)
 
-instance Prelude.NFData UpdateDatasetEntriesResponse
+instance Prelude.NFData UpdateDatasetEntriesResponse where
+  rnf UpdateDatasetEntriesResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

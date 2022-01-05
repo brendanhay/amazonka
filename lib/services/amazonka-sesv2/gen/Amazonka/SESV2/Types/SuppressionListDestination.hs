@@ -84,9 +84,14 @@ instance Core.FromJSON SuppressionListDestination where
             Prelude.<$> (x Core..: "SuppressionListImportAction")
       )
 
-instance Prelude.Hashable SuppressionListDestination
+instance Prelude.Hashable SuppressionListDestination where
+  hashWithSalt _salt SuppressionListDestination' {..} =
+    _salt
+      `Prelude.hashWithSalt` suppressionListImportAction
 
-instance Prelude.NFData SuppressionListDestination
+instance Prelude.NFData SuppressionListDestination where
+  rnf SuppressionListDestination' {..} =
+    Prelude.rnf suppressionListImportAction
 
 instance Core.ToJSON SuppressionListDestination where
   toJSON SuppressionListDestination' {..} =

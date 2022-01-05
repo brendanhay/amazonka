@@ -166,6 +166,28 @@ instance Core.FromJSON Certificate where
             Prelude.<*> (x Core..:? "ValidToDate")
       )
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt _salt Certificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateOwner
+      `Prelude.hashWithSalt` signingAlgorithm
+      `Prelude.hashWithSalt` validFromDate
+      `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateCreationDate
+      `Prelude.hashWithSalt` certificateIdentifier
+      `Prelude.hashWithSalt` certificateWallet
+      `Prelude.hashWithSalt` keyLength
+      `Prelude.hashWithSalt` validToDate
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf certificateOwner
+      `Prelude.seq` Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf validFromDate
+      `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateCreationDate
+      `Prelude.seq` Prelude.rnf certificateIdentifier
+      `Prelude.seq` Prelude.rnf certificateWallet
+      `Prelude.seq` Prelude.rnf keyLength
+      `Prelude.seq` Prelude.rnf validToDate

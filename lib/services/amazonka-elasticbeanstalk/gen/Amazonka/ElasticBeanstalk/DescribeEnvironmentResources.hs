@@ -127,8 +127,15 @@ instance Core.AWSRequest DescribeEnvironmentResources where
 instance
   Prelude.Hashable
     DescribeEnvironmentResources
+  where
+  hashWithSalt _salt DescribeEnvironmentResources' {..} =
+    _salt `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData DescribeEnvironmentResources
+instance Prelude.NFData DescribeEnvironmentResources where
+  rnf DescribeEnvironmentResources' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders DescribeEnvironmentResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,3 +200,7 @@ describeEnvironmentResourcesResponse_httpStatus = Lens.lens (\DescribeEnvironmen
 instance
   Prelude.NFData
     DescribeEnvironmentResourcesResponse
+  where
+  rnf DescribeEnvironmentResourcesResponse' {..} =
+    Prelude.rnf environmentResources
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -190,9 +190,23 @@ instance Core.AWSRequest CreateNatGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNatGateway
+instance Prelude.Hashable CreateNatGateway where
+  hashWithSalt _salt CreateNatGateway' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` connectivityType
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData CreateNatGateway
+instance Prelude.NFData CreateNatGateway where
+  rnf CreateNatGateway' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf connectivityType
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders CreateNatGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,4 +283,8 @@ createNatGatewayResponse_natGateway = Lens.lens (\CreateNatGatewayResponse' {nat
 createNatGatewayResponse_httpStatus :: Lens.Lens' CreateNatGatewayResponse Prelude.Int
 createNatGatewayResponse_httpStatus = Lens.lens (\CreateNatGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateNatGatewayResponse' {} a -> s {httpStatus = a} :: CreateNatGatewayResponse)
 
-instance Prelude.NFData CreateNatGatewayResponse
+instance Prelude.NFData CreateNatGatewayResponse where
+  rnf CreateNatGatewayResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf natGateway
+      `Prelude.seq` Prelude.rnf httpStatus

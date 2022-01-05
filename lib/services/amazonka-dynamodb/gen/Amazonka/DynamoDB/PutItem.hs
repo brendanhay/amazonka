@@ -572,9 +572,32 @@ instance Core.AWSRequest PutItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutItem
+instance Prelude.Hashable PutItem where
+  hashWithSalt _salt PutItem' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` returnValues
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` expected
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` item
 
-instance Prelude.NFData PutItem
+instance Prelude.NFData PutItem where
+  rnf PutItem' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf returnValues
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf expected
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf item
 
 instance Core.ToHeaders PutItem where
   toHeaders =
@@ -764,4 +787,9 @@ putItemResponse_attributes = Lens.lens (\PutItemResponse' {attributes} -> attrib
 putItemResponse_httpStatus :: Lens.Lens' PutItemResponse Prelude.Int
 putItemResponse_httpStatus = Lens.lens (\PutItemResponse' {httpStatus} -> httpStatus) (\s@PutItemResponse' {} a -> s {httpStatus = a} :: PutItemResponse)
 
-instance Prelude.NFData PutItemResponse
+instance Prelude.NFData PutItemResponse where
+  rnf PutItemResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

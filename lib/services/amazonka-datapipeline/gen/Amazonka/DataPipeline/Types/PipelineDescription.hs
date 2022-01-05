@@ -122,6 +122,18 @@ instance Core.FromJSON PipelineDescription where
             Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PipelineDescription
+instance Prelude.Hashable PipelineDescription where
+  hashWithSalt _salt PipelineDescription' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` fields
 
-instance Prelude.NFData PipelineDescription
+instance Prelude.NFData PipelineDescription where
+  rnf PipelineDescription' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fields

@@ -104,9 +104,19 @@ lambdaVolumeMount_sourcePath = Lens.lens (\LambdaVolumeMount' {sourcePath} -> so
 lambdaVolumeMount_destinationPath :: Lens.Lens' LambdaVolumeMount Prelude.Text
 lambdaVolumeMount_destinationPath = Lens.lens (\LambdaVolumeMount' {destinationPath} -> destinationPath) (\s@LambdaVolumeMount' {} a -> s {destinationPath = a} :: LambdaVolumeMount)
 
-instance Prelude.Hashable LambdaVolumeMount
+instance Prelude.Hashable LambdaVolumeMount where
+  hashWithSalt _salt LambdaVolumeMount' {..} =
+    _salt `Prelude.hashWithSalt` addGroupOwner
+      `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` sourcePath
+      `Prelude.hashWithSalt` destinationPath
 
-instance Prelude.NFData LambdaVolumeMount
+instance Prelude.NFData LambdaVolumeMount where
+  rnf LambdaVolumeMount' {..} =
+    Prelude.rnf addGroupOwner
+      `Prelude.seq` Prelude.rnf permission
+      `Prelude.seq` Prelude.rnf sourcePath
+      `Prelude.seq` Prelude.rnf destinationPath
 
 instance Core.ToJSON LambdaVolumeMount where
   toJSON LambdaVolumeMount' {..} =

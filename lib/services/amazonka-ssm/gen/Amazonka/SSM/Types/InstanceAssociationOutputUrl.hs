@@ -70,5 +70,10 @@ instance Core.FromJSON InstanceAssociationOutputUrl where
 instance
   Prelude.Hashable
     InstanceAssociationOutputUrl
+  where
+  hashWithSalt _salt InstanceAssociationOutputUrl' {..} =
+    _salt `Prelude.hashWithSalt` s3OutputUrl
 
-instance Prelude.NFData InstanceAssociationOutputUrl
+instance Prelude.NFData InstanceAssociationOutputUrl where
+  rnf InstanceAssociationOutputUrl' {..} =
+    Prelude.rnf s3OutputUrl

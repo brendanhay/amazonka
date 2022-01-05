@@ -71,9 +71,14 @@ instance Core.FromJSON ColumnSelector where
             Prelude.<$> (x Core..:? "Regex") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ColumnSelector
+instance Prelude.Hashable ColumnSelector where
+  hashWithSalt _salt ColumnSelector' {..} =
+    _salt `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ColumnSelector
+instance Prelude.NFData ColumnSelector where
+  rnf ColumnSelector' {..} =
+    Prelude.rnf regex `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ColumnSelector where
   toJSON ColumnSelector' {..} =

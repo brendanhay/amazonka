@@ -116,9 +116,17 @@ instance Core.AWSRequest CreateApiKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApiKey
+instance Prelude.Hashable CreateApiKey where
+  hashWithSalt _salt CreateApiKey' {..} =
+    _salt `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData CreateApiKey
+instance Prelude.NFData CreateApiKey where
+  rnf CreateApiKey' {..} =
+    Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders CreateApiKey where
   toHeaders =
@@ -186,4 +194,7 @@ createApiKeyResponse_apiKey = Lens.lens (\CreateApiKeyResponse' {apiKey} -> apiK
 createApiKeyResponse_httpStatus :: Lens.Lens' CreateApiKeyResponse Prelude.Int
 createApiKeyResponse_httpStatus = Lens.lens (\CreateApiKeyResponse' {httpStatus} -> httpStatus) (\s@CreateApiKeyResponse' {} a -> s {httpStatus = a} :: CreateApiKeyResponse)
 
-instance Prelude.NFData CreateApiKeyResponse
+instance Prelude.NFData CreateApiKeyResponse where
+  rnf CreateApiKeyResponse' {..} =
+    Prelude.rnf apiKey
+      `Prelude.seq` Prelude.rnf httpStatus

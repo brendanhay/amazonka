@@ -82,6 +82,14 @@ instance Core.FromJSON BatchSuccessfulResultModel where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable BatchSuccessfulResultModel
+instance Prelude.Hashable BatchSuccessfulResultModel where
+  hashWithSalt _salt BatchSuccessfulResultModel' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData BatchSuccessfulResultModel
+instance Prelude.NFData BatchSuccessfulResultModel where
+  rnf BatchSuccessfulResultModel' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id

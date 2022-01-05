@@ -117,6 +117,17 @@ instance Core.FromJSON CustomDomain where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable CustomDomain
+instance Prelude.Hashable CustomDomain where
+  hashWithSalt _salt CustomDomain' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateValidationRecords
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` enableWWWSubdomain
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CustomDomain
+instance Prelude.NFData CustomDomain where
+  rnf CustomDomain' {..} =
+    Prelude.rnf certificateValidationRecords
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf enableWWWSubdomain
+      `Prelude.seq` Prelude.rnf status

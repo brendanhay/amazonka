@@ -69,9 +69,13 @@ instance Core.FromJSON NetworkConfiguration where
             Prelude.<$> (x Core..:? "awsvpcConfiguration")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Prelude.Hashable NetworkConfiguration where
+  hashWithSalt _salt NetworkConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` awsvpcConfiguration
 
-instance Prelude.NFData NetworkConfiguration
+instance Prelude.NFData NetworkConfiguration where
+  rnf NetworkConfiguration' {..} =
+    Prelude.rnf awsvpcConfiguration
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =

@@ -192,9 +192,27 @@ instance Core.AWSRequest CreateBatchInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBatchInferenceJob
+instance Prelude.Hashable CreateBatchInferenceJob where
+  hashWithSalt _salt CreateBatchInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` numResults
+      `Prelude.hashWithSalt` batchInferenceJobConfig
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` jobInput
+      `Prelude.hashWithSalt` jobOutput
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateBatchInferenceJob
+instance Prelude.NFData CreateBatchInferenceJob where
+  rnf CreateBatchInferenceJob' {..} =
+    Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf batchInferenceJobConfig
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf jobInput
+      `Prelude.seq` Prelude.rnf jobOutput
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateBatchInferenceJob where
   toHeaders =
@@ -276,3 +294,7 @@ createBatchInferenceJobResponse_httpStatus = Lens.lens (\CreateBatchInferenceJob
 instance
   Prelude.NFData
     CreateBatchInferenceJobResponse
+  where
+  rnf CreateBatchInferenceJobResponse' {..} =
+    Prelude.rnf batchInferenceJobArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -237,7 +237,23 @@ instance
 instance
   Prelude.Hashable
     OrganizationConformancePackStatus
+  where
+  hashWithSalt
+    _salt
+    OrganizationConformancePackStatus' {..} =
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` lastUpdateTime
+        `Prelude.hashWithSalt` organizationConformancePackName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     OrganizationConformancePackStatus
+  where
+  rnf OrganizationConformancePackStatus' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf organizationConformancePackName
+      `Prelude.seq` Prelude.rnf status

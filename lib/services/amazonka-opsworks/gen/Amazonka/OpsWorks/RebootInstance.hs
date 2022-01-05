@@ -84,9 +84,12 @@ instance Core.AWSRequest RebootInstance where
   response =
     Response.receiveNull RebootInstanceResponse'
 
-instance Prelude.Hashable RebootInstance
+instance Prelude.Hashable RebootInstance where
+  hashWithSalt _salt RebootInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData RebootInstance
+instance Prelude.NFData RebootInstance where
+  rnf RebootInstance' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders RebootInstance where
   toHeaders =
@@ -130,4 +133,5 @@ newRebootInstanceResponse ::
   RebootInstanceResponse
 newRebootInstanceResponse = RebootInstanceResponse'
 
-instance Prelude.NFData RebootInstanceResponse
+instance Prelude.NFData RebootInstanceResponse where
+  rnf _ = ()

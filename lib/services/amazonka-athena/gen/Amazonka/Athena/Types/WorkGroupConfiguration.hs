@@ -188,9 +188,23 @@ instance Core.FromJSON WorkGroupConfiguration where
             Prelude.<*> (x Core..:? "PublishCloudWatchMetricsEnabled")
       )
 
-instance Prelude.Hashable WorkGroupConfiguration
+instance Prelude.Hashable WorkGroupConfiguration where
+  hashWithSalt _salt WorkGroupConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` requesterPaysEnabled
+      `Prelude.hashWithSalt` resultConfiguration
+      `Prelude.hashWithSalt` bytesScannedCutoffPerQuery
+      `Prelude.hashWithSalt` enforceWorkGroupConfiguration
+      `Prelude.hashWithSalt` publishCloudWatchMetricsEnabled
 
-instance Prelude.NFData WorkGroupConfiguration
+instance Prelude.NFData WorkGroupConfiguration where
+  rnf WorkGroupConfiguration' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf requesterPaysEnabled
+      `Prelude.seq` Prelude.rnf resultConfiguration
+      `Prelude.seq` Prelude.rnf bytesScannedCutoffPerQuery
+      `Prelude.seq` Prelude.rnf enforceWorkGroupConfiguration
+      `Prelude.seq` Prelude.rnf publishCloudWatchMetricsEnabled
 
 instance Core.ToJSON WorkGroupConfiguration where
   toJSON WorkGroupConfiguration' {..} =

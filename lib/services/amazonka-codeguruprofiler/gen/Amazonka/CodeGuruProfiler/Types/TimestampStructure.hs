@@ -71,6 +71,9 @@ instance Core.FromJSON TimestampStructure where
           TimestampStructure' Prelude.<$> (x Core..: "value")
       )
 
-instance Prelude.Hashable TimestampStructure
+instance Prelude.Hashable TimestampStructure where
+  hashWithSalt _salt TimestampStructure' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData TimestampStructure
+instance Prelude.NFData TimestampStructure where
+  rnf TimestampStructure' {..} = Prelude.rnf value

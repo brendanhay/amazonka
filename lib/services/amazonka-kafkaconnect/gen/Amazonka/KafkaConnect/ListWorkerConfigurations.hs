@@ -132,9 +132,15 @@ instance Core.AWSRequest ListWorkerConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorkerConfigurations
+instance Prelude.Hashable ListWorkerConfigurations where
+  hashWithSalt _salt ListWorkerConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWorkerConfigurations
+instance Prelude.NFData ListWorkerConfigurations where
+  rnf ListWorkerConfigurations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkerConfigurations where
   toHeaders =
@@ -214,3 +220,8 @@ listWorkerConfigurationsResponse_httpStatus = Lens.lens (\ListWorkerConfiguratio
 instance
   Prelude.NFData
     ListWorkerConfigurationsResponse
+  where
+  rnf ListWorkerConfigurationsResponse' {..} =
+    Prelude.rnf workerConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

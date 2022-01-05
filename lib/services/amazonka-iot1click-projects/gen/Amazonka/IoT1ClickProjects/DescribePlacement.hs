@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribePlacement where
             Prelude.<*> (x Core..:> "placement")
       )
 
-instance Prelude.Hashable DescribePlacement
+instance Prelude.Hashable DescribePlacement where
+  hashWithSalt _salt DescribePlacement' {..} =
+    _salt `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DescribePlacement
+instance Prelude.NFData DescribePlacement where
+  rnf DescribePlacement' {..} =
+    Prelude.rnf placementName
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders DescribePlacement where
   toHeaders =
@@ -168,4 +174,7 @@ describePlacementResponse_httpStatus = Lens.lens (\DescribePlacementResponse' {h
 describePlacementResponse_placement :: Lens.Lens' DescribePlacementResponse PlacementDescription
 describePlacementResponse_placement = Lens.lens (\DescribePlacementResponse' {placement} -> placement) (\s@DescribePlacementResponse' {} a -> s {placement = a} :: DescribePlacementResponse)
 
-instance Prelude.NFData DescribePlacementResponse
+instance Prelude.NFData DescribePlacementResponse where
+  rnf DescribePlacementResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf placement

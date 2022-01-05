@@ -106,9 +106,15 @@ instance Core.AWSRequest DeleteLifecycleHook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLifecycleHook
+instance Prelude.Hashable DeleteLifecycleHook where
+  hashWithSalt _salt DeleteLifecycleHook' {..} =
+    _salt `Prelude.hashWithSalt` lifecycleHookName
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData DeleteLifecycleHook
+instance Prelude.NFData DeleteLifecycleHook where
+  rnf DeleteLifecycleHook' {..} =
+    Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders DeleteLifecycleHook where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +163,6 @@ newDeleteLifecycleHookResponse pHttpStatus_ =
 deleteLifecycleHookResponse_httpStatus :: Lens.Lens' DeleteLifecycleHookResponse Prelude.Int
 deleteLifecycleHookResponse_httpStatus = Lens.lens (\DeleteLifecycleHookResponse' {httpStatus} -> httpStatus) (\s@DeleteLifecycleHookResponse' {} a -> s {httpStatus = a} :: DeleteLifecycleHookResponse)
 
-instance Prelude.NFData DeleteLifecycleHookResponse
+instance Prelude.NFData DeleteLifecycleHookResponse where
+  rnf DeleteLifecycleHookResponse' {..} =
+    Prelude.rnf httpStatus

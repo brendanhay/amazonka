@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteGcmChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteGcmChannel
+instance Prelude.Hashable DeleteGcmChannel where
+  hashWithSalt _salt DeleteGcmChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteGcmChannel
+instance Prelude.NFData DeleteGcmChannel where
+  rnf DeleteGcmChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteGcmChannel where
   toHeaders =
@@ -158,4 +161,7 @@ deleteGcmChannelResponse_httpStatus = Lens.lens (\DeleteGcmChannelResponse' {htt
 deleteGcmChannelResponse_gCMChannelResponse :: Lens.Lens' DeleteGcmChannelResponse GCMChannelResponse
 deleteGcmChannelResponse_gCMChannelResponse = Lens.lens (\DeleteGcmChannelResponse' {gCMChannelResponse} -> gCMChannelResponse) (\s@DeleteGcmChannelResponse' {} a -> s {gCMChannelResponse = a} :: DeleteGcmChannelResponse)
 
-instance Prelude.NFData DeleteGcmChannelResponse
+instance Prelude.NFData DeleteGcmChannelResponse where
+  rnf DeleteGcmChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gCMChannelResponse

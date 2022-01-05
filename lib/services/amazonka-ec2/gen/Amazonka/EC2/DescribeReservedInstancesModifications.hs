@@ -264,10 +264,22 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedInstancesModifications
+  where
+  hashWithSalt
+    _salt
+    DescribeReservedInstancesModifications' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` reservedInstancesModificationIds
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeReservedInstancesModifications
+  where
+  rnf DescribeReservedInstancesModifications' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf reservedInstancesModificationIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -360,3 +372,9 @@ describeReservedInstancesModificationsResponse_httpStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeReservedInstancesModificationsResponse
+  where
+  rnf
+    DescribeReservedInstancesModificationsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf reservedInstancesModifications
+        `Prelude.seq` Prelude.rnf httpStatus

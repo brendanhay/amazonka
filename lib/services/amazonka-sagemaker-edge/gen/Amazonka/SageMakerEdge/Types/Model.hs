@@ -90,9 +90,21 @@ model_latestInference = Lens.lens (\Model' {latestInference} -> latestInference)
 model_latestSampleTime :: Lens.Lens' Model (Prelude.Maybe Prelude.UTCTime)
 model_latestSampleTime = Lens.lens (\Model' {latestSampleTime} -> latestSampleTime) (\s@Model' {} a -> s {latestSampleTime = a} :: Model) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable Model
+instance Prelude.Hashable Model where
+  hashWithSalt _salt Model' {..} =
+    _salt `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelMetrics
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` latestInference
+      `Prelude.hashWithSalt` latestSampleTime
 
-instance Prelude.NFData Model
+instance Prelude.NFData Model where
+  rnf Model' {..} =
+    Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf latestInference
+      `Prelude.seq` Prelude.rnf latestSampleTime
 
 instance Core.ToJSON Model where
   toJSON Model' {..} =

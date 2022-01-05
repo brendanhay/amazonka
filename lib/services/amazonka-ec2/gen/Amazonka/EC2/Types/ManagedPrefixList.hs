@@ -152,6 +152,28 @@ instance Core.FromXML ManagedPrefixList where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ManagedPrefixList
+instance Prelude.Hashable ManagedPrefixList where
+  hashWithSalt _salt ManagedPrefixList' {..} =
+    _salt `Prelude.hashWithSalt` stateMessage
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` prefixListArn
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` prefixListName
+      `Prelude.hashWithSalt` maxEntries
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ManagedPrefixList
+instance Prelude.NFData ManagedPrefixList where
+  rnf ManagedPrefixList' {..} =
+    Prelude.rnf stateMessage
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf prefixListArn
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf prefixListName
+      `Prelude.seq` Prelude.rnf maxEntries
+      `Prelude.seq` Prelude.rnf tags

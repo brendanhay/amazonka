@@ -84,6 +84,12 @@ instance Core.FromJSON EvaluationResult where
             Prelude.<*> (x Core..:? "F1Score")
       )
 
-instance Prelude.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult where
+  hashWithSalt _salt EvaluationResult' {..} =
+    _salt `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` f1Score
 
-instance Prelude.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult where
+  rnf EvaluationResult' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf f1Score

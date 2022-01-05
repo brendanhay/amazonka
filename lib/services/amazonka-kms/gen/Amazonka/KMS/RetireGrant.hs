@@ -175,9 +175,17 @@ instance Core.AWSRequest RetireGrant where
   request = Request.postJSON defaultService
   response = Response.receiveNull RetireGrantResponse'
 
-instance Prelude.Hashable RetireGrant
+instance Prelude.Hashable RetireGrant where
+  hashWithSalt _salt RetireGrant' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` grantId
+      `Prelude.hashWithSalt` grantToken
 
-instance Prelude.NFData RetireGrant
+instance Prelude.NFData RetireGrant where
+  rnf RetireGrant' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf grantId
+      `Prelude.seq` Prelude.rnf grantToken
 
 instance Core.ToHeaders RetireGrant where
   toHeaders =
@@ -222,4 +230,5 @@ newRetireGrantResponse ::
   RetireGrantResponse
 newRetireGrantResponse = RetireGrantResponse'
 
-instance Prelude.NFData RetireGrantResponse
+instance Prelude.NFData RetireGrantResponse where
+  rnf _ = ()

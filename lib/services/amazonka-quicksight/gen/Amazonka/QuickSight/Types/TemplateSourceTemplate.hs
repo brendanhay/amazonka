@@ -52,9 +52,12 @@ newTemplateSourceTemplate pArn_ =
 templateSourceTemplate_arn :: Lens.Lens' TemplateSourceTemplate Prelude.Text
 templateSourceTemplate_arn = Lens.lens (\TemplateSourceTemplate' {arn} -> arn) (\s@TemplateSourceTemplate' {} a -> s {arn = a} :: TemplateSourceTemplate)
 
-instance Prelude.Hashable TemplateSourceTemplate
+instance Prelude.Hashable TemplateSourceTemplate where
+  hashWithSalt _salt TemplateSourceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData TemplateSourceTemplate
+instance Prelude.NFData TemplateSourceTemplate where
+  rnf TemplateSourceTemplate' {..} = Prelude.rnf arn
 
 instance Core.ToJSON TemplateSourceTemplate where
   toJSON TemplateSourceTemplate' {..} =

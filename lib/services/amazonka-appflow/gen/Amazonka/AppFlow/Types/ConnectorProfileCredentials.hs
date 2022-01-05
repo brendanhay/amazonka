@@ -213,9 +213,45 @@ connectorProfileCredentials_redshift = Lens.lens (\ConnectorProfileCredentials' 
 connectorProfileCredentials_veeva :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe VeevaConnectorProfileCredentials)
 connectorProfileCredentials_veeva = Lens.lens (\ConnectorProfileCredentials' {veeva} -> veeva) (\s@ConnectorProfileCredentials' {} a -> s {veeva = a} :: ConnectorProfileCredentials)
 
-instance Prelude.Hashable ConnectorProfileCredentials
+instance Prelude.Hashable ConnectorProfileCredentials where
+  hashWithSalt _salt ConnectorProfileCredentials' {..} =
+    _salt `Prelude.hashWithSalt` snowflake
+      `Prelude.hashWithSalt` honeycode
+      `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` slack
+      `Prelude.hashWithSalt` singular
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` googleAnalytics
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` redshift
+      `Prelude.hashWithSalt` veeva
 
-instance Prelude.NFData ConnectorProfileCredentials
+instance Prelude.NFData ConnectorProfileCredentials where
+  rnf ConnectorProfileCredentials' {..} =
+    Prelude.rnf snowflake
+      `Prelude.seq` Prelude.rnf honeycode
+      `Prelude.seq` Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf dynatrace
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf slack
+      `Prelude.seq` Prelude.rnf singular
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf googleAnalytics
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf veeva
 
 instance Core.ToJSON ConnectorProfileCredentials where
   toJSON ConnectorProfileCredentials' {..} =

@@ -132,10 +132,20 @@ instance
 instance
   Prelude.Hashable
     CloudFrontOriginAccessIdentityConfig
+  where
+  hashWithSalt
+    _salt
+    CloudFrontOriginAccessIdentityConfig' {..} =
+      _salt `Prelude.hashWithSalt` callerReference
+        `Prelude.hashWithSalt` comment
 
 instance
   Prelude.NFData
     CloudFrontOriginAccessIdentityConfig
+  where
+  rnf CloudFrontOriginAccessIdentityConfig' {..} =
+    Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf comment
 
 instance
   Core.ToXML

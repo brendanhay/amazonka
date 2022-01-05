@@ -67,6 +67,11 @@ instance Core.FromXML PricingDetail where
     PricingDetail'
       Prelude.<$> (x Core..@? "count") Prelude.<*> (x Core..@? "price")
 
-instance Prelude.Hashable PricingDetail
+instance Prelude.Hashable PricingDetail where
+  hashWithSalt _salt PricingDetail' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` price
 
-instance Prelude.NFData PricingDetail
+instance Prelude.NFData PricingDetail where
+  rnf PricingDetail' {..} =
+    Prelude.rnf count `Prelude.seq` Prelude.rnf price

@@ -92,9 +92,15 @@ lambdaOutput_resourceARN = Lens.lens (\LambdaOutput' {resourceARN} -> resourceAR
 lambdaOutput_roleARN :: Lens.Lens' LambdaOutput Prelude.Text
 lambdaOutput_roleARN = Lens.lens (\LambdaOutput' {roleARN} -> roleARN) (\s@LambdaOutput' {} a -> s {roleARN = a} :: LambdaOutput)
 
-instance Prelude.Hashable LambdaOutput
+instance Prelude.Hashable LambdaOutput where
+  hashWithSalt _salt LambdaOutput' {..} =
+    _salt `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData LambdaOutput
+instance Prelude.NFData LambdaOutput where
+  rnf LambdaOutput' {..} =
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON LambdaOutput where
   toJSON LambdaOutput' {..} =

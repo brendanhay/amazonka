@@ -205,9 +205,29 @@ instance Core.AWSRequest UpdateJobTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobTemplate
+instance Prelude.Hashable UpdateJobTemplate where
+  hashWithSalt _salt UpdateJobTemplate' {..} =
+    _salt `Prelude.hashWithSalt` accelerationSettings
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` statusUpdateInterval
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` hopDestinations
+      `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateJobTemplate
+instance Prelude.NFData UpdateJobTemplate where
+  rnf UpdateJobTemplate' {..} =
+    Prelude.rnf accelerationSettings
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf statusUpdateInterval
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf hopDestinations
+      `Prelude.seq` Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateJobTemplate where
   toHeaders =
@@ -288,4 +308,7 @@ updateJobTemplateResponse_jobTemplate = Lens.lens (\UpdateJobTemplateResponse' {
 updateJobTemplateResponse_httpStatus :: Lens.Lens' UpdateJobTemplateResponse Prelude.Int
 updateJobTemplateResponse_httpStatus = Lens.lens (\UpdateJobTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateJobTemplateResponse' {} a -> s {httpStatus = a} :: UpdateJobTemplateResponse)
 
-instance Prelude.NFData UpdateJobTemplateResponse
+instance Prelude.NFData UpdateJobTemplateResponse where
+  rnf UpdateJobTemplateResponse' {..} =
+    Prelude.rnf jobTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

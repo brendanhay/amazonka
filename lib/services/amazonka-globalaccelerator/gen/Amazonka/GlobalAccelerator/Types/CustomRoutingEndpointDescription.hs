@@ -73,7 +73,15 @@ instance
 instance
   Prelude.Hashable
     CustomRoutingEndpointDescription
+  where
+  hashWithSalt
+    _salt
+    CustomRoutingEndpointDescription' {..} =
+      _salt `Prelude.hashWithSalt` endpointId
 
 instance
   Prelude.NFData
     CustomRoutingEndpointDescription
+  where
+  rnf CustomRoutingEndpointDescription' {..} =
+    Prelude.rnf endpointId

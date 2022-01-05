@@ -187,9 +187,23 @@ instance Core.AWSRequest MeterUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MeterUsage
+instance Prelude.Hashable MeterUsage where
+  hashWithSalt _salt MeterUsage' {..} =
+    _salt `Prelude.hashWithSalt` usageQuantity
+      `Prelude.hashWithSalt` usageAllocations
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` productCode
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` usageDimension
 
-instance Prelude.NFData MeterUsage
+instance Prelude.NFData MeterUsage where
+  rnf MeterUsage' {..} =
+    Prelude.rnf usageQuantity
+      `Prelude.seq` Prelude.rnf usageAllocations
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf productCode
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf usageDimension
 
 instance Core.ToHeaders MeterUsage where
   toHeaders =
@@ -266,4 +280,7 @@ meterUsageResponse_meteringRecordId = Lens.lens (\MeterUsageResponse' {meteringR
 meterUsageResponse_httpStatus :: Lens.Lens' MeterUsageResponse Prelude.Int
 meterUsageResponse_httpStatus = Lens.lens (\MeterUsageResponse' {httpStatus} -> httpStatus) (\s@MeterUsageResponse' {} a -> s {httpStatus = a} :: MeterUsageResponse)
 
-instance Prelude.NFData MeterUsageResponse
+instance Prelude.NFData MeterUsageResponse where
+  rnf MeterUsageResponse' {..} =
+    Prelude.rnf meteringRecordId
+      `Prelude.seq` Prelude.rnf httpStatus

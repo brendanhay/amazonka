@@ -192,9 +192,35 @@ instance Core.FromJSON EncoderSettings where
             Prelude.<*> (x Core..: "timecodeConfig")
       )
 
-instance Prelude.Hashable EncoderSettings
+instance Prelude.Hashable EncoderSettings where
+  hashWithSalt _salt EncoderSettings' {..} =
+    _salt `Prelude.hashWithSalt` captionDescriptions
+      `Prelude.hashWithSalt` availConfiguration
+      `Prelude.hashWithSalt` featureActivations
+      `Prelude.hashWithSalt` nielsenConfiguration
+      `Prelude.hashWithSalt` availBlanking
+      `Prelude.hashWithSalt` globalConfiguration
+      `Prelude.hashWithSalt` motionGraphicsConfiguration
+      `Prelude.hashWithSalt` blackoutSlate
+      `Prelude.hashWithSalt` videoDescriptions
+      `Prelude.hashWithSalt` audioDescriptions
+      `Prelude.hashWithSalt` outputGroups
+      `Prelude.hashWithSalt` timecodeConfig
 
-instance Prelude.NFData EncoderSettings
+instance Prelude.NFData EncoderSettings where
+  rnf EncoderSettings' {..} =
+    Prelude.rnf captionDescriptions
+      `Prelude.seq` Prelude.rnf availConfiguration
+      `Prelude.seq` Prelude.rnf featureActivations
+      `Prelude.seq` Prelude.rnf nielsenConfiguration
+      `Prelude.seq` Prelude.rnf availBlanking
+      `Prelude.seq` Prelude.rnf globalConfiguration
+      `Prelude.seq` Prelude.rnf motionGraphicsConfiguration
+      `Prelude.seq` Prelude.rnf blackoutSlate
+      `Prelude.seq` Prelude.rnf videoDescriptions
+      `Prelude.seq` Prelude.rnf audioDescriptions
+      `Prelude.seq` Prelude.rnf outputGroups
+      `Prelude.seq` Prelude.rnf timecodeConfig
 
 instance Core.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =

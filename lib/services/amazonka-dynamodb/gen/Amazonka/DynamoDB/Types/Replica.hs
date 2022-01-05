@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.Replica where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,9 +58,12 @@ instance Core.FromJSON Replica where
           Replica' Prelude.<$> (x Core..:? "RegionName")
       )
 
-instance Prelude.Hashable Replica
+instance Prelude.Hashable Replica where
+  hashWithSalt _salt Replica' {..} =
+    _salt `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData Replica
+instance Prelude.NFData Replica where
+  rnf Replica' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON Replica where
   toJSON Replica' {..} =

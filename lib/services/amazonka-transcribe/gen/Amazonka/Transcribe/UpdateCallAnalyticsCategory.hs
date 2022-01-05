@@ -115,9 +115,15 @@ instance Core.AWSRequest UpdateCallAnalyticsCategory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCallAnalyticsCategory
+instance Prelude.Hashable UpdateCallAnalyticsCategory where
+  hashWithSalt _salt UpdateCallAnalyticsCategory' {..} =
+    _salt `Prelude.hashWithSalt` categoryName
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData UpdateCallAnalyticsCategory
+instance Prelude.NFData UpdateCallAnalyticsCategory where
+  rnf UpdateCallAnalyticsCategory' {..} =
+    Prelude.rnf categoryName
+      `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToHeaders UpdateCallAnalyticsCategory where
   toHeaders =
@@ -197,3 +203,7 @@ updateCallAnalyticsCategoryResponse_httpStatus = Lens.lens (\UpdateCallAnalytics
 instance
   Prelude.NFData
     UpdateCallAnalyticsCategoryResponse
+  where
+  rnf UpdateCallAnalyticsCategoryResponse' {..} =
+    Prelude.rnf categoryProperties
+      `Prelude.seq` Prelude.rnf httpStatus

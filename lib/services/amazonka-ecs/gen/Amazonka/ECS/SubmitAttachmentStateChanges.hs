@@ -106,8 +106,15 @@ instance Core.AWSRequest SubmitAttachmentStateChanges where
 instance
   Prelude.Hashable
     SubmitAttachmentStateChanges
+  where
+  hashWithSalt _salt SubmitAttachmentStateChanges' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` attachments
 
-instance Prelude.NFData SubmitAttachmentStateChanges
+instance Prelude.NFData SubmitAttachmentStateChanges where
+  rnf SubmitAttachmentStateChanges' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf attachments
 
 instance Core.ToHeaders SubmitAttachmentStateChanges where
   toHeaders =
@@ -181,3 +188,7 @@ submitAttachmentStateChangesResponse_httpStatus = Lens.lens (\SubmitAttachmentSt
 instance
   Prelude.NFData
     SubmitAttachmentStateChangesResponse
+  where
+  rnf SubmitAttachmentStateChangesResponse' {..} =
+    Prelude.rnf acknowledgment
+      `Prelude.seq` Prelude.rnf httpStatus

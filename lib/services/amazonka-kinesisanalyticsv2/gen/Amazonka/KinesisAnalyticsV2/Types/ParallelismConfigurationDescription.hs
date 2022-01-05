@@ -173,7 +173,23 @@ instance
 instance
   Prelude.Hashable
     ParallelismConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    ParallelismConfigurationDescription' {..} =
+      _salt `Prelude.hashWithSalt` autoScalingEnabled
+        `Prelude.hashWithSalt` currentParallelism
+        `Prelude.hashWithSalt` parallelismPerKPU
+        `Prelude.hashWithSalt` configurationType
+        `Prelude.hashWithSalt` parallelism
 
 instance
   Prelude.NFData
     ParallelismConfigurationDescription
+  where
+  rnf ParallelismConfigurationDescription' {..} =
+    Prelude.rnf autoScalingEnabled
+      `Prelude.seq` Prelude.rnf currentParallelism
+      `Prelude.seq` Prelude.rnf parallelismPerKPU
+      `Prelude.seq` Prelude.rnf configurationType
+      `Prelude.seq` Prelude.rnf parallelism

@@ -105,9 +105,13 @@ instance Core.AWSRequest DescribeExperiment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExperiment
+instance Prelude.Hashable DescribeExperiment where
+  hashWithSalt _salt DescribeExperiment' {..} =
+    _salt `Prelude.hashWithSalt` experimentName
 
-instance Prelude.NFData DescribeExperiment
+instance Prelude.NFData DescribeExperiment where
+  rnf DescribeExperiment' {..} =
+    Prelude.rnf experimentName
 
 instance Core.ToHeaders DescribeExperiment where
   toHeaders =
@@ -253,4 +257,15 @@ describeExperimentResponse_description = Lens.lens (\DescribeExperimentResponse'
 describeExperimentResponse_httpStatus :: Lens.Lens' DescribeExperimentResponse Prelude.Int
 describeExperimentResponse_httpStatus = Lens.lens (\DescribeExperimentResponse' {httpStatus} -> httpStatus) (\s@DescribeExperimentResponse' {} a -> s {httpStatus = a} :: DescribeExperimentResponse)
 
-instance Prelude.NFData DescribeExperimentResponse
+instance Prelude.NFData DescribeExperimentResponse where
+  rnf DescribeExperimentResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf experimentArn
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -324,9 +324,31 @@ instance Core.AWSRequest CreateHITWithHITType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHITWithHITType
+instance Prelude.Hashable CreateHITWithHITType where
+  hashWithSalt _salt CreateHITWithHITType' {..} =
+    _salt `Prelude.hashWithSalt` hITReviewPolicy
+      `Prelude.hashWithSalt` uniqueRequestToken
+      `Prelude.hashWithSalt` requesterAnnotation
+      `Prelude.hashWithSalt` maxAssignments
+      `Prelude.hashWithSalt` hITLayoutId
+      `Prelude.hashWithSalt` hITLayoutParameters
+      `Prelude.hashWithSalt` question
+      `Prelude.hashWithSalt` assignmentReviewPolicy
+      `Prelude.hashWithSalt` hITTypeId
+      `Prelude.hashWithSalt` lifetimeInSeconds
 
-instance Prelude.NFData CreateHITWithHITType
+instance Prelude.NFData CreateHITWithHITType where
+  rnf CreateHITWithHITType' {..} =
+    Prelude.rnf hITReviewPolicy
+      `Prelude.seq` Prelude.rnf uniqueRequestToken
+      `Prelude.seq` Prelude.rnf requesterAnnotation
+      `Prelude.seq` Prelude.rnf maxAssignments
+      `Prelude.seq` Prelude.rnf hITLayoutId
+      `Prelude.seq` Prelude.rnf hITLayoutParameters
+      `Prelude.seq` Prelude.rnf question
+      `Prelude.seq` Prelude.rnf assignmentReviewPolicy
+      `Prelude.seq` Prelude.rnf hITTypeId
+      `Prelude.seq` Prelude.rnf lifetimeInSeconds
 
 instance Core.ToHeaders CreateHITWithHITType where
   toHeaders =
@@ -418,4 +440,7 @@ createHITWithHITTypeResponse_hit = Lens.lens (\CreateHITWithHITTypeResponse' {hi
 createHITWithHITTypeResponse_httpStatus :: Lens.Lens' CreateHITWithHITTypeResponse Prelude.Int
 createHITWithHITTypeResponse_httpStatus = Lens.lens (\CreateHITWithHITTypeResponse' {httpStatus} -> httpStatus) (\s@CreateHITWithHITTypeResponse' {} a -> s {httpStatus = a} :: CreateHITWithHITTypeResponse)
 
-instance Prelude.NFData CreateHITWithHITTypeResponse
+instance Prelude.NFData CreateHITWithHITTypeResponse where
+  rnf CreateHITWithHITTypeResponse' {..} =
+    Prelude.rnf hit
+      `Prelude.seq` Prelude.rnf httpStatus

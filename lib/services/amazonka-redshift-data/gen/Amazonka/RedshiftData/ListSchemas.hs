@@ -240,9 +240,27 @@ instance Core.AWSRequest ListSchemas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSchemas
+instance Prelude.Hashable ListSchemas where
+  hashWithSalt _salt ListSchemas' {..} =
+    _salt `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` connectedDatabase
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` schemaPattern
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData ListSchemas
+instance Prelude.NFData ListSchemas where
+  rnf ListSchemas' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf connectedDatabase
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf schemaPattern
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToHeaders ListSchemas where
   toHeaders =
@@ -342,4 +360,8 @@ listSchemasResponse_nextToken = Lens.lens (\ListSchemasResponse' {nextToken} -> 
 listSchemasResponse_httpStatus :: Lens.Lens' ListSchemasResponse Prelude.Int
 listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -> httpStatus) (\s@ListSchemasResponse' {} a -> s {httpStatus = a} :: ListSchemasResponse)
 
-instance Prelude.NFData ListSchemasResponse
+instance Prelude.NFData ListSchemasResponse where
+  rnf ListSchemasResponse' {..} =
+    Prelude.rnf schemas
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

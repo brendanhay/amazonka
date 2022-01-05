@@ -133,9 +133,15 @@ instance Core.AWSRequest DeleteAccountSetting where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccountSetting
+instance Prelude.Hashable DeleteAccountSetting where
+  hashWithSalt _salt DeleteAccountSetting' {..} =
+    _salt `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteAccountSetting
+instance Prelude.NFData DeleteAccountSetting where
+  rnf DeleteAccountSetting' {..} =
+    Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteAccountSetting where
   toHeaders =
@@ -206,4 +212,7 @@ deleteAccountSettingResponse_setting = Lens.lens (\DeleteAccountSettingResponse'
 deleteAccountSettingResponse_httpStatus :: Lens.Lens' DeleteAccountSettingResponse Prelude.Int
 deleteAccountSettingResponse_httpStatus = Lens.lens (\DeleteAccountSettingResponse' {httpStatus} -> httpStatus) (\s@DeleteAccountSettingResponse' {} a -> s {httpStatus = a} :: DeleteAccountSettingResponse)
 
-instance Prelude.NFData DeleteAccountSettingResponse
+instance Prelude.NFData DeleteAccountSettingResponse where
+  rnf DeleteAccountSettingResponse' {..} =
+    Prelude.rnf setting
+      `Prelude.seq` Prelude.rnf httpStatus

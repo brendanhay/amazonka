@@ -116,9 +116,23 @@ instance Core.FromJSON OTAUpdateFile where
             Prelude.<*> (x Core..:? "fileName")
       )
 
-instance Prelude.Hashable OTAUpdateFile
+instance Prelude.Hashable OTAUpdateFile where
+  hashWithSalt _salt OTAUpdateFile' {..} =
+    _salt `Prelude.hashWithSalt` fileLocation
+      `Prelude.hashWithSalt` fileType
+      `Prelude.hashWithSalt` fileVersion
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` codeSigning
+      `Prelude.hashWithSalt` fileName
 
-instance Prelude.NFData OTAUpdateFile
+instance Prelude.NFData OTAUpdateFile where
+  rnf OTAUpdateFile' {..} =
+    Prelude.rnf fileLocation
+      `Prelude.seq` Prelude.rnf fileType
+      `Prelude.seq` Prelude.rnf fileVersion
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf codeSigning
+      `Prelude.seq` Prelude.rnf fileName
 
 instance Core.ToJSON OTAUpdateFile where
   toJSON OTAUpdateFile' {..} =

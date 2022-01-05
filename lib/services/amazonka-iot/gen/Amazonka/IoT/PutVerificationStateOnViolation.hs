@@ -121,10 +121,23 @@ instance
 instance
   Prelude.Hashable
     PutVerificationStateOnViolation
+  where
+  hashWithSalt
+    _salt
+    PutVerificationStateOnViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` verificationStateDescription
+        `Prelude.hashWithSalt` violationId
+        `Prelude.hashWithSalt` verificationState
 
 instance
   Prelude.NFData
     PutVerificationStateOnViolation
+  where
+  rnf PutVerificationStateOnViolation' {..} =
+    Prelude.rnf verificationStateDescription
+      `Prelude.seq` Prelude.rnf violationId
+      `Prelude.seq` Prelude.rnf verificationState
 
 instance
   Core.ToHeaders
@@ -187,3 +200,6 @@ putVerificationStateOnViolationResponse_httpStatus = Lens.lens (\PutVerification
 instance
   Prelude.NFData
     PutVerificationStateOnViolationResponse
+  where
+  rnf PutVerificationStateOnViolationResponse' {..} =
+    Prelude.rnf httpStatus

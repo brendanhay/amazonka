@@ -77,9 +77,14 @@ imageFile_data = Lens.lens (\ImageFile' {data'} -> data') (\s@ImageFile' {} a ->
 imageFile_type :: Lens.Lens' ImageFile ImageFileType
 imageFile_type = Lens.lens (\ImageFile' {type'} -> type') (\s@ImageFile' {} a -> s {type' = a} :: ImageFile)
 
-instance Prelude.Hashable ImageFile
+instance Prelude.Hashable ImageFile where
+  hashWithSalt _salt ImageFile' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ImageFile
+instance Prelude.NFData ImageFile where
+  rnf ImageFile' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ImageFile where
   toJSON ImageFile' {..} =

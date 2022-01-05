@@ -503,9 +503,37 @@ instance Core.AWSRequest PutObjectAcl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectAcl
+instance Prelude.Hashable PutObjectAcl where
+  hashWithSalt _salt PutObjectAcl' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` accessControlPolicy
+      `Prelude.hashWithSalt` grantWrite
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData PutObjectAcl
+instance Prelude.NFData PutObjectAcl where
+  rnf PutObjectAcl' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf accessControlPolicy
+      `Prelude.seq` Prelude.rnf grantWrite
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToElement PutObjectAcl where
   toElement PutObjectAcl' {..} =
@@ -576,4 +604,7 @@ putObjectAclResponse_requestCharged = Lens.lens (\PutObjectAclResponse' {request
 putObjectAclResponse_httpStatus :: Lens.Lens' PutObjectAclResponse Prelude.Int
 putObjectAclResponse_httpStatus = Lens.lens (\PutObjectAclResponse' {httpStatus} -> httpStatus) (\s@PutObjectAclResponse' {} a -> s {httpStatus = a} :: PutObjectAclResponse)
 
-instance Prelude.NFData PutObjectAclResponse
+instance Prelude.NFData PutObjectAclResponse where
+  rnf PutObjectAclResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteNotebookInstance where
     Response.receiveNull
       DeleteNotebookInstanceResponse'
 
-instance Prelude.Hashable DeleteNotebookInstance
+instance Prelude.Hashable DeleteNotebookInstance where
+  hashWithSalt _salt DeleteNotebookInstance' {..} =
+    _salt `Prelude.hashWithSalt` notebookInstanceName
 
-instance Prelude.NFData DeleteNotebookInstance
+instance Prelude.NFData DeleteNotebookInstance where
+  rnf DeleteNotebookInstance' {..} =
+    Prelude.rnf notebookInstanceName
 
 instance Core.ToHeaders DeleteNotebookInstance where
   toHeaders =
@@ -140,3 +144,5 @@ newDeleteNotebookInstanceResponse =
 instance
   Prelude.NFData
     DeleteNotebookInstanceResponse
+  where
+  rnf _ = ()

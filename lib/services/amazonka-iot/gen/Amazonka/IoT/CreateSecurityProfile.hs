@@ -191,9 +191,25 @@ instance Core.AWSRequest CreateSecurityProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSecurityProfile
+instance Prelude.Hashable CreateSecurityProfile where
+  hashWithSalt _salt CreateSecurityProfile' {..} =
+    _salt `Prelude.hashWithSalt` alertTargets
+      `Prelude.hashWithSalt` additionalMetricsToRetainV2
+      `Prelude.hashWithSalt` behaviors
+      `Prelude.hashWithSalt` additionalMetricsToRetain
+      `Prelude.hashWithSalt` securityProfileDescription
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` securityProfileName
 
-instance Prelude.NFData CreateSecurityProfile
+instance Prelude.NFData CreateSecurityProfile where
+  rnf CreateSecurityProfile' {..} =
+    Prelude.rnf alertTargets
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
+      `Prelude.seq` Prelude.rnf behaviors
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf securityProfileDescription
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf securityProfileName
 
 instance Core.ToHeaders CreateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -272,4 +288,8 @@ createSecurityProfileResponse_securityProfileArn = Lens.lens (\CreateSecurityPro
 createSecurityProfileResponse_httpStatus :: Lens.Lens' CreateSecurityProfileResponse Prelude.Int
 createSecurityProfileResponse_httpStatus = Lens.lens (\CreateSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@CreateSecurityProfileResponse' {} a -> s {httpStatus = a} :: CreateSecurityProfileResponse)
 
-instance Prelude.NFData CreateSecurityProfileResponse
+instance Prelude.NFData CreateSecurityProfileResponse where
+  rnf CreateSecurityProfileResponse' {..} =
+    Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf securityProfileArn
+      `Prelude.seq` Prelude.rnf httpStatus

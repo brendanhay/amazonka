@@ -99,9 +99,15 @@ instance Core.AWSRequest SetTimeBasedAutoScaling where
     Response.receiveNull
       SetTimeBasedAutoScalingResponse'
 
-instance Prelude.Hashable SetTimeBasedAutoScaling
+instance Prelude.Hashable SetTimeBasedAutoScaling where
+  hashWithSalt _salt SetTimeBasedAutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` autoScalingSchedule
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData SetTimeBasedAutoScaling
+instance Prelude.NFData SetTimeBasedAutoScaling where
+  rnf SetTimeBasedAutoScaling' {..} =
+    Prelude.rnf autoScalingSchedule
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders SetTimeBasedAutoScaling where
   toHeaders =
@@ -152,3 +158,5 @@ newSetTimeBasedAutoScalingResponse =
 instance
   Prelude.NFData
     SetTimeBasedAutoScalingResponse
+  where
+  rnf _ = ()

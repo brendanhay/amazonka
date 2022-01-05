@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateSegment where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateSegment
+instance Prelude.Hashable UpdateSegment where
+  hashWithSalt _salt UpdateSegment' {..} =
+    _salt `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` writeSegmentRequest
 
-instance Prelude.NFData UpdateSegment
+instance Prelude.NFData UpdateSegment where
+  rnf UpdateSegment' {..} =
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf writeSegmentRequest
 
 instance Core.ToHeaders UpdateSegment where
   toHeaders =
@@ -196,4 +204,7 @@ updateSegmentResponse_httpStatus = Lens.lens (\UpdateSegmentResponse' {httpStatu
 updateSegmentResponse_segmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
 updateSegmentResponse_segmentResponse = Lens.lens (\UpdateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@UpdateSegmentResponse' {} a -> s {segmentResponse = a} :: UpdateSegmentResponse)
 
-instance Prelude.NFData UpdateSegmentResponse
+instance Prelude.NFData UpdateSegmentResponse where
+  rnf UpdateSegmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf segmentResponse

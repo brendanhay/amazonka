@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnection
+instance Prelude.Hashable DescribeConnection where
+  hashWithSalt _salt DescribeConnection' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeConnection
+instance Prelude.NFData DescribeConnection where
+  rnf DescribeConnection' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeConnection where
   toHeaders =
@@ -270,4 +273,17 @@ describeConnectionResponse_connectionState = Lens.lens (\DescribeConnectionRespo
 describeConnectionResponse_httpStatus :: Lens.Lens' DescribeConnectionResponse Prelude.Int
 describeConnectionResponse_httpStatus = Lens.lens (\DescribeConnectionResponse' {httpStatus} -> httpStatus) (\s@DescribeConnectionResponse' {} a -> s {httpStatus = a} :: DescribeConnectionResponse)
 
-instance Prelude.NFData DescribeConnectionResponse
+instance Prelude.NFData DescribeConnectionResponse where
+  rnf DescribeConnectionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authParameters
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf httpStatus

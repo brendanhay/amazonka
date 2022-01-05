@@ -95,9 +95,12 @@ instance Core.AWSRequest WithdrawByoipCidr where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable WithdrawByoipCidr
+instance Prelude.Hashable WithdrawByoipCidr where
+  hashWithSalt _salt WithdrawByoipCidr' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData WithdrawByoipCidr
+instance Prelude.NFData WithdrawByoipCidr where
+  rnf WithdrawByoipCidr' {..} = Prelude.rnf cidr
 
 instance Core.ToHeaders WithdrawByoipCidr where
   toHeaders =
@@ -166,4 +169,7 @@ withdrawByoipCidrResponse_byoipCidr = Lens.lens (\WithdrawByoipCidrResponse' {by
 withdrawByoipCidrResponse_httpStatus :: Lens.Lens' WithdrawByoipCidrResponse Prelude.Int
 withdrawByoipCidrResponse_httpStatus = Lens.lens (\WithdrawByoipCidrResponse' {httpStatus} -> httpStatus) (\s@WithdrawByoipCidrResponse' {} a -> s {httpStatus = a} :: WithdrawByoipCidrResponse)
 
-instance Prelude.NFData WithdrawByoipCidrResponse
+instance Prelude.NFData WithdrawByoipCidrResponse where
+  rnf WithdrawByoipCidrResponse' {..} =
+    Prelude.rnf byoipCidr
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteCustomMetric where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomMetric
+instance Prelude.Hashable DeleteCustomMetric where
+  hashWithSalt _salt DeleteCustomMetric' {..} =
+    _salt `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData DeleteCustomMetric
+instance Prelude.NFData DeleteCustomMetric where
+  rnf DeleteCustomMetric' {..} = Prelude.rnf metricName
 
 instance Core.ToHeaders DeleteCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +142,6 @@ newDeleteCustomMetricResponse pHttpStatus_ =
 deleteCustomMetricResponse_httpStatus :: Lens.Lens' DeleteCustomMetricResponse Prelude.Int
 deleteCustomMetricResponse_httpStatus = Lens.lens (\DeleteCustomMetricResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomMetricResponse' {} a -> s {httpStatus = a} :: DeleteCustomMetricResponse)
 
-instance Prelude.NFData DeleteCustomMetricResponse
+instance Prelude.NFData DeleteCustomMetricResponse where
+  rnf DeleteCustomMetricResponse' {..} =
+    Prelude.rnf httpStatus

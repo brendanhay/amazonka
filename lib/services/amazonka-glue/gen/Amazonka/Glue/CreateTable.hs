@@ -128,9 +128,19 @@ instance Core.AWSRequest CreateTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTable
+instance Prelude.Hashable CreateTable where
+  hashWithSalt _salt CreateTable' {..} =
+    _salt `Prelude.hashWithSalt` partitionIndexes
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableInput
 
-instance Prelude.NFData CreateTable
+instance Prelude.NFData CreateTable where
+  rnf CreateTable' {..} =
+    Prelude.rnf partitionIndexes
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableInput
 
 instance Core.ToHeaders CreateTable where
   toHeaders =
@@ -190,4 +200,5 @@ newCreateTableResponse pHttpStatus_ =
 createTableResponse_httpStatus :: Lens.Lens' CreateTableResponse Prelude.Int
 createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -> httpStatus) (\s@CreateTableResponse' {} a -> s {httpStatus = a} :: CreateTableResponse)
 
-instance Prelude.NFData CreateTableResponse
+instance Prelude.NFData CreateTableResponse where
+  rnf CreateTableResponse' {..} = Prelude.rnf httpStatus

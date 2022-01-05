@@ -65,9 +65,15 @@ chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType)
 chatMessage_content :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_content = Lens.lens (\ChatMessage' {content} -> content) (\s@ChatMessage' {} a -> s {content = a} :: ChatMessage)
 
-instance Prelude.Hashable ChatMessage
+instance Prelude.Hashable ChatMessage where
+  hashWithSalt _salt ChatMessage' {..} =
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData ChatMessage
+instance Prelude.NFData ChatMessage where
+  rnf ChatMessage' {..} =
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =

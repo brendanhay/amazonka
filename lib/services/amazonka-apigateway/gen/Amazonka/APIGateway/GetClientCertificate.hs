@@ -95,9 +95,13 @@ instance Core.AWSRequest GetClientCertificate where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetClientCertificate
+instance Prelude.Hashable GetClientCertificate where
+  hashWithSalt _salt GetClientCertificate' {..} =
+    _salt `Prelude.hashWithSalt` clientCertificateId
 
-instance Prelude.NFData GetClientCertificate
+instance Prelude.NFData GetClientCertificate where
+  rnf GetClientCertificate' {..} =
+    Prelude.rnf clientCertificateId
 
 instance Core.ToHeaders GetClientCertificate where
   toHeaders =

@@ -132,7 +132,27 @@ instance Core.FromXML TransitGatewayPeeringAttachment where
 instance
   Prelude.Hashable
     TransitGatewayPeeringAttachment
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayPeeringAttachment' {..} =
+      _salt `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` requesterTgwInfo
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` accepterTgwInfo
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     TransitGatewayPeeringAttachment
+  where
+  rnf TransitGatewayPeeringAttachment' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf requesterTgwInfo
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf accepterTgwInfo
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf tags

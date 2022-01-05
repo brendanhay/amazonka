@@ -165,10 +165,25 @@ instance
 instance
   Prelude.Hashable
     ModifyVpcPeeringConnectionOptions
+  where
+  hashWithSalt
+    _salt
+    ModifyVpcPeeringConnectionOptions' {..} =
+      _salt
+        `Prelude.hashWithSalt` requesterPeeringConnectionOptions
+        `Prelude.hashWithSalt` accepterPeeringConnectionOptions
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance
   Prelude.NFData
     ModifyVpcPeeringConnectionOptions
+  where
+  rnf ModifyVpcPeeringConnectionOptions' {..} =
+    Prelude.rnf requesterPeeringConnectionOptions
+      `Prelude.seq` Prelude.rnf accepterPeeringConnectionOptions
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance
   Core.ToHeaders
@@ -262,3 +277,8 @@ modifyVpcPeeringConnectionOptionsResponse_httpStatus = Lens.lens (\ModifyVpcPeer
 instance
   Prelude.NFData
     ModifyVpcPeeringConnectionOptionsResponse
+  where
+  rnf ModifyVpcPeeringConnectionOptionsResponse' {..} =
+    Prelude.rnf requesterPeeringConnectionOptions
+      `Prelude.seq` Prelude.rnf accepterPeeringConnectionOptions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,9 +65,14 @@ hITLayoutParameter_name = Lens.lens (\HITLayoutParameter' {name} -> name) (\s@HI
 hITLayoutParameter_value :: Lens.Lens' HITLayoutParameter Prelude.Text
 hITLayoutParameter_value = Lens.lens (\HITLayoutParameter' {value} -> value) (\s@HITLayoutParameter' {} a -> s {value = a} :: HITLayoutParameter)
 
-instance Prelude.Hashable HITLayoutParameter
+instance Prelude.Hashable HITLayoutParameter where
+  hashWithSalt _salt HITLayoutParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData HITLayoutParameter
+instance Prelude.NFData HITLayoutParameter where
+  rnf HITLayoutParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON HITLayoutParameter where
   toJSON HITLayoutParameter' {..} =

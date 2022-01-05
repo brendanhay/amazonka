@@ -109,9 +109,15 @@ instance Core.AWSRequest RejectCertificateTransfer where
     Response.receiveNull
       RejectCertificateTransferResponse'
 
-instance Prelude.Hashable RejectCertificateTransfer
+instance Prelude.Hashable RejectCertificateTransfer where
+  hashWithSalt _salt RejectCertificateTransfer' {..} =
+    _salt `Prelude.hashWithSalt` rejectReason
+      `Prelude.hashWithSalt` certificateId
 
-instance Prelude.NFData RejectCertificateTransfer
+instance Prelude.NFData RejectCertificateTransfer where
+  rnf RejectCertificateTransfer' {..} =
+    Prelude.rnf rejectReason
+      `Prelude.seq` Prelude.rnf certificateId
 
 instance Core.ToHeaders RejectCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,3 +157,5 @@ newRejectCertificateTransferResponse =
 instance
   Prelude.NFData
     RejectCertificateTransferResponse
+  where
+  rnf _ = ()

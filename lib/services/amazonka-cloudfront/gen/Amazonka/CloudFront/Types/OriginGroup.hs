@@ -97,9 +97,17 @@ instance Core.FromXML OriginGroup where
       Prelude.<*> (x Core..@ "FailoverCriteria")
       Prelude.<*> (x Core..@ "Members")
 
-instance Prelude.Hashable OriginGroup
+instance Prelude.Hashable OriginGroup where
+  hashWithSalt _salt OriginGroup' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` failoverCriteria
+      `Prelude.hashWithSalt` members
 
-instance Prelude.NFData OriginGroup
+instance Prelude.NFData OriginGroup where
+  rnf OriginGroup' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf failoverCriteria
+      `Prelude.seq` Prelude.rnf members
 
 instance Core.ToXML OriginGroup where
   toXML OriginGroup' {..} =

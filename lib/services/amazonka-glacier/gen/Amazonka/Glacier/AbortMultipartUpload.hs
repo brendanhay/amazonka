@@ -149,9 +149,17 @@ instance Core.AWSRequest AbortMultipartUpload where
   response =
     Response.receiveNull AbortMultipartUploadResponse'
 
-instance Prelude.Hashable AbortMultipartUpload
+instance Prelude.Hashable AbortMultipartUpload where
+  hashWithSalt _salt AbortMultipartUpload' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` uploadId
 
-instance Prelude.NFData AbortMultipartUpload
+instance Prelude.NFData AbortMultipartUpload where
+  rnf AbortMultipartUpload' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf uploadId
 
 instance Core.ToHeaders AbortMultipartUpload where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,4 +193,5 @@ newAbortMultipartUploadResponse ::
 newAbortMultipartUploadResponse =
   AbortMultipartUploadResponse'
 
-instance Prelude.NFData AbortMultipartUploadResponse
+instance Prelude.NFData AbortMultipartUploadResponse where
+  rnf _ = ()

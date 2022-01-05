@@ -90,9 +90,13 @@ instance Core.AWSRequest ListMobileDeviceAccessRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMobileDeviceAccessRules
+instance Prelude.Hashable ListMobileDeviceAccessRules where
+  hashWithSalt _salt ListMobileDeviceAccessRules' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData ListMobileDeviceAccessRules
+instance Prelude.NFData ListMobileDeviceAccessRules where
+  rnf ListMobileDeviceAccessRules' {..} =
+    Prelude.rnf organizationId
 
 instance Core.ToHeaders ListMobileDeviceAccessRules where
   toHeaders =
@@ -169,3 +173,7 @@ listMobileDeviceAccessRulesResponse_httpStatus = Lens.lens (\ListMobileDeviceAcc
 instance
   Prelude.NFData
     ListMobileDeviceAccessRulesResponse
+  where
+  rnf ListMobileDeviceAccessRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus

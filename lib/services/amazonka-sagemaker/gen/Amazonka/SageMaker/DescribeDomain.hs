@@ -120,9 +120,12 @@ instance Core.AWSRequest DescribeDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDomain
+instance Prelude.Hashable DescribeDomain where
+  hashWithSalt _salt DescribeDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData DescribeDomain
+instance Prelude.NFData DescribeDomain where
+  rnf DescribeDomain' {..} = Prelude.rnf domainId
 
 instance Core.ToHeaders DescribeDomain where
   toHeaders =
@@ -364,4 +367,24 @@ describeDomainResponse_appNetworkAccessType = Lens.lens (\DescribeDomainResponse
 describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
-instance Prelude.NFData DescribeDomainResponse
+instance Prelude.NFData DescribeDomainResponse where
+  rnf DescribeDomainResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf defaultUserSettings
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf domainArn
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf homeEfsFileSystemKmsKeyId
+      `Prelude.seq` Prelude.rnf
+        singleSignOnManagedApplicationInstanceId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf homeEfsFileSystemId
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf appNetworkAccessType
+      `Prelude.seq` Prelude.rnf httpStatus

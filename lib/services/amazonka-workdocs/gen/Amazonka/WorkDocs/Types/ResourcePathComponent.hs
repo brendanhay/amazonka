@@ -70,6 +70,11 @@ instance Core.FromJSON ResourcePathComponent where
             Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ResourcePathComponent
+instance Prelude.Hashable ResourcePathComponent where
+  hashWithSalt _salt ResourcePathComponent' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ResourcePathComponent
+instance Prelude.NFData ResourcePathComponent where
+  rnf ResourcePathComponent' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id

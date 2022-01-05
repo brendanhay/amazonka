@@ -91,8 +91,14 @@ instance Core.AWSRequest DeleteSubscriptionDefinition where
 instance
   Prelude.Hashable
     DeleteSubscriptionDefinition
+  where
+  hashWithSalt _salt DeleteSubscriptionDefinition' {..} =
+    _salt
+      `Prelude.hashWithSalt` subscriptionDefinitionId
 
-instance Prelude.NFData DeleteSubscriptionDefinition
+instance Prelude.NFData DeleteSubscriptionDefinition where
+  rnf DeleteSubscriptionDefinition' {..} =
+    Prelude.rnf subscriptionDefinitionId
 
 instance Core.ToHeaders DeleteSubscriptionDefinition where
   toHeaders =
@@ -148,3 +154,6 @@ deleteSubscriptionDefinitionResponse_httpStatus = Lens.lens (\DeleteSubscription
 instance
   Prelude.NFData
     DeleteSubscriptionDefinitionResponse
+  where
+  rnf DeleteSubscriptionDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

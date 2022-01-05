@@ -80,9 +80,13 @@ instance Core.FromJSON MonitoringStoppingCondition where
             Prelude.<$> (x Core..: "MaxRuntimeInSeconds")
       )
 
-instance Prelude.Hashable MonitoringStoppingCondition
+instance Prelude.Hashable MonitoringStoppingCondition where
+  hashWithSalt _salt MonitoringStoppingCondition' {..} =
+    _salt `Prelude.hashWithSalt` maxRuntimeInSeconds
 
-instance Prelude.NFData MonitoringStoppingCondition
+instance Prelude.NFData MonitoringStoppingCondition where
+  rnf MonitoringStoppingCondition' {..} =
+    Prelude.rnf maxRuntimeInSeconds
 
 instance Core.ToJSON MonitoringStoppingCondition where
   toJSON MonitoringStoppingCondition' {..} =

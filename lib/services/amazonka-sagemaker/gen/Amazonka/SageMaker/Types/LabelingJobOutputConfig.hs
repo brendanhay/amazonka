@@ -162,9 +162,17 @@ instance Core.FromJSON LabelingJobOutputConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable LabelingJobOutputConfig
+instance Prelude.Hashable LabelingJobOutputConfig where
+  hashWithSalt _salt LabelingJobOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` s3OutputPath
 
-instance Prelude.NFData LabelingJobOutputConfig
+instance Prelude.NFData LabelingJobOutputConfig where
+  rnf LabelingJobOutputConfig' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON LabelingJobOutputConfig where
   toJSON LabelingJobOutputConfig' {..} =

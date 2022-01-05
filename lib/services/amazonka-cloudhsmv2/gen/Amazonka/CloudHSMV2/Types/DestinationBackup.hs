@@ -101,6 +101,16 @@ instance Core.FromJSON DestinationBackup where
             Prelude.<*> (x Core..:? "CreateTimestamp")
       )
 
-instance Prelude.Hashable DestinationBackup
+instance Prelude.Hashable DestinationBackup where
+  hashWithSalt _salt DestinationBackup' {..} =
+    _salt `Prelude.hashWithSalt` sourceCluster
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` sourceBackup
+      `Prelude.hashWithSalt` createTimestamp
 
-instance Prelude.NFData DestinationBackup
+instance Prelude.NFData DestinationBackup where
+  rnf DestinationBackup' {..} =
+    Prelude.rnf sourceCluster
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf sourceBackup
+      `Prelude.seq` Prelude.rnf createTimestamp

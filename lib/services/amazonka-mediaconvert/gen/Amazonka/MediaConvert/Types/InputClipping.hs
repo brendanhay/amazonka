@@ -123,9 +123,15 @@ instance Core.FromJSON InputClipping where
             Prelude.<*> (x Core..:? "startTimecode")
       )
 
-instance Prelude.Hashable InputClipping
+instance Prelude.Hashable InputClipping where
+  hashWithSalt _salt InputClipping' {..} =
+    _salt `Prelude.hashWithSalt` endTimecode
+      `Prelude.hashWithSalt` startTimecode
 
-instance Prelude.NFData InputClipping
+instance Prelude.NFData InputClipping where
+  rnf InputClipping' {..} =
+    Prelude.rnf endTimecode
+      `Prelude.seq` Prelude.rnf startTimecode
 
 instance Core.ToJSON InputClipping where
   toJSON InputClipping' {..} =

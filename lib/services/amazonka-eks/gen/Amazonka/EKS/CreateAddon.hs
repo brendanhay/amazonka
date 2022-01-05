@@ -215,9 +215,25 @@ instance Core.AWSRequest CreateAddon where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAddon
+instance Prelude.Hashable CreateAddon where
+  hashWithSalt _salt CreateAddon' {..} =
+    _salt `Prelude.hashWithSalt` addonVersion
+      `Prelude.hashWithSalt` serviceAccountRoleArn
+      `Prelude.hashWithSalt` resolveConflicts
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` addonName
 
-instance Prelude.NFData CreateAddon
+instance Prelude.NFData CreateAddon where
+  rnf CreateAddon' {..} =
+    Prelude.rnf addonVersion
+      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+      `Prelude.seq` Prelude.rnf resolveConflicts
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf addonName
 
 instance Core.ToHeaders CreateAddon where
   toHeaders =
@@ -291,4 +307,7 @@ createAddonResponse_addon = Lens.lens (\CreateAddonResponse' {addon} -> addon) (
 createAddonResponse_httpStatus :: Lens.Lens' CreateAddonResponse Prelude.Int
 createAddonResponse_httpStatus = Lens.lens (\CreateAddonResponse' {httpStatus} -> httpStatus) (\s@CreateAddonResponse' {} a -> s {httpStatus = a} :: CreateAddonResponse)
 
-instance Prelude.NFData CreateAddonResponse
+instance Prelude.NFData CreateAddonResponse where
+  rnf CreateAddonResponse' {..} =
+    Prelude.rnf addon
+      `Prelude.seq` Prelude.rnf httpStatus

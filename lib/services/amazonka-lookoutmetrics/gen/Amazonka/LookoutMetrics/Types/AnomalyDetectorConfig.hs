@@ -54,9 +54,14 @@ newAnomalyDetectorConfig =
 anomalyDetectorConfig_anomalyDetectorFrequency :: Lens.Lens' AnomalyDetectorConfig (Prelude.Maybe Frequency)
 anomalyDetectorConfig_anomalyDetectorFrequency = Lens.lens (\AnomalyDetectorConfig' {anomalyDetectorFrequency} -> anomalyDetectorFrequency) (\s@AnomalyDetectorConfig' {} a -> s {anomalyDetectorFrequency = a} :: AnomalyDetectorConfig)
 
-instance Prelude.Hashable AnomalyDetectorConfig
+instance Prelude.Hashable AnomalyDetectorConfig where
+  hashWithSalt _salt AnomalyDetectorConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorFrequency
 
-instance Prelude.NFData AnomalyDetectorConfig
+instance Prelude.NFData AnomalyDetectorConfig where
+  rnf AnomalyDetectorConfig' {..} =
+    Prelude.rnf anomalyDetectorFrequency
 
 instance Core.ToJSON AnomalyDetectorConfig where
   toJSON AnomalyDetectorConfig' {..} =

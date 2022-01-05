@@ -83,6 +83,14 @@ instance Core.FromJSON MetricDatum where
             Prelude.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable MetricDatum
+instance Prelude.Hashable MetricDatum where
+  hashWithSalt _salt MetricDatum' {..} =
+    _salt `Prelude.hashWithSalt` set
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MetricDatum
+instance Prelude.NFData MetricDatum where
+  rnf MetricDatum' {..} =
+    Prelude.rnf set
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf value

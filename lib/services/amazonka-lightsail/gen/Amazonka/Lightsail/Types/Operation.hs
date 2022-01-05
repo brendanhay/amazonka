@@ -178,6 +178,32 @@ instance Core.FromJSON Operation where
             Prelude.<*> (x Core..:? "isTerminal")
       )
 
-instance Prelude.Hashable Operation
+instance Prelude.Hashable Operation where
+  hashWithSalt _salt Operation' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` operationDetails
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` statusChangedAt
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` operationType
+      `Prelude.hashWithSalt` isTerminal
 
-instance Prelude.NFData Operation
+instance Prelude.NFData Operation where
+  rnf Operation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operationDetails
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf statusChangedAt
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf operationType
+      `Prelude.seq` Prelude.rnf isTerminal

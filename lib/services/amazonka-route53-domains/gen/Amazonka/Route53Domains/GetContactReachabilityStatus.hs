@@ -101,8 +101,13 @@ instance Core.AWSRequest GetContactReachabilityStatus where
 instance
   Prelude.Hashable
     GetContactReachabilityStatus
+  where
+  hashWithSalt _salt GetContactReachabilityStatus' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetContactReachabilityStatus
+instance Prelude.NFData GetContactReachabilityStatus where
+  rnf GetContactReachabilityStatus' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders GetContactReachabilityStatus where
   toHeaders =
@@ -213,3 +218,8 @@ getContactReachabilityStatusResponse_httpStatus = Lens.lens (\GetContactReachabi
 instance
   Prelude.NFData
     GetContactReachabilityStatusResponse
+  where
+  rnf GetContactReachabilityStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf httpStatus

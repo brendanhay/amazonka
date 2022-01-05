@@ -89,10 +89,21 @@ instance
 instance
   Prelude.Hashable
     RelationalDatabaseDataSourceConfig
+  where
+  hashWithSalt
+    _salt
+    RelationalDatabaseDataSourceConfig' {..} =
+      _salt
+        `Prelude.hashWithSalt` relationalDatabaseSourceType
+        `Prelude.hashWithSalt` rdsHttpEndpointConfig
 
 instance
   Prelude.NFData
     RelationalDatabaseDataSourceConfig
+  where
+  rnf RelationalDatabaseDataSourceConfig' {..} =
+    Prelude.rnf relationalDatabaseSourceType
+      `Prelude.seq` Prelude.rnf rdsHttpEndpointConfig
 
 instance
   Core.ToJSON

@@ -140,9 +140,20 @@ instance Core.AWSRequest UpdateDatastore where
   response =
     Response.receiveNull UpdateDatastoreResponse'
 
-instance Prelude.Hashable UpdateDatastore
+instance Prelude.Hashable UpdateDatastore where
+  hashWithSalt _salt UpdateDatastore' {..} =
+    _salt
+      `Prelude.hashWithSalt` fileFormatConfiguration
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` datastoreStorage
+      `Prelude.hashWithSalt` datastoreName
 
-instance Prelude.NFData UpdateDatastore
+instance Prelude.NFData UpdateDatastore where
+  rnf UpdateDatastore' {..} =
+    Prelude.rnf fileFormatConfiguration
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf datastoreStorage
+      `Prelude.seq` Prelude.rnf datastoreName
 
 instance Core.ToHeaders UpdateDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +193,5 @@ newUpdateDatastoreResponse ::
   UpdateDatastoreResponse
 newUpdateDatastoreResponse = UpdateDatastoreResponse'
 
-instance Prelude.NFData UpdateDatastoreResponse
+instance Prelude.NFData UpdateDatastoreResponse where
+  rnf _ = ()

@@ -122,9 +122,17 @@ instance Core.AWSRequest CreateSafetyRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSafetyRule
+instance Prelude.Hashable CreateSafetyRule where
+  hashWithSalt _salt CreateSafetyRule' {..} =
+    _salt `Prelude.hashWithSalt` assertionRule
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` gatingRule
 
-instance Prelude.NFData CreateSafetyRule
+instance Prelude.NFData CreateSafetyRule where
+  rnf CreateSafetyRule' {..} =
+    Prelude.rnf assertionRule
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf gatingRule
 
 instance Core.ToHeaders CreateSafetyRule where
   toHeaders =
@@ -199,4 +207,8 @@ createSafetyRuleResponse_gatingRule = Lens.lens (\CreateSafetyRuleResponse' {gat
 createSafetyRuleResponse_httpStatus :: Lens.Lens' CreateSafetyRuleResponse Prelude.Int
 createSafetyRuleResponse_httpStatus = Lens.lens (\CreateSafetyRuleResponse' {httpStatus} -> httpStatus) (\s@CreateSafetyRuleResponse' {} a -> s {httpStatus = a} :: CreateSafetyRuleResponse)
 
-instance Prelude.NFData CreateSafetyRuleResponse
+instance Prelude.NFData CreateSafetyRuleResponse where
+  rnf CreateSafetyRuleResponse' {..} =
+    Prelude.rnf assertionRule
+      `Prelude.seq` Prelude.rnf gatingRule
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -99,9 +99,12 @@ instance Core.AWSRequest DescribeLedger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLedger
+instance Prelude.Hashable DescribeLedger where
+  hashWithSalt _salt DescribeLedger' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeLedger
+instance Prelude.NFData DescribeLedger where
+  rnf DescribeLedger' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeLedger where
   toHeaders =
@@ -243,4 +246,13 @@ describeLedgerResponse_permissionsMode = Lens.lens (\DescribeLedgerResponse' {pe
 describeLedgerResponse_httpStatus :: Lens.Lens' DescribeLedgerResponse Prelude.Int
 describeLedgerResponse_httpStatus = Lens.lens (\DescribeLedgerResponse' {httpStatus} -> httpStatus) (\s@DescribeLedgerResponse' {} a -> s {httpStatus = a} :: DescribeLedgerResponse)
 
-instance Prelude.NFData DescribeLedgerResponse
+instance Prelude.NFData DescribeLedgerResponse where
+  rnf DescribeLedgerResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf encryptionDescription
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf permissionsMode
+      `Prelude.seq` Prelude.rnf httpStatus

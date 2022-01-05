@@ -58,9 +58,14 @@ newScaleOutPolicy pCpuUtilizationPercentage_ =
 scaleOutPolicy_cpuUtilizationPercentage :: Lens.Lens' ScaleOutPolicy Prelude.Natural
 scaleOutPolicy_cpuUtilizationPercentage = Lens.lens (\ScaleOutPolicy' {cpuUtilizationPercentage} -> cpuUtilizationPercentage) (\s@ScaleOutPolicy' {} a -> s {cpuUtilizationPercentage = a} :: ScaleOutPolicy)
 
-instance Prelude.Hashable ScaleOutPolicy
+instance Prelude.Hashable ScaleOutPolicy where
+  hashWithSalt _salt ScaleOutPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` cpuUtilizationPercentage
 
-instance Prelude.NFData ScaleOutPolicy
+instance Prelude.NFData ScaleOutPolicy where
+  rnf ScaleOutPolicy' {..} =
+    Prelude.rnf cpuUtilizationPercentage
 
 instance Core.ToJSON ScaleOutPolicy where
   toJSON ScaleOutPolicy' {..} =

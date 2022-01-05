@@ -86,9 +86,12 @@ instance Core.AWSRequest UnassignInstance where
   response =
     Response.receiveNull UnassignInstanceResponse'
 
-instance Prelude.Hashable UnassignInstance
+instance Prelude.Hashable UnassignInstance where
+  hashWithSalt _salt UnassignInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData UnassignInstance
+instance Prelude.NFData UnassignInstance where
+  rnf UnassignInstance' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders UnassignInstance where
   toHeaders =
@@ -133,4 +136,5 @@ newUnassignInstanceResponse ::
 newUnassignInstanceResponse =
   UnassignInstanceResponse'
 
-instance Prelude.NFData UnassignInstanceResponse
+instance Prelude.NFData UnassignInstanceResponse where
+  rnf _ = ()

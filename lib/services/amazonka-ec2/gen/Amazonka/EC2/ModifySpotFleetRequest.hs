@@ -187,9 +187,23 @@ instance Core.AWSRequest ModifySpotFleetRequest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifySpotFleetRequest
+instance Prelude.Hashable ModifySpotFleetRequest where
+  hashWithSalt _salt ModifySpotFleetRequest' {..} =
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` targetCapacity
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` onDemandTargetCapacity
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` spotFleetRequestId
 
-instance Prelude.NFData ModifySpotFleetRequest
+instance Prelude.NFData ModifySpotFleetRequest where
+  rnf ModifySpotFleetRequest' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetCapacity
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
 
 instance Core.ToHeaders ModifySpotFleetRequest where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,3 +275,7 @@ modifySpotFleetRequestResponse_httpStatus = Lens.lens (\ModifySpotFleetRequestRe
 instance
   Prelude.NFData
     ModifySpotFleetRequestResponse
+  where
+  rnf ModifySpotFleetRequestResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

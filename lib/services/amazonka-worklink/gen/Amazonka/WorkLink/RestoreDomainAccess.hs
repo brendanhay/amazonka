@@ -98,9 +98,15 @@ instance Core.AWSRequest RestoreDomainAccess where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreDomainAccess
+instance Prelude.Hashable RestoreDomainAccess where
+  hashWithSalt _salt RestoreDomainAccess' {..} =
+    _salt `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData RestoreDomainAccess
+instance Prelude.NFData RestoreDomainAccess where
+  rnf RestoreDomainAccess' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders RestoreDomainAccess where
   toHeaders =
@@ -158,4 +164,6 @@ newRestoreDomainAccessResponse pHttpStatus_ =
 restoreDomainAccessResponse_httpStatus :: Lens.Lens' RestoreDomainAccessResponse Prelude.Int
 restoreDomainAccessResponse_httpStatus = Lens.lens (\RestoreDomainAccessResponse' {httpStatus} -> httpStatus) (\s@RestoreDomainAccessResponse' {} a -> s {httpStatus = a} :: RestoreDomainAccessResponse)
 
-instance Prelude.NFData RestoreDomainAccessResponse
+instance Prelude.NFData RestoreDomainAccessResponse where
+  rnf RestoreDomainAccessResponse' {..} =
+    Prelude.rnf httpStatus

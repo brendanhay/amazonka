@@ -156,8 +156,17 @@ instance
 instance
   Prelude.Hashable
     StartDeliveryStreamEncryption
+  where
+  hashWithSalt _salt StartDeliveryStreamEncryption' {..} =
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamEncryptionConfigurationInput
+      `Prelude.hashWithSalt` deliveryStreamName
 
-instance Prelude.NFData StartDeliveryStreamEncryption
+instance Prelude.NFData StartDeliveryStreamEncryption where
+  rnf StartDeliveryStreamEncryption' {..} =
+    Prelude.rnf
+      deliveryStreamEncryptionConfigurationInput
+      `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders StartDeliveryStreamEncryption where
   toHeaders =
@@ -226,3 +235,6 @@ startDeliveryStreamEncryptionResponse_httpStatus = Lens.lens (\StartDeliveryStre
 instance
   Prelude.NFData
     StartDeliveryStreamEncryptionResponse
+  where
+  rnf StartDeliveryStreamEncryptionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -81,6 +81,11 @@ instance Core.FromJSON WorkflowGraph where
             Prelude.<*> (x Core..:? "Nodes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable WorkflowGraph
+instance Prelude.Hashable WorkflowGraph where
+  hashWithSalt _salt WorkflowGraph' {..} =
+    _salt `Prelude.hashWithSalt` edges
+      `Prelude.hashWithSalt` nodes
 
-instance Prelude.NFData WorkflowGraph
+instance Prelude.NFData WorkflowGraph where
+  rnf WorkflowGraph' {..} =
+    Prelude.rnf edges `Prelude.seq` Prelude.rnf nodes

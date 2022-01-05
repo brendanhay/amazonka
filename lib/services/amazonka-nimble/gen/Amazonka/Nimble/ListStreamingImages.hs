@@ -142,9 +142,17 @@ instance Core.AWSRequest ListStreamingImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreamingImages
+instance Prelude.Hashable ListStreamingImages where
+  hashWithSalt _salt ListStreamingImages' {..} =
+    _salt `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData ListStreamingImages
+instance Prelude.NFData ListStreamingImages where
+  rnf ListStreamingImages' {..} =
+    Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders ListStreamingImages where
   toHeaders =
@@ -223,4 +231,8 @@ listStreamingImagesResponse_nextToken = Lens.lens (\ListStreamingImagesResponse'
 listStreamingImagesResponse_httpStatus :: Lens.Lens' ListStreamingImagesResponse Prelude.Int
 listStreamingImagesResponse_httpStatus = Lens.lens (\ListStreamingImagesResponse' {httpStatus} -> httpStatus) (\s@ListStreamingImagesResponse' {} a -> s {httpStatus = a} :: ListStreamingImagesResponse)
 
-instance Prelude.NFData ListStreamingImagesResponse
+instance Prelude.NFData ListStreamingImagesResponse where
+  rnf ListStreamingImagesResponse' {..} =
+    Prelude.rnf streamingImages
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

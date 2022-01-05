@@ -145,6 +145,18 @@ instance Core.FromJSON VpcPeeringAuthorization where
             Prelude.<*> (x Core..:? "ExpirationTime")
       )
 
-instance Prelude.Hashable VpcPeeringAuthorization
+instance Prelude.Hashable VpcPeeringAuthorization where
+  hashWithSalt _salt VpcPeeringAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` peerVpcId
+      `Prelude.hashWithSalt` peerVpcAwsAccountId
+      `Prelude.hashWithSalt` gameLiftAwsAccountId
+      `Prelude.hashWithSalt` expirationTime
 
-instance Prelude.NFData VpcPeeringAuthorization
+instance Prelude.NFData VpcPeeringAuthorization where
+  rnf VpcPeeringAuthorization' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf peerVpcId
+      `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
+      `Prelude.seq` Prelude.rnf gameLiftAwsAccountId
+      `Prelude.seq` Prelude.rnf expirationTime

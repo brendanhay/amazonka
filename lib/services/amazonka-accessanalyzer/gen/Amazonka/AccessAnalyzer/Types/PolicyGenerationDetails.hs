@@ -59,9 +59,13 @@ newPolicyGenerationDetails pPrincipalArn_ =
 policyGenerationDetails_principalArn :: Lens.Lens' PolicyGenerationDetails Prelude.Text
 policyGenerationDetails_principalArn = Lens.lens (\PolicyGenerationDetails' {principalArn} -> principalArn) (\s@PolicyGenerationDetails' {} a -> s {principalArn = a} :: PolicyGenerationDetails)
 
-instance Prelude.Hashable PolicyGenerationDetails
+instance Prelude.Hashable PolicyGenerationDetails where
+  hashWithSalt _salt PolicyGenerationDetails' {..} =
+    _salt `Prelude.hashWithSalt` principalArn
 
-instance Prelude.NFData PolicyGenerationDetails
+instance Prelude.NFData PolicyGenerationDetails where
+  rnf PolicyGenerationDetails' {..} =
+    Prelude.rnf principalArn
 
 instance Core.ToJSON PolicyGenerationDetails where
   toJSON PolicyGenerationDetails' {..} =

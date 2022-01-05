@@ -83,9 +83,12 @@ instance Core.AWSRequest GetStreamKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStreamKey
+instance Prelude.Hashable GetStreamKey where
+  hashWithSalt _salt GetStreamKey' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetStreamKey
+instance Prelude.NFData GetStreamKey where
+  rnf GetStreamKey' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetStreamKey where
   toHeaders =
@@ -148,4 +151,7 @@ getStreamKeyResponse_streamKey = Lens.lens (\GetStreamKeyResponse' {streamKey} -
 getStreamKeyResponse_httpStatus :: Lens.Lens' GetStreamKeyResponse Prelude.Int
 getStreamKeyResponse_httpStatus = Lens.lens (\GetStreamKeyResponse' {httpStatus} -> httpStatus) (\s@GetStreamKeyResponse' {} a -> s {httpStatus = a} :: GetStreamKeyResponse)
 
-instance Prelude.NFData GetStreamKeyResponse
+instance Prelude.NFData GetStreamKeyResponse where
+  rnf GetStreamKeyResponse' {..} =
+    Prelude.rnf streamKey
+      `Prelude.seq` Prelude.rnf httpStatus

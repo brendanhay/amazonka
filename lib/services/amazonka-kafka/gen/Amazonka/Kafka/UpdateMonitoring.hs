@@ -149,9 +149,21 @@ instance Core.AWSRequest UpdateMonitoring where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMonitoring
+instance Prelude.Hashable UpdateMonitoring where
+  hashWithSalt _salt UpdateMonitoring' {..} =
+    _salt `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData UpdateMonitoring
+instance Prelude.NFData UpdateMonitoring where
+  rnf UpdateMonitoring' {..} =
+    Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf currentVersion
 
 instance Core.ToHeaders UpdateMonitoring where
   toHeaders =
@@ -237,4 +249,8 @@ updateMonitoringResponse_clusterOperationArn = Lens.lens (\UpdateMonitoringRespo
 updateMonitoringResponse_httpStatus :: Lens.Lens' UpdateMonitoringResponse Prelude.Int
 updateMonitoringResponse_httpStatus = Lens.lens (\UpdateMonitoringResponse' {httpStatus} -> httpStatus) (\s@UpdateMonitoringResponse' {} a -> s {httpStatus = a} :: UpdateMonitoringResponse)
 
-instance Prelude.NFData UpdateMonitoringResponse
+instance Prelude.NFData UpdateMonitoringResponse where
+  rnf UpdateMonitoringResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterOperationArn
+      `Prelude.seq` Prelude.rnf httpStatus

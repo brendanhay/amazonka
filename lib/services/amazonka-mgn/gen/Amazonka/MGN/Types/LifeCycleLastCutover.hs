@@ -84,6 +84,14 @@ instance Core.FromJSON LifeCycleLastCutover where
             Prelude.<*> (x Core..:? "finalized")
       )
 
-instance Prelude.Hashable LifeCycleLastCutover
+instance Prelude.Hashable LifeCycleLastCutover where
+  hashWithSalt _salt LifeCycleLastCutover' {..} =
+    _salt `Prelude.hashWithSalt` initiated
+      `Prelude.hashWithSalt` reverted
+      `Prelude.hashWithSalt` finalized
 
-instance Prelude.NFData LifeCycleLastCutover
+instance Prelude.NFData LifeCycleLastCutover where
+  rnf LifeCycleLastCutover' {..} =
+    Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf reverted
+      `Prelude.seq` Prelude.rnf finalized

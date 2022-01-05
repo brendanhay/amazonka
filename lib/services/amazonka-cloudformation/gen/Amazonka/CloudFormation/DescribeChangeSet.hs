@@ -195,9 +195,17 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Core..@ "Status")
       )
 
-instance Prelude.Hashable DescribeChangeSet
+instance Prelude.Hashable DescribeChangeSet where
+  hashWithSalt _salt DescribeChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` changeSetName
 
-instance Prelude.NFData DescribeChangeSet
+instance Prelude.NFData DescribeChangeSet where
+  rnf DescribeChangeSet' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf changeSetName
 
 instance Core.ToHeaders DescribeChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -479,4 +487,25 @@ describeChangeSetResponse_httpStatus = Lens.lens (\DescribeChangeSetResponse' {h
 describeChangeSetResponse_status :: Lens.Lens' DescribeChangeSetResponse ChangeSetStatus
 describeChangeSetResponse_status = Lens.lens (\DescribeChangeSetResponse' {status} -> status) (\s@DescribeChangeSetResponse' {} a -> s {status = a} :: DescribeChangeSetResponse)
 
-instance Prelude.NFData DescribeChangeSetResponse
+instance Prelude.NFData DescribeChangeSetResponse where
+  rnf DescribeChangeSetResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf parentChangeSetId
+      `Prelude.seq` Prelude.rnf changes
+      `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf includeNestedStacks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rootChangeSetId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf rollbackConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

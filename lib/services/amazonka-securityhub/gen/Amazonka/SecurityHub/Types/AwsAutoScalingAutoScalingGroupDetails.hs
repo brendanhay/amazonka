@@ -133,10 +133,26 @@ instance
 instance
   Prelude.Hashable
     AwsAutoScalingAutoScalingGroupDetails
+  where
+  hashWithSalt
+    _salt
+    AwsAutoScalingAutoScalingGroupDetails' {..} =
+      _salt `Prelude.hashWithSalt` createdTime
+        `Prelude.hashWithSalt` healthCheckGracePeriod
+        `Prelude.hashWithSalt` launchConfigurationName
+        `Prelude.hashWithSalt` healthCheckType
+        `Prelude.hashWithSalt` loadBalancerNames
 
 instance
   Prelude.NFData
     AwsAutoScalingAutoScalingGroupDetails
+  where
+  rnf AwsAutoScalingAutoScalingGroupDetails' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf healthCheckType
+      `Prelude.seq` Prelude.rnf loadBalancerNames
 
 instance
   Core.ToJSON

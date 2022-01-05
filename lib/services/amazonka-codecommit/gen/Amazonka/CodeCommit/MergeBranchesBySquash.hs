@@ -243,9 +243,33 @@ instance Core.AWSRequest MergeBranchesBySquash where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergeBranchesBySquash
+instance Prelude.Hashable MergeBranchesBySquash where
+  hashWithSalt _salt MergeBranchesBySquash' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` targetBranch
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` destinationCommitSpecifier
 
-instance Prelude.NFData MergeBranchesBySquash
+instance Prelude.NFData MergeBranchesBySquash where
+  rnf MergeBranchesBySquash' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf authorName
+      `Prelude.seq` Prelude.rnf targetBranch
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
 instance Core.ToHeaders MergeBranchesBySquash where
   toHeaders =
@@ -345,4 +369,8 @@ mergeBranchesBySquashResponse_treeId = Lens.lens (\MergeBranchesBySquashResponse
 mergeBranchesBySquashResponse_httpStatus :: Lens.Lens' MergeBranchesBySquashResponse Prelude.Int
 mergeBranchesBySquashResponse_httpStatus = Lens.lens (\MergeBranchesBySquashResponse' {httpStatus} -> httpStatus) (\s@MergeBranchesBySquashResponse' {} a -> s {httpStatus = a} :: MergeBranchesBySquashResponse)
 
-instance Prelude.NFData MergeBranchesBySquashResponse
+instance Prelude.NFData MergeBranchesBySquashResponse where
+  rnf MergeBranchesBySquashResponse' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -66,6 +66,11 @@ instance Core.FromJSON Concurrency where
             Prelude.<$> (x Core..:? "ReservedConcurrentExecutions")
       )
 
-instance Prelude.Hashable Concurrency
+instance Prelude.Hashable Concurrency where
+  hashWithSalt _salt Concurrency' {..} =
+    _salt
+      `Prelude.hashWithSalt` reservedConcurrentExecutions
 
-instance Prelude.NFData Concurrency
+instance Prelude.NFData Concurrency where
+  rnf Concurrency' {..} =
+    Prelude.rnf reservedConcurrentExecutions

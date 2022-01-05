@@ -179,9 +179,21 @@ instance Core.AWSRequest SearchEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchEntities
+instance Prelude.Hashable SearchEntities where
+  hashWithSalt _salt SearchEntities' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` namespaceVersion
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` entityTypes
 
-instance Prelude.NFData SearchEntities
+instance Prelude.NFData SearchEntities where
+  rnf SearchEntities' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf entityTypes
 
 instance Core.ToHeaders SearchEntities where
   toHeaders =
@@ -268,4 +280,8 @@ searchEntitiesResponse_descriptions = Lens.lens (\SearchEntitiesResponse' {descr
 searchEntitiesResponse_httpStatus :: Lens.Lens' SearchEntitiesResponse Prelude.Int
 searchEntitiesResponse_httpStatus = Lens.lens (\SearchEntitiesResponse' {httpStatus} -> httpStatus) (\s@SearchEntitiesResponse' {} a -> s {httpStatus = a} :: SearchEntitiesResponse)
 
-instance Prelude.NFData SearchEntitiesResponse
+instance Prelude.NFData SearchEntitiesResponse where
+  rnf SearchEntitiesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf descriptions
+      `Prelude.seq` Prelude.rnf httpStatus

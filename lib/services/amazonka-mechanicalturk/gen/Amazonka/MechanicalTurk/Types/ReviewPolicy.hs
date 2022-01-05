@@ -78,9 +78,15 @@ instance Core.FromJSON ReviewPolicy where
             Prelude.<*> (x Core..: "PolicyName")
       )
 
-instance Prelude.Hashable ReviewPolicy
+instance Prelude.Hashable ReviewPolicy where
+  hashWithSalt _salt ReviewPolicy' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData ReviewPolicy
+instance Prelude.NFData ReviewPolicy where
+  rnf ReviewPolicy' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =

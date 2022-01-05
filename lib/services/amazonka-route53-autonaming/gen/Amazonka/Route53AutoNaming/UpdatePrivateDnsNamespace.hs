@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdatePrivateDnsNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePrivateDnsNamespace
+instance Prelude.Hashable UpdatePrivateDnsNamespace where
+  hashWithSalt _salt UpdatePrivateDnsNamespace' {..} =
+    _salt `Prelude.hashWithSalt` updaterRequestId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData UpdatePrivateDnsNamespace
+instance Prelude.NFData UpdatePrivateDnsNamespace where
+  rnf UpdatePrivateDnsNamespace' {..} =
+    Prelude.rnf updaterRequestId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders UpdatePrivateDnsNamespace where
   toHeaders =
@@ -204,3 +212,7 @@ updatePrivateDnsNamespaceResponse_httpStatus = Lens.lens (\UpdatePrivateDnsNames
 instance
   Prelude.NFData
     UpdatePrivateDnsNamespaceResponse
+  where
+  rnf UpdatePrivateDnsNamespaceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

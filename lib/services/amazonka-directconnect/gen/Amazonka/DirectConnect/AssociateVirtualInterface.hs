@@ -135,9 +135,15 @@ instance Core.AWSRequest AssociateVirtualInterface where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AssociateVirtualInterface
+instance Prelude.Hashable AssociateVirtualInterface where
+  hashWithSalt _salt AssociateVirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` virtualInterfaceId
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData AssociateVirtualInterface
+instance Prelude.NFData AssociateVirtualInterface where
+  rnf AssociateVirtualInterface' {..} =
+    Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders AssociateVirtualInterface where
   toHeaders =

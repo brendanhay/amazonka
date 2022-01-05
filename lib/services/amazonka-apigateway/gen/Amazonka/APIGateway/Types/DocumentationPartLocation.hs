@@ -185,9 +185,21 @@ instance Core.FromJSON DocumentationPartLocation where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable DocumentationPartLocation
+instance Prelude.Hashable DocumentationPartLocation where
+  hashWithSalt _salt DocumentationPartLocation' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DocumentationPartLocation
+instance Prelude.NFData DocumentationPartLocation where
+  rnf DocumentationPartLocation' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =

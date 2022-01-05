@@ -169,10 +169,24 @@ instance
 instance
   Prelude.Hashable
     ListPermissionSetProvisioningStatus
+  where
+  hashWithSalt
+    _salt
+    ListPermissionSetProvisioningStatus' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     ListPermissionSetProvisioningStatus
+  where
+  rnf ListPermissionSetProvisioningStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceArn
 
 instance
   Core.ToHeaders
@@ -273,3 +287,8 @@ listPermissionSetProvisioningStatusResponse_httpStatus = Lens.lens (\ListPermiss
 instance
   Prelude.NFData
     ListPermissionSetProvisioningStatusResponse
+  where
+  rnf ListPermissionSetProvisioningStatusResponse' {..} =
+    Prelude.rnf permissionSetsProvisioningStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

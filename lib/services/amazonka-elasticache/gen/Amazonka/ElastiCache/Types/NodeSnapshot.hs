@@ -122,6 +122,22 @@ instance Core.FromXML NodeSnapshot where
       Prelude.<*> (x Core..@? "SnapshotCreateTime")
       Prelude.<*> (x Core..@? "CacheSize")
 
-instance Prelude.Hashable NodeSnapshot
+instance Prelude.Hashable NodeSnapshot where
+  hashWithSalt _salt NodeSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` nodeGroupConfiguration
+      `Prelude.hashWithSalt` cacheNodeCreateTime
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` cacheNodeId
+      `Prelude.hashWithSalt` nodeGroupId
+      `Prelude.hashWithSalt` snapshotCreateTime
+      `Prelude.hashWithSalt` cacheSize
 
-instance Prelude.NFData NodeSnapshot
+instance Prelude.NFData NodeSnapshot where
+  rnf NodeSnapshot' {..} =
+    Prelude.rnf nodeGroupConfiguration
+      `Prelude.seq` Prelude.rnf cacheNodeCreateTime
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf cacheNodeId
+      `Prelude.seq` Prelude.rnf nodeGroupId
+      `Prelude.seq` Prelude.rnf snapshotCreateTime
+      `Prelude.seq` Prelude.rnf cacheSize

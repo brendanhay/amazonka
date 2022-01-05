@@ -102,10 +102,18 @@ instance
 instance
   Prelude.Hashable
     EnableVpcClassicLinkDnsSupport
+  where
+  hashWithSalt
+    _salt
+    EnableVpcClassicLinkDnsSupport' {..} =
+      _salt `Prelude.hashWithSalt` vpcId
 
 instance
   Prelude.NFData
     EnableVpcClassicLinkDnsSupport
+  where
+  rnf EnableVpcClassicLinkDnsSupport' {..} =
+    Prelude.rnf vpcId
 
 instance
   Core.ToHeaders
@@ -171,3 +179,7 @@ enableVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\EnableVpcClassic
 instance
   Prelude.NFData
     EnableVpcClassicLinkDnsSupportResponse
+  where
+  rnf EnableVpcClassicLinkDnsSupportResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

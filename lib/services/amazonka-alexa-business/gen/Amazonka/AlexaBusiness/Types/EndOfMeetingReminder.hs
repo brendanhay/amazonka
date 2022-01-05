@@ -84,6 +84,14 @@ instance Core.FromJSON EndOfMeetingReminder where
             Prelude.<*> (x Core..:? "ReminderType")
       )
 
-instance Prelude.Hashable EndOfMeetingReminder
+instance Prelude.Hashable EndOfMeetingReminder where
+  hashWithSalt _salt EndOfMeetingReminder' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` reminderAtMinutes
+      `Prelude.hashWithSalt` reminderType
 
-instance Prelude.NFData EndOfMeetingReminder
+instance Prelude.NFData EndOfMeetingReminder where
+  rnf EndOfMeetingReminder' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf reminderAtMinutes
+      `Prelude.seq` Prelude.rnf reminderType

@@ -75,9 +75,15 @@ instance Core.FromJSON SAMLIdp where
             Prelude.<*> (x Core..: "EntityId")
       )
 
-instance Prelude.Hashable SAMLIdp
+instance Prelude.Hashable SAMLIdp where
+  hashWithSalt _salt SAMLIdp' {..} =
+    _salt `Prelude.hashWithSalt` metadataContent
+      `Prelude.hashWithSalt` entityId
 
-instance Prelude.NFData SAMLIdp
+instance Prelude.NFData SAMLIdp where
+  rnf SAMLIdp' {..} =
+    Prelude.rnf metadataContent
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToJSON SAMLIdp where
   toJSON SAMLIdp' {..} =

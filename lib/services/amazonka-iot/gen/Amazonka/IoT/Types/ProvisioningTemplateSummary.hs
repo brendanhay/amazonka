@@ -112,6 +112,20 @@ instance Core.FromJSON ProvisioningTemplateSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ProvisioningTemplateSummary
+instance Prelude.Hashable ProvisioningTemplateSummary where
+  hashWithSalt _salt ProvisioningTemplateSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` templateArn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ProvisioningTemplateSummary
+instance Prelude.NFData ProvisioningTemplateSummary where
+  rnf ProvisioningTemplateSummary' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf description

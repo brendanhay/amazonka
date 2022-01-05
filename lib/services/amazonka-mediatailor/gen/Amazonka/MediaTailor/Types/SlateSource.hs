@@ -74,9 +74,15 @@ instance Core.FromJSON SlateSource where
             Prelude.<*> (x Core..:? "VodSourceName")
       )
 
-instance Prelude.Hashable SlateSource
+instance Prelude.Hashable SlateSource where
+  hashWithSalt _salt SlateSource' {..} =
+    _salt `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` vodSourceName
 
-instance Prelude.NFData SlateSource
+instance Prelude.NFData SlateSource where
+  rnf SlateSource' {..} =
+    Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf vodSourceName
 
 instance Core.ToJSON SlateSource where
   toJSON SlateSource' {..} =

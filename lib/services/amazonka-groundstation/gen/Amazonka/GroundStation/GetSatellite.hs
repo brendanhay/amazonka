@@ -92,9 +92,12 @@ instance Core.AWSRequest GetSatellite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSatellite
+instance Prelude.Hashable GetSatellite where
+  hashWithSalt _salt GetSatellite' {..} =
+    _salt `Prelude.hashWithSalt` satelliteId
 
-instance Prelude.NFData GetSatellite
+instance Prelude.NFData GetSatellite where
+  rnf GetSatellite' {..} = Prelude.rnf satelliteId
 
 instance Core.ToHeaders GetSatellite where
   toHeaders =
@@ -183,4 +186,10 @@ getSatelliteResponse_noradSatelliteID = Lens.lens (\GetSatelliteResponse' {norad
 getSatelliteResponse_httpStatus :: Lens.Lens' GetSatelliteResponse Prelude.Int
 getSatelliteResponse_httpStatus = Lens.lens (\GetSatelliteResponse' {httpStatus} -> httpStatus) (\s@GetSatelliteResponse' {} a -> s {httpStatus = a} :: GetSatelliteResponse)
 
-instance Prelude.NFData GetSatelliteResponse
+instance Prelude.NFData GetSatelliteResponse where
+  rnf GetSatelliteResponse' {..} =
+    Prelude.rnf satelliteId
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf groundStations
+      `Prelude.seq` Prelude.rnf noradSatelliteID
+      `Prelude.seq` Prelude.rnf httpStatus

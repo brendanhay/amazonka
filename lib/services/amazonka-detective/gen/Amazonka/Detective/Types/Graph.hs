@@ -74,6 +74,12 @@ instance Core.FromJSON Graph where
             Prelude.<*> (x Core..:? "CreatedTime")
       )
 
-instance Prelude.Hashable Graph
+instance Prelude.Hashable Graph where
+  hashWithSalt _salt Graph' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData Graph
+instance Prelude.NFData Graph where
+  rnf Graph' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime

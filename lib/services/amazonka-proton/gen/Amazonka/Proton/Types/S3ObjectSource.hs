@@ -62,9 +62,14 @@ s3ObjectSource_bucket = Lens.lens (\S3ObjectSource' {bucket} -> bucket) (\s@S3Ob
 s3ObjectSource_key :: Lens.Lens' S3ObjectSource Prelude.Text
 s3ObjectSource_key = Lens.lens (\S3ObjectSource' {key} -> key) (\s@S3ObjectSource' {} a -> s {key = a} :: S3ObjectSource)
 
-instance Prelude.Hashable S3ObjectSource
+instance Prelude.Hashable S3ObjectSource where
+  hashWithSalt _salt S3ObjectSource' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3ObjectSource
+instance Prelude.NFData S3ObjectSource where
+  rnf S3ObjectSource' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON S3ObjectSource where
   toJSON S3ObjectSource' {..} =

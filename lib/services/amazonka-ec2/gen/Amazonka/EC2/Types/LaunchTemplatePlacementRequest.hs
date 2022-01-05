@@ -133,10 +133,32 @@ launchTemplatePlacementRequest_hostResourceGroupArn = Lens.lens (\LaunchTemplate
 instance
   Prelude.Hashable
     LaunchTemplatePlacementRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplatePlacementRequest' {..} =
+      _salt `Prelude.hashWithSalt` affinity
+        `Prelude.hashWithSalt` hostId
+        `Prelude.hashWithSalt` partitionNumber
+        `Prelude.hashWithSalt` spreadDomain
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` tenancy
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` hostResourceGroupArn
 
 instance
   Prelude.NFData
     LaunchTemplatePlacementRequest
+  where
+  rnf LaunchTemplatePlacementRequest' {..} =
+    Prelude.rnf affinity
+      `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf partitionNumber
+      `Prelude.seq` Prelude.rnf spreadDomain
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf hostResourceGroupArn
 
 instance Core.ToQuery LaunchTemplatePlacementRequest where
   toQuery LaunchTemplatePlacementRequest' {..} =

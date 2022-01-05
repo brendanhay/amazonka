@@ -58,6 +58,9 @@ instance Core.FromXML ResourceQuota where
   parseXML x =
     ResourceQuota' Prelude.<$> (x Core..@? "Maximum")
 
-instance Prelude.Hashable ResourceQuota
+instance Prelude.Hashable ResourceQuota where
+  hashWithSalt _salt ResourceQuota' {..} =
+    _salt `Prelude.hashWithSalt` maximum
 
-instance Prelude.NFData ResourceQuota
+instance Prelude.NFData ResourceQuota where
+  rnf ResourceQuota' {..} = Prelude.rnf maximum

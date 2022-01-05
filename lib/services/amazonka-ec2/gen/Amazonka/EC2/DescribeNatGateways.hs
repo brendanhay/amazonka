@@ -227,9 +227,21 @@ instance Core.AWSRequest DescribeNatGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNatGateways
+instance Prelude.Hashable DescribeNatGateways where
+  hashWithSalt _salt DescribeNatGateways' {..} =
+    _salt `Prelude.hashWithSalt` natGatewayIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeNatGateways
+instance Prelude.NFData DescribeNatGateways where
+  rnf DescribeNatGateways' {..} =
+    Prelude.rnf natGatewayIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeNatGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,4 +318,8 @@ describeNatGatewaysResponse_nextToken = Lens.lens (\DescribeNatGatewaysResponse'
 describeNatGatewaysResponse_httpStatus :: Lens.Lens' DescribeNatGatewaysResponse Prelude.Int
 describeNatGatewaysResponse_httpStatus = Lens.lens (\DescribeNatGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeNatGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeNatGatewaysResponse)
 
-instance Prelude.NFData DescribeNatGatewaysResponse
+instance Prelude.NFData DescribeNatGatewaysResponse where
+  rnf DescribeNatGatewaysResponse' {..} =
+    Prelude.rnf natGateways
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     FailedRemediationExceptionBatch
+  where
+  hashWithSalt
+    _salt
+    FailedRemediationExceptionBatch' {..} =
+      _salt `Prelude.hashWithSalt` failureMessage
+        `Prelude.hashWithSalt` failedItems
 
 instance
   Prelude.NFData
     FailedRemediationExceptionBatch
+  where
+  rnf FailedRemediationExceptionBatch' {..} =
+    Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf failedItems

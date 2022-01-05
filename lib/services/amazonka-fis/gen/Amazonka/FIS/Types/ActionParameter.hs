@@ -71,6 +71,12 @@ instance Core.FromJSON ActionParameter where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ActionParameter
+instance Prelude.Hashable ActionParameter where
+  hashWithSalt _salt ActionParameter' {..} =
+    _salt `Prelude.hashWithSalt` required
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ActionParameter
+instance Prelude.NFData ActionParameter where
+  rnf ActionParameter' {..} =
+    Prelude.rnf required
+      `Prelude.seq` Prelude.rnf description

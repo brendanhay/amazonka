@@ -531,9 +531,53 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateFunction
+instance Prelude.Hashable CreateFunction where
+  hashWithSalt _salt CreateFunction' {..} =
+    _salt `Prelude.hashWithSalt` memorySize
+      `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` fileSystemConfigs
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` codeSigningConfigArn
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` tracingConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData CreateFunction
+instance Prelude.NFData CreateFunction where
+  rnf CreateFunction' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf runtime
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf fileSystemConfigs
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tracingConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf code
 
 instance Core.ToHeaders CreateFunction where
   toHeaders = Prelude.const Prelude.mempty

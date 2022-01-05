@@ -120,9 +120,15 @@ blackFrame_maxPixelThreshold = Lens.lens (\BlackFrame' {maxPixelThreshold} -> ma
 blackFrame_minCoveragePercentage :: Lens.Lens' BlackFrame (Prelude.Maybe Prelude.Double)
 blackFrame_minCoveragePercentage = Lens.lens (\BlackFrame' {minCoveragePercentage} -> minCoveragePercentage) (\s@BlackFrame' {} a -> s {minCoveragePercentage = a} :: BlackFrame)
 
-instance Prelude.Hashable BlackFrame
+instance Prelude.Hashable BlackFrame where
+  hashWithSalt _salt BlackFrame' {..} =
+    _salt `Prelude.hashWithSalt` maxPixelThreshold
+      `Prelude.hashWithSalt` minCoveragePercentage
 
-instance Prelude.NFData BlackFrame
+instance Prelude.NFData BlackFrame where
+  rnf BlackFrame' {..} =
+    Prelude.rnf maxPixelThreshold
+      `Prelude.seq` Prelude.rnf minCoveragePercentage
 
 instance Core.ToJSON BlackFrame where
   toJSON BlackFrame' {..} =

@@ -184,10 +184,22 @@ instance
 instance
   Prelude.Hashable
     PutBucketLifecycleConfiguration
+  where
+  hashWithSalt
+    _salt
+    PutBucketLifecycleConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` lifecycleConfiguration
+        `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` bucket
 
 instance
   Prelude.NFData
     PutBucketLifecycleConfiguration
+  where
+  rnf PutBucketLifecycleConfiguration' {..} =
+    Prelude.rnf lifecycleConfiguration
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToElement
@@ -234,3 +246,5 @@ newPutBucketLifecycleConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketLifecycleConfigurationResponse
+  where
+  rnf _ = ()

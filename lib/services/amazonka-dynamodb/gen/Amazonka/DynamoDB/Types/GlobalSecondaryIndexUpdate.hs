@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.GlobalSecondaryIndexUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
@@ -118,9 +119,17 @@ globalSecondaryIndexUpdate_delete = Lens.lens (\GlobalSecondaryIndexUpdate' {del
 globalSecondaryIndexUpdate_update :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe UpdateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_update = Lens.lens (\GlobalSecondaryIndexUpdate' {update} -> update) (\s@GlobalSecondaryIndexUpdate' {} a -> s {update = a} :: GlobalSecondaryIndexUpdate)
 
-instance Prelude.Hashable GlobalSecondaryIndexUpdate
+instance Prelude.Hashable GlobalSecondaryIndexUpdate where
+  hashWithSalt _salt GlobalSecondaryIndexUpdate' {..} =
+    _salt `Prelude.hashWithSalt` create
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` update
 
-instance Prelude.NFData GlobalSecondaryIndexUpdate
+instance Prelude.NFData GlobalSecondaryIndexUpdate where
+  rnf GlobalSecondaryIndexUpdate' {..} =
+    Prelude.rnf create
+      `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf update
 
 instance Core.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =

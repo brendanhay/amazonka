@@ -115,6 +115,20 @@ instance Core.FromJSON BotMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable BotMetadata
+instance Prelude.Hashable BotMetadata where
+  hashWithSalt _salt BotMetadata' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData BotMetadata
+instance Prelude.NFData BotMetadata where
+  rnf BotMetadata' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description

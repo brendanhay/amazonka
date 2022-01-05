@@ -103,9 +103,17 @@ instance Core.FromJSON OutputContext where
             Prelude.<*> (x Core..: "turnsToLive")
       )
 
-instance Prelude.Hashable OutputContext
+instance Prelude.Hashable OutputContext where
+  hashWithSalt _salt OutputContext' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeToLiveInSeconds
+      `Prelude.hashWithSalt` turnsToLive
 
-instance Prelude.NFData OutputContext
+instance Prelude.NFData OutputContext where
+  rnf OutputContext' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeToLiveInSeconds
+      `Prelude.seq` Prelude.rnf turnsToLive
 
 instance Core.ToJSON OutputContext where
   toJSON OutputContext' {..} =

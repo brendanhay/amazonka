@@ -928,9 +928,82 @@ instance Core.AWSRequest RestoreDBClusterFromS3 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreDBClusterFromS3
+instance Prelude.Hashable RestoreDBClusterFromS3 where
+  hashWithSalt _salt RestoreDBClusterFromS3' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` characterSetName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` sourceEngine
+      `Prelude.hashWithSalt` sourceEngineVersion
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3IngestionRoleArn
 
-instance Prelude.NFData RestoreDBClusterFromS3
+instance Prelude.NFData RestoreDBClusterFromS3 where
+  rnf RestoreDBClusterFromS3' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf characterSetName
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf
+        masterUsername
+      `Prelude.seq` Prelude.rnf
+        masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        sourceEngine
+      `Prelude.seq` Prelude.rnf
+        sourceEngineVersion
+      `Prelude.seq` Prelude.rnf
+        s3BucketName
+      `Prelude.seq` Prelude.rnf
+        s3IngestionRoleArn
 
 instance Core.ToHeaders RestoreDBClusterFromS3 where
   toHeaders = Prelude.const Prelude.mempty
@@ -1038,3 +1111,7 @@ restoreDBClusterFromS3Response_httpStatus = Lens.lens (\RestoreDBClusterFromS3Re
 instance
   Prelude.NFData
     RestoreDBClusterFromS3Response
+  where
+  rnf RestoreDBClusterFromS3Response' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

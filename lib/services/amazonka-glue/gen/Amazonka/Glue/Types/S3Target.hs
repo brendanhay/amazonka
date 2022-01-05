@@ -132,9 +132,23 @@ instance Core.FromJSON S3Target where
             Prelude.<*> (x Core..:? "DlqEventQueueArn")
       )
 
-instance Prelude.Hashable S3Target
+instance Prelude.Hashable S3Target where
+  hashWithSalt _salt S3Target' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` sampleSize
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` exclusions
+      `Prelude.hashWithSalt` eventQueueArn
+      `Prelude.hashWithSalt` dlqEventQueueArn
 
-instance Prelude.NFData S3Target
+instance Prelude.NFData S3Target where
+  rnf S3Target' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf sampleSize
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf exclusions
+      `Prelude.seq` Prelude.rnf eventQueueArn
+      `Prelude.seq` Prelude.rnf dlqEventQueueArn
 
 instance Core.ToJSON S3Target where
   toJSON S3Target' {..} =

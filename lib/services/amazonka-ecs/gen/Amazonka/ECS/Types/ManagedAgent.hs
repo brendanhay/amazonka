@@ -95,6 +95,16 @@ instance Core.FromJSON ManagedAgent where
             Prelude.<*> (x Core..:? "lastStartedAt")
       )
 
-instance Prelude.Hashable ManagedAgent
+instance Prelude.Hashable ManagedAgent where
+  hashWithSalt _salt ManagedAgent' {..} =
+    _salt `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastStartedAt
 
-instance Prelude.NFData ManagedAgent
+instance Prelude.NFData ManagedAgent where
+  rnf ManagedAgent' {..} =
+    Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastStartedAt

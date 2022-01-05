@@ -83,9 +83,15 @@ conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logS
 conversationLogsRequest_iamRoleArn :: Lens.Lens' ConversationLogsRequest Prelude.Text
 conversationLogsRequest_iamRoleArn = Lens.lens (\ConversationLogsRequest' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsRequest' {} a -> s {iamRoleArn = a} :: ConversationLogsRequest)
 
-instance Prelude.Hashable ConversationLogsRequest
+instance Prelude.Hashable ConversationLogsRequest where
+  hashWithSalt _salt ConversationLogsRequest' {..} =
+    _salt `Prelude.hashWithSalt` logSettings
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData ConversationLogsRequest
+instance Prelude.NFData ConversationLogsRequest where
+  rnf ConversationLogsRequest' {..} =
+    Prelude.rnf logSettings
+      `Prelude.seq` Prelude.rnf iamRoleArn
 
 instance Core.ToJSON ConversationLogsRequest where
   toJSON ConversationLogsRequest' {..} =

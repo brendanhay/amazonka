@@ -134,9 +134,17 @@ instance Core.AWSRequest GetCrawlerMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCrawlerMetrics
+instance Prelude.Hashable GetCrawlerMetrics where
+  hashWithSalt _salt GetCrawlerMetrics' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` crawlerNameList
 
-instance Prelude.NFData GetCrawlerMetrics
+instance Prelude.NFData GetCrawlerMetrics where
+  rnf GetCrawlerMetrics' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf crawlerNameList
 
 instance Core.ToHeaders GetCrawlerMetrics where
   toHeaders =
@@ -219,4 +227,8 @@ getCrawlerMetricsResponse_nextToken = Lens.lens (\GetCrawlerMetricsResponse' {ne
 getCrawlerMetricsResponse_httpStatus :: Lens.Lens' GetCrawlerMetricsResponse Prelude.Int
 getCrawlerMetricsResponse_httpStatus = Lens.lens (\GetCrawlerMetricsResponse' {httpStatus} -> httpStatus) (\s@GetCrawlerMetricsResponse' {} a -> s {httpStatus = a} :: GetCrawlerMetricsResponse)
 
-instance Prelude.NFData GetCrawlerMetricsResponse
+instance Prelude.NFData GetCrawlerMetricsResponse where
+  rnf GetCrawlerMetricsResponse' {..} =
+    Prelude.rnf crawlerMetricsList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

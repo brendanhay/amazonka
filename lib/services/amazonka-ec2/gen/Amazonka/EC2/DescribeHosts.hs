@@ -233,9 +233,19 @@ instance Core.AWSRequest DescribeHosts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHosts
+instance Prelude.Hashable DescribeHosts where
+  hashWithSalt _salt DescribeHosts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` hostIds
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeHosts
+instance Prelude.NFData DescribeHosts where
+  rnf DescribeHosts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf hostIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -308,4 +318,8 @@ describeHostsResponse_nextToken = Lens.lens (\DescribeHostsResponse' {nextToken}
 describeHostsResponse_httpStatus :: Lens.Lens' DescribeHostsResponse Prelude.Int
 describeHostsResponse_httpStatus = Lens.lens (\DescribeHostsResponse' {httpStatus} -> httpStatus) (\s@DescribeHostsResponse' {} a -> s {httpStatus = a} :: DescribeHostsResponse)
 
-instance Prelude.NFData DescribeHostsResponse
+instance Prelude.NFData DescribeHostsResponse where
+  rnf DescribeHostsResponse' {..} =
+    Prelude.rnf hosts
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

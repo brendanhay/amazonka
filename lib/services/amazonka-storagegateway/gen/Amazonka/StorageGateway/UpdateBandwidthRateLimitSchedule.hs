@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     UpdateBandwidthRateLimitSchedule
+  where
+  hashWithSalt
+    _salt
+    UpdateBandwidthRateLimitSchedule' {..} =
+      _salt `Prelude.hashWithSalt` gatewayARN
+        `Prelude.hashWithSalt` bandwidthRateLimitIntervals
 
 instance
   Prelude.NFData
     UpdateBandwidthRateLimitSchedule
+  where
+  rnf UpdateBandwidthRateLimitSchedule' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf bandwidthRateLimitIntervals
 
 instance
   Core.ToHeaders
@@ -201,3 +211,7 @@ updateBandwidthRateLimitScheduleResponse_httpStatus = Lens.lens (\UpdateBandwidt
 instance
   Prelude.NFData
     UpdateBandwidthRateLimitScheduleResponse
+  where
+  rnf UpdateBandwidthRateLimitScheduleResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

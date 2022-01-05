@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEmailTemplate
+instance Prelude.Hashable DeleteEmailTemplate where
+  hashWithSalt _salt DeleteEmailTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DeleteEmailTemplate
+instance Prelude.NFData DeleteEmailTemplate where
+  rnf DeleteEmailTemplate' {..} =
+    Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteEmailTemplate where
   toHeaders =
@@ -146,4 +150,6 @@ newDeleteEmailTemplateResponse pHttpStatus_ =
 deleteEmailTemplateResponse_httpStatus :: Lens.Lens' DeleteEmailTemplateResponse Prelude.Int
 deleteEmailTemplateResponse_httpStatus = Lens.lens (\DeleteEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteEmailTemplateResponse' {} a -> s {httpStatus = a} :: DeleteEmailTemplateResponse)
 
-instance Prelude.NFData DeleteEmailTemplateResponse
+instance Prelude.NFData DeleteEmailTemplateResponse where
+  rnf DeleteEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus

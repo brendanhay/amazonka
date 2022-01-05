@@ -117,9 +117,17 @@ instance Core.AWSRequest ModifySecurityGroupRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifySecurityGroupRules
+instance Prelude.Hashable ModifySecurityGroupRules where
+  hashWithSalt _salt ModifySecurityGroupRules' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` securityGroupRules
 
-instance Prelude.NFData ModifySecurityGroupRules
+instance Prelude.NFData ModifySecurityGroupRules where
+  rnf ModifySecurityGroupRules' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf securityGroupRules
 
 instance Core.ToHeaders ModifySecurityGroupRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +191,7 @@ modifySecurityGroupRulesResponse_httpStatus = Lens.lens (\ModifySecurityGroupRul
 instance
   Prelude.NFData
     ModifySecurityGroupRulesResponse
+  where
+  rnf ModifySecurityGroupRulesResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

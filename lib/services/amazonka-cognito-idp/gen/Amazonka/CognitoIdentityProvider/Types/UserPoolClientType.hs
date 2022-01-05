@@ -597,6 +597,55 @@ instance Core.FromJSON UserPoolClientType where
             Prelude.<*> (x Core..:? "CallbackURLs" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UserPoolClientType
+instance Prelude.Hashable UserPoolClientType where
+  hashWithSalt _salt UserPoolClientType' {..} =
+    _salt `Prelude.hashWithSalt` refreshTokenValidity
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` explicitAuthFlows
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` supportedIdentityProviders
+      `Prelude.hashWithSalt` logoutURLs
+      `Prelude.hashWithSalt` allowedOAuthFlowsUserPoolClient
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` idTokenValidity
+      `Prelude.hashWithSalt` tokenValidityUnits
+      `Prelude.hashWithSalt` defaultRedirectURI
+      `Prelude.hashWithSalt` enableTokenRevocation
+      `Prelude.hashWithSalt` writeAttributes
+      `Prelude.hashWithSalt` preventUserExistenceErrors
+      `Prelude.hashWithSalt` accessTokenValidity
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` readAttributes
+      `Prelude.hashWithSalt` allowedOAuthScopes
+      `Prelude.hashWithSalt` allowedOAuthFlows
+      `Prelude.hashWithSalt` analyticsConfiguration
+      `Prelude.hashWithSalt` clientName
+      `Prelude.hashWithSalt` callbackURLs
 
-instance Prelude.NFData UserPoolClientType
+instance Prelude.NFData UserPoolClientType where
+  rnf UserPoolClientType' {..} =
+    Prelude.rnf refreshTokenValidity
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf explicitAuthFlows
+      `Prelude.seq` Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf supportedIdentityProviders
+      `Prelude.seq` Prelude.rnf logoutURLs
+      `Prelude.seq` Prelude.rnf allowedOAuthFlowsUserPoolClient
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf idTokenValidity
+      `Prelude.seq` Prelude.rnf tokenValidityUnits
+      `Prelude.seq` Prelude.rnf defaultRedirectURI
+      `Prelude.seq` Prelude.rnf enableTokenRevocation
+      `Prelude.seq` Prelude.rnf writeAttributes
+      `Prelude.seq` Prelude.rnf preventUserExistenceErrors
+      `Prelude.seq` Prelude.rnf accessTokenValidity
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf readAttributes
+      `Prelude.seq` Prelude.rnf allowedOAuthScopes
+      `Prelude.seq` Prelude.rnf allowedOAuthFlows
+      `Prelude.seq` Prelude.rnf
+        analyticsConfiguration
+      `Prelude.seq` Prelude.rnf clientName
+      `Prelude.seq` Prelude.rnf callbackURLs

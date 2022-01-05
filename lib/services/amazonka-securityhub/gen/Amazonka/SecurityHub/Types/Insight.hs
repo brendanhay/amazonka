@@ -119,6 +119,16 @@ instance Core.FromJSON Insight where
             Prelude.<*> (x Core..: "GroupByAttribute")
       )
 
-instance Prelude.Hashable Insight
+instance Prelude.Hashable Insight where
+  hashWithSalt _salt Insight' {..} =
+    _salt `Prelude.hashWithSalt` insightArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` groupByAttribute
 
-instance Prelude.NFData Insight
+instance Prelude.NFData Insight where
+  rnf Insight' {..} =
+    Prelude.rnf insightArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf groupByAttribute

@@ -203,9 +203,17 @@ instance Core.AWSRequest ListHandshakesForAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListHandshakesForAccount
+instance Prelude.Hashable ListHandshakesForAccount where
+  hashWithSalt _salt ListHandshakesForAccount' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListHandshakesForAccount
+instance Prelude.NFData ListHandshakesForAccount where
+  rnf ListHandshakesForAccount' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListHandshakesForAccount where
   toHeaders =
@@ -304,3 +312,8 @@ listHandshakesForAccountResponse_httpStatus = Lens.lens (\ListHandshakesForAccou
 instance
   Prelude.NFData
     ListHandshakesForAccountResponse
+  where
+  rnf ListHandshakesForAccountResponse' {..} =
+    Prelude.rnf handshakes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

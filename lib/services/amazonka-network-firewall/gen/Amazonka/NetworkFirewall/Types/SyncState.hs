@@ -111,6 +111,12 @@ instance Core.FromJSON SyncState where
             Prelude.<*> (x Core..:? "Attachment")
       )
 
-instance Prelude.Hashable SyncState
+instance Prelude.Hashable SyncState where
+  hashWithSalt _salt SyncState' {..} =
+    _salt `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` attachment
 
-instance Prelude.NFData SyncState
+instance Prelude.NFData SyncState where
+  rnf SyncState' {..} =
+    Prelude.rnf config
+      `Prelude.seq` Prelude.rnf attachment

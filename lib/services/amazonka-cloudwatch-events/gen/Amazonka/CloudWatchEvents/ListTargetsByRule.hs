@@ -151,9 +151,19 @@ instance Core.AWSRequest ListTargetsByRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTargetsByRule
+instance Prelude.Hashable ListTargetsByRule where
+  hashWithSalt _salt ListTargetsByRule' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` rule
 
-instance Prelude.NFData ListTargetsByRule
+instance Prelude.NFData ListTargetsByRule where
+  rnf ListTargetsByRule' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf rule
 
 instance Core.ToHeaders ListTargetsByRule where
   toHeaders =
@@ -238,4 +248,8 @@ listTargetsByRuleResponse_targets = Lens.lens (\ListTargetsByRuleResponse' {targ
 listTargetsByRuleResponse_httpStatus :: Lens.Lens' ListTargetsByRuleResponse Prelude.Int
 listTargetsByRuleResponse_httpStatus = Lens.lens (\ListTargetsByRuleResponse' {httpStatus} -> httpStatus) (\s@ListTargetsByRuleResponse' {} a -> s {httpStatus = a} :: ListTargetsByRuleResponse)
 
-instance Prelude.NFData ListTargetsByRuleResponse
+instance Prelude.NFData ListTargetsByRuleResponse where
+  rnf ListTargetsByRuleResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf httpStatus

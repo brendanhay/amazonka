@@ -137,6 +137,24 @@ instance Core.FromJSON SavingsPlanOfferingRate where
             Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SavingsPlanOfferingRate
+instance Prelude.Hashable SavingsPlanOfferingRate where
+  hashWithSalt _salt SavingsPlanOfferingRate' {..} =
+    _salt `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` usageType
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` savingsPlanOffering
+      `Prelude.hashWithSalt` rate
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData SavingsPlanOfferingRate
+instance Prelude.NFData SavingsPlanOfferingRate where
+  rnf SavingsPlanOfferingRate' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf usageType
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf savingsPlanOffering
+      `Prelude.seq` Prelude.rnf rate
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf properties

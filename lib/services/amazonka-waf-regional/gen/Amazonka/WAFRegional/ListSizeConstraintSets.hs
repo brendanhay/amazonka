@@ -140,9 +140,15 @@ instance Core.AWSRequest ListSizeConstraintSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSizeConstraintSets
+instance Prelude.Hashable ListSizeConstraintSets where
+  hashWithSalt _salt ListSizeConstraintSets' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListSizeConstraintSets
+instance Prelude.NFData ListSizeConstraintSets where
+  rnf ListSizeConstraintSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListSizeConstraintSets where
   toHeaders =
@@ -237,3 +243,8 @@ listSizeConstraintSetsResponse_httpStatus = Lens.lens (\ListSizeConstraintSetsRe
 instance
   Prelude.NFData
     ListSizeConstraintSetsResponse
+  where
+  rnf ListSizeConstraintSetsResponse' {..} =
+    Prelude.rnf sizeConstraintSets
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

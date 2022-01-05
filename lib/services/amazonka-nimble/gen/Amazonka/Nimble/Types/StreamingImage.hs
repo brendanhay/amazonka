@@ -196,6 +196,34 @@ instance Core.FromJSON StreamingImage where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable StreamingImage
+instance Prelude.Hashable StreamingImage where
+  hashWithSalt _salt StreamingImage' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` ec2ImageId
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` eulaIds
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData StreamingImage
+instance Prelude.NFData StreamingImage where
+  rnf StreamingImage' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf streamingImageId
+      `Prelude.seq` Prelude.rnf ec2ImageId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf eulaIds
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf statusCode

@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteUserPool where
   response =
     Response.receiveNull DeleteUserPoolResponse'
 
-instance Prelude.Hashable DeleteUserPool
+instance Prelude.Hashable DeleteUserPool where
+  hashWithSalt _salt DeleteUserPool' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData DeleteUserPool
+instance Prelude.NFData DeleteUserPool where
+  rnf DeleteUserPool' {..} = Prelude.rnf userPoolId
 
 instance Core.ToHeaders DeleteUserPool where
   toHeaders =
@@ -125,4 +128,5 @@ newDeleteUserPoolResponse ::
   DeleteUserPoolResponse
 newDeleteUserPoolResponse = DeleteUserPoolResponse'
 
-instance Prelude.NFData DeleteUserPoolResponse
+instance Prelude.NFData DeleteUserPoolResponse where
+  rnf _ = ()

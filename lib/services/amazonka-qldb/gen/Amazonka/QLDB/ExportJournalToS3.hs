@@ -233,9 +233,21 @@ instance Core.AWSRequest ExportJournalToS3 where
             Prelude.<*> (x Core..:> "ExportId")
       )
 
-instance Prelude.Hashable ExportJournalToS3
+instance Prelude.Hashable ExportJournalToS3 where
+  hashWithSalt _salt ExportJournalToS3' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` inclusiveStartTime
+      `Prelude.hashWithSalt` exclusiveEndTime
+      `Prelude.hashWithSalt` s3ExportConfiguration
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ExportJournalToS3
+instance Prelude.NFData ExportJournalToS3 where
+  rnf ExportJournalToS3' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf inclusiveStartTime
+      `Prelude.seq` Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf s3ExportConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders ExportJournalToS3 where
   toHeaders =
@@ -325,4 +337,7 @@ exportJournalToS3Response_httpStatus = Lens.lens (\ExportJournalToS3Response' {h
 exportJournalToS3Response_exportId :: Lens.Lens' ExportJournalToS3Response Prelude.Text
 exportJournalToS3Response_exportId = Lens.lens (\ExportJournalToS3Response' {exportId} -> exportId) (\s@ExportJournalToS3Response' {} a -> s {exportId = a} :: ExportJournalToS3Response)
 
-instance Prelude.NFData ExportJournalToS3Response
+instance Prelude.NFData ExportJournalToS3Response where
+  rnf ExportJournalToS3Response' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportId

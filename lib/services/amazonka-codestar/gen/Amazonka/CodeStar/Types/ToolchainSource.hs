@@ -57,9 +57,12 @@ newToolchainSource pS3_ = ToolchainSource' {s3 = pS3_}
 toolchainSource_s3 :: Lens.Lens' ToolchainSource S3Location
 toolchainSource_s3 = Lens.lens (\ToolchainSource' {s3} -> s3) (\s@ToolchainSource' {} a -> s {s3 = a} :: ToolchainSource)
 
-instance Prelude.Hashable ToolchainSource
+instance Prelude.Hashable ToolchainSource where
+  hashWithSalt _salt ToolchainSource' {..} =
+    _salt `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData ToolchainSource
+instance Prelude.NFData ToolchainSource where
+  rnf ToolchainSource' {..} = Prelude.rnf s3
 
 instance Core.ToJSON ToolchainSource where
   toJSON ToolchainSource' {..} =

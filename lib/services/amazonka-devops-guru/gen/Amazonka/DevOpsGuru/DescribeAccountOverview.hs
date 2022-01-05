@@ -120,9 +120,15 @@ instance Core.AWSRequest DescribeAccountOverview where
             Prelude.<*> (x Core..:> "MeanTimeToRecoverInMilliseconds")
       )
 
-instance Prelude.Hashable DescribeAccountOverview
+instance Prelude.Hashable DescribeAccountOverview where
+  hashWithSalt _salt DescribeAccountOverview' {..} =
+    _salt `Prelude.hashWithSalt` toTime
+      `Prelude.hashWithSalt` fromTime
 
-instance Prelude.NFData DescribeAccountOverview
+instance Prelude.NFData DescribeAccountOverview where
+  rnf DescribeAccountOverview' {..} =
+    Prelude.rnf toTime
+      `Prelude.seq` Prelude.rnf fromTime
 
 instance Core.ToHeaders DescribeAccountOverview where
   toHeaders =
@@ -230,3 +236,9 @@ describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds = Lens.lens (\De
 instance
   Prelude.NFData
     DescribeAccountOverviewResponse
+  where
+  rnf DescribeAccountOverviewResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reactiveInsights
+      `Prelude.seq` Prelude.rnf proactiveInsights
+      `Prelude.seq` Prelude.rnf meanTimeToRecoverInMilliseconds

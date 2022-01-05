@@ -116,9 +116,21 @@ instance Core.FromJSON SsmAutomation where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable SsmAutomation
+instance Prelude.Hashable SsmAutomation where
+  hashWithSalt _salt SsmAutomation' {..} =
+    _salt `Prelude.hashWithSalt` targetAccount
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData SsmAutomation
+instance Prelude.NFData SsmAutomation where
+  rnf SsmAutomation' {..} =
+    Prelude.rnf targetAccount
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON SsmAutomation where
   toJSON SsmAutomation' {..} =

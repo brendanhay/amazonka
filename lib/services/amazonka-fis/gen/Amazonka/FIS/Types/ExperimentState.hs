@@ -72,6 +72,11 @@ instance Core.FromJSON ExperimentState where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable ExperimentState
+instance Prelude.Hashable ExperimentState where
+  hashWithSalt _salt ExperimentState' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData ExperimentState
+instance Prelude.NFData ExperimentState where
+  rnf ExperimentState' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf reason

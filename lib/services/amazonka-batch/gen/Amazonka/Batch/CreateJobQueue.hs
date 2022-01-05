@@ -217,9 +217,21 @@ instance Core.AWSRequest CreateJobQueue where
             Prelude.<*> (x Core..:> "jobQueueArn")
       )
 
-instance Prelude.Hashable CreateJobQueue
+instance Prelude.Hashable CreateJobQueue where
+  hashWithSalt _salt CreateJobQueue' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobQueueName
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` computeEnvironmentOrder
 
-instance Prelude.NFData CreateJobQueue
+instance Prelude.NFData CreateJobQueue where
+  rnf CreateJobQueue' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobQueueName
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf computeEnvironmentOrder
 
 instance Core.ToHeaders CreateJobQueue where
   toHeaders =
@@ -307,4 +319,8 @@ createJobQueueResponse_jobQueueName = Lens.lens (\CreateJobQueueResponse' {jobQu
 createJobQueueResponse_jobQueueArn :: Lens.Lens' CreateJobQueueResponse Prelude.Text
 createJobQueueResponse_jobQueueArn = Lens.lens (\CreateJobQueueResponse' {jobQueueArn} -> jobQueueArn) (\s@CreateJobQueueResponse' {} a -> s {jobQueueArn = a} :: CreateJobQueueResponse)
 
-instance Prelude.NFData CreateJobQueueResponse
+instance Prelude.NFData CreateJobQueueResponse where
+  rnf CreateJobQueueResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobQueueName
+      `Prelude.seq` Prelude.rnf jobQueueArn

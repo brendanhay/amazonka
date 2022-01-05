@@ -75,9 +75,15 @@ instance Core.FromJSON CloudwatchLogsAction where
             Prelude.<*> (x Core..: "logGroupName")
       )
 
-instance Prelude.Hashable CloudwatchLogsAction
+instance Prelude.Hashable CloudwatchLogsAction where
+  hashWithSalt _salt CloudwatchLogsAction' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData CloudwatchLogsAction
+instance Prelude.NFData CloudwatchLogsAction where
+  rnf CloudwatchLogsAction' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToJSON CloudwatchLogsAction where
   toJSON CloudwatchLogsAction' {..} =

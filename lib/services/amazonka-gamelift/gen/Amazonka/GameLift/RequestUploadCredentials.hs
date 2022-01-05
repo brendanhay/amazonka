@@ -109,9 +109,13 @@ instance Core.AWSRequest RequestUploadCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RequestUploadCredentials
+instance Prelude.Hashable RequestUploadCredentials where
+  hashWithSalt _salt RequestUploadCredentials' {..} =
+    _salt `Prelude.hashWithSalt` buildId
 
-instance Prelude.NFData RequestUploadCredentials
+instance Prelude.NFData RequestUploadCredentials where
+  rnf RequestUploadCredentials' {..} =
+    Prelude.rnf buildId
 
 instance Core.ToHeaders RequestUploadCredentials where
   toHeaders =
@@ -203,3 +207,8 @@ requestUploadCredentialsResponse_httpStatus = Lens.lens (\RequestUploadCredentia
 instance
   Prelude.NFData
     RequestUploadCredentialsResponse
+  where
+  rnf RequestUploadCredentialsResponse' {..} =
+    Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf uploadCredentials
+      `Prelude.seq` Prelude.rnf httpStatus

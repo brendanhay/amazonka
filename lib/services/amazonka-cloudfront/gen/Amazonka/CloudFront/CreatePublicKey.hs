@@ -96,9 +96,13 @@ instance Core.AWSRequest CreatePublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePublicKey
+instance Prelude.Hashable CreatePublicKey where
+  hashWithSalt _salt CreatePublicKey' {..} =
+    _salt `Prelude.hashWithSalt` publicKeyConfig
 
-instance Prelude.NFData CreatePublicKey
+instance Prelude.NFData CreatePublicKey where
+  rnf CreatePublicKey' {..} =
+    Prelude.rnf publicKeyConfig
 
 instance Core.ToElement CreatePublicKey where
   toElement CreatePublicKey' {..} =
@@ -171,4 +175,9 @@ createPublicKeyResponse_publicKey = Lens.lens (\CreatePublicKeyResponse' {public
 createPublicKeyResponse_httpStatus :: Lens.Lens' CreatePublicKeyResponse Prelude.Int
 createPublicKeyResponse_httpStatus = Lens.lens (\CreatePublicKeyResponse' {httpStatus} -> httpStatus) (\s@CreatePublicKeyResponse' {} a -> s {httpStatus = a} :: CreatePublicKeyResponse)
 
-instance Prelude.NFData CreatePublicKeyResponse
+instance Prelude.NFData CreatePublicKeyResponse where
+  rnf CreatePublicKeyResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf httpStatus

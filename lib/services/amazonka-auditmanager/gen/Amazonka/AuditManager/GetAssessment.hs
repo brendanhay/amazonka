@@ -88,9 +88,12 @@ instance Core.AWSRequest GetAssessment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssessment
+instance Prelude.Hashable GetAssessment where
+  hashWithSalt _salt GetAssessment' {..} =
+    _salt `Prelude.hashWithSalt` assessmentId
 
-instance Prelude.NFData GetAssessment
+instance Prelude.NFData GetAssessment where
+  rnf GetAssessment' {..} = Prelude.rnf assessmentId
 
 instance Core.ToHeaders GetAssessment where
   toHeaders =
@@ -156,4 +159,8 @@ getAssessmentResponse_assessment = Lens.lens (\GetAssessmentResponse' {assessmen
 getAssessmentResponse_httpStatus :: Lens.Lens' GetAssessmentResponse Prelude.Int
 getAssessmentResponse_httpStatus = Lens.lens (\GetAssessmentResponse' {httpStatus} -> httpStatus) (\s@GetAssessmentResponse' {} a -> s {httpStatus = a} :: GetAssessmentResponse)
 
-instance Prelude.NFData GetAssessmentResponse
+instance Prelude.NFData GetAssessmentResponse where
+  rnf GetAssessmentResponse' {..} =
+    Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf assessment
+      `Prelude.seq` Prelude.rnf httpStatus

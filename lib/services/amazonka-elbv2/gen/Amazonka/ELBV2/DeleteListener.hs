@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteListener where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteListener
+instance Prelude.Hashable DeleteListener where
+  hashWithSalt _salt DeleteListener' {..} =
+    _salt `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData DeleteListener
+instance Prelude.NFData DeleteListener where
+  rnf DeleteListener' {..} = Prelude.rnf listenerArn
 
 instance Core.ToHeaders DeleteListener where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +138,6 @@ newDeleteListenerResponse pHttpStatus_ =
 deleteListenerResponse_httpStatus :: Lens.Lens' DeleteListenerResponse Prelude.Int
 deleteListenerResponse_httpStatus = Lens.lens (\DeleteListenerResponse' {httpStatus} -> httpStatus) (\s@DeleteListenerResponse' {} a -> s {httpStatus = a} :: DeleteListenerResponse)
 
-instance Prelude.NFData DeleteListenerResponse
+instance Prelude.NFData DeleteListenerResponse where
+  rnf DeleteListenerResponse' {..} =
+    Prelude.rnf httpStatus

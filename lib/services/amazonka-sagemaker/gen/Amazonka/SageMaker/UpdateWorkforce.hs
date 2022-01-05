@@ -151,9 +151,17 @@ instance Core.AWSRequest UpdateWorkforce where
             Prelude.<*> (x Core..:> "Workforce")
       )
 
-instance Prelude.Hashable UpdateWorkforce
+instance Prelude.Hashable UpdateWorkforce where
+  hashWithSalt _salt UpdateWorkforce' {..} =
+    _salt `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` oidcConfig
+      `Prelude.hashWithSalt` workforceName
 
-instance Prelude.NFData UpdateWorkforce
+instance Prelude.NFData UpdateWorkforce where
+  rnf UpdateWorkforce' {..} =
+    Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf oidcConfig
+      `Prelude.seq` Prelude.rnf workforceName
 
 instance Core.ToHeaders UpdateWorkforce where
   toHeaders =
@@ -238,4 +246,7 @@ updateWorkforceResponse_httpStatus = Lens.lens (\UpdateWorkforceResponse' {httpS
 updateWorkforceResponse_workforce :: Lens.Lens' UpdateWorkforceResponse Workforce
 updateWorkforceResponse_workforce = Lens.lens (\UpdateWorkforceResponse' {workforce} -> workforce) (\s@UpdateWorkforceResponse' {} a -> s {workforce = a} :: UpdateWorkforceResponse)
 
-instance Prelude.NFData UpdateWorkforceResponse
+instance Prelude.NFData UpdateWorkforceResponse where
+  rnf UpdateWorkforceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workforce

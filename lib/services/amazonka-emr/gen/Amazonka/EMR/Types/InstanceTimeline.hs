@@ -81,6 +81,14 @@ instance Core.FromJSON InstanceTimeline where
             Prelude.<*> (x Core..:? "EndDateTime")
       )
 
-instance Prelude.Hashable InstanceTimeline
+instance Prelude.Hashable InstanceTimeline where
+  hashWithSalt _salt InstanceTimeline' {..} =
+    _salt `Prelude.hashWithSalt` readyDateTime
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` endDateTime
 
-instance Prelude.NFData InstanceTimeline
+instance Prelude.NFData InstanceTimeline where
+  rnf InstanceTimeline' {..} =
+    Prelude.rnf readyDateTime
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf endDateTime

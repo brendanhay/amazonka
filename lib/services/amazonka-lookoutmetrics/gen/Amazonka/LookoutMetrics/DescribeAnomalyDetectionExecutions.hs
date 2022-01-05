@@ -133,10 +133,24 @@ instance
 instance
   Prelude.Hashable
     DescribeAnomalyDetectionExecutions
+  where
+  hashWithSalt
+    _salt
+    DescribeAnomalyDetectionExecutions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` timestamp
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` anomalyDetectorArn
 
 instance
   Prelude.NFData
     DescribeAnomalyDetectionExecutions
+  where
+  rnf DescribeAnomalyDetectionExecutions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
 instance
   Core.ToHeaders
@@ -232,3 +246,8 @@ describeAnomalyDetectionExecutionsResponse_httpStatus = Lens.lens (\DescribeAnom
 instance
   Prelude.NFData
     DescribeAnomalyDetectionExecutionsResponse
+  where
+  rnf DescribeAnomalyDetectionExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf executionList
+      `Prelude.seq` Prelude.rnf httpStatus

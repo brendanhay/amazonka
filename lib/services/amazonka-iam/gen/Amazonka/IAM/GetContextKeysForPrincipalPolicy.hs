@@ -192,10 +192,20 @@ instance
 instance
   Prelude.Hashable
     GetContextKeysForPrincipalPolicy
+  where
+  hashWithSalt
+    _salt
+    GetContextKeysForPrincipalPolicy' {..} =
+      _salt `Prelude.hashWithSalt` policyInputList
+        `Prelude.hashWithSalt` policySourceArn
 
 instance
   Prelude.NFData
     GetContextKeysForPrincipalPolicy
+  where
+  rnf GetContextKeysForPrincipalPolicy' {..} =
+    Prelude.rnf policyInputList
+      `Prelude.seq` Prelude.rnf policySourceArn
 
 instance
   Core.ToHeaders

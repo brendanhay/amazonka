@@ -65,9 +65,12 @@ instance Core.FromJSON AdMarkerPassthrough where
             Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable AdMarkerPassthrough
+instance Prelude.Hashable AdMarkerPassthrough where
+  hashWithSalt _salt AdMarkerPassthrough' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData AdMarkerPassthrough
+instance Prelude.NFData AdMarkerPassthrough where
+  rnf AdMarkerPassthrough' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON AdMarkerPassthrough where
   toJSON AdMarkerPassthrough' {..} =

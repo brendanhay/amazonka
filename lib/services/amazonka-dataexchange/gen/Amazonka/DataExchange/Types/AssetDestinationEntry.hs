@@ -85,9 +85,17 @@ instance Core.FromJSON AssetDestinationEntry where
             Prelude.<*> (x Core..: "AssetId")
       )
 
-instance Prelude.Hashable AssetDestinationEntry
+instance Prelude.Hashable AssetDestinationEntry where
+  hashWithSalt _salt AssetDestinationEntry' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` assetId
 
-instance Prelude.NFData AssetDestinationEntry
+instance Prelude.NFData AssetDestinationEntry where
+  rnf AssetDestinationEntry' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToJSON AssetDestinationEntry where
   toJSON AssetDestinationEntry' {..} =

@@ -71,9 +71,15 @@ instance Core.FromJSON ImagePermissions where
             Prelude.<*> (x Core..:? "allowImageBuilder")
       )
 
-instance Prelude.Hashable ImagePermissions
+instance Prelude.Hashable ImagePermissions where
+  hashWithSalt _salt ImagePermissions' {..} =
+    _salt `Prelude.hashWithSalt` allowFleet
+      `Prelude.hashWithSalt` allowImageBuilder
 
-instance Prelude.NFData ImagePermissions
+instance Prelude.NFData ImagePermissions where
+  rnf ImagePermissions' {..} =
+    Prelude.rnf allowFleet
+      `Prelude.seq` Prelude.rnf allowImageBuilder
 
 instance Core.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =

@@ -258,9 +258,39 @@ instance Core.AWSRequest UpdateDomainConfig where
             Prelude.<*> (x Core..:> "DomainConfig")
       )
 
-instance Prelude.Hashable UpdateDomainConfig
+instance Prelude.Hashable UpdateDomainConfig where
+  hashWithSalt _salt UpdateDomainConfig' {..} =
+    _salt `Prelude.hashWithSalt` eBSOptions
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` clusterConfig
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainConfig
+instance Prelude.NFData UpdateDomainConfig where
+  rnf UpdateDomainConfig' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -352,4 +382,7 @@ updateDomainConfigResponse_httpStatus = Lens.lens (\UpdateDomainConfigResponse' 
 updateDomainConfigResponse_domainConfig :: Lens.Lens' UpdateDomainConfigResponse DomainConfig
 updateDomainConfigResponse_domainConfig = Lens.lens (\UpdateDomainConfigResponse' {domainConfig} -> domainConfig) (\s@UpdateDomainConfigResponse' {} a -> s {domainConfig = a} :: UpdateDomainConfigResponse)
 
-instance Prelude.NFData UpdateDomainConfigResponse
+instance Prelude.NFData UpdateDomainConfigResponse where
+  rnf UpdateDomainConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainConfig

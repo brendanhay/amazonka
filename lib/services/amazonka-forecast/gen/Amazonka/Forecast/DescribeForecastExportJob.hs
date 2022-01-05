@@ -116,9 +116,13 @@ instance Core.AWSRequest DescribeForecastExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeForecastExportJob
+instance Prelude.Hashable DescribeForecastExportJob where
+  hashWithSalt _salt DescribeForecastExportJob' {..} =
+    _salt `Prelude.hashWithSalt` forecastExportJobArn
 
-instance Prelude.NFData DescribeForecastExportJob
+instance Prelude.NFData DescribeForecastExportJob where
+  rnf DescribeForecastExportJob' {..} =
+    Prelude.rnf forecastExportJobArn
 
 instance Core.ToHeaders DescribeForecastExportJob where
   toHeaders =
@@ -326,3 +330,14 @@ describeForecastExportJobResponse_httpStatus = Lens.lens (\DescribeForecastExpor
 instance
   Prelude.NFData
     DescribeForecastExportJobResponse
+  where
+  rnf DescribeForecastExportJobResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf forecastExportJobArn
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf forecastExportJobName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteSkillGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSkillGroup
+instance Prelude.Hashable DeleteSkillGroup where
+  hashWithSalt _salt DeleteSkillGroup' {..} =
+    _salt `Prelude.hashWithSalt` skillGroupArn
 
-instance Prelude.NFData DeleteSkillGroup
+instance Prelude.NFData DeleteSkillGroup where
+  rnf DeleteSkillGroup' {..} = Prelude.rnf skillGroupArn
 
 instance Core.ToHeaders DeleteSkillGroup where
   toHeaders =
@@ -146,4 +149,6 @@ newDeleteSkillGroupResponse pHttpStatus_ =
 deleteSkillGroupResponse_httpStatus :: Lens.Lens' DeleteSkillGroupResponse Prelude.Int
 deleteSkillGroupResponse_httpStatus = Lens.lens (\DeleteSkillGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteSkillGroupResponse' {} a -> s {httpStatus = a} :: DeleteSkillGroupResponse)
 
-instance Prelude.NFData DeleteSkillGroupResponse
+instance Prelude.NFData DeleteSkillGroupResponse where
+  rnf DeleteSkillGroupResponse' {..} =
+    Prelude.rnf httpStatus

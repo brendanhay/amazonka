@@ -138,9 +138,17 @@ instance Core.AWSRequest SearchFlowTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchFlowTemplates
+instance Prelude.Hashable SearchFlowTemplates where
+  hashWithSalt _salt SearchFlowTemplates' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchFlowTemplates
+instance Prelude.NFData SearchFlowTemplates where
+  rnf SearchFlowTemplates' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchFlowTemplates where
   toHeaders =
@@ -227,4 +235,8 @@ searchFlowTemplatesResponse_summaries = Lens.lens (\SearchFlowTemplatesResponse'
 searchFlowTemplatesResponse_httpStatus :: Lens.Lens' SearchFlowTemplatesResponse Prelude.Int
 searchFlowTemplatesResponse_httpStatus = Lens.lens (\SearchFlowTemplatesResponse' {httpStatus} -> httpStatus) (\s@SearchFlowTemplatesResponse' {} a -> s {httpStatus = a} :: SearchFlowTemplatesResponse)
 
-instance Prelude.NFData SearchFlowTemplatesResponse
+instance Prelude.NFData SearchFlowTemplatesResponse where
+  rnf SearchFlowTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf httpStatus

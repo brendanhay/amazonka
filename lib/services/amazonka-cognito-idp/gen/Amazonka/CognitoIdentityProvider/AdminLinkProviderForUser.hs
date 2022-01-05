@@ -237,9 +237,17 @@ instance Core.AWSRequest AdminLinkProviderForUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminLinkProviderForUser
+instance Prelude.Hashable AdminLinkProviderForUser where
+  hashWithSalt _salt AdminLinkProviderForUser' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` destinationUser
+      `Prelude.hashWithSalt` sourceUser
 
-instance Prelude.NFData AdminLinkProviderForUser
+instance Prelude.NFData AdminLinkProviderForUser where
+  rnf AdminLinkProviderForUser' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf destinationUser
+      `Prelude.seq` Prelude.rnf sourceUser
 
 instance Core.ToHeaders AdminLinkProviderForUser where
   toHeaders =
@@ -306,3 +314,6 @@ adminLinkProviderForUserResponse_httpStatus = Lens.lens (\AdminLinkProviderForUs
 instance
   Prelude.NFData
     AdminLinkProviderForUserResponse
+  where
+  rnf AdminLinkProviderForUserResponse' {..} =
+    Prelude.rnf httpStatus

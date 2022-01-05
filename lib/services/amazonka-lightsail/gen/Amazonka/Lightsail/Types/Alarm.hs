@@ -437,6 +437,49 @@ instance Core.FromJSON Alarm where
             Prelude.<*> (x Core..:? "monitoredResourceInfo")
       )
 
-instance Prelude.Hashable Alarm
+instance Prelude.Hashable Alarm where
+  hashWithSalt _salt Alarm' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` treatMissingData
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` contactProtocols
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` datapointsToAlarm
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` notificationEnabled
+      `Prelude.hashWithSalt` notificationTriggers
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` monitoredResourceInfo
 
-instance Prelude.NFData Alarm
+instance Prelude.NFData Alarm where
+  rnf Alarm' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf treatMissingData
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf contactProtocols
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf datapointsToAlarm
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf notificationEnabled
+      `Prelude.seq` Prelude.rnf notificationTriggers
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf
+        monitoredResourceInfo

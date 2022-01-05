@@ -133,8 +133,15 @@ instance Core.AWSRequest CreatePublicVirtualInterface where
 instance
   Prelude.Hashable
     CreatePublicVirtualInterface
+  where
+  hashWithSalt _salt CreatePublicVirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` newPublicVirtualInterface'
 
-instance Prelude.NFData CreatePublicVirtualInterface
+instance Prelude.NFData CreatePublicVirtualInterface where
+  rnf CreatePublicVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf newPublicVirtualInterface'
 
 instance Core.ToHeaders CreatePublicVirtualInterface where
   toHeaders =

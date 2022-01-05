@@ -78,6 +78,14 @@ instance Core.FromXML PeeringTgwInfo where
       Prelude.<*> (x Core..@? "transitGatewayId")
       Prelude.<*> (x Core..@? "region")
 
-instance Prelude.Hashable PeeringTgwInfo
+instance Prelude.Hashable PeeringTgwInfo where
+  hashWithSalt _salt PeeringTgwInfo' {..} =
+    _salt `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData PeeringTgwInfo
+instance Prelude.NFData PeeringTgwInfo where
+  rnf PeeringTgwInfo' {..} =
+    Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf region

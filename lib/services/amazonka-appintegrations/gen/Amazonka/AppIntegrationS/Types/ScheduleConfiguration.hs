@@ -82,9 +82,17 @@ instance Core.FromJSON ScheduleConfiguration where
             Prelude.<*> (x Core..:? "FirstExecutionFrom")
       )
 
-instance Prelude.Hashable ScheduleConfiguration
+instance Prelude.Hashable ScheduleConfiguration where
+  hashWithSalt _salt ScheduleConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` object'
+      `Prelude.hashWithSalt` firstExecutionFrom
 
-instance Prelude.NFData ScheduleConfiguration
+instance Prelude.NFData ScheduleConfiguration where
+  rnf ScheduleConfiguration' {..} =
+    Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf object'
+      `Prelude.seq` Prelude.rnf firstExecutionFrom
 
 instance Core.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =

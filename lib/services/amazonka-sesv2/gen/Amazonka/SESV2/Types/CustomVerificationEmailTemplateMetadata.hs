@@ -116,7 +116,23 @@ instance
 instance
   Prelude.Hashable
     CustomVerificationEmailTemplateMetadata
+  where
+  hashWithSalt
+    _salt
+    CustomVerificationEmailTemplateMetadata' {..} =
+      _salt `Prelude.hashWithSalt` fromEmailAddress
+        `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` failureRedirectionURL
+        `Prelude.hashWithSalt` templateSubject
+        `Prelude.hashWithSalt` successRedirectionURL
 
 instance
   Prelude.NFData
     CustomVerificationEmailTemplateMetadata
+  where
+  rnf CustomVerificationEmailTemplateMetadata' {..} =
+    Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf failureRedirectionURL
+      `Prelude.seq` Prelude.rnf templateSubject
+      `Prelude.seq` Prelude.rnf successRedirectionURL

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteACL
+instance Prelude.Hashable DeleteACL where
+  hashWithSalt _salt DeleteACL' {..} =
+    _salt `Prelude.hashWithSalt` aCLName
 
-instance Prelude.NFData DeleteACL
+instance Prelude.NFData DeleteACL where
+  rnf DeleteACL' {..} = Prelude.rnf aCLName
 
 instance Core.ToHeaders DeleteACL where
   toHeaders =
@@ -154,4 +157,7 @@ deleteACLResponse_acl = Lens.lens (\DeleteACLResponse' {acl} -> acl) (\s@DeleteA
 deleteACLResponse_httpStatus :: Lens.Lens' DeleteACLResponse Prelude.Int
 deleteACLResponse_httpStatus = Lens.lens (\DeleteACLResponse' {httpStatus} -> httpStatus) (\s@DeleteACLResponse' {} a -> s {httpStatus = a} :: DeleteACLResponse)
 
-instance Prelude.NFData DeleteACLResponse
+instance Prelude.NFData DeleteACLResponse where
+  rnf DeleteACLResponse' {..} =
+    Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -590,9 +590,64 @@ instance Core.FromJSON CmafGroupSettings where
             Prelude.<*> (x Core..:? "manifestCompression")
       )
 
-instance Prelude.Hashable CmafGroupSettings
+instance Prelude.Hashable CmafGroupSettings where
+  hashWithSalt _salt CmafGroupSettings' {..} =
+    _salt `Prelude.hashWithSalt` fragmentLength
+      `Prelude.hashWithSalt` segmentControl
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` minBufferTime
+      `Prelude.hashWithSalt` mpdProfile
+      `Prelude.hashWithSalt` targetDurationCompatibilityMode
+      `Prelude.hashWithSalt` imageBasedTrickPlay
+      `Prelude.hashWithSalt` writeHlsManifest
+      `Prelude.hashWithSalt` additionalManifests
+      `Prelude.hashWithSalt` segmentLengthControl
+      `Prelude.hashWithSalt` imageBasedTrickPlaySettings
+      `Prelude.hashWithSalt` codecSpecification
+      `Prelude.hashWithSalt` baseUrl
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` minFinalSegmentLength
+      `Prelude.hashWithSalt` writeDashManifest
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentLength
+      `Prelude.hashWithSalt` ptsOffsetHandlingForBFrames
+      `Prelude.hashWithSalt` manifestDurationFormat
+      `Prelude.hashWithSalt` clientCache
+      `Prelude.hashWithSalt` writeSegmentTimelineInRepresentation
+      `Prelude.hashWithSalt` streamInfResolution
+      `Prelude.hashWithSalt` manifestCompression
 
-instance Prelude.NFData CmafGroupSettings
+instance Prelude.NFData CmafGroupSettings where
+  rnf CmafGroupSettings' {..} =
+    Prelude.rnf fragmentLength
+      `Prelude.seq` Prelude.rnf segmentControl
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf minBufferTime
+      `Prelude.seq` Prelude.rnf mpdProfile
+      `Prelude.seq` Prelude.rnf targetDurationCompatibilityMode
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlay
+      `Prelude.seq` Prelude.rnf writeHlsManifest
+      `Prelude.seq` Prelude.rnf additionalManifests
+      `Prelude.seq` Prelude.rnf segmentLengthControl
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlaySettings
+      `Prelude.seq` Prelude.rnf codecSpecification
+      `Prelude.seq` Prelude.rnf baseUrl
+      `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf minFinalSegmentLength
+      `Prelude.seq` Prelude.rnf writeDashManifest
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf segmentLength
+      `Prelude.seq` Prelude.rnf
+        ptsOffsetHandlingForBFrames
+      `Prelude.seq` Prelude.rnf
+        manifestDurationFormat
+      `Prelude.seq` Prelude.rnf clientCache
+      `Prelude.seq` Prelude.rnf
+        writeSegmentTimelineInRepresentation
+      `Prelude.seq` Prelude.rnf
+        streamInfResolution
+      `Prelude.seq` Prelude.rnf
+        manifestCompression
 
 instance Core.ToJSON CmafGroupSettings where
   toJSON CmafGroupSettings' {..} =

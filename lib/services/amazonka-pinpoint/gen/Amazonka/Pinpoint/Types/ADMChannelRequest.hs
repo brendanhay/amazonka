@@ -81,9 +81,17 @@ aDMChannelRequest_clientSecret = Lens.lens (\ADMChannelRequest' {clientSecret} -
 aDMChannelRequest_clientId :: Lens.Lens' ADMChannelRequest Prelude.Text
 aDMChannelRequest_clientId = Lens.lens (\ADMChannelRequest' {clientId} -> clientId) (\s@ADMChannelRequest' {} a -> s {clientId = a} :: ADMChannelRequest)
 
-instance Prelude.Hashable ADMChannelRequest
+instance Prelude.Hashable ADMChannelRequest where
+  hashWithSalt _salt ADMChannelRequest' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData ADMChannelRequest
+instance Prelude.NFData ADMChannelRequest where
+  rnf ADMChannelRequest' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToJSON ADMChannelRequest where
   toJSON ADMChannelRequest' {..} =

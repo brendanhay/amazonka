@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteArchive where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteArchive
+instance Prelude.Hashable DeleteArchive where
+  hashWithSalt _salt DeleteArchive' {..} =
+    _salt `Prelude.hashWithSalt` archiveName
 
-instance Prelude.NFData DeleteArchive
+instance Prelude.NFData DeleteArchive where
+  rnf DeleteArchive' {..} = Prelude.rnf archiveName
 
 instance Core.ToHeaders DeleteArchive where
   toHeaders =
@@ -141,4 +144,6 @@ newDeleteArchiveResponse pHttpStatus_ =
 deleteArchiveResponse_httpStatus :: Lens.Lens' DeleteArchiveResponse Prelude.Int
 deleteArchiveResponse_httpStatus = Lens.lens (\DeleteArchiveResponse' {httpStatus} -> httpStatus) (\s@DeleteArchiveResponse' {} a -> s {httpStatus = a} :: DeleteArchiveResponse)
 
-instance Prelude.NFData DeleteArchiveResponse
+instance Prelude.NFData DeleteArchiveResponse where
+  rnf DeleteArchiveResponse' {..} =
+    Prelude.rnf httpStatus

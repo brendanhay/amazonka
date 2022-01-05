@@ -72,10 +72,21 @@ registerInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\RegisterInstan
 instance
   Prelude.Hashable
     RegisterInstanceTagAttributeRequest
+  where
+  hashWithSalt
+    _salt
+    RegisterInstanceTagAttributeRequest' {..} =
+      _salt
+        `Prelude.hashWithSalt` includeAllTagsOfInstance
+        `Prelude.hashWithSalt` instanceTagKeys
 
 instance
   Prelude.NFData
     RegisterInstanceTagAttributeRequest
+  where
+  rnf RegisterInstanceTagAttributeRequest' {..} =
+    Prelude.rnf includeAllTagsOfInstance
+      `Prelude.seq` Prelude.rnf instanceTagKeys
 
 instance
   Core.ToQuery

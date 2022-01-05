@@ -133,9 +133,15 @@ instance Core.AWSRequest GetPasswordData where
             Prelude.<*> (x Core..@ "timestamp")
       )
 
-instance Prelude.Hashable GetPasswordData
+instance Prelude.Hashable GetPasswordData where
+  hashWithSalt _salt GetPasswordData' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GetPasswordData
+instance Prelude.NFData GetPasswordData where
+  rnf GetPasswordData' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GetPasswordData where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +229,9 @@ getPasswordDataResponse_passwordData = Lens.lens (\GetPasswordDataResponse' {pas
 getPasswordDataResponse_timestamp :: Lens.Lens' GetPasswordDataResponse Prelude.UTCTime
 getPasswordDataResponse_timestamp = Lens.lens (\GetPasswordDataResponse' {timestamp} -> timestamp) (\s@GetPasswordDataResponse' {} a -> s {timestamp = a} :: GetPasswordDataResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetPasswordDataResponse
+instance Prelude.NFData GetPasswordDataResponse where
+  rnf GetPasswordDataResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf passwordData
+      `Prelude.seq` Prelude.rnf timestamp

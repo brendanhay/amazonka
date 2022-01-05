@@ -67,9 +67,13 @@ instance Core.FromJSON FilterOperation where
             Prelude.<$> (x Core..: "ConditionExpression")
       )
 
-instance Prelude.Hashable FilterOperation
+instance Prelude.Hashable FilterOperation where
+  hashWithSalt _salt FilterOperation' {..} =
+    _salt `Prelude.hashWithSalt` conditionExpression
 
-instance Prelude.NFData FilterOperation
+instance Prelude.NFData FilterOperation where
+  rnf FilterOperation' {..} =
+    Prelude.rnf conditionExpression
 
 instance Core.ToJSON FilterOperation where
   toJSON FilterOperation' {..} =

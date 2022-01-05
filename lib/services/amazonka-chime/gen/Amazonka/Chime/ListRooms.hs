@@ -120,9 +120,19 @@ instance Core.AWSRequest ListRooms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRooms
+instance Prelude.Hashable ListRooms where
+  hashWithSalt _salt ListRooms' {..} =
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ListRooms
+instance Prelude.NFData ListRooms where
+  rnf ListRooms' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders ListRooms where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,4 +197,8 @@ listRoomsResponse_nextToken = Lens.lens (\ListRoomsResponse' {nextToken} -> next
 listRoomsResponse_httpStatus :: Lens.Lens' ListRoomsResponse Prelude.Int
 listRoomsResponse_httpStatus = Lens.lens (\ListRoomsResponse' {httpStatus} -> httpStatus) (\s@ListRoomsResponse' {} a -> s {httpStatus = a} :: ListRoomsResponse)
 
-instance Prelude.NFData ListRoomsResponse
+instance Prelude.NFData ListRoomsResponse where
+  rnf ListRoomsResponse' {..} =
+    Prelude.rnf rooms
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

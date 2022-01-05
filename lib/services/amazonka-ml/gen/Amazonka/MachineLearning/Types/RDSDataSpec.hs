@@ -568,9 +568,33 @@ rDSDataSpec_subnetId = Lens.lens (\RDSDataSpec' {subnetId} -> subnetId) (\s@RDSD
 rDSDataSpec_securityGroupIds :: Lens.Lens' RDSDataSpec [Prelude.Text]
 rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> securityGroupIds) (\s@RDSDataSpec' {} a -> s {securityGroupIds = a} :: RDSDataSpec) Prelude.. Lens.coerced
 
-instance Prelude.Hashable RDSDataSpec
+instance Prelude.Hashable RDSDataSpec where
+  hashWithSalt _salt RDSDataSpec' {..} =
+    _salt `Prelude.hashWithSalt` dataSchemaUri
+      `Prelude.hashWithSalt` dataSchema
+      `Prelude.hashWithSalt` dataRearrangement
+      `Prelude.hashWithSalt` databaseInformation
+      `Prelude.hashWithSalt` selectSqlQuery
+      `Prelude.hashWithSalt` databaseCredentials
+      `Prelude.hashWithSalt` s3StagingLocation
+      `Prelude.hashWithSalt` resourceRole
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData RDSDataSpec
+instance Prelude.NFData RDSDataSpec where
+  rnf RDSDataSpec' {..} =
+    Prelude.rnf dataSchemaUri
+      `Prelude.seq` Prelude.rnf dataSchema
+      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf databaseInformation
+      `Prelude.seq` Prelude.rnf selectSqlQuery
+      `Prelude.seq` Prelude.rnf databaseCredentials
+      `Prelude.seq` Prelude.rnf s3StagingLocation
+      `Prelude.seq` Prelude.rnf resourceRole
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Core.ToJSON RDSDataSpec where
   toJSON RDSDataSpec' {..} =

@@ -433,6 +433,60 @@ instance Core.FromJSON Server where
             Prelude.<*> (x Core..:? "BackupRetentionCount")
       )
 
-instance Prelude.Hashable Server
+instance Prelude.Hashable Server where
+  hashWithSalt _salt Server' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` disableAutomatedBackup
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceProfileArn
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` associatePublicIpAddress
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` serverArn
+      `Prelude.hashWithSalt` customDomain
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` maintenanceStatus
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` engineModel
+      `Prelude.hashWithSalt` engineAttributes
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` cloudFormationStackArn
+      `Prelude.hashWithSalt` backupRetentionCount
 
-instance Prelude.NFData Server
+instance Prelude.NFData Server where
+  rnf Server' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf disableAutomatedBackup
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceProfileArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serverArn
+      `Prelude.seq` Prelude.rnf customDomain
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf maintenanceStatus
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf engineModel
+      `Prelude.seq` Prelude.rnf engineAttributes
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf
+        cloudFormationStackArn
+      `Prelude.seq` Prelude.rnf
+        backupRetentionCount

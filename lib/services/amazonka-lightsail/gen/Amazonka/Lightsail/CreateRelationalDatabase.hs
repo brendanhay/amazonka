@@ -682,9 +682,33 @@ instance Core.AWSRequest CreateRelationalDatabase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRelationalDatabase
+instance Prelude.Hashable CreateRelationalDatabase where
+  hashWithSalt _salt CreateRelationalDatabase' {..} =
+    _salt `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` relationalDatabaseName
+      `Prelude.hashWithSalt` relationalDatabaseBlueprintId
+      `Prelude.hashWithSalt` relationalDatabaseBundleId
+      `Prelude.hashWithSalt` masterDatabaseName
+      `Prelude.hashWithSalt` masterUsername
 
-instance Prelude.NFData CreateRelationalDatabase
+instance Prelude.NFData CreateRelationalDatabase where
+  rnf CreateRelationalDatabase' {..} =
+    Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf relationalDatabaseBlueprintId
+      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId
+      `Prelude.seq` Prelude.rnf masterDatabaseName
+      `Prelude.seq` Prelude.rnf masterUsername
 
 instance Core.ToHeaders CreateRelationalDatabase where
   toHeaders =
@@ -789,3 +813,7 @@ createRelationalDatabaseResponse_httpStatus = Lens.lens (\CreateRelationalDataba
 instance
   Prelude.NFData
     CreateRelationalDatabaseResponse
+  where
+  rnf CreateRelationalDatabaseResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

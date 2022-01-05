@@ -256,9 +256,43 @@ instance Core.FromJSON UIColorPalette where
             Prelude.<*> (x Core..:? "WarningForeground")
       )
 
-instance Prelude.Hashable UIColorPalette
+instance Prelude.Hashable UIColorPalette where
+  hashWithSalt _salt UIColorPalette' {..} =
+    _salt `Prelude.hashWithSalt` secondaryBackground
+      `Prelude.hashWithSalt` successForeground
+      `Prelude.hashWithSalt` dimension
+      `Prelude.hashWithSalt` dimensionForeground
+      `Prelude.hashWithSalt` success
+      `Prelude.hashWithSalt` accent
+      `Prelude.hashWithSalt` secondaryForeground
+      `Prelude.hashWithSalt` primaryForeground
+      `Prelude.hashWithSalt` warning
+      `Prelude.hashWithSalt` primaryBackground
+      `Prelude.hashWithSalt` accentForeground
+      `Prelude.hashWithSalt` measure
+      `Prelude.hashWithSalt` dangerForeground
+      `Prelude.hashWithSalt` measureForeground
+      `Prelude.hashWithSalt` danger
+      `Prelude.hashWithSalt` warningForeground
 
-instance Prelude.NFData UIColorPalette
+instance Prelude.NFData UIColorPalette where
+  rnf UIColorPalette' {..} =
+    Prelude.rnf secondaryBackground
+      `Prelude.seq` Prelude.rnf successForeground
+      `Prelude.seq` Prelude.rnf dimension
+      `Prelude.seq` Prelude.rnf dimensionForeground
+      `Prelude.seq` Prelude.rnf success
+      `Prelude.seq` Prelude.rnf accent
+      `Prelude.seq` Prelude.rnf secondaryForeground
+      `Prelude.seq` Prelude.rnf primaryForeground
+      `Prelude.seq` Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf primaryBackground
+      `Prelude.seq` Prelude.rnf accentForeground
+      `Prelude.seq` Prelude.rnf measure
+      `Prelude.seq` Prelude.rnf dangerForeground
+      `Prelude.seq` Prelude.rnf measureForeground
+      `Prelude.seq` Prelude.rnf danger
+      `Prelude.seq` Prelude.rnf warningForeground
 
 instance Core.ToJSON UIColorPalette where
   toJSON UIColorPalette' {..} =

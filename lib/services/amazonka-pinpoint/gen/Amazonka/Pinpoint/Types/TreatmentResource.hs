@@ -161,6 +161,27 @@ instance Core.FromJSON TreatmentResource where
             Prelude.<*> (x Core..: "SizePercent")
       )
 
-instance Prelude.Hashable TreatmentResource
+instance Prelude.Hashable TreatmentResource where
+  hashWithSalt _salt TreatmentResource' {..} =
+    _salt
+      `Prelude.hashWithSalt` customDeliveryConfiguration
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` treatmentName
+      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` messageConfiguration
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` sizePercent
 
-instance Prelude.NFData TreatmentResource
+instance Prelude.NFData TreatmentResource where
+  rnf TreatmentResource' {..} =
+    Prelude.rnf customDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf treatmentName
+      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf messageConfiguration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf sizePercent

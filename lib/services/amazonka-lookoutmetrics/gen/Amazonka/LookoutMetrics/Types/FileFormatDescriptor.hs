@@ -80,9 +80,15 @@ instance Core.FromJSON FileFormatDescriptor where
             Prelude.<*> (x Core..:? "CsvFormatDescriptor")
       )
 
-instance Prelude.Hashable FileFormatDescriptor
+instance Prelude.Hashable FileFormatDescriptor where
+  hashWithSalt _salt FileFormatDescriptor' {..} =
+    _salt `Prelude.hashWithSalt` jsonFormatDescriptor
+      `Prelude.hashWithSalt` csvFormatDescriptor
 
-instance Prelude.NFData FileFormatDescriptor
+instance Prelude.NFData FileFormatDescriptor where
+  rnf FileFormatDescriptor' {..} =
+    Prelude.rnf jsonFormatDescriptor
+      `Prelude.seq` Prelude.rnf csvFormatDescriptor
 
 instance Core.ToJSON FileFormatDescriptor where
   toJSON FileFormatDescriptor' {..} =

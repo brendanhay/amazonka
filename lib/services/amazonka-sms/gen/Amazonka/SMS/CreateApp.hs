@@ -145,9 +145,23 @@ instance Core.AWSRequest CreateApp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApp
+instance Prelude.Hashable CreateApp where
+  hashWithSalt _salt CreateApp' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverGroups
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateApp
+instance Prelude.NFData CreateApp where
+  rnf CreateApp' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverGroups
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateApp where
   toHeaders =
@@ -239,4 +253,9 @@ createAppResponse_tags = Lens.lens (\CreateAppResponse' {tags} -> tags) (\s@Crea
 createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Prelude.Int
 createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> httpStatus) (\s@CreateAppResponse' {} a -> s {httpStatus = a} :: CreateAppResponse)
 
-instance Prelude.NFData CreateAppResponse
+instance Prelude.NFData CreateAppResponse where
+  rnf CreateAppResponse' {..} =
+    Prelude.rnf appSummary
+      `Prelude.seq` Prelude.rnf serverGroups
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

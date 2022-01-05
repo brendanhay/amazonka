@@ -130,9 +130,15 @@ instance Core.AWSRequest PutStorageConfiguration where
             Prelude.<*> (x Core..:> "configurationStatus")
       )
 
-instance Prelude.Hashable PutStorageConfiguration
+instance Prelude.Hashable PutStorageConfiguration where
+  hashWithSalt _salt PutStorageConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` multiLayerStorage
+      `Prelude.hashWithSalt` storageType
 
-instance Prelude.NFData PutStorageConfiguration
+instance Prelude.NFData PutStorageConfiguration where
+  rnf PutStorageConfiguration' {..} =
+    Prelude.rnf multiLayerStorage
+      `Prelude.seq` Prelude.rnf storageType
 
 instance Core.ToHeaders PutStorageConfiguration where
   toHeaders =
@@ -253,3 +259,9 @@ putStorageConfigurationResponse_configurationStatus = Lens.lens (\PutStorageConf
 instance
   Prelude.NFData
     PutStorageConfigurationResponse
+  where
+  rnf PutStorageConfigurationResponse' {..} =
+    Prelude.rnf multiLayerStorage
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf configurationStatus

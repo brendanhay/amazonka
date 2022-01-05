@@ -81,6 +81,14 @@ instance Core.FromJSON UnprocessedCluster where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable UnprocessedCluster
+instance Prelude.Hashable UnprocessedCluster where
+  hashWithSalt _salt UnprocessedCluster' {..} =
+    _salt `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` errorType
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData UnprocessedCluster
+instance Prelude.NFData UnprocessedCluster where
+  rnf UnprocessedCluster' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf errorType
+      `Prelude.seq` Prelude.rnf errorMessage

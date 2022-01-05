@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSource
+instance Prelude.Hashable UpdateDataSource where
+  hashWithSalt _salt UpdateDataSource' {..} =
+    _salt `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` dataSourceName
 
-instance Prelude.NFData UpdateDataSource
+instance Prelude.NFData UpdateDataSource where
+  rnf UpdateDataSource' {..} =
+    Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf dataSourceName
 
 instance Core.ToHeaders UpdateDataSource where
   toHeaders =
@@ -188,4 +194,7 @@ updateDataSourceResponse_dataSourceId = Lens.lens (\UpdateDataSourceResponse' {d
 updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
 updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSourceResponse' {} a -> s {httpStatus = a} :: UpdateDataSourceResponse)
 
-instance Prelude.NFData UpdateDataSourceResponse
+instance Prelude.NFData UpdateDataSourceResponse where
+  rnf UpdateDataSourceResponse' {..} =
+    Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -167,8 +167,19 @@ instance Core.FromJSON SpotProvisioningSpecification where
 instance
   Prelude.Hashable
     SpotProvisioningSpecification
+  where
+  hashWithSalt _salt SpotProvisioningSpecification' {..} =
+    _salt `Prelude.hashWithSalt` blockDurationMinutes
+      `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` timeoutDurationMinutes
+      `Prelude.hashWithSalt` timeoutAction
 
-instance Prelude.NFData SpotProvisioningSpecification
+instance Prelude.NFData SpotProvisioningSpecification where
+  rnf SpotProvisioningSpecification' {..} =
+    Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf timeoutDurationMinutes
+      `Prelude.seq` Prelude.rnf timeoutAction
 
 instance Core.ToJSON SpotProvisioningSpecification where
   toJSON SpotProvisioningSpecification' {..} =

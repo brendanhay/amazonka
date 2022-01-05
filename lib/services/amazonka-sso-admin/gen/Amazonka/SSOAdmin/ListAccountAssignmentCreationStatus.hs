@@ -169,10 +169,24 @@ instance
 instance
   Prelude.Hashable
     ListAccountAssignmentCreationStatus
+  where
+  hashWithSalt
+    _salt
+    ListAccountAssignmentCreationStatus' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     ListAccountAssignmentCreationStatus
+  where
+  rnf ListAccountAssignmentCreationStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceArn
 
 instance
   Core.ToHeaders
@@ -273,3 +287,8 @@ listAccountAssignmentCreationStatusResponse_httpStatus = Lens.lens (\ListAccount
 instance
   Prelude.NFData
     ListAccountAssignmentCreationStatusResponse
+  where
+  rnf ListAccountAssignmentCreationStatusResponse' {..} =
+    Prelude.rnf accountAssignmentsCreationStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

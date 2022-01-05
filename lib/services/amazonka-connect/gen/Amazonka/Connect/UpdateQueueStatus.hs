@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateQueueStatus where
   response =
     Response.receiveNull UpdateQueueStatusResponse'
 
-instance Prelude.Hashable UpdateQueueStatus
+instance Prelude.Hashable UpdateQueueStatus where
+  hashWithSalt _salt UpdateQueueStatus' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateQueueStatus
+instance Prelude.NFData UpdateQueueStatus where
+  rnf UpdateQueueStatus' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateQueueStatus where
   toHeaders =
@@ -159,4 +167,5 @@ newUpdateQueueStatusResponse ::
 newUpdateQueueStatusResponse =
   UpdateQueueStatusResponse'
 
-instance Prelude.NFData UpdateQueueStatusResponse
+instance Prelude.NFData UpdateQueueStatusResponse where
+  rnf _ = ()

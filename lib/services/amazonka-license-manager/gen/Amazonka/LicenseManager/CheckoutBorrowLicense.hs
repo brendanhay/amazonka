@@ -176,9 +176,23 @@ instance Core.AWSRequest CheckoutBorrowLicense where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CheckoutBorrowLicense
+instance Prelude.Hashable CheckoutBorrowLicense where
+  hashWithSalt _salt CheckoutBorrowLicense' {..} =
+    _salt `Prelude.hashWithSalt` checkoutMetadata
+      `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` digitalSignatureMethod
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CheckoutBorrowLicense
+instance Prelude.NFData CheckoutBorrowLicense where
+  rnf CheckoutBorrowLicense' {..} =
+    Prelude.rnf checkoutMetadata
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf digitalSignatureMethod
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CheckoutBorrowLicense where
   toHeaders =
@@ -320,4 +334,14 @@ checkoutBorrowLicenseResponse_licenseArn = Lens.lens (\CheckoutBorrowLicenseResp
 checkoutBorrowLicenseResponse_httpStatus :: Lens.Lens' CheckoutBorrowLicenseResponse Prelude.Int
 checkoutBorrowLicenseResponse_httpStatus = Lens.lens (\CheckoutBorrowLicenseResponse' {httpStatus} -> httpStatus) (\s@CheckoutBorrowLicenseResponse' {} a -> s {httpStatus = a} :: CheckoutBorrowLicenseResponse)
 
-instance Prelude.NFData CheckoutBorrowLicenseResponse
+instance Prelude.NFData CheckoutBorrowLicenseResponse where
+  rnf CheckoutBorrowLicenseResponse' {..} =
+    Prelude.rnf entitlementsAllowed
+      `Prelude.seq` Prelude.rnf checkoutMetadata
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf signedToken
+      `Prelude.seq` Prelude.rnf licenseConsumptionToken
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf httpStatus

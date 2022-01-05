@@ -81,6 +81,14 @@ instance Core.FromXML LoadBalancerDescription where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable LoadBalancerDescription
+instance Prelude.Hashable LoadBalancerDescription where
+  hashWithSalt _salt LoadBalancerDescription' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` listeners
 
-instance Prelude.NFData LoadBalancerDescription
+instance Prelude.NFData LoadBalancerDescription where
+  rnf LoadBalancerDescription' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf listeners

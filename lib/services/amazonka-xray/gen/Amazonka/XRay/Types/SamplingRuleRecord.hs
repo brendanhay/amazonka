@@ -84,6 +84,14 @@ instance Core.FromJSON SamplingRuleRecord where
             Prelude.<*> (x Core..:? "CreatedAt")
       )
 
-instance Prelude.Hashable SamplingRuleRecord
+instance Prelude.Hashable SamplingRuleRecord where
+  hashWithSalt _salt SamplingRuleRecord' {..} =
+    _salt `Prelude.hashWithSalt` modifiedAt
+      `Prelude.hashWithSalt` samplingRule
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData SamplingRuleRecord
+instance Prelude.NFData SamplingRuleRecord where
+  rnf SamplingRuleRecord' {..} =
+    Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf samplingRule
+      `Prelude.seq` Prelude.rnf createdAt

@@ -135,9 +135,19 @@ instance Core.FromJSON SegmentGroup where
             Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SegmentGroup
+instance Prelude.Hashable SegmentGroup where
+  hashWithSalt _salt SegmentGroup' {..} =
+    _salt `Prelude.hashWithSalt` sourceSegments
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData SegmentGroup
+instance Prelude.NFData SegmentGroup where
+  rnf SegmentGroup' {..} =
+    Prelude.rnf sourceSegments
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToJSON SegmentGroup where
   toJSON SegmentGroup' {..} =

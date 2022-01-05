@@ -103,9 +103,15 @@ instance Core.AWSRequest GetAttachment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttachment
+instance Prelude.Hashable GetAttachment where
+  hashWithSalt _salt GetAttachment' {..} =
+    _salt `Prelude.hashWithSalt` attachmentId
+      `Prelude.hashWithSalt` connectionToken
 
-instance Prelude.NFData GetAttachment
+instance Prelude.NFData GetAttachment where
+  rnf GetAttachment' {..} =
+    Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf connectionToken
 
 instance Core.ToHeaders GetAttachment where
   toHeaders GetAttachment' {..} =
@@ -184,4 +190,8 @@ getAttachmentResponse_url = Lens.lens (\GetAttachmentResponse' {url} -> url) (\s
 getAttachmentResponse_httpStatus :: Lens.Lens' GetAttachmentResponse Prelude.Int
 getAttachmentResponse_httpStatus = Lens.lens (\GetAttachmentResponse' {httpStatus} -> httpStatus) (\s@GetAttachmentResponse' {} a -> s {httpStatus = a} :: GetAttachmentResponse)
 
-instance Prelude.NFData GetAttachmentResponse
+instance Prelude.NFData GetAttachmentResponse where
+  rnf GetAttachmentResponse' {..} =
+    Prelude.rnf urlExpiry
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf httpStatus

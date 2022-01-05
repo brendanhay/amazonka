@@ -95,6 +95,14 @@ instance Core.FromJSON ComputeResponse where
             Prelude.<*> (x Core..:? "computeType")
       )
 
-instance Prelude.Hashable ComputeResponse
+instance Prelude.Hashable ComputeResponse where
+  hashWithSalt _salt ComputeResponse' {..} =
+    _salt `Prelude.hashWithSalt` simulationUnitLimit
+      `Prelude.hashWithSalt` gpuUnitLimit
+      `Prelude.hashWithSalt` computeType
 
-instance Prelude.NFData ComputeResponse
+instance Prelude.NFData ComputeResponse where
+  rnf ComputeResponse' {..} =
+    Prelude.rnf simulationUnitLimit
+      `Prelude.seq` Prelude.rnf gpuUnitLimit
+      `Prelude.seq` Prelude.rnf computeType

@@ -181,10 +181,24 @@ instance
 instance
   Prelude.Hashable
     ListProvisioningArtifactsForServiceAction
+  where
+  hashWithSalt
+    _salt
+    ListProvisioningArtifactsForServiceAction' {..} =
+      _salt `Prelude.hashWithSalt` acceptLanguage
+        `Prelude.hashWithSalt` pageToken
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` serviceActionId
 
 instance
   Prelude.NFData
     ListProvisioningArtifactsForServiceAction
+  where
+  rnf ListProvisioningArtifactsForServiceAction' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf serviceActionId
 
 instance
   Core.ToHeaders
@@ -292,3 +306,9 @@ listProvisioningArtifactsForServiceActionResponse_httpStatus = Lens.lens (\ListP
 instance
   Prelude.NFData
     ListProvisioningArtifactsForServiceActionResponse
+  where
+  rnf
+    ListProvisioningArtifactsForServiceActionResponse' {..} =
+      Prelude.rnf nextPageToken
+        `Prelude.seq` Prelude.rnf provisioningArtifactViews
+        `Prelude.seq` Prelude.rnf httpStatus

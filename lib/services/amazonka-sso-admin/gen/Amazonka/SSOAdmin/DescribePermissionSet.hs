@@ -111,9 +111,15 @@ instance Core.AWSRequest DescribePermissionSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePermissionSet
+instance Prelude.Hashable DescribePermissionSet where
+  hashWithSalt _salt DescribePermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` permissionSetArn
 
-instance Prelude.NFData DescribePermissionSet
+instance Prelude.NFData DescribePermissionSet where
+  rnf DescribePermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance Core.ToHeaders DescribePermissionSet where
   toHeaders =
@@ -185,4 +191,7 @@ describePermissionSetResponse_permissionSet = Lens.lens (\DescribePermissionSetR
 describePermissionSetResponse_httpStatus :: Lens.Lens' DescribePermissionSetResponse Prelude.Int
 describePermissionSetResponse_httpStatus = Lens.lens (\DescribePermissionSetResponse' {httpStatus} -> httpStatus) (\s@DescribePermissionSetResponse' {} a -> s {httpStatus = a} :: DescribePermissionSetResponse)
 
-instance Prelude.NFData DescribePermissionSetResponse
+instance Prelude.NFData DescribePermissionSetResponse where
+  rnf DescribePermissionSetResponse' {..} =
+    Prelude.rnf permissionSet
+      `Prelude.seq` Prelude.rnf httpStatus

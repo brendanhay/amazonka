@@ -90,9 +90,15 @@ instance Core.FromJSON ExtendedDataServices where
             Prelude.<*> (x Core..:? "copyProtectionAction")
       )
 
-instance Prelude.Hashable ExtendedDataServices
+instance Prelude.Hashable ExtendedDataServices where
+  hashWithSalt _salt ExtendedDataServices' {..} =
+    _salt `Prelude.hashWithSalt` vchipAction
+      `Prelude.hashWithSalt` copyProtectionAction
 
-instance Prelude.NFData ExtendedDataServices
+instance Prelude.NFData ExtendedDataServices where
+  rnf ExtendedDataServices' {..} =
+    Prelude.rnf vchipAction
+      `Prelude.seq` Prelude.rnf copyProtectionAction
 
 instance Core.ToJSON ExtendedDataServices where
   toJSON ExtendedDataServices' {..} =

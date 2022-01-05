@@ -100,10 +100,19 @@ instance
 instance
   Prelude.Hashable
     DeleteDirectConnectGatewayAssociationProposal
+  where
+  hashWithSalt
+    _salt
+    DeleteDirectConnectGatewayAssociationProposal' {..} =
+      _salt `Prelude.hashWithSalt` proposalId
 
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayAssociationProposal
+  where
+  rnf
+    DeleteDirectConnectGatewayAssociationProposal' {..} =
+      Prelude.rnf proposalId
 
 instance
   Core.ToHeaders
@@ -190,3 +199,8 @@ deleteDirectConnectGatewayAssociationProposalResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayAssociationProposalResponse
+  where
+  rnf
+    DeleteDirectConnectGatewayAssociationProposalResponse' {..} =
+      Prelude.rnf directConnectGatewayAssociationProposal
+        `Prelude.seq` Prelude.rnf httpStatus

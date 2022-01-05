@@ -85,6 +85,14 @@ instance Core.FromJSON RxNormConcept where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable RxNormConcept
+instance Prelude.Hashable RxNormConcept where
+  hashWithSalt _salt RxNormConcept' {..} =
+    _salt `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RxNormConcept
+instance Prelude.NFData RxNormConcept where
+  rnf RxNormConcept' {..} =
+    Prelude.rnf score
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf description

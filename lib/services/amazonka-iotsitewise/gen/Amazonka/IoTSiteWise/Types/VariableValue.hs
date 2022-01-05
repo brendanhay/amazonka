@@ -100,9 +100,15 @@ instance Core.FromJSON VariableValue where
             Prelude.<*> (x Core..: "propertyId")
       )
 
-instance Prelude.Hashable VariableValue
+instance Prelude.Hashable VariableValue where
+  hashWithSalt _salt VariableValue' {..} =
+    _salt `Prelude.hashWithSalt` hierarchyId
+      `Prelude.hashWithSalt` propertyId
 
-instance Prelude.NFData VariableValue
+instance Prelude.NFData VariableValue where
+  rnf VariableValue' {..} =
+    Prelude.rnf hierarchyId
+      `Prelude.seq` Prelude.rnf propertyId
 
 instance Core.ToJSON VariableValue where
   toJSON VariableValue' {..} =

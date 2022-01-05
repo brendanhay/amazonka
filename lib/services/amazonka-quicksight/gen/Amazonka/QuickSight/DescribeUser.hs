@@ -118,9 +118,17 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUser
+instance Prelude.Hashable DescribeUser where
+  hashWithSalt _salt DescribeUser' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData DescribeUser
+instance Prelude.NFData DescribeUser where
+  rnf DescribeUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DescribeUser where
   toHeaders =
@@ -194,4 +202,8 @@ describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\
 describeUserResponse_status :: Lens.Lens' DescribeUserResponse Prelude.Int
 describeUserResponse_status = Lens.lens (\DescribeUserResponse' {status} -> status) (\s@DescribeUserResponse' {} a -> s {status = a} :: DescribeUserResponse)
 
-instance Prelude.NFData DescribeUserResponse
+instance Prelude.NFData DescribeUserResponse where
+  rnf DescribeUserResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf status

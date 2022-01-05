@@ -78,9 +78,12 @@ instance Core.FromJSON IAMUserIdentity where
           IAMUserIdentity' Prelude.<$> (x Core..: "arn")
       )
 
-instance Prelude.Hashable IAMUserIdentity
+instance Prelude.Hashable IAMUserIdentity where
+  hashWithSalt _salt IAMUserIdentity' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData IAMUserIdentity
+instance Prelude.NFData IAMUserIdentity where
+  rnf IAMUserIdentity' {..} = Prelude.rnf arn
 
 instance Core.ToJSON IAMUserIdentity where
   toJSON IAMUserIdentity' {..} =

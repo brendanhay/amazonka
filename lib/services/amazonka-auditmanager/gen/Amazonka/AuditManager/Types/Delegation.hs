@@ -184,6 +184,30 @@ instance Core.FromJSON Delegation where
             Prelude.<*> (x Core..:? "assessmentName")
       )
 
-instance Prelude.Hashable Delegation
+instance Prelude.Hashable Delegation where
+  hashWithSalt _salt Delegation' {..} =
+    _salt `Prelude.hashWithSalt` roleType
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` assessmentName
 
-instance Prelude.NFData Delegation
+instance Prelude.NFData Delegation where
+  rnf Delegation' {..} =
+    Prelude.rnf roleType
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf controlSetId
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf assessmentName

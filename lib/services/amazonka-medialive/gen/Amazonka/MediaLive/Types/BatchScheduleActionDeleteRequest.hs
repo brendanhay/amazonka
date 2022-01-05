@@ -56,10 +56,18 @@ batchScheduleActionDeleteRequest_actionNames = Lens.lens (\BatchScheduleActionDe
 instance
   Prelude.Hashable
     BatchScheduleActionDeleteRequest
+  where
+  hashWithSalt
+    _salt
+    BatchScheduleActionDeleteRequest' {..} =
+      _salt `Prelude.hashWithSalt` actionNames
 
 instance
   Prelude.NFData
     BatchScheduleActionDeleteRequest
+  where
+  rnf BatchScheduleActionDeleteRequest' {..} =
+    Prelude.rnf actionNames
 
 instance Core.ToJSON BatchScheduleActionDeleteRequest where
   toJSON BatchScheduleActionDeleteRequest' {..} =

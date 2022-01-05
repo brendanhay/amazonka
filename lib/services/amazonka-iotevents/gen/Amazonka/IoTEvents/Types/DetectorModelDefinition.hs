@@ -79,9 +79,15 @@ instance Core.FromJSON DetectorModelDefinition where
             Prelude.<*> (x Core..: "initialStateName")
       )
 
-instance Prelude.Hashable DetectorModelDefinition
+instance Prelude.Hashable DetectorModelDefinition where
+  hashWithSalt _salt DetectorModelDefinition' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` initialStateName
 
-instance Prelude.NFData DetectorModelDefinition
+instance Prelude.NFData DetectorModelDefinition where
+  rnf DetectorModelDefinition' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf initialStateName
 
 instance Core.ToJSON DetectorModelDefinition where
   toJSON DetectorModelDefinition' {..} =

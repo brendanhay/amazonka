@@ -88,9 +88,13 @@ instance Core.AWSRequest StopThingRegistrationTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopThingRegistrationTask
+instance Prelude.Hashable StopThingRegistrationTask where
+  hashWithSalt _salt StopThingRegistrationTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData StopThingRegistrationTask
+instance Prelude.NFData StopThingRegistrationTask where
+  rnf StopThingRegistrationTask' {..} =
+    Prelude.rnf taskId
 
 instance Core.ToHeaders StopThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,3 +146,6 @@ stopThingRegistrationTaskResponse_httpStatus = Lens.lens (\StopThingRegistration
 instance
   Prelude.NFData
     StopThingRegistrationTaskResponse
+  where
+  rnf StopThingRegistrationTaskResponse' {..} =
+    Prelude.rnf httpStatus

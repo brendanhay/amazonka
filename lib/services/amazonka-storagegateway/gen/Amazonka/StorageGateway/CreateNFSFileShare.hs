@@ -614,9 +614,53 @@ instance Core.AWSRequest CreateNFSFileShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNFSFileShare
+instance Prelude.Hashable CreateNFSFileShare where
+  hashWithSalt _salt CreateNFSFileShare' {..} =
+    _salt `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` vPCEndpointDNSName
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` squash
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` nFSFileShareDefaults
+      `Prelude.hashWithSalt` clientList
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` bucketRegion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` locationARN
 
-instance Prelude.NFData CreateNFSFileShare
+instance Prelude.NFData CreateNFSFileShare where
+  rnf CreateNFSFileShare' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf squash
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
+      `Prelude.seq` Prelude.rnf clientList
+      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf bucketRegion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf locationARN
 
 instance Core.ToHeaders CreateNFSFileShare where
   toHeaders =
@@ -715,4 +759,7 @@ createNFSFileShareResponse_fileShareARN = Lens.lens (\CreateNFSFileShareResponse
 createNFSFileShareResponse_httpStatus :: Lens.Lens' CreateNFSFileShareResponse Prelude.Int
 createNFSFileShareResponse_httpStatus = Lens.lens (\CreateNFSFileShareResponse' {httpStatus} -> httpStatus) (\s@CreateNFSFileShareResponse' {} a -> s {httpStatus = a} :: CreateNFSFileShareResponse)
 
-instance Prelude.NFData CreateNFSFileShareResponse
+instance Prelude.NFData CreateNFSFileShareResponse where
+  rnf CreateNFSFileShareResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -217,9 +217,33 @@ instance Core.AWSRequest ListEdgePackagingJobs where
                         )
       )
 
-instance Prelude.Hashable ListEdgePackagingJobs
+instance Prelude.Hashable ListEdgePackagingJobs where
+  hashWithSalt _salt ListEdgePackagingJobs' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` modelNameContains
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListEdgePackagingJobs
+instance Prelude.NFData ListEdgePackagingJobs where
+  rnf ListEdgePackagingJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf modelNameContains
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListEdgePackagingJobs where
   toHeaders =
@@ -313,4 +337,8 @@ listEdgePackagingJobsResponse_httpStatus = Lens.lens (\ListEdgePackagingJobsResp
 listEdgePackagingJobsResponse_edgePackagingJobSummaries :: Lens.Lens' ListEdgePackagingJobsResponse [EdgePackagingJobSummary]
 listEdgePackagingJobsResponse_edgePackagingJobSummaries = Lens.lens (\ListEdgePackagingJobsResponse' {edgePackagingJobSummaries} -> edgePackagingJobSummaries) (\s@ListEdgePackagingJobsResponse' {} a -> s {edgePackagingJobSummaries = a} :: ListEdgePackagingJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListEdgePackagingJobsResponse
+instance Prelude.NFData ListEdgePackagingJobsResponse where
+  rnf ListEdgePackagingJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf edgePackagingJobSummaries

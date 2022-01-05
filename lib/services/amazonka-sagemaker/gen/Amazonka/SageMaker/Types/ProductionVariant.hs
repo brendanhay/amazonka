@@ -167,9 +167,25 @@ instance Core.FromJSON ProductionVariant where
             Prelude.<*> (x Core..: "InstanceType")
       )
 
-instance Prelude.Hashable ProductionVariant
+instance Prelude.Hashable ProductionVariant where
+  hashWithSalt _salt ProductionVariant' {..} =
+    _salt `Prelude.hashWithSalt` acceleratorType
+      `Prelude.hashWithSalt` coreDumpConfig
+      `Prelude.hashWithSalt` initialVariantWeight
+      `Prelude.hashWithSalt` variantName
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` initialInstanceCount
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData ProductionVariant
+instance Prelude.NFData ProductionVariant where
+  rnf ProductionVariant' {..} =
+    Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf coreDumpConfig
+      `Prelude.seq` Prelude.rnf initialVariantWeight
+      `Prelude.seq` Prelude.rnf variantName
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf initialInstanceCount
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON ProductionVariant where
   toJSON ProductionVariant' {..} =

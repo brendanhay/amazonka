@@ -109,9 +109,15 @@ instance Core.AWSRequest GetMailDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMailDomain
+instance Prelude.Hashable GetMailDomain where
+  hashWithSalt _salt GetMailDomain' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetMailDomain
+instance Prelude.NFData GetMailDomain where
+  rnf GetMailDomain' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders GetMailDomain where
   toHeaders =
@@ -234,4 +240,11 @@ getMailDomainResponse_isDefault = Lens.lens (\GetMailDomainResponse' {isDefault}
 getMailDomainResponse_httpStatus :: Lens.Lens' GetMailDomainResponse Prelude.Int
 getMailDomainResponse_httpStatus = Lens.lens (\GetMailDomainResponse' {httpStatus} -> httpStatus) (\s@GetMailDomainResponse' {} a -> s {httpStatus = a} :: GetMailDomainResponse)
 
-instance Prelude.NFData GetMailDomainResponse
+instance Prelude.NFData GetMailDomainResponse where
+  rnf GetMailDomainResponse' {..} =
+    Prelude.rnf isTestDomain
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf ownershipVerificationStatus
+      `Prelude.seq` Prelude.rnf dkimVerificationStatus
+      `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf httpStatus

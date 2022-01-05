@@ -78,6 +78,12 @@ instance Core.FromJSON NetworkFabricAttributes where
             Prelude.<*> (x Core..:? "OrderingServiceEndpoint")
       )
 
-instance Prelude.Hashable NetworkFabricAttributes
+instance Prelude.Hashable NetworkFabricAttributes where
+  hashWithSalt _salt NetworkFabricAttributes' {..} =
+    _salt `Prelude.hashWithSalt` edition
+      `Prelude.hashWithSalt` orderingServiceEndpoint
 
-instance Prelude.NFData NetworkFabricAttributes
+instance Prelude.NFData NetworkFabricAttributes where
+  rnf NetworkFabricAttributes' {..} =
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf orderingServiceEndpoint

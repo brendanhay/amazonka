@@ -96,9 +96,15 @@ instance Core.AWSRequest ListLenses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLenses
+instance Prelude.Hashable ListLenses where
+  hashWithSalt _salt ListLenses' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListLenses
+instance Prelude.NFData ListLenses where
+  rnf ListLenses' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLenses where
   toHeaders =
@@ -168,4 +174,8 @@ listLensesResponse_lensSummaries = Lens.lens (\ListLensesResponse' {lensSummarie
 listLensesResponse_httpStatus :: Lens.Lens' ListLensesResponse Prelude.Int
 listLensesResponse_httpStatus = Lens.lens (\ListLensesResponse' {httpStatus} -> httpStatus) (\s@ListLensesResponse' {} a -> s {httpStatus = a} :: ListLensesResponse)
 
-instance Prelude.NFData ListLensesResponse
+instance Prelude.NFData ListLensesResponse where
+  rnf ListLensesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

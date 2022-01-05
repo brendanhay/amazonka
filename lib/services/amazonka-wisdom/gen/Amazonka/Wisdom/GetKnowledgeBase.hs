@@ -92,9 +92,13 @@ instance Core.AWSRequest GetKnowledgeBase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKnowledgeBase
+instance Prelude.Hashable GetKnowledgeBase where
+  hashWithSalt _salt GetKnowledgeBase' {..} =
+    _salt `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData GetKnowledgeBase
+instance Prelude.NFData GetKnowledgeBase where
+  rnf GetKnowledgeBase' {..} =
+    Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders GetKnowledgeBase where
   toHeaders =
@@ -154,4 +158,7 @@ getKnowledgeBaseResponse_knowledgeBase = Lens.lens (\GetKnowledgeBaseResponse' {
 getKnowledgeBaseResponse_httpStatus :: Lens.Lens' GetKnowledgeBaseResponse Prelude.Int
 getKnowledgeBaseResponse_httpStatus = Lens.lens (\GetKnowledgeBaseResponse' {httpStatus} -> httpStatus) (\s@GetKnowledgeBaseResponse' {} a -> s {httpStatus = a} :: GetKnowledgeBaseResponse)
 
-instance Prelude.NFData GetKnowledgeBaseResponse
+instance Prelude.NFData GetKnowledgeBaseResponse where
+  rnf GetKnowledgeBaseResponse' {..} =
+    Prelude.rnf knowledgeBase
+      `Prelude.seq` Prelude.rnf httpStatus

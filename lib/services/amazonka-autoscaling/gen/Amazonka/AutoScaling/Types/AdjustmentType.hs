@@ -58,6 +58,9 @@ instance Core.FromXML AdjustmentType where
     AdjustmentType'
       Prelude.<$> (x Core..@? "AdjustmentType")
 
-instance Prelude.Hashable AdjustmentType
+instance Prelude.Hashable AdjustmentType where
+  hashWithSalt _salt AdjustmentType' {..} =
+    _salt `Prelude.hashWithSalt` adjustmentType
 
-instance Prelude.NFData AdjustmentType
+instance Prelude.NFData AdjustmentType where
+  rnf AdjustmentType' {..} = Prelude.rnf adjustmentType

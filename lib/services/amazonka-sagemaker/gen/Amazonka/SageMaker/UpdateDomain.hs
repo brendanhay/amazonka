@@ -97,9 +97,15 @@ instance Core.AWSRequest UpdateDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDomain
+instance Prelude.Hashable UpdateDomain where
+  hashWithSalt _salt UpdateDomain' {..} =
+    _salt `Prelude.hashWithSalt` defaultUserSettings
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData UpdateDomain
+instance Prelude.NFData UpdateDomain where
+  rnf UpdateDomain' {..} =
+    Prelude.rnf defaultUserSettings
+      `Prelude.seq` Prelude.rnf domainId
 
 instance Core.ToHeaders UpdateDomain where
   toHeaders =
@@ -168,4 +174,7 @@ updateDomainResponse_domainArn = Lens.lens (\UpdateDomainResponse' {domainArn} -
 updateDomainResponse_httpStatus :: Lens.Lens' UpdateDomainResponse Prelude.Int
 updateDomainResponse_httpStatus = Lens.lens (\UpdateDomainResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainResponse' {} a -> s {httpStatus = a} :: UpdateDomainResponse)
 
-instance Prelude.NFData UpdateDomainResponse
+instance Prelude.NFData UpdateDomainResponse where
+  rnf UpdateDomainResponse' {..} =
+    Prelude.rnf domainArn
+      `Prelude.seq` Prelude.rnf httpStatus

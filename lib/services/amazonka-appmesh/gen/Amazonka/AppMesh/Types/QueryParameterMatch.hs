@@ -59,9 +59,12 @@ instance Core.FromJSON QueryParameterMatch where
             Prelude.<$> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable QueryParameterMatch
+instance Prelude.Hashable QueryParameterMatch where
+  hashWithSalt _salt QueryParameterMatch' {..} =
+    _salt `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData QueryParameterMatch
+instance Prelude.NFData QueryParameterMatch where
+  rnf QueryParameterMatch' {..} = Prelude.rnf exact
 
 instance Core.ToJSON QueryParameterMatch where
   toJSON QueryParameterMatch' {..} =

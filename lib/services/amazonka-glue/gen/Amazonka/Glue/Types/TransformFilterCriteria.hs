@@ -167,9 +167,29 @@ transformFilterCriteria_name = Lens.lens (\TransformFilterCriteria' {name} -> na
 transformFilterCriteria_createdBefore :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
 transformFilterCriteria_createdBefore = Lens.lens (\TransformFilterCriteria' {createdBefore} -> createdBefore) (\s@TransformFilterCriteria' {} a -> s {createdBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable TransformFilterCriteria
+instance Prelude.Hashable TransformFilterCriteria where
+  hashWithSalt _salt TransformFilterCriteria' {..} =
+    _salt `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedAfter
+      `Prelude.hashWithSalt` lastModifiedBefore
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` transformType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdBefore
 
-instance Prelude.NFData TransformFilterCriteria
+instance Prelude.NFData TransformFilterCriteria where
+  rnf TransformFilterCriteria' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedAfter
+      `Prelude.seq` Prelude.rnf lastModifiedBefore
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf transformType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdBefore
 
 instance Core.ToJSON TransformFilterCriteria where
   toJSON TransformFilterCriteria' {..} =

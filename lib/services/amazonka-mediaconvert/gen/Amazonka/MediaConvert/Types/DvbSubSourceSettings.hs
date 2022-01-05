@@ -64,9 +64,12 @@ instance Core.FromJSON DvbSubSourceSettings where
           DvbSubSourceSettings' Prelude.<$> (x Core..:? "pid")
       )
 
-instance Prelude.Hashable DvbSubSourceSettings
+instance Prelude.Hashable DvbSubSourceSettings where
+  hashWithSalt _salt DvbSubSourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` pid
 
-instance Prelude.NFData DvbSubSourceSettings
+instance Prelude.NFData DvbSubSourceSettings where
+  rnf DvbSubSourceSettings' {..} = Prelude.rnf pid
 
 instance Core.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =

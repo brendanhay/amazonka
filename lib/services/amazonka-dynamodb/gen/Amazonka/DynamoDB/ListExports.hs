@@ -114,9 +114,17 @@ instance Core.AWSRequest ListExports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListExports
+instance Prelude.Hashable ListExports where
+  hashWithSalt _salt ListExports' {..} =
+    _salt `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListExports
+instance Prelude.NFData ListExports where
+  rnf ListExports' {..} =
+    Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListExports where
   toHeaders =
@@ -203,4 +211,8 @@ listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> 
 listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int
 listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -> httpStatus) (\s@ListExportsResponse' {} a -> s {httpStatus = a} :: ListExportsResponse)
 
-instance Prelude.NFData ListExportsResponse
+instance Prelude.NFData ListExportsResponse where
+  rnf ListExportsResponse' {..} =
+    Prelude.rnf exportSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -83,6 +83,14 @@ instance Core.FromJSON FailedCreateAssociation where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable FailedCreateAssociation
+instance Prelude.Hashable FailedCreateAssociation where
+  hashWithSalt _salt FailedCreateAssociation' {..} =
+    _salt `Prelude.hashWithSalt` entry
+      `Prelude.hashWithSalt` fault
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData FailedCreateAssociation
+instance Prelude.NFData FailedCreateAssociation where
+  rnf FailedCreateAssociation' {..} =
+    Prelude.rnf entry
+      `Prelude.seq` Prelude.rnf fault
+      `Prelude.seq` Prelude.rnf message

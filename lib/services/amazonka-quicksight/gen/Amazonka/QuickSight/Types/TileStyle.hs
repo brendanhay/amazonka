@@ -56,9 +56,12 @@ instance Core.FromJSON TileStyle where
       "TileStyle"
       (\x -> TileStyle' Prelude.<$> (x Core..:? "Border"))
 
-instance Prelude.Hashable TileStyle
+instance Prelude.Hashable TileStyle where
+  hashWithSalt _salt TileStyle' {..} =
+    _salt `Prelude.hashWithSalt` border
 
-instance Prelude.NFData TileStyle
+instance Prelude.NFData TileStyle where
+  rnf TileStyle' {..} = Prelude.rnf border
 
 instance Core.ToJSON TileStyle where
   toJSON TileStyle' {..} =

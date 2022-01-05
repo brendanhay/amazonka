@@ -96,9 +96,12 @@ instance Core.AWSRequest CreateWorkspaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkspaces
+instance Prelude.Hashable CreateWorkspaces where
+  hashWithSalt _salt CreateWorkspaces' {..} =
+    _salt `Prelude.hashWithSalt` workspaces
 
-instance Prelude.NFData CreateWorkspaces
+instance Prelude.NFData CreateWorkspaces where
+  rnf CreateWorkspaces' {..} = Prelude.rnf workspaces
 
 instance Core.ToHeaders CreateWorkspaces where
   toHeaders =
@@ -191,4 +194,8 @@ createWorkspacesResponse_pendingRequests = Lens.lens (\CreateWorkspacesResponse'
 createWorkspacesResponse_httpStatus :: Lens.Lens' CreateWorkspacesResponse Prelude.Int
 createWorkspacesResponse_httpStatus = Lens.lens (\CreateWorkspacesResponse' {httpStatus} -> httpStatus) (\s@CreateWorkspacesResponse' {} a -> s {httpStatus = a} :: CreateWorkspacesResponse)
 
-instance Prelude.NFData CreateWorkspacesResponse
+instance Prelude.NFData CreateWorkspacesResponse where
+  rnf CreateWorkspacesResponse' {..} =
+    Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf pendingRequests
+      `Prelude.seq` Prelude.rnf httpStatus

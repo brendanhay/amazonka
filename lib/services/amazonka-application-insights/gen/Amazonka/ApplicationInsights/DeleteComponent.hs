@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteComponent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteComponent
+instance Prelude.Hashable DeleteComponent where
+  hashWithSalt _salt DeleteComponent' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` componentName
 
-instance Prelude.NFData DeleteComponent
+instance Prelude.NFData DeleteComponent where
+  rnf DeleteComponent' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf componentName
 
 instance Core.ToHeaders DeleteComponent where
   toHeaders =
@@ -166,4 +172,6 @@ newDeleteComponentResponse pHttpStatus_ =
 deleteComponentResponse_httpStatus :: Lens.Lens' DeleteComponentResponse Prelude.Int
 deleteComponentResponse_httpStatus = Lens.lens (\DeleteComponentResponse' {httpStatus} -> httpStatus) (\s@DeleteComponentResponse' {} a -> s {httpStatus = a} :: DeleteComponentResponse)
 
-instance Prelude.NFData DeleteComponentResponse
+instance Prelude.NFData DeleteComponentResponse where
+  rnf DeleteComponentResponse' {..} =
+    Prelude.rnf httpStatus

@@ -300,9 +300,21 @@ instance Core.AWSRequest ImportKeyMaterial where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportKeyMaterial
+instance Prelude.Hashable ImportKeyMaterial where
+  hashWithSalt _salt ImportKeyMaterial' {..} =
+    _salt `Prelude.hashWithSalt` expirationModel
+      `Prelude.hashWithSalt` validTo
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` importToken
+      `Prelude.hashWithSalt` encryptedKeyMaterial
 
-instance Prelude.NFData ImportKeyMaterial
+instance Prelude.NFData ImportKeyMaterial where
+  rnf ImportKeyMaterial' {..} =
+    Prelude.rnf expirationModel
+      `Prelude.seq` Prelude.rnf validTo
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf importToken
+      `Prelude.seq` Prelude.rnf encryptedKeyMaterial
 
 instance Core.ToHeaders ImportKeyMaterial where
   toHeaders =
@@ -371,4 +383,6 @@ newImportKeyMaterialResponse pHttpStatus_ =
 importKeyMaterialResponse_httpStatus :: Lens.Lens' ImportKeyMaterialResponse Prelude.Int
 importKeyMaterialResponse_httpStatus = Lens.lens (\ImportKeyMaterialResponse' {httpStatus} -> httpStatus) (\s@ImportKeyMaterialResponse' {} a -> s {httpStatus = a} :: ImportKeyMaterialResponse)
 
-instance Prelude.NFData ImportKeyMaterialResponse
+instance Prelude.NFData ImportKeyMaterialResponse where
+  rnf ImportKeyMaterialResponse' {..} =
+    Prelude.rnf httpStatus

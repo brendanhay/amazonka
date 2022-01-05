@@ -75,10 +75,19 @@ instance Core.FromJSON CategoricalHyperParameterRange where
 instance
   Prelude.Hashable
     CategoricalHyperParameterRange
+  where
+  hashWithSalt
+    _salt
+    CategoricalHyperParameterRange' {..} =
+      _salt `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     CategoricalHyperParameterRange
+  where
+  rnf CategoricalHyperParameterRange' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CategoricalHyperParameterRange where
   toJSON CategoricalHyperParameterRange' {..} =

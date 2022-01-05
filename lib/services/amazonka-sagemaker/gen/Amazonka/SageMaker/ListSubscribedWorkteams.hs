@@ -145,9 +145,17 @@ instance Core.AWSRequest ListSubscribedWorkteams where
                         )
       )
 
-instance Prelude.Hashable ListSubscribedWorkteams
+instance Prelude.Hashable ListSubscribedWorkteams where
+  hashWithSalt _salt ListSubscribedWorkteams' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSubscribedWorkteams
+instance Prelude.NFData ListSubscribedWorkteams where
+  rnf ListSubscribedWorkteams' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSubscribedWorkteams where
   toHeaders =
@@ -234,3 +242,8 @@ listSubscribedWorkteamsResponse_subscribedWorkteams = Lens.lens (\ListSubscribed
 instance
   Prelude.NFData
     ListSubscribedWorkteamsResponse
+  where
+  rnf ListSubscribedWorkteamsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscribedWorkteams

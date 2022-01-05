@@ -123,6 +123,22 @@ instance Core.FromXML HostOffering where
       Prelude.<*> (x Core..@? "duration")
       Prelude.<*> (x Core..@? "paymentOption")
 
-instance Prelude.Hashable HostOffering
+instance Prelude.Hashable HostOffering where
+  hashWithSalt _salt HostOffering' {..} =
+    _salt `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` hourlyPrice
+      `Prelude.hashWithSalt` upfrontPrice
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` paymentOption
 
-instance Prelude.NFData HostOffering
+instance Prelude.NFData HostOffering where
+  rnf HostOffering' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf upfrontPrice
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf paymentOption

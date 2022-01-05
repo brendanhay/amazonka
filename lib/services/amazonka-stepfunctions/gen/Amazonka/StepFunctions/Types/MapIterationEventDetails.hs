@@ -70,6 +70,11 @@ instance Core.FromJSON MapIterationEventDetails where
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "index")
       )
 
-instance Prelude.Hashable MapIterationEventDetails
+instance Prelude.Hashable MapIterationEventDetails where
+  hashWithSalt _salt MapIterationEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` index
 
-instance Prelude.NFData MapIterationEventDetails
+instance Prelude.NFData MapIterationEventDetails where
+  rnf MapIterationEventDetails' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf index

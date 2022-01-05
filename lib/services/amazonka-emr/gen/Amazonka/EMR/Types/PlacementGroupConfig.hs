@@ -99,9 +99,15 @@ instance Core.FromJSON PlacementGroupConfig where
             Prelude.<*> (x Core..: "InstanceRole")
       )
 
-instance Prelude.Hashable PlacementGroupConfig
+instance Prelude.Hashable PlacementGroupConfig where
+  hashWithSalt _salt PlacementGroupConfig' {..} =
+    _salt `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` instanceRole
 
-instance Prelude.NFData PlacementGroupConfig
+instance Prelude.NFData PlacementGroupConfig where
+  rnf PlacementGroupConfig' {..} =
+    Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf instanceRole
 
 instance Core.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =

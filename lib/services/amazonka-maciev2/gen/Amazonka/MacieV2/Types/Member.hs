@@ -167,6 +167,26 @@ instance Core.FromJSON Member where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Member
+instance Prelude.Hashable Member where
+  hashWithSalt _salt Member' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` administratorAccountId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` relationshipStatus
+      `Prelude.hashWithSalt` masterAccountId
+      `Prelude.hashWithSalt` invitedAt
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Member
+instance Prelude.NFData Member where
+  rnf Member' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf administratorAccountId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf relationshipStatus
+      `Prelude.seq` Prelude.rnf masterAccountId
+      `Prelude.seq` Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf tags

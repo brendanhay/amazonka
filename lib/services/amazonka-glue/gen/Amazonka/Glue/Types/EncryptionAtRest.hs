@@ -74,9 +74,15 @@ instance Core.FromJSON EncryptionAtRest where
             Prelude.<*> (x Core..: "CatalogEncryptionMode")
       )
 
-instance Prelude.Hashable EncryptionAtRest
+instance Prelude.Hashable EncryptionAtRest where
+  hashWithSalt _salt EncryptionAtRest' {..} =
+    _salt `Prelude.hashWithSalt` sseAwsKmsKeyId
+      `Prelude.hashWithSalt` catalogEncryptionMode
 
-instance Prelude.NFData EncryptionAtRest
+instance Prelude.NFData EncryptionAtRest where
+  rnf EncryptionAtRest' {..} =
+    Prelude.rnf sseAwsKmsKeyId
+      `Prelude.seq` Prelude.rnf catalogEncryptionMode
 
 instance Core.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =

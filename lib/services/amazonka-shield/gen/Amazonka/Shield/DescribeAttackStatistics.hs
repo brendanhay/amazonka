@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeAttackStatistics where
             Prelude.<*> (x Core..?> "DataItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeAttackStatistics
+instance Prelude.Hashable DescribeAttackStatistics where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeAttackStatistics
+instance Prelude.NFData DescribeAttackStatistics where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeAttackStatistics where
   toHeaders =
@@ -168,3 +171,8 @@ describeAttackStatisticsResponse_dataItems = Lens.lens (\DescribeAttackStatistic
 instance
   Prelude.NFData
     DescribeAttackStatisticsResponse
+  where
+  rnf DescribeAttackStatisticsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf timeRange
+      `Prelude.seq` Prelude.rnf dataItems

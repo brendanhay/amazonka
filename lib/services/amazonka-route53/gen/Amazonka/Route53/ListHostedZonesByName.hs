@@ -237,9 +237,17 @@ instance Core.AWSRequest ListHostedZonesByName where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListHostedZonesByName
+instance Prelude.Hashable ListHostedZonesByName where
+  hashWithSalt _salt ListHostedZonesByName' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` dNSName
 
-instance Prelude.NFData ListHostedZonesByName
+instance Prelude.NFData ListHostedZonesByName where
+  rnf ListHostedZonesByName' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf dNSName
 
 instance Core.ToHeaders ListHostedZonesByName where
   toHeaders = Prelude.const Prelude.mempty
@@ -418,4 +426,13 @@ listHostedZonesByNameResponse_isTruncated = Lens.lens (\ListHostedZonesByNameRes
 listHostedZonesByNameResponse_maxItems :: Lens.Lens' ListHostedZonesByNameResponse Prelude.Text
 listHostedZonesByNameResponse_maxItems = Lens.lens (\ListHostedZonesByNameResponse' {maxItems} -> maxItems) (\s@ListHostedZonesByNameResponse' {} a -> s {maxItems = a} :: ListHostedZonesByNameResponse)
 
-instance Prelude.NFData ListHostedZonesByNameResponse
+instance Prelude.NFData ListHostedZonesByNameResponse where
+  rnf ListHostedZonesByNameResponse' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf nextHostedZoneId
+      `Prelude.seq` Prelude.rnf dNSName
+      `Prelude.seq` Prelude.rnf nextDNSName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZones
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxItems

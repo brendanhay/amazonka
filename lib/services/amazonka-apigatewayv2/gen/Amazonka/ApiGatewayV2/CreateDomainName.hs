@@ -131,9 +131,20 @@ instance Core.AWSRequest CreateDomainName where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomainName
+instance Prelude.Hashable CreateDomainName where
+  hashWithSalt _salt CreateDomainName' {..} =
+    _salt
+      `Prelude.hashWithSalt` domainNameConfigurations
+      `Prelude.hashWithSalt` mutualTlsAuthentication
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CreateDomainName
+instance Prelude.NFData CreateDomainName where
+  rnf CreateDomainName' {..} =
+    Prelude.rnf domainNameConfigurations
+      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CreateDomainName where
   toHeaders =
@@ -240,4 +251,11 @@ createDomainNameResponse_tags = Lens.lens (\CreateDomainNameResponse' {tags} -> 
 createDomainNameResponse_httpStatus :: Lens.Lens' CreateDomainNameResponse Prelude.Int
 createDomainNameResponse_httpStatus = Lens.lens (\CreateDomainNameResponse' {httpStatus} -> httpStatus) (\s@CreateDomainNameResponse' {} a -> s {httpStatus = a} :: CreateDomainNameResponse)
 
-instance Prelude.NFData CreateDomainNameResponse
+instance Prelude.NFData CreateDomainNameResponse where
+  rnf CreateDomainNameResponse' {..} =
+    Prelude.rnf domainNameConfigurations
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf apiMappingSelectionExpression
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

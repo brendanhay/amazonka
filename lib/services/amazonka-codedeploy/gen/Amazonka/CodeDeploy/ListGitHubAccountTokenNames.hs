@@ -118,9 +118,13 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGitHubAccountTokenNames
+instance Prelude.Hashable ListGitHubAccountTokenNames where
+  hashWithSalt _salt ListGitHubAccountTokenNames' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListGitHubAccountTokenNames
+instance Prelude.NFData ListGitHubAccountTokenNames where
+  rnf ListGitHubAccountTokenNames' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListGitHubAccountTokenNames where
   toHeaders =
@@ -209,3 +213,8 @@ listGitHubAccountTokenNamesResponse_httpStatus = Lens.lens (\ListGitHubAccountTo
 instance
   Prelude.NFData
     ListGitHubAccountTokenNamesResponse
+  where
+  rnf ListGitHubAccountTokenNamesResponse' {..} =
+    Prelude.rnf tokenNameList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

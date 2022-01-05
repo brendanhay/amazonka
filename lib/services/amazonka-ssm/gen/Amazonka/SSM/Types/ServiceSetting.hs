@@ -161,6 +161,20 @@ instance Core.FromJSON ServiceSetting where
             Prelude.<*> (x Core..:? "SettingValue")
       )
 
-instance Prelude.Hashable ServiceSetting
+instance Prelude.Hashable ServiceSetting where
+  hashWithSalt _salt ServiceSetting' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` settingId
+      `Prelude.hashWithSalt` lastModifiedUser
+      `Prelude.hashWithSalt` settingValue
 
-instance Prelude.NFData ServiceSetting
+instance Prelude.NFData ServiceSetting where
+  rnf ServiceSetting' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf settingId
+      `Prelude.seq` Prelude.rnf lastModifiedUser
+      `Prelude.seq` Prelude.rnf settingValue

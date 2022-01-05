@@ -130,9 +130,12 @@ instance Core.AWSRequest DescribeEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpoint
+instance Prelude.Hashable DescribeEndpoint where
+  hashWithSalt _salt DescribeEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` endpointType
 
-instance Prelude.NFData DescribeEndpoint
+instance Prelude.NFData DescribeEndpoint where
+  rnf DescribeEndpoint' {..} = Prelude.rnf endpointType
 
 instance Core.ToHeaders DescribeEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,4 +192,7 @@ describeEndpointResponse_endpointAddress = Lens.lens (\DescribeEndpointResponse'
 describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Prelude.Int
 describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointResponse' {} a -> s {httpStatus = a} :: DescribeEndpointResponse)
 
-instance Prelude.NFData DescribeEndpointResponse
+instance Prelude.NFData DescribeEndpointResponse where
+  rnf DescribeEndpointResponse' {..} =
+    Prelude.rnf endpointAddress
+      `Prelude.seq` Prelude.rnf httpStatus

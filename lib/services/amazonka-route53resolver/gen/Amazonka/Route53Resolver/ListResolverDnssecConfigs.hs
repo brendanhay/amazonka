@@ -169,9 +169,17 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResolverDnssecConfigs
+instance Prelude.Hashable ListResolverDnssecConfigs where
+  hashWithSalt _salt ListResolverDnssecConfigs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListResolverDnssecConfigs
+instance Prelude.NFData ListResolverDnssecConfigs where
+  rnf ListResolverDnssecConfigs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResolverDnssecConfigs where
   toHeaders =
@@ -288,3 +296,8 @@ listResolverDnssecConfigsResponse_httpStatus = Lens.lens (\ListResolverDnssecCon
 instance
   Prelude.NFData
     ListResolverDnssecConfigsResponse
+  where
+  rnf ListResolverDnssecConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resolverDnssecConfigs
+      `Prelude.seq` Prelude.rnf httpStatus

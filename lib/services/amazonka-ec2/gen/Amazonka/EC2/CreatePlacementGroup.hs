@@ -160,9 +160,21 @@ instance Core.AWSRequest CreatePlacementGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlacementGroup
+instance Prelude.Hashable CreatePlacementGroup where
+  hashWithSalt _salt CreatePlacementGroup' {..} =
+    _salt `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` partitionCount
 
-instance Prelude.NFData CreatePlacementGroup
+instance Prelude.NFData CreatePlacementGroup where
+  rnf CreatePlacementGroup' {..} =
+    Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf partitionCount
 
 instance Core.ToHeaders CreatePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,4 +237,7 @@ createPlacementGroupResponse_placementGroup = Lens.lens (\CreatePlacementGroupRe
 createPlacementGroupResponse_httpStatus :: Lens.Lens' CreatePlacementGroupResponse Prelude.Int
 createPlacementGroupResponse_httpStatus = Lens.lens (\CreatePlacementGroupResponse' {httpStatus} -> httpStatus) (\s@CreatePlacementGroupResponse' {} a -> s {httpStatus = a} :: CreatePlacementGroupResponse)
 
-instance Prelude.NFData CreatePlacementGroupResponse
+instance Prelude.NFData CreatePlacementGroupResponse where
+  rnf CreatePlacementGroupResponse' {..} =
+    Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf httpStatus

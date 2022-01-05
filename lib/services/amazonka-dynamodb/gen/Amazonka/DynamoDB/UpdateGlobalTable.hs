@@ -118,9 +118,15 @@ instance Core.AWSRequest UpdateGlobalTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGlobalTable
+instance Prelude.Hashable UpdateGlobalTable where
+  hashWithSalt _salt UpdateGlobalTable' {..} =
+    _salt `Prelude.hashWithSalt` globalTableName
+      `Prelude.hashWithSalt` replicaUpdates
 
-instance Prelude.NFData UpdateGlobalTable
+instance Prelude.NFData UpdateGlobalTable where
+  rnf UpdateGlobalTable' {..} =
+    Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf replicaUpdates
 
 instance Core.ToHeaders UpdateGlobalTable where
   toHeaders =
@@ -193,4 +199,7 @@ updateGlobalTableResponse_globalTableDescription = Lens.lens (\UpdateGlobalTable
 updateGlobalTableResponse_httpStatus :: Lens.Lens' UpdateGlobalTableResponse Prelude.Int
 updateGlobalTableResponse_httpStatus = Lens.lens (\UpdateGlobalTableResponse' {httpStatus} -> httpStatus) (\s@UpdateGlobalTableResponse' {} a -> s {httpStatus = a} :: UpdateGlobalTableResponse)
 
-instance Prelude.NFData UpdateGlobalTableResponse
+instance Prelude.NFData UpdateGlobalTableResponse where
+  rnf UpdateGlobalTableResponse' {..} =
+    Prelude.rnf globalTableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

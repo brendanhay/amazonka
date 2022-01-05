@@ -238,7 +238,45 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallInternetTrafficNotInspectedViolation
+  where
+  hashWithSalt
+    _salt
+    NetworkFirewallInternetTrafficNotInspectedViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` actualInternetGatewayRoutes
+        `Prelude.hashWithSalt` routeTableId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` violatingRoutes
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` expectedFirewallSubnetRoutes
+        `Prelude.hashWithSalt` subnetAvailabilityZone
+        `Prelude.hashWithSalt` expectedInternetGatewayRoutes
+        `Prelude.hashWithSalt` currentInternetGatewayRouteTable
+        `Prelude.hashWithSalt` firewallSubnetId
+        `Prelude.hashWithSalt` currentFirewallSubnetRouteTable
+        `Prelude.hashWithSalt` expectedFirewallEndpoint
+        `Prelude.hashWithSalt` isRouteTableUsedInDifferentAZ
+        `Prelude.hashWithSalt` internetGatewayId
+        `Prelude.hashWithSalt` actualFirewallSubnetRoutes
 
 instance
   Prelude.NFData
     NetworkFirewallInternetTrafficNotInspectedViolation
+  where
+  rnf
+    NetworkFirewallInternetTrafficNotInspectedViolation' {..} =
+      Prelude.rnf actualInternetGatewayRoutes
+        `Prelude.seq` Prelude.rnf routeTableId
+        `Prelude.seq` Prelude.rnf vpcId
+        `Prelude.seq` Prelude.rnf violatingRoutes
+        `Prelude.seq` Prelude.rnf subnetId
+        `Prelude.seq` Prelude.rnf expectedFirewallSubnetRoutes
+        `Prelude.seq` Prelude.rnf subnetAvailabilityZone
+        `Prelude.seq` Prelude.rnf expectedInternetGatewayRoutes
+        `Prelude.seq` Prelude.rnf currentInternetGatewayRouteTable
+        `Prelude.seq` Prelude.rnf firewallSubnetId
+        `Prelude.seq` Prelude.rnf currentFirewallSubnetRouteTable
+        `Prelude.seq` Prelude.rnf expectedFirewallEndpoint
+        `Prelude.seq` Prelude.rnf isRouteTableUsedInDifferentAZ
+        `Prelude.seq` Prelude.rnf internetGatewayId
+        `Prelude.seq` Prelude.rnf actualFirewallSubnetRoutes

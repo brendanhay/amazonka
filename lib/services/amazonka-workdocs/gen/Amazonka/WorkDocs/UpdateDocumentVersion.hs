@@ -119,9 +119,19 @@ instance Core.AWSRequest UpdateDocumentVersion where
   response =
     Response.receiveNull UpdateDocumentVersionResponse'
 
-instance Prelude.Hashable UpdateDocumentVersion
+instance Prelude.Hashable UpdateDocumentVersion where
+  hashWithSalt _salt UpdateDocumentVersion' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` versionStatus
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData UpdateDocumentVersion
+instance Prelude.NFData UpdateDocumentVersion where
+  rnf UpdateDocumentVersion' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf versionStatus
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders UpdateDocumentVersion where
   toHeaders UpdateDocumentVersion' {..} =
@@ -167,4 +177,5 @@ newUpdateDocumentVersionResponse ::
 newUpdateDocumentVersionResponse =
   UpdateDocumentVersionResponse'
 
-instance Prelude.NFData UpdateDocumentVersionResponse
+instance Prelude.NFData UpdateDocumentVersionResponse where
+  rnf _ = ()

@@ -190,9 +190,19 @@ instance Core.AWSRequest ListPrefetchSchedules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPrefetchSchedules
+instance Prelude.Hashable ListPrefetchSchedules where
+  hashWithSalt _salt ListPrefetchSchedules' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` playbackConfigurationName
 
-instance Prelude.NFData ListPrefetchSchedules
+instance Prelude.NFData ListPrefetchSchedules where
+  rnf ListPrefetchSchedules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance Core.ToHeaders ListPrefetchSchedules where
   toHeaders =
@@ -279,4 +289,8 @@ listPrefetchSchedulesResponse_nextToken = Lens.lens (\ListPrefetchSchedulesRespo
 listPrefetchSchedulesResponse_httpStatus :: Lens.Lens' ListPrefetchSchedulesResponse Prelude.Int
 listPrefetchSchedulesResponse_httpStatus = Lens.lens (\ListPrefetchSchedulesResponse' {httpStatus} -> httpStatus) (\s@ListPrefetchSchedulesResponse' {} a -> s {httpStatus = a} :: ListPrefetchSchedulesResponse)
 
-instance Prelude.NFData ListPrefetchSchedulesResponse
+instance Prelude.NFData ListPrefetchSchedulesResponse where
+  rnf ListPrefetchSchedulesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

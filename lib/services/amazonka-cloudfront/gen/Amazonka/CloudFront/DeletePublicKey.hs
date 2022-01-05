@@ -92,9 +92,14 @@ instance Core.AWSRequest DeletePublicKey where
   response =
     Response.receiveNull DeletePublicKeyResponse'
 
-instance Prelude.Hashable DeletePublicKey
+instance Prelude.Hashable DeletePublicKey where
+  hashWithSalt _salt DeletePublicKey' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeletePublicKey
+instance Prelude.NFData DeletePublicKey where
+  rnf DeletePublicKey' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeletePublicKey where
   toHeaders DeletePublicKey' {..} =
@@ -122,4 +127,5 @@ newDeletePublicKeyResponse ::
   DeletePublicKeyResponse
 newDeletePublicKeyResponse = DeletePublicKeyResponse'
 
-instance Prelude.NFData DeletePublicKeyResponse
+instance Prelude.NFData DeletePublicKeyResponse where
+  rnf _ = ()

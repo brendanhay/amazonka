@@ -106,9 +106,15 @@ instance Core.AWSRequest ListPackageImportJobs where
                         )
       )
 
-instance Prelude.Hashable ListPackageImportJobs
+instance Prelude.Hashable ListPackageImportJobs where
+  hashWithSalt _salt ListPackageImportJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPackageImportJobs
+instance Prelude.NFData ListPackageImportJobs where
+  rnf ListPackageImportJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPackageImportJobs where
   toHeaders =
@@ -179,4 +185,8 @@ listPackageImportJobsResponse_httpStatus = Lens.lens (\ListPackageImportJobsResp
 listPackageImportJobsResponse_packageImportJobs :: Lens.Lens' ListPackageImportJobsResponse [PackageImportJob]
 listPackageImportJobsResponse_packageImportJobs = Lens.lens (\ListPackageImportJobsResponse' {packageImportJobs} -> packageImportJobs) (\s@ListPackageImportJobsResponse' {} a -> s {packageImportJobs = a} :: ListPackageImportJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPackageImportJobsResponse
+instance Prelude.NFData ListPackageImportJobsResponse where
+  rnf ListPackageImportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf packageImportJobs

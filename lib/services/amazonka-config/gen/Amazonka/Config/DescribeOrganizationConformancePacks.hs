@@ -161,10 +161,22 @@ instance
 instance
   Prelude.Hashable
     DescribeOrganizationConformancePacks
+  where
+  hashWithSalt
+    _salt
+    DescribeOrganizationConformancePacks' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` organizationConformancePackNames
 
 instance
   Prelude.NFData
     DescribeOrganizationConformancePacks
+  where
+  rnf DescribeOrganizationConformancePacks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf organizationConformancePackNames
 
 instance
   Core.ToHeaders
@@ -265,3 +277,8 @@ describeOrganizationConformancePacksResponse_httpStatus = Lens.lens (\DescribeOr
 instance
   Prelude.NFData
     DescribeOrganizationConformancePacksResponse
+  where
+  rnf DescribeOrganizationConformancePacksResponse' {..} =
+    Prelude.rnf organizationConformancePacks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -156,9 +156,19 @@ instance Core.AWSRequest ListCertificatesByCA where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCertificatesByCA
+instance Prelude.Hashable ListCertificatesByCA where
+  hashWithSalt _salt ListCertificatesByCA' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` caCertificateId
 
-instance Prelude.NFData ListCertificatesByCA
+instance Prelude.NFData ListCertificatesByCA where
+  rnf ListCertificatesByCA' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf caCertificateId
 
 instance Core.ToHeaders ListCertificatesByCA where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,4 +239,8 @@ listCertificatesByCAResponse_nextMarker = Lens.lens (\ListCertificatesByCARespon
 listCertificatesByCAResponse_httpStatus :: Lens.Lens' ListCertificatesByCAResponse Prelude.Int
 listCertificatesByCAResponse_httpStatus = Lens.lens (\ListCertificatesByCAResponse' {httpStatus} -> httpStatus) (\s@ListCertificatesByCAResponse' {} a -> s {httpStatus = a} :: ListCertificatesByCAResponse)
 
-instance Prelude.NFData ListCertificatesByCAResponse
+instance Prelude.NFData ListCertificatesByCAResponse where
+  rnf ListCertificatesByCAResponse' {..} =
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,9 +94,12 @@ instance Core.AWSRequest ListVolumeInitiators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVolumeInitiators
+instance Prelude.Hashable ListVolumeInitiators where
+  hashWithSalt _salt ListVolumeInitiators' {..} =
+    _salt `Prelude.hashWithSalt` volumeARN
 
-instance Prelude.NFData ListVolumeInitiators
+instance Prelude.NFData ListVolumeInitiators where
+  rnf ListVolumeInitiators' {..} = Prelude.rnf volumeARN
 
 instance Core.ToHeaders ListVolumeInitiators where
   toHeaders =
@@ -170,4 +173,7 @@ listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsRespon
 listVolumeInitiatorsResponse_httpStatus :: Lens.Lens' ListVolumeInitiatorsResponse Prelude.Int
 listVolumeInitiatorsResponse_httpStatus = Lens.lens (\ListVolumeInitiatorsResponse' {httpStatus} -> httpStatus) (\s@ListVolumeInitiatorsResponse' {} a -> s {httpStatus = a} :: ListVolumeInitiatorsResponse)
 
-instance Prelude.NFData ListVolumeInitiatorsResponse
+instance Prelude.NFData ListVolumeInitiatorsResponse where
+  rnf ListVolumeInitiatorsResponse' {..} =
+    Prelude.rnf initiators
+      `Prelude.seq` Prelude.rnf httpStatus

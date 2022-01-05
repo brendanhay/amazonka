@@ -98,9 +98,14 @@ instance Core.AWSRequest GetJobBookmark where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobBookmark
+instance Prelude.Hashable GetJobBookmark where
+  hashWithSalt _salt GetJobBookmark' {..} =
+    _salt `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData GetJobBookmark
+instance Prelude.NFData GetJobBookmark where
+  rnf GetJobBookmark' {..} =
+    Prelude.rnf runId `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders GetJobBookmark where
   toHeaders =
@@ -169,4 +174,7 @@ getJobBookmarkResponse_jobBookmarkEntry = Lens.lens (\GetJobBookmarkResponse' {j
 getJobBookmarkResponse_httpStatus :: Lens.Lens' GetJobBookmarkResponse Prelude.Int
 getJobBookmarkResponse_httpStatus = Lens.lens (\GetJobBookmarkResponse' {httpStatus} -> httpStatus) (\s@GetJobBookmarkResponse' {} a -> s {httpStatus = a} :: GetJobBookmarkResponse)
 
-instance Prelude.NFData GetJobBookmarkResponse
+instance Prelude.NFData GetJobBookmarkResponse where
+  rnf GetJobBookmarkResponse' {..} =
+    Prelude.rnf jobBookmarkEntry
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -102,9 +102,21 @@ inAppTemplateRequest_customConfig = Lens.lens (\InAppTemplateRequest' {customCon
 inAppTemplateRequest_tags :: Lens.Lens' InAppTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 inAppTemplateRequest_tags = Lens.lens (\InAppTemplateRequest' {tags} -> tags) (\s@InAppTemplateRequest' {} a -> s {tags = a} :: InAppTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable InAppTemplateRequest
+instance Prelude.Hashable InAppTemplateRequest where
+  hashWithSalt _salt InAppTemplateRequest' {..} =
+    _salt `Prelude.hashWithSalt` layout
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` customConfig
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData InAppTemplateRequest
+instance Prelude.NFData InAppTemplateRequest where
+  rnf InAppTemplateRequest' {..} =
+    Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf customConfig
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON InAppTemplateRequest where
   toJSON InAppTemplateRequest' {..} =

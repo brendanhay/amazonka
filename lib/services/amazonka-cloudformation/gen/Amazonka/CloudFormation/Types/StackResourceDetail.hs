@@ -220,6 +220,32 @@ instance Core.FromXML StackResourceDetail where
       Prelude.<*> (x Core..@ "LastUpdatedTimestamp")
       Prelude.<*> (x Core..@ "ResourceStatus")
 
-instance Prelude.Hashable StackResourceDetail
+instance Prelude.Hashable StackResourceDetail where
+  hashWithSalt _salt StackResourceDetail' {..} =
+    _salt `Prelude.hashWithSalt` physicalResourceId
+      `Prelude.hashWithSalt` resourceStatusReason
+      `Prelude.hashWithSalt` driftInformation
+      `Prelude.hashWithSalt` moduleInfo
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` logicalResourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` resourceStatus
 
-instance Prelude.NFData StackResourceDetail
+instance Prelude.NFData StackResourceDetail where
+  rnf StackResourceDetail' {..} =
+    Prelude.rnf physicalResourceId
+      `Prelude.seq` Prelude.rnf resourceStatusReason
+      `Prelude.seq` Prelude.rnf driftInformation
+      `Prelude.seq` Prelude.rnf moduleInfo
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf resourceStatus

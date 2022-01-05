@@ -55,6 +55,9 @@ instance Core.FromXML MemoryInfo where
   parseXML x =
     MemoryInfo' Prelude.<$> (x Core..@? "sizeInMiB")
 
-instance Prelude.Hashable MemoryInfo
+instance Prelude.Hashable MemoryInfo where
+  hashWithSalt _salt MemoryInfo' {..} =
+    _salt `Prelude.hashWithSalt` sizeInMiB
 
-instance Prelude.NFData MemoryInfo
+instance Prelude.NFData MemoryInfo where
+  rnf MemoryInfo' {..} = Prelude.rnf sizeInMiB

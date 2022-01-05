@@ -139,10 +139,20 @@ instance
 instance
   Prelude.Hashable
     ConfigureLogsForPlaybackConfiguration
+  where
+  hashWithSalt
+    _salt
+    ConfigureLogsForPlaybackConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` percentEnabled
+        `Prelude.hashWithSalt` playbackConfigurationName
 
 instance
   Prelude.NFData
     ConfigureLogsForPlaybackConfiguration
+  where
+  rnf ConfigureLogsForPlaybackConfiguration' {..} =
+    Prelude.rnf percentEnabled
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance
   Core.ToHeaders
@@ -244,3 +254,9 @@ configureLogsForPlaybackConfigurationResponse_httpStatus = Lens.lens (\Configure
 instance
   Prelude.NFData
     ConfigureLogsForPlaybackConfigurationResponse
+  where
+  rnf
+    ConfigureLogsForPlaybackConfigurationResponse' {..} =
+      Prelude.rnf playbackConfigurationName
+        `Prelude.seq` Prelude.rnf percentEnabled
+        `Prelude.seq` Prelude.rnf httpStatus

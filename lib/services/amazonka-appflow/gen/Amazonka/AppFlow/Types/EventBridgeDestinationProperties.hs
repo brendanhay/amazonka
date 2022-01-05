@@ -81,10 +81,20 @@ instance
 instance
   Prelude.Hashable
     EventBridgeDestinationProperties
+  where
+  hashWithSalt
+    _salt
+    EventBridgeDestinationProperties' {..} =
+      _salt `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` object'
 
 instance
   Prelude.NFData
     EventBridgeDestinationProperties
+  where
+  rnf EventBridgeDestinationProperties' {..} =
+    Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON EventBridgeDestinationProperties where
   toJSON EventBridgeDestinationProperties' {..} =

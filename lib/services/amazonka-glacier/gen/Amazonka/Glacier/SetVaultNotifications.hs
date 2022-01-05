@@ -154,9 +154,18 @@ instance Core.AWSRequest SetVaultNotifications where
   response =
     Response.receiveNull SetVaultNotificationsResponse'
 
-instance Prelude.Hashable SetVaultNotifications
+instance Prelude.Hashable SetVaultNotifications where
+  hashWithSalt _salt SetVaultNotifications' {..} =
+    _salt
+      `Prelude.hashWithSalt` vaultNotificationConfig
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData SetVaultNotifications
+instance Prelude.NFData SetVaultNotifications where
+  rnf SetVaultNotifications' {..} =
+    Prelude.rnf vaultNotificationConfig
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders SetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,4 +207,5 @@ newSetVaultNotificationsResponse ::
 newSetVaultNotificationsResponse =
   SetVaultNotificationsResponse'
 
-instance Prelude.NFData SetVaultNotificationsResponse
+instance Prelude.NFData SetVaultNotificationsResponse where
+  rnf _ = ()

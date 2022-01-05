@@ -96,9 +96,13 @@ instance Core.AWSRequest GetRecommenderConfiguration where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetRecommenderConfiguration
+instance Prelude.Hashable GetRecommenderConfiguration where
+  hashWithSalt _salt GetRecommenderConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` recommenderId
 
-instance Prelude.NFData GetRecommenderConfiguration
+instance Prelude.NFData GetRecommenderConfiguration where
+  rnf GetRecommenderConfiguration' {..} =
+    Prelude.rnf recommenderId
 
 instance Core.ToHeaders GetRecommenderConfiguration where
   toHeaders =
@@ -165,3 +169,7 @@ getRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.lens
 instance
   Prelude.NFData
     GetRecommenderConfigurationResponse
+  where
+  rnf GetRecommenderConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse

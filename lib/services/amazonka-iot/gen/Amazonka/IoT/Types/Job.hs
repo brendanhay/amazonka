@@ -308,6 +308,46 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "timeoutConfig")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` jobProcessDetails
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` reasonCode
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` forceCanceled
+      `Prelude.hashWithSalt` jobTemplateArn
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` targetSelection
+      `Prelude.hashWithSalt` timeoutConfig
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf jobProcessDetails
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf reasonCode
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf forceCanceled
+      `Prelude.seq` Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targetSelection
+      `Prelude.seq` Prelude.rnf timeoutConfig

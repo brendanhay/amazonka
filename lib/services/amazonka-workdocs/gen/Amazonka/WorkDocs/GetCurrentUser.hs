@@ -97,9 +97,13 @@ instance Core.AWSRequest GetCurrentUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCurrentUser
+instance Prelude.Hashable GetCurrentUser where
+  hashWithSalt _salt GetCurrentUser' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData GetCurrentUser
+instance Prelude.NFData GetCurrentUser where
+  rnf GetCurrentUser' {..} =
+    Prelude.rnf authenticationToken
 
 instance Core.ToHeaders GetCurrentUser where
   toHeaders GetCurrentUser' {..} =
@@ -153,4 +157,7 @@ getCurrentUserResponse_user = Lens.lens (\GetCurrentUserResponse' {user} -> user
 getCurrentUserResponse_httpStatus :: Lens.Lens' GetCurrentUserResponse Prelude.Int
 getCurrentUserResponse_httpStatus = Lens.lens (\GetCurrentUserResponse' {httpStatus} -> httpStatus) (\s@GetCurrentUserResponse' {} a -> s {httpStatus = a} :: GetCurrentUserResponse)
 
-instance Prelude.NFData GetCurrentUserResponse
+instance Prelude.NFData GetCurrentUserResponse where
+  rnf GetCurrentUserResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

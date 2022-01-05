@@ -89,6 +89,14 @@ instance Core.FromJSON DocumentationVersion where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable DocumentationVersion
+instance Prelude.Hashable DocumentationVersion where
+  hashWithSalt _salt DocumentationVersion' {..} =
+    _salt `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DocumentationVersion
+instance Prelude.NFData DocumentationVersion where
+  rnf DocumentationVersion' {..} =
+    Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf description

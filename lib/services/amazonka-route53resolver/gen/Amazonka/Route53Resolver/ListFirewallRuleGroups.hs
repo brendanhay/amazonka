@@ -165,9 +165,15 @@ instance Core.AWSRequest ListFirewallRuleGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFirewallRuleGroups
+instance Prelude.Hashable ListFirewallRuleGroups where
+  hashWithSalt _salt ListFirewallRuleGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListFirewallRuleGroups
+instance Prelude.NFData ListFirewallRuleGroups where
+  rnf ListFirewallRuleGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFirewallRuleGroups where
   toHeaders =
@@ -265,3 +271,8 @@ listFirewallRuleGroupsResponse_httpStatus = Lens.lens (\ListFirewallRuleGroupsRe
 instance
   Prelude.NFData
     ListFirewallRuleGroupsResponse
+  where
+  rnf ListFirewallRuleGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf firewallRuleGroups
+      `Prelude.seq` Prelude.rnf httpStatus

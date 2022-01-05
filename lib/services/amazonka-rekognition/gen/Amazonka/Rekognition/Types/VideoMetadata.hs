@@ -127,6 +127,22 @@ instance Core.FromJSON VideoMetadata where
             Prelude.<*> (x Core..:? "FrameWidth")
       )
 
-instance Prelude.Hashable VideoMetadata
+instance Prelude.Hashable VideoMetadata where
+  hashWithSalt _salt VideoMetadata' {..} =
+    _salt `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` colorRange
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` frameHeight
+      `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` frameWidth
 
-instance Prelude.NFData VideoMetadata
+instance Prelude.NFData VideoMetadata where
+  rnf VideoMetadata' {..} =
+    Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf colorRange
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf frameHeight
+      `Prelude.seq` Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf frameWidth

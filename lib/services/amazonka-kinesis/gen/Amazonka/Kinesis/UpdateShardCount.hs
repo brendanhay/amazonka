@@ -201,9 +201,17 @@ instance Core.AWSRequest UpdateShardCount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateShardCount
+instance Prelude.Hashable UpdateShardCount where
+  hashWithSalt _salt UpdateShardCount' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` targetShardCount
+      `Prelude.hashWithSalt` scalingType
 
-instance Prelude.NFData UpdateShardCount
+instance Prelude.NFData UpdateShardCount where
+  rnf UpdateShardCount' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf targetShardCount
+      `Prelude.seq` Prelude.rnf scalingType
 
 instance Core.ToHeaders UpdateShardCount where
   toHeaders =
@@ -294,4 +302,9 @@ updateShardCountResponse_currentShardCount = Lens.lens (\UpdateShardCountRespons
 updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Prelude.Int
 updateShardCountResponse_httpStatus = Lens.lens (\UpdateShardCountResponse' {httpStatus} -> httpStatus) (\s@UpdateShardCountResponse' {} a -> s {httpStatus = a} :: UpdateShardCountResponse)
 
-instance Prelude.NFData UpdateShardCountResponse
+instance Prelude.NFData UpdateShardCountResponse where
+  rnf UpdateShardCountResponse' {..} =
+    Prelude.rnf targetShardCount
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf currentShardCount
+      `Prelude.seq` Prelude.rnf httpStatus

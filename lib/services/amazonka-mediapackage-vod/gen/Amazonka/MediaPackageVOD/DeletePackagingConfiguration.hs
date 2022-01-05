@@ -90,8 +90,13 @@ instance Core.AWSRequest DeletePackagingConfiguration where
 instance
   Prelude.Hashable
     DeletePackagingConfiguration
+  where
+  hashWithSalt _salt DeletePackagingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeletePackagingConfiguration
+instance Prelude.NFData DeletePackagingConfiguration where
+  rnf DeletePackagingConfiguration' {..} =
+    Prelude.rnf id
 
 instance Core.ToHeaders DeletePackagingConfiguration where
   toHeaders =
@@ -145,3 +150,6 @@ deletePackagingConfigurationResponse_httpStatus = Lens.lens (\DeletePackagingCon
 instance
   Prelude.NFData
     DeletePackagingConfigurationResponse
+  where
+  rnf DeletePackagingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

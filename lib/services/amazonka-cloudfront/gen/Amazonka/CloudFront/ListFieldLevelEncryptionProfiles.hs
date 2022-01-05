@@ -119,10 +119,20 @@ instance
 instance
   Prelude.Hashable
     ListFieldLevelEncryptionProfiles
+  where
+  hashWithSalt
+    _salt
+    ListFieldLevelEncryptionProfiles' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
 
 instance
   Prelude.NFData
     ListFieldLevelEncryptionProfiles
+  where
+  rnf ListFieldLevelEncryptionProfiles' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance
   Core.ToHeaders
@@ -191,3 +201,7 @@ listFieldLevelEncryptionProfilesResponse_httpStatus = Lens.lens (\ListFieldLevel
 instance
   Prelude.NFData
     ListFieldLevelEncryptionProfilesResponse
+  where
+  rnf ListFieldLevelEncryptionProfilesResponse' {..} =
+    Prelude.rnf fieldLevelEncryptionProfileList
+      `Prelude.seq` Prelude.rnf httpStatus

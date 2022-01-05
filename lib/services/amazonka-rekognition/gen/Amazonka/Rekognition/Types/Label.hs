@@ -106,6 +106,16 @@ instance Core.FromJSON Label where
             Prelude.<*> (x Core..:? "Instances" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Label
+instance Prelude.Hashable Label where
+  hashWithSalt _salt Label' {..} =
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` parents
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instances
 
-instance Prelude.NFData Label
+instance Prelude.NFData Label where
+  rnf Label' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf parents
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instances

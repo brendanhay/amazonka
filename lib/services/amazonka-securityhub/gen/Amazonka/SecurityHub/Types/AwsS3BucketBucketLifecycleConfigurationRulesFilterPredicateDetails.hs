@@ -102,10 +102,25 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
+      _salt `Prelude.hashWithSalt` tag
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` operands
 
 instance
   Prelude.NFData
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
+  where
+  rnf
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
+      Prelude.rnf tag
+        `Prelude.seq` Prelude.rnf prefix
+        `Prelude.seq` Prelude.rnf type'
+        `Prelude.seq` Prelude.rnf operands
 
 instance
   Core.ToJSON

@@ -230,6 +230,14 @@ instance Core.FromXML BulkEmailDestinationStatus where
       Prelude.<*> (x Core..@? "Error")
       Prelude.<*> (x Core..@? "MessageId")
 
-instance Prelude.Hashable BulkEmailDestinationStatus
+instance Prelude.Hashable BulkEmailDestinationStatus where
+  hashWithSalt _salt BulkEmailDestinationStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData BulkEmailDestinationStatus
+instance Prelude.NFData BulkEmailDestinationStatus where
+  rnf BulkEmailDestinationStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf messageId

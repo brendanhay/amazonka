@@ -143,9 +143,21 @@ instance Core.AWSRequest AttachTypedLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachTypedLink
+instance Prelude.Hashable AttachTypedLink where
+  hashWithSalt _salt AttachTypedLink' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` sourceObjectReference
+      `Prelude.hashWithSalt` targetObjectReference
+      `Prelude.hashWithSalt` typedLinkFacet
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData AttachTypedLink
+instance Prelude.NFData AttachTypedLink where
+  rnf AttachTypedLink' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf sourceObjectReference
+      `Prelude.seq` Prelude.rnf targetObjectReference
+      `Prelude.seq` Prelude.rnf typedLinkFacet
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders AttachTypedLink where
   toHeaders AttachTypedLink' {..} =
@@ -217,4 +229,7 @@ attachTypedLinkResponse_typedLinkSpecifier = Lens.lens (\AttachTypedLinkResponse
 attachTypedLinkResponse_httpStatus :: Lens.Lens' AttachTypedLinkResponse Prelude.Int
 attachTypedLinkResponse_httpStatus = Lens.lens (\AttachTypedLinkResponse' {httpStatus} -> httpStatus) (\s@AttachTypedLinkResponse' {} a -> s {httpStatus = a} :: AttachTypedLinkResponse)
 
-instance Prelude.NFData AttachTypedLinkResponse
+instance Prelude.NFData AttachTypedLinkResponse where
+  rnf AttachTypedLinkResponse' {..} =
+    Prelude.rnf typedLinkSpecifier
+      `Prelude.seq` Prelude.rnf httpStatus

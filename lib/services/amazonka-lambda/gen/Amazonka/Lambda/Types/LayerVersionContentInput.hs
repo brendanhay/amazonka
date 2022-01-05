@@ -94,9 +94,19 @@ layerVersionContentInput_zipFile = Lens.lens (\LayerVersionContentInput' {zipFil
 layerVersionContentInput_s3Bucket :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
 layerVersionContentInput_s3Bucket = Lens.lens (\LayerVersionContentInput' {s3Bucket} -> s3Bucket) (\s@LayerVersionContentInput' {} a -> s {s3Bucket = a} :: LayerVersionContentInput)
 
-instance Prelude.Hashable LayerVersionContentInput
+instance Prelude.Hashable LayerVersionContentInput where
+  hashWithSalt _salt LayerVersionContentInput' {..} =
+    _salt `Prelude.hashWithSalt` s3ObjectVersion
+      `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData LayerVersionContentInput
+instance Prelude.NFData LayerVersionContentInput where
+  rnf LayerVersionContentInput' {..} =
+    Prelude.rnf s3ObjectVersion
+      `Prelude.seq` Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToJSON LayerVersionContentInput where
   toJSON LayerVersionContentInput' {..} =

@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteAppInstanceAdmin where
     Response.receiveNull
       DeleteAppInstanceAdminResponse'
 
-instance Prelude.Hashable DeleteAppInstanceAdmin
+instance Prelude.Hashable DeleteAppInstanceAdmin where
+  hashWithSalt _salt DeleteAppInstanceAdmin' {..} =
+    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+      `Prelude.hashWithSalt` appInstanceArn
 
-instance Prelude.NFData DeleteAppInstanceAdmin
+instance Prelude.NFData DeleteAppInstanceAdmin where
+  rnf DeleteAppInstanceAdmin' {..} =
+    Prelude.rnf appInstanceAdminArn
+      `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders DeleteAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,3 +139,5 @@ newDeleteAppInstanceAdminResponse =
 instance
   Prelude.NFData
     DeleteAppInstanceAdminResponse
+  where
+  rnf _ = ()

@@ -74,10 +74,18 @@ instance
 instance
   Prelude.Hashable
     InstanceAssociationOutputLocation
+  where
+  hashWithSalt
+    _salt
+    InstanceAssociationOutputLocation' {..} =
+      _salt `Prelude.hashWithSalt` s3Location
 
 instance
   Prelude.NFData
     InstanceAssociationOutputLocation
+  where
+  rnf InstanceAssociationOutputLocation' {..} =
+    Prelude.rnf s3Location
 
 instance
   Core.ToJSON

@@ -90,9 +90,12 @@ instance Core.AWSRequest DeclineInvitations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeclineInvitations
+instance Prelude.Hashable DeclineInvitations where
+  hashWithSalt _salt DeclineInvitations' {..} =
+    _salt `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData DeclineInvitations
+instance Prelude.NFData DeclineInvitations where
+  rnf DeclineInvitations' {..} = Prelude.rnf accountIds
 
 instance Core.ToHeaders DeclineInvitations where
   toHeaders =
@@ -163,4 +166,7 @@ declineInvitationsResponse_unprocessedAccounts = Lens.lens (\DeclineInvitationsR
 declineInvitationsResponse_httpStatus :: Lens.Lens' DeclineInvitationsResponse Prelude.Int
 declineInvitationsResponse_httpStatus = Lens.lens (\DeclineInvitationsResponse' {httpStatus} -> httpStatus) (\s@DeclineInvitationsResponse' {} a -> s {httpStatus = a} :: DeclineInvitationsResponse)
 
-instance Prelude.NFData DeclineInvitationsResponse
+instance Prelude.NFData DeclineInvitationsResponse where
+  rnf DeclineInvitationsResponse' {..} =
+    Prelude.rnf unprocessedAccounts
+      `Prelude.seq` Prelude.rnf httpStatus

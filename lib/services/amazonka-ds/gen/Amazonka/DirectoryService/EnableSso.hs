@@ -139,9 +139,17 @@ instance Core.AWSRequest EnableSso where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableSso
+instance Prelude.Hashable EnableSso where
+  hashWithSalt _salt EnableSso' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData EnableSso
+instance Prelude.NFData EnableSso where
+  rnf EnableSso' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders EnableSso where
   toHeaders =
@@ -203,4 +211,5 @@ newEnableSsoResponse pHttpStatus_ =
 enableSsoResponse_httpStatus :: Lens.Lens' EnableSsoResponse Prelude.Int
 enableSsoResponse_httpStatus = Lens.lens (\EnableSsoResponse' {httpStatus} -> httpStatus) (\s@EnableSsoResponse' {} a -> s {httpStatus = a} :: EnableSsoResponse)
 
-instance Prelude.NFData EnableSsoResponse
+instance Prelude.NFData EnableSsoResponse where
+  rnf EnableSsoResponse' {..} = Prelude.rnf httpStatus

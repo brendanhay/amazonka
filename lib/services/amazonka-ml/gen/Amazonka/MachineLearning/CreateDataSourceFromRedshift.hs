@@ -298,8 +298,21 @@ instance Core.AWSRequest CreateDataSourceFromRedshift where
 instance
   Prelude.Hashable
     CreateDataSourceFromRedshift
+  where
+  hashWithSalt _salt CreateDataSourceFromRedshift' {..} =
+    _salt `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` computeStatistics
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` dataSpec
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData CreateDataSourceFromRedshift
+instance Prelude.NFData CreateDataSourceFromRedshift where
+  rnf CreateDataSourceFromRedshift' {..} =
+    Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf computeStatistics
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf dataSpec
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToHeaders CreateDataSourceFromRedshift where
   toHeaders =
@@ -388,3 +401,7 @@ createDataSourceFromRedshiftResponse_httpStatus = Lens.lens (\CreateDataSourceFr
 instance
   Prelude.NFData
     CreateDataSourceFromRedshiftResponse
+  where
+  rnf CreateDataSourceFromRedshiftResponse' {..} =
+    Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf httpStatus

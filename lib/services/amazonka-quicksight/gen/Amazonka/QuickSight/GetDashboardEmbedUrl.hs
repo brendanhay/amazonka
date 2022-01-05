@@ -307,9 +307,32 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDashboardEmbedUrl
+instance Prelude.Hashable GetDashboardEmbedUrl where
+  hashWithSalt _salt GetDashboardEmbedUrl' {..} =
+    _salt
+      `Prelude.hashWithSalt` sessionLifetimeInMinutes
+      `Prelude.hashWithSalt` statePersistenceEnabled
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` additionalDashboardIds
+      `Prelude.hashWithSalt` undoRedoDisabled
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` resetDisabled
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` identityType
 
-instance Prelude.NFData GetDashboardEmbedUrl
+instance Prelude.NFData GetDashboardEmbedUrl where
+  rnf GetDashboardEmbedUrl' {..} =
+    Prelude.rnf sessionLifetimeInMinutes
+      `Prelude.seq` Prelude.rnf statePersistenceEnabled
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf additionalDashboardIds
+      `Prelude.seq` Prelude.rnf undoRedoDisabled
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf resetDisabled
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders GetDashboardEmbedUrl where
   toHeaders =
@@ -409,4 +432,8 @@ getDashboardEmbedUrlResponse_embedUrl = Lens.lens (\GetDashboardEmbedUrlResponse
 getDashboardEmbedUrlResponse_status :: Lens.Lens' GetDashboardEmbedUrlResponse Prelude.Int
 getDashboardEmbedUrlResponse_status = Lens.lens (\GetDashboardEmbedUrlResponse' {status} -> status) (\s@GetDashboardEmbedUrlResponse' {} a -> s {status = a} :: GetDashboardEmbedUrlResponse)
 
-instance Prelude.NFData GetDashboardEmbedUrlResponse
+instance Prelude.NFData GetDashboardEmbedUrlResponse where
+  rnf GetDashboardEmbedUrlResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf embedUrl
+      `Prelude.seq` Prelude.rnf status

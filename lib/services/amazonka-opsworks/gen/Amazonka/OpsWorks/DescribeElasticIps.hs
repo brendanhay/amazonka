@@ -136,9 +136,17 @@ instance Core.AWSRequest DescribeElasticIps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeElasticIps
+instance Prelude.Hashable DescribeElasticIps where
+  hashWithSalt _salt DescribeElasticIps' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` ips
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DescribeElasticIps
+instance Prelude.NFData DescribeElasticIps where
+  rnf DescribeElasticIps' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf ips
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeElasticIps where
   toHeaders =
@@ -215,4 +223,7 @@ describeElasticIpsResponse_elasticIps = Lens.lens (\DescribeElasticIpsResponse' 
 describeElasticIpsResponse_httpStatus :: Lens.Lens' DescribeElasticIpsResponse Prelude.Int
 describeElasticIpsResponse_httpStatus = Lens.lens (\DescribeElasticIpsResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticIpsResponse' {} a -> s {httpStatus = a} :: DescribeElasticIpsResponse)
 
-instance Prelude.NFData DescribeElasticIpsResponse
+instance Prelude.NFData DescribeElasticIpsResponse where
+  rnf DescribeElasticIpsResponse' {..} =
+    Prelude.rnf elasticIps
+      `Prelude.seq` Prelude.rnf httpStatus

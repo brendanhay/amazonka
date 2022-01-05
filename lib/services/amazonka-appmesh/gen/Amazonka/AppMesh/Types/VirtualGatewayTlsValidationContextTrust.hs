@@ -101,10 +101,22 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayTlsValidationContextTrust
+  where
+  hashWithSalt
+    _salt
+    VirtualGatewayTlsValidationContextTrust' {..} =
+      _salt `Prelude.hashWithSalt` acm
+        `Prelude.hashWithSalt` sds
+        `Prelude.hashWithSalt` file
 
 instance
   Prelude.NFData
     VirtualGatewayTlsValidationContextTrust
+  where
+  rnf VirtualGatewayTlsValidationContextTrust' {..} =
+    Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
+      `Prelude.seq` Prelude.rnf file
 
 instance
   Core.ToJSON

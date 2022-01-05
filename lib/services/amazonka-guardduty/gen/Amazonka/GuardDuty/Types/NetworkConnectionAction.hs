@@ -127,6 +127,22 @@ instance Core.FromJSON NetworkConnectionAction where
             Prelude.<*> (x Core..:? "localPortDetails")
       )
 
-instance Prelude.Hashable NetworkConnectionAction
+instance Prelude.Hashable NetworkConnectionAction where
+  hashWithSalt _salt NetworkConnectionAction' {..} =
+    _salt `Prelude.hashWithSalt` remoteIpDetails
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` localIpDetails
+      `Prelude.hashWithSalt` remotePortDetails
+      `Prelude.hashWithSalt` blocked
+      `Prelude.hashWithSalt` connectionDirection
+      `Prelude.hashWithSalt` localPortDetails
 
-instance Prelude.NFData NetworkConnectionAction
+instance Prelude.NFData NetworkConnectionAction where
+  rnf NetworkConnectionAction' {..} =
+    Prelude.rnf remoteIpDetails
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf localIpDetails
+      `Prelude.seq` Prelude.rnf remotePortDetails
+      `Prelude.seq` Prelude.rnf blocked
+      `Prelude.seq` Prelude.rnf connectionDirection
+      `Prelude.seq` Prelude.rnf localPortDetails

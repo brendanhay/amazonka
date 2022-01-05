@@ -63,9 +63,14 @@ dateTimeParameter_name = Lens.lens (\DateTimeParameter' {name} -> name) (\s@Date
 dateTimeParameter_values :: Lens.Lens' DateTimeParameter [Prelude.UTCTime]
 dateTimeParameter_values = Lens.lens (\DateTimeParameter' {values} -> values) (\s@DateTimeParameter' {} a -> s {values = a} :: DateTimeParameter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable DateTimeParameter
+instance Prelude.Hashable DateTimeParameter where
+  hashWithSalt _salt DateTimeParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData DateTimeParameter
+instance Prelude.NFData DateTimeParameter where
+  rnf DateTimeParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON DateTimeParameter where
   toJSON DateTimeParameter' {..} =

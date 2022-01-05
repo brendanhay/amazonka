@@ -82,6 +82,15 @@ instance Core.FromXML DeferredMaintenanceWindow where
       Prelude.<*> (x Core..@? "DeferMaintenanceStartTime")
       Prelude.<*> (x Core..@? "DeferMaintenanceIdentifier")
 
-instance Prelude.Hashable DeferredMaintenanceWindow
+instance Prelude.Hashable DeferredMaintenanceWindow where
+  hashWithSalt _salt DeferredMaintenanceWindow' {..} =
+    _salt
+      `Prelude.hashWithSalt` deferMaintenanceEndTime
+      `Prelude.hashWithSalt` deferMaintenanceStartTime
+      `Prelude.hashWithSalt` deferMaintenanceIdentifier
 
-instance Prelude.NFData DeferredMaintenanceWindow
+instance Prelude.NFData DeferredMaintenanceWindow where
+  rnf DeferredMaintenanceWindow' {..} =
+    Prelude.rnf deferMaintenanceEndTime
+      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
+      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier

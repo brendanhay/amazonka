@@ -131,9 +131,24 @@ instance Core.FromJSON SolutionConfig where
             Prelude.<*> (x Core..:? "optimizationObjective")
       )
 
-instance Prelude.Hashable SolutionConfig
+instance Prelude.Hashable SolutionConfig where
+  hashWithSalt _salt SolutionConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` featureTransformationParameters
+      `Prelude.hashWithSalt` hpoConfig
+      `Prelude.hashWithSalt` eventValueThreshold
+      `Prelude.hashWithSalt` autoMLConfig
+      `Prelude.hashWithSalt` algorithmHyperParameters
+      `Prelude.hashWithSalt` optimizationObjective
 
-instance Prelude.NFData SolutionConfig
+instance Prelude.NFData SolutionConfig where
+  rnf SolutionConfig' {..} =
+    Prelude.rnf featureTransformationParameters
+      `Prelude.seq` Prelude.rnf hpoConfig
+      `Prelude.seq` Prelude.rnf eventValueThreshold
+      `Prelude.seq` Prelude.rnf autoMLConfig
+      `Prelude.seq` Prelude.rnf algorithmHyperParameters
+      `Prelude.seq` Prelude.rnf optimizationObjective
 
 instance Core.ToJSON SolutionConfig where
   toJSON SolutionConfig' {..} =

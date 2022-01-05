@@ -102,9 +102,14 @@ instance Core.AWSRequest PutReplicationConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutReplicationConfiguration
+instance Prelude.Hashable PutReplicationConfiguration where
+  hashWithSalt _salt PutReplicationConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicationConfiguration
 
-instance Prelude.NFData PutReplicationConfiguration
+instance Prelude.NFData PutReplicationConfiguration where
+  rnf PutReplicationConfiguration' {..} =
+    Prelude.rnf replicationConfiguration
 
 instance Core.ToHeaders PutReplicationConfiguration where
   toHeaders =
@@ -180,3 +185,7 @@ putReplicationConfigurationResponse_httpStatus = Lens.lens (\PutReplicationConfi
 instance
   Prelude.NFData
     PutReplicationConfigurationResponse
+  where
+  rnf PutReplicationConfigurationResponse' {..} =
+    Prelude.rnf replicationConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

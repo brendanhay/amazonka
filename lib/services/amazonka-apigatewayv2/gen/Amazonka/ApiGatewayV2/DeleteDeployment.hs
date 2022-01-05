@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteDeployment where
   response =
     Response.receiveNull DeleteDeploymentResponse'
 
-instance Prelude.Hashable DeleteDeployment
+instance Prelude.Hashable DeleteDeployment where
+  hashWithSalt _salt DeleteDeployment' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData DeleteDeployment
+instance Prelude.NFData DeleteDeployment where
+  rnf DeleteDeployment' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Core.ToHeaders DeleteDeployment where
   toHeaders =
@@ -133,4 +139,5 @@ newDeleteDeploymentResponse ::
 newDeleteDeploymentResponse =
   DeleteDeploymentResponse'
 
-instance Prelude.NFData DeleteDeploymentResponse
+instance Prelude.NFData DeleteDeploymentResponse where
+  rnf _ = ()

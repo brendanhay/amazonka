@@ -63,9 +63,12 @@ instance Core.FromJSON SegmentBehaviors where
           SegmentBehaviors' Prelude.<$> (x Core..:? "Recency")
       )
 
-instance Prelude.Hashable SegmentBehaviors
+instance Prelude.Hashable SegmentBehaviors where
+  hashWithSalt _salt SegmentBehaviors' {..} =
+    _salt `Prelude.hashWithSalt` recency
 
-instance Prelude.NFData SegmentBehaviors
+instance Prelude.NFData SegmentBehaviors where
+  rnf SegmentBehaviors' {..} = Prelude.rnf recency
 
 instance Core.ToJSON SegmentBehaviors where
   toJSON SegmentBehaviors' {..} =

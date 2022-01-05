@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaAutoScalingUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate
 import qualified Amazonka.Lens as Lens
@@ -78,9 +79,19 @@ replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\Replic
 replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Prelude.Text
 replicaAutoScalingUpdate_regionName = Lens.lens (\ReplicaAutoScalingUpdate' {regionName} -> regionName) (\s@ReplicaAutoScalingUpdate' {} a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
 
-instance Prelude.Hashable ReplicaAutoScalingUpdate
+instance Prelude.Hashable ReplicaAutoScalingUpdate where
+  hashWithSalt _salt ReplicaAutoScalingUpdate' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingUpdate
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexUpdates
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData ReplicaAutoScalingUpdate
+instance Prelude.NFData ReplicaAutoScalingUpdate where
+  rnf ReplicaAutoScalingUpdate' {..} =
+    Prelude.rnf
+      replicaProvisionedReadCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexUpdates
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON ReplicaAutoScalingUpdate where
   toJSON ReplicaAutoScalingUpdate' {..} =

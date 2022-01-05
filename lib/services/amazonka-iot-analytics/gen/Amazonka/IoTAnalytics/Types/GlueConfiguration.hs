@@ -85,9 +85,15 @@ instance Core.FromJSON GlueConfiguration where
             Prelude.<*> (x Core..: "databaseName")
       )
 
-instance Prelude.Hashable GlueConfiguration
+instance Prelude.Hashable GlueConfiguration where
+  hashWithSalt _salt GlueConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
 
-instance Prelude.NFData GlueConfiguration
+instance Prelude.NFData GlueConfiguration where
+  rnf GlueConfiguration' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToJSON GlueConfiguration where
   toJSON GlueConfiguration' {..} =

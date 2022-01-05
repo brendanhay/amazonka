@@ -134,9 +134,18 @@ instance Core.AWSRequest UpdateSystemTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSystemTemplate
+instance Prelude.Hashable UpdateSystemTemplate where
+  hashWithSalt _salt UpdateSystemTemplate' {..} =
+    _salt
+      `Prelude.hashWithSalt` compatibleNamespaceVersion
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData UpdateSystemTemplate
+instance Prelude.NFData UpdateSystemTemplate where
+  rnf UpdateSystemTemplate' {..} =
+    Prelude.rnf compatibleNamespaceVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definition
 
 instance Core.ToHeaders UpdateSystemTemplate where
   toHeaders =
@@ -209,4 +218,7 @@ updateSystemTemplateResponse_summary = Lens.lens (\UpdateSystemTemplateResponse'
 updateSystemTemplateResponse_httpStatus :: Lens.Lens' UpdateSystemTemplateResponse Prelude.Int
 updateSystemTemplateResponse_httpStatus = Lens.lens (\UpdateSystemTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateSystemTemplateResponse' {} a -> s {httpStatus = a} :: UpdateSystemTemplateResponse)
 
-instance Prelude.NFData UpdateSystemTemplateResponse
+instance Prelude.NFData UpdateSystemTemplateResponse where
+  rnf UpdateSystemTemplateResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -212,9 +212,23 @@ instance Core.AWSRequest CreateClientVpnRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClientVpnRoute
+instance Prelude.Hashable CreateClientVpnRoute where
+  hashWithSalt _salt CreateClientVpnRoute' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` targetVpcSubnetId
 
-instance Prelude.NFData CreateClientVpnRoute
+instance Prelude.NFData CreateClientVpnRoute where
+  rnf CreateClientVpnRoute' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf targetVpcSubnetId
 
 instance Core.ToHeaders CreateClientVpnRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,4 +290,7 @@ createClientVpnRouteResponse_status = Lens.lens (\CreateClientVpnRouteResponse' 
 createClientVpnRouteResponse_httpStatus :: Lens.Lens' CreateClientVpnRouteResponse Prelude.Int
 createClientVpnRouteResponse_httpStatus = Lens.lens (\CreateClientVpnRouteResponse' {httpStatus} -> httpStatus) (\s@CreateClientVpnRouteResponse' {} a -> s {httpStatus = a} :: CreateClientVpnRouteResponse)
 
-instance Prelude.NFData CreateClientVpnRouteResponse
+instance Prelude.NFData CreateClientVpnRouteResponse where
+  rnf CreateClientVpnRouteResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

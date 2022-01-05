@@ -137,6 +137,24 @@ instance Core.FromXML NetworkAclEntry where
       Prelude.<*> (x Core..@? "cidrBlock")
       Prelude.<*> (x Core..@? "egress")
 
-instance Prelude.Hashable NetworkAclEntry
+instance Prelude.Hashable NetworkAclEntry where
+  hashWithSalt _salt NetworkAclEntry' {..} =
+    _salt `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` icmpTypeCode
+      `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` egress
 
-instance Prelude.NFData NetworkAclEntry
+instance Prelude.NFData NetworkAclEntry where
+  rnf NetworkAclEntry' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf icmpTypeCode
+      `Prelude.seq` Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf egress

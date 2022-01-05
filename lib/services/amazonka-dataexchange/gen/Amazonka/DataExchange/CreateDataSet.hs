@@ -159,9 +159,19 @@ instance Core.AWSRequest CreateDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSet
+instance Prelude.Hashable CreateDataSet where
+  hashWithSalt _salt CreateDataSet' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` assetType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateDataSet
+instance Prelude.NFData CreateDataSet where
+  rnf CreateDataSet' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateDataSet where
   toHeaders =
@@ -334,4 +344,17 @@ createDataSetResponse_tags = Lens.lens (\CreateDataSetResponse' {tags} -> tags) 
 createDataSetResponse_httpStatus :: Lens.Lens' CreateDataSetResponse Prelude.Int
 createDataSetResponse_httpStatus = Lens.lens (\CreateDataSetResponse' {httpStatus} -> httpStatus) (\s@CreateDataSetResponse' {} a -> s {httpStatus = a} :: CreateDataSetResponse)
 
-instance Prelude.NFData CreateDataSetResponse
+instance Prelude.NFData CreateDataSetResponse where
+  rnf CreateDataSetResponse' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf originDetails
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

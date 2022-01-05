@@ -142,9 +142,19 @@ instance Core.AWSRequest RetryStageExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetryStageExecution
+instance Prelude.Hashable RetryStageExecution where
+  hashWithSalt _salt RetryStageExecution' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` retryMode
 
-instance Prelude.NFData RetryStageExecution
+instance Prelude.NFData RetryStageExecution where
+  rnf RetryStageExecution' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf retryMode
 
 instance Core.ToHeaders RetryStageExecution where
   toHeaders =
@@ -220,4 +230,7 @@ retryStageExecutionResponse_pipelineExecutionId = Lens.lens (\RetryStageExecutio
 retryStageExecutionResponse_httpStatus :: Lens.Lens' RetryStageExecutionResponse Prelude.Int
 retryStageExecutionResponse_httpStatus = Lens.lens (\RetryStageExecutionResponse' {httpStatus} -> httpStatus) (\s@RetryStageExecutionResponse' {} a -> s {httpStatus = a} :: RetryStageExecutionResponse)
 
-instance Prelude.NFData RetryStageExecutionResponse
+instance Prelude.NFData RetryStageExecutionResponse where
+  rnf RetryStageExecutionResponse' {..} =
+    Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

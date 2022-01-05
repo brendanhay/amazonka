@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateInputSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInputSecurityGroup
+instance Prelude.Hashable UpdateInputSecurityGroup where
+  hashWithSalt _salt UpdateInputSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` whitelistRules
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputSecurityGroupId
 
-instance Prelude.NFData UpdateInputSecurityGroup
+instance Prelude.NFData UpdateInputSecurityGroup where
+  rnf UpdateInputSecurityGroup' {..} =
+    Prelude.rnf whitelistRules
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputSecurityGroupId
 
 instance Core.ToHeaders UpdateInputSecurityGroup where
   toHeaders =
@@ -190,3 +198,7 @@ updateInputSecurityGroupResponse_httpStatus = Lens.lens (\UpdateInputSecurityGro
 instance
   Prelude.NFData
     UpdateInputSecurityGroupResponse
+  where
+  rnf UpdateInputSecurityGroupResponse' {..} =
+    Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -105,9 +105,15 @@ instance Core.AWSRequest DescribeDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataSet
+instance Prelude.Hashable DescribeDataSet where
+  hashWithSalt _salt DescribeDataSet' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData DescribeDataSet
+instance Prelude.NFData DescribeDataSet where
+  rnf DescribeDataSet' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders DescribeDataSet where
   toHeaders =
@@ -180,4 +186,8 @@ describeDataSetResponse_dataSet = Lens.lens (\DescribeDataSetResponse' {dataSet}
 describeDataSetResponse_status :: Lens.Lens' DescribeDataSetResponse Prelude.Int
 describeDataSetResponse_status = Lens.lens (\DescribeDataSetResponse' {status} -> status) (\s@DescribeDataSetResponse' {} a -> s {status = a} :: DescribeDataSetResponse)
 
-instance Prelude.NFData DescribeDataSetResponse
+instance Prelude.NFData DescribeDataSetResponse where
+  rnf DescribeDataSetResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dataSet
+      `Prelude.seq` Prelude.rnf status

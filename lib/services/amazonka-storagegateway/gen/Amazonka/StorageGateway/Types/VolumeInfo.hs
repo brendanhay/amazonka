@@ -183,6 +183,22 @@ instance Core.FromJSON VolumeInfo where
             Prelude.<*> (x Core..:? "VolumeType")
       )
 
-instance Prelude.Hashable VolumeInfo
+instance Prelude.Hashable VolumeInfo where
+  hashWithSalt _salt VolumeInfo' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` volumeAttachmentStatus
+      `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` volumeSizeInBytes
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` volumeType
 
-instance Prelude.NFData VolumeInfo
+instance Prelude.NFData VolumeInfo where
+  rnf VolumeInfo' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf volumeAttachmentStatus
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf volumeType

@@ -69,9 +69,13 @@ instance Core.FromJSON StreamProcessorOutput where
             Prelude.<$> (x Core..:? "KinesisDataStream")
       )
 
-instance Prelude.Hashable StreamProcessorOutput
+instance Prelude.Hashable StreamProcessorOutput where
+  hashWithSalt _salt StreamProcessorOutput' {..} =
+    _salt `Prelude.hashWithSalt` kinesisDataStream
 
-instance Prelude.NFData StreamProcessorOutput
+instance Prelude.NFData StreamProcessorOutput where
+  rnf StreamProcessorOutput' {..} =
+    Prelude.rnf kinesisDataStream
 
 instance Core.ToJSON StreamProcessorOutput where
   toJSON StreamProcessorOutput' {..} =

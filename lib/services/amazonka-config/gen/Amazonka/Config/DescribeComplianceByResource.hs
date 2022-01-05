@@ -218,8 +218,21 @@ instance Core.AWSRequest DescribeComplianceByResource where
 instance
   Prelude.Hashable
     DescribeComplianceByResource
+  where
+  hashWithSalt _salt DescribeComplianceByResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` complianceTypes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeComplianceByResource
+instance Prelude.NFData DescribeComplianceByResource where
+  rnf DescribeComplianceByResource' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf complianceTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeComplianceByResource where
   toHeaders =
@@ -314,3 +327,8 @@ describeComplianceByResourceResponse_httpStatus = Lens.lens (\DescribeCompliance
 instance
   Prelude.NFData
     DescribeComplianceByResourceResponse
+  where
+  rnf DescribeComplianceByResourceResponse' {..} =
+    Prelude.rnf complianceByResources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

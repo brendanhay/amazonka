@@ -210,9 +210,23 @@ instance Core.AWSRequest StartTableDataImportJob where
             Prelude.<*> (x Core..:> "jobStatus")
       )
 
-instance Prelude.Hashable StartTableDataImportJob
+instance Prelude.Hashable StartTableDataImportJob where
+  hashWithSalt _salt StartTableDataImportJob' {..} =
+    _salt `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` dataFormat
+      `Prelude.hashWithSalt` destinationTableId
+      `Prelude.hashWithSalt` importOptions
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData StartTableDataImportJob
+instance Prelude.NFData StartTableDataImportJob where
+  rnf StartTableDataImportJob' {..} =
+    Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf destinationTableId
+      `Prelude.seq` Prelude.rnf importOptions
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders StartTableDataImportJob where
   toHeaders =
@@ -314,3 +328,8 @@ startTableDataImportJobResponse_jobStatus = Lens.lens (\StartTableDataImportJobR
 instance
   Prelude.NFData
     StartTableDataImportJobResponse
+  where
+  rnf StartTableDataImportJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus

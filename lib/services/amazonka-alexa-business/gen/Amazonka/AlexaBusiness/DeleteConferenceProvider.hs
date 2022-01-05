@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteConferenceProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConferenceProvider
+instance Prelude.Hashable DeleteConferenceProvider where
+  hashWithSalt _salt DeleteConferenceProvider' {..} =
+    _salt `Prelude.hashWithSalt` conferenceProviderArn
 
-instance Prelude.NFData DeleteConferenceProvider
+instance Prelude.NFData DeleteConferenceProvider where
+  rnf DeleteConferenceProvider' {..} =
+    Prelude.rnf conferenceProviderArn
 
 instance Core.ToHeaders DeleteConferenceProvider where
   toHeaders =
@@ -156,3 +160,6 @@ deleteConferenceProviderResponse_httpStatus = Lens.lens (\DeleteConferenceProvid
 instance
   Prelude.NFData
     DeleteConferenceProviderResponse
+  where
+  rnf DeleteConferenceProviderResponse' {..} =
+    Prelude.rnf httpStatus

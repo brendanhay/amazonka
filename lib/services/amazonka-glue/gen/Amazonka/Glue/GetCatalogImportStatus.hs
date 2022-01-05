@@ -90,9 +90,13 @@ instance Core.AWSRequest GetCatalogImportStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCatalogImportStatus
+instance Prelude.Hashable GetCatalogImportStatus where
+  hashWithSalt _salt GetCatalogImportStatus' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetCatalogImportStatus
+instance Prelude.NFData GetCatalogImportStatus where
+  rnf GetCatalogImportStatus' {..} =
+    Prelude.rnf catalogId
 
 instance Core.ToHeaders GetCatalogImportStatus where
   toHeaders =
@@ -164,3 +168,7 @@ getCatalogImportStatusResponse_httpStatus = Lens.lens (\GetCatalogImportStatusRe
 instance
   Prelude.NFData
     GetCatalogImportStatusResponse
+  where
+  rnf GetCatalogImportStatusResponse' {..} =
+    Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf httpStatus

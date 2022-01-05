@@ -67,9 +67,13 @@ instance Core.FromJSON ActionTypePermissions where
             Prelude.<$> (x Core..: "allowedAccounts")
       )
 
-instance Prelude.Hashable ActionTypePermissions
+instance Prelude.Hashable ActionTypePermissions where
+  hashWithSalt _salt ActionTypePermissions' {..} =
+    _salt `Prelude.hashWithSalt` allowedAccounts
 
-instance Prelude.NFData ActionTypePermissions
+instance Prelude.NFData ActionTypePermissions where
+  rnf ActionTypePermissions' {..} =
+    Prelude.rnf allowedAccounts
 
 instance Core.ToJSON ActionTypePermissions where
   toJSON ActionTypePermissions' {..} =

@@ -256,9 +256,23 @@ instance Core.FromJSON Header where
             Prelude.<*> (x Core..: "DestinationPort")
       )
 
-instance Prelude.Hashable Header
+instance Prelude.Hashable Header where
+  hashWithSalt _salt Header' {..} =
+    _salt `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` sourcePort
+      `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` destinationPort
 
-instance Prelude.NFData Header
+instance Prelude.NFData Header where
+  rnf Header' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf sourcePort
+      `Prelude.seq` Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf destinationPort
 
 instance Core.ToJSON Header where
   toJSON Header' {..} =

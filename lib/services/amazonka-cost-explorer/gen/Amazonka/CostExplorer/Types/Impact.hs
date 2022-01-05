@@ -73,6 +73,12 @@ instance Core.FromJSON Impact where
             Prelude.<*> (x Core..: "MaxImpact")
       )
 
-instance Prelude.Hashable Impact
+instance Prelude.Hashable Impact where
+  hashWithSalt _salt Impact' {..} =
+    _salt `Prelude.hashWithSalt` totalImpact
+      `Prelude.hashWithSalt` maxImpact
 
-instance Prelude.NFData Impact
+instance Prelude.NFData Impact where
+  rnf Impact' {..} =
+    Prelude.rnf totalImpact
+      `Prelude.seq` Prelude.rnf maxImpact

@@ -140,9 +140,17 @@ instance Core.AWSRequest AssociateVPCWithHostedZone where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable AssociateVPCWithHostedZone
+instance Prelude.Hashable AssociateVPCWithHostedZone where
+  hashWithSalt _salt AssociateVPCWithHostedZone' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` vpc
 
-instance Prelude.NFData AssociateVPCWithHostedZone
+instance Prelude.NFData AssociateVPCWithHostedZone where
+  rnf AssociateVPCWithHostedZone' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf vpc
 
 instance Core.ToElement AssociateVPCWithHostedZone where
   toElement =
@@ -217,3 +225,7 @@ associateVPCWithHostedZoneResponse_changeInfo = Lens.lens (\AssociateVPCWithHost
 instance
   Prelude.NFData
     AssociateVPCWithHostedZoneResponse
+  where
+  rnf AssociateVPCWithHostedZoneResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

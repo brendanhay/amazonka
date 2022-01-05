@@ -108,9 +108,17 @@ instance Core.AWSRequest UpdateInput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInput
+instance Prelude.Hashable UpdateInput where
+  hashWithSalt _salt UpdateInput' {..} =
+    _salt `Prelude.hashWithSalt` inputDescription
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` inputDefinition
 
-instance Prelude.NFData UpdateInput
+instance Prelude.NFData UpdateInput where
+  rnf UpdateInput' {..} =
+    Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf inputDefinition
 
 instance Core.ToHeaders UpdateInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +180,7 @@ updateInputResponse_inputConfiguration = Lens.lens (\UpdateInputResponse' {input
 updateInputResponse_httpStatus :: Lens.Lens' UpdateInputResponse Prelude.Int
 updateInputResponse_httpStatus = Lens.lens (\UpdateInputResponse' {httpStatus} -> httpStatus) (\s@UpdateInputResponse' {} a -> s {httpStatus = a} :: UpdateInputResponse)
 
-instance Prelude.NFData UpdateInputResponse
+instance Prelude.NFData UpdateInputResponse where
+  rnf UpdateInputResponse' {..} =
+    Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

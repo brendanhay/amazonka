@@ -118,9 +118,17 @@ instance Core.AWSRequest UpdateDocumentationVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDocumentationVersion
+instance Prelude.Hashable UpdateDocumentationVersion where
+  hashWithSalt _salt UpdateDocumentationVersion' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` documentationVersion
 
-instance Prelude.NFData UpdateDocumentationVersion
+instance Prelude.NFData UpdateDocumentationVersion where
+  rnf UpdateDocumentationVersion' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationVersion
 
 instance Core.ToHeaders UpdateDocumentationVersion where
   toHeaders =

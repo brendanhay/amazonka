@@ -81,9 +81,17 @@ codeContentUpdate_zipFileContentUpdate = Lens.lens (\CodeContentUpdate' {zipFile
 codeContentUpdate_s3ContentLocationUpdate :: Lens.Lens' CodeContentUpdate (Prelude.Maybe S3ContentLocationUpdate)
 codeContentUpdate_s3ContentLocationUpdate = Lens.lens (\CodeContentUpdate' {s3ContentLocationUpdate} -> s3ContentLocationUpdate) (\s@CodeContentUpdate' {} a -> s {s3ContentLocationUpdate = a} :: CodeContentUpdate)
 
-instance Prelude.Hashable CodeContentUpdate
+instance Prelude.Hashable CodeContentUpdate where
+  hashWithSalt _salt CodeContentUpdate' {..} =
+    _salt `Prelude.hashWithSalt` textContentUpdate
+      `Prelude.hashWithSalt` zipFileContentUpdate
+      `Prelude.hashWithSalt` s3ContentLocationUpdate
 
-instance Prelude.NFData CodeContentUpdate
+instance Prelude.NFData CodeContentUpdate where
+  rnf CodeContentUpdate' {..} =
+    Prelude.rnf textContentUpdate
+      `Prelude.seq` Prelude.rnf zipFileContentUpdate
+      `Prelude.seq` Prelude.rnf s3ContentLocationUpdate
 
 instance Core.ToJSON CodeContentUpdate where
   toJSON CodeContentUpdate' {..} =

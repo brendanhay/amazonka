@@ -325,9 +325,31 @@ instance Core.AWSRequest RegisterJobDefinition where
             Prelude.<*> (x Core..:> "revision")
       )
 
-instance Prelude.Hashable RegisterJobDefinition
+instance Prelude.Hashable RegisterJobDefinition where
+  hashWithSalt _salt RegisterJobDefinition' {..} =
+    _salt `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` platformCapabilities
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` containerProperties
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobDefinitionName
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData RegisterJobDefinition
+instance Prelude.NFData RegisterJobDefinition where
+  rnf RegisterJobDefinition' {..} =
+    Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf platformCapabilities
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf containerProperties
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders RegisterJobDefinition where
   toHeaders =
@@ -434,4 +456,9 @@ registerJobDefinitionResponse_jobDefinitionArn = Lens.lens (\RegisterJobDefiniti
 registerJobDefinitionResponse_revision :: Lens.Lens' RegisterJobDefinitionResponse Prelude.Int
 registerJobDefinitionResponse_revision = Lens.lens (\RegisterJobDefinitionResponse' {revision} -> revision) (\s@RegisterJobDefinitionResponse' {} a -> s {revision = a} :: RegisterJobDefinitionResponse)
 
-instance Prelude.NFData RegisterJobDefinitionResponse
+instance Prelude.NFData RegisterJobDefinitionResponse where
+  rnf RegisterJobDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf jobDefinitionArn
+      `Prelude.seq` Prelude.rnf revision

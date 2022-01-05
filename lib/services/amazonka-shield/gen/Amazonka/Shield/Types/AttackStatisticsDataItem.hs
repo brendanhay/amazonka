@@ -83,6 +83,12 @@ instance Core.FromJSON AttackStatisticsDataItem where
             Prelude.<*> (x Core..: "AttackCount")
       )
 
-instance Prelude.Hashable AttackStatisticsDataItem
+instance Prelude.Hashable AttackStatisticsDataItem where
+  hashWithSalt _salt AttackStatisticsDataItem' {..} =
+    _salt `Prelude.hashWithSalt` attackVolume
+      `Prelude.hashWithSalt` attackCount
 
-instance Prelude.NFData AttackStatisticsDataItem
+instance Prelude.NFData AttackStatisticsDataItem where
+  rnf AttackStatisticsDataItem' {..} =
+    Prelude.rnf attackVolume
+      `Prelude.seq` Prelude.rnf attackCount

@@ -117,10 +117,20 @@ instance
 instance
   Prelude.Hashable
     DescribeFolderResolvedPermissions
+  where
+  hashWithSalt
+    _salt
+    DescribeFolderResolvedPermissions' {..} =
+      _salt `Prelude.hashWithSalt` awsAccountId
+        `Prelude.hashWithSalt` folderId
 
 instance
   Prelude.NFData
     DescribeFolderResolvedPermissions
+  where
+  rnf DescribeFolderResolvedPermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance
   Core.ToHeaders
@@ -224,3 +234,10 @@ describeFolderResolvedPermissionsResponse_status = Lens.lens (\DescribeFolderRes
 instance
   Prelude.NFData
     DescribeFolderResolvedPermissionsResponse
+  where
+  rnf DescribeFolderResolvedPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf status

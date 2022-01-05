@@ -82,9 +82,17 @@ instance Core.FromJSON DnsRequestAction where
             Prelude.<*> (x Core..:? "Blocked")
       )
 
-instance Prelude.Hashable DnsRequestAction
+instance Prelude.Hashable DnsRequestAction where
+  hashWithSalt _salt DnsRequestAction' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` blocked
 
-instance Prelude.NFData DnsRequestAction
+instance Prelude.NFData DnsRequestAction where
+  rnf DnsRequestAction' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf blocked
 
 instance Core.ToJSON DnsRequestAction where
   toJSON DnsRequestAction' {..} =

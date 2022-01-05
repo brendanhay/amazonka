@@ -128,9 +128,18 @@ instance Core.AWSRequest DescribeDeliveryStream where
             Prelude.<*> (x Core..:> "DeliveryStreamDescription")
       )
 
-instance Prelude.Hashable DescribeDeliveryStream
+instance Prelude.Hashable DescribeDeliveryStream where
+  hashWithSalt _salt DescribeDeliveryStream' {..} =
+    _salt
+      `Prelude.hashWithSalt` exclusiveStartDestinationId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` deliveryStreamName
 
-instance Prelude.NFData DescribeDeliveryStream
+instance Prelude.NFData DescribeDeliveryStream where
+  rnf DescribeDeliveryStream' {..} =
+    Prelude.rnf exclusiveStartDestinationId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders DescribeDeliveryStream where
   toHeaders =
@@ -212,3 +221,7 @@ describeDeliveryStreamResponse_deliveryStreamDescription = Lens.lens (\DescribeD
 instance
   Prelude.NFData
     DescribeDeliveryStreamResponse
+  where
+  rnf DescribeDeliveryStreamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deliveryStreamDescription

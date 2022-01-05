@@ -55,9 +55,13 @@ newDatasetGroundTruthManifest =
 datasetGroundTruthManifest_s3Object :: Lens.Lens' DatasetGroundTruthManifest (Prelude.Maybe InputS3Object)
 datasetGroundTruthManifest_s3Object = Lens.lens (\DatasetGroundTruthManifest' {s3Object} -> s3Object) (\s@DatasetGroundTruthManifest' {} a -> s {s3Object = a} :: DatasetGroundTruthManifest)
 
-instance Prelude.Hashable DatasetGroundTruthManifest
+instance Prelude.Hashable DatasetGroundTruthManifest where
+  hashWithSalt _salt DatasetGroundTruthManifest' {..} =
+    _salt `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData DatasetGroundTruthManifest
+instance Prelude.NFData DatasetGroundTruthManifest where
+  rnf DatasetGroundTruthManifest' {..} =
+    Prelude.rnf s3Object
 
 instance Core.ToJSON DatasetGroundTruthManifest where
   toJSON DatasetGroundTruthManifest' {..} =

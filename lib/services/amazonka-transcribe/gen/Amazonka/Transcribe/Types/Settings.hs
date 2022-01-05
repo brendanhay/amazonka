@@ -234,9 +234,27 @@ instance Core.FromJSON Settings where
             Prelude.<*> (x Core..:? "VocabularyFilterMethod")
       )
 
-instance Prelude.Hashable Settings
+instance Prelude.Hashable Settings where
+  hashWithSalt _salt Settings' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` maxAlternatives
+      `Prelude.hashWithSalt` channelIdentification
+      `Prelude.hashWithSalt` showAlternatives
+      `Prelude.hashWithSalt` maxSpeakerLabels
+      `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` showSpeakerLabels
+      `Prelude.hashWithSalt` vocabularyFilterMethod
 
-instance Prelude.NFData Settings
+instance Prelude.NFData Settings where
+  rnf Settings' {..} =
+    Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf maxAlternatives
+      `Prelude.seq` Prelude.rnf channelIdentification
+      `Prelude.seq` Prelude.rnf showAlternatives
+      `Prelude.seq` Prelude.rnf maxSpeakerLabels
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf showSpeakerLabels
+      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
 
 instance Core.ToJSON Settings where
   toJSON Settings' {..} =

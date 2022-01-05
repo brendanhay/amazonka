@@ -100,9 +100,14 @@ instance Core.AWSRequest DeleteConfigurationRecorder where
     Response.receiveNull
       DeleteConfigurationRecorderResponse'
 
-instance Prelude.Hashable DeleteConfigurationRecorder
+instance Prelude.Hashable DeleteConfigurationRecorder where
+  hashWithSalt _salt DeleteConfigurationRecorder' {..} =
+    _salt
+      `Prelude.hashWithSalt` configurationRecorderName
 
-instance Prelude.NFData DeleteConfigurationRecorder
+instance Prelude.NFData DeleteConfigurationRecorder where
+  rnf DeleteConfigurationRecorder' {..} =
+    Prelude.rnf configurationRecorderName
 
 instance Core.ToHeaders DeleteConfigurationRecorder where
   toHeaders =
@@ -154,3 +159,5 @@ newDeleteConfigurationRecorderResponse =
 instance
   Prelude.NFData
     DeleteConfigurationRecorderResponse
+  where
+  rnf _ = ()

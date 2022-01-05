@@ -1142,9 +1142,110 @@ instance Core.FromJSON H264Settings where
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
-instance Prelude.Hashable H264Settings
+instance Prelude.Hashable H264Settings where
+  hashWithSalt _salt H264Settings' {..} =
+    _salt
+      `Prelude.hashWithSalt` unregisteredSeiTimecode
+      `Prelude.hashWithSalt` qualityTuningLevel
+      `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` sceneChangeDetect
+      `Prelude.hashWithSalt` hrdBufferInitialFillPercentage
+      `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` numberBFramesBetweenReferenceFrames
+      `Prelude.hashWithSalt` gopSizeUnits
+      `Prelude.hashWithSalt` hrdBufferSize
+      `Prelude.hashWithSalt` slices
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` numberReferenceFrames
+      `Prelude.hashWithSalt` telecine
+      `Prelude.hashWithSalt` dynamicSubGop
+      `Prelude.hashWithSalt` minIInterval
+      `Prelude.hashWithSalt` interlaceMode
+      `Prelude.hashWithSalt` parControl
+      `Prelude.hashWithSalt` repeatPps
+      `Prelude.hashWithSalt` scanTypeConversionMode
+      `Prelude.hashWithSalt` flickerAdaptiveQuantization
+      `Prelude.hashWithSalt` qvbrSettings
+      `Prelude.hashWithSalt` softness
+      `Prelude.hashWithSalt` codecProfile
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` codecLevel
+      `Prelude.hashWithSalt` entropyEncoding
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` gopBReference
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` syntax
+      `Prelude.hashWithSalt` fieldEncoding
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` parDenominator
+      `Prelude.hashWithSalt` spatialAdaptiveQuantization
 
-instance Prelude.NFData H264Settings
+instance Prelude.NFData H264Settings where
+  rnf H264Settings' {..} =
+    Prelude.rnf unregisteredSeiTimecode
+      `Prelude.seq` Prelude.rnf qualityTuningLevel
+      `Prelude.seq` Prelude.rnf temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf sceneChangeDetect
+      `Prelude.seq` Prelude.rnf hrdBufferInitialFillPercentage
+      `Prelude.seq` Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf parNumerator
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
+      `Prelude.seq` Prelude.rnf gopSizeUnits
+      `Prelude.seq` Prelude.rnf hrdBufferSize
+      `Prelude.seq` Prelude.rnf slices
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf numberReferenceFrames
+      `Prelude.seq` Prelude.rnf telecine
+      `Prelude.seq` Prelude.rnf dynamicSubGop
+      `Prelude.seq` Prelude.rnf minIInterval
+      `Prelude.seq` Prelude.rnf interlaceMode
+      `Prelude.seq` Prelude.rnf parControl
+      `Prelude.seq` Prelude.rnf repeatPps
+      `Prelude.seq` Prelude.rnf
+        scanTypeConversionMode
+      `Prelude.seq` Prelude.rnf
+        flickerAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf qvbrSettings
+      `Prelude.seq` Prelude.rnf softness
+      `Prelude.seq` Prelude.rnf
+        codecProfile
+      `Prelude.seq` Prelude.rnf
+        bitrate
+      `Prelude.seq` Prelude.rnf
+        framerateDenominator
+      `Prelude.seq` Prelude.rnf
+        framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf
+        codecLevel
+      `Prelude.seq` Prelude.rnf
+        entropyEncoding
+      `Prelude.seq` Prelude.rnf
+        framerateControl
+      `Prelude.seq` Prelude.rnf
+        adaptiveQuantization
+      `Prelude.seq` Prelude.rnf
+        framerateNumerator
+      `Prelude.seq` Prelude.rnf
+        gopBReference
+      `Prelude.seq` Prelude.rnf
+        maxBitrate
+      `Prelude.seq` Prelude.rnf
+        syntax
+      `Prelude.seq` Prelude.rnf
+        fieldEncoding
+      `Prelude.seq` Prelude.rnf
+        gopClosedCadence
+      `Prelude.seq` Prelude.rnf
+        parDenominator
+      `Prelude.seq` Prelude.rnf
+        spatialAdaptiveQuantization
 
 instance Core.ToJSON H264Settings where
   toJSON H264Settings' {..} =

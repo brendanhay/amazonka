@@ -176,9 +176,17 @@ instance Core.AWSRequest CreateMatchmakingRuleSet where
             Prelude.<*> (x Core..:> "RuleSet")
       )
 
-instance Prelude.Hashable CreateMatchmakingRuleSet
+instance Prelude.Hashable CreateMatchmakingRuleSet where
+  hashWithSalt _salt CreateMatchmakingRuleSet' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ruleSetBody
 
-instance Prelude.NFData CreateMatchmakingRuleSet
+instance Prelude.NFData CreateMatchmakingRuleSet where
+  rnf CreateMatchmakingRuleSet' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ruleSetBody
 
 instance Core.ToHeaders CreateMatchmakingRuleSet where
   toHeaders =
@@ -259,3 +267,7 @@ createMatchmakingRuleSetResponse_ruleSet = Lens.lens (\CreateMatchmakingRuleSetR
 instance
   Prelude.NFData
     CreateMatchmakingRuleSetResponse
+  where
+  rnf CreateMatchmakingRuleSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleSet

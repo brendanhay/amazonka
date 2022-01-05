@@ -71,6 +71,12 @@ instance Core.FromXML OptionRestrictionRegex where
       Prelude.<$> (x Core..@? "Pattern")
       Prelude.<*> (x Core..@? "Label")
 
-instance Prelude.Hashable OptionRestrictionRegex
+instance Prelude.Hashable OptionRestrictionRegex where
+  hashWithSalt _salt OptionRestrictionRegex' {..} =
+    _salt `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` label
 
-instance Prelude.NFData OptionRestrictionRegex
+instance Prelude.NFData OptionRestrictionRegex where
+  rnf OptionRestrictionRegex' {..} =
+    Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf label

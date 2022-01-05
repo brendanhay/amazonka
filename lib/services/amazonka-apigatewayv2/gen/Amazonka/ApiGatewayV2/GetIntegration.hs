@@ -144,9 +144,15 @@ instance Core.AWSRequest GetIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntegration
+instance Prelude.Hashable GetIntegration where
+  hashWithSalt _salt GetIntegration' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` integrationId
 
-instance Prelude.NFData GetIntegration
+instance Prelude.NFData GetIntegration where
+  rnf GetIntegration' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf integrationId
 
 instance Core.ToHeaders GetIntegration where
   toHeaders =
@@ -735,4 +741,26 @@ getIntegrationResponse'_responseParameters = Lens.lens (\GetIntegrationResponse'
 getIntegrationResponse'_httpStatus :: Lens.Lens' GetIntegrationResponse' Prelude.Int
 getIntegrationResponse'_httpStatus = Lens.lens (\GetIntegrationResponse'' {httpStatus} -> httpStatus) (\s@GetIntegrationResponse'' {} a -> s {httpStatus = a} :: GetIntegrationResponse')
 
-instance Prelude.NFData GetIntegrationResponse'
+instance Prelude.NFData GetIntegrationResponse' where
+  rnf GetIntegrationResponse'' {..} =
+    Prelude.rnf integrationResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf integrationSubtype
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf integrationUri
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf integrationMethod
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf payloadFormatVersion
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf httpStatus

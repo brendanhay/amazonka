@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteMeeting where
   response =
     Response.receiveNull DeleteMeetingResponse'
 
-instance Prelude.Hashable DeleteMeeting
+instance Prelude.Hashable DeleteMeeting where
+  hashWithSalt _salt DeleteMeeting' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
 
-instance Prelude.NFData DeleteMeeting
+instance Prelude.NFData DeleteMeeting where
+  rnf DeleteMeeting' {..} = Prelude.rnf meetingId
 
 instance Core.ToHeaders DeleteMeeting where
   toHeaders = Prelude.const Prelude.mempty
@@ -110,4 +113,5 @@ newDeleteMeetingResponse ::
   DeleteMeetingResponse
 newDeleteMeetingResponse = DeleteMeetingResponse'
 
-instance Prelude.NFData DeleteMeetingResponse
+instance Prelude.NFData DeleteMeetingResponse where
+  rnf _ = ()

@@ -88,9 +88,17 @@ instance Core.FromJSON EncryptionConfiguration where
             Prelude.<*> (x Core..:? "CloudWatchEncryption")
       )
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Prelude.Hashable EncryptionConfiguration where
+  hashWithSalt _salt EncryptionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` s3Encryption
+      `Prelude.hashWithSalt` jobBookmarksEncryption
+      `Prelude.hashWithSalt` cloudWatchEncryption
 
-instance Prelude.NFData EncryptionConfiguration
+instance Prelude.NFData EncryptionConfiguration where
+  rnf EncryptionConfiguration' {..} =
+    Prelude.rnf s3Encryption
+      `Prelude.seq` Prelude.rnf jobBookmarksEncryption
+      `Prelude.seq` Prelude.rnf cloudWatchEncryption
 
 instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =

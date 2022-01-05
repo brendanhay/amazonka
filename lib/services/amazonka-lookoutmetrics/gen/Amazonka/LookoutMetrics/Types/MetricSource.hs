@@ -115,9 +115,21 @@ instance Core.FromJSON MetricSource where
             Prelude.<*> (x Core..:? "CloudWatchConfig")
       )
 
-instance Prelude.Hashable MetricSource
+instance Prelude.Hashable MetricSource where
+  hashWithSalt _salt MetricSource' {..} =
+    _salt `Prelude.hashWithSalt` redshiftSourceConfig
+      `Prelude.hashWithSalt` s3SourceConfig
+      `Prelude.hashWithSalt` rDSSourceConfig
+      `Prelude.hashWithSalt` appFlowConfig
+      `Prelude.hashWithSalt` cloudWatchConfig
 
-instance Prelude.NFData MetricSource
+instance Prelude.NFData MetricSource where
+  rnf MetricSource' {..} =
+    Prelude.rnf redshiftSourceConfig
+      `Prelude.seq` Prelude.rnf s3SourceConfig
+      `Prelude.seq` Prelude.rnf rDSSourceConfig
+      `Prelude.seq` Prelude.rnf appFlowConfig
+      `Prelude.seq` Prelude.rnf cloudWatchConfig
 
 instance Core.ToJSON MetricSource where
   toJSON MetricSource' {..} =

@@ -100,10 +100,19 @@ instance
 instance
   Prelude.Hashable
     DeleteFieldLevelEncryptionProfile
+  where
+  hashWithSalt
+    _salt
+    DeleteFieldLevelEncryptionProfile' {..} =
+      _salt `Prelude.hashWithSalt` ifMatch
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteFieldLevelEncryptionProfile
+  where
+  rnf DeleteFieldLevelEncryptionProfile' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -146,3 +155,5 @@ newDeleteFieldLevelEncryptionProfileResponse =
 instance
   Prelude.NFData
     DeleteFieldLevelEncryptionProfileResponse
+  where
+  rnf _ = ()

@@ -83,6 +83,14 @@ instance Core.FromJSON LaunchProfileMembership where
             Prelude.<*> (x Core..:? "persona")
       )
 
-instance Prelude.Hashable LaunchProfileMembership
+instance Prelude.Hashable LaunchProfileMembership where
+  hashWithSalt _salt LaunchProfileMembership' {..} =
+    _salt `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` persona
 
-instance Prelude.NFData LaunchProfileMembership
+instance Prelude.NFData LaunchProfileMembership where
+  rnf LaunchProfileMembership' {..} =
+    Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf persona

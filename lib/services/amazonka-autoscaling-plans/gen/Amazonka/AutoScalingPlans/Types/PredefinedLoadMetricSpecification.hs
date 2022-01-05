@@ -161,10 +161,20 @@ instance
 instance
   Prelude.Hashable
     PredefinedLoadMetricSpecification
+  where
+  hashWithSalt
+    _salt
+    PredefinedLoadMetricSpecification' {..} =
+      _salt `Prelude.hashWithSalt` resourceLabel
+        `Prelude.hashWithSalt` predefinedLoadMetricType
 
 instance
   Prelude.NFData
     PredefinedLoadMetricSpecification
+  where
+  rnf PredefinedLoadMetricSpecification' {..} =
+    Prelude.rnf resourceLabel
+      `Prelude.seq` Prelude.rnf predefinedLoadMetricType
 
 instance
   Core.ToJSON

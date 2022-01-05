@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
@@ -150,6 +151,16 @@ instance Core.FromJSON GlobalSecondaryIndexInfo where
             Prelude.<*> (x Core..:? "IndexName")
       )
 
-instance Prelude.Hashable GlobalSecondaryIndexInfo
+instance Prelude.Hashable GlobalSecondaryIndexInfo where
+  hashWithSalt _salt GlobalSecondaryIndexInfo' {..} =
+    _salt `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` projection
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData GlobalSecondaryIndexInfo
+instance Prelude.NFData GlobalSecondaryIndexInfo where
+  rnf GlobalSecondaryIndexInfo' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf indexName

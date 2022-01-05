@@ -210,9 +210,29 @@ instance Core.AWSRequest AssociateFileSystem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateFileSystem
+instance Prelude.Hashable AssociateFileSystem where
+  hashWithSalt _salt AssociateFileSystem' {..} =
+    _salt `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` endpointNetworkConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` locationARN
 
-instance Prelude.NFData AssociateFileSystem
+instance Prelude.NFData AssociateFileSystem where
+  rnf AssociateFileSystem' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf endpointNetworkConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf locationARN
 
 instance Core.ToHeaders AssociateFileSystem where
   toHeaders =
@@ -293,4 +313,7 @@ associateFileSystemResponse_fileSystemAssociationARN = Lens.lens (\AssociateFile
 associateFileSystemResponse_httpStatus :: Lens.Lens' AssociateFileSystemResponse Prelude.Int
 associateFileSystemResponse_httpStatus = Lens.lens (\AssociateFileSystemResponse' {httpStatus} -> httpStatus) (\s@AssociateFileSystemResponse' {} a -> s {httpStatus = a} :: AssociateFileSystemResponse)
 
-instance Prelude.NFData AssociateFileSystemResponse
+instance Prelude.NFData AssociateFileSystemResponse where
+  rnf AssociateFileSystemResponse' {..} =
+    Prelude.rnf fileSystemAssociationARN
+      `Prelude.seq` Prelude.rnf httpStatus

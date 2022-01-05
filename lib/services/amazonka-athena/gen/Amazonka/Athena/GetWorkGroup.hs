@@ -84,9 +84,12 @@ instance Core.AWSRequest GetWorkGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkGroup
+instance Prelude.Hashable GetWorkGroup where
+  hashWithSalt _salt GetWorkGroup' {..} =
+    _salt `Prelude.hashWithSalt` workGroup
 
-instance Prelude.NFData GetWorkGroup
+instance Prelude.NFData GetWorkGroup where
+  rnf GetWorkGroup' {..} = Prelude.rnf workGroup
 
 instance Core.ToHeaders GetWorkGroup where
   toHeaders =
@@ -152,4 +155,7 @@ getWorkGroupResponse_workGroup = Lens.lens (\GetWorkGroupResponse' {workGroup} -
 getWorkGroupResponse_httpStatus :: Lens.Lens' GetWorkGroupResponse Prelude.Int
 getWorkGroupResponse_httpStatus = Lens.lens (\GetWorkGroupResponse' {httpStatus} -> httpStatus) (\s@GetWorkGroupResponse' {} a -> s {httpStatus = a} :: GetWorkGroupResponse)
 
-instance Prelude.NFData GetWorkGroupResponse
+instance Prelude.NFData GetWorkGroupResponse where
+  rnf GetWorkGroupResponse' {..} =
+    Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf httpStatus

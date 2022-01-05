@@ -308,6 +308,38 @@ instance Core.FromJSON AccessPreviewFinding where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable AccessPreviewFinding
+instance Prelude.Hashable AccessPreviewFinding where
+  hashWithSalt _salt AccessPreviewFinding' {..} =
+    _salt `Prelude.hashWithSalt` existingFindingStatus
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` existingFindingId
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` resourceOwnerAccount
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AccessPreviewFinding
+instance Prelude.NFData AccessPreviewFinding where
+  rnf AccessPreviewFinding' {..} =
+    Prelude.rnf existingFindingStatus
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf isPublic
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf existingFindingId
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf status

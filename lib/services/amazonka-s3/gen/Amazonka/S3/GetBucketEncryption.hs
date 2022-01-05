@@ -130,9 +130,15 @@ instance Core.AWSRequest GetBucketEncryption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketEncryption
+instance Prelude.Hashable GetBucketEncryption where
+  hashWithSalt _salt GetBucketEncryption' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetBucketEncryption
+instance Prelude.NFData GetBucketEncryption where
+  rnf GetBucketEncryption' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketEncryption where
   toHeaders GetBucketEncryption' {..} =
@@ -187,4 +193,7 @@ getBucketEncryptionResponse_serverSideEncryptionConfiguration = Lens.lens (\GetB
 getBucketEncryptionResponse_httpStatus :: Lens.Lens' GetBucketEncryptionResponse Prelude.Int
 getBucketEncryptionResponse_httpStatus = Lens.lens (\GetBucketEncryptionResponse' {httpStatus} -> httpStatus) (\s@GetBucketEncryptionResponse' {} a -> s {httpStatus = a} :: GetBucketEncryptionResponse)
 
-instance Prelude.NFData GetBucketEncryptionResponse
+instance Prelude.NFData GetBucketEncryptionResponse where
+  rnf GetBucketEncryptionResponse' {..} =
+    Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

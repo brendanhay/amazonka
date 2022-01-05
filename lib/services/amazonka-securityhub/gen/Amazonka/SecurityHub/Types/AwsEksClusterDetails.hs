@@ -149,9 +149,29 @@ instance Core.FromJSON AwsEksClusterDetails where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable AwsEksClusterDetails
+instance Prelude.Hashable AwsEksClusterDetails where
+  hashWithSalt _salt AwsEksClusterDetails' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` certificateAuthorityData
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` resourcesVpcConfig
+      `Prelude.hashWithSalt` clusterStatus
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData AwsEksClusterDetails
+instance Prelude.NFData AwsEksClusterDetails where
+  rnf AwsEksClusterDetails' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf certificateAuthorityData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+      `Prelude.seq` Prelude.rnf clusterStatus
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON AwsEksClusterDetails where
   toJSON AwsEksClusterDetails' {..} =

@@ -256,9 +256,33 @@ instance Core.AWSRequest CreateRestApi where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateRestApi
+instance Prelude.Hashable CreateRestApi where
+  hashWithSalt _salt CreateRestApi' {..} =
+    _salt `Prelude.hashWithSalt` minimumCompressionSize
+      `Prelude.hashWithSalt` disableExecuteApiEndpoint
+      `Prelude.hashWithSalt` binaryMediaTypes
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` apiKeySource
+      `Prelude.hashWithSalt` cloneFrom
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateRestApi
+instance Prelude.NFData CreateRestApi where
+  rnf CreateRestApi' {..} =
+    Prelude.rnf minimumCompressionSize
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf binaryMediaTypes
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiKeySource
+      `Prelude.seq` Prelude.rnf cloneFrom
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateRestApi where
   toHeaders =

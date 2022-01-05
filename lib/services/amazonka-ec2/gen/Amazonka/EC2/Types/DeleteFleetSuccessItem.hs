@@ -80,6 +80,14 @@ instance Core.FromXML DeleteFleetSuccessItem where
       Prelude.<*> (x Core..@? "previousFleetState")
       Prelude.<*> (x Core..@? "fleetId")
 
-instance Prelude.Hashable DeleteFleetSuccessItem
+instance Prelude.Hashable DeleteFleetSuccessItem where
+  hashWithSalt _salt DeleteFleetSuccessItem' {..} =
+    _salt `Prelude.hashWithSalt` currentFleetState
+      `Prelude.hashWithSalt` previousFleetState
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteFleetSuccessItem
+instance Prelude.NFData DeleteFleetSuccessItem where
+  rnf DeleteFleetSuccessItem' {..} =
+    Prelude.rnf currentFleetState
+      `Prelude.seq` Prelude.rnf previousFleetState
+      `Prelude.seq` Prelude.rnf fleetId

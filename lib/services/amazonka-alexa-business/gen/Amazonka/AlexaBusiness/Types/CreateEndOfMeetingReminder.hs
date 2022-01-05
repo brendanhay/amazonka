@@ -83,9 +83,17 @@ createEndOfMeetingReminder_reminderType = Lens.lens (\CreateEndOfMeetingReminder
 createEndOfMeetingReminder_enabled :: Lens.Lens' CreateEndOfMeetingReminder Prelude.Bool
 createEndOfMeetingReminder_enabled = Lens.lens (\CreateEndOfMeetingReminder' {enabled} -> enabled) (\s@CreateEndOfMeetingReminder' {} a -> s {enabled = a} :: CreateEndOfMeetingReminder)
 
-instance Prelude.Hashable CreateEndOfMeetingReminder
+instance Prelude.Hashable CreateEndOfMeetingReminder where
+  hashWithSalt _salt CreateEndOfMeetingReminder' {..} =
+    _salt `Prelude.hashWithSalt` reminderAtMinutes
+      `Prelude.hashWithSalt` reminderType
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CreateEndOfMeetingReminder
+instance Prelude.NFData CreateEndOfMeetingReminder where
+  rnf CreateEndOfMeetingReminder' {..} =
+    Prelude.rnf reminderAtMinutes
+      `Prelude.seq` Prelude.rnf reminderType
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CreateEndOfMeetingReminder where
   toJSON CreateEndOfMeetingReminder' {..} =

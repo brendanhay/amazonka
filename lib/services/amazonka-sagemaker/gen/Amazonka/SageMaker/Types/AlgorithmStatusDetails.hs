@@ -77,6 +77,12 @@ instance Core.FromJSON AlgorithmStatusDetails where
                         )
       )
 
-instance Prelude.Hashable AlgorithmStatusDetails
+instance Prelude.Hashable AlgorithmStatusDetails where
+  hashWithSalt _salt AlgorithmStatusDetails' {..} =
+    _salt `Prelude.hashWithSalt` imageScanStatuses
+      `Prelude.hashWithSalt` validationStatuses
 
-instance Prelude.NFData AlgorithmStatusDetails
+instance Prelude.NFData AlgorithmStatusDetails where
+  rnf AlgorithmStatusDetails' {..} =
+    Prelude.rnf imageScanStatuses
+      `Prelude.seq` Prelude.rnf validationStatuses

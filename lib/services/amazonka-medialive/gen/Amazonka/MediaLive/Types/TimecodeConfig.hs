@@ -101,9 +101,15 @@ instance Core.FromJSON TimecodeConfig where
             Prelude.<*> (x Core..: "source")
       )
 
-instance Prelude.Hashable TimecodeConfig
+instance Prelude.Hashable TimecodeConfig where
+  hashWithSalt _salt TimecodeConfig' {..} =
+    _salt `Prelude.hashWithSalt` syncThreshold
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData TimecodeConfig
+instance Prelude.NFData TimecodeConfig where
+  rnf TimecodeConfig' {..} =
+    Prelude.rnf syncThreshold
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =

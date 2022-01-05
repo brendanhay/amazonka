@@ -105,9 +105,17 @@ instance Core.AWSRequest UpdateUserHierarchy where
   response =
     Response.receiveNull UpdateUserHierarchyResponse'
 
-instance Prelude.Hashable UpdateUserHierarchy
+instance Prelude.Hashable UpdateUserHierarchy where
+  hashWithSalt _salt UpdateUserHierarchy' {..} =
+    _salt `Prelude.hashWithSalt` hierarchyGroupId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData UpdateUserHierarchy
+instance Prelude.NFData UpdateUserHierarchy where
+  rnf UpdateUserHierarchy' {..} =
+    Prelude.rnf hierarchyGroupId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders UpdateUserHierarchy where
   toHeaders =
@@ -157,4 +165,5 @@ newUpdateUserHierarchyResponse ::
 newUpdateUserHierarchyResponse =
   UpdateUserHierarchyResponse'
 
-instance Prelude.NFData UpdateUserHierarchyResponse
+instance Prelude.NFData UpdateUserHierarchyResponse where
+  rnf _ = ()

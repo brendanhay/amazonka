@@ -137,9 +137,17 @@ instance Core.AWSRequest ListOriginEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOriginEndpoints
+instance Prelude.Hashable ListOriginEndpoints where
+  hashWithSalt _salt ListOriginEndpoints' {..} =
+    _salt `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOriginEndpoints
+instance Prelude.NFData ListOriginEndpoints where
+  rnf ListOriginEndpoints' {..} =
+    Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOriginEndpoints where
   toHeaders =
@@ -214,4 +222,8 @@ listOriginEndpointsResponse_nextToken = Lens.lens (\ListOriginEndpointsResponse'
 listOriginEndpointsResponse_httpStatus :: Lens.Lens' ListOriginEndpointsResponse Prelude.Int
 listOriginEndpointsResponse_httpStatus = Lens.lens (\ListOriginEndpointsResponse' {httpStatus} -> httpStatus) (\s@ListOriginEndpointsResponse' {} a -> s {httpStatus = a} :: ListOriginEndpointsResponse)
 
-instance Prelude.NFData ListOriginEndpointsResponse
+instance Prelude.NFData ListOriginEndpointsResponse where
+  rnf ListOriginEndpointsResponse' {..} =
+    Prelude.rnf originEndpoints
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

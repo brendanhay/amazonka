@@ -349,9 +349,31 @@ instance Core.AWSRequest PutBucketAcl where
       Prelude.. Request.putXML defaultService
   response = Response.receiveNull PutBucketAclResponse'
 
-instance Prelude.Hashable PutBucketAcl
+instance Prelude.Hashable PutBucketAcl where
+  hashWithSalt _salt PutBucketAcl' {..} =
+    _salt `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` accessControlPolicy
+      `Prelude.hashWithSalt` grantWrite
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData PutBucketAcl
+instance Prelude.NFData PutBucketAcl where
+  rnf PutBucketAcl' {..} =
+    Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf accessControlPolicy
+      `Prelude.seq` Prelude.rnf grantWrite
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToElement PutBucketAcl where
   toElement PutBucketAcl' {..} =
@@ -394,4 +416,5 @@ newPutBucketAclResponse ::
   PutBucketAclResponse
 newPutBucketAclResponse = PutBucketAclResponse'
 
-instance Prelude.NFData PutBucketAclResponse
+instance Prelude.NFData PutBucketAclResponse where
+  rnf _ = ()

@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteUsagePlan where
   response =
     Response.receiveNull DeleteUsagePlanResponse'
 
-instance Prelude.Hashable DeleteUsagePlan
+instance Prelude.Hashable DeleteUsagePlan where
+  hashWithSalt _salt DeleteUsagePlan' {..} =
+    _salt `Prelude.hashWithSalt` usagePlanId
 
-instance Prelude.NFData DeleteUsagePlan
+instance Prelude.NFData DeleteUsagePlan where
+  rnf DeleteUsagePlan' {..} = Prelude.rnf usagePlanId
 
 instance Core.ToHeaders DeleteUsagePlan where
   toHeaders =
@@ -114,4 +117,5 @@ newDeleteUsagePlanResponse ::
   DeleteUsagePlanResponse
 newDeleteUsagePlanResponse = DeleteUsagePlanResponse'
 
-instance Prelude.NFData DeleteUsagePlanResponse
+instance Prelude.NFData DeleteUsagePlanResponse where
+  rnf _ = ()

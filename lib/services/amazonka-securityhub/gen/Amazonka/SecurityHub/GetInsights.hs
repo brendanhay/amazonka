@@ -145,9 +145,17 @@ instance Core.AWSRequest GetInsights where
             Prelude.<*> (x Core..?> "Insights" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetInsights
+instance Prelude.Hashable GetInsights where
+  hashWithSalt _salt GetInsights' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` insightArns
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetInsights
+instance Prelude.NFData GetInsights where
+  rnf GetInsights' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf insightArns
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetInsights where
   toHeaders =
@@ -223,4 +231,8 @@ getInsightsResponse_httpStatus = Lens.lens (\GetInsightsResponse' {httpStatus} -
 getInsightsResponse_insights :: Lens.Lens' GetInsightsResponse [Insight]
 getInsightsResponse_insights = Lens.lens (\GetInsightsResponse' {insights} -> insights) (\s@GetInsightsResponse' {} a -> s {insights = a} :: GetInsightsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetInsightsResponse
+instance Prelude.NFData GetInsightsResponse where
+  rnf GetInsightsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf insights

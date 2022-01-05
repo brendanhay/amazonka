@@ -113,6 +113,18 @@ instance Core.FromXML CacheEngineVersion where
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "CacheEngineVersionDescription")
 
-instance Prelude.Hashable CacheEngineVersion
+instance Prelude.Hashable CacheEngineVersion where
+  hashWithSalt _salt CacheEngineVersion' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` cacheParameterGroupFamily
+      `Prelude.hashWithSalt` cacheEngineDescription
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` cacheEngineVersionDescription
 
-instance Prelude.NFData CacheEngineVersion
+instance Prelude.NFData CacheEngineVersion where
+  rnf CacheEngineVersion' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf cacheEngineDescription
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf cacheEngineVersionDescription

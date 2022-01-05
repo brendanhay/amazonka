@@ -167,9 +167,19 @@ instance Core.AWSRequest MergeDeveloperIdentities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergeDeveloperIdentities
+instance Prelude.Hashable MergeDeveloperIdentities where
+  hashWithSalt _salt MergeDeveloperIdentities' {..} =
+    _salt `Prelude.hashWithSalt` sourceUserIdentifier
+      `Prelude.hashWithSalt` destinationUserIdentifier
+      `Prelude.hashWithSalt` developerProviderName
+      `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData MergeDeveloperIdentities
+instance Prelude.NFData MergeDeveloperIdentities where
+  rnf MergeDeveloperIdentities' {..} =
+    Prelude.rnf sourceUserIdentifier
+      `Prelude.seq` Prelude.rnf destinationUserIdentifier
+      `Prelude.seq` Prelude.rnf developerProviderName
+      `Prelude.seq` Prelude.rnf identityPoolId
 
 instance Core.ToHeaders MergeDeveloperIdentities where
   toHeaders =
@@ -257,3 +267,7 @@ mergeDeveloperIdentitiesResponse_httpStatus = Lens.lens (\MergeDeveloperIdentiti
 instance
   Prelude.NFData
     MergeDeveloperIdentitiesResponse
+  where
+  rnf MergeDeveloperIdentitiesResponse' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf httpStatus

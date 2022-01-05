@@ -141,9 +141,17 @@ instance Core.AWSRequest DescribeInstancePatchStates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstancePatchStates
+instance Prelude.Hashable DescribeInstancePatchStates where
+  hashWithSalt _salt DescribeInstancePatchStates' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData DescribeInstancePatchStates
+instance Prelude.NFData DescribeInstancePatchStates where
+  rnf DescribeInstancePatchStates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders DescribeInstancePatchStates where
   toHeaders =
@@ -230,3 +238,8 @@ describeInstancePatchStatesResponse_httpStatus = Lens.lens (\DescribeInstancePat
 instance
   Prelude.NFData
     DescribeInstancePatchStatesResponse
+  where
+  rnf DescribeInstancePatchStatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instancePatchStates
+      `Prelude.seq` Prelude.rnf httpStatus

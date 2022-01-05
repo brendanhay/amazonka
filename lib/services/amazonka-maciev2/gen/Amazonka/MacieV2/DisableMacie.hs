@@ -67,9 +67,12 @@ instance Core.AWSRequest DisableMacie where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableMacie
+instance Prelude.Hashable DisableMacie where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DisableMacie
+instance Prelude.NFData DisableMacie where
+  rnf _ = ()
 
 instance Core.ToHeaders DisableMacie where
   toHeaders =
@@ -115,4 +118,6 @@ newDisableMacieResponse pHttpStatus_ =
 disableMacieResponse_httpStatus :: Lens.Lens' DisableMacieResponse Prelude.Int
 disableMacieResponse_httpStatus = Lens.lens (\DisableMacieResponse' {httpStatus} -> httpStatus) (\s@DisableMacieResponse' {} a -> s {httpStatus = a} :: DisableMacieResponse)
 
-instance Prelude.NFData DisableMacieResponse
+instance Prelude.NFData DisableMacieResponse where
+  rnf DisableMacieResponse' {..} =
+    Prelude.rnf httpStatus

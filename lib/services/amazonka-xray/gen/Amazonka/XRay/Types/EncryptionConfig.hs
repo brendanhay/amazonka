@@ -90,6 +90,14 @@ instance Core.FromJSON EncryptionConfig where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EncryptionConfig
+instance Prelude.Hashable EncryptionConfig where
+  hashWithSalt _salt EncryptionConfig' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EncryptionConfig
+instance Prelude.NFData EncryptionConfig where
+  rnf EncryptionConfig' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf type'

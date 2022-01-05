@@ -81,6 +81,14 @@ instance Core.FromJSON ColumnSchema where
             Prelude.<*> (x Core..:? "DataType")
       )
 
-instance Prelude.Hashable ColumnSchema
+instance Prelude.Hashable ColumnSchema where
+  hashWithSalt _salt ColumnSchema' {..} =
+    _salt `Prelude.hashWithSalt` geographicRole
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataType
 
-instance Prelude.NFData ColumnSchema
+instance Prelude.NFData ColumnSchema where
+  rnf ColumnSchema' {..} =
+    Prelude.rnf geographicRole
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataType

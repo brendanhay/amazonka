@@ -75,6 +75,13 @@ instance Core.FromJSON Statistics where
             Prelude.<*> (x Core..:? "numberOfRuns")
       )
 
-instance Prelude.Hashable Statistics
+instance Prelude.Hashable Statistics where
+  hashWithSalt _salt Statistics' {..} =
+    _salt
+      `Prelude.hashWithSalt` approximateNumberOfObjectsToProcess
+      `Prelude.hashWithSalt` numberOfRuns
 
-instance Prelude.NFData Statistics
+instance Prelude.NFData Statistics where
+  rnf Statistics' {..} =
+    Prelude.rnf approximateNumberOfObjectsToProcess
+      `Prelude.seq` Prelude.rnf numberOfRuns

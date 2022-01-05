@@ -101,6 +101,18 @@ instance Core.FromJSON Outcome where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Outcome
+instance Prelude.Hashable Outcome where
+  hashWithSalt _salt Outcome' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Outcome
+instance Prelude.NFData Outcome where
+  rnf Outcome' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

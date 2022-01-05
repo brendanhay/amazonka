@@ -68,6 +68,12 @@ instance Core.FromXML DnsEntry where
       Prelude.<$> (x Core..@? "hostedZoneId")
       Prelude.<*> (x Core..@? "dnsName")
 
-instance Prelude.Hashable DnsEntry
+instance Prelude.Hashable DnsEntry where
+  hashWithSalt _salt DnsEntry' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` dnsName
 
-instance Prelude.NFData DnsEntry
+instance Prelude.NFData DnsEntry where
+  rnf DnsEntry' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf dnsName

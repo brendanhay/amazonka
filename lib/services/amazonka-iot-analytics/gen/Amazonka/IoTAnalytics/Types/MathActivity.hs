@@ -104,9 +104,19 @@ instance Core.FromJSON MathActivity where
             Prelude.<*> (x Core..: "math")
       )
 
-instance Prelude.Hashable MathActivity
+instance Prelude.Hashable MathActivity where
+  hashWithSalt _salt MathActivity' {..} =
+    _salt `Prelude.hashWithSalt` next
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` math
 
-instance Prelude.NFData MathActivity
+instance Prelude.NFData MathActivity where
+  rnf MathActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf math
 
 instance Core.ToJSON MathActivity where
   toJSON MathActivity' {..} =

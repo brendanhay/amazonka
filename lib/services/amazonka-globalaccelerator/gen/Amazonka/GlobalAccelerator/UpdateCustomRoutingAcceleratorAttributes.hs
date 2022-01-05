@@ -182,10 +182,24 @@ instance
 instance
   Prelude.Hashable
     UpdateCustomRoutingAcceleratorAttributes
+  where
+  hashWithSalt
+    _salt
+    UpdateCustomRoutingAcceleratorAttributes' {..} =
+      _salt `Prelude.hashWithSalt` flowLogsS3Prefix
+        `Prelude.hashWithSalt` flowLogsEnabled
+        `Prelude.hashWithSalt` flowLogsS3Bucket
+        `Prelude.hashWithSalt` acceleratorArn
 
 instance
   Prelude.NFData
     UpdateCustomRoutingAcceleratorAttributes
+  where
+  rnf UpdateCustomRoutingAcceleratorAttributes' {..} =
+    Prelude.rnf flowLogsS3Prefix
+      `Prelude.seq` Prelude.rnf flowLogsEnabled
+      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
+      `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
   Core.ToHeaders
@@ -278,3 +292,8 @@ updateCustomRoutingAcceleratorAttributesResponse_httpStatus = Lens.lens (\Update
 instance
   Prelude.NFData
     UpdateCustomRoutingAcceleratorAttributesResponse
+  where
+  rnf
+    UpdateCustomRoutingAcceleratorAttributesResponse' {..} =
+      Prelude.rnf acceleratorAttributes
+        `Prelude.seq` Prelude.rnf httpStatus

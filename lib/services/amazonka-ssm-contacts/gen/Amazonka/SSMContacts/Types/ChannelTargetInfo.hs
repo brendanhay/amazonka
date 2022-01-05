@@ -78,9 +78,15 @@ instance Core.FromJSON ChannelTargetInfo where
             Prelude.<*> (x Core..: "ContactChannelId")
       )
 
-instance Prelude.Hashable ChannelTargetInfo
+instance Prelude.Hashable ChannelTargetInfo where
+  hashWithSalt _salt ChannelTargetInfo' {..} =
+    _salt `Prelude.hashWithSalt` retryIntervalInMinutes
+      `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData ChannelTargetInfo
+instance Prelude.NFData ChannelTargetInfo where
+  rnf ChannelTargetInfo' {..} =
+    Prelude.rnf retryIntervalInMinutes
+      `Prelude.seq` Prelude.rnf contactChannelId
 
 instance Core.ToJSON ChannelTargetInfo where
   toJSON ChannelTargetInfo' {..} =

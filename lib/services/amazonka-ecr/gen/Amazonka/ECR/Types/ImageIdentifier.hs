@@ -72,9 +72,15 @@ instance Core.FromJSON ImageIdentifier where
             Prelude.<*> (x Core..:? "imageTag")
       )
 
-instance Prelude.Hashable ImageIdentifier
+instance Prelude.Hashable ImageIdentifier where
+  hashWithSalt _salt ImageIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageTag
 
-instance Prelude.NFData ImageIdentifier
+instance Prelude.NFData ImageIdentifier where
+  rnf ImageIdentifier' {..} =
+    Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageTag
 
 instance Core.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =

@@ -86,10 +86,20 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketWebsiteConfigurationRoutingRule
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketWebsiteConfigurationRoutingRule' {..} =
+      _salt `Prelude.hashWithSalt` redirect
+        `Prelude.hashWithSalt` condition
 
 instance
   Prelude.NFData
     AwsS3BucketWebsiteConfigurationRoutingRule
+  where
+  rnf AwsS3BucketWebsiteConfigurationRoutingRule' {..} =
+    Prelude.rnf redirect
+      `Prelude.seq` Prelude.rnf condition
 
 instance
   Core.ToJSON

@@ -539,6 +539,59 @@ instance Core.FromJSON BucketMetadata where
             Prelude.<*> (x Core..:? "classifiableSizeInBytes")
       )
 
-instance Prelude.Hashable BucketMetadata
+instance Prelude.Hashable BucketMetadata where
+  hashWithSalt _salt BucketMetadata' {..} =
+    _salt `Prelude.hashWithSalt` sizeInBytesCompressed
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` objectCountByEncryptionType
+      `Prelude.hashWithSalt` sharedAccess
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` classifiableObjectCount
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` unclassifiableObjectSizeInBytes
+      `Prelude.hashWithSalt` unclassifiableObjectCount
+      `Prelude.hashWithSalt` versioning
+      `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
+      `Prelude.hashWithSalt` publicAccess
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` jobDetails
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` bucketCreatedAt
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` objectCount
+      `Prelude.hashWithSalt` replicationDetails
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` classifiableSizeInBytes
 
-instance Prelude.NFData BucketMetadata
+instance Prelude.NFData BucketMetadata where
+  rnf BucketMetadata' {..} =
+    Prelude.rnf sizeInBytesCompressed
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf objectCountByEncryptionType
+      `Prelude.seq` Prelude.rnf sharedAccess
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf classifiableObjectCount
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf unclassifiableObjectSizeInBytes
+      `Prelude.seq` Prelude.rnf unclassifiableObjectCount
+      `Prelude.seq` Prelude.rnf versioning
+      `Prelude.seq` Prelude.rnf allowsUnencryptedObjectUploads
+      `Prelude.seq` Prelude.rnf publicAccess
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf jobDetails
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf bucketCreatedAt
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf bucketArn
+      `Prelude.seq` Prelude.rnf objectCount
+      `Prelude.seq` Prelude.rnf
+        replicationDetails
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryption
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        classifiableSizeInBytes

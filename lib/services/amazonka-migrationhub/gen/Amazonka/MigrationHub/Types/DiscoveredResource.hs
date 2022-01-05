@@ -79,9 +79,15 @@ instance Core.FromJSON DiscoveredResource where
             Prelude.<*> (x Core..: "ConfigurationId")
       )
 
-instance Prelude.Hashable DiscoveredResource
+instance Prelude.Hashable DiscoveredResource where
+  hashWithSalt _salt DiscoveredResource' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configurationId
 
-instance Prelude.NFData DiscoveredResource
+instance Prelude.NFData DiscoveredResource where
+  rnf DiscoveredResource' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf configurationId
 
 instance Core.ToJSON DiscoveredResource where
   toJSON DiscoveredResource' {..} =

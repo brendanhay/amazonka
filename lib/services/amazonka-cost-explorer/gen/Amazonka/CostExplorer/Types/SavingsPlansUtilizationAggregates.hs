@@ -105,7 +105,19 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansUtilizationAggregates
+  where
+  hashWithSalt
+    _salt
+    SavingsPlansUtilizationAggregates' {..} =
+      _salt `Prelude.hashWithSalt` amortizedCommitment
+        `Prelude.hashWithSalt` savings
+        `Prelude.hashWithSalt` utilization
 
 instance
   Prelude.NFData
     SavingsPlansUtilizationAggregates
+  where
+  rnf SavingsPlansUtilizationAggregates' {..} =
+    Prelude.rnf amortizedCommitment
+      `Prelude.seq` Prelude.rnf savings
+      `Prelude.seq` Prelude.rnf utilization

@@ -177,6 +177,32 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "PublicIpAddress")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` publicDnsName
+      `Prelude.hashWithSalt` ebsVolumes
+      `Prelude.hashWithSalt` ec2InstanceId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` market
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` instanceFleetId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` publicIpAddress
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf publicDnsName
+      `Prelude.seq` Prelude.rnf ebsVolumes
+      `Prelude.seq` Prelude.rnf ec2InstanceId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf market
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf instanceFleetId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf publicIpAddress

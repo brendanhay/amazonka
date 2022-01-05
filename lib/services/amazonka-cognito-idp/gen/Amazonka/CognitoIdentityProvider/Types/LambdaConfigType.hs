@@ -193,9 +193,37 @@ instance Core.FromJSON LambdaConfigType where
             Prelude.<*> (x Core..:? "PreSignUp")
       )
 
-instance Prelude.Hashable LambdaConfigType
+instance Prelude.Hashable LambdaConfigType where
+  hashWithSalt _salt LambdaConfigType' {..} =
+    _salt `Prelude.hashWithSalt` preAuthentication
+      `Prelude.hashWithSalt` createAuthChallenge
+      `Prelude.hashWithSalt` verifyAuthChallengeResponse
+      `Prelude.hashWithSalt` customSMSSender
+      `Prelude.hashWithSalt` postAuthentication
+      `Prelude.hashWithSalt` customMessage
+      `Prelude.hashWithSalt` defineAuthChallenge
+      `Prelude.hashWithSalt` customEmailSender
+      `Prelude.hashWithSalt` kmsKeyID
+      `Prelude.hashWithSalt` postConfirmation
+      `Prelude.hashWithSalt` preTokenGeneration
+      `Prelude.hashWithSalt` userMigration
+      `Prelude.hashWithSalt` preSignUp
 
-instance Prelude.NFData LambdaConfigType
+instance Prelude.NFData LambdaConfigType where
+  rnf LambdaConfigType' {..} =
+    Prelude.rnf preAuthentication
+      `Prelude.seq` Prelude.rnf createAuthChallenge
+      `Prelude.seq` Prelude.rnf verifyAuthChallengeResponse
+      `Prelude.seq` Prelude.rnf customSMSSender
+      `Prelude.seq` Prelude.rnf postAuthentication
+      `Prelude.seq` Prelude.rnf customMessage
+      `Prelude.seq` Prelude.rnf defineAuthChallenge
+      `Prelude.seq` Prelude.rnf customEmailSender
+      `Prelude.seq` Prelude.rnf kmsKeyID
+      `Prelude.seq` Prelude.rnf postConfirmation
+      `Prelude.seq` Prelude.rnf preTokenGeneration
+      `Prelude.seq` Prelude.rnf userMigration
+      `Prelude.seq` Prelude.rnf preSignUp
 
 instance Core.ToJSON LambdaConfigType where
   toJSON LambdaConfigType' {..} =

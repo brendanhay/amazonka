@@ -195,7 +195,28 @@ instance Core.FromXML IdentityNotificationAttributes where
 instance
   Prelude.Hashable
     IdentityNotificationAttributes
+  where
+  hashWithSalt
+    _salt
+    IdentityNotificationAttributes' {..} =
+      _salt
+        `Prelude.hashWithSalt` headersInDeliveryNotificationsEnabled
+        `Prelude.hashWithSalt` headersInComplaintNotificationsEnabled
+        `Prelude.hashWithSalt` headersInBounceNotificationsEnabled
+        `Prelude.hashWithSalt` bounceTopic
+        `Prelude.hashWithSalt` complaintTopic
+        `Prelude.hashWithSalt` deliveryTopic
+        `Prelude.hashWithSalt` forwardingEnabled
 
 instance
   Prelude.NFData
     IdentityNotificationAttributes
+  where
+  rnf IdentityNotificationAttributes' {..} =
+    Prelude.rnf headersInDeliveryNotificationsEnabled
+      `Prelude.seq` Prelude.rnf headersInComplaintNotificationsEnabled
+      `Prelude.seq` Prelude.rnf headersInBounceNotificationsEnabled
+      `Prelude.seq` Prelude.rnf bounceTopic
+      `Prelude.seq` Prelude.rnf complaintTopic
+      `Prelude.seq` Prelude.rnf deliveryTopic
+      `Prelude.seq` Prelude.rnf forwardingEnabled

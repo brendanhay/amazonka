@@ -77,9 +77,12 @@ instance Core.AWSRequest GetSnowballUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSnowballUsage
+instance Prelude.Hashable GetSnowballUsage where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetSnowballUsage
+instance Prelude.NFData GetSnowballUsage where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSnowballUsage where
   toHeaders =
@@ -156,4 +159,8 @@ getSnowballUsageResponse_snowballLimit = Lens.lens (\GetSnowballUsageResponse' {
 getSnowballUsageResponse_httpStatus :: Lens.Lens' GetSnowballUsageResponse Prelude.Int
 getSnowballUsageResponse_httpStatus = Lens.lens (\GetSnowballUsageResponse' {httpStatus} -> httpStatus) (\s@GetSnowballUsageResponse' {} a -> s {httpStatus = a} :: GetSnowballUsageResponse)
 
-instance Prelude.NFData GetSnowballUsageResponse
+instance Prelude.NFData GetSnowballUsageResponse where
+  rnf GetSnowballUsageResponse' {..} =
+    Prelude.rnf snowballsInUse
+      `Prelude.seq` Prelude.rnf snowballLimit
+      `Prelude.seq` Prelude.rnf httpStatus

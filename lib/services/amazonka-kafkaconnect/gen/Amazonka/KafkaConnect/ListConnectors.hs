@@ -141,9 +141,17 @@ instance Core.AWSRequest ListConnectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConnectors
+instance Prelude.Hashable ListConnectors where
+  hashWithSalt _salt ListConnectors' {..} =
+    _salt `Prelude.hashWithSalt` connectorNamePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListConnectors
+instance Prelude.NFData ListConnectors where
+  rnf ListConnectors' {..} =
+    Prelude.rnf connectorNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListConnectors where
   toHeaders =
@@ -221,4 +229,8 @@ listConnectorsResponse_nextToken = Lens.lens (\ListConnectorsResponse' {nextToke
 listConnectorsResponse_httpStatus :: Lens.Lens' ListConnectorsResponse Prelude.Int
 listConnectorsResponse_httpStatus = Lens.lens (\ListConnectorsResponse' {httpStatus} -> httpStatus) (\s@ListConnectorsResponse' {} a -> s {httpStatus = a} :: ListConnectorsResponse)
 
-instance Prelude.NFData ListConnectorsResponse
+instance Prelude.NFData ListConnectorsResponse where
+  rnf ListConnectorsResponse' {..} =
+    Prelude.rnf connectors
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -89,9 +89,14 @@ instance Core.FromJSON ActivityType where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable ActivityType
+instance Prelude.Hashable ActivityType where
+  hashWithSalt _salt ActivityType' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData ActivityType
+instance Prelude.NFData ActivityType where
+  rnf ActivityType' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON ActivityType where
   toJSON ActivityType' {..} =

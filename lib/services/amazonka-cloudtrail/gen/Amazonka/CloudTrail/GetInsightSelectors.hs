@@ -150,9 +150,12 @@ instance Core.AWSRequest GetInsightSelectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightSelectors
+instance Prelude.Hashable GetInsightSelectors where
+  hashWithSalt _salt GetInsightSelectors' {..} =
+    _salt `Prelude.hashWithSalt` trailName
 
-instance Prelude.NFData GetInsightSelectors
+instance Prelude.NFData GetInsightSelectors where
+  rnf GetInsightSelectors' {..} = Prelude.rnf trailName
 
 instance Core.ToHeaders GetInsightSelectors where
   toHeaders =
@@ -239,4 +242,8 @@ getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsRe
 getInsightSelectorsResponse_httpStatus :: Lens.Lens' GetInsightSelectorsResponse Prelude.Int
 getInsightSelectorsResponse_httpStatus = Lens.lens (\GetInsightSelectorsResponse' {httpStatus} -> httpStatus) (\s@GetInsightSelectorsResponse' {} a -> s {httpStatus = a} :: GetInsightSelectorsResponse)
 
-instance Prelude.NFData GetInsightSelectorsResponse
+instance Prelude.NFData GetInsightSelectorsResponse where
+  rnf GetInsightSelectorsResponse' {..} =
+    Prelude.rnf trailARN
+      `Prelude.seq` Prelude.rnf insightSelectors
+      `Prelude.seq` Prelude.rnf httpStatus

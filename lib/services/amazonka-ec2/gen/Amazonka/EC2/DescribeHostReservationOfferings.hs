@@ -235,10 +235,28 @@ instance
 instance
   Prelude.Hashable
     DescribeHostReservationOfferings
+  where
+  hashWithSalt
+    _salt
+    DescribeHostReservationOfferings' {..} =
+      _salt `Prelude.hashWithSalt` maxDuration
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` minDuration
+        `Prelude.hashWithSalt` offeringId
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeHostReservationOfferings
+  where
+  rnf DescribeHostReservationOfferings' {..} =
+    Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf minDuration
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -325,3 +343,8 @@ describeHostReservationOfferingsResponse_httpStatus = Lens.lens (\DescribeHostRe
 instance
   Prelude.NFData
     DescribeHostReservationOfferingsResponse
+  where
+  rnf DescribeHostReservationOfferingsResponse' {..} =
+    Prelude.rnf offeringSet
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

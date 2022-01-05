@@ -88,8 +88,13 @@ instance
 instance
   Prelude.Hashable
     DeleteModelPackageGroupPolicy
+  where
+  hashWithSalt _salt DeleteModelPackageGroupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` modelPackageGroupName
 
-instance Prelude.NFData DeleteModelPackageGroupPolicy
+instance Prelude.NFData DeleteModelPackageGroupPolicy where
+  rnf DeleteModelPackageGroupPolicy' {..} =
+    Prelude.rnf modelPackageGroupName
 
 instance Core.ToHeaders DeleteModelPackageGroupPolicy where
   toHeaders =
@@ -141,3 +146,5 @@ newDeleteModelPackageGroupPolicyResponse =
 instance
   Prelude.NFData
     DeleteModelPackageGroupPolicyResponse
+  where
+  rnf _ = ()

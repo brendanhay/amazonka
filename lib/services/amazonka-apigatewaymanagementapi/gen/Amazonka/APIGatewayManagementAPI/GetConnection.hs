@@ -89,9 +89,12 @@ instance Core.AWSRequest GetConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConnection
+instance Prelude.Hashable GetConnection where
+  hashWithSalt _salt GetConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData GetConnection
+instance Prelude.NFData GetConnection where
+  rnf GetConnection' {..} = Prelude.rnf connectionId
 
 instance Core.ToHeaders GetConnection where
   toHeaders =
@@ -168,4 +171,9 @@ getConnectionResponse_identity = Lens.lens (\GetConnectionResponse' {identity} -
 getConnectionResponse_httpStatus :: Lens.Lens' GetConnectionResponse Prelude.Int
 getConnectionResponse_httpStatus = Lens.lens (\GetConnectionResponse' {httpStatus} -> httpStatus) (\s@GetConnectionResponse' {} a -> s {httpStatus = a} :: GetConnectionResponse)
 
-instance Prelude.NFData GetConnectionResponse
+instance Prelude.NFData GetConnectionResponse where
+  rnf GetConnectionResponse' {..} =
+    Prelude.rnf connectedAt
+      `Prelude.seq` Prelude.rnf lastActiveAt
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf httpStatus

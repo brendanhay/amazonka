@@ -257,10 +257,32 @@ instance
 instance
   Prelude.Hashable
     ListPackageVersionDependencies
+  where
+  hashWithSalt
+    _salt
+    ListPackageVersionDependencies' {..} =
+      _salt `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` repository
+        `Prelude.hashWithSalt` format
+        `Prelude.hashWithSalt` package
+        `Prelude.hashWithSalt` packageVersion
 
 instance
   Prelude.NFData
     ListPackageVersionDependencies
+  where
+  rnf ListPackageVersionDependencies' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf packageVersion
 
 instance
   Core.ToHeaders
@@ -453,3 +475,13 @@ listPackageVersionDependenciesResponse_httpStatus = Lens.lens (\ListPackageVersi
 instance
   Prelude.NFData
     ListPackageVersionDependenciesResponse
+  where
+  rnf ListPackageVersionDependenciesResponse' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versionRevision
+      `Prelude.seq` Prelude.rnf dependencies
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf httpStatus

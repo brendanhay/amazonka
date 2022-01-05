@@ -147,9 +147,23 @@ instance Core.AWSRequest CreateDomainAssociation where
             Prelude.<*> (x Core..:> "domainAssociation")
       )
 
-instance Prelude.Hashable CreateDomainAssociation
+instance Prelude.Hashable CreateDomainAssociation where
+  hashWithSalt _salt CreateDomainAssociation' {..} =
+    _salt `Prelude.hashWithSalt` enableAutoSubDomain
+      `Prelude.hashWithSalt` autoSubDomainCreationPatterns
+      `Prelude.hashWithSalt` autoSubDomainIAMRole
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` subDomainSettings
 
-instance Prelude.NFData CreateDomainAssociation
+instance Prelude.NFData CreateDomainAssociation where
+  rnf CreateDomainAssociation' {..} =
+    Prelude.rnf enableAutoSubDomain
+      `Prelude.seq` Prelude.rnf autoSubDomainCreationPatterns
+      `Prelude.seq` Prelude.rnf autoSubDomainIAMRole
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf subDomainSettings
 
 instance Core.ToHeaders CreateDomainAssociation where
   toHeaders =
@@ -237,3 +251,7 @@ createDomainAssociationResponse_domainAssociation = Lens.lens (\CreateDomainAsso
 instance
   Prelude.NFData
     CreateDomainAssociationResponse
+  where
+  rnf CreateDomainAssociationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainAssociation

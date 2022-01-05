@@ -86,6 +86,14 @@ instance Core.FromJSON GetRecommendationError where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable GetRecommendationError
+instance Prelude.Hashable GetRecommendationError where
+  hashWithSalt _salt GetRecommendationError' {..} =
+    _salt `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData GetRecommendationError
+instance Prelude.NFData GetRecommendationError where
+  rnf GetRecommendationError' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message

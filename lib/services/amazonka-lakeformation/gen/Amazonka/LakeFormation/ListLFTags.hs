@@ -140,9 +140,19 @@ instance Core.AWSRequest ListLFTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLFTags
+instance Prelude.Hashable ListLFTags where
+  hashWithSalt _salt ListLFTags' {..} =
+    _salt `Prelude.hashWithSalt` resourceShareType
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListLFTags
+instance Prelude.NFData ListLFTags where
+  rnf ListLFTags' {..} =
+    Prelude.rnf resourceShareType
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLFTags where
   toHeaders =
@@ -227,4 +237,8 @@ listLFTagsResponse_lFTags = Lens.lens (\ListLFTagsResponse' {lFTags} -> lFTags) 
 listLFTagsResponse_httpStatus :: Lens.Lens' ListLFTagsResponse Prelude.Int
 listLFTagsResponse_httpStatus = Lens.lens (\ListLFTagsResponse' {httpStatus} -> httpStatus) (\s@ListLFTagsResponse' {} a -> s {httpStatus = a} :: ListLFTagsResponse)
 
-instance Prelude.NFData ListLFTagsResponse
+instance Prelude.NFData ListLFTagsResponse where
+  rnf ListLFTagsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lFTags
+      `Prelude.seq` Prelude.rnf httpStatus

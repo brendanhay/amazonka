@@ -101,9 +101,15 @@ instance Core.AWSRequest ListVoiceConnectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVoiceConnectors
+instance Prelude.Hashable ListVoiceConnectors where
+  hashWithSalt _salt ListVoiceConnectors' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListVoiceConnectors
+instance Prelude.NFData ListVoiceConnectors where
+  rnf ListVoiceConnectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListVoiceConnectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +172,8 @@ listVoiceConnectorsResponse_voiceConnectors = Lens.lens (\ListVoiceConnectorsRes
 listVoiceConnectorsResponse_httpStatus :: Lens.Lens' ListVoiceConnectorsResponse Prelude.Int
 listVoiceConnectorsResponse_httpStatus = Lens.lens (\ListVoiceConnectorsResponse' {httpStatus} -> httpStatus) (\s@ListVoiceConnectorsResponse' {} a -> s {httpStatus = a} :: ListVoiceConnectorsResponse)
 
-instance Prelude.NFData ListVoiceConnectorsResponse
+instance Prelude.NFData ListVoiceConnectorsResponse where
+  rnf ListVoiceConnectorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf voiceConnectors
+      `Prelude.seq` Prelude.rnf httpStatus

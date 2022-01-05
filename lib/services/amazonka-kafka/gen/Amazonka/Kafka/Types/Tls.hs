@@ -73,9 +73,15 @@ instance Core.FromJSON Tls where
                         )
       )
 
-instance Prelude.Hashable Tls
+instance Prelude.Hashable Tls where
+  hashWithSalt _salt Tls' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` certificateAuthorityArnList
 
-instance Prelude.NFData Tls
+instance Prelude.NFData Tls where
+  rnf Tls' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf certificateAuthorityArnList
 
 instance Core.ToJSON Tls where
   toJSON Tls' {..} =

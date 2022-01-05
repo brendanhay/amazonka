@@ -102,10 +102,20 @@ instance
 instance
   Prelude.Hashable
     DeletePendingAggregationRequest
+  where
+  hashWithSalt
+    _salt
+    DeletePendingAggregationRequest' {..} =
+      _salt `Prelude.hashWithSalt` requesterAccountId
+        `Prelude.hashWithSalt` requesterAwsRegion
 
 instance
   Prelude.NFData
     DeletePendingAggregationRequest
+  where
+  rnf DeletePendingAggregationRequest' {..} =
+    Prelude.rnf requesterAccountId
+      `Prelude.seq` Prelude.rnf requesterAwsRegion
 
 instance
   Core.ToHeaders
@@ -160,3 +170,5 @@ newDeletePendingAggregationRequestResponse =
 instance
   Prelude.NFData
     DeletePendingAggregationRequestResponse
+  where
+  rnf _ = ()

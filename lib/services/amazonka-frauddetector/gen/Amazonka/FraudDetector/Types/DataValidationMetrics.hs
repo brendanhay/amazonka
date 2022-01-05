@@ -78,6 +78,12 @@ instance Core.FromJSON DataValidationMetrics where
                         )
       )
 
-instance Prelude.Hashable DataValidationMetrics
+instance Prelude.Hashable DataValidationMetrics where
+  hashWithSalt _salt DataValidationMetrics' {..} =
+    _salt `Prelude.hashWithSalt` fieldLevelMessages
+      `Prelude.hashWithSalt` fileLevelMessages
 
-instance Prelude.NFData DataValidationMetrics
+instance Prelude.NFData DataValidationMetrics where
+  rnf DataValidationMetrics' {..} =
+    Prelude.rnf fieldLevelMessages
+      `Prelude.seq` Prelude.rnf fileLevelMessages

@@ -115,10 +115,18 @@ instance
 instance
   Prelude.Hashable
     DescribeStateMachineForExecution
+  where
+  hashWithSalt
+    _salt
+    DescribeStateMachineForExecution' {..} =
+      _salt `Prelude.hashWithSalt` executionArn
 
 instance
   Prelude.NFData
     DescribeStateMachineForExecution
+  where
+  rnf DescribeStateMachineForExecution' {..} =
+    Prelude.rnf executionArn
 
 instance
   Core.ToHeaders
@@ -282,3 +290,13 @@ describeStateMachineForExecutionResponse_updateDate = Lens.lens (\DescribeStateM
 instance
   Prelude.NFData
     DescribeStateMachineForExecutionResponse
+  where
+  rnf DescribeStateMachineForExecutionResponse' {..} =
+    Prelude.rnf tracingConfiguration
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf updateDate

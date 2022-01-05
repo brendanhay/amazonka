@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteCallAnalyticsCategory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCallAnalyticsCategory
+instance Prelude.Hashable DeleteCallAnalyticsCategory where
+  hashWithSalt _salt DeleteCallAnalyticsCategory' {..} =
+    _salt `Prelude.hashWithSalt` categoryName
 
-instance Prelude.NFData DeleteCallAnalyticsCategory
+instance Prelude.NFData DeleteCallAnalyticsCategory where
+  rnf DeleteCallAnalyticsCategory' {..} =
+    Prelude.rnf categoryName
 
 instance Core.ToHeaders DeleteCallAnalyticsCategory where
   toHeaders =
@@ -155,3 +159,6 @@ deleteCallAnalyticsCategoryResponse_httpStatus = Lens.lens (\DeleteCallAnalytics
 instance
   Prelude.NFData
     DeleteCallAnalyticsCategoryResponse
+  where
+  rnf DeleteCallAnalyticsCategoryResponse' {..} =
+    Prelude.rnf httpStatus

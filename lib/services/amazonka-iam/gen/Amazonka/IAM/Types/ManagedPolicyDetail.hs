@@ -266,6 +266,32 @@ instance Core.FromXML ManagedPolicyDetail where
       Prelude.<*> (x Core..@? "AttachmentCount")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable ManagedPolicyDetail
+instance Prelude.Hashable ManagedPolicyDetail where
+  hashWithSalt _salt ManagedPolicyDetail' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` policyVersionList
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` isAttachable
+      `Prelude.hashWithSalt` permissionsBoundaryUsageCount
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` attachmentCount
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ManagedPolicyDetail
+instance Prelude.NFData ManagedPolicyDetail where
+  rnf ManagedPolicyDetail' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf policyVersionList
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf isAttachable
+      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf attachmentCount
+      `Prelude.seq` Prelude.rnf description

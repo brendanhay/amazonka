@@ -206,6 +206,34 @@ instance Core.FromJSON ParameterHistory where
             Prelude.<*> (x Core..:? "Policies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ParameterHistory
+instance Prelude.Hashable ParameterHistory where
+  hashWithSalt _salt ParameterHistory' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastModifiedUser
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` allowedPattern
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policies
 
-instance Prelude.NFData ParameterHistory
+instance Prelude.NFData ParameterHistory where
+  rnf ParameterHistory' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastModifiedUser
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf allowedPattern
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policies

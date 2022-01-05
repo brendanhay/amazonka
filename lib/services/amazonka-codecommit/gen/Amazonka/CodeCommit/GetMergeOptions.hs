@@ -175,9 +175,21 @@ instance Core.AWSRequest GetMergeOptions where
             Prelude.<*> (x Core..:> "baseCommitId")
       )
 
-instance Prelude.Hashable GetMergeOptions
+instance Prelude.Hashable GetMergeOptions where
+  hashWithSalt _salt GetMergeOptions' {..} =
+    _salt `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` destinationCommitSpecifier
 
-instance Prelude.NFData GetMergeOptions
+instance Prelude.NFData GetMergeOptions where
+  rnf GetMergeOptions' {..} =
+    Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
 instance Core.ToHeaders GetMergeOptions where
   toHeaders =
@@ -302,4 +314,10 @@ getMergeOptionsResponse_destinationCommitId = Lens.lens (\GetMergeOptionsRespons
 getMergeOptionsResponse_baseCommitId :: Lens.Lens' GetMergeOptionsResponse Prelude.Text
 getMergeOptionsResponse_baseCommitId = Lens.lens (\GetMergeOptionsResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeOptionsResponse' {} a -> s {baseCommitId = a} :: GetMergeOptionsResponse)
 
-instance Prelude.NFData GetMergeOptionsResponse
+instance Prelude.NFData GetMergeOptionsResponse where
+  rnf GetMergeOptionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mergeOptions
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf destinationCommitId
+      `Prelude.seq` Prelude.rnf baseCommitId

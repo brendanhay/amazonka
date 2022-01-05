@@ -184,9 +184,17 @@ instance Core.FromJSON PipelineOutputConfig where
             Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PipelineOutputConfig
+instance Prelude.Hashable PipelineOutputConfig where
+  hashWithSalt _salt PipelineOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData PipelineOutputConfig
+instance Prelude.NFData PipelineOutputConfig where
+  rnf PipelineOutputConfig' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToJSON PipelineOutputConfig where
   toJSON PipelineOutputConfig' {..} =

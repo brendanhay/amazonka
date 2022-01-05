@@ -236,9 +236,21 @@ instance Core.AWSRequest DescribeDhcpOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDhcpOptions
+instance Prelude.Hashable DescribeDhcpOptions where
+  hashWithSalt _salt DescribeDhcpOptions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dhcpOptionsIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeDhcpOptions
+instance Prelude.NFData DescribeDhcpOptions where
+  rnf DescribeDhcpOptions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dhcpOptionsIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -315,4 +327,8 @@ describeDhcpOptionsResponse_nextToken = Lens.lens (\DescribeDhcpOptionsResponse'
 describeDhcpOptionsResponse_httpStatus :: Lens.Lens' DescribeDhcpOptionsResponse Prelude.Int
 describeDhcpOptionsResponse_httpStatus = Lens.lens (\DescribeDhcpOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeDhcpOptionsResponse' {} a -> s {httpStatus = a} :: DescribeDhcpOptionsResponse)
 
-instance Prelude.NFData DescribeDhcpOptionsResponse
+instance Prelude.NFData DescribeDhcpOptionsResponse where
+  rnf DescribeDhcpOptionsResponse' {..} =
+    Prelude.rnf dhcpOptions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

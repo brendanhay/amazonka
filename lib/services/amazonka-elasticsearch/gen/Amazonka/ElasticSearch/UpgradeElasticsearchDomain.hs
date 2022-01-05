@@ -123,9 +123,17 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpgradeElasticsearchDomain
+instance Prelude.Hashable UpgradeElasticsearchDomain where
+  hashWithSalt _salt UpgradeElasticsearchDomain' {..} =
+    _salt `Prelude.hashWithSalt` performCheckOnly
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` targetVersion
 
-instance Prelude.NFData UpgradeElasticsearchDomain
+instance Prelude.NFData UpgradeElasticsearchDomain where
+  rnf UpgradeElasticsearchDomain' {..} =
+    Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf targetVersion
 
 instance Core.ToHeaders UpgradeElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +221,9 @@ upgradeElasticsearchDomainResponse_httpStatus = Lens.lens (\UpgradeElasticsearch
 instance
   Prelude.NFData
     UpgradeElasticsearchDomainResponse
+  where
+  rnf UpgradeElasticsearchDomainResponse' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf targetVersion
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -146,9 +146,15 @@ instance Core.AWSRequest ListConfigurationSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConfigurationSets
+instance Prelude.Hashable ListConfigurationSets where
+  hashWithSalt _salt ListConfigurationSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListConfigurationSets
+instance Prelude.NFData ListConfigurationSets where
+  rnf ListConfigurationSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListConfigurationSets where
   toHeaders =
@@ -234,4 +240,8 @@ listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsRespo
 listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Prelude.Int
 listConfigurationSetsResponse_httpStatus = Lens.lens (\ListConfigurationSetsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationSetsResponse' {} a -> s {httpStatus = a} :: ListConfigurationSetsResponse)
 
-instance Prelude.NFData ListConfigurationSetsResponse
+instance Prelude.NFData ListConfigurationSetsResponse where
+  rnf ListConfigurationSetsResponse' {..} =
+    Prelude.rnf configurationSets
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

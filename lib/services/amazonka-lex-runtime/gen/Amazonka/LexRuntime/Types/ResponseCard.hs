@@ -88,6 +88,14 @@ instance Core.FromJSON ResponseCard where
             Prelude.<*> (x Core..:? "contentType")
       )
 
-instance Prelude.Hashable ResponseCard
+instance Prelude.Hashable ResponseCard where
+  hashWithSalt _salt ResponseCard' {..} =
+    _salt `Prelude.hashWithSalt` genericAttachments
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData ResponseCard
+instance Prelude.NFData ResponseCard where
+  rnf ResponseCard' {..} =
+    Prelude.rnf genericAttachments
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf contentType

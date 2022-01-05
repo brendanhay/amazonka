@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteStateMachine where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStateMachine
+instance Prelude.Hashable DeleteStateMachine where
+  hashWithSalt _salt DeleteStateMachine' {..} =
+    _salt `Prelude.hashWithSalt` stateMachineArn
 
-instance Prelude.NFData DeleteStateMachine
+instance Prelude.NFData DeleteStateMachine where
+  rnf DeleteStateMachine' {..} =
+    Prelude.rnf stateMachineArn
 
 instance Core.ToHeaders DeleteStateMachine where
   toHeaders =
@@ -156,4 +160,6 @@ newDeleteStateMachineResponse pHttpStatus_ =
 deleteStateMachineResponse_httpStatus :: Lens.Lens' DeleteStateMachineResponse Prelude.Int
 deleteStateMachineResponse_httpStatus = Lens.lens (\DeleteStateMachineResponse' {httpStatus} -> httpStatus) (\s@DeleteStateMachineResponse' {} a -> s {httpStatus = a} :: DeleteStateMachineResponse)
 
-instance Prelude.NFData DeleteStateMachineResponse
+instance Prelude.NFData DeleteStateMachineResponse where
+  rnf DeleteStateMachineResponse' {..} =
+    Prelude.rnf httpStatus

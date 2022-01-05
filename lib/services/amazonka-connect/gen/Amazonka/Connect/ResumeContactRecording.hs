@@ -122,9 +122,17 @@ instance Core.AWSRequest ResumeContactRecording where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeContactRecording
+instance Prelude.Hashable ResumeContactRecording where
+  hashWithSalt _salt ResumeContactRecording' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` initialContactId
 
-instance Prelude.NFData ResumeContactRecording
+instance Prelude.NFData ResumeContactRecording where
+  rnf ResumeContactRecording' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf initialContactId
 
 instance Core.ToHeaders ResumeContactRecording where
   toHeaders =
@@ -187,3 +195,6 @@ resumeContactRecordingResponse_httpStatus = Lens.lens (\ResumeContactRecordingRe
 instance
   Prelude.NFData
     ResumeContactRecordingResponse
+  where
+  rnf ResumeContactRecordingResponse' {..} =
+    Prelude.rnf httpStatus

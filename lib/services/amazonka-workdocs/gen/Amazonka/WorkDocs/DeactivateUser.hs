@@ -94,9 +94,15 @@ instance Core.AWSRequest DeactivateUser where
   response =
     Response.receiveNull DeactivateUserResponse'
 
-instance Prelude.Hashable DeactivateUser
+instance Prelude.Hashable DeactivateUser where
+  hashWithSalt _salt DeactivateUser' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DeactivateUser
+instance Prelude.NFData DeactivateUser where
+  rnf DeactivateUser' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders DeactivateUser where
   toHeaders DeactivateUser' {..} =
@@ -128,4 +134,5 @@ newDeactivateUserResponse ::
   DeactivateUserResponse
 newDeactivateUserResponse = DeactivateUserResponse'
 
-instance Prelude.NFData DeactivateUserResponse
+instance Prelude.NFData DeactivateUserResponse where
+  rnf _ = ()

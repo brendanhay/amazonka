@@ -191,9 +191,25 @@ instance Core.AWSRequest CreateProvisioningTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProvisioningTemplate
+instance Prelude.Hashable CreateProvisioningTemplate where
+  hashWithSalt _salt CreateProvisioningTemplate' {..} =
+    _salt `Prelude.hashWithSalt` preProvisioningHook
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` provisioningRoleArn
 
-instance Prelude.NFData CreateProvisioningTemplate
+instance Prelude.NFData CreateProvisioningTemplate where
+  rnf CreateProvisioningTemplate' {..} =
+    Prelude.rnf preProvisioningHook
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf provisioningRoleArn
 
 instance Core.ToHeaders CreateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,3 +296,9 @@ createProvisioningTemplateResponse_httpStatus = Lens.lens (\CreateProvisioningTe
 instance
   Prelude.NFData
     CreateProvisioningTemplateResponse
+  where
+  rnf CreateProvisioningTemplateResponse' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf httpStatus

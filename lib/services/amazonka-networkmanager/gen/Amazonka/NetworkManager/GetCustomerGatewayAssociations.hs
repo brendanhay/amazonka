@@ -163,10 +163,24 @@ instance
 instance
   Prelude.Hashable
     GetCustomerGatewayAssociations
+  where
+  hashWithSalt
+    _salt
+    GetCustomerGatewayAssociations' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` customerGatewayArns
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` globalNetworkId
 
 instance
   Prelude.NFData
     GetCustomerGatewayAssociations
+  where
+  rnf GetCustomerGatewayAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf customerGatewayArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance
   Core.ToHeaders
@@ -255,3 +269,8 @@ getCustomerGatewayAssociationsResponse_httpStatus = Lens.lens (\GetCustomerGatew
 instance
   Prelude.NFData
     GetCustomerGatewayAssociationsResponse
+  where
+  rnf GetCustomerGatewayAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf customerGatewayAssociations
+      `Prelude.seq` Prelude.rnf httpStatus

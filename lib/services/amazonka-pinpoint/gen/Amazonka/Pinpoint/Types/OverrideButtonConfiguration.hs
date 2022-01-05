@@ -75,9 +75,15 @@ instance Core.FromJSON OverrideButtonConfiguration where
             Prelude.<*> (x Core..: "ButtonAction")
       )
 
-instance Prelude.Hashable OverrideButtonConfiguration
+instance Prelude.Hashable OverrideButtonConfiguration where
+  hashWithSalt _salt OverrideButtonConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` link
+      `Prelude.hashWithSalt` buttonAction
 
-instance Prelude.NFData OverrideButtonConfiguration
+instance Prelude.NFData OverrideButtonConfiguration where
+  rnf OverrideButtonConfiguration' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf buttonAction
 
 instance Core.ToJSON OverrideButtonConfiguration where
   toJSON OverrideButtonConfiguration' {..} =

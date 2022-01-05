@@ -88,9 +88,12 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTemplate
+instance Prelude.Hashable GetTemplate where
+  hashWithSalt _salt GetTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData GetTemplate
+instance Prelude.NFData GetTemplate where
+  rnf GetTemplate' {..} = Prelude.rnf templateName
 
 instance Core.ToHeaders GetTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,4 +148,7 @@ getTemplateResponse_template = Lens.lens (\GetTemplateResponse' {template} -> te
 getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
 getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -> httpStatus) (\s@GetTemplateResponse' {} a -> s {httpStatus = a} :: GetTemplateResponse)
 
-instance Prelude.NFData GetTemplateResponse
+instance Prelude.NFData GetTemplateResponse where
+  rnf GetTemplateResponse' {..} =
+    Prelude.rnf template
+      `Prelude.seq` Prelude.rnf httpStatus

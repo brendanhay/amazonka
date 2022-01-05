@@ -68,9 +68,15 @@ credential_username = Lens.lens (\Credential' {username} -> username) (\s@Creden
 credential_password :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
 credential_password = Lens.lens (\Credential' {password} -> password) (\s@Credential' {} a -> s {password = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
 
-instance Prelude.Hashable Credential
+instance Prelude.Hashable Credential where
+  hashWithSalt _salt Credential' {..} =
+    _salt `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData Credential
+instance Prelude.NFData Credential where
+  rnf Credential' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON Credential where
   toJSON Credential' {..} =

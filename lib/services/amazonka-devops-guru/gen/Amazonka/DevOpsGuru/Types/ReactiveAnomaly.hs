@@ -146,6 +146,25 @@ instance Core.FromJSON ReactiveAnomaly where
             Prelude.<*> (x Core..:? "AnomalyTimeRange")
       )
 
-instance Prelude.Hashable ReactiveAnomaly
+instance Prelude.Hashable ReactiveAnomaly where
+  hashWithSalt _salt ReactiveAnomaly' {..} =
+    _salt
+      `Prelude.hashWithSalt` anomalyReportedTimeRange
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` sourceDetails
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` associatedInsightId
+      `Prelude.hashWithSalt` anomalyTimeRange
 
-instance Prelude.NFData ReactiveAnomaly
+instance Prelude.NFData ReactiveAnomaly where
+  rnf ReactiveAnomaly' {..} =
+    Prelude.rnf anomalyReportedTimeRange
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf sourceDetails
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf associatedInsightId
+      `Prelude.seq` Prelude.rnf anomalyTimeRange

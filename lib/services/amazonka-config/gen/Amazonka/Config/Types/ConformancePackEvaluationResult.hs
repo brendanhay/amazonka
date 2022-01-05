@@ -134,7 +134,23 @@ instance
 instance
   Prelude.Hashable
     ConformancePackEvaluationResult
+  where
+  hashWithSalt
+    _salt
+    ConformancePackEvaluationResult' {..} =
+      _salt `Prelude.hashWithSalt` annotation
+        `Prelude.hashWithSalt` complianceType
+        `Prelude.hashWithSalt` evaluationResultIdentifier
+        `Prelude.hashWithSalt` configRuleInvokedTime
+        `Prelude.hashWithSalt` resultRecordedTime
 
 instance
   Prelude.NFData
     ConformancePackEvaluationResult
+  where
+  rnf ConformancePackEvaluationResult' {..} =
+    Prelude.rnf annotation
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf evaluationResultIdentifier
+      `Prelude.seq` Prelude.rnf configRuleInvokedTime
+      `Prelude.seq` Prelude.rnf resultRecordedTime

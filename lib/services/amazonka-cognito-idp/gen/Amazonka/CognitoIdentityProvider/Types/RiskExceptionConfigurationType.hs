@@ -88,10 +88,20 @@ instance Core.FromJSON RiskExceptionConfigurationType where
 instance
   Prelude.Hashable
     RiskExceptionConfigurationType
+  where
+  hashWithSalt
+    _salt
+    RiskExceptionConfigurationType' {..} =
+      _salt `Prelude.hashWithSalt` skippedIPRangeList
+        `Prelude.hashWithSalt` blockedIPRangeList
 
 instance
   Prelude.NFData
     RiskExceptionConfigurationType
+  where
+  rnf RiskExceptionConfigurationType' {..} =
+    Prelude.rnf skippedIPRangeList
+      `Prelude.seq` Prelude.rnf blockedIPRangeList
 
 instance Core.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =

@@ -296,6 +296,52 @@ instance Core.FromJSON ProcessingJob where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable ProcessingJob
+instance Prelude.Hashable ProcessingJob where
+  hashWithSalt _salt ProcessingJob' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` monitoringScheduleArn
+      `Prelude.hashWithSalt` appSpecification
+      `Prelude.hashWithSalt` processingResources
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` processingJobName
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` processingInputs
+      `Prelude.hashWithSalt` networkConfig
+      `Prelude.hashWithSalt` autoMLJobArn
+      `Prelude.hashWithSalt` trainingJobArn
+      `Prelude.hashWithSalt` processingJobStatus
+      `Prelude.hashWithSalt` exitMessage
+      `Prelude.hashWithSalt` processingOutputConfig
+      `Prelude.hashWithSalt` processingStartTime
+      `Prelude.hashWithSalt` processingEndTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` processingJobArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ProcessingJob
+instance Prelude.NFData ProcessingJob where
+  rnf ProcessingJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+      `Prelude.seq` Prelude.rnf appSpecification
+      `Prelude.seq` Prelude.rnf processingResources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf processingJobName
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf processingInputs
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf trainingJobArn
+      `Prelude.seq` Prelude.rnf processingJobStatus
+      `Prelude.seq` Prelude.rnf exitMessage
+      `Prelude.seq` Prelude.rnf processingOutputConfig
+      `Prelude.seq` Prelude.rnf processingStartTime
+      `Prelude.seq` Prelude.rnf processingEndTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf processingJobArn
+      `Prelude.seq` Prelude.rnf roleArn

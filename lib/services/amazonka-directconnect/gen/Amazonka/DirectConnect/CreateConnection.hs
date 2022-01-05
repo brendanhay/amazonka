@@ -203,9 +203,25 @@ instance Core.AWSRequest CreateConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection where
+  hashWithSalt _salt CreateConnection' {..} =
+    _salt `Prelude.hashWithSalt` lagId
+      `Prelude.hashWithSalt` requestMACSec
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` connectionName
 
-instance Prelude.NFData CreateConnection
+instance Prelude.NFData CreateConnection where
+  rnf CreateConnection' {..} =
+    Prelude.rnf lagId
+      `Prelude.seq` Prelude.rnf requestMACSec
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =

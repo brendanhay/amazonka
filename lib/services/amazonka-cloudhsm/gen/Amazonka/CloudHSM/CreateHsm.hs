@@ -210,9 +210,27 @@ instance Core.AWSRequest CreateHsm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsm
+instance Prelude.Hashable CreateHsm where
+  hashWithSalt _salt CreateHsm' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` syslogIp
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` sshKey
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` subscriptionType
 
-instance Prelude.NFData CreateHsm
+instance Prelude.NFData CreateHsm where
+  rnf CreateHsm' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf syslogIp
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf sshKey
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf subscriptionType
 
 instance Core.ToHeaders CreateHsm where
   toHeaders =
@@ -291,4 +309,7 @@ createHsmResponse_hsmArn = Lens.lens (\CreateHsmResponse' {hsmArn} -> hsmArn) (\
 createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Prelude.Int
 createHsmResponse_httpStatus = Lens.lens (\CreateHsmResponse' {httpStatus} -> httpStatus) (\s@CreateHsmResponse' {} a -> s {httpStatus = a} :: CreateHsmResponse)
 
-instance Prelude.NFData CreateHsmResponse
+instance Prelude.NFData CreateHsmResponse where
+  rnf CreateHsmResponse' {..} =
+    Prelude.rnf hsmArn
+      `Prelude.seq` Prelude.rnf httpStatus

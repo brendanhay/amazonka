@@ -147,6 +147,24 @@ instance Core.FromJSON BrokerSummary where
             Prelude.<*> (x Core..: "engineType")
       )
 
-instance Prelude.Hashable BrokerSummary
+instance Prelude.Hashable BrokerSummary where
+  hashWithSalt _salt BrokerSummary' {..} =
+    _salt `Prelude.hashWithSalt` brokerName
+      `Prelude.hashWithSalt` brokerState
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` brokerId
+      `Prelude.hashWithSalt` brokerArn
+      `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` deploymentMode
+      `Prelude.hashWithSalt` engineType
 
-instance Prelude.NFData BrokerSummary
+instance Prelude.NFData BrokerSummary where
+  rnf BrokerSummary' {..} =
+    Prelude.rnf brokerName
+      `Prelude.seq` Prelude.rnf brokerState
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf brokerArn
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf deploymentMode
+      `Prelude.seq` Prelude.rnf engineType

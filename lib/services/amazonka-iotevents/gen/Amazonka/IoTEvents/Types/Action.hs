@@ -260,9 +260,37 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "sqs")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt _salt Action' {..} =
+    _salt `Prelude.hashWithSalt` iotTopicPublish
+      `Prelude.hashWithSalt` dynamoDBv2
+      `Prelude.hashWithSalt` resetTimer
+      `Prelude.hashWithSalt` setTimer
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` clearTimer
+      `Prelude.hashWithSalt` dynamoDB
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` iotSiteWise
+      `Prelude.hashWithSalt` setVariable
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` iotEvents
+      `Prelude.hashWithSalt` sqs
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf iotTopicPublish
+      `Prelude.seq` Prelude.rnf dynamoDBv2
+      `Prelude.seq` Prelude.rnf resetTimer
+      `Prelude.seq` Prelude.rnf setTimer
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf clearTimer
+      `Prelude.seq` Prelude.rnf dynamoDB
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf iotSiteWise
+      `Prelude.seq` Prelude.rnf setVariable
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf iotEvents
+      `Prelude.seq` Prelude.rnf sqs
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

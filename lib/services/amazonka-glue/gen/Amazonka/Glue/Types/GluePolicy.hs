@@ -91,6 +91,16 @@ instance Core.FromJSON GluePolicy where
             Prelude.<*> (x Core..:? "CreateTime")
       )
 
-instance Prelude.Hashable GluePolicy
+instance Prelude.Hashable GluePolicy where
+  hashWithSalt _salt GluePolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyInJson
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` policyHash
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData GluePolicy
+instance Prelude.NFData GluePolicy where
+  rnf GluePolicy' {..} =
+    Prelude.rnf policyInJson
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf policyHash
+      `Prelude.seq` Prelude.rnf createTime

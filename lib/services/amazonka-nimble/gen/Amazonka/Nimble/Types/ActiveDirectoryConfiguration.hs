@@ -96,8 +96,17 @@ instance Core.FromJSON ActiveDirectoryConfiguration where
 instance
   Prelude.Hashable
     ActiveDirectoryConfiguration
+  where
+  hashWithSalt _salt ActiveDirectoryConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` computerAttributes
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedName
 
-instance Prelude.NFData ActiveDirectoryConfiguration
+instance Prelude.NFData ActiveDirectoryConfiguration where
+  rnf ActiveDirectoryConfiguration' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf computerAttributes
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
 
 instance Core.ToJSON ActiveDirectoryConfiguration where
   toJSON ActiveDirectoryConfiguration' {..} =

@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     DeleteEgressOnlyInternetGateway
+  where
+  hashWithSalt
+    _salt
+    DeleteEgressOnlyInternetGateway' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` egressOnlyInternetGatewayId
 
 instance
   Prelude.NFData
     DeleteEgressOnlyInternetGateway
+  where
+  rnf DeleteEgressOnlyInternetGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
 
 instance
   Core.ToHeaders
@@ -187,3 +197,7 @@ deleteEgressOnlyInternetGatewayResponse_httpStatus = Lens.lens (\DeleteEgressOnl
 instance
   Prelude.NFData
     DeleteEgressOnlyInternetGatewayResponse
+  where
+  rnf DeleteEgressOnlyInternetGatewayResponse' {..} =
+    Prelude.rnf returnCode
+      `Prelude.seq` Prelude.rnf httpStatus

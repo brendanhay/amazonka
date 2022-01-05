@@ -76,9 +76,15 @@ instance Core.FromJSON SNSConfiguration where
             Prelude.<*> (x Core..: "SnsTopicArn")
       )
 
-instance Prelude.Hashable SNSConfiguration
+instance Prelude.Hashable SNSConfiguration where
+  hashWithSalt _salt SNSConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData SNSConfiguration
+instance Prelude.NFData SNSConfiguration where
+  rnf SNSConfiguration' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance Core.ToJSON SNSConfiguration where
   toJSON SNSConfiguration' {..} =

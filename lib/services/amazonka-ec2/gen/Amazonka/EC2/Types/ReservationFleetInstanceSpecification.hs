@@ -183,10 +183,30 @@ reservationFleetInstanceSpecification_availabilityZone = Lens.lens (\Reservation
 instance
   Prelude.Hashable
     ReservationFleetInstanceSpecification
+  where
+  hashWithSalt
+    _salt
+    ReservationFleetInstanceSpecification' {..} =
+      _salt `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` availabilityZoneId
+        `Prelude.hashWithSalt` weight
+        `Prelude.hashWithSalt` instancePlatform
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` ebsOptimized
+        `Prelude.hashWithSalt` availabilityZone
 
 instance
   Prelude.NFData
     ReservationFleetInstanceSpecification
+  where
+  rnf ReservationFleetInstanceSpecification' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf instancePlatform
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance
   Core.ToQuery

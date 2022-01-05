@@ -299,6 +299,51 @@ instance Core.FromXML PlatformDescription where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable PlatformDescription
+instance Prelude.Hashable PlatformDescription where
+  hashWithSalt _salt PlatformDescription' {..} =
+    _salt `Prelude.hashWithSalt` platformBranchName
+      `Prelude.hashWithSalt` supportedAddonList
+      `Prelude.hashWithSalt` platformCategory
+      `Prelude.hashWithSalt` platformBranchLifecycleState
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` platformStatus
+      `Prelude.hashWithSalt` maintainer
+      `Prelude.hashWithSalt` platformLifecycleState
+      `Prelude.hashWithSalt` platformOwner
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` customAmiList
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` operatingSystemName
+      `Prelude.hashWithSalt` frameworks
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` operatingSystemVersion
+      `Prelude.hashWithSalt` programmingLanguages
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` platformName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` supportedTierList
 
-instance Prelude.NFData PlatformDescription
+instance Prelude.NFData PlatformDescription where
+  rnf PlatformDescription' {..} =
+    Prelude.rnf platformBranchName
+      `Prelude.seq` Prelude.rnf supportedAddonList
+      `Prelude.seq` Prelude.rnf platformCategory
+      `Prelude.seq` Prelude.rnf platformBranchLifecycleState
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf platformStatus
+      `Prelude.seq` Prelude.rnf maintainer
+      `Prelude.seq` Prelude.rnf platformLifecycleState
+      `Prelude.seq` Prelude.rnf platformOwner
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf customAmiList
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf operatingSystemName
+      `Prelude.seq` Prelude.rnf frameworks
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf operatingSystemVersion
+      `Prelude.seq` Prelude.rnf programmingLanguages
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf platformName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf
+        supportedTierList

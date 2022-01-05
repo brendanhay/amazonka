@@ -154,9 +154,21 @@ instance Core.AWSRequest ImportStacksToStackSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportStacksToStackSet
+instance Prelude.Hashable ImportStacksToStackSet where
+  hashWithSalt _salt ImportStacksToStackSet' {..} =
+    _salt `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` stackIds
 
-instance Prelude.NFData ImportStacksToStackSet
+instance Prelude.NFData ImportStacksToStackSet where
+  rnf ImportStacksToStackSet' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf stackIds
 
 instance Core.ToHeaders ImportStacksToStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,3 +233,7 @@ importStacksToStackSetResponse_httpStatus = Lens.lens (\ImportStacksToStackSetRe
 instance
   Prelude.NFData
     ImportStacksToStackSetResponse
+  where
+  rnf ImportStacksToStackSetResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

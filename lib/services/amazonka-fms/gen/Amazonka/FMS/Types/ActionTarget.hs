@@ -71,6 +71,12 @@ instance Core.FromJSON ActionTarget where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ActionTarget
+instance Prelude.Hashable ActionTarget where
+  hashWithSalt _salt ActionTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ActionTarget
+instance Prelude.NFData ActionTarget where
+  rnf ActionTarget' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf description

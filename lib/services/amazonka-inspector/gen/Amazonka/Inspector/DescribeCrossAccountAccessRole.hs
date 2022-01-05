@@ -82,10 +82,15 @@ instance
 instance
   Prelude.Hashable
     DescribeCrossAccountAccessRole
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeCrossAccountAccessRole
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -191,3 +196,9 @@ describeCrossAccountAccessRoleResponse_registeredAt = Lens.lens (\DescribeCrossA
 instance
   Prelude.NFData
     DescribeCrossAccountAccessRoleResponse
+  where
+  rnf DescribeCrossAccountAccessRoleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf valid
+      `Prelude.seq` Prelude.rnf registeredAt

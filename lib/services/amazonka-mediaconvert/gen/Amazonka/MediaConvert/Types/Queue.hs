@@ -204,6 +204,30 @@ instance Core.FromJSON Queue where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Queue
+instance Prelude.Hashable Queue where
+  hashWithSalt _salt Queue' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` reservationPlan
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` submittedJobsCount
+      `Prelude.hashWithSalt` progressingJobsCount
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Queue
+instance Prelude.NFData Queue where
+  rnf Queue' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf reservationPlan
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf submittedJobsCount
+      `Prelude.seq` Prelude.rnf progressingJobsCount
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name

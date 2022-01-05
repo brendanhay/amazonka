@@ -140,9 +140,21 @@ instance Core.FromJSON CampaignLimits where
             Prelude.<*> (x Core..:? "MaximumDuration")
       )
 
-instance Prelude.Hashable CampaignLimits
+instance Prelude.Hashable CampaignLimits where
+  hashWithSalt _salt CampaignLimits' {..} =
+    _salt `Prelude.hashWithSalt` messagesPerSecond
+      `Prelude.hashWithSalt` daily
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` maximumDuration
 
-instance Prelude.NFData CampaignLimits
+instance Prelude.NFData CampaignLimits where
+  rnf CampaignLimits' {..} =
+    Prelude.rnf messagesPerSecond
+      `Prelude.seq` Prelude.rnf daily
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf maximumDuration
 
 instance Core.ToJSON CampaignLimits where
   toJSON CampaignLimits' {..} =

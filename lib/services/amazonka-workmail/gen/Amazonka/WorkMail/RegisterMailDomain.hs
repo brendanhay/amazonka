@@ -114,9 +114,17 @@ instance Core.AWSRequest RegisterMailDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterMailDomain
+instance Prelude.Hashable RegisterMailDomain where
+  hashWithSalt _salt RegisterMailDomain' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData RegisterMailDomain
+instance Prelude.NFData RegisterMailDomain where
+  rnf RegisterMailDomain' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders RegisterMailDomain where
   toHeaders =
@@ -180,4 +188,6 @@ newRegisterMailDomainResponse pHttpStatus_ =
 registerMailDomainResponse_httpStatus :: Lens.Lens' RegisterMailDomainResponse Prelude.Int
 registerMailDomainResponse_httpStatus = Lens.lens (\RegisterMailDomainResponse' {httpStatus} -> httpStatus) (\s@RegisterMailDomainResponse' {} a -> s {httpStatus = a} :: RegisterMailDomainResponse)
 
-instance Prelude.NFData RegisterMailDomainResponse
+instance Prelude.NFData RegisterMailDomainResponse where
+  rnf RegisterMailDomainResponse' {..} =
+    Prelude.rnf httpStatus

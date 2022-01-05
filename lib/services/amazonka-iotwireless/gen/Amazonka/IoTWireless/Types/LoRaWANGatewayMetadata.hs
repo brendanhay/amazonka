@@ -82,6 +82,14 @@ instance Core.FromJSON LoRaWANGatewayMetadata where
             Prelude.<*> (x Core..:? "Rssi")
       )
 
-instance Prelude.Hashable LoRaWANGatewayMetadata
+instance Prelude.Hashable LoRaWANGatewayMetadata where
+  hashWithSalt _salt LoRaWANGatewayMetadata' {..} =
+    _salt `Prelude.hashWithSalt` gatewayEui
+      `Prelude.hashWithSalt` snr
+      `Prelude.hashWithSalt` rssi
 
-instance Prelude.NFData LoRaWANGatewayMetadata
+instance Prelude.NFData LoRaWANGatewayMetadata where
+  rnf LoRaWANGatewayMetadata' {..} =
+    Prelude.rnf gatewayEui
+      `Prelude.seq` Prelude.rnf snr
+      `Prelude.seq` Prelude.rnf rssi

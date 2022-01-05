@@ -196,6 +196,24 @@ instance Core.FromJSON S3Bucket where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable S3Bucket
+instance Prelude.Hashable S3Bucket where
+  hashWithSalt _salt S3Bucket' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultServerSideEncryption
+      `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
+      `Prelude.hashWithSalt` publicAccess
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData S3Bucket
+instance Prelude.NFData S3Bucket where
+  rnf S3Bucket' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultServerSideEncryption
+      `Prelude.seq` Prelude.rnf allowsUnencryptedObjectUploads
+      `Prelude.seq` Prelude.rnf publicAccess
+      `Prelude.seq` Prelude.rnf tags

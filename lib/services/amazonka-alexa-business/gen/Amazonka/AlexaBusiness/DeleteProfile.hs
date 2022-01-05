@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProfile
+instance Prelude.Hashable DeleteProfile where
+  hashWithSalt _salt DeleteProfile' {..} =
+    _salt `Prelude.hashWithSalt` profileArn
 
-instance Prelude.NFData DeleteProfile
+instance Prelude.NFData DeleteProfile where
+  rnf DeleteProfile' {..} = Prelude.rnf profileArn
 
 instance Core.ToHeaders DeleteProfile where
   toHeaders =
@@ -141,4 +144,6 @@ newDeleteProfileResponse pHttpStatus_ =
 deleteProfileResponse_httpStatus :: Lens.Lens' DeleteProfileResponse Prelude.Int
 deleteProfileResponse_httpStatus = Lens.lens (\DeleteProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteProfileResponse' {} a -> s {httpStatus = a} :: DeleteProfileResponse)
 
-instance Prelude.NFData DeleteProfileResponse
+instance Prelude.NFData DeleteProfileResponse where
+  rnf DeleteProfileResponse' {..} =
+    Prelude.rnf httpStatus

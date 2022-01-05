@@ -77,7 +77,17 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateInstanceMarketOptions
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateInstanceMarketOptions' {..} =
+      _salt `Prelude.hashWithSalt` marketType
+        `Prelude.hashWithSalt` spotOptions
 
 instance
   Prelude.NFData
     LaunchTemplateInstanceMarketOptions
+  where
+  rnf LaunchTemplateInstanceMarketOptions' {..} =
+    Prelude.rnf marketType
+      `Prelude.seq` Prelude.rnf spotOptions

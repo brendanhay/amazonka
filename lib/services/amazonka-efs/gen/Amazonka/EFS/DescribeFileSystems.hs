@@ -196,9 +196,19 @@ instance Core.AWSRequest DescribeFileSystems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFileSystems
+instance Prelude.Hashable DescribeFileSystems where
+  hashWithSalt _salt DescribeFileSystems' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` creationToken
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData DescribeFileSystems
+instance Prelude.NFData DescribeFileSystems where
+  rnf DescribeFileSystems' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf creationToken
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders DescribeFileSystems where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,4 +288,9 @@ describeFileSystemsResponse_nextMarker = Lens.lens (\DescribeFileSystemsResponse
 describeFileSystemsResponse_httpStatus :: Lens.Lens' DescribeFileSystemsResponse Prelude.Int
 describeFileSystemsResponse_httpStatus = Lens.lens (\DescribeFileSystemsResponse' {httpStatus} -> httpStatus) (\s@DescribeFileSystemsResponse' {} a -> s {httpStatus = a} :: DescribeFileSystemsResponse)
 
-instance Prelude.NFData DescribeFileSystemsResponse
+instance Prelude.NFData DescribeFileSystemsResponse where
+  rnf DescribeFileSystemsResponse' {..} =
+    Prelude.rnf fileSystems
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

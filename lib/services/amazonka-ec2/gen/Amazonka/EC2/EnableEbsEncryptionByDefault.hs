@@ -118,8 +118,13 @@ instance Core.AWSRequest EnableEbsEncryptionByDefault where
 instance
   Prelude.Hashable
     EnableEbsEncryptionByDefault
+  where
+  hashWithSalt _salt EnableEbsEncryptionByDefault' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData EnableEbsEncryptionByDefault
+instance Prelude.NFData EnableEbsEncryptionByDefault where
+  rnf EnableEbsEncryptionByDefault' {..} =
+    Prelude.rnf dryRun
 
 instance Core.ToHeaders EnableEbsEncryptionByDefault where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +186,7 @@ enableEbsEncryptionByDefaultResponse_httpStatus = Lens.lens (\EnableEbsEncryptio
 instance
   Prelude.NFData
     EnableEbsEncryptionByDefaultResponse
+  where
+  rnf EnableEbsEncryptionByDefaultResponse' {..} =
+    Prelude.rnf ebsEncryptionByDefault
+      `Prelude.seq` Prelude.rnf httpStatus

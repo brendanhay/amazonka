@@ -253,6 +253,28 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "DnsName")
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt _salt Instance' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` dnsName
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf dnsName

@@ -98,9 +98,15 @@ instance Core.FromJSON ComputeEnvironmentOrder where
             Prelude.<*> (x Core..: "computeEnvironment")
       )
 
-instance Prelude.Hashable ComputeEnvironmentOrder
+instance Prelude.Hashable ComputeEnvironmentOrder where
+  hashWithSalt _salt ComputeEnvironmentOrder' {..} =
+    _salt `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` computeEnvironment
 
-instance Prelude.NFData ComputeEnvironmentOrder
+instance Prelude.NFData ComputeEnvironmentOrder where
+  rnf ComputeEnvironmentOrder' {..} =
+    Prelude.rnf order
+      `Prelude.seq` Prelude.rnf computeEnvironment
 
 instance Core.ToJSON ComputeEnvironmentOrder where
   toJSON ComputeEnvironmentOrder' {..} =

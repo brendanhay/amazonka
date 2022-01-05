@@ -108,9 +108,15 @@ instance Core.AWSRequest CancelUpdateStack where
   response =
     Response.receiveNull CancelUpdateStackResponse'
 
-instance Prelude.Hashable CancelUpdateStack
+instance Prelude.Hashable CancelUpdateStack where
+  hashWithSalt _salt CancelUpdateStack' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData CancelUpdateStack
+instance Prelude.NFData CancelUpdateStack where
+  rnf CancelUpdateStack' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders CancelUpdateStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +150,5 @@ newCancelUpdateStackResponse ::
 newCancelUpdateStackResponse =
   CancelUpdateStackResponse'
 
-instance Prelude.NFData CancelUpdateStackResponse
+instance Prelude.NFData CancelUpdateStackResponse where
+  rnf _ = ()

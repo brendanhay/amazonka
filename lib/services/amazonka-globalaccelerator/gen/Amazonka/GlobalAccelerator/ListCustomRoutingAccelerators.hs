@@ -135,8 +135,15 @@ instance
 instance
   Prelude.Hashable
     ListCustomRoutingAccelerators
+  where
+  hashWithSalt _salt ListCustomRoutingAccelerators' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCustomRoutingAccelerators
+instance Prelude.NFData ListCustomRoutingAccelerators where
+  rnf ListCustomRoutingAccelerators' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCustomRoutingAccelerators where
   toHeaders =
@@ -222,3 +229,8 @@ listCustomRoutingAcceleratorsResponse_httpStatus = Lens.lens (\ListCustomRouting
 instance
   Prelude.NFData
     ListCustomRoutingAcceleratorsResponse
+  where
+  rnf ListCustomRoutingAcceleratorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accelerators
+      `Prelude.seq` Prelude.rnf httpStatus

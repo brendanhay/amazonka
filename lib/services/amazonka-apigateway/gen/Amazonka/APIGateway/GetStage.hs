@@ -111,9 +111,15 @@ instance Core.AWSRequest GetStage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetStage
+instance Prelude.Hashable GetStage where
+  hashWithSalt _salt GetStage' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData GetStage
+instance Prelude.NFData GetStage where
+  rnf GetStage' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders GetStage where
   toHeaders =

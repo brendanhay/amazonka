@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteProtocolsList where
   response =
     Response.receiveNull DeleteProtocolsListResponse'
 
-instance Prelude.Hashable DeleteProtocolsList
+instance Prelude.Hashable DeleteProtocolsList where
+  hashWithSalt _salt DeleteProtocolsList' {..} =
+    _salt `Prelude.hashWithSalt` listId
 
-instance Prelude.NFData DeleteProtocolsList
+instance Prelude.NFData DeleteProtocolsList where
+  rnf DeleteProtocolsList' {..} = Prelude.rnf listId
 
 instance Core.ToHeaders DeleteProtocolsList where
   toHeaders =
@@ -130,4 +133,5 @@ newDeleteProtocolsListResponse ::
 newDeleteProtocolsListResponse =
   DeleteProtocolsListResponse'
 
-instance Prelude.NFData DeleteProtocolsListResponse
+instance Prelude.NFData DeleteProtocolsListResponse where
+  rnf _ = ()

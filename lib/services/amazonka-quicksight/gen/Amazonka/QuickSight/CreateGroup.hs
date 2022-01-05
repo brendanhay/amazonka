@@ -135,9 +135,19 @@ instance Core.AWSRequest CreateGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroup
+instance Prelude.Hashable CreateGroup where
+  hashWithSalt _salt CreateGroup' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData CreateGroup
+instance Prelude.NFData CreateGroup where
+  rnf CreateGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders CreateGroup where
   toHeaders =
@@ -221,4 +231,8 @@ createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group')
 createGroupResponse_status :: Lens.Lens' CreateGroupResponse Prelude.Int
 createGroupResponse_status = Lens.lens (\CreateGroupResponse' {status} -> status) (\s@CreateGroupResponse' {} a -> s {status = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Prelude.NFData CreateGroupResponse where
+  rnf CreateGroupResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf status

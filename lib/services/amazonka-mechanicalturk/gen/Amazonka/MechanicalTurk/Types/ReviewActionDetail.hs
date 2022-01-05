@@ -143,6 +143,24 @@ instance Core.FromJSON ReviewActionDetail where
             Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable ReviewActionDetail
+instance Prelude.Hashable ReviewActionDetail where
+  hashWithSalt _salt ReviewActionDetail' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` completeTime
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData ReviewActionDetail
+instance Prelude.NFData ReviewActionDetail where
+  rnf ReviewActionDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf completeTime
+      `Prelude.seq` Prelude.rnf errorCode

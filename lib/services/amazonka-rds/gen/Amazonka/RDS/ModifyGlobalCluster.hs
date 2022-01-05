@@ -270,9 +270,21 @@ instance Core.AWSRequest ModifyGlobalCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyGlobalCluster
+instance Prelude.Hashable ModifyGlobalCluster where
+  hashWithSalt _salt ModifyGlobalCluster' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` newGlobalClusterIdentifier'
 
-instance Prelude.NFData ModifyGlobalCluster
+instance Prelude.NFData ModifyGlobalCluster where
+  rnf ModifyGlobalCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
 
 instance Core.ToHeaders ModifyGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -335,4 +347,7 @@ modifyGlobalClusterResponse_globalCluster = Lens.lens (\ModifyGlobalClusterRespo
 modifyGlobalClusterResponse_httpStatus :: Lens.Lens' ModifyGlobalClusterResponse Prelude.Int
 modifyGlobalClusterResponse_httpStatus = Lens.lens (\ModifyGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyGlobalClusterResponse' {} a -> s {httpStatus = a} :: ModifyGlobalClusterResponse)
 
-instance Prelude.NFData ModifyGlobalClusterResponse
+instance Prelude.NFData ModifyGlobalClusterResponse where
+  rnf ModifyGlobalClusterResponse' {..} =
+    Prelude.rnf globalCluster
+      `Prelude.seq` Prelude.rnf httpStatus

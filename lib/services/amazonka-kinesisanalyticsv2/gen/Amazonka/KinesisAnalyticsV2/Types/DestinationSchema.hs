@@ -66,9 +66,13 @@ instance Core.FromJSON DestinationSchema where
             Prelude.<$> (x Core..: "RecordFormatType")
       )
 
-instance Prelude.Hashable DestinationSchema
+instance Prelude.Hashable DestinationSchema where
+  hashWithSalt _salt DestinationSchema' {..} =
+    _salt `Prelude.hashWithSalt` recordFormatType
 
-instance Prelude.NFData DestinationSchema
+instance Prelude.NFData DestinationSchema where
+  rnf DestinationSchema' {..} =
+    Prelude.rnf recordFormatType
 
 instance Core.ToJSON DestinationSchema where
   toJSON DestinationSchema' {..} =

@@ -84,9 +84,13 @@ instance Core.AWSRequest DisassociateMemberAccount where
     Response.receiveNull
       DisassociateMemberAccountResponse'
 
-instance Prelude.Hashable DisassociateMemberAccount
+instance Prelude.Hashable DisassociateMemberAccount where
+  hashWithSalt _salt DisassociateMemberAccount' {..} =
+    _salt `Prelude.hashWithSalt` memberAccountId
 
-instance Prelude.NFData DisassociateMemberAccount
+instance Prelude.NFData DisassociateMemberAccount where
+  rnf DisassociateMemberAccount' {..} =
+    Prelude.rnf memberAccountId
 
 instance Core.ToHeaders DisassociateMemberAccount where
   toHeaders =
@@ -136,3 +140,5 @@ newDisassociateMemberAccountResponse =
 instance
   Prelude.NFData
     DisassociateMemberAccountResponse
+  where
+  rnf _ = ()

@@ -356,5 +356,30 @@ instance Core.FromJSON LambdaFunctionRecommendation where
 instance
   Prelude.Hashable
     LambdaFunctionRecommendation
+  where
+  hashWithSalt _salt LambdaFunctionRecommendation' {..} =
+    _salt `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` finding
+      `Prelude.hashWithSalt` currentMemorySize
+      `Prelude.hashWithSalt` lastRefreshTimestamp
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` utilizationMetrics
+      `Prelude.hashWithSalt` memorySizeRecommendationOptions
+      `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` numberOfInvocations
+      `Prelude.hashWithSalt` lookbackPeriodInDays
 
-instance Prelude.NFData LambdaFunctionRecommendation
+instance Prelude.NFData LambdaFunctionRecommendation where
+  rnf LambdaFunctionRecommendation' {..} =
+    Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf currentMemorySize
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf findingReasonCodes
+      `Prelude.seq` Prelude.rnf utilizationMetrics
+      `Prelude.seq` Prelude.rnf memorySizeRecommendationOptions
+      `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf numberOfInvocations
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays

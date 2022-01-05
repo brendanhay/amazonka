@@ -1054,4 +1054,16 @@ putObjectResponse_serverSideEncryption = Lens.lens (\PutObjectResponse' {serverS
 putObjectResponse_httpStatus :: Lens.Lens' PutObjectResponse Prelude.Int
 putObjectResponse_httpStatus = Lens.lens (\PutObjectResponse' {httpStatus} -> httpStatus) (\s@PutObjectResponse' {} a -> s {httpStatus = a} :: PutObjectResponse)
 
-instance Prelude.NFData PutObjectResponse
+instance Prelude.NFData PutObjectResponse where
+  rnf PutObjectResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf httpStatus

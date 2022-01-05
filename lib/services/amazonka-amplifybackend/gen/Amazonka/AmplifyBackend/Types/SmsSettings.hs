@@ -58,9 +58,12 @@ instance Core.FromJSON SmsSettings where
           SmsSettings' Prelude.<$> (x Core..:? "smsMessage")
       )
 
-instance Prelude.Hashable SmsSettings
+instance Prelude.Hashable SmsSettings where
+  hashWithSalt _salt SmsSettings' {..} =
+    _salt `Prelude.hashWithSalt` smsMessage
 
-instance Prelude.NFData SmsSettings
+instance Prelude.NFData SmsSettings where
+  rnf SmsSettings' {..} = Prelude.rnf smsMessage
 
 instance Core.ToJSON SmsSettings where
   toJSON SmsSettings' {..} =

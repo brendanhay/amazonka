@@ -73,9 +73,14 @@ instance Core.FromJSON RobotSoftwareSuite where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable RobotSoftwareSuite
+instance Prelude.Hashable RobotSoftwareSuite where
+  hashWithSalt _salt RobotSoftwareSuite' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData RobotSoftwareSuite
+instance Prelude.NFData RobotSoftwareSuite where
+  rnf RobotSoftwareSuite' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON RobotSoftwareSuite where
   toJSON RobotSoftwareSuite' {..} =

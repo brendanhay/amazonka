@@ -148,9 +148,19 @@ instance Core.AWSRequest DescribeWorkspaceImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkspaceImages
+instance Prelude.Hashable DescribeWorkspaceImages where
+  hashWithSalt _salt DescribeWorkspaceImages' {..} =
+    _salt `Prelude.hashWithSalt` imageIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` imageType
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeWorkspaceImages
+instance Prelude.NFData DescribeWorkspaceImages where
+  rnf DescribeWorkspaceImages' {..} =
+    Prelude.rnf imageIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageType
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeWorkspaceImages where
   toHeaders =
@@ -238,3 +248,8 @@ describeWorkspaceImagesResponse_httpStatus = Lens.lens (\DescribeWorkspaceImages
 instance
   Prelude.NFData
     DescribeWorkspaceImagesResponse
+  where
+  rnf DescribeWorkspaceImagesResponse' {..} =
+    Prelude.rnf images
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

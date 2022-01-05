@@ -164,9 +164,15 @@ instance Core.AWSRequest ListAccountAliases where
                         )
       )
 
-instance Prelude.Hashable ListAccountAliases
+instance Prelude.Hashable ListAccountAliases where
+  hashWithSalt _salt ListAccountAliases' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ListAccountAliases
+instance Prelude.NFData ListAccountAliases where
+  rnf ListAccountAliases' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListAccountAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,4 +277,9 @@ listAccountAliasesResponse_httpStatus = Lens.lens (\ListAccountAliasesResponse' 
 listAccountAliasesResponse_accountAliases :: Lens.Lens' ListAccountAliasesResponse [Prelude.Text]
 listAccountAliasesResponse_accountAliases = Lens.lens (\ListAccountAliasesResponse' {accountAliases} -> accountAliases) (\s@ListAccountAliasesResponse' {} a -> s {accountAliases = a} :: ListAccountAliasesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAccountAliasesResponse
+instance Prelude.NFData ListAccountAliasesResponse where
+  rnf ListAccountAliasesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accountAliases

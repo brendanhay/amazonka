@@ -130,6 +130,24 @@ instance Core.FromXML Certificate where
       Prelude.<*> (x Core..@? "Thumbprint")
       Prelude.<*> (x Core..@? "ValidFrom")
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt _salt Certificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateType
+      `Prelude.hashWithSalt` customerOverride
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` customerOverrideValidTill
+      `Prelude.hashWithSalt` validTill
+      `Prelude.hashWithSalt` certificateIdentifier
+      `Prelude.hashWithSalt` thumbprint
+      `Prelude.hashWithSalt` validFrom
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf certificateType
+      `Prelude.seq` Prelude.rnf customerOverride
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf customerOverrideValidTill
+      `Prelude.seq` Prelude.rnf validTill
+      `Prelude.seq` Prelude.rnf certificateIdentifier
+      `Prelude.seq` Prelude.rnf thumbprint
+      `Prelude.seq` Prelude.rnf validFrom

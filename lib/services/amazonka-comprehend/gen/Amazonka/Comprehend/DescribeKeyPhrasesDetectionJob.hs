@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribeKeyPhrasesDetectionJob
+  where
+  hashWithSalt
+    _salt
+    DescribeKeyPhrasesDetectionJob' {..} =
+      _salt `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     DescribeKeyPhrasesDetectionJob
+  where
+  rnf DescribeKeyPhrasesDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -178,3 +186,7 @@ describeKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\DescribeKeyPhras
 instance
   Prelude.NFData
     DescribeKeyPhrasesDetectionJobResponse
+  where
+  rnf DescribeKeyPhrasesDetectionJobResponse' {..} =
+    Prelude.rnf keyPhrasesDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

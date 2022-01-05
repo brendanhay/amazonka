@@ -272,9 +272,31 @@ instance Core.AWSRequest ModifyTargetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyTargetGroup
+instance Prelude.Hashable ModifyTargetGroup where
+  hashWithSalt _salt ModifyTargetGroup' {..} =
+    _salt `Prelude.hashWithSalt` matcher
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` healthCheckEnabled
+      `Prelude.hashWithSalt` unhealthyThresholdCount
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` healthyThresholdCount
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` healthCheckTimeoutSeconds
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` targetGroupArn
 
-instance Prelude.NFData ModifyTargetGroup
+instance Prelude.NFData ModifyTargetGroup where
+  rnf ModifyTargetGroup' {..} =
+    Prelude.rnf matcher
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf healthCheckEnabled
+      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf healthyThresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf targetGroupArn
 
 instance Core.ToHeaders ModifyTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -344,4 +366,7 @@ modifyTargetGroupResponse_targetGroups = Lens.lens (\ModifyTargetGroupResponse' 
 modifyTargetGroupResponse_httpStatus :: Lens.Lens' ModifyTargetGroupResponse Prelude.Int
 modifyTargetGroupResponse_httpStatus = Lens.lens (\ModifyTargetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyTargetGroupResponse' {} a -> s {httpStatus = a} :: ModifyTargetGroupResponse)
 
-instance Prelude.NFData ModifyTargetGroupResponse
+instance Prelude.NFData ModifyTargetGroupResponse where
+  rnf ModifyTargetGroupResponse' {..} =
+    Prelude.rnf targetGroups
+      `Prelude.seq` Prelude.rnf httpStatus

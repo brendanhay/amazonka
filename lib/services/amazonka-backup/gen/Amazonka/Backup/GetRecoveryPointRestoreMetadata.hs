@@ -131,10 +131,20 @@ instance
 instance
   Prelude.Hashable
     GetRecoveryPointRestoreMetadata
+  where
+  hashWithSalt
+    _salt
+    GetRecoveryPointRestoreMetadata' {..} =
+      _salt `Prelude.hashWithSalt` backupVaultName
+        `Prelude.hashWithSalt` recoveryPointArn
 
 instance
   Prelude.NFData
     GetRecoveryPointRestoreMetadata
+  where
+  rnf GetRecoveryPointRestoreMetadata' {..} =
+    Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf recoveryPointArn
 
 instance
   Core.ToHeaders
@@ -236,3 +246,9 @@ getRecoveryPointRestoreMetadataResponse_httpStatus = Lens.lens (\GetRecoveryPoin
 instance
   Prelude.NFData
     GetRecoveryPointRestoreMetadataResponse
+  where
+  rnf GetRecoveryPointRestoreMetadataResponse' {..} =
+    Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf restoreMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

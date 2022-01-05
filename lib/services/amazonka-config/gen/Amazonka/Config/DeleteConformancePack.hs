@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteConformancePack where
   response =
     Response.receiveNull DeleteConformancePackResponse'
 
-instance Prelude.Hashable DeleteConformancePack
+instance Prelude.Hashable DeleteConformancePack where
+  hashWithSalt _salt DeleteConformancePack' {..} =
+    _salt `Prelude.hashWithSalt` conformancePackName
 
-instance Prelude.NFData DeleteConformancePack
+instance Prelude.NFData DeleteConformancePack where
+  rnf DeleteConformancePack' {..} =
+    Prelude.rnf conformancePackName
 
 instance Core.ToHeaders DeleteConformancePack where
   toHeaders =
@@ -135,4 +139,5 @@ newDeleteConformancePackResponse ::
 newDeleteConformancePackResponse =
   DeleteConformancePackResponse'
 
-instance Prelude.NFData DeleteConformancePackResponse
+instance Prelude.NFData DeleteConformancePackResponse where
+  rnf _ = ()

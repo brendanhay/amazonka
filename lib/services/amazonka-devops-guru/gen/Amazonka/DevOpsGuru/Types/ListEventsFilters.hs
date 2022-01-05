@@ -111,9 +111,23 @@ listEventsFilters_eventTimeRange = Lens.lens (\ListEventsFilters' {eventTimeRang
 listEventsFilters_eventSource :: Lens.Lens' ListEventsFilters (Prelude.Maybe Prelude.Text)
 listEventsFilters_eventSource = Lens.lens (\ListEventsFilters' {eventSource} -> eventSource) (\s@ListEventsFilters' {} a -> s {eventSource = a} :: ListEventsFilters)
 
-instance Prelude.Hashable ListEventsFilters
+instance Prelude.Hashable ListEventsFilters where
+  hashWithSalt _salt ListEventsFilters' {..} =
+    _salt `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` eventClass
+      `Prelude.hashWithSalt` insightId
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` eventTimeRange
+      `Prelude.hashWithSalt` eventSource
 
-instance Prelude.NFData ListEventsFilters
+instance Prelude.NFData ListEventsFilters where
+  rnf ListEventsFilters' {..} =
+    Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf eventClass
+      `Prelude.seq` Prelude.rnf insightId
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf eventTimeRange
+      `Prelude.seq` Prelude.rnf eventSource
 
 instance Core.ToJSON ListEventsFilters where
   toJSON ListEventsFilters' {..} =

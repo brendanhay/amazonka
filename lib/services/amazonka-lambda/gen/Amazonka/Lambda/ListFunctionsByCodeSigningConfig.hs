@@ -151,10 +151,22 @@ instance
 instance
   Prelude.Hashable
     ListFunctionsByCodeSigningConfig
+  where
+  hashWithSalt
+    _salt
+    ListFunctionsByCodeSigningConfig' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` codeSigningConfigArn
 
 instance
   Prelude.NFData
     ListFunctionsByCodeSigningConfig
+  where
+  rnf ListFunctionsByCodeSigningConfig' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
 
 instance
   Core.ToHeaders
@@ -232,3 +244,8 @@ listFunctionsByCodeSigningConfigResponse_httpStatus = Lens.lens (\ListFunctionsB
 instance
   Prelude.NFData
     ListFunctionsByCodeSigningConfigResponse
+  where
+  rnf ListFunctionsByCodeSigningConfigResponse' {..} =
+    Prelude.rnf functionArns
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

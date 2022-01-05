@@ -85,6 +85,15 @@ instance Core.FromXML RevisionTarget where
       Prelude.<*> (x Core..@? "DatabaseRevision")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable RevisionTarget
+instance Prelude.Hashable RevisionTarget where
+  hashWithSalt _salt RevisionTarget' {..} =
+    _salt
+      `Prelude.hashWithSalt` databaseRevisionReleaseDate
+      `Prelude.hashWithSalt` databaseRevision
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RevisionTarget
+instance Prelude.NFData RevisionTarget where
+  rnf RevisionTarget' {..} =
+    Prelude.rnf databaseRevisionReleaseDate
+      `Prelude.seq` Prelude.rnf databaseRevision
+      `Prelude.seq` Prelude.rnf description

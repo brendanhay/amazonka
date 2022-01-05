@@ -81,6 +81,14 @@ instance Core.FromXML IPRange where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable IPRange
+instance Prelude.Hashable IPRange where
+  hashWithSalt _salt IPRange' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData IPRange
+instance Prelude.NFData IPRange where
+  rnf IPRange' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf tags

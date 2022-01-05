@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteSlotType where
   response =
     Response.receiveNull DeleteSlotTypeResponse'
 
-instance Prelude.Hashable DeleteSlotType
+instance Prelude.Hashable DeleteSlotType where
+  hashWithSalt _salt DeleteSlotType' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteSlotType
+instance Prelude.NFData DeleteSlotType where
+  rnf DeleteSlotType' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteSlotType where
   toHeaders =
@@ -128,4 +131,5 @@ newDeleteSlotTypeResponse ::
   DeleteSlotTypeResponse
 newDeleteSlotTypeResponse = DeleteSlotTypeResponse'
 
-instance Prelude.NFData DeleteSlotTypeResponse
+instance Prelude.NFData DeleteSlotTypeResponse where
+  rnf _ = ()

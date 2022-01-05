@@ -78,6 +78,14 @@ instance Core.FromXML HostInstance where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "ownerId")
 
-instance Prelude.Hashable HostInstance
+instance Prelude.Hashable HostInstance where
+  hashWithSalt _salt HostInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` ownerId
 
-instance Prelude.NFData HostInstance
+instance Prelude.NFData HostInstance where
+  rnf HostInstance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ownerId

@@ -105,9 +105,17 @@ instance Core.FromJSON ConditionExpression where
             Prelude.<*> (x Core..: "TargetColumn")
       )
 
-instance Prelude.Hashable ConditionExpression
+instance Prelude.Hashable ConditionExpression where
+  hashWithSalt _salt ConditionExpression' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` targetColumn
 
-instance Prelude.NFData ConditionExpression
+instance Prelude.NFData ConditionExpression where
+  rnf ConditionExpression' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf targetColumn
 
 instance Core.ToJSON ConditionExpression where
   toJSON ConditionExpression' {..} =

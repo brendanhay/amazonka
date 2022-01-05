@@ -95,6 +95,14 @@ instance Core.FromJSON InputConfiguration where
             Prelude.<*> (x Core..: "interface")
       )
 
-instance Prelude.Hashable InputConfiguration
+instance Prelude.Hashable InputConfiguration where
+  hashWithSalt _salt InputConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` inputPort
+      `Prelude.hashWithSalt` inputIp
+      `Prelude.hashWithSalt` interface
 
-instance Prelude.NFData InputConfiguration
+instance Prelude.NFData InputConfiguration where
+  rnf InputConfiguration' {..} =
+    Prelude.rnf inputPort
+      `Prelude.seq` Prelude.rnf inputIp
+      `Prelude.seq` Prelude.rnf interface

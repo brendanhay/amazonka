@@ -147,9 +147,19 @@ instance Core.AWSRequest GetObjectTorrent where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetObjectTorrent
+instance Prelude.Hashable GetObjectTorrent where
+  hashWithSalt _salt GetObjectTorrent' {..} =
+    _salt `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GetObjectTorrent
+instance Prelude.NFData GetObjectTorrent where
+  rnf GetObjectTorrent' {..} =
+    Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =

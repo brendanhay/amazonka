@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteExperiment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteExperiment
+instance Prelude.Hashable DeleteExperiment where
+  hashWithSalt _salt DeleteExperiment' {..} =
+    _salt `Prelude.hashWithSalt` experimentName
 
-instance Prelude.NFData DeleteExperiment
+instance Prelude.NFData DeleteExperiment where
+  rnf DeleteExperiment' {..} =
+    Prelude.rnf experimentName
 
 instance Core.ToHeaders DeleteExperiment where
   toHeaders =
@@ -162,4 +166,7 @@ deleteExperimentResponse_experimentArn = Lens.lens (\DeleteExperimentResponse' {
 deleteExperimentResponse_httpStatus :: Lens.Lens' DeleteExperimentResponse Prelude.Int
 deleteExperimentResponse_httpStatus = Lens.lens (\DeleteExperimentResponse' {httpStatus} -> httpStatus) (\s@DeleteExperimentResponse' {} a -> s {httpStatus = a} :: DeleteExperimentResponse)
 
-instance Prelude.NFData DeleteExperimentResponse
+instance Prelude.NFData DeleteExperimentResponse where
+  rnf DeleteExperimentResponse' {..} =
+    Prelude.rnf experimentArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -66,6 +66,10 @@ instance Core.FromJSON AwsSsoAuthentication where
             Prelude.<$> (x Core..:? "ssoClientId")
       )
 
-instance Prelude.Hashable AwsSsoAuthentication
+instance Prelude.Hashable AwsSsoAuthentication where
+  hashWithSalt _salt AwsSsoAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` ssoClientId
 
-instance Prelude.NFData AwsSsoAuthentication
+instance Prelude.NFData AwsSsoAuthentication where
+  rnf AwsSsoAuthentication' {..} =
+    Prelude.rnf ssoClientId

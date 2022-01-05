@@ -133,6 +133,18 @@ instance Core.FromJSON ServiceResourceCost where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ServiceResourceCost
+instance Prelude.Hashable ServiceResourceCost where
+  hashWithSalt _salt ServiceResourceCost' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` unitCost
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` cost
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ServiceResourceCost
+instance Prelude.NFData ServiceResourceCost where
+  rnf ServiceResourceCost' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf unitCost
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf cost
+      `Prelude.seq` Prelude.rnf type'

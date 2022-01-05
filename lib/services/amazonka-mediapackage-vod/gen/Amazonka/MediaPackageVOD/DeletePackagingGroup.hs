@@ -84,9 +84,12 @@ instance Core.AWSRequest DeletePackagingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePackagingGroup
+instance Prelude.Hashable DeletePackagingGroup where
+  hashWithSalt _salt DeletePackagingGroup' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeletePackagingGroup
+instance Prelude.NFData DeletePackagingGroup where
+  rnf DeletePackagingGroup' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeletePackagingGroup where
   toHeaders =
@@ -137,4 +140,6 @@ newDeletePackagingGroupResponse pHttpStatus_ =
 deletePackagingGroupResponse_httpStatus :: Lens.Lens' DeletePackagingGroupResponse Prelude.Int
 deletePackagingGroupResponse_httpStatus = Lens.lens (\DeletePackagingGroupResponse' {httpStatus} -> httpStatus) (\s@DeletePackagingGroupResponse' {} a -> s {httpStatus = a} :: DeletePackagingGroupResponse)
 
-instance Prelude.NFData DeletePackagingGroupResponse
+instance Prelude.NFData DeletePackagingGroupResponse where
+  rnf DeletePackagingGroupResponse' {..} =
+    Prelude.rnf httpStatus

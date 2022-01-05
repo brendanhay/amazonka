@@ -95,9 +95,15 @@ instance Core.FromJSON DeploymentCircuitBreaker where
             Prelude.<*> (x Core..: "rollback")
       )
 
-instance Prelude.Hashable DeploymentCircuitBreaker
+instance Prelude.Hashable DeploymentCircuitBreaker where
+  hashWithSalt _salt DeploymentCircuitBreaker' {..} =
+    _salt `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` rollback
 
-instance Prelude.NFData DeploymentCircuitBreaker
+instance Prelude.NFData DeploymentCircuitBreaker where
+  rnf DeploymentCircuitBreaker' {..} =
+    Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf rollback
 
 instance Core.ToJSON DeploymentCircuitBreaker where
   toJSON DeploymentCircuitBreaker' {..} =

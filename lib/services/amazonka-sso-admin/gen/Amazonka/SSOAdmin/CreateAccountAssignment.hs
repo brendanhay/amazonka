@@ -194,9 +194,23 @@ instance Core.AWSRequest CreateAccountAssignment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAccountAssignment
+instance Prelude.Hashable CreateAccountAssignment where
+  hashWithSalt _salt CreateAccountAssignment' {..} =
+    _salt `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData CreateAccountAssignment
+instance Prelude.NFData CreateAccountAssignment where
+  rnf CreateAccountAssignment' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToHeaders CreateAccountAssignment where
   toHeaders =
@@ -275,3 +289,7 @@ createAccountAssignmentResponse_httpStatus = Lens.lens (\CreateAccountAssignment
 instance
   Prelude.NFData
     CreateAccountAssignmentResponse
+  where
+  rnf CreateAccountAssignmentResponse' {..} =
+    Prelude.rnf accountAssignmentCreationStatus
+      `Prelude.seq` Prelude.rnf httpStatus

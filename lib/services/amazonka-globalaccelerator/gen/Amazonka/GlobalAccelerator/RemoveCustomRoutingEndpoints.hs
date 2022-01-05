@@ -100,8 +100,15 @@ instance Core.AWSRequest RemoveCustomRoutingEndpoints where
 instance
   Prelude.Hashable
     RemoveCustomRoutingEndpoints
+  where
+  hashWithSalt _salt RemoveCustomRoutingEndpoints' {..} =
+    _salt `Prelude.hashWithSalt` endpointIds
+      `Prelude.hashWithSalt` endpointGroupArn
 
-instance Prelude.NFData RemoveCustomRoutingEndpoints
+instance Prelude.NFData RemoveCustomRoutingEndpoints where
+  rnf RemoveCustomRoutingEndpoints' {..} =
+    Prelude.rnf endpointIds
+      `Prelude.seq` Prelude.rnf endpointGroupArn
 
 instance Core.ToHeaders RemoveCustomRoutingEndpoints where
   toHeaders =
@@ -152,3 +159,5 @@ newRemoveCustomRoutingEndpointsResponse =
 instance
   Prelude.NFData
     RemoveCustomRoutingEndpointsResponse
+  where
+  rnf _ = ()

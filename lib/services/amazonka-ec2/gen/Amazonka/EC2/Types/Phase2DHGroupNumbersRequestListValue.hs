@@ -58,10 +58,18 @@ phase2DHGroupNumbersRequestListValue_value = Lens.lens (\Phase2DHGroupNumbersReq
 instance
   Prelude.Hashable
     Phase2DHGroupNumbersRequestListValue
+  where
+  hashWithSalt
+    _salt
+    Phase2DHGroupNumbersRequestListValue' {..} =
+      _salt `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     Phase2DHGroupNumbersRequestListValue
+  where
+  rnf Phase2DHGroupNumbersRequestListValue' {..} =
+    Prelude.rnf value
 
 instance
   Core.ToQuery

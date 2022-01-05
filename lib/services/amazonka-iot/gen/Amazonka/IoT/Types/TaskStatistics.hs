@@ -122,6 +122,22 @@ instance Core.FromJSON TaskStatistics where
             Prelude.<*> (x Core..:? "canceledChecks")
       )
 
-instance Prelude.Hashable TaskStatistics
+instance Prelude.Hashable TaskStatistics where
+  hashWithSalt _salt TaskStatistics' {..} =
+    _salt `Prelude.hashWithSalt` nonCompliantChecks
+      `Prelude.hashWithSalt` waitingForDataCollectionChecks
+      `Prelude.hashWithSalt` failedChecks
+      `Prelude.hashWithSalt` totalChecks
+      `Prelude.hashWithSalt` inProgressChecks
+      `Prelude.hashWithSalt` compliantChecks
+      `Prelude.hashWithSalt` canceledChecks
 
-instance Prelude.NFData TaskStatistics
+instance Prelude.NFData TaskStatistics where
+  rnf TaskStatistics' {..} =
+    Prelude.rnf nonCompliantChecks
+      `Prelude.seq` Prelude.rnf waitingForDataCollectionChecks
+      `Prelude.seq` Prelude.rnf failedChecks
+      `Prelude.seq` Prelude.rnf totalChecks
+      `Prelude.seq` Prelude.rnf inProgressChecks
+      `Prelude.seq` Prelude.rnf compliantChecks
+      `Prelude.seq` Prelude.rnf canceledChecks

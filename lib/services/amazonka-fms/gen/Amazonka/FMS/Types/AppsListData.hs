@@ -138,9 +138,25 @@ instance Core.FromJSON AppsListData where
             Prelude.<*> (x Core..:? "AppsList" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AppsListData
+instance Prelude.Hashable AppsListData where
+  hashWithSalt _salt AppsListData' {..} =
+    _salt `Prelude.hashWithSalt` listUpdateToken
+      `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` previousAppsList
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` listName
+      `Prelude.hashWithSalt` appsList
 
-instance Prelude.NFData AppsListData
+instance Prelude.NFData AppsListData where
+  rnf AppsListData' {..} =
+    Prelude.rnf listUpdateToken
+      `Prelude.seq` Prelude.rnf listId
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf previousAppsList
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf listName
+      `Prelude.seq` Prelude.rnf appsList
 
 instance Core.ToJSON AppsListData where
   toJSON AppsListData' {..} =

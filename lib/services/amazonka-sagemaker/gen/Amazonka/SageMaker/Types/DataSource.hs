@@ -73,9 +73,15 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "FileSystemDataSource")
       )
 
-instance Prelude.Hashable DataSource
+instance Prelude.Hashable DataSource where
+  hashWithSalt _salt DataSource' {..} =
+    _salt `Prelude.hashWithSalt` s3DataSource
+      `Prelude.hashWithSalt` fileSystemDataSource
 
-instance Prelude.NFData DataSource
+instance Prelude.NFData DataSource where
+  rnf DataSource' {..} =
+    Prelude.rnf s3DataSource
+      `Prelude.seq` Prelude.rnf fileSystemDataSource
 
 instance Core.ToJSON DataSource where
   toJSON DataSource' {..} =

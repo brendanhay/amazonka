@@ -80,9 +80,12 @@ instance Core.AWSRequest DeleteAppsList where
   response =
     Response.receiveNull DeleteAppsListResponse'
 
-instance Prelude.Hashable DeleteAppsList
+instance Prelude.Hashable DeleteAppsList where
+  hashWithSalt _salt DeleteAppsList' {..} =
+    _salt `Prelude.hashWithSalt` listId
 
-instance Prelude.NFData DeleteAppsList
+instance Prelude.NFData DeleteAppsList where
+  rnf DeleteAppsList' {..} = Prelude.rnf listId
 
 instance Core.ToHeaders DeleteAppsList where
   toHeaders =
@@ -126,4 +129,5 @@ newDeleteAppsListResponse ::
   DeleteAppsListResponse
 newDeleteAppsListResponse = DeleteAppsListResponse'
 
-instance Prelude.NFData DeleteAppsListResponse
+instance Prelude.NFData DeleteAppsListResponse where
+  rnf _ = ()

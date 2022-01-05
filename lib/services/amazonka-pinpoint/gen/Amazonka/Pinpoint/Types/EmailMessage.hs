@@ -121,9 +121,25 @@ emailMessage_simpleEmail = Lens.lens (\EmailMessage' {simpleEmail} -> simpleEmai
 emailMessage_replyToAddresses :: Lens.Lens' EmailMessage (Prelude.Maybe [Prelude.Text])
 emailMessage_replyToAddresses = Lens.lens (\EmailMessage' {replyToAddresses} -> replyToAddresses) (\s@EmailMessage' {} a -> s {replyToAddresses = a} :: EmailMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable EmailMessage
+instance Prelude.Hashable EmailMessage where
+  hashWithSalt _salt EmailMessage' {..} =
+    _salt `Prelude.hashWithSalt` substitutions
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` rawEmail
+      `Prelude.hashWithSalt` feedbackForwardingAddress
+      `Prelude.hashWithSalt` simpleEmail
+      `Prelude.hashWithSalt` replyToAddresses
 
-instance Prelude.NFData EmailMessage
+instance Prelude.NFData EmailMessage where
+  rnf EmailMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf rawEmail
+      `Prelude.seq` Prelude.rnf feedbackForwardingAddress
+      `Prelude.seq` Prelude.rnf simpleEmail
+      `Prelude.seq` Prelude.rnf replyToAddresses
 
 instance Core.ToJSON EmailMessage where
   toJSON EmailMessage' {..} =

@@ -125,9 +125,17 @@ instance Core.AWSRequest ListSpeakers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSpeakers
+instance Prelude.Hashable ListSpeakers where
+  hashWithSalt _salt ListSpeakers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData ListSpeakers
+instance Prelude.NFData ListSpeakers where
+  rnf ListSpeakers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainId
 
 instance Core.ToHeaders ListSpeakers where
   toHeaders =
@@ -218,4 +226,8 @@ listSpeakersResponse_nextToken = Lens.lens (\ListSpeakersResponse' {nextToken} -
 listSpeakersResponse_httpStatus :: Lens.Lens' ListSpeakersResponse Prelude.Int
 listSpeakersResponse_httpStatus = Lens.lens (\ListSpeakersResponse' {httpStatus} -> httpStatus) (\s@ListSpeakersResponse' {} a -> s {httpStatus = a} :: ListSpeakersResponse)
 
-instance Prelude.NFData ListSpeakersResponse
+instance Prelude.NFData ListSpeakersResponse where
+  rnf ListSpeakersResponse' {..} =
+    Prelude.rnf speakerSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

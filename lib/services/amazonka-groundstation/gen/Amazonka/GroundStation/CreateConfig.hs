@@ -109,9 +109,17 @@ instance Core.AWSRequest CreateConfig where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateConfig
+instance Prelude.Hashable CreateConfig where
+  hashWithSalt _salt CreateConfig' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configData
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateConfig
+instance Prelude.NFData CreateConfig where
+  rnf CreateConfig' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configData
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateConfig where
   toHeaders =

@@ -286,9 +286,25 @@ instance Core.FromXML Ebs where
       Prelude.<*> (x Core..@? "VolumeType")
       Prelude.<*> (x Core..@? "SnapshotId")
 
-instance Prelude.Hashable Ebs
+instance Prelude.Hashable Ebs where
+  hashWithSalt _salt Ebs' {..} =
+    _salt `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` throughput
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData Ebs
+instance Prelude.NFData Ebs where
+  rnf Ebs' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToQuery Ebs where
   toQuery Ebs' {..} =

@@ -92,6 +92,16 @@ instance Core.FromJSON IdentityDescription where
             Prelude.<*> (x Core..:? "IdentityId")
       )
 
-instance Prelude.Hashable IdentityDescription
+instance Prelude.Hashable IdentityDescription where
+  hashWithSalt _salt IdentityDescription' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData IdentityDescription
+instance Prelude.NFData IdentityDescription where
+  rnf IdentityDescription' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf logins
+      `Prelude.seq` Prelude.rnf identityId

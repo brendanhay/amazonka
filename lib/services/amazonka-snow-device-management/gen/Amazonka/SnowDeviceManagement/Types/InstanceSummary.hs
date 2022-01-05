@@ -72,6 +72,12 @@ instance Core.FromJSON InstanceSummary where
             Prelude.<*> (x Core..:? "instance")
       )
 
-instance Prelude.Hashable InstanceSummary
+instance Prelude.Hashable InstanceSummary where
+  hashWithSalt _salt InstanceSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` instance'
 
-instance Prelude.NFData InstanceSummary
+instance Prelude.NFData InstanceSummary where
+  rnf InstanceSummary' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf instance'

@@ -101,9 +101,13 @@ instance Core.AWSRequest DeleteKnowledgeBase where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteKnowledgeBase
+instance Prelude.Hashable DeleteKnowledgeBase where
+  hashWithSalt _salt DeleteKnowledgeBase' {..} =
+    _salt `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData DeleteKnowledgeBase
+instance Prelude.NFData DeleteKnowledgeBase where
+  rnf DeleteKnowledgeBase' {..} =
+    Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders DeleteKnowledgeBase where
   toHeaders =
@@ -154,4 +158,6 @@ newDeleteKnowledgeBaseResponse pHttpStatus_ =
 deleteKnowledgeBaseResponse_httpStatus :: Lens.Lens' DeleteKnowledgeBaseResponse Prelude.Int
 deleteKnowledgeBaseResponse_httpStatus = Lens.lens (\DeleteKnowledgeBaseResponse' {httpStatus} -> httpStatus) (\s@DeleteKnowledgeBaseResponse' {} a -> s {httpStatus = a} :: DeleteKnowledgeBaseResponse)
 
-instance Prelude.NFData DeleteKnowledgeBaseResponse
+instance Prelude.NFData DeleteKnowledgeBaseResponse where
+  rnf DeleteKnowledgeBaseResponse' {..} =
+    Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromXML PrefixListId where
       Prelude.<$> (x Core..@? "prefixListId")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable PrefixListId
+instance Prelude.Hashable PrefixListId where
+  hashWithSalt _salt PrefixListId' {..} =
+    _salt `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PrefixListId
+instance Prelude.NFData PrefixListId where
+  rnf PrefixListId' {..} =
+    Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =

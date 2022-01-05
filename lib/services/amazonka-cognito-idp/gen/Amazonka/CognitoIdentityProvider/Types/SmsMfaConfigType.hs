@@ -83,9 +83,16 @@ instance Core.FromJSON SmsMfaConfigType where
             Prelude.<*> (x Core..:? "SmsConfiguration")
       )
 
-instance Prelude.Hashable SmsMfaConfigType
+instance Prelude.Hashable SmsMfaConfigType where
+  hashWithSalt _salt SmsMfaConfigType' {..} =
+    _salt
+      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` smsConfiguration
 
-instance Prelude.NFData SmsMfaConfigType
+instance Prelude.NFData SmsMfaConfigType where
+  rnf SmsMfaConfigType' {..} =
+    Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf smsConfiguration
 
 instance Core.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =

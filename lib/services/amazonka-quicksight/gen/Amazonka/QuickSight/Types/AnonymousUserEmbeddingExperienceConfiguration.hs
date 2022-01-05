@@ -61,10 +61,19 @@ anonymousUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\AnonymousU
 instance
   Prelude.Hashable
     AnonymousUserEmbeddingExperienceConfiguration
+  where
+  hashWithSalt
+    _salt
+    AnonymousUserEmbeddingExperienceConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` dashboard
 
 instance
   Prelude.NFData
     AnonymousUserEmbeddingExperienceConfiguration
+  where
+  rnf
+    AnonymousUserEmbeddingExperienceConfiguration' {..} =
+      Prelude.rnf dashboard
 
 instance
   Core.ToJSON

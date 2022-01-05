@@ -76,9 +76,15 @@ instance Core.FromJSON IPDialIn where
             Prelude.<*> (x Core..: "CommsProtocol")
       )
 
-instance Prelude.Hashable IPDialIn
+instance Prelude.Hashable IPDialIn where
+  hashWithSalt _salt IPDialIn' {..} =
+    _salt `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` commsProtocol
 
-instance Prelude.NFData IPDialIn
+instance Prelude.NFData IPDialIn where
+  rnf IPDialIn' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf commsProtocol
 
 instance Core.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =

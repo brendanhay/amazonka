@@ -128,6 +128,20 @@ instance Core.FromJSON InputConfiguration where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable InputConfiguration
+instance Prelude.Hashable InputConfiguration where
+  hashWithSalt _salt InputConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` inputDescription
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` inputArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData InputConfiguration
+instance Prelude.NFData InputConfiguration where
+  rnf InputConfiguration' {..} =
+    Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf inputArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf status

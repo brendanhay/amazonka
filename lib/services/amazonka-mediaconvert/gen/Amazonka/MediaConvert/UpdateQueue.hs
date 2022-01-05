@@ -140,9 +140,19 @@ instance Core.AWSRequest UpdateQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateQueue
+instance Prelude.Hashable UpdateQueue where
+  hashWithSalt _salt UpdateQueue' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` reservationPlanSettings
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateQueue
+instance Prelude.NFData UpdateQueue where
+  rnf UpdateQueue' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reservationPlanSettings
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateQueue where
   toHeaders =
@@ -224,4 +234,7 @@ updateQueueResponse_queue = Lens.lens (\UpdateQueueResponse' {queue} -> queue) (
 updateQueueResponse_httpStatus :: Lens.Lens' UpdateQueueResponse Prelude.Int
 updateQueueResponse_httpStatus = Lens.lens (\UpdateQueueResponse' {httpStatus} -> httpStatus) (\s@UpdateQueueResponse' {} a -> s {httpStatus = a} :: UpdateQueueResponse)
 
-instance Prelude.NFData UpdateQueueResponse
+instance Prelude.NFData UpdateQueueResponse where
+  rnf UpdateQueueResponse' {..} =
+    Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf httpStatus

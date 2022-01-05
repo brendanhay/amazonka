@@ -128,6 +128,21 @@ instance Core.FromJSON OrganizationConfigRule where
             Prelude.<*> (x Core..: "OrganizationConfigRuleArn")
       )
 
-instance Prelude.Hashable OrganizationConfigRule
+instance Prelude.Hashable OrganizationConfigRule where
+  hashWithSalt _salt OrganizationConfigRule' {..} =
+    _salt
+      `Prelude.hashWithSalt` organizationManagedRuleMetadata
+      `Prelude.hashWithSalt` excludedAccounts
+      `Prelude.hashWithSalt` organizationCustomRuleMetadata
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` organizationConfigRuleName
+      `Prelude.hashWithSalt` organizationConfigRuleArn
 
-instance Prelude.NFData OrganizationConfigRule
+instance Prelude.NFData OrganizationConfigRule where
+  rnf OrganizationConfigRule' {..} =
+    Prelude.rnf organizationManagedRuleMetadata
+      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf organizationConfigRuleName
+      `Prelude.seq` Prelude.rnf organizationConfigRuleArn

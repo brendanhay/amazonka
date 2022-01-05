@@ -134,9 +134,17 @@ instance Core.AWSRequest ListRelatedItems where
             Prelude.<*> (x Core..?> "relatedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListRelatedItems
+instance Prelude.Hashable ListRelatedItems where
+  hashWithSalt _salt ListRelatedItems' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` incidentRecordArn
 
-instance Prelude.NFData ListRelatedItems
+instance Prelude.NFData ListRelatedItems where
+  rnf ListRelatedItems' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf incidentRecordArn
 
 instance Core.ToHeaders ListRelatedItems where
   toHeaders =
@@ -214,4 +222,8 @@ listRelatedItemsResponse_httpStatus = Lens.lens (\ListRelatedItemsResponse' {htt
 listRelatedItemsResponse_relatedItems :: Lens.Lens' ListRelatedItemsResponse [RelatedItem]
 listRelatedItemsResponse_relatedItems = Lens.lens (\ListRelatedItemsResponse' {relatedItems} -> relatedItems) (\s@ListRelatedItemsResponse' {} a -> s {relatedItems = a} :: ListRelatedItemsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListRelatedItemsResponse
+instance Prelude.NFData ListRelatedItemsResponse where
+  rnf ListRelatedItemsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf relatedItems

@@ -144,6 +144,20 @@ instance Core.FromXML StreamingDistributionList where
       Prelude.<*> (x Core..@ "IsTruncated")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable StreamingDistributionList
+instance Prelude.Hashable StreamingDistributionList where
+  hashWithSalt _salt StreamingDistributionList' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData StreamingDistributionList
+instance Prelude.NFData StreamingDistributionList where
+  rnf StreamingDistributionList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf quantity

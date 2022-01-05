@@ -115,9 +115,13 @@ instance Core.AWSRequest DescribeApplication where
             Prelude.<*> (x Core..:> "roleArn")
       )
 
-instance Prelude.Hashable DescribeApplication
+instance Prelude.Hashable DescribeApplication where
+  hashWithSalt _salt DescribeApplication' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DescribeApplication
+instance Prelude.NFData DescribeApplication where
+  rnf DescribeApplication' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DescribeApplication where
   toHeaders =
@@ -312,4 +316,18 @@ describeApplicationResponse_applicationLastUpdateDate = Lens.lens (\DescribeAppl
 describeApplicationResponse_roleArn :: Lens.Lens' DescribeApplicationResponse Prelude.Text
 describeApplicationResponse_roleArn = Lens.lens (\DescribeApplicationResponse' {roleArn} -> roleArn) (\s@DescribeApplicationResponse' {} a -> s {roleArn = a} :: DescribeApplicationResponse)
 
-instance Prelude.NFData DescribeApplicationResponse
+instance Prelude.NFData DescribeApplicationResponse where
+  rnf DescribeApplicationResponse' {..} =
+    Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf ssoClientId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationUrl
+      `Prelude.seq` Prelude.rnf applicationState
+      `Prelude.seq` Prelude.rnf applicationCreationDate
+      `Prelude.seq` Prelude.rnf applicationLastUpdateDate
+      `Prelude.seq` Prelude.rnf roleArn

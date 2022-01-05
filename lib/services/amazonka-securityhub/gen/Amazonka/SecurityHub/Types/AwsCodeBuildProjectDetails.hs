@@ -152,9 +152,27 @@ instance Core.FromJSON AwsCodeBuildProjectDetails where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable AwsCodeBuildProjectDetails
+instance Prelude.Hashable AwsCodeBuildProjectDetails where
+  hashWithSalt _salt AwsCodeBuildProjectDetails' {..} =
+    _salt `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` serviceRole
 
-instance Prelude.NFData AwsCodeBuildProjectDetails
+instance Prelude.NFData AwsCodeBuildProjectDetails where
+  rnf AwsCodeBuildProjectDetails' {..} =
+    Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf serviceRole
 
 instance Core.ToJSON AwsCodeBuildProjectDetails where
   toJSON AwsCodeBuildProjectDetails' {..} =

@@ -77,9 +77,14 @@ instance Core.FromJSON StackConfigurationManager where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable StackConfigurationManager
+instance Prelude.Hashable StackConfigurationManager where
+  hashWithSalt _salt StackConfigurationManager' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData StackConfigurationManager
+instance Prelude.NFData StackConfigurationManager where
+  rnf StackConfigurationManager' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON StackConfigurationManager where
   toJSON StackConfigurationManager' {..} =

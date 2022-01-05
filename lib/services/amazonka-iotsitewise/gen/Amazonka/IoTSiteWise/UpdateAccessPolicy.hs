@@ -152,9 +152,21 @@ instance Core.AWSRequest UpdateAccessPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccessPolicy
+instance Prelude.Hashable UpdateAccessPolicy where
+  hashWithSalt _salt UpdateAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` accessPolicyId
+      `Prelude.hashWithSalt` accessPolicyIdentity
+      `Prelude.hashWithSalt` accessPolicyResource
+      `Prelude.hashWithSalt` accessPolicyPermission
 
-instance Prelude.NFData UpdateAccessPolicy
+instance Prelude.NFData UpdateAccessPolicy where
+  rnf UpdateAccessPolicy' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf accessPolicyId
+      `Prelude.seq` Prelude.rnf accessPolicyIdentity
+      `Prelude.seq` Prelude.rnf accessPolicyResource
+      `Prelude.seq` Prelude.rnf accessPolicyPermission
 
 instance Core.ToHeaders UpdateAccessPolicy where
   toHeaders =
@@ -225,4 +237,6 @@ newUpdateAccessPolicyResponse pHttpStatus_ =
 updateAccessPolicyResponse_httpStatus :: Lens.Lens' UpdateAccessPolicyResponse Prelude.Int
 updateAccessPolicyResponse_httpStatus = Lens.lens (\UpdateAccessPolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateAccessPolicyResponse' {} a -> s {httpStatus = a} :: UpdateAccessPolicyResponse)
 
-instance Prelude.NFData UpdateAccessPolicyResponse
+instance Prelude.NFData UpdateAccessPolicyResponse where
+  rnf UpdateAccessPolicyResponse' {..} =
+    Prelude.rnf httpStatus

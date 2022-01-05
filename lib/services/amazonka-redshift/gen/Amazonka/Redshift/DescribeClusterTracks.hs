@@ -152,9 +152,17 @@ instance Core.AWSRequest DescribeClusterTracks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterTracks
+instance Prelude.Hashable DescribeClusterTracks where
+  hashWithSalt _salt DescribeClusterTracks' {..} =
+    _salt `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeClusterTracks
+instance Prelude.NFData DescribeClusterTracks where
+  rnf DescribeClusterTracks' {..} =
+    Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeClusterTracks where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,4 +239,8 @@ describeClusterTracksResponse_marker = Lens.lens (\DescribeClusterTracksResponse
 describeClusterTracksResponse_httpStatus :: Lens.Lens' DescribeClusterTracksResponse Prelude.Int
 describeClusterTracksResponse_httpStatus = Lens.lens (\DescribeClusterTracksResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterTracksResponse' {} a -> s {httpStatus = a} :: DescribeClusterTracksResponse)
 
-instance Prelude.NFData DescribeClusterTracksResponse
+instance Prelude.NFData DescribeClusterTracksResponse where
+  rnf DescribeClusterTracksResponse' {..} =
+    Prelude.rnf maintenanceTracks
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

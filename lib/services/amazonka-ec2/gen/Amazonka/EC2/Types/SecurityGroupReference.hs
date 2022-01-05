@@ -80,6 +80,14 @@ instance Core.FromXML SecurityGroupReference where
       Prelude.<*> (x Core..@? "referencingVpcId")
       Prelude.<*> (x Core..@? "groupId")
 
-instance Prelude.Hashable SecurityGroupReference
+instance Prelude.Hashable SecurityGroupReference where
+  hashWithSalt _salt SecurityGroupReference' {..} =
+    _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
+      `Prelude.hashWithSalt` referencingVpcId
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData SecurityGroupReference
+instance Prelude.NFData SecurityGroupReference where
+  rnf SecurityGroupReference' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf referencingVpcId
+      `Prelude.seq` Prelude.rnf groupId

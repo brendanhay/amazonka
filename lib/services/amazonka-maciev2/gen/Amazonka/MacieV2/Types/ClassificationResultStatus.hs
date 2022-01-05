@@ -111,6 +111,11 @@ instance Core.FromJSON ClassificationResultStatus where
             Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable ClassificationResultStatus
+instance Prelude.Hashable ClassificationResultStatus where
+  hashWithSalt _salt ClassificationResultStatus' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ClassificationResultStatus
+instance Prelude.NFData ClassificationResultStatus where
+  rnf ClassificationResultStatus' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf code

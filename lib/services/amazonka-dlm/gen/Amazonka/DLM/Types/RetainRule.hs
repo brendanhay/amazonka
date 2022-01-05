@@ -89,9 +89,17 @@ instance Core.FromJSON RetainRule where
             Prelude.<*> (x Core..:? "IntervalUnit")
       )
 
-instance Prelude.Hashable RetainRule
+instance Prelude.Hashable RetainRule where
+  hashWithSalt _salt RetainRule' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` intervalUnit
 
-instance Prelude.NFData RetainRule
+instance Prelude.NFData RetainRule where
+  rnf RetainRule' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON RetainRule where
   toJSON RetainRule' {..} =

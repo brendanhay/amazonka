@@ -77,6 +77,11 @@ instance Core.FromJSON PartOfSpeechTag where
             Prelude.<$> (x Core..:? "Tag") Prelude.<*> (x Core..:? "Score")
       )
 
-instance Prelude.Hashable PartOfSpeechTag
+instance Prelude.Hashable PartOfSpeechTag where
+  hashWithSalt _salt PartOfSpeechTag' {..} =
+    _salt `Prelude.hashWithSalt` tag
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData PartOfSpeechTag
+instance Prelude.NFData PartOfSpeechTag where
+  rnf PartOfSpeechTag' {..} =
+    Prelude.rnf tag `Prelude.seq` Prelude.rnf score

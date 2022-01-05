@@ -208,9 +208,29 @@ instance Core.AWSRequest ListViolationEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListViolationEvents
+instance Prelude.Hashable ListViolationEvents where
+  hashWithSalt _salt ListViolationEvents' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` listSuppressedAlerts
+      `Prelude.hashWithSalt` behaviorCriteriaType
+      `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData ListViolationEvents
+instance Prelude.NFData ListViolationEvents where
+  rnf ListViolationEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf listSuppressedAlerts
+      `Prelude.seq` Prelude.rnf behaviorCriteriaType
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders ListViolationEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,4 +309,8 @@ listViolationEventsResponse_nextToken = Lens.lens (\ListViolationEventsResponse'
 listViolationEventsResponse_httpStatus :: Lens.Lens' ListViolationEventsResponse Prelude.Int
 listViolationEventsResponse_httpStatus = Lens.lens (\ListViolationEventsResponse' {httpStatus} -> httpStatus) (\s@ListViolationEventsResponse' {} a -> s {httpStatus = a} :: ListViolationEventsResponse)
 
-instance Prelude.NFData ListViolationEventsResponse
+instance Prelude.NFData ListViolationEventsResponse where
+  rnf ListViolationEventsResponse' {..} =
+    Prelude.rnf violationEvents
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

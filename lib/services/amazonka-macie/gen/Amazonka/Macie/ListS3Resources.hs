@@ -152,9 +152,17 @@ instance Core.AWSRequest ListS3Resources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListS3Resources
+instance Prelude.Hashable ListS3Resources where
+  hashWithSalt _salt ListS3Resources' {..} =
+    _salt `Prelude.hashWithSalt` memberAccountId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListS3Resources
+instance Prelude.NFData ListS3Resources where
+  rnf ListS3Resources' {..} =
+    Prelude.rnf memberAccountId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListS3Resources where
   toHeaders =
@@ -245,4 +253,8 @@ listS3ResourcesResponse_s3Resources = Lens.lens (\ListS3ResourcesResponse' {s3Re
 listS3ResourcesResponse_httpStatus :: Lens.Lens' ListS3ResourcesResponse Prelude.Int
 listS3ResourcesResponse_httpStatus = Lens.lens (\ListS3ResourcesResponse' {httpStatus} -> httpStatus) (\s@ListS3ResourcesResponse' {} a -> s {httpStatus = a} :: ListS3ResourcesResponse)
 
-instance Prelude.NFData ListS3ResourcesResponse
+instance Prelude.NFData ListS3ResourcesResponse where
+  rnf ListS3ResourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf s3Resources
+      `Prelude.seq` Prelude.rnf httpStatus

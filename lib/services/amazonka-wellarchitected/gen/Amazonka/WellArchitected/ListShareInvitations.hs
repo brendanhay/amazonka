@@ -110,9 +110,17 @@ instance Core.AWSRequest ListShareInvitations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListShareInvitations
+instance Prelude.Hashable ListShareInvitations where
+  hashWithSalt _salt ListShareInvitations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` workloadNamePrefix
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListShareInvitations
+instance Prelude.NFData ListShareInvitations where
+  rnf ListShareInvitations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workloadNamePrefix
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListShareInvitations where
   toHeaders =
@@ -185,4 +193,8 @@ listShareInvitationsResponse_nextToken = Lens.lens (\ListShareInvitationsRespons
 listShareInvitationsResponse_httpStatus :: Lens.Lens' ListShareInvitationsResponse Prelude.Int
 listShareInvitationsResponse_httpStatus = Lens.lens (\ListShareInvitationsResponse' {httpStatus} -> httpStatus) (\s@ListShareInvitationsResponse' {} a -> s {httpStatus = a} :: ListShareInvitationsResponse)
 
-instance Prelude.NFData ListShareInvitationsResponse
+instance Prelude.NFData ListShareInvitationsResponse where
+  rnf ListShareInvitationsResponse' {..} =
+    Prelude.rnf shareInvitationSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

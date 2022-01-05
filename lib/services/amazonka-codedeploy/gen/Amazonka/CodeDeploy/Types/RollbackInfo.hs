@@ -91,6 +91,15 @@ instance Core.FromJSON RollbackInfo where
             Prelude.<*> (x Core..:? "rollbackDeploymentId")
       )
 
-instance Prelude.Hashable RollbackInfo
+instance Prelude.Hashable RollbackInfo where
+  hashWithSalt _salt RollbackInfo' {..} =
+    _salt
+      `Prelude.hashWithSalt` rollbackTriggeringDeploymentId
+      `Prelude.hashWithSalt` rollbackMessage
+      `Prelude.hashWithSalt` rollbackDeploymentId
 
-instance Prelude.NFData RollbackInfo
+instance Prelude.NFData RollbackInfo where
+  rnf RollbackInfo' {..} =
+    Prelude.rnf rollbackTriggeringDeploymentId
+      `Prelude.seq` Prelude.rnf rollbackMessage
+      `Prelude.seq` Prelude.rnf rollbackDeploymentId

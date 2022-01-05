@@ -177,6 +177,24 @@ instance Core.FromJSON AuthenticationResult where
             Prelude.<*> (x Core..:? "AudioAggregationEndedAt")
       )
 
-instance Prelude.Hashable AuthenticationResult
+instance Prelude.Hashable AuthenticationResult where
+  hashWithSalt _salt AuthenticationResult' {..} =
+    _salt `Prelude.hashWithSalt` customerSpeakerId
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` authenticationResultId
+      `Prelude.hashWithSalt` decision
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` audioAggregationStartedAt
+      `Prelude.hashWithSalt` generatedSpeakerId
+      `Prelude.hashWithSalt` audioAggregationEndedAt
 
-instance Prelude.NFData AuthenticationResult
+instance Prelude.NFData AuthenticationResult where
+  rnf AuthenticationResult' {..} =
+    Prelude.rnf customerSpeakerId
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf authenticationResultId
+      `Prelude.seq` Prelude.rnf decision
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf audioAggregationStartedAt
+      `Prelude.seq` Prelude.rnf generatedSpeakerId
+      `Prelude.seq` Prelude.rnf audioAggregationEndedAt

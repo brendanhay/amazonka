@@ -185,9 +185,19 @@ instance Core.AWSRequest CreateRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRule
+instance Prelude.Hashable CreateRule where
+  hashWithSalt _salt CreateRule' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateRule
+instance Prelude.NFData CreateRule where
+  rnf CreateRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateRule where
   toHeaders =
@@ -274,4 +284,8 @@ createRuleResponse_changeToken = Lens.lens (\CreateRuleResponse' {changeToken} -
 createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int
 createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRuleResponse' {} a -> s {httpStatus = a} :: CreateRuleResponse)
 
-instance Prelude.NFData CreateRuleResponse
+instance Prelude.NFData CreateRuleResponse where
+  rnf CreateRuleResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

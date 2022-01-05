@@ -108,9 +108,13 @@ instance Core.AWSRequest DeleteDBParameterGroup where
     Response.receiveNull
       DeleteDBParameterGroupResponse'
 
-instance Prelude.Hashable DeleteDBParameterGroup
+instance Prelude.Hashable DeleteDBParameterGroup where
+  hashWithSalt _salt DeleteDBParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` dbParameterGroupName
 
-instance Prelude.NFData DeleteDBParameterGroup
+instance Prelude.NFData DeleteDBParameterGroup where
+  rnf DeleteDBParameterGroup' {..} =
+    Prelude.rnf dbParameterGroupName
 
 instance Core.ToHeaders DeleteDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -146,3 +150,5 @@ newDeleteDBParameterGroupResponse =
 instance
   Prelude.NFData
     DeleteDBParameterGroupResponse
+  where
+  rnf _ = ()

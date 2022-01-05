@@ -70,6 +70,11 @@ instance Core.FromJSON S3KeyOutput where
             Prelude.<$> (x Core..:? "etag") Prelude.<*> (x Core..:? "s3Key")
       )
 
-instance Prelude.Hashable S3KeyOutput
+instance Prelude.Hashable S3KeyOutput where
+  hashWithSalt _salt S3KeyOutput' {..} =
+    _salt `Prelude.hashWithSalt` etag
+      `Prelude.hashWithSalt` s3Key
 
-instance Prelude.NFData S3KeyOutput
+instance Prelude.NFData S3KeyOutput where
+  rnf S3KeyOutput' {..} =
+    Prelude.rnf etag `Prelude.seq` Prelude.rnf s3Key

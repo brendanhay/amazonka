@@ -99,9 +99,12 @@ instance Core.AWSRequest CreateSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSchema
+instance Prelude.Hashable CreateSchema where
+  hashWithSalt _salt CreateSchema' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateSchema
+instance Prelude.NFData CreateSchema where
+  rnf CreateSchema' {..} = Prelude.rnf name
 
 instance Core.ToHeaders CreateSchema where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +165,7 @@ createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int
 createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus} -> httpStatus) (\s@CreateSchemaResponse' {} a -> s {httpStatus = a} :: CreateSchemaResponse)
 
-instance Prelude.NFData CreateSchemaResponse
+instance Prelude.NFData CreateSchemaResponse where
+  rnf CreateSchemaResponse' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

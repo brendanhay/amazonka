@@ -55,9 +55,12 @@ instance Core.FromJSON BorderStyle where
       "BorderStyle"
       (\x -> BorderStyle' Prelude.<$> (x Core..:? "Show"))
 
-instance Prelude.Hashable BorderStyle
+instance Prelude.Hashable BorderStyle where
+  hashWithSalt _salt BorderStyle' {..} =
+    _salt `Prelude.hashWithSalt` show
 
-instance Prelude.NFData BorderStyle
+instance Prelude.NFData BorderStyle where
+  rnf BorderStyle' {..} = Prelude.rnf show
 
 instance Core.ToJSON BorderStyle where
   toJSON BorderStyle' {..} =

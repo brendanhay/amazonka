@@ -65,9 +65,14 @@ sessionTag_key = Lens.lens (\SessionTag' {key} -> key) (\s@SessionTag' {} a -> s
 sessionTag_value :: Lens.Lens' SessionTag Prelude.Text
 sessionTag_value = Lens.lens (\SessionTag' {value} -> value) (\s@SessionTag' {} a -> s {value = a} :: SessionTag) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable SessionTag
+instance Prelude.Hashable SessionTag where
+  hashWithSalt _salt SessionTag' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData SessionTag
+instance Prelude.NFData SessionTag where
+  rnf SessionTag' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SessionTag where
   toJSON SessionTag' {..} =

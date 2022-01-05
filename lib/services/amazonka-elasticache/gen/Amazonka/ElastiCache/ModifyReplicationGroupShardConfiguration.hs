@@ -235,10 +235,28 @@ instance
 instance
   Prelude.Hashable
     ModifyReplicationGroupShardConfiguration
+  where
+  hashWithSalt
+    _salt
+    ModifyReplicationGroupShardConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` nodeGroupsToRetain
+        `Prelude.hashWithSalt` reshardingConfiguration
+        `Prelude.hashWithSalt` nodeGroupsToRemove
+        `Prelude.hashWithSalt` replicationGroupId
+        `Prelude.hashWithSalt` nodeGroupCount
+        `Prelude.hashWithSalt` applyImmediately
 
 instance
   Prelude.NFData
     ModifyReplicationGroupShardConfiguration
+  where
+  rnf ModifyReplicationGroupShardConfiguration' {..} =
+    Prelude.rnf nodeGroupsToRetain
+      `Prelude.seq` Prelude.rnf reshardingConfiguration
+      `Prelude.seq` Prelude.rnf nodeGroupsToRemove
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf nodeGroupCount
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
   Core.ToHeaders
@@ -326,3 +344,8 @@ modifyReplicationGroupShardConfigurationResponse_httpStatus = Lens.lens (\Modify
 instance
   Prelude.NFData
     ModifyReplicationGroupShardConfigurationResponse
+  where
+  rnf
+    ModifyReplicationGroupShardConfigurationResponse' {..} =
+      Prelude.rnf replicationGroup
+        `Prelude.seq` Prelude.rnf httpStatus

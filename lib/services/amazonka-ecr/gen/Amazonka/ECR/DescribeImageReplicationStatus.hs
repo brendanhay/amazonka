@@ -127,10 +127,22 @@ instance
 instance
   Prelude.Hashable
     DescribeImageReplicationStatus
+  where
+  hashWithSalt
+    _salt
+    DescribeImageReplicationStatus' {..} =
+      _salt `Prelude.hashWithSalt` registryId
+        `Prelude.hashWithSalt` repositoryName
+        `Prelude.hashWithSalt` imageId
 
 instance
   Prelude.NFData
     DescribeImageReplicationStatus
+  where
+  rnf DescribeImageReplicationStatus' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageId
 
 instance
   Core.ToHeaders
@@ -231,3 +243,9 @@ describeImageReplicationStatusResponse_httpStatus = Lens.lens (\DescribeImageRep
 instance
   Prelude.NFData
     DescribeImageReplicationStatusResponse
+  where
+  rnf DescribeImageReplicationStatusResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf replicationStatuses
+      `Prelude.seq` Prelude.rnf httpStatus

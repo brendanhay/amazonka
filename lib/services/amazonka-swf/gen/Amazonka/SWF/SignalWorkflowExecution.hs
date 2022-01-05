@@ -164,9 +164,21 @@ instance Core.AWSRequest SignalWorkflowExecution where
     Response.receiveNull
       SignalWorkflowExecutionResponse'
 
-instance Prelude.Hashable SignalWorkflowExecution
+instance Prelude.Hashable SignalWorkflowExecution where
+  hashWithSalt _salt SignalWorkflowExecution' {..} =
+    _salt `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` signalName
 
-instance Prelude.NFData SignalWorkflowExecution
+instance Prelude.NFData SignalWorkflowExecution where
+  rnf SignalWorkflowExecution' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf signalName
 
 instance Core.ToHeaders SignalWorkflowExecution where
   toHeaders =
@@ -219,3 +231,5 @@ newSignalWorkflowExecutionResponse =
 instance
   Prelude.NFData
     SignalWorkflowExecutionResponse
+  where
+  rnf _ = ()

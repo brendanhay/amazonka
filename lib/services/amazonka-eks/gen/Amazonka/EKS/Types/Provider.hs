@@ -71,9 +71,12 @@ instance Core.FromJSON Provider where
       "Provider"
       (\x -> Provider' Prelude.<$> (x Core..:? "keyArn"))
 
-instance Prelude.Hashable Provider
+instance Prelude.Hashable Provider where
+  hashWithSalt _salt Provider' {..} =
+    _salt `Prelude.hashWithSalt` keyArn
 
-instance Prelude.NFData Provider
+instance Prelude.NFData Provider where
+  rnf Provider' {..} = Prelude.rnf keyArn
 
 instance Core.ToJSON Provider where
   toJSON Provider' {..} =

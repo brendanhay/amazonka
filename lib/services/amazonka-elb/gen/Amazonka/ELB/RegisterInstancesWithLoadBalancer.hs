@@ -136,10 +136,20 @@ instance
 instance
   Prelude.Hashable
     RegisterInstancesWithLoadBalancer
+  where
+  hashWithSalt
+    _salt
+    RegisterInstancesWithLoadBalancer' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` instances
 
 instance
   Prelude.NFData
     RegisterInstancesWithLoadBalancer
+  where
+  rnf RegisterInstancesWithLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf instances
 
 instance
   Core.ToHeaders
@@ -215,3 +225,7 @@ registerInstancesWithLoadBalancerResponse_httpStatus = Lens.lens (\RegisterInsta
 instance
   Prelude.NFData
     RegisterInstancesWithLoadBalancerResponse
+  where
+  rnf RegisterInstancesWithLoadBalancerResponse' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf httpStatus

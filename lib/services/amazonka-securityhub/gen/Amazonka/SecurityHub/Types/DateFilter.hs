@@ -82,9 +82,17 @@ instance Core.FromJSON DateFilter where
             Prelude.<*> (x Core..:? "End")
       )
 
-instance Prelude.Hashable DateFilter
+instance Prelude.Hashable DateFilter where
+  hashWithSalt _salt DateFilter' {..} =
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` dateRange
+      `Prelude.hashWithSalt` end
 
-instance Prelude.NFData DateFilter
+instance Prelude.NFData DateFilter where
+  rnf DateFilter' {..} =
+    Prelude.rnf start
+      `Prelude.seq` Prelude.rnf dateRange
+      `Prelude.seq` Prelude.rnf end
 
 instance Core.ToJSON DateFilter where
   toJSON DateFilter' {..} =

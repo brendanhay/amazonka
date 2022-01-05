@@ -84,9 +84,12 @@ instance Core.AWSRequest GetAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccount
+instance Prelude.Hashable GetAccount where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetAccount
+instance Prelude.NFData GetAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccount where
   toHeaders =
@@ -291,4 +294,13 @@ getAccountResponse_sendingEnabled = Lens.lens (\GetAccountResponse' {sendingEnab
 getAccountResponse_httpStatus :: Lens.Lens' GetAccountResponse Prelude.Int
 getAccountResponse_httpStatus = Lens.lens (\GetAccountResponse' {httpStatus} -> httpStatus) (\s@GetAccountResponse' {} a -> s {httpStatus = a} :: GetAccountResponse)
 
-instance Prelude.NFData GetAccountResponse
+instance Prelude.NFData GetAccountResponse where
+  rnf GetAccountResponse' {..} =
+    Prelude.rnf enforcementStatus
+      `Prelude.seq` Prelude.rnf dedicatedIpAutoWarmupEnabled
+      `Prelude.seq` Prelude.rnf sendQuota
+      `Prelude.seq` Prelude.rnf productionAccessEnabled
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf suppressionAttributes
+      `Prelude.seq` Prelude.rnf sendingEnabled
+      `Prelude.seq` Prelude.rnf httpStatus

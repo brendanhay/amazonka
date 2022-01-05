@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     GetSipMediaApplicationLoggingConfiguration
+  where
+  hashWithSalt
+    _salt
+    GetSipMediaApplicationLoggingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` sipMediaApplicationId
 
 instance
   Prelude.NFData
     GetSipMediaApplicationLoggingConfiguration
+  where
+  rnf GetSipMediaApplicationLoggingConfiguration' {..} =
+    Prelude.rnf sipMediaApplicationId
 
 instance
   Core.ToHeaders
@@ -173,3 +181,8 @@ getSipMediaApplicationLoggingConfigurationResponse_httpStatus = Lens.lens (\GetS
 instance
   Prelude.NFData
     GetSipMediaApplicationLoggingConfigurationResponse
+  where
+  rnf
+    GetSipMediaApplicationLoggingConfigurationResponse' {..} =
+      Prelude.rnf sipMediaApplicationLoggingConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

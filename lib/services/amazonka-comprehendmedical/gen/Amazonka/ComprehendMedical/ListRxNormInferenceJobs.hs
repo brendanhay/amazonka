@@ -117,9 +117,17 @@ instance Core.AWSRequest ListRxNormInferenceJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRxNormInferenceJobs
+instance Prelude.Hashable ListRxNormInferenceJobs where
+  hashWithSalt _salt ListRxNormInferenceJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListRxNormInferenceJobs
+instance Prelude.NFData ListRxNormInferenceJobs where
+  rnf ListRxNormInferenceJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRxNormInferenceJobs where
   toHeaders =
@@ -207,3 +215,8 @@ listRxNormInferenceJobsResponse_httpStatus = Lens.lens (\ListRxNormInferenceJobs
 instance
   Prelude.NFData
     ListRxNormInferenceJobsResponse
+  where
+  rnf ListRxNormInferenceJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

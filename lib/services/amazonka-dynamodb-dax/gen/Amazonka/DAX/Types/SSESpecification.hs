@@ -55,9 +55,12 @@ newSSESpecification pEnabled_ =
 sSESpecification_enabled :: Lens.Lens' SSESpecification Prelude.Bool
 sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
-instance Prelude.Hashable SSESpecification
+instance Prelude.Hashable SSESpecification where
+  hashWithSalt _salt SSESpecification' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SSESpecification
+instance Prelude.NFData SSESpecification where
+  rnf SSESpecification' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =

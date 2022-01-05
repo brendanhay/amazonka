@@ -113,9 +113,15 @@ instance Core.AWSRequest UpdateResolverDnssecConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResolverDnssecConfig
+instance Prelude.Hashable UpdateResolverDnssecConfig where
+  hashWithSalt _salt UpdateResolverDnssecConfig' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` validation
 
-instance Prelude.NFData UpdateResolverDnssecConfig
+instance Prelude.NFData UpdateResolverDnssecConfig where
+  rnf UpdateResolverDnssecConfig' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf validation
 
 instance Core.ToHeaders UpdateResolverDnssecConfig where
   toHeaders =
@@ -192,3 +198,7 @@ updateResolverDnssecConfigResponse_httpStatus = Lens.lens (\UpdateResolverDnssec
 instance
   Prelude.NFData
     UpdateResolverDnssecConfigResponse
+  where
+  rnf UpdateResolverDnssecConfigResponse' {..} =
+    Prelude.rnf resolverDNSSECConfig
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -218,10 +218,28 @@ instance
 instance
   Prelude.Hashable
     DescribeLocalGatewayRouteTableVpcAssociations
+  where
+  hashWithSalt
+    _salt
+    DescribeLocalGatewayRouteTableVpcAssociations' {..} =
+      _salt
+        `Prelude.hashWithSalt` localGatewayRouteTableVpcAssociationIds
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTableVpcAssociations
+  where
+  rnf
+    DescribeLocalGatewayRouteTableVpcAssociations' {..} =
+      Prelude.rnf localGatewayRouteTableVpcAssociationIds
+        `Prelude.seq` Prelude.rnf filters
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf dryRun
+        `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -317,3 +335,9 @@ describeLocalGatewayRouteTableVpcAssociationsResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTableVpcAssociationsResponse
+  where
+  rnf
+    DescribeLocalGatewayRouteTableVpcAssociationsResponse' {..} =
+      Prelude.rnf localGatewayRouteTableVpcAssociations
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

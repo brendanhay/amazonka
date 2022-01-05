@@ -214,9 +214,19 @@ instance Core.AWSRequest ListGeoLocations where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListGeoLocations
+instance Prelude.Hashable ListGeoLocations where
+  hashWithSalt _salt ListGeoLocations' {..} =
+    _salt `Prelude.hashWithSalt` startSubdivisionCode
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` startCountryCode
+      `Prelude.hashWithSalt` startContinentCode
 
-instance Prelude.NFData ListGeoLocations
+instance Prelude.NFData ListGeoLocations where
+  rnf ListGeoLocations' {..} =
+    Prelude.rnf startSubdivisionCode
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf startCountryCode
+      `Prelude.seq` Prelude.rnf startContinentCode
 
 instance Core.ToHeaders ListGeoLocations where
   toHeaders = Prelude.const Prelude.mempty
@@ -362,4 +372,12 @@ listGeoLocationsResponse_isTruncated = Lens.lens (\ListGeoLocationsResponse' {is
 listGeoLocationsResponse_maxItems :: Lens.Lens' ListGeoLocationsResponse Prelude.Text
 listGeoLocationsResponse_maxItems = Lens.lens (\ListGeoLocationsResponse' {maxItems} -> maxItems) (\s@ListGeoLocationsResponse' {} a -> s {maxItems = a} :: ListGeoLocationsResponse)
 
-instance Prelude.NFData ListGeoLocationsResponse
+instance Prelude.NFData ListGeoLocationsResponse where
+  rnf ListGeoLocationsResponse' {..} =
+    Prelude.rnf nextContinentCode
+      `Prelude.seq` Prelude.rnf nextCountryCode
+      `Prelude.seq` Prelude.rnf nextSubdivisionCode
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf geoLocationDetailsList
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxItems

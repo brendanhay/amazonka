@@ -66,5 +66,10 @@ instance Core.FromJSON LoRaWANGatewayCurrentVersion where
 instance
   Prelude.Hashable
     LoRaWANGatewayCurrentVersion
+  where
+  hashWithSalt _salt LoRaWANGatewayCurrentVersion' {..} =
+    _salt `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData LoRaWANGatewayCurrentVersion
+instance Prelude.NFData LoRaWANGatewayCurrentVersion where
+  rnf LoRaWANGatewayCurrentVersion' {..} =
+    Prelude.rnf currentVersion

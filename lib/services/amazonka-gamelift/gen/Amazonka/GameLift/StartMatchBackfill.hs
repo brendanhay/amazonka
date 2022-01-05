@@ -228,9 +228,19 @@ instance Core.AWSRequest StartMatchBackfill where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMatchBackfill
+instance Prelude.Hashable StartMatchBackfill where
+  hashWithSalt _salt StartMatchBackfill' {..} =
+    _salt `Prelude.hashWithSalt` ticketId
+      `Prelude.hashWithSalt` gameSessionArn
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` players
 
-instance Prelude.NFData StartMatchBackfill
+instance Prelude.NFData StartMatchBackfill where
+  rnf StartMatchBackfill' {..} =
+    Prelude.rnf ticketId
+      `Prelude.seq` Prelude.rnf gameSessionArn
+      `Prelude.seq` Prelude.rnf configurationName
+      `Prelude.seq` Prelude.rnf players
 
 instance Core.ToHeaders StartMatchBackfill where
   toHeaders =
@@ -313,4 +323,7 @@ startMatchBackfillResponse_matchmakingTicket = Lens.lens (\StartMatchBackfillRes
 startMatchBackfillResponse_httpStatus :: Lens.Lens' StartMatchBackfillResponse Prelude.Int
 startMatchBackfillResponse_httpStatus = Lens.lens (\StartMatchBackfillResponse' {httpStatus} -> httpStatus) (\s@StartMatchBackfillResponse' {} a -> s {httpStatus = a} :: StartMatchBackfillResponse)
 
-instance Prelude.NFData StartMatchBackfillResponse
+instance Prelude.NFData StartMatchBackfillResponse where
+  rnf StartMatchBackfillResponse' {..} =
+    Prelude.rnf matchmakingTicket
+      `Prelude.seq` Prelude.rnf httpStatus

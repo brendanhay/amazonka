@@ -111,9 +111,15 @@ instance Core.AWSRequest DescribeReceiptRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReceiptRule
+instance Prelude.Hashable DescribeReceiptRule where
+  hashWithSalt _salt DescribeReceiptRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData DescribeReceiptRule
+instance Prelude.NFData DescribeReceiptRule where
+  rnf DescribeReceiptRule' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders DescribeReceiptRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,4 +185,7 @@ describeReceiptRuleResponse_rule = Lens.lens (\DescribeReceiptRuleResponse' {rul
 describeReceiptRuleResponse_httpStatus :: Lens.Lens' DescribeReceiptRuleResponse Prelude.Int
 describeReceiptRuleResponse_httpStatus = Lens.lens (\DescribeReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeReceiptRuleResponse' {} a -> s {httpStatus = a} :: DescribeReceiptRuleResponse)
 
-instance Prelude.NFData DescribeReceiptRuleResponse
+instance Prelude.NFData DescribeReceiptRuleResponse where
+  rnf DescribeReceiptRuleResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf httpStatus

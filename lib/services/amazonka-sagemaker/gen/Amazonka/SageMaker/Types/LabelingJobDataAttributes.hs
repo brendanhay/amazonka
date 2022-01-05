@@ -75,9 +75,13 @@ instance Core.FromJSON LabelingJobDataAttributes where
                         )
       )
 
-instance Prelude.Hashable LabelingJobDataAttributes
+instance Prelude.Hashable LabelingJobDataAttributes where
+  hashWithSalt _salt LabelingJobDataAttributes' {..} =
+    _salt `Prelude.hashWithSalt` contentClassifiers
 
-instance Prelude.NFData LabelingJobDataAttributes
+instance Prelude.NFData LabelingJobDataAttributes where
+  rnf LabelingJobDataAttributes' {..} =
+    Prelude.rnf contentClassifiers
 
 instance Core.ToJSON LabelingJobDataAttributes where
   toJSON LabelingJobDataAttributes' {..} =

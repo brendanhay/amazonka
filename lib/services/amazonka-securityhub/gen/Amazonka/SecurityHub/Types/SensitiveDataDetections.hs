@@ -86,9 +86,17 @@ instance Core.FromJSON SensitiveDataDetections where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable SensitiveDataDetections
+instance Prelude.Hashable SensitiveDataDetections where
+  hashWithSalt _salt SensitiveDataDetections' {..} =
+    _salt `Prelude.hashWithSalt` occurrences
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SensitiveDataDetections
+instance Prelude.NFData SensitiveDataDetections where
+  rnf SensitiveDataDetections' {..} =
+    Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SensitiveDataDetections where
   toJSON SensitiveDataDetections' {..} =

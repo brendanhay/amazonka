@@ -83,6 +83,14 @@ instance Core.FromJSON ReprocessingSummary where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable ReprocessingSummary
+instance Prelude.Hashable ReprocessingSummary where
+  hashWithSalt _salt ReprocessingSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ReprocessingSummary
+instance Prelude.NFData ReprocessingSummary where
+  rnf ReprocessingSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id

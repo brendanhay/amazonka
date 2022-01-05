@@ -121,6 +121,20 @@ instance Core.FromJSON Engagement where
             Prelude.<*> (x Core..: "Sender")
       )
 
-instance Prelude.Hashable Engagement
+instance Prelude.Hashable Engagement where
+  hashWithSalt _salt Engagement' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` stopTime
+      `Prelude.hashWithSalt` incidentId
+      `Prelude.hashWithSalt` engagementArn
+      `Prelude.hashWithSalt` contactArn
+      `Prelude.hashWithSalt` sender
 
-instance Prelude.NFData Engagement
+instance Prelude.NFData Engagement where
+  rnf Engagement' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stopTime
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf engagementArn
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf sender

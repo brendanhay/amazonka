@@ -67,9 +67,15 @@ executionTimeFilter_latestDate = Lens.lens (\ExecutionTimeFilter' {latestDate} -
 executionTimeFilter_oldestDate :: Lens.Lens' ExecutionTimeFilter Prelude.UTCTime
 executionTimeFilter_oldestDate = Lens.lens (\ExecutionTimeFilter' {oldestDate} -> oldestDate) (\s@ExecutionTimeFilter' {} a -> s {oldestDate = a} :: ExecutionTimeFilter) Prelude.. Core._Time
 
-instance Prelude.Hashable ExecutionTimeFilter
+instance Prelude.Hashable ExecutionTimeFilter where
+  hashWithSalt _salt ExecutionTimeFilter' {..} =
+    _salt `Prelude.hashWithSalt` latestDate
+      `Prelude.hashWithSalt` oldestDate
 
-instance Prelude.NFData ExecutionTimeFilter
+instance Prelude.NFData ExecutionTimeFilter where
+  rnf ExecutionTimeFilter' {..} =
+    Prelude.rnf latestDate
+      `Prelude.seq` Prelude.rnf oldestDate
 
 instance Core.ToJSON ExecutionTimeFilter where
   toJSON ExecutionTimeFilter' {..} =

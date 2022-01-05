@@ -125,10 +125,21 @@ instance
 instance
   Prelude.Hashable
     StartVpcEndpointServicePrivateDnsVerification
+  where
+  hashWithSalt
+    _salt
+    StartVpcEndpointServicePrivateDnsVerification' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` serviceId
 
 instance
   Prelude.NFData
     StartVpcEndpointServicePrivateDnsVerification
+  where
+  rnf
+    StartVpcEndpointServicePrivateDnsVerification' {..} =
+      Prelude.rnf dryRun
+        `Prelude.seq` Prelude.rnf serviceId
 
 instance
   Core.ToHeaders
@@ -203,3 +214,8 @@ startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus = Lens.lens (\S
 instance
   Prelude.NFData
     StartVpcEndpointServicePrivateDnsVerificationResponse
+  where
+  rnf
+    StartVpcEndpointServicePrivateDnsVerificationResponse' {..} =
+      Prelude.rnf returnValue
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -134,6 +134,14 @@ instance Core.FromJSON StackInstance where
             Prelude.<*> (x Core..:? "StackInstanceStatus")
       )
 
-instance Prelude.Hashable StackInstance
+instance Prelude.Hashable StackInstance where
+  hashWithSalt _salt StackInstance' {..} =
+    _salt `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` stackInstanceStatus
 
-instance Prelude.NFData StackInstance
+instance Prelude.NFData StackInstance where
+  rnf StackInstance' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf stackInstanceStatus

@@ -98,9 +98,19 @@ instance Core.FromJSON RedshiftParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable RedshiftParameters
+instance Prelude.Hashable RedshiftParameters where
+  hashWithSalt _salt RedshiftParameters' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData RedshiftParameters
+instance Prelude.NFData RedshiftParameters where
+  rnf RedshiftParameters' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToJSON RedshiftParameters where
   toJSON RedshiftParameters' {..} =

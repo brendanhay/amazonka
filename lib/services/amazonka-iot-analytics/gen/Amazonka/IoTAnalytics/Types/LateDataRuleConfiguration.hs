@@ -63,9 +63,14 @@ instance Core.FromJSON LateDataRuleConfiguration where
             Prelude.<$> (x Core..:? "deltaTimeSessionWindowConfiguration")
       )
 
-instance Prelude.Hashable LateDataRuleConfiguration
+instance Prelude.Hashable LateDataRuleConfiguration where
+  hashWithSalt _salt LateDataRuleConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` deltaTimeSessionWindowConfiguration
 
-instance Prelude.NFData LateDataRuleConfiguration
+instance Prelude.NFData LateDataRuleConfiguration where
+  rnf LateDataRuleConfiguration' {..} =
+    Prelude.rnf deltaTimeSessionWindowConfiguration
 
 instance Core.ToJSON LateDataRuleConfiguration where
   toJSON LateDataRuleConfiguration' {..} =

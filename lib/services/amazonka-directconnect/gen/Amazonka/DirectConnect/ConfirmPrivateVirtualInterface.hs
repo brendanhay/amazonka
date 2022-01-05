@@ -121,10 +121,22 @@ instance
 instance
   Prelude.Hashable
     ConfirmPrivateVirtualInterface
+  where
+  hashWithSalt
+    _salt
+    ConfirmPrivateVirtualInterface' {..} =
+      _salt `Prelude.hashWithSalt` virtualGatewayId
+        `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` virtualInterfaceId
 
 instance
   Prelude.NFData
     ConfirmPrivateVirtualInterface
+  where
+  rnf ConfirmPrivateVirtualInterface' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance
   Core.ToHeaders
@@ -302,3 +314,7 @@ confirmPrivateVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmPrivateVi
 instance
   Prelude.NFData
     ConfirmPrivateVirtualInterfaceResponse
+  where
+  rnf ConfirmPrivateVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterfaceState
+      `Prelude.seq` Prelude.rnf httpStatus

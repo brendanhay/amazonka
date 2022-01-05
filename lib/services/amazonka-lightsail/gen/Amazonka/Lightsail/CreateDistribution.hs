@@ -236,9 +236,27 @@ instance Core.AWSRequest CreateDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDistribution
+instance Prelude.Hashable CreateDistribution where
+  hashWithSalt _salt CreateDistribution' {..} =
+    _salt `Prelude.hashWithSalt` cacheBehaviorSettings
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` cacheBehaviors
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` distributionName
+      `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` defaultCacheBehavior
+      `Prelude.hashWithSalt` bundleId
 
-instance Prelude.NFData CreateDistribution
+instance Prelude.NFData CreateDistribution where
+  rnf CreateDistribution' {..} =
+    Prelude.rnf cacheBehaviorSettings
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders CreateDistribution where
   toHeaders =
@@ -336,4 +354,8 @@ createDistributionResponse_operation = Lens.lens (\CreateDistributionResponse' {
 createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Prelude.Int
 createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionResponse' {} a -> s {httpStatus = a} :: CreateDistributionResponse)
 
-instance Prelude.NFData CreateDistributionResponse
+instance Prelude.NFData CreateDistributionResponse where
+  rnf CreateDistributionResponse' {..} =
+    Prelude.rnf distribution
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -202,9 +202,23 @@ instance Core.AWSRequest CreateIAMPolicyAssignment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIAMPolicyAssignment
+instance Prelude.Hashable CreateIAMPolicyAssignment where
+  hashWithSalt _salt CreateIAMPolicyAssignment' {..} =
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` identities
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` assignmentName
+      `Prelude.hashWithSalt` assignmentStatus
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData CreateIAMPolicyAssignment
+instance Prelude.NFData CreateIAMPolicyAssignment where
+  rnf CreateIAMPolicyAssignment' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf assignmentName
+      `Prelude.seq` Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders CreateIAMPolicyAssignment where
   toHeaders =
@@ -366,3 +380,12 @@ createIAMPolicyAssignmentResponse_status = Lens.lens (\CreateIAMPolicyAssignment
 instance
   Prelude.NFData
     CreateIAMPolicyAssignmentResponse
+  where
+  rnf CreateIAMPolicyAssignmentResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf assignmentName
+      `Prelude.seq` Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf status

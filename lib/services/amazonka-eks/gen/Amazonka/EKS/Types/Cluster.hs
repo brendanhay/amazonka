@@ -276,6 +276,42 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt _salt Cluster' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` kubernetesNetworkConfig
+      `Prelude.hashWithSalt` connectorConfig
+      `Prelude.hashWithSalt` certificateAuthority
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` resourcesVpcConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
+      `Prelude.seq` Prelude.rnf connectorConfig
+      `Prelude.seq` Prelude.rnf certificateAuthority
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn

@@ -124,9 +124,17 @@ instance Core.AWSRequest DeleteCustomActionType where
     Response.receiveNull
       DeleteCustomActionTypeResponse'
 
-instance Prelude.Hashable DeleteCustomActionType
+instance Prelude.Hashable DeleteCustomActionType where
+  hashWithSalt _salt DeleteCustomActionType' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteCustomActionType
+instance Prelude.NFData DeleteCustomActionType where
+  rnf DeleteCustomActionType' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteCustomActionType where
   toHeaders =
@@ -177,3 +185,5 @@ newDeleteCustomActionTypeResponse =
 instance
   Prelude.NFData
     DeleteCustomActionTypeResponse
+  where
+  rnf _ = ()

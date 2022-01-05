@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeWorkspace where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable DescribeWorkspace
+instance Prelude.Hashable DescribeWorkspace where
+  hashWithSalt _salt DescribeWorkspace' {..} =
+    _salt `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DescribeWorkspace
+instance Prelude.NFData DescribeWorkspace where
+  rnf DescribeWorkspace' {..} = Prelude.rnf workspaceId
 
 instance Core.ToHeaders DescribeWorkspace where
   toHeaders =
@@ -150,4 +153,7 @@ describeWorkspaceResponse_httpStatus = Lens.lens (\DescribeWorkspaceResponse' {h
 describeWorkspaceResponse_workspace :: Lens.Lens' DescribeWorkspaceResponse WorkspaceDescription
 describeWorkspaceResponse_workspace = Lens.lens (\DescribeWorkspaceResponse' {workspace} -> workspace) (\s@DescribeWorkspaceResponse' {} a -> s {workspace = a} :: DescribeWorkspaceResponse)
 
-instance Prelude.NFData DescribeWorkspaceResponse
+instance Prelude.NFData DescribeWorkspaceResponse where
+  rnf DescribeWorkspaceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

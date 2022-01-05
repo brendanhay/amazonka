@@ -119,9 +119,15 @@ instance Core.AWSRequest RemoveTagsFromCertificate where
     Response.receiveNull
       RemoveTagsFromCertificateResponse'
 
-instance Prelude.Hashable RemoveTagsFromCertificate
+instance Prelude.Hashable RemoveTagsFromCertificate where
+  hashWithSalt _salt RemoveTagsFromCertificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RemoveTagsFromCertificate
+instance Prelude.NFData RemoveTagsFromCertificate where
+  rnf RemoveTagsFromCertificate' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders RemoveTagsFromCertificate where
   toHeaders =
@@ -172,3 +178,5 @@ newRemoveTagsFromCertificateResponse =
 instance
   Prelude.NFData
     RemoveTagsFromCertificateResponse
+  where
+  rnf _ = ()

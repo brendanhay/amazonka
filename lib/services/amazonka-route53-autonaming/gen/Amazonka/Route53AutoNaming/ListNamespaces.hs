@@ -180,9 +180,17 @@ instance Core.AWSRequest ListNamespaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNamespaces
+instance Prelude.Hashable ListNamespaces where
+  hashWithSalt _salt ListNamespaces' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListNamespaces
+instance Prelude.NFData ListNamespaces where
+  rnf ListNamespaces' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListNamespaces where
   toHeaders =
@@ -290,4 +298,8 @@ listNamespacesResponse_nextToken = Lens.lens (\ListNamespacesResponse' {nextToke
 listNamespacesResponse_httpStatus :: Lens.Lens' ListNamespacesResponse Prelude.Int
 listNamespacesResponse_httpStatus = Lens.lens (\ListNamespacesResponse' {httpStatus} -> httpStatus) (\s@ListNamespacesResponse' {} a -> s {httpStatus = a} :: ListNamespacesResponse)
 
-instance Prelude.NFData ListNamespacesResponse
+instance Prelude.NFData ListNamespacesResponse where
+  rnf ListNamespacesResponse' {..} =
+    Prelude.rnf namespaces
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

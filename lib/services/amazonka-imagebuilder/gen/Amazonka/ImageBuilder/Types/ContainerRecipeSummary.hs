@@ -134,6 +134,24 @@ instance Core.FromJSON ContainerRecipeSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ContainerRecipeSummary
+instance Prelude.Hashable ContainerRecipeSummary where
+  hashWithSalt _salt ContainerRecipeSummary' {..} =
+    _salt `Prelude.hashWithSalt` containerType
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ContainerRecipeSummary
+instance Prelude.NFData ContainerRecipeSummary where
+  rnf ContainerRecipeSummary' {..} =
+    Prelude.rnf containerType
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

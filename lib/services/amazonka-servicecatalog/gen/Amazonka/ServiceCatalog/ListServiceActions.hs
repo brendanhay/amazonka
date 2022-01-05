@@ -156,9 +156,17 @@ instance Core.AWSRequest ListServiceActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListServiceActions
+instance Prelude.Hashable ListServiceActions where
+  hashWithSalt _salt ListServiceActions' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListServiceActions
+instance Prelude.NFData ListServiceActions where
+  rnf ListServiceActions' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListServiceActions where
   toHeaders =
@@ -246,4 +254,8 @@ listServiceActionsResponse_serviceActionSummaries = Lens.lens (\ListServiceActio
 listServiceActionsResponse_httpStatus :: Lens.Lens' ListServiceActionsResponse Prelude.Int
 listServiceActionsResponse_httpStatus = Lens.lens (\ListServiceActionsResponse' {httpStatus} -> httpStatus) (\s@ListServiceActionsResponse' {} a -> s {httpStatus = a} :: ListServiceActionsResponse)
 
-instance Prelude.NFData ListServiceActionsResponse
+instance Prelude.NFData ListServiceActionsResponse where
+  rnf ListServiceActionsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf serviceActionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

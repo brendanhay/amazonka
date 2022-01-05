@@ -80,9 +80,15 @@ instance Core.FromJSON S3BucketCriteriaForJob where
             Prelude.<*> (x Core..:? "excludes")
       )
 
-instance Prelude.Hashable S3BucketCriteriaForJob
+instance Prelude.Hashable S3BucketCriteriaForJob where
+  hashWithSalt _salt S3BucketCriteriaForJob' {..} =
+    _salt `Prelude.hashWithSalt` includes
+      `Prelude.hashWithSalt` excludes
 
-instance Prelude.NFData S3BucketCriteriaForJob
+instance Prelude.NFData S3BucketCriteriaForJob where
+  rnf S3BucketCriteriaForJob' {..} =
+    Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf excludes
 
 instance Core.ToJSON S3BucketCriteriaForJob where
   toJSON S3BucketCriteriaForJob' {..} =

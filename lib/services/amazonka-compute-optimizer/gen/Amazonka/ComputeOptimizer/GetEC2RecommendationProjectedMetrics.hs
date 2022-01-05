@@ -174,10 +174,29 @@ instance
 instance
   Prelude.Hashable
     GetEC2RecommendationProjectedMetrics
+  where
+  hashWithSalt
+    _salt
+    GetEC2RecommendationProjectedMetrics' {..} =
+      _salt
+        `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` stat
+        `Prelude.hashWithSalt` period
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` endTime
 
 instance
   Prelude.NFData
     GetEC2RecommendationProjectedMetrics
+  where
+  rnf GetEC2RecommendationProjectedMetrics' {..} =
+    Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf stat
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance
   Core.ToHeaders
@@ -269,3 +288,7 @@ getEC2RecommendationProjectedMetricsResponse_httpStatus = Lens.lens (\GetEC2Reco
 instance
   Prelude.NFData
     GetEC2RecommendationProjectedMetricsResponse
+  where
+  rnf GetEC2RecommendationProjectedMetricsResponse' {..} =
+    Prelude.rnf recommendedOptionProjectedMetrics
+      `Prelude.seq` Prelude.rnf httpStatus

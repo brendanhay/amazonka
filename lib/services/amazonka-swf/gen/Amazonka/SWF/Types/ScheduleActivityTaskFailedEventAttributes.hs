@@ -149,7 +149,21 @@ instance
 instance
   Prelude.Hashable
     ScheduleActivityTaskFailedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    ScheduleActivityTaskFailedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` activityType
+        `Prelude.hashWithSalt` activityId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance
   Prelude.NFData
     ScheduleActivityTaskFailedEventAttributes
+  where
+  rnf ScheduleActivityTaskFailedEventAttributes' {..} =
+    Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf activityId
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

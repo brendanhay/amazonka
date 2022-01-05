@@ -146,9 +146,19 @@ instance Core.AWSRequest CreateSite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSite
+instance Prelude.Hashable CreateSite where
+  hashWithSalt _salt CreateSite' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData CreateSite
+instance Prelude.NFData CreateSite where
+  rnf CreateSite' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders CreateSite where
   toHeaders =
@@ -220,4 +230,7 @@ createSiteResponse_site = Lens.lens (\CreateSiteResponse' {site} -> site) (\s@Cr
 createSiteResponse_httpStatus :: Lens.Lens' CreateSiteResponse Prelude.Int
 createSiteResponse_httpStatus = Lens.lens (\CreateSiteResponse' {httpStatus} -> httpStatus) (\s@CreateSiteResponse' {} a -> s {httpStatus = a} :: CreateSiteResponse)
 
-instance Prelude.NFData CreateSiteResponse
+instance Prelude.NFData CreateSiteResponse where
+  rnf CreateSiteResponse' {..} =
+    Prelude.rnf site
+      `Prelude.seq` Prelude.rnf httpStatus

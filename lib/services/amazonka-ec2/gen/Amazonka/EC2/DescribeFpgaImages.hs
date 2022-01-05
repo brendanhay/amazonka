@@ -271,9 +271,23 @@ instance Core.AWSRequest DescribeFpgaImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFpgaImages
+instance Prelude.Hashable DescribeFpgaImages where
+  hashWithSalt _salt DescribeFpgaImages' {..} =
+    _salt `Prelude.hashWithSalt` owners
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` fpgaImageIds
 
-instance Prelude.NFData DescribeFpgaImages
+instance Prelude.NFData DescribeFpgaImages where
+  rnf DescribeFpgaImages' {..} =
+    Prelude.rnf owners
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf fpgaImageIds
 
 instance Core.ToHeaders DescribeFpgaImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -352,4 +366,8 @@ describeFpgaImagesResponse_nextToken = Lens.lens (\DescribeFpgaImagesResponse' {
 describeFpgaImagesResponse_httpStatus :: Lens.Lens' DescribeFpgaImagesResponse Prelude.Int
 describeFpgaImagesResponse_httpStatus = Lens.lens (\DescribeFpgaImagesResponse' {httpStatus} -> httpStatus) (\s@DescribeFpgaImagesResponse' {} a -> s {httpStatus = a} :: DescribeFpgaImagesResponse)
 
-instance Prelude.NFData DescribeFpgaImagesResponse
+instance Prelude.NFData DescribeFpgaImagesResponse where
+  rnf DescribeFpgaImagesResponse' {..} =
+    Prelude.rnf fpgaImages
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

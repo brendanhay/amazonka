@@ -81,6 +81,14 @@ instance Core.FromJSON ReportedOs where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable ReportedOs
+instance Prelude.Hashable ReportedOs where
+  hashWithSalt _salt ReportedOs' {..} =
+    _salt `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData ReportedOs
+instance Prelude.NFData ReportedOs where
+  rnf ReportedOs' {..} =
+    Prelude.rnf family
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version

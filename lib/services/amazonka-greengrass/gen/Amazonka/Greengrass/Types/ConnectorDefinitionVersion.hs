@@ -67,9 +67,13 @@ instance Core.FromJSON ConnectorDefinitionVersion where
             Prelude.<$> (x Core..:? "Connectors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ConnectorDefinitionVersion
+instance Prelude.Hashable ConnectorDefinitionVersion where
+  hashWithSalt _salt ConnectorDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` connectors
 
-instance Prelude.NFData ConnectorDefinitionVersion
+instance Prelude.NFData ConnectorDefinitionVersion where
+  rnf ConnectorDefinitionVersion' {..} =
+    Prelude.rnf connectors
 
 instance Core.ToJSON ConnectorDefinitionVersion where
   toJSON ConnectorDefinitionVersion' {..} =

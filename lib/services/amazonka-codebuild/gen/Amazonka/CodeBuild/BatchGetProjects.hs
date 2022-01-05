@@ -97,9 +97,12 @@ instance Core.AWSRequest BatchGetProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetProjects
+instance Prelude.Hashable BatchGetProjects where
+  hashWithSalt _salt BatchGetProjects' {..} =
+    _salt `Prelude.hashWithSalt` names
 
-instance Prelude.NFData BatchGetProjects
+instance Prelude.NFData BatchGetProjects where
+  rnf BatchGetProjects' {..} = Prelude.rnf names
 
 instance Core.ToHeaders BatchGetProjects where
   toHeaders =
@@ -177,4 +180,8 @@ batchGetProjectsResponse_projects = Lens.lens (\BatchGetProjectsResponse' {proje
 batchGetProjectsResponse_httpStatus :: Lens.Lens' BatchGetProjectsResponse Prelude.Int
 batchGetProjectsResponse_httpStatus = Lens.lens (\BatchGetProjectsResponse' {httpStatus} -> httpStatus) (\s@BatchGetProjectsResponse' {} a -> s {httpStatus = a} :: BatchGetProjectsResponse)
 
-instance Prelude.NFData BatchGetProjectsResponse
+instance Prelude.NFData BatchGetProjectsResponse where
+  rnf BatchGetProjectsResponse' {..} =
+    Prelude.rnf projectsNotFound
+      `Prelude.seq` Prelude.rnf projects
+      `Prelude.seq` Prelude.rnf httpStatus

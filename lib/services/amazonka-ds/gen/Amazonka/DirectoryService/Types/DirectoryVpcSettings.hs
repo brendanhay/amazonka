@@ -80,9 +80,15 @@ instance Core.FromJSON DirectoryVpcSettings where
             Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DirectoryVpcSettings
+instance Prelude.Hashable DirectoryVpcSettings where
+  hashWithSalt _salt DirectoryVpcSettings' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData DirectoryVpcSettings
+instance Prelude.NFData DirectoryVpcSettings where
+  rnf DirectoryVpcSettings' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON DirectoryVpcSettings where
   toJSON DirectoryVpcSettings' {..} =

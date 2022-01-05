@@ -500,9 +500,37 @@ instance Core.AWSRequest CreateImageBuilder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImageBuilder
+instance Prelude.Hashable CreateImageBuilder where
+  hashWithSalt _salt CreateImageBuilder' {..} =
+    _salt `Prelude.hashWithSalt` domainJoinInfo
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` accessEndpoints
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enableDefaultInternetAccess
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` appstreamAgentVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData CreateImageBuilder
+instance Prelude.NFData CreateImageBuilder where
+  rnf CreateImageBuilder' {..} =
+    Prelude.rnf domainJoinInfo
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf accessEndpoints
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf appstreamAgentVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToHeaders CreateImageBuilder where
   toHeaders =
@@ -588,4 +616,7 @@ createImageBuilderResponse_imageBuilder = Lens.lens (\CreateImageBuilderResponse
 createImageBuilderResponse_httpStatus :: Lens.Lens' CreateImageBuilderResponse Prelude.Int
 createImageBuilderResponse_httpStatus = Lens.lens (\CreateImageBuilderResponse' {httpStatus} -> httpStatus) (\s@CreateImageBuilderResponse' {} a -> s {httpStatus = a} :: CreateImageBuilderResponse)
 
-instance Prelude.NFData CreateImageBuilderResponse
+instance Prelude.NFData CreateImageBuilderResponse where
+  rnf CreateImageBuilderResponse' {..} =
+    Prelude.rnf imageBuilder
+      `Prelude.seq` Prelude.rnf httpStatus

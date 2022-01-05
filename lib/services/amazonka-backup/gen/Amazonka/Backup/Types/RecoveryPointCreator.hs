@@ -105,6 +105,16 @@ instance Core.FromJSON RecoveryPointCreator where
             Prelude.<*> (x Core..:? "BackupRuleId")
       )
 
-instance Prelude.Hashable RecoveryPointCreator
+instance Prelude.Hashable RecoveryPointCreator where
+  hashWithSalt _salt RecoveryPointCreator' {..} =
+    _salt `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` backupPlanArn
+      `Prelude.hashWithSalt` backupPlanVersion
+      `Prelude.hashWithSalt` backupRuleId
 
-instance Prelude.NFData RecoveryPointCreator
+instance Prelude.NFData RecoveryPointCreator where
+  rnf RecoveryPointCreator' {..} =
+    Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf backupPlanVersion
+      `Prelude.seq` Prelude.rnf backupRuleId

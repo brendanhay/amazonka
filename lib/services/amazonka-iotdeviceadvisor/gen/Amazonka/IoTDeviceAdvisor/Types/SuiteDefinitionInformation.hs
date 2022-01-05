@@ -103,6 +103,18 @@ instance Core.FromJSON SuiteDefinitionInformation where
             Prelude.<*> (x Core..:? "intendedForQualification")
       )
 
-instance Prelude.Hashable SuiteDefinitionInformation
+instance Prelude.Hashable SuiteDefinitionInformation where
+  hashWithSalt _salt SuiteDefinitionInformation' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` defaultDevices
+      `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` suiteDefinitionName
+      `Prelude.hashWithSalt` intendedForQualification
 
-instance Prelude.NFData SuiteDefinitionInformation
+instance Prelude.NFData SuiteDefinitionInformation where
+  rnf SuiteDefinitionInformation' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf defaultDevices
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf intendedForQualification

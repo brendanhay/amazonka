@@ -237,8 +237,33 @@ instance Core.FromJSON Scte35SegmentationDescriptor where
 instance
   Prelude.Hashable
     Scte35SegmentationDescriptor
+  where
+  hashWithSalt _salt Scte35SegmentationDescriptor' {..} =
+    _salt `Prelude.hashWithSalt` segmentationUpidType
+      `Prelude.hashWithSalt` segmentsExpected
+      `Prelude.hashWithSalt` subSegmentsExpected
+      `Prelude.hashWithSalt` segmentNum
+      `Prelude.hashWithSalt` segmentationDuration
+      `Prelude.hashWithSalt` segmentationTypeId
+      `Prelude.hashWithSalt` deliveryRestrictions
+      `Prelude.hashWithSalt` segmentationUpid
+      `Prelude.hashWithSalt` subSegmentNum
+      `Prelude.hashWithSalt` segmentationEventId
+      `Prelude.hashWithSalt` segmentationCancelIndicator
 
-instance Prelude.NFData Scte35SegmentationDescriptor
+instance Prelude.NFData Scte35SegmentationDescriptor where
+  rnf Scte35SegmentationDescriptor' {..} =
+    Prelude.rnf segmentationUpidType
+      `Prelude.seq` Prelude.rnf segmentsExpected
+      `Prelude.seq` Prelude.rnf subSegmentsExpected
+      `Prelude.seq` Prelude.rnf segmentNum
+      `Prelude.seq` Prelude.rnf segmentationDuration
+      `Prelude.seq` Prelude.rnf segmentationTypeId
+      `Prelude.seq` Prelude.rnf deliveryRestrictions
+      `Prelude.seq` Prelude.rnf segmentationUpid
+      `Prelude.seq` Prelude.rnf subSegmentNum
+      `Prelude.seq` Prelude.rnf segmentationEventId
+      `Prelude.seq` Prelude.rnf segmentationCancelIndicator
 
 instance Core.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =

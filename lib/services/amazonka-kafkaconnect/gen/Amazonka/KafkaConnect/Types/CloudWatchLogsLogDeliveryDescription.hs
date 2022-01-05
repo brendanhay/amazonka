@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     CloudWatchLogsLogDeliveryDescription
+  where
+  hashWithSalt
+    _salt
+    CloudWatchLogsLogDeliveryDescription' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` logGroup
 
 instance
   Prelude.NFData
     CloudWatchLogsLogDeliveryDescription
+  where
+  rnf CloudWatchLogsLogDeliveryDescription' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logGroup

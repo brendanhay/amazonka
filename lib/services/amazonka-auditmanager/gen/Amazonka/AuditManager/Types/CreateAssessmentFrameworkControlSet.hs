@@ -72,10 +72,19 @@ createAssessmentFrameworkControlSet_name = Lens.lens (\CreateAssessmentFramework
 instance
   Prelude.Hashable
     CreateAssessmentFrameworkControlSet
+  where
+  hashWithSalt
+    _salt
+    CreateAssessmentFrameworkControlSet' {..} =
+      _salt `Prelude.hashWithSalt` controls
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     CreateAssessmentFrameworkControlSet
+  where
+  rnf CreateAssessmentFrameworkControlSet' {..} =
+    Prelude.rnf controls `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

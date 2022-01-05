@@ -81,9 +81,12 @@ instance Core.AWSRequest StopFleet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopFleet
+instance Prelude.Hashable StopFleet where
+  hashWithSalt _salt StopFleet' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StopFleet
+instance Prelude.NFData StopFleet where
+  rnf StopFleet' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StopFleet where
   toHeaders =
@@ -140,4 +143,5 @@ newStopFleetResponse pHttpStatus_ =
 stopFleetResponse_httpStatus :: Lens.Lens' StopFleetResponse Prelude.Int
 stopFleetResponse_httpStatus = Lens.lens (\StopFleetResponse' {httpStatus} -> httpStatus) (\s@StopFleetResponse' {} a -> s {httpStatus = a} :: StopFleetResponse)
 
-instance Prelude.NFData StopFleetResponse
+instance Prelude.NFData StopFleetResponse where
+  rnf StopFleetResponse' {..} = Prelude.rnf httpStatus

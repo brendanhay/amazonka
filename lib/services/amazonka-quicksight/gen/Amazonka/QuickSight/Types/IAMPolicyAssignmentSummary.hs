@@ -73,6 +73,12 @@ instance Core.FromJSON IAMPolicyAssignmentSummary where
             Prelude.<*> (x Core..:? "AssignmentStatus")
       )
 
-instance Prelude.Hashable IAMPolicyAssignmentSummary
+instance Prelude.Hashable IAMPolicyAssignmentSummary where
+  hashWithSalt _salt IAMPolicyAssignmentSummary' {..} =
+    _salt `Prelude.hashWithSalt` assignmentName
+      `Prelude.hashWithSalt` assignmentStatus
 
-instance Prelude.NFData IAMPolicyAssignmentSummary
+instance Prelude.NFData IAMPolicyAssignmentSummary where
+  rnf IAMPolicyAssignmentSummary' {..} =
+    Prelude.rnf assignmentName
+      `Prelude.seq` Prelude.rnf assignmentStatus

@@ -78,6 +78,14 @@ instance Core.FromXML Progress where
       Prelude.<*> (x Core..@? "BytesScanned")
       Prelude.<*> (x Core..@? "BytesProcessed")
 
-instance Prelude.Hashable Progress
+instance Prelude.Hashable Progress where
+  hashWithSalt _salt Progress' {..} =
+    _salt `Prelude.hashWithSalt` bytesReturned
+      `Prelude.hashWithSalt` bytesScanned
+      `Prelude.hashWithSalt` bytesProcessed
 
-instance Prelude.NFData Progress
+instance Prelude.NFData Progress where
+  rnf Progress' {..} =
+    Prelude.rnf bytesReturned
+      `Prelude.seq` Prelude.rnf bytesScanned
+      `Prelude.seq` Prelude.rnf bytesProcessed

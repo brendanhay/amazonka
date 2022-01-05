@@ -114,6 +114,20 @@ instance Core.FromJSON ArtifactSummary where
             Prelude.<*> (x Core..:? "ArtifactType")
       )
 
-instance Prelude.Hashable ArtifactSummary
+instance Prelude.Hashable ArtifactSummary where
+  hashWithSalt _salt ArtifactSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` artifactArn
+      `Prelude.hashWithSalt` artifactType
 
-instance Prelude.NFData ArtifactSummary
+instance Prelude.NFData ArtifactSummary where
+  rnf ArtifactSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf artifactName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf artifactType

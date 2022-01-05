@@ -72,6 +72,12 @@ instance Core.FromJSON NodeTypeSpecificValue where
             Prelude.<*> (x Core..:? "NodeType")
       )
 
-instance Prelude.Hashable NodeTypeSpecificValue
+instance Prelude.Hashable NodeTypeSpecificValue where
+  hashWithSalt _salt NodeTypeSpecificValue' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` nodeType
 
-instance Prelude.NFData NodeTypeSpecificValue
+instance Prelude.NFData NodeTypeSpecificValue where
+  rnf NodeTypeSpecificValue' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf nodeType

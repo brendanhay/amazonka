@@ -452,6 +452,59 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..: "settings")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobTemplate
+      `Prelude.hashWithSalt` accelerationSettings
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` statusUpdateInterval
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` hopDestinations
+      `Prelude.hashWithSalt` retryCount
+      `Prelude.hashWithSalt` simulateReservedQueue
+      `Prelude.hashWithSalt` currentPhase
+      `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` billingTagsSource
+      `Prelude.hashWithSalt` outputGroupDetails
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` queueTransitions
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` jobPercentComplete
+      `Prelude.hashWithSalt` timing
+      `Prelude.hashWithSalt` messages
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` accelerationStatus
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobTemplate
+      `Prelude.seq` Prelude.rnf accelerationSettings
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf statusUpdateInterval
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf hopDestinations
+      `Prelude.seq` Prelude.rnf retryCount
+      `Prelude.seq` Prelude.rnf simulateReservedQueue
+      `Prelude.seq` Prelude.rnf currentPhase
+      `Prelude.seq` Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf billingTagsSource
+      `Prelude.seq` Prelude.rnf outputGroupDetails
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf queueTransitions
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf jobPercentComplete
+      `Prelude.seq` Prelude.rnf timing
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf
+        accelerationStatus
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf settings

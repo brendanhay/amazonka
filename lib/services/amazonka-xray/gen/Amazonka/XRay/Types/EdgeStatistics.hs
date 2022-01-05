@@ -109,6 +109,18 @@ instance Core.FromJSON EdgeStatistics where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable EdgeStatistics
+instance Prelude.Hashable EdgeStatistics where
+  hashWithSalt _salt EdgeStatistics' {..} =
+    _salt `Prelude.hashWithSalt` faultStatistics
+      `Prelude.hashWithSalt` okCount
+      `Prelude.hashWithSalt` totalResponseTime
+      `Prelude.hashWithSalt` errorStatistics
+      `Prelude.hashWithSalt` totalCount
 
-instance Prelude.NFData EdgeStatistics
+instance Prelude.NFData EdgeStatistics where
+  rnf EdgeStatistics' {..} =
+    Prelude.rnf faultStatistics
+      `Prelude.seq` Prelude.rnf okCount
+      `Prelude.seq` Prelude.rnf totalResponseTime
+      `Prelude.seq` Prelude.rnf errorStatistics
+      `Prelude.seq` Prelude.rnf totalCount

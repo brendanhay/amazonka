@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteRoutingControl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRoutingControl
+instance Prelude.Hashable DeleteRoutingControl where
+  hashWithSalt _salt DeleteRoutingControl' {..} =
+    _salt `Prelude.hashWithSalt` routingControlArn
 
-instance Prelude.NFData DeleteRoutingControl
+instance Prelude.NFData DeleteRoutingControl where
+  rnf DeleteRoutingControl' {..} =
+    Prelude.rnf routingControlArn
 
 instance Core.ToHeaders DeleteRoutingControl where
   toHeaders =
@@ -143,4 +147,6 @@ newDeleteRoutingControlResponse pHttpStatus_ =
 deleteRoutingControlResponse_httpStatus :: Lens.Lens' DeleteRoutingControlResponse Prelude.Int
 deleteRoutingControlResponse_httpStatus = Lens.lens (\DeleteRoutingControlResponse' {httpStatus} -> httpStatus) (\s@DeleteRoutingControlResponse' {} a -> s {httpStatus = a} :: DeleteRoutingControlResponse)
 
-instance Prelude.NFData DeleteRoutingControlResponse
+instance Prelude.NFData DeleteRoutingControlResponse where
+  rnf DeleteRoutingControlResponse' {..} =
+    Prelude.rnf httpStatus

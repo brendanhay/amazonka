@@ -190,9 +190,25 @@ instance Core.AWSRequest ListAlgorithms where
                         )
       )
 
-instance Prelude.Hashable ListAlgorithms
+instance Prelude.Hashable ListAlgorithms where
+  hashWithSalt _salt ListAlgorithms' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListAlgorithms
+instance Prelude.NFData ListAlgorithms where
+  rnf ListAlgorithms' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListAlgorithms where
   toHeaders =
@@ -283,4 +299,8 @@ listAlgorithmsResponse_httpStatus = Lens.lens (\ListAlgorithmsResponse' {httpSta
 listAlgorithmsResponse_algorithmSummaryList :: Lens.Lens' ListAlgorithmsResponse [AlgorithmSummary]
 listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse' {algorithmSummaryList} -> algorithmSummaryList) (\s@ListAlgorithmsResponse' {} a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAlgorithmsResponse
+instance Prelude.NFData ListAlgorithmsResponse where
+  rnf ListAlgorithmsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf algorithmSummaryList

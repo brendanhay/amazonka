@@ -80,6 +80,12 @@ instance Core.FromXML TargetReservationValue where
       Prelude.<$> (x Core..@? "reservationValue")
       Prelude.<*> (x Core..@? "targetConfiguration")
 
-instance Prelude.Hashable TargetReservationValue
+instance Prelude.Hashable TargetReservationValue where
+  hashWithSalt _salt TargetReservationValue' {..} =
+    _salt `Prelude.hashWithSalt` reservationValue
+      `Prelude.hashWithSalt` targetConfiguration
 
-instance Prelude.NFData TargetReservationValue
+instance Prelude.NFData TargetReservationValue where
+  rnf TargetReservationValue' {..} =
+    Prelude.rnf reservationValue
+      `Prelude.seq` Prelude.rnf targetConfiguration

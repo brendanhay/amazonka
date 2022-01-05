@@ -110,9 +110,17 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
     Response.receiveNull
       UnassignPrivateIpAddressesResponse'
 
-instance Prelude.Hashable UnassignPrivateIpAddresses
+instance Prelude.Hashable UnassignPrivateIpAddresses where
+  hashWithSalt _salt UnassignPrivateIpAddresses' {..} =
+    _salt `Prelude.hashWithSalt` privateIpAddresses
+      `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData UnassignPrivateIpAddresses
+instance Prelude.NFData UnassignPrivateIpAddresses where
+  rnf UnassignPrivateIpAddresses' {..} =
+    Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Core.ToHeaders UnassignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +164,5 @@ newUnassignPrivateIpAddressesResponse =
 instance
   Prelude.NFData
     UnassignPrivateIpAddressesResponse
+  where
+  rnf _ = ()

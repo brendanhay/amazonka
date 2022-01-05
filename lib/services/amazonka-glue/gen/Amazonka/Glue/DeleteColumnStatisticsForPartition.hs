@@ -146,10 +146,26 @@ instance
 instance
   Prelude.Hashable
     DeleteColumnStatisticsForPartition
+  where
+  hashWithSalt
+    _salt
+    DeleteColumnStatisticsForPartition' {..} =
+      _salt `Prelude.hashWithSalt` catalogId
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` partitionValues
+        `Prelude.hashWithSalt` columnName
 
 instance
   Prelude.NFData
     DeleteColumnStatisticsForPartition
+  where
+  rnf DeleteColumnStatisticsForPartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf partitionValues
+      `Prelude.seq` Prelude.rnf columnName
 
 instance
   Core.ToHeaders
@@ -231,3 +247,6 @@ deleteColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\DeleteColumn
 instance
   Prelude.NFData
     DeleteColumnStatisticsForPartitionResponse
+  where
+  rnf DeleteColumnStatisticsForPartitionResponse' {..} =
+    Prelude.rnf httpStatus

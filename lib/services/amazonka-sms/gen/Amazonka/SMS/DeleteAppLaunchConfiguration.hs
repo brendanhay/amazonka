@@ -88,8 +88,13 @@ instance Core.AWSRequest DeleteAppLaunchConfiguration where
 instance
   Prelude.Hashable
     DeleteAppLaunchConfiguration
+  where
+  hashWithSalt _salt DeleteAppLaunchConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData DeleteAppLaunchConfiguration
+instance Prelude.NFData DeleteAppLaunchConfiguration where
+  rnf DeleteAppLaunchConfiguration' {..} =
+    Prelude.rnf appId
 
 instance Core.ToHeaders DeleteAppLaunchConfiguration where
   toHeaders =
@@ -152,3 +157,6 @@ deleteAppLaunchConfigurationResponse_httpStatus = Lens.lens (\DeleteAppLaunchCon
 instance
   Prelude.NFData
     DeleteAppLaunchConfigurationResponse
+  where
+  rnf DeleteAppLaunchConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

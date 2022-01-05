@@ -81,6 +81,14 @@ instance Core.FromJSON RequestImpactStatistics where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable RequestImpactStatistics
+instance Prelude.Hashable RequestImpactStatistics where
+  hashWithSalt _salt RequestImpactStatistics' {..} =
+    _salt `Prelude.hashWithSalt` okCount
+      `Prelude.hashWithSalt` faultCount
+      `Prelude.hashWithSalt` totalCount
 
-instance Prelude.NFData RequestImpactStatistics
+instance Prelude.NFData RequestImpactStatistics where
+  rnf RequestImpactStatistics' {..} =
+    Prelude.rnf okCount
+      `Prelude.seq` Prelude.rnf faultCount
+      `Prelude.seq` Prelude.rnf totalCount

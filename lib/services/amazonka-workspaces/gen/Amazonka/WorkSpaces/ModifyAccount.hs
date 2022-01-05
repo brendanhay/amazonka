@@ -112,9 +112,16 @@ instance Core.AWSRequest ModifyAccount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAccount
+instance Prelude.Hashable ModifyAccount where
+  hashWithSalt _salt ModifyAccount' {..} =
+    _salt
+      `Prelude.hashWithSalt` dedicatedTenancySupport
+      `Prelude.hashWithSalt` dedicatedTenancyManagementCidrRange
 
-instance Prelude.NFData ModifyAccount
+instance Prelude.NFData ModifyAccount where
+  rnf ModifyAccount' {..} =
+    Prelude.rnf dedicatedTenancySupport
+      `Prelude.seq` Prelude.rnf dedicatedTenancyManagementCidrRange
 
 instance Core.ToHeaders ModifyAccount where
   toHeaders =
@@ -175,4 +182,6 @@ newModifyAccountResponse pHttpStatus_ =
 modifyAccountResponse_httpStatus :: Lens.Lens' ModifyAccountResponse Prelude.Int
 modifyAccountResponse_httpStatus = Lens.lens (\ModifyAccountResponse' {httpStatus} -> httpStatus) (\s@ModifyAccountResponse' {} a -> s {httpStatus = a} :: ModifyAccountResponse)
 
-instance Prelude.NFData ModifyAccountResponse
+instance Prelude.NFData ModifyAccountResponse where
+  rnf ModifyAccountResponse' {..} =
+    Prelude.rnf httpStatus

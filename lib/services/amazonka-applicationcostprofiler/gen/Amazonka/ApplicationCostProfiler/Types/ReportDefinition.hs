@@ -127,6 +127,22 @@ instance Core.FromJSON ReportDefinition where
             Prelude.<*> (x Core..:? "destinationS3Location")
       )
 
-instance Prelude.Hashable ReportDefinition
+instance Prelude.Hashable ReportDefinition where
+  hashWithSalt _salt ReportDefinition' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` reportId
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` reportFrequency
+      `Prelude.hashWithSalt` reportDescription
+      `Prelude.hashWithSalt` destinationS3Location
 
-instance Prelude.NFData ReportDefinition
+instance Prelude.NFData ReportDefinition where
+  rnf ReportDefinition' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf reportDescription
+      `Prelude.seq` Prelude.rnf destinationS3Location

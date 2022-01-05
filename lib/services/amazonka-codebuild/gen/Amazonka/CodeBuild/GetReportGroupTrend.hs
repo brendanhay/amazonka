@@ -237,9 +237,17 @@ instance Core.AWSRequest GetReportGroupTrend where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetReportGroupTrend
+instance Prelude.Hashable GetReportGroupTrend where
+  hashWithSalt _salt GetReportGroupTrend' {..} =
+    _salt `Prelude.hashWithSalt` numOfReports
+      `Prelude.hashWithSalt` reportGroupArn
+      `Prelude.hashWithSalt` trendField
 
-instance Prelude.NFData GetReportGroupTrend
+instance Prelude.NFData GetReportGroupTrend where
+  rnf GetReportGroupTrend' {..} =
+    Prelude.rnf numOfReports
+      `Prelude.seq` Prelude.rnf reportGroupArn
+      `Prelude.seq` Prelude.rnf trendField
 
 instance Core.ToHeaders GetReportGroupTrend where
   toHeaders =
@@ -321,4 +329,8 @@ getReportGroupTrendResponse_stats = Lens.lens (\GetReportGroupTrendResponse' {st
 getReportGroupTrendResponse_httpStatus :: Lens.Lens' GetReportGroupTrendResponse Prelude.Int
 getReportGroupTrendResponse_httpStatus = Lens.lens (\GetReportGroupTrendResponse' {httpStatus} -> httpStatus) (\s@GetReportGroupTrendResponse' {} a -> s {httpStatus = a} :: GetReportGroupTrendResponse)
 
-instance Prelude.NFData GetReportGroupTrendResponse
+instance Prelude.NFData GetReportGroupTrendResponse where
+  rnf GetReportGroupTrendResponse' {..} =
+    Prelude.rnf rawData
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf httpStatus

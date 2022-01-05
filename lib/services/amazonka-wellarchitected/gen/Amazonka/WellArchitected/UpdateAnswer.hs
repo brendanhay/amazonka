@@ -163,9 +163,27 @@ instance Core.AWSRequest UpdateAnswer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAnswer
+instance Prelude.Hashable UpdateAnswer where
+  hashWithSalt _salt UpdateAnswer' {..} =
+    _salt `Prelude.hashWithSalt` isApplicable
+      `Prelude.hashWithSalt` selectedChoices
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` choiceUpdates
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` questionId
 
-instance Prelude.NFData UpdateAnswer
+instance Prelude.NFData UpdateAnswer where
+  rnf UpdateAnswer' {..} =
+    Prelude.rnf isApplicable
+      `Prelude.seq` Prelude.rnf selectedChoices
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf choiceUpdates
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf questionId
 
 instance Core.ToHeaders UpdateAnswer where
   toHeaders =
@@ -260,4 +278,9 @@ updateAnswerResponse_workloadId = Lens.lens (\UpdateAnswerResponse' {workloadId}
 updateAnswerResponse_httpStatus :: Lens.Lens' UpdateAnswerResponse Prelude.Int
 updateAnswerResponse_httpStatus = Lens.lens (\UpdateAnswerResponse' {httpStatus} -> httpStatus) (\s@UpdateAnswerResponse' {} a -> s {httpStatus = a} :: UpdateAnswerResponse)
 
-instance Prelude.NFData UpdateAnswerResponse
+instance Prelude.NFData UpdateAnswerResponse where
+  rnf UpdateAnswerResponse' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf httpStatus

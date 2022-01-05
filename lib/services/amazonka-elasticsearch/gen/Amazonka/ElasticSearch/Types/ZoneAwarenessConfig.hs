@@ -69,9 +69,13 @@ instance Core.FromJSON ZoneAwarenessConfig where
             Prelude.<$> (x Core..:? "AvailabilityZoneCount")
       )
 
-instance Prelude.Hashable ZoneAwarenessConfig
+instance Prelude.Hashable ZoneAwarenessConfig where
+  hashWithSalt _salt ZoneAwarenessConfig' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZoneCount
 
-instance Prelude.NFData ZoneAwarenessConfig
+instance Prelude.NFData ZoneAwarenessConfig where
+  rnf ZoneAwarenessConfig' {..} =
+    Prelude.rnf availabilityZoneCount
 
 instance Core.ToJSON ZoneAwarenessConfig where
   toJSON ZoneAwarenessConfig' {..} =

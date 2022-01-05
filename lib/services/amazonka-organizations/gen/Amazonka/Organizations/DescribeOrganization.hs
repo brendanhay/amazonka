@@ -77,9 +77,12 @@ instance Core.AWSRequest DescribeOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOrganization
+instance Prelude.Hashable DescribeOrganization where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeOrganization
+instance Prelude.NFData DescribeOrganization where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeOrganization where
   toHeaders =
@@ -159,4 +162,7 @@ describeOrganizationResponse_organization = Lens.lens (\DescribeOrganizationResp
 describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Prelude.Int
 describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationResponse)
 
-instance Prelude.NFData DescribeOrganizationResponse
+instance Prelude.NFData DescribeOrganizationResponse where
+  rnf DescribeOrganizationResponse' {..} =
+    Prelude.rnf organization
+      `Prelude.seq` Prelude.rnf httpStatus

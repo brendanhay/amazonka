@@ -209,6 +209,24 @@ instance Core.FromJSON FieldStats where
             Prelude.<*> (x Core..:? "sum")
       )
 
-instance Prelude.Hashable FieldStats
+instance Prelude.Hashable FieldStats where
+  hashWithSalt _salt FieldStats' {..} =
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` mean
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` missing
+      `Prelude.hashWithSalt` stddev
+      `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` sumOfSquares
+      `Prelude.hashWithSalt` sum
 
-instance Prelude.NFData FieldStats
+instance Prelude.NFData FieldStats where
+  rnf FieldStats' {..} =
+    Prelude.rnf max
+      `Prelude.seq` Prelude.rnf mean
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf missing
+      `Prelude.seq` Prelude.rnf stddev
+      `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf sumOfSquares
+      `Prelude.seq` Prelude.rnf sum

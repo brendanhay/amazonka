@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribeFleetMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetMetric
+instance Prelude.Hashable DescribeFleetMetric where
+  hashWithSalt _salt DescribeFleetMetric' {..} =
+    _salt `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData DescribeFleetMetric
+instance Prelude.NFData DescribeFleetMetric where
+  rnf DescribeFleetMetric' {..} = Prelude.rnf metricName
 
 instance Core.ToHeaders DescribeFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -285,4 +288,19 @@ describeFleetMetricResponse_metricArn = Lens.lens (\DescribeFleetMetricResponse'
 describeFleetMetricResponse_httpStatus :: Lens.Lens' DescribeFleetMetricResponse Prelude.Int
 describeFleetMetricResponse_httpStatus = Lens.lens (\DescribeFleetMetricResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetMetricResponse' {} a -> s {httpStatus = a} :: DescribeFleetMetricResponse)
 
-instance Prelude.NFData DescribeFleetMetricResponse
+instance Prelude.NFData DescribeFleetMetricResponse where
+  rnf DescribeFleetMetricResponse' {..} =
+    Prelude.rnf aggregationType
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf metricArn
+      `Prelude.seq` Prelude.rnf httpStatus

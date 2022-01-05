@@ -195,9 +195,27 @@ instance Core.AWSRequest ListTrials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTrials
+instance Prelude.Hashable ListTrials where
+  hashWithSalt _salt ListTrials' {..} =
+    _salt `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` trialComponentName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListTrials
+instance Prelude.NFData ListTrials where
+  rnf ListTrials' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListTrials where
   toHeaders =
@@ -282,4 +300,8 @@ listTrialsResponse_trialSummaries = Lens.lens (\ListTrialsResponse' {trialSummar
 listTrialsResponse_httpStatus :: Lens.Lens' ListTrialsResponse Prelude.Int
 listTrialsResponse_httpStatus = Lens.lens (\ListTrialsResponse' {httpStatus} -> httpStatus) (\s@ListTrialsResponse' {} a -> s {httpStatus = a} :: ListTrialsResponse)
 
-instance Prelude.NFData ListTrialsResponse
+instance Prelude.NFData ListTrialsResponse where
+  rnf ListTrialsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trialSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -184,9 +184,23 @@ instance Core.AWSRequest ListRepositoriesInDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRepositoriesInDomain
+instance Prelude.Hashable ListRepositoriesInDomain where
+  hashWithSalt _salt ListRepositoriesInDomain' {..} =
+    _salt `Prelude.hashWithSalt` repositoryPrefix
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` administratorAccount
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData ListRepositoriesInDomain
+instance Prelude.NFData ListRepositoriesInDomain where
+  rnf ListRepositoriesInDomain' {..} =
+    Prelude.rnf repositoryPrefix
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf administratorAccount
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders ListRepositoriesInDomain where
   toHeaders =
@@ -270,3 +284,8 @@ listRepositoriesInDomainResponse_httpStatus = Lens.lens (\ListRepositoriesInDoma
 instance
   Prelude.NFData
     ListRepositoriesInDomainResponse
+  where
+  rnf ListRepositoriesInDomainResponse' {..} =
+    Prelude.rnf repositories
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -134,6 +134,22 @@ instance Core.FromXML RouteTable where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable RouteTable
+instance Prelude.Hashable RouteTable where
+  hashWithSalt _salt RouteTable' {..} =
+    _salt `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` routes
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` propagatingVgws
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` associations
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RouteTable
+instance Prelude.NFData RouteTable where
+  rnf RouteTable' {..} =
+    Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf propagatingVgws
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf associations
+      `Prelude.seq` Prelude.rnf tags

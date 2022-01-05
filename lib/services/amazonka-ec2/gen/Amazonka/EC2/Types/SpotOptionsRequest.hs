@@ -243,9 +243,28 @@ spotOptionsRequest_singleInstanceType = Lens.lens (\SpotOptionsRequest' {singleI
 spotOptionsRequest_allocationStrategy :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe SpotAllocationStrategy)
 spotOptionsRequest_allocationStrategy = Lens.lens (\SpotOptionsRequest' {allocationStrategy} -> allocationStrategy) (\s@SpotOptionsRequest' {} a -> s {allocationStrategy = a} :: SpotOptionsRequest)
 
-instance Prelude.Hashable SpotOptionsRequest
+instance Prelude.Hashable SpotOptionsRequest where
+  hashWithSalt _salt SpotOptionsRequest' {..} =
+    _salt
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` maxTotalPrice
+      `Prelude.hashWithSalt` minTargetCapacity
+      `Prelude.hashWithSalt` instancePoolsToUseCount
+      `Prelude.hashWithSalt` maintenanceStrategies
+      `Prelude.hashWithSalt` singleInstanceType
+      `Prelude.hashWithSalt` allocationStrategy
 
-instance Prelude.NFData SpotOptionsRequest
+instance Prelude.NFData SpotOptionsRequest where
+  rnf SpotOptionsRequest' {..} =
+    Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone
+      `Prelude.seq` Prelude.rnf maxTotalPrice
+      `Prelude.seq` Prelude.rnf minTargetCapacity
+      `Prelude.seq` Prelude.rnf instancePoolsToUseCount
+      `Prelude.seq` Prelude.rnf maintenanceStrategies
+      `Prelude.seq` Prelude.rnf singleInstanceType
+      `Prelude.seq` Prelude.rnf allocationStrategy
 
 instance Core.ToQuery SpotOptionsRequest where
   toQuery SpotOptionsRequest' {..} =

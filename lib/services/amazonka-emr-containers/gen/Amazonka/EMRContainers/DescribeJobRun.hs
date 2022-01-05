@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeJobRun
+instance Prelude.Hashable DescribeJobRun where
+  hashWithSalt _salt DescribeJobRun' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` virtualClusterId
 
-instance Prelude.NFData DescribeJobRun
+instance Prelude.NFData DescribeJobRun where
+  rnf DescribeJobRun' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Core.ToHeaders DescribeJobRun where
   toHeaders =
@@ -167,4 +173,7 @@ describeJobRunResponse_jobRun = Lens.lens (\DescribeJobRunResponse' {jobRun} -> 
 describeJobRunResponse_httpStatus :: Lens.Lens' DescribeJobRunResponse Prelude.Int
 describeJobRunResponse_httpStatus = Lens.lens (\DescribeJobRunResponse' {httpStatus} -> httpStatus) (\s@DescribeJobRunResponse' {} a -> s {httpStatus = a} :: DescribeJobRunResponse)
 
-instance Prelude.NFData DescribeJobRunResponse
+instance Prelude.NFData DescribeJobRunResponse where
+  rnf DescribeJobRunResponse' {..} =
+    Prelude.rnf jobRun
+      `Prelude.seq` Prelude.rnf httpStatus

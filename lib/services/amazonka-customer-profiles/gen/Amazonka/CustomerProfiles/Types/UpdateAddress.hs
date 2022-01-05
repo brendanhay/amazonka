@@ -133,9 +133,31 @@ updateAddress_address1 = Lens.lens (\UpdateAddress' {address1} -> address1) (\s@
 updateAddress_province :: Lens.Lens' UpdateAddress (Prelude.Maybe Prelude.Text)
 updateAddress_province = Lens.lens (\UpdateAddress' {province} -> province) (\s@UpdateAddress' {} a -> s {province = a} :: UpdateAddress)
 
-instance Prelude.Hashable UpdateAddress
+instance Prelude.Hashable UpdateAddress where
+  hashWithSalt _salt UpdateAddress' {..} =
+    _salt `Prelude.hashWithSalt` address2
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` address4
+      `Prelude.hashWithSalt` county
+      `Prelude.hashWithSalt` address3
+      `Prelude.hashWithSalt` postalCode
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` address1
+      `Prelude.hashWithSalt` province
 
-instance Prelude.NFData UpdateAddress
+instance Prelude.NFData UpdateAddress where
+  rnf UpdateAddress' {..} =
+    Prelude.rnf address2
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf address4
+      `Prelude.seq` Prelude.rnf county
+      `Prelude.seq` Prelude.rnf address3
+      `Prelude.seq` Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf address1
+      `Prelude.seq` Prelude.rnf province
 
 instance Core.ToJSON UpdateAddress where
   toJSON UpdateAddress' {..} =

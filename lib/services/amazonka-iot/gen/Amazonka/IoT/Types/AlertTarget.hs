@@ -81,9 +81,15 @@ instance Core.FromJSON AlertTarget where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable AlertTarget
+instance Prelude.Hashable AlertTarget where
+  hashWithSalt _salt AlertTarget' {..} =
+    _salt `Prelude.hashWithSalt` alertTargetArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData AlertTarget
+instance Prelude.NFData AlertTarget where
+  rnf AlertTarget' {..} =
+    Prelude.rnf alertTargetArn
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON AlertTarget where
   toJSON AlertTarget' {..} =

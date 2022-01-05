@@ -119,9 +119,19 @@ instance Core.FromJSON HttpAction where
             Prelude.<*> (x Core..: "url")
       )
 
-instance Prelude.Hashable HttpAction
+instance Prelude.Hashable HttpAction where
+  hashWithSalt _salt HttpAction' {..} =
+    _salt `Prelude.hashWithSalt` confirmationUrl
+      `Prelude.hashWithSalt` auth
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData HttpAction
+instance Prelude.NFData HttpAction where
+  rnf HttpAction' {..} =
+    Prelude.rnf confirmationUrl
+      `Prelude.seq` Prelude.rnf auth
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON HttpAction where
   toJSON HttpAction' {..} =

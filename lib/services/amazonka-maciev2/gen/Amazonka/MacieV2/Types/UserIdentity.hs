@@ -159,6 +159,22 @@ instance Core.FromJSON UserIdentity where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable UserIdentity
+instance Prelude.Hashable UserIdentity where
+  hashWithSalt _salt UserIdentity' {..} =
+    _salt `Prelude.hashWithSalt` iamUser
+      `Prelude.hashWithSalt` root
+      `Prelude.hashWithSalt` awsAccount
+      `Prelude.hashWithSalt` assumedRole
+      `Prelude.hashWithSalt` federatedUser
+      `Prelude.hashWithSalt` awsService
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UserIdentity
+instance Prelude.NFData UserIdentity where
+  rnf UserIdentity' {..} =
+    Prelude.rnf iamUser
+      `Prelude.seq` Prelude.rnf root
+      `Prelude.seq` Prelude.rnf awsAccount
+      `Prelude.seq` Prelude.rnf assumedRole
+      `Prelude.seq` Prelude.rnf federatedUser
+      `Prelude.seq` Prelude.rnf awsService
+      `Prelude.seq` Prelude.rnf type'

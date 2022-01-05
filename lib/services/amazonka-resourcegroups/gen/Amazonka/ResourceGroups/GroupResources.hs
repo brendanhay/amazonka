@@ -110,9 +110,15 @@ instance Core.AWSRequest GroupResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GroupResources
+instance Prelude.Hashable GroupResources where
+  hashWithSalt _salt GroupResources' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` resourceArns
 
-instance Prelude.NFData GroupResources
+instance Prelude.NFData GroupResources where
+  rnf GroupResources' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf resourceArns
 
 instance Core.ToHeaders GroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,4 +212,9 @@ groupResourcesResponse_failed = Lens.lens (\GroupResourcesResponse' {failed} -> 
 groupResourcesResponse_httpStatus :: Lens.Lens' GroupResourcesResponse Prelude.Int
 groupResourcesResponse_httpStatus = Lens.lens (\GroupResourcesResponse' {httpStatus} -> httpStatus) (\s@GroupResourcesResponse' {} a -> s {httpStatus = a} :: GroupResourcesResponse)
 
-instance Prelude.NFData GroupResourcesResponse
+instance Prelude.NFData GroupResourcesResponse where
+  rnf GroupResourcesResponse' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf succeeded
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf httpStatus

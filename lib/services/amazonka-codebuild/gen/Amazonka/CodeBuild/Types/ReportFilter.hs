@@ -52,9 +52,12 @@ newReportFilter =
 reportFilter_status :: Lens.Lens' ReportFilter (Prelude.Maybe ReportStatusType)
 reportFilter_status = Lens.lens (\ReportFilter' {status} -> status) (\s@ReportFilter' {} a -> s {status = a} :: ReportFilter)
 
-instance Prelude.Hashable ReportFilter
+instance Prelude.Hashable ReportFilter where
+  hashWithSalt _salt ReportFilter' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReportFilter
+instance Prelude.NFData ReportFilter where
+  rnf ReportFilter' {..} = Prelude.rnf status
 
 instance Core.ToJSON ReportFilter where
   toJSON ReportFilter' {..} =

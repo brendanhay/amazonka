@@ -318,9 +318,36 @@ instance Core.FromJSON JobSettings where
             Prelude.<*> (x Core..:? "kantarWatermark")
       )
 
-instance Prelude.Hashable JobSettings
+instance Prelude.Hashable JobSettings where
+  hashWithSalt _salt JobSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` nielsenNonLinearWatermark
+      `Prelude.hashWithSalt` esam
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` timedMetadataInsertion
+      `Prelude.hashWithSalt` nielsenConfiguration
+      `Prelude.hashWithSalt` availBlanking
+      `Prelude.hashWithSalt` extendedDataServices
+      `Prelude.hashWithSalt` motionImageInserter
+      `Prelude.hashWithSalt` timecodeConfig
+      `Prelude.hashWithSalt` outputGroups
+      `Prelude.hashWithSalt` adAvailOffset
+      `Prelude.hashWithSalt` kantarWatermark
 
-instance Prelude.NFData JobSettings
+instance Prelude.NFData JobSettings where
+  rnf JobSettings' {..} =
+    Prelude.rnf nielsenNonLinearWatermark
+      `Prelude.seq` Prelude.rnf esam
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf timedMetadataInsertion
+      `Prelude.seq` Prelude.rnf nielsenConfiguration
+      `Prelude.seq` Prelude.rnf availBlanking
+      `Prelude.seq` Prelude.rnf extendedDataServices
+      `Prelude.seq` Prelude.rnf motionImageInserter
+      `Prelude.seq` Prelude.rnf timecodeConfig
+      `Prelude.seq` Prelude.rnf outputGroups
+      `Prelude.seq` Prelude.rnf adAvailOffset
+      `Prelude.seq` Prelude.rnf kantarWatermark
 
 instance Core.ToJSON JobSettings where
   toJSON JobSettings' {..} =

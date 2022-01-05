@@ -56,9 +56,12 @@ instance Core.FromXML ClassicLoadBalancer where
     ClassicLoadBalancer'
       Prelude.<$> (x Core..@? "name")
 
-instance Prelude.Hashable ClassicLoadBalancer
+instance Prelude.Hashable ClassicLoadBalancer where
+  hashWithSalt _salt ClassicLoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ClassicLoadBalancer
+instance Prelude.NFData ClassicLoadBalancer where
+  rnf ClassicLoadBalancer' {..} = Prelude.rnf name
 
 instance Core.ToQuery ClassicLoadBalancer where
   toQuery ClassicLoadBalancer' {..} =

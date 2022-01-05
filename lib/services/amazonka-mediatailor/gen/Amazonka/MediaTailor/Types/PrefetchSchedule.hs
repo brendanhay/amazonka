@@ -156,6 +156,20 @@ instance Core.FromJSON PrefetchSchedule where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable PrefetchSchedule
+instance Prelude.Hashable PrefetchSchedule where
+  hashWithSalt _salt PrefetchSchedule' {..} =
+    _salt `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` retrieval
+      `Prelude.hashWithSalt` consumption
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` playbackConfigurationName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PrefetchSchedule
+instance Prelude.NFData PrefetchSchedule where
+  rnf PrefetchSchedule' {..} =
+    Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf retrieval
+      `Prelude.seq` Prelude.rnf consumption
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
+      `Prelude.seq` Prelude.rnf name

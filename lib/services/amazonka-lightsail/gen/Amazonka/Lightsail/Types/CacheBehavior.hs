@@ -108,9 +108,12 @@ instance Core.FromJSON CacheBehavior where
           CacheBehavior' Prelude.<$> (x Core..:? "behavior")
       )
 
-instance Prelude.Hashable CacheBehavior
+instance Prelude.Hashable CacheBehavior where
+  hashWithSalt _salt CacheBehavior' {..} =
+    _salt `Prelude.hashWithSalt` behavior
 
-instance Prelude.NFData CacheBehavior
+instance Prelude.NFData CacheBehavior where
+  rnf CacheBehavior' {..} = Prelude.rnf behavior
 
 instance Core.ToJSON CacheBehavior where
   toJSON CacheBehavior' {..} =

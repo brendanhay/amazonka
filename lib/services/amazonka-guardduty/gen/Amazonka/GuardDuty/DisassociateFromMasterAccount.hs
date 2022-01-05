@@ -94,8 +94,13 @@ instance
 instance
   Prelude.Hashable
     DisassociateFromMasterAccount
+  where
+  hashWithSalt _salt DisassociateFromMasterAccount' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData DisassociateFromMasterAccount
+instance Prelude.NFData DisassociateFromMasterAccount where
+  rnf DisassociateFromMasterAccount' {..} =
+    Prelude.rnf detectorId
 
 instance Core.ToHeaders DisassociateFromMasterAccount where
   toHeaders =
@@ -155,3 +160,6 @@ disassociateFromMasterAccountResponse_httpStatus = Lens.lens (\DisassociateFromM
 instance
   Prelude.NFData
     DisassociateFromMasterAccountResponse
+  where
+  rnf DisassociateFromMasterAccountResponse' {..} =
+    Prelude.rnf httpStatus

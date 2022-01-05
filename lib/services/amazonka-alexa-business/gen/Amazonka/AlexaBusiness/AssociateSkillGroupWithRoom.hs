@@ -96,9 +96,15 @@ instance Core.AWSRequest AssociateSkillGroupWithRoom where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSkillGroupWithRoom
+instance Prelude.Hashable AssociateSkillGroupWithRoom where
+  hashWithSalt _salt AssociateSkillGroupWithRoom' {..} =
+    _salt `Prelude.hashWithSalt` skillGroupArn
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData AssociateSkillGroupWithRoom
+instance Prelude.NFData AssociateSkillGroupWithRoom where
+  rnf AssociateSkillGroupWithRoom' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance Core.ToHeaders AssociateSkillGroupWithRoom where
   toHeaders =
@@ -163,3 +169,6 @@ associateSkillGroupWithRoomResponse_httpStatus = Lens.lens (\AssociateSkillGroup
 instance
   Prelude.NFData
     AssociateSkillGroupWithRoomResponse
+  where
+  rnf AssociateSkillGroupWithRoomResponse' {..} =
+    Prelude.rnf httpStatus

@@ -152,9 +152,15 @@ instance Core.AWSRequest GetUserPolicy where
             Prelude.<*> (x Core..@ "PolicyDocument")
       )
 
-instance Prelude.Hashable GetUserPolicy
+instance Prelude.Hashable GetUserPolicy where
+  hashWithSalt _salt GetUserPolicy' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData GetUserPolicy
+instance Prelude.NFData GetUserPolicy where
+  rnf GetUserPolicy' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders GetUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,4 +262,9 @@ getUserPolicyResponse_policyName = Lens.lens (\GetUserPolicyResponse' {policyNam
 getUserPolicyResponse_policyDocument :: Lens.Lens' GetUserPolicyResponse Prelude.Text
 getUserPolicyResponse_policyDocument = Lens.lens (\GetUserPolicyResponse' {policyDocument} -> policyDocument) (\s@GetUserPolicyResponse' {} a -> s {policyDocument = a} :: GetUserPolicyResponse)
 
-instance Prelude.NFData GetUserPolicyResponse
+instance Prelude.NFData GetUserPolicyResponse where
+  rnf GetUserPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyDocument

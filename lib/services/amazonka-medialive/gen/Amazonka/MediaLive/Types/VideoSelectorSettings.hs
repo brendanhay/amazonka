@@ -72,9 +72,15 @@ instance Core.FromJSON VideoSelectorSettings where
             Prelude.<*> (x Core..:? "videoSelectorPid")
       )
 
-instance Prelude.Hashable VideoSelectorSettings
+instance Prelude.Hashable VideoSelectorSettings where
+  hashWithSalt _salt VideoSelectorSettings' {..} =
+    _salt `Prelude.hashWithSalt` videoSelectorProgramId
+      `Prelude.hashWithSalt` videoSelectorPid
 
-instance Prelude.NFData VideoSelectorSettings
+instance Prelude.NFData VideoSelectorSettings where
+  rnf VideoSelectorSettings' {..} =
+    Prelude.rnf videoSelectorProgramId
+      `Prelude.seq` Prelude.rnf videoSelectorPid
 
 instance Core.ToJSON VideoSelectorSettings where
   toJSON VideoSelectorSettings' {..} =

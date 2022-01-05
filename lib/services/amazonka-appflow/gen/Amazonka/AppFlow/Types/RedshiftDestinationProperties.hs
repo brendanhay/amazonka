@@ -125,8 +125,19 @@ instance Core.FromJSON RedshiftDestinationProperties where
 instance
   Prelude.Hashable
     RedshiftDestinationProperties
+  where
+  hashWithSalt _salt RedshiftDestinationProperties' {..} =
+    _salt `Prelude.hashWithSalt` bucketPrefix
+      `Prelude.hashWithSalt` errorHandlingConfig
+      `Prelude.hashWithSalt` object'
+      `Prelude.hashWithSalt` intermediateBucketName
 
-instance Prelude.NFData RedshiftDestinationProperties
+instance Prelude.NFData RedshiftDestinationProperties where
+  rnf RedshiftDestinationProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf object'
+      `Prelude.seq` Prelude.rnf intermediateBucketName
 
 instance Core.ToJSON RedshiftDestinationProperties where
   toJSON RedshiftDestinationProperties' {..} =

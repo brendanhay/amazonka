@@ -90,9 +90,17 @@ gatingRuleUpdate_waitPeriodMs = Lens.lens (\GatingRuleUpdate' {waitPeriodMs} -> 
 gatingRuleUpdate_name :: Lens.Lens' GatingRuleUpdate Prelude.Text
 gatingRuleUpdate_name = Lens.lens (\GatingRuleUpdate' {name} -> name) (\s@GatingRuleUpdate' {} a -> s {name = a} :: GatingRuleUpdate)
 
-instance Prelude.Hashable GatingRuleUpdate
+instance Prelude.Hashable GatingRuleUpdate where
+  hashWithSalt _salt GatingRuleUpdate' {..} =
+    _salt `Prelude.hashWithSalt` safetyRuleArn
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GatingRuleUpdate
+instance Prelude.NFData GatingRuleUpdate where
+  rnf GatingRuleUpdate' {..} =
+    Prelude.rnf safetyRuleArn
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON GatingRuleUpdate where
   toJSON GatingRuleUpdate' {..} =

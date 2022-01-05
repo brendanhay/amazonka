@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeLayers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLayers
+instance Prelude.Hashable DescribeLayers where
+  hashWithSalt _salt DescribeLayers' {..} =
+    _salt `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DescribeLayers
+instance Prelude.NFData DescribeLayers where
+  rnf DescribeLayers' {..} =
+    Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeLayers where
   toHeaders =
@@ -184,4 +190,7 @@ describeLayersResponse_layers = Lens.lens (\DescribeLayersResponse' {layers} -> 
 describeLayersResponse_httpStatus :: Lens.Lens' DescribeLayersResponse Prelude.Int
 describeLayersResponse_httpStatus = Lens.lens (\DescribeLayersResponse' {httpStatus} -> httpStatus) (\s@DescribeLayersResponse' {} a -> s {httpStatus = a} :: DescribeLayersResponse)
 
-instance Prelude.NFData DescribeLayersResponse
+instance Prelude.NFData DescribeLayersResponse where
+  rnf DescribeLayersResponse' {..} =
+    Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf httpStatus

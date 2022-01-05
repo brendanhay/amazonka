@@ -270,9 +270,35 @@ instance Core.AWSRequest CreateApp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApp
+instance Prelude.Hashable CreateApp where
+  hashWithSalt _salt CreateApp' {..} =
+    _salt `Prelude.hashWithSalt` sslConfiguration
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` enableSsl
+      `Prelude.hashWithSalt` shortname
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` appSource
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateApp
+instance Prelude.NFData CreateApp where
+  rnf CreateApp' {..} =
+    Prelude.rnf sslConfiguration
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf enableSsl
+      `Prelude.seq` Prelude.rnf shortname
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf appSource
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateApp where
   toHeaders =
@@ -355,4 +381,7 @@ createAppResponse_appId = Lens.lens (\CreateAppResponse' {appId} -> appId) (\s@C
 createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Prelude.Int
 createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> httpStatus) (\s@CreateAppResponse' {} a -> s {httpStatus = a} :: CreateAppResponse)
 
-instance Prelude.NFData CreateAppResponse
+instance Prelude.NFData CreateAppResponse where
+  rnf CreateAppResponse' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -107,6 +107,18 @@ instance Core.FromJSON AutoScalingDescription where
             Prelude.<*> (x Core..:? "minWorkerCount")
       )
 
-instance Prelude.Hashable AutoScalingDescription
+instance Prelude.Hashable AutoScalingDescription where
+  hashWithSalt _salt AutoScalingDescription' {..} =
+    _salt `Prelude.hashWithSalt` scaleInPolicy
+      `Prelude.hashWithSalt` mcuCount
+      `Prelude.hashWithSalt` scaleOutPolicy
+      `Prelude.hashWithSalt` maxWorkerCount
+      `Prelude.hashWithSalt` minWorkerCount
 
-instance Prelude.NFData AutoScalingDescription
+instance Prelude.NFData AutoScalingDescription where
+  rnf AutoScalingDescription' {..} =
+    Prelude.rnf scaleInPolicy
+      `Prelude.seq` Prelude.rnf mcuCount
+      `Prelude.seq` Prelude.rnf scaleOutPolicy
+      `Prelude.seq` Prelude.rnf maxWorkerCount
+      `Prelude.seq` Prelude.rnf minWorkerCount

@@ -196,9 +196,21 @@ instance Core.AWSRequest DeleteJobExecution where
   response =
     Response.receiveNull DeleteJobExecutionResponse'
 
-instance Prelude.Hashable DeleteJobExecution
+instance Prelude.Hashable DeleteJobExecution where
+  hashWithSalt _salt DeleteJobExecution' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` executionNumber
 
-instance Prelude.NFData DeleteJobExecution
+instance Prelude.NFData DeleteJobExecution where
+  rnf DeleteJobExecution' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf executionNumber
 
 instance Core.ToHeaders DeleteJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,4 +248,5 @@ newDeleteJobExecutionResponse ::
 newDeleteJobExecutionResponse =
   DeleteJobExecutionResponse'
 
-instance Prelude.NFData DeleteJobExecutionResponse
+instance Prelude.NFData DeleteJobExecutionResponse where
+  rnf _ = ()

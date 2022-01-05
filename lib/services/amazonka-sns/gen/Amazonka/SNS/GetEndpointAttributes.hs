@@ -94,9 +94,13 @@ instance Core.AWSRequest GetEndpointAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEndpointAttributes
+instance Prelude.Hashable GetEndpointAttributes where
+  hashWithSalt _salt GetEndpointAttributes' {..} =
+    _salt `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData GetEndpointAttributes
+instance Prelude.NFData GetEndpointAttributes where
+  rnf GetEndpointAttributes' {..} =
+    Prelude.rnf endpointArn
 
 instance Core.ToHeaders GetEndpointAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,4 +207,7 @@ getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResp
 getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Prelude.Int
 getEndpointAttributesResponse_httpStatus = Lens.lens (\GetEndpointAttributesResponse' {httpStatus} -> httpStatus) (\s@GetEndpointAttributesResponse' {} a -> s {httpStatus = a} :: GetEndpointAttributesResponse)
 
-instance Prelude.NFData GetEndpointAttributesResponse
+instance Prelude.NFData GetEndpointAttributesResponse where
+  rnf GetEndpointAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

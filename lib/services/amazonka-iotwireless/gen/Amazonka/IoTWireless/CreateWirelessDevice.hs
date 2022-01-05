@@ -167,9 +167,25 @@ instance Core.AWSRequest CreateWirelessDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWirelessDevice
+instance Prelude.Hashable CreateWirelessDevice where
+  hashWithSalt _salt CreateWirelessDevice' {..} =
+    _salt `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` destinationName
 
-instance Prelude.NFData CreateWirelessDevice
+instance Prelude.NFData CreateWirelessDevice where
+  rnf CreateWirelessDevice' {..} =
+    Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf destinationName
 
 instance Core.ToHeaders CreateWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +260,8 @@ createWirelessDeviceResponse_id = Lens.lens (\CreateWirelessDeviceResponse' {id}
 createWirelessDeviceResponse_httpStatus :: Lens.Lens' CreateWirelessDeviceResponse Prelude.Int
 createWirelessDeviceResponse_httpStatus = Lens.lens (\CreateWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@CreateWirelessDeviceResponse' {} a -> s {httpStatus = a} :: CreateWirelessDeviceResponse)
 
-instance Prelude.NFData CreateWirelessDeviceResponse
+instance Prelude.NFData CreateWirelessDeviceResponse where
+  rnf CreateWirelessDeviceResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,9 +79,14 @@ instance Core.FromJSON DefinitionDocument where
             Prelude.<*> (x Core..: "text")
       )
 
-instance Prelude.Hashable DefinitionDocument
+instance Prelude.Hashable DefinitionDocument where
+  hashWithSalt _salt DefinitionDocument' {..} =
+    _salt `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DefinitionDocument
+instance Prelude.NFData DefinitionDocument where
+  rnf DefinitionDocument' {..} =
+    Prelude.rnf language `Prelude.seq` Prelude.rnf text
 
 instance Core.ToJSON DefinitionDocument where
   toJSON DefinitionDocument' {..} =

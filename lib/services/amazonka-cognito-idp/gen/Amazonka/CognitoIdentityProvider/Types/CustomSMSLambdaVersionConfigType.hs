@@ -94,10 +94,20 @@ instance
 instance
   Prelude.Hashable
     CustomSMSLambdaVersionConfigType
+  where
+  hashWithSalt
+    _salt
+    CustomSMSLambdaVersionConfigType' {..} =
+      _salt `Prelude.hashWithSalt` lambdaVersion
+        `Prelude.hashWithSalt` lambdaArn
 
 instance
   Prelude.NFData
     CustomSMSLambdaVersionConfigType
+  where
+  rnf CustomSMSLambdaVersionConfigType' {..} =
+    Prelude.rnf lambdaVersion
+      `Prelude.seq` Prelude.rnf lambdaArn
 
 instance Core.ToJSON CustomSMSLambdaVersionConfigType where
   toJSON CustomSMSLambdaVersionConfigType' {..} =

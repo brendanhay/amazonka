@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     PutEmailIdentityConfigurationSetAttributes
+  where
+  hashWithSalt
+    _salt
+    PutEmailIdentityConfigurationSetAttributes' {..} =
+      _salt `Prelude.hashWithSalt` configurationSetName
+        `Prelude.hashWithSalt` emailIdentity
 
 instance
   Prelude.NFData
     PutEmailIdentityConfigurationSetAttributes
+  where
+  rnf PutEmailIdentityConfigurationSetAttributes' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
   Core.ToHeaders
@@ -194,3 +204,7 @@ putEmailIdentityConfigurationSetAttributesResponse_httpStatus = Lens.lens (\PutE
 instance
   Prelude.NFData
     PutEmailIdentityConfigurationSetAttributesResponse
+  where
+  rnf
+    PutEmailIdentityConfigurationSetAttributesResponse' {..} =
+      Prelude.rnf httpStatus

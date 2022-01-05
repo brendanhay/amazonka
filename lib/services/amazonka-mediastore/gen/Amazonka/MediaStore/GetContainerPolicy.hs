@@ -91,9 +91,13 @@ instance Core.AWSRequest GetContainerPolicy where
             Prelude.<*> (x Core..:> "Policy")
       )
 
-instance Prelude.Hashable GetContainerPolicy
+instance Prelude.Hashable GetContainerPolicy where
+  hashWithSalt _salt GetContainerPolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData GetContainerPolicy
+instance Prelude.NFData GetContainerPolicy where
+  rnf GetContainerPolicy' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders GetContainerPolicy where
   toHeaders =
@@ -166,4 +170,7 @@ getContainerPolicyResponse_httpStatus = Lens.lens (\GetContainerPolicyResponse' 
 getContainerPolicyResponse_policy :: Lens.Lens' GetContainerPolicyResponse Prelude.Text
 getContainerPolicyResponse_policy = Lens.lens (\GetContainerPolicyResponse' {policy} -> policy) (\s@GetContainerPolicyResponse' {} a -> s {policy = a} :: GetContainerPolicyResponse)
 
-instance Prelude.NFData GetContainerPolicyResponse
+instance Prelude.NFData GetContainerPolicyResponse where
+  rnf GetContainerPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy

@@ -96,8 +96,13 @@ instance
 instance
   Prelude.Hashable
     DeleteBackupVaultAccessPolicy
+  where
+  hashWithSalt _salt DeleteBackupVaultAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData DeleteBackupVaultAccessPolicy
+instance Prelude.NFData DeleteBackupVaultAccessPolicy where
+  rnf DeleteBackupVaultAccessPolicy' {..} =
+    Prelude.rnf backupVaultName
 
 instance Core.ToHeaders DeleteBackupVaultAccessPolicy where
   toHeaders =
@@ -139,3 +144,5 @@ newDeleteBackupVaultAccessPolicyResponse =
 instance
   Prelude.NFData
     DeleteBackupVaultAccessPolicyResponse
+  where
+  rnf _ = ()

@@ -176,9 +176,23 @@ instance Core.AWSRequest GetOpsSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpsSummary
+instance Prelude.Hashable GetOpsSummary where
+  hashWithSalt _salt GetOpsSummary' {..} =
+    _salt `Prelude.hashWithSalt` aggregators
+      `Prelude.hashWithSalt` syncName
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` resultAttributes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetOpsSummary
+instance Prelude.NFData GetOpsSummary where
+  rnf GetOpsSummary' {..} =
+    Prelude.rnf aggregators
+      `Prelude.seq` Prelude.rnf syncName
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf resultAttributes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetOpsSummary where
   toHeaders =
@@ -263,4 +277,8 @@ getOpsSummaryResponse_nextToken = Lens.lens (\GetOpsSummaryResponse' {nextToken}
 getOpsSummaryResponse_httpStatus :: Lens.Lens' GetOpsSummaryResponse Prelude.Int
 getOpsSummaryResponse_httpStatus = Lens.lens (\GetOpsSummaryResponse' {httpStatus} -> httpStatus) (\s@GetOpsSummaryResponse' {} a -> s {httpStatus = a} :: GetOpsSummaryResponse)
 
-instance Prelude.NFData GetOpsSummaryResponse
+instance Prelude.NFData GetOpsSummaryResponse where
+  rnf GetOpsSummaryResponse' {..} =
+    Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

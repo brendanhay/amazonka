@@ -98,6 +98,16 @@ instance Core.FromJSON StepStatus where
             Prelude.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable StepStatus
+instance Prelude.Hashable StepStatus where
+  hashWithSalt _salt StepStatus' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` timeline
 
-instance Prelude.NFData StepStatus
+instance Prelude.NFData StepStatus where
+  rnf StepStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf stateChangeReason
+      `Prelude.seq` Prelude.rnf timeline

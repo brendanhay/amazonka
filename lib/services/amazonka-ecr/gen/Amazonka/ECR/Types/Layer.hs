@@ -98,6 +98,16 @@ instance Core.FromJSON Layer where
             Prelude.<*> (x Core..:? "layerAvailability")
       )
 
-instance Prelude.Hashable Layer
+instance Prelude.Hashable Layer where
+  hashWithSalt _salt Layer' {..} =
+    _salt `Prelude.hashWithSalt` mediaType
+      `Prelude.hashWithSalt` layerDigest
+      `Prelude.hashWithSalt` layerSize
+      `Prelude.hashWithSalt` layerAvailability
 
-instance Prelude.NFData Layer
+instance Prelude.NFData Layer where
+  rnf Layer' {..} =
+    Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf layerDigest
+      `Prelude.seq` Prelude.rnf layerSize
+      `Prelude.seq` Prelude.rnf layerAvailability

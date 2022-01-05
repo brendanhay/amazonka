@@ -102,9 +102,15 @@ instance Core.AWSRequest UpdateManagedInstanceRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateManagedInstanceRole
+instance Prelude.Hashable UpdateManagedInstanceRole where
+  hashWithSalt _salt UpdateManagedInstanceRole' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData UpdateManagedInstanceRole
+instance Prelude.NFData UpdateManagedInstanceRole where
+  rnf UpdateManagedInstanceRole' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf iamRole
 
 instance Core.ToHeaders UpdateManagedInstanceRole where
   toHeaders =
@@ -169,3 +175,6 @@ updateManagedInstanceRoleResponse_httpStatus = Lens.lens (\UpdateManagedInstance
 instance
   Prelude.NFData
     UpdateManagedInstanceRoleResponse
+  where
+  rnf UpdateManagedInstanceRoleResponse' {..} =
+    Prelude.rnf httpStatus

@@ -83,9 +83,17 @@ instance Core.FromXML MaxAgeRule where
       Prelude.<*> (x Core..@? "MaxAgeInDays")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable MaxAgeRule
+instance Prelude.Hashable MaxAgeRule where
+  hashWithSalt _salt MaxAgeRule' {..} =
+    _salt `Prelude.hashWithSalt` deleteSourceFromS3
+      `Prelude.hashWithSalt` maxAgeInDays
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData MaxAgeRule
+instance Prelude.NFData MaxAgeRule where
+  rnf MaxAgeRule' {..} =
+    Prelude.rnf deleteSourceFromS3
+      `Prelude.seq` Prelude.rnf maxAgeInDays
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery MaxAgeRule where
   toQuery MaxAgeRule' {..} =

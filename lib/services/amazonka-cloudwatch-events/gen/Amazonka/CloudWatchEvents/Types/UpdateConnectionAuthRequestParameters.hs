@@ -102,10 +102,24 @@ updateConnectionAuthRequestParameters_basicAuthParameters = Lens.lens (\UpdateCo
 instance
   Prelude.Hashable
     UpdateConnectionAuthRequestParameters
+  where
+  hashWithSalt
+    _salt
+    UpdateConnectionAuthRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` oAuthParameters
+        `Prelude.hashWithSalt` invocationHttpParameters
+        `Prelude.hashWithSalt` apiKeyAuthParameters
+        `Prelude.hashWithSalt` basicAuthParameters
 
 instance
   Prelude.NFData
     UpdateConnectionAuthRequestParameters
+  where
+  rnf UpdateConnectionAuthRequestParameters' {..} =
+    Prelude.rnf oAuthParameters
+      `Prelude.seq` Prelude.rnf invocationHttpParameters
+      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
+      `Prelude.seq` Prelude.rnf basicAuthParameters
 
 instance
   Core.ToJSON

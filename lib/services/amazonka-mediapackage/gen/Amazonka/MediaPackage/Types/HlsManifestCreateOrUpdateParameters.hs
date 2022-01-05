@@ -195,10 +195,35 @@ hlsManifestCreateOrUpdateParameters_id = Lens.lens (\HlsManifestCreateOrUpdatePa
 instance
   Prelude.Hashable
     HlsManifestCreateOrUpdateParameters
+  where
+  hashWithSalt
+    _salt
+    HlsManifestCreateOrUpdateParameters' {..} =
+      _salt
+        `Prelude.hashWithSalt` adsOnDeliveryRestrictions
+        `Prelude.hashWithSalt` manifestName
+        `Prelude.hashWithSalt` playlistType
+        `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+        `Prelude.hashWithSalt` adMarkers
+        `Prelude.hashWithSalt` includeIframeOnlyStream
+        `Prelude.hashWithSalt` adTriggers
+        `Prelude.hashWithSalt` playlistWindowSeconds
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     HlsManifestCreateOrUpdateParameters
+  where
+  rnf HlsManifestCreateOrUpdateParameters' {..} =
+    Prelude.rnf adsOnDeliveryRestrictions
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf playlistType
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
+      `Prelude.seq` Prelude.rnf adTriggers
+      `Prelude.seq` Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToJSON

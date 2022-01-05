@@ -263,6 +263,43 @@ instance Core.FromXML Host where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable Host
+instance Prelude.Hashable Host where
+  hashWithSalt _salt Host' {..} =
+    _salt `Prelude.hashWithSalt` releaseTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` availableCapacity
+      `Prelude.hashWithSalt` hostReservationId
+      `Prelude.hashWithSalt` allowsMultipleInstanceTypes
+      `Prelude.hashWithSalt` hostProperties
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` allocationTime
+      `Prelude.hashWithSalt` memberOfServiceLinkedResourceGroup
+      `Prelude.hashWithSalt` hostRecovery
+      `Prelude.hashWithSalt` autoPlacement
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Host
+instance Prelude.NFData Host where
+  rnf Host' {..} =
+    Prelude.rnf releaseTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf availableCapacity
+      `Prelude.seq` Prelude.rnf hostReservationId
+      `Prelude.seq` Prelude.rnf allowsMultipleInstanceTypes
+      `Prelude.seq` Prelude.rnf hostProperties
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf allocationTime
+      `Prelude.seq` Prelude.rnf
+        memberOfServiceLinkedResourceGroup
+      `Prelude.seq` Prelude.rnf hostRecovery
+      `Prelude.seq` Prelude.rnf autoPlacement
+      `Prelude.seq` Prelude.rnf tags

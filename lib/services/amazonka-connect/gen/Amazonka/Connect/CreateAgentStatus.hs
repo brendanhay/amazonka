@@ -150,9 +150,23 @@ instance Core.AWSRequest CreateAgentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAgentStatus
+instance Prelude.Hashable CreateAgentStatus where
+  hashWithSalt _salt CreateAgentStatus' {..} =
+    _salt `Prelude.hashWithSalt` displayOrder
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CreateAgentStatus
+instance Prelude.NFData CreateAgentStatus where
+  rnf CreateAgentStatus' {..} =
+    Prelude.rnf displayOrder
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToHeaders CreateAgentStatus where
   toHeaders =
@@ -233,4 +247,8 @@ createAgentStatusResponse_agentStatusARN = Lens.lens (\CreateAgentStatusResponse
 createAgentStatusResponse_httpStatus :: Lens.Lens' CreateAgentStatusResponse Prelude.Int
 createAgentStatusResponse_httpStatus = Lens.lens (\CreateAgentStatusResponse' {httpStatus} -> httpStatus) (\s@CreateAgentStatusResponse' {} a -> s {httpStatus = a} :: CreateAgentStatusResponse)
 
-instance Prelude.NFData CreateAgentStatusResponse
+instance Prelude.NFData CreateAgentStatusResponse where
+  rnf CreateAgentStatusResponse' {..} =
+    Prelude.rnf agentStatusId
+      `Prelude.seq` Prelude.rnf agentStatusARN
+      `Prelude.seq` Prelude.rnf httpStatus

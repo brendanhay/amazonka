@@ -235,9 +235,23 @@ instance Core.AWSRequest ListJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobs
+instance Prelude.Hashable ListJobs where
+  hashWithSalt _salt ListJobs' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` completed
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` statuscode
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData ListJobs
+instance Prelude.NFData ListJobs where
+  rnf ListJobs' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf completed
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf statuscode
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,4 +339,8 @@ listJobsResponse_jobList = Lens.lens (\ListJobsResponse' {jobList} -> jobList) (
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
-instance Prelude.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse where
+  rnf ListJobsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf jobList
+      `Prelude.seq` Prelude.rnf httpStatus

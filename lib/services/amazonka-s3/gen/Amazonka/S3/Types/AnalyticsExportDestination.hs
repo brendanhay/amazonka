@@ -62,9 +62,13 @@ instance Core.FromXML AnalyticsExportDestination where
     AnalyticsExportDestination'
       Prelude.<$> (x Core..@ "S3BucketDestination")
 
-instance Prelude.Hashable AnalyticsExportDestination
+instance Prelude.Hashable AnalyticsExportDestination where
+  hashWithSalt _salt AnalyticsExportDestination' {..} =
+    _salt `Prelude.hashWithSalt` s3BucketDestination
 
-instance Prelude.NFData AnalyticsExportDestination
+instance Prelude.NFData AnalyticsExportDestination where
+  rnf AnalyticsExportDestination' {..} =
+    Prelude.rnf s3BucketDestination
 
 instance Core.ToXML AnalyticsExportDestination where
   toXML AnalyticsExportDestination' {..} =

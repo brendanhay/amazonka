@@ -100,9 +100,15 @@ instance Core.FromJSON SourceAlgorithm where
             Prelude.<*> (x Core..: "AlgorithmName")
       )
 
-instance Prelude.Hashable SourceAlgorithm
+instance Prelude.Hashable SourceAlgorithm where
+  hashWithSalt _salt SourceAlgorithm' {..} =
+    _salt `Prelude.hashWithSalt` modelDataUrl
+      `Prelude.hashWithSalt` algorithmName
 
-instance Prelude.NFData SourceAlgorithm
+instance Prelude.NFData SourceAlgorithm where
+  rnf SourceAlgorithm' {..} =
+    Prelude.rnf modelDataUrl
+      `Prelude.seq` Prelude.rnf algorithmName
 
 instance Core.ToJSON SourceAlgorithm where
   toJSON SourceAlgorithm' {..} =

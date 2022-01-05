@@ -162,6 +162,18 @@ instance Core.FromJSON ValidatePolicyFinding where
             Prelude.<*> (x Core..:? "locations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ValidatePolicyFinding
+instance Prelude.Hashable ValidatePolicyFinding where
+  hashWithSalt _salt ValidatePolicyFinding' {..} =
+    _salt `Prelude.hashWithSalt` findingDetails
+      `Prelude.hashWithSalt` findingType
+      `Prelude.hashWithSalt` issueCode
+      `Prelude.hashWithSalt` learnMoreLink
+      `Prelude.hashWithSalt` locations
 
-instance Prelude.NFData ValidatePolicyFinding
+instance Prelude.NFData ValidatePolicyFinding where
+  rnf ValidatePolicyFinding' {..} =
+    Prelude.rnf findingDetails
+      `Prelude.seq` Prelude.rnf findingType
+      `Prelude.seq` Prelude.rnf issueCode
+      `Prelude.seq` Prelude.rnf learnMoreLink
+      `Prelude.seq` Prelude.rnf locations

@@ -253,9 +253,38 @@ instance Core.FromJSON AwsApiGatewayV2StageDetails where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AwsApiGatewayV2StageDetails
+instance Prelude.Hashable AwsApiGatewayV2StageDetails where
+  hashWithSalt _salt AwsApiGatewayV2StageDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` lastDeploymentStatusMessage
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` routeSettings
+      `Prelude.hashWithSalt` accessLogSettings
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` stageVariables
+      `Prelude.hashWithSalt` autoDeploy
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` defaultRouteSettings
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AwsApiGatewayV2StageDetails
+instance Prelude.NFData AwsApiGatewayV2StageDetails where
+  rnf AwsApiGatewayV2StageDetails' {..} =
+    Prelude.rnf lastDeploymentStatusMessage
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf routeSettings
+      `Prelude.seq` Prelude.rnf accessLogSettings
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf autoDeploy
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf defaultRouteSettings
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON AwsApiGatewayV2StageDetails where
   toJSON AwsApiGatewayV2StageDetails' {..} =

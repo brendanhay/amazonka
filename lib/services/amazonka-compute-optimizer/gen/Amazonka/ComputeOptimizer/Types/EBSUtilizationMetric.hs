@@ -193,6 +193,14 @@ instance Core.FromJSON EBSUtilizationMetric where
             Prelude.<*> (x Core..:? "statistic")
       )
 
-instance Prelude.Hashable EBSUtilizationMetric
+instance Prelude.Hashable EBSUtilizationMetric where
+  hashWithSalt _salt EBSUtilizationMetric' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statistic
 
-instance Prelude.NFData EBSUtilizationMetric
+instance Prelude.NFData EBSUtilizationMetric where
+  rnf EBSUtilizationMetric' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statistic

@@ -106,10 +106,24 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainVPCOptions
+  where
+  hashWithSalt
+    _salt
+    AwsElasticsearchDomainVPCOptions' {..} =
+      _salt `Prelude.hashWithSalt` securityGroupIds
+        `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vPCId
+        `Prelude.hashWithSalt` availabilityZones
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainVPCOptions
+  where
+  rnf AwsElasticsearchDomainVPCOptions' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf availabilityZones
 
 instance Core.ToJSON AwsElasticsearchDomainVPCOptions where
   toJSON AwsElasticsearchDomainVPCOptions' {..} =

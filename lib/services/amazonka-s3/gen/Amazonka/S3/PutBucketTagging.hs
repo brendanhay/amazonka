@@ -196,9 +196,19 @@ instance Core.AWSRequest PutBucketTagging where
   response =
     Response.receiveNull PutBucketTaggingResponse'
 
-instance Prelude.Hashable PutBucketTagging
+instance Prelude.Hashable PutBucketTagging where
+  hashWithSalt _salt PutBucketTagging' {..} =
+    _salt `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` tagging
 
-instance Prelude.NFData PutBucketTagging
+instance Prelude.NFData PutBucketTagging where
+  rnf PutBucketTagging' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf tagging
 
 instance Core.ToElement PutBucketTagging where
   toElement PutBucketTagging' {..} =
@@ -236,4 +246,5 @@ newPutBucketTaggingResponse ::
 newPutBucketTaggingResponse =
   PutBucketTaggingResponse'
 
-instance Prelude.NFData PutBucketTaggingResponse
+instance Prelude.NFData PutBucketTaggingResponse where
+  rnf _ = ()

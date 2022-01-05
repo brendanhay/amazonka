@@ -158,9 +158,23 @@ instance Core.AWSRequest CreatePermissionSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePermissionSet
+instance Prelude.Hashable CreatePermissionSet where
+  hashWithSalt _salt CreatePermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` relayState
+      `Prelude.hashWithSalt` sessionDuration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceArn
 
-instance Prelude.NFData CreatePermissionSet
+instance Prelude.NFData CreatePermissionSet where
+  rnf CreatePermissionSet' {..} =
+    Prelude.rnf relayState
+      `Prelude.seq` Prelude.rnf sessionDuration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceArn
 
 instance Core.ToHeaders CreatePermissionSet where
   toHeaders =
@@ -236,4 +250,7 @@ createPermissionSetResponse_permissionSet = Lens.lens (\CreatePermissionSetRespo
 createPermissionSetResponse_httpStatus :: Lens.Lens' CreatePermissionSetResponse Prelude.Int
 createPermissionSetResponse_httpStatus = Lens.lens (\CreatePermissionSetResponse' {httpStatus} -> httpStatus) (\s@CreatePermissionSetResponse' {} a -> s {httpStatus = a} :: CreatePermissionSetResponse)
 
-instance Prelude.NFData CreatePermissionSetResponse
+instance Prelude.NFData CreatePermissionSetResponse where
+  rnf CreatePermissionSetResponse' {..} =
+    Prelude.rnf permissionSet
+      `Prelude.seq` Prelude.rnf httpStatus

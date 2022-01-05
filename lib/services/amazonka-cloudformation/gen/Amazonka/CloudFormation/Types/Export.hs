@@ -92,6 +92,14 @@ instance Core.FromXML Export where
       Prelude.<*> (x Core..@? "ExportingStackId")
       Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable Export
+instance Prelude.Hashable Export where
+  hashWithSalt _salt Export' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` exportingStackId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Export
+instance Prelude.NFData Export where
+  rnf Export' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf exportingStackId
+      `Prelude.seq` Prelude.rnf name

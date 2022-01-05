@@ -97,7 +97,20 @@ instance
 instance
   Prelude.Hashable
     CustomArtifactConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    CustomArtifactConfigurationDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` mavenReferenceDescription
+        `Prelude.hashWithSalt` s3ContentLocationDescription
+        `Prelude.hashWithSalt` artifactType
 
 instance
   Prelude.NFData
     CustomArtifactConfigurationDescription
+  where
+  rnf CustomArtifactConfigurationDescription' {..} =
+    Prelude.rnf mavenReferenceDescription
+      `Prelude.seq` Prelude.rnf s3ContentLocationDescription
+      `Prelude.seq` Prelude.rnf artifactType

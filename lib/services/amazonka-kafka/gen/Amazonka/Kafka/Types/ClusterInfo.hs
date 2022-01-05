@@ -259,6 +259,44 @@ instance Core.FromJSON ClusterInfo where
             Prelude.<*> (x Core..:? "encryptionInfo")
       )
 
-instance Prelude.Hashable ClusterInfo
+instance Prelude.Hashable ClusterInfo where
+  hashWithSalt _salt ClusterInfo' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` activeOperationArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` numberOfBrokerNodes
+      `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` brokerNodeGroupInfo
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` currentBrokerSoftwareInfo
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` stateInfo
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` zookeeperConnectString
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` zookeeperConnectStringTls
+      `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` encryptionInfo
 
-instance Prelude.NFData ClusterInfo
+instance Prelude.NFData ClusterInfo where
+  rnf ClusterInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf activeOperationArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
+      `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf stateInfo
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf zookeeperConnectString
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf zookeeperConnectStringTls
+      `Prelude.seq` Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encryptionInfo

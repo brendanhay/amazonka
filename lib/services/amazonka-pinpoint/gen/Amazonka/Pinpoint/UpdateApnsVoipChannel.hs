@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateApnsVoipChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApnsVoipChannel
+instance Prelude.Hashable UpdateApnsVoipChannel where
+  hashWithSalt _salt UpdateApnsVoipChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` aPNSVoipChannelRequest
 
-instance Prelude.NFData UpdateApnsVoipChannel
+instance Prelude.NFData UpdateApnsVoipChannel where
+  rnf UpdateApnsVoipChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf aPNSVoipChannelRequest
 
 instance Core.ToHeaders UpdateApnsVoipChannel where
   toHeaders =
@@ -186,4 +192,7 @@ updateApnsVoipChannelResponse_httpStatus = Lens.lens (\UpdateApnsVoipChannelResp
 updateApnsVoipChannelResponse_aPNSVoipChannelResponse :: Lens.Lens' UpdateApnsVoipChannelResponse APNSVoipChannelResponse
 updateApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\UpdateApnsVoipChannelResponse' {aPNSVoipChannelResponse} -> aPNSVoipChannelResponse) (\s@UpdateApnsVoipChannelResponse' {} a -> s {aPNSVoipChannelResponse = a} :: UpdateApnsVoipChannelResponse)
 
-instance Prelude.NFData UpdateApnsVoipChannelResponse
+instance Prelude.NFData UpdateApnsVoipChannelResponse where
+  rnf UpdateApnsVoipChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSVoipChannelResponse

@@ -74,10 +74,18 @@ instance
 instance
   Prelude.Hashable
     ServerSideEncryptionConfiguration
+  where
+  hashWithSalt
+    _salt
+    ServerSideEncryptionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     ServerSideEncryptionConfiguration
+  where
+  rnf ServerSideEncryptionConfiguration' {..} =
+    Prelude.rnf kmsKeyId
 
 instance
   Core.ToJSON

@@ -85,9 +85,17 @@ instance Core.FromJSON Field where
             Prelude.<*> (x Core..: "key")
       )
 
-instance Prelude.Hashable Field
+instance Prelude.Hashable Field where
+  hashWithSalt _salt Field' {..} =
+    _salt `Prelude.hashWithSalt` refValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData Field
+instance Prelude.NFData Field where
+  rnf Field' {..} =
+    Prelude.rnf refValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON Field where
   toJSON Field' {..} =

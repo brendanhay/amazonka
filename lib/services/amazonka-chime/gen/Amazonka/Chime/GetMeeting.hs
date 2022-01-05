@@ -87,9 +87,12 @@ instance Core.AWSRequest GetMeeting where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMeeting
+instance Prelude.Hashable GetMeeting where
+  hashWithSalt _salt GetMeeting' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
 
-instance Prelude.NFData GetMeeting
+instance Prelude.NFData GetMeeting where
+  rnf GetMeeting' {..} = Prelude.rnf meetingId
 
 instance Core.ToHeaders GetMeeting where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +142,7 @@ getMeetingResponse_meeting = Lens.lens (\GetMeetingResponse' {meeting} -> meetin
 getMeetingResponse_httpStatus :: Lens.Lens' GetMeetingResponse Prelude.Int
 getMeetingResponse_httpStatus = Lens.lens (\GetMeetingResponse' {httpStatus} -> httpStatus) (\s@GetMeetingResponse' {} a -> s {httpStatus = a} :: GetMeetingResponse)
 
-instance Prelude.NFData GetMeetingResponse
+instance Prelude.NFData GetMeetingResponse where
+  rnf GetMeetingResponse' {..} =
+    Prelude.rnf meeting
+      `Prelude.seq` Prelude.rnf httpStatus

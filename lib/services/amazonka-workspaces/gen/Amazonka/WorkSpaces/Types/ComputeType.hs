@@ -56,9 +56,12 @@ instance Core.FromJSON ComputeType where
       "ComputeType"
       (\x -> ComputeType' Prelude.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable ComputeType
+instance Prelude.Hashable ComputeType where
+  hashWithSalt _salt ComputeType' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ComputeType
+instance Prelude.NFData ComputeType where
+  rnf ComputeType' {..} = Prelude.rnf name
 
 instance Core.ToJSON ComputeType where
   toJSON ComputeType' {..} =

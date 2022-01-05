@@ -156,9 +156,17 @@ instance Core.AWSRequest ImportApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportApi
+instance Prelude.Hashable ImportApi where
+  hashWithSalt _salt ImportApi' {..} =
+    _salt `Prelude.hashWithSalt` basepath
+      `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` body
 
-instance Prelude.NFData ImportApi
+instance Prelude.NFData ImportApi where
+  rnf ImportApi' {..} =
+    Prelude.rnf basepath
+      `Prelude.seq` Prelude.rnf failOnWarnings
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToHeaders ImportApi where
   toHeaders =
@@ -409,4 +417,22 @@ importApiResponse_tags = Lens.lens (\ImportApiResponse' {tags} -> tags) (\s@Impo
 importApiResponse_httpStatus :: Lens.Lens' ImportApiResponse Prelude.Int
 importApiResponse_httpStatus = Lens.lens (\ImportApiResponse' {httpStatus} -> httpStatus) (\s@ImportApiResponse' {} a -> s {httpStatus = a} :: ImportApiResponse)
 
-instance Prelude.NFData ImportApiResponse
+instance Prelude.NFData ImportApiResponse where
+  rnf ImportApiResponse' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf apiEndpoint
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf importInfo
+      `Prelude.seq` Prelude.rnf disableSchemaValidation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

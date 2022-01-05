@@ -143,9 +143,17 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheSecurityGroup
+instance Prelude.Hashable CreateCacheSecurityGroup where
+  hashWithSalt _salt CreateCacheSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cacheSecurityGroupName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateCacheSecurityGroup
+instance Prelude.NFData CreateCacheSecurityGroup where
+  rnf CreateCacheSecurityGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cacheSecurityGroupName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateCacheSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,3 +217,7 @@ createCacheSecurityGroupResponse_httpStatus = Lens.lens (\CreateCacheSecurityGro
 instance
   Prelude.NFData
     CreateCacheSecurityGroupResponse
+  where
+  rnf CreateCacheSecurityGroupResponse' {..} =
+    Prelude.rnf cacheSecurityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

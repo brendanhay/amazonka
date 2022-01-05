@@ -53,9 +53,12 @@ newCellInput = CellInput' {fact = Prelude.Nothing}
 cellInput_fact :: Lens.Lens' CellInput (Prelude.Maybe Prelude.Text)
 cellInput_fact = Lens.lens (\CellInput' {fact} -> fact) (\s@CellInput' {} a -> s {fact = a} :: CellInput) Prelude.. Lens.mapping Core._Sensitive
 
-instance Prelude.Hashable CellInput
+instance Prelude.Hashable CellInput where
+  hashWithSalt _salt CellInput' {..} =
+    _salt `Prelude.hashWithSalt` fact
 
-instance Prelude.NFData CellInput
+instance Prelude.NFData CellInput where
+  rnf CellInput' {..} = Prelude.rnf fact
 
 instance Core.ToJSON CellInput where
   toJSON CellInput' {..} =

@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     TimeBasedAutoScalingConfiguration
+  where
+  hashWithSalt
+    _salt
+    TimeBasedAutoScalingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` autoScalingSchedule
 
 instance
   Prelude.NFData
     TimeBasedAutoScalingConfiguration
+  where
+  rnf TimeBasedAutoScalingConfiguration' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf autoScalingSchedule

@@ -62,9 +62,15 @@ sortCriterion_sort = Lens.lens (\SortCriterion' {sort} -> sort) (\s@SortCriterio
 sortCriterion_fieldName :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
 sortCriterion_fieldName = Lens.lens (\SortCriterion' {fieldName} -> fieldName) (\s@SortCriterion' {} a -> s {fieldName = a} :: SortCriterion)
 
-instance Prelude.Hashable SortCriterion
+instance Prelude.Hashable SortCriterion where
+  hashWithSalt _salt SortCriterion' {..} =
+    _salt `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` fieldName
 
-instance Prelude.NFData SortCriterion
+instance Prelude.NFData SortCriterion where
+  rnf SortCriterion' {..} =
+    Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf fieldName
 
 instance Core.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =

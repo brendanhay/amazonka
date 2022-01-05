@@ -229,6 +229,28 @@ instance Core.FromJSON BGPPeer where
             Prelude.<*> (x Core..:? "awsDeviceV2")
       )
 
-instance Prelude.Hashable BGPPeer
+instance Prelude.Hashable BGPPeer where
+  hashWithSalt _salt BGPPeer' {..} =
+    _salt `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` bgpStatus
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` bgpPeerId
+      `Prelude.hashWithSalt` bgpPeerState
+      `Prelude.hashWithSalt` awsDeviceV2
 
-instance Prelude.NFData BGPPeer
+instance Prelude.NFData BGPPeer where
+  rnf BGPPeer' {..} =
+    Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf bgpStatus
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf bgpPeerId
+      `Prelude.seq` Prelude.rnf bgpPeerState
+      `Prelude.seq` Prelude.rnf awsDeviceV2

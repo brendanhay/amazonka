@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeSecurityPolicy where
             Prelude.<*> (x Core..:> "SecurityPolicy")
       )
 
-instance Prelude.Hashable DescribeSecurityPolicy
+instance Prelude.Hashable DescribeSecurityPolicy where
+  hashWithSalt _salt DescribeSecurityPolicy' {..} =
+    _salt `Prelude.hashWithSalt` securityPolicyName
 
-instance Prelude.NFData DescribeSecurityPolicy
+instance Prelude.NFData DescribeSecurityPolicy where
+  rnf DescribeSecurityPolicy' {..} =
+    Prelude.rnf securityPolicyName
 
 instance Core.ToHeaders DescribeSecurityPolicy where
   toHeaders =
@@ -176,3 +180,7 @@ describeSecurityPolicyResponse_securityPolicy = Lens.lens (\DescribeSecurityPoli
 instance
   Prelude.NFData
     DescribeSecurityPolicyResponse
+  where
+  rnf DescribeSecurityPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityPolicy

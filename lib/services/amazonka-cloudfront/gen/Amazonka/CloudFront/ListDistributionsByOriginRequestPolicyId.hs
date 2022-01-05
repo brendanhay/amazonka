@@ -141,10 +141,22 @@ instance
 instance
   Prelude.Hashable
     ListDistributionsByOriginRequestPolicyId
+  where
+  hashWithSalt
+    _salt
+    ListDistributionsByOriginRequestPolicyId' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` originRequestPolicyId
 
 instance
   Prelude.NFData
     ListDistributionsByOriginRequestPolicyId
+  where
+  rnf ListDistributionsByOriginRequestPolicyId' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf originRequestPolicyId
 
 instance
   Core.ToHeaders
@@ -215,3 +227,8 @@ listDistributionsByOriginRequestPolicyIdResponse_httpStatus = Lens.lens (\ListDi
 instance
   Prelude.NFData
     ListDistributionsByOriginRequestPolicyIdResponse
+  where
+  rnf
+    ListDistributionsByOriginRequestPolicyIdResponse' {..} =
+      Prelude.rnf distributionIdList
+        `Prelude.seq` Prelude.rnf httpStatus

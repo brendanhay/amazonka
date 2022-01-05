@@ -75,9 +75,15 @@ instance Core.FromXML RedirectAllRequestsTo where
       Prelude.<$> (x Core..@? "Protocol")
       Prelude.<*> (x Core..@ "HostName")
 
-instance Prelude.Hashable RedirectAllRequestsTo
+instance Prelude.Hashable RedirectAllRequestsTo where
+  hashWithSalt _salt RedirectAllRequestsTo' {..} =
+    _salt `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` hostName
 
-instance Prelude.NFData RedirectAllRequestsTo
+instance Prelude.NFData RedirectAllRequestsTo where
+  rnf RedirectAllRequestsTo' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf hostName
 
 instance Core.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =

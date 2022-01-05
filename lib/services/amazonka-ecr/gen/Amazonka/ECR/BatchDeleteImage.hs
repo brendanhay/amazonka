@@ -133,9 +133,17 @@ instance Core.AWSRequest BatchDeleteImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteImage
+instance Prelude.Hashable BatchDeleteImage where
+  hashWithSalt _salt BatchDeleteImage' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageIds
 
-instance Prelude.NFData BatchDeleteImage
+instance Prelude.NFData BatchDeleteImage where
+  rnf BatchDeleteImage' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageIds
 
 instance Core.ToHeaders BatchDeleteImage where
   toHeaders =
@@ -217,4 +225,8 @@ batchDeleteImageResponse_imageIds = Lens.lens (\BatchDeleteImageResponse' {image
 batchDeleteImageResponse_httpStatus :: Lens.Lens' BatchDeleteImageResponse Prelude.Int
 batchDeleteImageResponse_httpStatus = Lens.lens (\BatchDeleteImageResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteImageResponse' {} a -> s {httpStatus = a} :: BatchDeleteImageResponse)
 
-instance Prelude.NFData BatchDeleteImageResponse
+instance Prelude.NFData BatchDeleteImageResponse where
+  rnf BatchDeleteImageResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf imageIds
+      `Prelude.seq` Prelude.rnf httpStatus

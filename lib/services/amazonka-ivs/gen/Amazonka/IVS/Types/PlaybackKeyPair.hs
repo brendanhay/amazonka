@@ -91,6 +91,16 @@ instance Core.FromJSON PlaybackKeyPair where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PlaybackKeyPair
+instance Prelude.Hashable PlaybackKeyPair where
+  hashWithSalt _salt PlaybackKeyPair' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` fingerprint
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData PlaybackKeyPair
+instance Prelude.NFData PlaybackKeyPair where
+  rnf PlaybackKeyPair' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

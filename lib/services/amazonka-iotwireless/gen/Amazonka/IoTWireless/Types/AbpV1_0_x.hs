@@ -72,9 +72,15 @@ instance Core.FromJSON AbpV1_0_x where
             Prelude.<*> (x Core..:? "SessionKeys")
       )
 
-instance Prelude.Hashable AbpV1_0_x
+instance Prelude.Hashable AbpV1_0_x where
+  hashWithSalt _salt AbpV1_0_x' {..} =
+    _salt `Prelude.hashWithSalt` devAddr
+      `Prelude.hashWithSalt` sessionKeys
 
-instance Prelude.NFData AbpV1_0_x
+instance Prelude.NFData AbpV1_0_x where
+  rnf AbpV1_0_x' {..} =
+    Prelude.rnf devAddr
+      `Prelude.seq` Prelude.rnf sessionKeys
 
 instance Core.ToJSON AbpV1_0_x where
   toJSON AbpV1_0_x' {..} =

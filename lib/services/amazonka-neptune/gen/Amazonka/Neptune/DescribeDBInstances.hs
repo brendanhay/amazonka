@@ -239,9 +239,19 @@ instance Core.AWSRequest DescribeDBInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBInstances
+instance Prelude.Hashable DescribeDBInstances where
+  hashWithSalt _salt DescribeDBInstances' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeDBInstances
+instance Prelude.NFData DescribeDBInstances where
+  rnf DescribeDBInstances' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeDBInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,4 +328,8 @@ describeDBInstancesResponse_marker = Lens.lens (\DescribeDBInstancesResponse' {m
 describeDBInstancesResponse_httpStatus :: Lens.Lens' DescribeDBInstancesResponse Prelude.Int
 describeDBInstancesResponse_httpStatus = Lens.lens (\DescribeDBInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBInstancesResponse' {} a -> s {httpStatus = a} :: DescribeDBInstancesResponse)
 
-instance Prelude.NFData DescribeDBInstancesResponse
+instance Prelude.NFData DescribeDBInstancesResponse where
+  rnf DescribeDBInstancesResponse' {..} =
+    Prelude.rnf dbInstances
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

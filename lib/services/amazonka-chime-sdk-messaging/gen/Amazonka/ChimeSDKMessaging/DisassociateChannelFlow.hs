@@ -114,9 +114,17 @@ instance Core.AWSRequest DisassociateChannelFlow where
     Response.receiveNull
       DisassociateChannelFlowResponse'
 
-instance Prelude.Hashable DisassociateChannelFlow
+instance Prelude.Hashable DisassociateChannelFlow where
+  hashWithSalt _salt DisassociateChannelFlow' {..} =
+    _salt `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData DisassociateChannelFlow
+instance Prelude.NFData DisassociateChannelFlow where
+  rnf DisassociateChannelFlow' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf channelFlowArn
+      `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Core.ToHeaders DisassociateChannelFlow where
   toHeaders DisassociateChannelFlow' {..} =
@@ -153,3 +161,5 @@ newDisassociateChannelFlowResponse =
 instance
   Prelude.NFData
     DisassociateChannelFlowResponse
+  where
+  rnf _ = ()

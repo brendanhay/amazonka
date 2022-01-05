@@ -69,9 +69,13 @@ instance Core.FromJSON TtmlDestinationSettings where
             Prelude.<$> (x Core..:? "styleControl")
       )
 
-instance Prelude.Hashable TtmlDestinationSettings
+instance Prelude.Hashable TtmlDestinationSettings where
+  hashWithSalt _salt TtmlDestinationSettings' {..} =
+    _salt `Prelude.hashWithSalt` styleControl
 
-instance Prelude.NFData TtmlDestinationSettings
+instance Prelude.NFData TtmlDestinationSettings where
+  rnf TtmlDestinationSettings' {..} =
+    Prelude.rnf styleControl
 
 instance Core.ToJSON TtmlDestinationSettings where
   toJSON TtmlDestinationSettings' {..} =

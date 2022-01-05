@@ -71,6 +71,12 @@ instance Core.FromXML AnalysisSchemeStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable AnalysisSchemeStatus
+instance Prelude.Hashable AnalysisSchemeStatus where
+  hashWithSalt _salt AnalysisSchemeStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AnalysisSchemeStatus
+instance Prelude.NFData AnalysisSchemeStatus where
+  rnf AnalysisSchemeStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

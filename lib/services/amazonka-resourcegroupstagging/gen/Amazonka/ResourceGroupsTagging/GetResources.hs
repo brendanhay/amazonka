@@ -488,9 +488,27 @@ instance Core.AWSRequest GetResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResources
+instance Prelude.Hashable GetResources where
+  hashWithSalt _salt GetResources' {..} =
+    _salt `Prelude.hashWithSalt` paginationToken
+      `Prelude.hashWithSalt` resourcesPerPage
+      `Prelude.hashWithSalt` excludeCompliantResources
+      `Prelude.hashWithSalt` includeComplianceDetails
+      `Prelude.hashWithSalt` resourceTypeFilters
+      `Prelude.hashWithSalt` tagFilters
+      `Prelude.hashWithSalt` resourceARNList
+      `Prelude.hashWithSalt` tagsPerPage
 
-instance Prelude.NFData GetResources
+instance Prelude.NFData GetResources where
+  rnf GetResources' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf resourcesPerPage
+      `Prelude.seq` Prelude.rnf excludeCompliantResources
+      `Prelude.seq` Prelude.rnf includeComplianceDetails
+      `Prelude.seq` Prelude.rnf resourceTypeFilters
+      `Prelude.seq` Prelude.rnf tagFilters
+      `Prelude.seq` Prelude.rnf resourceARNList
+      `Prelude.seq` Prelude.rnf tagsPerPage
 
 instance Core.ToHeaders GetResources where
   toHeaders =
@@ -594,4 +612,8 @@ getResourcesResponse_resourceTagMappingList = Lens.lens (\GetResourcesResponse' 
 getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Prelude.Int
 getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus} -> httpStatus) (\s@GetResourcesResponse' {} a -> s {httpStatus = a} :: GetResourcesResponse)
 
-instance Prelude.NFData GetResourcesResponse
+instance Prelude.NFData GetResourcesResponse where
+  rnf GetResourcesResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf resourceTagMappingList
+      `Prelude.seq` Prelude.rnf httpStatus

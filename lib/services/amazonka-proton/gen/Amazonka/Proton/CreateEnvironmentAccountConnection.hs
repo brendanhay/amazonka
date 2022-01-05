@@ -171,10 +171,24 @@ instance
 instance
   Prelude.Hashable
     CreateEnvironmentAccountConnection
+  where
+  hashWithSalt
+    _salt
+    CreateEnvironmentAccountConnection' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` managementAccountId
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CreateEnvironmentAccountConnection
+  where
+  rnf CreateEnvironmentAccountConnection' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf managementAccountId
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -272,3 +286,7 @@ createEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.l
 instance
   Prelude.NFData
     CreateEnvironmentAccountConnectionResponse
+  where
+  rnf CreateEnvironmentAccountConnectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentAccountConnection

@@ -323,9 +323,19 @@ instance Core.FromJSON S3DataSource where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable S3DataSource
+instance Prelude.Hashable S3DataSource where
+  hashWithSalt _salt S3DataSource' {..} =
+    _salt `Prelude.hashWithSalt` s3DataDistributionType
+      `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` s3DataType
+      `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData S3DataSource
+instance Prelude.NFData S3DataSource where
+  rnf S3DataSource' {..} =
+    Prelude.rnf s3DataDistributionType
+      `Prelude.seq` Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf s3DataType
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =

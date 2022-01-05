@@ -264,7 +264,39 @@ instance
 instance
   Prelude.Hashable
     ExtendedS3DestinationDescription
+  where
+  hashWithSalt
+    _salt
+    ExtendedS3DestinationDescription' {..} =
+      _salt `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` s3BackupDescription
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` errorOutputPrefix
+        `Prelude.hashWithSalt` dynamicPartitioningConfiguration
+        `Prelude.hashWithSalt` dataFormatConversionConfiguration
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` bucketARN
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` compressionFormat
+        `Prelude.hashWithSalt` encryptionConfiguration
 
 instance
   Prelude.NFData
     ExtendedS3DestinationDescription
+  where
+  rnf ExtendedS3DestinationDescription' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf s3BackupDescription
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf errorOutputPrefix
+      `Prelude.seq` Prelude.rnf dynamicPartitioningConfiguration
+      `Prelude.seq` Prelude.rnf dataFormatConversionConfiguration
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf compressionFormat
+      `Prelude.seq` Prelude.rnf encryptionConfiguration

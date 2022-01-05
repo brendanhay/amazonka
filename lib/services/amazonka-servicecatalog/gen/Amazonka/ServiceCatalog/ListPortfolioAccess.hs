@@ -162,9 +162,21 @@ instance Core.AWSRequest ListPortfolioAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPortfolioAccess
+instance Prelude.Hashable ListPortfolioAccess where
+  hashWithSalt _salt ListPortfolioAccess' {..} =
+    _salt `Prelude.hashWithSalt` organizationParentId
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` portfolioId
 
-instance Prelude.NFData ListPortfolioAccess
+instance Prelude.NFData ListPortfolioAccess where
+  rnf ListPortfolioAccess' {..} =
+    Prelude.rnf organizationParentId
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf portfolioId
 
 instance Core.ToHeaders ListPortfolioAccess where
   toHeaders =
@@ -252,4 +264,8 @@ listPortfolioAccessResponse_accountIds = Lens.lens (\ListPortfolioAccessResponse
 listPortfolioAccessResponse_httpStatus :: Lens.Lens' ListPortfolioAccessResponse Prelude.Int
 listPortfolioAccessResponse_httpStatus = Lens.lens (\ListPortfolioAccessResponse' {httpStatus} -> httpStatus) (\s@ListPortfolioAccessResponse' {} a -> s {httpStatus = a} :: ListPortfolioAccessResponse)
 
-instance Prelude.NFData ListPortfolioAccessResponse
+instance Prelude.NFData ListPortfolioAccessResponse where
+  rnf ListPortfolioAccessResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf httpStatus

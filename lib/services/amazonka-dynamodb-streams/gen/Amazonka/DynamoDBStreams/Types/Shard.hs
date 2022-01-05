@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.Shard where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.SequenceNumberRange
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -82,6 +83,14 @@ instance Core.FromJSON Shard where
             Prelude.<*> (x Core..:? "ShardId")
       )
 
-instance Prelude.Hashable Shard
+instance Prelude.Hashable Shard where
+  hashWithSalt _salt Shard' {..} =
+    _salt `Prelude.hashWithSalt` parentShardId
+      `Prelude.hashWithSalt` sequenceNumberRange
+      `Prelude.hashWithSalt` shardId
 
-instance Prelude.NFData Shard
+instance Prelude.NFData Shard where
+  rnf Shard' {..} =
+    Prelude.rnf parentShardId
+      `Prelude.seq` Prelude.rnf sequenceNumberRange
+      `Prelude.seq` Prelude.rnf shardId

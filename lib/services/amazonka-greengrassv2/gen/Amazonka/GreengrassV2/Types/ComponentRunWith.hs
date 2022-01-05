@@ -121,9 +121,15 @@ instance Core.FromJSON ComponentRunWith where
             Prelude.<*> (x Core..:? "systemResourceLimits")
       )
 
-instance Prelude.Hashable ComponentRunWith
+instance Prelude.Hashable ComponentRunWith where
+  hashWithSalt _salt ComponentRunWith' {..} =
+    _salt `Prelude.hashWithSalt` posixUser
+      `Prelude.hashWithSalt` systemResourceLimits
 
-instance Prelude.NFData ComponentRunWith
+instance Prelude.NFData ComponentRunWith where
+  rnf ComponentRunWith' {..} =
+    Prelude.rnf posixUser
+      `Prelude.seq` Prelude.rnf systemResourceLimits
 
 instance Core.ToJSON ComponentRunWith where
   toJSON ComponentRunWith' {..} =

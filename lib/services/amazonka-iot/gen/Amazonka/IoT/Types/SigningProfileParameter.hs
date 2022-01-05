@@ -82,9 +82,17 @@ instance Core.FromJSON SigningProfileParameter where
             Prelude.<*> (x Core..:? "certificatePathOnDevice")
       )
 
-instance Prelude.Hashable SigningProfileParameter
+instance Prelude.Hashable SigningProfileParameter where
+  hashWithSalt _salt SigningProfileParameter' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificatePathOnDevice
 
-instance Prelude.NFData SigningProfileParameter
+instance Prelude.NFData SigningProfileParameter where
+  rnf SigningProfileParameter' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificatePathOnDevice
 
 instance Core.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =

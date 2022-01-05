@@ -230,9 +230,21 @@ instance Core.AWSRequest CreateInstanceEventWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstanceEventWindow
+instance Prelude.Hashable CreateInstanceEventWindow where
+  hashWithSalt _salt CreateInstanceEventWindow' {..} =
+    _salt `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` timeRanges
 
-instance Prelude.NFData CreateInstanceEventWindow
+instance Prelude.NFData CreateInstanceEventWindow where
+  rnf CreateInstanceEventWindow' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf timeRanges
 
 instance Core.ToHeaders CreateInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,3 +314,7 @@ createInstanceEventWindowResponse_httpStatus = Lens.lens (\CreateInstanceEventWi
 instance
   Prelude.NFData
     CreateInstanceEventWindowResponse
+  where
+  rnf CreateInstanceEventWindowResponse' {..} =
+    Prelude.rnf instanceEventWindow
+      `Prelude.seq` Prelude.rnf httpStatus

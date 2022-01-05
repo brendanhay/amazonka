@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeUserPoolClient where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserPoolClient
+instance Prelude.Hashable DescribeUserPoolClient where
+  hashWithSalt _salt DescribeUserPoolClient' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData DescribeUserPoolClient
+instance Prelude.NFData DescribeUserPoolClient where
+  rnf DescribeUserPoolClient' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToHeaders DescribeUserPoolClient where
   toHeaders =
@@ -185,3 +191,7 @@ describeUserPoolClientResponse_httpStatus = Lens.lens (\DescribeUserPoolClientRe
 instance
   Prelude.NFData
     DescribeUserPoolClientResponse
+  where
+  rnf DescribeUserPoolClientResponse' {..} =
+    Prelude.rnf userPoolClient
+      `Prelude.seq` Prelude.rnf httpStatus

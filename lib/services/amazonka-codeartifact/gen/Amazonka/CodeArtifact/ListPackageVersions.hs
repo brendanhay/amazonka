@@ -318,9 +318,31 @@ instance Core.AWSRequest ListPackageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackageVersions
+instance Prelude.Hashable ListPackageVersions where
+  hashWithSalt _salt ListPackageVersions' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
 
-instance Prelude.NFData ListPackageVersions
+instance Prelude.NFData ListPackageVersions where
+  rnf ListPackageVersions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
 
 instance Core.ToHeaders ListPackageVersions where
   toHeaders =
@@ -513,4 +535,12 @@ listPackageVersionsResponse_defaultDisplayVersion = Lens.lens (\ListPackageVersi
 listPackageVersionsResponse_httpStatus :: Lens.Lens' ListPackageVersionsResponse Prelude.Int
 listPackageVersionsResponse_httpStatus = Lens.lens (\ListPackageVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPackageVersionsResponse' {} a -> s {httpStatus = a} :: ListPackageVersionsResponse)
 
-instance Prelude.NFData ListPackageVersionsResponse
+instance Prelude.NFData ListPackageVersionsResponse where
+  rnf ListPackageVersionsResponse' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf defaultDisplayVersion
+      `Prelude.seq` Prelude.rnf httpStatus

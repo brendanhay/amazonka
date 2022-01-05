@@ -1385,9 +1385,41 @@ instance Core.FromJSON VideoParameters where
             Prelude.<*> (x Core..:? "CodecOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VideoParameters
+instance Prelude.Hashable VideoParameters where
+  hashWithSalt _salt VideoParameters' {..} =
+    _salt `Prelude.hashWithSalt` keyframesMaxDist
+      `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` sizingPolicy
+      `Prelude.hashWithSalt` maxFrameRate
+      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` watermarks
+      `Prelude.hashWithSalt` displayAspectRatio
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` aspectRatio
+      `Prelude.hashWithSalt` paddingPolicy
+      `Prelude.hashWithSalt` maxWidth
+      `Prelude.hashWithSalt` bitRate
+      `Prelude.hashWithSalt` fixedGOP
+      `Prelude.hashWithSalt` codecOptions
 
-instance Prelude.NFData VideoParameters
+instance Prelude.NFData VideoParameters where
+  rnf VideoParameters' {..} =
+    Prelude.rnf keyframesMaxDist
+      `Prelude.seq` Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf sizingPolicy
+      `Prelude.seq` Prelude.rnf maxFrameRate
+      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf watermarks
+      `Prelude.seq` Prelude.rnf displayAspectRatio
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf aspectRatio
+      `Prelude.seq` Prelude.rnf paddingPolicy
+      `Prelude.seq` Prelude.rnf maxWidth
+      `Prelude.seq` Prelude.rnf bitRate
+      `Prelude.seq` Prelude.rnf fixedGOP
+      `Prelude.seq` Prelude.rnf codecOptions
 
 instance Core.ToJSON VideoParameters where
   toJSON VideoParameters' {..} =

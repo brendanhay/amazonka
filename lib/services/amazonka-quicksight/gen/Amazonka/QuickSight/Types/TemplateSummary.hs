@@ -117,6 +117,20 @@ instance Core.FromJSON TemplateSummary where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable TemplateSummary
+instance Prelude.Hashable TemplateSummary where
+  hashWithSalt _salt TemplateSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` latestVersionNumber
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TemplateSummary
+instance Prelude.NFData TemplateSummary where
+  rnf TemplateSummary' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf latestVersionNumber
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf name

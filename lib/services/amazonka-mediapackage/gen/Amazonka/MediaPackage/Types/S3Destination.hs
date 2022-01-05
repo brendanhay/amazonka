@@ -91,9 +91,17 @@ instance Core.FromJSON S3Destination where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable S3Destination
+instance Prelude.Hashable S3Destination where
+  hashWithSalt _salt S3Destination' {..} =
+    _salt `Prelude.hashWithSalt` manifestKey
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData S3Destination
+instance Prelude.NFData S3Destination where
+  rnf S3Destination' {..} =
+    Prelude.rnf manifestKey
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON S3Destination where
   toJSON S3Destination' {..} =

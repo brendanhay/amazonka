@@ -68,9 +68,14 @@ parameterValue_value = Lens.lens (\ParameterValue' {value} -> value) (\s@Paramet
 parameterValue_name :: Lens.Lens' ParameterValue Prelude.Text
 parameterValue_name = Lens.lens (\ParameterValue' {name} -> name) (\s@ParameterValue' {} a -> s {name = a} :: ParameterValue)
 
-instance Prelude.Hashable ParameterValue
+instance Prelude.Hashable ParameterValue where
+  hashWithSalt _salt ParameterValue' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ParameterValue
+instance Prelude.NFData ParameterValue where
+  rnf ParameterValue' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ParameterValue where
   toJSON ParameterValue' {..} =

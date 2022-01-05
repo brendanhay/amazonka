@@ -96,9 +96,15 @@ instance Core.AWSRequest PutBackupPolicy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutBackupPolicy
+instance Prelude.Hashable PutBackupPolicy where
+  hashWithSalt _salt PutBackupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` backupPolicy
 
-instance Prelude.NFData PutBackupPolicy
+instance Prelude.NFData PutBackupPolicy where
+  rnf PutBackupPolicy' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf backupPolicy
 
 instance Core.ToHeaders PutBackupPolicy where
   toHeaders = Prelude.const Prelude.mempty

@@ -143,9 +143,12 @@ instance Core.AWSRequest RecognizeCelebrities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RecognizeCelebrities
+instance Prelude.Hashable RecognizeCelebrities where
+  hashWithSalt _salt RecognizeCelebrities' {..} =
+    _salt `Prelude.hashWithSalt` image
 
-instance Prelude.NFData RecognizeCelebrities
+instance Prelude.NFData RecognizeCelebrities where
+  rnf RecognizeCelebrities' {..} = Prelude.rnf image
 
 instance Core.ToHeaders RecognizeCelebrities where
   toHeaders =
@@ -292,4 +295,9 @@ recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritie
 recognizeCelebritiesResponse_httpStatus :: Lens.Lens' RecognizeCelebritiesResponse Prelude.Int
 recognizeCelebritiesResponse_httpStatus = Lens.lens (\RecognizeCelebritiesResponse' {httpStatus} -> httpStatus) (\s@RecognizeCelebritiesResponse' {} a -> s {httpStatus = a} :: RecognizeCelebritiesResponse)
 
-instance Prelude.NFData RecognizeCelebritiesResponse
+instance Prelude.NFData RecognizeCelebritiesResponse where
+  rnf RecognizeCelebritiesResponse' {..} =
+    Prelude.rnf celebrityFaces
+      `Prelude.seq` Prelude.rnf orientationCorrection
+      `Prelude.seq` Prelude.rnf unrecognizedFaces
+      `Prelude.seq` Prelude.rnf httpStatus

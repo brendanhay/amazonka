@@ -98,9 +98,20 @@ instance Core.FromJSON MultiplexSettings where
             Prelude.<*> (x Core..: "transportStreamId")
       )
 
-instance Prelude.Hashable MultiplexSettings
+instance Prelude.Hashable MultiplexSettings where
+  hashWithSalt _salt MultiplexSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` maximumVideoBufferDelayMilliseconds
+      `Prelude.hashWithSalt` transportStreamReservedBitrate
+      `Prelude.hashWithSalt` transportStreamBitrate
+      `Prelude.hashWithSalt` transportStreamId
 
-instance Prelude.NFData MultiplexSettings
+instance Prelude.NFData MultiplexSettings where
+  rnf MultiplexSettings' {..} =
+    Prelude.rnf maximumVideoBufferDelayMilliseconds
+      `Prelude.seq` Prelude.rnf transportStreamReservedBitrate
+      `Prelude.seq` Prelude.rnf transportStreamBitrate
+      `Prelude.seq` Prelude.rnf transportStreamId
 
 instance Core.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =

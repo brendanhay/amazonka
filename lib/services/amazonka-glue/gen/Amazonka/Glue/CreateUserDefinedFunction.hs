@@ -117,9 +117,17 @@ instance Core.AWSRequest CreateUserDefinedFunction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserDefinedFunction
+instance Prelude.Hashable CreateUserDefinedFunction where
+  hashWithSalt _salt CreateUserDefinedFunction' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` functionInput
 
-instance Prelude.NFData CreateUserDefinedFunction
+instance Prelude.NFData CreateUserDefinedFunction where
+  rnf CreateUserDefinedFunction' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf functionInput
 
 instance Core.ToHeaders CreateUserDefinedFunction where
   toHeaders =
@@ -186,3 +194,6 @@ createUserDefinedFunctionResponse_httpStatus = Lens.lens (\CreateUserDefinedFunc
 instance
   Prelude.NFData
     CreateUserDefinedFunctionResponse
+  where
+  rnf CreateUserDefinedFunctionResponse' {..} =
+    Prelude.rnf httpStatus

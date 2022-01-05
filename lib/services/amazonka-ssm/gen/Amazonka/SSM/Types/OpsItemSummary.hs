@@ -255,6 +255,42 @@ instance Core.FromJSON OpsItemSummary where
             Prelude.<*> (x Core..:? "PlannedStartTime")
       )
 
-instance Prelude.Hashable OpsItemSummary
+instance Prelude.Hashable OpsItemSummary where
+  hashWithSalt _salt OpsItemSummary' {..} =
+    _salt `Prelude.hashWithSalt` actualEndTime
+      `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` opsItemType
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` operationalData
+      `Prelude.hashWithSalt` actualStartTime
+      `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` plannedStartTime
 
-instance Prelude.NFData OpsItemSummary
+instance Prelude.NFData OpsItemSummary where
+  rnf OpsItemSummary' {..} =
+    Prelude.rnf actualEndTime
+      `Prelude.seq` Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf opsItemType
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf operationalData
+      `Prelude.seq` Prelude.rnf actualStartTime
+      `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf plannedStartTime

@@ -70,8 +70,14 @@ instance Core.FromJSON TlsValidationContextAcmTrust where
 instance
   Prelude.Hashable
     TlsValidationContextAcmTrust
+  where
+  hashWithSalt _salt TlsValidationContextAcmTrust' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArns
 
-instance Prelude.NFData TlsValidationContextAcmTrust
+instance Prelude.NFData TlsValidationContextAcmTrust where
+  rnf TlsValidationContextAcmTrust' {..} =
+    Prelude.rnf certificateAuthorityArns
 
 instance Core.ToJSON TlsValidationContextAcmTrust where
   toJSON TlsValidationContextAcmTrust' {..} =

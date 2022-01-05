@@ -198,9 +198,23 @@ instance Core.AWSRequest DescribeWorkspaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkspaces
+instance Prelude.Hashable DescribeWorkspaces where
+  hashWithSalt _salt DescribeWorkspaces' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` workspaceIds
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeWorkspaces
+instance Prelude.NFData DescribeWorkspaces where
+  rnf DescribeWorkspaces' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf workspaceIds
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeWorkspaces where
   toHeaders =
@@ -296,4 +310,8 @@ describeWorkspacesResponse_workspaces = Lens.lens (\DescribeWorkspacesResponse' 
 describeWorkspacesResponse_httpStatus :: Lens.Lens' DescribeWorkspacesResponse Prelude.Int
 describeWorkspacesResponse_httpStatus = Lens.lens (\DescribeWorkspacesResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspacesResponse' {} a -> s {httpStatus = a} :: DescribeWorkspacesResponse)
 
-instance Prelude.NFData DescribeWorkspacesResponse
+instance Prelude.NFData DescribeWorkspacesResponse where
+  rnf DescribeWorkspacesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workspaces
+      `Prelude.seq` Prelude.rnf httpStatus

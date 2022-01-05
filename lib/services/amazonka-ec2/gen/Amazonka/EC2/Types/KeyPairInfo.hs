@@ -150,6 +150,18 @@ instance Core.FromXML KeyPairInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable KeyPairInfo
+instance Prelude.Hashable KeyPairInfo where
+  hashWithSalt _salt KeyPairInfo' {..} =
+    _salt `Prelude.hashWithSalt` keyFingerprint
+      `Prelude.hashWithSalt` keyType
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` keyPairId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData KeyPairInfo
+instance Prelude.NFData KeyPairInfo where
+  rnf KeyPairInfo' {..} =
+    Prelude.rnf keyFingerprint
+      `Prelude.seq` Prelude.rnf keyType
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf keyPairId
+      `Prelude.seq` Prelude.rnf tags

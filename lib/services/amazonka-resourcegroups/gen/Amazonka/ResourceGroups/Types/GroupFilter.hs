@@ -70,9 +70,14 @@ groupFilter_name = Lens.lens (\GroupFilter' {name} -> name) (\s@GroupFilter' {} 
 groupFilter_values :: Lens.Lens' GroupFilter (Prelude.NonEmpty Prelude.Text)
 groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilter' {} a -> s {values = a} :: GroupFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable GroupFilter
+instance Prelude.Hashable GroupFilter where
+  hashWithSalt _salt GroupFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData GroupFilter
+instance Prelude.NFData GroupFilter where
+  rnf GroupFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON GroupFilter where
   toJSON GroupFilter' {..} =

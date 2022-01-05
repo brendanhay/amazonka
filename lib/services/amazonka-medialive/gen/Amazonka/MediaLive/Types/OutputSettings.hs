@@ -132,9 +132,28 @@ instance Core.FromJSON OutputSettings where
             Prelude.<*> (x Core..:? "msSmoothOutputSettings")
       )
 
-instance Prelude.Hashable OutputSettings
+instance Prelude.Hashable OutputSettings where
+  hashWithSalt _salt OutputSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` multiplexOutputSettings
+      `Prelude.hashWithSalt` archiveOutputSettings
+      `Prelude.hashWithSalt` rtmpOutputSettings
+      `Prelude.hashWithSalt` mediaPackageOutputSettings
+      `Prelude.hashWithSalt` hlsOutputSettings
+      `Prelude.hashWithSalt` frameCaptureOutputSettings
+      `Prelude.hashWithSalt` udpOutputSettings
+      `Prelude.hashWithSalt` msSmoothOutputSettings
 
-instance Prelude.NFData OutputSettings
+instance Prelude.NFData OutputSettings where
+  rnf OutputSettings' {..} =
+    Prelude.rnf multiplexOutputSettings
+      `Prelude.seq` Prelude.rnf archiveOutputSettings
+      `Prelude.seq` Prelude.rnf rtmpOutputSettings
+      `Prelude.seq` Prelude.rnf mediaPackageOutputSettings
+      `Prelude.seq` Prelude.rnf hlsOutputSettings
+      `Prelude.seq` Prelude.rnf frameCaptureOutputSettings
+      `Prelude.seq` Prelude.rnf udpOutputSettings
+      `Prelude.seq` Prelude.rnf msSmoothOutputSettings
 
 instance Core.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =

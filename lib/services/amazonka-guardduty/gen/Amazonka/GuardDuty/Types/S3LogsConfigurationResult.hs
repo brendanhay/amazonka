@@ -65,6 +65,10 @@ instance Core.FromJSON S3LogsConfigurationResult where
             Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable S3LogsConfigurationResult
+instance Prelude.Hashable S3LogsConfigurationResult where
+  hashWithSalt _salt S3LogsConfigurationResult' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData S3LogsConfigurationResult
+instance Prelude.NFData S3LogsConfigurationResult where
+  rnf S3LogsConfigurationResult' {..} =
+    Prelude.rnf status

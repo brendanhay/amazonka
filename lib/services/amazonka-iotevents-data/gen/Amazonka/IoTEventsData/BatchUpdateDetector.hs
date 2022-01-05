@@ -95,9 +95,12 @@ instance Core.AWSRequest BatchUpdateDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdateDetector
+instance Prelude.Hashable BatchUpdateDetector where
+  hashWithSalt _salt BatchUpdateDetector' {..} =
+    _salt `Prelude.hashWithSalt` detectors
 
-instance Prelude.NFData BatchUpdateDetector
+instance Prelude.NFData BatchUpdateDetector where
+  rnf BatchUpdateDetector' {..} = Prelude.rnf detectors
 
 instance Core.ToHeaders BatchUpdateDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +160,7 @@ batchUpdateDetectorResponse_batchUpdateDetectorErrorEntries = Lens.lens (\BatchU
 batchUpdateDetectorResponse_httpStatus :: Lens.Lens' BatchUpdateDetectorResponse Prelude.Int
 batchUpdateDetectorResponse_httpStatus = Lens.lens (\BatchUpdateDetectorResponse' {httpStatus} -> httpStatus) (\s@BatchUpdateDetectorResponse' {} a -> s {httpStatus = a} :: BatchUpdateDetectorResponse)
 
-instance Prelude.NFData BatchUpdateDetectorResponse
+instance Prelude.NFData BatchUpdateDetectorResponse where
+  rnf BatchUpdateDetectorResponse' {..} =
+    Prelude.rnf batchUpdateDetectorErrorEntries
+      `Prelude.seq` Prelude.rnf httpStatus

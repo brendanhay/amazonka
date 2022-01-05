@@ -205,9 +205,19 @@ instance Core.AWSRequest GetSampledRequests where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSampledRequests
+instance Prelude.Hashable GetSampledRequests where
+  hashWithSalt _salt GetSampledRequests' {..} =
+    _salt `Prelude.hashWithSalt` webAclId
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` timeWindow
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData GetSampledRequests
+instance Prelude.NFData GetSampledRequests where
+  rnf GetSampledRequests' {..} =
+    Prelude.rnf webAclId
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf timeWindow
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders GetSampledRequests where
   toHeaders =
@@ -322,4 +332,9 @@ getSampledRequestsResponse_timeWindow = Lens.lens (\GetSampledRequestsResponse' 
 getSampledRequestsResponse_httpStatus :: Lens.Lens' GetSampledRequestsResponse Prelude.Int
 getSampledRequestsResponse_httpStatus = Lens.lens (\GetSampledRequestsResponse' {httpStatus} -> httpStatus) (\s@GetSampledRequestsResponse' {} a -> s {httpStatus = a} :: GetSampledRequestsResponse)
 
-instance Prelude.NFData GetSampledRequestsResponse
+instance Prelude.NFData GetSampledRequestsResponse where
+  rnf GetSampledRequestsResponse' {..} =
+    Prelude.rnf sampledRequests
+      `Prelude.seq` Prelude.rnf populationSize
+      `Prelude.seq` Prelude.rnf timeWindow
+      `Prelude.seq` Prelude.rnf httpStatus

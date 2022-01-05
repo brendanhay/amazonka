@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdateThingShadow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThingShadow
+instance Prelude.Hashable UpdateThingShadow where
+  hashWithSalt _salt UpdateThingShadow' {..} =
+    _salt `Prelude.hashWithSalt` shadowName
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData UpdateThingShadow
+instance Prelude.NFData UpdateThingShadow where
+  rnf UpdateThingShadow' {..} =
+    Prelude.rnf shadowName
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf payload
 
 instance Core.ToBody UpdateThingShadow where
   toBody UpdateThingShadow' {..} = Core.toBody payload
@@ -180,4 +188,7 @@ updateThingShadowResponse_payload = Lens.lens (\UpdateThingShadowResponse' {payl
 updateThingShadowResponse_httpStatus :: Lens.Lens' UpdateThingShadowResponse Prelude.Int
 updateThingShadowResponse_httpStatus = Lens.lens (\UpdateThingShadowResponse' {httpStatus} -> httpStatus) (\s@UpdateThingShadowResponse' {} a -> s {httpStatus = a} :: UpdateThingShadowResponse)
 
-instance Prelude.NFData UpdateThingShadowResponse
+instance Prelude.NFData UpdateThingShadowResponse where
+  rnf UpdateThingShadowResponse' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf httpStatus

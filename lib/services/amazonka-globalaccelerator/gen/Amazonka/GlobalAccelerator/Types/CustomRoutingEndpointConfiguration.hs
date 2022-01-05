@@ -60,10 +60,18 @@ customRoutingEndpointConfiguration_endpointId = Lens.lens (\CustomRoutingEndpoin
 instance
   Prelude.Hashable
     CustomRoutingEndpointConfiguration
+  where
+  hashWithSalt
+    _salt
+    CustomRoutingEndpointConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` endpointId
 
 instance
   Prelude.NFData
     CustomRoutingEndpointConfiguration
+  where
+  rnf CustomRoutingEndpointConfiguration' {..} =
+    Prelude.rnf endpointId
 
 instance
   Core.ToJSON

@@ -155,10 +155,24 @@ instance
 instance
   Prelude.Hashable
     ListDistributionsByRealtimeLogConfig
+  where
+  hashWithSalt
+    _salt
+    ListDistributionsByRealtimeLogConfig' {..} =
+      _salt `Prelude.hashWithSalt` realtimeLogConfigName
+        `Prelude.hashWithSalt` realtimeLogConfigArn
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
 
 instance
   Prelude.NFData
     ListDistributionsByRealtimeLogConfig
+  where
+  rnf ListDistributionsByRealtimeLogConfig' {..} =
+    Prelude.rnf realtimeLogConfigName
+      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance
   Core.ToElement
@@ -243,3 +257,7 @@ listDistributionsByRealtimeLogConfigResponse_httpStatus = Lens.lens (\ListDistri
 instance
   Prelude.NFData
     ListDistributionsByRealtimeLogConfigResponse
+  where
+  rnf ListDistributionsByRealtimeLogConfigResponse' {..} =
+    Prelude.rnf distributionList
+      `Prelude.seq` Prelude.rnf httpStatus

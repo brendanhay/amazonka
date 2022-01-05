@@ -164,9 +164,21 @@ instance Core.AWSRequest ListLayerVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLayerVersions
+instance Prelude.Hashable ListLayerVersions where
+  hashWithSalt _salt ListLayerVersions' {..} =
+    _salt `Prelude.hashWithSalt` compatibleRuntime
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` compatibleArchitecture
+      `Prelude.hashWithSalt` layerName
 
-instance Prelude.NFData ListLayerVersions
+instance Prelude.NFData ListLayerVersions where
+  rnf ListLayerVersions' {..} =
+    Prelude.rnf compatibleRuntime
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf compatibleArchitecture
+      `Prelude.seq` Prelude.rnf layerName
 
 instance Core.ToHeaders ListLayerVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,4 +252,8 @@ listLayerVersionsResponse_nextMarker = Lens.lens (\ListLayerVersionsResponse' {n
 listLayerVersionsResponse_httpStatus :: Lens.Lens' ListLayerVersionsResponse Prelude.Int
 listLayerVersionsResponse_httpStatus = Lens.lens (\ListLayerVersionsResponse' {httpStatus} -> httpStatus) (\s@ListLayerVersionsResponse' {} a -> s {httpStatus = a} :: ListLayerVersionsResponse)
 
-instance Prelude.NFData ListLayerVersionsResponse
+instance Prelude.NFData ListLayerVersionsResponse where
+  rnf ListLayerVersionsResponse' {..} =
+    Prelude.rnf layerVersions
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

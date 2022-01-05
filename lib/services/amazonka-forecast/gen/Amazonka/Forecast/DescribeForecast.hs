@@ -118,9 +118,12 @@ instance Core.AWSRequest DescribeForecast where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeForecast
+instance Prelude.Hashable DescribeForecast where
+  hashWithSalt _salt DescribeForecast' {..} =
+    _salt `Prelude.hashWithSalt` forecastArn
 
-instance Prelude.NFData DescribeForecast
+instance Prelude.NFData DescribeForecast where
+  rnf DescribeForecast' {..} = Prelude.rnf forecastArn
 
 instance Core.ToHeaders DescribeForecast where
   toHeaders =
@@ -342,4 +345,16 @@ describeForecastResponse_lastModificationTime = Lens.lens (\DescribeForecastResp
 describeForecastResponse_httpStatus :: Lens.Lens' DescribeForecastResponse Prelude.Int
 describeForecastResponse_httpStatus = Lens.lens (\DescribeForecastResponse' {httpStatus} -> httpStatus) (\s@DescribeForecastResponse' {} a -> s {httpStatus = a} :: DescribeForecastResponse)
 
-instance Prelude.NFData DescribeForecastResponse
+instance Prelude.NFData DescribeForecastResponse where
+  rnf DescribeForecastResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf predictorArn
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf forecastName
+      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf httpStatus

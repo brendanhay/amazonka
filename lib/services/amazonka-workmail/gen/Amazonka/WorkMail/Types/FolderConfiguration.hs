@@ -91,9 +91,17 @@ instance Core.FromJSON FolderConfiguration where
             Prelude.<*> (x Core..: "Action")
       )
 
-instance Prelude.Hashable FolderConfiguration
+instance Prelude.Hashable FolderConfiguration where
+  hashWithSalt _salt FolderConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData FolderConfiguration
+instance Prelude.NFData FolderConfiguration where
+  rnf FolderConfiguration' {..} =
+    Prelude.rnf period
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =

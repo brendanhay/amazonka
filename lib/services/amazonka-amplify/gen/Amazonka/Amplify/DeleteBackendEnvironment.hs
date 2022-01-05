@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteBackendEnvironment where
             Prelude.<*> (x Core..:> "backendEnvironment")
       )
 
-instance Prelude.Hashable DeleteBackendEnvironment
+instance Prelude.Hashable DeleteBackendEnvironment where
+  hashWithSalt _salt DeleteBackendEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData DeleteBackendEnvironment
+instance Prelude.NFData DeleteBackendEnvironment where
+  rnf DeleteBackendEnvironment' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Core.ToHeaders DeleteBackendEnvironment where
   toHeaders =
@@ -177,3 +183,7 @@ deleteBackendEnvironmentResponse_backendEnvironment = Lens.lens (\DeleteBackendE
 instance
   Prelude.NFData
     DeleteBackendEnvironmentResponse
+  where
+  rnf DeleteBackendEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironment

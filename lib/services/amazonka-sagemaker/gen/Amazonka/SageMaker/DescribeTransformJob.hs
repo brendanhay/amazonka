@@ -127,9 +127,13 @@ instance Core.AWSRequest DescribeTransformJob where
             Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeTransformJob
+instance Prelude.Hashable DescribeTransformJob where
+  hashWithSalt _salt DescribeTransformJob' {..} =
+    _salt `Prelude.hashWithSalt` transformJobName
 
-instance Prelude.NFData DescribeTransformJob
+instance Prelude.NFData DescribeTransformJob where
+  rnf DescribeTransformJob' {..} =
+    Prelude.rnf transformJobName
 
 instance Core.ToHeaders DescribeTransformJob where
   toHeaders =
@@ -455,4 +459,26 @@ describeTransformJobResponse_transformResources = Lens.lens (\DescribeTransformJ
 describeTransformJobResponse_creationTime :: Lens.Lens' DescribeTransformJobResponse Prelude.UTCTime
 describeTransformJobResponse_creationTime = Lens.lens (\DescribeTransformJobResponse' {creationTime} -> creationTime) (\s@DescribeTransformJobResponse' {} a -> s {creationTime = a} :: DescribeTransformJobResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeTransformJobResponse
+instance Prelude.NFData DescribeTransformJobResponse where
+  rnf DescribeTransformJobResponse' {..} =
+    Prelude.rnf labelingJobArn
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf modelClientConfig
+      `Prelude.seq` Prelude.rnf batchStrategy
+      `Prelude.seq` Prelude.rnf maxPayloadInMB
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf transformEndTime
+      `Prelude.seq` Prelude.rnf transformStartTime
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf maxConcurrentTransforms
+      `Prelude.seq` Prelude.rnf transformOutput
+      `Prelude.seq` Prelude.rnf dataProcessing
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transformJobName
+      `Prelude.seq` Prelude.rnf transformJobArn
+      `Prelude.seq` Prelude.rnf transformJobStatus
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf transformInput
+      `Prelude.seq` Prelude.rnf transformResources
+      `Prelude.seq` Prelude.rnf creationTime

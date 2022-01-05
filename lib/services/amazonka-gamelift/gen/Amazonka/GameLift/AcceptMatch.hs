@@ -150,9 +150,17 @@ instance Core.AWSRequest AcceptMatch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptMatch
+instance Prelude.Hashable AcceptMatch where
+  hashWithSalt _salt AcceptMatch' {..} =
+    _salt `Prelude.hashWithSalt` ticketId
+      `Prelude.hashWithSalt` playerIds
+      `Prelude.hashWithSalt` acceptanceType
 
-instance Prelude.NFData AcceptMatch
+instance Prelude.NFData AcceptMatch where
+  rnf AcceptMatch' {..} =
+    Prelude.rnf ticketId
+      `Prelude.seq` Prelude.rnf playerIds
+      `Prelude.seq` Prelude.rnf acceptanceType
 
 instance Core.ToHeaders AcceptMatch where
   toHeaders =
@@ -211,4 +219,5 @@ newAcceptMatchResponse pHttpStatus_ =
 acceptMatchResponse_httpStatus :: Lens.Lens' AcceptMatchResponse Prelude.Int
 acceptMatchResponse_httpStatus = Lens.lens (\AcceptMatchResponse' {httpStatus} -> httpStatus) (\s@AcceptMatchResponse' {} a -> s {httpStatus = a} :: AcceptMatchResponse)
 
-instance Prelude.NFData AcceptMatchResponse
+instance Prelude.NFData AcceptMatchResponse where
+  rnf AcceptMatchResponse' {..} = Prelude.rnf httpStatus

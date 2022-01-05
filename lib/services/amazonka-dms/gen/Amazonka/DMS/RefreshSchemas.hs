@@ -109,9 +109,15 @@ instance Core.AWSRequest RefreshSchemas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RefreshSchemas
+instance Prelude.Hashable RefreshSchemas where
+  hashWithSalt _salt RefreshSchemas' {..} =
+    _salt `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` replicationInstanceArn
 
-instance Prelude.NFData RefreshSchemas
+instance Prelude.NFData RefreshSchemas where
+  rnf RefreshSchemas' {..} =
+    Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
 
 instance Core.ToHeaders RefreshSchemas where
   toHeaders =
@@ -187,4 +193,7 @@ refreshSchemasResponse_refreshSchemasStatus = Lens.lens (\RefreshSchemasResponse
 refreshSchemasResponse_httpStatus :: Lens.Lens' RefreshSchemasResponse Prelude.Int
 refreshSchemasResponse_httpStatus = Lens.lens (\RefreshSchemasResponse' {httpStatus} -> httpStatus) (\s@RefreshSchemasResponse' {} a -> s {httpStatus = a} :: RefreshSchemasResponse)
 
-instance Prelude.NFData RefreshSchemasResponse
+instance Prelude.NFData RefreshSchemasResponse where
+  rnf RefreshSchemasResponse' {..} =
+    Prelude.rnf refreshSchemasStatus
+      `Prelude.seq` Prelude.rnf httpStatus

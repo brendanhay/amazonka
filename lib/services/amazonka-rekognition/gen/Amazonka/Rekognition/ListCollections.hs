@@ -140,9 +140,15 @@ instance Core.AWSRequest ListCollections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCollections
+instance Prelude.Hashable ListCollections where
+  hashWithSalt _salt ListCollections' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListCollections
+instance Prelude.NFData ListCollections where
+  rnf ListCollections' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCollections where
   toHeaders =
@@ -246,4 +252,9 @@ listCollectionsResponse_faceModelVersions = Lens.lens (\ListCollectionsResponse'
 listCollectionsResponse_httpStatus :: Lens.Lens' ListCollectionsResponse Prelude.Int
 listCollectionsResponse_httpStatus = Lens.lens (\ListCollectionsResponse' {httpStatus} -> httpStatus) (\s@ListCollectionsResponse' {} a -> s {httpStatus = a} :: ListCollectionsResponse)
 
-instance Prelude.NFData ListCollectionsResponse
+instance Prelude.NFData ListCollectionsResponse where
+  rnf ListCollectionsResponse' {..} =
+    Prelude.rnf collectionIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf faceModelVersions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,9 +120,15 @@ instance Core.AWSRequest GetBucketLocation where
             Prelude.<*> (Core.parseXML x)
       )
 
-instance Prelude.Hashable GetBucketLocation
+instance Prelude.Hashable GetBucketLocation where
+  hashWithSalt _salt GetBucketLocation' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetBucketLocation
+instance Prelude.NFData GetBucketLocation where
+  rnf GetBucketLocation' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketLocation where
   toHeaders GetBucketLocation' {..} =
@@ -191,4 +197,7 @@ getBucketLocationResponse_httpStatus = Lens.lens (\GetBucketLocationResponse' {h
 getBucketLocationResponse_locationConstraint :: Lens.Lens' GetBucketLocationResponse LocationConstraint
 getBucketLocationResponse_locationConstraint = Lens.lens (\GetBucketLocationResponse' {locationConstraint} -> locationConstraint) (\s@GetBucketLocationResponse' {} a -> s {locationConstraint = a} :: GetBucketLocationResponse)
 
-instance Prelude.NFData GetBucketLocationResponse
+instance Prelude.NFData GetBucketLocationResponse where
+  rnf GetBucketLocationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf locationConstraint

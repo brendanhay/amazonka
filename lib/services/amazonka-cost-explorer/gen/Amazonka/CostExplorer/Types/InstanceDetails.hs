@@ -123,6 +123,18 @@ instance Core.FromJSON InstanceDetails where
             Prelude.<*> (x Core..:? "RedshiftInstanceDetails")
       )
 
-instance Prelude.Hashable InstanceDetails
+instance Prelude.Hashable InstanceDetails where
+  hashWithSalt _salt InstanceDetails' {..} =
+    _salt `Prelude.hashWithSalt` eSInstanceDetails
+      `Prelude.hashWithSalt` rDSInstanceDetails
+      `Prelude.hashWithSalt` elastiCacheInstanceDetails
+      `Prelude.hashWithSalt` eC2InstanceDetails
+      `Prelude.hashWithSalt` redshiftInstanceDetails
 
-instance Prelude.NFData InstanceDetails
+instance Prelude.NFData InstanceDetails where
+  rnf InstanceDetails' {..} =
+    Prelude.rnf eSInstanceDetails
+      `Prelude.seq` Prelude.rnf rDSInstanceDetails
+      `Prelude.seq` Prelude.rnf elastiCacheInstanceDetails
+      `Prelude.seq` Prelude.rnf eC2InstanceDetails
+      `Prelude.seq` Prelude.rnf redshiftInstanceDetails

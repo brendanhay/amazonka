@@ -204,9 +204,23 @@ instance Core.AWSRequest CreateContactChannel where
             Prelude.<*> (x Core..:> "ContactChannelArn")
       )
 
-instance Prelude.Hashable CreateContactChannel
+instance Prelude.Hashable CreateContactChannel where
+  hashWithSalt _salt CreateContactChannel' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` deferActivation
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deliveryAddress
 
-instance Prelude.NFData CreateContactChannel
+instance Prelude.NFData CreateContactChannel where
+  rnf CreateContactChannel' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf deferActivation
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deliveryAddress
 
 instance Core.ToHeaders CreateContactChannel where
   toHeaders =
@@ -288,4 +302,7 @@ createContactChannelResponse_httpStatus = Lens.lens (\CreateContactChannelRespon
 createContactChannelResponse_contactChannelArn :: Lens.Lens' CreateContactChannelResponse Prelude.Text
 createContactChannelResponse_contactChannelArn = Lens.lens (\CreateContactChannelResponse' {contactChannelArn} -> contactChannelArn) (\s@CreateContactChannelResponse' {} a -> s {contactChannelArn = a} :: CreateContactChannelResponse)
 
-instance Prelude.NFData CreateContactChannelResponse
+instance Prelude.NFData CreateContactChannelResponse where
+  rnf CreateContactChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contactChannelArn

@@ -73,9 +73,14 @@ instance Core.FromJSON ComponentParameter where
             Prelude.<*> (x Core..:? "value" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ComponentParameter
+instance Prelude.Hashable ComponentParameter where
+  hashWithSalt _salt ComponentParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ComponentParameter
+instance Prelude.NFData ComponentParameter where
+  rnf ComponentParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ComponentParameter where
   toJSON ComponentParameter' {..} =

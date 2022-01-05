@@ -113,9 +113,13 @@ newAutoSnapshotAddOnRequest =
 autoSnapshotAddOnRequest_snapshotTimeOfDay :: Lens.Lens' AutoSnapshotAddOnRequest (Prelude.Maybe Prelude.Text)
 autoSnapshotAddOnRequest_snapshotTimeOfDay = Lens.lens (\AutoSnapshotAddOnRequest' {snapshotTimeOfDay} -> snapshotTimeOfDay) (\s@AutoSnapshotAddOnRequest' {} a -> s {snapshotTimeOfDay = a} :: AutoSnapshotAddOnRequest)
 
-instance Prelude.Hashable AutoSnapshotAddOnRequest
+instance Prelude.Hashable AutoSnapshotAddOnRequest where
+  hashWithSalt _salt AutoSnapshotAddOnRequest' {..} =
+    _salt `Prelude.hashWithSalt` snapshotTimeOfDay
 
-instance Prelude.NFData AutoSnapshotAddOnRequest
+instance Prelude.NFData AutoSnapshotAddOnRequest where
+  rnf AutoSnapshotAddOnRequest' {..} =
+    Prelude.rnf snapshotTimeOfDay
 
 instance Core.ToJSON AutoSnapshotAddOnRequest where
   toJSON AutoSnapshotAddOnRequest' {..} =

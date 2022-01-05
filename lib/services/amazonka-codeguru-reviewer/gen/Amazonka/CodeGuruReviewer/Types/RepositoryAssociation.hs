@@ -327,6 +327,32 @@ instance Core.FromJSON RepositoryAssociation where
             Prelude.<*> (x Core..:? "LastUpdatedTimeStamp")
       )
 
-instance Prelude.Hashable RepositoryAssociation
+instance Prelude.Hashable RepositoryAssociation where
+  hashWithSalt _salt RepositoryAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationArn
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` s3RepositoryDetails
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKeyDetails
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` createdTimeStamp
+      `Prelude.hashWithSalt` lastUpdatedTimeStamp
 
-instance Prelude.NFData RepositoryAssociation
+instance Prelude.NFData RepositoryAssociation where
+  rnf RepositoryAssociation' {..} =
+    Prelude.rnf associationArn
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf s3RepositoryDetails
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyDetails
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp

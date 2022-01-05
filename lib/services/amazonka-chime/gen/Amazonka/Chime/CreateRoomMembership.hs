@@ -127,9 +127,19 @@ instance Core.AWSRequest CreateRoomMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoomMembership
+instance Prelude.Hashable CreateRoomMembership where
+  hashWithSalt _salt CreateRoomMembership' {..} =
+    _salt `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData CreateRoomMembership
+instance Prelude.NFData CreateRoomMembership where
+  rnf CreateRoomMembership' {..} =
+    Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf roomId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders CreateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,7 @@ createRoomMembershipResponse_roomMembership = Lens.lens (\CreateRoomMembershipRe
 createRoomMembershipResponse_httpStatus :: Lens.Lens' CreateRoomMembershipResponse Prelude.Int
 createRoomMembershipResponse_httpStatus = Lens.lens (\CreateRoomMembershipResponse' {httpStatus} -> httpStatus) (\s@CreateRoomMembershipResponse' {} a -> s {httpStatus = a} :: CreateRoomMembershipResponse)
 
-instance Prelude.NFData CreateRoomMembershipResponse
+instance Prelude.NFData CreateRoomMembershipResponse where
+  rnf CreateRoomMembershipResponse' {..} =
+    Prelude.rnf roomMembership
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -160,9 +160,17 @@ instance Core.FromXML LambdaFunctionAssociation where
       Prelude.<*> (x Core..@ "LambdaFunctionARN")
       Prelude.<*> (x Core..@ "EventType")
 
-instance Prelude.Hashable LambdaFunctionAssociation
+instance Prelude.Hashable LambdaFunctionAssociation where
+  hashWithSalt _salt LambdaFunctionAssociation' {..} =
+    _salt `Prelude.hashWithSalt` includeBody
+      `Prelude.hashWithSalt` lambdaFunctionARN
+      `Prelude.hashWithSalt` eventType
 
-instance Prelude.NFData LambdaFunctionAssociation
+instance Prelude.NFData LambdaFunctionAssociation where
+  rnf LambdaFunctionAssociation' {..} =
+    Prelude.rnf includeBody
+      `Prelude.seq` Prelude.rnf lambdaFunctionARN
+      `Prelude.seq` Prelude.rnf eventType
 
 instance Core.ToXML LambdaFunctionAssociation where
   toXML LambdaFunctionAssociation' {..} =

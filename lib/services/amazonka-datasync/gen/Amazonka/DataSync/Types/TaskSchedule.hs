@@ -69,9 +69,13 @@ instance Core.FromJSON TaskSchedule where
             Prelude.<$> (x Core..: "ScheduleExpression")
       )
 
-instance Prelude.Hashable TaskSchedule
+instance Prelude.Hashable TaskSchedule where
+  hashWithSalt _salt TaskSchedule' {..} =
+    _salt `Prelude.hashWithSalt` scheduleExpression
 
-instance Prelude.NFData TaskSchedule
+instance Prelude.NFData TaskSchedule where
+  rnf TaskSchedule' {..} =
+    Prelude.rnf scheduleExpression
 
 instance Core.ToJSON TaskSchedule where
   toJSON TaskSchedule' {..} =

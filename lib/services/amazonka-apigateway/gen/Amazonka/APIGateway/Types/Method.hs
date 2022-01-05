@@ -389,6 +389,30 @@ instance Core.FromJSON Method where
             Prelude.<*> (x Core..:? "methodIntegration")
       )
 
-instance Prelude.Hashable Method
+instance Prelude.Hashable Method where
+  hashWithSalt _salt Method' {..} =
+    _salt `Prelude.hashWithSalt` methodResponses
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` authorizationScopes
+      `Prelude.hashWithSalt` requestValidatorId
+      `Prelude.hashWithSalt` requestModels
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` apiKeyRequired
+      `Prelude.hashWithSalt` methodIntegration
 
-instance Prelude.NFData Method
+instance Prelude.NFData Method where
+  rnf Method' {..} =
+    Prelude.rnf methodResponses
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf requestValidatorId
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf methodIntegration

@@ -286,9 +286,29 @@ instance Core.AWSRequest AddPermission where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddPermission
+instance Prelude.Hashable AddPermission where
+  hashWithSalt _salt AddPermission' {..} =
+    _salt `Prelude.hashWithSalt` sourceAccount
+      `Prelude.hashWithSalt` eventSourceToken
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData AddPermission
+instance Prelude.NFData AddPermission where
+  rnf AddPermission' {..} =
+    Prelude.rnf sourceAccount
+      `Prelude.seq` Prelude.rnf eventSourceToken
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf principal
 
 instance Core.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -358,4 +378,7 @@ addPermissionResponse_statement = Lens.lens (\AddPermissionResponse' {statement}
 addPermissionResponse_httpStatus :: Lens.Lens' AddPermissionResponse Prelude.Int
 addPermissionResponse_httpStatus = Lens.lens (\AddPermissionResponse' {httpStatus} -> httpStatus) (\s@AddPermissionResponse' {} a -> s {httpStatus = a} :: AddPermissionResponse)
 
-instance Prelude.NFData AddPermissionResponse
+instance Prelude.NFData AddPermissionResponse where
+  rnf AddPermissionResponse' {..} =
+    Prelude.rnf statement
+      `Prelude.seq` Prelude.rnf httpStatus

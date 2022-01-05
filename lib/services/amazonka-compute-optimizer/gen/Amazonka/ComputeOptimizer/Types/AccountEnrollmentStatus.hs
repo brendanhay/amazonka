@@ -108,6 +108,16 @@ instance Core.FromJSON AccountEnrollmentStatus where
             Prelude.<*> (x Core..:? "lastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable AccountEnrollmentStatus
+instance Prelude.Hashable AccountEnrollmentStatus where
+  hashWithSalt _salt AccountEnrollmentStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
-instance Prelude.NFData AccountEnrollmentStatus
+instance Prelude.NFData AccountEnrollmentStatus where
+  rnf AccountEnrollmentStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

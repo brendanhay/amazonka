@@ -124,9 +124,21 @@ instance Core.FromJSON VirtualNodeSpec where
             Prelude.<*> (x Core..:? "logging")
       )
 
-instance Prelude.Hashable VirtualNodeSpec
+instance Prelude.Hashable VirtualNodeSpec where
+  hashWithSalt _salt VirtualNodeSpec' {..} =
+    _salt `Prelude.hashWithSalt` backends
+      `Prelude.hashWithSalt` backendDefaults
+      `Prelude.hashWithSalt` serviceDiscovery
+      `Prelude.hashWithSalt` listeners
+      `Prelude.hashWithSalt` logging
 
-instance Prelude.NFData VirtualNodeSpec
+instance Prelude.NFData VirtualNodeSpec where
+  rnf VirtualNodeSpec' {..} =
+    Prelude.rnf backends
+      `Prelude.seq` Prelude.rnf backendDefaults
+      `Prelude.seq` Prelude.rnf serviceDiscovery
+      `Prelude.seq` Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf logging
 
 instance Core.ToJSON VirtualNodeSpec where
   toJSON VirtualNodeSpec' {..} =

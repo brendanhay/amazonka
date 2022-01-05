@@ -68,6 +68,13 @@ instance Core.FromXML ClusterAssociatedToSchedule where
       Prelude.<$> (x Core..@? "ScheduleAssociationState")
       Prelude.<*> (x Core..@? "ClusterIdentifier")
 
-instance Prelude.Hashable ClusterAssociatedToSchedule
+instance Prelude.Hashable ClusterAssociatedToSchedule where
+  hashWithSalt _salt ClusterAssociatedToSchedule' {..} =
+    _salt
+      `Prelude.hashWithSalt` scheduleAssociationState
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ClusterAssociatedToSchedule
+instance Prelude.NFData ClusterAssociatedToSchedule where
+  rnf ClusterAssociatedToSchedule' {..} =
+    Prelude.rnf scheduleAssociationState
+      `Prelude.seq` Prelude.rnf clusterIdentifier

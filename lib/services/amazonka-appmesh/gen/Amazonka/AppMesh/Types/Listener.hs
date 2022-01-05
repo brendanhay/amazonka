@@ -122,9 +122,23 @@ instance Core.FromJSON Listener where
             Prelude.<*> (x Core..: "portMapping")
       )
 
-instance Prelude.Hashable Listener
+instance Prelude.Hashable Listener where
+  hashWithSalt _salt Listener' {..} =
+    _salt `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` connectionPool
+      `Prelude.hashWithSalt` tls
+      `Prelude.hashWithSalt` outlierDetection
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` portMapping
 
-instance Prelude.NFData Listener
+instance Prelude.NFData Listener where
+  rnf Listener' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf connectionPool
+      `Prelude.seq` Prelude.rnf tls
+      `Prelude.seq` Prelude.rnf outlierDetection
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf portMapping
 
 instance Core.ToJSON Listener where
   toJSON Listener' {..} =

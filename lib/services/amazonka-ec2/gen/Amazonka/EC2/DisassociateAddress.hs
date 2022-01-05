@@ -116,9 +116,17 @@ instance Core.AWSRequest DisassociateAddress where
   response =
     Response.receiveNull DisassociateAddressResponse'
 
-instance Prelude.Hashable DisassociateAddress
+instance Prelude.Hashable DisassociateAddress where
+  hashWithSalt _salt DisassociateAddress' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisassociateAddress
+instance Prelude.NFData DisassociateAddress where
+  rnf DisassociateAddress' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DisassociateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,4 +161,5 @@ newDisassociateAddressResponse ::
 newDisassociateAddressResponse =
   DisassociateAddressResponse'
 
-instance Prelude.NFData DisassociateAddressResponse
+instance Prelude.NFData DisassociateAddressResponse where
+  rnf _ = ()

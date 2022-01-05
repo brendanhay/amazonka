@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -67,9 +68,15 @@ autoScalingPolicyUpdate_policyName = Lens.lens (\AutoScalingPolicyUpdate' {polic
 autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyUpdate AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration = Lens.lens (\AutoScalingPolicyUpdate' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@AutoScalingPolicyUpdate' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyUpdate)
 
-instance Prelude.Hashable AutoScalingPolicyUpdate
+instance Prelude.Hashable AutoScalingPolicyUpdate where
+  hashWithSalt _salt AutoScalingPolicyUpdate' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
 
-instance Prelude.NFData AutoScalingPolicyUpdate
+instance Prelude.NFData AutoScalingPolicyUpdate where
+  rnf AutoScalingPolicyUpdate' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
 
 instance Core.ToJSON AutoScalingPolicyUpdate where
   toJSON AutoScalingPolicyUpdate' {..} =

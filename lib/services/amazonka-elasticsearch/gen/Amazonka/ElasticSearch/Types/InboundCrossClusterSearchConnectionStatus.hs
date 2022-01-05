@@ -107,7 +107,17 @@ instance
 instance
   Prelude.Hashable
     InboundCrossClusterSearchConnectionStatus
+  where
+  hashWithSalt
+    _salt
+    InboundCrossClusterSearchConnectionStatus' {..} =
+      _salt `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` statusCode
 
 instance
   Prelude.NFData
     InboundCrossClusterSearchConnectionStatus
+  where
+  rnf InboundCrossClusterSearchConnectionStatus' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf statusCode

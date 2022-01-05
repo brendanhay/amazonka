@@ -185,10 +185,20 @@ instance
 instance
   Prelude.Hashable
     GenerateServiceLastAccessedDetails
+  where
+  hashWithSalt
+    _salt
+    GenerateServiceLastAccessedDetails' {..} =
+      _salt `Prelude.hashWithSalt` granularity
+        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     GenerateServiceLastAccessedDetails
+  where
+  rnf GenerateServiceLastAccessedDetails' {..} =
+    Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf arn
 
 instance
   Core.ToHeaders
@@ -273,3 +283,7 @@ generateServiceLastAccessedDetailsResponse_httpStatus = Lens.lens (\GenerateServ
 instance
   Prelude.NFData
     GenerateServiceLastAccessedDetailsResponse
+  where
+  rnf GenerateServiceLastAccessedDetailsResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

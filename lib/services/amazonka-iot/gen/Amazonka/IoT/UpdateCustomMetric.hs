@@ -120,9 +120,15 @@ instance Core.AWSRequest UpdateCustomMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCustomMetric
+instance Prelude.Hashable UpdateCustomMetric where
+  hashWithSalt _salt UpdateCustomMetric' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData UpdateCustomMetric
+instance Prelude.NFData UpdateCustomMetric where
+  rnf UpdateCustomMetric' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf displayName
 
 instance Core.ToHeaders UpdateCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,4 +238,12 @@ updateCustomMetricResponse_metricArn = Lens.lens (\UpdateCustomMetricResponse' {
 updateCustomMetricResponse_httpStatus :: Lens.Lens' UpdateCustomMetricResponse Prelude.Int
 updateCustomMetricResponse_httpStatus = Lens.lens (\UpdateCustomMetricResponse' {httpStatus} -> httpStatus) (\s@UpdateCustomMetricResponse' {} a -> s {httpStatus = a} :: UpdateCustomMetricResponse)
 
-instance Prelude.NFData UpdateCustomMetricResponse
+instance Prelude.NFData UpdateCustomMetricResponse where
+  rnf UpdateCustomMetricResponse' {..} =
+    Prelude.rnf metricType
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf metricArn
+      `Prelude.seq` Prelude.rnf httpStatus

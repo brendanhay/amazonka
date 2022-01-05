@@ -383,9 +383,23 @@ instance Core.FromJSON ActivatedRule where
             Prelude.<*> (x Core..: "RuleId")
       )
 
-instance Prelude.Hashable ActivatedRule
+instance Prelude.Hashable ActivatedRule where
+  hashWithSalt _salt ActivatedRule' {..} =
+    _salt `Prelude.hashWithSalt` overrideAction
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` excludedRules
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData ActivatedRule
+instance Prelude.NFData ActivatedRule where
+  rnf ActivatedRule' {..} =
+    Prelude.rnf overrideAction
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf excludedRules
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf ruleId
 
 instance Core.ToJSON ActivatedRule where
   toJSON ActivatedRule' {..} =

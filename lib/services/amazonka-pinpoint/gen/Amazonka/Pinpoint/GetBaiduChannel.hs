@@ -90,9 +90,12 @@ instance Core.AWSRequest GetBaiduChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetBaiduChannel
+instance Prelude.Hashable GetBaiduChannel where
+  hashWithSalt _salt GetBaiduChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetBaiduChannel
+instance Prelude.NFData GetBaiduChannel where
+  rnf GetBaiduChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetBaiduChannel where
   toHeaders =
@@ -157,4 +160,7 @@ getBaiduChannelResponse_httpStatus = Lens.lens (\GetBaiduChannelResponse' {httpS
 getBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' GetBaiduChannelResponse BaiduChannelResponse
 getBaiduChannelResponse_baiduChannelResponse = Lens.lens (\GetBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@GetBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: GetBaiduChannelResponse)
 
-instance Prelude.NFData GetBaiduChannelResponse
+instance Prelude.NFData GetBaiduChannelResponse where
+  rnf GetBaiduChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf baiduChannelResponse

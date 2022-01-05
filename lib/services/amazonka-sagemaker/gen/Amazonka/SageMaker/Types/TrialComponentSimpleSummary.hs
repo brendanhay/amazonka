@@ -102,6 +102,18 @@ instance Core.FromJSON TrialComponentSimpleSummary where
             Prelude.<*> (x Core..:? "TrialComponentSource")
       )
 
-instance Prelude.Hashable TrialComponentSimpleSummary
+instance Prelude.Hashable TrialComponentSimpleSummary where
+  hashWithSalt _salt TrialComponentSimpleSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` trialComponentName
+      `Prelude.hashWithSalt` trialComponentArn
+      `Prelude.hashWithSalt` trialComponentSource
 
-instance Prelude.NFData TrialComponentSimpleSummary
+instance Prelude.NFData TrialComponentSimpleSummary where
+  rnf TrialComponentSimpleSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf trialComponentSource

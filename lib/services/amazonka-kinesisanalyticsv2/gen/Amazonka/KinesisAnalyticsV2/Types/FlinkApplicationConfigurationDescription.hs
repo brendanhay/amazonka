@@ -135,7 +135,22 @@ instance
 instance
   Prelude.Hashable
     FlinkApplicationConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    FlinkApplicationConfigurationDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` monitoringConfigurationDescription
+        `Prelude.hashWithSalt` parallelismConfigurationDescription
+        `Prelude.hashWithSalt` checkpointConfigurationDescription
+        `Prelude.hashWithSalt` jobPlanDescription
 
 instance
   Prelude.NFData
     FlinkApplicationConfigurationDescription
+  where
+  rnf FlinkApplicationConfigurationDescription' {..} =
+    Prelude.rnf monitoringConfigurationDescription
+      `Prelude.seq` Prelude.rnf parallelismConfigurationDescription
+      `Prelude.seq` Prelude.rnf checkpointConfigurationDescription
+      `Prelude.seq` Prelude.rnf jobPlanDescription

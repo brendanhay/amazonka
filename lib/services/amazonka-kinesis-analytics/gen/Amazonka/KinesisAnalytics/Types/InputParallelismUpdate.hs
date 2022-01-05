@@ -56,9 +56,13 @@ newInputParallelismUpdate =
 inputParallelismUpdate_countUpdate :: Lens.Lens' InputParallelismUpdate (Prelude.Maybe Prelude.Natural)
 inputParallelismUpdate_countUpdate = Lens.lens (\InputParallelismUpdate' {countUpdate} -> countUpdate) (\s@InputParallelismUpdate' {} a -> s {countUpdate = a} :: InputParallelismUpdate)
 
-instance Prelude.Hashable InputParallelismUpdate
+instance Prelude.Hashable InputParallelismUpdate where
+  hashWithSalt _salt InputParallelismUpdate' {..} =
+    _salt `Prelude.hashWithSalt` countUpdate
 
-instance Prelude.NFData InputParallelismUpdate
+instance Prelude.NFData InputParallelismUpdate where
+  rnf InputParallelismUpdate' {..} =
+    Prelude.rnf countUpdate
 
 instance Core.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =

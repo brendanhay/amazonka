@@ -62,6 +62,9 @@ instance Core.FromJSON ResultSetMetadata where
             Prelude.<$> (x Core..:? "ColumnInfo" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResultSetMetadata
+instance Prelude.Hashable ResultSetMetadata where
+  hashWithSalt _salt ResultSetMetadata' {..} =
+    _salt `Prelude.hashWithSalt` columnInfo
 
-instance Prelude.NFData ResultSetMetadata
+instance Prelude.NFData ResultSetMetadata where
+  rnf ResultSetMetadata' {..} = Prelude.rnf columnInfo

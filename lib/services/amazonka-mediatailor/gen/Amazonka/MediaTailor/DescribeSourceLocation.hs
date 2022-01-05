@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeSourceLocation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSourceLocation
+instance Prelude.Hashable DescribeSourceLocation where
+  hashWithSalt _salt DescribeSourceLocation' {..} =
+    _salt `Prelude.hashWithSalt` sourceLocationName
 
-instance Prelude.NFData DescribeSourceLocation
+instance Prelude.NFData DescribeSourceLocation where
+  rnf DescribeSourceLocation' {..} =
+    Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders DescribeSourceLocation where
   toHeaders =
@@ -232,3 +236,14 @@ describeSourceLocationResponse_httpStatus = Lens.lens (\DescribeSourceLocationRe
 instance
   Prelude.NFData
     DescribeSourceLocationResponse
+  where
+  rnf DescribeSourceLocationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf accessConfiguration
+      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

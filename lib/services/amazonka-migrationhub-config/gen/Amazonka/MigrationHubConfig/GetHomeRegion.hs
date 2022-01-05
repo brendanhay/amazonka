@@ -75,9 +75,12 @@ instance Core.AWSRequest GetHomeRegion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetHomeRegion
+instance Prelude.Hashable GetHomeRegion where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetHomeRegion
+instance Prelude.NFData GetHomeRegion where
+  rnf _ = ()
 
 instance Core.ToHeaders GetHomeRegion where
   toHeaders =
@@ -142,4 +145,7 @@ getHomeRegionResponse_homeRegion = Lens.lens (\GetHomeRegionResponse' {homeRegio
 getHomeRegionResponse_httpStatus :: Lens.Lens' GetHomeRegionResponse Prelude.Int
 getHomeRegionResponse_httpStatus = Lens.lens (\GetHomeRegionResponse' {httpStatus} -> httpStatus) (\s@GetHomeRegionResponse' {} a -> s {httpStatus = a} :: GetHomeRegionResponse)
 
-instance Prelude.NFData GetHomeRegionResponse
+instance Prelude.NFData GetHomeRegionResponse where
+  rnf GetHomeRegionResponse' {..} =
+    Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf httpStatus

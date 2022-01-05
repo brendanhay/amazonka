@@ -162,6 +162,28 @@ instance Core.FromJSON ColumnInfo where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable ColumnInfo
+instance Prelude.Hashable ColumnInfo where
+  hashWithSalt _salt ColumnInfo' {..} =
+    _salt `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` catalogName
+      `Prelude.hashWithSalt` caseSensitive
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` nullable
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ColumnInfo
+instance Prelude.NFData ColumnInfo where
+  rnf ColumnInfo' {..} =
+    Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf catalogName
+      `Prelude.seq` Prelude.rnf caseSensitive
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf nullable
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

@@ -93,9 +93,15 @@ instance Core.FromJSON Parameters where
             Prelude.<*> (x Core..:? "ExcludeBootVolume")
       )
 
-instance Prelude.Hashable Parameters
+instance Prelude.Hashable Parameters where
+  hashWithSalt _salt Parameters' {..} =
+    _salt `Prelude.hashWithSalt` noReboot
+      `Prelude.hashWithSalt` excludeBootVolume
 
-instance Prelude.NFData Parameters
+instance Prelude.NFData Parameters where
+  rnf Parameters' {..} =
+    Prelude.rnf noReboot
+      `Prelude.seq` Prelude.rnf excludeBootVolume
 
 instance Core.ToJSON Parameters where
   toJSON Parameters' {..} =

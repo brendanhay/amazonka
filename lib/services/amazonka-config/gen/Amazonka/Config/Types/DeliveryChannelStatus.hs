@@ -105,6 +105,17 @@ instance Core.FromJSON DeliveryChannelStatus where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable DeliveryChannelStatus
+instance Prelude.Hashable DeliveryChannelStatus where
+  hashWithSalt _salt DeliveryChannelStatus' {..} =
+    _salt
+      `Prelude.hashWithSalt` configSnapshotDeliveryInfo
+      `Prelude.hashWithSalt` configStreamDeliveryInfo
+      `Prelude.hashWithSalt` configHistoryDeliveryInfo
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeliveryChannelStatus
+instance Prelude.NFData DeliveryChannelStatus where
+  rnf DeliveryChannelStatus' {..} =
+    Prelude.rnf configSnapshotDeliveryInfo
+      `Prelude.seq` Prelude.rnf configStreamDeliveryInfo
+      `Prelude.seq` Prelude.rnf configHistoryDeliveryInfo
+      `Prelude.seq` Prelude.rnf name

@@ -120,9 +120,17 @@ instance Core.AWSRequest DeleteModelVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteModelVersion
+instance Prelude.Hashable DeleteModelVersion where
+  hashWithSalt _salt DeleteModelVersion' {..} =
+    _salt `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelVersionNumber
 
-instance Prelude.NFData DeleteModelVersion
+instance Prelude.NFData DeleteModelVersion where
+  rnf DeleteModelVersion' {..} =
+    Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelVersionNumber
 
 instance Core.ToHeaders DeleteModelVersion where
   toHeaders =
@@ -186,4 +194,6 @@ newDeleteModelVersionResponse pHttpStatus_ =
 deleteModelVersionResponse_httpStatus :: Lens.Lens' DeleteModelVersionResponse Prelude.Int
 deleteModelVersionResponse_httpStatus = Lens.lens (\DeleteModelVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteModelVersionResponse' {} a -> s {httpStatus = a} :: DeleteModelVersionResponse)
 
-instance Prelude.NFData DeleteModelVersionResponse
+instance Prelude.NFData DeleteModelVersionResponse where
+  rnf DeleteModelVersionResponse' {..} =
+    Prelude.rnf httpStatus

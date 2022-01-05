@@ -81,7 +81,17 @@ instance Core.FromXML InstanceRefreshProgressDetails where
 instance
   Prelude.Hashable
     InstanceRefreshProgressDetails
+  where
+  hashWithSalt
+    _salt
+    InstanceRefreshProgressDetails' {..} =
+      _salt `Prelude.hashWithSalt` livePoolProgress
+        `Prelude.hashWithSalt` warmPoolProgress
 
 instance
   Prelude.NFData
     InstanceRefreshProgressDetails
+  where
+  rnf InstanceRefreshProgressDetails' {..} =
+    Prelude.rnf livePoolProgress
+      `Prelude.seq` Prelude.rnf warmPoolProgress

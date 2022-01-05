@@ -202,9 +202,25 @@ instance Core.AWSRequest UpdateRecords where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRecords
+instance Prelude.Hashable UpdateRecords where
+  hashWithSalt _salt UpdateRecords' {..} =
+    _salt `Prelude.hashWithSalt` recordPatches
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` clientContext
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` syncSessionToken
 
-instance Prelude.NFData UpdateRecords
+instance Prelude.NFData UpdateRecords where
+  rnf UpdateRecords' {..} =
+    Prelude.rnf recordPatches
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf clientContext
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf syncSessionToken
 
 instance Core.ToHeaders UpdateRecords where
   toHeaders UpdateRecords' {..} =
@@ -279,4 +295,7 @@ updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> 
 updateRecordsResponse_httpStatus :: Lens.Lens' UpdateRecordsResponse Prelude.Int
 updateRecordsResponse_httpStatus = Lens.lens (\UpdateRecordsResponse' {httpStatus} -> httpStatus) (\s@UpdateRecordsResponse' {} a -> s {httpStatus = a} :: UpdateRecordsResponse)
 
-instance Prelude.NFData UpdateRecordsResponse
+instance Prelude.NFData UpdateRecordsResponse where
+  rnf UpdateRecordsResponse' {..} =
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf httpStatus

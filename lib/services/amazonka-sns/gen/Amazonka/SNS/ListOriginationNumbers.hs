@@ -129,9 +129,15 @@ instance Core.AWSRequest ListOriginationNumbers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOriginationNumbers
+instance Prelude.Hashable ListOriginationNumbers where
+  hashWithSalt _salt ListOriginationNumbers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOriginationNumbers
+instance Prelude.NFData ListOriginationNumbers where
+  rnf ListOriginationNumbers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOriginationNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,3 +216,8 @@ listOriginationNumbersResponse_httpStatus = Lens.lens (\ListOriginationNumbersRe
 instance
   Prelude.NFData
     ListOriginationNumbersResponse
+  where
+  rnf ListOriginationNumbersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf phoneNumbers
+      `Prelude.seq` Prelude.rnf httpStatus

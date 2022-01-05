@@ -121,9 +121,17 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFirewallRuleGroup
+instance Prelude.Hashable CreateFirewallRuleGroup where
+  hashWithSalt _salt CreateFirewallRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateFirewallRuleGroup
+instance Prelude.NFData CreateFirewallRuleGroup where
+  rnf CreateFirewallRuleGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateFirewallRuleGroup where
   toHeaders =
@@ -199,3 +207,7 @@ createFirewallRuleGroupResponse_httpStatus = Lens.lens (\CreateFirewallRuleGroup
 instance
   Prelude.NFData
     CreateFirewallRuleGroupResponse
+  where
+  rnf CreateFirewallRuleGroupResponse' {..} =
+    Prelude.rnf firewallRuleGroup
+      `Prelude.seq` Prelude.rnf httpStatus

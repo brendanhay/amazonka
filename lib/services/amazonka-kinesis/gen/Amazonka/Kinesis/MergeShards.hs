@@ -148,9 +148,17 @@ instance Core.AWSRequest MergeShards where
   request = Request.postJSON defaultService
   response = Response.receiveNull MergeShardsResponse'
 
-instance Prelude.Hashable MergeShards
+instance Prelude.Hashable MergeShards where
+  hashWithSalt _salt MergeShards' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` shardToMerge
+      `Prelude.hashWithSalt` adjacentShardToMerge
 
-instance Prelude.NFData MergeShards
+instance Prelude.NFData MergeShards where
+  rnf MergeShards' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf shardToMerge
+      `Prelude.seq` Prelude.rnf adjacentShardToMerge
 
 instance Core.ToHeaders MergeShards where
   toHeaders =
@@ -200,4 +208,5 @@ newMergeShardsResponse ::
   MergeShardsResponse
 newMergeShardsResponse = MergeShardsResponse'
 
-instance Prelude.NFData MergeShardsResponse
+instance Prelude.NFData MergeShardsResponse where
+  rnf _ = ()

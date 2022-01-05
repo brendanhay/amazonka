@@ -93,9 +93,13 @@ instance Core.AWSRequest DescribeICD10CMInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeICD10CMInferenceJob
+instance Prelude.Hashable DescribeICD10CMInferenceJob where
+  hashWithSalt _salt DescribeICD10CMInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeICD10CMInferenceJob
+instance Prelude.NFData DescribeICD10CMInferenceJob where
+  rnf DescribeICD10CMInferenceJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeICD10CMInferenceJob where
   toHeaders =
@@ -167,3 +171,7 @@ describeICD10CMInferenceJobResponse_httpStatus = Lens.lens (\DescribeICD10CMInfe
 instance
   Prelude.NFData
     DescribeICD10CMInferenceJobResponse
+  where
+  rnf DescribeICD10CMInferenceJobResponse' {..} =
+    Prelude.rnf comprehendMedicalAsyncJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

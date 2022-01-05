@@ -119,9 +119,17 @@ instance Core.AWSRequest UpdateMap where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable UpdateMap
+instance Prelude.Hashable UpdateMap where
+  hashWithSalt _salt UpdateMap' {..} =
+    _salt `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` mapName
 
-instance Prelude.NFData UpdateMap
+instance Prelude.NFData UpdateMap where
+  rnf UpdateMap' {..} =
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf mapName
 
 instance Core.ToHeaders UpdateMap where
   toHeaders =
@@ -232,4 +240,9 @@ updateMapResponse_mapName = Lens.lens (\UpdateMapResponse' {mapName} -> mapName)
 updateMapResponse_updateTime :: Lens.Lens' UpdateMapResponse Prelude.UTCTime
 updateMapResponse_updateTime = Lens.lens (\UpdateMapResponse' {updateTime} -> updateTime) (\s@UpdateMapResponse' {} a -> s {updateTime = a} :: UpdateMapResponse) Prelude.. Core._Time
 
-instance Prelude.NFData UpdateMapResponse
+instance Prelude.NFData UpdateMapResponse where
+  rnf UpdateMapResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mapArn
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf updateTime

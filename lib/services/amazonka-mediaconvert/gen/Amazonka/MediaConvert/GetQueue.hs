@@ -83,9 +83,12 @@ instance Core.AWSRequest GetQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueue
+instance Prelude.Hashable GetQueue where
+  hashWithSalt _salt GetQueue' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetQueue
+instance Prelude.NFData GetQueue where
+  rnf GetQueue' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetQueue where
   toHeaders =
@@ -156,4 +159,7 @@ getQueueResponse_queue = Lens.lens (\GetQueueResponse' {queue} -> queue) (\s@Get
 getQueueResponse_httpStatus :: Lens.Lens' GetQueueResponse Prelude.Int
 getQueueResponse_httpStatus = Lens.lens (\GetQueueResponse' {httpStatus} -> httpStatus) (\s@GetQueueResponse' {} a -> s {httpStatus = a} :: GetQueueResponse)
 
-instance Prelude.NFData GetQueueResponse
+instance Prelude.NFData GetQueueResponse where
+  rnf GetQueueResponse' {..} =
+    Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -103,10 +103,22 @@ instance
 instance
   Prelude.Hashable
     DomainDeliverabilityTrackingOption
+  where
+  hashWithSalt
+    _salt
+    DomainDeliverabilityTrackingOption' {..} =
+      _salt `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` subscriptionStartDate
+        `Prelude.hashWithSalt` inboxPlacementTrackingOption
 
 instance
   Prelude.NFData
     DomainDeliverabilityTrackingOption
+  where
+  rnf DomainDeliverabilityTrackingOption' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf subscriptionStartDate
+      `Prelude.seq` Prelude.rnf inboxPlacementTrackingOption
 
 instance
   Core.ToJSON

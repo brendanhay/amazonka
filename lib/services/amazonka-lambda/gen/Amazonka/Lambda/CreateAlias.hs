@@ -182,9 +182,21 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias where
+  hashWithSalt _salt CreateAlias' {..} =
+    _salt `Prelude.hashWithSalt` routingConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionVersion
 
-instance Prelude.NFData CreateAlias
+instance Prelude.NFData CreateAlias where
+  rnf CreateAlias' {..} =
+    Prelude.rnf routingConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionVersion
 
 instance Core.ToHeaders CreateAlias where
   toHeaders = Prelude.const Prelude.mempty

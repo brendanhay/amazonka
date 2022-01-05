@@ -163,9 +163,17 @@ instance Core.AWSRequest DescribeSchemas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSchemas
+instance Prelude.Hashable DescribeSchemas where
+  hashWithSalt _salt DescribeSchemas' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData DescribeSchemas
+instance Prelude.NFData DescribeSchemas where
+  rnf DescribeSchemas' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf endpointArn
 
 instance Core.ToHeaders DescribeSchemas where
   toHeaders =
@@ -253,4 +261,8 @@ describeSchemasResponse_marker = Lens.lens (\DescribeSchemasResponse' {marker} -
 describeSchemasResponse_httpStatus :: Lens.Lens' DescribeSchemasResponse Prelude.Int
 describeSchemasResponse_httpStatus = Lens.lens (\DescribeSchemasResponse' {httpStatus} -> httpStatus) (\s@DescribeSchemasResponse' {} a -> s {httpStatus = a} :: DescribeSchemasResponse)
 
-instance Prelude.NFData DescribeSchemasResponse
+instance Prelude.NFData DescribeSchemasResponse where
+  rnf DescribeSchemasResponse' {..} =
+    Prelude.rnf schemas
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

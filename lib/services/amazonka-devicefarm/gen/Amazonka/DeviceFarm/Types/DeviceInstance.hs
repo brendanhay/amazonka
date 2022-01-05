@@ -113,6 +113,20 @@ instance Core.FromJSON DeviceInstance where
             Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeviceInstance
+instance Prelude.Hashable DeviceInstance where
+  hashWithSalt _salt DeviceInstance' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` udid
+      `Prelude.hashWithSalt` instanceProfile
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` labels
 
-instance Prelude.NFData DeviceInstance
+instance Prelude.NFData DeviceInstance where
+  rnf DeviceInstance' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf udid
+      `Prelude.seq` Prelude.rnf instanceProfile
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf labels

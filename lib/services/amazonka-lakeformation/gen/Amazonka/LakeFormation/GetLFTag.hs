@@ -109,9 +109,15 @@ instance Core.AWSRequest GetLFTag where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLFTag
+instance Prelude.Hashable GetLFTag where
+  hashWithSalt _salt GetLFTag' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tagKey
 
-instance Prelude.NFData GetLFTag
+instance Prelude.NFData GetLFTag where
+  rnf GetLFTag' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagKey
 
 instance Core.ToHeaders GetLFTag where
   toHeaders =
@@ -206,4 +212,9 @@ getLFTagResponse_tagKey = Lens.lens (\GetLFTagResponse' {tagKey} -> tagKey) (\s@
 getLFTagResponse_httpStatus :: Lens.Lens' GetLFTagResponse Prelude.Int
 getLFTagResponse_httpStatus = Lens.lens (\GetLFTagResponse' {httpStatus} -> httpStatus) (\s@GetLFTagResponse' {} a -> s {httpStatus = a} :: GetLFTagResponse)
 
-instance Prelude.NFData GetLFTagResponse
+instance Prelude.NFData GetLFTagResponse where
+  rnf GetLFTagResponse' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf httpStatus

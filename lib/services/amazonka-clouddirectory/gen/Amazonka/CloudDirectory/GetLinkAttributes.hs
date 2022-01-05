@@ -132,9 +132,19 @@ instance Core.AWSRequest GetLinkAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLinkAttributes
+instance Prelude.Hashable GetLinkAttributes where
+  hashWithSalt _salt GetLinkAttributes' {..} =
+    _salt `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` typedLinkSpecifier
+      `Prelude.hashWithSalt` attributeNames
 
-instance Prelude.NFData GetLinkAttributes
+instance Prelude.NFData GetLinkAttributes where
+  rnf GetLinkAttributes' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf typedLinkSpecifier
+      `Prelude.seq` Prelude.rnf attributeNames
 
 instance Core.ToHeaders GetLinkAttributes where
   toHeaders GetLinkAttributes' {..} =
@@ -201,4 +211,7 @@ getLinkAttributesResponse_attributes = Lens.lens (\GetLinkAttributesResponse' {a
 getLinkAttributesResponse_httpStatus :: Lens.Lens' GetLinkAttributesResponse Prelude.Int
 getLinkAttributesResponse_httpStatus = Lens.lens (\GetLinkAttributesResponse' {httpStatus} -> httpStatus) (\s@GetLinkAttributesResponse' {} a -> s {httpStatus = a} :: GetLinkAttributesResponse)
 
-instance Prelude.NFData GetLinkAttributesResponse
+instance Prelude.NFData GetLinkAttributesResponse where
+  rnf GetLinkAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

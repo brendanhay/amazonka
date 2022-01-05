@@ -336,6 +336,16 @@ instance Core.FromJSON SecondaryStatusTransition where
             Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Prelude.Hashable SecondaryStatusTransition
+instance Prelude.Hashable SecondaryStatusTransition where
+  hashWithSalt _salt SecondaryStatusTransition' {..} =
+    _salt `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData SecondaryStatusTransition
+instance Prelude.NFData SecondaryStatusTransition where
+  rnf SecondaryStatusTransition' {..} =
+    Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime

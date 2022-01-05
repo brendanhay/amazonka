@@ -535,9 +535,102 @@ instance Core.FromJSON AwsRdsDbClusterDetails where
                         )
       )
 
-instance Prelude.Hashable AwsRdsDbClusterDetails
+instance Prelude.Hashable AwsRdsDbClusterDetails where
+  hashWithSalt _salt AwsRdsDbClusterDetails' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dbClusterMembers
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` readReplicaIdentifiers
+      `Prelude.hashWithSalt` dbClusterParameterGroup
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` iamDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` dbClusterResourceId
+      `Prelude.hashWithSalt` customEndpoints
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` httpEndpointEnabled
+      `Prelude.hashWithSalt` crossAccountClone
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` associatedRoles
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` multiAz
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` engineMode
+      `Prelude.hashWithSalt` enabledCloudWatchLogsExports
+      `Prelude.hashWithSalt` activityStreamStatus
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` readerEndpoint
+      `Prelude.hashWithSalt` dbClusterOptionGroupMemberships
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` domainMemberships
 
-instance Prelude.NFData AwsRdsDbClusterDetails
+instance Prelude.NFData AwsRdsDbClusterDetails where
+  rnf AwsRdsDbClusterDetails' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbClusterMembers
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf readReplicaIdentifiers
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf iamDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf dbClusterResourceId
+      `Prelude.seq` Prelude.rnf customEndpoints
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf httpEndpointEnabled
+      `Prelude.seq` Prelude.rnf crossAccountClone
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf associatedRoles
+      `Prelude.seq` Prelude.rnf
+        vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf
+        backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf
+        dbSubnetGroup
+      `Prelude.seq` Prelude.rnf multiAz
+      `Prelude.seq` Prelude.rnf
+        databaseName
+      `Prelude.seq` Prelude.rnf
+        engineMode
+      `Prelude.seq` Prelude.rnf
+        enabledCloudWatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        activityStreamStatus
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
+      `Prelude.seq` Prelude.rnf
+        copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf
+        clusterCreateTime
+      `Prelude.seq` Prelude.rnf
+        endpoint
+      `Prelude.seq` Prelude.rnf
+        readerEndpoint
+      `Prelude.seq` Prelude.rnf
+        dbClusterOptionGroupMemberships
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        domainMemberships
 
 instance Core.ToJSON AwsRdsDbClusterDetails where
   toJSON AwsRdsDbClusterDetails' {..} =

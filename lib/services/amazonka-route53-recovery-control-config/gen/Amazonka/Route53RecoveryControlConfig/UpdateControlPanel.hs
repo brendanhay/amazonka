@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateControlPanel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateControlPanel
+instance Prelude.Hashable UpdateControlPanel where
+  hashWithSalt _salt UpdateControlPanel' {..} =
+    _salt `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` controlPanelName
 
-instance Prelude.NFData UpdateControlPanel
+instance Prelude.NFData UpdateControlPanel where
+  rnf UpdateControlPanel' {..} =
+    Prelude.rnf controlPanelArn
+      `Prelude.seq` Prelude.rnf controlPanelName
 
 instance Core.ToHeaders UpdateControlPanel where
   toHeaders =
@@ -177,4 +183,7 @@ updateControlPanelResponse_controlPanel = Lens.lens (\UpdateControlPanelResponse
 updateControlPanelResponse_httpStatus :: Lens.Lens' UpdateControlPanelResponse Prelude.Int
 updateControlPanelResponse_httpStatus = Lens.lens (\UpdateControlPanelResponse' {httpStatus} -> httpStatus) (\s@UpdateControlPanelResponse' {} a -> s {httpStatus = a} :: UpdateControlPanelResponse)
 
-instance Prelude.NFData UpdateControlPanelResponse
+instance Prelude.NFData UpdateControlPanelResponse where
+  rnf UpdateControlPanelResponse' {..} =
+    Prelude.rnf controlPanel
+      `Prelude.seq` Prelude.rnf httpStatus

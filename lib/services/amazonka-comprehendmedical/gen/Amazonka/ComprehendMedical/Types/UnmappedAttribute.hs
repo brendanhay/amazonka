@@ -82,6 +82,12 @@ instance Core.FromJSON UnmappedAttribute where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable UnmappedAttribute
+instance Prelude.Hashable UnmappedAttribute where
+  hashWithSalt _salt UnmappedAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UnmappedAttribute
+instance Prelude.NFData UnmappedAttribute where
+  rnf UnmappedAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf type'

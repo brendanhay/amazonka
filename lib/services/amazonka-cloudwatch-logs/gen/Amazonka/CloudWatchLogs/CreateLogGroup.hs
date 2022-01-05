@@ -154,9 +154,17 @@ instance Core.AWSRequest CreateLogGroup where
   response =
     Response.receiveNull CreateLogGroupResponse'
 
-instance Prelude.Hashable CreateLogGroup
+instance Prelude.Hashable CreateLogGroup where
+  hashWithSalt _salt CreateLogGroup' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData CreateLogGroup
+instance Prelude.NFData CreateLogGroup where
+  rnf CreateLogGroup' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders CreateLogGroup where
   toHeaders =
@@ -203,4 +211,5 @@ newCreateLogGroupResponse ::
   CreateLogGroupResponse
 newCreateLogGroupResponse = CreateLogGroupResponse'
 
-instance Prelude.NFData CreateLogGroupResponse
+instance Prelude.NFData CreateLogGroupResponse where
+  rnf _ = ()

@@ -125,9 +125,15 @@ instance Core.AWSRequest ListInputSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInputSecurityGroups
+instance Prelude.Hashable ListInputSecurityGroups where
+  hashWithSalt _salt ListInputSecurityGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListInputSecurityGroups
+instance Prelude.NFData ListInputSecurityGroups where
+  rnf ListInputSecurityGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListInputSecurityGroups where
   toHeaders =
@@ -202,3 +208,8 @@ listInputSecurityGroupsResponse_httpStatus = Lens.lens (\ListInputSecurityGroups
 instance
   Prelude.NFData
     ListInputSecurityGroupsResponse
+  where
+  rnf ListInputSecurityGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf inputSecurityGroups
+      `Prelude.seq` Prelude.rnf httpStatus

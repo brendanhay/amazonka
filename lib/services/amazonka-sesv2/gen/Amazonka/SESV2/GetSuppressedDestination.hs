@@ -93,9 +93,13 @@ instance Core.AWSRequest GetSuppressedDestination where
             Prelude.<*> (x Core..:> "SuppressedDestination")
       )
 
-instance Prelude.Hashable GetSuppressedDestination
+instance Prelude.Hashable GetSuppressedDestination where
+  hashWithSalt _salt GetSuppressedDestination' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData GetSuppressedDestination
+instance Prelude.NFData GetSuppressedDestination where
+  rnf GetSuppressedDestination' {..} =
+    Prelude.rnf emailAddress
 
 instance Core.ToHeaders GetSuppressedDestination where
   toHeaders =
@@ -167,3 +171,7 @@ getSuppressedDestinationResponse_suppressedDestination = Lens.lens (\GetSuppress
 instance
   Prelude.NFData
     GetSuppressedDestinationResponse
+  where
+  rnf GetSuppressedDestinationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suppressedDestination

@@ -109,9 +109,15 @@ instance Core.AWSRequest DisassociateCustomerGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateCustomerGateway
+instance Prelude.Hashable DisassociateCustomerGateway where
+  hashWithSalt _salt DisassociateCustomerGateway' {..} =
+    _salt `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` customerGatewayArn
 
-instance Prelude.NFData DisassociateCustomerGateway
+instance Prelude.NFData DisassociateCustomerGateway where
+  rnf DisassociateCustomerGateway' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf customerGatewayArn
 
 instance Core.ToHeaders DisassociateCustomerGateway where
   toHeaders =
@@ -178,3 +184,7 @@ disassociateCustomerGatewayResponse_httpStatus = Lens.lens (\DisassociateCustome
 instance
   Prelude.NFData
     DisassociateCustomerGatewayResponse
+  where
+  rnf DisassociateCustomerGatewayResponse' {..} =
+    Prelude.rnf customerGatewayAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

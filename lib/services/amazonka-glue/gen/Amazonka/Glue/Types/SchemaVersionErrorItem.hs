@@ -74,6 +74,12 @@ instance Core.FromJSON SchemaVersionErrorItem where
             Prelude.<*> (x Core..:? "ErrorDetails")
       )
 
-instance Prelude.Hashable SchemaVersionErrorItem
+instance Prelude.Hashable SchemaVersionErrorItem where
+  hashWithSalt _salt SchemaVersionErrorItem' {..} =
+    _salt `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` errorDetails
 
-instance Prelude.NFData SchemaVersionErrorItem
+instance Prelude.NFData SchemaVersionErrorItem where
+  rnf SchemaVersionErrorItem' {..} =
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf errorDetails

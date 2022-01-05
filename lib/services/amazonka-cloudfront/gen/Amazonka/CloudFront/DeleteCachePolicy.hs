@@ -106,9 +106,14 @@ instance Core.AWSRequest DeleteCachePolicy where
   response =
     Response.receiveNull DeleteCachePolicyResponse'
 
-instance Prelude.Hashable DeleteCachePolicy
+instance Prelude.Hashable DeleteCachePolicy where
+  hashWithSalt _salt DeleteCachePolicy' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteCachePolicy
+instance Prelude.NFData DeleteCachePolicy where
+  rnf DeleteCachePolicy' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteCachePolicy where
   toHeaders DeleteCachePolicy' {..} =
@@ -137,4 +142,5 @@ newDeleteCachePolicyResponse ::
 newDeleteCachePolicyResponse =
   DeleteCachePolicyResponse'
 
-instance Prelude.NFData DeleteCachePolicyResponse
+instance Prelude.NFData DeleteCachePolicyResponse where
+  rnf _ = ()

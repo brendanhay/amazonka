@@ -108,6 +108,18 @@ instance Core.FromJSON SdkConfigurationProperty where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable SdkConfigurationProperty
+instance Prelude.Hashable SdkConfigurationProperty where
+  hashWithSalt _salt SdkConfigurationProperty' {..} =
+    _salt `Prelude.hashWithSalt` friendlyName
+      `Prelude.hashWithSalt` required
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SdkConfigurationProperty
+instance Prelude.NFData SdkConfigurationProperty where
+  rnf SdkConfigurationProperty' {..} =
+    Prelude.rnf friendlyName
+      `Prelude.seq` Prelude.rnf required
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf description

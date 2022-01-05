@@ -66,9 +66,15 @@ newLaunchProfileMember_persona = Lens.lens (\NewLaunchProfileMember' {persona} -
 newLaunchProfileMember_principalId :: Lens.Lens' NewLaunchProfileMember Prelude.Text
 newLaunchProfileMember_principalId = Lens.lens (\NewLaunchProfileMember' {principalId} -> principalId) (\s@NewLaunchProfileMember' {} a -> s {principalId = a} :: NewLaunchProfileMember)
 
-instance Prelude.Hashable NewLaunchProfileMember
+instance Prelude.Hashable NewLaunchProfileMember where
+  hashWithSalt _salt NewLaunchProfileMember' {..} =
+    _salt `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData NewLaunchProfileMember
+instance Prelude.NFData NewLaunchProfileMember where
+  rnf NewLaunchProfileMember' {..} =
+    Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToJSON NewLaunchProfileMember where
   toJSON NewLaunchProfileMember' {..} =

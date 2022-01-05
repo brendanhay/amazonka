@@ -110,9 +110,15 @@ instance Core.AWSRequest UpdateVTLDeviceType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVTLDeviceType
+instance Prelude.Hashable UpdateVTLDeviceType where
+  hashWithSalt _salt UpdateVTLDeviceType' {..} =
+    _salt `Prelude.hashWithSalt` vTLDeviceARN
+      `Prelude.hashWithSalt` deviceType
 
-instance Prelude.NFData UpdateVTLDeviceType
+instance Prelude.NFData UpdateVTLDeviceType where
+  rnf UpdateVTLDeviceType' {..} =
+    Prelude.rnf vTLDeviceARN
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToHeaders UpdateVTLDeviceType where
   toHeaders =
@@ -185,4 +191,7 @@ updateVTLDeviceTypeResponse_vTLDeviceARN = Lens.lens (\UpdateVTLDeviceTypeRespon
 updateVTLDeviceTypeResponse_httpStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Prelude.Int
 updateVTLDeviceTypeResponse_httpStatus = Lens.lens (\UpdateVTLDeviceTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateVTLDeviceTypeResponse' {} a -> s {httpStatus = a} :: UpdateVTLDeviceTypeResponse)
 
-instance Prelude.NFData UpdateVTLDeviceTypeResponse
+instance Prelude.NFData UpdateVTLDeviceTypeResponse where
+  rnf UpdateVTLDeviceTypeResponse' {..} =
+    Prelude.rnf vTLDeviceARN
+      `Prelude.seq` Prelude.rnf httpStatus

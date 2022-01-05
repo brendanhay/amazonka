@@ -53,9 +53,13 @@ newActionExecutionFilter =
 actionExecutionFilter_pipelineExecutionId :: Lens.Lens' ActionExecutionFilter (Prelude.Maybe Prelude.Text)
 actionExecutionFilter_pipelineExecutionId = Lens.lens (\ActionExecutionFilter' {pipelineExecutionId} -> pipelineExecutionId) (\s@ActionExecutionFilter' {} a -> s {pipelineExecutionId = a} :: ActionExecutionFilter)
 
-instance Prelude.Hashable ActionExecutionFilter
+instance Prelude.Hashable ActionExecutionFilter where
+  hashWithSalt _salt ActionExecutionFilter' {..} =
+    _salt `Prelude.hashWithSalt` pipelineExecutionId
 
-instance Prelude.NFData ActionExecutionFilter
+instance Prelude.NFData ActionExecutionFilter where
+  rnf ActionExecutionFilter' {..} =
+    Prelude.rnf pipelineExecutionId
 
 instance Core.ToJSON ActionExecutionFilter where
   toJSON ActionExecutionFilter' {..} =

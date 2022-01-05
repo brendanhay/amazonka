@@ -75,9 +75,14 @@ instance Core.FromJSON AclGrantee where
             Prelude.<$> (x Core..:? "uri") Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable AclGrantee
+instance Prelude.Hashable AclGrantee where
+  hashWithSalt _salt AclGrantee' {..} =
+    _salt `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData AclGrantee
+instance Prelude.NFData AclGrantee where
+  rnf AclGrantee' {..} =
+    Prelude.rnf uri `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON AclGrantee where
   toJSON AclGrantee' {..} =

@@ -109,6 +109,10 @@ instance Core.FromXML CapacityReservationOptions where
     CapacityReservationOptions'
       Prelude.<$> (x Core..@? "usageStrategy")
 
-instance Prelude.Hashable CapacityReservationOptions
+instance Prelude.Hashable CapacityReservationOptions where
+  hashWithSalt _salt CapacityReservationOptions' {..} =
+    _salt `Prelude.hashWithSalt` usageStrategy
 
-instance Prelude.NFData CapacityReservationOptions
+instance Prelude.NFData CapacityReservationOptions where
+  rnf CapacityReservationOptions' {..} =
+    Prelude.rnf usageStrategy

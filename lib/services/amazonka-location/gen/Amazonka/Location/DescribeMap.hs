@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeMap where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable DescribeMap
+instance Prelude.Hashable DescribeMap where
+  hashWithSalt _salt DescribeMap' {..} =
+    _salt `Prelude.hashWithSalt` mapName
 
-instance Prelude.NFData DescribeMap
+instance Prelude.NFData DescribeMap where
+  rnf DescribeMap' {..} = Prelude.rnf mapName
 
 instance Core.ToHeaders DescribeMap where
   toHeaders =
@@ -285,4 +288,15 @@ describeMapResponse_pricingPlan = Lens.lens (\DescribeMapResponse' {pricingPlan}
 describeMapResponse_updateTime :: Lens.Lens' DescribeMapResponse Prelude.UTCTime
 describeMapResponse_updateTime = Lens.lens (\DescribeMapResponse' {updateTime} -> updateTime) (\s@DescribeMapResponse' {} a -> s {updateTime = a} :: DescribeMapResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeMapResponse
+instance Prelude.NFData DescribeMapResponse where
+  rnf DescribeMapResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf mapArn
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf updateTime

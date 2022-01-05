@@ -98,10 +98,24 @@ createMeetingRoomConfiguration_roomUtilizationMetricsEnabled = Lens.lens (\Creat
 instance
   Prelude.Hashable
     CreateMeetingRoomConfiguration
+  where
+  hashWithSalt
+    _salt
+    CreateMeetingRoomConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` instantBooking
+        `Prelude.hashWithSalt` endOfMeetingReminder
+        `Prelude.hashWithSalt` requireCheckIn
+        `Prelude.hashWithSalt` roomUtilizationMetricsEnabled
 
 instance
   Prelude.NFData
     CreateMeetingRoomConfiguration
+  where
+  rnf CreateMeetingRoomConfiguration' {..} =
+    Prelude.rnf instantBooking
+      `Prelude.seq` Prelude.rnf endOfMeetingReminder
+      `Prelude.seq` Prelude.rnf requireCheckIn
+      `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
 
 instance Core.ToJSON CreateMeetingRoomConfiguration where
   toJSON CreateMeetingRoomConfiguration' {..} =

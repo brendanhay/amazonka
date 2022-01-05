@@ -142,9 +142,23 @@ instance Core.AWSRequest UpdateAnomalySubscription where
             Prelude.<*> (x Core..:> "SubscriptionArn")
       )
 
-instance Prelude.Hashable UpdateAnomalySubscription
+instance Prelude.Hashable UpdateAnomalySubscription where
+  hashWithSalt _salt UpdateAnomalySubscription' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionName
+      `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` monitorArnList
+      `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` subscriptionArn
 
-instance Prelude.NFData UpdateAnomalySubscription
+instance Prelude.NFData UpdateAnomalySubscription where
+  rnf UpdateAnomalySubscription' {..} =
+    Prelude.rnf subscriptionName
+      `Prelude.seq` Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf monitorArnList
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf subscriptionArn
 
 instance Core.ToHeaders UpdateAnomalySubscription where
   toHeaders =
@@ -229,3 +243,7 @@ updateAnomalySubscriptionResponse_subscriptionArn = Lens.lens (\UpdateAnomalySub
 instance
   Prelude.NFData
     UpdateAnomalySubscriptionResponse
+  where
+  rnf UpdateAnomalySubscriptionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscriptionArn

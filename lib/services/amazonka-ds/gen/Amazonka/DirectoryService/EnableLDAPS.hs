@@ -100,9 +100,15 @@ instance Core.AWSRequest EnableLDAPS where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableLDAPS
+instance Prelude.Hashable EnableLDAPS where
+  hashWithSalt _salt EnableLDAPS' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EnableLDAPS
+instance Prelude.NFData EnableLDAPS where
+  rnf EnableLDAPS' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders EnableLDAPS where
   toHeaders =
@@ -161,4 +167,5 @@ newEnableLDAPSResponse pHttpStatus_ =
 enableLDAPSResponse_httpStatus :: Lens.Lens' EnableLDAPSResponse Prelude.Int
 enableLDAPSResponse_httpStatus = Lens.lens (\EnableLDAPSResponse' {httpStatus} -> httpStatus) (\s@EnableLDAPSResponse' {} a -> s {httpStatus = a} :: EnableLDAPSResponse)
 
-instance Prelude.NFData EnableLDAPSResponse
+instance Prelude.NFData EnableLDAPSResponse where
+  rnf EnableLDAPSResponse' {..} = Prelude.rnf httpStatus

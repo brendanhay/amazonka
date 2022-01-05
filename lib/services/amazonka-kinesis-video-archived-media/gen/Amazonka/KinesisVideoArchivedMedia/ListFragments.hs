@@ -205,9 +205,21 @@ instance Core.AWSRequest ListFragments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFragments
+instance Prelude.Hashable ListFragments where
+  hashWithSalt _salt ListFragments' {..} =
+    _salt `Prelude.hashWithSalt` fragmentSelector
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListFragments
+instance Prelude.NFData ListFragments where
+  rnf ListFragments' {..} =
+    Prelude.rnf fragmentSelector
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFragments where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,4 +299,8 @@ listFragmentsResponse_fragments = Lens.lens (\ListFragmentsResponse' {fragments}
 listFragmentsResponse_httpStatus :: Lens.Lens' ListFragmentsResponse Prelude.Int
 listFragmentsResponse_httpStatus = Lens.lens (\ListFragmentsResponse' {httpStatus} -> httpStatus) (\s@ListFragmentsResponse' {} a -> s {httpStatus = a} :: ListFragmentsResponse)
 
-instance Prelude.NFData ListFragmentsResponse
+instance Prelude.NFData ListFragmentsResponse where
+  rnf ListFragmentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf fragments
+      `Prelude.seq` Prelude.rnf httpStatus

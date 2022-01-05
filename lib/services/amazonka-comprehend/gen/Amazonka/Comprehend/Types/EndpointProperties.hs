@@ -195,6 +195,30 @@ instance Core.FromJSON EndpointProperties where
             Prelude.<*> (x Core..:? "EndpointArn")
       )
 
-instance Prelude.Hashable EndpointProperties
+instance Prelude.Hashable EndpointProperties where
+  hashWithSalt _salt EndpointProperties' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` desiredModelArn
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` desiredInferenceUnits
+      `Prelude.hashWithSalt` currentInferenceUnits
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` desiredDataAccessRoleArn
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData EndpointProperties
+instance Prelude.NFData EndpointProperties where
+  rnf EndpointProperties' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf desiredModelArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf desiredInferenceUnits
+      `Prelude.seq` Prelude.rnf currentInferenceUnits
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf desiredDataAccessRoleArn
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf endpointArn

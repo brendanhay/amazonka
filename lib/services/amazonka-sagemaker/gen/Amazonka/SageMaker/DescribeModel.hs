@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeModel where
             Prelude.<*> (x Core..:> "ModelArn")
       )
 
-instance Prelude.Hashable DescribeModel
+instance Prelude.Hashable DescribeModel where
+  hashWithSalt _salt DescribeModel' {..} =
+    _salt `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData DescribeModel
+instance Prelude.NFData DescribeModel where
+  rnf DescribeModel' {..} = Prelude.rnf modelName
 
 instance Core.ToHeaders DescribeModel where
   toHeaders =
@@ -277,4 +280,15 @@ describeModelResponse_creationTime = Lens.lens (\DescribeModelResponse' {creatio
 describeModelResponse_modelArn :: Lens.Lens' DescribeModelResponse Prelude.Text
 describeModelResponse_modelArn = Lens.lens (\DescribeModelResponse' {modelArn} -> modelArn) (\s@DescribeModelResponse' {} a -> s {modelArn = a} :: DescribeModelResponse)
 
-instance Prelude.NFData DescribeModelResponse
+instance Prelude.NFData DescribeModelResponse where
+  rnf DescribeModelResponse' {..} =
+    Prelude.rnf primaryContainer
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf inferenceExecutionConfig
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelArn

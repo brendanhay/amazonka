@@ -70,6 +70,12 @@ instance Core.FromXML InstanceExportDetails where
       Prelude.<$> (x Core..@? "targetEnvironment")
       Prelude.<*> (x Core..@? "instanceId")
 
-instance Prelude.Hashable InstanceExportDetails
+instance Prelude.Hashable InstanceExportDetails where
+  hashWithSalt _salt InstanceExportDetails' {..} =
+    _salt `Prelude.hashWithSalt` targetEnvironment
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceExportDetails
+instance Prelude.NFData InstanceExportDetails where
+  rnf InstanceExportDetails' {..} =
+    Prelude.rnf targetEnvironment
+      `Prelude.seq` Prelude.rnf instanceId

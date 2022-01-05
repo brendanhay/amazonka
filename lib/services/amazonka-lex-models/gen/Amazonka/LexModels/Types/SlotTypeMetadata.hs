@@ -104,6 +104,18 @@ instance Core.FromJSON SlotTypeMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable SlotTypeMetadata
+instance Prelude.Hashable SlotTypeMetadata where
+  hashWithSalt _salt SlotTypeMetadata' {..} =
+    _salt `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SlotTypeMetadata
+instance Prelude.NFData SlotTypeMetadata where
+  rnf SlotTypeMetadata' {..} =
+    Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description

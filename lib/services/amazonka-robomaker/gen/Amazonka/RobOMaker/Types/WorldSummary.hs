@@ -91,6 +91,16 @@ instance Core.FromJSON WorldSummary where
             Prelude.<*> (x Core..:? "generationJob")
       )
 
-instance Prelude.Hashable WorldSummary
+instance Prelude.Hashable WorldSummary where
+  hashWithSalt _salt WorldSummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` template
+      `Prelude.hashWithSalt` generationJob
 
-instance Prelude.NFData WorldSummary
+instance Prelude.NFData WorldSummary where
+  rnf WorldSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf generationJob

@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateDocumentMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDocumentMetadata
+instance Prelude.Hashable UpdateDocumentMetadata where
+  hashWithSalt _salt UpdateDocumentMetadata' {..} =
+    _salt `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentReviews
 
-instance Prelude.NFData UpdateDocumentMetadata
+instance Prelude.NFData UpdateDocumentMetadata where
+  rnf UpdateDocumentMetadata' {..} =
+    Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentReviews
 
 instance Core.ToHeaders UpdateDocumentMetadata where
   toHeaders =
@@ -183,3 +191,6 @@ updateDocumentMetadataResponse_httpStatus = Lens.lens (\UpdateDocumentMetadataRe
 instance
   Prelude.NFData
     UpdateDocumentMetadataResponse
+  where
+  rnf UpdateDocumentMetadataResponse' {..} =
+    Prelude.rnf httpStatus

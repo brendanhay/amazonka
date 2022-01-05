@@ -102,9 +102,21 @@ autoScaling_mcuCount = Lens.lens (\AutoScaling' {mcuCount} -> mcuCount) (\s@Auto
 autoScaling_minWorkerCount :: Lens.Lens' AutoScaling Prelude.Natural
 autoScaling_minWorkerCount = Lens.lens (\AutoScaling' {minWorkerCount} -> minWorkerCount) (\s@AutoScaling' {} a -> s {minWorkerCount = a} :: AutoScaling)
 
-instance Prelude.Hashable AutoScaling
+instance Prelude.Hashable AutoScaling where
+  hashWithSalt _salt AutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` scaleInPolicy
+      `Prelude.hashWithSalt` scaleOutPolicy
+      `Prelude.hashWithSalt` maxWorkerCount
+      `Prelude.hashWithSalt` mcuCount
+      `Prelude.hashWithSalt` minWorkerCount
 
-instance Prelude.NFData AutoScaling
+instance Prelude.NFData AutoScaling where
+  rnf AutoScaling' {..} =
+    Prelude.rnf scaleInPolicy
+      `Prelude.seq` Prelude.rnf scaleOutPolicy
+      `Prelude.seq` Prelude.rnf maxWorkerCount
+      `Prelude.seq` Prelude.rnf mcuCount
+      `Prelude.seq` Prelude.rnf minWorkerCount
 
 instance Core.ToJSON AutoScaling where
   toJSON AutoScaling' {..} =

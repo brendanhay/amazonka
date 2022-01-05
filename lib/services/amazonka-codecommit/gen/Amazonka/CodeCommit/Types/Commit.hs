@@ -155,6 +155,22 @@ instance Core.FromJSON Commit where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable Commit
+instance Prelude.Hashable Commit where
+  hashWithSalt _salt Commit' {..} =
+    _salt `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` committer
+      `Prelude.hashWithSalt` treeId
+      `Prelude.hashWithSalt` additionalData
+      `Prelude.hashWithSalt` parents
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData Commit
+instance Prelude.NFData Commit where
+  rnf Commit' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf committer
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf additionalData
+      `Prelude.seq` Prelude.rnf parents
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf message

@@ -138,9 +138,19 @@ instance Core.AWSRequest ListSpeakerEnrollmentJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSpeakerEnrollmentJobs
+instance Prelude.Hashable ListSpeakerEnrollmentJobs where
+  hashWithSalt _salt ListSpeakerEnrollmentJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData ListSpeakerEnrollmentJobs
+instance Prelude.NFData ListSpeakerEnrollmentJobs where
+  rnf ListSpeakerEnrollmentJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainId
 
 instance Core.ToHeaders ListSpeakerEnrollmentJobs where
   toHeaders =
@@ -234,3 +244,8 @@ listSpeakerEnrollmentJobsResponse_httpStatus = Lens.lens (\ListSpeakerEnrollment
 instance
   Prelude.NFData
     ListSpeakerEnrollmentJobsResponse
+  where
+  rnf ListSpeakerEnrollmentJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

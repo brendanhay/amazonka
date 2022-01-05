@@ -59,8 +59,13 @@ glueDataCatalogConfiguration_databaseARN = Lens.lens (\GlueDataCatalogConfigurat
 instance
   Prelude.Hashable
     GlueDataCatalogConfiguration
+  where
+  hashWithSalt _salt GlueDataCatalogConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` databaseARN
 
-instance Prelude.NFData GlueDataCatalogConfiguration
+instance Prelude.NFData GlueDataCatalogConfiguration where
+  rnf GlueDataCatalogConfiguration' {..} =
+    Prelude.rnf databaseARN
 
 instance Core.ToJSON GlueDataCatalogConfiguration where
   toJSON GlueDataCatalogConfiguration' {..} =

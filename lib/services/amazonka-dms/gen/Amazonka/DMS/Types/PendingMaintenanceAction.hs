@@ -150,6 +150,20 @@ instance Core.FromJSON PendingMaintenanceAction where
             Prelude.<*> (x Core..:? "CurrentApplyDate")
       )
 
-instance Prelude.Hashable PendingMaintenanceAction
+instance Prelude.Hashable PendingMaintenanceAction where
+  hashWithSalt _salt PendingMaintenanceAction' {..} =
+    _salt `Prelude.hashWithSalt` autoAppliedAfterDate
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` optInStatus
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` forcedApplyDate
+      `Prelude.hashWithSalt` currentApplyDate
 
-instance Prelude.NFData PendingMaintenanceAction
+instance Prelude.NFData PendingMaintenanceAction where
+  rnf PendingMaintenanceAction' {..} =
+    Prelude.rnf autoAppliedAfterDate
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf optInStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf forcedApplyDate
+      `Prelude.seq` Prelude.rnf currentApplyDate

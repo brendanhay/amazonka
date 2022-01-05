@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribeCustomRoutingEndpointGroup
+  where
+  hashWithSalt
+    _salt
+    DescribeCustomRoutingEndpointGroup' {..} =
+      _salt `Prelude.hashWithSalt` endpointGroupArn
 
 instance
   Prelude.NFData
     DescribeCustomRoutingEndpointGroup
+  where
+  rnf DescribeCustomRoutingEndpointGroup' {..} =
+    Prelude.rnf endpointGroupArn
 
 instance
   Core.ToHeaders
@@ -186,3 +194,7 @@ describeCustomRoutingEndpointGroupResponse_httpStatus = Lens.lens (\DescribeCust
 instance
   Prelude.NFData
     DescribeCustomRoutingEndpointGroupResponse
+  where
+  rnf DescribeCustomRoutingEndpointGroupResponse' {..} =
+    Prelude.rnf endpointGroup
+      `Prelude.seq` Prelude.rnf httpStatus

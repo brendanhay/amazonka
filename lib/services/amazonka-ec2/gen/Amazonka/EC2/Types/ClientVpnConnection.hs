@@ -205,6 +205,36 @@ instance Core.FromXML ClientVpnConnection where
       Prelude.<*> (x Core..@? "egressPackets")
       Prelude.<*> (x Core..@? "timestamp")
 
-instance Prelude.Hashable ClientVpnConnection
+instance Prelude.Hashable ClientVpnConnection where
+  hashWithSalt _salt ClientVpnConnection' {..} =
+    _salt `Prelude.hashWithSalt` ingressPackets
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` connectionEndTime
+      `Prelude.hashWithSalt` commonName
+      `Prelude.hashWithSalt` postureComplianceStatuses
+      `Prelude.hashWithSalt` connectionEstablishedTime
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` ingressBytes
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` egressBytes
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` clientIp
+      `Prelude.hashWithSalt` egressPackets
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ClientVpnConnection
+instance Prelude.NFData ClientVpnConnection where
+  rnf ClientVpnConnection' {..} =
+    Prelude.rnf ingressPackets
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf connectionEndTime
+      `Prelude.seq` Prelude.rnf commonName
+      `Prelude.seq` Prelude.rnf postureComplianceStatuses
+      `Prelude.seq` Prelude.rnf connectionEstablishedTime
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf ingressBytes
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf egressBytes
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf clientIp
+      `Prelude.seq` Prelude.rnf egressPackets
+      `Prelude.seq` Prelude.rnf timestamp

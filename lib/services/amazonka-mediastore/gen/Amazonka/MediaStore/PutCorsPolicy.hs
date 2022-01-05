@@ -113,9 +113,15 @@ instance Core.AWSRequest PutCorsPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutCorsPolicy
+instance Prelude.Hashable PutCorsPolicy where
+  hashWithSalt _salt PutCorsPolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` corsPolicy
 
-instance Prelude.NFData PutCorsPolicy
+instance Prelude.NFData PutCorsPolicy where
+  rnf PutCorsPolicy' {..} =
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf corsPolicy
 
 instance Core.ToHeaders PutCorsPolicy where
   toHeaders =
@@ -175,4 +181,6 @@ newPutCorsPolicyResponse pHttpStatus_ =
 putCorsPolicyResponse_httpStatus :: Lens.Lens' PutCorsPolicyResponse Prelude.Int
 putCorsPolicyResponse_httpStatus = Lens.lens (\PutCorsPolicyResponse' {httpStatus} -> httpStatus) (\s@PutCorsPolicyResponse' {} a -> s {httpStatus = a} :: PutCorsPolicyResponse)
 
-instance Prelude.NFData PutCorsPolicyResponse
+instance Prelude.NFData PutCorsPolicyResponse where
+  rnf PutCorsPolicyResponse' {..} =
+    Prelude.rnf httpStatus

@@ -134,6 +134,22 @@ instance Core.FromJSON IpAddressResponse where
             Prelude.<*> (x Core..:? "StatusMessage")
       )
 
-instance Prelude.Hashable IpAddressResponse
+instance Prelude.Hashable IpAddressResponse where
+  hashWithSalt _salt IpAddressResponse' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` ipId
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData IpAddressResponse
+instance Prelude.NFData IpAddressResponse where
+  rnf IpAddressResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf ipId
+      `Prelude.seq` Prelude.rnf statusMessage

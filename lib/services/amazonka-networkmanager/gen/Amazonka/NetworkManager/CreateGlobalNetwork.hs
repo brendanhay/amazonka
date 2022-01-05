@@ -102,9 +102,15 @@ instance Core.AWSRequest CreateGlobalNetwork where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGlobalNetwork
+instance Prelude.Hashable CreateGlobalNetwork where
+  hashWithSalt _salt CreateGlobalNetwork' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateGlobalNetwork
+instance Prelude.NFData CreateGlobalNetwork where
+  rnf CreateGlobalNetwork' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateGlobalNetwork where
   toHeaders =
@@ -171,4 +177,7 @@ createGlobalNetworkResponse_globalNetwork = Lens.lens (\CreateGlobalNetworkRespo
 createGlobalNetworkResponse_httpStatus :: Lens.Lens' CreateGlobalNetworkResponse Prelude.Int
 createGlobalNetworkResponse_httpStatus = Lens.lens (\CreateGlobalNetworkResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalNetworkResponse' {} a -> s {httpStatus = a} :: CreateGlobalNetworkResponse)
 
-instance Prelude.NFData CreateGlobalNetworkResponse
+instance Prelude.NFData CreateGlobalNetworkResponse where
+  rnf CreateGlobalNetworkResponse' {..} =
+    Prelude.rnf globalNetwork
+      `Prelude.seq` Prelude.rnf httpStatus

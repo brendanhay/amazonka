@@ -187,9 +187,29 @@ instance Core.AWSRequest UpdateFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFunction
+instance Prelude.Hashable UpdateFunction where
+  hashWithSalt _salt UpdateFunction' {..} =
+    _salt `Prelude.hashWithSalt` requestMappingTemplate
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionId
+      `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` functionVersion
 
-instance Prelude.NFData UpdateFunction
+instance Prelude.NFData UpdateFunction where
+  rnf UpdateFunction' {..} =
+    Prelude.rnf requestMappingTemplate
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionId
+      `Prelude.seq` Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf functionVersion
 
 instance Core.ToHeaders UpdateFunction where
   toHeaders =
@@ -271,4 +291,7 @@ updateFunctionResponse_functionConfiguration = Lens.lens (\UpdateFunctionRespons
 updateFunctionResponse_httpStatus :: Lens.Lens' UpdateFunctionResponse Prelude.Int
 updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpStatus} -> httpStatus) (\s@UpdateFunctionResponse' {} a -> s {httpStatus = a} :: UpdateFunctionResponse)
 
-instance Prelude.NFData UpdateFunctionResponse
+instance Prelude.NFData UpdateFunctionResponse where
+  rnf UpdateFunctionResponse' {..} =
+    Prelude.rnf functionConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

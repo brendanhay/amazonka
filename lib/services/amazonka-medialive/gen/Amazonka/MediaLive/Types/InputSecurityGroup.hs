@@ -113,6 +113,20 @@ instance Core.FromJSON InputSecurityGroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InputSecurityGroup
+instance Prelude.Hashable InputSecurityGroup where
+  hashWithSalt _salt InputSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` whitelistRules
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData InputSecurityGroup
+instance Prelude.NFData InputSecurityGroup where
+  rnf InputSecurityGroup' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf whitelistRules
+      `Prelude.seq` Prelude.rnf tags

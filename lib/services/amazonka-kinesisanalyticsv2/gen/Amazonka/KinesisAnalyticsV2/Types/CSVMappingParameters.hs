@@ -92,9 +92,15 @@ instance Core.FromJSON CSVMappingParameters where
             Prelude.<*> (x Core..: "RecordColumnDelimiter")
       )
 
-instance Prelude.Hashable CSVMappingParameters
+instance Prelude.Hashable CSVMappingParameters where
+  hashWithSalt _salt CSVMappingParameters' {..} =
+    _salt `Prelude.hashWithSalt` recordRowDelimiter
+      `Prelude.hashWithSalt` recordColumnDelimiter
 
-instance Prelude.NFData CSVMappingParameters
+instance Prelude.NFData CSVMappingParameters where
+  rnf CSVMappingParameters' {..} =
+    Prelude.rnf recordRowDelimiter
+      `Prelude.seq` Prelude.rnf recordColumnDelimiter
 
 instance Core.ToJSON CSVMappingParameters where
   toJSON CSVMappingParameters' {..} =

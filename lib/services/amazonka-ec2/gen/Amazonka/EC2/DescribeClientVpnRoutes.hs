@@ -195,9 +195,21 @@ instance Core.AWSRequest DescribeClientVpnRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClientVpnRoutes
+instance Prelude.Hashable DescribeClientVpnRoutes where
+  hashWithSalt _salt DescribeClientVpnRoutes' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clientVpnEndpointId
 
-instance Prelude.NFData DescribeClientVpnRoutes
+instance Prelude.NFData DescribeClientVpnRoutes where
+  rnf DescribeClientVpnRoutes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance Core.ToHeaders DescribeClientVpnRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,3 +286,8 @@ describeClientVpnRoutesResponse_httpStatus = Lens.lens (\DescribeClientVpnRoutes
 instance
   Prelude.NFData
     DescribeClientVpnRoutesResponse
+  where
+  rnf DescribeClientVpnRoutesResponse' {..} =
+    Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -223,10 +223,34 @@ instance
 instance
   Prelude.Hashable
     RestoreTableFromClusterSnapshot
+  where
+  hashWithSalt
+    _salt
+    RestoreTableFromClusterSnapshot' {..} =
+      _salt `Prelude.hashWithSalt` targetSchemaName
+        `Prelude.hashWithSalt` enableCaseSensitiveIdentifier
+        `Prelude.hashWithSalt` targetDatabaseName
+        `Prelude.hashWithSalt` sourceSchemaName
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` snapshotIdentifier
+        `Prelude.hashWithSalt` sourceDatabaseName
+        `Prelude.hashWithSalt` sourceTableName
+        `Prelude.hashWithSalt` newTableName'
 
 instance
   Prelude.NFData
     RestoreTableFromClusterSnapshot
+  where
+  rnf RestoreTableFromClusterSnapshot' {..} =
+    Prelude.rnf targetSchemaName
+      `Prelude.seq` Prelude.rnf enableCaseSensitiveIdentifier
+      `Prelude.seq` Prelude.rnf targetDatabaseName
+      `Prelude.seq` Prelude.rnf sourceSchemaName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf sourceDatabaseName
+      `Prelude.seq` Prelude.rnf sourceTableName
+      `Prelude.seq` Prelude.rnf newTableName'
 
 instance
   Core.ToHeaders
@@ -300,3 +324,7 @@ restoreTableFromClusterSnapshotResponse_httpStatus = Lens.lens (\RestoreTableFro
 instance
   Prelude.NFData
     RestoreTableFromClusterSnapshotResponse
+  where
+  rnf RestoreTableFromClusterSnapshotResponse' {..} =
+    Prelude.rnf tableRestoreStatus
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -101,10 +101,18 @@ instance
 instance
   Prelude.Hashable
     DeleteRecommenderConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteRecommenderConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` recommenderId
 
 instance
   Prelude.NFData
     DeleteRecommenderConfiguration
+  where
+  rnf DeleteRecommenderConfiguration' {..} =
+    Prelude.rnf recommenderId
 
 instance
   Core.ToHeaders
@@ -174,3 +182,7 @@ deleteRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.l
 instance
   Prelude.NFData
     DeleteRecommenderConfigurationResponse
+  where
+  rnf DeleteRecommenderConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse

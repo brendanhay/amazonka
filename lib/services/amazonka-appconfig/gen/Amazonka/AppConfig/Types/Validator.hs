@@ -83,9 +83,14 @@ instance Core.FromJSON Validator where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Content")
       )
 
-instance Prelude.Hashable Validator
+instance Prelude.Hashable Validator where
+  hashWithSalt _salt Validator' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData Validator
+instance Prelude.NFData Validator where
+  rnf Validator' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf content
 
 instance Core.ToJSON Validator where
   toJSON Validator' {..} =

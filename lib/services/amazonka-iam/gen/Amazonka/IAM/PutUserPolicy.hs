@@ -205,9 +205,17 @@ instance Core.AWSRequest PutUserPolicy where
   response =
     Response.receiveNull PutUserPolicyResponse'
 
-instance Prelude.Hashable PutUserPolicy
+instance Prelude.Hashable PutUserPolicy where
+  hashWithSalt _salt PutUserPolicy' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyDocument
 
-instance Prelude.NFData PutUserPolicy
+instance Prelude.NFData PutUserPolicy where
+  rnf PutUserPolicy' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyDocument
 
 instance Core.ToHeaders PutUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,4 +249,5 @@ newPutUserPolicyResponse ::
   PutUserPolicyResponse
 newPutUserPolicyResponse = PutUserPolicyResponse'
 
-instance Prelude.NFData PutUserPolicyResponse
+instance Prelude.NFData PutUserPolicyResponse where
+  rnf _ = ()

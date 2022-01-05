@@ -89,5 +89,14 @@ instance Core.FromJSON WorkerLogDeliveryDescription where
 instance
   Prelude.Hashable
     WorkerLogDeliveryDescription
+  where
+  hashWithSalt _salt WorkerLogDeliveryDescription' {..} =
+    _salt `Prelude.hashWithSalt` cloudWatchLogs
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData WorkerLogDeliveryDescription
+instance Prelude.NFData WorkerLogDeliveryDescription where
+  rnf WorkerLogDeliveryDescription' {..} =
+    Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf s3

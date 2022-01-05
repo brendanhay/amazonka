@@ -403,6 +403,65 @@ instance Core.FromJSON Branch where
             Prelude.<*> (x Core..: "enablePullRequestPreview")
       )
 
-instance Prelude.Hashable Branch
+instance Prelude.Hashable Branch where
+  hashWithSalt _salt Branch' {..} =
+    _salt `Prelude.hashWithSalt` backendEnvironmentArn
+      `Prelude.hashWithSalt` thumbnailUrl
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` sourceBranch
+      `Prelude.hashWithSalt` enablePerformanceMode
+      `Prelude.hashWithSalt` destinationBranch
+      `Prelude.hashWithSalt` pullRequestEnvironmentName
+      `Prelude.hashWithSalt` associatedResources
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` branchArn
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enableNotification
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` enableAutoBuild
+      `Prelude.hashWithSalt` customDomains
+      `Prelude.hashWithSalt` framework
+      `Prelude.hashWithSalt` activeJobId
+      `Prelude.hashWithSalt` totalNumberOfJobs
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` enablePullRequestPreview
 
-instance Prelude.NFData Branch
+instance Prelude.NFData Branch where
+  rnf Branch' {..} =
+    Prelude.rnf backendEnvironmentArn
+      `Prelude.seq` Prelude.rnf thumbnailUrl
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf sourceBranch
+      `Prelude.seq` Prelude.rnf enablePerformanceMode
+      `Prelude.seq` Prelude.rnf destinationBranch
+      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
+      `Prelude.seq` Prelude.rnf associatedResources
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf branchArn
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enableNotification
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf enableAutoBuild
+      `Prelude.seq` Prelude.rnf customDomains
+      `Prelude.seq` Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf activeJobId
+      `Prelude.seq` Prelude.rnf
+        totalNumberOfJobs
+      `Prelude.seq` Prelude.rnf
+        enableBasicAuth
+      `Prelude.seq` Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf
+        enablePullRequestPreview

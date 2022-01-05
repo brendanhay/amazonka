@@ -103,9 +103,17 @@ instance Core.AWSRequest DeleteMethod where
   response =
     Response.receiveNull DeleteMethodResponse''
 
-instance Prelude.Hashable DeleteMethod
+instance Prelude.Hashable DeleteMethod where
+  hashWithSalt _salt DeleteMethod' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` httpMethod
 
-instance Prelude.NFData DeleteMethod
+instance Prelude.NFData DeleteMethod where
+  rnf DeleteMethod' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpMethod
 
 instance Core.ToHeaders DeleteMethod where
   toHeaders =
@@ -144,4 +152,5 @@ newDeleteMethodResponse' ::
   DeleteMethodResponse'
 newDeleteMethodResponse' = DeleteMethodResponse''
 
-instance Prelude.NFData DeleteMethodResponse'
+instance Prelude.NFData DeleteMethodResponse' where
+  rnf _ = ()

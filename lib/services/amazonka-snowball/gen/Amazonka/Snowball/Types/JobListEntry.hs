@@ -150,6 +150,22 @@ instance Core.FromJSON JobListEntry where
             Prelude.<*> (x Core..:? "IsMaster")
       )
 
-instance Prelude.Hashable JobListEntry
+instance Prelude.Hashable JobListEntry where
+  hashWithSalt _salt JobListEntry' {..} =
+    _salt `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobState
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isMaster
 
-instance Prelude.NFData JobListEntry
+instance Prelude.NFData JobListEntry where
+  rnf JobListEntry' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobState
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isMaster

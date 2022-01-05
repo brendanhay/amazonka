@@ -141,10 +141,24 @@ instance
 instance
   Prelude.Hashable
     DisassociateDiscoveredResource
+  where
+  hashWithSalt
+    _salt
+    DisassociateDiscoveredResource' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` progressUpdateStream
+        `Prelude.hashWithSalt` migrationTaskName
+        `Prelude.hashWithSalt` configurationId
 
 instance
   Prelude.NFData
     DisassociateDiscoveredResource
+  where
+  rnf DisassociateDiscoveredResource' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf configurationId
 
 instance
   Core.ToHeaders
@@ -220,3 +234,6 @@ disassociateDiscoveredResourceResponse_httpStatus = Lens.lens (\DisassociateDisc
 instance
   Prelude.NFData
     DisassociateDiscoveredResourceResponse
+  where
+  rnf DisassociateDiscoveredResourceResponse' {..} =
+    Prelude.rnf httpStatus

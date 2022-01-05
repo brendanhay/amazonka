@@ -68,7 +68,16 @@ instance
 instance
   Prelude.Hashable
     MultiplexMediaConnectOutputDestinationSettings
+  where
+  hashWithSalt
+    _salt
+    MultiplexMediaConnectOutputDestinationSettings' {..} =
+      _salt `Prelude.hashWithSalt` entitlementArn
 
 instance
   Prelude.NFData
     MultiplexMediaConnectOutputDestinationSettings
+  where
+  rnf
+    MultiplexMediaConnectOutputDestinationSettings' {..} =
+      Prelude.rnf entitlementArn

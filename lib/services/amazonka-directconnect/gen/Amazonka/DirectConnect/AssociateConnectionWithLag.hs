@@ -135,9 +135,15 @@ instance Core.AWSRequest AssociateConnectionWithLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AssociateConnectionWithLag
+instance Prelude.Hashable AssociateConnectionWithLag where
+  hashWithSalt _salt AssociateConnectionWithLag' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData AssociateConnectionWithLag
+instance Prelude.NFData AssociateConnectionWithLag where
+  rnf AssociateConnectionWithLag' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf lagId
 
 instance Core.ToHeaders AssociateConnectionWithLag where
   toHeaders =

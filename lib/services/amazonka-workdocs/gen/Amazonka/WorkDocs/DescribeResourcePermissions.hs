@@ -161,9 +161,21 @@ instance Core.AWSRequest DescribeResourcePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeResourcePermissions
+instance Prelude.Hashable DescribeResourcePermissions where
+  hashWithSalt _salt DescribeResourcePermissions' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData DescribeResourcePermissions
+instance Prelude.NFData DescribeResourcePermissions where
+  rnf DescribeResourcePermissions' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DescribeResourcePermissions where
   toHeaders DescribeResourcePermissions' {..} =
@@ -243,3 +255,8 @@ describeResourcePermissionsResponse_httpStatus = Lens.lens (\DescribeResourcePer
 instance
   Prelude.NFData
     DescribeResourcePermissionsResponse
+  where
+  rnf DescribeResourcePermissionsResponse' {..} =
+    Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

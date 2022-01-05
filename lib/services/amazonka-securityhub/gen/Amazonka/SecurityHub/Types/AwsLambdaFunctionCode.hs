@@ -105,9 +105,19 @@ instance Core.FromJSON AwsLambdaFunctionCode where
             Prelude.<*> (x Core..:? "S3Bucket")
       )
 
-instance Prelude.Hashable AwsLambdaFunctionCode
+instance Prelude.Hashable AwsLambdaFunctionCode where
+  hashWithSalt _salt AwsLambdaFunctionCode' {..} =
+    _salt `Prelude.hashWithSalt` s3ObjectVersion
+      `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData AwsLambdaFunctionCode
+instance Prelude.NFData AwsLambdaFunctionCode where
+  rnf AwsLambdaFunctionCode' {..} =
+    Prelude.rnf s3ObjectVersion
+      `Prelude.seq` Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToJSON AwsLambdaFunctionCode where
   toJSON AwsLambdaFunctionCode' {..} =

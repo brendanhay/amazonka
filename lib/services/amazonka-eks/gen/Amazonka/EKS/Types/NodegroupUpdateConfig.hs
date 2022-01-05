@@ -87,9 +87,15 @@ instance Core.FromJSON NodegroupUpdateConfig where
             Prelude.<*> (x Core..:? "maxUnavailablePercentage")
       )
 
-instance Prelude.Hashable NodegroupUpdateConfig
+instance Prelude.Hashable NodegroupUpdateConfig where
+  hashWithSalt _salt NodegroupUpdateConfig' {..} =
+    _salt `Prelude.hashWithSalt` maxUnavailable
+      `Prelude.hashWithSalt` maxUnavailablePercentage
 
-instance Prelude.NFData NodegroupUpdateConfig
+instance Prelude.NFData NodegroupUpdateConfig where
+  rnf NodegroupUpdateConfig' {..} =
+    Prelude.rnf maxUnavailable
+      `Prelude.seq` Prelude.rnf maxUnavailablePercentage
 
 instance Core.ToJSON NodegroupUpdateConfig where
   toJSON NodegroupUpdateConfig' {..} =

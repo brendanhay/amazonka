@@ -62,9 +62,13 @@ instance Core.FromJSON TransformDataSource where
             Prelude.<$> (x Core..: "S3DataSource")
       )
 
-instance Prelude.Hashable TransformDataSource
+instance Prelude.Hashable TransformDataSource where
+  hashWithSalt _salt TransformDataSource' {..} =
+    _salt `Prelude.hashWithSalt` s3DataSource
 
-instance Prelude.NFData TransformDataSource
+instance Prelude.NFData TransformDataSource where
+  rnf TransformDataSource' {..} =
+    Prelude.rnf s3DataSource
 
 instance Core.ToJSON TransformDataSource where
   toJSON TransformDataSource' {..} =

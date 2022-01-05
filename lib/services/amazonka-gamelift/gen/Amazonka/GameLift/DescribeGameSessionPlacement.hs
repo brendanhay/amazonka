@@ -107,8 +107,13 @@ instance Core.AWSRequest DescribeGameSessionPlacement where
 instance
   Prelude.Hashable
     DescribeGameSessionPlacement
+  where
+  hashWithSalt _salt DescribeGameSessionPlacement' {..} =
+    _salt `Prelude.hashWithSalt` placementId
 
-instance Prelude.NFData DescribeGameSessionPlacement
+instance Prelude.NFData DescribeGameSessionPlacement where
+  rnf DescribeGameSessionPlacement' {..} =
+    Prelude.rnf placementId
 
 instance Core.ToHeaders DescribeGameSessionPlacement where
   toHeaders =
@@ -182,3 +187,7 @@ describeGameSessionPlacementResponse_httpStatus = Lens.lens (\DescribeGameSessio
 instance
   Prelude.NFData
     DescribeGameSessionPlacementResponse
+  where
+  rnf DescribeGameSessionPlacementResponse' {..} =
+    Prelude.rnf gameSessionPlacement
+      `Prelude.seq` Prelude.rnf httpStatus

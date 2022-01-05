@@ -98,9 +98,13 @@ instance Core.AWSRequest ConfirmTopicRuleDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmTopicRuleDestination
+instance Prelude.Hashable ConfirmTopicRuleDestination where
+  hashWithSalt _salt ConfirmTopicRuleDestination' {..} =
+    _salt `Prelude.hashWithSalt` confirmationToken
 
-instance Prelude.NFData ConfirmTopicRuleDestination
+instance Prelude.NFData ConfirmTopicRuleDestination where
+  rnf ConfirmTopicRuleDestination' {..} =
+    Prelude.rnf confirmationToken
 
 instance Core.ToHeaders ConfirmTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -146,3 +150,6 @@ confirmTopicRuleDestinationResponse_httpStatus = Lens.lens (\ConfirmTopicRuleDes
 instance
   Prelude.NFData
     ConfirmTopicRuleDestinationResponse
+  where
+  rnf ConfirmTopicRuleDestinationResponse' {..} =
+    Prelude.rnf httpStatus

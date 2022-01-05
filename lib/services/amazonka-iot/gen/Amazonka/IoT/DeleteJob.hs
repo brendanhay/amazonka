@@ -169,9 +169,17 @@ instance Core.AWSRequest DeleteJob where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteJobResponse'
 
-instance Prelude.Hashable DeleteJob
+instance Prelude.Hashable DeleteJob where
+  hashWithSalt _salt DeleteJob' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DeleteJob
+instance Prelude.NFData DeleteJob where
+  rnf DeleteJob' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders DeleteJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +209,5 @@ newDeleteJobResponse ::
   DeleteJobResponse
 newDeleteJobResponse = DeleteJobResponse'
 
-instance Prelude.NFData DeleteJobResponse
+instance Prelude.NFData DeleteJobResponse where
+  rnf _ = ()

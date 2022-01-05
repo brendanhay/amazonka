@@ -87,7 +87,17 @@ instance Core.FromXML InstanceRefreshLivePoolProgress where
 instance
   Prelude.Hashable
     InstanceRefreshLivePoolProgress
+  where
+  hashWithSalt
+    _salt
+    InstanceRefreshLivePoolProgress' {..} =
+      _salt `Prelude.hashWithSalt` instancesToUpdate
+        `Prelude.hashWithSalt` percentageComplete
 
 instance
   Prelude.NFData
     InstanceRefreshLivePoolProgress
+  where
+  rnf InstanceRefreshLivePoolProgress' {..} =
+    Prelude.rnf instancesToUpdate
+      `Prelude.seq` Prelude.rnf percentageComplete

@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteFleetMetric where
   response =
     Response.receiveNull DeleteFleetMetricResponse'
 
-instance Prelude.Hashable DeleteFleetMetric
+instance Prelude.Hashable DeleteFleetMetric where
+  hashWithSalt _salt DeleteFleetMetric' {..} =
+    _salt `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData DeleteFleetMetric
+instance Prelude.NFData DeleteFleetMetric where
+  rnf DeleteFleetMetric' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToHeaders DeleteFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -128,4 +134,5 @@ newDeleteFleetMetricResponse ::
 newDeleteFleetMetricResponse =
   DeleteFleetMetricResponse'
 
-instance Prelude.NFData DeleteFleetMetricResponse
+instance Prelude.NFData DeleteFleetMetricResponse where
+  rnf _ = ()

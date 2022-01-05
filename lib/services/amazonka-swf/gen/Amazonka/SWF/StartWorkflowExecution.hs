@@ -504,9 +504,33 @@ instance Core.AWSRequest StartWorkflowExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartWorkflowExecution
+instance Prelude.Hashable StartWorkflowExecution where
+  hashWithSalt _salt StartWorkflowExecution' {..} =
+    _salt `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` taskStartToCloseTimeout
+      `Prelude.hashWithSalt` lambdaRole
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` executionStartToCloseTimeout
+      `Prelude.hashWithSalt` taskList
+      `Prelude.hashWithSalt` taskPriority
+      `Prelude.hashWithSalt` childPolicy
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` workflowType
 
-instance Prelude.NFData StartWorkflowExecution
+instance Prelude.NFData StartWorkflowExecution where
+  rnf StartWorkflowExecution' {..} =
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf lambdaRole
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf taskPriority
+      `Prelude.seq` Prelude.rnf childPolicy
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf workflowType
 
 instance Core.ToHeaders StartWorkflowExecution where
   toHeaders =
@@ -599,3 +623,7 @@ startWorkflowExecutionResponse_httpStatus = Lens.lens (\StartWorkflowExecutionRe
 instance
   Prelude.NFData
     StartWorkflowExecutionResponse
+  where
+  rnf StartWorkflowExecutionResponse' {..} =
+    Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf httpStatus

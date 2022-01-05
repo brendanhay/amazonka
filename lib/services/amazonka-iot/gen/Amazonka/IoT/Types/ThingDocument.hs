@@ -127,6 +127,22 @@ instance Core.FromJSON ThingDocument where
             Prelude.<*> (x Core..:? "thingId")
       )
 
-instance Prelude.Hashable ThingDocument
+instance Prelude.Hashable ThingDocument where
+  hashWithSalt _salt ThingDocument' {..} =
+    _salt `Prelude.hashWithSalt` thingGroupNames
+      `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` shadow
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` connectivity
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` thingId
 
-instance Prelude.NFData ThingDocument
+instance Prelude.NFData ThingDocument where
+  rnf ThingDocument' {..} =
+    Prelude.rnf thingGroupNames
+      `Prelude.seq` Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf shadow
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf connectivity
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf thingId

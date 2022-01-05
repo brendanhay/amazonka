@@ -195,6 +195,33 @@ instance Core.FromJSON PullRequestEvent where
             Prelude.<*> (x Core..:? "approvalRuleOverriddenEventMetadata")
       )
 
-instance Prelude.Hashable PullRequestEvent
+instance Prelude.Hashable PullRequestEvent where
+  hashWithSalt _salt PullRequestEvent' {..} =
+    _salt
+      `Prelude.hashWithSalt` pullRequestMergedStateChangedEventMetadata
+      `Prelude.hashWithSalt` pullRequestCreatedEventMetadata
+      `Prelude.hashWithSalt` approvalRuleEventMetadata
+      `Prelude.hashWithSalt` pullRequestEventType
+      `Prelude.hashWithSalt` pullRequestStatusChangedEventMetadata
+      `Prelude.hashWithSalt` actorArn
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` eventDate
+      `Prelude.hashWithSalt` approvalStateChangedEventMetadata
+      `Prelude.hashWithSalt` pullRequestSourceReferenceUpdatedEventMetadata
+      `Prelude.hashWithSalt` approvalRuleOverriddenEventMetadata
 
-instance Prelude.NFData PullRequestEvent
+instance Prelude.NFData PullRequestEvent where
+  rnf PullRequestEvent' {..} =
+    Prelude.rnf
+      pullRequestMergedStateChangedEventMetadata
+      `Prelude.seq` Prelude.rnf pullRequestCreatedEventMetadata
+      `Prelude.seq` Prelude.rnf approvalRuleEventMetadata
+      `Prelude.seq` Prelude.rnf pullRequestEventType
+      `Prelude.seq` Prelude.rnf pullRequestStatusChangedEventMetadata
+      `Prelude.seq` Prelude.rnf actorArn
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf eventDate
+      `Prelude.seq` Prelude.rnf approvalStateChangedEventMetadata
+      `Prelude.seq` Prelude.rnf
+        pullRequestSourceReferenceUpdatedEventMetadata
+      `Prelude.seq` Prelude.rnf approvalRuleOverriddenEventMetadata

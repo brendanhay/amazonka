@@ -360,6 +360,42 @@ instance Core.FromJSON DomainName where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DomainName
+instance Prelude.Hashable DomainName where
+  hashWithSalt _salt DomainName' {..} =
+    _salt `Prelude.hashWithSalt` regionalHostedZoneId
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` ownershipVerificationCertificateArn
+      `Prelude.hashWithSalt` regionalCertificateArn
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` distributionHostedZoneId
+      `Prelude.hashWithSalt` securityPolicy
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` mutualTlsAuthentication
+      `Prelude.hashWithSalt` regionalCertificateName
+      `Prelude.hashWithSalt` regionalDomainName
+      `Prelude.hashWithSalt` certificateUploadDate
+      `Prelude.hashWithSalt` distributionDomainName
+      `Prelude.hashWithSalt` domainNameStatusMessage
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` domainNameStatus
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData DomainName
+instance Prelude.NFData DomainName where
+  rnf DomainName' {..} =
+    Prelude.rnf regionalHostedZoneId
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
+      `Prelude.seq` Prelude.rnf regionalCertificateArn
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf distributionHostedZoneId
+      `Prelude.seq` Prelude.rnf securityPolicy
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf regionalCertificateName
+      `Prelude.seq` Prelude.rnf regionalDomainName
+      `Prelude.seq` Prelude.rnf certificateUploadDate
+      `Prelude.seq` Prelude.rnf distributionDomainName
+      `Prelude.seq` Prelude.rnf domainNameStatusMessage
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf domainNameStatus
+      `Prelude.seq` Prelude.rnf tags

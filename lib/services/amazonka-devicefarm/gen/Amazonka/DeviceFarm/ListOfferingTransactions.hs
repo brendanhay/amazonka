@@ -128,9 +128,13 @@ instance Core.AWSRequest ListOfferingTransactions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOfferingTransactions
+instance Prelude.Hashable ListOfferingTransactions where
+  hashWithSalt _salt ListOfferingTransactions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListOfferingTransactions
+instance Prelude.NFData ListOfferingTransactions where
+  rnf ListOfferingTransactions' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListOfferingTransactions where
   toHeaders =
@@ -222,3 +226,8 @@ listOfferingTransactionsResponse_httpStatus = Lens.lens (\ListOfferingTransactio
 instance
   Prelude.NFData
     ListOfferingTransactionsResponse
+  where
+  rnf ListOfferingTransactionsResponse' {..} =
+    Prelude.rnf offeringTransactions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

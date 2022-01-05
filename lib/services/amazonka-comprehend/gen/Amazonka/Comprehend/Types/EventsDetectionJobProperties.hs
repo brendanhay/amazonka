@@ -212,5 +212,32 @@ instance Core.FromJSON EventsDetectionJobProperties where
 instance
   Prelude.Hashable
     EventsDetectionJobProperties
+  where
+  hashWithSalt _salt EventsDetectionJobProperties' {..} =
+    _salt `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` targetEventTypes
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` submitTime
 
-instance Prelude.NFData EventsDetectionJobProperties
+instance Prelude.NFData EventsDetectionJobProperties where
+  rnf EventsDetectionJobProperties' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf targetEventTypes
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf submitTime

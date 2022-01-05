@@ -85,6 +85,15 @@ instance Core.FromJSON ThingGroupMetadata where
             Prelude.<*> (x Core..:? "creationDate")
       )
 
-instance Prelude.Hashable ThingGroupMetadata
+instance Prelude.Hashable ThingGroupMetadata where
+  hashWithSalt _salt ThingGroupMetadata' {..} =
+    _salt
+      `Prelude.hashWithSalt` rootToParentThingGroups
+      `Prelude.hashWithSalt` parentGroupName
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData ThingGroupMetadata
+instance Prelude.NFData ThingGroupMetadata where
+  rnf ThingGroupMetadata' {..} =
+    Prelude.rnf rootToParentThingGroups
+      `Prelude.seq` Prelude.rnf parentGroupName
+      `Prelude.seq` Prelude.rnf creationDate

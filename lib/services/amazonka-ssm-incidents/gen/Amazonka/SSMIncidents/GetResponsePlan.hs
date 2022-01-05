@@ -98,9 +98,12 @@ instance Core.AWSRequest GetResponsePlan where
             Prelude.<*> (x Core..:> "name")
       )
 
-instance Prelude.Hashable GetResponsePlan
+instance Prelude.Hashable GetResponsePlan where
+  hashWithSalt _salt GetResponsePlan' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetResponsePlan
+instance Prelude.NFData GetResponsePlan where
+  rnf GetResponsePlan' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetResponsePlan where
   toHeaders =
@@ -228,4 +231,13 @@ getResponsePlanResponse_incidentTemplate = Lens.lens (\GetResponsePlanResponse' 
 getResponsePlanResponse_name :: Lens.Lens' GetResponsePlanResponse Prelude.Text
 getResponsePlanResponse_name = Lens.lens (\GetResponsePlanResponse' {name} -> name) (\s@GetResponsePlanResponse' {} a -> s {name = a} :: GetResponsePlanResponse)
 
-instance Prelude.NFData GetResponsePlanResponse
+instance Prelude.NFData GetResponsePlanResponse where
+  rnf GetResponsePlanResponse' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf incidentTemplate
+      `Prelude.seq` Prelude.rnf name

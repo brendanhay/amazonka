@@ -65,9 +65,14 @@ instance Core.FromJSON TuningJobCompletionCriteria where
             Prelude.<$> (x Core..: "TargetObjectiveMetricValue")
       )
 
-instance Prelude.Hashable TuningJobCompletionCriteria
+instance Prelude.Hashable TuningJobCompletionCriteria where
+  hashWithSalt _salt TuningJobCompletionCriteria' {..} =
+    _salt
+      `Prelude.hashWithSalt` targetObjectiveMetricValue
 
-instance Prelude.NFData TuningJobCompletionCriteria
+instance Prelude.NFData TuningJobCompletionCriteria where
+  rnf TuningJobCompletionCriteria' {..} =
+    Prelude.rnf targetObjectiveMetricValue
 
 instance Core.ToJSON TuningJobCompletionCriteria where
   toJSON TuningJobCompletionCriteria' {..} =

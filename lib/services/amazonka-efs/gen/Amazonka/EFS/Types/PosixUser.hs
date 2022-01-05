@@ -96,9 +96,17 @@ instance Core.FromJSON PosixUser where
             Prelude.<*> (x Core..: "Gid")
       )
 
-instance Prelude.Hashable PosixUser
+instance Prelude.Hashable PosixUser where
+  hashWithSalt _salt PosixUser' {..} =
+    _salt `Prelude.hashWithSalt` secondaryGids
+      `Prelude.hashWithSalt` uid
+      `Prelude.hashWithSalt` gid
 
-instance Prelude.NFData PosixUser
+instance Prelude.NFData PosixUser where
+  rnf PosixUser' {..} =
+    Prelude.rnf secondaryGids
+      `Prelude.seq` Prelude.rnf uid
+      `Prelude.seq` Prelude.rnf gid
 
 instance Core.ToJSON PosixUser where
   toJSON PosixUser' {..} =

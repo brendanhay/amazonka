@@ -108,10 +108,26 @@ engineTranscribeMedicalSettings_type = Lens.lens (\EngineTranscribeMedicalSettin
 instance
   Prelude.Hashable
     EngineTranscribeMedicalSettings
+  where
+  hashWithSalt
+    _salt
+    EngineTranscribeMedicalSettings' {..} =
+      _salt `Prelude.hashWithSalt` vocabularyName
+        `Prelude.hashWithSalt` region
+        `Prelude.hashWithSalt` languageCode
+        `Prelude.hashWithSalt` specialty
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     EngineTranscribeMedicalSettings
+  where
+  rnf EngineTranscribeMedicalSettings' {..} =
+    Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf specialty
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON EngineTranscribeMedicalSettings where
   toJSON EngineTranscribeMedicalSettings' {..} =

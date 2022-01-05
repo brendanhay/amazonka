@@ -113,8 +113,15 @@ instance
 instance
   Prelude.Hashable
     GetPatchBaselineForPatchGroup
+  where
+  hashWithSalt _salt GetPatchBaselineForPatchGroup' {..} =
+    _salt `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` patchGroup
 
-instance Prelude.NFData GetPatchBaselineForPatchGroup
+instance Prelude.NFData GetPatchBaselineForPatchGroup where
+  rnf GetPatchBaselineForPatchGroup' {..} =
+    Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf patchGroup
 
 instance Core.ToHeaders GetPatchBaselineForPatchGroup where
   toHeaders =
@@ -210,3 +217,9 @@ getPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\GetPatchBaselineF
 instance
   Prelude.NFData
     GetPatchBaselineForPatchGroupResponse
+  where
+  rnf GetPatchBaselineForPatchGroupResponse' {..} =
+    Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf patchGroup
+      `Prelude.seq` Prelude.rnf httpStatus

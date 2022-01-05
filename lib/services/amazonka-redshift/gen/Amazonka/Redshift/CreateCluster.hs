@@ -1046,9 +1046,85 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt _salt CreateCluster' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` snapshotScheduleIdentifier
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` aquaConfigurationStatus
+      `Prelude.hashWithSalt` clusterSecurityGroups
+      `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` iamRoles
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` availabilityZoneRelocation
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` allowVersionUpgrade
+      `Prelude.hashWithSalt` clusterParameterGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` masterUserPassword
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf snapshotScheduleIdentifier
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf aquaConfigurationStatus
+      `Prelude.seq` Prelude.rnf clusterSecurityGroups
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf iamRoles
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf
+        availabilityZoneRelocation
+      `Prelude.seq` Prelude.rnf
+        clusterVersion
+      `Prelude.seq` Prelude.rnf
+        allowVersionUpgrade
+      `Prelude.seq` Prelude.rnf
+        clusterParameterGroupName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        dbName
+      `Prelude.seq` Prelude.rnf
+        clusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        nodeType
+      `Prelude.seq` Prelude.rnf
+        masterUsername
+      `Prelude.seq` Prelude.rnf
+        masterUserPassword
 
 instance Core.ToHeaders CreateCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -1156,4 +1232,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

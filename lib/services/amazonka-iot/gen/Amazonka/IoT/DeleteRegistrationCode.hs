@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteRegistrationCode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRegistrationCode
+instance Prelude.Hashable DeleteRegistrationCode where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DeleteRegistrationCode
+instance Prelude.NFData DeleteRegistrationCode where
+  rnf _ = ()
 
 instance Core.ToHeaders DeleteRegistrationCode where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,3 +125,6 @@ deleteRegistrationCodeResponse_httpStatus = Lens.lens (\DeleteRegistrationCodeRe
 instance
   Prelude.NFData
     DeleteRegistrationCodeResponse
+  where
+  rnf DeleteRegistrationCodeResponse' {..} =
+    Prelude.rnf httpStatus

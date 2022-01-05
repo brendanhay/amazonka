@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeRouterConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRouterConfiguration
+instance Prelude.Hashable DescribeRouterConfiguration where
+  hashWithSalt _salt DescribeRouterConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` routerTypeIdentifier
+      `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData DescribeRouterConfiguration
+instance Prelude.NFData DescribeRouterConfiguration where
+  rnf DescribeRouterConfiguration' {..} =
+    Prelude.rnf routerTypeIdentifier
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders DescribeRouterConfiguration where
   toHeaders =
@@ -215,3 +221,10 @@ describeRouterConfigurationResponse_httpStatus = Lens.lens (\DescribeRouterConfi
 instance
   Prelude.NFData
     DescribeRouterConfigurationResponse
+  where
+  rnf DescribeRouterConfigurationResponse' {..} =
+    Prelude.rnf router
+      `Prelude.seq` Prelude.rnf customerRouterConfig
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf httpStatus

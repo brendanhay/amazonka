@@ -71,6 +71,11 @@ instance Core.FromJSON TagOptionSummary where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable TagOptionSummary
+instance Prelude.Hashable TagOptionSummary where
+  hashWithSalt _salt TagOptionSummary' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData TagOptionSummary
+instance Prelude.NFData TagOptionSummary where
+  rnf TagOptionSummary' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key

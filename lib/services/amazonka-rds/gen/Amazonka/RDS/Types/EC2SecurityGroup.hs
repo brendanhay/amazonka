@@ -99,6 +99,16 @@ instance Core.FromXML EC2SecurityGroup where
       Prelude.<*> (x Core..@? "EC2SecurityGroupName")
       Prelude.<*> (x Core..@? "EC2SecurityGroupId")
 
-instance Prelude.Hashable EC2SecurityGroup
+instance Prelude.Hashable EC2SecurityGroup where
+  hashWithSalt _salt EC2SecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+      `Prelude.hashWithSalt` eC2SecurityGroupName
+      `Prelude.hashWithSalt` eC2SecurityGroupId
 
-instance Prelude.NFData EC2SecurityGroup
+instance Prelude.NFData EC2SecurityGroup where
+  rnf EC2SecurityGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupId

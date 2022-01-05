@@ -150,9 +150,21 @@ instance Core.AWSRequest DescribeEngineVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEngineVersions
+instance Prelude.Hashable DescribeEngineVersions where
+  hashWithSalt _salt DescribeEngineVersions' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` defaultOnly
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeEngineVersions
+instance Prelude.NFData DescribeEngineVersions where
+  rnf DescribeEngineVersions' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf defaultOnly
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeEngineVersions where
   toHeaders =
@@ -254,3 +266,8 @@ describeEngineVersionsResponse_httpStatus = Lens.lens (\DescribeEngineVersionsRe
 instance
   Prelude.NFData
     DescribeEngineVersionsResponse
+  where
+  rnf DescribeEngineVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf engineVersions
+      `Prelude.seq` Prelude.rnf httpStatus

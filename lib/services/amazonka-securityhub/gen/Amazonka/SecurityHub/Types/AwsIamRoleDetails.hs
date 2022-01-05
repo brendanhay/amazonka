@@ -178,9 +178,31 @@ instance Core.FromJSON AwsIamRoleDetails where
                         )
       )
 
-instance Prelude.Hashable AwsIamRoleDetails
+instance Prelude.Hashable AwsIamRoleDetails where
+  hashWithSalt _salt AwsIamRoleDetails' {..} =
+    _salt `Prelude.hashWithSalt` maxSessionDuration
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` instanceProfileList
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` roleId
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` rolePolicyList
+      `Prelude.hashWithSalt` attachedManagedPolicies
 
-instance Prelude.NFData AwsIamRoleDetails
+instance Prelude.NFData AwsIamRoleDetails where
+  rnf AwsIamRoleDetails' {..} =
+    Prelude.rnf maxSessionDuration
+      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf instanceProfileList
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf roleId
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf rolePolicyList
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
 
 instance Core.ToJSON AwsIamRoleDetails where
   toJSON AwsIamRoleDetails' {..} =

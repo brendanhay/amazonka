@@ -94,9 +94,15 @@ instance Core.FromJSON DashAdditionalManifest where
                         )
       )
 
-instance Prelude.Hashable DashAdditionalManifest
+instance Prelude.Hashable DashAdditionalManifest where
+  hashWithSalt _salt DashAdditionalManifest' {..} =
+    _salt `Prelude.hashWithSalt` manifestNameModifier
+      `Prelude.hashWithSalt` selectedOutputs
 
-instance Prelude.NFData DashAdditionalManifest
+instance Prelude.NFData DashAdditionalManifest where
+  rnf DashAdditionalManifest' {..} =
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Core.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =

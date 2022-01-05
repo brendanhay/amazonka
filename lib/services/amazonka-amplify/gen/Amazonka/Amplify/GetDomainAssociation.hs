@@ -102,9 +102,15 @@ instance Core.AWSRequest GetDomainAssociation where
             Prelude.<*> (x Core..:> "domainAssociation")
       )
 
-instance Prelude.Hashable GetDomainAssociation
+instance Prelude.Hashable GetDomainAssociation where
+  hashWithSalt _salt GetDomainAssociation' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetDomainAssociation
+instance Prelude.NFData GetDomainAssociation where
+  rnf GetDomainAssociation' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders GetDomainAssociation where
   toHeaders =
@@ -177,4 +183,7 @@ getDomainAssociationResponse_httpStatus = Lens.lens (\GetDomainAssociationRespon
 getDomainAssociationResponse_domainAssociation :: Lens.Lens' GetDomainAssociationResponse DomainAssociation
 getDomainAssociationResponse_domainAssociation = Lens.lens (\GetDomainAssociationResponse' {domainAssociation} -> domainAssociation) (\s@GetDomainAssociationResponse' {} a -> s {domainAssociation = a} :: GetDomainAssociationResponse)
 
-instance Prelude.NFData GetDomainAssociationResponse
+instance Prelude.NFData GetDomainAssociationResponse where
+  rnf GetDomainAssociationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainAssociation

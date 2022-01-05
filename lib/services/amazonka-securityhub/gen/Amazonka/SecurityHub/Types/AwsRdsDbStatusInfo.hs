@@ -97,9 +97,19 @@ instance Core.FromJSON AwsRdsDbStatusInfo where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable AwsRdsDbStatusInfo
+instance Prelude.Hashable AwsRdsDbStatusInfo where
+  hashWithSalt _salt AwsRdsDbStatusInfo' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` normal
+      `Prelude.hashWithSalt` statusType
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData AwsRdsDbStatusInfo
+instance Prelude.NFData AwsRdsDbStatusInfo where
+  rnf AwsRdsDbStatusInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf normal
+      `Prelude.seq` Prelude.rnf statusType
+      `Prelude.seq` Prelude.rnf message
 
 instance Core.ToJSON AwsRdsDbStatusInfo where
   toJSON AwsRdsDbStatusInfo' {..} =

@@ -80,9 +80,15 @@ inputConfiguration_id = Lens.lens (\InputConfiguration' {id} -> id) (\s@InputCon
 inputConfiguration_inputStartingPositionConfiguration :: Lens.Lens' InputConfiguration InputStartingPositionConfiguration
 inputConfiguration_inputStartingPositionConfiguration = Lens.lens (\InputConfiguration' {inputStartingPositionConfiguration} -> inputStartingPositionConfiguration) (\s@InputConfiguration' {} a -> s {inputStartingPositionConfiguration = a} :: InputConfiguration)
 
-instance Prelude.Hashable InputConfiguration
+instance Prelude.Hashable InputConfiguration where
+  hashWithSalt _salt InputConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` inputStartingPositionConfiguration
 
-instance Prelude.NFData InputConfiguration
+instance Prelude.NFData InputConfiguration where
+  rnf InputConfiguration' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
 
 instance Core.ToJSON InputConfiguration where
   toJSON InputConfiguration' {..} =

@@ -91,9 +91,13 @@ instance Core.AWSRequest GetPhoneNumberOrder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPhoneNumberOrder
+instance Prelude.Hashable GetPhoneNumberOrder where
+  hashWithSalt _salt GetPhoneNumberOrder' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberOrderId
 
-instance Prelude.NFData GetPhoneNumberOrder
+instance Prelude.NFData GetPhoneNumberOrder where
+  rnf GetPhoneNumberOrder' {..} =
+    Prelude.rnf phoneNumberOrderId
 
 instance Core.ToHeaders GetPhoneNumberOrder where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,4 +151,7 @@ getPhoneNumberOrderResponse_phoneNumberOrder = Lens.lens (\GetPhoneNumberOrderRe
 getPhoneNumberOrderResponse_httpStatus :: Lens.Lens' GetPhoneNumberOrderResponse Prelude.Int
 getPhoneNumberOrderResponse_httpStatus = Lens.lens (\GetPhoneNumberOrderResponse' {httpStatus} -> httpStatus) (\s@GetPhoneNumberOrderResponse' {} a -> s {httpStatus = a} :: GetPhoneNumberOrderResponse)
 
-instance Prelude.NFData GetPhoneNumberOrderResponse
+instance Prelude.NFData GetPhoneNumberOrderResponse where
+  rnf GetPhoneNumberOrderResponse' {..} =
+    Prelude.rnf phoneNumberOrder
+      `Prelude.seq` Prelude.rnf httpStatus

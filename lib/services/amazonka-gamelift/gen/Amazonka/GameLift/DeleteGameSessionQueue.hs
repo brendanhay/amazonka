@@ -104,9 +104,12 @@ instance Core.AWSRequest DeleteGameSessionQueue where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGameSessionQueue
+instance Prelude.Hashable DeleteGameSessionQueue where
+  hashWithSalt _salt DeleteGameSessionQueue' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteGameSessionQueue
+instance Prelude.NFData DeleteGameSessionQueue where
+  rnf DeleteGameSessionQueue' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteGameSessionQueue where
   toHeaders =
@@ -169,3 +172,6 @@ deleteGameSessionQueueResponse_httpStatus = Lens.lens (\DeleteGameSessionQueueRe
 instance
   Prelude.NFData
     DeleteGameSessionQueueResponse
+  where
+  rnf DeleteGameSessionQueueResponse' {..} =
+    Prelude.rnf httpStatus

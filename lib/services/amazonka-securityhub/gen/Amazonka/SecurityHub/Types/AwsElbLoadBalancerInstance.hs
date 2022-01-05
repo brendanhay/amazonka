@@ -62,9 +62,13 @@ instance Core.FromJSON AwsElbLoadBalancerInstance where
             Prelude.<$> (x Core..:? "InstanceId")
       )
 
-instance Prelude.Hashable AwsElbLoadBalancerInstance
+instance Prelude.Hashable AwsElbLoadBalancerInstance where
+  hashWithSalt _salt AwsElbLoadBalancerInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AwsElbLoadBalancerInstance
+instance Prelude.NFData AwsElbLoadBalancerInstance where
+  rnf AwsElbLoadBalancerInstance' {..} =
+    Prelude.rnf instanceId
 
 instance Core.ToJSON AwsElbLoadBalancerInstance where
   toJSON AwsElbLoadBalancerInstance' {..} =

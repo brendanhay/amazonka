@@ -98,7 +98,19 @@ instance
 instance
   Prelude.Hashable
     ImportAssetsFromS3ResponseDetails
+  where
+  hashWithSalt
+    _salt
+    ImportAssetsFromS3ResponseDetails' {..} =
+      _salt `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ImportAssetsFromS3ResponseDetails
+  where
+  rnf ImportAssetsFromS3ResponseDetails' {..} =
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf assetSources
+      `Prelude.seq` Prelude.rnf revisionId

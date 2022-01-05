@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     DeleteEnvironmentConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteEnvironmentConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` environmentName
 
 instance
   Prelude.NFData
     DeleteEnvironmentConfiguration
+  where
+  rnf DeleteEnvironmentConfiguration' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance
   Core.ToHeaders
@@ -155,3 +165,5 @@ newDeleteEnvironmentConfigurationResponse =
 instance
   Prelude.NFData
     DeleteEnvironmentConfigurationResponse
+  where
+  rnf _ = ()

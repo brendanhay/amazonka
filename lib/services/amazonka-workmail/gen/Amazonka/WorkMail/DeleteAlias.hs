@@ -118,9 +118,17 @@ instance Core.AWSRequest DeleteAlias where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAlias
+instance Prelude.Hashable DeleteAlias where
+  hashWithSalt _salt DeleteAlias' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` alias
 
-instance Prelude.NFData DeleteAlias
+instance Prelude.NFData DeleteAlias where
+  rnf DeleteAlias' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf alias
 
 instance Core.ToHeaders DeleteAlias where
   toHeaders =
@@ -181,4 +189,5 @@ newDeleteAliasResponse pHttpStatus_ =
 deleteAliasResponse_httpStatus :: Lens.Lens' DeleteAliasResponse Prelude.Int
 deleteAliasResponse_httpStatus = Lens.lens (\DeleteAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteAliasResponse' {} a -> s {httpStatus = a} :: DeleteAliasResponse)
 
-instance Prelude.NFData DeleteAliasResponse
+instance Prelude.NFData DeleteAliasResponse where
+  rnf DeleteAliasResponse' {..} = Prelude.rnf httpStatus

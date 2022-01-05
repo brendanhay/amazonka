@@ -81,9 +81,12 @@ instance Core.AWSRequest GetLoggingOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggingOptions
+instance Prelude.Hashable GetLoggingOptions where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetLoggingOptions
+instance Prelude.NFData GetLoggingOptions where
+  rnf _ = ()
 
 instance Core.ToHeaders GetLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,8 @@ getLoggingOptionsResponse_roleArn = Lens.lens (\GetLoggingOptionsResponse' {role
 getLoggingOptionsResponse_httpStatus :: Lens.Lens' GetLoggingOptionsResponse Prelude.Int
 getLoggingOptionsResponse_httpStatus = Lens.lens (\GetLoggingOptionsResponse' {httpStatus} -> httpStatus) (\s@GetLoggingOptionsResponse' {} a -> s {httpStatus = a} :: GetLoggingOptionsResponse)
 
-instance Prelude.NFData GetLoggingOptionsResponse
+instance Prelude.NFData GetLoggingOptionsResponse where
+  rnf GetLoggingOptionsResponse' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

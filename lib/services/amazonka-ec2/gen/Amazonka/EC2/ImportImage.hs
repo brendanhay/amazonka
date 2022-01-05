@@ -466,9 +466,43 @@ instance Core.AWSRequest ImportImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportImage
+instance Prelude.Hashable ImportImage where
+  hashWithSalt _salt ImportImage' {..} =
+    _salt `Prelude.hashWithSalt` hypervisor
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` licenseSpecifications
+      `Prelude.hashWithSalt` usageOperation
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` bootMode
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientData
+      `Prelude.hashWithSalt` diskContainers
 
-instance Prelude.NFData ImportImage
+instance Prelude.NFData ImportImage where
+  rnf ImportImage' {..} =
+    Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientData
+      `Prelude.seq` Prelude.rnf diskContainers
 
 instance Core.ToHeaders ImportImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -686,4 +720,22 @@ importImageResponse_tags = Lens.lens (\ImportImageResponse' {tags} -> tags) (\s@
 importImageResponse_httpStatus :: Lens.Lens' ImportImageResponse Prelude.Int
 importImageResponse_httpStatus = Lens.lens (\ImportImageResponse' {httpStatus} -> httpStatus) (\s@ImportImageResponse' {} a -> s {httpStatus = a} :: ImportImageResponse)
 
-instance Prelude.NFData ImportImageResponse
+instance Prelude.NFData ImportImageResponse where
+  rnf ImportImageResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf snapshotDetails
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

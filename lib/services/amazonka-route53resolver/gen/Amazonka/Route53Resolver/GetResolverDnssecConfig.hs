@@ -89,9 +89,13 @@ instance Core.AWSRequest GetResolverDnssecConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResolverDnssecConfig
+instance Prelude.Hashable GetResolverDnssecConfig where
+  hashWithSalt _salt GetResolverDnssecConfig' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData GetResolverDnssecConfig
+instance Prelude.NFData GetResolverDnssecConfig where
+  rnf GetResolverDnssecConfig' {..} =
+    Prelude.rnf resourceId
 
 instance Core.ToHeaders GetResolverDnssecConfig where
   toHeaders =
@@ -163,3 +167,7 @@ getResolverDnssecConfigResponse_httpStatus = Lens.lens (\GetResolverDnssecConfig
 instance
   Prelude.NFData
     GetResolverDnssecConfigResponse
+  where
+  rnf GetResolverDnssecConfigResponse' {..} =
+    Prelude.rnf resolverDNSSECConfig
+      `Prelude.seq` Prelude.rnf httpStatus

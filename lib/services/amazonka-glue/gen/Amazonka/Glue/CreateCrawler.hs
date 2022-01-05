@@ -272,9 +272,39 @@ instance Core.AWSRequest CreateCrawler where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCrawler
+instance Prelude.Hashable CreateCrawler where
+  hashWithSalt _salt CreateCrawler' {..} =
+    _salt `Prelude.hashWithSalt` schemaChangePolicy
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` recrawlPolicy
+      `Prelude.hashWithSalt` classifiers
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lineageConfiguration
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` tablePrefix
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` targets
 
-instance Prelude.NFData CreateCrawler
+instance Prelude.NFData CreateCrawler where
+  rnf CreateCrawler' {..} =
+    Prelude.rnf schemaChangePolicy
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf recrawlPolicy
+      `Prelude.seq` Prelude.rnf classifiers
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf lineageConfiguration
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf tablePrefix
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToHeaders CreateCrawler where
   toHeaders =
@@ -346,4 +376,6 @@ newCreateCrawlerResponse pHttpStatus_ =
 createCrawlerResponse_httpStatus :: Lens.Lens' CreateCrawlerResponse Prelude.Int
 createCrawlerResponse_httpStatus = Lens.lens (\CreateCrawlerResponse' {httpStatus} -> httpStatus) (\s@CreateCrawlerResponse' {} a -> s {httpStatus = a} :: CreateCrawlerResponse)
 
-instance Prelude.NFData CreateCrawlerResponse
+instance Prelude.NFData CreateCrawlerResponse where
+  rnf CreateCrawlerResponse' {..} =
+    Prelude.rnf httpStatus

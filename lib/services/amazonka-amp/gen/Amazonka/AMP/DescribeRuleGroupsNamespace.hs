@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
             Prelude.<*> (x Core..:> "ruleGroupsNamespace")
       )
 
-instance Prelude.Hashable DescribeRuleGroupsNamespace
+instance Prelude.Hashable DescribeRuleGroupsNamespace where
+  hashWithSalt _salt DescribeRuleGroupsNamespace' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DescribeRuleGroupsNamespace
+instance Prelude.NFData DescribeRuleGroupsNamespace where
+  rnf DescribeRuleGroupsNamespace' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders DescribeRuleGroupsNamespace where
   toHeaders =
@@ -178,3 +184,7 @@ describeRuleGroupsNamespaceResponse_ruleGroupsNamespace = Lens.lens (\DescribeRu
 instance
   Prelude.NFData
     DescribeRuleGroupsNamespaceResponse
+  where
+  rnf DescribeRuleGroupsNamespaceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleGroupsNamespace

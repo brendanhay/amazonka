@@ -128,10 +128,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateEnclaveCertificateIamRole
+  where
+  hashWithSalt
+    _salt
+    DisassociateEnclaveCertificateIamRole' {..} =
+      _salt `Prelude.hashWithSalt` certificateArn
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     DisassociateEnclaveCertificateIamRole
+  where
+  rnf DisassociateEnclaveCertificateIamRole' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -205,3 +217,8 @@ disassociateEnclaveCertificateIamRoleResponse_httpStatus = Lens.lens (\Disassoci
 instance
   Prelude.NFData
     DisassociateEnclaveCertificateIamRoleResponse
+  where
+  rnf
+    DisassociateEnclaveCertificateIamRoleResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     UpdateFieldLevelEncryptionConfig
+  where
+  hashWithSalt
+    _salt
+    UpdateFieldLevelEncryptionConfig' {..} =
+      _salt `Prelude.hashWithSalt` ifMatch
+        `Prelude.hashWithSalt` fieldLevelEncryptionConfig
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     UpdateFieldLevelEncryptionConfig
+  where
+  rnf UpdateFieldLevelEncryptionConfig' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionConfig
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToElement
@@ -216,3 +228,8 @@ updateFieldLevelEncryptionConfigResponse_httpStatus = Lens.lens (\UpdateFieldLev
 instance
   Prelude.NFData
     UpdateFieldLevelEncryptionConfigResponse
+  where
+  rnf UpdateFieldLevelEncryptionConfigResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf fieldLevelEncryption
+      `Prelude.seq` Prelude.rnf httpStatus

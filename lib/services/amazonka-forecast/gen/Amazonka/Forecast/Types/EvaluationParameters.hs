@@ -102,9 +102,15 @@ instance Core.FromJSON EvaluationParameters where
             Prelude.<*> (x Core..:? "NumberOfBacktestWindows")
       )
 
-instance Prelude.Hashable EvaluationParameters
+instance Prelude.Hashable EvaluationParameters where
+  hashWithSalt _salt EvaluationParameters' {..} =
+    _salt `Prelude.hashWithSalt` backTestWindowOffset
+      `Prelude.hashWithSalt` numberOfBacktestWindows
 
-instance Prelude.NFData EvaluationParameters
+instance Prelude.NFData EvaluationParameters where
+  rnf EvaluationParameters' {..} =
+    Prelude.rnf backTestWindowOffset
+      `Prelude.seq` Prelude.rnf numberOfBacktestWindows
 
 instance Core.ToJSON EvaluationParameters where
   toJSON EvaluationParameters' {..} =

@@ -177,9 +177,29 @@ updateEncryption_secretArn = Lens.lens (\UpdateEncryption' {secretArn} -> secret
 updateEncryption_roleArn :: Lens.Lens' UpdateEncryption (Prelude.Maybe Prelude.Text)
 updateEncryption_roleArn = Lens.lens (\UpdateEncryption' {roleArn} -> roleArn) (\s@UpdateEncryption' {} a -> s {roleArn = a} :: UpdateEncryption)
 
-instance Prelude.Hashable UpdateEncryption
+instance Prelude.Hashable UpdateEncryption where
+  hashWithSalt _salt UpdateEncryption' {..} =
+    _salt `Prelude.hashWithSalt` keyType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData UpdateEncryption
+instance Prelude.NFData UpdateEncryption where
+  rnf UpdateEncryption' {..} =
+    Prelude.rnf keyType
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf constantInitializationVector
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON UpdateEncryption where
   toJSON UpdateEncryption' {..} =

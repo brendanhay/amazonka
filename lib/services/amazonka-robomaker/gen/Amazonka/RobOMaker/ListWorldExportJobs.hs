@@ -169,9 +169,17 @@ instance Core.AWSRequest ListWorldExportJobs where
                         )
       )
 
-instance Prelude.Hashable ListWorldExportJobs
+instance Prelude.Hashable ListWorldExportJobs where
+  hashWithSalt _salt ListWorldExportJobs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWorldExportJobs
+instance Prelude.NFData ListWorldExportJobs where
+  rnf ListWorldExportJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorldExportJobs where
   toHeaders =
@@ -263,4 +271,8 @@ listWorldExportJobsResponse_httpStatus = Lens.lens (\ListWorldExportJobsResponse
 listWorldExportJobsResponse_worldExportJobSummaries :: Lens.Lens' ListWorldExportJobsResponse [WorldExportJobSummary]
 listWorldExportJobsResponse_worldExportJobSummaries = Lens.lens (\ListWorldExportJobsResponse' {worldExportJobSummaries} -> worldExportJobSummaries) (\s@ListWorldExportJobsResponse' {} a -> s {worldExportJobSummaries = a} :: ListWorldExportJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorldExportJobsResponse
+instance Prelude.NFData ListWorldExportJobsResponse where
+  rnf ListWorldExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf worldExportJobSummaries

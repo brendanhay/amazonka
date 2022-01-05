@@ -89,9 +89,12 @@ instance Core.AWSRequest MarkAsArchived where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable MarkAsArchived
+instance Prelude.Hashable MarkAsArchived where
+  hashWithSalt _salt MarkAsArchived' {..} =
+    _salt `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData MarkAsArchived
+instance Prelude.NFData MarkAsArchived where
+  rnf MarkAsArchived' {..} = Prelude.rnf sourceServerID
 
 instance Core.ToHeaders MarkAsArchived where
   toHeaders =

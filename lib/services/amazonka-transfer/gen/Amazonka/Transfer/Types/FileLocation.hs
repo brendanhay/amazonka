@@ -76,6 +76,12 @@ instance Core.FromJSON FileLocation where
             Prelude.<*> (x Core..:? "S3FileLocation")
       )
 
-instance Prelude.Hashable FileLocation
+instance Prelude.Hashable FileLocation where
+  hashWithSalt _salt FileLocation' {..} =
+    _salt `Prelude.hashWithSalt` efsFileLocation
+      `Prelude.hashWithSalt` s3FileLocation
 
-instance Prelude.NFData FileLocation
+instance Prelude.NFData FileLocation where
+  rnf FileLocation' {..} =
+    Prelude.rnf efsFileLocation
+      `Prelude.seq` Prelude.rnf s3FileLocation

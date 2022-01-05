@@ -255,9 +255,23 @@ instance Core.AWSRequest CreateStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStream
+instance Prelude.Hashable CreateStream where
+  hashWithSalt _salt CreateStream' {..} =
+    _salt `Prelude.hashWithSalt` mediaType
+      `Prelude.hashWithSalt` dataRetentionInHours
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData CreateStream
+instance Prelude.NFData CreateStream where
+  rnf CreateStream' {..} =
+    Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf dataRetentionInHours
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders CreateStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,4 +334,7 @@ createStreamResponse_streamARN = Lens.lens (\CreateStreamResponse' {streamARN} -
 createStreamResponse_httpStatus :: Lens.Lens' CreateStreamResponse Prelude.Int
 createStreamResponse_httpStatus = Lens.lens (\CreateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateStreamResponse' {} a -> s {httpStatus = a} :: CreateStreamResponse)
 
-instance Prelude.NFData CreateStreamResponse
+instance Prelude.NFData CreateStreamResponse where
+  rnf CreateStreamResponse' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf httpStatus

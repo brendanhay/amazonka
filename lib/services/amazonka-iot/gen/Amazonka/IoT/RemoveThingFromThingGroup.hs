@@ -123,9 +123,19 @@ instance Core.AWSRequest RemoveThingFromThingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveThingFromThingGroup
+instance Prelude.Hashable RemoveThingFromThingGroup where
+  hashWithSalt _salt RemoveThingFromThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` thingGroupArn
+      `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData RemoveThingFromThingGroup
+instance Prelude.NFData RemoveThingFromThingGroup where
+  rnf RemoveThingFromThingGroup' {..} =
+    Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders RemoveThingFromThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +193,6 @@ removeThingFromThingGroupResponse_httpStatus = Lens.lens (\RemoveThingFromThingG
 instance
   Prelude.NFData
     RemoveThingFromThingGroupResponse
+  where
+  rnf RemoveThingFromThingGroupResponse' {..} =
+    Prelude.rnf httpStatus

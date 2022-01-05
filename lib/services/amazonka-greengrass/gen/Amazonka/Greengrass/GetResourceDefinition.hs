@@ -104,9 +104,13 @@ instance Core.AWSRequest GetResourceDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceDefinition
+instance Prelude.Hashable GetResourceDefinition where
+  hashWithSalt _salt GetResourceDefinition' {..} =
+    _salt `Prelude.hashWithSalt` resourceDefinitionId
 
-instance Prelude.NFData GetResourceDefinition
+instance Prelude.NFData GetResourceDefinition where
+  rnf GetResourceDefinition' {..} =
+    Prelude.rnf resourceDefinitionId
 
 instance Core.ToHeaders GetResourceDefinition where
   toHeaders =
@@ -237,4 +241,14 @@ getResourceDefinitionResponse_tags = Lens.lens (\GetResourceDefinitionResponse' 
 getResourceDefinitionResponse_httpStatus :: Lens.Lens' GetResourceDefinitionResponse Prelude.Int
 getResourceDefinitionResponse_httpStatus = Lens.lens (\GetResourceDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetResourceDefinitionResponse' {} a -> s {httpStatus = a} :: GetResourceDefinitionResponse)
 
-instance Prelude.NFData GetResourceDefinitionResponse
+instance Prelude.NFData GetResourceDefinitionResponse where
+  rnf GetResourceDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

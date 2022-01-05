@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     ListLicenseSpecificationsForResource
+  where
+  hashWithSalt
+    _salt
+    ListLicenseSpecificationsForResource' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` resourceArn
 
 instance
   Prelude.NFData
     ListLicenseSpecificationsForResource
+  where
+  rnf ListLicenseSpecificationsForResource' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance
   Core.ToHeaders
@@ -249,3 +261,8 @@ listLicenseSpecificationsForResourceResponse_httpStatus = Lens.lens (\ListLicens
 instance
   Prelude.NFData
     ListLicenseSpecificationsForResourceResponse
+  where
+  rnf ListLicenseSpecificationsForResourceResponse' {..} =
+    Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

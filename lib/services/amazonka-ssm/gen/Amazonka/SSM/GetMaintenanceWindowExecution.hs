@@ -105,8 +105,13 @@ instance
 instance
   Prelude.Hashable
     GetMaintenanceWindowExecution
+  where
+  hashWithSalt _salt GetMaintenanceWindowExecution' {..} =
+    _salt `Prelude.hashWithSalt` windowExecutionId
 
-instance Prelude.NFData GetMaintenanceWindowExecution
+instance Prelude.NFData GetMaintenanceWindowExecution where
+  rnf GetMaintenanceWindowExecution' {..} =
+    Prelude.rnf windowExecutionId
 
 instance Core.ToHeaders GetMaintenanceWindowExecution where
   toHeaders =
@@ -225,3 +230,12 @@ getMaintenanceWindowExecutionResponse_httpStatus = Lens.lens (\GetMaintenanceWin
 instance
   Prelude.NFData
     GetMaintenanceWindowExecutionResponse
+  where
+  rnf GetMaintenanceWindowExecutionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf windowExecutionId
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf taskIds
+      `Prelude.seq` Prelude.rnf httpStatus

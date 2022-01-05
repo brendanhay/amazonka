@@ -184,9 +184,19 @@ instance Core.AWSRequest PublishType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PublishType
+instance Prelude.Hashable PublishType where
+  hashWithSalt _salt PublishType' {..} =
+    _salt `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData PublishType
+instance Prelude.NFData PublishType where
+  rnf PublishType' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders PublishType where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,4 +259,7 @@ publishTypeResponse_publicTypeArn = Lens.lens (\PublishTypeResponse' {publicType
 publishTypeResponse_httpStatus :: Lens.Lens' PublishTypeResponse Prelude.Int
 publishTypeResponse_httpStatus = Lens.lens (\PublishTypeResponse' {httpStatus} -> httpStatus) (\s@PublishTypeResponse' {} a -> s {httpStatus = a} :: PublishTypeResponse)
 
-instance Prelude.NFData PublishTypeResponse
+instance Prelude.NFData PublishTypeResponse where
+  rnf PublishTypeResponse' {..} =
+    Prelude.rnf publicTypeArn
+      `Prelude.seq` Prelude.rnf httpStatus

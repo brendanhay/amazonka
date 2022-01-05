@@ -143,9 +143,21 @@ instance Core.FromJSON IotSiteWiseAction where
             Prelude.<*> (x Core..:? "assetId")
       )
 
-instance Prelude.Hashable IotSiteWiseAction
+instance Prelude.Hashable IotSiteWiseAction where
+  hashWithSalt _salt IotSiteWiseAction' {..} =
+    _salt `Prelude.hashWithSalt` entryId
+      `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` propertyValue
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` assetId
 
-instance Prelude.NFData IotSiteWiseAction
+instance Prelude.NFData IotSiteWiseAction where
+  rnf IotSiteWiseAction' {..} =
+    Prelude.rnf entryId
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf propertyValue
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =

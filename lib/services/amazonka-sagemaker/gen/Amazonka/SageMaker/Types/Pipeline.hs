@@ -172,6 +172,32 @@ instance Core.FromJSON Pipeline where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable Pipeline
+instance Prelude.Hashable Pipeline where
+  hashWithSalt _salt Pipeline' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` pipelineDisplayName
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastRunTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` pipelineStatus
+      `Prelude.hashWithSalt` pipelineDescription
+      `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData Pipeline
+instance Prelude.NFData Pipeline where
+  rnf Pipeline' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf pipelineDisplayName
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastRunTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf pipelineStatus
+      `Prelude.seq` Prelude.rnf pipelineDescription
+      `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn

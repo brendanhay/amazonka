@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteRemoteAccessSession where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRemoteAccessSession
+instance Prelude.Hashable DeleteRemoteAccessSession where
+  hashWithSalt _salt DeleteRemoteAccessSession' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteRemoteAccessSession
+instance Prelude.NFData DeleteRemoteAccessSession where
+  rnf DeleteRemoteAccessSession' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteRemoteAccessSession where
   toHeaders =
@@ -157,3 +160,6 @@ deleteRemoteAccessSessionResponse_httpStatus = Lens.lens (\DeleteRemoteAccessSes
 instance
   Prelude.NFData
     DeleteRemoteAccessSessionResponse
+  where
+  rnf DeleteRemoteAccessSessionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteCorsPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCorsPolicy
+instance Prelude.Hashable DeleteCorsPolicy where
+  hashWithSalt _salt DeleteCorsPolicy' {..} =
+    _salt `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData DeleteCorsPolicy
+instance Prelude.NFData DeleteCorsPolicy where
+  rnf DeleteCorsPolicy' {..} = Prelude.rnf containerName
 
 instance Core.ToHeaders DeleteCorsPolicy where
   toHeaders =
@@ -153,4 +156,6 @@ newDeleteCorsPolicyResponse pHttpStatus_ =
 deleteCorsPolicyResponse_httpStatus :: Lens.Lens' DeleteCorsPolicyResponse Prelude.Int
 deleteCorsPolicyResponse_httpStatus = Lens.lens (\DeleteCorsPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteCorsPolicyResponse' {} a -> s {httpStatus = a} :: DeleteCorsPolicyResponse)
 
-instance Prelude.NFData DeleteCorsPolicyResponse
+instance Prelude.NFData DeleteCorsPolicyResponse where
+  rnf DeleteCorsPolicyResponse' {..} =
+    Prelude.rnf httpStatus

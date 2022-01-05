@@ -86,10 +86,22 @@ exportAssetToSignedUrlRequestDetails_revisionId = Lens.lens (\ExportAssetToSigne
 instance
   Prelude.Hashable
     ExportAssetToSignedUrlRequestDetails
+  where
+  hashWithSalt
+    _salt
+    ExportAssetToSignedUrlRequestDetails' {..} =
+      _salt `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ExportAssetToSignedUrlRequestDetails
+  where
+  rnf ExportAssetToSignedUrlRequestDetails' {..} =
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance
   Core.ToJSON

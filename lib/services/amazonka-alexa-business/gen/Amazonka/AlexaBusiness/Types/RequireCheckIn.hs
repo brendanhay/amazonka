@@ -76,6 +76,12 @@ instance Core.FromJSON RequireCheckIn where
             Prelude.<*> (x Core..:? "ReleaseAfterMinutes")
       )
 
-instance Prelude.Hashable RequireCheckIn
+instance Prelude.Hashable RequireCheckIn where
+  hashWithSalt _salt RequireCheckIn' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` releaseAfterMinutes
 
-instance Prelude.NFData RequireCheckIn
+instance Prelude.NFData RequireCheckIn where
+  rnf RequireCheckIn' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf releaseAfterMinutes

@@ -98,6 +98,16 @@ instance Core.FromJSON Directory where
             Prelude.<*> (x Core..:? "CreationDateTime")
       )
 
-instance Prelude.Hashable Directory
+instance Prelude.Hashable Directory where
+  hashWithSalt _salt Directory' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
 
-instance Prelude.NFData Directory
+instance Prelude.NFData Directory where
+  rnf Directory' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime

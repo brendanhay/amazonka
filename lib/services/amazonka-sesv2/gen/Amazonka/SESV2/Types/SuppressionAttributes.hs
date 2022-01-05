@@ -96,6 +96,10 @@ instance Core.FromJSON SuppressionAttributes where
                         )
       )
 
-instance Prelude.Hashable SuppressionAttributes
+instance Prelude.Hashable SuppressionAttributes where
+  hashWithSalt _salt SuppressionAttributes' {..} =
+    _salt `Prelude.hashWithSalt` suppressedReasons
 
-instance Prelude.NFData SuppressionAttributes
+instance Prelude.NFData SuppressionAttributes where
+  rnf SuppressionAttributes' {..} =
+    Prelude.rnf suppressedReasons

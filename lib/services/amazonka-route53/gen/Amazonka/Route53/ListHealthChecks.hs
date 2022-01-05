@@ -167,9 +167,15 @@ instance Core.AWSRequest ListHealthChecks where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListHealthChecks
+instance Prelude.Hashable ListHealthChecks where
+  hashWithSalt _salt ListHealthChecks' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ListHealthChecks
+instance Prelude.NFData ListHealthChecks where
+  rnf ListHealthChecks' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListHealthChecks where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,4 +308,11 @@ listHealthChecksResponse_isTruncated = Lens.lens (\ListHealthChecksResponse' {is
 listHealthChecksResponse_maxItems :: Lens.Lens' ListHealthChecksResponse Prelude.Text
 listHealthChecksResponse_maxItems = Lens.lens (\ListHealthChecksResponse' {maxItems} -> maxItems) (\s@ListHealthChecksResponse' {} a -> s {maxItems = a} :: ListHealthChecksResponse)
 
-instance Prelude.NFData ListHealthChecksResponse
+instance Prelude.NFData ListHealthChecksResponse where
+  rnf ListHealthChecksResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthChecks
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxItems

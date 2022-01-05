@@ -73,10 +73,18 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayHttp2ConnectionPool
+  where
+  hashWithSalt
+    _salt
+    VirtualGatewayHttp2ConnectionPool' {..} =
+      _salt `Prelude.hashWithSalt` maxRequests
 
 instance
   Prelude.NFData
     VirtualGatewayHttp2ConnectionPool
+  where
+  rnf VirtualGatewayHttp2ConnectionPool' {..} =
+    Prelude.rnf maxRequests
 
 instance
   Core.ToJSON

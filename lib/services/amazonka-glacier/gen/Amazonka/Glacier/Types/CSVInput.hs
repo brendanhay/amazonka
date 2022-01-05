@@ -128,9 +128,23 @@ instance Core.FromJSON CSVInput where
             Prelude.<*> (x Core..:? "FieldDelimiter")
       )
 
-instance Prelude.Hashable CSVInput
+instance Prelude.Hashable CSVInput where
+  hashWithSalt _salt CSVInput' {..} =
+    _salt `Prelude.hashWithSalt` quoteCharacter
+      `Prelude.hashWithSalt` recordDelimiter
+      `Prelude.hashWithSalt` fileHeaderInfo
+      `Prelude.hashWithSalt` quoteEscapeCharacter
+      `Prelude.hashWithSalt` comments
+      `Prelude.hashWithSalt` fieldDelimiter
 
-instance Prelude.NFData CSVInput
+instance Prelude.NFData CSVInput where
+  rnf CSVInput' {..} =
+    Prelude.rnf quoteCharacter
+      `Prelude.seq` Prelude.rnf recordDelimiter
+      `Prelude.seq` Prelude.rnf fileHeaderInfo
+      `Prelude.seq` Prelude.rnf quoteEscapeCharacter
+      `Prelude.seq` Prelude.rnf comments
+      `Prelude.seq` Prelude.rnf fieldDelimiter
 
 instance Core.ToJSON CSVInput where
   toJSON CSVInput' {..} =

@@ -110,9 +110,17 @@ instance Core.AWSRequest AdminRemoveUserFromGroup where
     Response.receiveNull
       AdminRemoveUserFromGroupResponse'
 
-instance Prelude.Hashable AdminRemoveUserFromGroup
+instance Prelude.Hashable AdminRemoveUserFromGroup where
+  hashWithSalt _salt AdminRemoveUserFromGroup' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData AdminRemoveUserFromGroup
+instance Prelude.NFData AdminRemoveUserFromGroup where
+  rnf AdminRemoveUserFromGroup' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders AdminRemoveUserFromGroup where
   toHeaders =
@@ -163,3 +171,5 @@ newAdminRemoveUserFromGroupResponse =
 instance
   Prelude.NFData
     AdminRemoveUserFromGroupResponse
+  where
+  rnf _ = ()

@@ -349,9 +349,37 @@ instance Core.FromJSON Vp9Settings where
             Prelude.<*> (x Core..:? "parDenominator")
       )
 
-instance Prelude.Hashable Vp9Settings
+instance Prelude.Hashable Vp9Settings where
+  hashWithSalt _salt Vp9Settings' {..} =
+    _salt `Prelude.hashWithSalt` qualityTuningLevel
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` hrdBufferSize
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` parControl
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` parDenominator
 
-instance Prelude.NFData Vp9Settings
+instance Prelude.NFData Vp9Settings where
+  rnf Vp9Settings' {..} =
+    Prelude.rnf qualityTuningLevel
+      `Prelude.seq` Prelude.rnf parNumerator
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf hrdBufferSize
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf parControl
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf parDenominator
 
 instance Core.ToJSON Vp9Settings where
   toJSON Vp9Settings' {..} =

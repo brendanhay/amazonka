@@ -92,9 +92,12 @@ instance Core.AWSRequest GetHost where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetHost
+instance Prelude.Hashable GetHost where
+  hashWithSalt _salt GetHost' {..} =
+    _salt `Prelude.hashWithSalt` hostArn
 
-instance Prelude.NFData GetHost
+instance Prelude.NFData GetHost where
+  rnf GetHost' {..} = Prelude.rnf hostArn
 
 instance Core.ToHeaders GetHost where
   toHeaders =
@@ -201,4 +204,11 @@ getHostResponse_vpcConfiguration = Lens.lens (\GetHostResponse' {vpcConfiguratio
 getHostResponse_httpStatus :: Lens.Lens' GetHostResponse Prelude.Int
 getHostResponse_httpStatus = Lens.lens (\GetHostResponse' {httpStatus} -> httpStatus) (\s@GetHostResponse' {} a -> s {httpStatus = a} :: GetHostResponse)
 
-instance Prelude.NFData GetHostResponse
+instance Prelude.NFData GetHostResponse where
+  rnf GetHostResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf providerEndpoint
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

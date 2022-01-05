@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     DetachInstancesFromLoadBalancer
+  where
+  hashWithSalt
+    _salt
+    DetachInstancesFromLoadBalancer' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` instanceNames
 
 instance
   Prelude.NFData
     DetachInstancesFromLoadBalancer
+  where
+  rnf DetachInstancesFromLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf instanceNames
 
 instance
   Core.ToHeaders
@@ -205,3 +215,7 @@ detachInstancesFromLoadBalancerResponse_httpStatus = Lens.lens (\DetachInstances
 instance
   Prelude.NFData
     DetachInstancesFromLoadBalancerResponse
+  where
+  rnf DetachInstancesFromLoadBalancerResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

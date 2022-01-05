@@ -231,9 +231,29 @@ instance Core.AWSRequest ListSigningJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSigningJobs
+instance Prelude.Hashable ListSigningJobs where
+  hashWithSalt _salt ListSigningJobs' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` signatureExpiresAfter
+      `Prelude.hashWithSalt` requestedBy
+      `Prelude.hashWithSalt` isRevoked
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` platformId
+      `Prelude.hashWithSalt` jobInvoker
+      `Prelude.hashWithSalt` signatureExpiresBefore
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSigningJobs
+instance Prelude.NFData ListSigningJobs where
+  rnf ListSigningJobs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf signatureExpiresAfter
+      `Prelude.seq` Prelude.rnf requestedBy
+      `Prelude.seq` Prelude.rnf isRevoked
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf jobInvoker
+      `Prelude.seq` Prelude.rnf signatureExpiresBefore
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSigningJobs where
   toHeaders =
@@ -312,4 +332,8 @@ listSigningJobsResponse_nextToken = Lens.lens (\ListSigningJobsResponse' {nextTo
 listSigningJobsResponse_httpStatus :: Lens.Lens' ListSigningJobsResponse Prelude.Int
 listSigningJobsResponse_httpStatus = Lens.lens (\ListSigningJobsResponse' {httpStatus} -> httpStatus) (\s@ListSigningJobsResponse' {} a -> s {httpStatus = a} :: ListSigningJobsResponse)
 
-instance Prelude.NFData ListSigningJobsResponse
+instance Prelude.NFData ListSigningJobsResponse where
+  rnf ListSigningJobsResponse' {..} =
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

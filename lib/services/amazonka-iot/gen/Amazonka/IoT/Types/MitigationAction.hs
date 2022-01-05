@@ -96,6 +96,16 @@ instance Core.FromJSON MitigationAction where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable MitigationAction
+instance Prelude.Hashable MitigationAction where
+  hashWithSalt _salt MitigationAction' {..} =
+    _salt `Prelude.hashWithSalt` actionParams
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData MitigationAction
+instance Prelude.NFData MitigationAction where
+  rnf MitigationAction' {..} =
+    Prelude.rnf actionParams
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf roleArn

@@ -76,6 +76,12 @@ instance Core.FromJSON ThreatIntelligenceDetail where
             Prelude.<*> (x Core..:? "threatListName")
       )
 
-instance Prelude.Hashable ThreatIntelligenceDetail
+instance Prelude.Hashable ThreatIntelligenceDetail where
+  hashWithSalt _salt ThreatIntelligenceDetail' {..} =
+    _salt `Prelude.hashWithSalt` threatNames
+      `Prelude.hashWithSalt` threatListName
 
-instance Prelude.NFData ThreatIntelligenceDetail
+instance Prelude.NFData ThreatIntelligenceDetail where
+  rnf ThreatIntelligenceDetail' {..} =
+    Prelude.rnf threatNames
+      `Prelude.seq` Prelude.rnf threatListName

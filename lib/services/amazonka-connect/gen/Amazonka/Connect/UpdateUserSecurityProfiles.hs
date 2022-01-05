@@ -111,9 +111,17 @@ instance Core.AWSRequest UpdateUserSecurityProfiles where
     Response.receiveNull
       UpdateUserSecurityProfilesResponse'
 
-instance Prelude.Hashable UpdateUserSecurityProfiles
+instance Prelude.Hashable UpdateUserSecurityProfiles where
+  hashWithSalt _salt UpdateUserSecurityProfiles' {..} =
+    _salt `Prelude.hashWithSalt` securityProfileIds
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData UpdateUserSecurityProfiles
+instance Prelude.NFData UpdateUserSecurityProfiles where
+  rnf UpdateUserSecurityProfiles' {..} =
+    Prelude.rnf securityProfileIds
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders UpdateUserSecurityProfiles where
   toHeaders =
@@ -166,3 +174,5 @@ newUpdateUserSecurityProfilesResponse =
 instance
   Prelude.NFData
     UpdateUserSecurityProfilesResponse
+  where
+  rnf _ = ()

@@ -88,9 +88,13 @@ instance Core.AWSRequest PutKMSEncryptionKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutKMSEncryptionKey
+instance Prelude.Hashable PutKMSEncryptionKey where
+  hashWithSalt _salt PutKMSEncryptionKey' {..} =
+    _salt `Prelude.hashWithSalt` kmsEncryptionKeyArn
 
-instance Prelude.NFData PutKMSEncryptionKey
+instance Prelude.NFData PutKMSEncryptionKey where
+  rnf PutKMSEncryptionKey' {..} =
+    Prelude.rnf kmsEncryptionKeyArn
 
 instance Core.ToHeaders PutKMSEncryptionKey where
   toHeaders =
@@ -152,4 +156,6 @@ newPutKMSEncryptionKeyResponse pHttpStatus_ =
 putKMSEncryptionKeyResponse_httpStatus :: Lens.Lens' PutKMSEncryptionKeyResponse Prelude.Int
 putKMSEncryptionKeyResponse_httpStatus = Lens.lens (\PutKMSEncryptionKeyResponse' {httpStatus} -> httpStatus) (\s@PutKMSEncryptionKeyResponse' {} a -> s {httpStatus = a} :: PutKMSEncryptionKeyResponse)
 
-instance Prelude.NFData PutKMSEncryptionKeyResponse
+instance Prelude.NFData PutKMSEncryptionKeyResponse where
+  rnf PutKMSEncryptionKeyResponse' {..} =
+    Prelude.rnf httpStatus

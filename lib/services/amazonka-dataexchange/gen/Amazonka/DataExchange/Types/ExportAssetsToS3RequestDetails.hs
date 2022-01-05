@@ -94,10 +94,24 @@ exportAssetsToS3RequestDetails_revisionId = Lens.lens (\ExportAssetsToS3RequestD
 instance
   Prelude.Hashable
     ExportAssetsToS3RequestDetails
+  where
+  hashWithSalt
+    _salt
+    ExportAssetsToS3RequestDetails' {..} =
+      _salt `Prelude.hashWithSalt` encryption
+        `Prelude.hashWithSalt` assetDestinations
+        `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ExportAssetsToS3RequestDetails
+  where
+  rnf ExportAssetsToS3RequestDetails' {..} =
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf assetDestinations
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToJSON ExportAssetsToS3RequestDetails where
   toJSON ExportAssetsToS3RequestDetails' {..} =

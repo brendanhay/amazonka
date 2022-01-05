@@ -119,6 +119,18 @@ instance Core.FromJSON AssessmentTarget where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable AssessmentTarget
+instance Prelude.Hashable AssessmentTarget where
+  hashWithSalt _salt AssessmentTarget' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData AssessmentTarget
+instance Prelude.NFData AssessmentTarget where
+  rnf AssessmentTarget' {..} =
+    Prelude.rnf resourceGroupArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt

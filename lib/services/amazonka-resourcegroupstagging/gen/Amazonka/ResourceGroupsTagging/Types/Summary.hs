@@ -121,6 +121,20 @@ instance Core.FromJSON Summary where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable Summary
+instance Prelude.Hashable Summary where
+  hashWithSalt _salt Summary' {..} =
+    _salt `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` nonCompliantResources
+      `Prelude.hashWithSalt` targetIdType
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData Summary
+instance Prelude.NFData Summary where
+  rnf Summary' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf nonCompliantResources
+      `Prelude.seq` Prelude.rnf targetIdType
+      `Prelude.seq` Prelude.rnf region

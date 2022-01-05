@@ -56,9 +56,12 @@ instance Core.FromJSON Logging where
       "Logging"
       (\x -> Logging' Prelude.<$> (x Core..:? "s3Logs"))
 
-instance Prelude.Hashable Logging
+instance Prelude.Hashable Logging where
+  hashWithSalt _salt Logging' {..} =
+    _salt `Prelude.hashWithSalt` s3Logs
 
-instance Prelude.NFData Logging
+instance Prelude.NFData Logging where
+  rnf Logging' {..} = Prelude.rnf s3Logs
 
 instance Core.ToJSON Logging where
   toJSON Logging' {..} =

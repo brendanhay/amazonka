@@ -63,6 +63,9 @@ instance Core.FromJSON Certificate where
       "Certificate"
       (\x -> Certificate' Prelude.<$> (x Core..:? "data"))
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt _salt Certificate' {..} =
+    _salt `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} = Prelude.rnf data'

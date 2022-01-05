@@ -119,9 +119,13 @@ instance Core.AWSRequest GetHealthCheckStatus where
                         )
       )
 
-instance Prelude.Hashable GetHealthCheckStatus
+instance Prelude.Hashable GetHealthCheckStatus where
+  hashWithSalt _salt GetHealthCheckStatus' {..} =
+    _salt `Prelude.hashWithSalt` healthCheckId
 
-instance Prelude.NFData GetHealthCheckStatus
+instance Prelude.NFData GetHealthCheckStatus where
+  rnf GetHealthCheckStatus' {..} =
+    Prelude.rnf healthCheckId
 
 instance Core.ToHeaders GetHealthCheckStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +188,7 @@ getHealthCheckStatusResponse_httpStatus = Lens.lens (\GetHealthCheckStatusRespon
 getHealthCheckStatusResponse_healthCheckObservations :: Lens.Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 getHealthCheckStatusResponse_healthCheckObservations = Lens.lens (\GetHealthCheckStatusResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckStatusResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckStatusResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetHealthCheckStatusResponse
+instance Prelude.NFData GetHealthCheckStatusResponse where
+  rnf GetHealthCheckStatusResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthCheckObservations

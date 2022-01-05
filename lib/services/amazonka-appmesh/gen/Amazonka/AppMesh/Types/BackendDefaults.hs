@@ -60,9 +60,12 @@ instance Core.FromJSON BackendDefaults where
             Prelude.<$> (x Core..:? "clientPolicy")
       )
 
-instance Prelude.Hashable BackendDefaults
+instance Prelude.Hashable BackendDefaults where
+  hashWithSalt _salt BackendDefaults' {..} =
+    _salt `Prelude.hashWithSalt` clientPolicy
 
-instance Prelude.NFData BackendDefaults
+instance Prelude.NFData BackendDefaults where
+  rnf BackendDefaults' {..} = Prelude.rnf clientPolicy
 
 instance Core.ToJSON BackendDefaults where
   toJSON BackendDefaults' {..} =

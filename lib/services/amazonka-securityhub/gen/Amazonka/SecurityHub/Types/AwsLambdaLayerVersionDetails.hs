@@ -114,8 +114,17 @@ instance Core.FromJSON AwsLambdaLayerVersionDetails where
 instance
   Prelude.Hashable
     AwsLambdaLayerVersionDetails
+  where
+  hashWithSalt _salt AwsLambdaLayerVersionDetails' {..} =
+    _salt `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` compatibleRuntimes
 
-instance Prelude.NFData AwsLambdaLayerVersionDetails
+instance Prelude.NFData AwsLambdaLayerVersionDetails where
+  rnf AwsLambdaLayerVersionDetails' {..} =
+    Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf compatibleRuntimes
 
 instance Core.ToJSON AwsLambdaLayerVersionDetails where
   toJSON AwsLambdaLayerVersionDetails' {..} =

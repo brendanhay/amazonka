@@ -128,10 +128,22 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateApprovalRuleTemplateFromRepositories
+  where
+  hashWithSalt
+    _salt
+    BatchDisassociateApprovalRuleTemplateFromRepositories' {..} =
+      _salt
+        `Prelude.hashWithSalt` approvalRuleTemplateName
+        `Prelude.hashWithSalt` repositoryNames
 
 instance
   Prelude.NFData
     BatchDisassociateApprovalRuleTemplateFromRepositories
+  where
+  rnf
+    BatchDisassociateApprovalRuleTemplateFromRepositories' {..} =
+      Prelude.rnf approvalRuleTemplateName
+        `Prelude.seq` Prelude.rnf repositoryNames
 
 instance
   Core.ToHeaders
@@ -240,3 +252,9 @@ batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors = Lens.lens
 instance
   Prelude.NFData
     BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
+  where
+  rnf
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {..} =
+      Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf disassociatedRepositoryNames
+        `Prelude.seq` Prelude.rnf errors

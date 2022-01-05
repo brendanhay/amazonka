@@ -194,9 +194,14 @@ instance Core.AWSRequest CreateActivity where
             Prelude.<*> (x Core..:> "creationDate")
       )
 
-instance Prelude.Hashable CreateActivity
+instance Prelude.Hashable CreateActivity where
+  hashWithSalt _salt CreateActivity' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateActivity
+instance Prelude.NFData CreateActivity where
+  rnf CreateActivity' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateActivity where
   toHeaders =
@@ -282,4 +287,8 @@ createActivityResponse_activityArn = Lens.lens (\CreateActivityResponse' {activi
 createActivityResponse_creationDate :: Lens.Lens' CreateActivityResponse Prelude.UTCTime
 createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creationDate} -> creationDate) (\s@CreateActivityResponse' {} a -> s {creationDate = a} :: CreateActivityResponse) Prelude.. Core._Time
 
-instance Prelude.NFData CreateActivityResponse
+instance Prelude.NFData CreateActivityResponse where
+  rnf CreateActivityResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf activityArn
+      `Prelude.seq` Prelude.rnf creationDate

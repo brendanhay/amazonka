@@ -109,9 +109,15 @@ instance Core.AWSRequest DeletePermissionSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePermissionSet
+instance Prelude.Hashable DeletePermissionSet where
+  hashWithSalt _salt DeletePermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` permissionSetArn
 
-instance Prelude.NFData DeletePermissionSet
+instance Prelude.NFData DeletePermissionSet where
+  rnf DeletePermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance Core.ToHeaders DeletePermissionSet where
   toHeaders =
@@ -174,4 +180,6 @@ newDeletePermissionSetResponse pHttpStatus_ =
 deletePermissionSetResponse_httpStatus :: Lens.Lens' DeletePermissionSetResponse Prelude.Int
 deletePermissionSetResponse_httpStatus = Lens.lens (\DeletePermissionSetResponse' {httpStatus} -> httpStatus) (\s@DeletePermissionSetResponse' {} a -> s {httpStatus = a} :: DeletePermissionSetResponse)
 
-instance Prelude.NFData DeletePermissionSetResponse
+instance Prelude.NFData DeletePermissionSetResponse where
+  rnf DeletePermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

@@ -125,9 +125,19 @@ instance Core.AWSRequest UpdateEndpoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEndpoint
+instance Prelude.Hashable UpdateEndpoint where
+  hashWithSalt _salt UpdateEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` desiredModelArn
+      `Prelude.hashWithSalt` desiredInferenceUnits
+      `Prelude.hashWithSalt` desiredDataAccessRoleArn
+      `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData UpdateEndpoint
+instance Prelude.NFData UpdateEndpoint where
+  rnf UpdateEndpoint' {..} =
+    Prelude.rnf desiredModelArn
+      `Prelude.seq` Prelude.rnf desiredInferenceUnits
+      `Prelude.seq` Prelude.rnf desiredDataAccessRoleArn
+      `Prelude.seq` Prelude.rnf endpointArn
 
 instance Core.ToHeaders UpdateEndpoint where
   toHeaders =
@@ -191,4 +201,6 @@ newUpdateEndpointResponse pHttpStatus_ =
 updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Prelude.Int
 updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointResponse' {} a -> s {httpStatus = a} :: UpdateEndpointResponse)
 
-instance Prelude.NFData UpdateEndpointResponse
+instance Prelude.NFData UpdateEndpointResponse where
+  rnf UpdateEndpointResponse' {..} =
+    Prelude.rnf httpStatus

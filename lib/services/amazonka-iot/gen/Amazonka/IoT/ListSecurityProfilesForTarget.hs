@@ -163,8 +163,19 @@ instance
 instance
   Prelude.Hashable
     ListSecurityProfilesForTarget
+  where
+  hashWithSalt _salt ListSecurityProfilesForTarget' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` recursive
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` securityProfileTargetArn
 
-instance Prelude.NFData ListSecurityProfilesForTarget
+instance Prelude.NFData ListSecurityProfilesForTarget where
+  rnf ListSecurityProfilesForTarget' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recursive
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf securityProfileTargetArn
 
 instance Core.ToHeaders ListSecurityProfilesForTarget where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,3 +249,8 @@ listSecurityProfilesForTargetResponse_httpStatus = Lens.lens (\ListSecurityProfi
 instance
   Prelude.NFData
     ListSecurityProfilesForTargetResponse
+  where
+  rnf ListSecurityProfilesForTargetResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf securityProfileTargetMappings
+      `Prelude.seq` Prelude.rnf httpStatus

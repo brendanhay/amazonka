@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteThreatIntelSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteThreatIntelSet
+instance Prelude.Hashable DeleteThreatIntelSet where
+  hashWithSalt _salt DeleteThreatIntelSet' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` threatIntelSetId
 
-instance Prelude.NFData DeleteThreatIntelSet
+instance Prelude.NFData DeleteThreatIntelSet where
+  rnf DeleteThreatIntelSet' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf threatIntelSetId
 
 instance Core.ToHeaders DeleteThreatIntelSet where
   toHeaders =
@@ -160,4 +166,6 @@ newDeleteThreatIntelSetResponse pHttpStatus_ =
 deleteThreatIntelSetResponse_httpStatus :: Lens.Lens' DeleteThreatIntelSetResponse Prelude.Int
 deleteThreatIntelSetResponse_httpStatus = Lens.lens (\DeleteThreatIntelSetResponse' {httpStatus} -> httpStatus) (\s@DeleteThreatIntelSetResponse' {} a -> s {httpStatus = a} :: DeleteThreatIntelSetResponse)
 
-instance Prelude.NFData DeleteThreatIntelSetResponse
+instance Prelude.NFData DeleteThreatIntelSetResponse where
+  rnf DeleteThreatIntelSetResponse' {..} =
+    Prelude.rnf httpStatus

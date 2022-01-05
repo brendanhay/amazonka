@@ -199,6 +199,28 @@ instance Core.FromJSON ResourceShare where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourceShare
+instance Prelude.Hashable ResourceShare where
+  hashWithSalt _salt ResourceShare' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` owningAccountId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` allowExternalPrincipals
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` featureSet
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ResourceShare
+instance Prelude.NFData ResourceShare where
+  rnf ResourceShare' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf owningAccountId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf featureSet
+      `Prelude.seq` Prelude.rnf tags

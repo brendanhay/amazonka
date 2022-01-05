@@ -99,10 +99,24 @@ comprehendMedicalAsyncJobFilter_jobStatus = Lens.lens (\ComprehendMedicalAsyncJo
 instance
   Prelude.Hashable
     ComprehendMedicalAsyncJobFilter
+  where
+  hashWithSalt
+    _salt
+    ComprehendMedicalAsyncJobFilter' {..} =
+      _salt `Prelude.hashWithSalt` submitTimeAfter
+        `Prelude.hashWithSalt` submitTimeBefore
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` jobStatus
 
 instance
   Prelude.NFData
     ComprehendMedicalAsyncJobFilter
+  where
+  rnf ComprehendMedicalAsyncJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToJSON ComprehendMedicalAsyncJobFilter where
   toJSON ComprehendMedicalAsyncJobFilter' {..} =

@@ -83,7 +83,17 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionSucceededEventDetails
+  where
+  hashWithSalt
+    _salt
+    LambdaFunctionSucceededEventDetails' {..} =
+      _salt `Prelude.hashWithSalt` output
+        `Prelude.hashWithSalt` outputDetails
 
 instance
   Prelude.NFData
     LambdaFunctionSucceededEventDetails
+  where
+  rnf LambdaFunctionSucceededEventDetails' {..} =
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails

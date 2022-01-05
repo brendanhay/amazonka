@@ -210,10 +210,27 @@ instance
 instance
   Prelude.Hashable
     DescribeEgressOnlyInternetGateways
+  where
+  hashWithSalt
+    _salt
+    DescribeEgressOnlyInternetGateways' {..} =
+      _salt
+        `Prelude.hashWithSalt` egressOnlyInternetGatewayIds
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeEgressOnlyInternetGateways
+  where
+  rnf DescribeEgressOnlyInternetGateways' {..} =
+    Prelude.rnf egressOnlyInternetGatewayIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -305,3 +322,8 @@ describeEgressOnlyInternetGatewaysResponse_httpStatus = Lens.lens (\DescribeEgre
 instance
   Prelude.NFData
     DescribeEgressOnlyInternetGatewaysResponse
+  where
+  rnf DescribeEgressOnlyInternetGatewaysResponse' {..} =
+    Prelude.rnf egressOnlyInternetGateways
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

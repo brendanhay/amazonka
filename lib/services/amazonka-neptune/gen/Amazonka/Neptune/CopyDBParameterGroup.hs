@@ -192,9 +192,19 @@ instance Core.AWSRequest CopyDBParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyDBParameterGroup
+instance Prelude.Hashable CopyDBParameterGroup where
+  hashWithSalt _salt CopyDBParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceDBParameterGroupIdentifier
+      `Prelude.hashWithSalt` targetDBParameterGroupIdentifier
+      `Prelude.hashWithSalt` targetDBParameterGroupDescription
 
-instance Prelude.NFData CopyDBParameterGroup
+instance Prelude.NFData CopyDBParameterGroup where
+  rnf CopyDBParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceDBParameterGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetDBParameterGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetDBParameterGroupDescription
 
 instance Core.ToHeaders CopyDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,4 +268,7 @@ copyDBParameterGroupResponse_dbParameterGroup = Lens.lens (\CopyDBParameterGroup
 copyDBParameterGroupResponse_httpStatus :: Lens.Lens' CopyDBParameterGroupResponse Prelude.Int
 copyDBParameterGroupResponse_httpStatus = Lens.lens (\CopyDBParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CopyDBParameterGroupResponse' {} a -> s {httpStatus = a} :: CopyDBParameterGroupResponse)
 
-instance Prelude.NFData CopyDBParameterGroupResponse
+instance Prelude.NFData CopyDBParameterGroupResponse where
+  rnf CopyDBParameterGroupResponse' {..} =
+    Prelude.rnf dbParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -346,6 +346,57 @@ instance Core.FromJSON Backup where
             Prelude.<*> (x Core..:? "ToolsVersion")
       )
 
-instance Prelude.Hashable Backup
+instance Prelude.Hashable Backup where
+  hashWithSalt _salt Backup' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceProfileArn
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` statusDescription
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` engineModel
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` s3LogUrl
+      `Prelude.hashWithSalt` s3DataSize
+      `Prelude.hashWithSalt` backupArn
+      `Prelude.hashWithSalt` s3DataUrl
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` toolsVersion
 
-instance Prelude.NFData Backup
+instance Prelude.NFData Backup where
+  rnf Backup' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceProfileArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf statusDescription
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf engineModel
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf s3LogUrl
+      `Prelude.seq` Prelude.rnf s3DataSize
+      `Prelude.seq` Prelude.rnf backupArn
+      `Prelude.seq` Prelude.rnf s3DataUrl
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf
+        toolsVersion

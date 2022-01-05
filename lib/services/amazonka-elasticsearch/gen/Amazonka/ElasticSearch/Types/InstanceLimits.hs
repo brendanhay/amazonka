@@ -63,6 +63,10 @@ instance Core.FromJSON InstanceLimits where
             Prelude.<$> (x Core..:? "InstanceCountLimits")
       )
 
-instance Prelude.Hashable InstanceLimits
+instance Prelude.Hashable InstanceLimits where
+  hashWithSalt _salt InstanceLimits' {..} =
+    _salt `Prelude.hashWithSalt` instanceCountLimits
 
-instance Prelude.NFData InstanceLimits
+instance Prelude.NFData InstanceLimits where
+  rnf InstanceLimits' {..} =
+    Prelude.rnf instanceCountLimits

@@ -86,9 +86,15 @@ lambdaOutputUpdate_roleARNUpdate = Lens.lens (\LambdaOutputUpdate' {roleARNUpdat
 lambdaOutputUpdate_resourceARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
 lambdaOutputUpdate_resourceARNUpdate = Lens.lens (\LambdaOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {resourceARNUpdate = a} :: LambdaOutputUpdate)
 
-instance Prelude.Hashable LambdaOutputUpdate
+instance Prelude.Hashable LambdaOutputUpdate where
+  hashWithSalt _salt LambdaOutputUpdate' {..} =
+    _salt `Prelude.hashWithSalt` roleARNUpdate
+      `Prelude.hashWithSalt` resourceARNUpdate
 
-instance Prelude.NFData LambdaOutputUpdate
+instance Prelude.NFData LambdaOutputUpdate where
+  rnf LambdaOutputUpdate' {..} =
+    Prelude.rnf roleARNUpdate
+      `Prelude.seq` Prelude.rnf resourceARNUpdate
 
 instance Core.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =

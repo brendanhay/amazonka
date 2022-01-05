@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFaces
+instance Prelude.Hashable DeleteFaces where
+  hashWithSalt _salt DeleteFaces' {..} =
+    _salt `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` faceIds
 
-instance Prelude.NFData DeleteFaces
+instance Prelude.NFData DeleteFaces where
+  rnf DeleteFaces' {..} =
+    Prelude.rnf collectionId
+      `Prelude.seq` Prelude.rnf faceIds
 
 instance Core.ToHeaders DeleteFaces where
   toHeaders =
@@ -175,4 +181,7 @@ deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFace
 deleteFacesResponse_httpStatus :: Lens.Lens' DeleteFacesResponse Prelude.Int
 deleteFacesResponse_httpStatus = Lens.lens (\DeleteFacesResponse' {httpStatus} -> httpStatus) (\s@DeleteFacesResponse' {} a -> s {httpStatus = a} :: DeleteFacesResponse)
 
-instance Prelude.NFData DeleteFacesResponse
+instance Prelude.NFData DeleteFacesResponse where
+  rnf DeleteFacesResponse' {..} =
+    Prelude.rnf deletedFaces
+      `Prelude.seq` Prelude.rnf httpStatus

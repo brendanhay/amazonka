@@ -74,9 +74,15 @@ objectFilter_keyName = Lens.lens (\ObjectFilter' {keyName} -> keyName) (\s@Objec
 objectFilter_values :: Lens.Lens' ObjectFilter [Prelude.Text]
 objectFilter_values = Lens.lens (\ObjectFilter' {values} -> values) (\s@ObjectFilter' {} a -> s {values = a} :: ObjectFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ObjectFilter
+instance Prelude.Hashable ObjectFilter where
+  hashWithSalt _salt ObjectFilter' {..} =
+    _salt `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ObjectFilter
+instance Prelude.NFData ObjectFilter where
+  rnf ObjectFilter' {..} =
+    Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ObjectFilter where
   toJSON ObjectFilter' {..} =

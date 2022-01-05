@@ -68,7 +68,15 @@ instance
 instance
   Prelude.Hashable
     ElasticInferenceAcceleratorHealth
+  where
+  hashWithSalt
+    _salt
+    ElasticInferenceAcceleratorHealth' {..} =
+      _salt `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ElasticInferenceAcceleratorHealth
+  where
+  rnf ElasticInferenceAcceleratorHealth' {..} =
+    Prelude.rnf status

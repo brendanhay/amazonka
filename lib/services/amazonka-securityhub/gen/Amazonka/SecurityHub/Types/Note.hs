@@ -102,9 +102,17 @@ instance Core.FromJSON Note where
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
-instance Prelude.Hashable Note
+instance Prelude.Hashable Note where
+  hashWithSalt _salt Note' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData Note
+instance Prelude.NFData Note where
+  rnf Note' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf updatedBy
+      `Prelude.seq` Prelude.rnf updatedAt
 
 instance Core.ToJSON Note where
   toJSON Note' {..} =

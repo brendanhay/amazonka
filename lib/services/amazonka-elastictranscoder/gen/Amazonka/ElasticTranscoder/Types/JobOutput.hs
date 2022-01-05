@@ -755,6 +755,51 @@ instance Core.FromJSON JobOutput where
             Prelude.<*> (x Core..:? "Rotate")
       )
 
-instance Prelude.Hashable JobOutput
+instance Prelude.Hashable JobOutput where
+  hashWithSalt _salt JobOutput' {..} =
+    _salt
+      `Prelude.hashWithSalt` appliedColorSpaceConversion
+      `Prelude.hashWithSalt` thumbnailPattern
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` captions
+      `Prelude.hashWithSalt` presetId
+      `Prelude.hashWithSalt` composition
+      `Prelude.hashWithSalt` albumArt
+      `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` watermarks
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` segmentDuration
+      `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` thumbnailEncryption
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` rotate
 
-instance Prelude.NFData JobOutput
+instance Prelude.NFData JobOutput where
+  rnf JobOutput' {..} =
+    Prelude.rnf appliedColorSpaceConversion
+      `Prelude.seq` Prelude.rnf thumbnailPattern
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf captions
+      `Prelude.seq` Prelude.rnf presetId
+      `Prelude.seq` Prelude.rnf composition
+      `Prelude.seq` Prelude.rnf albumArt
+      `Prelude.seq` Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf watermarks
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf segmentDuration
+      `Prelude.seq` Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf thumbnailEncryption
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf rotate

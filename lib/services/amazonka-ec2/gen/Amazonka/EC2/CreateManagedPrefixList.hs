@@ -194,9 +194,25 @@ instance Core.AWSRequest CreateManagedPrefixList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateManagedPrefixList
+instance Prelude.Hashable CreateManagedPrefixList where
+  hashWithSalt _salt CreateManagedPrefixList' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` entries
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` prefixListName
+      `Prelude.hashWithSalt` maxEntries
+      `Prelude.hashWithSalt` addressFamily
 
-instance Prelude.NFData CreateManagedPrefixList
+instance Prelude.NFData CreateManagedPrefixList where
+  rnf CreateManagedPrefixList' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf prefixListName
+      `Prelude.seq` Prelude.rnf maxEntries
+      `Prelude.seq` Prelude.rnf addressFamily
 
 instance Core.ToHeaders CreateManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,3 +282,7 @@ createManagedPrefixListResponse_httpStatus = Lens.lens (\CreateManagedPrefixList
 instance
   Prelude.NFData
     CreateManagedPrefixListResponse
+  where
+  rnf CreateManagedPrefixListResponse' {..} =
+    Prelude.rnf prefixList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -86,5 +86,14 @@ instance Core.FromXML TransitGatewayRouteAttachment where
 instance
   Prelude.Hashable
     TransitGatewayRouteAttachment
+  where
+  hashWithSalt _salt TransitGatewayRouteAttachment' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
 
-instance Prelude.NFData TransitGatewayRouteAttachment
+instance Prelude.NFData TransitGatewayRouteAttachment where
+  rnf TransitGatewayRouteAttachment' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId

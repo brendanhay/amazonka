@@ -180,9 +180,15 @@ instance Core.FromJSON RuleDefinition where
             Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RuleDefinition
+instance Prelude.Hashable RuleDefinition where
+  hashWithSalt _salt RuleDefinition' {..} =
+    _salt `Prelude.hashWithSalt` matchAttributes
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData RuleDefinition
+instance Prelude.NFData RuleDefinition where
+  rnf RuleDefinition' {..} =
+    Prelude.rnf matchAttributes
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToJSON RuleDefinition where
   toJSON RuleDefinition' {..} =

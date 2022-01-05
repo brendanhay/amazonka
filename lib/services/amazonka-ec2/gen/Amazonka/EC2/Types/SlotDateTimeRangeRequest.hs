@@ -76,9 +76,15 @@ slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {e
 slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
 slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Core._Time
 
-instance Prelude.Hashable SlotDateTimeRangeRequest
+instance Prelude.Hashable SlotDateTimeRangeRequest where
+  hashWithSalt _salt SlotDateTimeRangeRequest' {..} =
+    _salt `Prelude.hashWithSalt` earliestTime
+      `Prelude.hashWithSalt` latestTime
 
-instance Prelude.NFData SlotDateTimeRangeRequest
+instance Prelude.NFData SlotDateTimeRangeRequest where
+  rnf SlotDateTimeRangeRequest' {..} =
+    Prelude.rnf earliestTime
+      `Prelude.seq` Prelude.rnf latestTime
 
 instance Core.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =

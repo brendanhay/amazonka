@@ -107,9 +107,12 @@ instance Core.AWSRequest GetJobManifest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobManifest
+instance Prelude.Hashable GetJobManifest where
+  hashWithSalt _salt GetJobManifest' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetJobManifest
+instance Prelude.NFData GetJobManifest where
+  rnf GetJobManifest' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders GetJobManifest where
   toHeaders =
@@ -181,4 +184,7 @@ getJobManifestResponse_manifestURI = Lens.lens (\GetJobManifestResponse' {manife
 getJobManifestResponse_httpStatus :: Lens.Lens' GetJobManifestResponse Prelude.Int
 getJobManifestResponse_httpStatus = Lens.lens (\GetJobManifestResponse' {httpStatus} -> httpStatus) (\s@GetJobManifestResponse' {} a -> s {httpStatus = a} :: GetJobManifestResponse)
 
-instance Prelude.NFData GetJobManifestResponse
+instance Prelude.NFData GetJobManifestResponse where
+  rnf GetJobManifestResponse' {..} =
+    Prelude.rnf manifestURI
+      `Prelude.seq` Prelude.rnf httpStatus

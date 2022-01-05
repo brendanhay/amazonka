@@ -71,6 +71,11 @@ instance Core.FromJSON ExperimentStopCondition where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable ExperimentStopCondition
+instance Prelude.Hashable ExperimentStopCondition where
+  hashWithSalt _salt ExperimentStopCondition' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData ExperimentStopCondition
+instance Prelude.NFData ExperimentStopCondition where
+  rnf ExperimentStopCondition' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf source

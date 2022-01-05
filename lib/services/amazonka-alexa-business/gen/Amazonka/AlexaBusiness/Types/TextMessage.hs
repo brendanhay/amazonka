@@ -63,9 +63,14 @@ textMessage_locale = Lens.lens (\TextMessage' {locale} -> locale) (\s@TextMessag
 textMessage_value :: Lens.Lens' TextMessage Prelude.Text
 textMessage_value = Lens.lens (\TextMessage' {value} -> value) (\s@TextMessage' {} a -> s {value = a} :: TextMessage)
 
-instance Prelude.Hashable TextMessage
+instance Prelude.Hashable TextMessage where
+  hashWithSalt _salt TextMessage' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData TextMessage
+instance Prelude.NFData TextMessage where
+  rnf TextMessage' {..} =
+    Prelude.rnf locale `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON TextMessage where
   toJSON TextMessage' {..} =

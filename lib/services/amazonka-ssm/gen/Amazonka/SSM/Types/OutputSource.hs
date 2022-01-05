@@ -75,6 +75,12 @@ instance Core.FromJSON OutputSource where
             Prelude.<*> (x Core..:? "OutputSourceType")
       )
 
-instance Prelude.Hashable OutputSource
+instance Prelude.Hashable OutputSource where
+  hashWithSalt _salt OutputSource' {..} =
+    _salt `Prelude.hashWithSalt` outputSourceId
+      `Prelude.hashWithSalt` outputSourceType
 
-instance Prelude.NFData OutputSource
+instance Prelude.NFData OutputSource where
+  rnf OutputSource' {..} =
+    Prelude.rnf outputSourceId
+      `Prelude.seq` Prelude.rnf outputSourceType

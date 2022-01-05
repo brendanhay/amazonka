@@ -223,9 +223,23 @@ instance Core.AWSRequest DescribeLogStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLogStreams
+instance Prelude.Hashable DescribeLogStreams where
+  hashWithSalt _salt DescribeLogStreams' {..} =
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` descending
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` logStreamNamePrefix
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData DescribeLogStreams
+instance Prelude.NFData DescribeLogStreams where
+  rnf DescribeLogStreams' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf descending
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf logStreamNamePrefix
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders DescribeLogStreams where
   toHeaders =
@@ -309,4 +323,8 @@ describeLogStreamsResponse_logStreams = Lens.lens (\DescribeLogStreamsResponse' 
 describeLogStreamsResponse_httpStatus :: Lens.Lens' DescribeLogStreamsResponse Prelude.Int
 describeLogStreamsResponse_httpStatus = Lens.lens (\DescribeLogStreamsResponse' {httpStatus} -> httpStatus) (\s@DescribeLogStreamsResponse' {} a -> s {httpStatus = a} :: DescribeLogStreamsResponse)
 
-instance Prelude.NFData DescribeLogStreamsResponse
+instance Prelude.NFData DescribeLogStreamsResponse where
+  rnf DescribeLogStreamsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf logStreams
+      `Prelude.seq` Prelude.rnf httpStatus

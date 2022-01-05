@@ -222,9 +222,17 @@ instance Core.AWSRequest PutClusterCapacityProviders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutClusterCapacityProviders
+instance Prelude.Hashable PutClusterCapacityProviders where
+  hashWithSalt _salt PutClusterCapacityProviders' {..} =
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` capacityProviders
+      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
 
-instance Prelude.NFData PutClusterCapacityProviders
+instance Prelude.NFData PutClusterCapacityProviders where
+  rnf PutClusterCapacityProviders' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
 
 instance Core.ToHeaders PutClusterCapacityProviders where
   toHeaders =
@@ -303,3 +311,7 @@ putClusterCapacityProvidersResponse_httpStatus = Lens.lens (\PutClusterCapacityP
 instance
   Prelude.NFData
     PutClusterCapacityProvidersResponse
+  where
+  rnf PutClusterCapacityProvidersResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

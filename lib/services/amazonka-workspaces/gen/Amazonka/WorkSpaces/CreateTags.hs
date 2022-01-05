@@ -100,9 +100,15 @@ instance Core.AWSRequest CreateTags where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTags
+instance Prelude.Hashable CreateTags where
+  hashWithSalt _salt CreateTags' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateTags
+instance Prelude.NFData CreateTags where
+  rnf CreateTags' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateTags where
   toHeaders =
@@ -161,4 +167,5 @@ newCreateTagsResponse pHttpStatus_ =
 createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Prelude.Int
 createTagsResponse_httpStatus = Lens.lens (\CreateTagsResponse' {httpStatus} -> httpStatus) (\s@CreateTagsResponse' {} a -> s {httpStatus = a} :: CreateTagsResponse)
 
-instance Prelude.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse where
+  rnf CreateTagsResponse' {..} = Prelude.rnf httpStatus

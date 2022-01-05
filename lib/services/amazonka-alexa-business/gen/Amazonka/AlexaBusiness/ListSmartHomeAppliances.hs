@@ -137,9 +137,17 @@ instance Core.AWSRequest ListSmartHomeAppliances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSmartHomeAppliances
+instance Prelude.Hashable ListSmartHomeAppliances where
+  hashWithSalt _salt ListSmartHomeAppliances' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData ListSmartHomeAppliances
+instance Prelude.NFData ListSmartHomeAppliances where
+  rnf ListSmartHomeAppliances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance Core.ToHeaders ListSmartHomeAppliances where
   toHeaders =
@@ -223,3 +231,8 @@ listSmartHomeAppliancesResponse_httpStatus = Lens.lens (\ListSmartHomeAppliances
 instance
   Prelude.NFData
     ListSmartHomeAppliancesResponse
+  where
+  rnf ListSmartHomeAppliancesResponse' {..} =
+    Prelude.rnf smartHomeAppliances
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

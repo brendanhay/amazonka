@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeGateway where
             Prelude.<*> (x Core..:> "lastUpdateDate")
       )
 
-instance Prelude.Hashable DescribeGateway
+instance Prelude.Hashable DescribeGateway where
+  hashWithSalt _salt DescribeGateway' {..} =
+    _salt `Prelude.hashWithSalt` gatewayId
 
-instance Prelude.NFData DescribeGateway
+instance Prelude.NFData DescribeGateway where
+  rnf DescribeGateway' {..} = Prelude.rnf gatewayId
 
 instance Core.ToHeaders DescribeGateway where
   toHeaders =
@@ -254,4 +257,13 @@ describeGatewayResponse_creationDate = Lens.lens (\DescribeGatewayResponse' {cre
 describeGatewayResponse_lastUpdateDate :: Lens.Lens' DescribeGatewayResponse Prelude.UTCTime
 describeGatewayResponse_lastUpdateDate = Lens.lens (\DescribeGatewayResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeGatewayResponse' {} a -> s {lastUpdateDate = a} :: DescribeGatewayResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeGatewayResponse
+instance Prelude.NFData DescribeGatewayResponse where
+  rnf DescribeGatewayResponse' {..} =
+    Prelude.rnf gatewayPlatform
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayArn
+      `Prelude.seq` Prelude.rnf gatewayCapabilitySummaries
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate

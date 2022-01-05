@@ -265,9 +265,37 @@ instance Core.AWSRequest CreateProfileJob where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateProfileJob
+instance Prelude.Hashable CreateProfileJob where
+  hashWithSalt _salt CreateProfileJob' {..} =
+    _salt `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobSample
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateProfileJob
+instance Prelude.NFData CreateProfileJob where
+  rnf CreateProfileJob' {..} =
+    Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateProfileJob where
   toHeaders =
@@ -351,4 +379,7 @@ createProfileJobResponse_httpStatus = Lens.lens (\CreateProfileJobResponse' {htt
 createProfileJobResponse_name :: Lens.Lens' CreateProfileJobResponse Prelude.Text
 createProfileJobResponse_name = Lens.lens (\CreateProfileJobResponse' {name} -> name) (\s@CreateProfileJobResponse' {} a -> s {name = a} :: CreateProfileJobResponse)
 
-instance Prelude.NFData CreateProfileJobResponse
+instance Prelude.NFData CreateProfileJobResponse where
+  rnf CreateProfileJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

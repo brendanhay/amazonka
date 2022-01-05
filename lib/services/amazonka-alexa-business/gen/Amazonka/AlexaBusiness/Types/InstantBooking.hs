@@ -76,6 +76,12 @@ instance Core.FromJSON InstantBooking where
             Prelude.<*> (x Core..:? "DurationInMinutes")
       )
 
-instance Prelude.Hashable InstantBooking
+instance Prelude.Hashable InstantBooking where
+  hashWithSalt _salt InstantBooking' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` durationInMinutes
 
-instance Prelude.NFData InstantBooking
+instance Prelude.NFData InstantBooking where
+  rnf InstantBooking' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf durationInMinutes

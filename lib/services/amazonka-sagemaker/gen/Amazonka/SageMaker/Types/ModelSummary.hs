@@ -87,6 +87,14 @@ instance Core.FromJSON ModelSummary where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable ModelSummary
+instance Prelude.Hashable ModelSummary where
+  hashWithSalt _salt ModelSummary' {..} =
+    _salt `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ModelSummary
+instance Prelude.NFData ModelSummary where
+  rnf ModelSummary' {..} =
+    Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf creationTime

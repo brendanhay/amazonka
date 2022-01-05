@@ -185,9 +185,23 @@ instance Core.AWSRequest PurchaseHostReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseHostReservation
+instance Prelude.Hashable PurchaseHostReservation where
+  hashWithSalt _salt PurchaseHostReservation' {..} =
+    _salt `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` limitPrice
+      `Prelude.hashWithSalt` hostIdSet
+      `Prelude.hashWithSalt` offeringId
 
-instance Prelude.NFData PurchaseHostReservation
+instance Prelude.NFData PurchaseHostReservation where
+  rnf PurchaseHostReservation' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf limitPrice
+      `Prelude.seq` Prelude.rnf hostIdSet
+      `Prelude.seq` Prelude.rnf offeringId
 
 instance Core.ToHeaders PurchaseHostReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,3 +320,11 @@ purchaseHostReservationResponse_httpStatus = Lens.lens (\PurchaseHostReservation
 instance
   Prelude.NFData
     PurchaseHostReservationResponse
+  where
+  rnf PurchaseHostReservationResponse' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf totalHourlyPrice
+      `Prelude.seq` Prelude.rnf totalUpfrontPrice
+      `Prelude.seq` Prelude.rnf purchase
+      `Prelude.seq` Prelude.rnf httpStatus

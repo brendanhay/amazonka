@@ -127,9 +127,17 @@ instance Core.AWSRequest DeleteBackendAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBackendAuth
+instance Prelude.Hashable DeleteBackendAuth where
+  hashWithSalt _salt DeleteBackendAuth' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData DeleteBackendAuth
+instance Prelude.NFData DeleteBackendAuth where
+  rnf DeleteBackendAuth' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders DeleteBackendAuth where
   toHeaders =
@@ -246,4 +254,12 @@ deleteBackendAuthResponse_backendEnvironmentName = Lens.lens (\DeleteBackendAuth
 deleteBackendAuthResponse_httpStatus :: Lens.Lens' DeleteBackendAuthResponse Prelude.Int
 deleteBackendAuthResponse_httpStatus = Lens.lens (\DeleteBackendAuthResponse' {httpStatus} -> httpStatus) (\s@DeleteBackendAuthResponse' {} a -> s {httpStatus = a} :: DeleteBackendAuthResponse)
 
-instance Prelude.NFData DeleteBackendAuthResponse
+instance Prelude.NFData DeleteBackendAuthResponse where
+  rnf DeleteBackendAuthResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

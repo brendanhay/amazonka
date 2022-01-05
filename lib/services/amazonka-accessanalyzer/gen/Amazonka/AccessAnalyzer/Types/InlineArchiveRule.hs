@@ -65,9 +65,15 @@ inlineArchiveRule_filter = Lens.lens (\InlineArchiveRule' {filter'} -> filter') 
 inlineArchiveRule_ruleName :: Lens.Lens' InlineArchiveRule Prelude.Text
 inlineArchiveRule_ruleName = Lens.lens (\InlineArchiveRule' {ruleName} -> ruleName) (\s@InlineArchiveRule' {} a -> s {ruleName = a} :: InlineArchiveRule)
 
-instance Prelude.Hashable InlineArchiveRule
+instance Prelude.Hashable InlineArchiveRule where
+  hashWithSalt _salt InlineArchiveRule' {..} =
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData InlineArchiveRule
+instance Prelude.NFData InlineArchiveRule where
+  rnf InlineArchiveRule' {..} =
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToJSON InlineArchiveRule where
   toJSON InlineArchiveRule' {..} =

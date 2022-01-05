@@ -211,10 +211,26 @@ instance
 instance
   Prelude.Hashable
     DescribeEnvironmentMemberships
+  where
+  hashWithSalt
+    _salt
+    DescribeEnvironmentMemberships' {..} =
+      _salt `Prelude.hashWithSalt` userArn
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` permissions
+        `Prelude.hashWithSalt` environmentId
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeEnvironmentMemberships
+  where
+  rnf DescribeEnvironmentMemberships' {..} =
+    Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -313,3 +329,8 @@ describeEnvironmentMembershipsResponse_httpStatus = Lens.lens (\DescribeEnvironm
 instance
   Prelude.NFData
     DescribeEnvironmentMembershipsResponse
+  where
+  rnf DescribeEnvironmentMembershipsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf memberships
+      `Prelude.seq` Prelude.rnf httpStatus

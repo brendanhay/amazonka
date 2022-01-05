@@ -150,9 +150,12 @@ instance Core.AWSRequest CreateOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOrganization
+instance Prelude.Hashable CreateOrganization where
+  hashWithSalt _salt CreateOrganization' {..} =
+    _salt `Prelude.hashWithSalt` featureSet
 
-instance Prelude.NFData CreateOrganization
+instance Prelude.NFData CreateOrganization where
+  rnf CreateOrganization' {..} = Prelude.rnf featureSet
 
 instance Core.ToHeaders CreateOrganization where
   toHeaders =
@@ -221,4 +224,7 @@ createOrganizationResponse_organization = Lens.lens (\CreateOrganizationResponse
 createOrganizationResponse_httpStatus :: Lens.Lens' CreateOrganizationResponse Prelude.Int
 createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' {httpStatus} -> httpStatus) (\s@CreateOrganizationResponse' {} a -> s {httpStatus = a} :: CreateOrganizationResponse)
 
-instance Prelude.NFData CreateOrganizationResponse
+instance Prelude.NFData CreateOrganizationResponse where
+  rnf CreateOrganizationResponse' {..} =
+    Prelude.rnf organization
+      `Prelude.seq` Prelude.rnf httpStatus

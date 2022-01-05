@@ -47,6 +47,9 @@ module Amazonka.DynamoDB.Types
     _LimitExceededException,
     _ResourceInUseException,
 
+    -- * Re-exported Types
+    module Amazonka.DynamoDB.Internal,
+
     -- * AttributeAction
     AttributeAction (..),
 
@@ -155,20 +158,6 @@ module Amazonka.DynamoDB.Types
     newAttributeDefinition,
     attributeDefinition_attributeName,
     attributeDefinition_attributeType,
-
-    -- * AttributeValue
-    AttributeValue (..),
-    newAttributeValue,
-    attributeValue_l,
-    attributeValue_ns,
-    attributeValue_m,
-    attributeValue_null,
-    attributeValue_n,
-    attributeValue_bs,
-    attributeValue_b,
-    attributeValue_ss,
-    attributeValue_s,
-    attributeValue_bool,
 
     -- * AttributeValueUpdate
     AttributeValueUpdate (..),
@@ -885,10 +874,10 @@ module Amazonka.DynamoDB.Types
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeAction
 import Amazonka.DynamoDB.Types.AttributeDefinition
-import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AttributeValueUpdate
 import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
 import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate

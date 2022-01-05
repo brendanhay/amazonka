@@ -107,8 +107,15 @@ instance Core.AWSRequest UpdateSMBFileShareVisibility where
 instance
   Prelude.Hashable
     UpdateSMBFileShareVisibility
+  where
+  hashWithSalt _salt UpdateSMBFileShareVisibility' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` fileSharesVisible
 
-instance Prelude.NFData UpdateSMBFileShareVisibility
+instance Prelude.NFData UpdateSMBFileShareVisibility where
+  rnf UpdateSMBFileShareVisibility' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf fileSharesVisible
 
 instance Core.ToHeaders UpdateSMBFileShareVisibility where
   toHeaders =
@@ -182,3 +189,7 @@ updateSMBFileShareVisibilityResponse_httpStatus = Lens.lens (\UpdateSMBFileShare
 instance
   Prelude.NFData
     UpdateSMBFileShareVisibilityResponse
+  where
+  rnf UpdateSMBFileShareVisibilityResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

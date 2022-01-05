@@ -68,10 +68,18 @@ launchTemplateHibernationOptionsRequest_configured = Lens.lens (\LaunchTemplateH
 instance
   Prelude.Hashable
     LaunchTemplateHibernationOptionsRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateHibernationOptionsRequest' {..} =
+      _salt `Prelude.hashWithSalt` configured
 
 instance
   Prelude.NFData
     LaunchTemplateHibernationOptionsRequest
+  where
+  rnf LaunchTemplateHibernationOptionsRequest' {..} =
+    Prelude.rnf configured
 
 instance
   Core.ToQuery

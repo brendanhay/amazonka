@@ -121,9 +121,17 @@ instance Core.AWSRequest RemoveTagsFromVault where
   response =
     Response.receiveNull RemoveTagsFromVaultResponse'
 
-instance Prelude.Hashable RemoveTagsFromVault
+instance Prelude.Hashable RemoveTagsFromVault where
+  hashWithSalt _salt RemoveTagsFromVault' {..} =
+    _salt `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData RemoveTagsFromVault
+instance Prelude.NFData RemoveTagsFromVault where
+  rnf RemoveTagsFromVault' {..} =
+    Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders RemoveTagsFromVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,4 +173,5 @@ newRemoveTagsFromVaultResponse ::
 newRemoveTagsFromVaultResponse =
   RemoveTagsFromVaultResponse'
 
-instance Prelude.NFData RemoveTagsFromVaultResponse
+instance Prelude.NFData RemoveTagsFromVaultResponse where
+  rnf _ = ()

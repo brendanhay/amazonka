@@ -282,9 +282,27 @@ instance Core.FromJSON ContainerDefinition where
             Prelude.<*> (x Core..:? "ContainerHostname")
       )
 
-instance Prelude.Hashable ContainerDefinition
+instance Prelude.Hashable ContainerDefinition where
+  hashWithSalt _salt ContainerDefinition' {..} =
+    _salt `Prelude.hashWithSalt` multiModelConfig
+      `Prelude.hashWithSalt` modelDataUrl
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` modelPackageName
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` containerHostname
 
-instance Prelude.NFData ContainerDefinition
+instance Prelude.NFData ContainerDefinition where
+  rnf ContainerDefinition' {..} =
+    Prelude.rnf multiModelConfig
+      `Prelude.seq` Prelude.rnf modelDataUrl
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf modelPackageName
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf containerHostname
 
 instance Core.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =

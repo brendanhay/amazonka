@@ -63,9 +63,14 @@ decimalParameter_name = Lens.lens (\DecimalParameter' {name} -> name) (\s@Decima
 decimalParameter_values :: Lens.Lens' DecimalParameter [Prelude.Double]
 decimalParameter_values = Lens.lens (\DecimalParameter' {values} -> values) (\s@DecimalParameter' {} a -> s {values = a} :: DecimalParameter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable DecimalParameter
+instance Prelude.Hashable DecimalParameter where
+  hashWithSalt _salt DecimalParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData DecimalParameter
+instance Prelude.NFData DecimalParameter where
+  rnf DecimalParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON DecimalParameter where
   toJSON DecimalParameter' {..} =

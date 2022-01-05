@@ -87,5 +87,14 @@ instance Core.FromXML ClientConnectResponseOptions where
 instance
   Prelude.Hashable
     ClientConnectResponseOptions
+  where
+  hashWithSalt _salt ClientConnectResponseOptions' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData ClientConnectResponseOptions
+instance Prelude.NFData ClientConnectResponseOptions where
+  rnf ClientConnectResponseOptions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lambdaFunctionArn

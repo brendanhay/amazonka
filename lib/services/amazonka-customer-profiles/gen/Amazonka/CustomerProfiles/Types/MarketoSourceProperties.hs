@@ -52,9 +52,13 @@ newMarketoSourceProperties pObject_ =
 marketoSourceProperties_object :: Lens.Lens' MarketoSourceProperties Prelude.Text
 marketoSourceProperties_object = Lens.lens (\MarketoSourceProperties' {object'} -> object') (\s@MarketoSourceProperties' {} a -> s {object' = a} :: MarketoSourceProperties)
 
-instance Prelude.Hashable MarketoSourceProperties
+instance Prelude.Hashable MarketoSourceProperties where
+  hashWithSalt _salt MarketoSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData MarketoSourceProperties
+instance Prelude.NFData MarketoSourceProperties where
+  rnf MarketoSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON MarketoSourceProperties where
   toJSON MarketoSourceProperties' {..} =

@@ -113,8 +113,13 @@ instance
 instance
   Prelude.Hashable
     DisableEbsEncryptionByDefault
+  where
+  hashWithSalt _salt DisableEbsEncryptionByDefault' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisableEbsEncryptionByDefault
+instance Prelude.NFData DisableEbsEncryptionByDefault where
+  rnf DisableEbsEncryptionByDefault' {..} =
+    Prelude.rnf dryRun
 
 instance Core.ToHeaders DisableEbsEncryptionByDefault where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +181,7 @@ disableEbsEncryptionByDefaultResponse_httpStatus = Lens.lens (\DisableEbsEncrypt
 instance
   Prelude.NFData
     DisableEbsEncryptionByDefaultResponse
+  where
+  rnf DisableEbsEncryptionByDefaultResponse' {..} =
+    Prelude.rnf ebsEncryptionByDefault
+      `Prelude.seq` Prelude.rnf httpStatus

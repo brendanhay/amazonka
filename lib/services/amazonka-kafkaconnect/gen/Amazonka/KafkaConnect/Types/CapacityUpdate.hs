@@ -64,9 +64,15 @@ capacityUpdate_autoScaling = Lens.lens (\CapacityUpdate' {autoScaling} -> autoSc
 capacityUpdate_provisionedCapacity :: Lens.Lens' CapacityUpdate (Prelude.Maybe ProvisionedCapacityUpdate)
 capacityUpdate_provisionedCapacity = Lens.lens (\CapacityUpdate' {provisionedCapacity} -> provisionedCapacity) (\s@CapacityUpdate' {} a -> s {provisionedCapacity = a} :: CapacityUpdate)
 
-instance Prelude.Hashable CapacityUpdate
+instance Prelude.Hashable CapacityUpdate where
+  hashWithSalt _salt CapacityUpdate' {..} =
+    _salt `Prelude.hashWithSalt` autoScaling
+      `Prelude.hashWithSalt` provisionedCapacity
 
-instance Prelude.NFData CapacityUpdate
+instance Prelude.NFData CapacityUpdate where
+  rnf CapacityUpdate' {..} =
+    Prelude.rnf autoScaling
+      `Prelude.seq` Prelude.rnf provisionedCapacity
 
 instance Core.ToJSON CapacityUpdate where
   toJSON CapacityUpdate' {..} =

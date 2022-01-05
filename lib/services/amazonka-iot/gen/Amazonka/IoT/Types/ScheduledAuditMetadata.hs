@@ -116,6 +116,18 @@ instance Core.FromJSON ScheduledAuditMetadata where
             Prelude.<*> (x Core..:? "scheduledAuditArn")
       )
 
-instance Prelude.Hashable ScheduledAuditMetadata
+instance Prelude.Hashable ScheduledAuditMetadata where
+  hashWithSalt _salt ScheduledAuditMetadata' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` scheduledAuditName
+      `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
+      `Prelude.hashWithSalt` scheduledAuditArn
 
-instance Prelude.NFData ScheduledAuditMetadata
+instance Prelude.NFData ScheduledAuditMetadata where
+  rnf ScheduledAuditMetadata' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf scheduledAuditName
+      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf scheduledAuditArn

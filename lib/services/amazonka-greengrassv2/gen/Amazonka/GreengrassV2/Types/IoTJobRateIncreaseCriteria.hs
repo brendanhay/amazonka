@@ -80,9 +80,15 @@ instance Core.FromJSON IoTJobRateIncreaseCriteria where
             Prelude.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Prelude.Hashable IoTJobRateIncreaseCriteria
+instance Prelude.Hashable IoTJobRateIncreaseCriteria where
+  hashWithSalt _salt IoTJobRateIncreaseCriteria' {..} =
+    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+      `Prelude.hashWithSalt` numberOfSucceededThings
 
-instance Prelude.NFData IoTJobRateIncreaseCriteria
+instance Prelude.NFData IoTJobRateIncreaseCriteria where
+  rnf IoTJobRateIncreaseCriteria' {..} =
+    Prelude.rnf numberOfNotifiedThings
+      `Prelude.seq` Prelude.rnf numberOfSucceededThings
 
 instance Core.ToJSON IoTJobRateIncreaseCriteria where
   toJSON IoTJobRateIncreaseCriteria' {..} =

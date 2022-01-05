@@ -149,9 +149,17 @@ instance Core.AWSRequest DescribeBudgets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBudgets
+instance Prelude.Hashable DescribeBudgets where
+  hashWithSalt _salt DescribeBudgets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DescribeBudgets
+instance Prelude.NFData DescribeBudgets where
+  rnf DescribeBudgets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders DescribeBudgets where
   toHeaders =
@@ -237,4 +245,8 @@ describeBudgetsResponse_budgets = Lens.lens (\DescribeBudgetsResponse' {budgets}
 describeBudgetsResponse_httpStatus :: Lens.Lens' DescribeBudgetsResponse Prelude.Int
 describeBudgetsResponse_httpStatus = Lens.lens (\DescribeBudgetsResponse' {httpStatus} -> httpStatus) (\s@DescribeBudgetsResponse' {} a -> s {httpStatus = a} :: DescribeBudgetsResponse)
 
-instance Prelude.NFData DescribeBudgetsResponse
+instance Prelude.NFData DescribeBudgetsResponse where
+  rnf DescribeBudgetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf budgets
+      `Prelude.seq` Prelude.rnf httpStatus

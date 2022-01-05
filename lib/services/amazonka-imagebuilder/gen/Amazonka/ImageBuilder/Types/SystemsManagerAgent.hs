@@ -74,9 +74,13 @@ instance Core.FromJSON SystemsManagerAgent where
             Prelude.<$> (x Core..:? "uninstallAfterBuild")
       )
 
-instance Prelude.Hashable SystemsManagerAgent
+instance Prelude.Hashable SystemsManagerAgent where
+  hashWithSalt _salt SystemsManagerAgent' {..} =
+    _salt `Prelude.hashWithSalt` uninstallAfterBuild
 
-instance Prelude.NFData SystemsManagerAgent
+instance Prelude.NFData SystemsManagerAgent where
+  rnf SystemsManagerAgent' {..} =
+    Prelude.rnf uninstallAfterBuild
 
 instance Core.ToJSON SystemsManagerAgent where
   toJSON SystemsManagerAgent' {..} =

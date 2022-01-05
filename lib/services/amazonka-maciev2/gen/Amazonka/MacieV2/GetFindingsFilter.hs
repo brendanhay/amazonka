@@ -103,9 +103,12 @@ instance Core.AWSRequest GetFindingsFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFindingsFilter
+instance Prelude.Hashable GetFindingsFilter where
+  hashWithSalt _salt GetFindingsFilter' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetFindingsFilter
+instance Prelude.NFData GetFindingsFilter where
+  rnf GetFindingsFilter' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetFindingsFilter where
   toHeaders =
@@ -247,4 +250,14 @@ getFindingsFilterResponse_position = Lens.lens (\GetFindingsFilterResponse' {pos
 getFindingsFilterResponse_httpStatus :: Lens.Lens' GetFindingsFilterResponse Prelude.Int
 getFindingsFilterResponse_httpStatus = Lens.lens (\GetFindingsFilterResponse' {httpStatus} -> httpStatus) (\s@GetFindingsFilterResponse' {} a -> s {httpStatus = a} :: GetFindingsFilterResponse)
 
-instance Prelude.NFData GetFindingsFilterResponse
+instance Prelude.NFData GetFindingsFilterResponse where
+  rnf GetFindingsFilterResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

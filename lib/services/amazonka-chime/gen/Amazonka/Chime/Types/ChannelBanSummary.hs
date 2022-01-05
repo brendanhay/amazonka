@@ -59,6 +59,9 @@ instance Core.FromJSON ChannelBanSummary where
           ChannelBanSummary' Prelude.<$> (x Core..:? "Member")
       )
 
-instance Prelude.Hashable ChannelBanSummary
+instance Prelude.Hashable ChannelBanSummary where
+  hashWithSalt _salt ChannelBanSummary' {..} =
+    _salt `Prelude.hashWithSalt` member
 
-instance Prelude.NFData ChannelBanSummary
+instance Prelude.NFData ChannelBanSummary where
+  rnf ChannelBanSummary' {..} = Prelude.rnf member

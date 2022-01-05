@@ -94,6 +94,14 @@ instance Core.FromJSON Range where
             Prelude.<*> (x Core..:? "startColumn")
       )
 
-instance Prelude.Hashable Range
+instance Prelude.Hashable Range where
+  hashWithSalt _salt Range' {..} =
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` startColumn
 
-instance Prelude.NFData Range
+instance Prelude.NFData Range where
+  rnf Range' {..} =
+    Prelude.rnf start
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf startColumn

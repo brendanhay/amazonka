@@ -123,9 +123,17 @@ instance Core.AWSRequest DescribeReservedInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservedInstances
+instance Prelude.Hashable DescribeReservedInstances where
+  hashWithSalt _salt DescribeReservedInstances' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` reservedInstanceId
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeReservedInstances
+instance Prelude.NFData DescribeReservedInstances where
+  rnf DescribeReservedInstances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reservedInstanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,3 +204,8 @@ describeReservedInstancesResponse_httpStatus = Lens.lens (\DescribeReservedInsta
 instance
   Prelude.NFData
     DescribeReservedInstancesResponse
+  where
+  rnf DescribeReservedInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reservedInstances
+      `Prelude.seq` Prelude.rnf httpStatus

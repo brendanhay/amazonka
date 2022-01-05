@@ -88,6 +88,14 @@ instance Core.FromJSON UnprocessedQueryExecutionId where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable UnprocessedQueryExecutionId
+instance Prelude.Hashable UnprocessedQueryExecutionId where
+  hashWithSalt _salt UnprocessedQueryExecutionId' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` queryExecutionId
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData UnprocessedQueryExecutionId
+instance Prelude.NFData UnprocessedQueryExecutionId where
+  rnf UnprocessedQueryExecutionId' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf queryExecutionId
+      `Prelude.seq` Prelude.rnf errorMessage

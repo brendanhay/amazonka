@@ -193,10 +193,33 @@ instance Core.FromXML AuthenticateCognitoActionConfig where
 instance
   Prelude.Hashable
     AuthenticateCognitoActionConfig
+  where
+  hashWithSalt
+    _salt
+    AuthenticateCognitoActionConfig' {..} =
+      _salt
+        `Prelude.hashWithSalt` authenticationRequestExtraParams
+        `Prelude.hashWithSalt` scope
+        `Prelude.hashWithSalt` onUnauthenticatedRequest
+        `Prelude.hashWithSalt` sessionCookieName
+        `Prelude.hashWithSalt` sessionTimeout
+        `Prelude.hashWithSalt` userPoolArn
+        `Prelude.hashWithSalt` userPoolClientId
+        `Prelude.hashWithSalt` userPoolDomain
 
 instance
   Prelude.NFData
     AuthenticateCognitoActionConfig
+  where
+  rnf AuthenticateCognitoActionConfig' {..} =
+    Prelude.rnf authenticationRequestExtraParams
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf onUnauthenticatedRequest
+      `Prelude.seq` Prelude.rnf sessionCookieName
+      `Prelude.seq` Prelude.rnf sessionTimeout
+      `Prelude.seq` Prelude.rnf userPoolArn
+      `Prelude.seq` Prelude.rnf userPoolClientId
+      `Prelude.seq` Prelude.rnf userPoolDomain
 
 instance Core.ToQuery AuthenticateCognitoActionConfig where
   toQuery AuthenticateCognitoActionConfig' {..} =

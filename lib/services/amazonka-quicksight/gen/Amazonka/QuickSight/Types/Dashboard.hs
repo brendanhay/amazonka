@@ -122,6 +122,22 @@ instance Core.FromJSON Dashboard where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable Dashboard
+instance Prelude.Hashable Dashboard where
+  hashWithSalt _salt Dashboard' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` lastPublishedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData Dashboard
+instance Prelude.NFData Dashboard where
+  rnf Dashboard' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf lastPublishedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version

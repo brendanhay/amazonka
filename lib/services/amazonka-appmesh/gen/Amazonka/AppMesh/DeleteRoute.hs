@@ -134,9 +134,19 @@ instance Core.AWSRequest DeleteRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteRoute
+instance Prelude.Hashable DeleteRoute where
+  hashWithSalt _salt DeleteRoute' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` routeName
+      `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData DeleteRoute
+instance Prelude.NFData DeleteRoute where
+  rnf DeleteRoute' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf routeName
+      `Prelude.seq` Prelude.rnf virtualRouterName
 
 instance Core.ToHeaders DeleteRoute where
   toHeaders =
@@ -206,4 +216,7 @@ deleteRouteResponse_httpStatus = Lens.lens (\DeleteRouteResponse' {httpStatus} -
 deleteRouteResponse_route :: Lens.Lens' DeleteRouteResponse RouteData
 deleteRouteResponse_route = Lens.lens (\DeleteRouteResponse' {route} -> route) (\s@DeleteRouteResponse' {} a -> s {route = a} :: DeleteRouteResponse)
 
-instance Prelude.NFData DeleteRouteResponse
+instance Prelude.NFData DeleteRouteResponse where
+  rnf DeleteRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf route

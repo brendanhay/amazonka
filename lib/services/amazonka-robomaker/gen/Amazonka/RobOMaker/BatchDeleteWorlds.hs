@@ -92,9 +92,12 @@ instance Core.AWSRequest BatchDeleteWorlds where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteWorlds
+instance Prelude.Hashable BatchDeleteWorlds where
+  hashWithSalt _salt BatchDeleteWorlds' {..} =
+    _salt `Prelude.hashWithSalt` worlds
 
-instance Prelude.NFData BatchDeleteWorlds
+instance Prelude.NFData BatchDeleteWorlds where
+  rnf BatchDeleteWorlds' {..} = Prelude.rnf worlds
 
 instance Core.ToHeaders BatchDeleteWorlds where
   toHeaders =
@@ -162,4 +165,7 @@ batchDeleteWorldsResponse_unprocessedWorlds = Lens.lens (\BatchDeleteWorldsRespo
 batchDeleteWorldsResponse_httpStatus :: Lens.Lens' BatchDeleteWorldsResponse Prelude.Int
 batchDeleteWorldsResponse_httpStatus = Lens.lens (\BatchDeleteWorldsResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteWorldsResponse' {} a -> s {httpStatus = a} :: BatchDeleteWorldsResponse)
 
-instance Prelude.NFData BatchDeleteWorldsResponse
+instance Prelude.NFData BatchDeleteWorldsResponse where
+  rnf BatchDeleteWorldsResponse' {..} =
+    Prelude.rnf unprocessedWorlds
+      `Prelude.seq` Prelude.rnf httpStatus

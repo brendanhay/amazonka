@@ -151,6 +151,26 @@ instance Core.FromJSON Replay where
             Prelude.<*> (x Core..:? "StateReason")
       )
 
-instance Prelude.Hashable Replay
+instance Prelude.Hashable Replay where
+  hashWithSalt _salt Replay' {..} =
+    _salt `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eventEndTime
+      `Prelude.hashWithSalt` replayStartTime
+      `Prelude.hashWithSalt` replayEndTime
+      `Prelude.hashWithSalt` eventLastReplayedTime
+      `Prelude.hashWithSalt` eventStartTime
+      `Prelude.hashWithSalt` replayName
+      `Prelude.hashWithSalt` stateReason
 
-instance Prelude.NFData Replay
+instance Prelude.NFData Replay where
+  rnf Replay' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf eventEndTime
+      `Prelude.seq` Prelude.rnf replayStartTime
+      `Prelude.seq` Prelude.rnf replayEndTime
+      `Prelude.seq` Prelude.rnf eventLastReplayedTime
+      `Prelude.seq` Prelude.rnf eventStartTime
+      `Prelude.seq` Prelude.rnf replayName
+      `Prelude.seq` Prelude.rnf stateReason

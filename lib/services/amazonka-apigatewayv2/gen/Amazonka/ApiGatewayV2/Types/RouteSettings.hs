@@ -114,9 +114,21 @@ instance Core.FromJSON RouteSettings where
             Prelude.<*> (x Core..:? "detailedMetricsEnabled")
       )
 
-instance Prelude.Hashable RouteSettings
+instance Prelude.Hashable RouteSettings where
+  hashWithSalt _salt RouteSettings' {..} =
+    _salt `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` throttlingBurstLimit
+      `Prelude.hashWithSalt` loggingLevel
+      `Prelude.hashWithSalt` throttlingRateLimit
+      `Prelude.hashWithSalt` detailedMetricsEnabled
 
-instance Prelude.NFData RouteSettings
+instance Prelude.NFData RouteSettings where
+  rnf RouteSettings' {..} =
+    Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf throttlingBurstLimit
+      `Prelude.seq` Prelude.rnf loggingLevel
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
+      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
 
 instance Core.ToJSON RouteSettings where
   toJSON RouteSettings' {..} =

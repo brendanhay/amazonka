@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteTrialComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrialComponent
+instance Prelude.Hashable DeleteTrialComponent where
+  hashWithSalt _salt DeleteTrialComponent' {..} =
+    _salt `Prelude.hashWithSalt` trialComponentName
 
-instance Prelude.NFData DeleteTrialComponent
+instance Prelude.NFData DeleteTrialComponent where
+  rnf DeleteTrialComponent' {..} =
+    Prelude.rnf trialComponentName
 
 instance Core.ToHeaders DeleteTrialComponent where
   toHeaders =
@@ -165,4 +169,7 @@ deleteTrialComponentResponse_trialComponentArn = Lens.lens (\DeleteTrialComponen
 deleteTrialComponentResponse_httpStatus :: Lens.Lens' DeleteTrialComponentResponse Prelude.Int
 deleteTrialComponentResponse_httpStatus = Lens.lens (\DeleteTrialComponentResponse' {httpStatus} -> httpStatus) (\s@DeleteTrialComponentResponse' {} a -> s {httpStatus = a} :: DeleteTrialComponentResponse)
 
-instance Prelude.NFData DeleteTrialComponentResponse
+instance Prelude.NFData DeleteTrialComponentResponse where
+  rnf DeleteTrialComponentResponse' {..} =
+    Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf httpStatus

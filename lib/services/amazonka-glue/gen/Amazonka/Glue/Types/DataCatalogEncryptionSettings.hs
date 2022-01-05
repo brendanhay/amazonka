@@ -91,8 +91,15 @@ instance Core.FromJSON DataCatalogEncryptionSettings where
 instance
   Prelude.Hashable
     DataCatalogEncryptionSettings
+  where
+  hashWithSalt _salt DataCatalogEncryptionSettings' {..} =
+    _salt `Prelude.hashWithSalt` encryptionAtRest
+      `Prelude.hashWithSalt` connectionPasswordEncryption
 
-instance Prelude.NFData DataCatalogEncryptionSettings
+instance Prelude.NFData DataCatalogEncryptionSettings where
+  rnf DataCatalogEncryptionSettings' {..} =
+    Prelude.rnf encryptionAtRest
+      `Prelude.seq` Prelude.rnf connectionPasswordEncryption
 
 instance Core.ToJSON DataCatalogEncryptionSettings where
   toJSON DataCatalogEncryptionSettings' {..} =

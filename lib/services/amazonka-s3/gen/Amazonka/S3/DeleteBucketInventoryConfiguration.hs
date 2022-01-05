@@ -137,10 +137,22 @@ instance
 instance
   Prelude.Hashable
     DeleteBucketInventoryConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteBucketInventoryConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteBucketInventoryConfiguration
+  where
+  rnf DeleteBucketInventoryConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -184,3 +196,5 @@ newDeleteBucketInventoryConfigurationResponse =
 instance
   Prelude.NFData
     DeleteBucketInventoryConfigurationResponse
+  where
+  rnf _ = ()

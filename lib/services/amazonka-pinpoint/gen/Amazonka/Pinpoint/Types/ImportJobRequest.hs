@@ -195,9 +195,27 @@ importJobRequest_s3Url = Lens.lens (\ImportJobRequest' {s3Url} -> s3Url) (\s@Imp
 importJobRequest_roleArn :: Lens.Lens' ImportJobRequest Prelude.Text
 importJobRequest_roleArn = Lens.lens (\ImportJobRequest' {roleArn} -> roleArn) (\s@ImportJobRequest' {} a -> s {roleArn = a} :: ImportJobRequest)
 
-instance Prelude.Hashable ImportJobRequest
+instance Prelude.Hashable ImportJobRequest where
+  hashWithSalt _salt ImportJobRequest' {..} =
+    _salt `Prelude.hashWithSalt` segmentName
+      `Prelude.hashWithSalt` defineSegment
+      `Prelude.hashWithSalt` registerEndpoints
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` s3Url
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ImportJobRequest
+instance Prelude.NFData ImportJobRequest where
+  rnf ImportJobRequest' {..} =
+    Prelude.rnf segmentName
+      `Prelude.seq` Prelude.rnf defineSegment
+      `Prelude.seq` Prelude.rnf registerEndpoints
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON ImportJobRequest where
   toJSON ImportJobRequest' {..} =

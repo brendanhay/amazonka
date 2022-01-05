@@ -101,10 +101,18 @@ instance
 instance
   Prelude.Hashable
     DescribeValidDBInstanceModifications
+  where
+  hashWithSalt
+    _salt
+    DescribeValidDBInstanceModifications' {..} =
+      _salt `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance
   Prelude.NFData
     DescribeValidDBInstanceModifications
+  where
+  rnf DescribeValidDBInstanceModifications' {..} =
+    Prelude.rnf dbInstanceIdentifier
 
 instance
   Core.ToHeaders
@@ -175,3 +183,7 @@ describeValidDBInstanceModificationsResponse_httpStatus = Lens.lens (\DescribeVa
 instance
   Prelude.NFData
     DescribeValidDBInstanceModificationsResponse
+  where
+  rnf DescribeValidDBInstanceModificationsResponse' {..} =
+    Prelude.rnf validDBInstanceModificationsMessage
+      `Prelude.seq` Prelude.rnf httpStatus

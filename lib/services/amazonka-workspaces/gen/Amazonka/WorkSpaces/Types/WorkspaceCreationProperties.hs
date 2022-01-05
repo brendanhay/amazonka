@@ -188,9 +188,23 @@ workspaceCreationProperties_enableInternetAccess = Lens.lens (\WorkspaceCreation
 workspaceCreationProperties_defaultOu :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Text)
 workspaceCreationProperties_defaultOu = Lens.lens (\WorkspaceCreationProperties' {defaultOu} -> defaultOu) (\s@WorkspaceCreationProperties' {} a -> s {defaultOu = a} :: WorkspaceCreationProperties)
 
-instance Prelude.Hashable WorkspaceCreationProperties
+instance Prelude.Hashable WorkspaceCreationProperties where
+  hashWithSalt _salt WorkspaceCreationProperties' {..} =
+    _salt `Prelude.hashWithSalt` customSecurityGroupId
+      `Prelude.hashWithSalt` userEnabledAsLocalAdministrator
+      `Prelude.hashWithSalt` enableWorkDocs
+      `Prelude.hashWithSalt` enableMaintenanceMode
+      `Prelude.hashWithSalt` enableInternetAccess
+      `Prelude.hashWithSalt` defaultOu
 
-instance Prelude.NFData WorkspaceCreationProperties
+instance Prelude.NFData WorkspaceCreationProperties where
+  rnf WorkspaceCreationProperties' {..} =
+    Prelude.rnf customSecurityGroupId
+      `Prelude.seq` Prelude.rnf userEnabledAsLocalAdministrator
+      `Prelude.seq` Prelude.rnf enableWorkDocs
+      `Prelude.seq` Prelude.rnf enableMaintenanceMode
+      `Prelude.seq` Prelude.rnf enableInternetAccess
+      `Prelude.seq` Prelude.rnf defaultOu
 
 instance Core.ToJSON WorkspaceCreationProperties where
   toJSON WorkspaceCreationProperties' {..} =

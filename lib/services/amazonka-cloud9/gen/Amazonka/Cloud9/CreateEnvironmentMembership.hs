@@ -137,9 +137,17 @@ instance Core.AWSRequest CreateEnvironmentMembership where
             Prelude.<*> (x Core..:> "membership")
       )
 
-instance Prelude.Hashable CreateEnvironmentMembership
+instance Prelude.Hashable CreateEnvironmentMembership where
+  hashWithSalt _salt CreateEnvironmentMembership' {..} =
+    _salt `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` permissions
 
-instance Prelude.NFData CreateEnvironmentMembership
+instance Prelude.NFData CreateEnvironmentMembership where
+  rnf CreateEnvironmentMembership' {..} =
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToHeaders CreateEnvironmentMembership where
   toHeaders =
@@ -219,3 +227,7 @@ createEnvironmentMembershipResponse_membership = Lens.lens (\CreateEnvironmentMe
 instance
   Prelude.NFData
     CreateEnvironmentMembershipResponse
+  where
+  rnf CreateEnvironmentMembershipResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf membership

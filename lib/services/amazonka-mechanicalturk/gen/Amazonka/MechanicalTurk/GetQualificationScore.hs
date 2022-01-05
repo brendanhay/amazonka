@@ -111,9 +111,15 @@ instance Core.AWSRequest GetQualificationScore where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetQualificationScore
+instance Prelude.Hashable GetQualificationScore where
+  hashWithSalt _salt GetQualificationScore' {..} =
+    _salt `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` workerId
 
-instance Prelude.NFData GetQualificationScore
+instance Prelude.NFData GetQualificationScore where
+  rnf GetQualificationScore' {..} =
+    Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf workerId
 
 instance Core.ToHeaders GetQualificationScore where
   toHeaders =
@@ -188,4 +194,7 @@ getQualificationScoreResponse_qualification = Lens.lens (\GetQualificationScoreR
 getQualificationScoreResponse_httpStatus :: Lens.Lens' GetQualificationScoreResponse Prelude.Int
 getQualificationScoreResponse_httpStatus = Lens.lens (\GetQualificationScoreResponse' {httpStatus} -> httpStatus) (\s@GetQualificationScoreResponse' {} a -> s {httpStatus = a} :: GetQualificationScoreResponse)
 
-instance Prelude.NFData GetQualificationScoreResponse
+instance Prelude.NFData GetQualificationScoreResponse where
+  rnf GetQualificationScoreResponse' {..} =
+    Prelude.rnf qualification
+      `Prelude.seq` Prelude.rnf httpStatus

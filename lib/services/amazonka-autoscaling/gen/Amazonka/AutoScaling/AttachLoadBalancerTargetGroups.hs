@@ -135,10 +135,20 @@ instance
 instance
   Prelude.Hashable
     AttachLoadBalancerTargetGroups
+  where
+  hashWithSalt
+    _salt
+    AttachLoadBalancerTargetGroups' {..} =
+      _salt `Prelude.hashWithSalt` autoScalingGroupName
+        `Prelude.hashWithSalt` targetGroupARNs
 
 instance
   Prelude.NFData
     AttachLoadBalancerTargetGroups
+  where
+  rnf AttachLoadBalancerTargetGroups' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf targetGroupARNs
 
 instance
   Core.ToHeaders
@@ -197,3 +207,6 @@ attachLoadBalancerTargetGroupsResponse_httpStatus = Lens.lens (\AttachLoadBalanc
 instance
   Prelude.NFData
     AttachLoadBalancerTargetGroupsResponse
+  where
+  rnf AttachLoadBalancerTargetGroupsResponse' {..} =
+    Prelude.rnf httpStatus

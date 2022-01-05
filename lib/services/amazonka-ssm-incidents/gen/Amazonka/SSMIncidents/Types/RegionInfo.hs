@@ -97,6 +97,16 @@ instance Core.FromJSON RegionInfo where
             Prelude.<*> (x Core..: "statusUpdateDateTime")
       )
 
-instance Prelude.Hashable RegionInfo
+instance Prelude.Hashable RegionInfo where
+  hashWithSalt _salt RegionInfo' {..} =
+    _salt `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` sseKmsKeyId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusUpdateDateTime
 
-instance Prelude.NFData RegionInfo
+instance Prelude.NFData RegionInfo where
+  rnf RegionInfo' {..} =
+    Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf sseKmsKeyId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusUpdateDateTime

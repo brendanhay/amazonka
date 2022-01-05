@@ -108,9 +108,15 @@ instance Core.AWSRequest GetAccessPreview where
             Prelude.<*> (x Core..:> "accessPreview")
       )
 
-instance Prelude.Hashable GetAccessPreview
+instance Prelude.Hashable GetAccessPreview where
+  hashWithSalt _salt GetAccessPreview' {..} =
+    _salt `Prelude.hashWithSalt` accessPreviewId
+      `Prelude.hashWithSalt` analyzerArn
 
-instance Prelude.NFData GetAccessPreview
+instance Prelude.NFData GetAccessPreview where
+  rnf GetAccessPreview' {..} =
+    Prelude.rnf accessPreviewId
+      `Prelude.seq` Prelude.rnf analyzerArn
 
 instance Core.ToHeaders GetAccessPreview where
   toHeaders =
@@ -175,4 +181,7 @@ getAccessPreviewResponse_httpStatus = Lens.lens (\GetAccessPreviewResponse' {htt
 getAccessPreviewResponse_accessPreview :: Lens.Lens' GetAccessPreviewResponse AccessPreview
 getAccessPreviewResponse_accessPreview = Lens.lens (\GetAccessPreviewResponse' {accessPreview} -> accessPreview) (\s@GetAccessPreviewResponse' {} a -> s {accessPreview = a} :: GetAccessPreviewResponse)
 
-instance Prelude.NFData GetAccessPreviewResponse
+instance Prelude.NFData GetAccessPreviewResponse where
+  rnf GetAccessPreviewResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessPreview

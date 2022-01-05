@@ -206,6 +206,34 @@ instance Core.FromJSON ProjectVersionDescription where
             Prelude.<*> (x Core..:? "TrainingDataResult")
       )
 
-instance Prelude.Hashable ProjectVersionDescription
+instance Prelude.Hashable ProjectVersionDescription where
+  hashWithSalt _salt ProjectVersionDescription' {..} =
+    _salt `Prelude.hashWithSalt` minInferenceUnits
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` evaluationResult
+      `Prelude.hashWithSalt` manifestSummary
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` testingDataResult
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` billableTrainingTimeInSeconds
+      `Prelude.hashWithSalt` trainingEndTimestamp
+      `Prelude.hashWithSalt` trainingDataResult
 
-instance Prelude.NFData ProjectVersionDescription
+instance Prelude.NFData ProjectVersionDescription where
+  rnf ProjectVersionDescription' {..} =
+    Prelude.rnf minInferenceUnits
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf evaluationResult
+      `Prelude.seq` Prelude.rnf manifestSummary
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf testingDataResult
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf billableTrainingTimeInSeconds
+      `Prelude.seq` Prelude.rnf trainingEndTimestamp
+      `Prelude.seq` Prelude.rnf trainingDataResult

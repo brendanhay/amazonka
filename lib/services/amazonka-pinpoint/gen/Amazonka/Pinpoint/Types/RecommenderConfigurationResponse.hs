@@ -328,7 +328,38 @@ instance
 instance
   Prelude.Hashable
     RecommenderConfigurationResponse
+  where
+  hashWithSalt
+    _salt
+    RecommenderConfigurationResponse' {..} =
+      _salt
+        `Prelude.hashWithSalt` recommendationTransformerUri
+        `Prelude.hashWithSalt` recommendationsDisplayName
+        `Prelude.hashWithSalt` recommendationProviderIdType
+        `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` recommendationsPerMessage
+        `Prelude.hashWithSalt` recommendationProviderUri
+        `Prelude.hashWithSalt` lastModifiedDate
+        `Prelude.hashWithSalt` creationDate
+        `Prelude.hashWithSalt` recommendationProviderRoleArn
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     RecommenderConfigurationResponse
+  where
+  rnf RecommenderConfigurationResponse' {..} =
+    Prelude.rnf recommendationTransformerUri
+      `Prelude.seq` Prelude.rnf recommendationsDisplayName
+      `Prelude.seq` Prelude.rnf recommendationProviderIdType
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf recommendationsPerMessage
+      `Prelude.seq` Prelude.rnf recommendationProviderUri
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
+      `Prelude.seq` Prelude.rnf id

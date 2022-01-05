@@ -135,6 +135,20 @@ instance Core.FromJSON CodeSigningConfig where
             Prelude.<*> (x Core..: "LastModified")
       )
 
-instance Prelude.Hashable CodeSigningConfig
+instance Prelude.Hashable CodeSigningConfig where
+  hashWithSalt _salt CodeSigningConfig' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` codeSigningConfigId
+      `Prelude.hashWithSalt` codeSigningConfigArn
+      `Prelude.hashWithSalt` allowedPublishers
+      `Prelude.hashWithSalt` codeSigningPolicies
+      `Prelude.hashWithSalt` lastModified
 
-instance Prelude.NFData CodeSigningConfig
+instance Prelude.NFData CodeSigningConfig where
+  rnf CodeSigningConfig' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf codeSigningConfigId
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+      `Prelude.seq` Prelude.rnf allowedPublishers
+      `Prelude.seq` Prelude.rnf codeSigningPolicies
+      `Prelude.seq` Prelude.rnf lastModified

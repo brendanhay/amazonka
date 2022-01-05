@@ -127,6 +127,16 @@ instance Core.FromJSON AddOn where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable AddOn
+instance Prelude.Hashable AddOn where
+  hashWithSalt _salt AddOn' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` nextSnapshotTimeOfDay
+      `Prelude.hashWithSalt` snapshotTimeOfDay
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AddOn
+instance Prelude.NFData AddOn where
+  rnf AddOn' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextSnapshotTimeOfDay
+      `Prelude.seq` Prelude.rnf snapshotTimeOfDay
+      `Prelude.seq` Prelude.rnf name

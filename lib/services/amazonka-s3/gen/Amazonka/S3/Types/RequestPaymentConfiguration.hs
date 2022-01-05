@@ -54,9 +54,13 @@ newRequestPaymentConfiguration pPayer_ =
 requestPaymentConfiguration_payer :: Lens.Lens' RequestPaymentConfiguration Payer
 requestPaymentConfiguration_payer = Lens.lens (\RequestPaymentConfiguration' {payer} -> payer) (\s@RequestPaymentConfiguration' {} a -> s {payer = a} :: RequestPaymentConfiguration)
 
-instance Prelude.Hashable RequestPaymentConfiguration
+instance Prelude.Hashable RequestPaymentConfiguration where
+  hashWithSalt _salt RequestPaymentConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` payer
 
-instance Prelude.NFData RequestPaymentConfiguration
+instance Prelude.NFData RequestPaymentConfiguration where
+  rnf RequestPaymentConfiguration' {..} =
+    Prelude.rnf payer
 
 instance Core.ToXML RequestPaymentConfiguration where
   toXML RequestPaymentConfiguration' {..} =

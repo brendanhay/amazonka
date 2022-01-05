@@ -135,9 +135,15 @@ instance Core.AWSRequest GetAlias where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetAlias
+instance Prelude.Hashable GetAlias where
+  hashWithSalt _salt GetAlias' {..} =
+    _salt `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetAlias
+instance Prelude.NFData GetAlias where
+  rnf GetAlias' {..} =
+    Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetAlias where
   toHeaders = Prelude.const Prelude.mempty

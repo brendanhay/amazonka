@@ -143,9 +143,17 @@ instance Core.AWSRequest StartImportLabelsTaskRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartImportLabelsTaskRun
+instance Prelude.Hashable StartImportLabelsTaskRun where
+  hashWithSalt _salt StartImportLabelsTaskRun' {..} =
+    _salt `Prelude.hashWithSalt` replaceAllLabels
+      `Prelude.hashWithSalt` transformId
+      `Prelude.hashWithSalt` inputS3Path
 
-instance Prelude.NFData StartImportLabelsTaskRun
+instance Prelude.NFData StartImportLabelsTaskRun where
+  rnf StartImportLabelsTaskRun' {..} =
+    Prelude.rnf replaceAllLabels
+      `Prelude.seq` Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf inputS3Path
 
 instance Core.ToHeaders StartImportLabelsTaskRun where
   toHeaders =
@@ -221,3 +229,7 @@ startImportLabelsTaskRunResponse_httpStatus = Lens.lens (\StartImportLabelsTaskR
 instance
   Prelude.NFData
     StartImportLabelsTaskRunResponse
+  where
+  rnf StartImportLabelsTaskRunResponse' {..} =
+    Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,9 +65,13 @@ instance Core.FromJSON UserPoolAddOnsType where
             Prelude.<$> (x Core..: "AdvancedSecurityMode")
       )
 
-instance Prelude.Hashable UserPoolAddOnsType
+instance Prelude.Hashable UserPoolAddOnsType where
+  hashWithSalt _salt UserPoolAddOnsType' {..} =
+    _salt `Prelude.hashWithSalt` advancedSecurityMode
 
-instance Prelude.NFData UserPoolAddOnsType
+instance Prelude.NFData UserPoolAddOnsType where
+  rnf UserPoolAddOnsType' {..} =
+    Prelude.rnf advancedSecurityMode
 
 instance Core.ToJSON UserPoolAddOnsType where
   toJSON UserPoolAddOnsType' {..} =

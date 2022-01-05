@@ -65,7 +65,15 @@ instance
 instance
   Prelude.Hashable
     ApplicationVersionDescriptionMessage
+  where
+  hashWithSalt
+    _salt
+    ApplicationVersionDescriptionMessage' {..} =
+      _salt `Prelude.hashWithSalt` applicationVersion
 
 instance
   Prelude.NFData
     ApplicationVersionDescriptionMessage
+  where
+  rnf ApplicationVersionDescriptionMessage' {..} =
+    Prelude.rnf applicationVersion

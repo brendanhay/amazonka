@@ -107,10 +107,18 @@ instance
 instance
   Prelude.Hashable
     DescribePackagingConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribePackagingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DescribePackagingConfiguration
+  where
+  rnf DescribePackagingConfiguration' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -235,3 +243,14 @@ describePackagingConfigurationResponse_httpStatus = Lens.lens (\DescribePackagin
 instance
   Prelude.NFData
     DescribePackagingConfigurationResponse
+  where
+  rnf DescribePackagingConfigurationResponse' {..} =
+    Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

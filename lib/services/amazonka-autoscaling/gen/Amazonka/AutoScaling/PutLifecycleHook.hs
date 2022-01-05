@@ -304,9 +304,27 @@ instance Core.AWSRequest PutLifecycleHook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLifecycleHook
+instance Prelude.Hashable PutLifecycleHook where
+  hashWithSalt _salt PutLifecycleHook' {..} =
+    _salt `Prelude.hashWithSalt` defaultResult
+      `Prelude.hashWithSalt` heartbeatTimeout
+      `Prelude.hashWithSalt` notificationMetadata
+      `Prelude.hashWithSalt` notificationTargetARN
+      `Prelude.hashWithSalt` lifecycleTransition
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` lifecycleHookName
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData PutLifecycleHook
+instance Prelude.NFData PutLifecycleHook where
+  rnf PutLifecycleHook' {..} =
+    Prelude.rnf defaultResult
+      `Prelude.seq` Prelude.rnf heartbeatTimeout
+      `Prelude.seq` Prelude.rnf notificationMetadata
+      `Prelude.seq` Prelude.rnf notificationTargetARN
+      `Prelude.seq` Prelude.rnf lifecycleTransition
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders PutLifecycleHook where
   toHeaders = Prelude.const Prelude.mempty
@@ -362,4 +380,6 @@ newPutLifecycleHookResponse pHttpStatus_ =
 putLifecycleHookResponse_httpStatus :: Lens.Lens' PutLifecycleHookResponse Prelude.Int
 putLifecycleHookResponse_httpStatus = Lens.lens (\PutLifecycleHookResponse' {httpStatus} -> httpStatus) (\s@PutLifecycleHookResponse' {} a -> s {httpStatus = a} :: PutLifecycleHookResponse)
 
-instance Prelude.NFData PutLifecycleHookResponse
+instance Prelude.NFData PutLifecycleHookResponse where
+  rnf PutLifecycleHookResponse' {..} =
+    Prelude.rnf httpStatus

@@ -74,9 +74,15 @@ instance Core.FromJSON AutoMLConfig where
             Prelude.<*> (x Core..:? "metricName")
       )
 
-instance Prelude.Hashable AutoMLConfig
+instance Prelude.Hashable AutoMLConfig where
+  hashWithSalt _salt AutoMLConfig' {..} =
+    _salt `Prelude.hashWithSalt` recipeList
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData AutoMLConfig
+instance Prelude.NFData AutoMLConfig where
+  rnf AutoMLConfig' {..} =
+    Prelude.rnf recipeList
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToJSON AutoMLConfig where
   toJSON AutoMLConfig' {..} =

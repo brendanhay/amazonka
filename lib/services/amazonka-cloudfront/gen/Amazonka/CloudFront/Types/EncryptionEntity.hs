@@ -109,9 +109,17 @@ instance Core.FromXML EncryptionEntity where
       Prelude.<*> (x Core..@ "ProviderId")
       Prelude.<*> (x Core..@ "FieldPatterns")
 
-instance Prelude.Hashable EncryptionEntity
+instance Prelude.Hashable EncryptionEntity where
+  hashWithSalt _salt EncryptionEntity' {..} =
+    _salt `Prelude.hashWithSalt` publicKeyId
+      `Prelude.hashWithSalt` providerId
+      `Prelude.hashWithSalt` fieldPatterns
 
-instance Prelude.NFData EncryptionEntity
+instance Prelude.NFData EncryptionEntity where
+  rnf EncryptionEntity' {..} =
+    Prelude.rnf publicKeyId
+      `Prelude.seq` Prelude.rnf providerId
+      `Prelude.seq` Prelude.rnf fieldPatterns
 
 instance Core.ToXML EncryptionEntity where
   toXML EncryptionEntity' {..} =

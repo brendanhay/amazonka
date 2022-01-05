@@ -81,6 +81,12 @@ instance Core.FromJSON PersonDetection where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable PersonDetection
+instance Prelude.Hashable PersonDetection where
+  hashWithSalt _salt PersonDetection' {..} =
+    _salt `Prelude.hashWithSalt` person
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData PersonDetection
+instance Prelude.NFData PersonDetection where
+  rnf PersonDetection' {..} =
+    Prelude.rnf person
+      `Prelude.seq` Prelude.rnf timestamp

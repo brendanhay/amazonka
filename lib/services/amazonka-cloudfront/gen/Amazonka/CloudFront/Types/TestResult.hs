@@ -126,6 +126,18 @@ instance Core.FromXML TestResult where
       Prelude.<*> (x Core..@? "FunctionSummary")
       Prelude.<*> (x Core..@? "FunctionErrorMessage")
 
-instance Prelude.Hashable TestResult
+instance Prelude.Hashable TestResult where
+  hashWithSalt _salt TestResult' {..} =
+    _salt `Prelude.hashWithSalt` computeUtilization
+      `Prelude.hashWithSalt` functionExecutionLogs
+      `Prelude.hashWithSalt` functionOutput
+      `Prelude.hashWithSalt` functionSummary
+      `Prelude.hashWithSalt` functionErrorMessage
 
-instance Prelude.NFData TestResult
+instance Prelude.NFData TestResult where
+  rnf TestResult' {..} =
+    Prelude.rnf computeUtilization
+      `Prelude.seq` Prelude.rnf functionExecutionLogs
+      `Prelude.seq` Prelude.rnf functionOutput
+      `Prelude.seq` Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf functionErrorMessage

@@ -123,6 +123,16 @@ instance Core.FromJSON PrivateLinkConfig where
             Prelude.<*> (x Core..:? "VpcEndpointId")
       )
 
-instance Prelude.Hashable PrivateLinkConfig
+instance Prelude.Hashable PrivateLinkConfig where
+  hashWithSalt _salt PrivateLinkConfig' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupArns
+      `Prelude.hashWithSalt` subnetArns
+      `Prelude.hashWithSalt` privateLinkEndpoint
+      `Prelude.hashWithSalt` vpcEndpointId
 
-instance Prelude.NFData PrivateLinkConfig
+instance Prelude.NFData PrivateLinkConfig where
+  rnf PrivateLinkConfig' {..} =
+    Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf subnetArns
+      `Prelude.seq` Prelude.rnf privateLinkEndpoint
+      `Prelude.seq` Prelude.rnf vpcEndpointId

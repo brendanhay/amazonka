@@ -115,9 +115,15 @@ instance Core.AWSRequest DescribeDataSetPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataSetPermissions
+instance Prelude.Hashable DescribeDataSetPermissions where
+  hashWithSalt _salt DescribeDataSetPermissions' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData DescribeDataSetPermissions
+instance Prelude.NFData DescribeDataSetPermissions where
+  rnf DescribeDataSetPermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders DescribeDataSetPermissions where
   toHeaders =
@@ -215,3 +221,10 @@ describeDataSetPermissionsResponse_status = Lens.lens (\DescribeDataSetPermissio
 instance
   Prelude.NFData
     DescribeDataSetPermissionsResponse
+  where
+  rnf DescribeDataSetPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dataSetArn
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf status

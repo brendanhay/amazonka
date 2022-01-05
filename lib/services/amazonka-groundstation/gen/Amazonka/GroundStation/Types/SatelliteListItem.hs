@@ -91,6 +91,16 @@ instance Core.FromJSON SatelliteListItem where
             Prelude.<*> (x Core..:? "noradSatelliteID")
       )
 
-instance Prelude.Hashable SatelliteListItem
+instance Prelude.Hashable SatelliteListItem where
+  hashWithSalt _salt SatelliteListItem' {..} =
+    _salt `Prelude.hashWithSalt` satelliteId
+      `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` groundStations
+      `Prelude.hashWithSalt` noradSatelliteID
 
-instance Prelude.NFData SatelliteListItem
+instance Prelude.NFData SatelliteListItem where
+  rnf SatelliteListItem' {..} =
+    Prelude.rnf satelliteId
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf groundStations
+      `Prelude.seq` Prelude.rnf noradSatelliteID

@@ -91,7 +91,19 @@ instance Core.FromJSON ProvisionedCapacityDescription where
 instance
   Prelude.Hashable
     ProvisionedCapacityDescription
+  where
+  hashWithSalt
+    _salt
+    ProvisionedCapacityDescription' {..} =
+      _salt `Prelude.hashWithSalt` capacityId
+        `Prelude.hashWithSalt` startDate
+        `Prelude.hashWithSalt` expirationDate
 
 instance
   Prelude.NFData
     ProvisionedCapacityDescription
+  where
+  rnf ProvisionedCapacityDescription' {..} =
+    Prelude.rnf capacityId
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf expirationDate

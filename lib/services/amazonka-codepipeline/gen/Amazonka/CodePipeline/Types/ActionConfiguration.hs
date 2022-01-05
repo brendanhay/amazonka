@@ -62,6 +62,10 @@ instance Core.FromJSON ActionConfiguration where
             Prelude.<$> (x Core..:? "configuration" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ActionConfiguration
+instance Prelude.Hashable ActionConfiguration where
+  hashWithSalt _salt ActionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData ActionConfiguration
+instance Prelude.NFData ActionConfiguration where
+  rnf ActionConfiguration' {..} =
+    Prelude.rnf configuration

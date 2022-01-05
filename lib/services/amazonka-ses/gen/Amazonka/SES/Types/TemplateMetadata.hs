@@ -67,6 +67,12 @@ instance Core.FromXML TemplateMetadata where
       Prelude.<$> (x Core..@? "Name")
       Prelude.<*> (x Core..@? "CreatedTimestamp")
 
-instance Prelude.Hashable TemplateMetadata
+instance Prelude.Hashable TemplateMetadata where
+  hashWithSalt _salt TemplateMetadata' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData TemplateMetadata
+instance Prelude.NFData TemplateMetadata where
+  rnf TemplateMetadata' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTimestamp

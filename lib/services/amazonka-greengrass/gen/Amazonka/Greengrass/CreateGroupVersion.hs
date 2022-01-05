@@ -175,9 +175,29 @@ instance Core.AWSRequest CreateGroupVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroupVersion
+instance Prelude.Hashable CreateGroupVersion where
+  hashWithSalt _salt CreateGroupVersion' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` resourceDefinitionVersionArn
+      `Prelude.hashWithSalt` subscriptionDefinitionVersionArn
+      `Prelude.hashWithSalt` coreDefinitionVersionArn
+      `Prelude.hashWithSalt` deviceDefinitionVersionArn
+      `Prelude.hashWithSalt` functionDefinitionVersionArn
+      `Prelude.hashWithSalt` loggerDefinitionVersionArn
+      `Prelude.hashWithSalt` connectorDefinitionVersionArn
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData CreateGroupVersion
+instance Prelude.NFData CreateGroupVersion where
+  rnf CreateGroupVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf resourceDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf coreDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf functionDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf loggerDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf connectorDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders CreateGroupVersion where
   toHeaders CreateGroupVersion' {..} =
@@ -284,4 +304,10 @@ createGroupVersionResponse_id = Lens.lens (\CreateGroupVersionResponse' {id} -> 
 createGroupVersionResponse_httpStatus :: Lens.Lens' CreateGroupVersionResponse Prelude.Int
 createGroupVersionResponse_httpStatus = Lens.lens (\CreateGroupVersionResponse' {httpStatus} -> httpStatus) (\s@CreateGroupVersionResponse' {} a -> s {httpStatus = a} :: CreateGroupVersionResponse)
 
-instance Prelude.NFData CreateGroupVersionResponse
+instance Prelude.NFData CreateGroupVersionResponse where
+  rnf CreateGroupVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

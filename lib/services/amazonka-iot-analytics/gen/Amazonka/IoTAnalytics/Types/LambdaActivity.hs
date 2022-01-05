@@ -109,9 +109,19 @@ instance Core.FromJSON LambdaActivity where
             Prelude.<*> (x Core..: "batchSize")
       )
 
-instance Prelude.Hashable LambdaActivity
+instance Prelude.Hashable LambdaActivity where
+  hashWithSalt _salt LambdaActivity' {..} =
+    _salt `Prelude.hashWithSalt` next
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lambdaName
+      `Prelude.hashWithSalt` batchSize
 
-instance Prelude.NFData LambdaActivity
+instance Prelude.NFData LambdaActivity where
+  rnf LambdaActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lambdaName
+      `Prelude.seq` Prelude.rnf batchSize
 
 instance Core.ToJSON LambdaActivity where
   toJSON LambdaActivity' {..} =

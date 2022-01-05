@@ -157,9 +157,15 @@ instance Core.FromJSON ContainerDependency where
             Prelude.<*> (x Core..: "condition")
       )
 
-instance Prelude.Hashable ContainerDependency
+instance Prelude.Hashable ContainerDependency where
+  hashWithSalt _salt ContainerDependency' {..} =
+    _salt `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData ContainerDependency
+instance Prelude.NFData ContainerDependency where
+  rnf ContainerDependency' {..} =
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON ContainerDependency where
   toJSON ContainerDependency' {..} =

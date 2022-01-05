@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeIdentityProvider where
             Prelude.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Prelude.Hashable DescribeIdentityProvider
+instance Prelude.Hashable DescribeIdentityProvider where
+  hashWithSalt _salt DescribeIdentityProvider' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData DescribeIdentityProvider
+instance Prelude.NFData DescribeIdentityProvider where
+  rnf DescribeIdentityProvider' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf providerName
 
 instance Core.ToHeaders DescribeIdentityProvider where
   toHeaders =
@@ -183,3 +189,7 @@ describeIdentityProviderResponse_identityProvider = Lens.lens (\DescribeIdentity
 instance
   Prelude.NFData
     DescribeIdentityProviderResponse
+  where
+  rnf DescribeIdentityProviderResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf identityProvider

@@ -83,9 +83,12 @@ instance Core.AWSRequest RejectDataShare where
       "RejectDataShareResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable RejectDataShare
+instance Prelude.Hashable RejectDataShare where
+  hashWithSalt _salt RejectDataShare' {..} =
+    _salt `Prelude.hashWithSalt` dataShareArn
 
-instance Prelude.NFData RejectDataShare
+instance Prelude.NFData RejectDataShare where
+  rnf RejectDataShare' {..} = Prelude.rnf dataShareArn
 
 instance Core.ToHeaders RejectDataShare where
   toHeaders = Prelude.const Prelude.mempty

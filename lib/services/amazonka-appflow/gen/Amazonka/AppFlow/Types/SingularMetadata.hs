@@ -45,6 +45,9 @@ instance Core.FromJSON SingularMetadata where
       "SingularMetadata"
       (\x -> Prelude.pure SingularMetadata')
 
-instance Prelude.Hashable SingularMetadata
+instance Prelude.Hashable SingularMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData SingularMetadata
+instance Prelude.NFData SingularMetadata where
+  rnf _ = ()

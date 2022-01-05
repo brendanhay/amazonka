@@ -167,9 +167,21 @@ instance Core.AWSRequest SetTaskStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetTaskStatus
+instance Prelude.Hashable SetTaskStatus where
+  hashWithSalt _salt SetTaskStatus' {..} =
+    _salt `Prelude.hashWithSalt` errorStackTrace
+      `Prelude.hashWithSalt` errorId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` taskStatus
 
-instance Prelude.NFData SetTaskStatus
+instance Prelude.NFData SetTaskStatus where
+  rnf SetTaskStatus' {..} =
+    Prelude.rnf errorStackTrace
+      `Prelude.seq` Prelude.rnf errorId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskStatus
 
 instance Core.ToHeaders SetTaskStatus where
   toHeaders =
@@ -232,4 +244,6 @@ newSetTaskStatusResponse pHttpStatus_ =
 setTaskStatusResponse_httpStatus :: Lens.Lens' SetTaskStatusResponse Prelude.Int
 setTaskStatusResponse_httpStatus = Lens.lens (\SetTaskStatusResponse' {httpStatus} -> httpStatus) (\s@SetTaskStatusResponse' {} a -> s {httpStatus = a} :: SetTaskStatusResponse)
 
-instance Prelude.NFData SetTaskStatusResponse
+instance Prelude.NFData SetTaskStatusResponse where
+  rnf SetTaskStatusResponse' {..} =
+    Prelude.rnf httpStatus

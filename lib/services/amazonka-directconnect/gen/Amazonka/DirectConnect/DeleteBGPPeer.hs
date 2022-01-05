@@ -122,9 +122,19 @@ instance Core.AWSRequest DeleteBGPPeer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBGPPeer
+instance Prelude.Hashable DeleteBGPPeer where
+  hashWithSalt _salt DeleteBGPPeer' {..} =
+    _salt `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` bgpPeerId
+      `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData DeleteBGPPeer
+instance Prelude.NFData DeleteBGPPeer where
+  rnf DeleteBGPPeer' {..} =
+    Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf bgpPeerId
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders DeleteBGPPeer where
   toHeaders =
@@ -199,4 +209,7 @@ deleteBGPPeerResponse_virtualInterface = Lens.lens (\DeleteBGPPeerResponse' {vir
 deleteBGPPeerResponse_httpStatus :: Lens.Lens' DeleteBGPPeerResponse Prelude.Int
 deleteBGPPeerResponse_httpStatus = Lens.lens (\DeleteBGPPeerResponse' {httpStatus} -> httpStatus) (\s@DeleteBGPPeerResponse' {} a -> s {httpStatus = a} :: DeleteBGPPeerResponse)
 
-instance Prelude.NFData DeleteBGPPeerResponse
+instance Prelude.NFData DeleteBGPPeerResponse where
+  rnf DeleteBGPPeerResponse' {..} =
+    Prelude.rnf virtualInterface
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,9 +72,15 @@ instance Core.FromJSON FieldFolder where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable FieldFolder
+instance Prelude.Hashable FieldFolder where
+  hashWithSalt _salt FieldFolder' {..} =
+    _salt `Prelude.hashWithSalt` columns
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData FieldFolder
+instance Prelude.NFData FieldFolder where
+  rnf FieldFolder' {..} =
+    Prelude.rnf columns
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON FieldFolder where
   toJSON FieldFolder' {..} =

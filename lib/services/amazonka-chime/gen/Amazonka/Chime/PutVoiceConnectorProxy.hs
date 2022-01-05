@@ -141,9 +141,21 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutVoiceConnectorProxy
+instance Prelude.Hashable PutVoiceConnectorProxy where
+  hashWithSalt _salt PutVoiceConnectorProxy' {..} =
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` fallBackPhoneNumber
+      `Prelude.hashWithSalt` defaultSessionExpiryMinutes
+      `Prelude.hashWithSalt` phoneNumberPoolCountries
+      `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData PutVoiceConnectorProxy
+instance Prelude.NFData PutVoiceConnectorProxy where
+  rnf PutVoiceConnectorProxy' {..} =
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf fallBackPhoneNumber
+      `Prelude.seq` Prelude.rnf defaultSessionExpiryMinutes
+      `Prelude.seq` Prelude.rnf phoneNumberPoolCountries
+      `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance Core.ToHeaders PutVoiceConnectorProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,3 +231,7 @@ putVoiceConnectorProxyResponse_httpStatus = Lens.lens (\PutVoiceConnectorProxyRe
 instance
   Prelude.NFData
     PutVoiceConnectorProxyResponse
+  where
+  rnf PutVoiceConnectorProxyResponse' {..} =
+    Prelude.rnf proxy
+      `Prelude.seq` Prelude.rnf httpStatus

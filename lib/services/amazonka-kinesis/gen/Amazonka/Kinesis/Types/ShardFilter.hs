@@ -68,9 +68,17 @@ shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFi
 shardFilter_type :: Lens.Lens' ShardFilter ShardFilterType
 shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {} a -> s {type' = a} :: ShardFilter)
 
-instance Prelude.Hashable ShardFilter
+instance Prelude.Hashable ShardFilter where
+  hashWithSalt _salt ShardFilter' {..} =
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ShardFilter
+instance Prelude.NFData ShardFilter where
+  rnf ShardFilter' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =

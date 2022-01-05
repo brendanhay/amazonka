@@ -101,6 +101,17 @@ instance Core.FromXML AssociatedRole where
       Prelude.<*> (x Core..@? "encryptionKmsKeyId")
       Prelude.<*> (x Core..@? "associatedRoleArn")
 
-instance Prelude.Hashable AssociatedRole
+instance Prelude.Hashable AssociatedRole where
+  hashWithSalt _salt AssociatedRole' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateS3BucketName
+      `Prelude.hashWithSalt` certificateS3ObjectKey
+      `Prelude.hashWithSalt` encryptionKmsKeyId
+      `Prelude.hashWithSalt` associatedRoleArn
 
-instance Prelude.NFData AssociatedRole
+instance Prelude.NFData AssociatedRole where
+  rnf AssociatedRole' {..} =
+    Prelude.rnf certificateS3BucketName
+      `Prelude.seq` Prelude.rnf certificateS3ObjectKey
+      `Prelude.seq` Prelude.rnf encryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf associatedRoleArn

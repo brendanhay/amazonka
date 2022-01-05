@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribePiiEntitiesDetectionJob
+  where
+  hashWithSalt
+    _salt
+    DescribePiiEntitiesDetectionJob' {..} =
+      _salt `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     DescribePiiEntitiesDetectionJob
+  where
+  rnf DescribePiiEntitiesDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -174,3 +182,7 @@ describePiiEntitiesDetectionJobResponse_httpStatus = Lens.lens (\DescribePiiEnti
 instance
   Prelude.NFData
     DescribePiiEntitiesDetectionJobResponse
+  where
+  rnf DescribePiiEntitiesDetectionJobResponse' {..} =
+    Prelude.rnf piiEntitiesDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

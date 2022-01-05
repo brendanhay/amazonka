@@ -78,5 +78,12 @@ instance Core.FromJSON ImportLabelsTaskRunProperties where
 instance
   Prelude.Hashable
     ImportLabelsTaskRunProperties
+  where
+  hashWithSalt _salt ImportLabelsTaskRunProperties' {..} =
+    _salt `Prelude.hashWithSalt` replace
+      `Prelude.hashWithSalt` inputS3Path
 
-instance Prelude.NFData ImportLabelsTaskRunProperties
+instance Prelude.NFData ImportLabelsTaskRunProperties where
+  rnf ImportLabelsTaskRunProperties' {..} =
+    Prelude.rnf replace
+      `Prelude.seq` Prelude.rnf inputS3Path

@@ -122,10 +122,24 @@ calculateRouteTruckModeOptions_avoidFerries = Lens.lens (\CalculateRouteTruckMod
 instance
   Prelude.Hashable
     CalculateRouteTruckModeOptions
+  where
+  hashWithSalt
+    _salt
+    CalculateRouteTruckModeOptions' {..} =
+      _salt `Prelude.hashWithSalt` weight
+        `Prelude.hashWithSalt` avoidTolls
+        `Prelude.hashWithSalt` dimensions
+        `Prelude.hashWithSalt` avoidFerries
 
 instance
   Prelude.NFData
     CalculateRouteTruckModeOptions
+  where
+  rnf CalculateRouteTruckModeOptions' {..} =
+    Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf avoidTolls
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf avoidFerries
 
 instance Core.ToJSON CalculateRouteTruckModeOptions where
   toJSON CalculateRouteTruckModeOptions' {..} =

@@ -125,9 +125,15 @@ instance Core.AWSRequest DeleteVaultNotifications where
     Response.receiveNull
       DeleteVaultNotificationsResponse'
 
-instance Prelude.Hashable DeleteVaultNotifications
+instance Prelude.Hashable DeleteVaultNotifications where
+  hashWithSalt _salt DeleteVaultNotifications' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData DeleteVaultNotifications
+instance Prelude.NFData DeleteVaultNotifications where
+  rnf DeleteVaultNotifications' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DeleteVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,3 +169,5 @@ newDeleteVaultNotificationsResponse =
 instance
   Prelude.NFData
     DeleteVaultNotificationsResponse
+  where
+  rnf _ = ()

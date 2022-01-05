@@ -237,9 +237,17 @@ instance Core.FromJSON DeploymentConfiguration where
             Prelude.<*> (x Core..:? "deploymentCircuitBreaker")
       )
 
-instance Prelude.Hashable DeploymentConfiguration
+instance Prelude.Hashable DeploymentConfiguration where
+  hashWithSalt _salt DeploymentConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` minimumHealthyPercent
+      `Prelude.hashWithSalt` maximumPercent
+      `Prelude.hashWithSalt` deploymentCircuitBreaker
 
-instance Prelude.NFData DeploymentConfiguration
+instance Prelude.NFData DeploymentConfiguration where
+  rnf DeploymentConfiguration' {..} =
+    Prelude.rnf minimumHealthyPercent
+      `Prelude.seq` Prelude.rnf maximumPercent
+      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
 
 instance Core.ToJSON DeploymentConfiguration where
   toJSON DeploymentConfiguration' {..} =

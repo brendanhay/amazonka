@@ -109,7 +109,22 @@ instance Core.FromJSON MonitoringJobDefinitionSummary where
 instance
   Prelude.Hashable
     MonitoringJobDefinitionSummary
+  where
+  hashWithSalt
+    _salt
+    MonitoringJobDefinitionSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` monitoringJobDefinitionName
+        `Prelude.hashWithSalt` monitoringJobDefinitionArn
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` endpointName
 
 instance
   Prelude.NFData
     MonitoringJobDefinitionSummary
+  where
+  rnf MonitoringJobDefinitionSummary' {..} =
+    Prelude.rnf monitoringJobDefinitionName
+      `Prelude.seq` Prelude.rnf monitoringJobDefinitionArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf endpointName

@@ -103,6 +103,14 @@ instance Core.FromJSON ModuleLoggingConfiguration where
             Prelude.<*> (x Core..:? "CloudWatchLogGroupArn")
       )
 
-instance Prelude.Hashable ModuleLoggingConfiguration
+instance Prelude.Hashable ModuleLoggingConfiguration where
+  hashWithSalt _salt ModuleLoggingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
 
-instance Prelude.NFData ModuleLoggingConfiguration
+instance Prelude.NFData ModuleLoggingConfiguration where
+  rnf ModuleLoggingConfiguration' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn

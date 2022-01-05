@@ -112,9 +112,15 @@ instance Core.AWSRequest DeleteCarrierGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCarrierGateway
+instance Prelude.Hashable DeleteCarrierGateway where
+  hashWithSalt _salt DeleteCarrierGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` carrierGatewayId
 
-instance Prelude.NFData DeleteCarrierGateway
+instance Prelude.NFData DeleteCarrierGateway where
+  rnf DeleteCarrierGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf carrierGatewayId
 
 instance Core.ToHeaders DeleteCarrierGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ deleteCarrierGatewayResponse_carrierGateway = Lens.lens (\DeleteCarrierGatewayRe
 deleteCarrierGatewayResponse_httpStatus :: Lens.Lens' DeleteCarrierGatewayResponse Prelude.Int
 deleteCarrierGatewayResponse_httpStatus = Lens.lens (\DeleteCarrierGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteCarrierGatewayResponse' {} a -> s {httpStatus = a} :: DeleteCarrierGatewayResponse)
 
-instance Prelude.NFData DeleteCarrierGatewayResponse
+instance Prelude.NFData DeleteCarrierGatewayResponse where
+  rnf DeleteCarrierGatewayResponse' {..} =
+    Prelude.rnf carrierGateway
+      `Prelude.seq` Prelude.rnf httpStatus

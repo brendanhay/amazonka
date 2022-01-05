@@ -81,9 +81,12 @@ instance Core.AWSRequest StartJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartJob
+instance Prelude.Hashable StartJob where
+  hashWithSalt _salt StartJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StartJob
+instance Prelude.NFData StartJob where
+  rnf StartJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StartJob where
   toHeaders =
@@ -133,4 +136,5 @@ newStartJobResponse pHttpStatus_ =
 startJobResponse_httpStatus :: Lens.Lens' StartJobResponse Prelude.Int
 startJobResponse_httpStatus = Lens.lens (\StartJobResponse' {httpStatus} -> httpStatus) (\s@StartJobResponse' {} a -> s {httpStatus = a} :: StartJobResponse)
 
-instance Prelude.NFData StartJobResponse
+instance Prelude.NFData StartJobResponse where
+  rnf StartJobResponse' {..} = Prelude.rnf httpStatus

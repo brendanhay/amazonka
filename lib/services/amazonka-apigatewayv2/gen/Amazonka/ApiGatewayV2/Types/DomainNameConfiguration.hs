@@ -195,9 +195,31 @@ instance Core.FromJSON DomainNameConfiguration where
             Prelude.<*> (x Core..:? "domainNameStatus")
       )
 
-instance Prelude.Hashable DomainNameConfiguration
+instance Prelude.Hashable DomainNameConfiguration where
+  hashWithSalt _salt DomainNameConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` apiGatewayDomainName
+      `Prelude.hashWithSalt` ownershipVerificationCertificateArn
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` securityPolicy
+      `Prelude.hashWithSalt` certificateUploadDate
+      `Prelude.hashWithSalt` domainNameStatusMessage
+      `Prelude.hashWithSalt` domainNameStatus
 
-instance Prelude.NFData DomainNameConfiguration
+instance Prelude.NFData DomainNameConfiguration where
+  rnf DomainNameConfiguration' {..} =
+    Prelude.rnf apiGatewayDomainName
+      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf securityPolicy
+      `Prelude.seq` Prelude.rnf certificateUploadDate
+      `Prelude.seq` Prelude.rnf domainNameStatusMessage
+      `Prelude.seq` Prelude.rnf domainNameStatus
 
 instance Core.ToJSON DomainNameConfiguration where
   toJSON DomainNameConfiguration' {..} =

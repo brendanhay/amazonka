@@ -99,9 +99,13 @@ instance Core.AWSRequest CancelExportTask where
       "CancelExportTaskResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CancelExportTask
+instance Prelude.Hashable CancelExportTask where
+  hashWithSalt _salt CancelExportTask' {..} =
+    _salt `Prelude.hashWithSalt` exportTaskIdentifier
 
-instance Prelude.NFData CancelExportTask
+instance Prelude.NFData CancelExportTask where
+  rnf CancelExportTask' {..} =
+    Prelude.rnf exportTaskIdentifier
 
 instance Core.ToHeaders CancelExportTask where
   toHeaders = Prelude.const Prelude.mempty

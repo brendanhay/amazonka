@@ -46,6 +46,9 @@ instance Core.FromJSON CustomerProfilesMetadata where
       "CustomerProfilesMetadata"
       (\x -> Prelude.pure CustomerProfilesMetadata')
 
-instance Prelude.Hashable CustomerProfilesMetadata
+instance Prelude.Hashable CustomerProfilesMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData CustomerProfilesMetadata
+instance Prelude.NFData CustomerProfilesMetadata where
+  rnf _ = ()

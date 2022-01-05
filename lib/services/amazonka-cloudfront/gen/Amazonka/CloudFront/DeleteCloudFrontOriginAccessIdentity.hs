@@ -102,10 +102,19 @@ instance
 instance
   Prelude.Hashable
     DeleteCloudFrontOriginAccessIdentity
+  where
+  hashWithSalt
+    _salt
+    DeleteCloudFrontOriginAccessIdentity' {..} =
+      _salt `Prelude.hashWithSalt` ifMatch
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteCloudFrontOriginAccessIdentity
+  where
+  rnf DeleteCloudFrontOriginAccessIdentity' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -148,3 +157,5 @@ newDeleteCloudFrontOriginAccessIdentityResponse =
 instance
   Prelude.NFData
     DeleteCloudFrontOriginAccessIdentityResponse
+  where
+  rnf _ = ()

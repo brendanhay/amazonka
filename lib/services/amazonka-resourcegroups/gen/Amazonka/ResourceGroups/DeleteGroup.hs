@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGroup
+instance Prelude.Hashable DeleteGroup where
+  hashWithSalt _salt DeleteGroup' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData DeleteGroup
+instance Prelude.NFData DeleteGroup where
+  rnf DeleteGroup' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders DeleteGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,7 @@ deleteGroupResponse_group = Lens.lens (\DeleteGroupResponse' {group'} -> group')
 deleteGroupResponse_httpStatus :: Lens.Lens' DeleteGroupResponse Prelude.Int
 deleteGroupResponse_httpStatus = Lens.lens (\DeleteGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGroupResponse' {} a -> s {httpStatus = a} :: DeleteGroupResponse)
 
-instance Prelude.NFData DeleteGroupResponse
+instance Prelude.NFData DeleteGroupResponse where
+  rnf DeleteGroupResponse' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf httpStatus

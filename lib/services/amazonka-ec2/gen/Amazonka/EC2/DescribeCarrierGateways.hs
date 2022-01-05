@@ -230,9 +230,21 @@ instance Core.AWSRequest DescribeCarrierGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCarrierGateways
+instance Prelude.Hashable DescribeCarrierGateways where
+  hashWithSalt _salt DescribeCarrierGateways' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` carrierGatewayIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeCarrierGateways
+instance Prelude.NFData DescribeCarrierGateways where
+  rnf DescribeCarrierGateways' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf carrierGatewayIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCarrierGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,3 +324,8 @@ describeCarrierGatewaysResponse_httpStatus = Lens.lens (\DescribeCarrierGateways
 instance
   Prelude.NFData
     DescribeCarrierGatewaysResponse
+  where
+  rnf DescribeCarrierGatewaysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf carrierGateways
+      `Prelude.seq` Prelude.rnf httpStatus

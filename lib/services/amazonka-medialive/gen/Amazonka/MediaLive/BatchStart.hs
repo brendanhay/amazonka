@@ -98,9 +98,15 @@ instance Core.AWSRequest BatchStart' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchStart'
+instance Prelude.Hashable BatchStart' where
+  hashWithSalt _salt BatchStart'' {..} =
+    _salt `Prelude.hashWithSalt` channelIds
+      `Prelude.hashWithSalt` multiplexIds
 
-instance Prelude.NFData BatchStart'
+instance Prelude.NFData BatchStart' where
+  rnf BatchStart'' {..} =
+    Prelude.rnf channelIds
+      `Prelude.seq` Prelude.rnf multiplexIds
 
 instance Core.ToHeaders BatchStart' where
   toHeaders =
@@ -177,4 +183,8 @@ batchStartResponse_failed = Lens.lens (\BatchStartResponse' {failed} -> failed) 
 batchStartResponse_httpStatus :: Lens.Lens' BatchStartResponse Prelude.Int
 batchStartResponse_httpStatus = Lens.lens (\BatchStartResponse' {httpStatus} -> httpStatus) (\s@BatchStartResponse' {} a -> s {httpStatus = a} :: BatchStartResponse)
 
-instance Prelude.NFData BatchStartResponse
+instance Prelude.NFData BatchStartResponse where
+  rnf BatchStartResponse' {..} =
+    Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf httpStatus

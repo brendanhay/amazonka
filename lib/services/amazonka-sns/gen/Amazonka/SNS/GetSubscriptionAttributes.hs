@@ -94,9 +94,13 @@ instance Core.AWSRequest GetSubscriptionAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSubscriptionAttributes
+instance Prelude.Hashable GetSubscriptionAttributes where
+  hashWithSalt _salt GetSubscriptionAttributes' {..} =
+    _salt `Prelude.hashWithSalt` subscriptionArn
 
-instance Prelude.NFData GetSubscriptionAttributes
+instance Prelude.NFData GetSubscriptionAttributes where
+  rnf GetSubscriptionAttributes' {..} =
+    Prelude.rnf subscriptionArn
 
 instance Core.ToHeaders GetSubscriptionAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,3 +321,7 @@ getSubscriptionAttributesResponse_httpStatus = Lens.lens (\GetSubscriptionAttrib
 instance
   Prelude.NFData
     GetSubscriptionAttributesResponse
+  where
+  rnf GetSubscriptionAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

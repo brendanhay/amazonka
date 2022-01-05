@@ -104,9 +104,13 @@ instance Core.AWSRequest GetResourceRequestStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceRequestStatus
+instance Prelude.Hashable GetResourceRequestStatus where
+  hashWithSalt _salt GetResourceRequestStatus' {..} =
+    _salt `Prelude.hashWithSalt` requestToken
 
-instance Prelude.NFData GetResourceRequestStatus
+instance Prelude.NFData GetResourceRequestStatus where
+  rnf GetResourceRequestStatus' {..} =
+    Prelude.rnf requestToken
 
 instance Core.ToHeaders GetResourceRequestStatus where
   toHeaders =
@@ -178,3 +182,7 @@ getResourceRequestStatusResponse_httpStatus = Lens.lens (\GetResourceRequestStat
 instance
   Prelude.NFData
     GetResourceRequestStatusResponse
+  where
+  rnf GetResourceRequestStatusResponse' {..} =
+    Prelude.rnf progressEvent
+      `Prelude.seq` Prelude.rnf httpStatus

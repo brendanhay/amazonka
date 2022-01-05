@@ -192,6 +192,28 @@ instance Core.FromJSON Workteam where
             Prelude.<*> (x Core..: "Description")
       )
 
-instance Prelude.Hashable Workteam
+instance Prelude.Hashable Workteam where
+  hashWithSalt _salt Workteam' {..} =
+    _salt `Prelude.hashWithSalt` subDomain
+      `Prelude.hashWithSalt` productListingIds
+      `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` workforceArn
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` workteamName
+      `Prelude.hashWithSalt` memberDefinitions
+      `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Workteam
+instance Prelude.NFData Workteam where
+  rnf Workteam' {..} =
+    Prelude.rnf subDomain
+      `Prelude.seq` Prelude.rnf productListingIds
+      `Prelude.seq` Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf workforceArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf workteamName
+      `Prelude.seq` Prelude.rnf memberDefinitions
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf description

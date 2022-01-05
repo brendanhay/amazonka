@@ -154,9 +154,19 @@ patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOp
 patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
 patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
 
-instance Prelude.Hashable PatchOperation
+instance Prelude.Hashable PatchOperation where
+  hashWithSalt _salt PatchOperation' {..} =
+    _salt `Prelude.hashWithSalt` op
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` from
 
-instance Prelude.NFData PatchOperation
+instance Prelude.NFData PatchOperation where
+  rnf PatchOperation' {..} =
+    Prelude.rnf op
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf from
 
 instance Core.ToJSON PatchOperation where
   toJSON PatchOperation' {..} =

@@ -184,9 +184,23 @@ instance Core.AWSRequest CreateDynamicThingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDynamicThingGroup
+instance Prelude.Hashable CreateDynamicThingGroup where
+  hashWithSalt _salt CreateDynamicThingGroup' {..} =
+    _salt `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` thingGroupProperties
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData CreateDynamicThingGroup
+instance Prelude.NFData CreateDynamicThingGroup where
+  rnf CreateDynamicThingGroup' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf thingGroupProperties
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders CreateDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,3 +313,12 @@ createDynamicThingGroupResponse_httpStatus = Lens.lens (\CreateDynamicThingGroup
 instance
   Prelude.NFData
     CreateDynamicThingGroupResponse
+  where
+  rnf CreateDynamicThingGroupResponse' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf thingGroupId
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf httpStatus

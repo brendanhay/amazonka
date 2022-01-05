@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribeDetectMitigationActionsTask
+  where
+  hashWithSalt
+    _salt
+    DescribeDetectMitigationActionsTask' {..} =
+      _salt `Prelude.hashWithSalt` taskId
 
 instance
   Prelude.NFData
     DescribeDetectMitigationActionsTask
+  where
+  rnf DescribeDetectMitigationActionsTask' {..} =
+    Prelude.rnf taskId
 
 instance
   Core.ToHeaders
@@ -169,3 +177,7 @@ describeDetectMitigationActionsTaskResponse_httpStatus = Lens.lens (\DescribeDet
 instance
   Prelude.NFData
     DescribeDetectMitigationActionsTaskResponse
+  where
+  rnf DescribeDetectMitigationActionsTaskResponse' {..} =
+    Prelude.rnf taskSummary
+      `Prelude.seq` Prelude.rnf httpStatus

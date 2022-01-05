@@ -135,9 +135,14 @@ instance Core.AWSRequest GetIntent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntent
+instance Prelude.Hashable GetIntent where
+  hashWithSalt _salt GetIntent' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetIntent
+instance Prelude.NFData GetIntent where
+  rnf GetIntent' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders GetIntent where
   toHeaders =
@@ -396,4 +401,24 @@ getIntentResponse_description = Lens.lens (\GetIntentResponse' {description} -> 
 getIntentResponse_httpStatus :: Lens.Lens' GetIntentResponse Prelude.Int
 getIntentResponse_httpStatus = Lens.lens (\GetIntentResponse' {httpStatus} -> httpStatus) (\s@GetIntentResponse' {} a -> s {httpStatus = a} :: GetIntentResponse)
 
-instance Prelude.NFData GetIntentResponse
+instance Prelude.NFData GetIntentResponse where
+  rnf GetIntentResponse' {..} =
+    Prelude.rnf fulfillmentActivity
+      `Prelude.seq` Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf rejectionStatement
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf conclusionStatement
+      `Prelude.seq` Prelude.rnf sampleUtterances
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf followUpPrompt
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf confirmationPrompt
+      `Prelude.seq` Prelude.rnf dialogCodeHook
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

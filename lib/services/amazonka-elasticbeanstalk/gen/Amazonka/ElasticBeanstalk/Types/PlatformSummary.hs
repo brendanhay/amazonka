@@ -199,6 +199,32 @@ instance Core.FromXML PlatformSummary where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable PlatformSummary
+instance Prelude.Hashable PlatformSummary where
+  hashWithSalt _salt PlatformSummary' {..} =
+    _salt `Prelude.hashWithSalt` platformBranchName
+      `Prelude.hashWithSalt` supportedAddonList
+      `Prelude.hashWithSalt` platformCategory
+      `Prelude.hashWithSalt` platformBranchLifecycleState
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` platformStatus
+      `Prelude.hashWithSalt` platformLifecycleState
+      `Prelude.hashWithSalt` platformOwner
+      `Prelude.hashWithSalt` operatingSystemName
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` operatingSystemVersion
+      `Prelude.hashWithSalt` supportedTierList
 
-instance Prelude.NFData PlatformSummary
+instance Prelude.NFData PlatformSummary where
+  rnf PlatformSummary' {..} =
+    Prelude.rnf platformBranchName
+      `Prelude.seq` Prelude.rnf supportedAddonList
+      `Prelude.seq` Prelude.rnf platformCategory
+      `Prelude.seq` Prelude.rnf platformBranchLifecycleState
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf platformStatus
+      `Prelude.seq` Prelude.rnf platformLifecycleState
+      `Prelude.seq` Prelude.rnf platformOwner
+      `Prelude.seq` Prelude.rnf operatingSystemName
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf operatingSystemVersion
+      `Prelude.seq` Prelude.rnf supportedTierList

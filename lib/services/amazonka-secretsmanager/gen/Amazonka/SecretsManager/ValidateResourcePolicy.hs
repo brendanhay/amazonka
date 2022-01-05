@@ -158,9 +158,15 @@ instance Core.AWSRequest ValidateResourcePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ValidateResourcePolicy
+instance Prelude.Hashable ValidateResourcePolicy where
+  hashWithSalt _salt ValidateResourcePolicy' {..} =
+    _salt `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` resourcePolicy
 
-instance Prelude.NFData ValidateResourcePolicy
+instance Prelude.NFData ValidateResourcePolicy where
+  rnf ValidateResourcePolicy' {..} =
+    Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf resourcePolicy
 
 instance Core.ToHeaders ValidateResourcePolicy where
   toHeaders =
@@ -244,3 +250,8 @@ validateResourcePolicyResponse_httpStatus = Lens.lens (\ValidateResourcePolicyRe
 instance
   Prelude.NFData
     ValidateResourcePolicyResponse
+  where
+  rnf ValidateResourcePolicyResponse' {..} =
+    Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf policyValidationPassed
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -249,6 +249,43 @@ instance Core.FromXML UpdateAction where
       Prelude.<*> (x Core..@? "EstimatedUpdateTime")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
 
-instance Prelude.Hashable UpdateAction
+instance Prelude.Hashable UpdateAction where
+  hashWithSalt _salt UpdateAction' {..} =
+    _salt `Prelude.hashWithSalt` serviceUpdateType
+      `Prelude.hashWithSalt` slaMet
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` updateActionStatus
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` nodesUpdated
+      `Prelude.hashWithSalt` updateActionStatusModifiedDate
+      `Prelude.hashWithSalt` serviceUpdateReleaseDate
+      `Prelude.hashWithSalt` cacheNodeUpdateStatus
+      `Prelude.hashWithSalt` serviceUpdateSeverity
+      `Prelude.hashWithSalt` nodeGroupUpdateStatus
+      `Prelude.hashWithSalt` serviceUpdateRecommendedApplyByDate
+      `Prelude.hashWithSalt` updateActionAvailableDate
+      `Prelude.hashWithSalt` serviceUpdateStatus
+      `Prelude.hashWithSalt` estimatedUpdateTime
+      `Prelude.hashWithSalt` replicationGroupId
 
-instance Prelude.NFData UpdateAction
+instance Prelude.NFData UpdateAction where
+  rnf UpdateAction' {..} =
+    Prelude.rnf serviceUpdateType
+      `Prelude.seq` Prelude.rnf slaMet
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf updateActionStatus
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf nodesUpdated
+      `Prelude.seq` Prelude.rnf updateActionStatusModifiedDate
+      `Prelude.seq` Prelude.rnf serviceUpdateReleaseDate
+      `Prelude.seq` Prelude.rnf cacheNodeUpdateStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateSeverity
+      `Prelude.seq` Prelude.rnf nodeGroupUpdateStatus
+      `Prelude.seq` Prelude.rnf
+        serviceUpdateRecommendedApplyByDate
+      `Prelude.seq` Prelude.rnf updateActionAvailableDate
+      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+      `Prelude.seq` Prelude.rnf estimatedUpdateTime
+      `Prelude.seq` Prelude.rnf replicationGroupId

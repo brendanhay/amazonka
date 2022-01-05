@@ -196,9 +196,15 @@ instance Core.AWSRequest CreateFindingAggregator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFindingAggregator
+instance Prelude.Hashable CreateFindingAggregator where
+  hashWithSalt _salt CreateFindingAggregator' {..} =
+    _salt `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` regionLinkingMode
 
-instance Prelude.NFData CreateFindingAggregator
+instance Prelude.NFData CreateFindingAggregator where
+  rnf CreateFindingAggregator' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf regionLinkingMode
 
 instance Core.ToHeaders CreateFindingAggregator where
   toHeaders =
@@ -302,3 +308,10 @@ createFindingAggregatorResponse_httpStatus = Lens.lens (\CreateFindingAggregator
 instance
   Prelude.NFData
     CreateFindingAggregatorResponse
+  where
+  rnf CreateFindingAggregatorResponse' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf findingAggregatorArn
+      `Prelude.seq` Prelude.rnf regionLinkingMode
+      `Prelude.seq` Prelude.rnf findingAggregationRegion
+      `Prelude.seq` Prelude.rnf httpStatus

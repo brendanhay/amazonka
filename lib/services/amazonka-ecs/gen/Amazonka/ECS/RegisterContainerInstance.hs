@@ -283,9 +283,29 @@ instance Core.AWSRequest RegisterContainerInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterContainerInstance
+instance Prelude.Hashable RegisterContainerInstance where
+  hashWithSalt _salt RegisterContainerInstance' {..} =
+    _salt `Prelude.hashWithSalt` platformDevices
+      `Prelude.hashWithSalt` instanceIdentityDocumentSignature
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` instanceIdentityDocument
+      `Prelude.hashWithSalt` containerInstanceArn
+      `Prelude.hashWithSalt` versionInfo
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` totalResources
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RegisterContainerInstance
+instance Prelude.NFData RegisterContainerInstance where
+  rnf RegisterContainerInstance' {..} =
+    Prelude.rnf platformDevices
+      `Prelude.seq` Prelude.rnf instanceIdentityDocumentSignature
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf instanceIdentityDocument
+      `Prelude.seq` Prelude.rnf containerInstanceArn
+      `Prelude.seq` Prelude.rnf versionInfo
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf totalResources
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders RegisterContainerInstance where
   toHeaders =
@@ -371,3 +391,7 @@ registerContainerInstanceResponse_httpStatus = Lens.lens (\RegisterContainerInst
 instance
   Prelude.NFData
     RegisterContainerInstanceResponse
+  where
+  rnf RegisterContainerInstanceResponse' {..} =
+    Prelude.rnf containerInstance
+      `Prelude.seq` Prelude.rnf httpStatus

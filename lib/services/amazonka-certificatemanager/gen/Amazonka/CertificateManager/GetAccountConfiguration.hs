@@ -71,9 +71,12 @@ instance Core.AWSRequest GetAccountConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountConfiguration
+instance Prelude.Hashable GetAccountConfiguration where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetAccountConfiguration
+instance Prelude.NFData GetAccountConfiguration where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountConfiguration where
   toHeaders =
@@ -144,3 +147,7 @@ getAccountConfigurationResponse_httpStatus = Lens.lens (\GetAccountConfiguration
 instance
   Prelude.NFData
     GetAccountConfigurationResponse
+  where
+  rnf GetAccountConfigurationResponse' {..} =
+    Prelude.rnf expiryEvents
+      `Prelude.seq` Prelude.rnf httpStatus

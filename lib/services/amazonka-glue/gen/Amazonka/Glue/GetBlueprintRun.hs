@@ -100,9 +100,15 @@ instance Core.AWSRequest GetBlueprintRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBlueprintRun
+instance Prelude.Hashable GetBlueprintRun where
+  hashWithSalt _salt GetBlueprintRun' {..} =
+    _salt `Prelude.hashWithSalt` blueprintName
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData GetBlueprintRun
+instance Prelude.NFData GetBlueprintRun where
+  rnf GetBlueprintRun' {..} =
+    Prelude.rnf blueprintName
+      `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders GetBlueprintRun where
   toHeaders =
@@ -172,4 +178,7 @@ getBlueprintRunResponse_blueprintRun = Lens.lens (\GetBlueprintRunResponse' {blu
 getBlueprintRunResponse_httpStatus :: Lens.Lens' GetBlueprintRunResponse Prelude.Int
 getBlueprintRunResponse_httpStatus = Lens.lens (\GetBlueprintRunResponse' {httpStatus} -> httpStatus) (\s@GetBlueprintRunResponse' {} a -> s {httpStatus = a} :: GetBlueprintRunResponse)
 
-instance Prelude.NFData GetBlueprintRunResponse
+instance Prelude.NFData GetBlueprintRunResponse where
+  rnf GetBlueprintRunResponse' {..} =
+    Prelude.rnf blueprintRun
+      `Prelude.seq` Prelude.rnf httpStatus

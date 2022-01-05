@@ -39,9 +39,12 @@ newReboot ::
   Reboot
 newReboot = Reboot'
 
-instance Prelude.Hashable Reboot
+instance Prelude.Hashable Reboot where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData Reboot
+instance Prelude.NFData Reboot where
+  rnf _ = ()
 
 instance Core.ToJSON Reboot where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

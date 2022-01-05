@@ -269,9 +269,19 @@ instance Core.AWSRequest AddIpRoutes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddIpRoutes
+instance Prelude.Hashable AddIpRoutes where
+  hashWithSalt _salt AddIpRoutes' {..} =
+    _salt
+      `Prelude.hashWithSalt` updateSecurityGroupForDirectoryControllers
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` ipRoutes
 
-instance Prelude.NFData AddIpRoutes
+instance Prelude.NFData AddIpRoutes where
+  rnf AddIpRoutes' {..} =
+    Prelude.rnf
+      updateSecurityGroupForDirectoryControllers
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf ipRoutes
 
 instance Core.ToHeaders AddIpRoutes where
   toHeaders =
@@ -334,4 +344,5 @@ newAddIpRoutesResponse pHttpStatus_ =
 addIpRoutesResponse_httpStatus :: Lens.Lens' AddIpRoutesResponse Prelude.Int
 addIpRoutesResponse_httpStatus = Lens.lens (\AddIpRoutesResponse' {httpStatus} -> httpStatus) (\s@AddIpRoutesResponse' {} a -> s {httpStatus = a} :: AddIpRoutesResponse)
 
-instance Prelude.NFData AddIpRoutesResponse
+instance Prelude.NFData AddIpRoutesResponse where
+  rnf AddIpRoutesResponse' {..} = Prelude.rnf httpStatus

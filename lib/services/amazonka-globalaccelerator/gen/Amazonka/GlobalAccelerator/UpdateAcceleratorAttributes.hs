@@ -173,9 +173,19 @@ instance Core.AWSRequest UpdateAcceleratorAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAcceleratorAttributes
+instance Prelude.Hashable UpdateAcceleratorAttributes where
+  hashWithSalt _salt UpdateAcceleratorAttributes' {..} =
+    _salt `Prelude.hashWithSalt` flowLogsS3Prefix
+      `Prelude.hashWithSalt` flowLogsEnabled
+      `Prelude.hashWithSalt` flowLogsS3Bucket
+      `Prelude.hashWithSalt` acceleratorArn
 
-instance Prelude.NFData UpdateAcceleratorAttributes
+instance Prelude.NFData UpdateAcceleratorAttributes where
+  rnf UpdateAcceleratorAttributes' {..} =
+    Prelude.rnf flowLogsS3Prefix
+      `Prelude.seq` Prelude.rnf flowLogsEnabled
+      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
+      `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance Core.ToHeaders UpdateAcceleratorAttributes where
   toHeaders =
@@ -255,3 +265,7 @@ updateAcceleratorAttributesResponse_httpStatus = Lens.lens (\UpdateAcceleratorAt
 instance
   Prelude.NFData
     UpdateAcceleratorAttributesResponse
+  where
+  rnf UpdateAcceleratorAttributesResponse' {..} =
+    Prelude.rnf acceleratorAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

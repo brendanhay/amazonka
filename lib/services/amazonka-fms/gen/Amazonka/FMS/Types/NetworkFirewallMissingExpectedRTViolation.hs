@@ -118,7 +118,23 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallMissingExpectedRTViolation
+  where
+  hashWithSalt
+    _salt
+    NetworkFirewallMissingExpectedRTViolation' {..} =
+      _salt `Prelude.hashWithSalt` currentRouteTable
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` vpc
+        `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` expectedRouteTable
 
 instance
   Prelude.NFData
     NetworkFirewallMissingExpectedRTViolation
+  where
+  rnf NetworkFirewallMissingExpectedRTViolation' {..} =
+    Prelude.rnf currentRouteTable
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf expectedRouteTable

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.TableAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.TableStatus
 import qualified Amazonka.Lens as Lens
@@ -108,6 +109,14 @@ instance Core.FromJSON TableAutoScalingDescription where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable TableAutoScalingDescription
+instance Prelude.Hashable TableAutoScalingDescription where
+  hashWithSalt _salt TableAutoScalingDescription' {..} =
+    _salt `Prelude.hashWithSalt` tableStatus
+      `Prelude.hashWithSalt` replicas
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData TableAutoScalingDescription
+instance Prelude.NFData TableAutoScalingDescription where
+  rnf TableAutoScalingDescription' {..} =
+    Prelude.rnf tableStatus
+      `Prelude.seq` Prelude.rnf replicas
+      `Prelude.seq` Prelude.rnf tableName

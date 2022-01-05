@@ -83,6 +83,14 @@ instance Core.FromJSON SuggestModel where
             Prelude.<*> (x Core..:? "query")
       )
 
-instance Prelude.Hashable SuggestModel
+instance Prelude.Hashable SuggestModel where
+  hashWithSalt _salt SuggestModel' {..} =
+    _salt `Prelude.hashWithSalt` found
+      `Prelude.hashWithSalt` suggestions
+      `Prelude.hashWithSalt` query
 
-instance Prelude.NFData SuggestModel
+instance Prelude.NFData SuggestModel where
+  rnf SuggestModel' {..} =
+    Prelude.rnf found
+      `Prelude.seq` Prelude.rnf suggestions
+      `Prelude.seq` Prelude.rnf query

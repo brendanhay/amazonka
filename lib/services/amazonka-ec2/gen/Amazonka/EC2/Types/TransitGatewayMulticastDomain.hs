@@ -142,5 +142,24 @@ instance Core.FromXML TransitGatewayMulticastDomain where
 instance
   Prelude.Hashable
     TransitGatewayMulticastDomain
+  where
+  hashWithSalt _salt TransitGatewayMulticastDomain' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+      `Prelude.hashWithSalt` transitGatewayMulticastDomainArn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TransitGatewayMulticastDomain
+instance Prelude.NFData TransitGatewayMulticastDomain where
+  rnf TransitGatewayMulticastDomain' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainArn
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf tags

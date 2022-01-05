@@ -106,9 +106,15 @@ instance Core.AWSRequest GetRepositoryCatalogData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepositoryCatalogData
+instance Prelude.Hashable GetRepositoryCatalogData where
+  hashWithSalt _salt GetRepositoryCatalogData' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetRepositoryCatalogData
+instance Prelude.NFData GetRepositoryCatalogData where
+  rnf GetRepositoryCatalogData' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders GetRepositoryCatalogData where
   toHeaders =
@@ -183,3 +189,7 @@ getRepositoryCatalogDataResponse_httpStatus = Lens.lens (\GetRepositoryCatalogDa
 instance
   Prelude.NFData
     GetRepositoryCatalogDataResponse
+  where
+  rnf GetRepositoryCatalogDataResponse' {..} =
+    Prelude.rnf catalogData
+      `Prelude.seq` Prelude.rnf httpStatus

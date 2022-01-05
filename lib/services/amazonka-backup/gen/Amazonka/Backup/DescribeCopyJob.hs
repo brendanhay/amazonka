@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeCopyJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCopyJob
+instance Prelude.Hashable DescribeCopyJob where
+  hashWithSalt _salt DescribeCopyJob' {..} =
+    _salt `Prelude.hashWithSalt` copyJobId
 
-instance Prelude.NFData DescribeCopyJob
+instance Prelude.NFData DescribeCopyJob where
+  rnf DescribeCopyJob' {..} = Prelude.rnf copyJobId
 
 instance Core.ToHeaders DescribeCopyJob where
   toHeaders =
@@ -147,4 +150,7 @@ describeCopyJobResponse_copyJob = Lens.lens (\DescribeCopyJobResponse' {copyJob}
 describeCopyJobResponse_httpStatus :: Lens.Lens' DescribeCopyJobResponse Prelude.Int
 describeCopyJobResponse_httpStatus = Lens.lens (\DescribeCopyJobResponse' {httpStatus} -> httpStatus) (\s@DescribeCopyJobResponse' {} a -> s {httpStatus = a} :: DescribeCopyJobResponse)
 
-instance Prelude.NFData DescribeCopyJobResponse
+instance Prelude.NFData DescribeCopyJobResponse where
+  rnf DescribeCopyJobResponse' {..} =
+    Prelude.rnf copyJob
+      `Prelude.seq` Prelude.rnf httpStatus

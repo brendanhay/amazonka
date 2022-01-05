@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteMetricStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMetricStream
+instance Prelude.Hashable DeleteMetricStream where
+  hashWithSalt _salt DeleteMetricStream' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteMetricStream
+instance Prelude.NFData DeleteMetricStream where
+  rnf DeleteMetricStream' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteMetricStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +138,6 @@ newDeleteMetricStreamResponse pHttpStatus_ =
 deleteMetricStreamResponse_httpStatus :: Lens.Lens' DeleteMetricStreamResponse Prelude.Int
 deleteMetricStreamResponse_httpStatus = Lens.lens (\DeleteMetricStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteMetricStreamResponse' {} a -> s {httpStatus = a} :: DeleteMetricStreamResponse)
 
-instance Prelude.NFData DeleteMetricStreamResponse
+instance Prelude.NFData DeleteMetricStreamResponse where
+  rnf DeleteMetricStreamResponse' {..} =
+    Prelude.rnf httpStatus

@@ -146,9 +146,19 @@ instance Core.FromJSON ActionTypeIdentifier where
             Prelude.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable ActionTypeIdentifier
+instance Prelude.Hashable ActionTypeIdentifier where
+  hashWithSalt _salt ActionTypeIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData ActionTypeIdentifier
+instance Prelude.NFData ActionTypeIdentifier where
+  rnf ActionTypeIdentifier' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON ActionTypeIdentifier where
   toJSON ActionTypeIdentifier' {..} =

@@ -55,6 +55,9 @@ instance Core.FromJSON Parent where
       "Parent"
       (\x -> Parent' Prelude.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable Parent
+instance Prelude.Hashable Parent where
+  hashWithSalt _salt Parent' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Parent
+instance Prelude.NFData Parent where
+  rnf Parent' {..} = Prelude.rnf name

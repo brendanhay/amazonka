@@ -145,9 +145,21 @@ instance Core.AWSRequest UpdateVPCEConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVPCEConfiguration
+instance Prelude.Hashable UpdateVPCEConfiguration where
+  hashWithSalt _salt UpdateVPCEConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` vpceServiceName
+      `Prelude.hashWithSalt` vpceConfigurationName
+      `Prelude.hashWithSalt` serviceDnsName
+      `Prelude.hashWithSalt` vpceConfigurationDescription
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData UpdateVPCEConfiguration
+instance Prelude.NFData UpdateVPCEConfiguration where
+  rnf UpdateVPCEConfiguration' {..} =
+    Prelude.rnf vpceServiceName
+      `Prelude.seq` Prelude.rnf vpceConfigurationName
+      `Prelude.seq` Prelude.rnf serviceDnsName
+      `Prelude.seq` Prelude.rnf vpceConfigurationDescription
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateVPCEConfiguration where
   toHeaders =
@@ -231,3 +243,7 @@ updateVPCEConfigurationResponse_httpStatus = Lens.lens (\UpdateVPCEConfiguration
 instance
   Prelude.NFData
     UpdateVPCEConfigurationResponse
+  where
+  rnf UpdateVPCEConfigurationResponse' {..} =
+    Prelude.rnf vpceConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -64,9 +64,13 @@ instance Core.FromJSON DashEncryption where
             Prelude.<$> (x Core..: "spekeKeyProvider")
       )
 
-instance Prelude.Hashable DashEncryption
+instance Prelude.Hashable DashEncryption where
+  hashWithSalt _salt DashEncryption' {..} =
+    _salt `Prelude.hashWithSalt` spekeKeyProvider
 
-instance Prelude.NFData DashEncryption
+instance Prelude.NFData DashEncryption where
+  rnf DashEncryption' {..} =
+    Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON DashEncryption where
   toJSON DashEncryption' {..} =

@@ -96,9 +96,14 @@ instance Core.AWSRequest DeleteOpenIDConnectProvider where
     Response.receiveNull
       DeleteOpenIDConnectProviderResponse'
 
-instance Prelude.Hashable DeleteOpenIDConnectProvider
+instance Prelude.Hashable DeleteOpenIDConnectProvider where
+  hashWithSalt _salt DeleteOpenIDConnectProvider' {..} =
+    _salt
+      `Prelude.hashWithSalt` openIDConnectProviderArn
 
-instance Prelude.NFData DeleteOpenIDConnectProvider
+instance Prelude.NFData DeleteOpenIDConnectProvider where
+  rnf DeleteOpenIDConnectProvider' {..} =
+    Prelude.rnf openIDConnectProviderArn
 
 instance Core.ToHeaders DeleteOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,3 +142,5 @@ newDeleteOpenIDConnectProviderResponse =
 instance
   Prelude.NFData
     DeleteOpenIDConnectProviderResponse
+  where
+  rnf _ = ()

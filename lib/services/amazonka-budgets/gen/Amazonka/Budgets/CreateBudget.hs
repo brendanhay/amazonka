@@ -128,9 +128,18 @@ instance Core.AWSRequest CreateBudget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBudget
+instance Prelude.Hashable CreateBudget where
+  hashWithSalt _salt CreateBudget' {..} =
+    _salt
+      `Prelude.hashWithSalt` notificationsWithSubscribers
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` budget
 
-instance Prelude.NFData CreateBudget
+instance Prelude.NFData CreateBudget where
+  rnf CreateBudget' {..} =
+    Prelude.rnf notificationsWithSubscribers
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budget
 
 instance Core.ToHeaders CreateBudget where
   toHeaders =
@@ -193,4 +202,6 @@ newCreateBudgetResponse pHttpStatus_ =
 createBudgetResponse_httpStatus :: Lens.Lens' CreateBudgetResponse Prelude.Int
 createBudgetResponse_httpStatus = Lens.lens (\CreateBudgetResponse' {httpStatus} -> httpStatus) (\s@CreateBudgetResponse' {} a -> s {httpStatus = a} :: CreateBudgetResponse)
 
-instance Prelude.NFData CreateBudgetResponse
+instance Prelude.NFData CreateBudgetResponse where
+  rnf CreateBudgetResponse' {..} =
+    Prelude.rnf httpStatus

@@ -76,10 +76,18 @@ cancelWorkflowExecutionDecisionAttributes_details = Lens.lens (\CancelWorkflowEx
 instance
   Prelude.Hashable
     CancelWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    _salt
+    CancelWorkflowExecutionDecisionAttributes' {..} =
+      _salt `Prelude.hashWithSalt` details
 
 instance
   Prelude.NFData
     CancelWorkflowExecutionDecisionAttributes
+  where
+  rnf CancelWorkflowExecutionDecisionAttributes' {..} =
+    Prelude.rnf details
 
 instance
   Core.ToJSON

@@ -119,9 +119,15 @@ instance Core.AWSRequest UpdateCertificateOptions where
     Response.receiveNull
       UpdateCertificateOptionsResponse'
 
-instance Prelude.Hashable UpdateCertificateOptions
+instance Prelude.Hashable UpdateCertificateOptions where
+  hashWithSalt _salt UpdateCertificateOptions' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData UpdateCertificateOptions
+instance Prelude.NFData UpdateCertificateOptions where
+  rnf UpdateCertificateOptions' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf options
 
 instance Core.ToHeaders UpdateCertificateOptions where
   toHeaders =
@@ -172,3 +178,5 @@ newUpdateCertificateOptionsResponse =
 instance
   Prelude.NFData
     UpdateCertificateOptionsResponse
+  where
+  rnf _ = ()

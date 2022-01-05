@@ -75,9 +75,15 @@ instance Core.FromJSON SuiteRunConfiguration where
                         )
       )
 
-instance Prelude.Hashable SuiteRunConfiguration
+instance Prelude.Hashable SuiteRunConfiguration where
+  hashWithSalt _salt SuiteRunConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` primaryDevice
+      `Prelude.hashWithSalt` selectedTestList
 
-instance Prelude.NFData SuiteRunConfiguration
+instance Prelude.NFData SuiteRunConfiguration where
+  rnf SuiteRunConfiguration' {..} =
+    Prelude.rnf primaryDevice
+      `Prelude.seq` Prelude.rnf selectedTestList
 
 instance Core.ToJSON SuiteRunConfiguration where
   toJSON SuiteRunConfiguration' {..} =

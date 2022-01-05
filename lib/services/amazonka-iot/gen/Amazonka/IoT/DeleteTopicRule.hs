@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteTopicRule where
   response =
     Response.receiveNull DeleteTopicRuleResponse'
 
-instance Prelude.Hashable DeleteTopicRule
+instance Prelude.Hashable DeleteTopicRule where
+  hashWithSalt _salt DeleteTopicRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData DeleteTopicRule
+instance Prelude.NFData DeleteTopicRule where
+  rnf DeleteTopicRule' {..} = Prelude.rnf ruleName
 
 instance Core.ToHeaders DeleteTopicRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -111,4 +114,5 @@ newDeleteTopicRuleResponse ::
   DeleteTopicRuleResponse
 newDeleteTopicRuleResponse = DeleteTopicRuleResponse'
 
-instance Prelude.NFData DeleteTopicRuleResponse
+instance Prelude.NFData DeleteTopicRuleResponse where
+  rnf _ = ()

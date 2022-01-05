@@ -159,6 +159,28 @@ instance Core.FromJSON ServiceInfo where
             Prelude.<*> (x Core..:? "archived")
       )
 
-instance Prelude.Hashable ServiceInfo
+instance Prelude.Hashable ServiceInfo where
+  hashWithSalt _salt ServiceInfo' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` eventFirstSeen
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` userFeedback
+      `Prelude.hashWithSalt` evidence
+      `Prelude.hashWithSalt` eventLastSeen
+      `Prelude.hashWithSalt` resourceRole
+      `Prelude.hashWithSalt` archived
 
-instance Prelude.NFData ServiceInfo
+instance Prelude.NFData ServiceInfo where
+  rnf ServiceInfo' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf eventFirstSeen
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf userFeedback
+      `Prelude.seq` Prelude.rnf evidence
+      `Prelude.seq` Prelude.rnf eventLastSeen
+      `Prelude.seq` Prelude.rnf resourceRole
+      `Prelude.seq` Prelude.rnf archived

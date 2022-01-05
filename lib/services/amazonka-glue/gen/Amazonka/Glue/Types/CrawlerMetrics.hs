@@ -135,6 +135,24 @@ instance Core.FromJSON CrawlerMetrics where
             Prelude.<*> (x Core..:? "CrawlerName")
       )
 
-instance Prelude.Hashable CrawlerMetrics
+instance Prelude.Hashable CrawlerMetrics where
+  hashWithSalt _salt CrawlerMetrics' {..} =
+    _salt `Prelude.hashWithSalt` lastRuntimeSeconds
+      `Prelude.hashWithSalt` tablesCreated
+      `Prelude.hashWithSalt` stillEstimating
+      `Prelude.hashWithSalt` medianRuntimeSeconds
+      `Prelude.hashWithSalt` timeLeftSeconds
+      `Prelude.hashWithSalt` tablesDeleted
+      `Prelude.hashWithSalt` tablesUpdated
+      `Prelude.hashWithSalt` crawlerName
 
-instance Prelude.NFData CrawlerMetrics
+instance Prelude.NFData CrawlerMetrics where
+  rnf CrawlerMetrics' {..} =
+    Prelude.rnf lastRuntimeSeconds
+      `Prelude.seq` Prelude.rnf tablesCreated
+      `Prelude.seq` Prelude.rnf stillEstimating
+      `Prelude.seq` Prelude.rnf medianRuntimeSeconds
+      `Prelude.seq` Prelude.rnf timeLeftSeconds
+      `Prelude.seq` Prelude.rnf tablesDeleted
+      `Prelude.seq` Prelude.rnf tablesUpdated
+      `Prelude.seq` Prelude.rnf crawlerName

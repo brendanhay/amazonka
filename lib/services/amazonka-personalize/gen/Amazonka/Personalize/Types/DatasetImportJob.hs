@@ -166,6 +166,26 @@ instance Core.FromJSON DatasetImportJob where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable DatasetImportJob
+instance Prelude.Hashable DatasetImportJob where
+  hashWithSalt _salt DatasetImportJob' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` datasetImportJobArn
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DatasetImportJob
+instance Prelude.NFData DatasetImportJob where
+  rnf DatasetImportJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf datasetImportJobArn
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf roleArn

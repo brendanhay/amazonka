@@ -152,6 +152,28 @@ instance Core.FromJSON RepositoryMetadata where
             Prelude.<*> (x Core..:? "cloneUrlSsh")
       )
 
-instance Prelude.Hashable RepositoryMetadata
+instance Prelude.Hashable RepositoryMetadata where
+  hashWithSalt _salt RepositoryMetadata' {..} =
+    _salt `Prelude.hashWithSalt` repositoryDescription
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` cloneUrlHttp
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` defaultBranch
+      `Prelude.hashWithSalt` repositoryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` cloneUrlSsh
 
-instance Prelude.NFData RepositoryMetadata
+instance Prelude.NFData RepositoryMetadata where
+  rnf RepositoryMetadata' {..} =
+    Prelude.rnf repositoryDescription
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf cloneUrlHttp
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf defaultBranch
+      `Prelude.seq` Prelude.rnf repositoryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf cloneUrlSsh

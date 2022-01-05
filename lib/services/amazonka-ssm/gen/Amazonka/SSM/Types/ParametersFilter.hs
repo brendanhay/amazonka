@@ -66,9 +66,14 @@ parametersFilter_key = Lens.lens (\ParametersFilter' {key} -> key) (\s@Parameter
 parametersFilter_values :: Lens.Lens' ParametersFilter (Prelude.NonEmpty Prelude.Text)
 parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ParametersFilter
+instance Prelude.Hashable ParametersFilter where
+  hashWithSalt _salt ParametersFilter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ParametersFilter
+instance Prelude.NFData ParametersFilter where
+  rnf ParametersFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ParametersFilter where
   toJSON ParametersFilter' {..} =

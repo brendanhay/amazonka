@@ -139,9 +139,17 @@ instance Core.AWSRequest GetCellReadinessSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCellReadinessSummary
+instance Prelude.Hashable GetCellReadinessSummary where
+  hashWithSalt _salt GetCellReadinessSummary' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` cellName
 
-instance Prelude.NFData GetCellReadinessSummary
+instance Prelude.NFData GetCellReadinessSummary where
+  rnf GetCellReadinessSummary' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf cellName
 
 instance Core.ToHeaders GetCellReadinessSummary where
   toHeaders =
@@ -229,3 +237,9 @@ getCellReadinessSummaryResponse_httpStatus = Lens.lens (\GetCellReadinessSummary
 instance
   Prelude.NFData
     GetCellReadinessSummaryResponse
+  where
+  rnf GetCellReadinessSummaryResponse' {..} =
+    Prelude.rnf readinessChecks
+      `Prelude.seq` Prelude.rnf readiness
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

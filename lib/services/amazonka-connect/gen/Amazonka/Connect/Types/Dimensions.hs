@@ -73,6 +73,11 @@ instance Core.FromJSON Dimensions where
             Prelude.<*> (x Core..:? "Queue")
       )
 
-instance Prelude.Hashable Dimensions
+instance Prelude.Hashable Dimensions where
+  hashWithSalt _salt Dimensions' {..} =
+    _salt `Prelude.hashWithSalt` channel
+      `Prelude.hashWithSalt` queue
 
-instance Prelude.NFData Dimensions
+instance Prelude.NFData Dimensions where
+  rnf Dimensions' {..} =
+    Prelude.rnf channel `Prelude.seq` Prelude.rnf queue

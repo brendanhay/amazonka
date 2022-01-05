@@ -84,9 +84,17 @@ instance Core.FromJSON HPOObjective where
             Prelude.<*> (x Core..:? "metricRegex")
       )
 
-instance Prelude.Hashable HPOObjective
+instance Prelude.Hashable HPOObjective where
+  hashWithSalt _salt HPOObjective' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` metricRegex
 
-instance Prelude.NFData HPOObjective
+instance Prelude.NFData HPOObjective where
+  rnf HPOObjective' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf metricRegex
 
 instance Core.ToJSON HPOObjective where
   toJSON HPOObjective' {..} =

@@ -87,6 +87,14 @@ instance Core.FromJSON Folder where
             Prelude.<*> (x Core..:? "relativePath")
       )
 
-instance Prelude.Hashable Folder
+instance Prelude.Hashable Folder where
+  hashWithSalt _salt Folder' {..} =
+    _salt `Prelude.hashWithSalt` absolutePath
+      `Prelude.hashWithSalt` treeId
+      `Prelude.hashWithSalt` relativePath
 
-instance Prelude.NFData Folder
+instance Prelude.NFData Folder where
+  rnf Folder' {..} =
+    Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf treeId
+      `Prelude.seq` Prelude.rnf relativePath

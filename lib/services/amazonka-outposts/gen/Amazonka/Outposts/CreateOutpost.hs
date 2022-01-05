@@ -138,9 +138,23 @@ instance Core.AWSRequest CreateOutpost where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOutpost
+instance Prelude.Hashable CreateOutpost where
+  hashWithSalt _salt CreateOutpost' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` siteId
 
-instance Prelude.NFData CreateOutpost
+instance Prelude.NFData CreateOutpost where
+  rnf CreateOutpost' {..} =
+    Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf siteId
 
 instance Core.ToHeaders CreateOutpost where
   toHeaders =
@@ -211,4 +225,7 @@ createOutpostResponse_outpost = Lens.lens (\CreateOutpostResponse' {outpost} -> 
 createOutpostResponse_httpStatus :: Lens.Lens' CreateOutpostResponse Prelude.Int
 createOutpostResponse_httpStatus = Lens.lens (\CreateOutpostResponse' {httpStatus} -> httpStatus) (\s@CreateOutpostResponse' {} a -> s {httpStatus = a} :: CreateOutpostResponse)
 
-instance Prelude.NFData CreateOutpostResponse
+instance Prelude.NFData CreateOutpostResponse where
+  rnf CreateOutpostResponse' {..} =
+    Prelude.rnf outpost
+      `Prelude.seq` Prelude.rnf httpStatus

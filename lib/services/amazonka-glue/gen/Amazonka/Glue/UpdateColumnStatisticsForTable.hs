@@ -135,10 +135,24 @@ instance
 instance
   Prelude.Hashable
     UpdateColumnStatisticsForTable
+  where
+  hashWithSalt
+    _salt
+    UpdateColumnStatisticsForTable' {..} =
+      _salt `Prelude.hashWithSalt` catalogId
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` columnStatisticsList
 
 instance
   Prelude.NFData
     UpdateColumnStatisticsForTable
+  where
+  rnf UpdateColumnStatisticsForTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf columnStatisticsList
 
 instance
   Core.ToHeaders
@@ -221,3 +235,7 @@ updateColumnStatisticsForTableResponse_httpStatus = Lens.lens (\UpdateColumnStat
 instance
   Prelude.NFData
     UpdateColumnStatisticsForTableResponse
+  where
+  rnf UpdateColumnStatisticsForTableResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

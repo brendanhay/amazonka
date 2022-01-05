@@ -91,9 +91,17 @@ instance Core.FromJSON RedactionConfig where
                         )
       )
 
-instance Prelude.Hashable RedactionConfig
+instance Prelude.Hashable RedactionConfig where
+  hashWithSalt _salt RedactionConfig' {..} =
+    _salt `Prelude.hashWithSalt` maskCharacter
+      `Prelude.hashWithSalt` maskMode
+      `Prelude.hashWithSalt` piiEntityTypes
 
-instance Prelude.NFData RedactionConfig
+instance Prelude.NFData RedactionConfig where
+  rnf RedactionConfig' {..} =
+    Prelude.rnf maskCharacter
+      `Prelude.seq` Prelude.rnf maskMode
+      `Prelude.seq` Prelude.rnf piiEntityTypes
 
 instance Core.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =

@@ -94,9 +94,19 @@ batchAttachTypedLink_typedLinkFacet = Lens.lens (\BatchAttachTypedLink' {typedLi
 batchAttachTypedLink_attributes :: Lens.Lens' BatchAttachTypedLink [AttributeNameAndValue]
 batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes} -> attributes) (\s@BatchAttachTypedLink' {} a -> s {attributes = a} :: BatchAttachTypedLink) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchAttachTypedLink
+instance Prelude.Hashable BatchAttachTypedLink where
+  hashWithSalt _salt BatchAttachTypedLink' {..} =
+    _salt `Prelude.hashWithSalt` sourceObjectReference
+      `Prelude.hashWithSalt` targetObjectReference
+      `Prelude.hashWithSalt` typedLinkFacet
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData BatchAttachTypedLink
+instance Prelude.NFData BatchAttachTypedLink where
+  rnf BatchAttachTypedLink' {..} =
+    Prelude.rnf sourceObjectReference
+      `Prelude.seq` Prelude.rnf targetObjectReference
+      `Prelude.seq` Prelude.rnf typedLinkFacet
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON BatchAttachTypedLink where
   toJSON BatchAttachTypedLink' {..} =

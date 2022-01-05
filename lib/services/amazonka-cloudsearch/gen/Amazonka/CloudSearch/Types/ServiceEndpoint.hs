@@ -54,6 +54,9 @@ instance Core.FromXML ServiceEndpoint where
     ServiceEndpoint'
       Prelude.<$> (x Core..@? "Endpoint")
 
-instance Prelude.Hashable ServiceEndpoint
+instance Prelude.Hashable ServiceEndpoint where
+  hashWithSalt _salt ServiceEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData ServiceEndpoint
+instance Prelude.NFData ServiceEndpoint where
+  rnf ServiceEndpoint' {..} = Prelude.rnf endpoint

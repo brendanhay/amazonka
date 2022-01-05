@@ -174,9 +174,23 @@ instance Core.AWSRequest UpdateFlowEntitlement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFlowEntitlement
+instance Prelude.Hashable UpdateFlowEntitlement where
+  hashWithSalt _salt UpdateFlowEntitlement' {..} =
+    _salt `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` entitlementStatus
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` entitlementArn
 
-instance Prelude.NFData UpdateFlowEntitlement
+instance Prelude.NFData UpdateFlowEntitlement where
+  rnf UpdateFlowEntitlement' {..} =
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf entitlementStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf entitlementArn
 
 instance Core.ToHeaders UpdateFlowEntitlement where
   toHeaders =
@@ -261,4 +275,8 @@ updateFlowEntitlementResponse_entitlement = Lens.lens (\UpdateFlowEntitlementRes
 updateFlowEntitlementResponse_httpStatus :: Lens.Lens' UpdateFlowEntitlementResponse Prelude.Int
 updateFlowEntitlementResponse_httpStatus = Lens.lens (\UpdateFlowEntitlementResponse' {httpStatus} -> httpStatus) (\s@UpdateFlowEntitlementResponse' {} a -> s {httpStatus = a} :: UpdateFlowEntitlementResponse)
 
-instance Prelude.NFData UpdateFlowEntitlementResponse
+instance Prelude.NFData UpdateFlowEntitlementResponse where
+  rnf UpdateFlowEntitlementResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf entitlement
+      `Prelude.seq` Prelude.rnf httpStatus

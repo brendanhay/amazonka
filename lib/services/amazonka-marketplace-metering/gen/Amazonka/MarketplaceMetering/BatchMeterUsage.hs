@@ -130,9 +130,15 @@ instance Core.AWSRequest BatchMeterUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchMeterUsage
+instance Prelude.Hashable BatchMeterUsage where
+  hashWithSalt _salt BatchMeterUsage' {..} =
+    _salt `Prelude.hashWithSalt` usageRecords
+      `Prelude.hashWithSalt` productCode
 
-instance Prelude.NFData BatchMeterUsage
+instance Prelude.NFData BatchMeterUsage where
+  rnf BatchMeterUsage' {..} =
+    Prelude.rnf usageRecords
+      `Prelude.seq` Prelude.rnf productCode
 
 instance Core.ToHeaders BatchMeterUsage where
   toHeaders =
@@ -226,4 +232,8 @@ batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse
 batchMeterUsageResponse_httpStatus :: Lens.Lens' BatchMeterUsageResponse Prelude.Int
 batchMeterUsageResponse_httpStatus = Lens.lens (\BatchMeterUsageResponse' {httpStatus} -> httpStatus) (\s@BatchMeterUsageResponse' {} a -> s {httpStatus = a} :: BatchMeterUsageResponse)
 
-instance Prelude.NFData BatchMeterUsageResponse
+instance Prelude.NFData BatchMeterUsageResponse where
+  rnf BatchMeterUsageResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf unprocessedRecords
+      `Prelude.seq` Prelude.rnf httpStatus

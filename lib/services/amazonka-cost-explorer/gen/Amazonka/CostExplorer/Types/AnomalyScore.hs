@@ -76,6 +76,12 @@ instance Core.FromJSON AnomalyScore where
             Prelude.<*> (x Core..: "CurrentScore")
       )
 
-instance Prelude.Hashable AnomalyScore
+instance Prelude.Hashable AnomalyScore where
+  hashWithSalt _salt AnomalyScore' {..} =
+    _salt `Prelude.hashWithSalt` maxScore
+      `Prelude.hashWithSalt` currentScore
 
-instance Prelude.NFData AnomalyScore
+instance Prelude.NFData AnomalyScore where
+  rnf AnomalyScore' {..} =
+    Prelude.rnf maxScore
+      `Prelude.seq` Prelude.rnf currentScore

@@ -71,10 +71,19 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
+  where
+  hashWithSalt
+    _salt
+    AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {..} =
+      _salt `Prelude.hashWithSalt` availabilityZoneCount
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
+  where
+  rnf
+    AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {..} =
+      Prelude.rnf availabilityZoneCount
 
 instance
   Core.ToJSON

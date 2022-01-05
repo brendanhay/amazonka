@@ -85,9 +85,14 @@ instance Core.FromJSON RepositoryAuthConfig where
             Prelude.<$> (x Core..: "RepositoryCredentialsProviderArn")
       )
 
-instance Prelude.Hashable RepositoryAuthConfig
+instance Prelude.Hashable RepositoryAuthConfig where
+  hashWithSalt _salt RepositoryAuthConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` repositoryCredentialsProviderArn
 
-instance Prelude.NFData RepositoryAuthConfig
+instance Prelude.NFData RepositoryAuthConfig where
+  rnf RepositoryAuthConfig' {..} =
+    Prelude.rnf repositoryCredentialsProviderArn
 
 instance Core.ToJSON RepositoryAuthConfig where
   toJSON RepositoryAuthConfig' {..} =

@@ -169,6 +169,12 @@ instance Core.FromXML AccountGateResult where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "StatusReason")
 
-instance Prelude.Hashable AccountGateResult
+instance Prelude.Hashable AccountGateResult where
+  hashWithSalt _salt AccountGateResult' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
 
-instance Prelude.NFData AccountGateResult
+instance Prelude.NFData AccountGateResult where
+  rnf AccountGateResult' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason

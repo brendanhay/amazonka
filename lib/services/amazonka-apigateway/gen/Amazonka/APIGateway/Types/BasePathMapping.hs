@@ -90,6 +90,14 @@ instance Core.FromJSON BasePathMapping where
             Prelude.<*> (x Core..:? "restApiId")
       )
 
-instance Prelude.Hashable BasePathMapping
+instance Prelude.Hashable BasePathMapping where
+  hashWithSalt _salt BasePathMapping' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData BasePathMapping
+instance Prelude.NFData BasePathMapping where
+  rnf BasePathMapping' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf restApiId

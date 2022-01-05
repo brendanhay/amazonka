@@ -204,9 +204,19 @@ instance Core.AWSRequest DeleteObjectTagging where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteObjectTagging
+instance Prelude.Hashable DeleteObjectTagging where
+  hashWithSalt _salt DeleteObjectTagging' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData DeleteObjectTagging
+instance Prelude.NFData DeleteObjectTagging where
+  rnf DeleteObjectTagging' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders DeleteObjectTagging where
   toHeaders DeleteObjectTagging' {..} =
@@ -264,4 +274,7 @@ deleteObjectTaggingResponse_versionId = Lens.lens (\DeleteObjectTaggingResponse'
 deleteObjectTaggingResponse_httpStatus :: Lens.Lens' DeleteObjectTaggingResponse Prelude.Int
 deleteObjectTaggingResponse_httpStatus = Lens.lens (\DeleteObjectTaggingResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectTaggingResponse' {} a -> s {httpStatus = a} :: DeleteObjectTaggingResponse)
 
-instance Prelude.NFData DeleteObjectTaggingResponse
+instance Prelude.NFData DeleteObjectTaggingResponse where
+  rnf DeleteObjectTaggingResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus

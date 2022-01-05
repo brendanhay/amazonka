@@ -438,6 +438,44 @@ instance Core.FromJSON ContainerService where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ContainerService
+instance Prelude.Hashable ContainerService where
+  hashWithSalt _salt ContainerService' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` powerId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` stateDetail
+      `Prelude.hashWithSalt` nextDeployment
+      `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` power
+      `Prelude.hashWithSalt` privateDomainName
+      `Prelude.hashWithSalt` isDisabled
+      `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` containerServiceName
+      `Prelude.hashWithSalt` currentDeployment
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ContainerService
+instance Prelude.NFData ContainerService where
+  rnf ContainerService' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf powerId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf stateDetail
+      `Prelude.seq` Prelude.rnf nextDeployment
+      `Prelude.seq` Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf power
+      `Prelude.seq` Prelude.rnf privateDomainName
+      `Prelude.seq` Prelude.rnf isDisabled
+      `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf containerServiceName
+      `Prelude.seq` Prelude.rnf currentDeployment
+      `Prelude.seq` Prelude.rnf tags

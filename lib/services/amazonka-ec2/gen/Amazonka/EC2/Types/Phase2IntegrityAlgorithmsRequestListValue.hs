@@ -58,10 +58,18 @@ phase2IntegrityAlgorithmsRequestListValue_value = Lens.lens (\Phase2IntegrityAlg
 instance
   Prelude.Hashable
     Phase2IntegrityAlgorithmsRequestListValue
+  where
+  hashWithSalt
+    _salt
+    Phase2IntegrityAlgorithmsRequestListValue' {..} =
+      _salt `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     Phase2IntegrityAlgorithmsRequestListValue
+  where
+  rnf Phase2IntegrityAlgorithmsRequestListValue' {..} =
+    Prelude.rnf value
 
 instance
   Core.ToQuery

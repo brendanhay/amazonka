@@ -401,9 +401,39 @@ instance Core.AWSRequest RegisterImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterImage
+instance Prelude.Hashable RegisterImage where
+  hashWithSalt _salt RegisterImage' {..} =
+    _salt `Prelude.hashWithSalt` virtualizationType
+      `Prelude.hashWithSalt` imageLocation
+      `Prelude.hashWithSalt` enaSupport
+      `Prelude.hashWithSalt` billingProducts
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` sriovNetSupport
+      `Prelude.hashWithSalt` bootMode
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RegisterImage
+instance Prelude.NFData RegisterImage where
+  rnf RegisterImage' {..} =
+    Prelude.rnf virtualizationType
+      `Prelude.seq` Prelude.rnf imageLocation
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf billingProducts
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders RegisterImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -480,4 +510,7 @@ registerImageResponse_imageId = Lens.lens (\RegisterImageResponse' {imageId} -> 
 registerImageResponse_httpStatus :: Lens.Lens' RegisterImageResponse Prelude.Int
 registerImageResponse_httpStatus = Lens.lens (\RegisterImageResponse' {httpStatus} -> httpStatus) (\s@RegisterImageResponse' {} a -> s {httpStatus = a} :: RegisterImageResponse)
 
-instance Prelude.NFData RegisterImageResponse
+instance Prelude.NFData RegisterImageResponse where
+  rnf RegisterImageResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

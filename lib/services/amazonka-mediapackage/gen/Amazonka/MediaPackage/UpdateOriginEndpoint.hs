@@ -252,9 +252,35 @@ instance Core.AWSRequest UpdateOriginEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateOriginEndpoint
+instance Prelude.Hashable UpdateOriginEndpoint where
+  hashWithSalt _salt UpdateOriginEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` whitelist
+      `Prelude.hashWithSalt` hlsPackage
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` authorization
+      `Prelude.hashWithSalt` startoverWindowSeconds
+      `Prelude.hashWithSalt` dashPackage
+      `Prelude.hashWithSalt` mssPackage
+      `Prelude.hashWithSalt` timeDelaySeconds
+      `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` origination
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateOriginEndpoint
+instance Prelude.NFData UpdateOriginEndpoint where
+  rnf UpdateOriginEndpoint' {..} =
+    Prelude.rnf whitelist
+      `Prelude.seq` Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateOriginEndpoint where
   toHeaders =
@@ -490,4 +516,22 @@ updateOriginEndpointResponse_origination = Lens.lens (\UpdateOriginEndpointRespo
 updateOriginEndpointResponse_httpStatus :: Lens.Lens' UpdateOriginEndpointResponse Prelude.Int
 updateOriginEndpointResponse_httpStatus = Lens.lens (\UpdateOriginEndpointResponse' {httpStatus} -> httpStatus) (\s@UpdateOriginEndpointResponse' {} a -> s {httpStatus = a} :: UpdateOriginEndpointResponse)
 
-instance Prelude.NFData UpdateOriginEndpointResponse
+instance Prelude.NFData UpdateOriginEndpointResponse where
+  rnf UpdateOriginEndpointResponse' {..} =
+    Prelude.rnf whitelist
+      `Prelude.seq` Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf httpStatus

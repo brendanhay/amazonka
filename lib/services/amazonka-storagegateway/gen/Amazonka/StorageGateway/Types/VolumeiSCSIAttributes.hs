@@ -101,6 +101,18 @@ instance Core.FromJSON VolumeiSCSIAttributes where
             Prelude.<*> (x Core..:? "NetworkInterfacePort")
       )
 
-instance Prelude.Hashable VolumeiSCSIAttributes
+instance Prelude.Hashable VolumeiSCSIAttributes where
+  hashWithSalt _salt VolumeiSCSIAttributes' {..} =
+    _salt `Prelude.hashWithSalt` lunNumber
+      `Prelude.hashWithSalt` targetARN
+      `Prelude.hashWithSalt` chapEnabled
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` networkInterfacePort
 
-instance Prelude.NFData VolumeiSCSIAttributes
+instance Prelude.NFData VolumeiSCSIAttributes where
+  rnf VolumeiSCSIAttributes' {..} =
+    Prelude.rnf lunNumber
+      `Prelude.seq` Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf chapEnabled
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf networkInterfacePort

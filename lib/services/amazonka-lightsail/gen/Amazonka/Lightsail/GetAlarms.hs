@@ -142,9 +142,17 @@ instance Core.AWSRequest GetAlarms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAlarms
+instance Prelude.Hashable GetAlarms where
+  hashWithSalt _salt GetAlarms' {..} =
+    _salt `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` monitoredResourceName
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetAlarms
+instance Prelude.NFData GetAlarms where
+  rnf GetAlarms' {..} =
+    Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf monitoredResourceName
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetAlarms where
   toHeaders =
@@ -243,4 +251,8 @@ getAlarmsResponse_alarms = Lens.lens (\GetAlarmsResponse' {alarms} -> alarms) (\
 getAlarmsResponse_httpStatus :: Lens.Lens' GetAlarmsResponse Prelude.Int
 getAlarmsResponse_httpStatus = Lens.lens (\GetAlarmsResponse' {httpStatus} -> httpStatus) (\s@GetAlarmsResponse' {} a -> s {httpStatus = a} :: GetAlarmsResponse)
 
-instance Prelude.NFData GetAlarmsResponse
+instance Prelude.NFData GetAlarmsResponse where
+  rnf GetAlarmsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromJSON ModelQualityJobInput where
             Prelude.<*> (x Core..: "GroundTruthS3Input")
       )
 
-instance Prelude.Hashable ModelQualityJobInput
+instance Prelude.Hashable ModelQualityJobInput where
+  hashWithSalt _salt ModelQualityJobInput' {..} =
+    _salt `Prelude.hashWithSalt` endpointInput
+      `Prelude.hashWithSalt` groundTruthS3Input
 
-instance Prelude.NFData ModelQualityJobInput
+instance Prelude.NFData ModelQualityJobInput where
+  rnf ModelQualityJobInput' {..} =
+    Prelude.rnf endpointInput
+      `Prelude.seq` Prelude.rnf groundTruthS3Input
 
 instance Core.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =

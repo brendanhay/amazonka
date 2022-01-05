@@ -78,9 +78,13 @@ instance Core.FromXML HostHeaderConditionConfig where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable HostHeaderConditionConfig
+instance Prelude.Hashable HostHeaderConditionConfig where
+  hashWithSalt _salt HostHeaderConditionConfig' {..} =
+    _salt `Prelude.hashWithSalt` values
 
-instance Prelude.NFData HostHeaderConditionConfig
+instance Prelude.NFData HostHeaderConditionConfig where
+  rnf HostHeaderConditionConfig' {..} =
+    Prelude.rnf values
 
 instance Core.ToQuery HostHeaderConditionConfig where
   toQuery HostHeaderConditionConfig' {..} =

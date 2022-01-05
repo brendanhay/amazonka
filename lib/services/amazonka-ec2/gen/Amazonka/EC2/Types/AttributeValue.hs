@@ -55,9 +55,12 @@ instance Core.FromXML AttributeValue where
   parseXML x =
     AttributeValue' Prelude.<$> (x Core..@? "value")
 
-instance Prelude.Hashable AttributeValue
+instance Prelude.Hashable AttributeValue where
+  hashWithSalt _salt AttributeValue' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AttributeValue
+instance Prelude.NFData AttributeValue where
+  rnf AttributeValue' {..} = Prelude.rnf value
 
 instance Core.ToQuery AttributeValue where
   toQuery AttributeValue' {..} =

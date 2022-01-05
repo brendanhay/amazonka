@@ -117,9 +117,15 @@ instance Core.AWSRequest ModifyClusterDbRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterDbRevision
+instance Prelude.Hashable ModifyClusterDbRevision where
+  hashWithSalt _salt ModifyClusterDbRevision' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` revisionTarget
 
-instance Prelude.NFData ModifyClusterDbRevision
+instance Prelude.NFData ModifyClusterDbRevision where
+  rnf ModifyClusterDbRevision' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf revisionTarget
 
 instance Core.ToHeaders ModifyClusterDbRevision where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,3 +185,7 @@ modifyClusterDbRevisionResponse_httpStatus = Lens.lens (\ModifyClusterDbRevision
 instance
   Prelude.NFData
     ModifyClusterDbRevisionResponse
+  where
+  rnf ModifyClusterDbRevisionResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

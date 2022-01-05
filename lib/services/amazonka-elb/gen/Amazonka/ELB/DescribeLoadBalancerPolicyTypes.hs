@@ -113,10 +113,18 @@ instance
 instance
   Prelude.Hashable
     DescribeLoadBalancerPolicyTypes
+  where
+  hashWithSalt
+    _salt
+    DescribeLoadBalancerPolicyTypes' {..} =
+      _salt `Prelude.hashWithSalt` policyTypeNames
 
 instance
   Prelude.NFData
     DescribeLoadBalancerPolicyTypes
+  where
+  rnf DescribeLoadBalancerPolicyTypes' {..} =
+    Prelude.rnf policyTypeNames
 
 instance
   Core.ToHeaders
@@ -188,3 +196,7 @@ describeLoadBalancerPolicyTypesResponse_httpStatus = Lens.lens (\DescribeLoadBal
 instance
   Prelude.NFData
     DescribeLoadBalancerPolicyTypesResponse
+  where
+  rnf DescribeLoadBalancerPolicyTypesResponse' {..} =
+    Prelude.rnf policyTypeDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

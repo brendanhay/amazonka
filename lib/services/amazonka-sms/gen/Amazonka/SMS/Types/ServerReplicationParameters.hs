@@ -162,9 +162,25 @@ instance Core.FromJSON ServerReplicationParameters where
             Prelude.<*> (x Core..:? "runOnce")
       )
 
-instance Prelude.Hashable ServerReplicationParameters
+instance Prelude.Hashable ServerReplicationParameters where
+  hashWithSalt _salt ServerReplicationParameters' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` numberOfRecentAmisToKeep
+      `Prelude.hashWithSalt` seedTime
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` runOnce
 
-instance Prelude.NFData ServerReplicationParameters
+instance Prelude.NFData ServerReplicationParameters where
+  rnf ServerReplicationParameters' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
+      `Prelude.seq` Prelude.rnf seedTime
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf runOnce
 
 instance Core.ToJSON ServerReplicationParameters where
   toJSON ServerReplicationParameters' {..} =

@@ -192,6 +192,25 @@ instance Core.FromJSON Subscription where
             Prelude.<*> (x Core..: "SubscriptionLimits")
       )
 
-instance Prelude.Hashable Subscription
+instance Prelude.Hashable Subscription where
+  hashWithSalt _salt Subscription' {..} =
+    _salt
+      `Prelude.hashWithSalt` timeCommitmentInSeconds
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` autoRenew
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` proactiveEngagementStatus
+      `Prelude.hashWithSalt` subscriptionArn
+      `Prelude.hashWithSalt` subscriptionLimits
 
-instance Prelude.NFData Subscription
+instance Prelude.NFData Subscription where
+  rnf Subscription' {..} =
+    Prelude.rnf timeCommitmentInSeconds
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf autoRenew
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf proactiveEngagementStatus
+      `Prelude.seq` Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf subscriptionLimits

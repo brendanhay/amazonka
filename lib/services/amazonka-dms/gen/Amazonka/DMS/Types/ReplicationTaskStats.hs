@@ -172,6 +172,30 @@ instance Core.FromJSON ReplicationTaskStats where
             Prelude.<*> (x Core..:? "FreshStartDate")
       )
 
-instance Prelude.Hashable ReplicationTaskStats
+instance Prelude.Hashable ReplicationTaskStats where
+  hashWithSalt _salt ReplicationTaskStats' {..} =
+    _salt `Prelude.hashWithSalt` stopDate
+      `Prelude.hashWithSalt` fullLoadProgressPercent
+      `Prelude.hashWithSalt` fullLoadStartDate
+      `Prelude.hashWithSalt` elapsedTimeMillis
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` tablesErrored
+      `Prelude.hashWithSalt` fullLoadFinishDate
+      `Prelude.hashWithSalt` tablesLoaded
+      `Prelude.hashWithSalt` tablesQueued
+      `Prelude.hashWithSalt` tablesLoading
+      `Prelude.hashWithSalt` freshStartDate
 
-instance Prelude.NFData ReplicationTaskStats
+instance Prelude.NFData ReplicationTaskStats where
+  rnf ReplicationTaskStats' {..} =
+    Prelude.rnf stopDate
+      `Prelude.seq` Prelude.rnf fullLoadProgressPercent
+      `Prelude.seq` Prelude.rnf fullLoadStartDate
+      `Prelude.seq` Prelude.rnf elapsedTimeMillis
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf tablesErrored
+      `Prelude.seq` Prelude.rnf fullLoadFinishDate
+      `Prelude.seq` Prelude.rnf tablesLoaded
+      `Prelude.seq` Prelude.rnf tablesQueued
+      `Prelude.seq` Prelude.rnf tablesLoading
+      `Prelude.seq` Prelude.rnf freshStartDate

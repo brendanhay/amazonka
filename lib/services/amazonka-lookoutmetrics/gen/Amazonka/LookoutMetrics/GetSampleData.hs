@@ -86,9 +86,12 @@ instance Core.AWSRequest GetSampleData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSampleData
+instance Prelude.Hashable GetSampleData where
+  hashWithSalt _salt GetSampleData' {..} =
+    _salt `Prelude.hashWithSalt` s3SourceConfig
 
-instance Prelude.NFData GetSampleData
+instance Prelude.NFData GetSampleData where
+  rnf GetSampleData' {..} = Prelude.rnf s3SourceConfig
 
 instance Core.ToHeaders GetSampleData where
   toHeaders =
@@ -164,4 +167,8 @@ getSampleDataResponse_headerValues = Lens.lens (\GetSampleDataResponse' {headerV
 getSampleDataResponse_httpStatus :: Lens.Lens' GetSampleDataResponse Prelude.Int
 getSampleDataResponse_httpStatus = Lens.lens (\GetSampleDataResponse' {httpStatus} -> httpStatus) (\s@GetSampleDataResponse' {} a -> s {httpStatus = a} :: GetSampleDataResponse)
 
-instance Prelude.NFData GetSampleDataResponse
+instance Prelude.NFData GetSampleDataResponse where
+  rnf GetSampleDataResponse' {..} =
+    Prelude.rnf sampleRows
+      `Prelude.seq` Prelude.rnf headerValues
+      `Prelude.seq` Prelude.rnf httpStatus

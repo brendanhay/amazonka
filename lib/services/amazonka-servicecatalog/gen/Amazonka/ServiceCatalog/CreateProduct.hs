@@ -253,9 +253,35 @@ instance Core.AWSRequest CreateProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProduct
+instance Prelude.Hashable CreateProduct where
+  hashWithSalt _salt CreateProduct' {..} =
+    _salt `Prelude.hashWithSalt` supportUrl
+      `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` supportEmail
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` supportDescription
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` provisioningArtifactParameters
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateProduct
+instance Prelude.NFData CreateProduct where
+  rnf CreateProduct' {..} =
+    Prelude.rnf supportUrl
+      `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf supportEmail
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf supportDescription
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateProduct where
   toHeaders =
@@ -360,4 +386,9 @@ createProductResponse_tags = Lens.lens (\CreateProductResponse' {tags} -> tags) 
 createProductResponse_httpStatus :: Lens.Lens' CreateProductResponse Prelude.Int
 createProductResponse_httpStatus = Lens.lens (\CreateProductResponse' {httpStatus} -> httpStatus) (\s@CreateProductResponse' {} a -> s {httpStatus = a} :: CreateProductResponse)
 
-instance Prelude.NFData CreateProductResponse
+instance Prelude.NFData CreateProductResponse where
+  rnf CreateProductResponse' {..} =
+    Prelude.rnf productViewDetail
+      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

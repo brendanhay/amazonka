@@ -244,9 +244,19 @@ instance Core.AWSRequest ListAttachedRolePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttachedRolePolicies
+instance Prelude.Hashable ListAttachedRolePolicies where
+  hashWithSalt _salt ListAttachedRolePolicies' {..} =
+    _salt `Prelude.hashWithSalt` pathPrefix
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData ListAttachedRolePolicies
+instance Prelude.NFData ListAttachedRolePolicies where
+  rnf ListAttachedRolePolicies' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders ListAttachedRolePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,3 +363,9 @@ listAttachedRolePoliciesResponse_httpStatus = Lens.lens (\ListAttachedRolePolici
 instance
   Prelude.NFData
     ListAttachedRolePoliciesResponse
+  where
+  rnf ListAttachedRolePoliciesResponse' {..} =
+    Prelude.rnf attachedPolicies
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus

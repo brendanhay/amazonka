@@ -175,9 +175,17 @@ instance Core.AWSRequest ListServerCertificateTags where
                         )
       )
 
-instance Prelude.Hashable ListServerCertificateTags
+instance Prelude.Hashable ListServerCertificateTags where
+  hashWithSalt _salt ListServerCertificateTags' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` serverCertificateName
 
-instance Prelude.NFData ListServerCertificateTags
+instance Prelude.NFData ListServerCertificateTags where
+  rnf ListServerCertificateTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf serverCertificateName
 
 instance Core.ToHeaders ListServerCertificateTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,3 +299,9 @@ listServerCertificateTagsResponse_tags = Lens.lens (\ListServerCertificateTagsRe
 instance
   Prelude.NFData
     ListServerCertificateTagsResponse
+  where
+  rnf ListServerCertificateTagsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

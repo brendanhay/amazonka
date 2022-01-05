@@ -29,6 +29,7 @@ module Amazonka.DynamoDBStreams.Types.ShardIteratorType
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype ShardIteratorType = ShardIteratorType'

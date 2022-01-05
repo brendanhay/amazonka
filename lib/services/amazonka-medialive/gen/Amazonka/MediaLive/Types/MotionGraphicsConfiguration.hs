@@ -77,9 +77,16 @@ instance Core.FromJSON MotionGraphicsConfiguration where
             Prelude.<*> (x Core..: "motionGraphicsSettings")
       )
 
-instance Prelude.Hashable MotionGraphicsConfiguration
+instance Prelude.Hashable MotionGraphicsConfiguration where
+  hashWithSalt _salt MotionGraphicsConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` motionGraphicsInsertion
+      `Prelude.hashWithSalt` motionGraphicsSettings
 
-instance Prelude.NFData MotionGraphicsConfiguration
+instance Prelude.NFData MotionGraphicsConfiguration where
+  rnf MotionGraphicsConfiguration' {..} =
+    Prelude.rnf motionGraphicsInsertion
+      `Prelude.seq` Prelude.rnf motionGraphicsSettings
 
 instance Core.ToJSON MotionGraphicsConfiguration where
   toJSON MotionGraphicsConfiguration' {..} =

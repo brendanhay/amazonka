@@ -133,6 +133,24 @@ instance Core.FromXML ObjectVersion where
       Prelude.<*> (x Core..@? "StorageClass")
       Prelude.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable ObjectVersion
+instance Prelude.Hashable ObjectVersion where
+  hashWithSalt _salt ObjectVersion' {..} =
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` isLatest
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` lastModified
 
-instance Prelude.NFData ObjectVersion
+instance Prelude.NFData ObjectVersion where
+  rnf ObjectVersion' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf isLatest
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf lastModified

@@ -112,9 +112,17 @@ instance Core.AWSRequest BatchUpdateSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdateSchedule
+instance Prelude.Hashable BatchUpdateSchedule where
+  hashWithSalt _salt BatchUpdateSchedule' {..} =
+    _salt `Prelude.hashWithSalt` creates
+      `Prelude.hashWithSalt` deletes
+      `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData BatchUpdateSchedule
+instance Prelude.NFData BatchUpdateSchedule where
+  rnf BatchUpdateSchedule' {..} =
+    Prelude.rnf creates
+      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf channelId
 
 instance Core.ToHeaders BatchUpdateSchedule where
   toHeaders =
@@ -194,4 +202,8 @@ batchUpdateScheduleResponse_deletes = Lens.lens (\BatchUpdateScheduleResponse' {
 batchUpdateScheduleResponse_httpStatus :: Lens.Lens' BatchUpdateScheduleResponse Prelude.Int
 batchUpdateScheduleResponse_httpStatus = Lens.lens (\BatchUpdateScheduleResponse' {httpStatus} -> httpStatus) (\s@BatchUpdateScheduleResponse' {} a -> s {httpStatus = a} :: BatchUpdateScheduleResponse)
 
-instance Prelude.NFData BatchUpdateScheduleResponse
+instance Prelude.NFData BatchUpdateScheduleResponse where
+  rnf BatchUpdateScheduleResponse' {..} =
+    Prelude.rnf creates
+      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf httpStatus

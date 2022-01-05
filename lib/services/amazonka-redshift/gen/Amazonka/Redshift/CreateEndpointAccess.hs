@@ -159,9 +159,21 @@ instance Core.AWSRequest CreateEndpointAccess where
       "CreateEndpointAccessResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateEndpointAccess
+instance Prelude.Hashable CreateEndpointAccess where
+  hashWithSalt _salt CreateEndpointAccess' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` subnetGroupName
 
-instance Prelude.NFData CreateEndpointAccess
+instance Prelude.NFData CreateEndpointAccess where
+  rnf CreateEndpointAccess' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf subnetGroupName
 
 instance Core.ToHeaders CreateEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

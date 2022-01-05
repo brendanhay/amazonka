@@ -131,9 +131,19 @@ instance Core.AWSRequest CreateConnectorDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnectorDefinition
+instance Prelude.Hashable CreateConnectorDefinition where
+  hashWithSalt _salt CreateConnectorDefinition' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateConnectorDefinition
+instance Prelude.NFData CreateConnectorDefinition where
+  rnf CreateConnectorDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf initialVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateConnectorDefinition where
   toHeaders CreateConnectorDefinition' {..} =
@@ -263,3 +273,13 @@ createConnectorDefinitionResponse_httpStatus = Lens.lens (\CreateConnectorDefini
 instance
   Prelude.NFData
     CreateConnectorDefinitionResponse
+  where
+  rnf CreateConnectorDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

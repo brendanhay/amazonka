@@ -275,9 +275,29 @@ instance Core.AWSRequest DisposePackageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisposePackageVersions
+instance Prelude.Hashable DisposePackageVersions where
+  hashWithSalt _salt DisposePackageVersions' {..} =
+    _salt `Prelude.hashWithSalt` expectedStatus
+      `Prelude.hashWithSalt` versionRevisions
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` versions
 
-instance Prelude.NFData DisposePackageVersions
+instance Prelude.NFData DisposePackageVersions where
+  rnf DisposePackageVersions' {..} =
+    Prelude.rnf expectedStatus
+      `Prelude.seq` Prelude.rnf versionRevisions
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf versions
 
 instance Core.ToHeaders DisposePackageVersions where
   toHeaders =
@@ -406,3 +426,8 @@ disposePackageVersionsResponse_httpStatus = Lens.lens (\DisposePackageVersionsRe
 instance
   Prelude.NFData
     DisposePackageVersionsResponse
+  where
+  rnf DisposePackageVersionsResponse' {..} =
+    Prelude.rnf failedVersions
+      `Prelude.seq` Prelude.rnf successfulVersions
+      `Prelude.seq` Prelude.rnf httpStatus

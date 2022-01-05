@@ -113,9 +113,15 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomains
+instance Prelude.Hashable ListDomains where
+  hashWithSalt _salt ListDomains' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDomains
+instance Prelude.NFData ListDomains where
+  rnf ListDomains' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDomains where
   toHeaders =
@@ -204,4 +210,8 @@ listDomainsResponse_domainSummaries = Lens.lens (\ListDomainsResponse' {domainSu
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
-instance Prelude.NFData ListDomainsResponse
+instance Prelude.NFData ListDomainsResponse where
+  rnf ListDomainsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

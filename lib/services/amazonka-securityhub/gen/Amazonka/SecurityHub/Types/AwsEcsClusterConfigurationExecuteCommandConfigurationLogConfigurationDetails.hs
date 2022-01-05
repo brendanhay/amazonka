@@ -112,10 +112,27 @@ instance
 instance
   Prelude.Hashable
     AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` cloudWatchLogGroupName
+        `Prelude.hashWithSalt` s3KeyPrefix
+        `Prelude.hashWithSalt` cloudWatchEncryptionEnabled
+        `Prelude.hashWithSalt` s3EncryptionEnabled
+        `Prelude.hashWithSalt` s3BucketName
 
 instance
   Prelude.NFData
     AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
+  where
+  rnf
+    AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails' {..} =
+      Prelude.rnf cloudWatchLogGroupName
+        `Prelude.seq` Prelude.rnf s3KeyPrefix
+        `Prelude.seq` Prelude.rnf cloudWatchEncryptionEnabled
+        `Prelude.seq` Prelude.rnf s3EncryptionEnabled
+        `Prelude.seq` Prelude.rnf s3BucketName
 
 instance
   Core.ToJSON

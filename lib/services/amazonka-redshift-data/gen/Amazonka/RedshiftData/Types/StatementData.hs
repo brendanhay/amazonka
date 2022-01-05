@@ -167,6 +167,28 @@ instance Core.FromJSON StatementData where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable StatementData
+instance Prelude.Hashable StatementData where
+  hashWithSalt _salt StatementData' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` queryParameters
+      `Prelude.hashWithSalt` queryStrings
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` isBatchStatement
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData StatementData
+instance Prelude.NFData StatementData where
+  rnf StatementData' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf queryParameters
+      `Prelude.seq` Prelude.rnf queryStrings
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf isBatchStatement
+      `Prelude.seq` Prelude.rnf id

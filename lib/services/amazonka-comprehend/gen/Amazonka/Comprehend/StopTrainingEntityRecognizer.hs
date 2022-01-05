@@ -100,8 +100,13 @@ instance Core.AWSRequest StopTrainingEntityRecognizer where
 instance
   Prelude.Hashable
     StopTrainingEntityRecognizer
+  where
+  hashWithSalt _salt StopTrainingEntityRecognizer' {..} =
+    _salt `Prelude.hashWithSalt` entityRecognizerArn
 
-instance Prelude.NFData StopTrainingEntityRecognizer
+instance Prelude.NFData StopTrainingEntityRecognizer where
+  rnf StopTrainingEntityRecognizer' {..} =
+    Prelude.rnf entityRecognizerArn
 
 instance Core.ToHeaders StopTrainingEntityRecognizer where
   toHeaders =
@@ -166,3 +171,6 @@ stopTrainingEntityRecognizerResponse_httpStatus = Lens.lens (\StopTrainingEntity
 instance
   Prelude.NFData
     StopTrainingEntityRecognizerResponse
+  where
+  rnf StopTrainingEntityRecognizerResponse' {..} =
+    Prelude.rnf httpStatus

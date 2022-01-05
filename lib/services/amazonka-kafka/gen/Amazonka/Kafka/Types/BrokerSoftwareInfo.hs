@@ -88,6 +88,14 @@ instance Core.FromJSON BrokerSoftwareInfo where
             Prelude.<*> (x Core..:? "configurationArn")
       )
 
-instance Prelude.Hashable BrokerSoftwareInfo
+instance Prelude.Hashable BrokerSoftwareInfo where
+  hashWithSalt _salt BrokerSoftwareInfo' {..} =
+    _salt `Prelude.hashWithSalt` configurationRevision
+      `Prelude.hashWithSalt` kafkaVersion
+      `Prelude.hashWithSalt` configurationArn
 
-instance Prelude.NFData BrokerSoftwareInfo
+instance Prelude.NFData BrokerSoftwareInfo where
+  rnf BrokerSoftwareInfo' {..} =
+    Prelude.rnf configurationRevision
+      `Prelude.seq` Prelude.rnf kafkaVersion
+      `Prelude.seq` Prelude.rnf configurationArn

@@ -74,6 +74,12 @@ instance Core.FromJSON ACLPendingChanges where
                         )
       )
 
-instance Prelude.Hashable ACLPendingChanges
+instance Prelude.Hashable ACLPendingChanges where
+  hashWithSalt _salt ACLPendingChanges' {..} =
+    _salt `Prelude.hashWithSalt` userNamesToAdd
+      `Prelude.hashWithSalt` userNamesToRemove
 
-instance Prelude.NFData ACLPendingChanges
+instance Prelude.NFData ACLPendingChanges where
+  rnf ACLPendingChanges' {..} =
+    Prelude.rnf userNamesToAdd
+      `Prelude.seq` Prelude.rnf userNamesToRemove

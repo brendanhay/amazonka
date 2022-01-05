@@ -96,9 +96,12 @@ instance Core.AWSRequest GetDetector where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetDetector
+instance Prelude.Hashable GetDetector where
+  hashWithSalt _salt GetDetector' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData GetDetector
+instance Prelude.NFData GetDetector where
+  rnf GetDetector' {..} = Prelude.rnf detectorId
 
 instance Core.ToHeaders GetDetector where
   toHeaders =
@@ -218,4 +221,13 @@ getDetectorResponse_serviceRole = Lens.lens (\GetDetectorResponse' {serviceRole}
 getDetectorResponse_status :: Lens.Lens' GetDetectorResponse DetectorStatus
 getDetectorResponse_status = Lens.lens (\GetDetectorResponse' {status} -> status) (\s@GetDetectorResponse' {} a -> s {status = a} :: GetDetectorResponse)
 
-instance Prelude.NFData GetDetectorResponse
+instance Prelude.NFData GetDetectorResponse where
+  rnf GetDetectorResponse' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf status

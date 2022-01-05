@@ -140,9 +140,17 @@ instance Core.AWSRequest PurchaseScheduledInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseScheduledInstances
+instance Prelude.Hashable PurchaseScheduledInstances where
+  hashWithSalt _salt PurchaseScheduledInstances' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` purchaseRequests
 
-instance Prelude.NFData PurchaseScheduledInstances
+instance Prelude.NFData PurchaseScheduledInstances where
+  rnf PurchaseScheduledInstances' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf purchaseRequests
 
 instance Core.ToHeaders PurchaseScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +214,7 @@ purchaseScheduledInstancesResponse_httpStatus = Lens.lens (\PurchaseScheduledIns
 instance
   Prelude.NFData
     PurchaseScheduledInstancesResponse
+  where
+  rnf PurchaseScheduledInstancesResponse' {..} =
+    Prelude.rnf scheduledInstanceSet
+      `Prelude.seq` Prelude.rnf httpStatus

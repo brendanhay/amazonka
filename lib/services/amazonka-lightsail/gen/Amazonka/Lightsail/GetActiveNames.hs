@@ -122,9 +122,12 @@ instance Core.AWSRequest GetActiveNames where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetActiveNames
+instance Prelude.Hashable GetActiveNames where
+  hashWithSalt _salt GetActiveNames' {..} =
+    _salt `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetActiveNames
+instance Prelude.NFData GetActiveNames where
+  rnf GetActiveNames' {..} = Prelude.rnf pageToken
 
 instance Core.ToHeaders GetActiveNames where
   toHeaders =
@@ -220,4 +223,8 @@ getActiveNamesResponse_activeNames = Lens.lens (\GetActiveNamesResponse' {active
 getActiveNamesResponse_httpStatus :: Lens.Lens' GetActiveNamesResponse Prelude.Int
 getActiveNamesResponse_httpStatus = Lens.lens (\GetActiveNamesResponse' {httpStatus} -> httpStatus) (\s@GetActiveNamesResponse' {} a -> s {httpStatus = a} :: GetActiveNamesResponse)
 
-instance Prelude.NFData GetActiveNamesResponse
+instance Prelude.NFData GetActiveNamesResponse where
+  rnf GetActiveNamesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf activeNames
+      `Prelude.seq` Prelude.rnf httpStatus

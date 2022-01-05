@@ -83,7 +83,17 @@ instance
 instance
   Prelude.Hashable
     ComplianceSummaryByResourceType
+  where
+  hashWithSalt
+    _salt
+    ComplianceSummaryByResourceType' {..} =
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` complianceSummary
 
 instance
   Prelude.NFData
     ComplianceSummaryByResourceType
+  where
+  rnf ComplianceSummaryByResourceType' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf complianceSummary

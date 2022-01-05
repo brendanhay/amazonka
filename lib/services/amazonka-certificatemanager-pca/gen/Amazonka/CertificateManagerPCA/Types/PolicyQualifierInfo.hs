@@ -75,9 +75,15 @@ policyQualifierInfo_policyQualifierId = Lens.lens (\PolicyQualifierInfo' {policy
 policyQualifierInfo_qualifier :: Lens.Lens' PolicyQualifierInfo Qualifier
 policyQualifierInfo_qualifier = Lens.lens (\PolicyQualifierInfo' {qualifier} -> qualifier) (\s@PolicyQualifierInfo' {} a -> s {qualifier = a} :: PolicyQualifierInfo)
 
-instance Prelude.Hashable PolicyQualifierInfo
+instance Prelude.Hashable PolicyQualifierInfo where
+  hashWithSalt _salt PolicyQualifierInfo' {..} =
+    _salt `Prelude.hashWithSalt` policyQualifierId
+      `Prelude.hashWithSalt` qualifier
 
-instance Prelude.NFData PolicyQualifierInfo
+instance Prelude.NFData PolicyQualifierInfo where
+  rnf PolicyQualifierInfo' {..} =
+    Prelude.rnf policyQualifierId
+      `Prelude.seq` Prelude.rnf qualifier
 
 instance Core.ToJSON PolicyQualifierInfo where
   toJSON PolicyQualifierInfo' {..} =

@@ -116,9 +116,17 @@ instance Core.AWSRequest DeleteApplicationVersion where
     Response.receiveNull
       DeleteApplicationVersionResponse'
 
-instance Prelude.Hashable DeleteApplicationVersion
+instance Prelude.Hashable DeleteApplicationVersion where
+  hashWithSalt _salt DeleteApplicationVersion' {..} =
+    _salt `Prelude.hashWithSalt` deleteSourceBundle
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` versionLabel
 
-instance Prelude.NFData DeleteApplicationVersion
+instance Prelude.NFData DeleteApplicationVersion where
+  rnf DeleteApplicationVersion' {..} =
+    Prelude.rnf deleteSourceBundle
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf versionLabel
 
 instance Core.ToHeaders DeleteApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +164,5 @@ newDeleteApplicationVersionResponse =
 instance
   Prelude.NFData
     DeleteApplicationVersionResponse
+  where
+  rnf _ = ()

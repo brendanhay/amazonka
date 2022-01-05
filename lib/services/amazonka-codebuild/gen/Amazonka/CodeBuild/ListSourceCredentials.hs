@@ -72,9 +72,12 @@ instance Core.AWSRequest ListSourceCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSourceCredentials
+instance Prelude.Hashable ListSourceCredentials where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData ListSourceCredentials
+instance Prelude.NFData ListSourceCredentials where
+  rnf _ = ()
 
 instance Core.ToHeaders ListSourceCredentials where
   toHeaders =
@@ -145,4 +148,7 @@ listSourceCredentialsResponse_sourceCredentialsInfos = Lens.lens (\ListSourceCre
 listSourceCredentialsResponse_httpStatus :: Lens.Lens' ListSourceCredentialsResponse Prelude.Int
 listSourceCredentialsResponse_httpStatus = Lens.lens (\ListSourceCredentialsResponse' {httpStatus} -> httpStatus) (\s@ListSourceCredentialsResponse' {} a -> s {httpStatus = a} :: ListSourceCredentialsResponse)
 
-instance Prelude.NFData ListSourceCredentialsResponse
+instance Prelude.NFData ListSourceCredentialsResponse where
+  rnf ListSourceCredentialsResponse' {..} =
+    Prelude.rnf sourceCredentialsInfos
+      `Prelude.seq` Prelude.rnf httpStatus

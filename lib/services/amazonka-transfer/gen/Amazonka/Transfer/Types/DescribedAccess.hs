@@ -262,6 +262,22 @@ instance Core.FromJSON DescribedAccess where
             Prelude.<*> (x Core..:? "HomeDirectory")
       )
 
-instance Prelude.Hashable DescribedAccess
+instance Prelude.Hashable DescribedAccess where
+  hashWithSalt _salt DescribedAccess' {..} =
+    _salt `Prelude.hashWithSalt` homeDirectoryType
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` homeDirectory
 
-instance Prelude.NFData DescribedAccess
+instance Prelude.NFData DescribedAccess where
+  rnf DescribedAccess' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf posixProfile
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf homeDirectory

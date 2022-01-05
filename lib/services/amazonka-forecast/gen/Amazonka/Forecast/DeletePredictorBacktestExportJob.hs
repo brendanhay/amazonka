@@ -91,10 +91,19 @@ instance
 instance
   Prelude.Hashable
     DeletePredictorBacktestExportJob
+  where
+  hashWithSalt
+    _salt
+    DeletePredictorBacktestExportJob' {..} =
+      _salt
+        `Prelude.hashWithSalt` predictorBacktestExportJobArn
 
 instance
   Prelude.NFData
     DeletePredictorBacktestExportJob
+  where
+  rnf DeletePredictorBacktestExportJob' {..} =
+    Prelude.rnf predictorBacktestExportJobArn
 
 instance
   Core.ToHeaders
@@ -152,3 +161,5 @@ newDeletePredictorBacktestExportJobResponse =
 instance
   Prelude.NFData
     DeletePredictorBacktestExportJobResponse
+  where
+  rnf _ = ()

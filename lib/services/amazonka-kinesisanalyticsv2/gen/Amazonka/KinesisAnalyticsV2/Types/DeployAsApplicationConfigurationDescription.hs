@@ -76,7 +76,16 @@ instance
 instance
   Prelude.Hashable
     DeployAsApplicationConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    DeployAsApplicationConfigurationDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` s3ContentLocationDescription
 
 instance
   Prelude.NFData
     DeployAsApplicationConfigurationDescription
+  where
+  rnf DeployAsApplicationConfigurationDescription' {..} =
+    Prelude.rnf s3ContentLocationDescription

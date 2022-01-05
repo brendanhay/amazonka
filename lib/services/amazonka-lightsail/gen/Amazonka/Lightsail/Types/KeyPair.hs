@@ -152,6 +152,24 @@ instance Core.FromJSON KeyPair where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable KeyPair
+instance Prelude.Hashable KeyPair where
+  hashWithSalt _salt KeyPair' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` fingerprint
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData KeyPair
+instance Prelude.NFData KeyPair where
+  rnf KeyPair' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf tags

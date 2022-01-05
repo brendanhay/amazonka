@@ -105,9 +105,15 @@ instance Core.AWSRequest DescribeConnectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnectors
+instance Prelude.Hashable DescribeConnectors where
+  hashWithSalt _salt DescribeConnectors' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` connectorTypes
 
-instance Prelude.NFData DescribeConnectors
+instance Prelude.NFData DescribeConnectors where
+  rnf DescribeConnectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorTypes
 
 instance Core.ToHeaders DescribeConnectors where
   toHeaders =
@@ -184,4 +190,8 @@ describeConnectorsResponse_nextToken = Lens.lens (\DescribeConnectorsResponse' {
 describeConnectorsResponse_httpStatus :: Lens.Lens' DescribeConnectorsResponse Prelude.Int
 describeConnectorsResponse_httpStatus = Lens.lens (\DescribeConnectorsResponse' {httpStatus} -> httpStatus) (\s@DescribeConnectorsResponse' {} a -> s {httpStatus = a} :: DescribeConnectorsResponse)
 
-instance Prelude.NFData DescribeConnectorsResponse
+instance Prelude.NFData DescribeConnectorsResponse where
+  rnf DescribeConnectorsResponse' {..} =
+    Prelude.rnf connectorConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

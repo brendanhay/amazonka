@@ -222,9 +222,32 @@ instance Core.AWSRequest CreateJobTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJobTemplate
+instance Prelude.Hashable CreateJobTemplate where
+  hashWithSalt _salt CreateJobTemplate' {..} =
+    _salt
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` documentSource
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` timeoutConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobTemplateId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateJobTemplate
+instance Prelude.NFData CreateJobTemplate where
+  rnf CreateJobTemplate' {..} =
+    Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf documentSource
+      `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,4 +327,8 @@ createJobTemplateResponse_jobTemplateArn = Lens.lens (\CreateJobTemplateResponse
 createJobTemplateResponse_httpStatus :: Lens.Lens' CreateJobTemplateResponse Prelude.Int
 createJobTemplateResponse_httpStatus = Lens.lens (\CreateJobTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateJobTemplateResponse' {} a -> s {httpStatus = a} :: CreateJobTemplateResponse)
 
-instance Prelude.NFData CreateJobTemplateResponse
+instance Prelude.NFData CreateJobTemplateResponse where
+  rnf CreateJobTemplateResponse' {..} =
+    Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf httpStatus

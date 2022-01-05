@@ -64,6 +64,9 @@ instance Core.FromXML HibernationOptions where
     HibernationOptions'
       Prelude.<$> (x Core..@? "configured")
 
-instance Prelude.Hashable HibernationOptions
+instance Prelude.Hashable HibernationOptions where
+  hashWithSalt _salt HibernationOptions' {..} =
+    _salt `Prelude.hashWithSalt` configured
 
-instance Prelude.NFData HibernationOptions
+instance Prelude.NFData HibernationOptions where
+  rnf HibernationOptions' {..} = Prelude.rnf configured

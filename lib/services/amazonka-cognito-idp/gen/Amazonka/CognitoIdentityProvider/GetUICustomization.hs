@@ -102,9 +102,15 @@ instance Core.AWSRequest GetUICustomization where
             Prelude.<*> (x Core..:> "UICustomization")
       )
 
-instance Prelude.Hashable GetUICustomization
+instance Prelude.Hashable GetUICustomization where
+  hashWithSalt _salt GetUICustomization' {..} =
+    _salt `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData GetUICustomization
+instance Prelude.NFData GetUICustomization where
+  rnf GetUICustomization' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders GetUICustomization where
   toHeaders =
@@ -179,4 +185,7 @@ getUICustomizationResponse_httpStatus = Lens.lens (\GetUICustomizationResponse' 
 getUICustomizationResponse_uICustomization :: Lens.Lens' GetUICustomizationResponse UICustomizationType
 getUICustomizationResponse_uICustomization = Lens.lens (\GetUICustomizationResponse' {uICustomization} -> uICustomization) (\s@GetUICustomizationResponse' {} a -> s {uICustomization = a} :: GetUICustomizationResponse)
 
-instance Prelude.NFData GetUICustomizationResponse
+instance Prelude.NFData GetUICustomizationResponse where
+  rnf GetUICustomizationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uICustomization

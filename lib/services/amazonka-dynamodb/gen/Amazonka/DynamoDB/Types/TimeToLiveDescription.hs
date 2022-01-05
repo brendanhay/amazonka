@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.TimeToLiveDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.TimeToLiveStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -73,6 +74,12 @@ instance Core.FromJSON TimeToLiveDescription where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable TimeToLiveDescription
+instance Prelude.Hashable TimeToLiveDescription where
+  hashWithSalt _salt TimeToLiveDescription' {..} =
+    _salt `Prelude.hashWithSalt` timeToLiveStatus
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData TimeToLiveDescription
+instance Prelude.NFData TimeToLiveDescription where
+  rnf TimeToLiveDescription' {..} =
+    Prelude.rnf timeToLiveStatus
+      `Prelude.seq` Prelude.rnf attributeName

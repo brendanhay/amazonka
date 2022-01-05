@@ -283,5 +283,25 @@ instance Core.FromXML StackSetDriftDetectionDetails where
 instance
   Prelude.Hashable
     StackSetDriftDetectionDetails
+  where
+  hashWithSalt _salt StackSetDriftDetectionDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` lastDriftCheckTimestamp
+      `Prelude.hashWithSalt` totalStackInstancesCount
+      `Prelude.hashWithSalt` inProgressStackInstancesCount
+      `Prelude.hashWithSalt` driftedStackInstancesCount
+      `Prelude.hashWithSalt` driftDetectionStatus
+      `Prelude.hashWithSalt` driftStatus
+      `Prelude.hashWithSalt` failedStackInstancesCount
+      `Prelude.hashWithSalt` inSyncStackInstancesCount
 
-instance Prelude.NFData StackSetDriftDetectionDetails
+instance Prelude.NFData StackSetDriftDetectionDetails where
+  rnf StackSetDriftDetectionDetails' {..} =
+    Prelude.rnf lastDriftCheckTimestamp
+      `Prelude.seq` Prelude.rnf totalStackInstancesCount
+      `Prelude.seq` Prelude.rnf inProgressStackInstancesCount
+      `Prelude.seq` Prelude.rnf driftedStackInstancesCount
+      `Prelude.seq` Prelude.rnf driftDetectionStatus
+      `Prelude.seq` Prelude.rnf driftStatus
+      `Prelude.seq` Prelude.rnf failedStackInstancesCount
+      `Prelude.seq` Prelude.rnf inSyncStackInstancesCount

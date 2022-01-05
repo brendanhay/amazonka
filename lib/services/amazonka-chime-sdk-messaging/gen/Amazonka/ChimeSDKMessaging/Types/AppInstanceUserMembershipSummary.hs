@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     AppInstanceUserMembershipSummary
+  where
+  hashWithSalt
+    _salt
+    AppInstanceUserMembershipSummary' {..} =
+      _salt `Prelude.hashWithSalt` readMarkerTimestamp
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AppInstanceUserMembershipSummary
+  where
+  rnf AppInstanceUserMembershipSummary' {..} =
+    Prelude.rnf readMarkerTimestamp
+      `Prelude.seq` Prelude.rnf type'

@@ -93,6 +93,14 @@ instance Core.FromJSON AssociationOverview where
                         )
       )
 
-instance Prelude.Hashable AssociationOverview
+instance Prelude.Hashable AssociationOverview where
+  hashWithSalt _salt AssociationOverview' {..} =
+    _salt `Prelude.hashWithSalt` detailedStatus
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` associationStatusAggregatedCount
 
-instance Prelude.NFData AssociationOverview
+instance Prelude.NFData AssociationOverview where
+  rnf AssociationOverview' {..} =
+    Prelude.rnf detailedStatus
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf associationStatusAggregatedCount

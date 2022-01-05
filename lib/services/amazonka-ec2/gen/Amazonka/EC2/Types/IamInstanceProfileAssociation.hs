@@ -105,5 +105,18 @@ instance Core.FromXML IamInstanceProfileAssociation where
 instance
   Prelude.Hashable
     IamInstanceProfileAssociation
+  where
+  hashWithSalt _salt IamInstanceProfileAssociation' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData IamInstanceProfileAssociation
+instance Prelude.NFData IamInstanceProfileAssociation where
+  rnf IamInstanceProfileAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf timestamp

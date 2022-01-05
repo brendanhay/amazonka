@@ -122,9 +122,17 @@ instance Core.AWSRequest UpdateConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConfiguration
+instance Prelude.Hashable UpdateConfiguration where
+  hashWithSalt _salt UpdateConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configurationId
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData UpdateConfiguration
+instance Prelude.NFData UpdateConfiguration where
+  rnf UpdateConfiguration' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToHeaders UpdateConfiguration where
   toHeaders =
@@ -246,4 +254,12 @@ updateConfigurationResponse_id = Lens.lens (\UpdateConfigurationResponse' {id} -
 updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Prelude.Int
 updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationResponse)
 
-instance Prelude.NFData UpdateConfigurationResponse
+instance Prelude.NFData UpdateConfigurationResponse where
+  rnf UpdateConfigurationResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

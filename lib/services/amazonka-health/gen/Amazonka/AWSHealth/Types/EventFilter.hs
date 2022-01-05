@@ -185,9 +185,37 @@ eventFilter_tags = Lens.lens (\EventFilter' {tags} -> tags) (\s@EventFilter' {} 
 eventFilter_lastUpdatedTimes :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty DateTimeRange))
 eventFilter_lastUpdatedTimes = Lens.lens (\EventFilter' {lastUpdatedTimes} -> lastUpdatedTimes) (\s@EventFilter' {} a -> s {lastUpdatedTimes = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable EventFilter
+instance Prelude.Hashable EventFilter where
+  hashWithSalt _salt EventFilter' {..} =
+    _salt `Prelude.hashWithSalt` eventArns
+      `Prelude.hashWithSalt` eventTypeCategories
+      `Prelude.hashWithSalt` eventTypeCodes
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` eventStatusCodes
+      `Prelude.hashWithSalt` endTimes
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` entityArns
+      `Prelude.hashWithSalt` entityValues
+      `Prelude.hashWithSalt` startTimes
+      `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastUpdatedTimes
 
-instance Prelude.NFData EventFilter
+instance Prelude.NFData EventFilter where
+  rnf EventFilter' {..} =
+    Prelude.rnf eventArns
+      `Prelude.seq` Prelude.rnf eventTypeCategories
+      `Prelude.seq` Prelude.rnf eventTypeCodes
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf eventStatusCodes
+      `Prelude.seq` Prelude.rnf endTimes
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf entityArns
+      `Prelude.seq` Prelude.rnf entityValues
+      `Prelude.seq` Prelude.rnf startTimes
+      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimes
 
 instance Core.ToJSON EventFilter where
   toJSON EventFilter' {..} =

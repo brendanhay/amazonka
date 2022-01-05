@@ -108,9 +108,17 @@ instance Core.AWSRequest UpdateTagOption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTagOption
+instance Prelude.Hashable UpdateTagOption where
+  hashWithSalt _salt UpdateTagOption' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateTagOption
+instance Prelude.NFData UpdateTagOption where
+  rnf UpdateTagOption' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateTagOption where
   toHeaders =
@@ -182,4 +190,7 @@ updateTagOptionResponse_tagOptionDetail = Lens.lens (\UpdateTagOptionResponse' {
 updateTagOptionResponse_httpStatus :: Lens.Lens' UpdateTagOptionResponse Prelude.Int
 updateTagOptionResponse_httpStatus = Lens.lens (\UpdateTagOptionResponse' {httpStatus} -> httpStatus) (\s@UpdateTagOptionResponse' {} a -> s {httpStatus = a} :: UpdateTagOptionResponse)
 
-instance Prelude.NFData UpdateTagOptionResponse
+instance Prelude.NFData UpdateTagOptionResponse where
+  rnf UpdateTagOptionResponse' {..} =
+    Prelude.rnf tagOptionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

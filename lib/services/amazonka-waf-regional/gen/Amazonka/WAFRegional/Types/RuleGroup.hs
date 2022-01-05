@@ -137,6 +137,14 @@ instance Core.FromJSON RuleGroup where
             Prelude.<*> (x Core..: "RuleGroupId")
       )
 
-instance Prelude.Hashable RuleGroup
+instance Prelude.Hashable RuleGroup where
+  hashWithSalt _salt RuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ruleGroupId
 
-instance Prelude.NFData RuleGroup
+instance Prelude.NFData RuleGroup where
+  rnf RuleGroup' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ruleGroupId

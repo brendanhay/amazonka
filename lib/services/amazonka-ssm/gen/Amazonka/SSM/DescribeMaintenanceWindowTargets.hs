@@ -169,10 +169,24 @@ instance
 instance
   Prelude.Hashable
     DescribeMaintenanceWindowTargets
+  where
+  hashWithSalt
+    _salt
+    DescribeMaintenanceWindowTargets' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` windowId
 
 instance
   Prelude.NFData
     DescribeMaintenanceWindowTargets
+  where
+  rnf DescribeMaintenanceWindowTargets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf windowId
 
 instance
   Core.ToHeaders
@@ -267,3 +281,8 @@ describeMaintenanceWindowTargetsResponse_httpStatus = Lens.lens (\DescribeMainte
 instance
   Prelude.NFData
     DescribeMaintenanceWindowTargetsResponse
+  where
+  rnf DescribeMaintenanceWindowTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf httpStatus

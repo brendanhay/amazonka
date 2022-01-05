@@ -71,6 +71,11 @@ instance Core.FromJSON SimplifiedApplication where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable SimplifiedApplication
+instance Prelude.Hashable SimplifiedApplication where
+  hashWithSalt _salt SimplifiedApplication' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData SimplifiedApplication
+instance Prelude.NFData SimplifiedApplication where
+  rnf SimplifiedApplication' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version

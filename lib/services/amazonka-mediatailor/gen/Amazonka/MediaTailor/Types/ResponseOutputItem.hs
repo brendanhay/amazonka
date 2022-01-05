@@ -119,6 +119,18 @@ instance Core.FromJSON ResponseOutputItem where
             Prelude.<*> (x Core..: "SourceGroup")
       )
 
-instance Prelude.Hashable ResponseOutputItem
+instance Prelude.Hashable ResponseOutputItem where
+  hashWithSalt _salt ResponseOutputItem' {..} =
+    _salt `Prelude.hashWithSalt` hlsPlaylistSettings
+      `Prelude.hashWithSalt` dashPlaylistSettings
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` playbackUrl
+      `Prelude.hashWithSalt` sourceGroup
 
-instance Prelude.NFData ResponseOutputItem
+instance Prelude.NFData ResponseOutputItem where
+  rnf ResponseOutputItem' {..} =
+    Prelude.rnf hlsPlaylistSettings
+      `Prelude.seq` Prelude.rnf dashPlaylistSettings
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf playbackUrl
+      `Prelude.seq` Prelude.rnf sourceGroup

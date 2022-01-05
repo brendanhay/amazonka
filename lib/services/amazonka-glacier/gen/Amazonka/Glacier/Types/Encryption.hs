@@ -95,9 +95,17 @@ instance Core.FromJSON Encryption where
             Prelude.<*> (x Core..:? "KMSContext")
       )
 
-instance Prelude.Hashable Encryption
+instance Prelude.Hashable Encryption where
+  hashWithSalt _salt Encryption' {..} =
+    _salt `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` kmsContext
 
-instance Prelude.NFData Encryption
+instance Prelude.NFData Encryption where
+  rnf Encryption' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf kmsContext
 
 instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =

@@ -299,9 +299,21 @@ instance Core.AWSRequest StartRestoreJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartRestoreJob
+instance Prelude.Hashable StartRestoreJob where
+  hashWithSalt _salt StartRestoreJob' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData StartRestoreJob
+instance Prelude.NFData StartRestoreJob where
+  rnf StartRestoreJob' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf iamRoleArn
 
 instance Core.ToHeaders StartRestoreJob where
   toHeaders =
@@ -373,4 +385,7 @@ startRestoreJobResponse_restoreJobId = Lens.lens (\StartRestoreJobResponse' {res
 startRestoreJobResponse_httpStatus :: Lens.Lens' StartRestoreJobResponse Prelude.Int
 startRestoreJobResponse_httpStatus = Lens.lens (\StartRestoreJobResponse' {httpStatus} -> httpStatus) (\s@StartRestoreJobResponse' {} a -> s {httpStatus = a} :: StartRestoreJobResponse)
 
-instance Prelude.NFData StartRestoreJobResponse
+instance Prelude.NFData StartRestoreJobResponse where
+  rnf StartRestoreJobResponse' {..} =
+    Prelude.rnf restoreJobId
+      `Prelude.seq` Prelude.rnf httpStatus

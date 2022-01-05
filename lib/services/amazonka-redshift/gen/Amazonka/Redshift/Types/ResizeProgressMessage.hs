@@ -308,6 +308,40 @@ instance Core.FromXML ResizeProgressMessage where
       Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
 
-instance Prelude.Hashable ResizeProgressMessage
+instance Prelude.Hashable ResizeProgressMessage where
+  hashWithSalt _salt ResizeProgressMessage' {..} =
+    _salt `Prelude.hashWithSalt` importTablesNotStarted
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+      `Prelude.hashWithSalt` avgResizeRateInMegaBytesPerSecond
+      `Prelude.hashWithSalt` targetNumberOfNodes
+      `Prelude.hashWithSalt` targetEncryptionType
+      `Prelude.hashWithSalt` targetNodeType
+      `Prelude.hashWithSalt` importTablesInProgress
+      `Prelude.hashWithSalt` resizeType
+      `Prelude.hashWithSalt` importTablesCompleted
+      `Prelude.hashWithSalt` progressInMegaBytes
+      `Prelude.hashWithSalt` dataTransferProgressPercent
+      `Prelude.hashWithSalt` totalResizeDataInMegaBytes
+      `Prelude.hashWithSalt` targetClusterType
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` elapsedTimeInSeconds
 
-instance Prelude.NFData ResizeProgressMessage
+instance Prelude.NFData ResizeProgressMessage where
+  rnf ResizeProgressMessage' {..} =
+    Prelude.rnf importTablesNotStarted
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
+      `Prelude.seq` Prelude.rnf avgResizeRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf targetNumberOfNodes
+      `Prelude.seq` Prelude.rnf targetEncryptionType
+      `Prelude.seq` Prelude.rnf targetNodeType
+      `Prelude.seq` Prelude.rnf importTablesInProgress
+      `Prelude.seq` Prelude.rnf resizeType
+      `Prelude.seq` Prelude.rnf importTablesCompleted
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf dataTransferProgressPercent
+      `Prelude.seq` Prelude.rnf totalResizeDataInMegaBytes
+      `Prelude.seq` Prelude.rnf targetClusterType
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds

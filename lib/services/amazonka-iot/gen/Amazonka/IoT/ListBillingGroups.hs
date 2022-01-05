@@ -143,9 +143,17 @@ instance Core.AWSRequest ListBillingGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBillingGroups
+instance Prelude.Hashable ListBillingGroups where
+  hashWithSalt _salt ListBillingGroups' {..} =
+    _salt `Prelude.hashWithSalt` namePrefixFilter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListBillingGroups
+instance Prelude.NFData ListBillingGroups where
+  rnf ListBillingGroups' {..} =
+    Prelude.rnf namePrefixFilter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBillingGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,4 +220,8 @@ listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse'
 listBillingGroupsResponse_httpStatus :: Lens.Lens' ListBillingGroupsResponse Prelude.Int
 listBillingGroupsResponse_httpStatus = Lens.lens (\ListBillingGroupsResponse' {httpStatus} -> httpStatus) (\s@ListBillingGroupsResponse' {} a -> s {httpStatus = a} :: ListBillingGroupsResponse)
 
-instance Prelude.NFData ListBillingGroupsResponse
+instance Prelude.NFData ListBillingGroupsResponse where
+  rnf ListBillingGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf billingGroups
+      `Prelude.seq` Prelude.rnf httpStatus

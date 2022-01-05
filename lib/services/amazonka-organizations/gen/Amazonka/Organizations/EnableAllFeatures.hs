@@ -103,9 +103,12 @@ instance Core.AWSRequest EnableAllFeatures where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableAllFeatures
+instance Prelude.Hashable EnableAllFeatures where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData EnableAllFeatures
+instance Prelude.NFData EnableAllFeatures where
+  rnf _ = ()
 
 instance Core.ToHeaders EnableAllFeatures where
   toHeaders =
@@ -173,4 +176,7 @@ enableAllFeaturesResponse_handshake = Lens.lens (\EnableAllFeaturesResponse' {ha
 enableAllFeaturesResponse_httpStatus :: Lens.Lens' EnableAllFeaturesResponse Prelude.Int
 enableAllFeaturesResponse_httpStatus = Lens.lens (\EnableAllFeaturesResponse' {httpStatus} -> httpStatus) (\s@EnableAllFeaturesResponse' {} a -> s {httpStatus = a} :: EnableAllFeaturesResponse)
 
-instance Prelude.NFData EnableAllFeaturesResponse
+instance Prelude.NFData EnableAllFeaturesResponse where
+  rnf EnableAllFeaturesResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

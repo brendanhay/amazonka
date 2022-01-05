@@ -112,6 +112,20 @@ instance Core.FromJSON FlowExecutionSummary where
             Prelude.<*> (x Core..:? "updatedAt")
       )
 
-instance Prelude.Hashable FlowExecutionSummary
+instance Prelude.Hashable FlowExecutionSummary where
+  hashWithSalt _salt FlowExecutionSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` flowTemplateId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` flowExecutionId
+      `Prelude.hashWithSalt` systemInstanceId
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData FlowExecutionSummary
+instance Prelude.NFData FlowExecutionSummary where
+  rnf FlowExecutionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf flowTemplateId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf flowExecutionId
+      `Prelude.seq` Prelude.rnf systemInstanceId
+      `Prelude.seq` Prelude.rnf updatedAt

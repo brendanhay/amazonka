@@ -115,9 +115,21 @@ instance Core.FromJSON HlsMediaStoreSettings where
             Prelude.<*> (x Core..:? "restartDelay")
       )
 
-instance Prelude.Hashable HlsMediaStoreSettings
+instance Prelude.Hashable HlsMediaStoreSettings where
+  hashWithSalt _salt HlsMediaStoreSettings' {..} =
+    _salt `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` mediaStoreStorageClass
+      `Prelude.hashWithSalt` restartDelay
 
-instance Prelude.NFData HlsMediaStoreSettings
+instance Prelude.NFData HlsMediaStoreSettings where
+  rnf HlsMediaStoreSettings' {..} =
+    Prelude.rnf numRetries
+      `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf mediaStoreStorageClass
+      `Prelude.seq` Prelude.rnf restartDelay
 
 instance Core.ToJSON HlsMediaStoreSettings where
   toJSON HlsMediaStoreSettings' {..} =

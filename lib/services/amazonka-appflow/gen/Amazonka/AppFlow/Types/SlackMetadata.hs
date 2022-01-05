@@ -59,6 +59,9 @@ instance Core.FromJSON SlackMetadata where
             Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SlackMetadata
+instance Prelude.Hashable SlackMetadata where
+  hashWithSalt _salt SlackMetadata' {..} =
+    _salt `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData SlackMetadata
+instance Prelude.NFData SlackMetadata where
+  rnf SlackMetadata' {..} = Prelude.rnf oAuthScopes

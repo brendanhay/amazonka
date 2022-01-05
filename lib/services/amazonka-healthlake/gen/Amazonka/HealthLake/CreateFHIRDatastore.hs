@@ -153,9 +153,23 @@ instance Core.AWSRequest CreateFHIRDatastore where
             Prelude.<*> (x Core..:> "DatastoreEndpoint")
       )
 
-instance Prelude.Hashable CreateFHIRDatastore
+instance Prelude.Hashable CreateFHIRDatastore where
+  hashWithSalt _salt CreateFHIRDatastore' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` sseConfiguration
+      `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` preloadDataConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` datastoreTypeVersion
 
-instance Prelude.NFData CreateFHIRDatastore
+instance Prelude.NFData CreateFHIRDatastore where
+  rnf CreateFHIRDatastore' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf sseConfiguration
+      `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf preloadDataConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf datastoreTypeVersion
 
 instance Core.ToHeaders CreateFHIRDatastore where
   toHeaders =
@@ -287,4 +301,10 @@ createFHIRDatastoreResponse_datastoreStatus = Lens.lens (\CreateFHIRDatastoreRes
 createFHIRDatastoreResponse_datastoreEndpoint :: Lens.Lens' CreateFHIRDatastoreResponse Prelude.Text
 createFHIRDatastoreResponse_datastoreEndpoint = Lens.lens (\CreateFHIRDatastoreResponse' {datastoreEndpoint} -> datastoreEndpoint) (\s@CreateFHIRDatastoreResponse' {} a -> s {datastoreEndpoint = a} :: CreateFHIRDatastoreResponse)
 
-instance Prelude.NFData CreateFHIRDatastoreResponse
+instance Prelude.NFData CreateFHIRDatastoreResponse where
+  rnf CreateFHIRDatastoreResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf datastoreArn
+      `Prelude.seq` Prelude.rnf datastoreStatus
+      `Prelude.seq` Prelude.rnf datastoreEndpoint

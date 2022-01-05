@@ -153,9 +153,21 @@ instance Core.AWSRequest StartAttachmentUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartAttachmentUpload
+instance Prelude.Hashable StartAttachmentUpload where
+  hashWithSalt _salt StartAttachmentUpload' {..} =
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` attachmentSizeInBytes
+      `Prelude.hashWithSalt` attachmentName
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectionToken
 
-instance Prelude.NFData StartAttachmentUpload
+instance Prelude.NFData StartAttachmentUpload where
+  rnf StartAttachmentUpload' {..} =
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf attachmentSizeInBytes
+      `Prelude.seq` Prelude.rnf attachmentName
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectionToken
 
 instance Core.ToHeaders StartAttachmentUpload where
   toHeaders StartAttachmentUpload' {..} =
@@ -236,4 +248,8 @@ startAttachmentUploadResponse_uploadMetadata = Lens.lens (\StartAttachmentUpload
 startAttachmentUploadResponse_httpStatus :: Lens.Lens' StartAttachmentUploadResponse Prelude.Int
 startAttachmentUploadResponse_httpStatus = Lens.lens (\StartAttachmentUploadResponse' {httpStatus} -> httpStatus) (\s@StartAttachmentUploadResponse' {} a -> s {httpStatus = a} :: StartAttachmentUploadResponse)
 
-instance Prelude.NFData StartAttachmentUploadResponse
+instance Prelude.NFData StartAttachmentUploadResponse where
+  rnf StartAttachmentUploadResponse' {..} =
+    Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf uploadMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

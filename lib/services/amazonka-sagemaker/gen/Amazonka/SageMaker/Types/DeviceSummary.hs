@@ -139,6 +139,24 @@ instance Core.FromJSON DeviceSummary where
             Prelude.<*> (x Core..: "DeviceArn")
       )
 
-instance Prelude.Hashable DeviceSummary
+instance Prelude.Hashable DeviceSummary where
+  hashWithSalt _salt DeviceSummary' {..} =
+    _salt `Prelude.hashWithSalt` registrationTime
+      `Prelude.hashWithSalt` models
+      `Prelude.hashWithSalt` latestHeartbeat
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` iotThingName
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` deviceArn
 
-instance Prelude.NFData DeviceSummary
+instance Prelude.NFData DeviceSummary where
+  rnf DeviceSummary' {..} =
+    Prelude.rnf registrationTime
+      `Prelude.seq` Prelude.rnf models
+      `Prelude.seq` Prelude.rnf latestHeartbeat
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf iotThingName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceArn

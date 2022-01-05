@@ -156,9 +156,17 @@ instance Core.AWSRequest CreatePlatformApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlatformApplication
+instance Prelude.Hashable CreatePlatformApplication where
+  hashWithSalt _salt CreatePlatformApplication' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData CreatePlatformApplication
+instance Prelude.NFData CreatePlatformApplication where
+  rnf CreatePlatformApplication' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders CreatePlatformApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,3 +231,7 @@ createPlatformApplicationResponse_httpStatus = Lens.lens (\CreatePlatformApplica
 instance
   Prelude.NFData
     CreatePlatformApplicationResponse
+  where
+  rnf CreatePlatformApplicationResponse' {..} =
+    Prelude.rnf platformApplicationArn
+      `Prelude.seq` Prelude.rnf httpStatus

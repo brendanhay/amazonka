@@ -91,6 +91,16 @@ instance Core.FromJSON Permission where
             Prelude.<*> (x Core..:? "statementId")
       )
 
-instance Prelude.Hashable Permission
+instance Prelude.Hashable Permission where
+  hashWithSalt _salt Permission' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` statementId
 
-instance Prelude.NFData Permission
+instance Prelude.NFData Permission where
+  rnf Permission' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf statementId

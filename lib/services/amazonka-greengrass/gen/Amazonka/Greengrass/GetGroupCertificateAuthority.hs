@@ -111,8 +111,15 @@ instance Core.AWSRequest GetGroupCertificateAuthority where
 instance
   Prelude.Hashable
     GetGroupCertificateAuthority
+  where
+  hashWithSalt _salt GetGroupCertificateAuthority' {..} =
+    _salt `Prelude.hashWithSalt` certificateAuthorityId
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData GetGroupCertificateAuthority
+instance Prelude.NFData GetGroupCertificateAuthority where
+  rnf GetGroupCertificateAuthority' {..} =
+    Prelude.rnf certificateAuthorityId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders GetGroupCertificateAuthority where
   toHeaders =
@@ -199,3 +206,9 @@ getGroupCertificateAuthorityResponse_httpStatus = Lens.lens (\GetGroupCertificat
 instance
   Prelude.NFData
     GetGroupCertificateAuthorityResponse
+  where
+  rnf GetGroupCertificateAuthorityResponse' {..} =
+    Prelude.rnf pemEncodedCertificate
+      `Prelude.seq` Prelude.rnf groupCertificateAuthorityArn
+      `Prelude.seq` Prelude.rnf groupCertificateAuthorityId
+      `Prelude.seq` Prelude.rnf httpStatus

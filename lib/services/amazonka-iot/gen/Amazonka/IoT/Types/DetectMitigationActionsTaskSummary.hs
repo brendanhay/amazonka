@@ -170,7 +170,34 @@ instance
 instance
   Prelude.Hashable
     DetectMitigationActionsTaskSummary
+  where
+  hashWithSalt
+    _salt
+    DetectMitigationActionsTaskSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` onlyActiveViolationsIncluded
+        `Prelude.hashWithSalt` suppressedAlertsIncluded
+        `Prelude.hashWithSalt` violationEventOccurrenceRange
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` taskStartTime
+        `Prelude.hashWithSalt` taskStatistics
+        `Prelude.hashWithSalt` actionsDefinition
+        `Prelude.hashWithSalt` taskEndTime
+        `Prelude.hashWithSalt` target
+        `Prelude.hashWithSalt` taskStatus
 
 instance
   Prelude.NFData
     DetectMitigationActionsTaskSummary
+  where
+  rnf DetectMitigationActionsTaskSummary' {..} =
+    Prelude.rnf onlyActiveViolationsIncluded
+      `Prelude.seq` Prelude.rnf suppressedAlertsIncluded
+      `Prelude.seq` Prelude.rnf violationEventOccurrenceRange
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskStartTime
+      `Prelude.seq` Prelude.rnf taskStatistics
+      `Prelude.seq` Prelude.rnf actionsDefinition
+      `Prelude.seq` Prelude.rnf taskEndTime
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf taskStatus

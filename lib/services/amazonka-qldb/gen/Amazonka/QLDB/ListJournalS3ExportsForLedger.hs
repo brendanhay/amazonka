@@ -144,8 +144,17 @@ instance
 instance
   Prelude.Hashable
     ListJournalS3ExportsForLedger
+  where
+  hashWithSalt _salt ListJournalS3ExportsForLedger' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ListJournalS3ExportsForLedger
+instance Prelude.NFData ListJournalS3ExportsForLedger where
+  rnf ListJournalS3ExportsForLedger' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ListJournalS3ExportsForLedger where
   toHeaders =
@@ -239,3 +248,8 @@ listJournalS3ExportsForLedgerResponse_httpStatus = Lens.lens (\ListJournalS3Expo
 instance
   Prelude.NFData
     ListJournalS3ExportsForLedgerResponse
+  where
+  rnf ListJournalS3ExportsForLedgerResponse' {..} =
+    Prelude.rnf journalS3Exports
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

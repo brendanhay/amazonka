@@ -187,6 +187,12 @@ instance Core.FromXML EnabledMetric where
       Prelude.<$> (x Core..@? "Granularity")
       Prelude.<*> (x Core..@? "Metric")
 
-instance Prelude.Hashable EnabledMetric
+instance Prelude.Hashable EnabledMetric where
+  hashWithSalt _salt EnabledMetric' {..} =
+    _salt `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData EnabledMetric
+instance Prelude.NFData EnabledMetric where
+  rnf EnabledMetric' {..} =
+    Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf metric

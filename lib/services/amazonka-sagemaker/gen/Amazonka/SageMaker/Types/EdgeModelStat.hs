@@ -141,6 +141,20 @@ instance Core.FromJSON EdgeModelStat where
             Prelude.<*> (x Core..: "SamplingDeviceCount")
       )
 
-instance Prelude.Hashable EdgeModelStat
+instance Prelude.Hashable EdgeModelStat where
+  hashWithSalt _salt EdgeModelStat' {..} =
+    _salt `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` offlineDeviceCount
+      `Prelude.hashWithSalt` connectedDeviceCount
+      `Prelude.hashWithSalt` activeDeviceCount
+      `Prelude.hashWithSalt` samplingDeviceCount
 
-instance Prelude.NFData EdgeModelStat
+instance Prelude.NFData EdgeModelStat where
+  rnf EdgeModelStat' {..} =
+    Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf offlineDeviceCount
+      `Prelude.seq` Prelude.rnf connectedDeviceCount
+      `Prelude.seq` Prelude.rnf activeDeviceCount
+      `Prelude.seq` Prelude.rnf samplingDeviceCount

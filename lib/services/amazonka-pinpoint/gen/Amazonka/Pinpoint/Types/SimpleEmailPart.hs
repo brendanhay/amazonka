@@ -62,9 +62,14 @@ simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@Simple
 simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
 simpleEmailPart_charset = Lens.lens (\SimpleEmailPart' {charset} -> charset) (\s@SimpleEmailPart' {} a -> s {charset = a} :: SimpleEmailPart)
 
-instance Prelude.Hashable SimpleEmailPart
+instance Prelude.Hashable SimpleEmailPart where
+  hashWithSalt _salt SimpleEmailPart' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` charset
 
-instance Prelude.NFData SimpleEmailPart
+instance Prelude.NFData SimpleEmailPart where
+  rnf SimpleEmailPart' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf charset
 
 instance Core.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =

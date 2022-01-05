@@ -140,6 +140,24 @@ instance Core.FromJSON DeploymentStrategy where
             Prelude.<*> (x Core..:? "GrowthType")
       )
 
-instance Prelude.Hashable DeploymentStrategy
+instance Prelude.Hashable DeploymentStrategy where
+  hashWithSalt _salt DeploymentStrategy' {..} =
+    _salt `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` replicateTo
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` growthType
 
-instance Prelude.NFData DeploymentStrategy
+instance Prelude.NFData DeploymentStrategy where
+  rnf DeploymentStrategy' {..} =
+    Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf replicateTo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf growthType

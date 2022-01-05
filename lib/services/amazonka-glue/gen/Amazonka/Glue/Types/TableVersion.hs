@@ -75,6 +75,12 @@ instance Core.FromJSON TableVersion where
             Prelude.<*> (x Core..:? "Table")
       )
 
-instance Prelude.Hashable TableVersion
+instance Prelude.Hashable TableVersion where
+  hashWithSalt _salt TableVersion' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` table
 
-instance Prelude.NFData TableVersion
+instance Prelude.NFData TableVersion where
+  rnf TableVersion' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf table

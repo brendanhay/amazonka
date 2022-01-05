@@ -81,6 +81,14 @@ instance Core.FromJSON AddressBookData where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AddressBookData
+instance Prelude.Hashable AddressBookData where
+  hashWithSalt _salt AddressBookData' {..} =
+    _salt `Prelude.hashWithSalt` addressBookArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AddressBookData
+instance Prelude.NFData AddressBookData where
+  rnf AddressBookData' {..} =
+    Prelude.rnf addressBookArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

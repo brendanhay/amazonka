@@ -65,6 +65,11 @@ instance Core.FromJSON ContributionMatrix where
                         )
       )
 
-instance Prelude.Hashable ContributionMatrix
+instance Prelude.Hashable ContributionMatrix where
+  hashWithSalt _salt ContributionMatrix' {..} =
+    _salt
+      `Prelude.hashWithSalt` dimensionContributionList
 
-instance Prelude.NFData ContributionMatrix
+instance Prelude.NFData ContributionMatrix where
+  rnf ContributionMatrix' {..} =
+    Prelude.rnf dimensionContributionList

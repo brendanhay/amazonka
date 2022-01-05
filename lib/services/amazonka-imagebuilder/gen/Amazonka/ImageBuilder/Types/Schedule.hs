@@ -134,9 +134,17 @@ instance Core.FromJSON Schedule where
             Prelude.<*> (x Core..:? "timezone")
       )
 
-instance Prelude.Hashable Schedule
+instance Prelude.Hashable Schedule where
+  hashWithSalt _salt Schedule' {..} =
+    _salt `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` pipelineExecutionStartCondition
+      `Prelude.hashWithSalt` timezone
 
-instance Prelude.NFData Schedule
+instance Prelude.NFData Schedule where
+  rnf Schedule' {..} =
+    Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf pipelineExecutionStartCondition
+      `Prelude.seq` Prelude.rnf timezone
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =

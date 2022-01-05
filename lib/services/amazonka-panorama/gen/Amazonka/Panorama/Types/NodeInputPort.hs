@@ -102,6 +102,18 @@ instance Core.FromJSON NodeInputPort where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable NodeInputPort
+instance Prelude.Hashable NodeInputPort where
+  hashWithSalt _salt NodeInputPort' {..} =
+    _salt `Prelude.hashWithSalt` maxConnections
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData NodeInputPort
+instance Prelude.NFData NodeInputPort where
+  rnf NodeInputPort' {..} =
+    Prelude.rnf maxConnections
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

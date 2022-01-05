@@ -227,9 +227,25 @@ instance Core.AWSRequest StartDocumentAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDocumentAnalysis
+instance Prelude.Hashable StartDocumentAnalysis where
+  hashWithSalt _salt StartDocumentAnalysis' {..} =
+    _salt `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` documentLocation
+      `Prelude.hashWithSalt` featureTypes
 
-instance Prelude.NFData StartDocumentAnalysis
+instance Prelude.NFData StartDocumentAnalysis where
+  rnf StartDocumentAnalysis' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf documentLocation
+      `Prelude.seq` Prelude.rnf featureTypes
 
 instance Core.ToHeaders StartDocumentAnalysis where
   toHeaders =
@@ -314,4 +330,7 @@ startDocumentAnalysisResponse_jobId = Lens.lens (\StartDocumentAnalysisResponse'
 startDocumentAnalysisResponse_httpStatus :: Lens.Lens' StartDocumentAnalysisResponse Prelude.Int
 startDocumentAnalysisResponse_httpStatus = Lens.lens (\StartDocumentAnalysisResponse' {httpStatus} -> httpStatus) (\s@StartDocumentAnalysisResponse' {} a -> s {httpStatus = a} :: StartDocumentAnalysisResponse)
 
-instance Prelude.NFData StartDocumentAnalysisResponse
+instance Prelude.NFData StartDocumentAnalysisResponse where
+  rnf StartDocumentAnalysisResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -109,9 +109,17 @@ instance Core.AWSRequest GetRegions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegions
+instance Prelude.Hashable GetRegions where
+  hashWithSalt _salt GetRegions' {..} =
+    _salt
+      `Prelude.hashWithSalt` includeRelationalDatabaseAvailabilityZones
+      `Prelude.hashWithSalt` includeAvailabilityZones
 
-instance Prelude.NFData GetRegions
+instance Prelude.NFData GetRegions where
+  rnf GetRegions' {..} =
+    Prelude.rnf
+      includeRelationalDatabaseAvailabilityZones
+      `Prelude.seq` Prelude.rnf includeAvailabilityZones
 
 instance Core.ToHeaders GetRegions where
   toHeaders =
@@ -188,4 +196,7 @@ getRegionsResponse_regions = Lens.lens (\GetRegionsResponse' {regions} -> region
 getRegionsResponse_httpStatus :: Lens.Lens' GetRegionsResponse Prelude.Int
 getRegionsResponse_httpStatus = Lens.lens (\GetRegionsResponse' {httpStatus} -> httpStatus) (\s@GetRegionsResponse' {} a -> s {httpStatus = a} :: GetRegionsResponse)
 
-instance Prelude.NFData GetRegionsResponse
+instance Prelude.NFData GetRegionsResponse where
+  rnf GetRegionsResponse' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf httpStatus

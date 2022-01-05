@@ -182,6 +182,28 @@ instance Core.FromJSON Resolver where
             Prelude.<*> (x Core..:? "pipelineConfig")
       )
 
-instance Prelude.Hashable Resolver
+instance Prelude.Hashable Resolver where
+  hashWithSalt _salt Resolver' {..} =
+    _salt `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` requestMappingTemplate
+      `Prelude.hashWithSalt` kind
+      `Prelude.hashWithSalt` resolverArn
+      `Prelude.hashWithSalt` cachingConfig
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` fieldName
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` pipelineConfig
 
-instance Prelude.NFData Resolver
+instance Prelude.NFData Resolver where
+  rnf Resolver' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf requestMappingTemplate
+      `Prelude.seq` Prelude.rnf kind
+      `Prelude.seq` Prelude.rnf resolverArn
+      `Prelude.seq` Prelude.rnf cachingConfig
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf fieldName
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf pipelineConfig

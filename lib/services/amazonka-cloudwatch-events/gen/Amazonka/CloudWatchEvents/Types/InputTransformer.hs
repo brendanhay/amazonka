@@ -239,9 +239,15 @@ instance Core.FromJSON InputTransformer where
             Prelude.<*> (x Core..: "InputTemplate")
       )
 
-instance Prelude.Hashable InputTransformer
+instance Prelude.Hashable InputTransformer where
+  hashWithSalt _salt InputTransformer' {..} =
+    _salt `Prelude.hashWithSalt` inputPathsMap
+      `Prelude.hashWithSalt` inputTemplate
 
-instance Prelude.NFData InputTransformer
+instance Prelude.NFData InputTransformer where
+  rnf InputTransformer' {..} =
+    Prelude.rnf inputPathsMap
+      `Prelude.seq` Prelude.rnf inputTemplate
 
 instance Core.ToJSON InputTransformer where
   toJSON InputTransformer' {..} =

@@ -83,9 +83,12 @@ instance Core.AWSRequest PutFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutFeedback
+instance Prelude.Hashable PutFeedback where
+  hashWithSalt _salt PutFeedback' {..} =
+    _salt `Prelude.hashWithSalt` insightFeedback
 
-instance Prelude.NFData PutFeedback
+instance Prelude.NFData PutFeedback where
+  rnf PutFeedback' {..} = Prelude.rnf insightFeedback
 
 instance Core.ToHeaders PutFeedback where
   toHeaders =
@@ -140,4 +143,5 @@ newPutFeedbackResponse pHttpStatus_ =
 putFeedbackResponse_httpStatus :: Lens.Lens' PutFeedbackResponse Prelude.Int
 putFeedbackResponse_httpStatus = Lens.lens (\PutFeedbackResponse' {httpStatus} -> httpStatus) (\s@PutFeedbackResponse' {} a -> s {httpStatus = a} :: PutFeedbackResponse)
 
-instance Prelude.NFData PutFeedbackResponse
+instance Prelude.NFData PutFeedbackResponse where
+  rnf PutFeedbackResponse' {..} = Prelude.rnf httpStatus

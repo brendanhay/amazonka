@@ -106,9 +106,15 @@ instance Core.AWSRequest GetTimelineEvent where
             Prelude.<*> (x Core..:> "event")
       )
 
-instance Prelude.Hashable GetTimelineEvent
+instance Prelude.Hashable GetTimelineEvent where
+  hashWithSalt _salt GetTimelineEvent' {..} =
+    _salt `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` incidentRecordArn
 
-instance Prelude.NFData GetTimelineEvent
+instance Prelude.NFData GetTimelineEvent where
+  rnf GetTimelineEvent' {..} =
+    Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf incidentRecordArn
 
 instance Core.ToHeaders GetTimelineEvent where
   toHeaders =
@@ -172,4 +178,7 @@ getTimelineEventResponse_httpStatus = Lens.lens (\GetTimelineEventResponse' {htt
 getTimelineEventResponse_event :: Lens.Lens' GetTimelineEventResponse TimelineEvent
 getTimelineEventResponse_event = Lens.lens (\GetTimelineEventResponse' {event} -> event) (\s@GetTimelineEventResponse' {} a -> s {event = a} :: GetTimelineEventResponse)
 
-instance Prelude.NFData GetTimelineEventResponse
+instance Prelude.NFData GetTimelineEventResponse where
+  rnf GetTimelineEventResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf event

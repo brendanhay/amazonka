@@ -270,9 +270,37 @@ instance Core.AWSRequest ProvisionProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ProvisionProduct
+instance Prelude.Hashable ProvisionProduct where
+  hashWithSalt _salt ProvisionProduct' {..} =
+    _salt `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` provisioningArtifactName
+      `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` pathName
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pathId
+      `Prelude.hashWithSalt` provisioningParameters
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` provisioningPreferences
+      `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` provisionToken
 
-instance Prelude.NFData ProvisionProduct
+instance Prelude.NFData ProvisionProduct where
+  rnf ProvisionProduct' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf pathName
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf provisioningPreferences
+      `Prelude.seq` Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf provisionToken
 
 instance Core.ToHeaders ProvisionProduct where
   toHeaders =
@@ -364,4 +392,7 @@ provisionProductResponse_recordDetail = Lens.lens (\ProvisionProductResponse' {r
 provisionProductResponse_httpStatus :: Lens.Lens' ProvisionProductResponse Prelude.Int
 provisionProductResponse_httpStatus = Lens.lens (\ProvisionProductResponse' {httpStatus} -> httpStatus) (\s@ProvisionProductResponse' {} a -> s {httpStatus = a} :: ProvisionProductResponse)
 
-instance Prelude.NFData ProvisionProductResponse
+instance Prelude.NFData ProvisionProductResponse where
+  rnf ProvisionProductResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf httpStatus

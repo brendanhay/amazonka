@@ -143,7 +143,19 @@ instance
 instance
   Prelude.Hashable
     TrustedAdvisorCheckRefreshStatus
+  where
+  hashWithSalt
+    _salt
+    TrustedAdvisorCheckRefreshStatus' {..} =
+      _salt `Prelude.hashWithSalt` checkId
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` millisUntilNextRefreshable
 
 instance
   Prelude.NFData
     TrustedAdvisorCheckRefreshStatus
+  where
+  rnf TrustedAdvisorCheckRefreshStatus' {..} =
+    Prelude.rnf checkId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf millisUntilNextRefreshable

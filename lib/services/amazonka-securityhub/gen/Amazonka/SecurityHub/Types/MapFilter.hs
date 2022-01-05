@@ -158,9 +158,17 @@ instance Core.FromJSON MapFilter where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable MapFilter
+instance Prelude.Hashable MapFilter where
+  hashWithSalt _salt MapFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` comparison
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData MapFilter
+instance Prelude.NFData MapFilter where
+  rnf MapFilter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf comparison
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON MapFilter where
   toJSON MapFilter' {..} =

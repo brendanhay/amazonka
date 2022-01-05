@@ -85,7 +85,19 @@ instance Core.FromJSON SigningProfileRevocationRecord where
 instance
   Prelude.Hashable
     SigningProfileRevocationRecord
+  where
+  hashWithSalt
+    _salt
+    SigningProfileRevocationRecord' {..} =
+      _salt `Prelude.hashWithSalt` revokedBy
+        `Prelude.hashWithSalt` revocationEffectiveFrom
+        `Prelude.hashWithSalt` revokedAt
 
 instance
   Prelude.NFData
     SigningProfileRevocationRecord
+  where
+  rnf SigningProfileRevocationRecord' {..} =
+    Prelude.rnf revokedBy
+      `Prelude.seq` Prelude.rnf revocationEffectiveFrom
+      `Prelude.seq` Prelude.rnf revokedAt

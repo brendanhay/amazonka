@@ -130,9 +130,19 @@ instance Core.AWSRequest UpdateInstanceStorageConfig where
     Response.receiveNull
       UpdateInstanceStorageConfigResponse'
 
-instance Prelude.Hashable UpdateInstanceStorageConfig
+instance Prelude.Hashable UpdateInstanceStorageConfig where
+  hashWithSalt _salt UpdateInstanceStorageConfig' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` storageConfig
 
-instance Prelude.NFData UpdateInstanceStorageConfig
+instance Prelude.NFData UpdateInstanceStorageConfig where
+  rnf UpdateInstanceStorageConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf storageConfig
 
 instance Core.ToHeaders UpdateInstanceStorageConfig where
   toHeaders =
@@ -186,3 +196,5 @@ newUpdateInstanceStorageConfigResponse =
 instance
   Prelude.NFData
     UpdateInstanceStorageConfigResponse
+  where
+  rnf _ = ()

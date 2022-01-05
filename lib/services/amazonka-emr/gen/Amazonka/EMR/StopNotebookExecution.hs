@@ -80,9 +80,13 @@ instance Core.AWSRequest StopNotebookExecution where
   response =
     Response.receiveNull StopNotebookExecutionResponse'
 
-instance Prelude.Hashable StopNotebookExecution
+instance Prelude.Hashable StopNotebookExecution where
+  hashWithSalt _salt StopNotebookExecution' {..} =
+    _salt `Prelude.hashWithSalt` notebookExecutionId
 
-instance Prelude.NFData StopNotebookExecution
+instance Prelude.NFData StopNotebookExecution where
+  rnf StopNotebookExecution' {..} =
+    Prelude.rnf notebookExecutionId
 
 instance Core.ToHeaders StopNotebookExecution where
   toHeaders =
@@ -129,4 +133,5 @@ newStopNotebookExecutionResponse ::
 newStopNotebookExecutionResponse =
   StopNotebookExecutionResponse'
 
-instance Prelude.NFData StopNotebookExecutionResponse
+instance Prelude.NFData StopNotebookExecutionResponse where
+  rnf _ = ()

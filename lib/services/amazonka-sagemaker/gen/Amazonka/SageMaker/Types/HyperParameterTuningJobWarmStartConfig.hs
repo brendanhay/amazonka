@@ -197,10 +197,21 @@ instance
 instance
   Prelude.Hashable
     HyperParameterTuningJobWarmStartConfig
+  where
+  hashWithSalt
+    _salt
+    HyperParameterTuningJobWarmStartConfig' {..} =
+      _salt
+        `Prelude.hashWithSalt` parentHyperParameterTuningJobs
+        `Prelude.hashWithSalt` warmStartType
 
 instance
   Prelude.NFData
     HyperParameterTuningJobWarmStartConfig
+  where
+  rnf HyperParameterTuningJobWarmStartConfig' {..} =
+    Prelude.rnf parentHyperParameterTuningJobs
+      `Prelude.seq` Prelude.rnf warmStartType
 
 instance
   Core.ToJSON

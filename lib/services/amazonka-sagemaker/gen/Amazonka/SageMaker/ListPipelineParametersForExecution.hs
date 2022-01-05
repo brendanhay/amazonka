@@ -154,10 +154,22 @@ instance
 instance
   Prelude.Hashable
     ListPipelineParametersForExecution
+  where
+  hashWithSalt
+    _salt
+    ListPipelineParametersForExecution' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` pipelineExecutionArn
 
 instance
   Prelude.NFData
     ListPipelineParametersForExecution
+  where
+  rnf ListPipelineParametersForExecution' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf pipelineExecutionArn
 
 instance
   Core.ToHeaders
@@ -263,3 +275,8 @@ listPipelineParametersForExecutionResponse_httpStatus = Lens.lens (\ListPipeline
 instance
   Prelude.NFData
     ListPipelineParametersForExecutionResponse
+  where
+  rnf ListPipelineParametersForExecutionResponse' {..} =
+    Prelude.rnf pipelineParameters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

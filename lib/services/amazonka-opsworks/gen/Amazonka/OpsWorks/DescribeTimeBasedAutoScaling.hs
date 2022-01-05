@@ -101,8 +101,13 @@ instance Core.AWSRequest DescribeTimeBasedAutoScaling where
 instance
   Prelude.Hashable
     DescribeTimeBasedAutoScaling
+  where
+  hashWithSalt _salt DescribeTimeBasedAutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData DescribeTimeBasedAutoScaling
+instance Prelude.NFData DescribeTimeBasedAutoScaling where
+  rnf DescribeTimeBasedAutoScaling' {..} =
+    Prelude.rnf instanceIds
 
 instance Core.ToHeaders DescribeTimeBasedAutoScaling where
   toHeaders =
@@ -179,3 +184,7 @@ describeTimeBasedAutoScalingResponse_httpStatus = Lens.lens (\DescribeTimeBasedA
 instance
   Prelude.NFData
     DescribeTimeBasedAutoScalingResponse
+  where
+  rnf DescribeTimeBasedAutoScalingResponse' {..} =
+    Prelude.rnf timeBasedAutoScalingConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

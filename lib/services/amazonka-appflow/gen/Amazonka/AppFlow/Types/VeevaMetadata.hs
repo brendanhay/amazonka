@@ -45,6 +45,9 @@ instance Core.FromJSON VeevaMetadata where
       "VeevaMetadata"
       (\x -> Prelude.pure VeevaMetadata')
 
-instance Prelude.Hashable VeevaMetadata
+instance Prelude.Hashable VeevaMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData VeevaMetadata
+instance Prelude.NFData VeevaMetadata where
+  rnf _ = ()

@@ -112,6 +112,19 @@ instance Core.FromJSON Certificates where
             Prelude.<*> (x Core..:? "AwsHardwareCertificate")
       )
 
-instance Prelude.Hashable Certificates
+instance Prelude.Hashable Certificates where
+  hashWithSalt _salt Certificates' {..} =
+    _salt
+      `Prelude.hashWithSalt` manufacturerHardwareCertificate
+      `Prelude.hashWithSalt` clusterCsr
+      `Prelude.hashWithSalt` hsmCertificate
+      `Prelude.hashWithSalt` clusterCertificate
+      `Prelude.hashWithSalt` awsHardwareCertificate
 
-instance Prelude.NFData Certificates
+instance Prelude.NFData Certificates where
+  rnf Certificates' {..} =
+    Prelude.rnf manufacturerHardwareCertificate
+      `Prelude.seq` Prelude.rnf clusterCsr
+      `Prelude.seq` Prelude.rnf hsmCertificate
+      `Prelude.seq` Prelude.rnf clusterCertificate
+      `Prelude.seq` Prelude.rnf awsHardwareCertificate

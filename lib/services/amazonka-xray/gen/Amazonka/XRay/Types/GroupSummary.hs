@@ -113,6 +113,16 @@ instance Core.FromJSON GroupSummary where
             Prelude.<*> (x Core..:? "GroupName")
       )
 
-instance Prelude.Hashable GroupSummary
+instance Prelude.Hashable GroupSummary where
+  hashWithSalt _salt GroupSummary' {..} =
+    _salt `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` insightsConfiguration
+      `Prelude.hashWithSalt` groupARN
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData GroupSummary
+instance Prelude.NFData GroupSummary where
+  rnf GroupSummary' {..} =
+    Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf insightsConfiguration
+      `Prelude.seq` Prelude.rnf groupARN
+      `Prelude.seq` Prelude.rnf groupName

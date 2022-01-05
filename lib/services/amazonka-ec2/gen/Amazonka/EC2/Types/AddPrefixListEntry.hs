@@ -70,9 +70,15 @@ addPrefixListEntry_description = Lens.lens (\AddPrefixListEntry' {description} -
 addPrefixListEntry_cidr :: Lens.Lens' AddPrefixListEntry Prelude.Text
 addPrefixListEntry_cidr = Lens.lens (\AddPrefixListEntry' {cidr} -> cidr) (\s@AddPrefixListEntry' {} a -> s {cidr = a} :: AddPrefixListEntry)
 
-instance Prelude.Hashable AddPrefixListEntry
+instance Prelude.Hashable AddPrefixListEntry where
+  hashWithSalt _salt AddPrefixListEntry' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData AddPrefixListEntry
+instance Prelude.NFData AddPrefixListEntry where
+  rnf AddPrefixListEntry' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cidr
 
 instance Core.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =

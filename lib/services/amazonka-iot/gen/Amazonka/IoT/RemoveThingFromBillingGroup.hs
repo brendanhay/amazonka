@@ -119,9 +119,19 @@ instance Core.AWSRequest RemoveThingFromBillingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveThingFromBillingGroup
+instance Prelude.Hashable RemoveThingFromBillingGroup where
+  hashWithSalt _salt RemoveThingFromBillingGroup' {..} =
+    _salt `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` billingGroupArn
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` billingGroupName
 
-instance Prelude.NFData RemoveThingFromBillingGroup
+instance Prelude.NFData RemoveThingFromBillingGroup where
+  rnf RemoveThingFromBillingGroup' {..} =
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf billingGroupArn
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf billingGroupName
 
 instance Core.ToHeaders RemoveThingFromBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +190,6 @@ removeThingFromBillingGroupResponse_httpStatus = Lens.lens (\RemoveThingFromBill
 instance
   Prelude.NFData
     RemoveThingFromBillingGroupResponse
+  where
+  rnf RemoveThingFromBillingGroupResponse' {..} =
+    Prelude.rnf httpStatus

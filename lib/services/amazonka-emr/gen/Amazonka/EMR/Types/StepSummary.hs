@@ -110,6 +110,18 @@ instance Core.FromJSON StepSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable StepSummary
+instance Prelude.Hashable StepSummary where
+  hashWithSalt _salt StepSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` actionOnFailure
+      `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData StepSummary
+instance Prelude.NFData StepSummary where
+  rnf StepSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf actionOnFailure
+      `Prelude.seq` Prelude.rnf config
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

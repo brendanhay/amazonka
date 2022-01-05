@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     GetRequestedServiceQuotaChange
+  where
+  hashWithSalt
+    _salt
+    GetRequestedServiceQuotaChange' {..} =
+      _salt `Prelude.hashWithSalt` requestId
 
 instance
   Prelude.NFData
     GetRequestedServiceQuotaChange
+  where
+  rnf GetRequestedServiceQuotaChange' {..} =
+    Prelude.rnf requestId
 
 instance
   Core.ToHeaders
@@ -174,3 +182,7 @@ getRequestedServiceQuotaChangeResponse_httpStatus = Lens.lens (\GetRequestedServ
 instance
   Prelude.NFData
     GetRequestedServiceQuotaChangeResponse
+  where
+  rnf GetRequestedServiceQuotaChangeResponse' {..} =
+    Prelude.rnf requestedQuota
+      `Prelude.seq` Prelude.rnf httpStatus

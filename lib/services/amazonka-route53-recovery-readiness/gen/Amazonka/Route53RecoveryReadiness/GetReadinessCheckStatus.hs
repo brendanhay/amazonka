@@ -139,9 +139,17 @@ instance Core.AWSRequest GetReadinessCheckStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetReadinessCheckStatus
+instance Prelude.Hashable GetReadinessCheckStatus where
+  hashWithSalt _salt GetReadinessCheckStatus' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` readinessCheckName
 
-instance Prelude.NFData GetReadinessCheckStatus
+instance Prelude.NFData GetReadinessCheckStatus where
+  rnf GetReadinessCheckStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf readinessCheckName
 
 instance Core.ToHeaders GetReadinessCheckStatus where
   toHeaders =
@@ -241,3 +249,10 @@ getReadinessCheckStatusResponse_httpStatus = Lens.lens (\GetReadinessCheckStatus
 instance
   Prelude.NFData
     GetReadinessCheckStatusResponse
+  where
+  rnf GetReadinessCheckStatusResponse' {..} =
+    Prelude.rnf readiness
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf httpStatus

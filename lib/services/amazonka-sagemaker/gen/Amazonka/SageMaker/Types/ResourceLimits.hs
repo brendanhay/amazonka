@@ -85,9 +85,16 @@ instance Core.FromJSON ResourceLimits where
             Prelude.<*> (x Core..: "MaxParallelTrainingJobs")
       )
 
-instance Prelude.Hashable ResourceLimits
+instance Prelude.Hashable ResourceLimits where
+  hashWithSalt _salt ResourceLimits' {..} =
+    _salt
+      `Prelude.hashWithSalt` maxNumberOfTrainingJobs
+      `Prelude.hashWithSalt` maxParallelTrainingJobs
 
-instance Prelude.NFData ResourceLimits
+instance Prelude.NFData ResourceLimits where
+  rnf ResourceLimits' {..} =
+    Prelude.rnf maxNumberOfTrainingJobs
+      `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
 
 instance Core.ToJSON ResourceLimits where
   toJSON ResourceLimits' {..} =

@@ -79,6 +79,12 @@ instance Core.FromJSON EvaluationResult where
             Prelude.<*> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult where
+  hashWithSalt _salt EvaluationResult' {..} =
+    _salt `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` testWindows
 
-instance Prelude.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult where
+  rnf EvaluationResult' {..} =
+    Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf testWindows

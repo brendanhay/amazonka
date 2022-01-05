@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteListener where
   response =
     Response.receiveNull DeleteListenerResponse'
 
-instance Prelude.Hashable DeleteListener
+instance Prelude.Hashable DeleteListener where
+  hashWithSalt _salt DeleteListener' {..} =
+    _salt `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData DeleteListener
+instance Prelude.NFData DeleteListener where
+  rnf DeleteListener' {..} = Prelude.rnf listenerArn
 
 instance Core.ToHeaders DeleteListener where
   toHeaders =
@@ -123,4 +126,5 @@ newDeleteListenerResponse ::
   DeleteListenerResponse
 newDeleteListenerResponse = DeleteListenerResponse'
 
-instance Prelude.NFData DeleteListenerResponse
+instance Prelude.NFData DeleteListenerResponse where
+  rnf _ = ()

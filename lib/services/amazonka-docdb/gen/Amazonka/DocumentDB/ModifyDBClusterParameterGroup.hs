@@ -120,8 +120,16 @@ instance
 instance
   Prelude.Hashable
     ModifyDBClusterParameterGroup
+  where
+  hashWithSalt _salt ModifyDBClusterParameterGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData ModifyDBClusterParameterGroup
+instance Prelude.NFData ModifyDBClusterParameterGroup where
+  rnf ModifyDBClusterParameterGroup' {..} =
+    Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders ModifyDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

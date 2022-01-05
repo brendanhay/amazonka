@@ -86,9 +86,17 @@ instance Core.FromJSON ImageConfig where
             Prelude.<*> (x Core..:? "WorkingDirectory")
       )
 
-instance Prelude.Hashable ImageConfig
+instance Prelude.Hashable ImageConfig where
+  hashWithSalt _salt ImageConfig' {..} =
+    _salt `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` workingDirectory
 
-instance Prelude.NFData ImageConfig
+instance Prelude.NFData ImageConfig where
+  rnf ImageConfig' {..} =
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf workingDirectory
 
 instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =

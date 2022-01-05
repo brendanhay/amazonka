@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteSchedule where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DeleteSchedule
+instance Prelude.Hashable DeleteSchedule where
+  hashWithSalt _salt DeleteSchedule' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteSchedule
+instance Prelude.NFData DeleteSchedule where
+  rnf DeleteSchedule' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteSchedule where
   toHeaders =
@@ -148,4 +151,7 @@ deleteScheduleResponse_httpStatus = Lens.lens (\DeleteScheduleResponse' {httpSta
 deleteScheduleResponse_name :: Lens.Lens' DeleteScheduleResponse Prelude.Text
 deleteScheduleResponse_name = Lens.lens (\DeleteScheduleResponse' {name} -> name) (\s@DeleteScheduleResponse' {} a -> s {name = a} :: DeleteScheduleResponse)
 
-instance Prelude.NFData DeleteScheduleResponse
+instance Prelude.NFData DeleteScheduleResponse where
+  rnf DeleteScheduleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

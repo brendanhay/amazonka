@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeSchedule where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DescribeSchedule
+instance Prelude.Hashable DescribeSchedule where
+  hashWithSalt _salt DescribeSchedule' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeSchedule
+instance Prelude.NFData DescribeSchedule where
+  rnf DescribeSchedule' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeSchedule where
   toHeaders =
@@ -246,4 +249,15 @@ describeScheduleResponse_httpStatus = Lens.lens (\DescribeScheduleResponse' {htt
 describeScheduleResponse_name :: Lens.Lens' DescribeScheduleResponse Prelude.Text
 describeScheduleResponse_name = Lens.lens (\DescribeScheduleResponse' {name} -> name) (\s@DescribeScheduleResponse' {} a -> s {name = a} :: DescribeScheduleResponse)
 
-instance Prelude.NFData DescribeScheduleResponse
+instance Prelude.NFData DescribeScheduleResponse where
+  rnf DescribeScheduleResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf jobNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

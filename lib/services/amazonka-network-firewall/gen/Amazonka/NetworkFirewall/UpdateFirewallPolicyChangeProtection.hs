@@ -206,10 +206,24 @@ instance
 instance
   Prelude.Hashable
     UpdateFirewallPolicyChangeProtection
+  where
+  hashWithSalt
+    _salt
+    UpdateFirewallPolicyChangeProtection' {..} =
+      _salt `Prelude.hashWithSalt` updateToken
+        `Prelude.hashWithSalt` firewallArn
+        `Prelude.hashWithSalt` firewallName
+        `Prelude.hashWithSalt` firewallPolicyChangeProtection
 
 instance
   Prelude.NFData
     UpdateFirewallPolicyChangeProtection
+  where
+  rnf UpdateFirewallPolicyChangeProtection' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
 
 instance
   Core.ToHeaders
@@ -393,3 +407,10 @@ updateFirewallPolicyChangeProtectionResponse_httpStatus = Lens.lens (\UpdateFire
 instance
   Prelude.NFData
     UpdateFirewallPolicyChangeProtectionResponse
+  where
+  rnf UpdateFirewallPolicyChangeProtectionResponse' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf httpStatus

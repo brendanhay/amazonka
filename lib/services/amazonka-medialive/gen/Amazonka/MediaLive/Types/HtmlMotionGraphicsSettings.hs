@@ -46,9 +46,12 @@ instance Core.FromJSON HtmlMotionGraphicsSettings where
       "HtmlMotionGraphicsSettings"
       (\x -> Prelude.pure HtmlMotionGraphicsSettings')
 
-instance Prelude.Hashable HtmlMotionGraphicsSettings
+instance Prelude.Hashable HtmlMotionGraphicsSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData HtmlMotionGraphicsSettings
+instance Prelude.NFData HtmlMotionGraphicsSettings where
+  rnf _ = ()
 
 instance Core.ToJSON HtmlMotionGraphicsSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

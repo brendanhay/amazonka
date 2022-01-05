@@ -179,9 +179,25 @@ instance Core.AWSRequest StartEntitiesDetectionV2Job where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartEntitiesDetectionV2Job
+instance Prelude.Hashable StartEntitiesDetectionV2Job where
+  hashWithSalt _salt StartEntitiesDetectionV2Job' {..} =
+    _salt `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData StartEntitiesDetectionV2Job
+instance Prelude.NFData StartEntitiesDetectionV2Job where
+  rnf StartEntitiesDetectionV2Job' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders StartEntitiesDetectionV2Job where
   toHeaders =
@@ -267,3 +283,7 @@ startEntitiesDetectionV2JobResponse_httpStatus = Lens.lens (\StartEntitiesDetect
 instance
   Prelude.NFData
     StartEntitiesDetectionV2JobResponse
+  where
+  rnf StartEntitiesDetectionV2JobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

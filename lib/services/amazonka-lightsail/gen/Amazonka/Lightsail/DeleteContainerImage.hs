@@ -129,9 +129,15 @@ instance Core.AWSRequest DeleteContainerImage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainerImage
+instance Prelude.Hashable DeleteContainerImage where
+  hashWithSalt _salt DeleteContainerImage' {..} =
+    _salt `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData DeleteContainerImage
+instance Prelude.NFData DeleteContainerImage where
+  rnf DeleteContainerImage' {..} =
+    Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DeleteContainerImage where
   toHeaders =
@@ -193,4 +199,6 @@ newDeleteContainerImageResponse pHttpStatus_ =
 deleteContainerImageResponse_httpStatus :: Lens.Lens' DeleteContainerImageResponse Prelude.Int
 deleteContainerImageResponse_httpStatus = Lens.lens (\DeleteContainerImageResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerImageResponse' {} a -> s {httpStatus = a} :: DeleteContainerImageResponse)
 
-instance Prelude.NFData DeleteContainerImageResponse
+instance Prelude.NFData DeleteContainerImageResponse where
+  rnf DeleteContainerImageResponse' {..} =
+    Prelude.rnf httpStatus

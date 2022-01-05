@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsLambdaFunctionEnvironmentError
+  where
+  hashWithSalt
+    _salt
+    AwsLambdaFunctionEnvironmentError' {..} =
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     AwsLambdaFunctionEnvironmentError
+  where
+  rnf AwsLambdaFunctionEnvironmentError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message
 
 instance
   Core.ToJSON

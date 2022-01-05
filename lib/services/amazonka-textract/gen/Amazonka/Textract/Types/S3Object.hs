@@ -88,9 +88,17 @@ s3Object_name = Lens.lens (\S3Object' {name} -> name) (\s@S3Object' {} a -> s {n
 s3Object_version :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_version = Lens.lens (\S3Object' {version} -> version) (\s@S3Object' {} a -> s {version = a} :: S3Object)
 
-instance Prelude.Hashable S3Object
+instance Prelude.Hashable S3Object where
+  hashWithSalt _salt S3Object' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData S3Object
+instance Prelude.NFData S3Object where
+  rnf S3Object' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON S3Object where
   toJSON S3Object' {..} =

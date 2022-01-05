@@ -100,9 +100,12 @@ instance Core.AWSRequest DeleteHapg where
             Prelude.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DeleteHapg
+instance Prelude.Hashable DeleteHapg where
+  hashWithSalt _salt DeleteHapg' {..} =
+    _salt `Prelude.hashWithSalt` hapgArn
 
-instance Prelude.NFData DeleteHapg
+instance Prelude.NFData DeleteHapg where
+  rnf DeleteHapg' {..} = Prelude.rnf hapgArn
 
 instance Core.ToHeaders DeleteHapg where
   toHeaders =
@@ -174,4 +177,7 @@ deleteHapgResponse_httpStatus = Lens.lens (\DeleteHapgResponse' {httpStatus} -> 
 deleteHapgResponse_status :: Lens.Lens' DeleteHapgResponse Prelude.Text
 deleteHapgResponse_status = Lens.lens (\DeleteHapgResponse' {status} -> status) (\s@DeleteHapgResponse' {} a -> s {status = a} :: DeleteHapgResponse)
 
-instance Prelude.NFData DeleteHapgResponse
+instance Prelude.NFData DeleteHapgResponse where
+  rnf DeleteHapgResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

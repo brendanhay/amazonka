@@ -95,9 +95,12 @@ instance Core.AWSRequest RestoreFromSnapshot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreFromSnapshot
+instance Prelude.Hashable RestoreFromSnapshot where
+  hashWithSalt _salt RestoreFromSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData RestoreFromSnapshot
+instance Prelude.NFData RestoreFromSnapshot where
+  rnf RestoreFromSnapshot' {..} = Prelude.rnf snapshotId
 
 instance Core.ToHeaders RestoreFromSnapshot where
   toHeaders =
@@ -159,4 +162,6 @@ newRestoreFromSnapshotResponse pHttpStatus_ =
 restoreFromSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromSnapshotResponse Prelude.Int
 restoreFromSnapshotResponse_httpStatus = Lens.lens (\RestoreFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@RestoreFromSnapshotResponse' {} a -> s {httpStatus = a} :: RestoreFromSnapshotResponse)
 
-instance Prelude.NFData RestoreFromSnapshotResponse
+instance Prelude.NFData RestoreFromSnapshotResponse where
+  rnf RestoreFromSnapshotResponse' {..} =
+    Prelude.rnf httpStatus

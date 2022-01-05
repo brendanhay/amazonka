@@ -124,9 +124,17 @@ instance Core.AWSRequest ImportSshPublicKey where
             Prelude.<*> (x Core..:> "UserName")
       )
 
-instance Prelude.Hashable ImportSshPublicKey
+instance Prelude.Hashable ImportSshPublicKey where
+  hashWithSalt _salt ImportSshPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` sshPublicKeyBody
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ImportSshPublicKey
+instance Prelude.NFData ImportSshPublicKey where
+  rnf ImportSshPublicKey' {..} =
+    Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf sshPublicKeyBody
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders ImportSshPublicKey where
   toHeaders =
@@ -231,4 +239,9 @@ importSshPublicKeyResponse_sshPublicKeyId = Lens.lens (\ImportSshPublicKeyRespon
 importSshPublicKeyResponse_userName :: Lens.Lens' ImportSshPublicKeyResponse Prelude.Text
 importSshPublicKeyResponse_userName = Lens.lens (\ImportSshPublicKeyResponse' {userName} -> userName) (\s@ImportSshPublicKeyResponse' {} a -> s {userName = a} :: ImportSshPublicKeyResponse)
 
-instance Prelude.NFData ImportSshPublicKeyResponse
+instance Prelude.NFData ImportSshPublicKeyResponse where
+  rnf ImportSshPublicKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf sshPublicKeyId
+      `Prelude.seq` Prelude.rnf userName

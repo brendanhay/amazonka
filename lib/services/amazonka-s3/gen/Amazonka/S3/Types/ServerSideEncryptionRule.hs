@@ -100,9 +100,16 @@ instance Core.FromXML ServerSideEncryptionRule where
       Prelude.<$> (x Core..@? "ApplyServerSideEncryptionByDefault")
       Prelude.<*> (x Core..@? "BucketKeyEnabled")
 
-instance Prelude.Hashable ServerSideEncryptionRule
+instance Prelude.Hashable ServerSideEncryptionRule where
+  hashWithSalt _salt ServerSideEncryptionRule' {..} =
+    _salt
+      `Prelude.hashWithSalt` applyServerSideEncryptionByDefault
+      `Prelude.hashWithSalt` bucketKeyEnabled
 
-instance Prelude.NFData ServerSideEncryptionRule
+instance Prelude.NFData ServerSideEncryptionRule where
+  rnf ServerSideEncryptionRule' {..} =
+    Prelude.rnf applyServerSideEncryptionByDefault
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
 
 instance Core.ToXML ServerSideEncryptionRule where
   toXML ServerSideEncryptionRule' {..} =

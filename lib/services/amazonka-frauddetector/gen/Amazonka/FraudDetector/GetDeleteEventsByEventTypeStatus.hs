@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     GetDeleteEventsByEventTypeStatus
+  where
+  hashWithSalt
+    _salt
+    GetDeleteEventsByEventTypeStatus' {..} =
+      _salt `Prelude.hashWithSalt` eventTypeName
 
 instance
   Prelude.NFData
     GetDeleteEventsByEventTypeStatus
+  where
+  rnf GetDeleteEventsByEventTypeStatus' {..} =
+    Prelude.rnf eventTypeName
 
 instance
   Core.ToHeaders
@@ -191,3 +199,8 @@ getDeleteEventsByEventTypeStatusResponse_httpStatus = Lens.lens (\GetDeleteEvent
 instance
   Prelude.NFData
     GetDeleteEventsByEventTypeStatusResponse
+  where
+  rnf GetDeleteEventsByEventTypeStatusResponse' {..} =
+    Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf eventsDeletionStatus
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,10 +120,20 @@ instance
 instance
   Prelude.Hashable
     ApplySecurityGroupsToLoadBalancer
+  where
+  hashWithSalt
+    _salt
+    ApplySecurityGroupsToLoadBalancer' {..} =
+      _salt `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` securityGroups
 
 instance
   Prelude.NFData
     ApplySecurityGroupsToLoadBalancer
+  where
+  rnf ApplySecurityGroupsToLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf securityGroups
 
 instance
   Core.ToHeaders
@@ -199,3 +209,7 @@ applySecurityGroupsToLoadBalancerResponse_httpStatus = Lens.lens (\ApplySecurity
 instance
   Prelude.NFData
     ApplySecurityGroupsToLoadBalancerResponse
+  where
+  rnf ApplySecurityGroupsToLoadBalancerResponse' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf httpStatus

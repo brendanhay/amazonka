@@ -107,8 +107,21 @@ instance Core.FromJSON GrpcRouteMetadataMatchMethod where
 instance
   Prelude.Hashable
     GrpcRouteMetadataMatchMethod
+  where
+  hashWithSalt _salt GrpcRouteMetadataMatchMethod' {..} =
+    _salt `Prelude.hashWithSalt` suffix
+      `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData GrpcRouteMetadataMatchMethod
+instance Prelude.NFData GrpcRouteMetadataMatchMethod where
+  rnf GrpcRouteMetadataMatchMethod' {..} =
+    Prelude.rnf suffix
+      `Prelude.seq` Prelude.rnf regex
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf exact
 
 instance Core.ToJSON GrpcRouteMetadataMatchMethod where
   toJSON GrpcRouteMetadataMatchMethod' {..} =

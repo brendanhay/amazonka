@@ -102,9 +102,17 @@ instance Core.AWSRequest RevokeSignature where
   response =
     Response.receiveNull RevokeSignatureResponse'
 
-instance Prelude.Hashable RevokeSignature
+instance Prelude.Hashable RevokeSignature where
+  hashWithSalt _salt RevokeSignature' {..} =
+    _salt `Prelude.hashWithSalt` jobOwner
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData RevokeSignature
+instance Prelude.NFData RevokeSignature where
+  rnf RevokeSignature' {..} =
+    Prelude.rnf jobOwner
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders RevokeSignature where
   toHeaders =
@@ -148,4 +156,5 @@ newRevokeSignatureResponse ::
   RevokeSignatureResponse
 newRevokeSignatureResponse = RevokeSignatureResponse'
 
-instance Prelude.NFData RevokeSignatureResponse
+instance Prelude.NFData RevokeSignatureResponse where
+  rnf _ = ()

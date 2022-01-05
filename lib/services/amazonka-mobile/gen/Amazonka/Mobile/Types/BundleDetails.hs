@@ -109,6 +109,20 @@ instance Core.FromJSON BundleDetails where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable BundleDetails
+instance Prelude.Hashable BundleDetails where
+  hashWithSalt _salt BundleDetails' {..} =
+    _salt `Prelude.hashWithSalt` availablePlatforms
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` iconUrl
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData BundleDetails
+instance Prelude.NFData BundleDetails where
+  rnf BundleDetails' {..} =
+    Prelude.rnf availablePlatforms
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf iconUrl
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description

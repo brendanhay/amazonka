@@ -96,9 +96,17 @@ instance Core.FromJSON AddAttributesActivity where
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AddAttributesActivity
+instance Prelude.Hashable AddAttributesActivity where
+  hashWithSalt _salt AddAttributesActivity' {..} =
+    _salt `Prelude.hashWithSalt` next
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData AddAttributesActivity
+instance Prelude.NFData AddAttributesActivity where
+  rnf AddAttributesActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON AddAttributesActivity where
   toJSON AddAttributesActivity' {..} =

@@ -63,9 +63,13 @@ instance Core.FromJSON GatewayRouteHostnameRewrite where
             Prelude.<$> (x Core..:? "defaultTargetHostname")
       )
 
-instance Prelude.Hashable GatewayRouteHostnameRewrite
+instance Prelude.Hashable GatewayRouteHostnameRewrite where
+  hashWithSalt _salt GatewayRouteHostnameRewrite' {..} =
+    _salt `Prelude.hashWithSalt` defaultTargetHostname
 
-instance Prelude.NFData GatewayRouteHostnameRewrite
+instance Prelude.NFData GatewayRouteHostnameRewrite where
+  rnf GatewayRouteHostnameRewrite' {..} =
+    Prelude.rnf defaultTargetHostname
 
 instance Core.ToJSON GatewayRouteHostnameRewrite where
   toJSON GatewayRouteHostnameRewrite' {..} =

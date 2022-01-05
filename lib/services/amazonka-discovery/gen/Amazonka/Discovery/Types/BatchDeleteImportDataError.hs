@@ -84,6 +84,14 @@ instance Core.FromJSON BatchDeleteImportDataError where
             Prelude.<*> (x Core..:? "errorDescription")
       )
 
-instance Prelude.Hashable BatchDeleteImportDataError
+instance Prelude.Hashable BatchDeleteImportDataError where
+  hashWithSalt _salt BatchDeleteImportDataError' {..} =
+    _salt `Prelude.hashWithSalt` importTaskId
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorDescription
 
-instance Prelude.NFData BatchDeleteImportDataError
+instance Prelude.NFData BatchDeleteImportDataError where
+  rnf BatchDeleteImportDataError' {..} =
+    Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorDescription

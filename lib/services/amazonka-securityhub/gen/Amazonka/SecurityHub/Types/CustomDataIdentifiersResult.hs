@@ -74,9 +74,15 @@ instance Core.FromJSON CustomDataIdentifiersResult where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable CustomDataIdentifiersResult
+instance Prelude.Hashable CustomDataIdentifiersResult where
+  hashWithSalt _salt CustomDataIdentifiersResult' {..} =
+    _salt `Prelude.hashWithSalt` detections
+      `Prelude.hashWithSalt` totalCount
 
-instance Prelude.NFData CustomDataIdentifiersResult
+instance Prelude.NFData CustomDataIdentifiersResult where
+  rnf CustomDataIdentifiersResult' {..} =
+    Prelude.rnf detections
+      `Prelude.seq` Prelude.rnf totalCount
 
 instance Core.ToJSON CustomDataIdentifiersResult where
   toJSON CustomDataIdentifiersResult' {..} =

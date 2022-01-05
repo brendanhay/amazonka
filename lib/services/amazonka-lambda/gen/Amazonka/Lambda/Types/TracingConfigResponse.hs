@@ -60,6 +60,9 @@ instance Core.FromJSON TracingConfigResponse where
             Prelude.<$> (x Core..:? "Mode")
       )
 
-instance Prelude.Hashable TracingConfigResponse
+instance Prelude.Hashable TracingConfigResponse where
+  hashWithSalt _salt TracingConfigResponse' {..} =
+    _salt `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData TracingConfigResponse
+instance Prelude.NFData TracingConfigResponse where
+  rnf TracingConfigResponse' {..} = Prelude.rnf mode

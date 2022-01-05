@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteProfilingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProfilingGroup
+instance Prelude.Hashable DeleteProfilingGroup where
+  hashWithSalt _salt DeleteProfilingGroup' {..} =
+    _salt `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData DeleteProfilingGroup
+instance Prelude.NFData DeleteProfilingGroup where
+  rnf DeleteProfilingGroup' {..} =
+    Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders DeleteProfilingGroup where
   toHeaders =
@@ -144,4 +148,6 @@ newDeleteProfilingGroupResponse pHttpStatus_ =
 deleteProfilingGroupResponse_httpStatus :: Lens.Lens' DeleteProfilingGroupResponse Prelude.Int
 deleteProfilingGroupResponse_httpStatus = Lens.lens (\DeleteProfilingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteProfilingGroupResponse' {} a -> s {httpStatus = a} :: DeleteProfilingGroupResponse)
 
-instance Prelude.NFData DeleteProfilingGroupResponse
+instance Prelude.NFData DeleteProfilingGroupResponse where
+  rnf DeleteProfilingGroupResponse' {..} =
+    Prelude.rnf httpStatus

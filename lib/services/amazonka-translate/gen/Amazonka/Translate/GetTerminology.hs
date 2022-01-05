@@ -105,9 +105,15 @@ instance Core.AWSRequest GetTerminology where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTerminology
+instance Prelude.Hashable GetTerminology where
+  hashWithSalt _salt GetTerminology' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` terminologyDataFormat
 
-instance Prelude.NFData GetTerminology
+instance Prelude.NFData GetTerminology where
+  rnf GetTerminology' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf terminologyDataFormat
 
 instance Core.ToHeaders GetTerminology where
   toHeaders =
@@ -196,4 +202,8 @@ getTerminologyResponse_terminologyDataLocation = Lens.lens (\GetTerminologyRespo
 getTerminologyResponse_httpStatus :: Lens.Lens' GetTerminologyResponse Prelude.Int
 getTerminologyResponse_httpStatus = Lens.lens (\GetTerminologyResponse' {httpStatus} -> httpStatus) (\s@GetTerminologyResponse' {} a -> s {httpStatus = a} :: GetTerminologyResponse)
 
-instance Prelude.NFData GetTerminologyResponse
+instance Prelude.NFData GetTerminologyResponse where
+  rnf GetTerminologyResponse' {..} =
+    Prelude.rnf terminologyProperties
+      `Prelude.seq` Prelude.rnf terminologyDataLocation
+      `Prelude.seq` Prelude.rnf httpStatus

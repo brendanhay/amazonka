@@ -92,6 +92,16 @@ instance Core.FromJSON EventTypeSummary where
             Prelude.<*> (x Core..:? "ServiceName")
       )
 
-instance Prelude.Hashable EventTypeSummary
+instance Prelude.Hashable EventTypeSummary where
+  hashWithSalt _salt EventTypeSummary' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` eventTypeId
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData EventTypeSummary
+instance Prelude.NFData EventTypeSummary where
+  rnf EventTypeSummary' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf eventTypeId
+      `Prelude.seq` Prelude.rnf serviceName

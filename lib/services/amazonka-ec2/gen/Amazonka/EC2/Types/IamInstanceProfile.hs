@@ -67,6 +67,11 @@ instance Core.FromXML IamInstanceProfile where
     IamInstanceProfile'
       Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
 
-instance Prelude.Hashable IamInstanceProfile
+instance Prelude.Hashable IamInstanceProfile where
+  hashWithSalt _salt IamInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData IamInstanceProfile
+instance Prelude.NFData IamInstanceProfile where
+  rnf IamInstanceProfile' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id

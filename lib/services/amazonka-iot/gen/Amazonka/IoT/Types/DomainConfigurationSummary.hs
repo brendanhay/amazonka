@@ -96,6 +96,15 @@ instance Core.FromJSON DomainConfigurationSummary where
             Prelude.<*> (x Core..:? "serviceType")
       )
 
-instance Prelude.Hashable DomainConfigurationSummary
+instance Prelude.Hashable DomainConfigurationSummary where
+  hashWithSalt _salt DomainConfigurationSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` domainConfigurationName
+      `Prelude.hashWithSalt` domainConfigurationArn
+      `Prelude.hashWithSalt` serviceType
 
-instance Prelude.NFData DomainConfigurationSummary
+instance Prelude.NFData DomainConfigurationSummary where
+  rnf DomainConfigurationSummary' {..} =
+    Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf domainConfigurationArn
+      `Prelude.seq` Prelude.rnf serviceType

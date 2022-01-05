@@ -123,9 +123,17 @@ instance Core.AWSRequest UnlabelParameterVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnlabelParameterVersion
+instance Prelude.Hashable UnlabelParameterVersion where
+  hashWithSalt _salt UnlabelParameterVersion' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parameterVersion
+      `Prelude.hashWithSalt` labels
 
-instance Prelude.NFData UnlabelParameterVersion
+instance Prelude.NFData UnlabelParameterVersion where
+  rnf UnlabelParameterVersion' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parameterVersion
+      `Prelude.seq` Prelude.rnf labels
 
 instance Core.ToHeaders UnlabelParameterVersion where
   toHeaders =
@@ -210,3 +218,8 @@ unlabelParameterVersionResponse_httpStatus = Lens.lens (\UnlabelParameterVersion
 instance
   Prelude.NFData
     UnlabelParameterVersionResponse
+  where
+  rnf UnlabelParameterVersionResponse' {..} =
+    Prelude.rnf invalidLabels
+      `Prelude.seq` Prelude.rnf removedLabels
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -97,9 +97,13 @@ instance Core.AWSRequest StopInferenceScheduler where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopInferenceScheduler
+instance Prelude.Hashable StopInferenceScheduler where
+  hashWithSalt _salt StopInferenceScheduler' {..} =
+    _salt `Prelude.hashWithSalt` inferenceSchedulerName
 
-instance Prelude.NFData StopInferenceScheduler
+instance Prelude.NFData StopInferenceScheduler where
+  rnf StopInferenceScheduler' {..} =
+    Prelude.rnf inferenceSchedulerName
 
 instance Core.ToHeaders StopInferenceScheduler where
   toHeaders =
@@ -214,3 +218,11 @@ stopInferenceSchedulerResponse_httpStatus = Lens.lens (\StopInferenceSchedulerRe
 instance
   Prelude.NFData
     StopInferenceSchedulerResponse
+  where
+  rnf StopInferenceSchedulerResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf httpStatus

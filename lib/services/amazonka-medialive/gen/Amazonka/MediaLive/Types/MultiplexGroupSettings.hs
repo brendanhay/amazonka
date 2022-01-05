@@ -45,9 +45,12 @@ instance Core.FromJSON MultiplexGroupSettings where
       "MultiplexGroupSettings"
       (\x -> Prelude.pure MultiplexGroupSettings')
 
-instance Prelude.Hashable MultiplexGroupSettings
+instance Prelude.Hashable MultiplexGroupSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData MultiplexGroupSettings
+instance Prelude.NFData MultiplexGroupSettings where
+  rnf _ = ()
 
 instance Core.ToJSON MultiplexGroupSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

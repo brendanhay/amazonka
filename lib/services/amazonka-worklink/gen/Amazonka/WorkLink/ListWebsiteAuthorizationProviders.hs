@@ -123,10 +123,22 @@ instance
 instance
   Prelude.Hashable
     ListWebsiteAuthorizationProviders
+  where
+  hashWithSalt
+    _salt
+    ListWebsiteAuthorizationProviders' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     ListWebsiteAuthorizationProviders
+  where
+  rnf ListWebsiteAuthorizationProviders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -223,3 +235,8 @@ listWebsiteAuthorizationProvidersResponse_httpStatus = Lens.lens (\ListWebsiteAu
 instance
   Prelude.NFData
     ListWebsiteAuthorizationProvidersResponse
+  where
+  rnf ListWebsiteAuthorizationProvidersResponse' {..} =
+    Prelude.rnf websiteAuthorizationProviders
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

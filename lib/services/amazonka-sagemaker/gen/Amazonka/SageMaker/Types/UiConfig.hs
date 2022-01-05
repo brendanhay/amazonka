@@ -226,9 +226,15 @@ instance Core.FromJSON UiConfig where
             Prelude.<*> (x Core..:? "HumanTaskUiArn")
       )
 
-instance Prelude.Hashable UiConfig
+instance Prelude.Hashable UiConfig where
+  hashWithSalt _salt UiConfig' {..} =
+    _salt `Prelude.hashWithSalt` uiTemplateS3Uri
+      `Prelude.hashWithSalt` humanTaskUiArn
 
-instance Prelude.NFData UiConfig
+instance Prelude.NFData UiConfig where
+  rnf UiConfig' {..} =
+    Prelude.rnf uiTemplateS3Uri
+      `Prelude.seq` Prelude.rnf humanTaskUiArn
 
 instance Core.ToJSON UiConfig where
   toJSON UiConfig' {..} =

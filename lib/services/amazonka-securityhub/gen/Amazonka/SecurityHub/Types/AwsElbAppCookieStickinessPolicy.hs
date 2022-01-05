@@ -82,10 +82,20 @@ instance
 instance
   Prelude.Hashable
     AwsElbAppCookieStickinessPolicy
+  where
+  hashWithSalt
+    _salt
+    AwsElbAppCookieStickinessPolicy' {..} =
+      _salt `Prelude.hashWithSalt` policyName
+        `Prelude.hashWithSalt` cookieName
 
 instance
   Prelude.NFData
     AwsElbAppCookieStickinessPolicy
+  where
+  rnf AwsElbAppCookieStickinessPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf cookieName
 
 instance Core.ToJSON AwsElbAppCookieStickinessPolicy where
   toJSON AwsElbAppCookieStickinessPolicy' {..} =

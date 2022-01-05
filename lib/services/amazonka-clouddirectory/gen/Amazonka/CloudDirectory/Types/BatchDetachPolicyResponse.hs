@@ -46,6 +46,9 @@ instance Core.FromJSON BatchDetachPolicyResponse where
       "BatchDetachPolicyResponse"
       (\x -> Prelude.pure BatchDetachPolicyResponse')
 
-instance Prelude.Hashable BatchDetachPolicyResponse
+instance Prelude.Hashable BatchDetachPolicyResponse where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData BatchDetachPolicyResponse
+instance Prelude.NFData BatchDetachPolicyResponse where
+  rnf _ = ()

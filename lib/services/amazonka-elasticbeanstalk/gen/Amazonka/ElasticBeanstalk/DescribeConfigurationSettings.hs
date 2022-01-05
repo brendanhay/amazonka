@@ -167,8 +167,17 @@ instance
 instance
   Prelude.Hashable
     DescribeConfigurationSettings
+  where
+  hashWithSalt _salt DescribeConfigurationSettings' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData DescribeConfigurationSettings
+instance Prelude.NFData DescribeConfigurationSettings where
+  rnf DescribeConfigurationSettings' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders DescribeConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,3 +244,7 @@ describeConfigurationSettingsResponse_httpStatus = Lens.lens (\DescribeConfigura
 instance
   Prelude.NFData
     DescribeConfigurationSettingsResponse
+  where
+  rnf DescribeConfigurationSettingsResponse' {..} =
+    Prelude.rnf configurationSettings
+      `Prelude.seq` Prelude.rnf httpStatus

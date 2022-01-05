@@ -193,9 +193,19 @@ instance Core.AWSRequest DescribeSourceRegions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSourceRegions
+instance Prelude.Hashable DescribeSourceRegions where
+  hashWithSalt _salt DescribeSourceRegions' {..} =
+    _salt `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeSourceRegions
+instance Prelude.NFData DescribeSourceRegions where
+  rnf DescribeSourceRegions' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeSourceRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,4 +291,8 @@ describeSourceRegionsResponse_sourceRegions = Lens.lens (\DescribeSourceRegionsR
 describeSourceRegionsResponse_httpStatus :: Lens.Lens' DescribeSourceRegionsResponse Prelude.Int
 describeSourceRegionsResponse_httpStatus = Lens.lens (\DescribeSourceRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeSourceRegionsResponse' {} a -> s {httpStatus = a} :: DescribeSourceRegionsResponse)
 
-instance Prelude.NFData DescribeSourceRegionsResponse
+instance Prelude.NFData DescribeSourceRegionsResponse where
+  rnf DescribeSourceRegionsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf sourceRegions
+      `Prelude.seq` Prelude.rnf httpStatus

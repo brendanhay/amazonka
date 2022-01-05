@@ -158,9 +158,17 @@ instance Core.AWSRequest ListThreatIntelSets where
                         )
       )
 
-instance Prelude.Hashable ListThreatIntelSets
+instance Prelude.Hashable ListThreatIntelSets where
+  hashWithSalt _salt ListThreatIntelSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData ListThreatIntelSets
+instance Prelude.NFData ListThreatIntelSets where
+  rnf ListThreatIntelSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders ListThreatIntelSets where
   toHeaders =
@@ -239,4 +247,8 @@ listThreatIntelSetsResponse_httpStatus = Lens.lens (\ListThreatIntelSetsResponse
 listThreatIntelSetsResponse_threatIntelSetIds :: Lens.Lens' ListThreatIntelSetsResponse [Prelude.Text]
 listThreatIntelSetsResponse_threatIntelSetIds = Lens.lens (\ListThreatIntelSetsResponse' {threatIntelSetIds} -> threatIntelSetIds) (\s@ListThreatIntelSetsResponse' {} a -> s {threatIntelSetIds = a} :: ListThreatIntelSetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListThreatIntelSetsResponse
+instance Prelude.NFData ListThreatIntelSetsResponse where
+  rnf ListThreatIntelSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf threatIntelSetIds

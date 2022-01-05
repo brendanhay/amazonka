@@ -133,6 +133,24 @@ instance Core.FromJSON AssessmentReportMetadata where
             Prelude.<*> (x Core..:? "assessmentName")
       )
 
-instance Prelude.Hashable AssessmentReportMetadata
+instance Prelude.Hashable AssessmentReportMetadata where
+  hashWithSalt _salt AssessmentReportMetadata' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` assessmentName
 
-instance Prelude.NFData AssessmentReportMetadata
+instance Prelude.NFData AssessmentReportMetadata where
+  rnf AssessmentReportMetadata' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf assessmentName

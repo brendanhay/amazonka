@@ -152,9 +152,17 @@ instance Core.AWSRequest CreateEmailIdentityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEmailIdentityPolicy
+instance Prelude.Hashable CreateEmailIdentityPolicy where
+  hashWithSalt _salt CreateEmailIdentityPolicy' {..} =
+    _salt `Prelude.hashWithSalt` emailIdentity
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData CreateEmailIdentityPolicy
+instance Prelude.NFData CreateEmailIdentityPolicy where
+  rnf CreateEmailIdentityPolicy' {..} =
+    Prelude.rnf emailIdentity
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders CreateEmailIdentityPolicy where
   toHeaders =
@@ -222,3 +230,6 @@ createEmailIdentityPolicyResponse_httpStatus = Lens.lens (\CreateEmailIdentityPo
 instance
   Prelude.NFData
     CreateEmailIdentityPolicyResponse
+  where
+  rnf CreateEmailIdentityPolicyResponse' {..} =
+    Prelude.rnf httpStatus

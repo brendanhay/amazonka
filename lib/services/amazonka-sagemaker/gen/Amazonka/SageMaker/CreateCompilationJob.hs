@@ -273,9 +273,25 @@ instance Core.AWSRequest CreateCompilationJob where
             Prelude.<*> (x Core..:> "CompilationJobArn")
       )
 
-instance Prelude.Hashable CreateCompilationJob
+instance Prelude.Hashable CreateCompilationJob where
+  hashWithSalt _salt CreateCompilationJob' {..} =
+    _salt `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` compilationJobName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` stoppingCondition
 
-instance Prelude.NFData CreateCompilationJob
+instance Prelude.NFData CreateCompilationJob where
+  rnf CreateCompilationJob' {..} =
+    Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
 
 instance Core.ToHeaders CreateCompilationJob where
   toHeaders =
@@ -369,4 +385,7 @@ createCompilationJobResponse_httpStatus = Lens.lens (\CreateCompilationJobRespon
 createCompilationJobResponse_compilationJobArn :: Lens.Lens' CreateCompilationJobResponse Prelude.Text
 createCompilationJobResponse_compilationJobArn = Lens.lens (\CreateCompilationJobResponse' {compilationJobArn} -> compilationJobArn) (\s@CreateCompilationJobResponse' {} a -> s {compilationJobArn = a} :: CreateCompilationJobResponse)
 
-instance Prelude.NFData CreateCompilationJobResponse
+instance Prelude.NFData CreateCompilationJobResponse where
+  rnf CreateCompilationJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf compilationJobArn

@@ -227,9 +227,18 @@ instance Core.AWSRequest DeleteDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDBInstance
+instance Prelude.Hashable DeleteDBInstance where
+  hashWithSalt _salt DeleteDBInstance' {..} =
+    _salt
+      `Prelude.hashWithSalt` finalDBSnapshotIdentifier
+      `Prelude.hashWithSalt` skipFinalSnapshot
+      `Prelude.hashWithSalt` dbInstanceIdentifier
 
-instance Prelude.NFData DeleteDBInstance
+instance Prelude.NFData DeleteDBInstance where
+  rnf DeleteDBInstance' {..} =
+    Prelude.rnf finalDBSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf skipFinalSnapshot
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders DeleteDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,4 +297,7 @@ deleteDBInstanceResponse_dbInstance = Lens.lens (\DeleteDBInstanceResponse' {dbI
 deleteDBInstanceResponse_httpStatus :: Lens.Lens' DeleteDBInstanceResponse Prelude.Int
 deleteDBInstanceResponse_httpStatus = Lens.lens (\DeleteDBInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteDBInstanceResponse' {} a -> s {httpStatus = a} :: DeleteDBInstanceResponse)
 
-instance Prelude.NFData DeleteDBInstanceResponse
+instance Prelude.NFData DeleteDBInstanceResponse where
+  rnf DeleteDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

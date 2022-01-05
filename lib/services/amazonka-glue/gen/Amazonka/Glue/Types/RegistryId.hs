@@ -68,9 +68,15 @@ registryId_registryName = Lens.lens (\RegistryId' {registryName} -> registryName
 registryId_registryArn :: Lens.Lens' RegistryId (Prelude.Maybe Prelude.Text)
 registryId_registryArn = Lens.lens (\RegistryId' {registryArn} -> registryArn) (\s@RegistryId' {} a -> s {registryArn = a} :: RegistryId)
 
-instance Prelude.Hashable RegistryId
+instance Prelude.Hashable RegistryId where
+  hashWithSalt _salt RegistryId' {..} =
+    _salt `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` registryArn
 
-instance Prelude.NFData RegistryId
+instance Prelude.NFData RegistryId where
+  rnf RegistryId' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf registryArn
 
 instance Core.ToJSON RegistryId where
   toJSON RegistryId' {..} =

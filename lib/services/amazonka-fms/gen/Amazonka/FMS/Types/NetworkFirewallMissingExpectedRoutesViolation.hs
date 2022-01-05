@@ -90,7 +90,20 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallMissingExpectedRoutesViolation
+  where
+  hashWithSalt
+    _salt
+    NetworkFirewallMissingExpectedRoutesViolation' {..} =
+      _salt `Prelude.hashWithSalt` expectedRoutes
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
     NetworkFirewallMissingExpectedRoutesViolation
+  where
+  rnf
+    NetworkFirewallMissingExpectedRoutesViolation' {..} =
+      Prelude.rnf expectedRoutes
+        `Prelude.seq` Prelude.rnf vpcId
+        `Prelude.seq` Prelude.rnf violationTarget

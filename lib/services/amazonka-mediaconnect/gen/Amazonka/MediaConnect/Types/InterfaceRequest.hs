@@ -53,9 +53,12 @@ newInterfaceRequest pName_ =
 interfaceRequest_name :: Lens.Lens' InterfaceRequest Prelude.Text
 interfaceRequest_name = Lens.lens (\InterfaceRequest' {name} -> name) (\s@InterfaceRequest' {} a -> s {name = a} :: InterfaceRequest)
 
-instance Prelude.Hashable InterfaceRequest
+instance Prelude.Hashable InterfaceRequest where
+  hashWithSalt _salt InterfaceRequest' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InterfaceRequest
+instance Prelude.NFData InterfaceRequest where
+  rnf InterfaceRequest' {..} = Prelude.rnf name
 
 instance Core.ToJSON InterfaceRequest where
   toJSON InterfaceRequest' {..} =

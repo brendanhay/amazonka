@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     GetResolverQueryLogConfigPolicy
+  where
+  hashWithSalt
+    _salt
+    GetResolverQueryLogConfigPolicy' {..} =
+      _salt `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     GetResolverQueryLogConfigPolicy
+  where
+  rnf GetResolverQueryLogConfigPolicy' {..} =
+    Prelude.rnf arn
 
 instance
   Core.ToHeaders
@@ -182,3 +190,7 @@ getResolverQueryLogConfigPolicyResponse_httpStatus = Lens.lens (\GetResolverQuer
 instance
   Prelude.NFData
     GetResolverQueryLogConfigPolicyResponse
+  where
+  rnf GetResolverQueryLogConfigPolicyResponse' {..} =
+    Prelude.rnf resolverQueryLogConfigPolicy
+      `Prelude.seq` Prelude.rnf httpStatus

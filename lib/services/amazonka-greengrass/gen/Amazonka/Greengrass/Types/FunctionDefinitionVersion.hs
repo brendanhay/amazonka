@@ -80,9 +80,15 @@ instance Core.FromJSON FunctionDefinitionVersion where
             Prelude.<*> (x Core..:? "Functions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FunctionDefinitionVersion
+instance Prelude.Hashable FunctionDefinitionVersion where
+  hashWithSalt _salt FunctionDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` defaultConfig
+      `Prelude.hashWithSalt` functions
 
-instance Prelude.NFData FunctionDefinitionVersion
+instance Prelude.NFData FunctionDefinitionVersion where
+  rnf FunctionDefinitionVersion' {..} =
+    Prelude.rnf defaultConfig
+      `Prelude.seq` Prelude.rnf functions
 
 instance Core.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =

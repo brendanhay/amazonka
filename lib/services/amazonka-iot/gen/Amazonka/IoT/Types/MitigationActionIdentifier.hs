@@ -83,6 +83,14 @@ instance Core.FromJSON MitigationActionIdentifier where
             Prelude.<*> (x Core..:? "actionArn")
       )
 
-instance Prelude.Hashable MitigationActionIdentifier
+instance Prelude.Hashable MitigationActionIdentifier where
+  hashWithSalt _salt MitigationActionIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` actionArn
 
-instance Prelude.NFData MitigationActionIdentifier
+instance Prelude.NFData MitigationActionIdentifier where
+  rnf MitigationActionIdentifier' {..} =
+    Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf actionArn

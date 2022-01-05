@@ -190,6 +190,26 @@ instance Core.FromJSON ContactMethod where
             Prelude.<*> (x Core..:? "contactEndpoint")
       )
 
-instance Prelude.Hashable ContactMethod
+instance Prelude.Hashable ContactMethod where
+  hashWithSalt _salt ContactMethod' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` contactEndpoint
 
-instance Prelude.NFData ContactMethod
+instance Prelude.NFData ContactMethod where
+  rnf ContactMethod' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf contactEndpoint

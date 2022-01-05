@@ -107,9 +107,15 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
                         )
       )
 
-instance Prelude.Hashable ListNodeFromTemplateJobs
+instance Prelude.Hashable ListNodeFromTemplateJobs where
+  hashWithSalt _salt ListNodeFromTemplateJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListNodeFromTemplateJobs
+instance Prelude.NFData ListNodeFromTemplateJobs where
+  rnf ListNodeFromTemplateJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListNodeFromTemplateJobs where
   toHeaders =
@@ -183,3 +189,8 @@ listNodeFromTemplateJobsResponse_nodeFromTemplateJobs = Lens.lens (\ListNodeFrom
 instance
   Prelude.NFData
     ListNodeFromTemplateJobsResponse
+  where
+  rnf ListNodeFromTemplateJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nodeFromTemplateJobs

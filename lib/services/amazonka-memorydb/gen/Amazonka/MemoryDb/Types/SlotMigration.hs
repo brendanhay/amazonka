@@ -62,6 +62,10 @@ instance Core.FromJSON SlotMigration where
             Prelude.<$> (x Core..:? "ProgressPercentage")
       )
 
-instance Prelude.Hashable SlotMigration
+instance Prelude.Hashable SlotMigration where
+  hashWithSalt _salt SlotMigration' {..} =
+    _salt `Prelude.hashWithSalt` progressPercentage
 
-instance Prelude.NFData SlotMigration
+instance Prelude.NFData SlotMigration where
+  rnf SlotMigration' {..} =
+    Prelude.rnf progressPercentage

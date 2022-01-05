@@ -143,9 +143,17 @@ instance Core.AWSRequest StartInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartInstances
+instance Prelude.Hashable StartInstances where
+  hashWithSalt _salt StartInstances' {..} =
+    _salt `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData StartInstances
+instance Prelude.NFData StartInstances where
+  rnf StartInstances' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders StartInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +212,7 @@ startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {
 startInstancesResponse_httpStatus :: Lens.Lens' StartInstancesResponse Prelude.Int
 startInstancesResponse_httpStatus = Lens.lens (\StartInstancesResponse' {httpStatus} -> httpStatus) (\s@StartInstancesResponse' {} a -> s {httpStatus = a} :: StartInstancesResponse)
 
-instance Prelude.NFData StartInstancesResponse
+instance Prelude.NFData StartInstancesResponse where
+  rnf StartInstancesResponse' {..} =
+    Prelude.rnf startingInstances
+      `Prelude.seq` Prelude.rnf httpStatus

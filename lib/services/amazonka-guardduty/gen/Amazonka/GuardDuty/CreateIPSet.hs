@@ -181,9 +181,25 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<*> (x Core..:> "ipSetId")
       )
 
-instance Prelude.Hashable CreateIPSet
+instance Prelude.Hashable CreateIPSet where
+  hashWithSalt _salt CreateIPSet' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` activate
 
-instance Prelude.NFData CreateIPSet
+instance Prelude.NFData CreateIPSet where
+  rnf CreateIPSet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf activate
 
 instance Core.ToHeaders CreateIPSet where
   toHeaders =
@@ -257,4 +273,7 @@ createIPSetResponse_httpStatus = Lens.lens (\CreateIPSetResponse' {httpStatus} -
 createIPSetResponse_ipSetId :: Lens.Lens' CreateIPSetResponse Prelude.Text
 createIPSetResponse_ipSetId = Lens.lens (\CreateIPSetResponse' {ipSetId} -> ipSetId) (\s@CreateIPSetResponse' {} a -> s {ipSetId = a} :: CreateIPSetResponse)
 
-instance Prelude.NFData CreateIPSetResponse
+instance Prelude.NFData CreateIPSetResponse where
+  rnf CreateIPSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ipSetId

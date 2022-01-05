@@ -97,9 +97,12 @@ instance Core.AWSRequest FinalizeCutover where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable FinalizeCutover
+instance Prelude.Hashable FinalizeCutover where
+  hashWithSalt _salt FinalizeCutover' {..} =
+    _salt `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData FinalizeCutover
+instance Prelude.NFData FinalizeCutover where
+  rnf FinalizeCutover' {..} = Prelude.rnf sourceServerID
 
 instance Core.ToHeaders FinalizeCutover where
   toHeaders =

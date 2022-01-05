@@ -147,7 +147,29 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowExecutionTaskIdentity
+  where
+  hashWithSalt
+    _salt
+    MaintenanceWindowExecutionTaskIdentity' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` taskExecutionId
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` taskType
+        `Prelude.hashWithSalt` taskArn
+        `Prelude.hashWithSalt` windowExecutionId
+        `Prelude.hashWithSalt` statusDetails
+        `Prelude.hashWithSalt` endTime
 
 instance
   Prelude.NFData
     MaintenanceWindowExecutionTaskIdentity
+  where
+  rnf MaintenanceWindowExecutionTaskIdentity' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskExecutionId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf windowExecutionId
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf endTime

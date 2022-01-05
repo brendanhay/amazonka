@@ -350,6 +350,34 @@ instance Core.FromJSON Node where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Node
+instance Prelude.Hashable Node where
+  hashWithSalt _salt Node' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` logPublishingConfiguration
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` stateDB
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` frameworkAttributes
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Node
+instance Prelude.NFData Node where
+  rnf Node' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf stateDB
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf frameworkAttributes
+      `Prelude.seq` Prelude.rnf tags

@@ -90,9 +90,17 @@ monitoringConfiguration_metricsLevel = Lens.lens (\MonitoringConfiguration' {met
 monitoringConfiguration_configurationType :: Lens.Lens' MonitoringConfiguration ConfigurationType
 monitoringConfiguration_configurationType = Lens.lens (\MonitoringConfiguration' {configurationType} -> configurationType) (\s@MonitoringConfiguration' {} a -> s {configurationType = a} :: MonitoringConfiguration)
 
-instance Prelude.Hashable MonitoringConfiguration
+instance Prelude.Hashable MonitoringConfiguration where
+  hashWithSalt _salt MonitoringConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` metricsLevel
+      `Prelude.hashWithSalt` configurationType
 
-instance Prelude.NFData MonitoringConfiguration
+instance Prelude.NFData MonitoringConfiguration where
+  rnf MonitoringConfiguration' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf metricsLevel
+      `Prelude.seq` Prelude.rnf configurationType
 
 instance Core.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =

@@ -194,9 +194,19 @@ instance Core.AWSRequest DescribeImageTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageTags
+instance Prelude.Hashable DescribeImageTags where
+  hashWithSalt _salt DescribeImageTags' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData DescribeImageTags
+instance Prelude.NFData DescribeImageTags where
+  rnf DescribeImageTags' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders DescribeImageTags where
   toHeaders =
@@ -288,4 +298,8 @@ describeImageTagsResponse_imageTagDetails = Lens.lens (\DescribeImageTagsRespons
 describeImageTagsResponse_httpStatus :: Lens.Lens' DescribeImageTagsResponse Prelude.Int
 describeImageTagsResponse_httpStatus = Lens.lens (\DescribeImageTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeImageTagsResponse' {} a -> s {httpStatus = a} :: DescribeImageTagsResponse)
 
-instance Prelude.NFData DescribeImageTagsResponse
+instance Prelude.NFData DescribeImageTagsResponse where
+  rnf DescribeImageTagsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageTagDetails
+      `Prelude.seq` Prelude.rnf httpStatus

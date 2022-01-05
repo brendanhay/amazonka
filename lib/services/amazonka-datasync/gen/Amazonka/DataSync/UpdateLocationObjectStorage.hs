@@ -189,9 +189,25 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLocationObjectStorage
+instance Prelude.Hashable UpdateLocationObjectStorage where
+  hashWithSalt _salt UpdateLocationObjectStorage' {..} =
+    _salt `Prelude.hashWithSalt` serverPort
+      `Prelude.hashWithSalt` agentArns
+      `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` secretKey
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData UpdateLocationObjectStorage
+instance Prelude.NFData UpdateLocationObjectStorage where
+  rnf UpdateLocationObjectStorage' {..} =
+    Prelude.rnf serverPort
+      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf secretKey
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf locationArn
 
 instance Core.ToHeaders UpdateLocationObjectStorage where
   toHeaders =
@@ -262,3 +278,6 @@ updateLocationObjectStorageResponse_httpStatus = Lens.lens (\UpdateLocationObjec
 instance
   Prelude.NFData
     UpdateLocationObjectStorageResponse
+  where
+  rnf UpdateLocationObjectStorageResponse' {..} =
+    Prelude.rnf httpStatus

@@ -145,9 +145,17 @@ instance Core.AWSRequest DescribeCustomDomains where
             Prelude.<*> (x Core..?> "CustomDomains" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeCustomDomains
+instance Prelude.Hashable DescribeCustomDomains where
+  hashWithSalt _salt DescribeCustomDomains' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData DescribeCustomDomains
+instance Prelude.NFData DescribeCustomDomains where
+  rnf DescribeCustomDomains' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceArn
 
 instance Core.ToHeaders DescribeCustomDomains where
   toHeaders =
@@ -268,4 +276,10 @@ describeCustomDomainsResponse_serviceArn = Lens.lens (\DescribeCustomDomainsResp
 describeCustomDomainsResponse_customDomains :: Lens.Lens' DescribeCustomDomainsResponse [CustomDomain]
 describeCustomDomainsResponse_customDomains = Lens.lens (\DescribeCustomDomainsResponse' {customDomains} -> customDomains) (\s@DescribeCustomDomainsResponse' {} a -> s {customDomains = a} :: DescribeCustomDomainsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeCustomDomainsResponse
+instance Prelude.NFData DescribeCustomDomainsResponse where
+  rnf DescribeCustomDomainsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dNSTarget
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf customDomains

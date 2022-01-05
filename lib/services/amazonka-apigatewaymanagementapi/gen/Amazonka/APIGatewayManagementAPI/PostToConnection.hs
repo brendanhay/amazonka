@@ -91,9 +91,15 @@ instance Core.AWSRequest PostToConnection where
   response =
     Response.receiveNull PostToConnectionResponse'
 
-instance Prelude.Hashable PostToConnection
+instance Prelude.Hashable PostToConnection where
+  hashWithSalt _salt PostToConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData PostToConnection
+instance Prelude.NFData PostToConnection where
+  rnf PostToConnection' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToBody PostToConnection where
   toBody PostToConnection' {..} = Core.toBody data'
@@ -132,4 +138,5 @@ newPostToConnectionResponse ::
 newPostToConnectionResponse =
   PostToConnectionResponse'
 
-instance Prelude.NFData PostToConnectionResponse
+instance Prelude.NFData PostToConnectionResponse where
+  rnf _ = ()

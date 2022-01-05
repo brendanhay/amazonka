@@ -122,9 +122,21 @@ instance Core.FromJSON DashManifest where
             Prelude.<*> (x Core..:? "manifestLayout")
       )
 
-instance Prelude.Hashable DashManifest
+instance Prelude.Hashable DashManifest where
+  hashWithSalt _salt DashManifest' {..} =
+    _salt `Prelude.hashWithSalt` minBufferTimeSeconds
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` manifestLayout
 
-instance Prelude.NFData DashManifest
+instance Prelude.NFData DashManifest where
+  rnf DashManifest' {..} =
+    Prelude.rnf minBufferTimeSeconds
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf manifestLayout
 
 instance Core.ToJSON DashManifest where
   toJSON DashManifest' {..} =

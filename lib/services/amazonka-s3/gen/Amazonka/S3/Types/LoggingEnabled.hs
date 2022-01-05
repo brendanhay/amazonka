@@ -109,9 +109,17 @@ instance Core.FromXML LoggingEnabled where
       Prelude.<*> (x Core..@ "TargetBucket")
       Prelude.<*> (x Core..@ "TargetPrefix")
 
-instance Prelude.Hashable LoggingEnabled
+instance Prelude.Hashable LoggingEnabled where
+  hashWithSalt _salt LoggingEnabled' {..} =
+    _salt `Prelude.hashWithSalt` targetGrants
+      `Prelude.hashWithSalt` targetBucket
+      `Prelude.hashWithSalt` targetPrefix
 
-instance Prelude.NFData LoggingEnabled
+instance Prelude.NFData LoggingEnabled where
+  rnf LoggingEnabled' {..} =
+    Prelude.rnf targetGrants
+      `Prelude.seq` Prelude.rnf targetBucket
+      `Prelude.seq` Prelude.rnf targetPrefix
 
 instance Core.ToXML LoggingEnabled where
   toXML LoggingEnabled' {..} =

@@ -95,9 +95,14 @@ instance Core.AWSRequest StopWorkflowRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopWorkflowRun
+instance Prelude.Hashable StopWorkflowRun where
+  hashWithSalt _salt StopWorkflowRun' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData StopWorkflowRun
+instance Prelude.NFData StopWorkflowRun where
+  rnf StopWorkflowRun' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders StopWorkflowRun where
   toHeaders =
@@ -154,4 +159,6 @@ newStopWorkflowRunResponse pHttpStatus_ =
 stopWorkflowRunResponse_httpStatus :: Lens.Lens' StopWorkflowRunResponse Prelude.Int
 stopWorkflowRunResponse_httpStatus = Lens.lens (\StopWorkflowRunResponse' {httpStatus} -> httpStatus) (\s@StopWorkflowRunResponse' {} a -> s {httpStatus = a} :: StopWorkflowRunResponse)
 
-instance Prelude.NFData StopWorkflowRunResponse
+instance Prelude.NFData StopWorkflowRunResponse where
+  rnf StopWorkflowRunResponse' {..} =
+    Prelude.rnf httpStatus

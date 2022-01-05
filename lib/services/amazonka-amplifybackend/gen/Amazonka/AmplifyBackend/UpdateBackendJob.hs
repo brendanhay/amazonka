@@ -157,9 +157,21 @@ instance Core.AWSRequest UpdateBackendJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBackendJob
+instance Prelude.Hashable UpdateBackendJob where
+  hashWithSalt _salt UpdateBackendJob' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData UpdateBackendJob
+instance Prelude.NFData UpdateBackendJob where
+  rnf UpdateBackendJob' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders UpdateBackendJob where
   toHeaders =
@@ -296,4 +308,14 @@ updateBackendJobResponse_createTime = Lens.lens (\UpdateBackendJobResponse' {cre
 updateBackendJobResponse_httpStatus :: Lens.Lens' UpdateBackendJobResponse Prelude.Int
 updateBackendJobResponse_httpStatus = Lens.lens (\UpdateBackendJobResponse' {httpStatus} -> httpStatus) (\s@UpdateBackendJobResponse' {} a -> s {httpStatus = a} :: UpdateBackendJobResponse)
 
-instance Prelude.NFData UpdateBackendJobResponse
+instance Prelude.NFData UpdateBackendJobResponse where
+  rnf UpdateBackendJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf httpStatus

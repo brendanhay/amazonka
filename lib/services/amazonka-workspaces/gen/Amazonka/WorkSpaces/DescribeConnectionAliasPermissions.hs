@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     DescribeConnectionAliasPermissions
+  where
+  hashWithSalt
+    _salt
+    DescribeConnectionAliasPermissions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` aliasId
 
 instance
   Prelude.NFData
     DescribeConnectionAliasPermissions
+  where
+  rnf DescribeConnectionAliasPermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf aliasId
 
 instance
   Core.ToHeaders
@@ -238,3 +250,9 @@ describeConnectionAliasPermissionsResponse_httpStatus = Lens.lens (\DescribeConn
 instance
   Prelude.NFData
     DescribeConnectionAliasPermissionsResponse
+  where
+  rnf DescribeConnectionAliasPermissionsResponse' {..} =
+    Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectionAliasPermissions
+      `Prelude.seq` Prelude.rnf httpStatus

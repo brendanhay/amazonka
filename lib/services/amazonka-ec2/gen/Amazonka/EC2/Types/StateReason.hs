@@ -191,6 +191,11 @@ instance Core.FromXML StateReason where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable StateReason
+instance Prelude.Hashable StateReason where
+  hashWithSalt _salt StateReason' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData StateReason
+instance Prelude.NFData StateReason where
+  rnf StateReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

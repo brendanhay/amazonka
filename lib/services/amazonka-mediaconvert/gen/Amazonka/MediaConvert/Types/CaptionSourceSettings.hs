@@ -188,9 +188,27 @@ instance Core.FromJSON CaptionSourceSettings where
             Prelude.<*> (x Core..:? "embeddedSourceSettings")
       )
 
-instance Prelude.Hashable CaptionSourceSettings
+instance Prelude.Hashable CaptionSourceSettings where
+  hashWithSalt _salt CaptionSourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` teletextSourceSettings
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` fileSourceSettings
+      `Prelude.hashWithSalt` webvttHlsSourceSettings
+      `Prelude.hashWithSalt` dvbSubSourceSettings
+      `Prelude.hashWithSalt` trackSourceSettings
+      `Prelude.hashWithSalt` ancillarySourceSettings
+      `Prelude.hashWithSalt` embeddedSourceSettings
 
-instance Prelude.NFData CaptionSourceSettings
+instance Prelude.NFData CaptionSourceSettings where
+  rnf CaptionSourceSettings' {..} =
+    Prelude.rnf teletextSourceSettings
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf fileSourceSettings
+      `Prelude.seq` Prelude.rnf webvttHlsSourceSettings
+      `Prelude.seq` Prelude.rnf dvbSubSourceSettings
+      `Prelude.seq` Prelude.rnf trackSourceSettings
+      `Prelude.seq` Prelude.rnf ancillarySourceSettings
+      `Prelude.seq` Prelude.rnf embeddedSourceSettings
 
 instance Core.ToJSON CaptionSourceSettings where
   toJSON CaptionSourceSettings' {..} =

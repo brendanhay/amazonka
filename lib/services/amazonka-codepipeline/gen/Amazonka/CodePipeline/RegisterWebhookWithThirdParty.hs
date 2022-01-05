@@ -95,8 +95,13 @@ instance
 instance
   Prelude.Hashable
     RegisterWebhookWithThirdParty
+  where
+  hashWithSalt _salt RegisterWebhookWithThirdParty' {..} =
+    _salt `Prelude.hashWithSalt` webhookName
 
-instance Prelude.NFData RegisterWebhookWithThirdParty
+instance Prelude.NFData RegisterWebhookWithThirdParty where
+  rnf RegisterWebhookWithThirdParty' {..} =
+    Prelude.rnf webhookName
 
 instance Core.ToHeaders RegisterWebhookWithThirdParty where
   toHeaders =
@@ -159,3 +164,6 @@ registerWebhookWithThirdPartyResponse_httpStatus = Lens.lens (\RegisterWebhookWi
 instance
   Prelude.NFData
     RegisterWebhookWithThirdPartyResponse
+  where
+  rnf RegisterWebhookWithThirdPartyResponse' {..} =
+    Prelude.rnf httpStatus

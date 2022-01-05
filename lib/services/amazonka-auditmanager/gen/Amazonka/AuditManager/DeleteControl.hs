@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteControl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteControl
+instance Prelude.Hashable DeleteControl where
+  hashWithSalt _salt DeleteControl' {..} =
+    _salt `Prelude.hashWithSalt` controlId
 
-instance Prelude.NFData DeleteControl
+instance Prelude.NFData DeleteControl where
+  rnf DeleteControl' {..} = Prelude.rnf controlId
 
 instance Core.ToHeaders DeleteControl where
   toHeaders =
@@ -133,4 +136,6 @@ newDeleteControlResponse pHttpStatus_ =
 deleteControlResponse_httpStatus :: Lens.Lens' DeleteControlResponse Prelude.Int
 deleteControlResponse_httpStatus = Lens.lens (\DeleteControlResponse' {httpStatus} -> httpStatus) (\s@DeleteControlResponse' {} a -> s {httpStatus = a} :: DeleteControlResponse)
 
-instance Prelude.NFData DeleteControlResponse
+instance Prelude.NFData DeleteControlResponse where
+  rnf DeleteControlResponse' {..} =
+    Prelude.rnf httpStatus

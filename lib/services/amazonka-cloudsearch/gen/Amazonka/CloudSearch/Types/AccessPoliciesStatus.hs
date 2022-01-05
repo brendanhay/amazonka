@@ -71,6 +71,12 @@ instance Core.FromXML AccessPoliciesStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable AccessPoliciesStatus
+instance Prelude.Hashable AccessPoliciesStatus where
+  hashWithSalt _salt AccessPoliciesStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AccessPoliciesStatus
+instance Prelude.NFData AccessPoliciesStatus where
+  rnf AccessPoliciesStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

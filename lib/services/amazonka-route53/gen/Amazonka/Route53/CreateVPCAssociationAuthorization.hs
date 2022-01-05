@@ -132,10 +132,20 @@ instance
 instance
   Prelude.Hashable
     CreateVPCAssociationAuthorization
+  where
+  hashWithSalt
+    _salt
+    CreateVPCAssociationAuthorization' {..} =
+      _salt `Prelude.hashWithSalt` hostedZoneId
+        `Prelude.hashWithSalt` vpc
 
 instance
   Prelude.NFData
     CreateVPCAssociationAuthorization
+  where
+  rnf CreateVPCAssociationAuthorization' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf vpc
 
 instance
   Core.ToElement
@@ -233,3 +243,8 @@ createVPCAssociationAuthorizationResponse_vpc = Lens.lens (\CreateVPCAssociation
 instance
   Prelude.NFData
     CreateVPCAssociationAuthorizationResponse
+  where
+  rnf CreateVPCAssociationAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf vpc

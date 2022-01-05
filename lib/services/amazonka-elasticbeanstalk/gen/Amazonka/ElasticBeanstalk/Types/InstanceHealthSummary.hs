@@ -150,6 +150,24 @@ instance Core.FromXML InstanceHealthSummary where
       Prelude.<*> (x Core..@? "Degraded")
       Prelude.<*> (x Core..@? "Info")
 
-instance Prelude.Hashable InstanceHealthSummary
+instance Prelude.Hashable InstanceHealthSummary where
+  hashWithSalt _salt InstanceHealthSummary' {..} =
+    _salt `Prelude.hashWithSalt` ok
+      `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` severe
+      `Prelude.hashWithSalt` unknown
+      `Prelude.hashWithSalt` noData
+      `Prelude.hashWithSalt` warning
+      `Prelude.hashWithSalt` degraded
+      `Prelude.hashWithSalt` info
 
-instance Prelude.NFData InstanceHealthSummary
+instance Prelude.NFData InstanceHealthSummary where
+  rnf InstanceHealthSummary' {..} =
+    Prelude.rnf ok
+      `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf severe
+      `Prelude.seq` Prelude.rnf unknown
+      `Prelude.seq` Prelude.rnf noData
+      `Prelude.seq` Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf degraded
+      `Prelude.seq` Prelude.rnf info

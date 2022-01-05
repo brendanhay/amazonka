@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateBlueprint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBlueprint
+instance Prelude.Hashable UpdateBlueprint where
+  hashWithSalt _salt UpdateBlueprint' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` blueprintLocation
 
-instance Prelude.NFData UpdateBlueprint
+instance Prelude.NFData UpdateBlueprint where
+  rnf UpdateBlueprint' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf blueprintLocation
 
 instance Core.ToHeaders UpdateBlueprint where
   toHeaders =
@@ -182,4 +190,7 @@ updateBlueprintResponse_name = Lens.lens (\UpdateBlueprintResponse' {name} -> na
 updateBlueprintResponse_httpStatus :: Lens.Lens' UpdateBlueprintResponse Prelude.Int
 updateBlueprintResponse_httpStatus = Lens.lens (\UpdateBlueprintResponse' {httpStatus} -> httpStatus) (\s@UpdateBlueprintResponse' {} a -> s {httpStatus = a} :: UpdateBlueprintResponse)
 
-instance Prelude.NFData UpdateBlueprintResponse
+instance Prelude.NFData UpdateBlueprintResponse where
+  rnf UpdateBlueprintResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

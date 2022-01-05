@@ -238,6 +238,38 @@ instance Core.FromJSON BatchWriteOperationResponse where
             Prelude.<*> (x Core..:? "AttachToIndex")
       )
 
-instance Prelude.Hashable BatchWriteOperationResponse
+instance Prelude.Hashable BatchWriteOperationResponse where
+  hashWithSalt _salt BatchWriteOperationResponse' {..} =
+    _salt `Prelude.hashWithSalt` deleteObject
+      `Prelude.hashWithSalt` detachFromIndex
+      `Prelude.hashWithSalt` removeFacetFromObject
+      `Prelude.hashWithSalt` attachObject
+      `Prelude.hashWithSalt` createObject
+      `Prelude.hashWithSalt` attachTypedLink
+      `Prelude.hashWithSalt` detachPolicy
+      `Prelude.hashWithSalt` createIndex
+      `Prelude.hashWithSalt` detachObject
+      `Prelude.hashWithSalt` addFacetToObject
+      `Prelude.hashWithSalt` detachTypedLink
+      `Prelude.hashWithSalt` updateObjectAttributes
+      `Prelude.hashWithSalt` attachPolicy
+      `Prelude.hashWithSalt` updateLinkAttributes
+      `Prelude.hashWithSalt` attachToIndex
 
-instance Prelude.NFData BatchWriteOperationResponse
+instance Prelude.NFData BatchWriteOperationResponse where
+  rnf BatchWriteOperationResponse' {..} =
+    Prelude.rnf deleteObject
+      `Prelude.seq` Prelude.rnf detachFromIndex
+      `Prelude.seq` Prelude.rnf removeFacetFromObject
+      `Prelude.seq` Prelude.rnf attachObject
+      `Prelude.seq` Prelude.rnf createObject
+      `Prelude.seq` Prelude.rnf attachTypedLink
+      `Prelude.seq` Prelude.rnf detachPolicy
+      `Prelude.seq` Prelude.rnf createIndex
+      `Prelude.seq` Prelude.rnf detachObject
+      `Prelude.seq` Prelude.rnf addFacetToObject
+      `Prelude.seq` Prelude.rnf detachTypedLink
+      `Prelude.seq` Prelude.rnf updateObjectAttributes
+      `Prelude.seq` Prelude.rnf attachPolicy
+      `Prelude.seq` Prelude.rnf updateLinkAttributes
+      `Prelude.seq` Prelude.rnf attachToIndex

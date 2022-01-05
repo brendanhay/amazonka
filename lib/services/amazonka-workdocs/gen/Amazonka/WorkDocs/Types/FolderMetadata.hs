@@ -165,6 +165,30 @@ instance Core.FromJSON FolderMetadata where
             Prelude.<*> (x Core..:? "CreatorId")
       )
 
-instance Prelude.Hashable FolderMetadata
+instance Prelude.Hashable FolderMetadata where
+  hashWithSalt _salt FolderMetadata' {..} =
+    _salt `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` parentFolderId
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` latestVersionSize
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` modifiedTimestamp
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` resourceState
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` creatorId
 
-instance Prelude.NFData FolderMetadata
+instance Prelude.NFData FolderMetadata where
+  rnf FolderMetadata' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf parentFolderId
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf latestVersionSize
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf modifiedTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf resourceState
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf creatorId

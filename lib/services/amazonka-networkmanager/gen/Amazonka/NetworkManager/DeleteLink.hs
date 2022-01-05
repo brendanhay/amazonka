@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLink
+instance Prelude.Hashable DeleteLink where
+  hashWithSalt _salt DeleteLink' {..} =
+    _salt `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` linkId
 
-instance Prelude.NFData DeleteLink
+instance Prelude.NFData DeleteLink where
+  rnf DeleteLink' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf linkId
 
 instance Core.ToHeaders DeleteLink where
   toHeaders =
@@ -164,4 +170,7 @@ deleteLinkResponse_link = Lens.lens (\DeleteLinkResponse' {link} -> link) (\s@De
 deleteLinkResponse_httpStatus :: Lens.Lens' DeleteLinkResponse Prelude.Int
 deleteLinkResponse_httpStatus = Lens.lens (\DeleteLinkResponse' {httpStatus} -> httpStatus) (\s@DeleteLinkResponse' {} a -> s {httpStatus = a} :: DeleteLinkResponse)
 
-instance Prelude.NFData DeleteLinkResponse
+instance Prelude.NFData DeleteLinkResponse where
+  rnf DeleteLinkResponse' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf httpStatus

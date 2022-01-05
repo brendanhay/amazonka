@@ -70,8 +70,13 @@ instance Core.FromJSON VirtualNodeTcpConnectionPool where
 instance
   Prelude.Hashable
     VirtualNodeTcpConnectionPool
+  where
+  hashWithSalt _salt VirtualNodeTcpConnectionPool' {..} =
+    _salt `Prelude.hashWithSalt` maxConnections
 
-instance Prelude.NFData VirtualNodeTcpConnectionPool
+instance Prelude.NFData VirtualNodeTcpConnectionPool where
+  rnf VirtualNodeTcpConnectionPool' {..} =
+    Prelude.rnf maxConnections
 
 instance Core.ToJSON VirtualNodeTcpConnectionPool where
   toJSON VirtualNodeTcpConnectionPool' {..} =

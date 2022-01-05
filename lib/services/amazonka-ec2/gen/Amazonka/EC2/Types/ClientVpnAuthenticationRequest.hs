@@ -109,10 +109,24 @@ clientVpnAuthenticationRequest_type = Lens.lens (\ClientVpnAuthenticationRequest
 instance
   Prelude.Hashable
     ClientVpnAuthenticationRequest
+  where
+  hashWithSalt
+    _salt
+    ClientVpnAuthenticationRequest' {..} =
+      _salt `Prelude.hashWithSalt` activeDirectory
+        `Prelude.hashWithSalt` federatedAuthentication
+        `Prelude.hashWithSalt` mutualAuthentication
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ClientVpnAuthenticationRequest
+  where
+  rnf ClientVpnAuthenticationRequest' {..} =
+    Prelude.rnf activeDirectory
+      `Prelude.seq` Prelude.rnf federatedAuthentication
+      `Prelude.seq` Prelude.rnf mutualAuthentication
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =

@@ -125,9 +125,20 @@ instance Core.FromJSON ActionTypeSettings where
             Prelude.<*> (x Core..:? "entityUrlTemplate")
       )
 
-instance Prelude.Hashable ActionTypeSettings
+instance Prelude.Hashable ActionTypeSettings where
+  hashWithSalt _salt ActionTypeSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` thirdPartyConfigurationUrl
+      `Prelude.hashWithSalt` executionUrlTemplate
+      `Prelude.hashWithSalt` revisionUrlTemplate
+      `Prelude.hashWithSalt` entityUrlTemplate
 
-instance Prelude.NFData ActionTypeSettings
+instance Prelude.NFData ActionTypeSettings where
+  rnf ActionTypeSettings' {..} =
+    Prelude.rnf thirdPartyConfigurationUrl
+      `Prelude.seq` Prelude.rnf executionUrlTemplate
+      `Prelude.seq` Prelude.rnf revisionUrlTemplate
+      `Prelude.seq` Prelude.rnf entityUrlTemplate
 
 instance Core.ToJSON ActionTypeSettings where
   toJSON ActionTypeSettings' {..} =

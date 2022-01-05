@@ -272,8 +272,31 @@ instance
 instance
   Prelude.Hashable
     PutScheduledUpdateGroupAction
+  where
+  hashWithSalt _salt PutScheduledUpdateGroupAction' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` time
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` scheduledActionName
 
-instance Prelude.NFData PutScheduledUpdateGroupAction
+instance Prelude.NFData PutScheduledUpdateGroupAction where
+  rnf PutScheduledUpdateGroupAction' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf time
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf scheduledActionName
 
 instance Core.ToHeaders PutScheduledUpdateGroupAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,3 +343,5 @@ newPutScheduledUpdateGroupActionResponse =
 instance
   Prelude.NFData
     PutScheduledUpdateGroupActionResponse
+  where
+  rnf _ = ()

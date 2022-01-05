@@ -131,9 +131,17 @@ instance Core.AWSRequest DescribeParameterGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeParameterGroups
+instance Prelude.Hashable DescribeParameterGroups where
+  hashWithSalt _salt DescribeParameterGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData DescribeParameterGroups
+instance Prelude.NFData DescribeParameterGroups where
+  rnf DescribeParameterGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders DescribeParameterGroups where
   toHeaders =
@@ -233,3 +241,8 @@ describeParameterGroupsResponse_httpStatus = Lens.lens (\DescribeParameterGroups
 instance
   Prelude.NFData
     DescribeParameterGroupsResponse
+  where
+  rnf DescribeParameterGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parameterGroups
+      `Prelude.seq` Prelude.rnf httpStatus

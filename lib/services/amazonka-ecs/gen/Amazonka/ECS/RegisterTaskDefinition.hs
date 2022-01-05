@@ -892,9 +892,43 @@ instance Core.AWSRequest RegisterTaskDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterTaskDefinition
+instance Prelude.Hashable RegisterTaskDefinition where
+  hashWithSalt _salt RegisterTaskDefinition' {..} =
+    _salt `Prelude.hashWithSalt` inferenceAccelerators
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` requiresCompatibilities
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` pidMode
+      `Prelude.hashWithSalt` ipcMode
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` proxyConfiguration
+      `Prelude.hashWithSalt` taskRoleArn
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` networkMode
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` containerDefinitions
 
-instance Prelude.NFData RegisterTaskDefinition
+instance Prelude.NFData RegisterTaskDefinition where
+  rnf RegisterTaskDefinition' {..} =
+    Prelude.rnf inferenceAccelerators
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf requiresCompatibilities
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf pidMode
+      `Prelude.seq` Prelude.rnf ipcMode
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf proxyConfiguration
+      `Prelude.seq` Prelude.rnf taskRoleArn
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf networkMode
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf containerDefinitions
 
 instance Core.ToHeaders RegisterTaskDefinition where
   toHeaders =
@@ -1000,3 +1034,8 @@ registerTaskDefinitionResponse_httpStatus = Lens.lens (\RegisterTaskDefinitionRe
 instance
   Prelude.NFData
     RegisterTaskDefinitionResponse
+  where
+  rnf RegisterTaskDefinitionResponse' {..} =
+    Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

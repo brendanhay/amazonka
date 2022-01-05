@@ -98,10 +98,20 @@ instance
 instance
   Prelude.Hashable
     ResourceDataSyncAwsOrganizationsSource
+  where
+  hashWithSalt
+    _salt
+    ResourceDataSyncAwsOrganizationsSource' {..} =
+      _salt `Prelude.hashWithSalt` organizationalUnits
+        `Prelude.hashWithSalt` organizationSourceType
 
 instance
   Prelude.NFData
     ResourceDataSyncAwsOrganizationsSource
+  where
+  rnf ResourceDataSyncAwsOrganizationsSource' {..} =
+    Prelude.rnf organizationalUnits
+      `Prelude.seq` Prelude.rnf organizationSourceType
 
 instance
   Core.ToJSON

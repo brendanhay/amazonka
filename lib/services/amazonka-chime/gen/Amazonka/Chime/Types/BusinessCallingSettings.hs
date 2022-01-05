@@ -64,9 +64,13 @@ instance Core.FromJSON BusinessCallingSettings where
             Prelude.<$> (x Core..:? "CdrBucket")
       )
 
-instance Prelude.Hashable BusinessCallingSettings
+instance Prelude.Hashable BusinessCallingSettings where
+  hashWithSalt _salt BusinessCallingSettings' {..} =
+    _salt `Prelude.hashWithSalt` cdrBucket
 
-instance Prelude.NFData BusinessCallingSettings
+instance Prelude.NFData BusinessCallingSettings where
+  rnf BusinessCallingSettings' {..} =
+    Prelude.rnf cdrBucket
 
 instance Core.ToJSON BusinessCallingSettings where
   toJSON BusinessCallingSettings' {..} =

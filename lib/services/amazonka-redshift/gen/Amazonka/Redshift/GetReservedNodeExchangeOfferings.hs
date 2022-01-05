@@ -160,10 +160,22 @@ instance
 instance
   Prelude.Hashable
     GetReservedNodeExchangeOfferings
+  where
+  hashWithSalt
+    _salt
+    GetReservedNodeExchangeOfferings' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` reservedNodeId
 
 instance
   Prelude.NFData
     GetReservedNodeExchangeOfferings
+  where
+  rnf GetReservedNodeExchangeOfferings' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf reservedNodeId
 
 instance
   Core.ToHeaders
@@ -261,3 +273,8 @@ getReservedNodeExchangeOfferingsResponse_httpStatus = Lens.lens (\GetReservedNod
 instance
   Prelude.NFData
     GetReservedNodeExchangeOfferingsResponse
+  where
+  rnf GetReservedNodeExchangeOfferingsResponse' {..} =
+    Prelude.rnf reservedNodeOfferings
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.IndexStatus
 import qualified Amazonka.Lens as Lens
@@ -130,7 +131,24 @@ instance
 instance
   Prelude.Hashable
     ReplicaGlobalSecondaryIndexAutoScalingDescription
+  where
+  hashWithSalt
+    _salt
+    ReplicaGlobalSecondaryIndexAutoScalingDescription' {..} =
+      _salt `Prelude.hashWithSalt` indexStatus
+        `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingSettings
+        `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettings
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     ReplicaGlobalSecondaryIndexAutoScalingDescription
+  where
+  rnf
+    ReplicaGlobalSecondaryIndexAutoScalingDescription' {..} =
+      Prelude.rnf indexStatus
+        `Prelude.seq` Prelude.rnf
+          provisionedWriteCapacityAutoScalingSettings
+        `Prelude.seq` Prelude.rnf
+          provisionedReadCapacityAutoScalingSettings
+        `Prelude.seq` Prelude.rnf indexName

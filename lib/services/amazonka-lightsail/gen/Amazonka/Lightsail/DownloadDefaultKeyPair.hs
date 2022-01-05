@@ -72,9 +72,12 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DownloadDefaultKeyPair
+instance Prelude.Hashable DownloadDefaultKeyPair where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DownloadDefaultKeyPair
+instance Prelude.NFData DownloadDefaultKeyPair where
+  rnf _ = ()
 
 instance Core.ToHeaders DownloadDefaultKeyPair where
   toHeaders =
@@ -151,3 +154,8 @@ downloadDefaultKeyPairResponse_httpStatus = Lens.lens (\DownloadDefaultKeyPairRe
 instance
   Prelude.NFData
     DownloadDefaultKeyPairResponse
+  where
+  rnf DownloadDefaultKeyPairResponse' {..} =
+    Prelude.rnf publicKeyBase64
+      `Prelude.seq` Prelude.rnf privateKeyBase64
+      `Prelude.seq` Prelude.rnf httpStatus

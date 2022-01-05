@@ -72,9 +72,12 @@ newLambdaOutput pResourceARN_ =
 lambdaOutput_resourceARN :: Lens.Lens' LambdaOutput Prelude.Text
 lambdaOutput_resourceARN = Lens.lens (\LambdaOutput' {resourceARN} -> resourceARN) (\s@LambdaOutput' {} a -> s {resourceARN = a} :: LambdaOutput)
 
-instance Prelude.Hashable LambdaOutput
+instance Prelude.Hashable LambdaOutput where
+  hashWithSalt _salt LambdaOutput' {..} =
+    _salt `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData LambdaOutput
+instance Prelude.NFData LambdaOutput where
+  rnf LambdaOutput' {..} = Prelude.rnf resourceARN
 
 instance Core.ToJSON LambdaOutput where
   toJSON LambdaOutput' {..} =

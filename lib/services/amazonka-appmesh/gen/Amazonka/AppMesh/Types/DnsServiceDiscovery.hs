@@ -76,9 +76,15 @@ instance Core.FromJSON DnsServiceDiscovery where
             Prelude.<*> (x Core..: "hostname")
       )
 
-instance Prelude.Hashable DnsServiceDiscovery
+instance Prelude.Hashable DnsServiceDiscovery where
+  hashWithSalt _salt DnsServiceDiscovery' {..} =
+    _salt `Prelude.hashWithSalt` responseType
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData DnsServiceDiscovery
+instance Prelude.NFData DnsServiceDiscovery where
+  rnf DnsServiceDiscovery' {..} =
+    Prelude.rnf responseType
+      `Prelude.seq` Prelude.rnf hostname
 
 instance Core.ToJSON DnsServiceDiscovery where
   toJSON DnsServiceDiscovery' {..} =

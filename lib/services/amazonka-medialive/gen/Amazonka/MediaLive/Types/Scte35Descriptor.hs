@@ -65,9 +65,14 @@ instance Core.FromJSON Scte35Descriptor where
             Prelude.<$> (x Core..: "scte35DescriptorSettings")
       )
 
-instance Prelude.Hashable Scte35Descriptor
+instance Prelude.Hashable Scte35Descriptor where
+  hashWithSalt _salt Scte35Descriptor' {..} =
+    _salt
+      `Prelude.hashWithSalt` scte35DescriptorSettings
 
-instance Prelude.NFData Scte35Descriptor
+instance Prelude.NFData Scte35Descriptor where
+  rnf Scte35Descriptor' {..} =
+    Prelude.rnf scte35DescriptorSettings
 
 instance Core.ToJSON Scte35Descriptor where
   toJSON Scte35Descriptor' {..} =

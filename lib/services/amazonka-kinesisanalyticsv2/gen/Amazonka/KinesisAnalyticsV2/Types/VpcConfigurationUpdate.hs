@@ -85,9 +85,17 @@ vpcConfigurationUpdate_securityGroupIdUpdates = Lens.lens (\VpcConfigurationUpda
 vpcConfigurationUpdate_vpcConfigurationId :: Lens.Lens' VpcConfigurationUpdate Prelude.Text
 vpcConfigurationUpdate_vpcConfigurationId = Lens.lens (\VpcConfigurationUpdate' {vpcConfigurationId} -> vpcConfigurationId) (\s@VpcConfigurationUpdate' {} a -> s {vpcConfigurationId = a} :: VpcConfigurationUpdate)
 
-instance Prelude.Hashable VpcConfigurationUpdate
+instance Prelude.Hashable VpcConfigurationUpdate where
+  hashWithSalt _salt VpcConfigurationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` subnetIdUpdates
+      `Prelude.hashWithSalt` securityGroupIdUpdates
+      `Prelude.hashWithSalt` vpcConfigurationId
 
-instance Prelude.NFData VpcConfigurationUpdate
+instance Prelude.NFData VpcConfigurationUpdate where
+  rnf VpcConfigurationUpdate' {..} =
+    Prelude.rnf subnetIdUpdates
+      `Prelude.seq` Prelude.rnf securityGroupIdUpdates
+      `Prelude.seq` Prelude.rnf vpcConfigurationId
 
 instance Core.ToJSON VpcConfigurationUpdate where
   toJSON VpcConfigurationUpdate' {..} =

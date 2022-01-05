@@ -72,6 +72,12 @@ instance Core.FromJSON DocumentText where
             Prelude.<*> (x Core..:? "highlights" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DocumentText
+instance Prelude.Hashable DocumentText where
+  hashWithSalt _salt DocumentText' {..} =
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` highlights
 
-instance Prelude.NFData DocumentText
+instance Prelude.NFData DocumentText where
+  rnf DocumentText' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf highlights

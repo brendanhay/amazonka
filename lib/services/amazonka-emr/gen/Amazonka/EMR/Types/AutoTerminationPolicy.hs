@@ -72,9 +72,13 @@ instance Core.FromJSON AutoTerminationPolicy where
             Prelude.<$> (x Core..:? "IdleTimeout")
       )
 
-instance Prelude.Hashable AutoTerminationPolicy
+instance Prelude.Hashable AutoTerminationPolicy where
+  hashWithSalt _salt AutoTerminationPolicy' {..} =
+    _salt `Prelude.hashWithSalt` idleTimeout
 
-instance Prelude.NFData AutoTerminationPolicy
+instance Prelude.NFData AutoTerminationPolicy where
+  rnf AutoTerminationPolicy' {..} =
+    Prelude.rnf idleTimeout
 
 instance Core.ToJSON AutoTerminationPolicy where
   toJSON AutoTerminationPolicy' {..} =

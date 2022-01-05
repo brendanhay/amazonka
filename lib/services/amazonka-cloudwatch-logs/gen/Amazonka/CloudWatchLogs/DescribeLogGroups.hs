@@ -148,9 +148,17 @@ instance Core.AWSRequest DescribeLogGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLogGroups
+instance Prelude.Hashable DescribeLogGroups where
+  hashWithSalt _salt DescribeLogGroups' {..} =
+    _salt `Prelude.hashWithSalt` logGroupNamePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeLogGroups
+instance Prelude.NFData DescribeLogGroups where
+  rnf DescribeLogGroups' {..} =
+    Prelude.rnf logGroupNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeLogGroups where
   toHeaders =
@@ -240,4 +248,8 @@ describeLogGroupsResponse_nextToken = Lens.lens (\DescribeLogGroupsResponse' {ne
 describeLogGroupsResponse_httpStatus :: Lens.Lens' DescribeLogGroupsResponse Prelude.Int
 describeLogGroupsResponse_httpStatus = Lens.lens (\DescribeLogGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeLogGroupsResponse' {} a -> s {httpStatus = a} :: DescribeLogGroupsResponse)
 
-instance Prelude.NFData DescribeLogGroupsResponse
+instance Prelude.NFData DescribeLogGroupsResponse where
+  rnf DescribeLogGroupsResponse' {..} =
+    Prelude.rnf logGroups
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

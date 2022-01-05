@@ -123,6 +123,20 @@ instance Core.FromJSON RelationalDatabaseBlueprint where
             Prelude.<*> (x Core..:? "engineDescription")
       )
 
-instance Prelude.Hashable RelationalDatabaseBlueprint
+instance Prelude.Hashable RelationalDatabaseBlueprint where
+  hashWithSalt _salt RelationalDatabaseBlueprint' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` isEngineDefault
+      `Prelude.hashWithSalt` engineVersionDescription
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` blueprintId
+      `Prelude.hashWithSalt` engineDescription
 
-instance Prelude.NFData RelationalDatabaseBlueprint
+instance Prelude.NFData RelationalDatabaseBlueprint where
+  rnf RelationalDatabaseBlueprint' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf isEngineDefault
+      `Prelude.seq` Prelude.rnf engineVersionDescription
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf blueprintId
+      `Prelude.seq` Prelude.rnf engineDescription

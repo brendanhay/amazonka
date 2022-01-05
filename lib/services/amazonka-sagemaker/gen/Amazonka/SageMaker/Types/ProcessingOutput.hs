@@ -109,9 +109,19 @@ instance Core.FromJSON ProcessingOutput where
             Prelude.<*> (x Core..: "OutputName")
       )
 
-instance Prelude.Hashable ProcessingOutput
+instance Prelude.Hashable ProcessingOutput where
+  hashWithSalt _salt ProcessingOutput' {..} =
+    _salt `Prelude.hashWithSalt` featureStoreOutput
+      `Prelude.hashWithSalt` s3Output
+      `Prelude.hashWithSalt` appManaged
+      `Prelude.hashWithSalt` outputName
 
-instance Prelude.NFData ProcessingOutput
+instance Prelude.NFData ProcessingOutput where
+  rnf ProcessingOutput' {..} =
+    Prelude.rnf featureStoreOutput
+      `Prelude.seq` Prelude.rnf s3Output
+      `Prelude.seq` Prelude.rnf appManaged
+      `Prelude.seq` Prelude.rnf outputName
 
 instance Core.ToJSON ProcessingOutput where
   toJSON ProcessingOutput' {..} =

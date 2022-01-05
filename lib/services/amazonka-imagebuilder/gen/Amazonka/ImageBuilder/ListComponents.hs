@@ -194,9 +194,21 @@ instance Core.AWSRequest ListComponents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListComponents
+instance Prelude.Hashable ListComponents where
+  hashWithSalt _salt ListComponents' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` byName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListComponents
+instance Prelude.NFData ListComponents where
+  rnf ListComponents' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf byName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListComponents where
   toHeaders =
@@ -305,4 +317,9 @@ listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToke
 listComponentsResponse_httpStatus :: Lens.Lens' ListComponentsResponse Prelude.Int
 listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpStatus} -> httpStatus) (\s@ListComponentsResponse' {} a -> s {httpStatus = a} :: ListComponentsResponse)
 
-instance Prelude.NFData ListComponentsResponse
+instance Prelude.NFData ListComponentsResponse where
+  rnf ListComponentsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf componentVersionList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

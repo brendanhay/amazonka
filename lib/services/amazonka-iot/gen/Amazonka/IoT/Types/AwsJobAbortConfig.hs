@@ -56,9 +56,13 @@ newAwsJobAbortConfig pAbortCriteriaList_ =
 awsJobAbortConfig_abortCriteriaList :: Lens.Lens' AwsJobAbortConfig (Prelude.NonEmpty AwsJobAbortCriteria)
 awsJobAbortConfig_abortCriteriaList = Lens.lens (\AwsJobAbortConfig' {abortCriteriaList} -> abortCriteriaList) (\s@AwsJobAbortConfig' {} a -> s {abortCriteriaList = a} :: AwsJobAbortConfig) Prelude.. Lens.coerced
 
-instance Prelude.Hashable AwsJobAbortConfig
+instance Prelude.Hashable AwsJobAbortConfig where
+  hashWithSalt _salt AwsJobAbortConfig' {..} =
+    _salt `Prelude.hashWithSalt` abortCriteriaList
 
-instance Prelude.NFData AwsJobAbortConfig
+instance Prelude.NFData AwsJobAbortConfig where
+  rnf AwsJobAbortConfig' {..} =
+    Prelude.rnf abortCriteriaList
 
 instance Core.ToJSON AwsJobAbortConfig where
   toJSON AwsJobAbortConfig' {..} =

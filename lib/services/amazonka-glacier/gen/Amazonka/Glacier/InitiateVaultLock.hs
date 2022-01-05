@@ -164,9 +164,17 @@ instance Core.AWSRequest InitiateVaultLock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateVaultLock
+instance Prelude.Hashable InitiateVaultLock where
+  hashWithSalt _salt InitiateVaultLock' {..} =
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData InitiateVaultLock
+instance Prelude.NFData InitiateVaultLock where
+  rnf InitiateVaultLock' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders InitiateVaultLock where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,4 +240,7 @@ initiateVaultLockResponse_lockId = Lens.lens (\InitiateVaultLockResponse' {lockI
 initiateVaultLockResponse_httpStatus :: Lens.Lens' InitiateVaultLockResponse Prelude.Int
 initiateVaultLockResponse_httpStatus = Lens.lens (\InitiateVaultLockResponse' {httpStatus} -> httpStatus) (\s@InitiateVaultLockResponse' {} a -> s {httpStatus = a} :: InitiateVaultLockResponse)
 
-instance Prelude.NFData InitiateVaultLockResponse
+instance Prelude.NFData InitiateVaultLockResponse where
+  rnf InitiateVaultLockResponse' {..} =
+    Prelude.rnf lockId
+      `Prelude.seq` Prelude.rnf httpStatus

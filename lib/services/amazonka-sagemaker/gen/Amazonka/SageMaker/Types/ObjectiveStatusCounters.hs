@@ -100,6 +100,14 @@ instance Core.FromJSON ObjectiveStatusCounters where
             Prelude.<*> (x Core..:? "Failed")
       )
 
-instance Prelude.Hashable ObjectiveStatusCounters
+instance Prelude.Hashable ObjectiveStatusCounters where
+  hashWithSalt _salt ObjectiveStatusCounters' {..} =
+    _salt `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` succeeded
+      `Prelude.hashWithSalt` failed
 
-instance Prelude.NFData ObjectiveStatusCounters
+instance Prelude.NFData ObjectiveStatusCounters where
+  rnf ObjectiveStatusCounters' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf succeeded
+      `Prelude.seq` Prelude.rnf failed

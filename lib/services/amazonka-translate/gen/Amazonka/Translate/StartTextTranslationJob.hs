@@ -230,9 +230,29 @@ instance Core.AWSRequest StartTextTranslationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTextTranslationJob
+instance Prelude.Hashable StartTextTranslationJob where
+  hashWithSalt _salt StartTextTranslationJob' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` parallelDataNames
+      `Prelude.hashWithSalt` terminologyNames
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` sourceLanguageCode
+      `Prelude.hashWithSalt` targetLanguageCodes
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartTextTranslationJob
+instance Prelude.NFData StartTextTranslationJob where
+  rnf StartTextTranslationJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf parallelDataNames
+      `Prelude.seq` Prelude.rnf terminologyNames
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf targetLanguageCodes
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders StartTextTranslationJob where
   toHeaders =
@@ -389,3 +409,8 @@ startTextTranslationJobResponse_httpStatus = Lens.lens (\StartTextTranslationJob
 instance
   Prelude.NFData
     StartTextTranslationJobResponse
+  where
+  rnf StartTextTranslationJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus

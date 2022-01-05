@@ -96,9 +96,17 @@ instance Core.FromJSON Scte35TimeSignalApos where
             Prelude.<*> (x Core..:? "noRegionalBlackoutFlag")
       )
 
-instance Prelude.Hashable Scte35TimeSignalApos
+instance Prelude.Hashable Scte35TimeSignalApos where
+  hashWithSalt _salt Scte35TimeSignalApos' {..} =
+    _salt `Prelude.hashWithSalt` webDeliveryAllowedFlag
+      `Prelude.hashWithSalt` adAvailOffset
+      `Prelude.hashWithSalt` noRegionalBlackoutFlag
 
-instance Prelude.NFData Scte35TimeSignalApos
+instance Prelude.NFData Scte35TimeSignalApos where
+  rnf Scte35TimeSignalApos' {..} =
+    Prelude.rnf webDeliveryAllowedFlag
+      `Prelude.seq` Prelude.rnf adAvailOffset
+      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
 
 instance Core.ToJSON Scte35TimeSignalApos where
   toJSON Scte35TimeSignalApos' {..} =

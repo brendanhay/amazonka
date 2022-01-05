@@ -86,9 +86,14 @@ instance Core.AWSRequest CreateApp where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateApp
+instance Prelude.Hashable CreateApp where
+  hashWithSalt _salt CreateApp' {..} =
+    _salt
+      `Prelude.hashWithSalt` createApplicationRequest
 
-instance Prelude.NFData CreateApp
+instance Prelude.NFData CreateApp where
+  rnf CreateApp' {..} =
+    Prelude.rnf createApplicationRequest
 
 instance Core.ToHeaders CreateApp where
   toHeaders =
@@ -159,4 +164,7 @@ createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> ht
 createAppResponse_applicationResponse :: Lens.Lens' CreateAppResponse ApplicationResponse
 createAppResponse_applicationResponse = Lens.lens (\CreateAppResponse' {applicationResponse} -> applicationResponse) (\s@CreateAppResponse' {} a -> s {applicationResponse = a} :: CreateAppResponse)
 
-instance Prelude.NFData CreateAppResponse
+instance Prelude.NFData CreateAppResponse where
+  rnf CreateAppResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationResponse

@@ -63,9 +63,12 @@ instance Core.FromJSON JourneyCustomMessage where
             Prelude.<$> (x Core..:? "Data")
       )
 
-instance Prelude.Hashable JourneyCustomMessage
+instance Prelude.Hashable JourneyCustomMessage where
+  hashWithSalt _salt JourneyCustomMessage' {..} =
+    _salt `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData JourneyCustomMessage
+instance Prelude.NFData JourneyCustomMessage where
+  rnf JourneyCustomMessage' {..} = Prelude.rnf data'
 
 instance Core.ToJSON JourneyCustomMessage where
   toJSON JourneyCustomMessage' {..} =

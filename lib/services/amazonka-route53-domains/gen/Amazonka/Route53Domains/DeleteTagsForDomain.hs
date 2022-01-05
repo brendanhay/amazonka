@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteTagsForDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTagsForDomain
+instance Prelude.Hashable DeleteTagsForDomain where
+  hashWithSalt _salt DeleteTagsForDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tagsToDelete
 
-instance Prelude.NFData DeleteTagsForDomain
+instance Prelude.NFData DeleteTagsForDomain where
+  rnf DeleteTagsForDomain' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf tagsToDelete
 
 instance Core.ToHeaders DeleteTagsForDomain where
   toHeaders =
@@ -165,4 +171,6 @@ newDeleteTagsForDomainResponse pHttpStatus_ =
 deleteTagsForDomainResponse_httpStatus :: Lens.Lens' DeleteTagsForDomainResponse Prelude.Int
 deleteTagsForDomainResponse_httpStatus = Lens.lens (\DeleteTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteTagsForDomainResponse' {} a -> s {httpStatus = a} :: DeleteTagsForDomainResponse)
 
-instance Prelude.NFData DeleteTagsForDomainResponse
+instance Prelude.NFData DeleteTagsForDomainResponse where
+  rnf DeleteTagsForDomainResponse' {..} =
+    Prelude.rnf httpStatus

@@ -60,9 +60,13 @@ instance Core.FromJSON DeviceDefinitionVersion where
             Prelude.<$> (x Core..:? "Devices" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeviceDefinitionVersion
+instance Prelude.Hashable DeviceDefinitionVersion where
+  hashWithSalt _salt DeviceDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` devices
 
-instance Prelude.NFData DeviceDefinitionVersion
+instance Prelude.NFData DeviceDefinitionVersion where
+  rnf DeviceDefinitionVersion' {..} =
+    Prelude.rnf devices
 
 instance Core.ToJSON DeviceDefinitionVersion where
   toJSON DeviceDefinitionVersion' {..} =

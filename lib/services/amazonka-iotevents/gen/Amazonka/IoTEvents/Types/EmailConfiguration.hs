@@ -111,9 +111,17 @@ instance Core.FromJSON EmailConfiguration where
             Prelude.<*> (x Core..: "recipients")
       )
 
-instance Prelude.Hashable EmailConfiguration
+instance Prelude.Hashable EmailConfiguration where
+  hashWithSalt _salt EmailConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` recipients
 
-instance Prelude.NFData EmailConfiguration
+instance Prelude.NFData EmailConfiguration where
+  rnf EmailConfiguration' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf recipients
 
 instance Core.ToJSON EmailConfiguration where
   toJSON EmailConfiguration' {..} =

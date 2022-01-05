@@ -114,7 +114,23 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayConnectPeerConfiguration
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayConnectPeerConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` transitGatewayAddress
+        `Prelude.hashWithSalt` peerAddress
+        `Prelude.hashWithSalt` insideCidrBlocks
+        `Prelude.hashWithSalt` bgpConfigurations
 
 instance
   Prelude.NFData
     TransitGatewayConnectPeerConfiguration
+  where
+  rnf TransitGatewayConnectPeerConfiguration' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf transitGatewayAddress
+      `Prelude.seq` Prelude.rnf peerAddress
+      `Prelude.seq` Prelude.rnf insideCidrBlocks
+      `Prelude.seq` Prelude.rnf bgpConfigurations

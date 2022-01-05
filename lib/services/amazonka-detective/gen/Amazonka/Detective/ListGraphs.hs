@@ -114,9 +114,15 @@ instance Core.AWSRequest ListGraphs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGraphs
+instance Prelude.Hashable ListGraphs where
+  hashWithSalt _salt ListGraphs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListGraphs
+instance Prelude.NFData ListGraphs where
+  rnf ListGraphs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListGraphs where
   toHeaders =
@@ -197,4 +203,8 @@ listGraphsResponse_graphList = Lens.lens (\ListGraphsResponse' {graphList} -> gr
 listGraphsResponse_httpStatus :: Lens.Lens' ListGraphsResponse Prelude.Int
 listGraphsResponse_httpStatus = Lens.lens (\ListGraphsResponse' {httpStatus} -> httpStatus) (\s@ListGraphsResponse' {} a -> s {httpStatus = a} :: ListGraphsResponse)
 
-instance Prelude.NFData ListGraphsResponse
+instance Prelude.NFData ListGraphsResponse where
+  rnf ListGraphsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf graphList
+      `Prelude.seq` Prelude.rnf httpStatus

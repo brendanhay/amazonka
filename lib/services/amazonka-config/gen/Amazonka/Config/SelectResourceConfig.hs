@@ -145,9 +145,17 @@ instance Core.AWSRequest SelectResourceConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SelectResourceConfig
+instance Prelude.Hashable SelectResourceConfig where
+  hashWithSalt _salt SelectResourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData SelectResourceConfig
+instance Prelude.NFData SelectResourceConfig where
+  rnf SelectResourceConfig' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToHeaders SelectResourceConfig where
   toHeaders =
@@ -240,4 +248,9 @@ selectResourceConfigResponse_nextToken = Lens.lens (\SelectResourceConfigRespons
 selectResourceConfigResponse_httpStatus :: Lens.Lens' SelectResourceConfigResponse Prelude.Int
 selectResourceConfigResponse_httpStatus = Lens.lens (\SelectResourceConfigResponse' {httpStatus} -> httpStatus) (\s@SelectResourceConfigResponse' {} a -> s {httpStatus = a} :: SelectResourceConfigResponse)
 
-instance Prelude.NFData SelectResourceConfigResponse
+instance Prelude.NFData SelectResourceConfigResponse where
+  rnf SelectResourceConfigResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf queryInfo
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

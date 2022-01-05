@@ -72,6 +72,12 @@ instance Core.FromJSON NetworkStatus where
             Prelude.<*> (x Core..:? "Ethernet0Status")
       )
 
-instance Prelude.Hashable NetworkStatus
+instance Prelude.Hashable NetworkStatus where
+  hashWithSalt _salt NetworkStatus' {..} =
+    _salt `Prelude.hashWithSalt` ethernet1Status
+      `Prelude.hashWithSalt` ethernet0Status
 
-instance Prelude.NFData NetworkStatus
+instance Prelude.NFData NetworkStatus where
+  rnf NetworkStatus' {..} =
+    Prelude.rnf ethernet1Status
+      `Prelude.seq` Prelude.rnf ethernet0Status

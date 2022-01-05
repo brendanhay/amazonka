@@ -188,9 +188,19 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable UpdateDomainContactPrivacy
+instance Prelude.Hashable UpdateDomainContactPrivacy where
+  hashWithSalt _salt UpdateDomainContactPrivacy' {..} =
+    _salt `Prelude.hashWithSalt` techPrivacy
+      `Prelude.hashWithSalt` registrantPrivacy
+      `Prelude.hashWithSalt` adminPrivacy
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainContactPrivacy
+instance Prelude.NFData UpdateDomainContactPrivacy where
+  rnf UpdateDomainContactPrivacy' {..} =
+    Prelude.rnf techPrivacy
+      `Prelude.seq` Prelude.rnf registrantPrivacy
+      `Prelude.seq` Prelude.rnf adminPrivacy
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainContactPrivacy where
   toHeaders =
@@ -276,3 +286,7 @@ updateDomainContactPrivacyResponse_operationId = Lens.lens (\UpdateDomainContact
 instance
   Prelude.NFData
     UpdateDomainContactPrivacyResponse
+  where
+  rnf UpdateDomainContactPrivacyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

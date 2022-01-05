@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteAgent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAgent
+instance Prelude.Hashable DeleteAgent where
+  hashWithSalt _salt DeleteAgent' {..} =
+    _salt `Prelude.hashWithSalt` agentArn
 
-instance Prelude.NFData DeleteAgent
+instance Prelude.NFData DeleteAgent where
+  rnf DeleteAgent' {..} = Prelude.rnf agentArn
 
 instance Core.ToHeaders DeleteAgent where
   toHeaders =
@@ -151,4 +154,5 @@ newDeleteAgentResponse pHttpStatus_ =
 deleteAgentResponse_httpStatus :: Lens.Lens' DeleteAgentResponse Prelude.Int
 deleteAgentResponse_httpStatus = Lens.lens (\DeleteAgentResponse' {httpStatus} -> httpStatus) (\s@DeleteAgentResponse' {} a -> s {httpStatus = a} :: DeleteAgentResponse)
 
-instance Prelude.NFData DeleteAgentResponse
+instance Prelude.NFData DeleteAgentResponse where
+  rnf DeleteAgentResponse' {..} = Prelude.rnf httpStatus

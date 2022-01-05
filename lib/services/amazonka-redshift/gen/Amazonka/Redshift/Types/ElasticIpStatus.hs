@@ -68,6 +68,12 @@ instance Core.FromXML ElasticIpStatus where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "ElasticIp")
 
-instance Prelude.Hashable ElasticIpStatus
+instance Prelude.Hashable ElasticIpStatus where
+  hashWithSalt _salt ElasticIpStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` elasticIp
 
-instance Prelude.NFData ElasticIpStatus
+instance Prelude.NFData ElasticIpStatus where
+  rnf ElasticIpStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf elasticIp

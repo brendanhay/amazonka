@@ -113,10 +113,20 @@ instance
 instance
   Prelude.Hashable
     EvaluatePullRequestApprovalRules
+  where
+  hashWithSalt
+    _salt
+    EvaluatePullRequestApprovalRules' {..} =
+      _salt `Prelude.hashWithSalt` pullRequestId
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     EvaluatePullRequestApprovalRules
+  where
+  rnf EvaluatePullRequestApprovalRules' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance
   Core.ToHeaders
@@ -213,3 +223,7 @@ evaluatePullRequestApprovalRulesResponse_evaluation = Lens.lens (\EvaluatePullRe
 instance
   Prelude.NFData
     EvaluatePullRequestApprovalRulesResponse
+  where
+  rnf EvaluatePullRequestApprovalRulesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf evaluation

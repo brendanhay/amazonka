@@ -71,6 +71,12 @@ instance Core.FromJSON NetworkInterface where
             Prelude.<*> (x Core..:? "networkInterfaceId")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt _salt NetworkInterface' {..} =
+    _salt `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkInterfaceId

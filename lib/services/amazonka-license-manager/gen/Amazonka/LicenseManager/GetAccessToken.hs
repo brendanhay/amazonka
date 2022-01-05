@@ -99,9 +99,15 @@ instance Core.AWSRequest GetAccessToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccessToken
+instance Prelude.Hashable GetAccessToken where
+  hashWithSalt _salt GetAccessToken' {..} =
+    _salt `Prelude.hashWithSalt` tokenProperties
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData GetAccessToken
+instance Prelude.NFData GetAccessToken where
+  rnf GetAccessToken' {..} =
+    Prelude.rnf tokenProperties
+      `Prelude.seq` Prelude.rnf token
 
 instance Core.ToHeaders GetAccessToken where
   toHeaders =
@@ -173,4 +179,7 @@ getAccessTokenResponse_accessToken = Lens.lens (\GetAccessTokenResponse' {access
 getAccessTokenResponse_httpStatus :: Lens.Lens' GetAccessTokenResponse Prelude.Int
 getAccessTokenResponse_httpStatus = Lens.lens (\GetAccessTokenResponse' {httpStatus} -> httpStatus) (\s@GetAccessTokenResponse' {} a -> s {httpStatus = a} :: GetAccessTokenResponse)
 
-instance Prelude.NFData GetAccessTokenResponse
+instance Prelude.NFData GetAccessTokenResponse where
+  rnf GetAccessTokenResponse' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf httpStatus

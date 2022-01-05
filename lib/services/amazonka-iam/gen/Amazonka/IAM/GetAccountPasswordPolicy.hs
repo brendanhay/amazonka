@@ -76,9 +76,12 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
             Prelude.<*> (x Core..@ "PasswordPolicy")
       )
 
-instance Prelude.Hashable GetAccountPasswordPolicy
+instance Prelude.Hashable GetAccountPasswordPolicy where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetAccountPasswordPolicy
+instance Prelude.NFData GetAccountPasswordPolicy where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,3 +148,7 @@ getAccountPasswordPolicyResponse_passwordPolicy = Lens.lens (\GetAccountPassword
 instance
   Prelude.NFData
     GetAccountPasswordPolicyResponse
+  where
+  rnf GetAccountPasswordPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf passwordPolicy

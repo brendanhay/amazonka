@@ -294,6 +294,44 @@ instance Core.FromJSON Finding where
             Prelude.<*> (x Core..:? "sample")
       )
 
-instance Prelude.Hashable Finding
+instance Prelude.Hashable Finding where
+  hashWithSalt _salt Finding' {..} =
+    _salt `Prelude.hashWithSalt` classificationDetails
+      `Prelude.hashWithSalt` policyDetails
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` resourcesAffected
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` partition
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` archived
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sample
 
-instance Prelude.NFData Finding
+instance Prelude.NFData Finding where
+  rnf Finding' {..} =
+    Prelude.rnf classificationDetails
+      `Prelude.seq` Prelude.rnf policyDetails
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf resourcesAffected
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf partition
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf archived
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sample

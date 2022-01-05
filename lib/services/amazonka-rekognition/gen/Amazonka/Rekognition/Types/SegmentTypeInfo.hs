@@ -74,6 +74,12 @@ instance Core.FromJSON SegmentTypeInfo where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable SegmentTypeInfo
+instance Prelude.Hashable SegmentTypeInfo where
+  hashWithSalt _salt SegmentTypeInfo' {..} =
+    _salt `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SegmentTypeInfo
+instance Prelude.NFData SegmentTypeInfo where
+  rnf SegmentTypeInfo' {..} =
+    Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf type'

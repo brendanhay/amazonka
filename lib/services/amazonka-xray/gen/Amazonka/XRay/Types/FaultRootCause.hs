@@ -75,6 +75,12 @@ instance Core.FromJSON FaultRootCause where
             Prelude.<*> (x Core..:? "Services" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FaultRootCause
+instance Prelude.Hashable FaultRootCause where
+  hashWithSalt _salt FaultRootCause' {..} =
+    _salt `Prelude.hashWithSalt` clientImpacting
+      `Prelude.hashWithSalt` services
 
-instance Prelude.NFData FaultRootCause
+instance Prelude.NFData FaultRootCause where
+  rnf FaultRootCause' {..} =
+    Prelude.rnf clientImpacting
+      `Prelude.seq` Prelude.rnf services

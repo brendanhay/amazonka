@@ -137,9 +137,17 @@ instance Core.AWSRequest ListFunctions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFunctions
+instance Prelude.Hashable ListFunctions where
+  hashWithSalt _salt ListFunctions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData ListFunctions
+instance Prelude.NFData ListFunctions where
+  rnf ListFunctions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders ListFunctions where
   toHeaders =
@@ -217,4 +225,8 @@ listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions}
 listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Prelude.Int
 listFunctionsResponse_httpStatus = Lens.lens (\ListFunctionsResponse' {httpStatus} -> httpStatus) (\s@ListFunctionsResponse' {} a -> s {httpStatus = a} :: ListFunctionsResponse)
 
-instance Prelude.NFData ListFunctionsResponse
+instance Prelude.NFData ListFunctionsResponse where
+  rnf ListFunctionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf functions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -110,9 +110,15 @@ instance Core.AWSRequest DisassociateAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateAttributeGroup
+instance Prelude.Hashable DisassociateAttributeGroup where
+  hashWithSalt _salt DisassociateAttributeGroup' {..} =
+    _salt `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` attributeGroup
 
-instance Prelude.NFData DisassociateAttributeGroup
+instance Prelude.NFData DisassociateAttributeGroup where
+  rnf DisassociateAttributeGroup' {..} =
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf attributeGroup
 
 instance Core.ToHeaders DisassociateAttributeGroup where
   toHeaders =
@@ -188,3 +194,8 @@ disassociateAttributeGroupResponse_httpStatus = Lens.lens (\DisassociateAttribut
 instance
   Prelude.NFData
     DisassociateAttributeGroupResponse
+  where
+  rnf DisassociateAttributeGroupResponse' {..} =
+    Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf attributeGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus

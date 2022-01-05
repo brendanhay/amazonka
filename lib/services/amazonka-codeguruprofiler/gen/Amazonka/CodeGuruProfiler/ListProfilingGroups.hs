@@ -167,9 +167,17 @@ instance Core.AWSRequest ListProfilingGroups where
                         )
       )
 
-instance Prelude.Hashable ListProfilingGroups
+instance Prelude.Hashable ListProfilingGroups where
+  hashWithSalt _salt ListProfilingGroups' {..} =
+    _salt `Prelude.hashWithSalt` includeDescription
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListProfilingGroups
+instance Prelude.NFData ListProfilingGroups where
+  rnf ListProfilingGroups' {..} =
+    Prelude.rnf includeDescription
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProfilingGroups where
   toHeaders =
@@ -285,4 +293,9 @@ listProfilingGroupsResponse_httpStatus = Lens.lens (\ListProfilingGroupsResponse
 listProfilingGroupsResponse_profilingGroupNames :: Lens.Lens' ListProfilingGroupsResponse [Prelude.Text]
 listProfilingGroupsResponse_profilingGroupNames = Lens.lens (\ListProfilingGroupsResponse' {profilingGroupNames} -> profilingGroupNames) (\s@ListProfilingGroupsResponse' {} a -> s {profilingGroupNames = a} :: ListProfilingGroupsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProfilingGroupsResponse
+instance Prelude.NFData ListProfilingGroupsResponse where
+  rnf ListProfilingGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf profilingGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profilingGroupNames

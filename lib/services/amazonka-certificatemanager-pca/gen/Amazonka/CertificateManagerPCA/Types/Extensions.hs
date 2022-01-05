@@ -119,9 +119,20 @@ extensions_extendedKeyUsage = Lens.lens (\Extensions' {extendedKeyUsage} -> exte
 extensions_certificatePolicies :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty PolicyInformation))
 extensions_certificatePolicies = Lens.lens (\Extensions' {certificatePolicies} -> certificatePolicies) (\s@Extensions' {} a -> s {certificatePolicies = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Extensions
+instance Prelude.Hashable Extensions where
+  hashWithSalt _salt Extensions' {..} =
+    _salt
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` keyUsage
+      `Prelude.hashWithSalt` extendedKeyUsage
+      `Prelude.hashWithSalt` certificatePolicies
 
-instance Prelude.NFData Extensions
+instance Prelude.NFData Extensions where
+  rnf Extensions' {..} =
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf keyUsage
+      `Prelude.seq` Prelude.rnf extendedKeyUsage
+      `Prelude.seq` Prelude.rnf certificatePolicies
 
 instance Core.ToJSON Extensions where
   toJSON Extensions' {..} =

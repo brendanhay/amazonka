@@ -143,9 +143,19 @@ instance Core.AWSRequest AddCommunicationToCase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddCommunicationToCase
+instance Prelude.Hashable AddCommunicationToCase where
+  hashWithSalt _salt AddCommunicationToCase' {..} =
+    _salt `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` ccEmailAddresses
+      `Prelude.hashWithSalt` attachmentSetId
+      `Prelude.hashWithSalt` communicationBody
 
-instance Prelude.NFData AddCommunicationToCase
+instance Prelude.NFData AddCommunicationToCase where
+  rnf AddCommunicationToCase' {..} =
+    Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf ccEmailAddresses
+      `Prelude.seq` Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf communicationBody
 
 instance Core.ToHeaders AddCommunicationToCase where
   toHeaders =
@@ -226,3 +236,7 @@ addCommunicationToCaseResponse_httpStatus = Lens.lens (\AddCommunicationToCaseRe
 instance
   Prelude.NFData
     AddCommunicationToCaseResponse
+  where
+  rnf AddCommunicationToCaseResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus

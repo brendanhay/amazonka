@@ -87,9 +87,13 @@ instance Core.AWSRequest StopAccessLogging where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopAccessLogging
+instance Prelude.Hashable StopAccessLogging where
+  hashWithSalt _salt StopAccessLogging' {..} =
+    _salt `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData StopAccessLogging
+instance Prelude.NFData StopAccessLogging where
+  rnf StopAccessLogging' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders StopAccessLogging where
   toHeaders =
@@ -151,4 +155,6 @@ newStopAccessLoggingResponse pHttpStatus_ =
 stopAccessLoggingResponse_httpStatus :: Lens.Lens' StopAccessLoggingResponse Prelude.Int
 stopAccessLoggingResponse_httpStatus = Lens.lens (\StopAccessLoggingResponse' {httpStatus} -> httpStatus) (\s@StopAccessLoggingResponse' {} a -> s {httpStatus = a} :: StopAccessLoggingResponse)
 
-instance Prelude.NFData StopAccessLoggingResponse
+instance Prelude.NFData StopAccessLoggingResponse where
+  rnf StopAccessLoggingResponse' {..} =
+    Prelude.rnf httpStatus

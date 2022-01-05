@@ -103,9 +103,19 @@ sourceFlowConfig_connectorType = Lens.lens (\SourceFlowConfig' {connectorType} -
 sourceFlowConfig_sourceConnectorProperties :: Lens.Lens' SourceFlowConfig SourceConnectorProperties
 sourceFlowConfig_sourceConnectorProperties = Lens.lens (\SourceFlowConfig' {sourceConnectorProperties} -> sourceConnectorProperties) (\s@SourceFlowConfig' {} a -> s {sourceConnectorProperties = a} :: SourceFlowConfig)
 
-instance Prelude.Hashable SourceFlowConfig
+instance Prelude.Hashable SourceFlowConfig where
+  hashWithSalt _salt SourceFlowConfig' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` incrementalPullConfig
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` sourceConnectorProperties
 
-instance Prelude.NFData SourceFlowConfig
+instance Prelude.NFData SourceFlowConfig where
+  rnf SourceFlowConfig' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf incrementalPullConfig
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf sourceConnectorProperties
 
 instance Core.ToJSON SourceFlowConfig where
   toJSON SourceFlowConfig' {..} =

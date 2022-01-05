@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     UpdateCloudFrontOriginAccessIdentity
+  where
+  hashWithSalt
+    _salt
+    UpdateCloudFrontOriginAccessIdentity' {..} =
+      _salt `Prelude.hashWithSalt` ifMatch
+        `Prelude.hashWithSalt` cloudFrontOriginAccessIdentityConfig
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     UpdateCloudFrontOriginAccessIdentity
+  where
+  rnf UpdateCloudFrontOriginAccessIdentity' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentityConfig
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToElement
@@ -219,3 +231,8 @@ updateCloudFrontOriginAccessIdentityResponse_httpStatus = Lens.lens (\UpdateClou
 instance
   Prelude.NFData
     UpdateCloudFrontOriginAccessIdentityResponse
+  where
+  rnf UpdateCloudFrontOriginAccessIdentityResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentity
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -168,9 +168,23 @@ instance Core.AWSRequest CreateOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOrganization
+instance Prelude.Hashable CreateOrganization where
+  hashWithSalt _salt CreateOrganization' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` enableInteroperability
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` alias
 
-instance Prelude.NFData CreateOrganization
+instance Prelude.NFData CreateOrganization where
+  rnf CreateOrganization' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf enableInteroperability
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf alias
 
 instance Core.ToHeaders CreateOrganization where
   toHeaders =
@@ -246,4 +260,7 @@ createOrganizationResponse_organizationId = Lens.lens (\CreateOrganizationRespon
 createOrganizationResponse_httpStatus :: Lens.Lens' CreateOrganizationResponse Prelude.Int
 createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' {httpStatus} -> httpStatus) (\s@CreateOrganizationResponse' {} a -> s {httpStatus = a} :: CreateOrganizationResponse)
 
-instance Prelude.NFData CreateOrganizationResponse
+instance Prelude.NFData CreateOrganizationResponse where
+  rnf CreateOrganizationResponse' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf httpStatus

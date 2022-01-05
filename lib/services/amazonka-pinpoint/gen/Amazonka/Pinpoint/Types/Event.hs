@@ -139,9 +139,31 @@ event_eventType = Lens.lens (\Event' {eventType} -> eventType) (\s@Event' {} a -
 event_timestamp :: Lens.Lens' Event Prelude.Text
 event_timestamp = Lens.lens (\Event' {timestamp} -> timestamp) (\s@Event' {} a -> s {timestamp = a} :: Event)
 
-instance Prelude.Hashable Event
+instance Prelude.Hashable Event where
+  hashWithSalt _salt Event' {..} =
+    _salt `Prelude.hashWithSalt` clientSdkVersion
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` appVersionCode
+      `Prelude.hashWithSalt` appTitle
+      `Prelude.hashWithSalt` appPackageName
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` sdkName
+      `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData Event
+instance Prelude.NFData Event where
+  rnf Event' {..} =
+    Prelude.rnf clientSdkVersion
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf appVersionCode
+      `Prelude.seq` Prelude.rnf appTitle
+      `Prelude.seq` Prelude.rnf appPackageName
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf sdkName
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON Event where
   toJSON Event' {..} =

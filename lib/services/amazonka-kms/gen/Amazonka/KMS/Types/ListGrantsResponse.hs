@@ -92,6 +92,14 @@ instance Core.FromJSON ListGrantsResponse where
             Prelude.<*> (x Core..:? "NextMarker")
       )
 
-instance Prelude.Hashable ListGrantsResponse
+instance Prelude.Hashable ListGrantsResponse where
+  hashWithSalt _salt ListGrantsResponse' {..} =
+    _salt `Prelude.hashWithSalt` truncated
+      `Prelude.hashWithSalt` grants
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ListGrantsResponse
+instance Prelude.NFData ListGrantsResponse where
+  rnf ListGrantsResponse' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf nextMarker

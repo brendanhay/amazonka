@@ -96,6 +96,12 @@ instance Core.FromJSON NodeEthereumAttributes where
             Prelude.<*> (x Core..:? "WebSocketEndpoint")
       )
 
-instance Prelude.Hashable NodeEthereumAttributes
+instance Prelude.Hashable NodeEthereumAttributes where
+  hashWithSalt _salt NodeEthereumAttributes' {..} =
+    _salt `Prelude.hashWithSalt` httpEndpoint
+      `Prelude.hashWithSalt` webSocketEndpoint
 
-instance Prelude.NFData NodeEthereumAttributes
+instance Prelude.NFData NodeEthereumAttributes where
+  rnf NodeEthereumAttributes' {..} =
+    Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf webSocketEndpoint

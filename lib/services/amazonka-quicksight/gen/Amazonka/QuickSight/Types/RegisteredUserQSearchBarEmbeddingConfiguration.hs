@@ -80,10 +80,19 @@ registeredUserQSearchBarEmbeddingConfiguration_initialTopicId = Lens.lens (\Regi
 instance
   Prelude.Hashable
     RegisteredUserQSearchBarEmbeddingConfiguration
+  where
+  hashWithSalt
+    _salt
+    RegisteredUserQSearchBarEmbeddingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` initialTopicId
 
 instance
   Prelude.NFData
     RegisteredUserQSearchBarEmbeddingConfiguration
+  where
+  rnf
+    RegisteredUserQSearchBarEmbeddingConfiguration' {..} =
+      Prelude.rnf initialTopicId
 
 instance
   Core.ToJSON

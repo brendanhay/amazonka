@@ -111,6 +111,18 @@ instance Core.FromJSON SamplingTargetDocument where
             Prelude.<*> (x Core..:? "ReservoirQuotaTTL")
       )
 
-instance Prelude.Hashable SamplingTargetDocument
+instance Prelude.Hashable SamplingTargetDocument where
+  hashWithSalt _salt SamplingTargetDocument' {..} =
+    _salt `Prelude.hashWithSalt` reservoirQuota
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` fixedRate
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` reservoirQuotaTTL
 
-instance Prelude.NFData SamplingTargetDocument
+instance Prelude.NFData SamplingTargetDocument where
+  rnf SamplingTargetDocument' {..} =
+    Prelude.rnf reservoirQuota
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf fixedRate
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf reservoirQuotaTTL

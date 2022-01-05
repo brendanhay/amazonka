@@ -81,10 +81,20 @@ instance Core.FromJSON AwsApiGatewayAccessLogSettings where
 instance
   Prelude.Hashable
     AwsApiGatewayAccessLogSettings
+  where
+  hashWithSalt
+    _salt
+    AwsApiGatewayAccessLogSettings' {..} =
+      _salt `Prelude.hashWithSalt` format
+        `Prelude.hashWithSalt` destinationArn
 
 instance
   Prelude.NFData
     AwsApiGatewayAccessLogSettings
+  where
+  rnf AwsApiGatewayAccessLogSettings' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf destinationArn
 
 instance Core.ToJSON AwsApiGatewayAccessLogSettings where
   toJSON AwsApiGatewayAccessLogSettings' {..} =

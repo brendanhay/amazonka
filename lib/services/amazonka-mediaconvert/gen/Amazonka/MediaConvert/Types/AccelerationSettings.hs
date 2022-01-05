@@ -65,9 +65,12 @@ instance Core.FromJSON AccelerationSettings where
           AccelerationSettings' Prelude.<$> (x Core..: "mode")
       )
 
-instance Prelude.Hashable AccelerationSettings
+instance Prelude.Hashable AccelerationSettings where
+  hashWithSalt _salt AccelerationSettings' {..} =
+    _salt `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData AccelerationSettings
+instance Prelude.NFData AccelerationSettings where
+  rnf AccelerationSettings' {..} = Prelude.rnf mode
 
 instance Core.ToJSON AccelerationSettings where
   toJSON AccelerationSettings' {..} =

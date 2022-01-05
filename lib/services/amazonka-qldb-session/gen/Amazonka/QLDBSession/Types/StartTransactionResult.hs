@@ -73,6 +73,12 @@ instance Core.FromJSON StartTransactionResult where
             Prelude.<*> (x Core..:? "TransactionId")
       )
 
-instance Prelude.Hashable StartTransactionResult
+instance Prelude.Hashable StartTransactionResult where
+  hashWithSalt _salt StartTransactionResult' {..} =
+    _salt `Prelude.hashWithSalt` timingInformation
+      `Prelude.hashWithSalt` transactionId
 
-instance Prelude.NFData StartTransactionResult
+instance Prelude.NFData StartTransactionResult where
+  rnf StartTransactionResult' {..} =
+    Prelude.rnf timingInformation
+      `Prelude.seq` Prelude.rnf transactionId

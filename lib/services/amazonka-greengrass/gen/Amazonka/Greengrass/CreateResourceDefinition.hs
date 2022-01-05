@@ -132,9 +132,19 @@ instance Core.AWSRequest CreateResourceDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResourceDefinition
+instance Prelude.Hashable CreateResourceDefinition where
+  hashWithSalt _salt CreateResourceDefinition' {..} =
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateResourceDefinition
+instance Prelude.NFData CreateResourceDefinition where
+  rnf CreateResourceDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf initialVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateResourceDefinition where
   toHeaders CreateResourceDefinition' {..} =
@@ -264,3 +274,13 @@ createResourceDefinitionResponse_httpStatus = Lens.lens (\CreateResourceDefiniti
 instance
   Prelude.NFData
     CreateResourceDefinitionResponse
+  where
+  rnf CreateResourceDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus

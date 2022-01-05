@@ -80,9 +80,12 @@ instance Core.AWSRequest TerminateApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateApp
+instance Prelude.Hashable TerminateApp where
+  hashWithSalt _salt TerminateApp' {..} =
+    _salt `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData TerminateApp
+instance Prelude.NFData TerminateApp where
+  rnf TerminateApp' {..} = Prelude.rnf appId
 
 instance Core.ToHeaders TerminateApp where
   toHeaders =
@@ -139,4 +142,6 @@ newTerminateAppResponse pHttpStatus_ =
 terminateAppResponse_httpStatus :: Lens.Lens' TerminateAppResponse Prelude.Int
 terminateAppResponse_httpStatus = Lens.lens (\TerminateAppResponse' {httpStatus} -> httpStatus) (\s@TerminateAppResponse' {} a -> s {httpStatus = a} :: TerminateAppResponse)
 
-instance Prelude.NFData TerminateAppResponse
+instance Prelude.NFData TerminateAppResponse where
+  rnf TerminateAppResponse' {..} =
+    Prelude.rnf httpStatus

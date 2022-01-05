@@ -309,6 +309,50 @@ instance Core.FromXML ClientVpnEndpoint where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ClientVpnEndpoint
+instance Prelude.Hashable ClientVpnEndpoint where
+  hashWithSalt _salt ClientVpnEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` associatedTargetNetworks
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` connectionLogOptions
+      `Prelude.hashWithSalt` splitTunnel
+      `Prelude.hashWithSalt` transportProtocol
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpnPort
+      `Prelude.hashWithSalt` deletionTime
+      `Prelude.hashWithSalt` clientCidrBlock
+      `Prelude.hashWithSalt` dnsServers
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` clientConnectOptions
+      `Prelude.hashWithSalt` serverCertificateArn
+      `Prelude.hashWithSalt` authenticationOptions
+      `Prelude.hashWithSalt` selfServicePortalUrl
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` vpnProtocol
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ClientVpnEndpoint
+instance Prelude.NFData ClientVpnEndpoint where
+  rnf ClientVpnEndpoint' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf associatedTargetNetworks
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf connectionLogOptions
+      `Prelude.seq` Prelude.rnf splitTunnel
+      `Prelude.seq` Prelude.rnf transportProtocol
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf vpnPort
+      `Prelude.seq` Prelude.rnf deletionTime
+      `Prelude.seq` Prelude.rnf clientCidrBlock
+      `Prelude.seq` Prelude.rnf dnsServers
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf clientConnectOptions
+      `Prelude.seq` Prelude.rnf serverCertificateArn
+      `Prelude.seq` Prelude.rnf authenticationOptions
+      `Prelude.seq` Prelude.rnf selfServicePortalUrl
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf vpnProtocol
+      `Prelude.seq` Prelude.rnf tags

@@ -73,9 +73,16 @@ instance Core.FromJSON AwsIamPermissionsBoundary where
             Prelude.<*> (x Core..:? "PermissionsBoundaryArn")
       )
 
-instance Prelude.Hashable AwsIamPermissionsBoundary
+instance Prelude.Hashable AwsIamPermissionsBoundary where
+  hashWithSalt _salt AwsIamPermissionsBoundary' {..} =
+    _salt
+      `Prelude.hashWithSalt` permissionsBoundaryType
+      `Prelude.hashWithSalt` permissionsBoundaryArn
 
-instance Prelude.NFData AwsIamPermissionsBoundary
+instance Prelude.NFData AwsIamPermissionsBoundary where
+  rnf AwsIamPermissionsBoundary' {..} =
+    Prelude.rnf permissionsBoundaryType
+      `Prelude.seq` Prelude.rnf permissionsBoundaryArn
 
 instance Core.ToJSON AwsIamPermissionsBoundary where
   toJSON AwsIamPermissionsBoundary' {..} =

@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteLifecyclePolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLifecyclePolicy
+instance Prelude.Hashable DeleteLifecyclePolicy where
+  hashWithSalt _salt DeleteLifecyclePolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyId
 
-instance Prelude.NFData DeleteLifecyclePolicy
+instance Prelude.NFData DeleteLifecyclePolicy where
+  rnf DeleteLifecyclePolicy' {..} = Prelude.rnf policyId
 
 instance Core.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
@@ -138,4 +141,6 @@ newDeleteLifecyclePolicyResponse pHttpStatus_ =
 deleteLifecyclePolicyResponse_httpStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Prelude.Int
 deleteLifecyclePolicyResponse_httpStatus = Lens.lens (\DeleteLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: DeleteLifecyclePolicyResponse)
 
-instance Prelude.NFData DeleteLifecyclePolicyResponse
+instance Prelude.NFData DeleteLifecyclePolicyResponse where
+  rnf DeleteLifecyclePolicyResponse' {..} =
+    Prelude.rnf httpStatus

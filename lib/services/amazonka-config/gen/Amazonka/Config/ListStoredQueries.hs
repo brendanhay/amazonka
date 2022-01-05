@@ -104,9 +104,15 @@ instance Core.AWSRequest ListStoredQueries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStoredQueries
+instance Prelude.Hashable ListStoredQueries where
+  hashWithSalt _salt ListStoredQueries' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListStoredQueries
+instance Prelude.NFData ListStoredQueries where
+  rnf ListStoredQueries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListStoredQueries where
   toHeaders =
@@ -201,4 +207,8 @@ listStoredQueriesResponse_nextToken = Lens.lens (\ListStoredQueriesResponse' {ne
 listStoredQueriesResponse_httpStatus :: Lens.Lens' ListStoredQueriesResponse Prelude.Int
 listStoredQueriesResponse_httpStatus = Lens.lens (\ListStoredQueriesResponse' {httpStatus} -> httpStatus) (\s@ListStoredQueriesResponse' {} a -> s {httpStatus = a} :: ListStoredQueriesResponse)
 
-instance Prelude.NFData ListStoredQueriesResponse
+instance Prelude.NFData ListStoredQueriesResponse where
+  rnf ListStoredQueriesResponse' {..} =
+    Prelude.rnf storedQueryMetadata
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

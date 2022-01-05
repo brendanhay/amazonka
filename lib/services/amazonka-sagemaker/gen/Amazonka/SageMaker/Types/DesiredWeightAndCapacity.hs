@@ -73,9 +73,17 @@ desiredWeightAndCapacity_desiredWeight = Lens.lens (\DesiredWeightAndCapacity' {
 desiredWeightAndCapacity_variantName :: Lens.Lens' DesiredWeightAndCapacity Prelude.Text
 desiredWeightAndCapacity_variantName = Lens.lens (\DesiredWeightAndCapacity' {variantName} -> variantName) (\s@DesiredWeightAndCapacity' {} a -> s {variantName = a} :: DesiredWeightAndCapacity)
 
-instance Prelude.Hashable DesiredWeightAndCapacity
+instance Prelude.Hashable DesiredWeightAndCapacity where
+  hashWithSalt _salt DesiredWeightAndCapacity' {..} =
+    _salt `Prelude.hashWithSalt` desiredInstanceCount
+      `Prelude.hashWithSalt` desiredWeight
+      `Prelude.hashWithSalt` variantName
 
-instance Prelude.NFData DesiredWeightAndCapacity
+instance Prelude.NFData DesiredWeightAndCapacity where
+  rnf DesiredWeightAndCapacity' {..} =
+    Prelude.rnf desiredInstanceCount
+      `Prelude.seq` Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf variantName
 
 instance Core.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =

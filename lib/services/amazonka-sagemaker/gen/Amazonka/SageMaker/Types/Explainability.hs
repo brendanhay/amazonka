@@ -59,9 +59,12 @@ instance Core.FromJSON Explainability where
           Explainability' Prelude.<$> (x Core..:? "Report")
       )
 
-instance Prelude.Hashable Explainability
+instance Prelude.Hashable Explainability where
+  hashWithSalt _salt Explainability' {..} =
+    _salt `Prelude.hashWithSalt` report
 
-instance Prelude.NFData Explainability
+instance Prelude.NFData Explainability where
+  rnf Explainability' {..} = Prelude.rnf report
 
 instance Core.ToJSON Explainability where
   toJSON Explainability' {..} =

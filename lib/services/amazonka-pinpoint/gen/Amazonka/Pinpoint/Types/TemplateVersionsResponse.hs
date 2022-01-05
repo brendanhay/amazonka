@@ -106,6 +106,16 @@ instance Core.FromJSON TemplateVersionsResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TemplateVersionsResponse
+instance Prelude.Hashable TemplateVersionsResponse where
+  hashWithSalt _salt TemplateVersionsResponse' {..} =
+    _salt `Prelude.hashWithSalt` requestID
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` item
 
-instance Prelude.NFData TemplateVersionsResponse
+instance Prelude.NFData TemplateVersionsResponse where
+  rnf TemplateVersionsResponse' {..} =
+    Prelude.rnf requestID
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf item

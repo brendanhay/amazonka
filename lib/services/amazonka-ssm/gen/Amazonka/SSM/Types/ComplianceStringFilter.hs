@@ -75,9 +75,17 @@ complianceStringFilter_key = Lens.lens (\ComplianceStringFilter' {key} -> key) (
 complianceStringFilter_type :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe ComplianceQueryOperatorType)
 complianceStringFilter_type = Lens.lens (\ComplianceStringFilter' {type'} -> type') (\s@ComplianceStringFilter' {} a -> s {type' = a} :: ComplianceStringFilter)
 
-instance Prelude.Hashable ComplianceStringFilter
+instance Prelude.Hashable ComplianceStringFilter where
+  hashWithSalt _salt ComplianceStringFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ComplianceStringFilter
+instance Prelude.NFData ComplianceStringFilter where
+  rnf ComplianceStringFilter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =

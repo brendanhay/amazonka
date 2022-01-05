@@ -213,6 +213,26 @@ instance Core.FromXML ScheduledAction where
       Prelude.<*> (x Core..@? "EndTime")
       Prelude.<*> (x Core..@? "IamRole")
 
-instance Prelude.Hashable ScheduledAction
+instance Prelude.Hashable ScheduledAction where
+  hashWithSalt _salt ScheduledAction' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` targetAction
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` scheduledActionDescription
+      `Prelude.hashWithSalt` nextInvocations
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData ScheduledAction
+instance Prelude.NFData ScheduledAction where
+  rnf ScheduledAction' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf targetAction
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf scheduledActionDescription
+      `Prelude.seq` Prelude.rnf nextInvocations
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf iamRole

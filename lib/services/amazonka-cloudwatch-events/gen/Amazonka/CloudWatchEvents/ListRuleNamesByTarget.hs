@@ -151,9 +151,19 @@ instance Core.AWSRequest ListRuleNamesByTarget where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRuleNamesByTarget
+instance Prelude.Hashable ListRuleNamesByTarget where
+  hashWithSalt _salt ListRuleNamesByTarget' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` targetArn
 
-instance Prelude.NFData ListRuleNamesByTarget
+instance Prelude.NFData ListRuleNamesByTarget where
+  rnf ListRuleNamesByTarget' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToHeaders ListRuleNamesByTarget where
   toHeaders =
@@ -238,4 +248,8 @@ listRuleNamesByTargetResponse_nextToken = Lens.lens (\ListRuleNamesByTargetRespo
 listRuleNamesByTargetResponse_httpStatus :: Lens.Lens' ListRuleNamesByTargetResponse Prelude.Int
 listRuleNamesByTargetResponse_httpStatus = Lens.lens (\ListRuleNamesByTargetResponse' {httpStatus} -> httpStatus) (\s@ListRuleNamesByTargetResponse' {} a -> s {httpStatus = a} :: ListRuleNamesByTargetResponse)
 
-instance Prelude.NFData ListRuleNamesByTargetResponse
+instance Prelude.NFData ListRuleNamesByTargetResponse where
+  rnf ListRuleNamesByTargetResponse' {..} =
+    Prelude.rnf ruleNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

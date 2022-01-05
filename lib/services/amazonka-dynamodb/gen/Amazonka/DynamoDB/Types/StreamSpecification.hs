@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.StreamSpecification where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.StreamViewType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -120,9 +121,15 @@ instance Core.FromJSON StreamSpecification where
             Prelude.<*> (x Core..: "StreamEnabled")
       )
 
-instance Prelude.Hashable StreamSpecification
+instance Prelude.Hashable StreamSpecification where
+  hashWithSalt _salt StreamSpecification' {..} =
+    _salt `Prelude.hashWithSalt` streamViewType
+      `Prelude.hashWithSalt` streamEnabled
 
-instance Prelude.NFData StreamSpecification
+instance Prelude.NFData StreamSpecification where
+  rnf StreamSpecification' {..} =
+    Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf streamEnabled
 
 instance Core.ToJSON StreamSpecification where
   toJSON StreamSpecification' {..} =

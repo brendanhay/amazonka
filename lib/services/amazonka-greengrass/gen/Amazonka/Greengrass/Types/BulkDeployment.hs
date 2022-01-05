@@ -84,6 +84,14 @@ instance Core.FromJSON BulkDeployment where
             Prelude.<*> (x Core..:? "CreatedAt")
       )
 
-instance Prelude.Hashable BulkDeployment
+instance Prelude.Hashable BulkDeployment where
+  hashWithSalt _salt BulkDeployment' {..} =
+    _salt `Prelude.hashWithSalt` bulkDeploymentArn
+      `Prelude.hashWithSalt` bulkDeploymentId
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData BulkDeployment
+instance Prelude.NFData BulkDeployment where
+  rnf BulkDeployment' {..} =
+    Prelude.rnf bulkDeploymentArn
+      `Prelude.seq` Prelude.rnf bulkDeploymentId
+      `Prelude.seq` Prelude.rnf createdAt

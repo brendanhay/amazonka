@@ -84,9 +84,12 @@ instance Core.AWSRequest GetTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTags
+instance Prelude.Hashable GetTags where
+  hashWithSalt _salt GetTags' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetTags
+instance Prelude.NFData GetTags where
+  rnf GetTags' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetTags where
   toHeaders =
@@ -144,4 +147,7 @@ getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsR
 getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
 getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpStatus) (\s@GetTagsResponse' {} a -> s {httpStatus = a} :: GetTagsResponse)
 
-instance Prelude.NFData GetTagsResponse
+instance Prelude.NFData GetTagsResponse where
+  rnf GetTagsResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

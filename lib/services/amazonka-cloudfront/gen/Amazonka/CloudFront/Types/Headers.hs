@@ -71,9 +71,15 @@ instance Core.FromXML Headers where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Headers
+instance Prelude.Hashable Headers where
+  hashWithSalt _salt Headers' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData Headers
+instance Prelude.NFData Headers where
+  rnf Headers' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML Headers where
   toXML Headers' {..} =

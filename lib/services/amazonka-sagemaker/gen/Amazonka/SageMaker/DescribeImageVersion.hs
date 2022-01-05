@@ -117,9 +117,15 @@ instance Core.AWSRequest DescribeImageVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageVersion
+instance Prelude.Hashable DescribeImageVersion where
+  hashWithSalt _salt DescribeImageVersion' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` imageName
 
-instance Prelude.NFData DescribeImageVersion
+instance Prelude.NFData DescribeImageVersion where
+  rnf DescribeImageVersion' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf imageName
 
 instance Core.ToHeaders DescribeImageVersion where
   toHeaders =
@@ -268,4 +274,15 @@ describeImageVersionResponse_imageVersionArn = Lens.lens (\DescribeImageVersionR
 describeImageVersionResponse_httpStatus :: Lens.Lens' DescribeImageVersionResponse Prelude.Int
 describeImageVersionResponse_httpStatus = Lens.lens (\DescribeImageVersionResponse' {httpStatus} -> httpStatus) (\s@DescribeImageVersionResponse' {} a -> s {httpStatus = a} :: DescribeImageVersionResponse)
 
-instance Prelude.NFData DescribeImageVersionResponse
+instance Prelude.NFData DescribeImageVersionResponse where
+  rnf DescribeImageVersionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf containerImage
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf imageVersionStatus
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf baseImage
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf imageVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

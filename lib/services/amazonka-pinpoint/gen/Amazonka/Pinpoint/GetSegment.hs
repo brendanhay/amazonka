@@ -102,9 +102,15 @@ instance Core.AWSRequest GetSegment where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetSegment
+instance Prelude.Hashable GetSegment where
+  hashWithSalt _salt GetSegment' {..} =
+    _salt `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetSegment
+instance Prelude.NFData GetSegment where
+  rnf GetSegment' {..} =
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders GetSegment where
   toHeaders =
@@ -168,4 +174,7 @@ getSegmentResponse_httpStatus = Lens.lens (\GetSegmentResponse' {httpStatus} -> 
 getSegmentResponse_segmentResponse :: Lens.Lens' GetSegmentResponse SegmentResponse
 getSegmentResponse_segmentResponse = Lens.lens (\GetSegmentResponse' {segmentResponse} -> segmentResponse) (\s@GetSegmentResponse' {} a -> s {segmentResponse = a} :: GetSegmentResponse)
 
-instance Prelude.NFData GetSegmentResponse
+instance Prelude.NFData GetSegmentResponse where
+  rnf GetSegmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf segmentResponse

@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteServer where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteServerResponse'
 
-instance Prelude.Hashable DeleteServer
+instance Prelude.Hashable DeleteServer where
+  hashWithSalt _salt DeleteServer' {..} =
+    _salt `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData DeleteServer
+instance Prelude.NFData DeleteServer where
+  rnf DeleteServer' {..} = Prelude.rnf serverId
 
 instance Core.ToHeaders DeleteServer where
   toHeaders =
@@ -122,4 +125,5 @@ newDeleteServerResponse ::
   DeleteServerResponse
 newDeleteServerResponse = DeleteServerResponse'
 
-instance Prelude.NFData DeleteServerResponse
+instance Prelude.NFData DeleteServerResponse where
+  rnf _ = ()

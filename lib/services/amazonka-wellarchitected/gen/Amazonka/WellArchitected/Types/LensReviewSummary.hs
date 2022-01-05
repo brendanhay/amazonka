@@ -109,6 +109,20 @@ instance Core.FromJSON LensReviewSummary where
             Prelude.<*> (x Core..:? "LensVersion")
       )
 
-instance Prelude.Hashable LensReviewSummary
+instance Prelude.Hashable LensReviewSummary where
+  hashWithSalt _salt LensReviewSummary' {..} =
+    _salt `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` riskCounts
+      `Prelude.hashWithSalt` lensName
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` lensStatus
+      `Prelude.hashWithSalt` lensVersion
 
-instance Prelude.NFData LensReviewSummary
+instance Prelude.NFData LensReviewSummary where
+  rnf LensReviewSummary' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf riskCounts
+      `Prelude.seq` Prelude.rnf lensName
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf lensStatus
+      `Prelude.seq` Prelude.rnf lensVersion

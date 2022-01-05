@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteServiceTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteServiceTemplate
+instance Prelude.Hashable DeleteServiceTemplate where
+  hashWithSalt _salt DeleteServiceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteServiceTemplate
+instance Prelude.NFData DeleteServiceTemplate where
+  rnf DeleteServiceTemplate' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteServiceTemplate where
   toHeaders =
@@ -158,4 +161,7 @@ deleteServiceTemplateResponse_serviceTemplate = Lens.lens (\DeleteServiceTemplat
 deleteServiceTemplateResponse_httpStatus :: Lens.Lens' DeleteServiceTemplateResponse Prelude.Int
 deleteServiceTemplateResponse_httpStatus = Lens.lens (\DeleteServiceTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceTemplateResponse' {} a -> s {httpStatus = a} :: DeleteServiceTemplateResponse)
 
-instance Prelude.NFData DeleteServiceTemplateResponse
+instance Prelude.NFData DeleteServiceTemplateResponse where
+  rnf DeleteServiceTemplateResponse' {..} =
+    Prelude.rnf serviceTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

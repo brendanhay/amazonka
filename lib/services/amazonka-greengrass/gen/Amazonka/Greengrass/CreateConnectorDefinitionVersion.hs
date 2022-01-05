@@ -127,10 +127,22 @@ instance
 instance
   Prelude.Hashable
     CreateConnectorDefinitionVersion
+  where
+  hashWithSalt
+    _salt
+    CreateConnectorDefinitionVersion' {..} =
+      _salt `Prelude.hashWithSalt` amznClientToken
+        `Prelude.hashWithSalt` connectors
+        `Prelude.hashWithSalt` connectorDefinitionId
 
 instance
   Prelude.NFData
     CreateConnectorDefinitionVersion
+  where
+  rnf CreateConnectorDefinitionVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf connectors
+      `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance
   Core.ToHeaders
@@ -235,3 +247,10 @@ createConnectorDefinitionVersionResponse_httpStatus = Lens.lens (\CreateConnecto
 instance
   Prelude.NFData
     CreateConnectorDefinitionVersionResponse
+  where
+  rnf CreateConnectorDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

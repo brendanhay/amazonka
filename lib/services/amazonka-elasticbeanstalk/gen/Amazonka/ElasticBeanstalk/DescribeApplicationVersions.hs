@@ -176,9 +176,19 @@ instance Core.AWSRequest DescribeApplicationVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplicationVersions
+instance Prelude.Hashable DescribeApplicationVersions where
+  hashWithSalt _salt DescribeApplicationVersions' {..} =
+    _salt `Prelude.hashWithSalt` versionLabels
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData DescribeApplicationVersions
+instance Prelude.NFData DescribeApplicationVersions where
+  rnf DescribeApplicationVersions' {..} =
+    Prelude.rnf versionLabels
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders DescribeApplicationVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,3 +274,8 @@ describeApplicationVersionsResponse_httpStatus = Lens.lens (\DescribeApplication
 instance
   Prelude.NFData
     DescribeApplicationVersionsResponse
+  where
+  rnf DescribeApplicationVersionsResponse' {..} =
+    Prelude.rnf applicationVersions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

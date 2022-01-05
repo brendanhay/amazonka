@@ -189,9 +189,17 @@ instance Core.AWSRequest UpdateGeoMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGeoMatchSet
+instance Prelude.Hashable UpdateGeoMatchSet where
+  hashWithSalt _salt UpdateGeoMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` geoMatchSetId
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` updates
 
-instance Prelude.NFData UpdateGeoMatchSet
+instance Prelude.NFData UpdateGeoMatchSet where
+  rnf UpdateGeoMatchSet' {..} =
+    Prelude.rnf geoMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf updates
 
 instance Core.ToHeaders UpdateGeoMatchSet where
   toHeaders =
@@ -270,4 +278,7 @@ updateGeoMatchSetResponse_changeToken = Lens.lens (\UpdateGeoMatchSetResponse' {
 updateGeoMatchSetResponse_httpStatus :: Lens.Lens' UpdateGeoMatchSetResponse Prelude.Int
 updateGeoMatchSetResponse_httpStatus = Lens.lens (\UpdateGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateGeoMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateGeoMatchSetResponse)
 
-instance Prelude.NFData UpdateGeoMatchSetResponse
+instance Prelude.NFData UpdateGeoMatchSetResponse where
+  rnf UpdateGeoMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

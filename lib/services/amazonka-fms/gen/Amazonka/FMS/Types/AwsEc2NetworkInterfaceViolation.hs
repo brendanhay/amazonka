@@ -83,7 +83,18 @@ instance
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfaceViolation
+  where
+  hashWithSalt
+    _salt
+    AwsEc2NetworkInterfaceViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` violatingSecurityGroups
+        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceViolation
+  where
+  rnf AwsEc2NetworkInterfaceViolation' {..} =
+    Prelude.rnf violatingSecurityGroups
+      `Prelude.seq` Prelude.rnf violationTarget

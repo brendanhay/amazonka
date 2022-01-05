@@ -96,9 +96,19 @@ instance Core.FromJSON CognitoOptions where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable CognitoOptions
+instance Prelude.Hashable CognitoOptions where
+  hashWithSalt _salt CognitoOptions' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CognitoOptions
+instance Prelude.NFData CognitoOptions where
+  rnf CognitoOptions' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON CognitoOptions where
   toJSON CognitoOptions' {..} =

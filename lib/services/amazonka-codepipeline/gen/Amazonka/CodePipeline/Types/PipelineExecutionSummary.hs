@@ -202,6 +202,22 @@ instance Core.FromJSON PipelineExecutionSummary where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable PipelineExecutionSummary
+instance Prelude.Hashable PipelineExecutionSummary where
+  hashWithSalt _salt PipelineExecutionSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` stopTrigger
+      `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` sourceRevisions
+      `Prelude.hashWithSalt` trigger
+      `Prelude.hashWithSalt` lastUpdateTime
 
-instance Prelude.NFData PipelineExecutionSummary
+instance Prelude.NFData PipelineExecutionSummary where
+  rnf PipelineExecutionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stopTrigger
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf sourceRevisions
+      `Prelude.seq` Prelude.rnf trigger
+      `Prelude.seq` Prelude.rnf lastUpdateTime

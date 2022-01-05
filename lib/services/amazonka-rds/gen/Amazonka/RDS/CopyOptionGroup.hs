@@ -178,9 +178,19 @@ instance Core.AWSRequest CopyOptionGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyOptionGroup
+instance Prelude.Hashable CopyOptionGroup where
+  hashWithSalt _salt CopyOptionGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceOptionGroupIdentifier
+      `Prelude.hashWithSalt` targetOptionGroupIdentifier
+      `Prelude.hashWithSalt` targetOptionGroupDescription
 
-instance Prelude.NFData CopyOptionGroup
+instance Prelude.NFData CopyOptionGroup where
+  rnf CopyOptionGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceOptionGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetOptionGroupIdentifier
+      `Prelude.seq` Prelude.rnf targetOptionGroupDescription
 
 instance Core.ToHeaders CopyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +254,7 @@ copyOptionGroupResponse_optionGroup = Lens.lens (\CopyOptionGroupResponse' {opti
 copyOptionGroupResponse_httpStatus :: Lens.Lens' CopyOptionGroupResponse Prelude.Int
 copyOptionGroupResponse_httpStatus = Lens.lens (\CopyOptionGroupResponse' {httpStatus} -> httpStatus) (\s@CopyOptionGroupResponse' {} a -> s {httpStatus = a} :: CopyOptionGroupResponse)
 
-instance Prelude.NFData CopyOptionGroupResponse
+instance Prelude.NFData CopyOptionGroupResponse where
+  rnf CopyOptionGroupResponse' {..} =
+    Prelude.rnf optionGroup
+      `Prelude.seq` Prelude.rnf httpStatus

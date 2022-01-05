@@ -65,7 +65,15 @@ instance
 instance
   Prelude.Hashable
     Phase2EncryptionAlgorithmsListValue
+  where
+  hashWithSalt
+    _salt
+    Phase2EncryptionAlgorithmsListValue' {..} =
+      _salt `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     Phase2EncryptionAlgorithmsListValue
+  where
+  rnf Phase2EncryptionAlgorithmsListValue' {..} =
+    Prelude.rnf value

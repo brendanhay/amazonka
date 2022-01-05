@@ -219,9 +219,33 @@ instance Core.AWSRequest CreateStudioComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStudioComponent
+instance Prelude.Hashable CreateStudioComponent where
+  hashWithSalt _salt CreateStudioComponent' {..} =
+    _salt `Prelude.hashWithSalt` initializationScripts
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` scriptParameters
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateStudioComponent
+instance Prelude.NFData CreateStudioComponent where
+  rnf CreateStudioComponent' {..} =
+    Prelude.rnf initializationScripts
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf scriptParameters
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateStudioComponent where
   toHeaders CreateStudioComponent' {..} =
@@ -300,4 +324,7 @@ createStudioComponentResponse_studioComponent = Lens.lens (\CreateStudioComponen
 createStudioComponentResponse_httpStatus :: Lens.Lens' CreateStudioComponentResponse Prelude.Int
 createStudioComponentResponse_httpStatus = Lens.lens (\CreateStudioComponentResponse' {httpStatus} -> httpStatus) (\s@CreateStudioComponentResponse' {} a -> s {httpStatus = a} :: CreateStudioComponentResponse)
 
-instance Prelude.NFData CreateStudioComponentResponse
+instance Prelude.NFData CreateStudioComponentResponse where
+  rnf CreateStudioComponentResponse' {..} =
+    Prelude.rnf studioComponent
+      `Prelude.seq` Prelude.rnf httpStatus

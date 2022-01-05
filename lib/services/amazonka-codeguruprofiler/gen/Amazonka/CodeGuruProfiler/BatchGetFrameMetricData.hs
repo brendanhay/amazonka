@@ -222,9 +222,23 @@ instance Core.AWSRequest BatchGetFrameMetricData where
                         )
       )
 
-instance Prelude.Hashable BatchGetFrameMetricData
+instance Prelude.Hashable BatchGetFrameMetricData where
+  hashWithSalt _salt BatchGetFrameMetricData' {..} =
+    _salt `Prelude.hashWithSalt` targetResolution
+      `Prelude.hashWithSalt` frameMetrics
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData BatchGetFrameMetricData
+instance Prelude.NFData BatchGetFrameMetricData where
+  rnf BatchGetFrameMetricData' {..} =
+    Prelude.rnf targetResolution
+      `Prelude.seq` Prelude.rnf frameMetrics
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders BatchGetFrameMetricData where
   toHeaders =
@@ -423,3 +437,12 @@ batchGetFrameMetricDataResponse_unprocessedEndTimes = Lens.lens (\BatchGetFrameM
 instance
   Prelude.NFData
     BatchGetFrameMetricDataResponse
+  where
+  rnf BatchGetFrameMetricDataResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf endTimes
+      `Prelude.seq` Prelude.rnf frameMetricData
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf unprocessedEndTimes

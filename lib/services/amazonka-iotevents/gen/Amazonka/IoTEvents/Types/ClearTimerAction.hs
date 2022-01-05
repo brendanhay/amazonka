@@ -61,9 +61,12 @@ instance Core.FromJSON ClearTimerAction where
             Prelude.<$> (x Core..: "timerName")
       )
 
-instance Prelude.Hashable ClearTimerAction
+instance Prelude.Hashable ClearTimerAction where
+  hashWithSalt _salt ClearTimerAction' {..} =
+    _salt `Prelude.hashWithSalt` timerName
 
-instance Prelude.NFData ClearTimerAction
+instance Prelude.NFData ClearTimerAction where
+  rnf ClearTimerAction' {..} = Prelude.rnf timerName
 
 instance Core.ToJSON ClearTimerAction where
   toJSON ClearTimerAction' {..} =

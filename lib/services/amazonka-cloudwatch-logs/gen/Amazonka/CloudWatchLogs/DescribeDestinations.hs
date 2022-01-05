@@ -142,9 +142,17 @@ instance Core.AWSRequest DescribeDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDestinations
+instance Prelude.Hashable DescribeDestinations where
+  hashWithSalt _salt DescribeDestinations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` destinationNamePrefix
 
-instance Prelude.NFData DescribeDestinations
+instance Prelude.NFData DescribeDestinations where
+  rnf DescribeDestinations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf destinationNamePrefix
 
 instance Core.ToHeaders DescribeDestinations where
   toHeaders =
@@ -225,4 +233,8 @@ describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResp
 describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Prelude.Int
 describeDestinationsResponse_httpStatus = Lens.lens (\DescribeDestinationsResponse' {httpStatus} -> httpStatus) (\s@DescribeDestinationsResponse' {} a -> s {httpStatus = a} :: DescribeDestinationsResponse)
 
-instance Prelude.NFData DescribeDestinationsResponse
+instance Prelude.NFData DescribeDestinationsResponse where
+  rnf DescribeDestinationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf httpStatus

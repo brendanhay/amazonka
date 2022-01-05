@@ -91,6 +91,14 @@ instance Core.FromJSON DetectAnomalyResult where
             Prelude.<*> (x Core..:? "Source")
       )
 
-instance Prelude.Hashable DetectAnomalyResult
+instance Prelude.Hashable DetectAnomalyResult where
+  hashWithSalt _salt DetectAnomalyResult' {..} =
+    _salt `Prelude.hashWithSalt` isAnomalous
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData DetectAnomalyResult
+instance Prelude.NFData DetectAnomalyResult where
+  rnf DetectAnomalyResult' {..} =
+    Prelude.rnf isAnomalous
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf source

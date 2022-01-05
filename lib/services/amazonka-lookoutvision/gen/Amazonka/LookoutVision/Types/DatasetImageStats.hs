@@ -91,6 +91,16 @@ instance Core.FromJSON DatasetImageStats where
             Prelude.<*> (x Core..:? "Total")
       )
 
-instance Prelude.Hashable DatasetImageStats
+instance Prelude.Hashable DatasetImageStats where
+  hashWithSalt _salt DatasetImageStats' {..} =
+    _salt `Prelude.hashWithSalt` normal
+      `Prelude.hashWithSalt` anomaly
+      `Prelude.hashWithSalt` labeled
+      `Prelude.hashWithSalt` total
 
-instance Prelude.NFData DatasetImageStats
+instance Prelude.NFData DatasetImageStats where
+  rnf DatasetImageStats' {..} =
+    Prelude.rnf normal
+      `Prelude.seq` Prelude.rnf anomaly
+      `Prelude.seq` Prelude.rnf labeled
+      `Prelude.seq` Prelude.rnf total

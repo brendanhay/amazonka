@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeExclusions where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeExclusions
+instance Prelude.Hashable DescribeExclusions where
+  hashWithSalt _salt DescribeExclusions' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` exclusionArns
 
-instance Prelude.NFData DescribeExclusions
+instance Prelude.NFData DescribeExclusions where
+  rnf DescribeExclusions' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf exclusionArns
 
 instance Core.ToHeaders DescribeExclusions where
   toHeaders =
@@ -189,4 +195,8 @@ describeExclusionsResponse_exclusions = Lens.lens (\DescribeExclusionsResponse' 
 describeExclusionsResponse_failedItems :: Lens.Lens' DescribeExclusionsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
 describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse' {failedItems} -> failedItems) (\s@DescribeExclusionsResponse' {} a -> s {failedItems = a} :: DescribeExclusionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeExclusionsResponse
+instance Prelude.NFData DescribeExclusionsResponse where
+  rnf DescribeExclusionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exclusions
+      `Prelude.seq` Prelude.rnf failedItems

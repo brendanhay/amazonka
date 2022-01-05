@@ -128,10 +128,27 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {..} =
+      _salt `Prelude.hashWithSalt` hostname
+        `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` httpRedirectCode
+        `Prelude.hashWithSalt` replaceKeyWith
+        `Prelude.hashWithSalt` replaceKeyPrefixWith
 
 instance
   Prelude.NFData
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
+  where
+  rnf
+    AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {..} =
+      Prelude.rnf hostname
+        `Prelude.seq` Prelude.rnf protocol
+        `Prelude.seq` Prelude.rnf httpRedirectCode
+        `Prelude.seq` Prelude.rnf replaceKeyWith
+        `Prelude.seq` Prelude.rnf replaceKeyPrefixWith
 
 instance
   Core.ToJSON

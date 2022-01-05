@@ -109,9 +109,13 @@ instance Core.AWSRequest EnableAWSServiceAccess where
     Response.receiveNull
       EnableAWSServiceAccessResponse'
 
-instance Prelude.Hashable EnableAWSServiceAccess
+instance Prelude.Hashable EnableAWSServiceAccess where
+  hashWithSalt _salt EnableAWSServiceAccess' {..} =
+    _salt `Prelude.hashWithSalt` servicePrincipal
 
-instance Prelude.NFData EnableAWSServiceAccess
+instance Prelude.NFData EnableAWSServiceAccess where
+  rnf EnableAWSServiceAccess' {..} =
+    Prelude.rnf servicePrincipal
 
 instance Core.ToHeaders EnableAWSServiceAccess where
   toHeaders =
@@ -161,3 +165,5 @@ newEnableAWSServiceAccessResponse =
 instance
   Prelude.NFData
     EnableAWSServiceAccessResponse
+  where
+  rnf _ = ()

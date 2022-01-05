@@ -136,9 +136,17 @@ instance Core.AWSRequest ListProjects where
                         )
       )
 
-instance Prelude.Hashable ListProjects
+instance Prelude.Hashable ListProjects where
+  hashWithSalt _salt ListProjects' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` portalId
 
-instance Prelude.NFData ListProjects
+instance Prelude.NFData ListProjects where
+  rnf ListProjects' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf portalId
 
 instance Core.ToHeaders ListProjects where
   toHeaders =
@@ -212,4 +220,8 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 listProjectsResponse_projectSummaries :: Lens.Lens' ListProjectsResponse [ProjectSummary]
 listProjectsResponse_projectSummaries = Lens.lens (\ListProjectsResponse' {projectSummaries} -> projectSummaries) (\s@ListProjectsResponse' {} a -> s {projectSummaries = a} :: ListProjectsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProjectsResponse
+instance Prelude.NFData ListProjectsResponse where
+  rnf ListProjectsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectSummaries

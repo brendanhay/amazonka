@@ -169,9 +169,21 @@ instance Core.FromJSON WorkflowStep where
             Prelude.<*> (x Core..:? "CustomStepDetails")
       )
 
-instance Prelude.Hashable WorkflowStep
+instance Prelude.Hashable WorkflowStep where
+  hashWithSalt _salt WorkflowStep' {..} =
+    _salt `Prelude.hashWithSalt` tagStepDetails
+      `Prelude.hashWithSalt` deleteStepDetails
+      `Prelude.hashWithSalt` copyStepDetails
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` customStepDetails
 
-instance Prelude.NFData WorkflowStep
+instance Prelude.NFData WorkflowStep where
+  rnf WorkflowStep' {..} =
+    Prelude.rnf tagStepDetails
+      `Prelude.seq` Prelude.rnf deleteStepDetails
+      `Prelude.seq` Prelude.rnf copyStepDetails
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf customStepDetails
 
 instance Core.ToJSON WorkflowStep where
   toJSON WorkflowStep' {..} =

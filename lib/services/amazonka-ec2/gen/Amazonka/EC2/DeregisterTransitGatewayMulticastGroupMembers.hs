@@ -136,10 +136,25 @@ instance
 instance
   Prelude.Hashable
     DeregisterTransitGatewayMulticastGroupMembers
+  where
+  hashWithSalt
+    _salt
+    DeregisterTransitGatewayMulticastGroupMembers' {..} =
+      _salt `Prelude.hashWithSalt` networkInterfaceIds
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+        `Prelude.hashWithSalt` groupIpAddress
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DeregisterTransitGatewayMulticastGroupMembers
+  where
+  rnf
+    DeregisterTransitGatewayMulticastGroupMembers' {..} =
+      Prelude.rnf networkInterfaceIds
+        `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+        `Prelude.seq` Prelude.rnf groupIpAddress
+        `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -220,3 +235,8 @@ deregisterTransitGatewayMulticastGroupMembersResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DeregisterTransitGatewayMulticastGroupMembersResponse
+  where
+  rnf
+    DeregisterTransitGatewayMulticastGroupMembersResponse' {..} =
+      Prelude.rnf deregisteredMulticastGroupMembers
+        `Prelude.seq` Prelude.rnf httpStatus

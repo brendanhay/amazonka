@@ -119,8 +119,15 @@ instance
 instance
   Prelude.Hashable
     GetDefaultCreditSpecification
+  where
+  hashWithSalt _salt GetDefaultCreditSpecification' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceFamily
 
-instance Prelude.NFData GetDefaultCreditSpecification
+instance Prelude.NFData GetDefaultCreditSpecification where
+  rnf GetDefaultCreditSpecification' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceFamily
 
 instance Core.ToHeaders GetDefaultCreditSpecification where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +190,7 @@ getDefaultCreditSpecificationResponse_httpStatus = Lens.lens (\GetDefaultCreditS
 instance
   Prelude.NFData
     GetDefaultCreditSpecificationResponse
+  where
+  rnf GetDefaultCreditSpecificationResponse' {..} =
+    Prelude.rnf instanceFamilyCreditSpecification
+      `Prelude.seq` Prelude.rnf httpStatus

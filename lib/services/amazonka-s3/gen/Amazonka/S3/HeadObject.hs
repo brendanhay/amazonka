@@ -482,9 +482,39 @@ instance Core.AWSRequest HeadObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable HeadObject
+instance Prelude.Hashable HeadObject where
+  hashWithSalt _salt HeadObject' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` ifModifiedSince
+      `Prelude.hashWithSalt` partNumber
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` ifUnmodifiedSince
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` ifNoneMatch
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData HeadObject
+instance Prelude.NFData HeadObject where
+  rnf HeadObject' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf ifModifiedSince
+      `Prelude.seq` Prelude.rnf partNumber
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf ifUnmodifiedSince
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf ifNoneMatch
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders HeadObject where
   toHeaders HeadObject' {..} =
@@ -1086,4 +1116,46 @@ headObjectResponse_contentType = Lens.lens (\HeadObjectResponse' {contentType} -
 headObjectResponse_httpStatus :: Lens.Lens' HeadObjectResponse Prelude.Int
 headObjectResponse_httpStatus = Lens.lens (\HeadObjectResponse' {httpStatus} -> httpStatus) (\s@HeadObjectResponse' {} a -> s {httpStatus = a} :: HeadObjectResponse)
 
-instance Prelude.NFData HeadObjectResponse
+instance Prelude.NFData HeadObjectResponse where
+  rnf HeadObjectResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf partsCount
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf contentLength
+      `Prelude.seq` Prelude.rnf objectLockMode
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf restore
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf deleteMarker
+      `Prelude.seq` Prelude.rnf archiveStatus
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf missingMeta
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf websiteRedirectLocation
+      `Prelude.seq` Prelude.rnf acceptRanges
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf contentEncoding
+      `Prelude.seq` Prelude.rnf
+        objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf
+        replicationStatus
+      `Prelude.seq` Prelude.rnf
+        cacheControl
+      `Prelude.seq` Prelude.rnf
+        contentLanguage
+      `Prelude.seq` Prelude.rnf
+        lastModified
+      `Prelude.seq` Prelude.rnf
+        objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf
+        contentDisposition
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryption
+      `Prelude.seq` Prelude.rnf
+        contentType
+      `Prelude.seq` Prelude.rnf
+        httpStatus

@@ -70,8 +70,13 @@ instance Core.FromJSON EmergencyCallingConfiguration where
 instance
   Prelude.Hashable
     EmergencyCallingConfiguration
+  where
+  hashWithSalt _salt EmergencyCallingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` dnis
 
-instance Prelude.NFData EmergencyCallingConfiguration
+instance Prelude.NFData EmergencyCallingConfiguration where
+  rnf EmergencyCallingConfiguration' {..} =
+    Prelude.rnf dnis
 
 instance Core.ToJSON EmergencyCallingConfiguration where
   toJSON EmergencyCallingConfiguration' {..} =

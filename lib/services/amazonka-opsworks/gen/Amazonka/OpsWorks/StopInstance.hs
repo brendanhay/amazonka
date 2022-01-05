@@ -114,9 +114,15 @@ instance Core.AWSRequest StopInstance where
   request = Request.postJSON defaultService
   response = Response.receiveNull StopInstanceResponse'
 
-instance Prelude.Hashable StopInstance
+instance Prelude.Hashable StopInstance where
+  hashWithSalt _salt StopInstance' {..} =
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData StopInstance
+instance Prelude.NFData StopInstance where
+  rnf StopInstance' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders StopInstance where
   toHeaders =
@@ -162,4 +168,5 @@ newStopInstanceResponse ::
   StopInstanceResponse
 newStopInstanceResponse = StopInstanceResponse'
 
-instance Prelude.NFData StopInstanceResponse
+instance Prelude.NFData StopInstanceResponse where
+  rnf _ = ()

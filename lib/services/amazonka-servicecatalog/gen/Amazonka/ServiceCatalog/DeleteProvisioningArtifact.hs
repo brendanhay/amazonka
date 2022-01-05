@@ -136,9 +136,17 @@ instance Core.AWSRequest DeleteProvisioningArtifact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProvisioningArtifact
+instance Prelude.Hashable DeleteProvisioningArtifact where
+  hashWithSalt _salt DeleteProvisioningArtifact' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` provisioningArtifactId
 
-instance Prelude.NFData DeleteProvisioningArtifact
+instance Prelude.NFData DeleteProvisioningArtifact where
+  rnf DeleteProvisioningArtifact' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
 
 instance Core.ToHeaders DeleteProvisioningArtifact where
   toHeaders =
@@ -208,3 +216,6 @@ deleteProvisioningArtifactResponse_httpStatus = Lens.lens (\DeleteProvisioningAr
 instance
   Prelude.NFData
     DeleteProvisioningArtifactResponse
+  where
+  rnf DeleteProvisioningArtifactResponse' {..} =
+    Prelude.rnf httpStatus

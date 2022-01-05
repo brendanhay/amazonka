@@ -335,9 +335,29 @@ instance Core.FromXML EbsBlockDevice where
       Prelude.<*> (x Core..@? "volumeType")
       Prelude.<*> (x Core..@? "snapshotId")
 
-instance Prelude.Hashable EbsBlockDevice
+instance Prelude.Hashable EbsBlockDevice where
+  hashWithSalt _salt EbsBlockDevice' {..} =
+    _salt `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` throughput
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData EbsBlockDevice
+instance Prelude.NFData EbsBlockDevice where
+  rnf EbsBlockDevice' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToQuery EbsBlockDevice where
   toQuery EbsBlockDevice' {..} =

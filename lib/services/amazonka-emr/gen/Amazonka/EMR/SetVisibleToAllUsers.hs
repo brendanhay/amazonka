@@ -115,9 +115,15 @@ instance Core.AWSRequest SetVisibleToAllUsers where
   response =
     Response.receiveNull SetVisibleToAllUsersResponse'
 
-instance Prelude.Hashable SetVisibleToAllUsers
+instance Prelude.Hashable SetVisibleToAllUsers where
+  hashWithSalt _salt SetVisibleToAllUsers' {..} =
+    _salt `Prelude.hashWithSalt` jobFlowIds
+      `Prelude.hashWithSalt` visibleToAllUsers
 
-instance Prelude.NFData SetVisibleToAllUsers
+instance Prelude.NFData SetVisibleToAllUsers where
+  rnf SetVisibleToAllUsers' {..} =
+    Prelude.rnf jobFlowIds
+      `Prelude.seq` Prelude.rnf visibleToAllUsers
 
 instance Core.ToHeaders SetVisibleToAllUsers where
   toHeaders =
@@ -165,4 +171,5 @@ newSetVisibleToAllUsersResponse ::
 newSetVisibleToAllUsersResponse =
   SetVisibleToAllUsersResponse'
 
-instance Prelude.NFData SetVisibleToAllUsersResponse
+instance Prelude.NFData SetVisibleToAllUsersResponse where
+  rnf _ = ()

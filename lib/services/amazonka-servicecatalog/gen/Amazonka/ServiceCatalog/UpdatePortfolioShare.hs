@@ -175,9 +175,21 @@ instance Core.AWSRequest UpdatePortfolioShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePortfolioShare
+instance Prelude.Hashable UpdatePortfolioShare where
+  hashWithSalt _salt UpdatePortfolioShare' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` shareTagOptions
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` organizationNode
+      `Prelude.hashWithSalt` portfolioId
 
-instance Prelude.NFData UpdatePortfolioShare
+instance Prelude.NFData UpdatePortfolioShare where
+  rnf UpdatePortfolioShare' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf shareTagOptions
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf organizationNode
+      `Prelude.seq` Prelude.rnf portfolioId
 
 instance Core.ToHeaders UpdatePortfolioShare where
   toHeaders =
@@ -269,4 +281,8 @@ updatePortfolioShareResponse_portfolioShareToken = Lens.lens (\UpdatePortfolioSh
 updatePortfolioShareResponse_httpStatus :: Lens.Lens' UpdatePortfolioShareResponse Prelude.Int
 updatePortfolioShareResponse_httpStatus = Lens.lens (\UpdatePortfolioShareResponse' {httpStatus} -> httpStatus) (\s@UpdatePortfolioShareResponse' {} a -> s {httpStatus = a} :: UpdatePortfolioShareResponse)
 
-instance Prelude.NFData UpdatePortfolioShareResponse
+instance Prelude.NFData UpdatePortfolioShareResponse where
+  rnf UpdatePortfolioShareResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf portfolioShareToken
+      `Prelude.seq` Prelude.rnf httpStatus

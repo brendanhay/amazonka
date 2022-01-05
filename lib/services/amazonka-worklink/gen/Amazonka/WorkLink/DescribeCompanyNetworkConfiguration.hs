@@ -102,10 +102,18 @@ instance
 instance
   Prelude.Hashable
     DescribeCompanyNetworkConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeCompanyNetworkConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DescribeCompanyNetworkConfiguration
+  where
+  rnf DescribeCompanyNetworkConfiguration' {..} =
+    Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -209,3 +217,9 @@ describeCompanyNetworkConfigurationResponse_httpStatus = Lens.lens (\DescribeCom
 instance
   Prelude.NFData
     DescribeCompanyNetworkConfigurationResponse
+  where
+  rnf DescribeCompanyNetworkConfigurationResponse' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf httpStatus

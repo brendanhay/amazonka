@@ -59,6 +59,9 @@ instance Core.FromJSON ChannelStatistics where
           ChannelStatistics' Prelude.<$> (x Core..:? "size")
       )
 
-instance Prelude.Hashable ChannelStatistics
+instance Prelude.Hashable ChannelStatistics where
+  hashWithSalt _salt ChannelStatistics' {..} =
+    _salt `Prelude.hashWithSalt` size
 
-instance Prelude.NFData ChannelStatistics
+instance Prelude.NFData ChannelStatistics where
+  rnf ChannelStatistics' {..} = Prelude.rnf size

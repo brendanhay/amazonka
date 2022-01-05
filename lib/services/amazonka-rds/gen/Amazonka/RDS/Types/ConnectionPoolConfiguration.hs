@@ -198,9 +198,22 @@ connectionPoolConfiguration_connectionBorrowTimeout = Lens.lens (\ConnectionPool
 connectionPoolConfiguration_initQuery :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Text)
 connectionPoolConfiguration_initQuery = Lens.lens (\ConnectionPoolConfiguration' {initQuery} -> initQuery) (\s@ConnectionPoolConfiguration' {} a -> s {initQuery = a} :: ConnectionPoolConfiguration)
 
-instance Prelude.Hashable ConnectionPoolConfiguration
+instance Prelude.Hashable ConnectionPoolConfiguration where
+  hashWithSalt _salt ConnectionPoolConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` maxIdleConnectionsPercent
+      `Prelude.hashWithSalt` sessionPinningFilters
+      `Prelude.hashWithSalt` maxConnectionsPercent
+      `Prelude.hashWithSalt` connectionBorrowTimeout
+      `Prelude.hashWithSalt` initQuery
 
-instance Prelude.NFData ConnectionPoolConfiguration
+instance Prelude.NFData ConnectionPoolConfiguration where
+  rnf ConnectionPoolConfiguration' {..} =
+    Prelude.rnf maxIdleConnectionsPercent
+      `Prelude.seq` Prelude.rnf sessionPinningFilters
+      `Prelude.seq` Prelude.rnf maxConnectionsPercent
+      `Prelude.seq` Prelude.rnf connectionBorrowTimeout
+      `Prelude.seq` Prelude.rnf initQuery
 
 instance Core.ToQuery ConnectionPoolConfiguration where
   toQuery ConnectionPoolConfiguration' {..} =

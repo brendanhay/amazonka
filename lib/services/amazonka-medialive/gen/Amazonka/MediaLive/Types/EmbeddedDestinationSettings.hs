@@ -46,9 +46,12 @@ instance Core.FromJSON EmbeddedDestinationSettings where
       "EmbeddedDestinationSettings"
       (\x -> Prelude.pure EmbeddedDestinationSettings')
 
-instance Prelude.Hashable EmbeddedDestinationSettings
+instance Prelude.Hashable EmbeddedDestinationSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData EmbeddedDestinationSettings
+instance Prelude.NFData EmbeddedDestinationSettings where
+  rnf _ = ()
 
 instance Core.ToJSON EmbeddedDestinationSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

@@ -27,6 +27,7 @@ module Amazonka.DynamoDB.Types.KeyType
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype KeyType = KeyType' {fromKeyType :: Core.Text}

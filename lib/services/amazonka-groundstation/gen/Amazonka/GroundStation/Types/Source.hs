@@ -96,6 +96,16 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..:? "configDetails")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt _salt Source' {..} =
+    _salt `Prelude.hashWithSalt` dataflowSourceRegion
+      `Prelude.hashWithSalt` configId
+      `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` configDetails
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} =
+    Prelude.rnf dataflowSourceRegion
+      `Prelude.seq` Prelude.rnf configId
+      `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configDetails

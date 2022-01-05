@@ -198,9 +198,17 @@ instance Core.AWSRequest ListProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProjects
+instance Prelude.Hashable ListProjects where
+  hashWithSalt _salt ListProjects' {..} =
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListProjects
+instance Prelude.NFData ListProjects where
+  rnf ListProjects' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListProjects where
   toHeaders =
@@ -292,4 +300,8 @@ listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> 
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
-instance Prelude.NFData ListProjectsResponse
+instance Prelude.NFData ListProjectsResponse where
+  rnf ListProjectsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -96,9 +96,12 @@ instance Core.AWSRequest GetEventIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventIntegration
+instance Prelude.Hashable GetEventIntegration where
+  hashWithSalt _salt GetEventIntegration' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetEventIntegration
+instance Prelude.NFData GetEventIntegration where
+  rnf GetEventIntegration' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetEventIntegration where
   toHeaders =
@@ -203,4 +206,12 @@ getEventIntegrationResponse_tags = Lens.lens (\GetEventIntegrationResponse' {tag
 getEventIntegrationResponse_httpStatus :: Lens.Lens' GetEventIntegrationResponse Prelude.Int
 getEventIntegrationResponse_httpStatus = Lens.lens (\GetEventIntegrationResponse' {httpStatus} -> httpStatus) (\s@GetEventIntegrationResponse' {} a -> s {httpStatus = a} :: GetEventIntegrationResponse)
 
-instance Prelude.NFData GetEventIntegrationResponse
+instance Prelude.NFData GetEventIntegrationResponse where
+  rnf GetEventIntegrationResponse' {..} =
+    Prelude.rnf eventBridgeBus
+      `Prelude.seq` Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf eventIntegrationArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

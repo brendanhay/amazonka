@@ -167,6 +167,28 @@ instance Core.FromJSON LongTermPricingListEntry where
             Prelude.<*> (x Core..:? "ReplacementJob")
       )
 
-instance Prelude.Hashable LongTermPricingListEntry
+instance Prelude.Hashable LongTermPricingListEntry where
+  hashWithSalt _salt LongTermPricingListEntry' {..} =
+    _salt `Prelude.hashWithSalt` longTermPricingType
+      `Prelude.hashWithSalt` longTermPricingStartDate
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` longTermPricingEndDate
+      `Prelude.hashWithSalt` currentActiveJob
+      `Prelude.hashWithSalt` isLongTermPricingAutoRenew
+      `Prelude.hashWithSalt` longTermPricingStatus
+      `Prelude.hashWithSalt` jobIds
+      `Prelude.hashWithSalt` replacementJob
 
-instance Prelude.NFData LongTermPricingListEntry
+instance Prelude.NFData LongTermPricingListEntry where
+  rnf LongTermPricingListEntry' {..} =
+    Prelude.rnf longTermPricingType
+      `Prelude.seq` Prelude.rnf longTermPricingStartDate
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf longTermPricingEndDate
+      `Prelude.seq` Prelude.rnf currentActiveJob
+      `Prelude.seq` Prelude.rnf isLongTermPricingAutoRenew
+      `Prelude.seq` Prelude.rnf longTermPricingStatus
+      `Prelude.seq` Prelude.rnf jobIds
+      `Prelude.seq` Prelude.rnf replacementJob

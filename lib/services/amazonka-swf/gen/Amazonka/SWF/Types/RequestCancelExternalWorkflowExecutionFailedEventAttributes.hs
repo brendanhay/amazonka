@@ -188,7 +188,26 @@ instance
 instance
   Prelude.Hashable
     RequestCancelExternalWorkflowExecutionFailedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    RequestCancelExternalWorkflowExecutionFailedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` control
+        `Prelude.hashWithSalt` runId
+        `Prelude.hashWithSalt` workflowId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` initiatedEventId
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance
   Prelude.NFData
     RequestCancelExternalWorkflowExecutionFailedEventAttributes
+  where
+  rnf
+    RequestCancelExternalWorkflowExecutionFailedEventAttributes' {..} =
+      Prelude.rnf control
+        `Prelude.seq` Prelude.rnf runId
+        `Prelude.seq` Prelude.rnf workflowId
+        `Prelude.seq` Prelude.rnf cause
+        `Prelude.seq` Prelude.rnf initiatedEventId
+        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

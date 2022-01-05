@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeUploadBuffer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUploadBuffer
+instance Prelude.Hashable DescribeUploadBuffer where
+  hashWithSalt _salt DescribeUploadBuffer' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeUploadBuffer
+instance Prelude.NFData DescribeUploadBuffer where
+  rnf DescribeUploadBuffer' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeUploadBuffer where
   toHeaders =
@@ -203,4 +207,10 @@ describeUploadBufferResponse_uploadBufferUsedInBytes = Lens.lens (\DescribeUploa
 describeUploadBufferResponse_httpStatus :: Lens.Lens' DescribeUploadBufferResponse Prelude.Int
 describeUploadBufferResponse_httpStatus = Lens.lens (\DescribeUploadBufferResponse' {httpStatus} -> httpStatus) (\s@DescribeUploadBufferResponse' {} a -> s {httpStatus = a} :: DescribeUploadBufferResponse)
 
-instance Prelude.NFData DescribeUploadBufferResponse
+instance Prelude.NFData DescribeUploadBufferResponse where
+  rnf DescribeUploadBufferResponse' {..} =
+    Prelude.rnf uploadBufferAllocatedInBytes
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf diskIds
+      `Prelude.seq` Prelude.rnf uploadBufferUsedInBytes
+      `Prelude.seq` Prelude.rnf httpStatus

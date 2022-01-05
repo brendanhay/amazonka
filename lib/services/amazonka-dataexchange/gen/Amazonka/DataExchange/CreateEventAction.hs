@@ -112,9 +112,14 @@ instance Core.AWSRequest CreateEventAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEventAction
+instance Prelude.Hashable CreateEventAction where
+  hashWithSalt _salt CreateEventAction' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` event
 
-instance Prelude.NFData CreateEventAction
+instance Prelude.NFData CreateEventAction where
+  rnf CreateEventAction' {..} =
+    Prelude.rnf action `Prelude.seq` Prelude.rnf event
 
 instance Core.ToHeaders CreateEventAction where
   toHeaders =
@@ -228,4 +233,12 @@ createEventActionResponse_updatedAt = Lens.lens (\CreateEventActionResponse' {up
 createEventActionResponse_httpStatus :: Lens.Lens' CreateEventActionResponse Prelude.Int
 createEventActionResponse_httpStatus = Lens.lens (\CreateEventActionResponse' {httpStatus} -> httpStatus) (\s@CreateEventActionResponse' {} a -> s {httpStatus = a} :: CreateEventActionResponse)
 
-instance Prelude.NFData CreateEventActionResponse
+instance Prelude.NFData CreateEventActionResponse where
+  rnf CreateEventActionResponse' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf httpStatus

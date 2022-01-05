@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccount
+instance Prelude.Hashable DescribeAccount where
+  hashWithSalt _salt DescribeAccount' {..} =
+    _salt `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DescribeAccount
+instance Prelude.NFData DescribeAccount where
+  rnf DescribeAccount' {..} = Prelude.rnf accountId
 
 instance Core.ToHeaders DescribeAccount where
   toHeaders =
@@ -176,4 +179,7 @@ describeAccountResponse_account = Lens.lens (\DescribeAccountResponse' {account}
 describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Prelude.Int
 describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountResponse' {} a -> s {httpStatus = a} :: DescribeAccountResponse)
 
-instance Prelude.NFData DescribeAccountResponse
+instance Prelude.NFData DescribeAccountResponse where
+  rnf DescribeAccountResponse' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf httpStatus

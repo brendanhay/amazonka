@@ -125,6 +125,22 @@ instance Core.FromJSON GroupInformation where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable GroupInformation
+instance Prelude.Hashable GroupInformation where
+  hashWithSalt _salt GroupInformation' {..} =
+    _salt `Prelude.hashWithSalt` latestVersionArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
-instance Prelude.NFData GroupInformation
+instance Prelude.NFData GroupInformation where
+  rnf GroupInformation' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

@@ -92,9 +92,14 @@ instance Core.AWSRequest DeleteApprovalRuleTemplate where
             Prelude.<*> (x Core..:> "approvalRuleTemplateId")
       )
 
-instance Prelude.Hashable DeleteApprovalRuleTemplate
+instance Prelude.Hashable DeleteApprovalRuleTemplate where
+  hashWithSalt _salt DeleteApprovalRuleTemplate' {..} =
+    _salt
+      `Prelude.hashWithSalt` approvalRuleTemplateName
 
-instance Prelude.NFData DeleteApprovalRuleTemplate
+instance Prelude.NFData DeleteApprovalRuleTemplate where
+  rnf DeleteApprovalRuleTemplate' {..} =
+    Prelude.rnf approvalRuleTemplateName
 
 instance Core.ToHeaders DeleteApprovalRuleTemplate where
   toHeaders =
@@ -178,3 +183,7 @@ deleteApprovalRuleTemplateResponse_approvalRuleTemplateId = Lens.lens (\DeleteAp
 instance
   Prelude.NFData
     DeleteApprovalRuleTemplateResponse
+  where
+  rnf DeleteApprovalRuleTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateId

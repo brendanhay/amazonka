@@ -179,6 +179,24 @@ instance Core.FromJSON VirtualRouterRef where
             Prelude.<*> (x Core..: "virtualRouterName")
       )
 
-instance Prelude.Hashable VirtualRouterRef
+instance Prelude.Hashable VirtualRouterRef where
+  hashWithSalt _salt VirtualRouterRef' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData VirtualRouterRef
+instance Prelude.NFData VirtualRouterRef where
+  rnf VirtualRouterRef' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf virtualRouterName

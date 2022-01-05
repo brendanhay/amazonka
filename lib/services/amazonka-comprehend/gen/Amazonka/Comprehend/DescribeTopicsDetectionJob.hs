@@ -87,9 +87,13 @@ instance Core.AWSRequest DescribeTopicsDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTopicsDetectionJob
+instance Prelude.Hashable DescribeTopicsDetectionJob where
+  hashWithSalt _salt DescribeTopicsDetectionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeTopicsDetectionJob
+instance Prelude.NFData DescribeTopicsDetectionJob where
+  rnf DescribeTopicsDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeTopicsDetectionJob where
   toHeaders =
@@ -161,3 +165,7 @@ describeTopicsDetectionJobResponse_httpStatus = Lens.lens (\DescribeTopicsDetect
 instance
   Prelude.NFData
     DescribeTopicsDetectionJobResponse
+  where
+  rnf DescribeTopicsDetectionJobResponse' {..} =
+    Prelude.rnf topicsDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,10 +108,18 @@ instance
 instance
   Prelude.Hashable
     StopDBInstanceAutomatedBackupsReplication
+  where
+  hashWithSalt
+    _salt
+    StopDBInstanceAutomatedBackupsReplication' {..} =
+      _salt `Prelude.hashWithSalt` sourceDBInstanceArn
 
 instance
   Prelude.NFData
     StopDBInstanceAutomatedBackupsReplication
+  where
+  rnf StopDBInstanceAutomatedBackupsReplication' {..} =
+    Prelude.rnf sourceDBInstanceArn
 
 instance
   Core.ToHeaders
@@ -184,3 +192,8 @@ stopDBInstanceAutomatedBackupsReplicationResponse_httpStatus = Lens.lens (\StopD
 instance
   Prelude.NFData
     StopDBInstanceAutomatedBackupsReplicationResponse
+  where
+  rnf
+    StopDBInstanceAutomatedBackupsReplicationResponse' {..} =
+      Prelude.rnf dbInstanceAutomatedBackup
+        `Prelude.seq` Prelude.rnf httpStatus

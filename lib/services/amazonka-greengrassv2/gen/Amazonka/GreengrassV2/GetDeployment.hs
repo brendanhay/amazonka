@@ -111,9 +111,12 @@ instance Core.AWSRequest GetDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeployment
+instance Prelude.Hashable GetDeployment where
+  hashWithSalt _salt GetDeployment' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData GetDeployment
+instance Prelude.NFData GetDeployment where
+  rnf GetDeployment' {..} = Prelude.rnf deploymentId
 
 instance Core.ToHeaders GetDeployment where
   toHeaders =
@@ -321,4 +324,19 @@ getDeploymentResponse_tags = Lens.lens (\GetDeploymentResponse' {tags} -> tags) 
 getDeploymentResponse_httpStatus :: Lens.Lens' GetDeploymentResponse Prelude.Int
 getDeploymentResponse_httpStatus = Lens.lens (\GetDeploymentResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentResponse' {} a -> s {httpStatus = a} :: GetDeploymentResponse)
 
-instance Prelude.NFData GetDeploymentResponse
+instance Prelude.NFData GetDeploymentResponse where
+  rnf GetDeploymentResponse' {..} =
+    Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf components
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf iotJobId
+      `Prelude.seq` Prelude.rnf iotJobArn
+      `Prelude.seq` Prelude.rnf deploymentPolicies
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf iotJobConfiguration
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf isLatestForTarget
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf deploymentName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

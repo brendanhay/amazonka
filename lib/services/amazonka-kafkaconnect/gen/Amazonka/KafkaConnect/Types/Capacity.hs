@@ -64,9 +64,15 @@ capacity_autoScaling = Lens.lens (\Capacity' {autoScaling} -> autoScaling) (\s@C
 capacity_provisionedCapacity :: Lens.Lens' Capacity (Prelude.Maybe ProvisionedCapacity)
 capacity_provisionedCapacity = Lens.lens (\Capacity' {provisionedCapacity} -> provisionedCapacity) (\s@Capacity' {} a -> s {provisionedCapacity = a} :: Capacity)
 
-instance Prelude.Hashable Capacity
+instance Prelude.Hashable Capacity where
+  hashWithSalt _salt Capacity' {..} =
+    _salt `Prelude.hashWithSalt` autoScaling
+      `Prelude.hashWithSalt` provisionedCapacity
 
-instance Prelude.NFData Capacity
+instance Prelude.NFData Capacity where
+  rnf Capacity' {..} =
+    Prelude.rnf autoScaling
+      `Prelude.seq` Prelude.rnf provisionedCapacity
 
 instance Core.ToJSON Capacity where
   toJSON Capacity' {..} =

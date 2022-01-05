@@ -167,9 +167,27 @@ s3DestinationUpdate_bucketARN = Lens.lens (\S3DestinationUpdate' {bucketARN} -> 
 s3DestinationUpdate_roleARN :: Lens.Lens' S3DestinationUpdate (Prelude.Maybe Prelude.Text)
 s3DestinationUpdate_roleARN = Lens.lens (\S3DestinationUpdate' {roleARN} -> roleARN) (\s@S3DestinationUpdate' {} a -> s {roleARN = a} :: S3DestinationUpdate)
 
-instance Prelude.Hashable S3DestinationUpdate
+instance Prelude.Hashable S3DestinationUpdate where
+  hashWithSalt _salt S3DestinationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` errorOutputPrefix
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` compressionFormat
+      `Prelude.hashWithSalt` bufferingHints
+      `Prelude.hashWithSalt` bucketARN
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData S3DestinationUpdate
+instance Prelude.NFData S3DestinationUpdate where
+  rnf S3DestinationUpdate' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf errorOutputPrefix
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf compressionFormat
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON S3DestinationUpdate where
   toJSON S3DestinationUpdate' {..} =

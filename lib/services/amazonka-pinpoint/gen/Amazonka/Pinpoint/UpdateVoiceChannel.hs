@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateVoiceChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVoiceChannel
+instance Prelude.Hashable UpdateVoiceChannel where
+  hashWithSalt _salt UpdateVoiceChannel' {..} =
+    _salt `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` voiceChannelRequest
 
-instance Prelude.NFData UpdateVoiceChannel
+instance Prelude.NFData UpdateVoiceChannel where
+  rnf UpdateVoiceChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf voiceChannelRequest
 
 instance Core.ToHeaders UpdateVoiceChannel where
   toHeaders =
@@ -183,4 +189,7 @@ updateVoiceChannelResponse_httpStatus = Lens.lens (\UpdateVoiceChannelResponse' 
 updateVoiceChannelResponse_voiceChannelResponse :: Lens.Lens' UpdateVoiceChannelResponse VoiceChannelResponse
 updateVoiceChannelResponse_voiceChannelResponse = Lens.lens (\UpdateVoiceChannelResponse' {voiceChannelResponse} -> voiceChannelResponse) (\s@UpdateVoiceChannelResponse' {} a -> s {voiceChannelResponse = a} :: UpdateVoiceChannelResponse)
 
-instance Prelude.NFData UpdateVoiceChannelResponse
+instance Prelude.NFData UpdateVoiceChannelResponse where
+  rnf UpdateVoiceChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf voiceChannelResponse

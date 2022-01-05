@@ -168,6 +168,24 @@ instance Core.FromJSON InstanceTypeSpecification where
             Prelude.<*> (x Core..:? "BidPriceAsPercentageOfOnDemandPrice")
       )
 
-instance Prelude.Hashable InstanceTypeSpecification
+instance Prelude.Hashable InstanceTypeSpecification where
+  hashWithSalt _salt InstanceTypeSpecification' {..} =
+    _salt `Prelude.hashWithSalt` bidPrice
+      `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` ebsBlockDevices
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
 
-instance Prelude.NFData InstanceTypeSpecification
+instance Prelude.NFData InstanceTypeSpecification where
+  rnf InstanceTypeSpecification' {..} =
+    Prelude.rnf bidPrice
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf ebsBlockDevices
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf bidPriceAsPercentageOfOnDemandPrice

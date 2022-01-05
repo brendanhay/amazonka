@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     GetDataCatalogEncryptionSettings
+  where
+  hashWithSalt
+    _salt
+    GetDataCatalogEncryptionSettings' {..} =
+      _salt `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     GetDataCatalogEncryptionSettings
+  where
+  rnf GetDataCatalogEncryptionSettings' {..} =
+    Prelude.rnf catalogId
 
 instance
   Core.ToHeaders
@@ -181,3 +189,7 @@ getDataCatalogEncryptionSettingsResponse_httpStatus = Lens.lens (\GetDataCatalog
 instance
   Prelude.NFData
     GetDataCatalogEncryptionSettingsResponse
+  where
+  rnf GetDataCatalogEncryptionSettingsResponse' {..} =
+    Prelude.rnf dataCatalogEncryptionSettings
+      `Prelude.seq` Prelude.rnf httpStatus

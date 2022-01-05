@@ -400,9 +400,47 @@ instance Core.AWSRequest UpdateEnvironment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEnvironment
+instance Prelude.Hashable UpdateEnvironment where
+  hashWithSalt _salt UpdateEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` schedulers
+      `Prelude.hashWithSalt` minWorkers
+      `Prelude.hashWithSalt` pluginsS3Path
+      `Prelude.hashWithSalt` webserverAccessMode
+      `Prelude.hashWithSalt` airflowVersion
+      `Prelude.hashWithSalt` weeklyMaintenanceWindowStart
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` requirementsS3ObjectVersion
+      `Prelude.hashWithSalt` sourceBucketArn
+      `Prelude.hashWithSalt` dagS3Path
+      `Prelude.hashWithSalt` pluginsS3ObjectVersion
+      `Prelude.hashWithSalt` airflowConfigurationOptions
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` environmentClass
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` requirementsS3Path
+      `Prelude.hashWithSalt` maxWorkers
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateEnvironment
+instance Prelude.NFData UpdateEnvironment where
+  rnf UpdateEnvironment' {..} =
+    Prelude.rnf schedulers
+      `Prelude.seq` Prelude.rnf minWorkers
+      `Prelude.seq` Prelude.rnf pluginsS3Path
+      `Prelude.seq` Prelude.rnf webserverAccessMode
+      `Prelude.seq` Prelude.rnf airflowVersion
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceWindowStart
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf requirementsS3ObjectVersion
+      `Prelude.seq` Prelude.rnf sourceBucketArn
+      `Prelude.seq` Prelude.rnf dagS3Path
+      `Prelude.seq` Prelude.rnf pluginsS3ObjectVersion
+      `Prelude.seq` Prelude.rnf airflowConfigurationOptions
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf environmentClass
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf requirementsS3Path
+      `Prelude.seq` Prelude.rnf maxWorkers
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateEnvironment where
   toHeaders =
@@ -502,4 +540,7 @@ updateEnvironmentResponse_arn = Lens.lens (\UpdateEnvironmentResponse' {arn} -> 
 updateEnvironmentResponse_httpStatus :: Lens.Lens' UpdateEnvironmentResponse Prelude.Int
 updateEnvironmentResponse_httpStatus = Lens.lens (\UpdateEnvironmentResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentResponse)
 
-instance Prelude.NFData UpdateEnvironmentResponse
+instance Prelude.NFData UpdateEnvironmentResponse where
+  rnf UpdateEnvironmentResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

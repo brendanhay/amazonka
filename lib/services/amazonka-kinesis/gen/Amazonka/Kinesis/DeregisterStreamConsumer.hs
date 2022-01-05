@@ -129,9 +129,17 @@ instance Core.AWSRequest DeregisterStreamConsumer where
     Response.receiveNull
       DeregisterStreamConsumerResponse'
 
-instance Prelude.Hashable DeregisterStreamConsumer
+instance Prelude.Hashable DeregisterStreamConsumer where
+  hashWithSalt _salt DeregisterStreamConsumer' {..} =
+    _salt `Prelude.hashWithSalt` consumerARN
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` consumerName
 
-instance Prelude.NFData DeregisterStreamConsumer
+instance Prelude.NFData DeregisterStreamConsumer where
+  rnf DeregisterStreamConsumer' {..} =
+    Prelude.rnf consumerARN
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf consumerName
 
 instance Core.ToHeaders DeregisterStreamConsumer where
   toHeaders =
@@ -182,3 +190,5 @@ newDeregisterStreamConsumerResponse =
 instance
   Prelude.NFData
     DeregisterStreamConsumerResponse
+  where
+  rnf _ = ()

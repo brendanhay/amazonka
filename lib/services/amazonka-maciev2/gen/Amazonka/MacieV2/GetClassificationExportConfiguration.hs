@@ -78,10 +78,15 @@ instance
 instance
   Prelude.Hashable
     GetClassificationExportConfiguration
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     GetClassificationExportConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -157,3 +162,7 @@ getClassificationExportConfigurationResponse_httpStatus = Lens.lens (\GetClassif
 instance
   Prelude.NFData
     GetClassificationExportConfigurationResponse
+  where
+  rnf GetClassificationExportConfigurationResponse' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -62,6 +62,10 @@ instance Core.FromJSON BillingGroupMetadata where
             Prelude.<$> (x Core..:? "creationDate")
       )
 
-instance Prelude.Hashable BillingGroupMetadata
+instance Prelude.Hashable BillingGroupMetadata where
+  hashWithSalt _salt BillingGroupMetadata' {..} =
+    _salt `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData BillingGroupMetadata
+instance Prelude.NFData BillingGroupMetadata where
+  rnf BillingGroupMetadata' {..} =
+    Prelude.rnf creationDate

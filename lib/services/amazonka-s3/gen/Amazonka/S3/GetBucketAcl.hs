@@ -118,9 +118,15 @@ instance Core.AWSRequest GetBucketAcl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketAcl
+instance Prelude.Hashable GetBucketAcl where
+  hashWithSalt _salt GetBucketAcl' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetBucketAcl
+instance Prelude.NFData GetBucketAcl where
+  rnf GetBucketAcl' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketAcl where
   toHeaders GetBucketAcl' {..} =
@@ -183,4 +189,8 @@ getBucketAclResponse_owner = Lens.lens (\GetBucketAclResponse' {owner} -> owner)
 getBucketAclResponse_httpStatus :: Lens.Lens' GetBucketAclResponse Prelude.Int
 getBucketAclResponse_httpStatus = Lens.lens (\GetBucketAclResponse' {httpStatus} -> httpStatus) (\s@GetBucketAclResponse' {} a -> s {httpStatus = a} :: GetBucketAclResponse)
 
-instance Prelude.NFData GetBucketAclResponse
+instance Prelude.NFData GetBucketAclResponse where
+  rnf GetBucketAclResponse' {..} =
+    Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf httpStatus

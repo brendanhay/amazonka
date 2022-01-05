@@ -116,9 +116,13 @@ instance Core.AWSRequest DescribeApplicationInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplicationInstance
+instance Prelude.Hashable DescribeApplicationInstance where
+  hashWithSalt _salt DescribeApplicationInstance' {..} =
+    _salt `Prelude.hashWithSalt` applicationInstanceId
 
-instance Prelude.NFData DescribeApplicationInstance
+instance Prelude.NFData DescribeApplicationInstance where
+  rnf DescribeApplicationInstance' {..} =
+    Prelude.rnf applicationInstanceId
 
 instance Core.ToHeaders DescribeApplicationInstance where
   toHeaders =
@@ -304,3 +308,20 @@ describeApplicationInstanceResponse_httpStatus = Lens.lens (\DescribeApplication
 instance
   Prelude.NFData
     DescribeApplicationInstanceResponse
+  where
+  rnf DescribeApplicationInstanceResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusDescription
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf runtimeRoleArn
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,12 @@ instance Core.AWSRequest DescribeOffering where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOffering
+instance Prelude.Hashable DescribeOffering where
+  hashWithSalt _salt DescribeOffering' {..} =
+    _salt `Prelude.hashWithSalt` offeringId
 
-instance Prelude.NFData DescribeOffering
+instance Prelude.NFData DescribeOffering where
+  rnf DescribeOffering' {..} = Prelude.rnf offeringId
 
 instance Core.ToHeaders DescribeOffering where
   toHeaders =
@@ -274,4 +277,17 @@ describeOfferingResponse_duration = Lens.lens (\DescribeOfferingResponse' {durat
 describeOfferingResponse_httpStatus :: Lens.Lens' DescribeOfferingResponse Prelude.Int
 describeOfferingResponse_httpStatus = Lens.lens (\DescribeOfferingResponse' {httpStatus} -> httpStatus) (\s@DescribeOfferingResponse' {} a -> s {httpStatus = a} :: DescribeOfferingResponse)
 
-instance Prelude.NFData DescribeOfferingResponse
+instance Prelude.NFData DescribeOfferingResponse where
+  rnf DescribeOfferingResponse' {..} =
+    Prelude.rnf resourceSpecification
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf durationUnits
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf httpStatus

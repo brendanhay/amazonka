@@ -98,9 +98,12 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (x Core..:> "projectLastUpdateDate")
       )
 
-instance Prelude.Hashable DescribeProject
+instance Prelude.Hashable DescribeProject where
+  hashWithSalt _salt DescribeProject' {..} =
+    _salt `Prelude.hashWithSalt` projectId
 
-instance Prelude.NFData DescribeProject
+instance Prelude.NFData DescribeProject where
+  rnf DescribeProject' {..} = Prelude.rnf projectId
 
 instance Core.ToHeaders DescribeProject where
   toHeaders =
@@ -246,4 +249,13 @@ describeProjectResponse_projectCreationDate = Lens.lens (\DescribeProjectRespons
 describeProjectResponse_projectLastUpdateDate :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
 describeProjectResponse_projectLastUpdateDate = Lens.lens (\DescribeProjectResponse' {projectLastUpdateDate} -> projectLastUpdateDate) (\s@DescribeProjectResponse' {} a -> s {projectLastUpdateDate = a} :: DescribeProjectResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeProjectResponse
+instance Prelude.NFData DescribeProjectResponse where
+  rnf DescribeProjectResponse' {..} =
+    Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf portalId
+      `Prelude.seq` Prelude.rnf projectCreationDate
+      `Prelude.seq` Prelude.rnf projectLastUpdateDate

@@ -163,8 +163,15 @@ instance Core.FromXML CachePolicyQueryStringsConfig where
 instance
   Prelude.Hashable
     CachePolicyQueryStringsConfig
+  where
+  hashWithSalt _salt CachePolicyQueryStringsConfig' {..} =
+    _salt `Prelude.hashWithSalt` queryStrings
+      `Prelude.hashWithSalt` queryStringBehavior
 
-instance Prelude.NFData CachePolicyQueryStringsConfig
+instance Prelude.NFData CachePolicyQueryStringsConfig where
+  rnf CachePolicyQueryStringsConfig' {..} =
+    Prelude.rnf queryStrings
+      `Prelude.seq` Prelude.rnf queryStringBehavior
 
 instance Core.ToXML CachePolicyQueryStringsConfig where
   toXML CachePolicyQueryStringsConfig' {..} =

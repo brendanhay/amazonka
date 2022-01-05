@@ -80,9 +80,15 @@ instance Core.FromJSON Scoping where
             Prelude.<*> (x Core..:? "excludes")
       )
 
-instance Prelude.Hashable Scoping
+instance Prelude.Hashable Scoping where
+  hashWithSalt _salt Scoping' {..} =
+    _salt `Prelude.hashWithSalt` includes
+      `Prelude.hashWithSalt` excludes
 
-instance Prelude.NFData Scoping
+instance Prelude.NFData Scoping where
+  rnf Scoping' {..} =
+    Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf excludes
 
 instance Core.ToJSON Scoping where
   toJSON Scoping' {..} =

@@ -142,9 +142,17 @@ instance Core.AWSRequest DescribeInboundConnections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInboundConnections
+instance Prelude.Hashable DescribeInboundConnections where
+  hashWithSalt _salt DescribeInboundConnections' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeInboundConnections
+instance Prelude.NFData DescribeInboundConnections where
+  rnf DescribeInboundConnections' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInboundConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,3 +235,8 @@ describeInboundConnectionsResponse_httpStatus = Lens.lens (\DescribeInboundConne
 instance
   Prelude.NFData
     DescribeInboundConnectionsResponse
+  where
+  rnf DescribeInboundConnectionsResponse' {..} =
+    Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

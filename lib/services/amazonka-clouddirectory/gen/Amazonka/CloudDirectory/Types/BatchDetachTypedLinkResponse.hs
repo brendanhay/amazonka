@@ -49,5 +49,9 @@ instance Core.FromJSON BatchDetachTypedLinkResponse where
 instance
   Prelude.Hashable
     BatchDetachTypedLinkResponse
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData BatchDetachTypedLinkResponse
+instance Prelude.NFData BatchDetachTypedLinkResponse where
+  rnf _ = ()

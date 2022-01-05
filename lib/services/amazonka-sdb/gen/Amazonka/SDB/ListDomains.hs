@@ -130,9 +130,15 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomains
+instance Prelude.Hashable ListDomains where
+  hashWithSalt _salt ListDomains' {..} =
+    _salt `Prelude.hashWithSalt` maxNumberOfDomains
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDomains
+instance Prelude.NFData ListDomains where
+  rnf ListDomains' {..} =
+    Prelude.rnf maxNumberOfDomains
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDomains where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +207,8 @@ listDomainsResponse_nextToken = Lens.lens (\ListDomainsResponse' {nextToken} -> 
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
-instance Prelude.NFData ListDomainsResponse
+instance Prelude.NFData ListDomainsResponse where
+  rnf ListDomainsResponse' {..} =
+    Prelude.rnf domainNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -61,6 +61,10 @@ instance Core.FromJSON ResponsePartitionKey where
             Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResponsePartitionKey
+instance Prelude.Hashable ResponsePartitionKey where
+  hashWithSalt _salt ResponsePartitionKey' {..} =
+    _salt `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData ResponsePartitionKey
+instance Prelude.NFData ResponsePartitionKey where
+  rnf ResponsePartitionKey' {..} =
+    Prelude.rnf dimensions

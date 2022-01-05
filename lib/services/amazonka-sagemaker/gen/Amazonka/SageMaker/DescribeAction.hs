@@ -108,9 +108,12 @@ instance Core.AWSRequest DescribeAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAction
+instance Prelude.Hashable DescribeAction where
+  hashWithSalt _salt DescribeAction' {..} =
+    _salt `Prelude.hashWithSalt` actionName
 
-instance Prelude.NFData DescribeAction
+instance Prelude.NFData DescribeAction where
+  rnf DescribeAction' {..} = Prelude.rnf actionName
 
 instance Core.ToHeaders DescribeAction where
   toHeaders =
@@ -273,4 +276,18 @@ describeActionResponse_properties = Lens.lens (\DescribeActionResponse' {propert
 describeActionResponse_httpStatus :: Lens.Lens' DescribeActionResponse Prelude.Int
 describeActionResponse_httpStatus = Lens.lens (\DescribeActionResponse' {httpStatus} -> httpStatus) (\s@DescribeActionResponse' {} a -> s {httpStatus = a} :: DescribeActionResponse)
 
-instance Prelude.NFData DescribeActionResponse
+instance Prelude.NFData DescribeActionResponse where
+  rnf DescribeActionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf httpStatus

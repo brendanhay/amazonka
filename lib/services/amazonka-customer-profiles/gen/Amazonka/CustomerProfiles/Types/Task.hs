@@ -103,9 +103,21 @@ task_sourceFields = Lens.lens (\Task' {sourceFields} -> sourceFields) (\s@Task' 
 task_taskType :: Lens.Lens' Task TaskType
 task_taskType = Lens.lens (\Task' {taskType} -> taskType) (\s@Task' {} a -> s {taskType = a} :: Task)
 
-instance Prelude.Hashable Task
+instance Prelude.Hashable Task where
+  hashWithSalt _salt Task' {..} =
+    _salt `Prelude.hashWithSalt` taskProperties
+      `Prelude.hashWithSalt` connectorOperator
+      `Prelude.hashWithSalt` destinationField
+      `Prelude.hashWithSalt` sourceFields
+      `Prelude.hashWithSalt` taskType
 
-instance Prelude.NFData Task
+instance Prelude.NFData Task where
+  rnf Task' {..} =
+    Prelude.rnf taskProperties
+      `Prelude.seq` Prelude.rnf connectorOperator
+      `Prelude.seq` Prelude.rnf destinationField
+      `Prelude.seq` Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf taskType
 
 instance Core.ToJSON Task where
   toJSON Task' {..} =

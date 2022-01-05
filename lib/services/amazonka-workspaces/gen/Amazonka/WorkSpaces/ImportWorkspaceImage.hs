@@ -195,9 +195,23 @@ instance Core.AWSRequest ImportWorkspaceImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportWorkspaceImage
+instance Prelude.Hashable ImportWorkspaceImage where
+  hashWithSalt _salt ImportWorkspaceImage' {..} =
+    _salt `Prelude.hashWithSalt` applications
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ec2ImageId
+      `Prelude.hashWithSalt` ingestionProcess
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` imageDescription
 
-instance Prelude.NFData ImportWorkspaceImage
+instance Prelude.NFData ImportWorkspaceImage where
+  rnf ImportWorkspaceImage' {..} =
+    Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ec2ImageId
+      `Prelude.seq` Prelude.rnf ingestionProcess
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf imageDescription
 
 instance Core.ToHeaders ImportWorkspaceImage where
   toHeaders =
@@ -274,4 +288,7 @@ importWorkspaceImageResponse_imageId = Lens.lens (\ImportWorkspaceImageResponse'
 importWorkspaceImageResponse_httpStatus :: Lens.Lens' ImportWorkspaceImageResponse Prelude.Int
 importWorkspaceImageResponse_httpStatus = Lens.lens (\ImportWorkspaceImageResponse' {httpStatus} -> httpStatus) (\s@ImportWorkspaceImageResponse' {} a -> s {httpStatus = a} :: ImportWorkspaceImageResponse)
 
-instance Prelude.NFData ImportWorkspaceImageResponse
+instance Prelude.NFData ImportWorkspaceImageResponse where
+  rnf ImportWorkspaceImageResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

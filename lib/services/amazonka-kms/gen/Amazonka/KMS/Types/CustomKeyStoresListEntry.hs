@@ -362,6 +362,22 @@ instance Core.FromJSON CustomKeyStoresListEntry where
             Prelude.<*> (x Core..:? "ConnectionState")
       )
 
-instance Prelude.Hashable CustomKeyStoresListEntry
+instance Prelude.Hashable CustomKeyStoresListEntry where
+  hashWithSalt _salt CustomKeyStoresListEntry' {..} =
+    _salt `Prelude.hashWithSalt` customKeyStoreName
+      `Prelude.hashWithSalt` trustAnchorCertificate
+      `Prelude.hashWithSalt` connectionErrorCode
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` cloudHsmClusterId
+      `Prelude.hashWithSalt` customKeyStoreId
+      `Prelude.hashWithSalt` connectionState
 
-instance Prelude.NFData CustomKeyStoresListEntry
+instance Prelude.NFData CustomKeyStoresListEntry where
+  rnf CustomKeyStoresListEntry' {..} =
+    Prelude.rnf customKeyStoreName
+      `Prelude.seq` Prelude.rnf trustAnchorCertificate
+      `Prelude.seq` Prelude.rnf connectionErrorCode
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf cloudHsmClusterId
+      `Prelude.seq` Prelude.rnf customKeyStoreId
+      `Prelude.seq` Prelude.rnf connectionState

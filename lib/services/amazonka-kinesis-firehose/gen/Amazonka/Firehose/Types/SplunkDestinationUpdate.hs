@@ -177,9 +177,29 @@ splunkDestinationUpdate_retryOptions = Lens.lens (\SplunkDestinationUpdate' {ret
 splunkDestinationUpdate_processingConfiguration :: Lens.Lens' SplunkDestinationUpdate (Prelude.Maybe ProcessingConfiguration)
 splunkDestinationUpdate_processingConfiguration = Lens.lens (\SplunkDestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@SplunkDestinationUpdate' {} a -> s {processingConfiguration = a} :: SplunkDestinationUpdate)
 
-instance Prelude.Hashable SplunkDestinationUpdate
+instance Prelude.Hashable SplunkDestinationUpdate where
+  hashWithSalt _salt SplunkDestinationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` s3BackupMode
+      `Prelude.hashWithSalt` hECToken
+      `Prelude.hashWithSalt` hECEndpointType
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` hECAcknowledgmentTimeoutInSeconds
+      `Prelude.hashWithSalt` s3Update
+      `Prelude.hashWithSalt` hECEndpoint
+      `Prelude.hashWithSalt` retryOptions
+      `Prelude.hashWithSalt` processingConfiguration
 
-instance Prelude.NFData SplunkDestinationUpdate
+instance Prelude.NFData SplunkDestinationUpdate where
+  rnf SplunkDestinationUpdate' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf hECToken
+      `Prelude.seq` Prelude.rnf hECEndpointType
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf s3Update
+      `Prelude.seq` Prelude.rnf hECEndpoint
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration
 
 instance Core.ToJSON SplunkDestinationUpdate where
   toJSON SplunkDestinationUpdate' {..} =

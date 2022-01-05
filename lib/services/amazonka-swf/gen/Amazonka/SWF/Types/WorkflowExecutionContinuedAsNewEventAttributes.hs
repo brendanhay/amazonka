@@ -271,7 +271,36 @@ instance
 instance
   Prelude.Hashable
     WorkflowExecutionContinuedAsNewEventAttributes
+  where
+  hashWithSalt
+    _salt
+    WorkflowExecutionContinuedAsNewEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` tagList
+        `Prelude.hashWithSalt` taskStartToCloseTimeout
+        `Prelude.hashWithSalt` lambdaRole
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` executionStartToCloseTimeout
+        `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` newExecutionRunId'
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` childPolicy
+        `Prelude.hashWithSalt` workflowType
 
 instance
   Prelude.NFData
     WorkflowExecutionContinuedAsNewEventAttributes
+  where
+  rnf
+    WorkflowExecutionContinuedAsNewEventAttributes' {..} =
+      Prelude.rnf tagList
+        `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
+        `Prelude.seq` Prelude.rnf lambdaRole
+        `Prelude.seq` Prelude.rnf input
+        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+        `Prelude.seq` Prelude.rnf taskPriority
+        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+        `Prelude.seq` Prelude.rnf newExecutionRunId'
+        `Prelude.seq` Prelude.rnf taskList
+        `Prelude.seq` Prelude.rnf childPolicy
+        `Prelude.seq` Prelude.rnf workflowType

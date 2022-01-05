@@ -135,9 +135,15 @@ instance Core.AWSRequest ListVPCEConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVPCEConfigurations
+instance Prelude.Hashable ListVPCEConfigurations where
+  hashWithSalt _salt ListVPCEConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListVPCEConfigurations
+instance Prelude.NFData ListVPCEConfigurations where
+  rnf ListVPCEConfigurations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListVPCEConfigurations where
   toHeaders =
@@ -229,3 +235,8 @@ listVPCEConfigurationsResponse_httpStatus = Lens.lens (\ListVPCEConfigurationsRe
 instance
   Prelude.NFData
     ListVPCEConfigurationsResponse
+  where
+  rnf ListVPCEConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpceConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

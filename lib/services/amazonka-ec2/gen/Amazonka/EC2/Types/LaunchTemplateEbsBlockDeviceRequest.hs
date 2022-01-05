@@ -238,10 +238,32 @@ launchTemplateEbsBlockDeviceRequest_snapshotId = Lens.lens (\LaunchTemplateEbsBl
 instance
   Prelude.Hashable
     LaunchTemplateEbsBlockDeviceRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateEbsBlockDeviceRequest' {..} =
+      _salt `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` throughput
+        `Prelude.hashWithSalt` volumeSize
+        `Prelude.hashWithSalt` iops
+        `Prelude.hashWithSalt` encrypted
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` volumeType
+        `Prelude.hashWithSalt` snapshotId
 
 instance
   Prelude.NFData
     LaunchTemplateEbsBlockDeviceRequest
+  where
+  rnf LaunchTemplateEbsBlockDeviceRequest' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance
   Core.ToQuery

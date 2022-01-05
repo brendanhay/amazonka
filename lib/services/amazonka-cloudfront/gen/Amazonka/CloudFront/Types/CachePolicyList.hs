@@ -103,6 +103,16 @@ instance Core.FromXML CachePolicyList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CachePolicyList
+instance Prelude.Hashable CachePolicyList where
+  hashWithSalt _salt CachePolicyList' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData CachePolicyList
+instance Prelude.NFData CachePolicyList where
+  rnf CachePolicyList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf quantity

@@ -63,9 +63,15 @@ wirelessMetadata_sidewalk = Lens.lens (\WirelessMetadata' {sidewalk} -> sidewalk
 wirelessMetadata_loRaWAN :: Lens.Lens' WirelessMetadata (Prelude.Maybe LoRaWANSendDataToDevice)
 wirelessMetadata_loRaWAN = Lens.lens (\WirelessMetadata' {loRaWAN} -> loRaWAN) (\s@WirelessMetadata' {} a -> s {loRaWAN = a} :: WirelessMetadata)
 
-instance Prelude.Hashable WirelessMetadata
+instance Prelude.Hashable WirelessMetadata where
+  hashWithSalt _salt WirelessMetadata' {..} =
+    _salt `Prelude.hashWithSalt` sidewalk
+      `Prelude.hashWithSalt` loRaWAN
 
-instance Prelude.NFData WirelessMetadata
+instance Prelude.NFData WirelessMetadata where
+  rnf WirelessMetadata' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf loRaWAN
 
 instance Core.ToJSON WirelessMetadata where
   toJSON WirelessMetadata' {..} =

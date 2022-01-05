@@ -132,9 +132,17 @@ instance Core.AWSRequest ListConnectorEntities where
                         )
       )
 
-instance Prelude.Hashable ListConnectorEntities
+instance Prelude.Hashable ListConnectorEntities where
+  hashWithSalt _salt ListConnectorEntities' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` entitiesPath
+      `Prelude.hashWithSalt` connectorType
 
-instance Prelude.NFData ListConnectorEntities
+instance Prelude.NFData ListConnectorEntities where
+  rnf ListConnectorEntities' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf entitiesPath
+      `Prelude.seq` Prelude.rnf connectorType
 
 instance Core.ToHeaders ListConnectorEntities where
   toHeaders =
@@ -209,4 +217,7 @@ listConnectorEntitiesResponse_httpStatus = Lens.lens (\ListConnectorEntitiesResp
 listConnectorEntitiesResponse_connectorEntityMap :: Lens.Lens' ListConnectorEntitiesResponse (Prelude.HashMap Prelude.Text [ConnectorEntity])
 listConnectorEntitiesResponse_connectorEntityMap = Lens.lens (\ListConnectorEntitiesResponse' {connectorEntityMap} -> connectorEntityMap) (\s@ListConnectorEntitiesResponse' {} a -> s {connectorEntityMap = a} :: ListConnectorEntitiesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListConnectorEntitiesResponse
+instance Prelude.NFData ListConnectorEntitiesResponse where
+  rnf ListConnectorEntitiesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connectorEntityMap

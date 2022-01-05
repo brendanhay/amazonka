@@ -69,9 +69,15 @@ connectorOAuthRequest_redirectUri = Lens.lens (\ConnectorOAuthRequest' {redirect
 connectorOAuthRequest_authCode :: Lens.Lens' ConnectorOAuthRequest (Prelude.Maybe Prelude.Text)
 connectorOAuthRequest_authCode = Lens.lens (\ConnectorOAuthRequest' {authCode} -> authCode) (\s@ConnectorOAuthRequest' {} a -> s {authCode = a} :: ConnectorOAuthRequest)
 
-instance Prelude.Hashable ConnectorOAuthRequest
+instance Prelude.Hashable ConnectorOAuthRequest where
+  hashWithSalt _salt ConnectorOAuthRequest' {..} =
+    _salt `Prelude.hashWithSalt` redirectUri
+      `Prelude.hashWithSalt` authCode
 
-instance Prelude.NFData ConnectorOAuthRequest
+instance Prelude.NFData ConnectorOAuthRequest where
+  rnf ConnectorOAuthRequest' {..} =
+    Prelude.rnf redirectUri
+      `Prelude.seq` Prelude.rnf authCode
 
 instance Core.ToJSON ConnectorOAuthRequest where
   toJSON ConnectorOAuthRequest' {..} =

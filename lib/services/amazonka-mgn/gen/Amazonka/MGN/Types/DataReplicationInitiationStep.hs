@@ -77,5 +77,11 @@ instance Core.FromJSON DataReplicationInitiationStep where
 instance
   Prelude.Hashable
     DataReplicationInitiationStep
+  where
+  hashWithSalt _salt DataReplicationInitiationStep' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DataReplicationInitiationStep
+instance Prelude.NFData DataReplicationInitiationStep where
+  rnf DataReplicationInitiationStep' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name

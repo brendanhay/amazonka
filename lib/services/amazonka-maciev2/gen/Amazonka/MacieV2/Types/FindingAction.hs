@@ -86,6 +86,12 @@ instance Core.FromJSON FindingAction where
             Prelude.<*> (x Core..:? "actionType")
       )
 
-instance Prelude.Hashable FindingAction
+instance Prelude.Hashable FindingAction where
+  hashWithSalt _salt FindingAction' {..} =
+    _salt `Prelude.hashWithSalt` apiCallDetails
+      `Prelude.hashWithSalt` actionType
 
-instance Prelude.NFData FindingAction
+instance Prelude.NFData FindingAction where
+  rnf FindingAction' {..} =
+    Prelude.rnf apiCallDetails
+      `Prelude.seq` Prelude.rnf actionType

@@ -127,9 +127,17 @@ instance Core.AWSRequest CancelSteps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSteps
+instance Prelude.Hashable CancelSteps where
+  hashWithSalt _salt CancelSteps' {..} =
+    _salt `Prelude.hashWithSalt` stepCancellationOption
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` stepIds
 
-instance Prelude.NFData CancelSteps
+instance Prelude.NFData CancelSteps where
+  rnf CancelSteps' {..} =
+    Prelude.rnf stepCancellationOption
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf stepIds
 
 instance Core.ToHeaders CancelSteps where
   toHeaders =
@@ -207,4 +215,7 @@ cancelStepsResponse_cancelStepsInfoList = Lens.lens (\CancelStepsResponse' {canc
 cancelStepsResponse_httpStatus :: Lens.Lens' CancelStepsResponse Prelude.Int
 cancelStepsResponse_httpStatus = Lens.lens (\CancelStepsResponse' {httpStatus} -> httpStatus) (\s@CancelStepsResponse' {} a -> s {httpStatus = a} :: CancelStepsResponse)
 
-instance Prelude.NFData CancelStepsResponse
+instance Prelude.NFData CancelStepsResponse where
+  rnf CancelStepsResponse' {..} =
+    Prelude.rnf cancelStepsInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

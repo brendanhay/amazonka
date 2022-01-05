@@ -171,9 +171,21 @@ instance Core.AWSRequest ListPhoneNumbers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPhoneNumbers
+instance Prelude.Hashable ListPhoneNumbers where
+  hashWithSalt _salt ListPhoneNumbers' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumberTypes
+      `Prelude.hashWithSalt` phoneNumberCountryCodes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListPhoneNumbers
+instance Prelude.NFData ListPhoneNumbers where
+  rnf ListPhoneNumbers' {..} =
+    Prelude.rnf phoneNumberTypes
+      `Prelude.seq` Prelude.rnf phoneNumberCountryCodes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListPhoneNumbers where
   toHeaders =
@@ -259,4 +271,8 @@ listPhoneNumbersResponse_nextToken = Lens.lens (\ListPhoneNumbersResponse' {next
 listPhoneNumbersResponse_httpStatus :: Lens.Lens' ListPhoneNumbersResponse Prelude.Int
 listPhoneNumbersResponse_httpStatus = Lens.lens (\ListPhoneNumbersResponse' {httpStatus} -> httpStatus) (\s@ListPhoneNumbersResponse' {} a -> s {httpStatus = a} :: ListPhoneNumbersResponse)
 
-instance Prelude.NFData ListPhoneNumbersResponse
+instance Prelude.NFData ListPhoneNumbersResponse where
+  rnf ListPhoneNumbersResponse' {..} =
+    Prelude.rnf phoneNumberSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

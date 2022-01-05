@@ -116,6 +116,20 @@ instance Core.FromJSON Node where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Node
+instance Prelude.Hashable Node where
+  hashWithSalt _salt Node' {..} =
+    _salt `Prelude.hashWithSalt` triggerDetails
+      `Prelude.hashWithSalt` uniqueId
+      `Prelude.hashWithSalt` crawlerDetails
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jobDetails
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Node
+instance Prelude.NFData Node where
+  rnf Node' {..} =
+    Prelude.rnf triggerDetails
+      `Prelude.seq` Prelude.rnf uniqueId
+      `Prelude.seq` Prelude.rnf crawlerDetails
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf jobDetails
+      `Prelude.seq` Prelude.rnf type'

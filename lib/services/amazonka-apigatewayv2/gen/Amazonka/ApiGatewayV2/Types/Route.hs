@@ -243,6 +243,34 @@ instance Core.FromJSON Route where
             Prelude.<*> (x Core..: "routeKey")
       )
 
-instance Prelude.Hashable Route
+instance Prelude.Hashable Route where
+  hashWithSalt _salt Route' {..} =
+    _salt `Prelude.hashWithSalt` authorizationScopes
+      `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` requestModels
+      `Prelude.hashWithSalt` routeResponseSelectionExpression
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` routeId
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` apiKeyRequired
+      `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` routeKey
 
-instance Prelude.NFData Route
+instance Prelude.NFData Route where
+  rnf Route' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf routeKey

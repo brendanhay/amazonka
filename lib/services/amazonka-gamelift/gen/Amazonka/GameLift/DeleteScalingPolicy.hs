@@ -112,9 +112,14 @@ instance Core.AWSRequest DeleteScalingPolicy where
   response =
     Response.receiveNull DeleteScalingPolicyResponse'
 
-instance Prelude.Hashable DeleteScalingPolicy
+instance Prelude.Hashable DeleteScalingPolicy where
+  hashWithSalt _salt DeleteScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteScalingPolicy
+instance Prelude.NFData DeleteScalingPolicy where
+  rnf DeleteScalingPolicy' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders DeleteScalingPolicy where
   toHeaders =
@@ -161,4 +166,5 @@ newDeleteScalingPolicyResponse ::
 newDeleteScalingPolicyResponse =
   DeleteScalingPolicyResponse'
 
-instance Prelude.NFData DeleteScalingPolicyResponse
+instance Prelude.NFData DeleteScalingPolicyResponse where
+  rnf _ = ()

@@ -89,9 +89,19 @@ datastoreFilter_datastoreStatus = Lens.lens (\DatastoreFilter' {datastoreStatus}
 datastoreFilter_createdBefore :: Lens.Lens' DatastoreFilter (Prelude.Maybe Prelude.UTCTime)
 datastoreFilter_createdBefore = Lens.lens (\DatastoreFilter' {createdBefore} -> createdBefore) (\s@DatastoreFilter' {} a -> s {createdBefore = a} :: DatastoreFilter) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DatastoreFilter
+instance Prelude.Hashable DatastoreFilter where
+  hashWithSalt _salt DatastoreFilter' {..} =
+    _salt `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` datastoreStatus
+      `Prelude.hashWithSalt` createdBefore
 
-instance Prelude.NFData DatastoreFilter
+instance Prelude.NFData DatastoreFilter where
+  rnf DatastoreFilter' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf datastoreStatus
+      `Prelude.seq` Prelude.rnf createdBefore
 
 instance Core.ToJSON DatastoreFilter where
   toJSON DatastoreFilter' {..} =

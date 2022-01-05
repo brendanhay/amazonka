@@ -95,9 +95,17 @@ instance Core.FromJSON CostCategoryValues where
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CostCategoryValues
+instance Prelude.Hashable CostCategoryValues where
+  hashWithSalt _salt CostCategoryValues' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` matchOptions
 
-instance Prelude.NFData CostCategoryValues
+instance Prelude.NFData CostCategoryValues where
+  rnf CostCategoryValues' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf matchOptions
 
 instance Core.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =

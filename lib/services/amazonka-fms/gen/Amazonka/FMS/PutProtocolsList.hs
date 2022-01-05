@@ -100,9 +100,15 @@ instance Core.AWSRequest PutProtocolsList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutProtocolsList
+instance Prelude.Hashable PutProtocolsList where
+  hashWithSalt _salt PutProtocolsList' {..} =
+    _salt `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` protocolsList
 
-instance Prelude.NFData PutProtocolsList
+instance Prelude.NFData PutProtocolsList where
+  rnf PutProtocolsList' {..} =
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf protocolsList
 
 instance Core.ToHeaders PutProtocolsList where
   toHeaders =
@@ -183,4 +189,8 @@ putProtocolsListResponse_protocolsListArn = Lens.lens (\PutProtocolsListResponse
 putProtocolsListResponse_httpStatus :: Lens.Lens' PutProtocolsListResponse Prelude.Int
 putProtocolsListResponse_httpStatus = Lens.lens (\PutProtocolsListResponse' {httpStatus} -> httpStatus) (\s@PutProtocolsListResponse' {} a -> s {httpStatus = a} :: PutProtocolsListResponse)
 
-instance Prelude.NFData PutProtocolsListResponse
+instance Prelude.NFData PutProtocolsListResponse where
+  rnf PutProtocolsListResponse' {..} =
+    Prelude.rnf protocolsList
+      `Prelude.seq` Prelude.rnf protocolsListArn
+      `Prelude.seq` Prelude.rnf httpStatus

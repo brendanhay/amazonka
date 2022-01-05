@@ -144,9 +144,15 @@ instance Core.AWSRequest GetIdentityPolicies where
                         )
       )
 
-instance Prelude.Hashable GetIdentityPolicies
+instance Prelude.Hashable GetIdentityPolicies where
+  hashWithSalt _salt GetIdentityPolicies' {..} =
+    _salt `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` policyNames
 
-instance Prelude.NFData GetIdentityPolicies
+instance Prelude.NFData GetIdentityPolicies where
+  rnf GetIdentityPolicies' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf policyNames
 
 instance Core.ToHeaders GetIdentityPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,4 +213,7 @@ getIdentityPoliciesResponse_httpStatus = Lens.lens (\GetIdentityPoliciesResponse
 getIdentityPoliciesResponse_policies :: Lens.Lens' GetIdentityPoliciesResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetIdentityPoliciesResponse
+instance Prelude.NFData GetIdentityPoliciesResponse where
+  rnf GetIdentityPoliciesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policies

@@ -208,9 +208,19 @@ instance Core.AWSRequest PutBucketWebsite where
   response =
     Response.receiveNull PutBucketWebsiteResponse'
 
-instance Prelude.Hashable PutBucketWebsite
+instance Prelude.Hashable PutBucketWebsite where
+  hashWithSalt _salt PutBucketWebsite' {..} =
+    _salt `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` websiteConfiguration
 
-instance Prelude.NFData PutBucketWebsite
+instance Prelude.NFData PutBucketWebsite where
+  rnf PutBucketWebsite' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf websiteConfiguration
 
 instance Core.ToElement PutBucketWebsite where
   toElement PutBucketWebsite' {..} =
@@ -248,4 +258,5 @@ newPutBucketWebsiteResponse ::
 newPutBucketWebsiteResponse =
   PutBucketWebsiteResponse'
 
-instance Prelude.NFData PutBucketWebsiteResponse
+instance Prelude.NFData PutBucketWebsiteResponse where
+  rnf _ = ()

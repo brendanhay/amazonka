@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.TransactWriteItem where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ConditionCheck
 import Amazonka.DynamoDB.Types.Delete
 import Amazonka.DynamoDB.Types.Put
@@ -85,9 +86,19 @@ transactWriteItem_delete = Lens.lens (\TransactWriteItem' {delete'} -> delete') 
 transactWriteItem_update :: Lens.Lens' TransactWriteItem (Prelude.Maybe Update)
 transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\s@TransactWriteItem' {} a -> s {update = a} :: TransactWriteItem)
 
-instance Prelude.Hashable TransactWriteItem
+instance Prelude.Hashable TransactWriteItem where
+  hashWithSalt _salt TransactWriteItem' {..} =
+    _salt `Prelude.hashWithSalt` conditionCheck
+      `Prelude.hashWithSalt` put
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` update
 
-instance Prelude.NFData TransactWriteItem
+instance Prelude.NFData TransactWriteItem where
+  rnf TransactWriteItem' {..} =
+    Prelude.rnf conditionCheck
+      `Prelude.seq` Prelude.rnf put
+      `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf update
 
 instance Core.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =

@@ -144,6 +144,26 @@ instance Core.FromJSON StudioComponentSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable StudioComponentSummary
+instance Prelude.Hashable StudioComponentSummary where
+  hashWithSalt _salt StudioComponentSummary' {..} =
+    _salt `Prelude.hashWithSalt` studioComponentId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StudioComponentSummary
+instance Prelude.NFData StudioComponentSummary where
+  rnf StudioComponentSummary' {..} =
+    Prelude.rnf studioComponentId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf updatedBy
+      `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

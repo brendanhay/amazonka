@@ -78,9 +78,13 @@ instance Core.FromJSON RedshiftRetryOptions where
             Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable RedshiftRetryOptions
+instance Prelude.Hashable RedshiftRetryOptions where
+  hashWithSalt _salt RedshiftRetryOptions' {..} =
+    _salt `Prelude.hashWithSalt` durationInSeconds
 
-instance Prelude.NFData RedshiftRetryOptions
+instance Prelude.NFData RedshiftRetryOptions where
+  rnf RedshiftRetryOptions' {..} =
+    Prelude.rnf durationInSeconds
 
 instance Core.ToJSON RedshiftRetryOptions where
   toJSON RedshiftRetryOptions' {..} =

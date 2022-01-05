@@ -99,9 +99,15 @@ instance Core.AWSRequest GetEvent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEvent
+instance Prelude.Hashable GetEvent where
+  hashWithSalt _salt GetEvent' {..} =
+    _salt `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventTypeName
 
-instance Prelude.NFData GetEvent
+instance Prelude.NFData GetEvent where
+  rnf GetEvent' {..} =
+    Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTypeName
 
 instance Core.ToHeaders GetEvent where
   toHeaders =
@@ -172,4 +178,7 @@ getEventResponse_event = Lens.lens (\GetEventResponse' {event} -> event) (\s@Get
 getEventResponse_httpStatus :: Lens.Lens' GetEventResponse Prelude.Int
 getEventResponse_httpStatus = Lens.lens (\GetEventResponse' {httpStatus} -> httpStatus) (\s@GetEventResponse' {} a -> s {httpStatus = a} :: GetEventResponse)
 
-instance Prelude.NFData GetEventResponse
+instance Prelude.NFData GetEventResponse where
+  rnf GetEventResponse' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -102,10 +102,22 @@ launchTemplateCapacityReservationSpecificationRequest_capacityReservationPrefere
 instance
   Prelude.Hashable
     LaunchTemplateCapacityReservationSpecificationRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateCapacityReservationSpecificationRequest' {..} =
+      _salt
+        `Prelude.hashWithSalt` capacityReservationTarget
+        `Prelude.hashWithSalt` capacityReservationPreference
 
 instance
   Prelude.NFData
     LaunchTemplateCapacityReservationSpecificationRequest
+  where
+  rnf
+    LaunchTemplateCapacityReservationSpecificationRequest' {..} =
+      Prelude.rnf capacityReservationTarget
+        `Prelude.seq` Prelude.rnf capacityReservationPreference
 
 instance
   Core.ToQuery

@@ -157,6 +157,26 @@ instance Core.FromJSON HarvestJob where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable HarvestJob
+instance Prelude.Hashable HarvestJob where
+  hashWithSalt _salt HarvestJob' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` originEndpointId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData HarvestJob
+instance Prelude.NFData HarvestJob where
+  rnf HarvestJob' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf originEndpointId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf id

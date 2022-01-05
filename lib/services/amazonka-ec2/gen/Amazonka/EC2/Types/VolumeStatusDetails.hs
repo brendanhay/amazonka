@@ -68,6 +68,11 @@ instance Core.FromXML VolumeStatusDetails where
     VolumeStatusDetails'
       Prelude.<$> (x Core..@? "status") Prelude.<*> (x Core..@? "name")
 
-instance Prelude.Hashable VolumeStatusDetails
+instance Prelude.Hashable VolumeStatusDetails where
+  hashWithSalt _salt VolumeStatusDetails' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData VolumeStatusDetails
+instance Prelude.NFData VolumeStatusDetails where
+  rnf VolumeStatusDetails' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name

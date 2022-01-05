@@ -178,9 +178,27 @@ instance Core.FromJSON VideoPreprocessor where
             Prelude.<*> (x Core..:? "partnerWatermarking")
       )
 
-instance Prelude.Hashable VideoPreprocessor
+instance Prelude.Hashable VideoPreprocessor where
+  hashWithSalt _salt VideoPreprocessor' {..} =
+    _salt `Prelude.hashWithSalt` timecodeBurnin
+      `Prelude.hashWithSalt` dolbyVision
+      `Prelude.hashWithSalt` colorCorrector
+      `Prelude.hashWithSalt` deinterlacer
+      `Prelude.hashWithSalt` noiseReducer
+      `Prelude.hashWithSalt` imageInserter
+      `Prelude.hashWithSalt` hdr10Plus
+      `Prelude.hashWithSalt` partnerWatermarking
 
-instance Prelude.NFData VideoPreprocessor
+instance Prelude.NFData VideoPreprocessor where
+  rnf VideoPreprocessor' {..} =
+    Prelude.rnf timecodeBurnin
+      `Prelude.seq` Prelude.rnf dolbyVision
+      `Prelude.seq` Prelude.rnf colorCorrector
+      `Prelude.seq` Prelude.rnf deinterlacer
+      `Prelude.seq` Prelude.rnf noiseReducer
+      `Prelude.seq` Prelude.rnf imageInserter
+      `Prelude.seq` Prelude.rnf hdr10Plus
+      `Prelude.seq` Prelude.rnf partnerWatermarking
 
 instance Core.ToJSON VideoPreprocessor where
   toJSON VideoPreprocessor' {..} =

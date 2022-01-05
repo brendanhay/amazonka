@@ -155,6 +155,20 @@ instance Core.FromJSON PolicySummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable PolicySummary
+instance Prelude.Hashable PolicySummary where
+  hashWithSalt _salt PolicySummary' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` awsManaged
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PolicySummary
+instance Prelude.NFData PolicySummary where
+  rnf PolicySummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf awsManaged
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

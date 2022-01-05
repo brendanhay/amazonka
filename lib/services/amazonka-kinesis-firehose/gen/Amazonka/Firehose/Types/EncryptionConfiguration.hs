@@ -77,9 +77,15 @@ instance Core.FromJSON EncryptionConfiguration where
             Prelude.<*> (x Core..:? "KMSEncryptionConfig")
       )
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Prelude.Hashable EncryptionConfiguration where
+  hashWithSalt _salt EncryptionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` noEncryptionConfig
+      `Prelude.hashWithSalt` kmsEncryptionConfig
 
-instance Prelude.NFData EncryptionConfiguration
+instance Prelude.NFData EncryptionConfiguration where
+  rnf EncryptionConfiguration' {..} =
+    Prelude.rnf noEncryptionConfig
+      `Prelude.seq` Prelude.rnf kmsEncryptionConfig
 
 instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =

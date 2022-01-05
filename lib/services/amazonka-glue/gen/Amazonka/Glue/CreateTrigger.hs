@@ -216,9 +216,31 @@ instance Core.AWSRequest CreateTrigger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrigger
+instance Prelude.Hashable CreateTrigger where
+  hashWithSalt _salt CreateTrigger' {..} =
+    _salt `Prelude.hashWithSalt` workflowName
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` predicate
+      `Prelude.hashWithSalt` startOnCreation
+      `Prelude.hashWithSalt` eventBatchingCondition
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData CreateTrigger
+instance Prelude.NFData CreateTrigger where
+  rnf CreateTrigger' {..} =
+    Prelude.rnf workflowName
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf predicate
+      `Prelude.seq` Prelude.rnf startOnCreation
+      `Prelude.seq` Prelude.rnf eventBatchingCondition
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToHeaders CreateTrigger where
   toHeaders =
@@ -296,4 +318,7 @@ createTriggerResponse_name = Lens.lens (\CreateTriggerResponse' {name} -> name) 
 createTriggerResponse_httpStatus :: Lens.Lens' CreateTriggerResponse Prelude.Int
 createTriggerResponse_httpStatus = Lens.lens (\CreateTriggerResponse' {httpStatus} -> httpStatus) (\s@CreateTriggerResponse' {} a -> s {httpStatus = a} :: CreateTriggerResponse)
 
-instance Prelude.NFData CreateTriggerResponse
+instance Prelude.NFData CreateTriggerResponse where
+  rnf CreateTriggerResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

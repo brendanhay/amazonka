@@ -113,9 +113,15 @@ instance Core.AWSRequest DeleteMultiplexProgram where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMultiplexProgram
+instance Prelude.Hashable DeleteMultiplexProgram where
+  hashWithSalt _salt DeleteMultiplexProgram' {..} =
+    _salt `Prelude.hashWithSalt` multiplexId
+      `Prelude.hashWithSalt` programName
 
-instance Prelude.NFData DeleteMultiplexProgram
+instance Prelude.NFData DeleteMultiplexProgram where
+  rnf DeleteMultiplexProgram' {..} =
+    Prelude.rnf multiplexId
+      `Prelude.seq` Prelude.rnf programName
 
 instance Core.ToHeaders DeleteMultiplexProgram where
   toHeaders =
@@ -232,3 +238,11 @@ deleteMultiplexProgramResponse_httpStatus = Lens.lens (\DeleteMultiplexProgramRe
 instance
   Prelude.NFData
     DeleteMultiplexProgramResponse
+  where
+  rnf DeleteMultiplexProgramResponse' {..} =
+    Prelude.rnf packetIdentifiersMap
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf multiplexProgramSettings
+      `Prelude.seq` Prelude.rnf httpStatus

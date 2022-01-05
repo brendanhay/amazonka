@@ -79,10 +79,15 @@ instance
 instance
   Prelude.Hashable
     GetSagemakerServicecatalogPortfolioStatus
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     GetSagemakerServicecatalogPortfolioStatus
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -164,3 +169,8 @@ getSagemakerServicecatalogPortfolioStatusResponse_httpStatus = Lens.lens (\GetSa
 instance
   Prelude.NFData
     GetSagemakerServicecatalogPortfolioStatusResponse
+  where
+  rnf
+    GetSagemakerServicecatalogPortfolioStatusResponse' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf httpStatus

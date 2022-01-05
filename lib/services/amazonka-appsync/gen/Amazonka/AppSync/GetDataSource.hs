@@ -97,9 +97,14 @@ instance Core.AWSRequest GetDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataSource
+instance Prelude.Hashable GetDataSource where
+  hashWithSalt _salt GetDataSource' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetDataSource
+instance Prelude.NFData GetDataSource where
+  rnf GetDataSource' {..} =
+    Prelude.rnf apiId `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetDataSource where
   toHeaders =
@@ -163,4 +168,7 @@ getDataSourceResponse_dataSource = Lens.lens (\GetDataSourceResponse' {dataSourc
 getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Prelude.Int
 getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatus} -> httpStatus) (\s@GetDataSourceResponse' {} a -> s {httpStatus = a} :: GetDataSourceResponse)
 
-instance Prelude.NFData GetDataSourceResponse
+instance Prelude.NFData GetDataSourceResponse where
+  rnf GetDataSourceResponse' {..} =
+    Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf httpStatus

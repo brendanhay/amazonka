@@ -93,10 +93,18 @@ instance
 instance
   Prelude.Hashable
     DeregisterWebhookWithThirdParty
+  where
+  hashWithSalt
+    _salt
+    DeregisterWebhookWithThirdParty' {..} =
+      _salt `Prelude.hashWithSalt` webhookName
 
 instance
   Prelude.NFData
     DeregisterWebhookWithThirdParty
+  where
+  rnf DeregisterWebhookWithThirdParty' {..} =
+    Prelude.rnf webhookName
 
 instance
   Core.ToHeaders
@@ -163,3 +171,6 @@ deregisterWebhookWithThirdPartyResponse_httpStatus = Lens.lens (\DeregisterWebho
 instance
   Prelude.NFData
     DeregisterWebhookWithThirdPartyResponse
+  where
+  rnf DeregisterWebhookWithThirdPartyResponse' {..} =
+    Prelude.rnf httpStatus

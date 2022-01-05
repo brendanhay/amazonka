@@ -147,6 +147,22 @@ instance Core.FromJSON CampaignUpdateSummary where
             Prelude.<*> (x Core..:? "solutionVersionArn")
       )
 
-instance Prelude.Hashable CampaignUpdateSummary
+instance Prelude.Hashable CampaignUpdateSummary where
+  hashWithSalt _salt CampaignUpdateSummary' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` campaignConfig
+      `Prelude.hashWithSalt` minProvisionedTPS
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` solutionVersionArn
 
-instance Prelude.NFData CampaignUpdateSummary
+instance Prelude.NFData CampaignUpdateSummary where
+  rnf CampaignUpdateSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf campaignConfig
+      `Prelude.seq` Prelude.rnf minProvisionedTPS
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf solutionVersionArn

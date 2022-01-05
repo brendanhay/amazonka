@@ -110,9 +110,17 @@ instance Core.AWSRequest CreateACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateACL
+instance Prelude.Hashable CreateACL where
+  hashWithSalt _salt CreateACL' {..} =
+    _salt `Prelude.hashWithSalt` userNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` aCLName
 
-instance Prelude.NFData CreateACL
+instance Prelude.NFData CreateACL where
+  rnf CreateACL' {..} =
+    Prelude.rnf userNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf aCLName
 
 instance Core.ToHeaders CreateACL where
   toHeaders =
@@ -181,4 +189,7 @@ createACLResponse_acl = Lens.lens (\CreateACLResponse' {acl} -> acl) (\s@CreateA
 createACLResponse_httpStatus :: Lens.Lens' CreateACLResponse Prelude.Int
 createACLResponse_httpStatus = Lens.lens (\CreateACLResponse' {httpStatus} -> httpStatus) (\s@CreateACLResponse' {} a -> s {httpStatus = a} :: CreateACLResponse)
 
-instance Prelude.NFData CreateACLResponse
+instance Prelude.NFData CreateACLResponse where
+  rnf CreateACLResponse' {..} =
+    Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf httpStatus

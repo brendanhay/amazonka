@@ -146,9 +146,21 @@ instance Core.FromXML MessageAttributeValue where
                   )
       Prelude.<*> (x Core..@ "DataType")
 
-instance Prelude.Hashable MessageAttributeValue
+instance Prelude.Hashable MessageAttributeValue where
+  hashWithSalt _salt MessageAttributeValue' {..} =
+    _salt `Prelude.hashWithSalt` binaryValue
+      `Prelude.hashWithSalt` stringListValues
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` binaryListValues
+      `Prelude.hashWithSalt` dataType
 
-instance Prelude.NFData MessageAttributeValue
+instance Prelude.NFData MessageAttributeValue where
+  rnf MessageAttributeValue' {..} =
+    Prelude.rnf binaryValue
+      `Prelude.seq` Prelude.rnf stringListValues
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf binaryListValues
+      `Prelude.seq` Prelude.rnf dataType
 
 instance Core.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =

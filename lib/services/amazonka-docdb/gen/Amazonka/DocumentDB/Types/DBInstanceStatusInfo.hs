@@ -96,6 +96,16 @@ instance Core.FromXML DBInstanceStatusInfo where
       Prelude.<*> (x Core..@? "StatusType")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable DBInstanceStatusInfo
+instance Prelude.Hashable DBInstanceStatusInfo where
+  hashWithSalt _salt DBInstanceStatusInfo' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` normal
+      `Prelude.hashWithSalt` statusType
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData DBInstanceStatusInfo
+instance Prelude.NFData DBInstanceStatusInfo where
+  rnf DBInstanceStatusInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf normal
+      `Prelude.seq` Prelude.rnf statusType
+      `Prelude.seq` Prelude.rnf message

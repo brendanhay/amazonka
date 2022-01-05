@@ -114,10 +114,18 @@ instance
 instance
   Prelude.Hashable
     DescribeAuditMitigationActionsTask
+  where
+  hashWithSalt
+    _salt
+    DescribeAuditMitigationActionsTask' {..} =
+      _salt `Prelude.hashWithSalt` taskId
 
 instance
   Prelude.NFData
     DescribeAuditMitigationActionsTask
+  where
+  rnf DescribeAuditMitigationActionsTask' {..} =
+    Prelude.rnf taskId
 
 instance
   Core.ToHeaders
@@ -251,3 +259,13 @@ describeAuditMitigationActionsTaskResponse_httpStatus = Lens.lens (\DescribeAudi
 instance
   Prelude.NFData
     DescribeAuditMitigationActionsTaskResponse
+  where
+  rnf DescribeAuditMitigationActionsTaskResponse' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskStatistics
+      `Prelude.seq` Prelude.rnf actionsDefinition
+      `Prelude.seq` Prelude.rnf auditCheckToActionsMapping
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf taskStatus
+      `Prelude.seq` Prelude.rnf httpStatus

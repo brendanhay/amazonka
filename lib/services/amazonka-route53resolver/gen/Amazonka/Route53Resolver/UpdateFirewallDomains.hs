@@ -179,9 +179,17 @@ instance Core.AWSRequest UpdateFirewallDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFirewallDomains
+instance Prelude.Hashable UpdateFirewallDomains where
+  hashWithSalt _salt UpdateFirewallDomains' {..} =
+    _salt `Prelude.hashWithSalt` firewallDomainListId
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` domains
 
-instance Prelude.NFData UpdateFirewallDomains
+instance Prelude.NFData UpdateFirewallDomains where
+  rnf UpdateFirewallDomains' {..} =
+    Prelude.rnf firewallDomainListId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf domains
 
 instance Core.ToHeaders UpdateFirewallDomains where
   toHeaders =
@@ -282,4 +290,10 @@ updateFirewallDomainsResponse_id = Lens.lens (\UpdateFirewallDomainsResponse' {i
 updateFirewallDomainsResponse_httpStatus :: Lens.Lens' UpdateFirewallDomainsResponse Prelude.Int
 updateFirewallDomainsResponse_httpStatus = Lens.lens (\UpdateFirewallDomainsResponse' {httpStatus} -> httpStatus) (\s@UpdateFirewallDomainsResponse' {} a -> s {httpStatus = a} :: UpdateFirewallDomainsResponse)
 
-instance Prelude.NFData UpdateFirewallDomainsResponse
+instance Prelude.NFData UpdateFirewallDomainsResponse where
+  rnf UpdateFirewallDomainsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

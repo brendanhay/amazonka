@@ -168,9 +168,21 @@ instance Core.AWSRequest ListOutposts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOutposts
+instance Prelude.Hashable ListOutposts where
+  hashWithSalt _salt ListOutposts' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZoneFilter
+      `Prelude.hashWithSalt` lifeCycleStatusFilter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` availabilityZoneIdFilter
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOutposts
+instance Prelude.NFData ListOutposts where
+  rnf ListOutposts' {..} =
+    Prelude.rnf availabilityZoneFilter
+      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOutposts where
   toHeaders =
@@ -253,4 +265,8 @@ listOutpostsResponse_outposts = Lens.lens (\ListOutpostsResponse' {outposts} -> 
 listOutpostsResponse_httpStatus :: Lens.Lens' ListOutpostsResponse Prelude.Int
 listOutpostsResponse_httpStatus = Lens.lens (\ListOutpostsResponse' {httpStatus} -> httpStatus) (\s@ListOutpostsResponse' {} a -> s {httpStatus = a} :: ListOutpostsResponse)
 
-instance Prelude.NFData ListOutpostsResponse
+instance Prelude.NFData ListOutpostsResponse where
+  rnf ListOutpostsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf outposts
+      `Prelude.seq` Prelude.rnf httpStatus

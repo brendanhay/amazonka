@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeAppInstanceAdmin where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAppInstanceAdmin
+instance Prelude.Hashable DescribeAppInstanceAdmin where
+  hashWithSalt _salt DescribeAppInstanceAdmin' {..} =
+    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+      `Prelude.hashWithSalt` appInstanceArn
 
-instance Prelude.NFData DescribeAppInstanceAdmin
+instance Prelude.NFData DescribeAppInstanceAdmin where
+  rnf DescribeAppInstanceAdmin' {..} =
+    Prelude.rnf appInstanceAdminArn
+      `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders DescribeAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,3 +176,7 @@ describeAppInstanceAdminResponse_httpStatus = Lens.lens (\DescribeAppInstanceAdm
 instance
   Prelude.NFData
     DescribeAppInstanceAdminResponse
+  where
+  rnf DescribeAppInstanceAdminResponse' {..} =
+    Prelude.rnf appInstanceAdmin
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,6 +93,12 @@ instance Core.FromJSON QueryError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable QueryError
+instance Prelude.Hashable QueryError where
+  hashWithSalt _salt QueryError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData QueryError
+instance Prelude.NFData QueryError where
+  rnf QueryError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message

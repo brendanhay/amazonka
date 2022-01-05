@@ -117,6 +117,18 @@ instance Core.FromXML DescribeFleetsInstances where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable DescribeFleetsInstances
+instance Prelude.Hashable DescribeFleetsInstances where
+  hashWithSalt _salt DescribeFleetsInstances' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` launchTemplateAndOverrides
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData DescribeFleetsInstances
+instance Prelude.NFData DescribeFleetsInstances where
+  rnf DescribeFleetsInstances' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf launchTemplateAndOverrides
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceIds

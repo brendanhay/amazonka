@@ -59,9 +59,12 @@ newLogDelivery pWorkerLogDelivery_ =
 logDelivery_workerLogDelivery :: Lens.Lens' LogDelivery WorkerLogDelivery
 logDelivery_workerLogDelivery = Lens.lens (\LogDelivery' {workerLogDelivery} -> workerLogDelivery) (\s@LogDelivery' {} a -> s {workerLogDelivery = a} :: LogDelivery)
 
-instance Prelude.Hashable LogDelivery
+instance Prelude.Hashable LogDelivery where
+  hashWithSalt _salt LogDelivery' {..} =
+    _salt `Prelude.hashWithSalt` workerLogDelivery
 
-instance Prelude.NFData LogDelivery
+instance Prelude.NFData LogDelivery where
+  rnf LogDelivery' {..} = Prelude.rnf workerLogDelivery
 
 instance Core.ToJSON LogDelivery where
   toJSON LogDelivery' {..} =

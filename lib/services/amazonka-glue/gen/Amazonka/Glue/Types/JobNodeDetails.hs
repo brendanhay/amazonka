@@ -60,6 +60,9 @@ instance Core.FromJSON JobNodeDetails where
             Prelude.<$> (x Core..:? "JobRuns" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobNodeDetails
+instance Prelude.Hashable JobNodeDetails where
+  hashWithSalt _salt JobNodeDetails' {..} =
+    _salt `Prelude.hashWithSalt` jobRuns
 
-instance Prelude.NFData JobNodeDetails
+instance Prelude.NFData JobNodeDetails where
+  rnf JobNodeDetails' {..} = Prelude.rnf jobRuns

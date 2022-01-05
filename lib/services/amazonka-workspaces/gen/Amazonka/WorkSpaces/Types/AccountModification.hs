@@ -127,6 +127,20 @@ instance Core.FromJSON AccountModification where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable AccountModification
+instance Prelude.Hashable AccountModification where
+  hashWithSalt _salt AccountModification' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` dedicatedTenancySupport
+      `Prelude.hashWithSalt` modificationState
+      `Prelude.hashWithSalt` dedicatedTenancyManagementCidrRange
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData AccountModification
+instance Prelude.NFData AccountModification where
+  rnf AccountModification' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf dedicatedTenancySupport
+      `Prelude.seq` Prelude.rnf modificationState
+      `Prelude.seq` Prelude.rnf dedicatedTenancyManagementCidrRange
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

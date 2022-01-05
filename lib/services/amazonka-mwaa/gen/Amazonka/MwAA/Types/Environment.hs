@@ -508,6 +508,67 @@ instance Core.FromJSON Environment where
             Prelude.<*> (x Core..:? "MaxWorkers")
       )
 
-instance Prelude.Hashable Environment
+instance Prelude.Hashable Environment where
+  hashWithSalt _salt Environment' {..} =
+    _salt `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` schedulers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` minWorkers
+      `Prelude.hashWithSalt` pluginsS3Path
+      `Prelude.hashWithSalt` webserverAccessMode
+      `Prelude.hashWithSalt` airflowVersion
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` weeklyMaintenanceWindowStart
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` requirementsS3ObjectVersion
+      `Prelude.hashWithSalt` lastUpdate
+      `Prelude.hashWithSalt` sourceBucketArn
+      `Prelude.hashWithSalt` webserverUrl
+      `Prelude.hashWithSalt` dagS3Path
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` pluginsS3ObjectVersion
+      `Prelude.hashWithSalt` airflowConfigurationOptions
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` environmentClass
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` requirementsS3Path
+      `Prelude.hashWithSalt` maxWorkers
 
-instance Prelude.NFData Environment
+instance Prelude.NFData Environment where
+  rnf Environment' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf schedulers
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf minWorkers
+      `Prelude.seq` Prelude.rnf pluginsS3Path
+      `Prelude.seq` Prelude.rnf webserverAccessMode
+      `Prelude.seq` Prelude.rnf airflowVersion
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceWindowStart
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf requirementsS3ObjectVersion
+      `Prelude.seq` Prelude.rnf lastUpdate
+      `Prelude.seq` Prelude.rnf sourceBucketArn
+      `Prelude.seq` Prelude.rnf webserverUrl
+      `Prelude.seq` Prelude.rnf dagS3Path
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf
+        pluginsS3ObjectVersion
+      `Prelude.seq` Prelude.rnf
+        airflowConfigurationOptions
+      `Prelude.seq` Prelude.rnf
+        loggingConfiguration
+      `Prelude.seq` Prelude.rnf
+        environmentClass
+      `Prelude.seq` Prelude.rnf
+        networkConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        requirementsS3Path
+      `Prelude.seq` Prelude.rnf
+        maxWorkers

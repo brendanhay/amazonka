@@ -169,9 +169,23 @@ instance Core.AWSRequest AssociateTrunkInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTrunkInterface
+instance Prelude.Hashable AssociateTrunkInterface where
+  hashWithSalt _salt AssociateTrunkInterface' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` greKey
+      `Prelude.hashWithSalt` vlanId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` branchInterfaceId
+      `Prelude.hashWithSalt` trunkInterfaceId
 
-instance Prelude.NFData AssociateTrunkInterface
+instance Prelude.NFData AssociateTrunkInterface where
+  rnf AssociateTrunkInterface' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf greKey
+      `Prelude.seq` Prelude.rnf vlanId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf branchInterfaceId
+      `Prelude.seq` Prelude.rnf trunkInterfaceId
 
 instance Core.ToHeaders AssociateTrunkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +268,8 @@ associateTrunkInterfaceResponse_httpStatus = Lens.lens (\AssociateTrunkInterface
 instance
   Prelude.NFData
     AssociateTrunkInterfaceResponse
+  where
+  rnf AssociateTrunkInterfaceResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf interfaceAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

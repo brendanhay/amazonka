@@ -118,9 +118,15 @@ instance Core.AWSRequest StartContentUpload where
             Prelude.<*> (x Core..:> "urlExpiry")
       )
 
-instance Prelude.Hashable StartContentUpload
+instance Prelude.Hashable StartContentUpload where
+  hashWithSalt _salt StartContentUpload' {..} =
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData StartContentUpload
+instance Prelude.NFData StartContentUpload where
+  rnf StartContentUpload' {..} =
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders StartContentUpload where
   toHeaders =
@@ -227,4 +233,10 @@ startContentUploadResponse_url = Lens.lens (\StartContentUploadResponse' {url} -
 startContentUploadResponse_urlExpiry :: Lens.Lens' StartContentUploadResponse Prelude.UTCTime
 startContentUploadResponse_urlExpiry = Lens.lens (\StartContentUploadResponse' {urlExpiry} -> urlExpiry) (\s@StartContentUploadResponse' {} a -> s {urlExpiry = a} :: StartContentUploadResponse) Prelude.. Core._Time
 
-instance Prelude.NFData StartContentUploadResponse
+instance Prelude.NFData StartContentUploadResponse where
+  rnf StartContentUploadResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf headersToInclude
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf urlExpiry

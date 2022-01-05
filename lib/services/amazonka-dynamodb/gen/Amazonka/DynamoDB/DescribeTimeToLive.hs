@@ -87,9 +87,12 @@ instance Core.AWSRequest DescribeTimeToLive where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTimeToLive
+instance Prelude.Hashable DescribeTimeToLive where
+  hashWithSalt _salt DescribeTimeToLive' {..} =
+    _salt `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DescribeTimeToLive
+instance Prelude.NFData DescribeTimeToLive where
+  rnf DescribeTimeToLive' {..} = Prelude.rnf tableName
 
 instance Core.ToHeaders DescribeTimeToLive where
   toHeaders =
@@ -157,4 +160,7 @@ describeTimeToLiveResponse_timeToLiveDescription = Lens.lens (\DescribeTimeToLiv
 describeTimeToLiveResponse_httpStatus :: Lens.Lens' DescribeTimeToLiveResponse Prelude.Int
 describeTimeToLiveResponse_httpStatus = Lens.lens (\DescribeTimeToLiveResponse' {httpStatus} -> httpStatus) (\s@DescribeTimeToLiveResponse' {} a -> s {httpStatus = a} :: DescribeTimeToLiveResponse)
 
-instance Prelude.NFData DescribeTimeToLiveResponse
+instance Prelude.NFData DescribeTimeToLiveResponse where
+  rnf DescribeTimeToLiveResponse' {..} =
+    Prelude.rnf timeToLiveDescription
+      `Prelude.seq` Prelude.rnf httpStatus

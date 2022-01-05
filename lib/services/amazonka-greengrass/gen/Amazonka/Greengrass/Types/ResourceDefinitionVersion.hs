@@ -63,9 +63,13 @@ instance Core.FromJSON ResourceDefinitionVersion where
             Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourceDefinitionVersion
+instance Prelude.Hashable ResourceDefinitionVersion where
+  hashWithSalt _salt ResourceDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` resources
 
-instance Prelude.NFData ResourceDefinitionVersion
+instance Prelude.NFData ResourceDefinitionVersion where
+  rnf ResourceDefinitionVersion' {..} =
+    Prelude.rnf resources
 
 instance Core.ToJSON ResourceDefinitionVersion where
   toJSON ResourceDefinitionVersion' {..} =

@@ -182,9 +182,27 @@ instance Core.AWSRequest CreateEdgePackagingJob where
     Response.receiveNull
       CreateEdgePackagingJobResponse'
 
-instance Prelude.Hashable CreateEdgePackagingJob
+instance Prelude.Hashable CreateEdgePackagingJob where
+  hashWithSalt _salt CreateEdgePackagingJob' {..} =
+    _salt `Prelude.hashWithSalt` resourceKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` edgePackagingJobName
+      `Prelude.hashWithSalt` compilationJobName
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` outputConfig
 
-instance Prelude.NFData CreateEdgePackagingJob
+instance Prelude.NFData CreateEdgePackagingJob where
+  rnf CreateEdgePackagingJob' {..} =
+    Prelude.rnf resourceKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf edgePackagingJobName
+      `Prelude.seq` Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputConfig
 
 instance Core.ToHeaders CreateEdgePackagingJob where
   toHeaders =
@@ -244,3 +262,5 @@ newCreateEdgePackagingJobResponse =
 instance
   Prelude.NFData
     CreateEdgePackagingJobResponse
+  where
+  rnf _ = ()

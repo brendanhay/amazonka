@@ -996,9 +996,110 @@ instance Core.FromJSON OracleSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable OracleSettings
+instance Prelude.Hashable OracleSettings where
+  hashWithSalt _salt OracleSettings' {..} =
+    _salt `Prelude.hashWithSalt` useBFile
+      `Prelude.hashWithSalt` standbyDelayTime
+      `Prelude.hashWithSalt` failTasksOnLobTruncation
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` directPathNoLog
+      `Prelude.hashWithSalt` extraArchivedLogDestIds
+      `Prelude.hashWithSalt` securityDbEncryptionName
+      `Prelude.hashWithSalt` oraclePathPrefix
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` useDirectPathFullLoad
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` allowSelectNestedTables
+      `Prelude.hashWithSalt` readAheadBlocks
+      `Prelude.hashWithSalt` archivedLogDestId
+      `Prelude.hashWithSalt` replacePathPrefix
+      `Prelude.hashWithSalt` accessAlternateDirectly
+      `Prelude.hashWithSalt` secretsManagerOracleAsmSecretId
+      `Prelude.hashWithSalt` securityDbEncryption
+      `Prelude.hashWithSalt` useLogminerReader
+      `Prelude.hashWithSalt` readTableSpaceName
+      `Prelude.hashWithSalt` retryInterval
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` spatialDataOptionToGeoJsonFunctionName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` addSupplementalLogging
+      `Prelude.hashWithSalt` secretsManagerOracleAsmAccessRoleArn
+      `Prelude.hashWithSalt` asmServer
+      `Prelude.hashWithSalt` charLengthSemantics
+      `Prelude.hashWithSalt` archivedLogsOnly
+      `Prelude.hashWithSalt` directPathParallelLoad
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` additionalArchivedLogDestId
+      `Prelude.hashWithSalt` asmPassword
+      `Prelude.hashWithSalt` enableHomogenousTablespace
+      `Prelude.hashWithSalt` parallelAsmReadThreads
+      `Prelude.hashWithSalt` numberDatatypeScale
+      `Prelude.hashWithSalt` usePathPrefix
+      `Prelude.hashWithSalt` asmUser
+      `Prelude.hashWithSalt` useAlternateFolderForOnline
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData OracleSettings
+instance Prelude.NFData OracleSettings where
+  rnf OracleSettings' {..} =
+    Prelude.rnf useBFile
+      `Prelude.seq` Prelude.rnf standbyDelayTime
+      `Prelude.seq` Prelude.rnf failTasksOnLobTruncation
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf directPathNoLog
+      `Prelude.seq` Prelude.rnf extraArchivedLogDestIds
+      `Prelude.seq` Prelude.rnf securityDbEncryptionName
+      `Prelude.seq` Prelude.rnf oraclePathPrefix
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf useDirectPathFullLoad
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf allowSelectNestedTables
+      `Prelude.seq` Prelude.rnf readAheadBlocks
+      `Prelude.seq` Prelude.rnf archivedLogDestId
+      `Prelude.seq` Prelude.rnf replacePathPrefix
+      `Prelude.seq` Prelude.rnf accessAlternateDirectly
+      `Prelude.seq` Prelude.rnf
+        secretsManagerOracleAsmSecretId
+      `Prelude.seq` Prelude.rnf securityDbEncryption
+      `Prelude.seq` Prelude.rnf useLogminerReader
+      `Prelude.seq` Prelude.rnf readTableSpaceName
+      `Prelude.seq` Prelude.rnf retryInterval
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf
+        spatialDataOptionToGeoJsonFunctionName
+      `Prelude.seq` Prelude.rnf
+        databaseName
+      `Prelude.seq` Prelude.rnf
+        addSupplementalLogging
+      `Prelude.seq` Prelude.rnf
+        secretsManagerOracleAsmAccessRoleArn
+      `Prelude.seq` Prelude.rnf
+        asmServer
+      `Prelude.seq` Prelude.rnf
+        charLengthSemantics
+      `Prelude.seq` Prelude.rnf
+        archivedLogsOnly
+      `Prelude.seq` Prelude.rnf
+        directPathParallelLoad
+      `Prelude.seq` Prelude.rnf
+        secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf
+        additionalArchivedLogDestId
+      `Prelude.seq` Prelude.rnf
+        asmPassword
+      `Prelude.seq` Prelude.rnf
+        enableHomogenousTablespace
+      `Prelude.seq` Prelude.rnf
+        parallelAsmReadThreads
+      `Prelude.seq` Prelude.rnf
+        numberDatatypeScale
+      `Prelude.seq` Prelude.rnf
+        usePathPrefix
+      `Prelude.seq` Prelude.rnf
+        asmUser
+      `Prelude.seq` Prelude.rnf
+        useAlternateFolderForOnline
+      `Prelude.seq` Prelude.rnf
+        port
 
 instance Core.ToJSON OracleSettings where
   toJSON OracleSettings' {..} =

@@ -66,9 +66,15 @@ authenticationMode_passwords = Lens.lens (\AuthenticationMode' {passwords} -> pa
 authenticationMode_type :: Lens.Lens' AuthenticationMode (Prelude.Maybe InputAuthenticationType)
 authenticationMode_type = Lens.lens (\AuthenticationMode' {type'} -> type') (\s@AuthenticationMode' {} a -> s {type' = a} :: AuthenticationMode)
 
-instance Prelude.Hashable AuthenticationMode
+instance Prelude.Hashable AuthenticationMode where
+  hashWithSalt _salt AuthenticationMode' {..} =
+    _salt `Prelude.hashWithSalt` passwords
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AuthenticationMode
+instance Prelude.NFData AuthenticationMode where
+  rnf AuthenticationMode' {..} =
+    Prelude.rnf passwords
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON AuthenticationMode where
   toJSON AuthenticationMode' {..} =

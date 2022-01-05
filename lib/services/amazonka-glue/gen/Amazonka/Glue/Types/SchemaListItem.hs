@@ -122,6 +122,22 @@ instance Core.FromJSON SchemaListItem where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable SchemaListItem
+instance Prelude.Hashable SchemaListItem where
+  hashWithSalt _salt SchemaListItem' {..} =
+    _salt `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` schemaStatus
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` updatedTime
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SchemaListItem
+instance Prelude.NFData SchemaListItem where
+  rnf SchemaListItem' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf schemaStatus
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf description

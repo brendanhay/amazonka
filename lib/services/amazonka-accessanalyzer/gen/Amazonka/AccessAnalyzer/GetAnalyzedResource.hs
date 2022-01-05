@@ -108,9 +108,15 @@ instance Core.AWSRequest GetAnalyzedResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAnalyzedResource
+instance Prelude.Hashable GetAnalyzedResource where
+  hashWithSalt _salt GetAnalyzedResource' {..} =
+    _salt `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetAnalyzedResource
+instance Prelude.NFData GetAnalyzedResource where
+  rnf GetAnalyzedResource' {..} =
+    Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetAnalyzedResource where
   toHeaders =
@@ -177,4 +183,7 @@ getAnalyzedResourceResponse_resource = Lens.lens (\GetAnalyzedResourceResponse' 
 getAnalyzedResourceResponse_httpStatus :: Lens.Lens' GetAnalyzedResourceResponse Prelude.Int
 getAnalyzedResourceResponse_httpStatus = Lens.lens (\GetAnalyzedResourceResponse' {httpStatus} -> httpStatus) (\s@GetAnalyzedResourceResponse' {} a -> s {httpStatus = a} :: GetAnalyzedResourceResponse)
 
-instance Prelude.NFData GetAnalyzedResourceResponse
+instance Prelude.NFData GetAnalyzedResourceResponse where
+  rnf GetAnalyzedResourceResponse' {..} =
+    Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf httpStatus

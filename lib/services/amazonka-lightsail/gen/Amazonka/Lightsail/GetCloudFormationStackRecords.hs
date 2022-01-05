@@ -140,8 +140,13 @@ instance
 instance
   Prelude.Hashable
     GetCloudFormationStackRecords
+  where
+  hashWithSalt _salt GetCloudFormationStackRecords' {..} =
+    _salt `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetCloudFormationStackRecords
+instance Prelude.NFData GetCloudFormationStackRecords where
+  rnf GetCloudFormationStackRecords' {..} =
+    Prelude.rnf pageToken
 
 instance Core.ToHeaders GetCloudFormationStackRecords where
   toHeaders =
@@ -244,3 +249,8 @@ getCloudFormationStackRecordsResponse_httpStatus = Lens.lens (\GetCloudFormation
 instance
   Prelude.NFData
     GetCloudFormationStackRecordsResponse
+  where
+  rnf GetCloudFormationStackRecordsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf cloudFormationStackRecords
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -183,9 +183,27 @@ instance Core.AWSRequest UpdateAlarmModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAlarmModel
+instance Prelude.Hashable UpdateAlarmModel where
+  hashWithSalt _salt UpdateAlarmModel' {..} =
+    _salt `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` alarmNotification
+      `Prelude.hashWithSalt` alarmModelDescription
+      `Prelude.hashWithSalt` alarmEventActions
+      `Prelude.hashWithSalt` alarmCapabilities
+      `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` alarmRule
 
-instance Prelude.NFData UpdateAlarmModel
+instance Prelude.NFData UpdateAlarmModel where
+  rnf UpdateAlarmModel' {..} =
+    Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf alarmNotification
+      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf alarmEventActions
+      `Prelude.seq` Prelude.rnf alarmCapabilities
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf alarmRule
 
 instance Core.ToHeaders UpdateAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -339,4 +357,11 @@ updateAlarmModelResponse_alarmModelArn = Lens.lens (\UpdateAlarmModelResponse' {
 updateAlarmModelResponse_httpStatus :: Lens.Lens' UpdateAlarmModelResponse Prelude.Int
 updateAlarmModelResponse_httpStatus = Lens.lens (\UpdateAlarmModelResponse' {httpStatus} -> httpStatus) (\s@UpdateAlarmModelResponse' {} a -> s {httpStatus = a} :: UpdateAlarmModelResponse)
 
-instance Prelude.NFData UpdateAlarmModelResponse
+instance Prelude.NFData UpdateAlarmModelResponse where
+  rnf UpdateAlarmModelResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf alarmModelVersion
+      `Prelude.seq` Prelude.rnf alarmModelArn
+      `Prelude.seq` Prelude.rnf httpStatus

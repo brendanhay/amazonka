@@ -59,9 +59,12 @@ instance Core.FromJSON Unauthenticated where
           Unauthenticated' Prelude.<$> (x Core..:? "enabled")
       )
 
-instance Prelude.Hashable Unauthenticated
+instance Prelude.Hashable Unauthenticated where
+  hashWithSalt _salt Unauthenticated' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData Unauthenticated
+instance Prelude.NFData Unauthenticated where
+  rnf Unauthenticated' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON Unauthenticated where
   toJSON Unauthenticated' {..} =

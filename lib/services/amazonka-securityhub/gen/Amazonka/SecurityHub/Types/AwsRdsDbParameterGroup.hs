@@ -72,9 +72,15 @@ instance Core.FromJSON AwsRdsDbParameterGroup where
             Prelude.<*> (x Core..:? "ParameterApplyStatus")
       )
 
-instance Prelude.Hashable AwsRdsDbParameterGroup
+instance Prelude.Hashable AwsRdsDbParameterGroup where
+  hashWithSalt _salt AwsRdsDbParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` parameterApplyStatus
 
-instance Prelude.NFData AwsRdsDbParameterGroup
+instance Prelude.NFData AwsRdsDbParameterGroup where
+  rnf AwsRdsDbParameterGroup' {..} =
+    Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
 
 instance Core.ToJSON AwsRdsDbParameterGroup where
   toJSON AwsRdsDbParameterGroup' {..} =

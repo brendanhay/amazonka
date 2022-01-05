@@ -128,9 +128,19 @@ instance Core.AWSRequest CreatePackagingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePackagingGroup
+instance Prelude.Hashable CreatePackagingGroup where
+  hashWithSalt _salt CreatePackagingGroup' {..} =
+    _salt `Prelude.hashWithSalt` authorization
+      `Prelude.hashWithSalt` egressAccessLogs
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData CreatePackagingGroup
+instance Prelude.NFData CreatePackagingGroup where
+  rnf CreatePackagingGroup' {..} =
+    Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders CreatePackagingGroup where
   toHeaders =
@@ -242,4 +252,12 @@ createPackagingGroupResponse_tags = Lens.lens (\CreatePackagingGroupResponse' {t
 createPackagingGroupResponse_httpStatus :: Lens.Lens' CreatePackagingGroupResponse Prelude.Int
 createPackagingGroupResponse_httpStatus = Lens.lens (\CreatePackagingGroupResponse' {httpStatus} -> httpStatus) (\s@CreatePackagingGroupResponse' {} a -> s {httpStatus = a} :: CreatePackagingGroupResponse)
 
-instance Prelude.NFData CreatePackagingGroupResponse
+instance Prelude.NFData CreatePackagingGroupResponse where
+  rnf CreatePackagingGroupResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

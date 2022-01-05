@@ -67,9 +67,15 @@ analysisSourceTemplate_dataSetReferences = Lens.lens (\AnalysisSourceTemplate' {
 analysisSourceTemplate_arn :: Lens.Lens' AnalysisSourceTemplate Prelude.Text
 analysisSourceTemplate_arn = Lens.lens (\AnalysisSourceTemplate' {arn} -> arn) (\s@AnalysisSourceTemplate' {} a -> s {arn = a} :: AnalysisSourceTemplate)
 
-instance Prelude.Hashable AnalysisSourceTemplate
+instance Prelude.Hashable AnalysisSourceTemplate where
+  hashWithSalt _salt AnalysisSourceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` dataSetReferences
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AnalysisSourceTemplate
+instance Prelude.NFData AnalysisSourceTemplate where
+  rnf AnalysisSourceTemplate' {..} =
+    Prelude.rnf dataSetReferences
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON AnalysisSourceTemplate where
   toJSON AnalysisSourceTemplate' {..} =

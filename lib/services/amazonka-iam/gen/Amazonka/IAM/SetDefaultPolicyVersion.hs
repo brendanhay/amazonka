@@ -128,9 +128,15 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
     Response.receiveNull
       SetDefaultPolicyVersionResponse'
 
-instance Prelude.Hashable SetDefaultPolicyVersion
+instance Prelude.Hashable SetDefaultPolicyVersion where
+  hashWithSalt _salt SetDefaultPolicyVersion' {..} =
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData SetDefaultPolicyVersion
+instance Prelude.NFData SetDefaultPolicyVersion where
+  rnf SetDefaultPolicyVersion' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders SetDefaultPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +173,5 @@ newSetDefaultPolicyVersionResponse =
 instance
   Prelude.NFData
     SetDefaultPolicyVersionResponse
+  where
+  rnf _ = ()

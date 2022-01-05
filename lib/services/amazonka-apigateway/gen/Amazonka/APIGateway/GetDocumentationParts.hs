@@ -186,9 +186,25 @@ instance Core.AWSRequest GetDocumentationParts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentationParts
+instance Prelude.Hashable GetDocumentationParts where
+  hashWithSalt _salt GetDocumentationParts' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` locationStatus
+      `Prelude.hashWithSalt` nameQuery
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetDocumentationParts
+instance Prelude.NFData GetDocumentationParts where
+  rnf GetDocumentationParts' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf locationStatus
+      `Prelude.seq` Prelude.rnf nameQuery
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetDocumentationParts where
   toHeaders =
@@ -270,4 +286,8 @@ getDocumentationPartsResponse_position = Lens.lens (\GetDocumentationPartsRespon
 getDocumentationPartsResponse_httpStatus :: Lens.Lens' GetDocumentationPartsResponse Prelude.Int
 getDocumentationPartsResponse_httpStatus = Lens.lens (\GetDocumentationPartsResponse' {httpStatus} -> httpStatus) (\s@GetDocumentationPartsResponse' {} a -> s {httpStatus = a} :: GetDocumentationPartsResponse)
 
-instance Prelude.NFData GetDocumentationPartsResponse
+instance Prelude.NFData GetDocumentationPartsResponse where
+  rnf GetDocumentationPartsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf httpStatus

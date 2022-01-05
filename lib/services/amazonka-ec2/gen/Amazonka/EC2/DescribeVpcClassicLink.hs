@@ -156,9 +156,17 @@ instance Core.AWSRequest DescribeVpcClassicLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcClassicLink
+instance Prelude.Hashable DescribeVpcClassicLink where
+  hashWithSalt _salt DescribeVpcClassicLink' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` vpcIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeVpcClassicLink
+instance Prelude.NFData DescribeVpcClassicLink where
+  rnf DescribeVpcClassicLink' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf vpcIds
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeVpcClassicLink where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,3 +230,7 @@ describeVpcClassicLinkResponse_httpStatus = Lens.lens (\DescribeVpcClassicLinkRe
 instance
   Prelude.NFData
     DescribeVpcClassicLinkResponse
+  where
+  rnf DescribeVpcClassicLinkResponse' {..} =
+    Prelude.rnf vpcs
+      `Prelude.seq` Prelude.rnf httpStatus

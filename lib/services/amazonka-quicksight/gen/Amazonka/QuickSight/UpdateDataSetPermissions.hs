@@ -136,9 +136,19 @@ instance Core.AWSRequest UpdateDataSetPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSetPermissions
+instance Prelude.Hashable UpdateDataSetPermissions where
+  hashWithSalt _salt UpdateDataSetPermissions' {..} =
+    _salt `Prelude.hashWithSalt` revokePermissions
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData UpdateDataSetPermissions
+instance Prelude.NFData UpdateDataSetPermissions where
+  rnf UpdateDataSetPermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf grantPermissions
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders UpdateDataSetPermissions where
   toHeaders =
@@ -241,3 +251,9 @@ updateDataSetPermissionsResponse_status = Lens.lens (\UpdateDataSetPermissionsRe
 instance
   Prelude.NFData
     UpdateDataSetPermissionsResponse
+  where
+  rnf UpdateDataSetPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dataSetArn
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf status

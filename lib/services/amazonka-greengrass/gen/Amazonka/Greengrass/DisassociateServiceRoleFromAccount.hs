@@ -78,10 +78,15 @@ instance
 instance
   Prelude.Hashable
     DisassociateServiceRoleFromAccount
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DisassociateServiceRoleFromAccount
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -152,3 +157,7 @@ disassociateServiceRoleFromAccountResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociateServiceRoleFromAccountResponse
+  where
+  rnf DisassociateServiceRoleFromAccountResponse' {..} =
+    Prelude.rnf disassociatedAt
+      `Prelude.seq` Prelude.rnf httpStatus

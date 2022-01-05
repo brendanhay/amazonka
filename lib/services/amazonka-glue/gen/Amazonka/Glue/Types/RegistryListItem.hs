@@ -112,6 +112,20 @@ instance Core.FromJSON RegistryListItem where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable RegistryListItem
+instance Prelude.Hashable RegistryListItem where
+  hashWithSalt _salt RegistryListItem' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` registryArn
+      `Prelude.hashWithSalt` updatedTime
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RegistryListItem
+instance Prelude.NFData RegistryListItem where
+  rnf RegistryListItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf description

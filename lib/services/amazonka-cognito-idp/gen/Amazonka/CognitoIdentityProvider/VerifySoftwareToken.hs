@@ -128,9 +128,19 @@ instance Core.AWSRequest VerifySoftwareToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VerifySoftwareToken
+instance Prelude.Hashable VerifySoftwareToken where
+  hashWithSalt _salt VerifySoftwareToken' {..} =
+    _salt `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` friendlyDeviceName
+      `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` userCode
 
-instance Prelude.NFData VerifySoftwareToken
+instance Prelude.NFData VerifySoftwareToken where
+  rnf VerifySoftwareToken' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf friendlyDeviceName
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf userCode
 
 instance Core.ToHeaders VerifySoftwareToken where
   toHeaders =
@@ -216,4 +226,8 @@ verifySoftwareTokenResponse_session = Lens.lens (\VerifySoftwareTokenResponse' {
 verifySoftwareTokenResponse_httpStatus :: Lens.Lens' VerifySoftwareTokenResponse Prelude.Int
 verifySoftwareTokenResponse_httpStatus = Lens.lens (\VerifySoftwareTokenResponse' {httpStatus} -> httpStatus) (\s@VerifySoftwareTokenResponse' {} a -> s {httpStatus = a} :: VerifySoftwareTokenResponse)
 
-instance Prelude.NFData VerifySoftwareTokenResponse
+instance Prelude.NFData VerifySoftwareTokenResponse where
+  rnf VerifySoftwareTokenResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

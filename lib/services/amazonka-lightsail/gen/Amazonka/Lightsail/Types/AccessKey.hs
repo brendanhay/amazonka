@@ -149,6 +149,18 @@ instance Core.FromJSON AccessKey where
             Prelude.<*> (x Core..:? "accessKeyId")
       )
 
-instance Prelude.Hashable AccessKey
+instance Prelude.Hashable AccessKey where
+  hashWithSalt _salt AccessKey' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` secretAccessKey
+      `Prelude.hashWithSalt` lastUsed
+      `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData AccessKey
+instance Prelude.NFData AccessKey where
+  rnf AccessKey' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf lastUsed
+      `Prelude.seq` Prelude.rnf accessKeyId

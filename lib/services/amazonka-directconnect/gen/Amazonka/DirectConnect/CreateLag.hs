@@ -237,9 +237,29 @@ instance Core.AWSRequest CreateLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateLag
+instance Prelude.Hashable CreateLag where
+  hashWithSalt _salt CreateLag' {..} =
+    _salt `Prelude.hashWithSalt` childConnectionTags
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` requestMACSec
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` numberOfConnections
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` connectionsBandwidth
+      `Prelude.hashWithSalt` lagName
 
-instance Prelude.NFData CreateLag
+instance Prelude.NFData CreateLag where
+  rnf CreateLag' {..} =
+    Prelude.rnf childConnectionTags
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf requestMACSec
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf numberOfConnections
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf connectionsBandwidth
+      `Prelude.seq` Prelude.rnf lagName
 
 instance Core.ToHeaders CreateLag where
   toHeaders =

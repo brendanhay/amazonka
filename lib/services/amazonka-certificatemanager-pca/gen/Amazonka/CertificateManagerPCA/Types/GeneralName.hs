@@ -139,9 +139,27 @@ instance Core.FromJSON GeneralName where
             Prelude.<*> (x Core..:? "DirectoryName")
       )
 
-instance Prelude.Hashable GeneralName
+instance Prelude.Hashable GeneralName where
+  hashWithSalt _salt GeneralName' {..} =
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` uniformResourceIdentifier
+      `Prelude.hashWithSalt` registeredId
+      `Prelude.hashWithSalt` ediPartyName
+      `Prelude.hashWithSalt` rfc822Name
+      `Prelude.hashWithSalt` otherName
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` directoryName
 
-instance Prelude.NFData GeneralName
+instance Prelude.NFData GeneralName where
+  rnf GeneralName' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf uniformResourceIdentifier
+      `Prelude.seq` Prelude.rnf registeredId
+      `Prelude.seq` Prelude.rnf ediPartyName
+      `Prelude.seq` Prelude.rnf rfc822Name
+      `Prelude.seq` Prelude.rnf otherName
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf directoryName
 
 instance Core.ToJSON GeneralName where
   toJSON GeneralName' {..} =

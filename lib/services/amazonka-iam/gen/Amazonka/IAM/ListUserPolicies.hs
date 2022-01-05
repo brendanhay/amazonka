@@ -196,9 +196,17 @@ instance Core.AWSRequest ListUserPolicies where
                         )
       )
 
-instance Prelude.Hashable ListUserPolicies
+instance Prelude.Hashable ListUserPolicies where
+  hashWithSalt _salt ListUserPolicies' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListUserPolicies
+instance Prelude.NFData ListUserPolicies where
+  rnf ListUserPolicies' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders ListUserPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,4 +308,9 @@ listUserPoliciesResponse_httpStatus = Lens.lens (\ListUserPoliciesResponse' {htt
 listUserPoliciesResponse_policyNames :: Lens.Lens' ListUserPoliciesResponse [Prelude.Text]
 listUserPoliciesResponse_policyNames = Lens.lens (\ListUserPoliciesResponse' {policyNames} -> policyNames) (\s@ListUserPoliciesResponse' {} a -> s {policyNames = a} :: ListUserPoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListUserPoliciesResponse
+instance Prelude.NFData ListUserPoliciesResponse where
+  rnf ListUserPoliciesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyNames

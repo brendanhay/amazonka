@@ -88,9 +88,15 @@ instance Core.AWSRequest UntagMeeting where
   request = Request.postJSON defaultService
   response = Response.receiveNull UntagMeetingResponse'
 
-instance Prelude.Hashable UntagMeeting
+instance Prelude.Hashable UntagMeeting where
+  hashWithSalt _salt UntagMeeting' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagMeeting
+instance Prelude.NFData UntagMeeting where
+  rnf UntagMeeting' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagMeeting where
   toHeaders = Prelude.const Prelude.mempty
@@ -126,4 +132,5 @@ newUntagMeetingResponse ::
   UntagMeetingResponse
 newUntagMeetingResponse = UntagMeetingResponse'
 
-instance Prelude.NFData UntagMeetingResponse
+instance Prelude.NFData UntagMeetingResponse where
+  rnf _ = ()

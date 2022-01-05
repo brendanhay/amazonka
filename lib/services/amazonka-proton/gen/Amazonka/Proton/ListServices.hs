@@ -118,9 +118,15 @@ instance Core.AWSRequest ListServices where
             Prelude.<*> (x Core..?> "services" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListServices
+instance Prelude.Hashable ListServices where
+  hashWithSalt _salt ListServices' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListServices
+instance Prelude.NFData ListServices where
+  rnf ListServices' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListServices where
   toHeaders =
@@ -202,4 +208,8 @@ listServicesResponse_httpStatus = Lens.lens (\ListServicesResponse' {httpStatus}
 listServicesResponse_services :: Lens.Lens' ListServicesResponse [ServiceSummary]
 listServicesResponse_services = Lens.lens (\ListServicesResponse' {services} -> services) (\s@ListServicesResponse' {} a -> s {services = a} :: ListServicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListServicesResponse
+instance Prelude.NFData ListServicesResponse where
+  rnf ListServicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf services

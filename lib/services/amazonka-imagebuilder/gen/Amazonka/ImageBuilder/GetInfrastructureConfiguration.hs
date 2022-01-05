@@ -103,10 +103,19 @@ instance
 instance
   Prelude.Hashable
     GetInfrastructureConfiguration
+  where
+  hashWithSalt
+    _salt
+    GetInfrastructureConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` infrastructureConfigurationArn
 
 instance
   Prelude.NFData
     GetInfrastructureConfiguration
+  where
+  rnf GetInfrastructureConfiguration' {..} =
+    Prelude.rnf infrastructureConfigurationArn
 
 instance
   Core.ToHeaders
@@ -188,3 +197,8 @@ getInfrastructureConfigurationResponse_httpStatus = Lens.lens (\GetInfrastructur
 instance
   Prelude.NFData
     GetInfrastructureConfigurationResponse
+  where
+  rnf GetInfrastructureConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf infrastructureConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

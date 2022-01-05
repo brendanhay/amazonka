@@ -105,9 +105,15 @@ instance Core.AWSRequest DisableUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableUser
+instance Prelude.Hashable DisableUser where
+  hashWithSalt _salt DisableUser' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` authenticationType
 
-instance Prelude.NFData DisableUser
+instance Prelude.NFData DisableUser where
+  rnf DisableUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf authenticationType
 
 instance Core.ToHeaders DisableUser where
   toHeaders =
@@ -167,4 +173,5 @@ newDisableUserResponse pHttpStatus_ =
 disableUserResponse_httpStatus :: Lens.Lens' DisableUserResponse Prelude.Int
 disableUserResponse_httpStatus = Lens.lens (\DisableUserResponse' {httpStatus} -> httpStatus) (\s@DisableUserResponse' {} a -> s {httpStatus = a} :: DisableUserResponse)
 
-instance Prelude.NFData DisableUserResponse
+instance Prelude.NFData DisableUserResponse where
+  rnf DisableUserResponse' {..} = Prelude.rnf httpStatus

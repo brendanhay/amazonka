@@ -111,9 +111,17 @@ instance Core.AWSRequest ListTestGridSessionActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTestGridSessionActions
+instance Prelude.Hashable ListTestGridSessionActions where
+  hashWithSalt _salt ListTestGridSessionActions' {..} =
+    _salt `Prelude.hashWithSalt` maxResult
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sessionArn
 
-instance Prelude.NFData ListTestGridSessionActions
+instance Prelude.NFData ListTestGridSessionActions where
+  rnf ListTestGridSessionActions' {..} =
+    Prelude.rnf maxResult
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sessionArn
 
 instance Core.ToHeaders ListTestGridSessionActions where
   toHeaders =
@@ -197,3 +205,8 @@ listTestGridSessionActionsResponse_httpStatus = Lens.lens (\ListTestGridSessionA
 instance
   Prelude.NFData
     ListTestGridSessionActionsResponse
+  where
+  rnf ListTestGridSessionActionsResponse' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

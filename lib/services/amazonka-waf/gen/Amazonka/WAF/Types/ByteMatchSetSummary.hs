@@ -107,6 +107,12 @@ instance Core.FromJSON ByteMatchSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable ByteMatchSetSummary
+instance Prelude.Hashable ByteMatchSetSummary where
+  hashWithSalt _salt ByteMatchSetSummary' {..} =
+    _salt `Prelude.hashWithSalt` byteMatchSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ByteMatchSetSummary
+instance Prelude.NFData ByteMatchSetSummary where
+  rnf ByteMatchSetSummary' {..} =
+    Prelude.rnf byteMatchSetId
+      `Prelude.seq` Prelude.rnf name

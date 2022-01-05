@@ -266,9 +266,21 @@ instance Core.AWSRequest GetShardIterator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetShardIterator
+instance Prelude.Hashable GetShardIterator where
+  hashWithSalt _salt GetShardIterator' {..} =
+    _salt `Prelude.hashWithSalt` startingSequenceNumber
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` shardIteratorType
 
-instance Prelude.NFData GetShardIterator
+instance Prelude.NFData GetShardIterator where
+  rnf GetShardIterator' {..} =
+    Prelude.rnf startingSequenceNumber
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf shardIteratorType
 
 instance Core.ToHeaders GetShardIterator where
   toHeaders =
@@ -352,4 +364,7 @@ getShardIteratorResponse_shardIterator = Lens.lens (\GetShardIteratorResponse' {
 getShardIteratorResponse_httpStatus :: Lens.Lens' GetShardIteratorResponse Prelude.Int
 getShardIteratorResponse_httpStatus = Lens.lens (\GetShardIteratorResponse' {httpStatus} -> httpStatus) (\s@GetShardIteratorResponse' {} a -> s {httpStatus = a} :: GetShardIteratorResponse)
 
-instance Prelude.NFData GetShardIteratorResponse
+instance Prelude.NFData GetShardIteratorResponse where
+  rnf GetShardIteratorResponse' {..} =
+    Prelude.rnf shardIterator
+      `Prelude.seq` Prelude.rnf httpStatus

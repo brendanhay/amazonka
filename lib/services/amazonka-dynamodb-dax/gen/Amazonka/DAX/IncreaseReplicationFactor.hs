@@ -122,9 +122,17 @@ instance Core.AWSRequest IncreaseReplicationFactor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IncreaseReplicationFactor
+instance Prelude.Hashable IncreaseReplicationFactor where
+  hashWithSalt _salt IncreaseReplicationFactor' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` newReplicationFactor'
 
-instance Prelude.NFData IncreaseReplicationFactor
+instance Prelude.NFData IncreaseReplicationFactor where
+  rnf IncreaseReplicationFactor' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf newReplicationFactor'
 
 instance Core.ToHeaders IncreaseReplicationFactor where
   toHeaders =
@@ -203,3 +211,7 @@ increaseReplicationFactorResponse_httpStatus = Lens.lens (\IncreaseReplicationFa
 instance
   Prelude.NFData
     IncreaseReplicationFactorResponse
+  where
+  rnf IncreaseReplicationFactorResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

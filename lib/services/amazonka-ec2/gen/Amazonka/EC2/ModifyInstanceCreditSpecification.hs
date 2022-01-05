@@ -145,10 +145,22 @@ instance
 instance
   Prelude.Hashable
     ModifyInstanceCreditSpecification
+  where
+  hashWithSalt
+    _salt
+    ModifyInstanceCreditSpecification' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` instanceCreditSpecifications
 
 instance
   Prelude.NFData
     ModifyInstanceCreditSpecification
+  where
+  rnf ModifyInstanceCreditSpecification' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceCreditSpecifications
 
 instance
   Core.ToHeaders
@@ -240,3 +252,9 @@ modifyInstanceCreditSpecificationResponse_httpStatus = Lens.lens (\ModifyInstanc
 instance
   Prelude.NFData
     ModifyInstanceCreditSpecificationResponse
+  where
+  rnf ModifyInstanceCreditSpecificationResponse' {..} =
+    Prelude.rnf
+      unsuccessfulInstanceCreditSpecifications
+      `Prelude.seq` Prelude.rnf successfulInstanceCreditSpecifications
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -157,6 +157,24 @@ instance Core.FromXML DBProxyTargetGroup where
       Prelude.<*> (x Core..@? "TargetGroupName")
       Prelude.<*> (x Core..@? "IsDefault")
 
-instance Prelude.Hashable DBProxyTargetGroup
+instance Prelude.Hashable DBProxyTargetGroup where
+  hashWithSalt _salt DBProxyTargetGroup' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` connectionPoolConfig
+      `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` updatedDate
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` isDefault
 
-instance Prelude.NFData DBProxyTargetGroup
+instance Prelude.NFData DBProxyTargetGroup where
+  rnf DBProxyTargetGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf connectionPoolConfig
+      `Prelude.seq` Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf updatedDate
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf isDefault

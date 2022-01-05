@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteBot where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteBotResponse'
 
-instance Prelude.Hashable DeleteBot
+instance Prelude.Hashable DeleteBot where
+  hashWithSalt _salt DeleteBot' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteBot
+instance Prelude.NFData DeleteBot where
+  rnf DeleteBot' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteBot where
   toHeaders =
@@ -126,4 +129,5 @@ newDeleteBotResponse ::
   DeleteBotResponse
 newDeleteBotResponse = DeleteBotResponse'
 
-instance Prelude.NFData DeleteBotResponse
+instance Prelude.NFData DeleteBotResponse where
+  rnf _ = ()

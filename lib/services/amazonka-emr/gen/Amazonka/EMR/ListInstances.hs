@@ -180,9 +180,25 @@ instance Core.AWSRequest ListInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstances
+instance Prelude.Hashable ListInstances where
+  hashWithSalt _salt ListInstances' {..} =
+    _salt `Prelude.hashWithSalt` instanceGroupTypes
+      `Prelude.hashWithSalt` instanceFleetType
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` instanceFleetId
+      `Prelude.hashWithSalt` instanceStates
+      `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData ListInstances
+instance Prelude.NFData ListInstances where
+  rnf ListInstances' {..} =
+    Prelude.rnf instanceGroupTypes
+      `Prelude.seq` Prelude.rnf instanceFleetType
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instanceFleetId
+      `Prelude.seq` Prelude.rnf instanceStates
+      `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ListInstances where
   toHeaders =
@@ -273,4 +289,8 @@ listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances}
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
 listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatus} -> httpStatus) (\s@ListInstancesResponse' {} a -> s {httpStatus = a} :: ListInstancesResponse)
 
-instance Prelude.NFData ListInstancesResponse
+instance Prelude.NFData ListInstancesResponse where
+  rnf ListInstancesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf httpStatus

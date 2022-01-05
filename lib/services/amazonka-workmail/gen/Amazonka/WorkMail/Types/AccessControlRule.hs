@@ -174,6 +174,30 @@ instance Core.FromJSON AccessControlRule where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AccessControlRule
+instance Prelude.Hashable AccessControlRule where
+  hashWithSalt _salt AccessControlRule' {..} =
+    _salt `Prelude.hashWithSalt` effect
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` notUserIds
+      `Prelude.hashWithSalt` dateModified
+      `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` notIpRanges
+      `Prelude.hashWithSalt` notActions
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AccessControlRule
+instance Prelude.NFData AccessControlRule where
+  rnf AccessControlRule' {..} =
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf notUserIds
+      `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf notIpRanges
+      `Prelude.seq` Prelude.rnf notActions
+      `Prelude.seq` Prelude.rnf description

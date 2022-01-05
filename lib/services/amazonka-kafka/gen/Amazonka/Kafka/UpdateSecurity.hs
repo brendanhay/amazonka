@@ -133,9 +133,19 @@ instance Core.AWSRequest UpdateSecurity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecurity
+instance Prelude.Hashable UpdateSecurity where
+  hashWithSalt _salt UpdateSecurity' {..} =
+    _salt `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` encryptionInfo
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData UpdateSecurity
+instance Prelude.NFData UpdateSecurity where
+  rnf UpdateSecurity' {..} =
+    Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf encryptionInfo
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf currentVersion
 
 instance Core.ToHeaders UpdateSecurity where
   toHeaders =
@@ -217,4 +227,8 @@ updateSecurityResponse_clusterOperationArn = Lens.lens (\UpdateSecurityResponse'
 updateSecurityResponse_httpStatus :: Lens.Lens' UpdateSecurityResponse Prelude.Int
 updateSecurityResponse_httpStatus = Lens.lens (\UpdateSecurityResponse' {httpStatus} -> httpStatus) (\s@UpdateSecurityResponse' {} a -> s {httpStatus = a} :: UpdateSecurityResponse)
 
-instance Prelude.NFData UpdateSecurityResponse
+instance Prelude.NFData UpdateSecurityResponse where
+  rnf UpdateSecurityResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterOperationArn
+      `Prelude.seq` Prelude.rnf httpStatus

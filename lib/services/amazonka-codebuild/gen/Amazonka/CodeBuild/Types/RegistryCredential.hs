@@ -101,9 +101,15 @@ instance Core.FromJSON RegistryCredential where
             Prelude.<*> (x Core..: "credentialProvider")
       )
 
-instance Prelude.Hashable RegistryCredential
+instance Prelude.Hashable RegistryCredential where
+  hashWithSalt _salt RegistryCredential' {..} =
+    _salt `Prelude.hashWithSalt` credential
+      `Prelude.hashWithSalt` credentialProvider
 
-instance Prelude.NFData RegistryCredential
+instance Prelude.NFData RegistryCredential where
+  rnf RegistryCredential' {..} =
+    Prelude.rnf credential
+      `Prelude.seq` Prelude.rnf credentialProvider
 
 instance Core.ToJSON RegistryCredential where
   toJSON RegistryCredential' {..} =

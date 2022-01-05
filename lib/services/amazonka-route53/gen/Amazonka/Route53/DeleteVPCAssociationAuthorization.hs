@@ -137,10 +137,20 @@ instance
 instance
   Prelude.Hashable
     DeleteVPCAssociationAuthorization
+  where
+  hashWithSalt
+    _salt
+    DeleteVPCAssociationAuthorization' {..} =
+      _salt `Prelude.hashWithSalt` hostedZoneId
+        `Prelude.hashWithSalt` vpc
 
 instance
   Prelude.NFData
     DeleteVPCAssociationAuthorization
+  where
+  rnf DeleteVPCAssociationAuthorization' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf vpc
 
 instance
   Core.ToElement
@@ -213,3 +223,6 @@ deleteVPCAssociationAuthorizationResponse_httpStatus = Lens.lens (\DeleteVPCAsso
 instance
   Prelude.NFData
     DeleteVPCAssociationAuthorizationResponse
+  where
+  rnf DeleteVPCAssociationAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus

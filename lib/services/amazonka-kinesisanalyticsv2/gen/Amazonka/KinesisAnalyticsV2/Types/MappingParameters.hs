@@ -84,9 +84,15 @@ instance Core.FromJSON MappingParameters where
             Prelude.<*> (x Core..:? "JSONMappingParameters")
       )
 
-instance Prelude.Hashable MappingParameters
+instance Prelude.Hashable MappingParameters where
+  hashWithSalt _salt MappingParameters' {..} =
+    _salt `Prelude.hashWithSalt` cSVMappingParameters
+      `Prelude.hashWithSalt` jSONMappingParameters
 
-instance Prelude.NFData MappingParameters
+instance Prelude.NFData MappingParameters where
+  rnf MappingParameters' {..} =
+    Prelude.rnf cSVMappingParameters
+      `Prelude.seq` Prelude.rnf jSONMappingParameters
 
 instance Core.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =

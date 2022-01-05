@@ -73,6 +73,12 @@ instance Core.FromJSON ConsumedLicenseSummary where
             Prelude.<*> (x Core..:? "ConsumedLicenses")
       )
 
-instance Prelude.Hashable ConsumedLicenseSummary
+instance Prelude.Hashable ConsumedLicenseSummary where
+  hashWithSalt _salt ConsumedLicenseSummary' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` consumedLicenses
 
-instance Prelude.NFData ConsumedLicenseSummary
+instance Prelude.NFData ConsumedLicenseSummary where
+  rnf ConsumedLicenseSummary' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf consumedLicenses

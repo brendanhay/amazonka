@@ -118,6 +118,21 @@ instance Core.FromJSON DataReplicationInfo where
             Prelude.<*> (x Core..:? "etaDateTime")
       )
 
-instance Prelude.Hashable DataReplicationInfo
+instance Prelude.Hashable DataReplicationInfo where
+  hashWithSalt _salt DataReplicationInfo' {..} =
+    _salt
+      `Prelude.hashWithSalt` dataReplicationInitiation
+      `Prelude.hashWithSalt` dataReplicationError
+      `Prelude.hashWithSalt` lagDuration
+      `Prelude.hashWithSalt` dataReplicationState
+      `Prelude.hashWithSalt` replicatedDisks
+      `Prelude.hashWithSalt` etaDateTime
 
-instance Prelude.NFData DataReplicationInfo
+instance Prelude.NFData DataReplicationInfo where
+  rnf DataReplicationInfo' {..} =
+    Prelude.rnf dataReplicationInitiation
+      `Prelude.seq` Prelude.rnf dataReplicationError
+      `Prelude.seq` Prelude.rnf lagDuration
+      `Prelude.seq` Prelude.rnf dataReplicationState
+      `Prelude.seq` Prelude.rnf replicatedDisks
+      `Prelude.seq` Prelude.rnf etaDateTime

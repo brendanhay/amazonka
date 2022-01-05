@@ -247,9 +247,25 @@ instance Core.AWSRequest StartSupportDataExport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSupportDataExport
+instance Prelude.Hashable StartSupportDataExport where
+  hashWithSalt _salt StartSupportDataExport' {..} =
+    _salt `Prelude.hashWithSalt` customerDefinedValues
+      `Prelude.hashWithSalt` destinationS3Prefix
+      `Prelude.hashWithSalt` dataSetType
+      `Prelude.hashWithSalt` fromDate
+      `Prelude.hashWithSalt` roleNameArn
+      `Prelude.hashWithSalt` destinationS3BucketName
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData StartSupportDataExport
+instance Prelude.NFData StartSupportDataExport where
+  rnf StartSupportDataExport' {..} =
+    Prelude.rnf customerDefinedValues
+      `Prelude.seq` Prelude.rnf destinationS3Prefix
+      `Prelude.seq` Prelude.rnf dataSetType
+      `Prelude.seq` Prelude.rnf fromDate
+      `Prelude.seq` Prelude.rnf roleNameArn
+      `Prelude.seq` Prelude.rnf destinationS3BucketName
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance Core.ToHeaders StartSupportDataExport where
   toHeaders =
@@ -341,3 +357,7 @@ startSupportDataExportResponse_httpStatus = Lens.lens (\StartSupportDataExportRe
 instance
   Prelude.NFData
     StartSupportDataExportResponse
+  where
+  rnf StartSupportDataExportResponse' {..} =
+    Prelude.rnf dataSetRequestId
+      `Prelude.seq` Prelude.rnf httpStatus

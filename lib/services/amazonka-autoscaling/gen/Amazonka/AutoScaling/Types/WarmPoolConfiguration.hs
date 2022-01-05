@@ -95,6 +95,16 @@ instance Core.FromXML WarmPoolConfiguration where
       Prelude.<*> (x Core..@? "MaxGroupPreparedCapacity")
       Prelude.<*> (x Core..@? "PoolState")
 
-instance Prelude.Hashable WarmPoolConfiguration
+instance Prelude.Hashable WarmPoolConfiguration where
+  hashWithSalt _salt WarmPoolConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` maxGroupPreparedCapacity
+      `Prelude.hashWithSalt` poolState
 
-instance Prelude.NFData WarmPoolConfiguration
+instance Prelude.NFData WarmPoolConfiguration where
+  rnf WarmPoolConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
+      `Prelude.seq` Prelude.rnf poolState

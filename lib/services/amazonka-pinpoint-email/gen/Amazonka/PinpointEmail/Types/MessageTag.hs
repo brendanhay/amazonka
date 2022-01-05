@@ -99,9 +99,14 @@ messageTag_name = Lens.lens (\MessageTag' {name} -> name) (\s@MessageTag' {} a -
 messageTag_value :: Lens.Lens' MessageTag Prelude.Text
 messageTag_value = Lens.lens (\MessageTag' {value} -> value) (\s@MessageTag' {} a -> s {value = a} :: MessageTag)
 
-instance Prelude.Hashable MessageTag
+instance Prelude.Hashable MessageTag where
+  hashWithSalt _salt MessageTag' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MessageTag
+instance Prelude.NFData MessageTag where
+  rnf MessageTag' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON MessageTag where
   toJSON MessageTag' {..} =

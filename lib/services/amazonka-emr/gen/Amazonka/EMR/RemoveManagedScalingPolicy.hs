@@ -90,9 +90,13 @@ instance Core.AWSRequest RemoveManagedScalingPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveManagedScalingPolicy
+instance Prelude.Hashable RemoveManagedScalingPolicy where
+  hashWithSalt _salt RemoveManagedScalingPolicy' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData RemoveManagedScalingPolicy
+instance Prelude.NFData RemoveManagedScalingPolicy where
+  rnf RemoveManagedScalingPolicy' {..} =
+    Prelude.rnf clusterId
 
 instance Core.ToHeaders RemoveManagedScalingPolicy where
   toHeaders =
@@ -155,3 +159,6 @@ removeManagedScalingPolicyResponse_httpStatus = Lens.lens (\RemoveManagedScaling
 instance
   Prelude.NFData
     RemoveManagedScalingPolicyResponse
+  where
+  rnf RemoveManagedScalingPolicyResponse' {..} =
+    Prelude.rnf httpStatus

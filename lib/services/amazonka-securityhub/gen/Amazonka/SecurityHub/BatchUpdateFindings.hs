@@ -341,9 +341,31 @@ instance Core.AWSRequest BatchUpdateFindings where
                         )
       )
 
-instance Prelude.Hashable BatchUpdateFindings
+instance Prelude.Hashable BatchUpdateFindings where
+  hashWithSalt _salt BatchUpdateFindings' {..} =
+    _salt `Prelude.hashWithSalt` criticality
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` relatedFindings
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` workflow
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` userDefinedFields
+      `Prelude.hashWithSalt` findingIdentifiers
 
-instance Prelude.NFData BatchUpdateFindings
+instance Prelude.NFData BatchUpdateFindings where
+  rnf BatchUpdateFindings' {..} =
+    Prelude.rnf criticality
+      `Prelude.seq` Prelude.rnf note
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf relatedFindings
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf workflow
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf userDefinedFields
+      `Prelude.seq` Prelude.rnf findingIdentifiers
 
 instance Core.ToHeaders BatchUpdateFindings where
   toHeaders =
@@ -431,4 +453,8 @@ batchUpdateFindingsResponse_processedFindings = Lens.lens (\BatchUpdateFindingsR
 batchUpdateFindingsResponse_unprocessedFindings :: Lens.Lens' BatchUpdateFindingsResponse [BatchUpdateFindingsUnprocessedFinding]
 batchUpdateFindingsResponse_unprocessedFindings = Lens.lens (\BatchUpdateFindingsResponse' {unprocessedFindings} -> unprocessedFindings) (\s@BatchUpdateFindingsResponse' {} a -> s {unprocessedFindings = a} :: BatchUpdateFindingsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchUpdateFindingsResponse
+instance Prelude.NFData BatchUpdateFindingsResponse where
+  rnf BatchUpdateFindingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf processedFindings
+      `Prelude.seq` Prelude.rnf unprocessedFindings

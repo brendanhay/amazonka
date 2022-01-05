@@ -94,6 +94,17 @@ instance Core.FromJSON SidewalkDevice where
             Prelude.<*> (x Core..:? "SidewalkId")
       )
 
-instance Prelude.Hashable SidewalkDevice
+instance Prelude.Hashable SidewalkDevice where
+  hashWithSalt _salt SidewalkDevice' {..} =
+    _salt
+      `Prelude.hashWithSalt` sidewalkManufacturingSn
+      `Prelude.hashWithSalt` amazonId
+      `Prelude.hashWithSalt` deviceCertificates
+      `Prelude.hashWithSalt` sidewalkId
 
-instance Prelude.NFData SidewalkDevice
+instance Prelude.NFData SidewalkDevice where
+  rnf SidewalkDevice' {..} =
+    Prelude.rnf sidewalkManufacturingSn
+      `Prelude.seq` Prelude.rnf amazonId
+      `Prelude.seq` Prelude.rnf deviceCertificates
+      `Prelude.seq` Prelude.rnf sidewalkId

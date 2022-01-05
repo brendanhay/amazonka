@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.SourceTableDetails where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BillingMode
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
@@ -185,6 +186,26 @@ instance Core.FromJSON SourceTableDetails where
             Prelude.<*> (x Core..: "ProvisionedThroughput")
       )
 
-instance Prelude.Hashable SourceTableDetails
+instance Prelude.Hashable SourceTableDetails where
+  hashWithSalt _salt SourceTableDetails' {..} =
+    _salt `Prelude.hashWithSalt` tableSizeBytes
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` tableCreationDateTime
+      `Prelude.hashWithSalt` provisionedThroughput
 
-instance Prelude.NFData SourceTableDetails
+instance Prelude.NFData SourceTableDetails where
+  rnf SourceTableDetails' {..} =
+    Prelude.rnf tableSizeBytes
+      `Prelude.seq` Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf tableCreationDateTime
+      `Prelude.seq` Prelude.rnf provisionedThroughput

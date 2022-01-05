@@ -193,8 +193,19 @@ instance
 instance
   Prelude.Hashable
     DescribeEventsForOrganization
+  where
+  hashWithSalt _salt DescribeEventsForOrganization' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeEventsForOrganization
+instance Prelude.NFData DescribeEventsForOrganization where
+  rnf DescribeEventsForOrganization' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeEventsForOrganization where
   toHeaders =
@@ -291,3 +302,8 @@ describeEventsForOrganizationResponse_httpStatus = Lens.lens (\DescribeEventsFor
 instance
   Prelude.NFData
     DescribeEventsForOrganizationResponse
+  where
+  rnf DescribeEventsForOrganizationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

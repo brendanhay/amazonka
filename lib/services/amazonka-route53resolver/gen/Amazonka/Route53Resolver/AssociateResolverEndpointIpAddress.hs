@@ -123,10 +123,20 @@ instance
 instance
   Prelude.Hashable
     AssociateResolverEndpointIpAddress
+  where
+  hashWithSalt
+    _salt
+    AssociateResolverEndpointIpAddress' {..} =
+      _salt `Prelude.hashWithSalt` resolverEndpointId
+        `Prelude.hashWithSalt` ipAddress
 
 instance
   Prelude.NFData
     AssociateResolverEndpointIpAddress
+  where
+  rnf AssociateResolverEndpointIpAddress' {..} =
+    Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf ipAddress
 
 instance
   Core.ToHeaders
@@ -214,3 +224,7 @@ associateResolverEndpointIpAddressResponse_httpStatus = Lens.lens (\AssociateRes
 instance
   Prelude.NFData
     AssociateResolverEndpointIpAddressResponse
+  where
+  rnf AssociateResolverEndpointIpAddressResponse' {..} =
+    Prelude.rnf resolverEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

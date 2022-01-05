@@ -146,9 +146,21 @@ instance Core.FromJSON RowLevelPermissionDataSet where
             Prelude.<*> (x Core..: "PermissionPolicy")
       )
 
-instance Prelude.Hashable RowLevelPermissionDataSet
+instance Prelude.Hashable RowLevelPermissionDataSet where
+  hashWithSalt _salt RowLevelPermissionDataSet' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` formatVersion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` permissionPolicy
 
-instance Prelude.NFData RowLevelPermissionDataSet
+instance Prelude.NFData RowLevelPermissionDataSet where
+  rnf RowLevelPermissionDataSet' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf formatVersion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf permissionPolicy
 
 instance Core.ToJSON RowLevelPermissionDataSet where
   toJSON RowLevelPermissionDataSet' {..} =

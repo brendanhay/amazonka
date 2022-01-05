@@ -100,9 +100,12 @@ instance Core.AWSRequest BulkPublish where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BulkPublish
+instance Prelude.Hashable BulkPublish where
+  hashWithSalt _salt BulkPublish' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData BulkPublish
+instance Prelude.NFData BulkPublish where
+  rnf BulkPublish' {..} = Prelude.rnf identityPoolId
 
 instance Core.ToHeaders BulkPublish where
   toHeaders =
@@ -176,4 +179,7 @@ bulkPublishResponse_identityPoolId = Lens.lens (\BulkPublishResponse' {identityP
 bulkPublishResponse_httpStatus :: Lens.Lens' BulkPublishResponse Prelude.Int
 bulkPublishResponse_httpStatus = Lens.lens (\BulkPublishResponse' {httpStatus} -> httpStatus) (\s@BulkPublishResponse' {} a -> s {httpStatus = a} :: BulkPublishResponse)
 
-instance Prelude.NFData BulkPublishResponse
+instance Prelude.NFData BulkPublishResponse where
+  rnf BulkPublishResponse' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf httpStatus

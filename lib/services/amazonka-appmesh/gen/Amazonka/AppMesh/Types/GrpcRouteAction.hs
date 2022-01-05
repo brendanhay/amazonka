@@ -68,9 +68,13 @@ instance Core.FromJSON GrpcRouteAction where
             Prelude.<$> (x Core..: "weightedTargets")
       )
 
-instance Prelude.Hashable GrpcRouteAction
+instance Prelude.Hashable GrpcRouteAction where
+  hashWithSalt _salt GrpcRouteAction' {..} =
+    _salt `Prelude.hashWithSalt` weightedTargets
 
-instance Prelude.NFData GrpcRouteAction
+instance Prelude.NFData GrpcRouteAction where
+  rnf GrpcRouteAction' {..} =
+    Prelude.rnf weightedTargets
 
 instance Core.ToJSON GrpcRouteAction where
   toJSON GrpcRouteAction' {..} =

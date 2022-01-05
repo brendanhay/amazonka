@@ -84,6 +84,12 @@ instance Core.FromJSON AuthorizationData where
             Prelude.<*> (x Core..:? "authorizationToken")
       )
 
-instance Prelude.Hashable AuthorizationData
+instance Prelude.Hashable AuthorizationData where
+  hashWithSalt _salt AuthorizationData' {..} =
+    _salt `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` authorizationToken
 
-instance Prelude.NFData AuthorizationData
+instance Prelude.NFData AuthorizationData where
+  rnf AuthorizationData' {..} =
+    Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf authorizationToken

@@ -108,6 +108,19 @@ instance Core.FromJSON DomainName where
             Prelude.<*> (x Core..: "domainName")
       )
 
-instance Prelude.Hashable DomainName
+instance Prelude.Hashable DomainName where
+  hashWithSalt _salt DomainName' {..} =
+    _salt
+      `Prelude.hashWithSalt` domainNameConfigurations
+      `Prelude.hashWithSalt` mutualTlsAuthentication
+      `Prelude.hashWithSalt` apiMappingSelectionExpression
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DomainName
+instance Prelude.NFData DomainName where
+  rnf DomainName' {..} =
+    Prelude.rnf domainNameConfigurations
+      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf apiMappingSelectionExpression
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName

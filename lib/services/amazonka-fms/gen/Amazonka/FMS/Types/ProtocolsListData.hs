@@ -138,9 +138,25 @@ instance Core.FromJSON ProtocolsListData where
             Prelude.<*> (x Core..:? "ProtocolsList" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProtocolsListData
+instance Prelude.Hashable ProtocolsListData where
+  hashWithSalt _salt ProtocolsListData' {..} =
+    _salt `Prelude.hashWithSalt` listUpdateToken
+      `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` previousProtocolsList
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` listName
+      `Prelude.hashWithSalt` protocolsList
 
-instance Prelude.NFData ProtocolsListData
+instance Prelude.NFData ProtocolsListData where
+  rnf ProtocolsListData' {..} =
+    Prelude.rnf listUpdateToken
+      `Prelude.seq` Prelude.rnf listId
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf previousProtocolsList
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf listName
+      `Prelude.seq` Prelude.rnf protocolsList
 
 instance Core.ToJSON ProtocolsListData where
   toJSON ProtocolsListData' {..} =

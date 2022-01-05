@@ -397,6 +397,30 @@ instance Core.FromJSON Test where
             Prelude.<*> (x Core..:? "started")
       )
 
-instance Prelude.Hashable Test
+instance Prelude.Hashable Test where
+  hashWithSalt _salt Test' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` counters
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` started
 
-instance Prelude.NFData Test
+instance Prelude.NFData Test where
+  rnf Test' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf counters
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deviceMinutes
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf started

@@ -227,9 +227,21 @@ instance Core.AWSRequest StartReplicationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartReplicationTask
+instance Prelude.Hashable StartReplicationTask where
+  hashWithSalt _salt StartReplicationTask' {..} =
+    _salt `Prelude.hashWithSalt` cdcStartPosition
+      `Prelude.hashWithSalt` cdcStopPosition
+      `Prelude.hashWithSalt` cdcStartTime
+      `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` startReplicationTaskType
 
-instance Prelude.NFData StartReplicationTask
+instance Prelude.NFData StartReplicationTask where
+  rnf StartReplicationTask' {..} =
+    Prelude.rnf cdcStartPosition
+      `Prelude.seq` Prelude.rnf cdcStopPosition
+      `Prelude.seq` Prelude.rnf cdcStartTime
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf startReplicationTaskType
 
 instance Core.ToHeaders StartReplicationTask where
   toHeaders =
@@ -311,4 +323,7 @@ startReplicationTaskResponse_replicationTask = Lens.lens (\StartReplicationTaskR
 startReplicationTaskResponse_httpStatus :: Lens.Lens' StartReplicationTaskResponse Prelude.Int
 startReplicationTaskResponse_httpStatus = Lens.lens (\StartReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@StartReplicationTaskResponse' {} a -> s {httpStatus = a} :: StartReplicationTaskResponse)
 
-instance Prelude.NFData StartReplicationTaskResponse
+instance Prelude.NFData StartReplicationTaskResponse where
+  rnf StartReplicationTaskResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

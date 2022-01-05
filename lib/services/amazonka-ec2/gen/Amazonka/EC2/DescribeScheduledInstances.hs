@@ -217,9 +217,23 @@ instance Core.AWSRequest DescribeScheduledInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledInstances
+instance Prelude.Hashable DescribeScheduledInstances where
+  hashWithSalt _salt DescribeScheduledInstances' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` slotStartTimeRange
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` scheduledInstanceIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeScheduledInstances
+instance Prelude.NFData DescribeScheduledInstances where
+  rnf DescribeScheduledInstances' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf slotStartTimeRange
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scheduledInstanceIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,3 +316,8 @@ describeScheduledInstancesResponse_httpStatus = Lens.lens (\DescribeScheduledIns
 instance
   Prelude.NFData
     DescribeScheduledInstancesResponse
+  where
+  rnf DescribeScheduledInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scheduledInstanceSet
+      `Prelude.seq` Prelude.rnf httpStatus

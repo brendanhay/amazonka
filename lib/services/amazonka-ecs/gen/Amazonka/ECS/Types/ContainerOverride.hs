@@ -189,9 +189,27 @@ instance Core.FromJSON ContainerOverride where
             Prelude.<*> (x Core..:? "memoryReservation")
       )
 
-instance Prelude.Hashable ContainerOverride
+instance Prelude.Hashable ContainerOverride where
+  hashWithSalt _salt ContainerOverride' {..} =
+    _salt `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` environmentFiles
+      `Prelude.hashWithSalt` resourceRequirements
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` memoryReservation
 
-instance Prelude.NFData ContainerOverride
+instance Prelude.NFData ContainerOverride where
+  rnf ContainerOverride' {..} =
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf environmentFiles
+      `Prelude.seq` Prelude.rnf resourceRequirements
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf memoryReservation
 
 instance Core.ToJSON ContainerOverride where
   toJSON ContainerOverride' {..} =

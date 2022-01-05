@@ -117,9 +117,15 @@ instance Core.AWSRequest SetDataRetrievalPolicy where
     Response.receiveNull
       SetDataRetrievalPolicyResponse'
 
-instance Prelude.Hashable SetDataRetrievalPolicy
+instance Prelude.Hashable SetDataRetrievalPolicy where
+  hashWithSalt _salt SetDataRetrievalPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData SetDataRetrievalPolicy
+instance Prelude.NFData SetDataRetrievalPolicy where
+  rnf SetDataRetrievalPolicy' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders SetDataRetrievalPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,3 +166,5 @@ newSetDataRetrievalPolicyResponse =
 instance
   Prelude.NFData
     SetDataRetrievalPolicyResponse
+  where
+  rnf _ = ()

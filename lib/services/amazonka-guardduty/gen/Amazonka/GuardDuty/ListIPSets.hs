@@ -140,9 +140,17 @@ instance Core.AWSRequest ListIPSets where
             Prelude.<*> (x Core..?> "ipSetIds" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListIPSets
+instance Prelude.Hashable ListIPSets where
+  hashWithSalt _salt ListIPSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData ListIPSets
+instance Prelude.NFData ListIPSets where
+  rnf ListIPSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders ListIPSets where
   toHeaders =
@@ -217,4 +225,8 @@ listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> 
 listIPSetsResponse_ipSetIds :: Lens.Lens' ListIPSetsResponse [Prelude.Text]
 listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListIPSetsResponse
+instance Prelude.NFData ListIPSetsResponse where
+  rnf ListIPSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ipSetIds

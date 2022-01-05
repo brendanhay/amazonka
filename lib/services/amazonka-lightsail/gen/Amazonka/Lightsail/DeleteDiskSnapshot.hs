@@ -105,9 +105,13 @@ instance Core.AWSRequest DeleteDiskSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDiskSnapshot
+instance Prelude.Hashable DeleteDiskSnapshot where
+  hashWithSalt _salt DeleteDiskSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` diskSnapshotName
 
-instance Prelude.NFData DeleteDiskSnapshot
+instance Prelude.NFData DeleteDiskSnapshot where
+  rnf DeleteDiskSnapshot' {..} =
+    Prelude.rnf diskSnapshotName
 
 instance Core.ToHeaders DeleteDiskSnapshot where
   toHeaders =
@@ -184,4 +188,7 @@ deleteDiskSnapshotResponse_operations = Lens.lens (\DeleteDiskSnapshotResponse' 
 deleteDiskSnapshotResponse_httpStatus :: Lens.Lens' DeleteDiskSnapshotResponse Prelude.Int
 deleteDiskSnapshotResponse_httpStatus = Lens.lens (\DeleteDiskSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteDiskSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteDiskSnapshotResponse)
 
-instance Prelude.NFData DeleteDiskSnapshotResponse
+instance Prelude.NFData DeleteDiskSnapshotResponse where
+  rnf DeleteDiskSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

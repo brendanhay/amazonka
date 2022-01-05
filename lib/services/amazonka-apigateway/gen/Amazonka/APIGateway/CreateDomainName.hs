@@ -286,9 +286,37 @@ instance Core.AWSRequest CreateDomainName where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDomainName
+instance Prelude.Hashable CreateDomainName where
+  hashWithSalt _salt CreateDomainName' {..} =
+    _salt `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` ownershipVerificationCertificateArn
+      `Prelude.hashWithSalt` regionalCertificateArn
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` securityPolicy
+      `Prelude.hashWithSalt` mutualTlsAuthentication
+      `Prelude.hashWithSalt` certificatePrivateKey
+      `Prelude.hashWithSalt` regionalCertificateName
+      `Prelude.hashWithSalt` certificateBody
+      `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CreateDomainName
+instance Prelude.NFData CreateDomainName where
+  rnf CreateDomainName' {..} =
+    Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
+      `Prelude.seq` Prelude.rnf regionalCertificateArn
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf securityPolicy
+      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf certificatePrivateKey
+      `Prelude.seq` Prelude.rnf regionalCertificateName
+      `Prelude.seq` Prelude.rnf certificateBody
+      `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CreateDomainName where
   toHeaders =

@@ -139,9 +139,19 @@ instance Core.AWSRequest CreateAsset where
             Prelude.<*> (x Core..:> "assetStatus")
       )
 
-instance Prelude.Hashable CreateAsset
+instance Prelude.Hashable CreateAsset where
+  hashWithSalt _salt CreateAsset' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` assetName
+      `Prelude.hashWithSalt` assetModelId
 
-instance Prelude.NFData CreateAsset
+instance Prelude.NFData CreateAsset where
+  rnf CreateAsset' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf assetModelId
 
 instance Core.ToHeaders CreateAsset where
   toHeaders =
@@ -255,4 +265,9 @@ createAssetResponse_assetArn = Lens.lens (\CreateAssetResponse' {assetArn} -> as
 createAssetResponse_assetStatus :: Lens.Lens' CreateAssetResponse AssetStatus
 createAssetResponse_assetStatus = Lens.lens (\CreateAssetResponse' {assetStatus} -> assetStatus) (\s@CreateAssetResponse' {} a -> s {assetStatus = a} :: CreateAssetResponse)
 
-instance Prelude.NFData CreateAssetResponse
+instance Prelude.NFData CreateAssetResponse where
+  rnf CreateAssetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf assetArn
+      `Prelude.seq` Prelude.rnf assetStatus

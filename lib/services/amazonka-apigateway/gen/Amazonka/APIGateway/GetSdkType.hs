@@ -83,9 +83,12 @@ instance Core.AWSRequest GetSdkType where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetSdkType
+instance Prelude.Hashable GetSdkType where
+  hashWithSalt _salt GetSdkType' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetSdkType
+instance Prelude.NFData GetSdkType where
+  rnf GetSdkType' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetSdkType where
   toHeaders =

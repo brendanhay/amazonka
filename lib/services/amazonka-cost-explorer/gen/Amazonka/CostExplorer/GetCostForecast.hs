@@ -355,9 +355,22 @@ instance Core.AWSRequest GetCostForecast where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCostForecast
+instance Prelude.Hashable GetCostForecast where
+  hashWithSalt _salt GetCostForecast' {..} =
+    _salt
+      `Prelude.hashWithSalt` predictionIntervalLevel
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` granularity
 
-instance Prelude.NFData GetCostForecast
+instance Prelude.NFData GetCostForecast where
+  rnf GetCostForecast' {..} =
+    Prelude.rnf predictionIntervalLevel
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf granularity
 
 instance Core.ToHeaders GetCostForecast where
   toHeaders =
@@ -444,4 +457,8 @@ getCostForecastResponse_total = Lens.lens (\GetCostForecastResponse' {total} -> 
 getCostForecastResponse_httpStatus :: Lens.Lens' GetCostForecastResponse Prelude.Int
 getCostForecastResponse_httpStatus = Lens.lens (\GetCostForecastResponse' {httpStatus} -> httpStatus) (\s@GetCostForecastResponse' {} a -> s {httpStatus = a} :: GetCostForecastResponse)
 
-instance Prelude.NFData GetCostForecastResponse
+instance Prelude.NFData GetCostForecastResponse where
+  rnf GetCostForecastResponse' {..} =
+    Prelude.rnf forecastResultsByTime
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf httpStatus

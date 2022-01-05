@@ -107,9 +107,15 @@ instance Core.AWSRequest RemoveNotificationChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveNotificationChannel
+instance Prelude.Hashable RemoveNotificationChannel where
+  hashWithSalt _salt RemoveNotificationChannel' {..} =
+    _salt `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData RemoveNotificationChannel
+instance Prelude.NFData RemoveNotificationChannel where
+  rnf RemoveNotificationChannel' {..} =
+    Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders RemoveNotificationChannel where
   toHeaders =
@@ -178,3 +184,7 @@ removeNotificationChannelResponse_httpStatus = Lens.lens (\RemoveNotificationCha
 instance
   Prelude.NFData
     RemoveNotificationChannelResponse
+  where
+  rnf RemoveNotificationChannelResponse' {..} =
+    Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

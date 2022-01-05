@@ -169,9 +169,21 @@ instance Core.AWSRequest GetConnections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConnections
+instance Prelude.Hashable GetConnections where
+  hashWithSalt _salt GetConnections' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` hidePassword
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetConnections
+instance Prelude.NFData GetConnections where
+  rnf GetConnections' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hidePassword
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetConnections where
   toHeaders =
@@ -255,4 +267,8 @@ getConnectionsResponse_connectionList = Lens.lens (\GetConnectionsResponse' {con
 getConnectionsResponse_httpStatus :: Lens.Lens' GetConnectionsResponse Prelude.Int
 getConnectionsResponse_httpStatus = Lens.lens (\GetConnectionsResponse' {httpStatus} -> httpStatus) (\s@GetConnectionsResponse' {} a -> s {httpStatus = a} :: GetConnectionsResponse)
 
-instance Prelude.NFData GetConnectionsResponse
+instance Prelude.NFData GetConnectionsResponse where
+  rnf GetConnectionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectionList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -109,9 +109,14 @@ instance Core.AWSRequest GetPipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPipeline
+instance Prelude.Hashable GetPipeline where
+  hashWithSalt _salt GetPipeline' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetPipeline
+instance Prelude.NFData GetPipeline where
+  rnf GetPipeline' {..} =
+    Prelude.rnf version `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetPipeline where
   toHeaders =
@@ -198,4 +203,8 @@ getPipelineResponse_metadata = Lens.lens (\GetPipelineResponse' {metadata} -> me
 getPipelineResponse_httpStatus :: Lens.Lens' GetPipelineResponse Prelude.Int
 getPipelineResponse_httpStatus = Lens.lens (\GetPipelineResponse' {httpStatus} -> httpStatus) (\s@GetPipelineResponse' {} a -> s {httpStatus = a} :: GetPipelineResponse)
 
-instance Prelude.NFData GetPipelineResponse
+instance Prelude.NFData GetPipelineResponse where
+  rnf GetPipelineResponse' {..} =
+    Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf httpStatus

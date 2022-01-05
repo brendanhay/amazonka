@@ -76,9 +76,12 @@ instance Core.AWSRequest CreateStorageLocation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStorageLocation
+instance Prelude.Hashable CreateStorageLocation where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData CreateStorageLocation
+instance Prelude.NFData CreateStorageLocation where
+  rnf _ = ()
 
 instance Core.ToHeaders CreateStorageLocation where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,7 @@ createStorageLocationResponse_s3Bucket = Lens.lens (\CreateStorageLocationRespon
 createStorageLocationResponse_httpStatus :: Lens.Lens' CreateStorageLocationResponse Prelude.Int
 createStorageLocationResponse_httpStatus = Lens.lens (\CreateStorageLocationResponse' {httpStatus} -> httpStatus) (\s@CreateStorageLocationResponse' {} a -> s {httpStatus = a} :: CreateStorageLocationResponse)
 
-instance Prelude.NFData CreateStorageLocationResponse
+instance Prelude.NFData CreateStorageLocationResponse where
+  rnf CreateStorageLocationResponse' {..} =
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf httpStatus

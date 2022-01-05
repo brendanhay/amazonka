@@ -108,9 +108,12 @@ instance Core.AWSRequest DescribePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePipeline
+instance Prelude.Hashable DescribePipeline where
+  hashWithSalt _salt DescribePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData DescribePipeline
+instance Prelude.NFData DescribePipeline where
+  rnf DescribePipeline' {..} = Prelude.rnf pipelineName
 
 instance Core.ToHeaders DescribePipeline where
   toHeaders =
@@ -274,4 +277,18 @@ describePipelineResponse_roleArn = Lens.lens (\DescribePipelineResponse' {roleAr
 describePipelineResponse_httpStatus :: Lens.Lens' DescribePipelineResponse Prelude.Int
 describePipelineResponse_httpStatus = Lens.lens (\DescribePipelineResponse' {httpStatus} -> httpStatus) (\s@DescribePipelineResponse' {} a -> s {httpStatus = a} :: DescribePipelineResponse)
 
-instance Prelude.NFData DescribePipelineResponse
+instance Prelude.NFData DescribePipelineResponse where
+  rnf DescribePipelineResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf pipelineDisplayName
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastRunTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf pipelineStatus
+      `Prelude.seq` Prelude.rnf pipelineDescription
+      `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pipelineDefinition
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

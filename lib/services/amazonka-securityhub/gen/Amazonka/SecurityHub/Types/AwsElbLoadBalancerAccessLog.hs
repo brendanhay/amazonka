@@ -108,9 +108,19 @@ instance Core.FromJSON AwsElbLoadBalancerAccessLog where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable AwsElbLoadBalancerAccessLog
+instance Prelude.Hashable AwsElbLoadBalancerAccessLog where
+  hashWithSalt _salt AwsElbLoadBalancerAccessLog' {..} =
+    _salt `Prelude.hashWithSalt` emitInterval
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` s3BucketPrefix
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData AwsElbLoadBalancerAccessLog
+instance Prelude.NFData AwsElbLoadBalancerAccessLog where
+  rnf AwsElbLoadBalancerAccessLog' {..} =
+    Prelude.rnf emitInterval
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf s3BucketPrefix
+      `Prelude.seq` Prelude.rnf s3BucketName
 
 instance Core.ToJSON AwsElbLoadBalancerAccessLog where
   toJSON AwsElbLoadBalancerAccessLog' {..} =

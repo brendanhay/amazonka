@@ -81,6 +81,14 @@ instance Core.FromJSON Credentials where
             Prelude.<*> (x Core..:? "accessKeyId")
       )
 
-instance Prelude.Hashable Credentials
+instance Prelude.Hashable Credentials where
+  hashWithSalt _salt Credentials' {..} =
+    _salt `Prelude.hashWithSalt` secretAccessKey
+      `Prelude.hashWithSalt` sessionToken
+      `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData Credentials
+instance Prelude.NFData Credentials where
+  rnf Credentials' {..} =
+    Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf sessionToken
+      `Prelude.seq` Prelude.rnf accessKeyId

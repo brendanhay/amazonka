@@ -56,6 +56,9 @@ outpost_arn = Lens.lens (\Outpost' {arn} -> arn) (\s@Outpost' {} a -> s {arn = a
 instance Core.FromXML Outpost where
   parseXML x = Outpost' Prelude.<$> (x Core..@? "Arn")
 
-instance Prelude.Hashable Outpost
+instance Prelude.Hashable Outpost where
+  hashWithSalt _salt Outpost' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Outpost
+instance Prelude.NFData Outpost where
+  rnf Outpost' {..} = Prelude.rnf arn

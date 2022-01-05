@@ -75,6 +75,12 @@ instance Core.FromJSON PhaseContext where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable PhaseContext
+instance Prelude.Hashable PhaseContext where
+  hashWithSalt _salt PhaseContext' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData PhaseContext
+instance Prelude.NFData PhaseContext where
+  rnf PhaseContext' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf statusCode

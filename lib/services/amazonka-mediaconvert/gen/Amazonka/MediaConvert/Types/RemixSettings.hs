@@ -145,9 +145,17 @@ instance Core.FromJSON RemixSettings where
             Prelude.<*> (x Core..:? "channelsOut")
       )
 
-instance Prelude.Hashable RemixSettings
+instance Prelude.Hashable RemixSettings where
+  hashWithSalt _salt RemixSettings' {..} =
+    _salt `Prelude.hashWithSalt` channelMapping
+      `Prelude.hashWithSalt` channelsIn
+      `Prelude.hashWithSalt` channelsOut
 
-instance Prelude.NFData RemixSettings
+instance Prelude.NFData RemixSettings where
+  rnf RemixSettings' {..} =
+    Prelude.rnf channelMapping
+      `Prelude.seq` Prelude.rnf channelsIn
+      `Prelude.seq` Prelude.rnf channelsOut
 
 instance Core.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =

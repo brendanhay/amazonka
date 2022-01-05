@@ -322,6 +322,38 @@ instance Core.FromJSON Deployment where
                         )
       )
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt _salt Deployment' {..} =
+    _salt `Prelude.hashWithSalt` rolloutState
+      `Prelude.hashWithSalt` runningCount
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` pendingCount
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` failedTasks
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` rolloutStateReason
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` capacityProviderStrategy
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf rolloutState
+      `Prelude.seq` Prelude.rnf runningCount
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf pendingCount
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf failedTasks
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf rolloutStateReason
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy

@@ -241,9 +241,32 @@ instance Core.AWSRequest CreateAutoMLJob where
             Prelude.<*> (x Core..:> "AutoMLJobArn")
       )
 
-instance Prelude.Hashable CreateAutoMLJob
+instance Prelude.Hashable CreateAutoMLJob where
+  hashWithSalt _salt CreateAutoMLJob' {..} =
+    _salt
+      `Prelude.hashWithSalt` generateCandidateDefinitionsOnly
+      `Prelude.hashWithSalt` problemType
+      `Prelude.hashWithSalt` autoMLJobConfig
+      `Prelude.hashWithSalt` autoMLJobObjective
+      `Prelude.hashWithSalt` modelDeployConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` autoMLJobName
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateAutoMLJob
+instance Prelude.NFData CreateAutoMLJob where
+  rnf CreateAutoMLJob' {..} =
+    Prelude.rnf generateCandidateDefinitionsOnly
+      `Prelude.seq` Prelude.rnf problemType
+      `Prelude.seq` Prelude.rnf autoMLJobConfig
+      `Prelude.seq` Prelude.rnf autoMLJobObjective
+      `Prelude.seq` Prelude.rnf modelDeployConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf autoMLJobName
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateAutoMLJob where
   toHeaders =
@@ -329,4 +352,7 @@ createAutoMLJobResponse_httpStatus = Lens.lens (\CreateAutoMLJobResponse' {httpS
 createAutoMLJobResponse_autoMLJobArn :: Lens.Lens' CreateAutoMLJobResponse Prelude.Text
 createAutoMLJobResponse_autoMLJobArn = Lens.lens (\CreateAutoMLJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@CreateAutoMLJobResponse' {} a -> s {autoMLJobArn = a} :: CreateAutoMLJobResponse)
 
-instance Prelude.NFData CreateAutoMLJobResponse
+instance Prelude.NFData CreateAutoMLJobResponse where
+  rnf CreateAutoMLJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoMLJobArn

@@ -138,6 +138,16 @@ instance Core.FromXML PropertyDifference where
       Prelude.<*> (x Core..@ "ActualValue")
       Prelude.<*> (x Core..@ "DifferenceType")
 
-instance Prelude.Hashable PropertyDifference
+instance Prelude.Hashable PropertyDifference where
+  hashWithSalt _salt PropertyDifference' {..} =
+    _salt `Prelude.hashWithSalt` propertyPath
+      `Prelude.hashWithSalt` expectedValue
+      `Prelude.hashWithSalt` actualValue
+      `Prelude.hashWithSalt` differenceType
 
-instance Prelude.NFData PropertyDifference
+instance Prelude.NFData PropertyDifference where
+  rnf PropertyDifference' {..} =
+    Prelude.rnf propertyPath
+      `Prelude.seq` Prelude.rnf expectedValue
+      `Prelude.seq` Prelude.rnf actualValue
+      `Prelude.seq` Prelude.rnf differenceType

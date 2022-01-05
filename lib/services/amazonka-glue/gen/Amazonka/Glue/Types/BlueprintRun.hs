@@ -200,6 +200,28 @@ instance Core.FromJSON BlueprintRun where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable BlueprintRun
+instance Prelude.Hashable BlueprintRun where
+  hashWithSalt _salt BlueprintRun' {..} =
+    _salt `Prelude.hashWithSalt` workflowName
+      `Prelude.hashWithSalt` completedOn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` rollbackErrorMessage
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` blueprintName
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData BlueprintRun
+instance Prelude.NFData BlueprintRun where
+  rnf BlueprintRun' {..} =
+    Prelude.rnf workflowName
+      `Prelude.seq` Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf rollbackErrorMessage
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf blueprintName
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf roleArn

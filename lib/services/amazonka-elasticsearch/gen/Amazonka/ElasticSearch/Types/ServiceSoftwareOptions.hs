@@ -154,6 +154,24 @@ instance Core.FromJSON ServiceSoftwareOptions where
             Prelude.<*> (x Core..:? "NewVersion")
       )
 
-instance Prelude.Hashable ServiceSoftwareOptions
+instance Prelude.Hashable ServiceSoftwareOptions where
+  hashWithSalt _salt ServiceSoftwareOptions' {..} =
+    _salt `Prelude.hashWithSalt` automatedUpdateDate
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` optionalDeployment
+      `Prelude.hashWithSalt` updateStatus
+      `Prelude.hashWithSalt` cancellable
+      `Prelude.hashWithSalt` updateAvailable
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` newVersion'
 
-instance Prelude.NFData ServiceSoftwareOptions
+instance Prelude.NFData ServiceSoftwareOptions where
+  rnf ServiceSoftwareOptions' {..} =
+    Prelude.rnf automatedUpdateDate
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf optionalDeployment
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf cancellable
+      `Prelude.seq` Prelude.rnf updateAvailable
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf newVersion'

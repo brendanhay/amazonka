@@ -82,9 +82,17 @@ instance Core.FromJSON ServerGroup where
             Prelude.<*> (x Core..:? "serverGroupId")
       )
 
-instance Prelude.Hashable ServerGroup
+instance Prelude.Hashable ServerGroup where
+  hashWithSalt _salt ServerGroup' {..} =
+    _salt `Prelude.hashWithSalt` serverList
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serverGroupId
 
-instance Prelude.NFData ServerGroup
+instance Prelude.NFData ServerGroup where
+  rnf ServerGroup' {..} =
+    Prelude.rnf serverList
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serverGroupId
 
 instance Core.ToJSON ServerGroup where
   toJSON ServerGroup' {..} =

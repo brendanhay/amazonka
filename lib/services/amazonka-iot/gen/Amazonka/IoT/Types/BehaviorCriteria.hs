@@ -198,9 +198,25 @@ instance Core.FromJSON BehaviorCriteria where
             Prelude.<*> (x Core..:? "consecutiveDatapointsToClear")
       )
 
-instance Prelude.Hashable BehaviorCriteria
+instance Prelude.Hashable BehaviorCriteria where
+  hashWithSalt _salt BehaviorCriteria' {..} =
+    _salt `Prelude.hashWithSalt` mlDetectionConfig
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` consecutiveDatapointsToAlarm
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` statisticalThreshold
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` consecutiveDatapointsToClear
 
-instance Prelude.NFData BehaviorCriteria
+instance Prelude.NFData BehaviorCriteria where
+  rnf BehaviorCriteria' {..} =
+    Prelude.rnf mlDetectionConfig
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf consecutiveDatapointsToAlarm
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf statisticalThreshold
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf consecutiveDatapointsToClear
 
 instance Core.ToJSON BehaviorCriteria where
   toJSON BehaviorCriteria' {..} =

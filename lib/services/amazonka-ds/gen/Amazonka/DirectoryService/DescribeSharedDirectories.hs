@@ -150,9 +150,19 @@ instance Core.AWSRequest DescribeSharedDirectories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSharedDirectories
+instance Prelude.Hashable DescribeSharedDirectories where
+  hashWithSalt _salt DescribeSharedDirectories' {..} =
+    _salt `Prelude.hashWithSalt` sharedDirectoryIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` ownerDirectoryId
 
-instance Prelude.NFData DescribeSharedDirectories
+instance Prelude.NFData DescribeSharedDirectories where
+  rnf DescribeSharedDirectories' {..} =
+    Prelude.rnf sharedDirectoryIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf ownerDirectoryId
 
 instance Core.ToHeaders DescribeSharedDirectories where
   toHeaders =
@@ -245,3 +255,8 @@ describeSharedDirectoriesResponse_httpStatus = Lens.lens (\DescribeSharedDirecto
 instance
   Prelude.NFData
     DescribeSharedDirectoriesResponse
+  where
+  rnf DescribeSharedDirectoriesResponse' {..} =
+    Prelude.rnf sharedDirectories
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

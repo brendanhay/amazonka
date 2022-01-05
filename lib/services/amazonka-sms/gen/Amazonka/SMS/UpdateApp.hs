@@ -138,9 +138,23 @@ instance Core.AWSRequest UpdateApp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApp
+instance Prelude.Hashable UpdateApp where
+  hashWithSalt _salt UpdateApp' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverGroups
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData UpdateApp
+instance Prelude.NFData UpdateApp where
+  rnf UpdateApp' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverGroups
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders UpdateApp where
   toHeaders =
@@ -232,4 +246,9 @@ updateAppResponse_tags = Lens.lens (\UpdateAppResponse' {tags} -> tags) (\s@Upda
 updateAppResponse_httpStatus :: Lens.Lens' UpdateAppResponse Prelude.Int
 updateAppResponse_httpStatus = Lens.lens (\UpdateAppResponse' {httpStatus} -> httpStatus) (\s@UpdateAppResponse' {} a -> s {httpStatus = a} :: UpdateAppResponse)
 
-instance Prelude.NFData UpdateAppResponse
+instance Prelude.NFData UpdateAppResponse where
+  rnf UpdateAppResponse' {..} =
+    Prelude.rnf appSummary
+      `Prelude.seq` Prelude.rnf serverGroups
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

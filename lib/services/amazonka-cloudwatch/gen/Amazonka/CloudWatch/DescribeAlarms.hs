@@ -329,9 +329,29 @@ instance Core.AWSRequest DescribeAlarms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlarms
+instance Prelude.Hashable DescribeAlarms where
+  hashWithSalt _salt DescribeAlarms' {..} =
+    _salt `Prelude.hashWithSalt` alarmNamePrefix
+      `Prelude.hashWithSalt` alarmTypes
+      `Prelude.hashWithSalt` actionPrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` alarmNames
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` parentsOfAlarmName
+      `Prelude.hashWithSalt` childrenOfAlarmName
 
-instance Prelude.NFData DescribeAlarms
+instance Prelude.NFData DescribeAlarms where
+  rnf DescribeAlarms' {..} =
+    Prelude.rnf alarmNamePrefix
+      `Prelude.seq` Prelude.rnf alarmTypes
+      `Prelude.seq` Prelude.rnf actionPrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf alarmNames
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf parentsOfAlarmName
+      `Prelude.seq` Prelude.rnf childrenOfAlarmName
 
 instance Core.ToHeaders DescribeAlarms where
   toHeaders = Prelude.const Prelude.mempty
@@ -418,4 +438,9 @@ describeAlarmsResponse_nextToken = Lens.lens (\DescribeAlarmsResponse' {nextToke
 describeAlarmsResponse_httpStatus :: Lens.Lens' DescribeAlarmsResponse Prelude.Int
 describeAlarmsResponse_httpStatus = Lens.lens (\DescribeAlarmsResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmsResponse' {} a -> s {httpStatus = a} :: DescribeAlarmsResponse)
 
-instance Prelude.NFData DescribeAlarmsResponse
+instance Prelude.NFData DescribeAlarmsResponse where
+  rnf DescribeAlarmsResponse' {..} =
+    Prelude.rnf metricAlarms
+      `Prelude.seq` Prelude.rnf compositeAlarms
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

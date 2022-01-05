@@ -122,9 +122,17 @@ instance Core.AWSRequest DescribePackages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePackages
+instance Prelude.Hashable DescribePackages where
+  hashWithSalt _salt DescribePackages' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribePackages
+instance Prelude.NFData DescribePackages where
+  rnf DescribePackages' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribePackages where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +203,8 @@ describePackagesResponse_nextToken = Lens.lens (\DescribePackagesResponse' {next
 describePackagesResponse_httpStatus :: Lens.Lens' DescribePackagesResponse Prelude.Int
 describePackagesResponse_httpStatus = Lens.lens (\DescribePackagesResponse' {httpStatus} -> httpStatus) (\s@DescribePackagesResponse' {} a -> s {httpStatus = a} :: DescribePackagesResponse)
 
-instance Prelude.NFData DescribePackagesResponse
+instance Prelude.NFData DescribePackagesResponse where
+  rnf DescribePackagesResponse' {..} =
+    Prelude.rnf packageDetailsList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

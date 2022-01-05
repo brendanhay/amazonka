@@ -121,9 +121,15 @@ instance Core.AWSRequest GetDistributions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributions
+instance Prelude.Hashable GetDistributions where
+  hashWithSalt _salt GetDistributions' {..} =
+    _salt `Prelude.hashWithSalt` distributionName
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetDistributions
+instance Prelude.NFData GetDistributions where
+  rnf GetDistributions' {..} =
+    Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetDistributions where
   toHeaders =
@@ -222,4 +228,8 @@ getDistributionsResponse_distributions = Lens.lens (\GetDistributionsResponse' {
 getDistributionsResponse_httpStatus :: Lens.Lens' GetDistributionsResponse Prelude.Int
 getDistributionsResponse_httpStatus = Lens.lens (\GetDistributionsResponse' {httpStatus} -> httpStatus) (\s@GetDistributionsResponse' {} a -> s {httpStatus = a} :: GetDistributionsResponse)
 
-instance Prelude.NFData GetDistributionsResponse
+instance Prelude.NFData GetDistributionsResponse where
+  rnf GetDistributionsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf distributions
+      `Prelude.seq` Prelude.rnf httpStatus

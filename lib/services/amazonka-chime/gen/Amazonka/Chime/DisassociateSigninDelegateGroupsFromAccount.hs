@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateSigninDelegateGroupsFromAccount
+  where
+  hashWithSalt
+    _salt
+    DisassociateSigninDelegateGroupsFromAccount' {..} =
+      _salt `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` groupNames
 
 instance
   Prelude.NFData
     DisassociateSigninDelegateGroupsFromAccount
+  where
+  rnf DisassociateSigninDelegateGroupsFromAccount' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf groupNames
 
 instance
   Core.ToHeaders
@@ -185,3 +195,7 @@ disassociateSigninDelegateGroupsFromAccountResponse_httpStatus = Lens.lens (\Dis
 instance
   Prelude.NFData
     DisassociateSigninDelegateGroupsFromAccountResponse
+  where
+  rnf
+    DisassociateSigninDelegateGroupsFromAccountResponse' {..} =
+      Prelude.rnf httpStatus

@@ -61,6 +61,9 @@ instance Core.FromJSON OpsItemIdentity where
           OpsItemIdentity' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable OpsItemIdentity
+instance Prelude.Hashable OpsItemIdentity where
+  hashWithSalt _salt OpsItemIdentity' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData OpsItemIdentity
+instance Prelude.NFData OpsItemIdentity where
+  rnf OpsItemIdentity' {..} = Prelude.rnf arn

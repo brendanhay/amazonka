@@ -261,6 +261,26 @@ instance Core.FromXML EvaluationResult where
       Prelude.<*> (x Core..@ "EvalActionName")
       Prelude.<*> (x Core..@ "EvalDecision")
 
-instance Prelude.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult where
+  hashWithSalt _salt EvaluationResult' {..} =
+    _salt `Prelude.hashWithSalt` matchedStatements
+      `Prelude.hashWithSalt` evalDecisionDetails
+      `Prelude.hashWithSalt` resourceSpecificResults
+      `Prelude.hashWithSalt` evalResourceName
+      `Prelude.hashWithSalt` missingContextValues
+      `Prelude.hashWithSalt` permissionsBoundaryDecisionDetail
+      `Prelude.hashWithSalt` organizationsDecisionDetail
+      `Prelude.hashWithSalt` evalActionName
+      `Prelude.hashWithSalt` evalDecision
 
-instance Prelude.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult where
+  rnf EvaluationResult' {..} =
+    Prelude.rnf matchedStatements
+      `Prelude.seq` Prelude.rnf evalDecisionDetails
+      `Prelude.seq` Prelude.rnf resourceSpecificResults
+      `Prelude.seq` Prelude.rnf evalResourceName
+      `Prelude.seq` Prelude.rnf missingContextValues
+      `Prelude.seq` Prelude.rnf permissionsBoundaryDecisionDetail
+      `Prelude.seq` Prelude.rnf organizationsDecisionDetail
+      `Prelude.seq` Prelude.rnf evalActionName
+      `Prelude.seq` Prelude.rnf evalDecision

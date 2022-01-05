@@ -155,9 +155,26 @@ instance Core.FromJSON ConfigTypeData where
             Prelude.<*> (x Core..:? "dataflowEndpointConfig")
       )
 
-instance Prelude.Hashable ConfigTypeData
+instance Prelude.Hashable ConfigTypeData where
+  hashWithSalt _salt ConfigTypeData' {..} =
+    _salt
+      `Prelude.hashWithSalt` antennaDownlinkDemodDecodeConfig
+      `Prelude.hashWithSalt` antennaDownlinkConfig
+      `Prelude.hashWithSalt` antennaUplinkConfig
+      `Prelude.hashWithSalt` uplinkEchoConfig
+      `Prelude.hashWithSalt` s3RecordingConfig
+      `Prelude.hashWithSalt` trackingConfig
+      `Prelude.hashWithSalt` dataflowEndpointConfig
 
-instance Prelude.NFData ConfigTypeData
+instance Prelude.NFData ConfigTypeData where
+  rnf ConfigTypeData' {..} =
+    Prelude.rnf antennaDownlinkDemodDecodeConfig
+      `Prelude.seq` Prelude.rnf antennaDownlinkConfig
+      `Prelude.seq` Prelude.rnf antennaUplinkConfig
+      `Prelude.seq` Prelude.rnf uplinkEchoConfig
+      `Prelude.seq` Prelude.rnf s3RecordingConfig
+      `Prelude.seq` Prelude.rnf trackingConfig
+      `Prelude.seq` Prelude.rnf dataflowEndpointConfig
 
 instance Core.ToJSON ConfigTypeData where
   toJSON ConfigTypeData' {..} =

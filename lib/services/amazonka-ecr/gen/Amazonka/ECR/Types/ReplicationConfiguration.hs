@@ -63,9 +63,12 @@ instance Core.FromJSON ReplicationConfiguration where
             Prelude.<$> (x Core..:? "rules" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ReplicationConfiguration
+instance Prelude.Hashable ReplicationConfiguration where
+  hashWithSalt _salt ReplicationConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData ReplicationConfiguration
+instance Prelude.NFData ReplicationConfiguration where
+  rnf ReplicationConfiguration' {..} = Prelude.rnf rules
 
 instance Core.ToJSON ReplicationConfiguration where
   toJSON ReplicationConfiguration' {..} =

@@ -79,9 +79,15 @@ instance Core.FromJSON ComputeFarmConfiguration where
             Prelude.<*> (x Core..:? "endpoint")
       )
 
-instance Prelude.Hashable ComputeFarmConfiguration
+instance Prelude.Hashable ComputeFarmConfiguration where
+  hashWithSalt _salt ComputeFarmConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` activeDirectoryUser
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData ComputeFarmConfiguration
+instance Prelude.NFData ComputeFarmConfiguration where
+  rnf ComputeFarmConfiguration' {..} =
+    Prelude.rnf activeDirectoryUser
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Core.ToJSON ComputeFarmConfiguration where
   toJSON ComputeFarmConfiguration' {..} =

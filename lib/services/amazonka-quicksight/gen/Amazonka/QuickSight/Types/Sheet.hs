@@ -79,6 +79,11 @@ instance Core.FromJSON Sheet where
             Prelude.<*> (x Core..:? "SheetId")
       )
 
-instance Prelude.Hashable Sheet
+instance Prelude.Hashable Sheet where
+  hashWithSalt _salt Sheet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sheetId
 
-instance Prelude.NFData Sheet
+instance Prelude.NFData Sheet where
+  rnf Sheet' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf sheetId

@@ -87,9 +87,12 @@ instance Core.AWSRequest DescribeAddress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddress
+instance Prelude.Hashable DescribeAddress where
+  hashWithSalt _salt DescribeAddress' {..} =
+    _salt `Prelude.hashWithSalt` addressId
 
-instance Prelude.NFData DescribeAddress
+instance Prelude.NFData DescribeAddress where
+  rnf DescribeAddress' {..} = Prelude.rnf addressId
 
 instance Core.ToHeaders DescribeAddress where
   toHeaders =
@@ -160,4 +163,7 @@ describeAddressResponse_address = Lens.lens (\DescribeAddressResponse' {address}
 describeAddressResponse_httpStatus :: Lens.Lens' DescribeAddressResponse Prelude.Int
 describeAddressResponse_httpStatus = Lens.lens (\DescribeAddressResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressResponse' {} a -> s {httpStatus = a} :: DescribeAddressResponse)
 
-instance Prelude.NFData DescribeAddressResponse
+instance Prelude.NFData DescribeAddressResponse where
+  rnf DescribeAddressResponse' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf httpStatus

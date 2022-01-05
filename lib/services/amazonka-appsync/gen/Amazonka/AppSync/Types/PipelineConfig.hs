@@ -59,9 +59,12 @@ instance Core.FromJSON PipelineConfig where
             Prelude.<$> (x Core..:? "functions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PipelineConfig
+instance Prelude.Hashable PipelineConfig where
+  hashWithSalt _salt PipelineConfig' {..} =
+    _salt `Prelude.hashWithSalt` functions
 
-instance Prelude.NFData PipelineConfig
+instance Prelude.NFData PipelineConfig where
+  rnf PipelineConfig' {..} = Prelude.rnf functions
 
 instance Core.ToJSON PipelineConfig where
   toJSON PipelineConfig' {..} =

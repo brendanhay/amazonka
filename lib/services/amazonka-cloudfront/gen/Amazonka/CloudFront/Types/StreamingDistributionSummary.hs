@@ -270,5 +270,30 @@ instance Core.FromXML StreamingDistributionSummary where
 instance
   Prelude.Hashable
     StreamingDistributionSummary
+  where
+  hashWithSalt _salt StreamingDistributionSummary' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` s3Origin
+      `Prelude.hashWithSalt` aliases
+      `Prelude.hashWithSalt` trustedSigners
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` priceClass
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData StreamingDistributionSummary
+instance Prelude.NFData StreamingDistributionSummary where
+  rnf StreamingDistributionSummary' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf s3Origin
+      `Prelude.seq` Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf trustedSigners
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf priceClass
+      `Prelude.seq` Prelude.rnf enabled

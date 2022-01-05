@@ -102,6 +102,11 @@ instance Core.FromJSON RuleSummary where
             Prelude.<$> (x Core..: "RuleId") Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable RuleSummary
+instance Prelude.Hashable RuleSummary where
+  hashWithSalt _salt RuleSummary' {..} =
+    _salt `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RuleSummary
+instance Prelude.NFData RuleSummary where
+  rnf RuleSummary' {..} =
+    Prelude.rnf ruleId `Prelude.seq` Prelude.rnf name

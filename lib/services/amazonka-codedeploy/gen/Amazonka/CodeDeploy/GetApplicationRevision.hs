@@ -112,9 +112,15 @@ instance Core.AWSRequest GetApplicationRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApplicationRevision
+instance Prelude.Hashable GetApplicationRevision where
+  hashWithSalt _salt GetApplicationRevision' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData GetApplicationRevision
+instance Prelude.NFData GetApplicationRevision where
+  rnf GetApplicationRevision' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf revision
 
 instance Core.ToHeaders GetApplicationRevision where
   toHeaders =
@@ -209,3 +215,9 @@ getApplicationRevisionResponse_httpStatus = Lens.lens (\GetApplicationRevisionRe
 instance
   Prelude.NFData
     GetApplicationRevisionResponse
+  where
+  rnf GetApplicationRevisionResponse' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf revisionInfo
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf httpStatus

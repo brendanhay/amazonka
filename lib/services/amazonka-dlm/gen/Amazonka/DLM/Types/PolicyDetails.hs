@@ -250,9 +250,27 @@ instance Core.FromJSON PolicyDetails where
             Prelude.<*> (x Core..:? "ResourceTypes")
       )
 
-instance Prelude.Hashable PolicyDetails
+instance Prelude.Hashable PolicyDetails where
+  hashWithSalt _salt PolicyDetails' {..} =
+    _salt `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` targetTags
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` resourceLocations
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` schedules
+      `Prelude.hashWithSalt` eventSource
+      `Prelude.hashWithSalt` resourceTypes
 
-instance Prelude.NFData PolicyDetails
+instance Prelude.NFData PolicyDetails where
+  rnf PolicyDetails' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf targetTags
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf resourceLocations
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf schedules
+      `Prelude.seq` Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf resourceTypes
 
 instance Core.ToJSON PolicyDetails where
   toJSON PolicyDetails' {..} =

@@ -151,9 +151,19 @@ instance Core.AWSRequest StartSimulationJobBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSimulationJobBatch
+instance Prelude.Hashable StartSimulationJobBatch where
+  hashWithSalt _salt StartSimulationJobBatch' {..} =
+    _salt `Prelude.hashWithSalt` batchPolicy
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createSimulationJobRequests
 
-instance Prelude.NFData StartSimulationJobBatch
+instance Prelude.NFData StartSimulationJobBatch where
+  rnf StartSimulationJobBatch' {..} =
+    Prelude.rnf batchPolicy
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createSimulationJobRequests
 
 instance Core.ToHeaders StartSimulationJobBatch where
   toHeaders =
@@ -454,3 +464,17 @@ startSimulationJobBatchResponse_httpStatus = Lens.lens (\StartSimulationJobBatch
 instance
   Prelude.NFData
     StartSimulationJobBatchResponse
+  where
+  rnf StartSimulationJobBatchResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf batchPolicy
+      `Prelude.seq` Prelude.rnf createdRequests
+      `Prelude.seq` Prelude.rnf pendingRequests
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

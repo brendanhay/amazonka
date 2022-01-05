@@ -74,9 +74,15 @@ instance Core.FromJSON RetentionPeriod where
             Prelude.<*> (x Core..:? "numberOfDays")
       )
 
-instance Prelude.Hashable RetentionPeriod
+instance Prelude.Hashable RetentionPeriod where
+  hashWithSalt _salt RetentionPeriod' {..} =
+    _salt `Prelude.hashWithSalt` unlimited
+      `Prelude.hashWithSalt` numberOfDays
 
-instance Prelude.NFData RetentionPeriod
+instance Prelude.NFData RetentionPeriod where
+  rnf RetentionPeriod' {..} =
+    Prelude.rnf unlimited
+      `Prelude.seq` Prelude.rnf numberOfDays
 
 instance Core.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =

@@ -138,9 +138,17 @@ instance Core.AWSRequest DeleteStreamingSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStreamingSession
+instance Prelude.Hashable DeleteStreamingSession where
+  hashWithSalt _salt DeleteStreamingSession' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData DeleteStreamingSession
+instance Prelude.NFData DeleteStreamingSession where
+  rnf DeleteStreamingSession' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf sessionId
 
 instance Core.ToHeaders DeleteStreamingSession where
   toHeaders DeleteStreamingSession' {..} =
@@ -204,3 +212,7 @@ deleteStreamingSessionResponse_httpStatus = Lens.lens (\DeleteStreamingSessionRe
 instance
   Prelude.NFData
     DeleteStreamingSessionResponse
+  where
+  rnf DeleteStreamingSessionResponse' {..} =
+    Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

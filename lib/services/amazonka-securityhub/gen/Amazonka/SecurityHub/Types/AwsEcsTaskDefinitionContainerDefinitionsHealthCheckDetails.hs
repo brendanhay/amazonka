@@ -128,10 +128,27 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {..} =
+      _salt `Prelude.hashWithSalt` command
+        `Prelude.hashWithSalt` startPeriod
+        `Prelude.hashWithSalt` retries
+        `Prelude.hashWithSalt` interval
+        `Prelude.hashWithSalt` timeout
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {..} =
+      Prelude.rnf command
+        `Prelude.seq` Prelude.rnf startPeriod
+        `Prelude.seq` Prelude.rnf retries
+        `Prelude.seq` Prelude.rnf interval
+        `Prelude.seq` Prelude.rnf timeout
 
 instance
   Core.ToJSON

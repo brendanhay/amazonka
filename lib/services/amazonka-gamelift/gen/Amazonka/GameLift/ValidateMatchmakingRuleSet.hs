@@ -109,9 +109,13 @@ instance Core.AWSRequest ValidateMatchmakingRuleSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ValidateMatchmakingRuleSet
+instance Prelude.Hashable ValidateMatchmakingRuleSet where
+  hashWithSalt _salt ValidateMatchmakingRuleSet' {..} =
+    _salt `Prelude.hashWithSalt` ruleSetBody
 
-instance Prelude.NFData ValidateMatchmakingRuleSet
+instance Prelude.NFData ValidateMatchmakingRuleSet where
+  rnf ValidateMatchmakingRuleSet' {..} =
+    Prelude.rnf ruleSetBody
 
 instance Core.ToHeaders ValidateMatchmakingRuleSet where
   toHeaders =
@@ -185,3 +189,7 @@ validateMatchmakingRuleSetResponse_httpStatus = Lens.lens (\ValidateMatchmakingR
 instance
   Prelude.NFData
     ValidateMatchmakingRuleSetResponse
+  where
+  rnf ValidateMatchmakingRuleSetResponse' {..} =
+    Prelude.rnf valid
+      `Prelude.seq` Prelude.rnf httpStatus

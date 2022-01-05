@@ -75,5 +75,11 @@ instance Core.FromJSON ExecutionAbortedEventDetails where
 instance
   Prelude.Hashable
     ExecutionAbortedEventDetails
+  where
+  hashWithSalt _salt ExecutionAbortedEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` cause
 
-instance Prelude.NFData ExecutionAbortedEventDetails
+instance Prelude.NFData ExecutionAbortedEventDetails where
+  rnf ExecutionAbortedEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

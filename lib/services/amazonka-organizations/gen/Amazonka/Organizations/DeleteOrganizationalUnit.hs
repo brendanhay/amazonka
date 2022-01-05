@@ -110,9 +110,13 @@ instance Core.AWSRequest DeleteOrganizationalUnit where
     Response.receiveNull
       DeleteOrganizationalUnitResponse'
 
-instance Prelude.Hashable DeleteOrganizationalUnit
+instance Prelude.Hashable DeleteOrganizationalUnit where
+  hashWithSalt _salt DeleteOrganizationalUnit' {..} =
+    _salt `Prelude.hashWithSalt` organizationalUnitId
 
-instance Prelude.NFData DeleteOrganizationalUnit
+instance Prelude.NFData DeleteOrganizationalUnit where
+  rnf DeleteOrganizationalUnit' {..} =
+    Prelude.rnf organizationalUnitId
 
 instance Core.ToHeaders DeleteOrganizationalUnit where
   toHeaders =
@@ -164,3 +168,5 @@ newDeleteOrganizationalUnitResponse =
 instance
   Prelude.NFData
     DeleteOrganizationalUnitResponse
+  where
+  rnf _ = ()

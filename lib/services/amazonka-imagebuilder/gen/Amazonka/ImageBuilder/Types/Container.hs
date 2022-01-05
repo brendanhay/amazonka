@@ -74,6 +74,12 @@ instance Core.FromJSON Container where
             Prelude.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable Container
+instance Prelude.Hashable Container where
+  hashWithSalt _salt Container' {..} =
+    _salt `Prelude.hashWithSalt` imageUris
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData Container
+instance Prelude.NFData Container where
+  rnf Container' {..} =
+    Prelude.rnf imageUris
+      `Prelude.seq` Prelude.rnf region

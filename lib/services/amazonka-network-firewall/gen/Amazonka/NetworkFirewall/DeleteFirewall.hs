@@ -127,9 +127,15 @@ instance Core.AWSRequest DeleteFirewall where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFirewall
+instance Prelude.Hashable DeleteFirewall where
+  hashWithSalt _salt DeleteFirewall' {..} =
+    _salt `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` firewallName
 
-instance Prelude.NFData DeleteFirewall
+instance Prelude.NFData DeleteFirewall where
+  rnf DeleteFirewall' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
 
 instance Core.ToHeaders DeleteFirewall where
   toHeaders =
@@ -207,4 +213,8 @@ deleteFirewallResponse_firewall = Lens.lens (\DeleteFirewallResponse' {firewall}
 deleteFirewallResponse_httpStatus :: Lens.Lens' DeleteFirewallResponse Prelude.Int
 deleteFirewallResponse_httpStatus = Lens.lens (\DeleteFirewallResponse' {httpStatus} -> httpStatus) (\s@DeleteFirewallResponse' {} a -> s {httpStatus = a} :: DeleteFirewallResponse)
 
-instance Prelude.NFData DeleteFirewallResponse
+instance Prelude.NFData DeleteFirewallResponse where
+  rnf DeleteFirewallResponse' {..} =
+    Prelude.rnf firewallStatus
+      `Prelude.seq` Prelude.rnf firewall
+      `Prelude.seq` Prelude.rnf httpStatus

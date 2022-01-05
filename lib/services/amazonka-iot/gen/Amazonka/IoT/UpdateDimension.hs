@@ -124,9 +124,15 @@ instance Core.AWSRequest UpdateDimension where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDimension
+instance Prelude.Hashable UpdateDimension where
+  hashWithSalt _salt UpdateDimension' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` stringValues
 
-instance Prelude.NFData UpdateDimension
+instance Prelude.NFData UpdateDimension where
+  rnf UpdateDimension' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stringValues
 
 instance Core.ToHeaders UpdateDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,4 +247,12 @@ updateDimensionResponse_type = Lens.lens (\UpdateDimensionResponse' {type'} -> t
 updateDimensionResponse_httpStatus :: Lens.Lens' UpdateDimensionResponse Prelude.Int
 updateDimensionResponse_httpStatus = Lens.lens (\UpdateDimensionResponse' {httpStatus} -> httpStatus) (\s@UpdateDimensionResponse' {} a -> s {httpStatus = a} :: UpdateDimensionResponse)
 
-instance Prelude.NFData UpdateDimensionResponse
+instance Prelude.NFData UpdateDimensionResponse where
+  rnf UpdateDimensionResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf stringValues
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpStatus

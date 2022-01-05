@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteScalingPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScalingPlan
+instance Prelude.Hashable DeleteScalingPlan where
+  hashWithSalt _salt DeleteScalingPlan' {..} =
+    _salt `Prelude.hashWithSalt` scalingPlanName
+      `Prelude.hashWithSalt` scalingPlanVersion
 
-instance Prelude.NFData DeleteScalingPlan
+instance Prelude.NFData DeleteScalingPlan where
+  rnf DeleteScalingPlan' {..} =
+    Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
 
 instance Core.ToHeaders DeleteScalingPlan where
   toHeaders =
@@ -176,4 +182,6 @@ newDeleteScalingPlanResponse pHttpStatus_ =
 deleteScalingPlanResponse_httpStatus :: Lens.Lens' DeleteScalingPlanResponse Prelude.Int
 deleteScalingPlanResponse_httpStatus = Lens.lens (\DeleteScalingPlanResponse' {httpStatus} -> httpStatus) (\s@DeleteScalingPlanResponse' {} a -> s {httpStatus = a} :: DeleteScalingPlanResponse)
 
-instance Prelude.NFData DeleteScalingPlanResponse
+instance Prelude.NFData DeleteScalingPlanResponse where
+  rnf DeleteScalingPlanResponse' {..} =
+    Prelude.rnf httpStatus

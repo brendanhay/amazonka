@@ -71,9 +71,15 @@ instance Core.FromXML CookieNames where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CookieNames
+instance Prelude.Hashable CookieNames where
+  hashWithSalt _salt CookieNames' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData CookieNames
+instance Prelude.NFData CookieNames where
+  rnf CookieNames' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML CookieNames where
   toXML CookieNames' {..} =

@@ -315,9 +315,19 @@ instance Core.AWSRequest CreateDBParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBParameterGroup
+instance Prelude.Hashable CreateDBParameterGroup where
+  hashWithSalt _salt CreateDBParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateDBParameterGroup
+instance Prelude.NFData CreateDBParameterGroup where
+  rnf CreateDBParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -382,3 +392,7 @@ createDBParameterGroupResponse_httpStatus = Lens.lens (\CreateDBParameterGroupRe
 instance
   Prelude.NFData
     CreateDBParameterGroupResponse
+  where
+  rnf CreateDBParameterGroupResponse' {..} =
+    Prelude.rnf dbParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

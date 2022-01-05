@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteTrail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrail
+instance Prelude.Hashable DeleteTrail where
+  hashWithSalt _salt DeleteTrail' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteTrail
+instance Prelude.NFData DeleteTrail where
+  rnf DeleteTrail' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteTrail where
   toHeaders =
@@ -154,4 +157,5 @@ newDeleteTrailResponse pHttpStatus_ =
 deleteTrailResponse_httpStatus :: Lens.Lens' DeleteTrailResponse Prelude.Int
 deleteTrailResponse_httpStatus = Lens.lens (\DeleteTrailResponse' {httpStatus} -> httpStatus) (\s@DeleteTrailResponse' {} a -> s {httpStatus = a} :: DeleteTrailResponse)
 
-instance Prelude.NFData DeleteTrailResponse
+instance Prelude.NFData DeleteTrailResponse where
+  rnf DeleteTrailResponse' {..} = Prelude.rnf httpStatus

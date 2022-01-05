@@ -107,9 +107,15 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteScheduledAction
+instance Prelude.Hashable BatchDeleteScheduledAction where
+  hashWithSalt _salt BatchDeleteScheduledAction' {..} =
+    _salt `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` scheduledActionNames
 
-instance Prelude.NFData BatchDeleteScheduledAction
+instance Prelude.NFData BatchDeleteScheduledAction where
+  rnf BatchDeleteScheduledAction' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf scheduledActionNames
 
 instance Core.ToHeaders BatchDeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,3 +180,7 @@ batchDeleteScheduledActionResponse_httpStatus = Lens.lens (\BatchDeleteScheduled
 instance
   Prelude.NFData
     BatchDeleteScheduledActionResponse
+  where
+  rnf BatchDeleteScheduledActionResponse' {..} =
+    Prelude.rnf failedScheduledActions
+      `Prelude.seq` Prelude.rnf httpStatus

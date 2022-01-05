@@ -207,6 +207,18 @@ instance Core.FromJSON IntegrationResponse where
                         )
       )
 
-instance Prelude.Hashable IntegrationResponse
+instance Prelude.Hashable IntegrationResponse where
+  hashWithSalt _salt IntegrationResponse' {..} =
+    _salt `Prelude.hashWithSalt` contentHandling
+      `Prelude.hashWithSalt` responseTemplates
+      `Prelude.hashWithSalt` selectionPattern
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` responseParameters
 
-instance Prelude.NFData IntegrationResponse
+instance Prelude.NFData IntegrationResponse where
+  rnf IntegrationResponse' {..} =
+    Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf selectionPattern
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf responseParameters

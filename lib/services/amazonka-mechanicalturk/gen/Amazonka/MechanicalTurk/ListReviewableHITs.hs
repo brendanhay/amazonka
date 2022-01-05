@@ -151,9 +151,19 @@ instance Core.AWSRequest ListReviewableHITs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReviewableHITs
+instance Prelude.Hashable ListReviewableHITs where
+  hashWithSalt _salt ListReviewableHITs' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` hITTypeId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListReviewableHITs
+instance Prelude.NFData ListReviewableHITs where
+  rnf ListReviewableHITs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hITTypeId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReviewableHITs where
   toHeaders =
@@ -246,4 +256,9 @@ listReviewableHITsResponse_hITs = Lens.lens (\ListReviewableHITsResponse' {hITs}
 listReviewableHITsResponse_httpStatus :: Lens.Lens' ListReviewableHITsResponse Prelude.Int
 listReviewableHITsResponse_httpStatus = Lens.lens (\ListReviewableHITsResponse' {httpStatus} -> httpStatus) (\s@ListReviewableHITsResponse' {} a -> s {httpStatus = a} :: ListReviewableHITsResponse)
 
-instance Prelude.NFData ListReviewableHITsResponse
+instance Prelude.NFData ListReviewableHITsResponse where
+  rnf ListReviewableHITsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf hITs
+      `Prelude.seq` Prelude.rnf httpStatus

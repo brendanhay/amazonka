@@ -118,9 +118,19 @@ instance Core.FromJSON SpekeKeyProvider where
             Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SpekeKeyProvider
+instance Prelude.Hashable SpekeKeyProvider where
+  hashWithSalt _salt SpekeKeyProvider' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` systemIds
 
-instance Prelude.NFData SpekeKeyProvider
+instance Prelude.NFData SpekeKeyProvider where
+  rnf SpekeKeyProvider' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf systemIds
 
 instance Core.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =

@@ -120,10 +120,20 @@ instance
 instance
   Prelude.Hashable
     UpdateRelationalDatabaseParameters
+  where
+  hashWithSalt
+    _salt
+    UpdateRelationalDatabaseParameters' {..} =
+      _salt `Prelude.hashWithSalt` relationalDatabaseName
+        `Prelude.hashWithSalt` parameters
 
 instance
   Prelude.NFData
     UpdateRelationalDatabaseParameters
+  where
+  rnf UpdateRelationalDatabaseParameters' {..} =
+    Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf parameters
 
 instance
   Core.ToHeaders
@@ -219,3 +229,7 @@ updateRelationalDatabaseParametersResponse_httpStatus = Lens.lens (\UpdateRelati
 instance
   Prelude.NFData
     UpdateRelationalDatabaseParametersResponse
+  where
+  rnf UpdateRelationalDatabaseParametersResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

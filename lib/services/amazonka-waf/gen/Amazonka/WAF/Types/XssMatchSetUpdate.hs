@@ -87,9 +87,15 @@ xssMatchSetUpdate_action = Lens.lens (\XssMatchSetUpdate' {action} -> action) (\
 xssMatchSetUpdate_xssMatchTuple :: Lens.Lens' XssMatchSetUpdate XssMatchTuple
 xssMatchSetUpdate_xssMatchTuple = Lens.lens (\XssMatchSetUpdate' {xssMatchTuple} -> xssMatchTuple) (\s@XssMatchSetUpdate' {} a -> s {xssMatchTuple = a} :: XssMatchSetUpdate)
 
-instance Prelude.Hashable XssMatchSetUpdate
+instance Prelude.Hashable XssMatchSetUpdate where
+  hashWithSalt _salt XssMatchSetUpdate' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` xssMatchTuple
 
-instance Prelude.NFData XssMatchSetUpdate
+instance Prelude.NFData XssMatchSetUpdate where
+  rnf XssMatchSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf xssMatchTuple
 
 instance Core.ToJSON XssMatchSetUpdate where
   toJSON XssMatchSetUpdate' {..} =

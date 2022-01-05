@@ -218,9 +218,19 @@ instance Core.AWSRequest UpdateVoiceTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVoiceTemplate
+instance Prelude.Hashable UpdateVoiceTemplate where
+  hashWithSalt _salt UpdateVoiceTemplate' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` createNewVersion
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` voiceTemplateRequest
 
-instance Prelude.NFData UpdateVoiceTemplate
+instance Prelude.NFData UpdateVoiceTemplate where
+  rnf UpdateVoiceTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf createNewVersion
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf voiceTemplateRequest
 
 instance Core.ToHeaders UpdateVoiceTemplate where
   toHeaders =
@@ -298,4 +308,7 @@ updateVoiceTemplateResponse_httpStatus = Lens.lens (\UpdateVoiceTemplateResponse
 updateVoiceTemplateResponse_messageBody :: Lens.Lens' UpdateVoiceTemplateResponse MessageBody
 updateVoiceTemplateResponse_messageBody = Lens.lens (\UpdateVoiceTemplateResponse' {messageBody} -> messageBody) (\s@UpdateVoiceTemplateResponse' {} a -> s {messageBody = a} :: UpdateVoiceTemplateResponse)
 
-instance Prelude.NFData UpdateVoiceTemplateResponse
+instance Prelude.NFData UpdateVoiceTemplateResponse where
+  rnf UpdateVoiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

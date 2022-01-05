@@ -71,9 +71,14 @@ instance Core.FromJSON SignatureValidityPeriod where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable SignatureValidityPeriod
+instance Prelude.Hashable SignatureValidityPeriod where
+  hashWithSalt _salt SignatureValidityPeriod' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SignatureValidityPeriod
+instance Prelude.NFData SignatureValidityPeriod where
+  rnf SignatureValidityPeriod' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SignatureValidityPeriod where
   toJSON SignatureValidityPeriod' {..} =

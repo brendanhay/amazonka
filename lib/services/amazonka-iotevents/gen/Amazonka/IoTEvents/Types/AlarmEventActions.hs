@@ -63,9 +63,12 @@ instance Core.FromJSON AlarmEventActions where
             Prelude.<$> (x Core..:? "alarmActions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AlarmEventActions
+instance Prelude.Hashable AlarmEventActions where
+  hashWithSalt _salt AlarmEventActions' {..} =
+    _salt `Prelude.hashWithSalt` alarmActions
 
-instance Prelude.NFData AlarmEventActions
+instance Prelude.NFData AlarmEventActions where
+  rnf AlarmEventActions' {..} = Prelude.rnf alarmActions
 
 instance Core.ToJSON AlarmEventActions where
   toJSON AlarmEventActions' {..} =

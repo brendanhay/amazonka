@@ -109,9 +109,13 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePipelineExecution
+instance Prelude.Hashable DescribePipelineExecution where
+  hashWithSalt _salt DescribePipelineExecution' {..} =
+    _salt `Prelude.hashWithSalt` pipelineExecutionArn
 
-instance Prelude.NFData DescribePipelineExecution
+instance Prelude.NFData DescribePipelineExecution where
+  rnf DescribePipelineExecution' {..} =
+    Prelude.rnf pipelineExecutionArn
 
 instance Core.ToHeaders DescribePipelineExecution where
   toHeaders =
@@ -278,3 +282,17 @@ describePipelineExecutionResponse_httpStatus = Lens.lens (\DescribePipelineExecu
 instance
   Prelude.NFData
     DescribePipelineExecutionResponse
+  where
+  rnf DescribePipelineExecutionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf pipelineExecutionStatus
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
+      `Prelude.seq` Prelude.rnf pipelineExperimentConfig
+      `Prelude.seq` Prelude.rnf httpStatus

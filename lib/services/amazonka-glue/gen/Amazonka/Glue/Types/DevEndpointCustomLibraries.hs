@@ -92,9 +92,15 @@ devEndpointCustomLibraries_extraPythonLibsS3Path = Lens.lens (\DevEndpointCustom
 devEndpointCustomLibraries_extraJarsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Prelude.Maybe Prelude.Text)
 devEndpointCustomLibraries_extraJarsS3Path = Lens.lens (\DevEndpointCustomLibraries' {extraJarsS3Path} -> extraJarsS3Path) (\s@DevEndpointCustomLibraries' {} a -> s {extraJarsS3Path = a} :: DevEndpointCustomLibraries)
 
-instance Prelude.Hashable DevEndpointCustomLibraries
+instance Prelude.Hashable DevEndpointCustomLibraries where
+  hashWithSalt _salt DevEndpointCustomLibraries' {..} =
+    _salt `Prelude.hashWithSalt` extraPythonLibsS3Path
+      `Prelude.hashWithSalt` extraJarsS3Path
 
-instance Prelude.NFData DevEndpointCustomLibraries
+instance Prelude.NFData DevEndpointCustomLibraries where
+  rnf DevEndpointCustomLibraries' {..} =
+    Prelude.rnf extraPythonLibsS3Path
+      `Prelude.seq` Prelude.rnf extraJarsS3Path
 
 instance Core.ToJSON DevEndpointCustomLibraries where
   toJSON DevEndpointCustomLibraries' {..} =

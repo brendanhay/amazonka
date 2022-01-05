@@ -85,9 +85,19 @@ updateGrokClassifierRequest_grokPattern = Lens.lens (\UpdateGrokClassifierReques
 updateGrokClassifierRequest_name :: Lens.Lens' UpdateGrokClassifierRequest Prelude.Text
 updateGrokClassifierRequest_name = Lens.lens (\UpdateGrokClassifierRequest' {name} -> name) (\s@UpdateGrokClassifierRequest' {} a -> s {name = a} :: UpdateGrokClassifierRequest)
 
-instance Prelude.Hashable UpdateGrokClassifierRequest
+instance Prelude.Hashable UpdateGrokClassifierRequest where
+  hashWithSalt _salt UpdateGrokClassifierRequest' {..} =
+    _salt `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` customPatterns
+      `Prelude.hashWithSalt` grokPattern
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateGrokClassifierRequest
+instance Prelude.NFData UpdateGrokClassifierRequest where
+  rnf UpdateGrokClassifierRequest' {..} =
+    Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf customPatterns
+      `Prelude.seq` Prelude.rnf grokPattern
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON UpdateGrokClassifierRequest where
   toJSON UpdateGrokClassifierRequest' {..} =

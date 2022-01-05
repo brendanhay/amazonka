@@ -240,9 +240,27 @@ instance Core.AWSRequest CreateLoadBalancer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancer
+instance Prelude.Hashable CreateLoadBalancer where
+  hashWithSalt _salt CreateLoadBalancer' {..} =
+    _salt `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` certificateDomainName
+      `Prelude.hashWithSalt` certificateAlternativeNames
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` instancePort
 
-instance Prelude.NFData CreateLoadBalancer
+instance Prelude.NFData CreateLoadBalancer where
+  rnf CreateLoadBalancer' {..} =
+    Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf certificateDomainName
+      `Prelude.seq` Prelude.rnf certificateAlternativeNames
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf instancePort
 
 instance Core.ToHeaders CreateLoadBalancer where
   toHeaders =
@@ -330,4 +348,7 @@ createLoadBalancerResponse_operations = Lens.lens (\CreateLoadBalancerResponse' 
 createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Prelude.Int
 createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerResponse)
 
-instance Prelude.NFData CreateLoadBalancerResponse
+instance Prelude.NFData CreateLoadBalancerResponse where
+  rnf CreateLoadBalancerResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

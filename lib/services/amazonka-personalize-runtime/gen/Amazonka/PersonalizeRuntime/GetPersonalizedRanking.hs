@@ -218,9 +218,23 @@ instance Core.AWSRequest GetPersonalizedRanking where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPersonalizedRanking
+instance Prelude.Hashable GetPersonalizedRanking where
+  hashWithSalt _salt GetPersonalizedRanking' {..} =
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` campaignArn
+      `Prelude.hashWithSalt` inputList
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData GetPersonalizedRanking
+instance Prelude.NFData GetPersonalizedRanking where
+  rnf GetPersonalizedRanking' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf filterValues
+      `Prelude.seq` Prelude.rnf campaignArn
+      `Prelude.seq` Prelude.rnf inputList
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetPersonalizedRanking where
   toHeaders =
@@ -306,3 +320,8 @@ getPersonalizedRankingResponse_httpStatus = Lens.lens (\GetPersonalizedRankingRe
 instance
   Prelude.NFData
     GetPersonalizedRankingResponse
+  where
+  rnf GetPersonalizedRankingResponse' {..} =
+    Prelude.rnf personalizedRanking
+      `Prelude.seq` Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf httpStatus

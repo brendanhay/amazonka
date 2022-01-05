@@ -127,9 +127,15 @@ instance Core.AWSRequest ListOrganizations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOrganizations
+instance Prelude.Hashable ListOrganizations where
+  hashWithSalt _salt ListOrganizations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOrganizations
+instance Prelude.NFData ListOrganizations where
+  rnf ListOrganizations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOrganizations where
   toHeaders =
@@ -215,4 +221,8 @@ listOrganizationsResponse_organizationSummaries = Lens.lens (\ListOrganizationsR
 listOrganizationsResponse_httpStatus :: Lens.Lens' ListOrganizationsResponse Prelude.Int
 listOrganizationsResponse_httpStatus = Lens.lens (\ListOrganizationsResponse' {httpStatus} -> httpStatus) (\s@ListOrganizationsResponse' {} a -> s {httpStatus = a} :: ListOrganizationsResponse)
 
-instance Prelude.NFData ListOrganizationsResponse
+instance Prelude.NFData ListOrganizationsResponse where
+  rnf ListOrganizationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf organizationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

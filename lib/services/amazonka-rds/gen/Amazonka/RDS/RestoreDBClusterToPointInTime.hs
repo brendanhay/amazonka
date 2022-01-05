@@ -722,8 +722,57 @@ instance
 instance
   Prelude.Hashable
     RestoreDBClusterToPointInTime
+  where
+  hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
+    _salt `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` useLatestRestorableTime
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` engineMode
+      `Prelude.hashWithSalt` scalingConfiguration
+      `Prelude.hashWithSalt` restoreType
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` restoreToTime
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` sourceDBClusterIdentifier
 
-instance Prelude.NFData RestoreDBClusterToPointInTime
+instance Prelude.NFData RestoreDBClusterToPointInTime where
+  rnf RestoreDBClusterToPointInTime' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf engineMode
+      `Prelude.seq` Prelude.rnf scalingConfiguration
+      `Prelude.seq` Prelude.rnf restoreType
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf restoreToTime
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        sourceDBClusterIdentifier
 
 instance Core.ToHeaders RestoreDBClusterToPointInTime where
   toHeaders = Prelude.const Prelude.mempty
@@ -818,3 +867,7 @@ restoreDBClusterToPointInTimeResponse_httpStatus = Lens.lens (\RestoreDBClusterT
 instance
   Prelude.NFData
     RestoreDBClusterToPointInTimeResponse
+  where
+  rnf RestoreDBClusterToPointInTimeResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

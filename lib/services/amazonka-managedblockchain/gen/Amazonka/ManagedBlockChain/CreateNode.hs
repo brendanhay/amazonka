@@ -210,9 +210,21 @@ instance Core.AWSRequest CreateNode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNode
+instance Prelude.Hashable CreateNode where
+  hashWithSalt _salt CreateNode' {..} =
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` nodeConfiguration
 
-instance Prelude.NFData CreateNode
+instance Prelude.NFData CreateNode where
+  rnf CreateNode' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf nodeConfiguration
 
 instance Core.ToHeaders CreateNode where
   toHeaders =
@@ -284,4 +296,7 @@ createNodeResponse_nodeId = Lens.lens (\CreateNodeResponse' {nodeId} -> nodeId) 
 createNodeResponse_httpStatus :: Lens.Lens' CreateNodeResponse Prelude.Int
 createNodeResponse_httpStatus = Lens.lens (\CreateNodeResponse' {httpStatus} -> httpStatus) (\s@CreateNodeResponse' {} a -> s {httpStatus = a} :: CreateNodeResponse)
 
-instance Prelude.NFData CreateNodeResponse
+instance Prelude.NFData CreateNodeResponse where
+  rnf CreateNodeResponse' {..} =
+    Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf httpStatus

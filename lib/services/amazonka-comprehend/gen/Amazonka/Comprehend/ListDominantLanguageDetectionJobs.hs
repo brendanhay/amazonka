@@ -155,10 +155,22 @@ instance
 instance
   Prelude.Hashable
     ListDominantLanguageDetectionJobs
+  where
+  hashWithSalt
+    _salt
+    ListDominantLanguageDetectionJobs' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListDominantLanguageDetectionJobs
+  where
+  rnf ListDominantLanguageDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -256,3 +268,9 @@ listDominantLanguageDetectionJobsResponse_httpStatus = Lens.lens (\ListDominantL
 instance
   Prelude.NFData
     ListDominantLanguageDetectionJobsResponse
+  where
+  rnf ListDominantLanguageDetectionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf
+        dominantLanguageDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

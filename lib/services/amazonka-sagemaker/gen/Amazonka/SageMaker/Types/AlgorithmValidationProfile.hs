@@ -103,9 +103,17 @@ instance Core.FromJSON AlgorithmValidationProfile where
             Prelude.<*> (x Core..: "TrainingJobDefinition")
       )
 
-instance Prelude.Hashable AlgorithmValidationProfile
+instance Prelude.Hashable AlgorithmValidationProfile where
+  hashWithSalt _salt AlgorithmValidationProfile' {..} =
+    _salt `Prelude.hashWithSalt` transformJobDefinition
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` trainingJobDefinition
 
-instance Prelude.NFData AlgorithmValidationProfile
+instance Prelude.NFData AlgorithmValidationProfile where
+  rnf AlgorithmValidationProfile' {..} =
+    Prelude.rnf transformJobDefinition
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf trainingJobDefinition
 
 instance Core.ToJSON AlgorithmValidationProfile where
   toJSON AlgorithmValidationProfile' {..} =

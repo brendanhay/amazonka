@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateAwsAccountFromPartnerAccount
+  where
+  hashWithSalt
+    _salt
+    DisassociateAwsAccountFromPartnerAccount' {..} =
+      _salt `Prelude.hashWithSalt` partnerAccountId
+        `Prelude.hashWithSalt` partnerType
 
 instance
   Prelude.NFData
     DisassociateAwsAccountFromPartnerAccount
+  where
+  rnf DisassociateAwsAccountFromPartnerAccount' {..} =
+    Prelude.rnf partnerAccountId
+      `Prelude.seq` Prelude.rnf partnerType
 
 instance
   Core.ToHeaders
@@ -170,3 +180,7 @@ disassociateAwsAccountFromPartnerAccountResponse_httpStatus = Lens.lens (\Disass
 instance
   Prelude.NFData
     DisassociateAwsAccountFromPartnerAccountResponse
+  where
+  rnf
+    DisassociateAwsAccountFromPartnerAccountResponse' {..} =
+      Prelude.rnf httpStatus

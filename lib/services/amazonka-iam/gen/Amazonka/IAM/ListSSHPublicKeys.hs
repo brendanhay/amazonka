@@ -201,9 +201,17 @@ instance Core.AWSRequest ListSSHPublicKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSSHPublicKeys
+instance Prelude.Hashable ListSSHPublicKeys where
+  hashWithSalt _salt ListSSHPublicKeys' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ListSSHPublicKeys
+instance Prelude.NFData ListSSHPublicKeys where
+  rnf ListSSHPublicKeys' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListSSHPublicKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,4 +314,9 @@ listSSHPublicKeysResponse_isTruncated = Lens.lens (\ListSSHPublicKeysResponse' {
 listSSHPublicKeysResponse_httpStatus :: Lens.Lens' ListSSHPublicKeysResponse Prelude.Int
 listSSHPublicKeysResponse_httpStatus = Lens.lens (\ListSSHPublicKeysResponse' {httpStatus} -> httpStatus) (\s@ListSSHPublicKeysResponse' {} a -> s {httpStatus = a} :: ListSSHPublicKeysResponse)
 
-instance Prelude.NFData ListSSHPublicKeysResponse
+instance Prelude.NFData ListSSHPublicKeysResponse where
+  rnf ListSSHPublicKeysResponse' {..} =
+    Prelude.rnf sSHPublicKeys
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus

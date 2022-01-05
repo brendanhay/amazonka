@@ -106,6 +106,16 @@ instance Core.FromXML Invalidation where
       Prelude.<*> (x Core..@ "CreateTime")
       Prelude.<*> (x Core..@ "InvalidationBatch")
 
-instance Prelude.Hashable Invalidation
+instance Prelude.Hashable Invalidation where
+  hashWithSalt _salt Invalidation' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` invalidationBatch
 
-instance Prelude.NFData Invalidation
+instance Prelude.NFData Invalidation where
+  rnf Invalidation' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf invalidationBatch

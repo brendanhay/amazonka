@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteDocumentationVersion where
     Response.receiveNull
       DeleteDocumentationVersionResponse'
 
-instance Prelude.Hashable DeleteDocumentationVersion
+instance Prelude.Hashable DeleteDocumentationVersion where
+  hashWithSalt _salt DeleteDocumentationVersion' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` documentationVersion
 
-instance Prelude.NFData DeleteDocumentationVersion
+instance Prelude.NFData DeleteDocumentationVersion where
+  rnf DeleteDocumentationVersion' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationVersion
 
 instance Core.ToHeaders DeleteDocumentationVersion where
   toHeaders =
@@ -143,3 +149,5 @@ newDeleteDocumentationVersionResponse =
 instance
   Prelude.NFData
     DeleteDocumentationVersionResponse
+  where
+  rnf _ = ()

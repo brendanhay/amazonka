@@ -104,9 +104,17 @@ instance Core.AWSRequest UpdateVolume where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateVolumeResponse'
 
-instance Prelude.Hashable UpdateVolume
+instance Prelude.Hashable UpdateVolume where
+  hashWithSalt _salt UpdateVolume' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` mountPoint
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData UpdateVolume
+instance Prelude.NFData UpdateVolume where
+  rnf UpdateVolume' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mountPoint
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders UpdateVolume where
   toHeaders =
@@ -153,4 +161,5 @@ newUpdateVolumeResponse ::
   UpdateVolumeResponse
 newUpdateVolumeResponse = UpdateVolumeResponse'
 
-instance Prelude.NFData UpdateVolumeResponse
+instance Prelude.NFData UpdateVolumeResponse where
+  rnf _ = ()

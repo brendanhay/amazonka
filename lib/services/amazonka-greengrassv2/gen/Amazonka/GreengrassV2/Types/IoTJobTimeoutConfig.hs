@@ -80,9 +80,14 @@ instance Core.FromJSON IoTJobTimeoutConfig where
             Prelude.<$> (x Core..:? "inProgressTimeoutInMinutes")
       )
 
-instance Prelude.Hashable IoTJobTimeoutConfig
+instance Prelude.Hashable IoTJobTimeoutConfig where
+  hashWithSalt _salt IoTJobTimeoutConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` inProgressTimeoutInMinutes
 
-instance Prelude.NFData IoTJobTimeoutConfig
+instance Prelude.NFData IoTJobTimeoutConfig where
+  rnf IoTJobTimeoutConfig' {..} =
+    Prelude.rnf inProgressTimeoutInMinutes
 
 instance Core.ToJSON IoTJobTimeoutConfig where
   toJSON IoTJobTimeoutConfig' {..} =

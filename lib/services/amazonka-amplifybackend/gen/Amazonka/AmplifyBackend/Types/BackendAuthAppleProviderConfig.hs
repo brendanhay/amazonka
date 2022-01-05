@@ -96,10 +96,24 @@ instance Core.FromJSON BackendAuthAppleProviderConfig where
 instance
   Prelude.Hashable
     BackendAuthAppleProviderConfig
+  where
+  hashWithSalt
+    _salt
+    BackendAuthAppleProviderConfig' {..} =
+      _salt `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` privateKey
+        `Prelude.hashWithSalt` keyId
+        `Prelude.hashWithSalt` teamId
 
 instance
   Prelude.NFData
     BackendAuthAppleProviderConfig
+  where
+  rnf BackendAuthAppleProviderConfig' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf teamId
 
 instance Core.ToJSON BackendAuthAppleProviderConfig where
   toJSON BackendAuthAppleProviderConfig' {..} =

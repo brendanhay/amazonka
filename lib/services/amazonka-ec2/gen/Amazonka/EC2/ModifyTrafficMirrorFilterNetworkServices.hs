@@ -149,10 +149,24 @@ instance
 instance
   Prelude.Hashable
     ModifyTrafficMirrorFilterNetworkServices
+  where
+  hashWithSalt
+    _salt
+    ModifyTrafficMirrorFilterNetworkServices' {..} =
+      _salt `Prelude.hashWithSalt` addNetworkServices
+        `Prelude.hashWithSalt` removeNetworkServices
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` trafficMirrorFilterId
 
 instance
   Prelude.NFData
     ModifyTrafficMirrorFilterNetworkServices
+  where
+  rnf ModifyTrafficMirrorFilterNetworkServices' {..} =
+    Prelude.rnf addNetworkServices
+      `Prelude.seq` Prelude.rnf removeNetworkServices
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
 
 instance
   Core.ToHeaders
@@ -234,3 +248,8 @@ modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus = Lens.lens (\Modify
 instance
   Prelude.NFData
     ModifyTrafficMirrorFilterNetworkServicesResponse
+  where
+  rnf
+    ModifyTrafficMirrorFilterNetworkServicesResponse' {..} =
+      Prelude.rnf trafficMirrorFilter
+        `Prelude.seq` Prelude.rnf httpStatus

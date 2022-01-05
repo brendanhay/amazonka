@@ -72,9 +72,14 @@ instance Core.FromJSON HumanLoopRequestSource where
             Prelude.<$> (x Core..: "AwsManagedHumanLoopRequestSource")
       )
 
-instance Prelude.Hashable HumanLoopRequestSource
+instance Prelude.Hashable HumanLoopRequestSource where
+  hashWithSalt _salt HumanLoopRequestSource' {..} =
+    _salt
+      `Prelude.hashWithSalt` awsManagedHumanLoopRequestSource
 
-instance Prelude.NFData HumanLoopRequestSource
+instance Prelude.NFData HumanLoopRequestSource where
+  rnf HumanLoopRequestSource' {..} =
+    Prelude.rnf awsManagedHumanLoopRequestSource
 
 instance Core.ToJSON HumanLoopRequestSource where
   toJSON HumanLoopRequestSource' {..} =

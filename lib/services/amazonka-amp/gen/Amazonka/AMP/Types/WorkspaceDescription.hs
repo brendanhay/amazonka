@@ -134,6 +134,22 @@ instance Core.FromJSON WorkspaceDescription where
             Prelude.<*> (x Core..: "workspaceId")
       )
 
-instance Prelude.Hashable WorkspaceDescription
+instance Prelude.Hashable WorkspaceDescription where
+  hashWithSalt _salt WorkspaceDescription' {..} =
+    _salt `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` prometheusEndpoint
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData WorkspaceDescription
+instance Prelude.NFData WorkspaceDescription where
+  rnf WorkspaceDescription' {..} =
+    Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf prometheusEndpoint
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf workspaceId

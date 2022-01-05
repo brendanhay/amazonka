@@ -60,9 +60,12 @@ instance Core.FromJSON Action where
             Prelude.<$> (x Core..:? "ExportRevisionToS3")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt _salt Action' {..} =
+    _salt `Prelude.hashWithSalt` exportRevisionToS3
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} = Prelude.rnf exportRevisionToS3
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

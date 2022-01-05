@@ -117,9 +117,14 @@ instance Core.AWSRequest TerminateWorkspaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateWorkspaces
+instance Prelude.Hashable TerminateWorkspaces where
+  hashWithSalt _salt TerminateWorkspaces' {..} =
+    _salt
+      `Prelude.hashWithSalt` terminateWorkspaceRequests
 
-instance Prelude.NFData TerminateWorkspaces
+instance Prelude.NFData TerminateWorkspaces where
+  rnf TerminateWorkspaces' {..} =
+    Prelude.rnf terminateWorkspaceRequests
 
 instance Core.ToHeaders TerminateWorkspaces where
   toHeaders =
@@ -192,4 +197,7 @@ terminateWorkspacesResponse_failedRequests = Lens.lens (\TerminateWorkspacesResp
 terminateWorkspacesResponse_httpStatus :: Lens.Lens' TerminateWorkspacesResponse Prelude.Int
 terminateWorkspacesResponse_httpStatus = Lens.lens (\TerminateWorkspacesResponse' {httpStatus} -> httpStatus) (\s@TerminateWorkspacesResponse' {} a -> s {httpStatus = a} :: TerminateWorkspacesResponse)
 
-instance Prelude.NFData TerminateWorkspacesResponse
+instance Prelude.NFData TerminateWorkspacesResponse where
+  rnf TerminateWorkspacesResponse' {..} =
+    Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf httpStatus

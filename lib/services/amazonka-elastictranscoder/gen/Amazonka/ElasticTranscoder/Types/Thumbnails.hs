@@ -320,9 +320,27 @@ instance Core.FromJSON Thumbnails where
             Prelude.<*> (x Core..:? "MaxWidth")
       )
 
-instance Prelude.Hashable Thumbnails
+instance Prelude.Hashable Thumbnails where
+  hashWithSalt _salt Thumbnails' {..} =
+    _salt `Prelude.hashWithSalt` sizingPolicy
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` aspectRatio
+      `Prelude.hashWithSalt` paddingPolicy
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` maxWidth
 
-instance Prelude.NFData Thumbnails
+instance Prelude.NFData Thumbnails where
+  rnf Thumbnails' {..} =
+    Prelude.rnf sizingPolicy
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf aspectRatio
+      `Prelude.seq` Prelude.rnf paddingPolicy
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf maxWidth
 
 instance Core.ToJSON Thumbnails where
   toJSON Thumbnails' {..} =

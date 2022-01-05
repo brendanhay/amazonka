@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateLFTag where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLFTag
+instance Prelude.Hashable UpdateLFTag where
+  hashWithSalt _salt UpdateLFTag' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tagValuesToAdd
+      `Prelude.hashWithSalt` tagValuesToDelete
+      `Prelude.hashWithSalt` tagKey
 
-instance Prelude.NFData UpdateLFTag
+instance Prelude.NFData UpdateLFTag where
+  rnf UpdateLFTag' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagValuesToAdd
+      `Prelude.seq` Prelude.rnf tagValuesToDelete
+      `Prelude.seq` Prelude.rnf tagKey
 
 instance Core.ToHeaders UpdateLFTag where
   toHeaders =
@@ -193,4 +203,5 @@ newUpdateLFTagResponse pHttpStatus_ =
 updateLFTagResponse_httpStatus :: Lens.Lens' UpdateLFTagResponse Prelude.Int
 updateLFTagResponse_httpStatus = Lens.lens (\UpdateLFTagResponse' {httpStatus} -> httpStatus) (\s@UpdateLFTagResponse' {} a -> s {httpStatus = a} :: UpdateLFTagResponse)
 
-instance Prelude.NFData UpdateLFTagResponse
+instance Prelude.NFData UpdateLFTagResponse where
+  rnf UpdateLFTagResponse' {..} = Prelude.rnf httpStatus

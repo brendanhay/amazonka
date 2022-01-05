@@ -105,9 +105,14 @@ instance Core.AWSRequest GetLicenseConversionTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLicenseConversionTask
+instance Prelude.Hashable GetLicenseConversionTask where
+  hashWithSalt _salt GetLicenseConversionTask' {..} =
+    _salt
+      `Prelude.hashWithSalt` licenseConversionTaskId
 
-instance Prelude.NFData GetLicenseConversionTask
+instance Prelude.NFData GetLicenseConversionTask where
+  rnf GetLicenseConversionTask' {..} =
+    Prelude.rnf licenseConversionTaskId
 
 instance Core.ToHeaders GetLicenseConversionTask where
   toHeaders =
@@ -259,3 +264,15 @@ getLicenseConversionTaskResponse_httpStatus = Lens.lens (\GetLicenseConversionTa
 instance
   Prelude.NFData
     GetLicenseConversionTaskResponse
+  where
+  rnf GetLicenseConversionTaskResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf destinationLicenseContext
+      `Prelude.seq` Prelude.rnf licenseConversionTaskId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf licenseConversionTime
+      `Prelude.seq` Prelude.rnf sourceLicenseContext
+      `Prelude.seq` Prelude.rnf httpStatus

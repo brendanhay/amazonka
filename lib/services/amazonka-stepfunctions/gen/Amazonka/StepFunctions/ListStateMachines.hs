@@ -159,9 +159,15 @@ instance Core.AWSRequest ListStateMachines where
             Prelude.<*> (x Core..?> "stateMachines" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListStateMachines
+instance Prelude.Hashable ListStateMachines where
+  hashWithSalt _salt ListStateMachines' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListStateMachines
+instance Prelude.NFData ListStateMachines where
+  rnf ListStateMachines' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListStateMachines where
   toHeaders =
@@ -255,4 +261,8 @@ listStateMachinesResponse_httpStatus = Lens.lens (\ListStateMachinesResponse' {h
 listStateMachinesResponse_stateMachines :: Lens.Lens' ListStateMachinesResponse [StateMachineListItem]
 listStateMachinesResponse_stateMachines = Lens.lens (\ListStateMachinesResponse' {stateMachines} -> stateMachines) (\s@ListStateMachinesResponse' {} a -> s {stateMachines = a} :: ListStateMachinesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListStateMachinesResponse
+instance Prelude.NFData ListStateMachinesResponse where
+  rnf ListStateMachinesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stateMachines

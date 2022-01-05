@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     StopTrainingDocumentClassifier
+  where
+  hashWithSalt
+    _salt
+    StopTrainingDocumentClassifier' {..} =
+      _salt `Prelude.hashWithSalt` documentClassifierArn
 
 instance
   Prelude.NFData
     StopTrainingDocumentClassifier
+  where
+  rnf StopTrainingDocumentClassifier' {..} =
+    Prelude.rnf documentClassifierArn
 
 instance
   Core.ToHeaders
@@ -177,3 +185,6 @@ stopTrainingDocumentClassifierResponse_httpStatus = Lens.lens (\StopTrainingDocu
 instance
   Prelude.NFData
     StopTrainingDocumentClassifierResponse
+  where
+  rnf StopTrainingDocumentClassifierResponse' {..} =
+    Prelude.rnf httpStatus

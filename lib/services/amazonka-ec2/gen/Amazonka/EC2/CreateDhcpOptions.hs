@@ -161,9 +161,17 @@ instance Core.AWSRequest CreateDhcpOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDhcpOptions
+instance Prelude.Hashable CreateDhcpOptions where
+  hashWithSalt _salt CreateDhcpOptions' {..} =
+    _salt `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` dhcpConfigurations
 
-instance Prelude.NFData CreateDhcpOptions
+instance Prelude.NFData CreateDhcpOptions where
+  rnf CreateDhcpOptions' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf dhcpConfigurations
 
 instance Core.ToHeaders CreateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,4 +235,7 @@ createDhcpOptionsResponse_dhcpOptions = Lens.lens (\CreateDhcpOptionsResponse' {
 createDhcpOptionsResponse_httpStatus :: Lens.Lens' CreateDhcpOptionsResponse Prelude.Int
 createDhcpOptionsResponse_httpStatus = Lens.lens (\CreateDhcpOptionsResponse' {httpStatus} -> httpStatus) (\s@CreateDhcpOptionsResponse' {} a -> s {httpStatus = a} :: CreateDhcpOptionsResponse)
 
-instance Prelude.NFData CreateDhcpOptionsResponse
+instance Prelude.NFData CreateDhcpOptionsResponse where
+  rnf CreateDhcpOptionsResponse' {..} =
+    Prelude.rnf dhcpOptions
+      `Prelude.seq` Prelude.rnf httpStatus

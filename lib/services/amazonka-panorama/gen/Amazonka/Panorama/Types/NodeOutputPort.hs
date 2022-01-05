@@ -82,6 +82,14 @@ instance Core.FromJSON NodeOutputPort where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable NodeOutputPort
+instance Prelude.Hashable NodeOutputPort where
+  hashWithSalt _salt NodeOutputPort' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData NodeOutputPort
+instance Prelude.NFData NodeOutputPort where
+  rnf NodeOutputPort' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

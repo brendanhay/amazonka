@@ -163,9 +163,19 @@ instance Core.AWSRequest CreatePermission where
   response =
     Response.receiveNull CreatePermissionResponse'
 
-instance Prelude.Hashable CreatePermission
+instance Prelude.Hashable CreatePermission where
+  hashWithSalt _salt CreatePermission' {..} =
+    _salt `Prelude.hashWithSalt` sourceAccount
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData CreatePermission
+instance Prelude.NFData CreatePermission where
+  rnf CreatePermission' {..} =
+    Prelude.rnf sourceAccount
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToHeaders CreatePermission where
   toHeaders =
@@ -217,4 +227,5 @@ newCreatePermissionResponse ::
 newCreatePermissionResponse =
   CreatePermissionResponse'
 
-instance Prelude.NFData CreatePermissionResponse
+instance Prelude.NFData CreatePermissionResponse where
+  rnf _ = ()

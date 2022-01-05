@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteRouteCalculator where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRouteCalculator
+instance Prelude.Hashable DeleteRouteCalculator where
+  hashWithSalt _salt DeleteRouteCalculator' {..} =
+    _salt `Prelude.hashWithSalt` calculatorName
 
-instance Prelude.NFData DeleteRouteCalculator
+instance Prelude.NFData DeleteRouteCalculator where
+  rnf DeleteRouteCalculator' {..} =
+    Prelude.rnf calculatorName
 
 instance Core.ToHeaders DeleteRouteCalculator where
   toHeaders =
@@ -142,4 +146,6 @@ newDeleteRouteCalculatorResponse pHttpStatus_ =
 deleteRouteCalculatorResponse_httpStatus :: Lens.Lens' DeleteRouteCalculatorResponse Prelude.Int
 deleteRouteCalculatorResponse_httpStatus = Lens.lens (\DeleteRouteCalculatorResponse' {httpStatus} -> httpStatus) (\s@DeleteRouteCalculatorResponse' {} a -> s {httpStatus = a} :: DeleteRouteCalculatorResponse)
 
-instance Prelude.NFData DeleteRouteCalculatorResponse
+instance Prelude.NFData DeleteRouteCalculatorResponse where
+  rnf DeleteRouteCalculatorResponse' {..} =
+    Prelude.rnf httpStatus

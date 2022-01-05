@@ -119,9 +119,17 @@ instance Core.FromJSON CampaignHook where
             Prelude.<*> (x Core..:? "WebUrl")
       )
 
-instance Prelude.Hashable CampaignHook
+instance Prelude.Hashable CampaignHook where
+  hashWithSalt _salt CampaignHook' {..} =
+    _salt `Prelude.hashWithSalt` lambdaFunctionName
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` webUrl
 
-instance Prelude.NFData CampaignHook
+instance Prelude.NFData CampaignHook where
+  rnf CampaignHook' {..} =
+    Prelude.rnf lambdaFunctionName
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf webUrl
 
 instance Core.ToJSON CampaignHook where
   toJSON CampaignHook' {..} =

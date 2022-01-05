@@ -187,6 +187,28 @@ instance Core.FromJSON WorkspaceSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable WorkspaceSummary
+instance Prelude.Hashable WorkspaceSummary where
+  hashWithSalt _salt WorkspaceSummary' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` notificationDestinations
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` grafanaVersion
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` modified
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorkspaceSummary
+instance Prelude.NFData WorkspaceSummary where
+  rnf WorkspaceSummary' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf notificationDestinations
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf grafanaVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf modified
+      `Prelude.seq` Prelude.rnf status

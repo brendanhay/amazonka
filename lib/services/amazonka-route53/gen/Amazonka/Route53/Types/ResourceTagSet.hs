@@ -94,6 +94,14 @@ instance Core.FromXML ResourceTagSet where
                       Prelude.>>= Core.may (Core.parseXMLList1 "Tag")
                   )
 
-instance Prelude.Hashable ResourceTagSet
+instance Prelude.Hashable ResourceTagSet where
+  hashWithSalt _salt ResourceTagSet' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ResourceTagSet
+instance Prelude.NFData ResourceTagSet where
+  rnf ResourceTagSet' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags

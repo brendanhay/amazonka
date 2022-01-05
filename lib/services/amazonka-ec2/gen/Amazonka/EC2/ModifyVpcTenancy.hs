@@ -130,9 +130,17 @@ instance Core.AWSRequest ModifyVpcTenancy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpcTenancy
+instance Prelude.Hashable ModifyVpcTenancy where
+  hashWithSalt _salt ModifyVpcTenancy' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` instanceTenancy
 
-instance Prelude.NFData ModifyVpcTenancy
+instance Prelude.NFData ModifyVpcTenancy where
+  rnf ModifyVpcTenancy' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf instanceTenancy
 
 instance Core.ToHeaders ModifyVpcTenancy where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +199,7 @@ modifyVpcTenancyResponse_returnValue = Lens.lens (\ModifyVpcTenancyResponse' {re
 modifyVpcTenancyResponse_httpStatus :: Lens.Lens' ModifyVpcTenancyResponse Prelude.Int
 modifyVpcTenancyResponse_httpStatus = Lens.lens (\ModifyVpcTenancyResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcTenancyResponse' {} a -> s {httpStatus = a} :: ModifyVpcTenancyResponse)
 
-instance Prelude.NFData ModifyVpcTenancyResponse
+instance Prelude.NFData ModifyVpcTenancyResponse where
+  rnf ModifyVpcTenancyResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

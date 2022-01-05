@@ -92,6 +92,16 @@ instance Core.FromXML Job where
       Prelude.<*> (x Core..@ "IsCanceled")
       Prelude.<*> (x Core..@ "CreationDate")
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` isCanceled
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf isCanceled
+      `Prelude.seq` Prelude.rnf creationDate

@@ -173,9 +173,25 @@ instance Core.AWSRequest CreateRoutingProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoutingProfile
+instance Prelude.Hashable CreateRoutingProfile where
+  hashWithSalt _salt CreateRoutingProfile' {..} =
+    _salt `Prelude.hashWithSalt` queueConfigs
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` defaultOutboundQueueId
+      `Prelude.hashWithSalt` mediaConcurrencies
 
-instance Prelude.NFData CreateRoutingProfile
+instance Prelude.NFData CreateRoutingProfile where
+  rnf CreateRoutingProfile' {..} =
+    Prelude.rnf queueConfigs
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultOutboundQueueId
+      `Prelude.seq` Prelude.rnf mediaConcurrencies
 
 instance Core.ToHeaders CreateRoutingProfile where
   toHeaders =
@@ -261,4 +277,8 @@ createRoutingProfileResponse_routingProfileId = Lens.lens (\CreateRoutingProfile
 createRoutingProfileResponse_httpStatus :: Lens.Lens' CreateRoutingProfileResponse Prelude.Int
 createRoutingProfileResponse_httpStatus = Lens.lens (\CreateRoutingProfileResponse' {httpStatus} -> httpStatus) (\s@CreateRoutingProfileResponse' {} a -> s {httpStatus = a} :: CreateRoutingProfileResponse)
 
-instance Prelude.NFData CreateRoutingProfileResponse
+instance Prelude.NFData CreateRoutingProfileResponse where
+  rnf CreateRoutingProfileResponse' {..} =
+    Prelude.rnf routingProfileArn
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf httpStatus

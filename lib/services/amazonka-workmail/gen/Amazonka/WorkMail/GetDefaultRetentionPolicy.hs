@@ -98,9 +98,13 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDefaultRetentionPolicy
+instance Prelude.Hashable GetDefaultRetentionPolicy where
+  hashWithSalt _salt GetDefaultRetentionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData GetDefaultRetentionPolicy
+instance Prelude.NFData GetDefaultRetentionPolicy where
+  rnf GetDefaultRetentionPolicy' {..} =
+    Prelude.rnf organizationId
 
 instance Core.ToHeaders GetDefaultRetentionPolicy where
   toHeaders =
@@ -201,3 +205,10 @@ getDefaultRetentionPolicyResponse_httpStatus = Lens.lens (\GetDefaultRetentionPo
 instance
   Prelude.NFData
     GetDefaultRetentionPolicyResponse
+  where
+  rnf GetDefaultRetentionPolicyResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf folderConfigurations
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

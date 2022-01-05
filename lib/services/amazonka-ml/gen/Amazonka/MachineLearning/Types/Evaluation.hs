@@ -295,6 +295,36 @@ instance Core.FromJSON Evaluation where
             Prelude.<*> (x Core..:? "EvaluationDataSourceId")
       )
 
-instance Prelude.Hashable Evaluation
+instance Prelude.Hashable Evaluation where
+  hashWithSalt _salt Evaluation' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` performanceMetrics
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` computeTime
+      `Prelude.hashWithSalt` inputDataLocationS3
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` createdByIamUser
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` evaluationId
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` evaluationDataSourceId
 
-instance Prelude.NFData Evaluation
+instance Prelude.NFData Evaluation where
+  rnf Evaluation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf performanceMetrics
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf evaluationId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf evaluationDataSourceId

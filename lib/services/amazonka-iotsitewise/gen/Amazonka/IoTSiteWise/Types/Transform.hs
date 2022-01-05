@@ -121,9 +121,17 @@ instance Core.FromJSON Transform where
             Prelude.<*> (x Core..:? "variables" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Transform
+instance Prelude.Hashable Transform where
+  hashWithSalt _salt Transform' {..} =
+    _salt `Prelude.hashWithSalt` processingConfig
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` variables
 
-instance Prelude.NFData Transform
+instance Prelude.NFData Transform where
+  rnf Transform' {..} =
+    Prelude.rnf processingConfig
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf variables
 
 instance Core.ToJSON Transform where
   toJSON Transform' {..} =

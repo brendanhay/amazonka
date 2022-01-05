@@ -115,9 +115,15 @@ instance Core.AWSRequest DeleteServiceAction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteServiceAction
+instance Prelude.Hashable DeleteServiceAction where
+  hashWithSalt _salt DeleteServiceAction' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteServiceAction
+instance Prelude.NFData DeleteServiceAction where
+  rnf DeleteServiceAction' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteServiceAction where
   toHeaders =
@@ -180,4 +186,6 @@ newDeleteServiceActionResponse pHttpStatus_ =
 deleteServiceActionResponse_httpStatus :: Lens.Lens' DeleteServiceActionResponse Prelude.Int
 deleteServiceActionResponse_httpStatus = Lens.lens (\DeleteServiceActionResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceActionResponse' {} a -> s {httpStatus = a} :: DeleteServiceActionResponse)
 
-instance Prelude.NFData DeleteServiceActionResponse
+instance Prelude.NFData DeleteServiceActionResponse where
+  rnf DeleteServiceActionResponse' {..} =
+    Prelude.rnf httpStatus

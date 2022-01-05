@@ -135,8 +135,23 @@ instance Core.FromJSON ResourceDataSyncS3Destination where
 instance
   Prelude.Hashable
     ResourceDataSyncS3Destination
+  where
+  hashWithSalt _salt ResourceDataSyncS3Destination' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` destinationDataSharing
+      `Prelude.hashWithSalt` aWSKMSKeyARN
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` syncFormat
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData ResourceDataSyncS3Destination
+instance Prelude.NFData ResourceDataSyncS3Destination where
+  rnf ResourceDataSyncS3Destination' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf destinationDataSharing
+      `Prelude.seq` Prelude.rnf aWSKMSKeyARN
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf syncFormat
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON ResourceDataSyncS3Destination where
   toJSON ResourceDataSyncS3Destination' {..} =

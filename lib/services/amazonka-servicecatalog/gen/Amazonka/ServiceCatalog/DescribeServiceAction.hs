@@ -117,9 +117,15 @@ instance Core.AWSRequest DescribeServiceAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeServiceAction
+instance Prelude.Hashable DescribeServiceAction where
+  hashWithSalt _salt DescribeServiceAction' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeServiceAction
+instance Prelude.NFData DescribeServiceAction where
+  rnf DescribeServiceAction' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribeServiceAction where
   toHeaders =
@@ -191,4 +197,7 @@ describeServiceActionResponse_serviceActionDetail = Lens.lens (\DescribeServiceA
 describeServiceActionResponse_httpStatus :: Lens.Lens' DescribeServiceActionResponse Prelude.Int
 describeServiceActionResponse_httpStatus = Lens.lens (\DescribeServiceActionResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceActionResponse' {} a -> s {httpStatus = a} :: DescribeServiceActionResponse)
 
-instance Prelude.NFData DescribeServiceActionResponse
+instance Prelude.NFData DescribeServiceActionResponse where
+  rnf DescribeServiceActionResponse' {..} =
+    Prelude.rnf serviceActionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

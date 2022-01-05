@@ -106,10 +106,20 @@ startTechnicalCueDetectionFilter_minSegmentConfidence = Lens.lens (\StartTechnic
 instance
   Prelude.Hashable
     StartTechnicalCueDetectionFilter
+  where
+  hashWithSalt
+    _salt
+    StartTechnicalCueDetectionFilter' {..} =
+      _salt `Prelude.hashWithSalt` blackFrame
+        `Prelude.hashWithSalt` minSegmentConfidence
 
 instance
   Prelude.NFData
     StartTechnicalCueDetectionFilter
+  where
+  rnf StartTechnicalCueDetectionFilter' {..} =
+    Prelude.rnf blackFrame
+      `Prelude.seq` Prelude.rnf minSegmentConfidence
 
 instance Core.ToJSON StartTechnicalCueDetectionFilter where
   toJSON StartTechnicalCueDetectionFilter' {..} =

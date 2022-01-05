@@ -204,8 +204,21 @@ instance Core.AWSRequest DescribeNetworkInsightsPaths where
 instance
   Prelude.Hashable
     DescribeNetworkInsightsPaths
+  where
+  hashWithSalt _salt DescribeNetworkInsightsPaths' {..} =
+    _salt `Prelude.hashWithSalt` networkInsightsPathIds
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeNetworkInsightsPaths
+instance Prelude.NFData DescribeNetworkInsightsPaths where
+  rnf DescribeNetworkInsightsPaths' {..} =
+    Prelude.rnf networkInsightsPathIds
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeNetworkInsightsPaths where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,3 +300,8 @@ describeNetworkInsightsPathsResponse_httpStatus = Lens.lens (\DescribeNetworkIns
 instance
   Prelude.NFData
     DescribeNetworkInsightsPathsResponse
+  where
+  rnf DescribeNetworkInsightsPathsResponse' {..} =
+    Prelude.rnf networkInsightsPaths
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

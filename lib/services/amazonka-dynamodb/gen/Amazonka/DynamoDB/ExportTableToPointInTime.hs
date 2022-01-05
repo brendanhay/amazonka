@@ -239,9 +239,29 @@ instance Core.AWSRequest ExportTableToPointInTime where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportTableToPointInTime
+instance Prelude.Hashable ExportTableToPointInTime where
+  hashWithSalt _salt ExportTableToPointInTime' {..} =
+    _salt `Prelude.hashWithSalt` s3BucketOwner
+      `Prelude.hashWithSalt` exportFormat
+      `Prelude.hashWithSalt` s3SseKmsKeyId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` exportTime
+      `Prelude.hashWithSalt` s3SseAlgorithm
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData ExportTableToPointInTime
+instance Prelude.NFData ExportTableToPointInTime where
+  rnf ExportTableToPointInTime' {..} =
+    Prelude.rnf s3BucketOwner
+      `Prelude.seq` Prelude.rnf exportFormat
+      `Prelude.seq` Prelude.rnf s3SseKmsKeyId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf exportTime
+      `Prelude.seq` Prelude.rnf s3SseAlgorithm
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToHeaders ExportTableToPointInTime where
   toHeaders =
@@ -323,3 +343,7 @@ exportTableToPointInTimeResponse_httpStatus = Lens.lens (\ExportTableToPointInTi
 instance
   Prelude.NFData
     ExportTableToPointInTimeResponse
+  where
+  rnf ExportTableToPointInTimeResponse' {..} =
+    Prelude.rnf exportDescription
+      `Prelude.seq` Prelude.rnf httpStatus

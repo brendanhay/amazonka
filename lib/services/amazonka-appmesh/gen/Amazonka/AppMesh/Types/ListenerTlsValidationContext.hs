@@ -86,8 +86,16 @@ instance Core.FromJSON ListenerTlsValidationContext where
 instance
   Prelude.Hashable
     ListenerTlsValidationContext
+  where
+  hashWithSalt _salt ListenerTlsValidationContext' {..} =
+    _salt
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` trust
 
-instance Prelude.NFData ListenerTlsValidationContext
+instance Prelude.NFData ListenerTlsValidationContext where
+  rnf ListenerTlsValidationContext' {..} =
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf trust
 
 instance Core.ToJSON ListenerTlsValidationContext where
   toJSON ListenerTlsValidationContext' {..} =

@@ -133,9 +133,15 @@ instance Core.AWSRequest UpdateCertificate where
   response =
     Response.receiveNull UpdateCertificateResponse'
 
-instance Prelude.Hashable UpdateCertificate
+instance Prelude.Hashable UpdateCertificate where
+  hashWithSalt _salt UpdateCertificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` newStatus'
 
-instance Prelude.NFData UpdateCertificate
+instance Prelude.NFData UpdateCertificate where
+  rnf UpdateCertificate' {..} =
+    Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf newStatus'
 
 instance Core.ToHeaders UpdateCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,5 @@ newUpdateCertificateResponse ::
 newUpdateCertificateResponse =
   UpdateCertificateResponse'
 
-instance Prelude.NFData UpdateCertificateResponse
+instance Prelude.NFData UpdateCertificateResponse where
+  rnf _ = ()

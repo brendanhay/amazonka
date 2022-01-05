@@ -152,10 +152,24 @@ instance
 instance
   Prelude.Hashable
     ApplySecurityGroupsToClientVpnTargetNetwork
+  where
+  hashWithSalt
+    _salt
+    ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` clientVpnEndpointId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` securityGroupIds
 
 instance
   Prelude.NFData
     ApplySecurityGroupsToClientVpnTargetNetwork
+  where
+  rnf ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance
   Core.ToHeaders
@@ -232,3 +246,8 @@ applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus = Lens.lens (\App
 instance
   Prelude.NFData
     ApplySecurityGroupsToClientVpnTargetNetworkResponse
+  where
+  rnf
+    ApplySecurityGroupsToClientVpnTargetNetworkResponse' {..} =
+      Prelude.rnf securityGroupIds
+        `Prelude.seq` Prelude.rnf httpStatus

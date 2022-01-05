@@ -145,9 +145,17 @@ instance Core.AWSRequest ListAssociationVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssociationVersions
+instance Prelude.Hashable ListAssociationVersions where
+  hashWithSalt _salt ListAssociationVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData ListAssociationVersions
+instance Prelude.NFData ListAssociationVersions where
+  rnf ListAssociationVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders ListAssociationVersions where
   toHeaders =
@@ -238,3 +246,8 @@ listAssociationVersionsResponse_httpStatus = Lens.lens (\ListAssociationVersions
 instance
   Prelude.NFData
     ListAssociationVersionsResponse
+  where
+  rnf ListAssociationVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf associationVersions
+      `Prelude.seq` Prelude.rnf httpStatus

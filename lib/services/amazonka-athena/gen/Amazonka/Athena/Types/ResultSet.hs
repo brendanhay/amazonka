@@ -78,6 +78,12 @@ instance Core.FromJSON ResultSet where
             Prelude.<*> (x Core..:? "ResultSetMetadata")
       )
 
-instance Prelude.Hashable ResultSet
+instance Prelude.Hashable ResultSet where
+  hashWithSalt _salt ResultSet' {..} =
+    _salt `Prelude.hashWithSalt` rows
+      `Prelude.hashWithSalt` resultSetMetadata
 
-instance Prelude.NFData ResultSet
+instance Prelude.NFData ResultSet where
+  rnf ResultSet' {..} =
+    Prelude.rnf rows
+      `Prelude.seq` Prelude.rnf resultSetMetadata

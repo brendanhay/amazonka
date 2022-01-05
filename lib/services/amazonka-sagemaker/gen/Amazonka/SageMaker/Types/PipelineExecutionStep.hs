@@ -128,6 +128,22 @@ instance Core.FromJSON PipelineExecutionStep where
             Prelude.<*> (x Core..:? "CacheHitResult")
       )
 
-instance Prelude.Hashable PipelineExecutionStep
+instance Prelude.Hashable PipelineExecutionStep where
+  hashWithSalt _salt PipelineExecutionStep' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` stepName
+      `Prelude.hashWithSalt` stepStatus
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` cacheHitResult
 
-instance Prelude.NFData PipelineExecutionStep
+instance Prelude.NFData PipelineExecutionStep where
+  rnf PipelineExecutionStep' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stepName
+      `Prelude.seq` Prelude.rnf stepStatus
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf cacheHitResult

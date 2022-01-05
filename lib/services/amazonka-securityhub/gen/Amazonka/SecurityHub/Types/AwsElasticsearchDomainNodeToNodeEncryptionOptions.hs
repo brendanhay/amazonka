@@ -68,10 +68,19 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainNodeToNodeEncryptionOptions
+  where
+  hashWithSalt
+    _salt
+    AwsElasticsearchDomainNodeToNodeEncryptionOptions' {..} =
+      _salt `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainNodeToNodeEncryptionOptions
+  where
+  rnf
+    AwsElasticsearchDomainNodeToNodeEncryptionOptions' {..} =
+      Prelude.rnf enabled
 
 instance
   Core.ToJSON

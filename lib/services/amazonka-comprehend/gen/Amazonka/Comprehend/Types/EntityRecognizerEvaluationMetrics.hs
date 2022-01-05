@@ -109,7 +109,19 @@ instance
 instance
   Prelude.Hashable
     EntityRecognizerEvaluationMetrics
+  where
+  hashWithSalt
+    _salt
+    EntityRecognizerEvaluationMetrics' {..} =
+      _salt `Prelude.hashWithSalt` recall
+        `Prelude.hashWithSalt` precision
+        `Prelude.hashWithSalt` f1Score
 
 instance
   Prelude.NFData
     EntityRecognizerEvaluationMetrics
+  where
+  rnf EntityRecognizerEvaluationMetrics' {..} =
+    Prelude.rnf recall
+      `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf f1Score

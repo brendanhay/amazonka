@@ -189,9 +189,21 @@ instance Core.AWSRequest GetObjectAcl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectAcl
+instance Prelude.Hashable GetObjectAcl where
+  hashWithSalt _salt GetObjectAcl' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GetObjectAcl
+instance Prelude.NFData GetObjectAcl where
+  rnf GetObjectAcl' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectAcl where
   toHeaders GetObjectAcl' {..} =
@@ -267,4 +279,9 @@ getObjectAclResponse_owner = Lens.lens (\GetObjectAclResponse' {owner} -> owner)
 getObjectAclResponse_httpStatus :: Lens.Lens' GetObjectAclResponse Prelude.Int
 getObjectAclResponse_httpStatus = Lens.lens (\GetObjectAclResponse' {httpStatus} -> httpStatus) (\s@GetObjectAclResponse' {} a -> s {httpStatus = a} :: GetObjectAclResponse)
 
-instance Prelude.NFData GetObjectAclResponse
+instance Prelude.NFData GetObjectAclResponse where
+  rnf GetObjectAclResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf httpStatus

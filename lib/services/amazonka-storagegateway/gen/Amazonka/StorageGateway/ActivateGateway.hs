@@ -322,9 +322,27 @@ instance Core.AWSRequest ActivateGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateGateway
+instance Prelude.Hashable ActivateGateway where
+  hashWithSalt _salt ActivateGateway' {..} =
+    _salt `Prelude.hashWithSalt` mediumChangerType
+      `Prelude.hashWithSalt` tapeDriveType
+      `Prelude.hashWithSalt` gatewayType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` activationKey
+      `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayTimezone
+      `Prelude.hashWithSalt` gatewayRegion
 
-instance Prelude.NFData ActivateGateway
+instance Prelude.NFData ActivateGateway where
+  rnf ActivateGateway' {..} =
+    Prelude.rnf mediumChangerType
+      `Prelude.seq` Prelude.rnf tapeDriveType
+      `Prelude.seq` Prelude.rnf gatewayType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf activationKey
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayTimezone
+      `Prelude.seq` Prelude.rnf gatewayRegion
 
 instance Core.ToHeaders ActivateGateway where
   toHeaders =
@@ -413,4 +431,7 @@ activateGatewayResponse_gatewayARN = Lens.lens (\ActivateGatewayResponse' {gatew
 activateGatewayResponse_httpStatus :: Lens.Lens' ActivateGatewayResponse Prelude.Int
 activateGatewayResponse_httpStatus = Lens.lens (\ActivateGatewayResponse' {httpStatus} -> httpStatus) (\s@ActivateGatewayResponse' {} a -> s {httpStatus = a} :: ActivateGatewayResponse)
 
-instance Prelude.NFData ActivateGatewayResponse
+instance Prelude.NFData ActivateGatewayResponse where
+  rnf ActivateGatewayResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

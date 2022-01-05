@@ -212,9 +212,17 @@ instance Core.AWSRequest GetParametersForImport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetParametersForImport
+instance Prelude.Hashable GetParametersForImport where
+  hashWithSalt _salt GetParametersForImport' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` wrappingAlgorithm
+      `Prelude.hashWithSalt` wrappingKeySpec
 
-instance Prelude.NFData GetParametersForImport
+instance Prelude.NFData GetParametersForImport where
+  rnf GetParametersForImport' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf wrappingAlgorithm
+      `Prelude.seq` Prelude.rnf wrappingKeySpec
 
 instance Core.ToHeaders GetParametersForImport where
   toHeaders =
@@ -355,3 +363,10 @@ getParametersForImportResponse_httpStatus = Lens.lens (\GetParametersForImportRe
 instance
   Prelude.NFData
     GetParametersForImportResponse
+  where
+  rnf GetParametersForImportResponse' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf parametersValidTo
+      `Prelude.seq` Prelude.rnf importToken
+      `Prelude.seq` Prelude.rnf httpStatus

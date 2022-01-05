@@ -121,9 +121,15 @@ instance Core.AWSRequest DescribeRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRule
+instance Prelude.Hashable DescribeRule where
+  hashWithSalt _salt DescribeRule' {..} =
+    _salt `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeRule
+instance Prelude.NFData DescribeRule where
+  rnf DescribeRule' {..} =
+    Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeRule where
   toHeaders =
@@ -300,4 +306,16 @@ describeRuleResponse_roleArn = Lens.lens (\DescribeRuleResponse' {roleArn} -> ro
 describeRuleResponse_httpStatus :: Lens.Lens' DescribeRuleResponse Prelude.Int
 describeRuleResponse_httpStatus = Lens.lens (\DescribeRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeRuleResponse' {} a -> s {httpStatus = a} :: DescribeRuleResponse)
 
-instance Prelude.NFData DescribeRuleResponse
+instance Prelude.NFData DescribeRuleResponse where
+  rnf DescribeRuleResponse' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf managedBy
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

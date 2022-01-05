@@ -147,9 +147,19 @@ instance Core.AWSRequest DisassociateCreatedArtifact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateCreatedArtifact
+instance Prelude.Hashable DisassociateCreatedArtifact where
+  hashWithSalt _salt DisassociateCreatedArtifact' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` createdArtifactName
 
-instance Prelude.NFData DisassociateCreatedArtifact
+instance Prelude.NFData DisassociateCreatedArtifact where
+  rnf DisassociateCreatedArtifact' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf createdArtifactName
 
 instance Core.ToHeaders DisassociateCreatedArtifact where
   toHeaders =
@@ -221,3 +231,6 @@ disassociateCreatedArtifactResponse_httpStatus = Lens.lens (\DisassociateCreated
 instance
   Prelude.NFData
     DisassociateCreatedArtifactResponse
+  where
+  rnf DisassociateCreatedArtifactResponse' {..} =
+    Prelude.rnf httpStatus

@@ -83,6 +83,12 @@ instance Core.FromJSON PiiOutputDataConfig where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable PiiOutputDataConfig
+instance Prelude.Hashable PiiOutputDataConfig where
+  hashWithSalt _salt PiiOutputDataConfig' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData PiiOutputDataConfig
+instance Prelude.NFData PiiOutputDataConfig where
+  rnf PiiOutputDataConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3Uri

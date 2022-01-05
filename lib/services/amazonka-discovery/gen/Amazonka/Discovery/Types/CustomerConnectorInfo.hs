@@ -143,6 +143,22 @@ instance Core.FromJSON CustomerConnectorInfo where
             Prelude.<*> (x Core..: "unknownConnectors")
       )
 
-instance Prelude.Hashable CustomerConnectorInfo
+instance Prelude.Hashable CustomerConnectorInfo where
+  hashWithSalt _salt CustomerConnectorInfo' {..} =
+    _salt `Prelude.hashWithSalt` activeConnectors
+      `Prelude.hashWithSalt` healthyConnectors
+      `Prelude.hashWithSalt` blackListedConnectors
+      `Prelude.hashWithSalt` shutdownConnectors
+      `Prelude.hashWithSalt` unhealthyConnectors
+      `Prelude.hashWithSalt` totalConnectors
+      `Prelude.hashWithSalt` unknownConnectors
 
-instance Prelude.NFData CustomerConnectorInfo
+instance Prelude.NFData CustomerConnectorInfo where
+  rnf CustomerConnectorInfo' {..} =
+    Prelude.rnf activeConnectors
+      `Prelude.seq` Prelude.rnf healthyConnectors
+      `Prelude.seq` Prelude.rnf blackListedConnectors
+      `Prelude.seq` Prelude.rnf shutdownConnectors
+      `Prelude.seq` Prelude.rnf unhealthyConnectors
+      `Prelude.seq` Prelude.rnf totalConnectors
+      `Prelude.seq` Prelude.rnf unknownConnectors

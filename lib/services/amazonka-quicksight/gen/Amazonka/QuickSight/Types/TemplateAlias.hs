@@ -81,6 +81,14 @@ instance Core.FromJSON TemplateAlias where
             Prelude.<*> (x Core..:? "TemplateVersionNumber")
       )
 
-instance Prelude.Hashable TemplateAlias
+instance Prelude.Hashable TemplateAlias where
+  hashWithSalt _salt TemplateAlias' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` templateVersionNumber
 
-instance Prelude.NFData TemplateAlias
+instance Prelude.NFData TemplateAlias where
+  rnf TemplateAlias' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf templateVersionNumber

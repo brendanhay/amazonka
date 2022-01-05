@@ -72,9 +72,14 @@ instance Core.FromJSON ProvisioningParameter where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable ProvisioningParameter
+instance Prelude.Hashable ProvisioningParameter where
+  hashWithSalt _salt ProvisioningParameter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ProvisioningParameter
+instance Prelude.NFData ProvisioningParameter where
+  rnf ProvisioningParameter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =

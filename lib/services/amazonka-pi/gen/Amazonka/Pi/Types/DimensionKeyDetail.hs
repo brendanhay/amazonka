@@ -124,6 +124,14 @@ instance Core.FromJSON DimensionKeyDetail where
             Prelude.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable DimensionKeyDetail
+instance Prelude.Hashable DimensionKeyDetail where
+  hashWithSalt _salt DimensionKeyDetail' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dimension
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData DimensionKeyDetail
+instance Prelude.NFData DimensionKeyDetail where
+  rnf DimensionKeyDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dimension
+      `Prelude.seq` Prelude.rnf value

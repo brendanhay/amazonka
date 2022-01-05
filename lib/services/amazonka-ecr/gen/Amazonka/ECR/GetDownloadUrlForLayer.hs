@@ -133,9 +133,17 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDownloadUrlForLayer
+instance Prelude.Hashable GetDownloadUrlForLayer where
+  hashWithSalt _salt GetDownloadUrlForLayer' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` layerDigest
 
-instance Prelude.NFData GetDownloadUrlForLayer
+instance Prelude.NFData GetDownloadUrlForLayer where
+  rnf GetDownloadUrlForLayer' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf layerDigest
 
 instance Core.ToHeaders GetDownloadUrlForLayer where
   toHeaders =
@@ -220,3 +228,8 @@ getDownloadUrlForLayerResponse_httpStatus = Lens.lens (\GetDownloadUrlForLayerRe
 instance
   Prelude.NFData
     GetDownloadUrlForLayerResponse
+  where
+  rnf GetDownloadUrlForLayerResponse' {..} =
+    Prelude.rnf layerDigest
+      `Prelude.seq` Prelude.rnf downloadUrl
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -158,10 +158,22 @@ instance
 instance
   Prelude.Hashable
     PutBucketAccelerateConfiguration
+  where
+  hashWithSalt
+    _salt
+    PutBucketAccelerateConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` accelerateConfiguration
 
 instance
   Prelude.NFData
     PutBucketAccelerateConfiguration
+  where
+  rnf PutBucketAccelerateConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf accelerateConfiguration
 
 instance
   Core.ToElement
@@ -211,3 +223,5 @@ newPutBucketAccelerateConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketAccelerateConfigurationResponse
+  where
+  rnf _ = ()

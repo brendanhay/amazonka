@@ -180,9 +180,17 @@ instance Core.FromJSON SimpleScopeTerm where
             Prelude.<*> (x Core..:? "comparator")
       )
 
-instance Prelude.Hashable SimpleScopeTerm
+instance Prelude.Hashable SimpleScopeTerm where
+  hashWithSalt _salt SimpleScopeTerm' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` comparator
 
-instance Prelude.NFData SimpleScopeTerm
+instance Prelude.NFData SimpleScopeTerm where
+  rnf SimpleScopeTerm' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf comparator
 
 instance Core.ToJSON SimpleScopeTerm where
   toJSON SimpleScopeTerm' {..} =

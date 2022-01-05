@@ -82,7 +82,17 @@ instance
 instance
   Prelude.Hashable
     InstanceAggregatedAssociationOverview
+  where
+  hashWithSalt
+    _salt
+    InstanceAggregatedAssociationOverview' {..} =
+      _salt `Prelude.hashWithSalt` detailedStatus
+        `Prelude.hashWithSalt` instanceAssociationStatusAggregatedCount
 
 instance
   Prelude.NFData
     InstanceAggregatedAssociationOverview
+  where
+  rnf InstanceAggregatedAssociationOverview' {..} =
+    Prelude.rnf detailedStatus
+      `Prelude.seq` Prelude.rnf instanceAssociationStatusAggregatedCount

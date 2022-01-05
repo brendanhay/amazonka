@@ -109,9 +109,9 @@ module Amazonka.DynamoDB.Query
     queryResponse_lastEvaluatedKey,
     queryResponse_count,
     queryResponse_scannedCount,
-    queryResponse_items,
     queryResponse_consumedCapacity,
     queryResponse_httpStatus,
+    queryResponse_items,
   )
 where
 
@@ -1054,14 +1054,50 @@ instance Core.AWSRequest Query where
                         )
             Prelude.<*> (x Core..?> "Count")
             Prelude.<*> (x Core..?> "ScannedCount")
-            Prelude.<*> (x Core..?> "Items" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ConsumedCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Items" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable Query
+instance Prelude.Hashable Query where
+  hashWithSalt _salt Query' {..} =
+    _salt `Prelude.hashWithSalt` keyConditions
+      `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` queryFilter
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` scanIndexForward
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` select
+      `Prelude.hashWithSalt` keyConditionExpression
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` exclusiveStartKey
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Query
+instance Prelude.NFData Query where
+  rnf Query' {..} =
+    Prelude.rnf keyConditions
+      `Prelude.seq` Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf queryFilter
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf scanIndexForward
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf select
+      `Prelude.seq` Prelude.rnf keyConditionExpression
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf exclusiveStartKey
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders Query where
   toHeaders =
@@ -1150,10 +1186,6 @@ data QueryResponse = QueryResponse'
     -- If you did not use a filter in the request, then @ScannedCount@ is the
     -- same as @Count@.
     scannedCount :: Prelude.Maybe Prelude.Int,
-    -- | An array of item attributes that match the query criteria. Each element
-    -- in this array consists of an attribute name and the value for that
-    -- attribute.
-    items :: Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue],
     -- | The capacity units consumed by the @Query@ operation. The data returned
     -- includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
@@ -1163,7 +1195,11 @@ data QueryResponse = QueryResponse'
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Prelude.Int,
+    -- | An array of item attributes that match the query criteria. Each element
+    -- in this array consists of an attribute name and the value for that
+    -- attribute.
+    items :: [Prelude.HashMap Prelude.Text AttributeValue]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -1204,10 +1240,6 @@ data QueryResponse = QueryResponse'
 -- If you did not use a filter in the request, then @ScannedCount@ is the
 -- same as @Count@.
 --
--- 'items', 'queryResponse_items' - An array of item attributes that match the query criteria. Each element
--- in this array consists of an attribute name and the value for that
--- attribute.
---
 -- 'consumedCapacity', 'queryResponse_consumedCapacity' - The capacity units consumed by the @Query@ operation. The data returned
 -- includes the total provisioned throughput consumed, along with
 -- statistics for the table and any indexes involved in the operation.
@@ -1217,6 +1249,10 @@ data QueryResponse = QueryResponse'
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'httpStatus', 'queryResponse_httpStatus' - The response's http status code.
+--
+-- 'items', 'queryResponse_items' - An array of item attributes that match the query criteria. Each element
+-- in this array consists of an attribute name and the value for that
+-- attribute.
 newQueryResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -1226,9 +1262,9 @@ newQueryResponse pHttpStatus_ =
     { lastEvaluatedKey = Prelude.Nothing,
       count = Prelude.Nothing,
       scannedCount = Prelude.Nothing,
-      items = Prelude.Nothing,
       consumedCapacity = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+      httpStatus = pHttpStatus_,
+      items = Prelude.mempty
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of
@@ -1266,12 +1302,6 @@ queryResponse_count = Lens.lens (\QueryResponse' {count} -> count) (\s@QueryResp
 queryResponse_scannedCount :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
 queryResponse_scannedCount = Lens.lens (\QueryResponse' {scannedCount} -> scannedCount) (\s@QueryResponse' {} a -> s {scannedCount = a} :: QueryResponse)
 
--- | An array of item attributes that match the query criteria. Each element
--- in this array consists of an attribute name and the value for that
--- attribute.
-queryResponse_items :: Lens.Lens' QueryResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue])
-queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResponse' {} a -> s {items = a} :: QueryResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The capacity units consumed by the @Query@ operation. The data returned
 -- includes the total provisioned throughput consumed, along with
 -- statistics for the table and any indexes involved in the operation.
@@ -1286,4 +1316,17 @@ queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -
 queryResponse_httpStatus :: Lens.Lens' QueryResponse Prelude.Int
 queryResponse_httpStatus = Lens.lens (\QueryResponse' {httpStatus} -> httpStatus) (\s@QueryResponse' {} a -> s {httpStatus = a} :: QueryResponse)
 
-instance Prelude.NFData QueryResponse
+-- | An array of item attributes that match the query criteria. Each element
+-- in this array consists of an attribute name and the value for that
+-- attribute.
+queryResponse_items :: Lens.Lens' QueryResponse [Prelude.HashMap Prelude.Text AttributeValue]
+queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResponse' {} a -> s {items = a} :: QueryResponse) Prelude.. Lens.coerced
+
+instance Prelude.NFData QueryResponse where
+  rnf QueryResponse' {..} =
+    Prelude.rnf lastEvaluatedKey
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf scannedCount
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf items

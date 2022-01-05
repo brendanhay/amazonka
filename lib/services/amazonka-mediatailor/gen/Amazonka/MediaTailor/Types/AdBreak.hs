@@ -106,9 +106,19 @@ instance Core.FromJSON AdBreak where
             Prelude.<*> (x Core..:? "OffsetMillis")
       )
 
-instance Prelude.Hashable AdBreak
+instance Prelude.Hashable AdBreak where
+  hashWithSalt _salt AdBreak' {..} =
+    _salt `Prelude.hashWithSalt` spliceInsertMessage
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` slate
+      `Prelude.hashWithSalt` offsetMillis
 
-instance Prelude.NFData AdBreak
+instance Prelude.NFData AdBreak where
+  rnf AdBreak' {..} =
+    Prelude.rnf spliceInsertMessage
+      `Prelude.seq` Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf slate
+      `Prelude.seq` Prelude.rnf offsetMillis
 
 instance Core.ToJSON AdBreak where
   toJSON AdBreak' {..} =

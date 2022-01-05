@@ -96,9 +96,17 @@ instance Core.FromJSON DatasetAction where
             Prelude.<*> (x Core..:? "containerAction")
       )
 
-instance Prelude.Hashable DatasetAction
+instance Prelude.Hashable DatasetAction where
+  hashWithSalt _salt DatasetAction' {..} =
+    _salt `Prelude.hashWithSalt` queryAction
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` containerAction
 
-instance Prelude.NFData DatasetAction
+instance Prelude.NFData DatasetAction where
+  rnf DatasetAction' {..} =
+    Prelude.rnf queryAction
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf containerAction
 
 instance Core.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =

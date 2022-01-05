@@ -134,9 +134,27 @@ aPNSVoipChannelRequest_certificate = Lens.lens (\APNSVoipChannelRequest' {certif
 aPNSVoipChannelRequest_tokenKeyId :: Lens.Lens' APNSVoipChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSVoipChannelRequest_tokenKeyId = Lens.lens (\APNSVoipChannelRequest' {tokenKeyId} -> tokenKeyId) (\s@APNSVoipChannelRequest' {} a -> s {tokenKeyId = a} :: APNSVoipChannelRequest)
 
-instance Prelude.Hashable APNSVoipChannelRequest
+instance Prelude.Hashable APNSVoipChannelRequest where
+  hashWithSalt _salt APNSVoipChannelRequest' {..} =
+    _salt `Prelude.hashWithSalt` tokenKey
+      `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` teamId
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` defaultAuthenticationMethod
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` tokenKeyId
 
-instance Prelude.NFData APNSVoipChannelRequest
+instance Prelude.NFData APNSVoipChannelRequest where
+  rnf APNSVoipChannelRequest' {..} =
+    Prelude.rnf tokenKey
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf teamId
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf tokenKeyId
 
 instance Core.ToJSON APNSVoipChannelRequest where
   toJSON APNSVoipChannelRequest' {..} =

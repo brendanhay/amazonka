@@ -144,9 +144,19 @@ instance Core.AWSRequest DescribeAccessPoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccessPoints
+instance Prelude.Hashable DescribeAccessPoints where
+  hashWithSalt _salt DescribeAccessPoints' {..} =
+    _salt `Prelude.hashWithSalt` accessPointId
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeAccessPoints
+instance Prelude.NFData DescribeAccessPoints where
+  rnf DescribeAccessPoints' {..} =
+    Prelude.rnf accessPointId
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAccessPoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +227,8 @@ describeAccessPointsResponse_nextToken = Lens.lens (\DescribeAccessPointsRespons
 describeAccessPointsResponse_httpStatus :: Lens.Lens' DescribeAccessPointsResponse Prelude.Int
 describeAccessPointsResponse_httpStatus = Lens.lens (\DescribeAccessPointsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccessPointsResponse' {} a -> s {httpStatus = a} :: DescribeAccessPointsResponse)
 
-instance Prelude.NFData DescribeAccessPointsResponse
+instance Prelude.NFData DescribeAccessPointsResponse where
+  rnf DescribeAccessPointsResponse' {..} =
+    Prelude.rnf accessPoints
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

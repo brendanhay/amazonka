@@ -102,9 +102,15 @@ instance Core.AWSRequest CreateDataflowEndpointGroup where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDataflowEndpointGroup
+instance Prelude.Hashable CreateDataflowEndpointGroup where
+  hashWithSalt _salt CreateDataflowEndpointGroup' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endpointDetails
 
-instance Prelude.NFData CreateDataflowEndpointGroup
+instance Prelude.NFData CreateDataflowEndpointGroup where
+  rnf CreateDataflowEndpointGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endpointDetails
 
 instance Core.ToHeaders CreateDataflowEndpointGroup where
   toHeaders =

@@ -147,9 +147,21 @@ instance Core.AWSRequest CreateWorkflow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkflow
+instance Prelude.Hashable CreateWorkflow where
+  hashWithSalt _salt CreateWorkflow' {..} =
+    _salt `Prelude.hashWithSalt` maxConcurrentRuns
+      `Prelude.hashWithSalt` defaultRunProperties
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateWorkflow
+instance Prelude.NFData CreateWorkflow where
+  rnf CreateWorkflow' {..} =
+    Prelude.rnf maxConcurrentRuns
+      `Prelude.seq` Prelude.rnf defaultRunProperties
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateWorkflow where
   toHeaders =
@@ -222,4 +234,7 @@ createWorkflowResponse_name = Lens.lens (\CreateWorkflowResponse' {name} -> name
 createWorkflowResponse_httpStatus :: Lens.Lens' CreateWorkflowResponse Prelude.Int
 createWorkflowResponse_httpStatus = Lens.lens (\CreateWorkflowResponse' {httpStatus} -> httpStatus) (\s@CreateWorkflowResponse' {} a -> s {httpStatus = a} :: CreateWorkflowResponse)
 
-instance Prelude.NFData CreateWorkflowResponse
+instance Prelude.NFData CreateWorkflowResponse where
+  rnf CreateWorkflowResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

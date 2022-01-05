@@ -72,6 +72,12 @@ instance Core.FromJSON TraceUser where
             Prelude.<*> (x Core..:? "UserName")
       )
 
-instance Prelude.Hashable TraceUser
+instance Prelude.Hashable TraceUser where
+  hashWithSalt _salt TraceUser' {..} =
+    _salt `Prelude.hashWithSalt` serviceIds
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData TraceUser
+instance Prelude.NFData TraceUser where
+  rnf TraceUser' {..} =
+    Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf userName

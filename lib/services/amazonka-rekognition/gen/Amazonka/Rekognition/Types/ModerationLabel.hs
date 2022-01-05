@@ -103,6 +103,14 @@ instance Core.FromJSON ModerationLabel where
             Prelude.<*> (x Core..:? "ParentName")
       )
 
-instance Prelude.Hashable ModerationLabel
+instance Prelude.Hashable ModerationLabel where
+  hashWithSalt _salt ModerationLabel' {..} =
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentName
 
-instance Prelude.NFData ModerationLabel
+instance Prelude.NFData ModerationLabel where
+  rnf ModerationLabel' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parentName

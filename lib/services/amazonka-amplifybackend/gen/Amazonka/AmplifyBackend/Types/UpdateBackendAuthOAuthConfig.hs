@@ -116,8 +116,23 @@ updateBackendAuthOAuthConfig_redirectSignInURIs = Lens.lens (\UpdateBackendAuthO
 instance
   Prelude.Hashable
     UpdateBackendAuthOAuthConfig
+  where
+  hashWithSalt _salt UpdateBackendAuthOAuthConfig' {..} =
+    _salt `Prelude.hashWithSalt` socialProviderSettings
+      `Prelude.hashWithSalt` domainPrefix
+      `Prelude.hashWithSalt` oAuthScopes
+      `Prelude.hashWithSalt` oAuthGrantType
+      `Prelude.hashWithSalt` redirectSignOutURIs
+      `Prelude.hashWithSalt` redirectSignInURIs
 
-instance Prelude.NFData UpdateBackendAuthOAuthConfig
+instance Prelude.NFData UpdateBackendAuthOAuthConfig where
+  rnf UpdateBackendAuthOAuthConfig' {..} =
+    Prelude.rnf socialProviderSettings
+      `Prelude.seq` Prelude.rnf domainPrefix
+      `Prelude.seq` Prelude.rnf oAuthScopes
+      `Prelude.seq` Prelude.rnf oAuthGrantType
+      `Prelude.seq` Prelude.rnf redirectSignOutURIs
+      `Prelude.seq` Prelude.rnf redirectSignInURIs
 
 instance Core.ToJSON UpdateBackendAuthOAuthConfig where
   toJSON UpdateBackendAuthOAuthConfig' {..} =

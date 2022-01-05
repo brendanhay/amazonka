@@ -134,9 +134,23 @@ instance Core.FromJSON ThreatIntelIndicator where
             Prelude.<*> (x Core..:? "LastObservedAt")
       )
 
-instance Prelude.Hashable ThreatIntelIndicator
+instance Prelude.Hashable ThreatIntelIndicator where
+  hashWithSalt _salt ThreatIntelIndicator' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` sourceUrl
+      `Prelude.hashWithSalt` lastObservedAt
 
-instance Prelude.NFData ThreatIntelIndicator
+instance Prelude.NFData ThreatIntelIndicator where
+  rnf ThreatIntelIndicator' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf sourceUrl
+      `Prelude.seq` Prelude.rnf lastObservedAt
 
 instance Core.ToJSON ThreatIntelIndicator where
   toJSON ThreatIntelIndicator' {..} =

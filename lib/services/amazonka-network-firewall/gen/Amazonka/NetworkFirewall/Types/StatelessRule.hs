@@ -124,9 +124,15 @@ instance Core.FromJSON StatelessRule where
             Prelude.<*> (x Core..: "Priority")
       )
 
-instance Prelude.Hashable StatelessRule
+instance Prelude.Hashable StatelessRule where
+  hashWithSalt _salt StatelessRule' {..} =
+    _salt `Prelude.hashWithSalt` ruleDefinition
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData StatelessRule
+instance Prelude.NFData StatelessRule where
+  rnf StatelessRule' {..} =
+    Prelude.rnf ruleDefinition
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToJSON StatelessRule where
   toJSON StatelessRule' {..} =

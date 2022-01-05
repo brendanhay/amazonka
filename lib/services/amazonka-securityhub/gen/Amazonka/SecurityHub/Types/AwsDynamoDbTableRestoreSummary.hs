@@ -110,10 +110,24 @@ instance Core.FromJSON AwsDynamoDbTableRestoreSummary where
 instance
   Prelude.Hashable
     AwsDynamoDbTableRestoreSummary
+  where
+  hashWithSalt
+    _salt
+    AwsDynamoDbTableRestoreSummary' {..} =
+      _salt `Prelude.hashWithSalt` sourceTableArn
+        `Prelude.hashWithSalt` sourceBackupArn
+        `Prelude.hashWithSalt` restoreInProgress
+        `Prelude.hashWithSalt` restoreDateTime
 
 instance
   Prelude.NFData
     AwsDynamoDbTableRestoreSummary
+  where
+  rnf AwsDynamoDbTableRestoreSummary' {..} =
+    Prelude.rnf sourceTableArn
+      `Prelude.seq` Prelude.rnf sourceBackupArn
+      `Prelude.seq` Prelude.rnf restoreInProgress
+      `Prelude.seq` Prelude.rnf restoreDateTime
 
 instance Core.ToJSON AwsDynamoDbTableRestoreSummary where
   toJSON AwsDynamoDbTableRestoreSummary' {..} =

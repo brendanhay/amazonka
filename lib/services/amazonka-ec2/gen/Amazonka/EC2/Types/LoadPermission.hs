@@ -69,6 +69,11 @@ instance Core.FromXML LoadPermission where
       Prelude.<$> (x Core..@? "group")
       Prelude.<*> (x Core..@? "userId")
 
-instance Prelude.Hashable LoadPermission
+instance Prelude.Hashable LoadPermission where
+  hashWithSalt _salt LoadPermission' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData LoadPermission
+instance Prelude.NFData LoadPermission where
+  rnf LoadPermission' {..} =
+    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId

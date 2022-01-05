@@ -94,9 +94,19 @@ instance Core.FromJSON InstanceBlockDeviceMapping where
             Prelude.<*> (x Core..:? "deviceName")
       )
 
-instance Prelude.Hashable InstanceBlockDeviceMapping
+instance Prelude.Hashable InstanceBlockDeviceMapping where
+  hashWithSalt _salt InstanceBlockDeviceMapping' {..} =
+    _salt `Prelude.hashWithSalt` virtualName
+      `Prelude.hashWithSalt` noDevice
+      `Prelude.hashWithSalt` ebs
+      `Prelude.hashWithSalt` deviceName
 
-instance Prelude.NFData InstanceBlockDeviceMapping
+instance Prelude.NFData InstanceBlockDeviceMapping where
+  rnf InstanceBlockDeviceMapping' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf noDevice
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance Core.ToJSON InstanceBlockDeviceMapping where
   toJSON InstanceBlockDeviceMapping' {..} =

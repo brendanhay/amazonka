@@ -117,9 +117,21 @@ instance Core.FromJSON DeviceShadowEnrichActivity where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable DeviceShadowEnrichActivity
+instance Prelude.Hashable DeviceShadowEnrichActivity where
+  hashWithSalt _salt DeviceShadowEnrichActivity' {..} =
+    _salt `Prelude.hashWithSalt` next
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DeviceShadowEnrichActivity
+instance Prelude.NFData DeviceShadowEnrichActivity where
+  rnf DeviceShadowEnrichActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON DeviceShadowEnrichActivity where
   toJSON DeviceShadowEnrichActivity' {..} =

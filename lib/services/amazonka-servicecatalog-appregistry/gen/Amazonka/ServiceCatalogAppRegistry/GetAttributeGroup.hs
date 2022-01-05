@@ -107,9 +107,13 @@ instance Core.AWSRequest GetAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttributeGroup
+instance Prelude.Hashable GetAttributeGroup where
+  hashWithSalt _salt GetAttributeGroup' {..} =
+    _salt `Prelude.hashWithSalt` attributeGroup
 
-instance Prelude.NFData GetAttributeGroup
+instance Prelude.NFData GetAttributeGroup where
+  rnf GetAttributeGroup' {..} =
+    Prelude.rnf attributeGroup
 
 instance Core.ToHeaders GetAttributeGroup where
   toHeaders =
@@ -247,4 +251,14 @@ getAttributeGroupResponse_tags = Lens.lens (\GetAttributeGroupResponse' {tags} -
 getAttributeGroupResponse_httpStatus :: Lens.Lens' GetAttributeGroupResponse Prelude.Int
 getAttributeGroupResponse_httpStatus = Lens.lens (\GetAttributeGroupResponse' {httpStatus} -> httpStatus) (\s@GetAttributeGroupResponse' {} a -> s {httpStatus = a} :: GetAttributeGroupResponse)
 
-instance Prelude.NFData GetAttributeGroupResponse
+instance Prelude.NFData GetAttributeGroupResponse where
+  rnf GetAttributeGroupResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

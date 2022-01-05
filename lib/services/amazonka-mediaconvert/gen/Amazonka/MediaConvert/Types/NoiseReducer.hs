@@ -118,9 +118,19 @@ instance Core.FromJSON NoiseReducer where
             Prelude.<*> (x Core..:? "filter")
       )
 
-instance Prelude.Hashable NoiseReducer
+instance Prelude.Hashable NoiseReducer where
+  hashWithSalt _salt NoiseReducer' {..} =
+    _salt `Prelude.hashWithSalt` temporalFilterSettings
+      `Prelude.hashWithSalt` spatialFilterSettings
+      `Prelude.hashWithSalt` filterSettings
+      `Prelude.hashWithSalt` filter'
 
-instance Prelude.NFData NoiseReducer
+instance Prelude.NFData NoiseReducer where
+  rnf NoiseReducer' {..} =
+    Prelude.rnf temporalFilterSettings
+      `Prelude.seq` Prelude.rnf spatialFilterSettings
+      `Prelude.seq` Prelude.rnf filterSettings
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToJSON NoiseReducer where
   toJSON NoiseReducer' {..} =

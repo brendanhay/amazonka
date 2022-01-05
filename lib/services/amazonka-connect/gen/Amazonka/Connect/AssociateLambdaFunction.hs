@@ -102,9 +102,15 @@ instance Core.AWSRequest AssociateLambdaFunction where
     Response.receiveNull
       AssociateLambdaFunctionResponse'
 
-instance Prelude.Hashable AssociateLambdaFunction
+instance Prelude.Hashable AssociateLambdaFunction where
+  hashWithSalt _salt AssociateLambdaFunction' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` functionArn
 
-instance Prelude.NFData AssociateLambdaFunction
+instance Prelude.NFData AssociateLambdaFunction where
+  rnf AssociateLambdaFunction' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf functionArn
 
 instance Core.ToHeaders AssociateLambdaFunction where
   toHeaders =
@@ -153,3 +159,5 @@ newAssociateLambdaFunctionResponse =
 instance
   Prelude.NFData
     AssociateLambdaFunctionResponse
+  where
+  rnf _ = ()

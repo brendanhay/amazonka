@@ -87,9 +87,14 @@ instance Core.FromXML ReceiptIpFilter where
     ReceiptIpFilter'
       Prelude.<$> (x Core..@ "Policy") Prelude.<*> (x Core..@ "Cidr")
 
-instance Prelude.Hashable ReceiptIpFilter
+instance Prelude.Hashable ReceiptIpFilter where
+  hashWithSalt _salt ReceiptIpFilter' {..} =
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData ReceiptIpFilter
+instance Prelude.NFData ReceiptIpFilter where
+  rnf ReceiptIpFilter' {..} =
+    Prelude.rnf policy `Prelude.seq` Prelude.rnf cidr
 
 instance Core.ToQuery ReceiptIpFilter where
   toQuery ReceiptIpFilter' {..} =

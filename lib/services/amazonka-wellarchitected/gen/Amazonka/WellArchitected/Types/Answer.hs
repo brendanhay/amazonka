@@ -176,6 +176,34 @@ instance Core.FromJSON Answer where
             Prelude.<*> (x Core..:? "Notes")
       )
 
-instance Prelude.Hashable Answer
+instance Prelude.Hashable Answer where
+  hashWithSalt _salt Answer' {..} =
+    _salt `Prelude.hashWithSalt` choiceAnswers
+      `Prelude.hashWithSalt` helpfulResourceUrl
+      `Prelude.hashWithSalt` isApplicable
+      `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` improvementPlanUrl
+      `Prelude.hashWithSalt` questionDescription
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` selectedChoices
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` choices
+      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` notes
 
-instance Prelude.NFData Answer
+instance Prelude.NFData Answer where
+  rnf Answer' {..} =
+    Prelude.rnf choiceAnswers
+      `Prelude.seq` Prelude.rnf helpfulResourceUrl
+      `Prelude.seq` Prelude.rnf isApplicable
+      `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf improvementPlanUrl
+      `Prelude.seq` Prelude.rnf questionDescription
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf selectedChoices
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf choices
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf notes

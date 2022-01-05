@@ -223,6 +223,28 @@ instance Core.FromJSON OrganizationEvent where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable OrganizationEvent
+instance Prelude.Hashable OrganizationEvent where
+  hashWithSalt _salt OrganizationEvent' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` eventScopeCode
+      `Prelude.hashWithSalt` eventTypeCode
+      `Prelude.hashWithSalt` eventTypeCategory
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData OrganizationEvent
+instance Prelude.NFData OrganizationEvent where
+  rnf OrganizationEvent' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf eventScopeCode
+      `Prelude.seq` Prelude.rnf eventTypeCode
+      `Prelude.seq` Prelude.rnf eventTypeCategory
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf statusCode

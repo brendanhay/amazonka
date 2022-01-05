@@ -86,10 +86,20 @@ instance
 instance
   Prelude.Hashable
     CompromisedCredentialsRiskConfigurationType
+  where
+  hashWithSalt
+    _salt
+    CompromisedCredentialsRiskConfigurationType' {..} =
+      _salt `Prelude.hashWithSalt` eventFilter
+        `Prelude.hashWithSalt` actions
 
 instance
   Prelude.NFData
     CompromisedCredentialsRiskConfigurationType
+  where
+  rnf CompromisedCredentialsRiskConfigurationType' {..} =
+    Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf actions
 
 instance
   Core.ToJSON

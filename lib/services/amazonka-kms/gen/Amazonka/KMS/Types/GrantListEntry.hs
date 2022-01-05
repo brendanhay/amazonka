@@ -173,6 +173,26 @@ instance Core.FromJSON GrantListEntry where
             Prelude.<*> (x Core..:? "Operations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable GrantListEntry
+instance Prelude.Hashable GrantListEntry where
+  hashWithSalt _salt GrantListEntry' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` retiringPrincipal
+      `Prelude.hashWithSalt` issuingAccount
+      `Prelude.hashWithSalt` grantId
+      `Prelude.hashWithSalt` constraints
+      `Prelude.hashWithSalt` granteePrincipal
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` operations
 
-instance Prelude.NFData GrantListEntry
+instance Prelude.NFData GrantListEntry where
+  rnf GrantListEntry' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf retiringPrincipal
+      `Prelude.seq` Prelude.rnf issuingAccount
+      `Prelude.seq` Prelude.rnf grantId
+      `Prelude.seq` Prelude.rnf constraints
+      `Prelude.seq` Prelude.rnf granteePrincipal
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf operations

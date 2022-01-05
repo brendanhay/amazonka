@@ -66,6 +66,9 @@ instance Core.FromJSON IssueDetected where
             Prelude.<$> (x Core..: "CharacterOffsets")
       )
 
-instance Prelude.Hashable IssueDetected
+instance Prelude.Hashable IssueDetected where
+  hashWithSalt _salt IssueDetected' {..} =
+    _salt `Prelude.hashWithSalt` characterOffsets
 
-instance Prelude.NFData IssueDetected
+instance Prelude.NFData IssueDetected where
+  rnf IssueDetected' {..} = Prelude.rnf characterOffsets

@@ -137,9 +137,19 @@ instance Core.FromXML BlockDeviceMapping where
       Prelude.<*> (x Core..@? "ebs")
       Prelude.<*> (x Core..@ "deviceName")
 
-instance Prelude.Hashable BlockDeviceMapping
+instance Prelude.Hashable BlockDeviceMapping where
+  hashWithSalt _salt BlockDeviceMapping' {..} =
+    _salt `Prelude.hashWithSalt` virtualName
+      `Prelude.hashWithSalt` noDevice
+      `Prelude.hashWithSalt` ebs
+      `Prelude.hashWithSalt` deviceName
 
-instance Prelude.NFData BlockDeviceMapping
+instance Prelude.NFData BlockDeviceMapping where
+  rnf BlockDeviceMapping' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf noDevice
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance Core.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =

@@ -462,8 +462,45 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
 instance
   Prelude.Hashable
     RestoreDBClusterFromSnapshot
+  where
+  hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` engine
 
-instance Prelude.NFData RestoreDBClusterFromSnapshot
+instance Prelude.NFData RestoreDBClusterFromSnapshot where
+  rnf RestoreDBClusterFromSnapshot' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf engine
 
 instance Core.ToHeaders RestoreDBClusterFromSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -556,3 +593,7 @@ restoreDBClusterFromSnapshotResponse_httpStatus = Lens.lens (\RestoreDBClusterFr
 instance
   Prelude.NFData
     RestoreDBClusterFromSnapshotResponse
+  where
+  rnf RestoreDBClusterFromSnapshotResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

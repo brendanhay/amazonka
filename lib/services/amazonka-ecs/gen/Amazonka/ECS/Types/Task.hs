@@ -765,6 +765,90 @@ instance Core.FromJSON Task where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Task
+instance Prelude.Hashable Task where
+  hashWithSalt _salt Task' {..} =
+    _salt `Prelude.hashWithSalt` stoppedAt
+      `Prelude.hashWithSalt` desiredStatus
+      `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` inferenceAccelerators
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` stopCode
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` containerInstanceArn
+      `Prelude.hashWithSalt` executionStoppedAt
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` pullStoppedAt
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` capacityProviderName
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` stoppedReason
+      `Prelude.hashWithSalt` connectivity
+      `Prelude.hashWithSalt` stoppingAt
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` taskDefinitionArn
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` connectivityAt
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` pullStartedAt
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Task
+instance Prelude.NFData Task where
+  rnf Task' {..} =
+    Prelude.rnf stoppedAt
+      `Prelude.seq` Prelude.rnf desiredStatus
+      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf inferenceAccelerators
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf stopCode
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf containerInstanceArn
+      `Prelude.seq` Prelude.rnf executionStoppedAt
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf pullStoppedAt
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf
+        capacityProviderName
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf
+        stoppedReason
+      `Prelude.seq` Prelude.rnf
+        connectivity
+      `Prelude.seq` Prelude.rnf
+        stoppingAt
+      `Prelude.seq` Prelude.rnf
+        launchType
+      `Prelude.seq` Prelude.rnf
+        taskDefinitionArn
+      `Prelude.seq` Prelude.rnf
+        healthStatus
+      `Prelude.seq` Prelude.rnf
+        connectivityAt
+      `Prelude.seq` Prelude.rnf
+        cpu
+      `Prelude.seq` Prelude.rnf
+        enableExecuteCommand
+      `Prelude.seq` Prelude.rnf
+        pullStartedAt
+      `Prelude.seq` Prelude.rnf
+        tags

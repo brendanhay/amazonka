@@ -127,9 +127,17 @@ instance Core.AWSRequest GenerateBackendAPIModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateBackendAPIModels
+instance Prelude.Hashable GenerateBackendAPIModels where
+  hashWithSalt _salt GenerateBackendAPIModels' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData GenerateBackendAPIModels
+instance Prelude.NFData GenerateBackendAPIModels where
+  rnf GenerateBackendAPIModels' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders GenerateBackendAPIModels where
   toHeaders =
@@ -249,3 +257,12 @@ generateBackendAPIModelsResponse_httpStatus = Lens.lens (\GenerateBackendAPIMode
 instance
   Prelude.NFData
     GenerateBackendAPIModelsResponse
+  where
+  rnf GenerateBackendAPIModelsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

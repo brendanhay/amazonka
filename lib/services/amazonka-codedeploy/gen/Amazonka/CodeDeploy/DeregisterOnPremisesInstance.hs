@@ -86,8 +86,13 @@ instance Core.AWSRequest DeregisterOnPremisesInstance where
 instance
   Prelude.Hashable
     DeregisterOnPremisesInstance
+  where
+  hashWithSalt _salt DeregisterOnPremisesInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData DeregisterOnPremisesInstance
+instance Prelude.NFData DeregisterOnPremisesInstance where
+  rnf DeregisterOnPremisesInstance' {..} =
+    Prelude.rnf instanceName
 
 instance Core.ToHeaders DeregisterOnPremisesInstance where
   toHeaders =
@@ -135,3 +140,5 @@ newDeregisterOnPremisesInstanceResponse =
 instance
   Prelude.NFData
     DeregisterOnPremisesInstanceResponse
+  where
+  rnf _ = ()

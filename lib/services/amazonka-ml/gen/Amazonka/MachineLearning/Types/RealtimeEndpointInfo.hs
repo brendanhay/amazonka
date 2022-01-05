@@ -131,6 +131,16 @@ instance Core.FromJSON RealtimeEndpointInfo where
             Prelude.<*> (x Core..:? "PeakRequestsPerSecond")
       )
 
-instance Prelude.Hashable RealtimeEndpointInfo
+instance Prelude.Hashable RealtimeEndpointInfo where
+  hashWithSalt _salt RealtimeEndpointInfo' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` endpointUrl
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` peakRequestsPerSecond
 
-instance Prelude.NFData RealtimeEndpointInfo
+instance Prelude.NFData RealtimeEndpointInfo where
+  rnf RealtimeEndpointInfo' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf endpointUrl
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf peakRequestsPerSecond

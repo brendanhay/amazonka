@@ -145,9 +145,17 @@ instance Core.AWSRequest ListResourceRequests where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourceRequests
+instance Prelude.Hashable ListResourceRequests where
+  hashWithSalt _salt ListResourceRequests' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceRequestStatusFilter
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListResourceRequests
+instance Prelude.NFData ListResourceRequests where
+  rnf ListResourceRequests' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceRequestStatusFilter
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResourceRequests where
   toHeaders =
@@ -241,4 +249,8 @@ listResourceRequestsResponse_nextToken = Lens.lens (\ListResourceRequestsRespons
 listResourceRequestsResponse_httpStatus :: Lens.Lens' ListResourceRequestsResponse Prelude.Int
 listResourceRequestsResponse_httpStatus = Lens.lens (\ListResourceRequestsResponse' {httpStatus} -> httpStatus) (\s@ListResourceRequestsResponse' {} a -> s {httpStatus = a} :: ListResourceRequestsResponse)
 
-instance Prelude.NFData ListResourceRequestsResponse
+instance Prelude.NFData ListResourceRequestsResponse where
+  rnf ListResourceRequestsResponse' {..} =
+    Prelude.rnf resourceRequestStatusSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

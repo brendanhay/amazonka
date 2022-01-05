@@ -102,9 +102,15 @@ instance Core.AWSRequest DeletePortal where
             Prelude.<*> (x Core..:> "portalStatus")
       )
 
-instance Prelude.Hashable DeletePortal
+instance Prelude.Hashable DeletePortal where
+  hashWithSalt _salt DeletePortal' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` portalId
 
-instance Prelude.NFData DeletePortal
+instance Prelude.NFData DeletePortal where
+  rnf DeletePortal' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf portalId
 
 instance Core.ToHeaders DeletePortal where
   toHeaders =
@@ -168,4 +174,7 @@ deletePortalResponse_httpStatus = Lens.lens (\DeletePortalResponse' {httpStatus}
 deletePortalResponse_portalStatus :: Lens.Lens' DeletePortalResponse PortalStatus
 deletePortalResponse_portalStatus = Lens.lens (\DeletePortalResponse' {portalStatus} -> portalStatus) (\s@DeletePortalResponse' {} a -> s {portalStatus = a} :: DeletePortalResponse)
 
-instance Prelude.NFData DeletePortalResponse
+instance Prelude.NFData DeletePortalResponse where
+  rnf DeletePortalResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf portalStatus

@@ -130,9 +130,15 @@ instance Core.AWSRequest DeactivateMFADevice where
   response =
     Response.receiveNull DeactivateMFADeviceResponse'
 
-instance Prelude.Hashable DeactivateMFADevice
+instance Prelude.Hashable DeactivateMFADevice where
+  hashWithSalt _salt DeactivateMFADevice' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` serialNumber
 
-instance Prelude.NFData DeactivateMFADevice
+instance Prelude.NFData DeactivateMFADevice where
+  rnf DeactivateMFADevice' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serialNumber
 
 instance Core.ToHeaders DeactivateMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +172,5 @@ newDeactivateMFADeviceResponse ::
 newDeactivateMFADeviceResponse =
   DeactivateMFADeviceResponse'
 
-instance Prelude.NFData DeactivateMFADeviceResponse
+instance Prelude.NFData DeactivateMFADeviceResponse where
+  rnf _ = ()

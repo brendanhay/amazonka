@@ -151,9 +151,23 @@ instance Core.FromJSON HlsManifest where
             Prelude.<*> (x Core..:? "repeatExtXKey")
       )
 
-instance Prelude.Hashable HlsManifest
+instance Prelude.Hashable HlsManifest where
+  hashWithSalt _salt HlsManifest' {..} =
+    _salt `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` includeIframeOnlyStream
+      `Prelude.hashWithSalt` repeatExtXKey
 
-instance Prelude.NFData HlsManifest
+instance Prelude.NFData HlsManifest where
+  rnf HlsManifest' {..} =
+    Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
+      `Prelude.seq` Prelude.rnf repeatExtXKey
 
 instance Core.ToJSON HlsManifest where
   toJSON HlsManifest' {..} =

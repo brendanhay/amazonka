@@ -101,9 +101,13 @@ instance Core.AWSRequest PutDeliveryChannel where
   response =
     Response.receiveNull PutDeliveryChannelResponse'
 
-instance Prelude.Hashable PutDeliveryChannel
+instance Prelude.Hashable PutDeliveryChannel where
+  hashWithSalt _salt PutDeliveryChannel' {..} =
+    _salt `Prelude.hashWithSalt` deliveryChannel
 
-instance Prelude.NFData PutDeliveryChannel
+instance Prelude.NFData PutDeliveryChannel where
+  rnf PutDeliveryChannel' {..} =
+    Prelude.rnf deliveryChannel
 
 instance Core.ToHeaders PutDeliveryChannel where
   toHeaders =
@@ -150,4 +154,5 @@ newPutDeliveryChannelResponse ::
 newPutDeliveryChannelResponse =
   PutDeliveryChannelResponse'
 
-instance Prelude.NFData PutDeliveryChannelResponse
+instance Prelude.NFData PutDeliveryChannelResponse where
+  rnf _ = ()

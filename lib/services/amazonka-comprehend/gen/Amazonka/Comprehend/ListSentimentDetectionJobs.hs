@@ -144,9 +144,17 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSentimentDetectionJobs
+instance Prelude.Hashable ListSentimentDetectionJobs where
+  hashWithSalt _salt ListSentimentDetectionJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSentimentDetectionJobs
+instance Prelude.NFData ListSentimentDetectionJobs where
+  rnf ListSentimentDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSentimentDetectionJobs where
   toHeaders =
@@ -231,3 +239,8 @@ listSentimentDetectionJobsResponse_httpStatus = Lens.lens (\ListSentimentDetecti
 instance
   Prelude.NFData
     ListSentimentDetectionJobsResponse
+  where
+  rnf ListSentimentDetectionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sentimentDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

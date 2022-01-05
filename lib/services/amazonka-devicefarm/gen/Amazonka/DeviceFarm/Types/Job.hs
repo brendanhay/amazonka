@@ -438,6 +438,38 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "started")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` counters
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` videoEndpoint
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` videoCapture
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` started
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf counters
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf videoEndpoint
+      `Prelude.seq` Prelude.rnf deviceMinutes
+      `Prelude.seq` Prelude.rnf videoCapture
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf started

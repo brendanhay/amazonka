@@ -137,9 +137,26 @@ applicationConfiguration_applicationCodeConfiguration = Lens.lens (\ApplicationC
 applicationConfiguration_zeppelinApplicationConfiguration :: Lens.Lens' ApplicationConfiguration (Prelude.Maybe ZeppelinApplicationConfiguration)
 applicationConfiguration_zeppelinApplicationConfiguration = Lens.lens (\ApplicationConfiguration' {zeppelinApplicationConfiguration} -> zeppelinApplicationConfiguration) (\s@ApplicationConfiguration' {} a -> s {zeppelinApplicationConfiguration = a} :: ApplicationConfiguration)
 
-instance Prelude.Hashable ApplicationConfiguration
+instance Prelude.Hashable ApplicationConfiguration where
+  hashWithSalt _salt ApplicationConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` applicationSnapshotConfiguration
+      `Prelude.hashWithSalt` vpcConfigurations
+      `Prelude.hashWithSalt` environmentProperties
+      `Prelude.hashWithSalt` flinkApplicationConfiguration
+      `Prelude.hashWithSalt` sqlApplicationConfiguration
+      `Prelude.hashWithSalt` applicationCodeConfiguration
+      `Prelude.hashWithSalt` zeppelinApplicationConfiguration
 
-instance Prelude.NFData ApplicationConfiguration
+instance Prelude.NFData ApplicationConfiguration where
+  rnf ApplicationConfiguration' {..} =
+    Prelude.rnf applicationSnapshotConfiguration
+      `Prelude.seq` Prelude.rnf vpcConfigurations
+      `Prelude.seq` Prelude.rnf environmentProperties
+      `Prelude.seq` Prelude.rnf flinkApplicationConfiguration
+      `Prelude.seq` Prelude.rnf sqlApplicationConfiguration
+      `Prelude.seq` Prelude.rnf applicationCodeConfiguration
+      `Prelude.seq` Prelude.rnf zeppelinApplicationConfiguration
 
 instance Core.ToJSON ApplicationConfiguration where
   toJSON ApplicationConfiguration' {..} =

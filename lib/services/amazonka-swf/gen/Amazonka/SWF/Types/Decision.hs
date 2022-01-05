@@ -410,9 +410,47 @@ decision_continueAsNewWorkflowExecutionDecisionAttributes = Lens.lens (\Decision
 decision_decisionType :: Lens.Lens' Decision DecisionType
 decision_decisionType = Lens.lens (\Decision' {decisionType} -> decisionType) (\s@Decision' {} a -> s {decisionType = a} :: Decision)
 
-instance Prelude.Hashable Decision
+instance Prelude.Hashable Decision where
+  hashWithSalt _salt Decision' {..} =
+    _salt
+      `Prelude.hashWithSalt` requestCancelExternalWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` scheduleActivityTaskDecisionAttributes
+      `Prelude.hashWithSalt` signalExternalWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` startTimerDecisionAttributes
+      `Prelude.hashWithSalt` recordMarkerDecisionAttributes
+      `Prelude.hashWithSalt` failWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` startChildWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` completeWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` scheduleLambdaFunctionDecisionAttributes
+      `Prelude.hashWithSalt` requestCancelActivityTaskDecisionAttributes
+      `Prelude.hashWithSalt` cancelWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` cancelTimerDecisionAttributes
+      `Prelude.hashWithSalt` continueAsNewWorkflowExecutionDecisionAttributes
+      `Prelude.hashWithSalt` decisionType
 
-instance Prelude.NFData Decision
+instance Prelude.NFData Decision where
+  rnf Decision' {..} =
+    Prelude.rnf
+      requestCancelExternalWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf scheduleActivityTaskDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        signalExternalWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf startTimerDecisionAttributes
+      `Prelude.seq` Prelude.rnf recordMarkerDecisionAttributes
+      `Prelude.seq` Prelude.rnf failWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        startChildWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        completeWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf scheduleLambdaFunctionDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        requestCancelActivityTaskDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        cancelWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf cancelTimerDecisionAttributes
+      `Prelude.seq` Prelude.rnf
+        continueAsNewWorkflowExecutionDecisionAttributes
+      `Prelude.seq` Prelude.rnf decisionType
 
 instance Core.ToJSON Decision where
   toJSON Decision' {..} =

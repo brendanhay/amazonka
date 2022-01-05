@@ -65,10 +65,18 @@ instance
 instance
   Prelude.Hashable
     AmazonopensearchserviceRetryOptions
+  where
+  hashWithSalt
+    _salt
+    AmazonopensearchserviceRetryOptions' {..} =
+      _salt `Prelude.hashWithSalt` durationInSeconds
 
 instance
   Prelude.NFData
     AmazonopensearchserviceRetryOptions
+  where
+  rnf AmazonopensearchserviceRetryOptions' {..} =
+    Prelude.rnf durationInSeconds
 
 instance
   Core.ToJSON

@@ -163,6 +163,26 @@ instance Core.FromJSON TaskExecutionResultDetail where
             Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Prelude.Hashable TaskExecutionResultDetail
+instance Prelude.Hashable TaskExecutionResultDetail where
+  hashWithSalt _salt TaskExecutionResultDetail' {..} =
+    _salt `Prelude.hashWithSalt` prepareDuration
+      `Prelude.hashWithSalt` prepareStatus
+      `Prelude.hashWithSalt` verifyStatus
+      `Prelude.hashWithSalt` verifyDuration
+      `Prelude.hashWithSalt` totalDuration
+      `Prelude.hashWithSalt` transferStatus
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` transferDuration
+      `Prelude.hashWithSalt` errorDetail
 
-instance Prelude.NFData TaskExecutionResultDetail
+instance Prelude.NFData TaskExecutionResultDetail where
+  rnf TaskExecutionResultDetail' {..} =
+    Prelude.rnf prepareDuration
+      `Prelude.seq` Prelude.rnf prepareStatus
+      `Prelude.seq` Prelude.rnf verifyStatus
+      `Prelude.seq` Prelude.rnf verifyDuration
+      `Prelude.seq` Prelude.rnf totalDuration
+      `Prelude.seq` Prelude.rnf transferStatus
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf transferDuration
+      `Prelude.seq` Prelude.rnf errorDetail

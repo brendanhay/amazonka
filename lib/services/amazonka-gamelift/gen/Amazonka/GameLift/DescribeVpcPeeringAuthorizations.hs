@@ -89,10 +89,15 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcPeeringAuthorizations
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DescribeVpcPeeringAuthorizations
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -170,3 +175,7 @@ describeVpcPeeringAuthorizationsResponse_httpStatus = Lens.lens (\DescribeVpcPee
 instance
   Prelude.NFData
     DescribeVpcPeeringAuthorizationsResponse
+  where
+  rnf DescribeVpcPeeringAuthorizationsResponse' {..} =
+    Prelude.rnf vpcPeeringAuthorizations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -158,9 +158,29 @@ newPublicVirtualInterface_vlan = Lens.lens (\NewPublicVirtualInterface' {vlan} -
 newPublicVirtualInterface_asn :: Lens.Lens' NewPublicVirtualInterface Prelude.Int
 newPublicVirtualInterface_asn = Lens.lens (\NewPublicVirtualInterface' {asn} -> asn) (\s@NewPublicVirtualInterface' {} a -> s {asn = a} :: NewPublicVirtualInterface)
 
-instance Prelude.Hashable NewPublicVirtualInterface
+instance Prelude.Hashable NewPublicVirtualInterface where
+  hashWithSalt _salt NewPublicVirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` routeFilterPrefixes
+      `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` virtualInterfaceName
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` asn
 
-instance Prelude.NFData NewPublicVirtualInterface
+instance Prelude.NFData NewPublicVirtualInterface where
+  rnf NewPublicVirtualInterface' {..} =
+    Prelude.rnf routeFilterPrefixes
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf asn
 
 instance Core.ToJSON NewPublicVirtualInterface where
   toJSON NewPublicVirtualInterface' {..} =

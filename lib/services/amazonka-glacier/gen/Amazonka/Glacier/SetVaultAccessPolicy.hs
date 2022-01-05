@@ -123,9 +123,17 @@ instance Core.AWSRequest SetVaultAccessPolicy where
   response =
     Response.receiveNull SetVaultAccessPolicyResponse'
 
-instance Prelude.Hashable SetVaultAccessPolicy
+instance Prelude.Hashable SetVaultAccessPolicy where
+  hashWithSalt _salt SetVaultAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData SetVaultAccessPolicy
+instance Prelude.NFData SetVaultAccessPolicy where
+  rnf SetVaultAccessPolicy' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders SetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,4 +173,5 @@ newSetVaultAccessPolicyResponse ::
 newSetVaultAccessPolicyResponse =
   SetVaultAccessPolicyResponse'
 
-instance Prelude.NFData SetVaultAccessPolicyResponse
+instance Prelude.NFData SetVaultAccessPolicyResponse where
+  rnf _ = ()

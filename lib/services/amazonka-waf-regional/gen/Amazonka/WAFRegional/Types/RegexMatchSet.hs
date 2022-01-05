@@ -162,6 +162,14 @@ instance Core.FromJSON RegexMatchSet where
             Prelude.<*> (x Core..:? "RegexMatchSetId")
       )
 
-instance Prelude.Hashable RegexMatchSet
+instance Prelude.Hashable RegexMatchSet where
+  hashWithSalt _salt RegexMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regexMatchTuples
+      `Prelude.hashWithSalt` regexMatchSetId
 
-instance Prelude.NFData RegexMatchSet
+instance Prelude.NFData RegexMatchSet where
+  rnf RegexMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf regexMatchTuples
+      `Prelude.seq` Prelude.rnf regexMatchSetId

@@ -222,9 +222,15 @@ instance Core.AWSRequest UpdatePrimaryRegion where
   response =
     Response.receiveNull UpdatePrimaryRegionResponse'
 
-instance Prelude.Hashable UpdatePrimaryRegion
+instance Prelude.Hashable UpdatePrimaryRegion where
+  hashWithSalt _salt UpdatePrimaryRegion' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` primaryRegion
 
-instance Prelude.NFData UpdatePrimaryRegion
+instance Prelude.NFData UpdatePrimaryRegion where
+  rnf UpdatePrimaryRegion' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf primaryRegion
 
 instance Core.ToHeaders UpdatePrimaryRegion where
   toHeaders =
@@ -272,4 +278,5 @@ newUpdatePrimaryRegionResponse ::
 newUpdatePrimaryRegionResponse =
   UpdatePrimaryRegionResponse'
 
-instance Prelude.NFData UpdatePrimaryRegionResponse
+instance Prelude.NFData UpdatePrimaryRegionResponse where
+  rnf _ = ()

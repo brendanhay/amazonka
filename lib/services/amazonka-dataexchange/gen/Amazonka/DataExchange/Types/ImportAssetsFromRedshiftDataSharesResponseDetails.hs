@@ -97,7 +97,20 @@ instance
 instance
   Prelude.Hashable
     ImportAssetsFromRedshiftDataSharesResponseDetails
+  where
+  hashWithSalt
+    _salt
+    ImportAssetsFromRedshiftDataSharesResponseDetails' {..} =
+      _salt `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ImportAssetsFromRedshiftDataSharesResponseDetails
+  where
+  rnf
+    ImportAssetsFromRedshiftDataSharesResponseDetails' {..} =
+      Prelude.rnf dataSetId
+        `Prelude.seq` Prelude.rnf assetSources
+        `Prelude.seq` Prelude.rnf revisionId

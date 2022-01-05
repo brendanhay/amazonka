@@ -82,9 +82,15 @@ instance Core.FromJSON DolbyVisionLevel6Metadata where
             Prelude.<*> (x Core..:? "maxCll")
       )
 
-instance Prelude.Hashable DolbyVisionLevel6Metadata
+instance Prelude.Hashable DolbyVisionLevel6Metadata where
+  hashWithSalt _salt DolbyVisionLevel6Metadata' {..} =
+    _salt `Prelude.hashWithSalt` maxFall
+      `Prelude.hashWithSalt` maxCll
 
-instance Prelude.NFData DolbyVisionLevel6Metadata
+instance Prelude.NFData DolbyVisionLevel6Metadata where
+  rnf DolbyVisionLevel6Metadata' {..} =
+    Prelude.rnf maxFall
+      `Prelude.seq` Prelude.rnf maxCll
 
 instance Core.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =

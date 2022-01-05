@@ -87,9 +87,15 @@ instance Core.AWSRequest DeleteTags where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Prelude.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags where
+  hashWithSalt _salt DeleteTags' {..} =
+    _salt `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DeleteTags
+instance Prelude.NFData DeleteTags where
+  rnf DeleteTags' {..} =
+    Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders DeleteTags where
   toHeaders =
@@ -126,4 +132,5 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Prelude.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse where
+  rnf _ = ()

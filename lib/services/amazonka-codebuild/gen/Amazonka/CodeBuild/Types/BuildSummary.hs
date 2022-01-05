@@ -165,6 +165,18 @@ instance Core.FromJSON BuildSummary where
             Prelude.<*> (x Core..:? "requestedOn")
       )
 
-instance Prelude.Hashable BuildSummary
+instance Prelude.Hashable BuildSummary where
+  hashWithSalt _salt BuildSummary' {..} =
+    _salt `Prelude.hashWithSalt` secondaryArtifacts
+      `Prelude.hashWithSalt` primaryArtifact
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` buildStatus
+      `Prelude.hashWithSalt` requestedOn
 
-instance Prelude.NFData BuildSummary
+instance Prelude.NFData BuildSummary where
+  rnf BuildSummary' {..} =
+    Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf primaryArtifact
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf buildStatus
+      `Prelude.seq` Prelude.rnf requestedOn

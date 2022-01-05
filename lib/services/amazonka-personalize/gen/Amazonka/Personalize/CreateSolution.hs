@@ -269,9 +269,25 @@ instance Core.AWSRequest CreateSolution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSolution
+instance Prelude.Hashable CreateSolution where
+  hashWithSalt _salt CreateSolution' {..} =
+    _salt `Prelude.hashWithSalt` performAutoML
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData CreateSolution
+instance Prelude.NFData CreateSolution where
+  rnf CreateSolution' {..} =
+    Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders CreateSolution where
   toHeaders =
@@ -349,4 +365,7 @@ createSolutionResponse_solutionArn = Lens.lens (\CreateSolutionResponse' {soluti
 createSolutionResponse_httpStatus :: Lens.Lens' CreateSolutionResponse Prelude.Int
 createSolutionResponse_httpStatus = Lens.lens (\CreateSolutionResponse' {httpStatus} -> httpStatus) (\s@CreateSolutionResponse' {} a -> s {httpStatus = a} :: CreateSolutionResponse)
 
-instance Prelude.NFData CreateSolutionResponse
+instance Prelude.NFData CreateSolutionResponse where
+  rnf CreateSolutionResponse' {..} =
+    Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf httpStatus

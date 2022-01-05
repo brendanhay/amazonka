@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.Capacity where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,6 +86,14 @@ instance Core.FromJSON Capacity where
             Prelude.<*> (x Core..:? "WriteCapacityUnits")
       )
 
-instance Prelude.Hashable Capacity
+instance Prelude.Hashable Capacity where
+  hashWithSalt _salt Capacity' {..} =
+    _salt `Prelude.hashWithSalt` readCapacityUnits
+      `Prelude.hashWithSalt` capacityUnits
+      `Prelude.hashWithSalt` writeCapacityUnits
 
-instance Prelude.NFData Capacity
+instance Prelude.NFData Capacity where
+  rnf Capacity' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf capacityUnits
+      `Prelude.seq` Prelude.rnf writeCapacityUnits

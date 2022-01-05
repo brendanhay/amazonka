@@ -40,22 +40,22 @@ data Parameter = Parameter'
     selector :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the parameter.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The parameter value.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Applies to parameters that reference information in other Amazon Web
     -- Services services. @SourceResult@ is the raw result or response from the
     -- source.
     sourceResult :: Prelude.Maybe Prelude.Text,
-    -- | The name of the parameter.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The parameter version.
-    version :: Prelude.Maybe Prelude.Integer,
-    -- | The type of parameter. Valid values include the following: @String@,
-    -- @StringList@, and @SecureString@.
-    type' :: Prelude.Maybe ParameterType,
     -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
     -- default is @text@.
-    dataType :: Prelude.Maybe Prelude.Text
+    dataType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter.
+    name :: Prelude.Text,
+    -- | The type of parameter. Valid values include the following: @String@,
+    -- @StringList@, and @SecureString@.
+    type' :: ParameterType,
+    -- | The parameter value.
+    value :: Core.Sensitive Prelude.Text,
+    -- | The parameter version.
+    version :: Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -79,34 +79,42 @@ data Parameter = Parameter'
 --
 -- 'arn', 'parameter_arn' - The Amazon Resource Name (ARN) of the parameter.
 --
--- 'value', 'parameter_value' - The parameter value.
---
 -- 'sourceResult', 'parameter_sourceResult' - Applies to parameters that reference information in other Amazon Web
 -- Services services. @SourceResult@ is the raw result or response from the
 -- source.
 --
--- 'name', 'parameter_name' - The name of the parameter.
+-- 'dataType', 'parameter_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
+-- default is @text@.
 --
--- 'version', 'parameter_version' - The parameter version.
+-- 'name', 'parameter_name' - The name of the parameter.
 --
 -- 'type'', 'parameter_type' - The type of parameter. Valid values include the following: @String@,
 -- @StringList@, and @SecureString@.
 --
--- 'dataType', 'parameter_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
--- default is @text@.
+-- 'value', 'parameter_value' - The parameter value.
+--
+-- 'version', 'parameter_version' - The parameter version.
 newParameter ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'type''
+  ParameterType ->
+  -- | 'value'
+  Prelude.Text ->
+  -- | 'version'
+  Prelude.Integer ->
   Parameter
-newParameter =
+newParameter pName_ pType_ pValue_ pVersion_ =
   Parameter'
     { lastModifiedDate = Prelude.Nothing,
       selector = Prelude.Nothing,
       arn = Prelude.Nothing,
-      value = Prelude.Nothing,
       sourceResult = Prelude.Nothing,
-      name = Prelude.Nothing,
-      version = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      dataType = Prelude.Nothing
+      dataType = Prelude.Nothing,
+      name = pName_,
+      type' = pType_,
+      value = Core._Sensitive Lens.# pValue_,
+      version = pVersion_
     }
 
 -- | Date the parameter was last changed or updated and the parameter version
@@ -127,33 +135,33 @@ parameter_selector = Lens.lens (\Parameter' {selector} -> selector) (\s@Paramete
 parameter_arn :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_arn = Lens.lens (\Parameter' {arn} -> arn) (\s@Parameter' {} a -> s {arn = a} :: Parameter)
 
--- | The parameter value.
-parameter_value :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Lens.mapping Core._Sensitive
-
 -- | Applies to parameters that reference information in other Amazon Web
 -- Services services. @SourceResult@ is the raw result or response from the
 -- source.
 parameter_sourceResult :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_sourceResult = Lens.lens (\Parameter' {sourceResult} -> sourceResult) (\s@Parameter' {} a -> s {sourceResult = a} :: Parameter)
 
--- | The name of the parameter.
-parameter_name :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s {name = a} :: Parameter)
-
--- | The parameter version.
-parameter_version :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Integer)
-parameter_version = Lens.lens (\Parameter' {version} -> version) (\s@Parameter' {} a -> s {version = a} :: Parameter)
-
--- | The type of parameter. Valid values include the following: @String@,
--- @StringList@, and @SecureString@.
-parameter_type :: Lens.Lens' Parameter (Prelude.Maybe ParameterType)
-parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a -> s {type' = a} :: Parameter)
-
 -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
+
+-- | The name of the parameter.
+parameter_name :: Lens.Lens' Parameter Prelude.Text
+parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s {name = a} :: Parameter)
+
+-- | The type of parameter. Valid values include the following: @String@,
+-- @StringList@, and @SecureString@.
+parameter_type :: Lens.Lens' Parameter ParameterType
+parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a -> s {type' = a} :: Parameter)
+
+-- | The parameter value.
+parameter_value :: Lens.Lens' Parameter Prelude.Text
+parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Core._Sensitive
+
+-- | The parameter version.
+parameter_version :: Lens.Lens' Parameter Prelude.Integer
+parameter_version = Lens.lens (\Parameter' {version} -> version) (\s@Parameter' {} a -> s {version = a} :: Parameter)
 
 instance Core.FromJSON Parameter where
   parseJSON =
@@ -164,14 +172,34 @@ instance Core.FromJSON Parameter where
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Selector")
             Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Value")
             Prelude.<*> (x Core..:? "SourceResult")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DataType")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "Type")
+            Prelude.<*> (x Core..: "Value")
+            Prelude.<*> (x Core..: "Version")
       )
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt _salt Parameter' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` selector
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` sourceResult
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf selector
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceResult
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf version

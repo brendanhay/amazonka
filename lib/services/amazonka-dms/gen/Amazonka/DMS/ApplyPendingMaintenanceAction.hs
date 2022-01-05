@@ -167,8 +167,17 @@ instance
 instance
   Prelude.Hashable
     ApplyPendingMaintenanceAction
+  where
+  hashWithSalt _salt ApplyPendingMaintenanceAction' {..} =
+    _salt `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` applyAction
+      `Prelude.hashWithSalt` optInType
 
-instance Prelude.NFData ApplyPendingMaintenanceAction
+instance Prelude.NFData ApplyPendingMaintenanceAction where
+  rnf ApplyPendingMaintenanceAction' {..} =
+    Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf applyAction
+      `Prelude.seq` Prelude.rnf optInType
 
 instance Core.ToHeaders ApplyPendingMaintenanceAction where
   toHeaders =
@@ -248,3 +257,7 @@ applyPendingMaintenanceActionResponse_httpStatus = Lens.lens (\ApplyPendingMaint
 instance
   Prelude.NFData
     ApplyPendingMaintenanceActionResponse
+  where
+  rnf ApplyPendingMaintenanceActionResponse' {..} =
+    Prelude.rnf resourcePendingMaintenanceActions
+      `Prelude.seq` Prelude.rnf httpStatus

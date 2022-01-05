@@ -163,10 +163,23 @@ instance
 instance
   Prelude.Hashable
     UpdateAccountAuditConfiguration
+  where
+  hashWithSalt
+    _salt
+    UpdateAccountAuditConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` auditCheckConfigurations
+        `Prelude.hashWithSalt` auditNotificationTargetConfigurations
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     UpdateAccountAuditConfiguration
+  where
+  rnf UpdateAccountAuditConfiguration' {..} =
+    Prelude.rnf auditCheckConfigurations
+      `Prelude.seq` Prelude.rnf auditNotificationTargetConfigurations
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -226,3 +239,6 @@ updateAccountAuditConfigurationResponse_httpStatus = Lens.lens (\UpdateAccountAu
 instance
   Prelude.NFData
     UpdateAccountAuditConfigurationResponse
+  where
+  rnf UpdateAccountAuditConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

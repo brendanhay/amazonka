@@ -123,6 +123,22 @@ instance Core.FromXML StoreImageTaskResult where
       Prelude.<*> (x Core..@? "amiId")
       Prelude.<*> (x Core..@? "storeTaskFailureReason")
 
-instance Prelude.Hashable StoreImageTaskResult
+instance Prelude.Hashable StoreImageTaskResult where
+  hashWithSalt _salt StoreImageTaskResult' {..} =
+    _salt `Prelude.hashWithSalt` s3objectKey
+      `Prelude.hashWithSalt` storeTaskState
+      `Prelude.hashWithSalt` taskStartTime
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` progressPercentage
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` storeTaskFailureReason
 
-instance Prelude.NFData StoreImageTaskResult
+instance Prelude.NFData StoreImageTaskResult where
+  rnf StoreImageTaskResult' {..} =
+    Prelude.rnf s3objectKey
+      `Prelude.seq` Prelude.rnf storeTaskState
+      `Prelude.seq` Prelude.rnf taskStartTime
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf progressPercentage
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf storeTaskFailureReason

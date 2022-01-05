@@ -106,6 +106,16 @@ instance Core.FromJSON ResolvedComponentVersion where
             Prelude.<*> (x Core..:? "componentName")
       )
 
-instance Prelude.Hashable ResolvedComponentVersion
+instance Prelude.Hashable ResolvedComponentVersion where
+  hashWithSalt _salt ResolvedComponentVersion' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` componentVersion
+      `Prelude.hashWithSalt` recipe
+      `Prelude.hashWithSalt` componentName
 
-instance Prelude.NFData ResolvedComponentVersion
+instance Prelude.NFData ResolvedComponentVersion where
+  rnf ResolvedComponentVersion' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf recipe
+      `Prelude.seq` Prelude.rnf componentName

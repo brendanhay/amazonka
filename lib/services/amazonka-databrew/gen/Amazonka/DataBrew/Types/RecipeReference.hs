@@ -73,9 +73,15 @@ instance Core.FromJSON RecipeReference where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable RecipeReference
+instance Prelude.Hashable RecipeReference where
+  hashWithSalt _salt RecipeReference' {..} =
+    _salt `Prelude.hashWithSalt` recipeVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RecipeReference
+instance Prelude.NFData RecipeReference where
+  rnf RecipeReference' {..} =
+    Prelude.rnf recipeVersion
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON RecipeReference where
   toJSON RecipeReference' {..} =

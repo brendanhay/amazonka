@@ -124,9 +124,17 @@ instance Core.AWSRequest CreateHsm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsm
+instance Prelude.Hashable CreateHsm where
+  hashWithSalt _salt CreateHsm' {..} =
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData CreateHsm
+instance Prelude.NFData CreateHsm where
+  rnf CreateHsm' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders CreateHsm where
   toHeaders =
@@ -196,4 +204,7 @@ createHsmResponse_hsm = Lens.lens (\CreateHsmResponse' {hsm} -> hsm) (\s@CreateH
 createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Prelude.Int
 createHsmResponse_httpStatus = Lens.lens (\CreateHsmResponse' {httpStatus} -> httpStatus) (\s@CreateHsmResponse' {} a -> s {httpStatus = a} :: CreateHsmResponse)
 
-instance Prelude.NFData CreateHsmResponse
+instance Prelude.NFData CreateHsmResponse where
+  rnf CreateHsmResponse' {..} =
+    Prelude.rnf hsm
+      `Prelude.seq` Prelude.rnf httpStatus

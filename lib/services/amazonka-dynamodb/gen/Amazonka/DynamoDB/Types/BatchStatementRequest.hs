@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.BatchStatementRequest where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,9 +74,17 @@ batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameter
 batchStatementRequest_statement :: Lens.Lens' BatchStatementRequest Prelude.Text
 batchStatementRequest_statement = Lens.lens (\BatchStatementRequest' {statement} -> statement) (\s@BatchStatementRequest' {} a -> s {statement = a} :: BatchStatementRequest)
 
-instance Prelude.Hashable BatchStatementRequest
+instance Prelude.Hashable BatchStatementRequest where
+  hashWithSalt _salt BatchStatementRequest' {..} =
+    _salt `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` statement
 
-instance Prelude.NFData BatchStatementRequest
+instance Prelude.NFData BatchStatementRequest where
+  rnf BatchStatementRequest' {..} =
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf statement
 
 instance Core.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =

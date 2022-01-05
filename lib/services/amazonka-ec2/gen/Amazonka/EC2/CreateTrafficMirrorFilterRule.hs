@@ -263,8 +263,35 @@ instance
 instance
   Prelude.Hashable
     CreateTrafficMirrorFilterRule
+  where
+  hashWithSalt _salt CreateTrafficMirrorFilterRule' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` destinationPortRange
+      `Prelude.hashWithSalt` sourcePortRange
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` trafficMirrorFilterId
+      `Prelude.hashWithSalt` trafficDirection
+      `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` sourceCidrBlock
 
-instance Prelude.NFData CreateTrafficMirrorFilterRule
+instance Prelude.NFData CreateTrafficMirrorFilterRule where
+  rnf CreateTrafficMirrorFilterRule' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf destinationPortRange
+      `Prelude.seq` Prelude.rnf sourcePortRange
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf trafficDirection
+      `Prelude.seq` Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf sourceCidrBlock
 
 instance Core.ToHeaders CreateTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,3 +380,8 @@ createTrafficMirrorFilterRuleResponse_httpStatus = Lens.lens (\CreateTrafficMirr
 instance
   Prelude.NFData
     CreateTrafficMirrorFilterRuleResponse
+  where
+  rnf CreateTrafficMirrorFilterRuleResponse' {..} =
+    Prelude.rnf trafficMirrorFilterRule
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus

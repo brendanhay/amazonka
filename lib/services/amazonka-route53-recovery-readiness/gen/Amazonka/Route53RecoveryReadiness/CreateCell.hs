@@ -120,9 +120,17 @@ instance Core.AWSRequest CreateCell where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCell
+instance Prelude.Hashable CreateCell where
+  hashWithSalt _salt CreateCell' {..} =
+    _salt `Prelude.hashWithSalt` cells
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cellName
 
-instance Prelude.NFData CreateCell
+instance Prelude.NFData CreateCell where
+  rnf CreateCell' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cellName
 
 instance Core.ToHeaders CreateCell where
   toHeaders =
@@ -224,4 +232,11 @@ createCellResponse_tags = Lens.lens (\CreateCellResponse' {tags} -> tags) (\s@Cr
 createCellResponse_httpStatus :: Lens.Lens' CreateCellResponse Prelude.Int
 createCellResponse_httpStatus = Lens.lens (\CreateCellResponse' {httpStatus} -> httpStatus) (\s@CreateCellResponse' {} a -> s {httpStatus = a} :: CreateCellResponse)
 
-instance Prelude.NFData CreateCellResponse
+instance Prelude.NFData CreateCellResponse where
+  rnf CreateCellResponse' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf parentReadinessScopes
+      `Prelude.seq` Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf cellArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

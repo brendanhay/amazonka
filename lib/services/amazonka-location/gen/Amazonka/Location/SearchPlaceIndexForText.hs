@@ -262,9 +262,23 @@ instance Core.AWSRequest SearchPlaceIndexForText where
             Prelude.<*> (x Core..:> "Summary")
       )
 
-instance Prelude.Hashable SearchPlaceIndexForText
+instance Prelude.Hashable SearchPlaceIndexForText where
+  hashWithSalt _salt SearchPlaceIndexForText' {..} =
+    _salt `Prelude.hashWithSalt` filterBBox
+      `Prelude.hashWithSalt` biasPosition
+      `Prelude.hashWithSalt` filterCountries
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData SearchPlaceIndexForText
+instance Prelude.NFData SearchPlaceIndexForText where
+  rnf SearchPlaceIndexForText' {..} =
+    Prelude.rnf filterBBox
+      `Prelude.seq` Prelude.rnf biasPosition
+      `Prelude.seq` Prelude.rnf filterCountries
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf text
 
 instance Core.ToHeaders SearchPlaceIndexForText where
   toHeaders =
@@ -365,3 +379,8 @@ searchPlaceIndexForTextResponse_summary = Lens.lens (\SearchPlaceIndexForTextRes
 instance
   Prelude.NFData
     SearchPlaceIndexForTextResponse
+  where
+  rnf SearchPlaceIndexForTextResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf results
+      `Prelude.seq` Prelude.rnf summary

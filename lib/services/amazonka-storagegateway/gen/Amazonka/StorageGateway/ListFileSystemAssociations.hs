@@ -153,9 +153,17 @@ instance Core.AWSRequest ListFileSystemAssociations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFileSystemAssociations
+instance Prelude.Hashable ListFileSystemAssociations where
+  hashWithSalt _salt ListFileSystemAssociations' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListFileSystemAssociations
+instance Prelude.NFData ListFileSystemAssociations where
+  rnf ListFileSystemAssociations' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListFileSystemAssociations where
   toHeaders =
@@ -260,3 +268,9 @@ listFileSystemAssociationsResponse_httpStatus = Lens.lens (\ListFileSystemAssoci
 instance
   Prelude.NFData
     ListFileSystemAssociationsResponse
+  where
+  rnf ListFileSystemAssociationsResponse' {..} =
+    Prelude.rnf fileSystemAssociationSummaryList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

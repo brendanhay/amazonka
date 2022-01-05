@@ -92,7 +92,20 @@ instance
 instance
   Prelude.Hashable
     DnsRuleGroupLimitExceededViolation
+  where
+  hashWithSalt
+    _salt
+    DnsRuleGroupLimitExceededViolation' {..} =
+      _salt
+        `Prelude.hashWithSalt` violationTargetDescription
+        `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` numberOfRuleGroupsAlreadyAssociated
 
 instance
   Prelude.NFData
     DnsRuleGroupLimitExceededViolation
+  where
+  rnf DnsRuleGroupLimitExceededViolation' {..} =
+    Prelude.rnf violationTargetDescription
+      `Prelude.seq` Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf numberOfRuleGroupsAlreadyAssociated

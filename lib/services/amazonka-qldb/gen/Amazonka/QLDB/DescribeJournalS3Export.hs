@@ -116,9 +116,14 @@ instance Core.AWSRequest DescribeJournalS3Export where
             Prelude.<*> (x Core..:> "ExportDescription")
       )
 
-instance Prelude.Hashable DescribeJournalS3Export
+instance Prelude.Hashable DescribeJournalS3Export where
+  hashWithSalt _salt DescribeJournalS3Export' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` exportId
 
-instance Prelude.NFData DescribeJournalS3Export
+instance Prelude.NFData DescribeJournalS3Export where
+  rnf DescribeJournalS3Export' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf exportId
 
 instance Core.ToHeaders DescribeJournalS3Export where
   toHeaders =
@@ -192,3 +197,7 @@ describeJournalS3ExportResponse_exportDescription = Lens.lens (\DescribeJournalS
 instance
   Prelude.NFData
     DescribeJournalS3ExportResponse
+  where
+  rnf DescribeJournalS3ExportResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportDescription

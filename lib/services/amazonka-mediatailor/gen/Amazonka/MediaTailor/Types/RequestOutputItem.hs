@@ -92,9 +92,19 @@ requestOutputItem_manifestName = Lens.lens (\RequestOutputItem' {manifestName} -
 requestOutputItem_sourceGroup :: Lens.Lens' RequestOutputItem Prelude.Text
 requestOutputItem_sourceGroup = Lens.lens (\RequestOutputItem' {sourceGroup} -> sourceGroup) (\s@RequestOutputItem' {} a -> s {sourceGroup = a} :: RequestOutputItem)
 
-instance Prelude.Hashable RequestOutputItem
+instance Prelude.Hashable RequestOutputItem where
+  hashWithSalt _salt RequestOutputItem' {..} =
+    _salt `Prelude.hashWithSalt` hlsPlaylistSettings
+      `Prelude.hashWithSalt` dashPlaylistSettings
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` sourceGroup
 
-instance Prelude.NFData RequestOutputItem
+instance Prelude.NFData RequestOutputItem where
+  rnf RequestOutputItem' {..} =
+    Prelude.rnf hlsPlaylistSettings
+      `Prelude.seq` Prelude.rnf dashPlaylistSettings
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf sourceGroup
 
 instance Core.ToJSON RequestOutputItem where
   toJSON RequestOutputItem' {..} =

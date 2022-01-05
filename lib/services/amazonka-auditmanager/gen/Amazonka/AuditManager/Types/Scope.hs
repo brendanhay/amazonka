@@ -80,9 +80,15 @@ instance Core.FromJSON Scope where
             Prelude.<*> (x Core..:? "awsServices" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Scope
+instance Prelude.Hashable Scope where
+  hashWithSalt _salt Scope' {..} =
+    _salt `Prelude.hashWithSalt` awsAccounts
+      `Prelude.hashWithSalt` awsServices
 
-instance Prelude.NFData Scope
+instance Prelude.NFData Scope where
+  rnf Scope' {..} =
+    Prelude.rnf awsAccounts
+      `Prelude.seq` Prelude.rnf awsServices
 
 instance Core.ToJSON Scope where
   toJSON Scope' {..} =

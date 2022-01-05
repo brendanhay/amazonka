@@ -80,6 +80,12 @@ instance Core.FromJSON ReviewReport where
             Prelude.<*> (x Core..:? "ReviewResults" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ReviewReport
+instance Prelude.Hashable ReviewReport where
+  hashWithSalt _salt ReviewReport' {..} =
+    _salt `Prelude.hashWithSalt` reviewActions
+      `Prelude.hashWithSalt` reviewResults
 
-instance Prelude.NFData ReviewReport
+instance Prelude.NFData ReviewReport where
+  rnf ReviewReport' {..} =
+    Prelude.rnf reviewActions
+      `Prelude.seq` Prelude.rnf reviewResults

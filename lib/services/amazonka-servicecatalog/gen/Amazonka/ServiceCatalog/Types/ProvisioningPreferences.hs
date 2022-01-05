@@ -314,9 +314,23 @@ provisioningPreferences_stackSetAccounts = Lens.lens (\ProvisioningPreferences' 
 provisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 provisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\ProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@ProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: ProvisioningPreferences)
 
-instance Prelude.Hashable ProvisioningPreferences
+instance Prelude.Hashable ProvisioningPreferences where
+  hashWithSalt _salt ProvisioningPreferences' {..} =
+    _salt `Prelude.hashWithSalt` stackSetRegions
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
+      `Prelude.hashWithSalt` stackSetFailureToleranceCount
+      `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
+      `Prelude.hashWithSalt` stackSetAccounts
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyCount
 
-instance Prelude.NFData ProvisioningPreferences
+instance Prelude.NFData ProvisioningPreferences where
+  rnf ProvisioningPreferences' {..} =
+    Prelude.rnf stackSetRegions
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
+      `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
+      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
+      `Prelude.seq` Prelude.rnf stackSetAccounts
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
 
 instance Core.ToJSON ProvisioningPreferences where
   toJSON ProvisioningPreferences' {..} =

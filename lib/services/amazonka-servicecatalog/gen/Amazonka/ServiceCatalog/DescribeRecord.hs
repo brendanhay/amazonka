@@ -157,9 +157,19 @@ instance Core.AWSRequest DescribeRecord where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRecord
+instance Prelude.Hashable DescribeRecord where
+  hashWithSalt _salt DescribeRecord' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeRecord
+instance Prelude.NFData DescribeRecord where
+  rnf DescribeRecord' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribeRecord where
   toHeaders =
@@ -260,4 +270,9 @@ describeRecordResponse_recordOutputs = Lens.lens (\DescribeRecordResponse' {reco
 describeRecordResponse_httpStatus :: Lens.Lens' DescribeRecordResponse Prelude.Int
 describeRecordResponse_httpStatus = Lens.lens (\DescribeRecordResponse' {httpStatus} -> httpStatus) (\s@DescribeRecordResponse' {} a -> s {httpStatus = a} :: DescribeRecordResponse)
 
-instance Prelude.NFData DescribeRecordResponse
+instance Prelude.NFData DescribeRecordResponse where
+  rnf DescribeRecordResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf recordOutputs
+      `Prelude.seq` Prelude.rnf httpStatus

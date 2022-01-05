@@ -89,9 +89,15 @@ webACLUpdate_action = Lens.lens (\WebACLUpdate' {action} -> action) (\s@WebACLUp
 webACLUpdate_activatedRule :: Lens.Lens' WebACLUpdate ActivatedRule
 webACLUpdate_activatedRule = Lens.lens (\WebACLUpdate' {activatedRule} -> activatedRule) (\s@WebACLUpdate' {} a -> s {activatedRule = a} :: WebACLUpdate)
 
-instance Prelude.Hashable WebACLUpdate
+instance Prelude.Hashable WebACLUpdate where
+  hashWithSalt _salt WebACLUpdate' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` activatedRule
 
-instance Prelude.NFData WebACLUpdate
+instance Prelude.NFData WebACLUpdate where
+  rnf WebACLUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf activatedRule
 
 instance Core.ToJSON WebACLUpdate where
   toJSON WebACLUpdate' {..} =

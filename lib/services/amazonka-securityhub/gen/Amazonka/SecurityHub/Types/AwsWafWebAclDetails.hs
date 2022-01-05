@@ -101,9 +101,19 @@ instance Core.FromJSON AwsWafWebAclDetails where
             Prelude.<*> (x Core..:? "DefaultAction")
       )
 
-instance Prelude.Hashable AwsWafWebAclDetails
+instance Prelude.Hashable AwsWafWebAclDetails where
+  hashWithSalt _salt AwsWafWebAclDetails' {..} =
+    _salt `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` webAclId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultAction
 
-instance Prelude.NFData AwsWafWebAclDetails
+instance Prelude.NFData AwsWafWebAclDetails where
+  rnf AwsWafWebAclDetails' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf webAclId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultAction
 
 instance Core.ToJSON AwsWafWebAclDetails where
   toJSON AwsWafWebAclDetails' {..} =

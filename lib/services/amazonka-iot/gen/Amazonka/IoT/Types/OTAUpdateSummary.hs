@@ -81,6 +81,14 @@ instance Core.FromJSON OTAUpdateSummary where
             Prelude.<*> (x Core..:? "otaUpdateArn")
       )
 
-instance Prelude.Hashable OTAUpdateSummary
+instance Prelude.Hashable OTAUpdateSummary where
+  hashWithSalt _salt OTAUpdateSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` otaUpdateId
+      `Prelude.hashWithSalt` otaUpdateArn
 
-instance Prelude.NFData OTAUpdateSummary
+instance Prelude.NFData OTAUpdateSummary where
+  rnf OTAUpdateSummary' {..} =
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf otaUpdateId
+      `Prelude.seq` Prelude.rnf otaUpdateArn

@@ -146,6 +146,20 @@ instance Core.FromXML InvalidationList where
       Prelude.<*> (x Core..@ "IsTruncated")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable InvalidationList
+instance Prelude.Hashable InvalidationList where
+  hashWithSalt _salt InvalidationList' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData InvalidationList
+instance Prelude.NFData InvalidationList where
+  rnf InvalidationList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf quantity

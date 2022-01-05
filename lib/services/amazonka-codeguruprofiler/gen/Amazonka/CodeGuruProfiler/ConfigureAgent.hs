@@ -203,9 +203,17 @@ instance Core.AWSRequest ConfigureAgent where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable ConfigureAgent
+instance Prelude.Hashable ConfigureAgent where
+  hashWithSalt _salt ConfigureAgent' {..} =
+    _salt `Prelude.hashWithSalt` fleetInstanceId
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData ConfigureAgent
+instance Prelude.NFData ConfigureAgent where
+  rnf ConfigureAgent' {..} =
+    Prelude.rnf fleetInstanceId
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders ConfigureAgent where
   toHeaders =
@@ -292,4 +300,7 @@ configureAgentResponse_httpStatus = Lens.lens (\ConfigureAgentResponse' {httpSta
 configureAgentResponse_configuration :: Lens.Lens' ConfigureAgentResponse AgentConfiguration
 configureAgentResponse_configuration = Lens.lens (\ConfigureAgentResponse' {configuration} -> configuration) (\s@ConfigureAgentResponse' {} a -> s {configuration = a} :: ConfigureAgentResponse)
 
-instance Prelude.NFData ConfigureAgentResponse
+instance Prelude.NFData ConfigureAgentResponse where
+  rnf ConfigureAgentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf configuration

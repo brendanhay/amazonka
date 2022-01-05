@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteComponent where
   response =
     Response.receiveNull DeleteComponentResponse'
 
-instance Prelude.Hashable DeleteComponent
+instance Prelude.Hashable DeleteComponent where
+  hashWithSalt _salt DeleteComponent' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteComponent
+instance Prelude.NFData DeleteComponent where
+  rnf DeleteComponent' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteComponent where
   toHeaders =
@@ -126,4 +129,5 @@ newDeleteComponentResponse ::
   DeleteComponentResponse
 newDeleteComponentResponse = DeleteComponentResponse'
 
-instance Prelude.NFData DeleteComponentResponse
+instance Prelude.NFData DeleteComponentResponse where
+  rnf _ = ()

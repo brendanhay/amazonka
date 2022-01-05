@@ -92,9 +92,23 @@ backendConnectionErrors_hTTPCode4XXCount = Lens.lens (\BackendConnectionErrors' 
 backendConnectionErrors_unknownHostCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_unknownHostCount = Lens.lens (\BackendConnectionErrors' {unknownHostCount} -> unknownHostCount) (\s@BackendConnectionErrors' {} a -> s {unknownHostCount = a} :: BackendConnectionErrors)
 
-instance Prelude.Hashable BackendConnectionErrors
+instance Prelude.Hashable BackendConnectionErrors where
+  hashWithSalt _salt BackendConnectionErrors' {..} =
+    _salt `Prelude.hashWithSalt` otherCount
+      `Prelude.hashWithSalt` timeoutCount
+      `Prelude.hashWithSalt` hTTPCode5XXCount
+      `Prelude.hashWithSalt` connectionRefusedCount
+      `Prelude.hashWithSalt` hTTPCode4XXCount
+      `Prelude.hashWithSalt` unknownHostCount
 
-instance Prelude.NFData BackendConnectionErrors
+instance Prelude.NFData BackendConnectionErrors where
+  rnf BackendConnectionErrors' {..} =
+    Prelude.rnf otherCount
+      `Prelude.seq` Prelude.rnf timeoutCount
+      `Prelude.seq` Prelude.rnf hTTPCode5XXCount
+      `Prelude.seq` Prelude.rnf connectionRefusedCount
+      `Prelude.seq` Prelude.rnf hTTPCode4XXCount
+      `Prelude.seq` Prelude.rnf unknownHostCount
 
 instance Core.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =

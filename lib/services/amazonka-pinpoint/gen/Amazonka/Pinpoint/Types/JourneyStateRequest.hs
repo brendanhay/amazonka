@@ -111,9 +111,12 @@ newJourneyStateRequest =
 journeyStateRequest_state :: Lens.Lens' JourneyStateRequest (Prelude.Maybe State)
 journeyStateRequest_state = Lens.lens (\JourneyStateRequest' {state} -> state) (\s@JourneyStateRequest' {} a -> s {state = a} :: JourneyStateRequest)
 
-instance Prelude.Hashable JourneyStateRequest
+instance Prelude.Hashable JourneyStateRequest where
+  hashWithSalt _salt JourneyStateRequest' {..} =
+    _salt `Prelude.hashWithSalt` state
 
-instance Prelude.NFData JourneyStateRequest
+instance Prelude.NFData JourneyStateRequest where
+  rnf JourneyStateRequest' {..} = Prelude.rnf state
 
 instance Core.ToJSON JourneyStateRequest where
   toJSON JourneyStateRequest' {..} =

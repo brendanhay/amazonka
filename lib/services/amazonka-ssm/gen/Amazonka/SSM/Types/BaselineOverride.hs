@@ -185,9 +185,29 @@ baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatche
 baselineOverride_sources :: Lens.Lens' BaselineOverride (Prelude.Maybe [PatchSource])
 baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (\s@BaselineOverride' {} a -> s {sources = a} :: BaselineOverride) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable BaselineOverride
+instance Prelude.Hashable BaselineOverride where
+  hashWithSalt _salt BaselineOverride' {..} =
+    _salt `Prelude.hashWithSalt` approvalRules
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` globalFilters
+      `Prelude.hashWithSalt` approvedPatchesComplianceLevel
+      `Prelude.hashWithSalt` rejectedPatchesAction
+      `Prelude.hashWithSalt` approvedPatches
+      `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity
+      `Prelude.hashWithSalt` rejectedPatches
+      `Prelude.hashWithSalt` sources
 
-instance Prelude.NFData BaselineOverride
+instance Prelude.NFData BaselineOverride where
+  rnf BaselineOverride' {..} =
+    Prelude.rnf approvalRules
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf globalFilters
+      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
+      `Prelude.seq` Prelude.rnf rejectedPatchesAction
+      `Prelude.seq` Prelude.rnf approvedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
+      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf sources
 
 instance Core.ToJSON BaselineOverride where
   toJSON BaselineOverride' {..} =

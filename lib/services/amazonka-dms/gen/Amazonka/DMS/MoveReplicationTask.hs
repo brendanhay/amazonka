@@ -109,9 +109,15 @@ instance Core.AWSRequest MoveReplicationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MoveReplicationTask
+instance Prelude.Hashable MoveReplicationTask where
+  hashWithSalt _salt MoveReplicationTask' {..} =
+    _salt `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` targetReplicationInstanceArn
 
-instance Prelude.NFData MoveReplicationTask
+instance Prelude.NFData MoveReplicationTask where
+  rnf MoveReplicationTask' {..} =
+    Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf targetReplicationInstanceArn
 
 instance Core.ToHeaders MoveReplicationTask where
   toHeaders =
@@ -188,4 +194,7 @@ moveReplicationTaskResponse_replicationTask = Lens.lens (\MoveReplicationTaskRes
 moveReplicationTaskResponse_httpStatus :: Lens.Lens' MoveReplicationTaskResponse Prelude.Int
 moveReplicationTaskResponse_httpStatus = Lens.lens (\MoveReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@MoveReplicationTaskResponse' {} a -> s {httpStatus = a} :: MoveReplicationTaskResponse)
 
-instance Prelude.NFData MoveReplicationTaskResponse
+instance Prelude.NFData MoveReplicationTaskResponse where
+  rnf MoveReplicationTaskResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

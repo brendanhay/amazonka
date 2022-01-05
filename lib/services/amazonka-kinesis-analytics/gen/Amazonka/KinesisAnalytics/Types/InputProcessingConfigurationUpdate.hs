@@ -64,10 +64,19 @@ inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate = Lens.lens (\Inpu
 instance
   Prelude.Hashable
     InputProcessingConfigurationUpdate
+  where
+  hashWithSalt
+    _salt
+    InputProcessingConfigurationUpdate' {..} =
+      _salt
+        `Prelude.hashWithSalt` inputLambdaProcessorUpdate
 
 instance
   Prelude.NFData
     InputProcessingConfigurationUpdate
+  where
+  rnf InputProcessingConfigurationUpdate' {..} =
+    Prelude.rnf inputLambdaProcessorUpdate
 
 instance
   Core.ToJSON

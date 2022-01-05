@@ -96,6 +96,16 @@ instance Core.FromJSON RecoveryGroupOutput where
             Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RecoveryGroupOutput
+instance Prelude.Hashable RecoveryGroupOutput where
+  hashWithSalt _salt RecoveryGroupOutput' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recoveryGroupArn
+      `Prelude.hashWithSalt` recoveryGroupName
+      `Prelude.hashWithSalt` cells
 
-instance Prelude.NFData RecoveryGroupOutput
+instance Prelude.NFData RecoveryGroupOutput where
+  rnf RecoveryGroupOutput' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recoveryGroupArn
+      `Prelude.seq` Prelude.rnf recoveryGroupName
+      `Prelude.seq` Prelude.rnf cells

@@ -109,6 +109,18 @@ instance Core.FromJSON ActionState where
             Prelude.<*> (x Core..:? "latestExecution")
       )
 
-instance Prelude.Hashable ActionState
+instance Prelude.Hashable ActionState where
+  hashWithSalt _salt ActionState' {..} =
+    _salt `Prelude.hashWithSalt` revisionUrl
+      `Prelude.hashWithSalt` entityUrl
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` currentRevision
+      `Prelude.hashWithSalt` latestExecution
 
-instance Prelude.NFData ActionState
+instance Prelude.NFData ActionState where
+  rnf ActionState' {..} =
+    Prelude.rnf revisionUrl
+      `Prelude.seq` Prelude.rnf entityUrl
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf currentRevision
+      `Prelude.seq` Prelude.rnf latestExecution

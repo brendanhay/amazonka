@@ -271,6 +271,40 @@ instance Core.FromJSON Api where
             Prelude.<*> (x Core..: "protocolType")
       )
 
-instance Prelude.Hashable Api
+instance Prelude.Hashable Api where
+  hashWithSalt _salt Api' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` disableExecuteApiEndpoint
+      `Prelude.hashWithSalt` apiEndpoint
+      `Prelude.hashWithSalt` warnings
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` apiKeySelectionExpression
+      `Prelude.hashWithSalt` corsConfiguration
+      `Prelude.hashWithSalt` importInfo
+      `Prelude.hashWithSalt` disableSchemaValidation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` routeSelectionExpression
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` protocolType
 
-instance Prelude.NFData Api
+instance Prelude.NFData Api where
+  rnf Api' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
+      `Prelude.seq` Prelude.rnf apiEndpoint
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf importInfo
+      `Prelude.seq` Prelude.rnf disableSchemaValidation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf protocolType

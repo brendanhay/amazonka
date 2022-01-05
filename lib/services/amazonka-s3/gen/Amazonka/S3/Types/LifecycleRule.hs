@@ -202,9 +202,29 @@ instance Core.FromXML LifecycleRule where
       Prelude.<*> (x Core..@? "AbortIncompleteMultipartUpload")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable LifecycleRule
+instance Prelude.Hashable LifecycleRule where
+  hashWithSalt _salt LifecycleRule' {..} =
+    _salt `Prelude.hashWithSalt` transitions
+      `Prelude.hashWithSalt` noncurrentVersionExpiration
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` noncurrentVersionTransitions
+      `Prelude.hashWithSalt` expiration
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` abortIncompleteMultipartUpload
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LifecycleRule
+instance Prelude.NFData LifecycleRule where
+  rnf LifecycleRule' {..} =
+    Prelude.rnf transitions
+      `Prelude.seq` Prelude.rnf noncurrentVersionExpiration
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf abortIncompleteMultipartUpload
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToXML LifecycleRule where
   toXML LifecycleRule' {..} =

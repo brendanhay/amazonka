@@ -116,6 +116,18 @@ instance Core.FromJSON PipelineDetail where
             Prelude.<*> (x Core..:? "activeMotionGraphicsActionName")
       )
 
-instance Prelude.Hashable PipelineDetail
+instance Prelude.Hashable PipelineDetail where
+  hashWithSalt _salt PipelineDetail' {..} =
+    _salt `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` activeInputSwitchActionName
+      `Prelude.hashWithSalt` activeMotionGraphicsUri
+      `Prelude.hashWithSalt` activeInputAttachmentName
+      `Prelude.hashWithSalt` activeMotionGraphicsActionName
 
-instance Prelude.NFData PipelineDetail
+instance Prelude.NFData PipelineDetail where
+  rnf PipelineDetail' {..} =
+    Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf activeInputSwitchActionName
+      `Prelude.seq` Prelude.rnf activeMotionGraphicsUri
+      `Prelude.seq` Prelude.rnf activeInputAttachmentName
+      `Prelude.seq` Prelude.rnf activeMotionGraphicsActionName

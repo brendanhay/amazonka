@@ -45,9 +45,12 @@ instance Core.FromJSON TableWildcard where
       "TableWildcard"
       (\x -> Prelude.pure TableWildcard')
 
-instance Prelude.Hashable TableWildcard
+instance Prelude.Hashable TableWildcard where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData TableWildcard
+instance Prelude.NFData TableWildcard where
+  rnf _ = ()
 
 instance Core.ToJSON TableWildcard where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

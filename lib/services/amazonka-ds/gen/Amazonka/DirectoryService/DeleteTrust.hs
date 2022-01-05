@@ -101,9 +101,16 @@ instance Core.AWSRequest DeleteTrust where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrust
+instance Prelude.Hashable DeleteTrust where
+  hashWithSalt _salt DeleteTrust' {..} =
+    _salt
+      `Prelude.hashWithSalt` deleteAssociatedConditionalForwarder
+      `Prelude.hashWithSalt` trustId
 
-instance Prelude.NFData DeleteTrust
+instance Prelude.NFData DeleteTrust where
+  rnf DeleteTrust' {..} =
+    Prelude.rnf deleteAssociatedConditionalForwarder
+      `Prelude.seq` Prelude.rnf trustId
 
 instance Core.ToHeaders DeleteTrust where
   toHeaders =
@@ -176,4 +183,7 @@ deleteTrustResponse_trustId = Lens.lens (\DeleteTrustResponse' {trustId} -> trus
 deleteTrustResponse_httpStatus :: Lens.Lens' DeleteTrustResponse Prelude.Int
 deleteTrustResponse_httpStatus = Lens.lens (\DeleteTrustResponse' {httpStatus} -> httpStatus) (\s@DeleteTrustResponse' {} a -> s {httpStatus = a} :: DeleteTrustResponse)
 
-instance Prelude.NFData DeleteTrustResponse
+instance Prelude.NFData DeleteTrustResponse where
+  rnf DeleteTrustResponse' {..} =
+    Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf httpStatus

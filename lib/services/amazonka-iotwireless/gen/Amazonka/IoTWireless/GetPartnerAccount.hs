@@ -104,9 +104,15 @@ instance Core.AWSRequest GetPartnerAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPartnerAccount
+instance Prelude.Hashable GetPartnerAccount where
+  hashWithSalt _salt GetPartnerAccount' {..} =
+    _salt `Prelude.hashWithSalt` partnerAccountId
+      `Prelude.hashWithSalt` partnerType
 
-instance Prelude.NFData GetPartnerAccount
+instance Prelude.NFData GetPartnerAccount where
+  rnf GetPartnerAccount' {..} =
+    Prelude.rnf partnerAccountId
+      `Prelude.seq` Prelude.rnf partnerType
 
 instance Core.ToHeaders GetPartnerAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +174,8 @@ getPartnerAccountResponse_accountLinked = Lens.lens (\GetPartnerAccountResponse'
 getPartnerAccountResponse_httpStatus :: Lens.Lens' GetPartnerAccountResponse Prelude.Int
 getPartnerAccountResponse_httpStatus = Lens.lens (\GetPartnerAccountResponse' {httpStatus} -> httpStatus) (\s@GetPartnerAccountResponse' {} a -> s {httpStatus = a} :: GetPartnerAccountResponse)
 
-instance Prelude.NFData GetPartnerAccountResponse
+instance Prelude.NFData GetPartnerAccountResponse where
+  rnf GetPartnerAccountResponse' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf accountLinked
+      `Prelude.seq` Prelude.rnf httpStatus

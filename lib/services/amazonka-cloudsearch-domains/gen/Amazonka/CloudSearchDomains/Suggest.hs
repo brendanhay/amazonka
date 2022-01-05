@@ -130,9 +130,17 @@ instance Core.AWSRequest Suggest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Suggest
+instance Prelude.Hashable Suggest where
+  hashWithSalt _salt Suggest' {..} =
+    _salt `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` suggester
 
-instance Prelude.NFData Suggest
+instance Prelude.NFData Suggest where
+  rnf Suggest' {..} =
+    Prelude.rnf size
+      `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf suggester
 
 instance Core.ToHeaders Suggest where
   toHeaders =
@@ -209,4 +217,8 @@ suggestResponse_status = Lens.lens (\SuggestResponse' {status} -> status) (\s@Su
 suggestResponse_httpStatus :: Lens.Lens' SuggestResponse Prelude.Int
 suggestResponse_httpStatus = Lens.lens (\SuggestResponse' {httpStatus} -> httpStatus) (\s@SuggestResponse' {} a -> s {httpStatus = a} :: SuggestResponse)
 
-instance Prelude.NFData SuggestResponse
+instance Prelude.NFData SuggestResponse where
+  rnf SuggestResponse' {..} =
+    Prelude.rnf suggest
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

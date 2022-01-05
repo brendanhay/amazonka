@@ -70,9 +70,14 @@ dateTimeRange_to = Lens.lens (\DateTimeRange' {to} -> to) (\s@DateTimeRange' {} 
 dateTimeRange_from :: Lens.Lens' DateTimeRange (Prelude.Maybe Prelude.UTCTime)
 dateTimeRange_from = Lens.lens (\DateTimeRange' {from} -> from) (\s@DateTimeRange' {} a -> s {from = a} :: DateTimeRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DateTimeRange
+instance Prelude.Hashable DateTimeRange where
+  hashWithSalt _salt DateTimeRange' {..} =
+    _salt `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` from
 
-instance Prelude.NFData DateTimeRange
+instance Prelude.NFData DateTimeRange where
+  rnf DateTimeRange' {..} =
+    Prelude.rnf to `Prelude.seq` Prelude.rnf from
 
 instance Core.ToJSON DateTimeRange where
   toJSON DateTimeRange' {..} =

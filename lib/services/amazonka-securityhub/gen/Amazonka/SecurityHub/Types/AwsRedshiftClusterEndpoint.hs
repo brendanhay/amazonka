@@ -72,9 +72,14 @@ instance Core.FromJSON AwsRedshiftClusterEndpoint where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable AwsRedshiftClusterEndpoint
+instance Prelude.Hashable AwsRedshiftClusterEndpoint where
+  hashWithSalt _salt AwsRedshiftClusterEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData AwsRedshiftClusterEndpoint
+instance Prelude.NFData AwsRedshiftClusterEndpoint where
+  rnf AwsRedshiftClusterEndpoint' {..} =
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON AwsRedshiftClusterEndpoint where
   toJSON AwsRedshiftClusterEndpoint' {..} =

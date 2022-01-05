@@ -245,7 +245,39 @@ instance
 instance
   Prelude.Hashable
     PiiEntitiesDetectionJobProperties
+  where
+  hashWithSalt
+    _salt
+    PiiEntitiesDetectionJobProperties' {..} =
+      _salt `Prelude.hashWithSalt` languageCode
+        `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` jobArn
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` mode
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` redactionConfig
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` dataAccessRoleArn
+        `Prelude.hashWithSalt` jobStatus
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` submitTime
 
 instance
   Prelude.NFData
     PiiEntitiesDetectionJobProperties
+  where
+  rnf PiiEntitiesDetectionJobProperties' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf redactionConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf submitTime

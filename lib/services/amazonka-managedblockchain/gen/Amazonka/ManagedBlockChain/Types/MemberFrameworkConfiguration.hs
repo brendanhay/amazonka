@@ -61,8 +61,13 @@ memberFrameworkConfiguration_fabric = Lens.lens (\MemberFrameworkConfiguration' 
 instance
   Prelude.Hashable
     MemberFrameworkConfiguration
+  where
+  hashWithSalt _salt MemberFrameworkConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` fabric
 
-instance Prelude.NFData MemberFrameworkConfiguration
+instance Prelude.NFData MemberFrameworkConfiguration where
+  rnf MemberFrameworkConfiguration' {..} =
+    Prelude.rnf fabric
 
 instance Core.ToJSON MemberFrameworkConfiguration where
   toJSON MemberFrameworkConfiguration' {..} =

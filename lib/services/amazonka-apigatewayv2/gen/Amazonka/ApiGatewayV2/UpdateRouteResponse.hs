@@ -171,9 +171,26 @@ instance Core.AWSRequest UpdateRouteResponse where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRouteResponse
+instance Prelude.Hashable UpdateRouteResponse where
+  hashWithSalt _salt UpdateRouteResponse' {..} =
+    _salt
+      `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` responseModels
+      `Prelude.hashWithSalt` routeResponseKey
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` routeResponseId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` routeId
 
-instance Prelude.NFData UpdateRouteResponse
+instance Prelude.NFData UpdateRouteResponse where
+  rnf UpdateRouteResponse' {..} =
+    Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf routeResponseKey
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf routeId
 
 instance Core.ToHeaders UpdateRouteResponse where
   toHeaders =
@@ -293,4 +310,11 @@ updateRouteResponseResponse_responseParameters = Lens.lens (\UpdateRouteResponse
 updateRouteResponseResponse_httpStatus :: Lens.Lens' UpdateRouteResponseResponse Prelude.Int
 updateRouteResponseResponse_httpStatus = Lens.lens (\UpdateRouteResponseResponse' {httpStatus} -> httpStatus) (\s@UpdateRouteResponseResponse' {} a -> s {httpStatus = a} :: UpdateRouteResponseResponse)
 
-instance Prelude.NFData UpdateRouteResponseResponse
+instance Prelude.NFData UpdateRouteResponseResponse where
+  rnf UpdateRouteResponseResponse' {..} =
+    Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf routeResponseKey
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf httpStatus

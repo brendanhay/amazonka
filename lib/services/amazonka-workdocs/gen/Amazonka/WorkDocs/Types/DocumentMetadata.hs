@@ -134,6 +134,24 @@ instance Core.FromJSON DocumentMetadata where
             Prelude.<*> (x Core..:? "CreatorId")
       )
 
-instance Prelude.Hashable DocumentMetadata
+instance Prelude.Hashable DocumentMetadata where
+  hashWithSalt _salt DocumentMetadata' {..} =
+    _salt `Prelude.hashWithSalt` latestVersionMetadata
+      `Prelude.hashWithSalt` parentFolderId
+      `Prelude.hashWithSalt` modifiedTimestamp
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` resourceState
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` creatorId
 
-instance Prelude.NFData DocumentMetadata
+instance Prelude.NFData DocumentMetadata where
+  rnf DocumentMetadata' {..} =
+    Prelude.rnf latestVersionMetadata
+      `Prelude.seq` Prelude.rnf parentFolderId
+      `Prelude.seq` Prelude.rnf modifiedTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf resourceState
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf creatorId

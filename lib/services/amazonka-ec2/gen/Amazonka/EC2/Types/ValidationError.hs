@@ -82,6 +82,11 @@ instance Core.FromXML ValidationError where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable ValidationError
+instance Prelude.Hashable ValidationError where
+  hashWithSalt _salt ValidationError' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ValidationError
+instance Prelude.NFData ValidationError where
+  rnf ValidationError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

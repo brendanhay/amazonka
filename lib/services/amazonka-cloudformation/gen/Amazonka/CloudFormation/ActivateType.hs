@@ -296,9 +296,31 @@ instance Core.AWSRequest ActivateType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateType
+instance Prelude.Hashable ActivateType where
+  hashWithSalt _salt ActivateType' {..} =
+    _salt `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` versionBump
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` autoUpdate
+      `Prelude.hashWithSalt` typeNameAlias
+      `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` publicTypeArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` publisherId
+      `Prelude.hashWithSalt` loggingConfig
 
-instance Prelude.NFData ActivateType
+instance Prelude.NFData ActivateType where
+  rnf ActivateType' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf versionBump
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf autoUpdate
+      `Prelude.seq` Prelude.rnf typeNameAlias
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf publicTypeArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf loggingConfig
 
 instance Core.ToHeaders ActivateType where
   toHeaders = Prelude.const Prelude.mempty
@@ -366,4 +388,7 @@ activateTypeResponse_arn = Lens.lens (\ActivateTypeResponse' {arn} -> arn) (\s@A
 activateTypeResponse_httpStatus :: Lens.Lens' ActivateTypeResponse Prelude.Int
 activateTypeResponse_httpStatus = Lens.lens (\ActivateTypeResponse' {httpStatus} -> httpStatus) (\s@ActivateTypeResponse' {} a -> s {httpStatus = a} :: ActivateTypeResponse)
 
-instance Prelude.NFData ActivateTypeResponse
+instance Prelude.NFData ActivateTypeResponse where
+  rnf ActivateTypeResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsCertificateManagerCertificateKeyUsage
+  where
+  hashWithSalt
+    _salt
+    AwsCertificateManagerCertificateKeyUsage' {..} =
+      _salt `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     AwsCertificateManagerCertificateKeyUsage
+  where
+  rnf AwsCertificateManagerCertificateKeyUsage' {..} =
+    Prelude.rnf name
 
 instance
   Core.ToJSON

@@ -89,9 +89,12 @@ instance Core.AWSRequest CancelCluster where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelCluster
+instance Prelude.Hashable CancelCluster where
+  hashWithSalt _salt CancelCluster' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData CancelCluster
+instance Prelude.NFData CancelCluster where
+  rnf CancelCluster' {..} = Prelude.rnf clusterId
 
 instance Core.ToHeaders CancelCluster where
   toHeaders =
@@ -148,4 +151,6 @@ newCancelClusterResponse pHttpStatus_ =
 cancelClusterResponse_httpStatus :: Lens.Lens' CancelClusterResponse Prelude.Int
 cancelClusterResponse_httpStatus = Lens.lens (\CancelClusterResponse' {httpStatus} -> httpStatus) (\s@CancelClusterResponse' {} a -> s {httpStatus = a} :: CancelClusterResponse)
 
-instance Prelude.NFData CancelClusterResponse
+instance Prelude.NFData CancelClusterResponse where
+  rnf CancelClusterResponse' {..} =
+    Prelude.rnf httpStatus

@@ -115,8 +115,13 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcPeeringConnections
+  where
+  hashWithSalt _salt DescribeVpcPeeringConnections' {..} =
+    _salt `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DescribeVpcPeeringConnections
+instance Prelude.NFData DescribeVpcPeeringConnections where
+  rnf DescribeVpcPeeringConnections' {..} =
+    Prelude.rnf fleetId
 
 instance Core.ToHeaders DescribeVpcPeeringConnections where
   toHeaders =
@@ -190,3 +195,7 @@ describeVpcPeeringConnectionsResponse_httpStatus = Lens.lens (\DescribeVpcPeerin
 instance
   Prelude.NFData
     DescribeVpcPeeringConnectionsResponse
+  where
+  rnf DescribeVpcPeeringConnectionsResponse' {..} =
+    Prelude.rnf vpcPeeringConnections
+      `Prelude.seq` Prelude.rnf httpStatus

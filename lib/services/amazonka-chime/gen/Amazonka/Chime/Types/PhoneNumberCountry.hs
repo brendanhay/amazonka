@@ -75,6 +75,13 @@ instance Core.FromJSON PhoneNumberCountry where
             Prelude.<*> (x Core..:? "CountryCode")
       )
 
-instance Prelude.Hashable PhoneNumberCountry
+instance Prelude.Hashable PhoneNumberCountry where
+  hashWithSalt _salt PhoneNumberCountry' {..} =
+    _salt
+      `Prelude.hashWithSalt` supportedPhoneNumberTypes
+      `Prelude.hashWithSalt` countryCode
 
-instance Prelude.NFData PhoneNumberCountry
+instance Prelude.NFData PhoneNumberCountry where
+  rnf PhoneNumberCountry' {..} =
+    Prelude.rnf supportedPhoneNumberTypes
+      `Prelude.seq` Prelude.rnf countryCode

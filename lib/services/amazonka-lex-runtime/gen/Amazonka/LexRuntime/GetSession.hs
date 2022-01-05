@@ -148,9 +148,19 @@ instance Core.AWSRequest GetSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSession
+instance Prelude.Hashable GetSession where
+  hashWithSalt _salt GetSession' {..} =
+    _salt `Prelude.hashWithSalt` checkpointLabelFilter
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData GetSession
+instance Prelude.NFData GetSession where
+  rnf GetSession' {..} =
+    Prelude.rnf checkpointLabelFilter
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetSession where
   toHeaders =
@@ -296,4 +306,11 @@ getSessionResponse_sessionAttributes = Lens.lens (\GetSessionResponse' {sessionA
 getSessionResponse_httpStatus :: Lens.Lens' GetSessionResponse Prelude.Int
 getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> httpStatus) (\s@GetSessionResponse' {} a -> s {httpStatus = a} :: GetSessionResponse)
 
-instance Prelude.NFData GetSessionResponse
+instance Prelude.NFData GetSessionResponse where
+  rnf GetSessionResponse' {..} =
+    Prelude.rnf activeContexts
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf recentIntentSummaryView
+      `Prelude.seq` Prelude.rnf dialogAction
+      `Prelude.seq` Prelude.rnf sessionAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

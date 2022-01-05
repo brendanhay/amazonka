@@ -109,9 +109,15 @@ instance Core.AWSRequest DeleteAsset where
             Prelude.<*> (x Core..:> "assetStatus")
       )
 
-instance Prelude.Hashable DeleteAsset
+instance Prelude.Hashable DeleteAsset where
+  hashWithSalt _salt DeleteAsset' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` assetId
 
-instance Prelude.NFData DeleteAsset
+instance Prelude.NFData DeleteAsset where
+  rnf DeleteAsset' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToHeaders DeleteAsset where
   toHeaders =
@@ -175,4 +181,7 @@ deleteAssetResponse_httpStatus = Lens.lens (\DeleteAssetResponse' {httpStatus} -
 deleteAssetResponse_assetStatus :: Lens.Lens' DeleteAssetResponse AssetStatus
 deleteAssetResponse_assetStatus = Lens.lens (\DeleteAssetResponse' {assetStatus} -> assetStatus) (\s@DeleteAssetResponse' {} a -> s {assetStatus = a} :: DeleteAssetResponse)
 
-instance Prelude.NFData DeleteAssetResponse
+instance Prelude.NFData DeleteAssetResponse where
+  rnf DeleteAssetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assetStatus

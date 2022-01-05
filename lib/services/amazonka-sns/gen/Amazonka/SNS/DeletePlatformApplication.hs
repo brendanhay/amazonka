@@ -86,9 +86,13 @@ instance Core.AWSRequest DeletePlatformApplication where
     Response.receiveNull
       DeletePlatformApplicationResponse'
 
-instance Prelude.Hashable DeletePlatformApplication
+instance Prelude.Hashable DeletePlatformApplication where
+  hashWithSalt _salt DeletePlatformApplication' {..} =
+    _salt `Prelude.hashWithSalt` platformApplicationArn
 
-instance Prelude.NFData DeletePlatformApplication
+instance Prelude.NFData DeletePlatformApplication where
+  rnf DeletePlatformApplication' {..} =
+    Prelude.rnf platformApplicationArn
 
 instance Core.ToHeaders DeletePlatformApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,3 +129,5 @@ newDeletePlatformApplicationResponse =
 instance
   Prelude.NFData
     DeletePlatformApplicationResponse
+  where
+  rnf _ = ()

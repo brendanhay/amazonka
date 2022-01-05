@@ -108,9 +108,19 @@ instance Core.FromXML Parameter where
       Prelude.<*> (x Core..@? "ParameterKey")
       Prelude.<*> (x Core..@? "UsePreviousValue")
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt _salt Parameter' {..} =
+    _salt `Prelude.hashWithSalt` parameterValue
+      `Prelude.hashWithSalt` resolvedValue
+      `Prelude.hashWithSalt` parameterKey
+      `Prelude.hashWithSalt` usePreviousValue
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf parameterValue
+      `Prelude.seq` Prelude.rnf resolvedValue
+      `Prelude.seq` Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf usePreviousValue
 
 instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =

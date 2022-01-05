@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.Projection where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ProjectionType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -119,9 +120,15 @@ instance Core.FromJSON Projection where
             Prelude.<*> (x Core..:? "NonKeyAttributes")
       )
 
-instance Prelude.Hashable Projection
+instance Prelude.Hashable Projection where
+  hashWithSalt _salt Projection' {..} =
+    _salt `Prelude.hashWithSalt` projectionType
+      `Prelude.hashWithSalt` nonKeyAttributes
 
-instance Prelude.NFData Projection
+instance Prelude.NFData Projection where
+  rnf Projection' {..} =
+    Prelude.rnf projectionType
+      `Prelude.seq` Prelude.rnf nonKeyAttributes
 
 instance Core.ToJSON Projection where
   toJSON Projection' {..} =

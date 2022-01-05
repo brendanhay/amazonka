@@ -132,9 +132,12 @@ instance Core.FromJSON Workflow where
       "Workflow"
       (\x -> Workflow' Prelude.<$> (x Core..:? "Status"))
 
-instance Prelude.Hashable Workflow
+instance Prelude.Hashable Workflow where
+  hashWithSalt _salt Workflow' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Workflow
+instance Prelude.NFData Workflow where
+  rnf Workflow' {..} = Prelude.rnf status
 
 instance Core.ToJSON Workflow where
   toJSON Workflow' {..} =

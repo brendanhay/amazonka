@@ -143,10 +143,24 @@ instance
 instance
   Prelude.Hashable
     UpdateCustomRoutingAccelerator
+  where
+  hashWithSalt
+    _salt
+    UpdateCustomRoutingAccelerator' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` ipAddressType
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` acceleratorArn
 
 instance
   Prelude.NFData
     UpdateCustomRoutingAccelerator
+  where
+  rnf UpdateCustomRoutingAccelerator' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
   Core.ToHeaders
@@ -227,3 +241,7 @@ updateCustomRoutingAcceleratorResponse_httpStatus = Lens.lens (\UpdateCustomRout
 instance
   Prelude.NFData
     UpdateCustomRoutingAcceleratorResponse
+  where
+  rnf UpdateCustomRoutingAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

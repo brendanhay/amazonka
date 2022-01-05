@@ -137,9 +137,15 @@ dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp}
 dASHTimestampRange_startTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)
 dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimestamp} -> startTimestamp) (\s@DASHTimestampRange' {} a -> s {startTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DASHTimestampRange
+instance Prelude.Hashable DASHTimestampRange where
+  hashWithSalt _salt DASHTimestampRange' {..} =
+    _salt `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` startTimestamp
 
-instance Prelude.NFData DASHTimestampRange
+instance Prelude.NFData DASHTimestampRange where
+  rnf DASHTimestampRange' {..} =
+    Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf startTimestamp
 
 instance Core.ToJSON DASHTimestampRange where
   toJSON DASHTimestampRange' {..} =

@@ -74,9 +74,15 @@ instance Core.FromJSON JobResourceTags where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobResourceTags
+instance Prelude.Hashable JobResourceTags where
+  hashWithSalt _salt JobResourceTags' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData JobResourceTags
+instance Prelude.NFData JobResourceTags where
+  rnf JobResourceTags' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON JobResourceTags where
   toJSON JobResourceTags' {..} =

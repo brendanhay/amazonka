@@ -65,9 +65,15 @@ tableToReload_schemaName = Lens.lens (\TableToReload' {schemaName} -> schemaName
 tableToReload_tableName :: Lens.Lens' TableToReload Prelude.Text
 tableToReload_tableName = Lens.lens (\TableToReload' {tableName} -> tableName) (\s@TableToReload' {} a -> s {tableName = a} :: TableToReload)
 
-instance Prelude.Hashable TableToReload
+instance Prelude.Hashable TableToReload where
+  hashWithSalt _salt TableToReload' {..} =
+    _salt `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData TableToReload
+instance Prelude.NFData TableToReload where
+  rnf TableToReload' {..} =
+    Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON TableToReload where
   toJSON TableToReload' {..} =

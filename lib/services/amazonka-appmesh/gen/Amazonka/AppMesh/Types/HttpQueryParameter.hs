@@ -73,9 +73,14 @@ instance Core.FromJSON HttpQueryParameter where
             Prelude.<$> (x Core..:? "match") Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable HttpQueryParameter
+instance Prelude.Hashable HttpQueryParameter where
+  hashWithSalt _salt HttpQueryParameter' {..} =
+    _salt `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData HttpQueryParameter
+instance Prelude.NFData HttpQueryParameter where
+  rnf HttpQueryParameter' {..} =
+    Prelude.rnf match `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON HttpQueryParameter where
   toJSON HttpQueryParameter' {..} =

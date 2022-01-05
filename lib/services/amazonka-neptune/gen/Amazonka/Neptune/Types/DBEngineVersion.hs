@@ -195,6 +195,32 @@ instance Core.FromXML DBEngineVersion where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable DBEngineVersion
+instance Prelude.Hashable DBEngineVersion where
+  hashWithSalt _salt DBEngineVersion' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` dbEngineVersionDescription
+      `Prelude.hashWithSalt` defaultCharacterSet
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` supportedCharacterSets
+      `Prelude.hashWithSalt` dbEngineDescription
+      `Prelude.hashWithSalt` validUpgradeTarget
+      `Prelude.hashWithSalt` supportsLogExportsToCloudwatchLogs
+      `Prelude.hashWithSalt` supportsReadReplica
+      `Prelude.hashWithSalt` supportedTimezones
+      `Prelude.hashWithSalt` exportableLogTypes
 
-instance Prelude.NFData DBEngineVersion
+instance Prelude.NFData DBEngineVersion where
+  rnf DBEngineVersion' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf dbEngineVersionDescription
+      `Prelude.seq` Prelude.rnf defaultCharacterSet
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf supportedCharacterSets
+      `Prelude.seq` Prelude.rnf dbEngineDescription
+      `Prelude.seq` Prelude.rnf validUpgradeTarget
+      `Prelude.seq` Prelude.rnf supportsLogExportsToCloudwatchLogs
+      `Prelude.seq` Prelude.rnf supportsReadReplica
+      `Prelude.seq` Prelude.rnf supportedTimezones
+      `Prelude.seq` Prelude.rnf exportableLogTypes

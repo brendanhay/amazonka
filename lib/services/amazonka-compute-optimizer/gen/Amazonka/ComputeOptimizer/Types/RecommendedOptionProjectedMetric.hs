@@ -116,7 +116,20 @@ instance
 instance
   Prelude.Hashable
     RecommendedOptionProjectedMetric
+  where
+  hashWithSalt
+    _salt
+    RecommendedOptionProjectedMetric' {..} =
+      _salt
+        `Prelude.hashWithSalt` recommendedInstanceType
+        `Prelude.hashWithSalt` projectedMetrics
+        `Prelude.hashWithSalt` rank
 
 instance
   Prelude.NFData
     RecommendedOptionProjectedMetric
+  where
+  rnf RecommendedOptionProjectedMetric' {..} =
+    Prelude.rnf recommendedInstanceType
+      `Prelude.seq` Prelude.rnf projectedMetrics
+      `Prelude.seq` Prelude.rnf rank

@@ -101,5 +101,16 @@ instance Core.FromJSON TaskSubmitFailedEventDetails where
 instance
   Prelude.Hashable
     TaskSubmitFailedEventDetails
+  where
+  hashWithSalt _salt TaskSubmitFailedEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resource
 
-instance Prelude.NFData TaskSubmitFailedEventDetails
+instance Prelude.NFData TaskSubmitFailedEventDetails where
+  rnf TaskSubmitFailedEventDetails' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resource

@@ -179,9 +179,17 @@ instance Core.AWSRequest RefreshCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RefreshCache
+instance Prelude.Hashable RefreshCache where
+  hashWithSalt _salt RefreshCache' {..} =
+    _salt `Prelude.hashWithSalt` folderList
+      `Prelude.hashWithSalt` recursive
+      `Prelude.hashWithSalt` fileShareARN
 
-instance Prelude.NFData RefreshCache
+instance Prelude.NFData RefreshCache where
+  rnf RefreshCache' {..} =
+    Prelude.rnf folderList
+      `Prelude.seq` Prelude.rnf recursive
+      `Prelude.seq` Prelude.rnf fileShareARN
 
 instance Core.ToHeaders RefreshCache where
   toHeaders =
@@ -262,4 +270,8 @@ refreshCacheResponse_notificationId = Lens.lens (\RefreshCacheResponse' {notific
 refreshCacheResponse_httpStatus :: Lens.Lens' RefreshCacheResponse Prelude.Int
 refreshCacheResponse_httpStatus = Lens.lens (\RefreshCacheResponse' {httpStatus} -> httpStatus) (\s@RefreshCacheResponse' {} a -> s {httpStatus = a} :: RefreshCacheResponse)
 
-instance Prelude.NFData RefreshCacheResponse
+instance Prelude.NFData RefreshCacheResponse where
+  rnf RefreshCacheResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf notificationId
+      `Prelude.seq` Prelude.rnf httpStatus

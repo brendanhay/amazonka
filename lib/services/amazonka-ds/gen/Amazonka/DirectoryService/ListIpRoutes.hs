@@ -139,9 +139,17 @@ instance Core.AWSRequest ListIpRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIpRoutes
+instance Prelude.Hashable ListIpRoutes where
+  hashWithSalt _salt ListIpRoutes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData ListIpRoutes
+instance Prelude.NFData ListIpRoutes where
+  rnf ListIpRoutes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders ListIpRoutes where
   toHeaders =
@@ -228,4 +236,8 @@ listIpRoutesResponse_nextToken = Lens.lens (\ListIpRoutesResponse' {nextToken} -
 listIpRoutesResponse_httpStatus :: Lens.Lens' ListIpRoutesResponse Prelude.Int
 listIpRoutesResponse_httpStatus = Lens.lens (\ListIpRoutesResponse' {httpStatus} -> httpStatus) (\s@ListIpRoutesResponse' {} a -> s {httpStatus = a} :: ListIpRoutesResponse)
 
-instance Prelude.NFData ListIpRoutesResponse
+instance Prelude.NFData ListIpRoutesResponse where
+  rnf ListIpRoutesResponse' {..} =
+    Prelude.rnf ipRoutesInfo
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,9 +68,13 @@ instance Core.FromJSON HttpRouteAction where
             Prelude.<$> (x Core..: "weightedTargets")
       )
 
-instance Prelude.Hashable HttpRouteAction
+instance Prelude.Hashable HttpRouteAction where
+  hashWithSalt _salt HttpRouteAction' {..} =
+    _salt `Prelude.hashWithSalt` weightedTargets
 
-instance Prelude.NFData HttpRouteAction
+instance Prelude.NFData HttpRouteAction where
+  rnf HttpRouteAction' {..} =
+    Prelude.rnf weightedTargets
 
 instance Core.ToJSON HttpRouteAction where
   toJSON HttpRouteAction' {..} =

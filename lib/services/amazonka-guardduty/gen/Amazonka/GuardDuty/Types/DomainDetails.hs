@@ -58,6 +58,9 @@ instance Core.FromJSON DomainDetails where
           DomainDetails' Prelude.<$> (x Core..:? "domain")
       )
 
-instance Prelude.Hashable DomainDetails
+instance Prelude.Hashable DomainDetails where
+  hashWithSalt _salt DomainDetails' {..} =
+    _salt `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DomainDetails
+instance Prelude.NFData DomainDetails where
+  rnf DomainDetails' {..} = Prelude.rnf domain

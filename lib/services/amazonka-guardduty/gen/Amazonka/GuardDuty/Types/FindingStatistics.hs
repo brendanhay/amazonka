@@ -64,6 +64,10 @@ instance Core.FromJSON FindingStatistics where
                         )
       )
 
-instance Prelude.Hashable FindingStatistics
+instance Prelude.Hashable FindingStatistics where
+  hashWithSalt _salt FindingStatistics' {..} =
+    _salt `Prelude.hashWithSalt` countBySeverity
 
-instance Prelude.NFData FindingStatistics
+instance Prelude.NFData FindingStatistics where
+  rnf FindingStatistics' {..} =
+    Prelude.rnf countBySeverity

@@ -125,9 +125,15 @@ instance Core.AWSRequest ListBundles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBundles
+instance Prelude.Hashable ListBundles where
+  hashWithSalt _salt ListBundles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListBundles
+instance Prelude.NFData ListBundles where
+  rnf ListBundles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBundles where
   toHeaders =
@@ -202,4 +208,8 @@ listBundlesResponse_nextToken = Lens.lens (\ListBundlesResponse' {nextToken} -> 
 listBundlesResponse_httpStatus :: Lens.Lens' ListBundlesResponse Prelude.Int
 listBundlesResponse_httpStatus = Lens.lens (\ListBundlesResponse' {httpStatus} -> httpStatus) (\s@ListBundlesResponse' {} a -> s {httpStatus = a} :: ListBundlesResponse)
 
-instance Prelude.NFData ListBundlesResponse
+instance Prelude.NFData ListBundlesResponse where
+  rnf ListBundlesResponse' {..} =
+    Prelude.rnf bundleList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

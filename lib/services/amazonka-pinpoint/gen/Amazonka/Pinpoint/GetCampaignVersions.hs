@@ -133,9 +133,19 @@ instance Core.AWSRequest GetCampaignVersions where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaignVersions
+instance Prelude.Hashable GetCampaignVersions where
+  hashWithSalt _salt GetCampaignVersions' {..} =
+    _salt `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` campaignId
 
-instance Prelude.NFData GetCampaignVersions
+instance Prelude.NFData GetCampaignVersions where
+  rnf GetCampaignVersions' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf campaignId
 
 instance Core.ToHeaders GetCampaignVersions where
   toHeaders =
@@ -205,4 +215,7 @@ getCampaignVersionsResponse_httpStatus = Lens.lens (\GetCampaignVersionsResponse
 getCampaignVersionsResponse_campaignsResponse :: Lens.Lens' GetCampaignVersionsResponse CampaignsResponse
 getCampaignVersionsResponse_campaignsResponse = Lens.lens (\GetCampaignVersionsResponse' {campaignsResponse} -> campaignsResponse) (\s@GetCampaignVersionsResponse' {} a -> s {campaignsResponse = a} :: GetCampaignVersionsResponse)
 
-instance Prelude.NFData GetCampaignVersionsResponse
+instance Prelude.NFData GetCampaignVersionsResponse where
+  rnf GetCampaignVersionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf campaignsResponse

@@ -125,6 +125,18 @@ instance Core.FromXML TrafficPolicySummary where
       Prelude.<*> (x Core..@ "LatestVersion")
       Prelude.<*> (x Core..@ "TrafficPolicyCount")
 
-instance Prelude.Hashable TrafficPolicySummary
+instance Prelude.Hashable TrafficPolicySummary where
+  hashWithSalt _salt TrafficPolicySummary' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` trafficPolicyCount
 
-instance Prelude.NFData TrafficPolicySummary
+instance Prelude.NFData TrafficPolicySummary where
+  rnf TrafficPolicySummary' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf trafficPolicyCount

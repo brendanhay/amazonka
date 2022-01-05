@@ -79,9 +79,15 @@ instance Core.FromJSON BrokerEBSVolumeInfo where
             Prelude.<*> (x Core..: "kafkaBrokerNodeId")
       )
 
-instance Prelude.Hashable BrokerEBSVolumeInfo
+instance Prelude.Hashable BrokerEBSVolumeInfo where
+  hashWithSalt _salt BrokerEBSVolumeInfo' {..} =
+    _salt `Prelude.hashWithSalt` volumeSizeGB
+      `Prelude.hashWithSalt` kafkaBrokerNodeId
 
-instance Prelude.NFData BrokerEBSVolumeInfo
+instance Prelude.NFData BrokerEBSVolumeInfo where
+  rnf BrokerEBSVolumeInfo' {..} =
+    Prelude.rnf volumeSizeGB
+      `Prelude.seq` Prelude.rnf kafkaBrokerNodeId
 
 instance Core.ToJSON BrokerEBSVolumeInfo where
   toJSON BrokerEBSVolumeInfo' {..} =

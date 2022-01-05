@@ -160,6 +160,28 @@ instance Core.FromJSON CsvClassifier where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable CsvClassifier
+instance Prelude.Hashable CsvClassifier where
+  hashWithSalt _salt CsvClassifier' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` quoteSymbol
+      `Prelude.hashWithSalt` containsHeader
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` disableValueTrimming
+      `Prelude.hashWithSalt` header
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` allowSingleColumn
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CsvClassifier
+instance Prelude.NFData CsvClassifier where
+  rnf CsvClassifier' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf quoteSymbol
+      `Prelude.seq` Prelude.rnf containsHeader
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf disableValueTrimming
+      `Prelude.seq` Prelude.rnf header
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf allowSingleColumn
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf name

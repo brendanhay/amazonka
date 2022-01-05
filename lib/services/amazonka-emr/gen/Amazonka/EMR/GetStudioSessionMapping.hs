@@ -155,9 +155,19 @@ instance Core.AWSRequest GetStudioSessionMapping where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStudioSessionMapping
+instance Prelude.Hashable GetStudioSessionMapping where
+  hashWithSalt _salt GetStudioSessionMapping' {..} =
+    _salt `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` identityType
 
-instance Prelude.NFData GetStudioSessionMapping
+instance Prelude.NFData GetStudioSessionMapping where
+  rnf GetStudioSessionMapping' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders GetStudioSessionMapping where
   toHeaders =
@@ -236,3 +246,7 @@ getStudioSessionMappingResponse_httpStatus = Lens.lens (\GetStudioSessionMapping
 instance
   Prelude.NFData
     GetStudioSessionMappingResponse
+  where
+  rnf GetStudioSessionMappingResponse' {..} =
+    Prelude.rnf sessionMapping
+      `Prelude.seq` Prelude.rnf httpStatus

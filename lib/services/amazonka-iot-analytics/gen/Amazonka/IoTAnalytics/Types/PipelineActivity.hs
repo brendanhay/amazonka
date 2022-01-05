@@ -168,9 +168,31 @@ instance Core.FromJSON PipelineActivity where
             Prelude.<*> (x Core..:? "math")
       )
 
-instance Prelude.Hashable PipelineActivity
+instance Prelude.Hashable PipelineActivity where
+  hashWithSalt _salt PipelineActivity' {..} =
+    _salt `Prelude.hashWithSalt` selectAttributes
+      `Prelude.hashWithSalt` channel
+      `Prelude.hashWithSalt` addAttributes
+      `Prelude.hashWithSalt` deviceRegistryEnrich
+      `Prelude.hashWithSalt` removeAttributes
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` datastore
+      `Prelude.hashWithSalt` deviceShadowEnrich
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` math
 
-instance Prelude.NFData PipelineActivity
+instance Prelude.NFData PipelineActivity where
+  rnf PipelineActivity' {..} =
+    Prelude.rnf selectAttributes
+      `Prelude.seq` Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf addAttributes
+      `Prelude.seq` Prelude.rnf deviceRegistryEnrich
+      `Prelude.seq` Prelude.rnf removeAttributes
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf datastore
+      `Prelude.seq` Prelude.rnf deviceShadowEnrich
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf math
 
 instance Core.ToJSON PipelineActivity where
   toJSON PipelineActivity' {..} =

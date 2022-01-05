@@ -82,6 +82,14 @@ instance Core.FromJSON UserContext where
             Prelude.<*> (x Core..:? "DomainId")
       )
 
-instance Prelude.Hashable UserContext
+instance Prelude.Hashable UserContext where
+  hashWithSalt _salt UserContext' {..} =
+    _salt `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` userProfileArn
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData UserContext
+instance Prelude.NFData UserContext where
+  rnf UserContext' {..} =
+    Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf userProfileArn
+      `Prelude.seq` Prelude.rnf domainId

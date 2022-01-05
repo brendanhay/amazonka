@@ -81,8 +81,15 @@ instance Core.FromJSON IoTJobExecutionsRolloutConfig where
 instance
   Prelude.Hashable
     IoTJobExecutionsRolloutConfig
+  where
+  hashWithSalt _salt IoTJobExecutionsRolloutConfig' {..} =
+    _salt `Prelude.hashWithSalt` exponentialRate
+      `Prelude.hashWithSalt` maximumPerMinute
 
-instance Prelude.NFData IoTJobExecutionsRolloutConfig
+instance Prelude.NFData IoTJobExecutionsRolloutConfig where
+  rnf IoTJobExecutionsRolloutConfig' {..} =
+    Prelude.rnf exponentialRate
+      `Prelude.seq` Prelude.rnf maximumPerMinute
 
 instance Core.ToJSON IoTJobExecutionsRolloutConfig where
   toJSON IoTJobExecutionsRolloutConfig' {..} =

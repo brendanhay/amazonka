@@ -98,7 +98,21 @@ instance
 instance
   Prelude.Hashable
     InstanceNetworkInterfaceAssociation
+  where
+  hashWithSalt
+    _salt
+    InstanceNetworkInterfaceAssociation' {..} =
+      _salt `Prelude.hashWithSalt` publicDnsName
+        `Prelude.hashWithSalt` carrierIp
+        `Prelude.hashWithSalt` ipOwnerId
+        `Prelude.hashWithSalt` publicIp
 
 instance
   Prelude.NFData
     InstanceNetworkInterfaceAssociation
+  where
+  rnf InstanceNetworkInterfaceAssociation' {..} =
+    Prelude.rnf publicDnsName
+      `Prelude.seq` Prelude.rnf carrierIp
+      `Prelude.seq` Prelude.rnf ipOwnerId
+      `Prelude.seq` Prelude.rnf publicIp

@@ -101,9 +101,12 @@ instance Core.AWSRequest CreateAssociationBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssociationBatch
+instance Prelude.Hashable CreateAssociationBatch where
+  hashWithSalt _salt CreateAssociationBatch' {..} =
+    _salt `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData CreateAssociationBatch
+instance Prelude.NFData CreateAssociationBatch where
+  rnf CreateAssociationBatch' {..} = Prelude.rnf entries
 
 instance Core.ToHeaders CreateAssociationBatch where
   toHeaders =
@@ -184,3 +187,8 @@ createAssociationBatchResponse_httpStatus = Lens.lens (\CreateAssociationBatchRe
 instance
   Prelude.NFData
     CreateAssociationBatchResponse
+  where
+  rnf CreateAssociationBatchResponse' {..} =
+    Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf httpStatus

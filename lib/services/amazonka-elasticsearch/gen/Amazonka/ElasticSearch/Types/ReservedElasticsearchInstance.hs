@@ -212,5 +212,34 @@ instance Core.FromJSON ReservedElasticsearchInstance where
 instance
   Prelude.Hashable
     ReservedElasticsearchInstance
+  where
+  hashWithSalt _salt ReservedElasticsearchInstance' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
+      `Prelude.hashWithSalt` reservedElasticsearchInstanceId
+      `Prelude.hashWithSalt` elasticsearchInstanceCount
+      `Prelude.hashWithSalt` reservationName
+      `Prelude.hashWithSalt` elasticsearchInstanceType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` paymentOption
 
-instance Prelude.NFData ReservedElasticsearchInstance
+instance Prelude.NFData ReservedElasticsearchInstance where
+  rnf ReservedElasticsearchInstance' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
+      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceId
+      `Prelude.seq` Prelude.rnf elasticsearchInstanceCount
+      `Prelude.seq` Prelude.rnf reservationName
+      `Prelude.seq` Prelude.rnf elasticsearchInstanceType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf paymentOption

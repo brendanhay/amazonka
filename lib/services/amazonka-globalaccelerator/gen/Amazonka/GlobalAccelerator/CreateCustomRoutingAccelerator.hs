@@ -244,10 +244,28 @@ instance
 instance
   Prelude.Hashable
     CreateCustomRoutingAccelerator
+  where
+  hashWithSalt
+    _salt
+    CreateCustomRoutingAccelerator' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` ipAddressType
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` ipAddresses
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` idempotencyToken
 
 instance
   Prelude.NFData
     CreateCustomRoutingAccelerator
+  where
+  rnf CreateCustomRoutingAccelerator' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance
   Core.ToHeaders
@@ -330,3 +348,7 @@ createCustomRoutingAcceleratorResponse_httpStatus = Lens.lens (\CreateCustomRout
 instance
   Prelude.NFData
     CreateCustomRoutingAcceleratorResponse
+  where
+  rnf CreateCustomRoutingAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

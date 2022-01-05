@@ -120,9 +120,15 @@ instance Core.AWSRequest GetAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAuthorizer
+instance Prelude.Hashable GetAuthorizer where
+  hashWithSalt _salt GetAuthorizer' {..} =
+    _salt `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetAuthorizer
+instance Prelude.NFData GetAuthorizer where
+  rnf GetAuthorizer' {..} =
+    Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders GetAuthorizer where
   toHeaders =
@@ -423,4 +429,17 @@ getAuthorizerResponse_authorizerType = Lens.lens (\GetAuthorizerResponse' {autho
 getAuthorizerResponse_httpStatus :: Lens.Lens' GetAuthorizerResponse Prelude.Int
 getAuthorizerResponse_httpStatus = Lens.lens (\GetAuthorizerResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizerResponse' {} a -> s {httpStatus = a} :: GetAuthorizerResponse)
 
-instance Prelude.NFData GetAuthorizerResponse
+instance Prelude.NFData GetAuthorizerResponse where
+  rnf GetAuthorizerResponse' {..} =
+    Prelude.rnf authorizerCredentialsArn
+      `Prelude.seq` Prelude.rnf identityValidationExpression
+      `Prelude.seq` Prelude.rnf enableSimpleResponses
+      `Prelude.seq` Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
+      `Prelude.seq` Prelude.rnf jwtConfiguration
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf identitySource
+      `Prelude.seq` Prelude.rnf authorizerType
+      `Prelude.seq` Prelude.rnf httpStatus

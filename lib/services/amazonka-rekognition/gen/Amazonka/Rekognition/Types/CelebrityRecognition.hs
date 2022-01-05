@@ -77,6 +77,12 @@ instance Core.FromJSON CelebrityRecognition where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable CelebrityRecognition
+instance Prelude.Hashable CelebrityRecognition where
+  hashWithSalt _salt CelebrityRecognition' {..} =
+    _salt `Prelude.hashWithSalt` celebrity
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData CelebrityRecognition
+instance Prelude.NFData CelebrityRecognition where
+  rnf CelebrityRecognition' {..} =
+    Prelude.rnf celebrity
+      `Prelude.seq` Prelude.rnf timestamp

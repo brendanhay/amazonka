@@ -97,9 +97,15 @@ instance Core.AWSRequest LogoutUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LogoutUser
+instance Prelude.Hashable LogoutUser where
+  hashWithSalt _salt LogoutUser' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData LogoutUser
+instance Prelude.NFData LogoutUser where
+  rnf LogoutUser' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders LogoutUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +154,5 @@ newLogoutUserResponse pHttpStatus_ =
 logoutUserResponse_httpStatus :: Lens.Lens' LogoutUserResponse Prelude.Int
 logoutUserResponse_httpStatus = Lens.lens (\LogoutUserResponse' {httpStatus} -> httpStatus) (\s@LogoutUserResponse' {} a -> s {httpStatus = a} :: LogoutUserResponse)
 
-instance Prelude.NFData LogoutUserResponse
+instance Prelude.NFData LogoutUserResponse where
+  rnf LogoutUserResponse' {..} = Prelude.rnf httpStatus

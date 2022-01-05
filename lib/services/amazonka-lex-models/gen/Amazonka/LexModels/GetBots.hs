@@ -154,9 +154,17 @@ instance Core.AWSRequest GetBots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBots
+instance Prelude.Hashable GetBots where
+  hashWithSalt _salt GetBots' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetBots
+instance Prelude.NFData GetBots where
+  rnf GetBots' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetBots where
   toHeaders =
@@ -230,4 +238,8 @@ getBotsResponse_nextToken = Lens.lens (\GetBotsResponse' {nextToken} -> nextToke
 getBotsResponse_httpStatus :: Lens.Lens' GetBotsResponse Prelude.Int
 getBotsResponse_httpStatus = Lens.lens (\GetBotsResponse' {httpStatus} -> httpStatus) (\s@GetBotsResponse' {} a -> s {httpStatus = a} :: GetBotsResponse)
 
-instance Prelude.NFData GetBotsResponse
+instance Prelude.NFData GetBotsResponse where
+  rnf GetBotsResponse' {..} =
+    Prelude.rnf bots
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

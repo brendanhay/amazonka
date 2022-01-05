@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeObservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeObservation
+instance Prelude.Hashable DescribeObservation where
+  hashWithSalt _salt DescribeObservation' {..} =
+    _salt `Prelude.hashWithSalt` observationId
 
-instance Prelude.NFData DescribeObservation
+instance Prelude.NFData DescribeObservation where
+  rnf DescribeObservation' {..} =
+    Prelude.rnf observationId
 
 instance Core.ToHeaders DescribeObservation where
   toHeaders =
@@ -162,4 +166,7 @@ describeObservationResponse_observation = Lens.lens (\DescribeObservationRespons
 describeObservationResponse_httpStatus :: Lens.Lens' DescribeObservationResponse Prelude.Int
 describeObservationResponse_httpStatus = Lens.lens (\DescribeObservationResponse' {httpStatus} -> httpStatus) (\s@DescribeObservationResponse' {} a -> s {httpStatus = a} :: DescribeObservationResponse)
 
-instance Prelude.NFData DescribeObservationResponse
+instance Prelude.NFData DescribeObservationResponse where
+  rnf DescribeObservationResponse' {..} =
+    Prelude.rnf observation
+      `Prelude.seq` Prelude.rnf httpStatus

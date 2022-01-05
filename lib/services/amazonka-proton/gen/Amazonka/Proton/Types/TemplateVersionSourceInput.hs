@@ -54,9 +54,12 @@ newTemplateVersionSourceInput =
 templateVersionSourceInput_s3 :: Lens.Lens' TemplateVersionSourceInput (Prelude.Maybe S3ObjectSource)
 templateVersionSourceInput_s3 = Lens.lens (\TemplateVersionSourceInput' {s3} -> s3) (\s@TemplateVersionSourceInput' {} a -> s {s3 = a} :: TemplateVersionSourceInput)
 
-instance Prelude.Hashable TemplateVersionSourceInput
+instance Prelude.Hashable TemplateVersionSourceInput where
+  hashWithSalt _salt TemplateVersionSourceInput' {..} =
+    _salt `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData TemplateVersionSourceInput
+instance Prelude.NFData TemplateVersionSourceInput where
+  rnf TemplateVersionSourceInput' {..} = Prelude.rnf s3
 
 instance Core.ToJSON TemplateVersionSourceInput where
   toJSON TemplateVersionSourceInput' {..} =

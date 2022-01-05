@@ -129,9 +129,19 @@ instance Core.AWSRequest DeletePartner where
       "DeletePartnerResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeletePartner
+instance Prelude.Hashable DeletePartner where
+  hashWithSalt _salt DeletePartner' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` partnerName
 
-instance Prelude.NFData DeletePartner
+instance Prelude.NFData DeletePartner where
+  rnf DeletePartner' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf partnerName
 
 instance Core.ToHeaders DeletePartner where
   toHeaders = Prelude.const Prelude.mempty

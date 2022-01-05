@@ -107,9 +107,23 @@ topicRulePayload_sql = Lens.lens (\TopicRulePayload' {sql} -> sql) (\s@TopicRule
 topicRulePayload_actions :: Lens.Lens' TopicRulePayload [Action]
 topicRulePayload_actions = Lens.lens (\TopicRulePayload' {actions} -> actions) (\s@TopicRulePayload' {} a -> s {actions = a} :: TopicRulePayload) Prelude.. Lens.coerced
 
-instance Prelude.Hashable TopicRulePayload
+instance Prelude.Hashable TopicRulePayload where
+  hashWithSalt _salt TopicRulePayload' {..} =
+    _salt `Prelude.hashWithSalt` awsIotSqlVersion
+      `Prelude.hashWithSalt` errorAction
+      `Prelude.hashWithSalt` ruleDisabled
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sql
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData TopicRulePayload
+instance Prelude.NFData TopicRulePayload where
+  rnf TopicRulePayload' {..} =
+    Prelude.rnf awsIotSqlVersion
+      `Prelude.seq` Prelude.rnf errorAction
+      `Prelude.seq` Prelude.rnf ruleDisabled
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sql
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =

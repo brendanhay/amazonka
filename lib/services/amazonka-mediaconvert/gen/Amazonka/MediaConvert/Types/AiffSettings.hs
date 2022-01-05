@@ -91,9 +91,17 @@ instance Core.FromJSON AiffSettings where
             Prelude.<*> (x Core..:? "sampleRate")
       )
 
-instance Prelude.Hashable AiffSettings
+instance Prelude.Hashable AiffSettings where
+  hashWithSalt _salt AiffSettings' {..} =
+    _salt `Prelude.hashWithSalt` bitDepth
+      `Prelude.hashWithSalt` channels
+      `Prelude.hashWithSalt` sampleRate
 
-instance Prelude.NFData AiffSettings
+instance Prelude.NFData AiffSettings where
+  rnf AiffSettings' {..} =
+    Prelude.rnf bitDepth
+      `Prelude.seq` Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON AiffSettings where
   toJSON AiffSettings' {..} =

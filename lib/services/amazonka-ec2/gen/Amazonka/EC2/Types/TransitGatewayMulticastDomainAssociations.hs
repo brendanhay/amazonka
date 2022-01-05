@@ -122,7 +122,25 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayMulticastDomainAssociations
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayMulticastDomainAssociations' {..} =
+      _salt `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` subnets
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` resourceOwnerId
 
 instance
   Prelude.NFData
     TransitGatewayMulticastDomainAssociations
+  where
+  rnf TransitGatewayMulticastDomainAssociations' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf resourceOwnerId

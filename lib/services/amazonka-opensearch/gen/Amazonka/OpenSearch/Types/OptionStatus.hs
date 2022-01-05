@@ -108,6 +108,18 @@ instance Core.FromJSON OptionStatus where
             Prelude.<*> (x Core..: "State")
       )
 
-instance Prelude.Hashable OptionStatus
+instance Prelude.Hashable OptionStatus where
+  hashWithSalt _salt OptionStatus' {..} =
+    _salt `Prelude.hashWithSalt` pendingDeletion
+      `Prelude.hashWithSalt` updateVersion
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData OptionStatus
+instance Prelude.NFData OptionStatus where
+  rnf OptionStatus' {..} =
+    Prelude.rnf pendingDeletion
+      `Prelude.seq` Prelude.rnf updateVersion
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf state

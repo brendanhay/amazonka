@@ -96,9 +96,17 @@ assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter
 assessmentTemplateFilter_durationRange :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe DurationRange)
 assessmentTemplateFilter_durationRange = Lens.lens (\AssessmentTemplateFilter' {durationRange} -> durationRange) (\s@AssessmentTemplateFilter' {} a -> s {durationRange = a} :: AssessmentTemplateFilter)
 
-instance Prelude.Hashable AssessmentTemplateFilter
+instance Prelude.Hashable AssessmentTemplateFilter where
+  hashWithSalt _salt AssessmentTemplateFilter' {..} =
+    _salt `Prelude.hashWithSalt` namePattern
+      `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` durationRange
 
-instance Prelude.NFData AssessmentTemplateFilter
+instance Prelude.NFData AssessmentTemplateFilter where
+  rnf AssessmentTemplateFilter' {..} =
+    Prelude.rnf namePattern
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf durationRange
 
 instance Core.ToJSON AssessmentTemplateFilter where
   toJSON AssessmentTemplateFilter' {..} =

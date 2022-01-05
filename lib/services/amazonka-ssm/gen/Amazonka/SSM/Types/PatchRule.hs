@@ -138,9 +138,21 @@ instance Core.FromJSON PatchRule where
             Prelude.<*> (x Core..: "PatchFilterGroup")
       )
 
-instance Prelude.Hashable PatchRule
+instance Prelude.Hashable PatchRule where
+  hashWithSalt _salt PatchRule' {..} =
+    _salt `Prelude.hashWithSalt` approveAfterDays
+      `Prelude.hashWithSalt` approveUntilDate
+      `Prelude.hashWithSalt` enableNonSecurity
+      `Prelude.hashWithSalt` complianceLevel
+      `Prelude.hashWithSalt` patchFilterGroup
 
-instance Prelude.NFData PatchRule
+instance Prelude.NFData PatchRule where
+  rnf PatchRule' {..} =
+    Prelude.rnf approveAfterDays
+      `Prelude.seq` Prelude.rnf approveUntilDate
+      `Prelude.seq` Prelude.rnf enableNonSecurity
+      `Prelude.seq` Prelude.rnf complianceLevel
+      `Prelude.seq` Prelude.rnf patchFilterGroup
 
 instance Core.ToJSON PatchRule where
   toJSON PatchRule' {..} =

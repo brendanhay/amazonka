@@ -78,6 +78,9 @@ instance Core.FromJSON CampaignState where
             Prelude.<$> (x Core..:? "CampaignStatus")
       )
 
-instance Prelude.Hashable CampaignState
+instance Prelude.Hashable CampaignState where
+  hashWithSalt _salt CampaignState' {..} =
+    _salt `Prelude.hashWithSalt` campaignStatus
 
-instance Prelude.NFData CampaignState
+instance Prelude.NFData CampaignState where
+  rnf CampaignState' {..} = Prelude.rnf campaignStatus

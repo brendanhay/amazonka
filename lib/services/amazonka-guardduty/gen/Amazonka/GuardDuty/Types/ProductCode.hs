@@ -71,6 +71,12 @@ instance Core.FromJSON ProductCode where
             Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable ProductCode
+instance Prelude.Hashable ProductCode where
+  hashWithSalt _salt ProductCode' {..} =
+    _salt `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ProductCode
+instance Prelude.NFData ProductCode where
+  rnf ProductCode' {..} =
+    Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf code

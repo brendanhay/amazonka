@@ -106,9 +106,12 @@ instance Core.AWSRequest GetQuantumTask where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetQuantumTask
+instance Prelude.Hashable GetQuantumTask where
+  hashWithSalt _salt GetQuantumTask' {..} =
+    _salt `Prelude.hashWithSalt` quantumTaskArn
 
-instance Prelude.NFData GetQuantumTask
+instance Prelude.NFData GetQuantumTask where
+  rnf GetQuantumTask' {..} = Prelude.rnf quantumTaskArn
 
 instance Core.ToHeaders GetQuantumTask where
   toHeaders =
@@ -283,4 +286,17 @@ getQuantumTaskResponse_shots = Lens.lens (\GetQuantumTaskResponse' {shots} -> sh
 getQuantumTaskResponse_status :: Lens.Lens' GetQuantumTaskResponse QuantumTaskStatus
 getQuantumTaskResponse_status = Lens.lens (\GetQuantumTaskResponse' {status} -> status) (\s@GetQuantumTaskResponse' {} a -> s {status = a} :: GetQuantumTaskResponse)
 
-instance Prelude.NFData GetQuantumTaskResponse
+instance Prelude.NFData GetQuantumTaskResponse where
+  rnf GetQuantumTaskResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf deviceParameters
+      `Prelude.seq` Prelude.rnf outputS3Bucket
+      `Prelude.seq` Prelude.rnf outputS3Directory
+      `Prelude.seq` Prelude.rnf quantumTaskArn
+      `Prelude.seq` Prelude.rnf shots
+      `Prelude.seq` Prelude.rnf status

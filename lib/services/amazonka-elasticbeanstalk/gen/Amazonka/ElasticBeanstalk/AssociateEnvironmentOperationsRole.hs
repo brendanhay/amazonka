@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     AssociateEnvironmentOperationsRole
+  where
+  hashWithSalt
+    _salt
+    AssociateEnvironmentOperationsRole' {..} =
+      _salt `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` operationsRole
 
 instance
   Prelude.NFData
     AssociateEnvironmentOperationsRole
+  where
+  rnf AssociateEnvironmentOperationsRole' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf operationsRole
 
 instance
   Core.ToHeaders
@@ -162,3 +172,5 @@ newAssociateEnvironmentOperationsRoleResponse =
 instance
   Prelude.NFData
     AssociateEnvironmentOperationsRoleResponse
+  where
+  rnf _ = ()

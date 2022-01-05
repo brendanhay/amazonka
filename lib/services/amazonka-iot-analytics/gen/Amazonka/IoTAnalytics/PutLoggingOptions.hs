@@ -86,9 +86,13 @@ instance Core.AWSRequest PutLoggingOptions where
   response =
     Response.receiveNull PutLoggingOptionsResponse'
 
-instance Prelude.Hashable PutLoggingOptions
+instance Prelude.Hashable PutLoggingOptions where
+  hashWithSalt _salt PutLoggingOptions' {..} =
+    _salt `Prelude.hashWithSalt` loggingOptions
 
-instance Prelude.NFData PutLoggingOptions
+instance Prelude.NFData PutLoggingOptions where
+  rnf PutLoggingOptions' {..} =
+    Prelude.rnf loggingOptions
 
 instance Core.ToHeaders PutLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,4 +127,5 @@ newPutLoggingOptionsResponse ::
 newPutLoggingOptionsResponse =
   PutLoggingOptionsResponse'
 
-instance Prelude.NFData PutLoggingOptionsResponse
+instance Prelude.NFData PutLoggingOptionsResponse where
+  rnf _ = ()

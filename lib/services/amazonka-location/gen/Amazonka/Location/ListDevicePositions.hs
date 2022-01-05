@@ -146,9 +146,17 @@ instance Core.AWSRequest ListDevicePositions where
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDevicePositions
+instance Prelude.Hashable ListDevicePositions where
+  hashWithSalt _salt ListDevicePositions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` trackerName
 
-instance Prelude.NFData ListDevicePositions
+instance Prelude.NFData ListDevicePositions where
+  rnf ListDevicePositions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders ListDevicePositions where
   toHeaders =
@@ -244,4 +252,8 @@ listDevicePositionsResponse_httpStatus = Lens.lens (\ListDevicePositionsResponse
 listDevicePositionsResponse_entries :: Lens.Lens' ListDevicePositionsResponse [ListDevicePositionsResponseEntry]
 listDevicePositionsResponse_entries = Lens.lens (\ListDevicePositionsResponse' {entries} -> entries) (\s@ListDevicePositionsResponse' {} a -> s {entries = a} :: ListDevicePositionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDevicePositionsResponse
+instance Prelude.NFData ListDevicePositionsResponse where
+  rnf ListDevicePositionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entries

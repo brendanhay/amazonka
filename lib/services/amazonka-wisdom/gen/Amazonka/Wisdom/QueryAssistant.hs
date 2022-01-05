@@ -153,9 +153,19 @@ instance Core.AWSRequest QueryAssistant where
             Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable QueryAssistant
+instance Prelude.Hashable QueryAssistant where
+  hashWithSalt _salt QueryAssistant' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` queryText
 
-instance Prelude.NFData QueryAssistant
+instance Prelude.NFData QueryAssistant where
+  rnf QueryAssistant' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf queryText
 
 instance Core.ToHeaders QueryAssistant where
   toHeaders =
@@ -237,4 +247,8 @@ queryAssistantResponse_httpStatus = Lens.lens (\QueryAssistantResponse' {httpSta
 queryAssistantResponse_results :: Lens.Lens' QueryAssistantResponse [ResultData]
 queryAssistantResponse_results = Lens.lens (\QueryAssistantResponse' {results} -> results) (\s@QueryAssistantResponse' {} a -> s {results = a} :: QueryAssistantResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData QueryAssistantResponse
+instance Prelude.NFData QueryAssistantResponse where
+  rnf QueryAssistantResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf results

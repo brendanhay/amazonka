@@ -114,6 +114,18 @@ instance Core.FromJSON LambdaFunctionInfo where
             Prelude.<*> (x Core..:? "targetVersionWeight")
       )
 
-instance Prelude.Hashable LambdaFunctionInfo
+instance Prelude.Hashable LambdaFunctionInfo where
+  hashWithSalt _salt LambdaFunctionInfo' {..} =
+    _salt `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` functionAlias
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` targetVersion
+      `Prelude.hashWithSalt` targetVersionWeight
 
-instance Prelude.NFData LambdaFunctionInfo
+instance Prelude.NFData LambdaFunctionInfo where
+  rnf LambdaFunctionInfo' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf functionAlias
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf targetVersion
+      `Prelude.seq` Prelude.rnf targetVersionWeight

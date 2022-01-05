@@ -215,6 +215,22 @@ instance Core.FromXML Message where
       Prelude.<*> (x Core..@? "MessageId")
       Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt _salt Message' {..} =
+    _salt `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` mD5OfBody
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` receiptHandle
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` mD5OfMessageAttributes
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} =
+    Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf mD5OfBody
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf receiptHandle
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf mD5OfMessageAttributes

@@ -131,6 +131,24 @@ instance Core.FromXML User where
       Prelude.<*> (x Core..@? "AccessString")
       Prelude.<*> (x Core..@? "UserId")
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` userGroupIds
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf userGroupIds
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessString
+      `Prelude.seq` Prelude.rnf userId

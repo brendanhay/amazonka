@@ -107,9 +107,17 @@ instance Core.FromJSON RuleGroup where
             Prelude.<*> (x Core..: "RulesSource")
       )
 
-instance Prelude.Hashable RuleGroup
+instance Prelude.Hashable RuleGroup where
+  hashWithSalt _salt RuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` statefulRuleOptions
+      `Prelude.hashWithSalt` ruleVariables
+      `Prelude.hashWithSalt` rulesSource
 
-instance Prelude.NFData RuleGroup
+instance Prelude.NFData RuleGroup where
+  rnf RuleGroup' {..} =
+    Prelude.rnf statefulRuleOptions
+      `Prelude.seq` Prelude.rnf ruleVariables
+      `Prelude.seq` Prelude.rnf rulesSource
 
 instance Core.ToJSON RuleGroup where
   toJSON RuleGroup' {..} =

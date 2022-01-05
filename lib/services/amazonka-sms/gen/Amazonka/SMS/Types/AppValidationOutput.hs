@@ -60,6 +60,9 @@ instance Core.FromJSON AppValidationOutput where
             Prelude.<$> (x Core..:? "ssmOutput")
       )
 
-instance Prelude.Hashable AppValidationOutput
+instance Prelude.Hashable AppValidationOutput where
+  hashWithSalt _salt AppValidationOutput' {..} =
+    _salt `Prelude.hashWithSalt` ssmOutput
 
-instance Prelude.NFData AppValidationOutput
+instance Prelude.NFData AppValidationOutput where
+  rnf AppValidationOutput' {..} = Prelude.rnf ssmOutput

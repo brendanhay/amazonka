@@ -71,9 +71,14 @@ instance Core.FromJSON ScalingTrigger where
             Prelude.<$> (x Core..: "CloudWatchAlarmDefinition")
       )
 
-instance Prelude.Hashable ScalingTrigger
+instance Prelude.Hashable ScalingTrigger where
+  hashWithSalt _salt ScalingTrigger' {..} =
+    _salt
+      `Prelude.hashWithSalt` cloudWatchAlarmDefinition
 
-instance Prelude.NFData ScalingTrigger
+instance Prelude.NFData ScalingTrigger where
+  rnf ScalingTrigger' {..} =
+    Prelude.rnf cloudWatchAlarmDefinition
 
 instance Core.ToJSON ScalingTrigger where
   toJSON ScalingTrigger' {..} =

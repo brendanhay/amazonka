@@ -88,6 +88,15 @@ instance Core.FromJSON Coverage where
             Prelude.<*> (x Core..:? "CoverageCost")
       )
 
-instance Prelude.Hashable Coverage
+instance Prelude.Hashable Coverage where
+  hashWithSalt _salt Coverage' {..} =
+    _salt
+      `Prelude.hashWithSalt` coverageNormalizedUnits
+      `Prelude.hashWithSalt` coverageHours
+      `Prelude.hashWithSalt` coverageCost
 
-instance Prelude.NFData Coverage
+instance Prelude.NFData Coverage where
+  rnf Coverage' {..} =
+    Prelude.rnf coverageNormalizedUnits
+      `Prelude.seq` Prelude.rnf coverageHours
+      `Prelude.seq` Prelude.rnf coverageCost

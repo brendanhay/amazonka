@@ -116,9 +116,15 @@ instance Core.AWSRequest RejectAssignment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectAssignment
+instance Prelude.Hashable RejectAssignment where
+  hashWithSalt _salt RejectAssignment' {..} =
+    _salt `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` requesterFeedback
 
-instance Prelude.NFData RejectAssignment
+instance Prelude.NFData RejectAssignment where
+  rnf RejectAssignment' {..} =
+    Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf requesterFeedback
 
 instance Core.ToHeaders RejectAssignment where
   toHeaders =
@@ -181,4 +187,6 @@ newRejectAssignmentResponse pHttpStatus_ =
 rejectAssignmentResponse_httpStatus :: Lens.Lens' RejectAssignmentResponse Prelude.Int
 rejectAssignmentResponse_httpStatus = Lens.lens (\RejectAssignmentResponse' {httpStatus} -> httpStatus) (\s@RejectAssignmentResponse' {} a -> s {httpStatus = a} :: RejectAssignmentResponse)
 
-instance Prelude.NFData RejectAssignmentResponse
+instance Prelude.NFData RejectAssignmentResponse where
+  rnf RejectAssignmentResponse' {..} =
+    Prelude.rnf httpStatus

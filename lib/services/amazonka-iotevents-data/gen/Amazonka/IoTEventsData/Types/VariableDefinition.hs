@@ -62,9 +62,14 @@ variableDefinition_name = Lens.lens (\VariableDefinition' {name} -> name) (\s@Va
 variableDefinition_value :: Lens.Lens' VariableDefinition Prelude.Text
 variableDefinition_value = Lens.lens (\VariableDefinition' {value} -> value) (\s@VariableDefinition' {} a -> s {value = a} :: VariableDefinition)
 
-instance Prelude.Hashable VariableDefinition
+instance Prelude.Hashable VariableDefinition where
+  hashWithSalt _salt VariableDefinition' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData VariableDefinition
+instance Prelude.NFData VariableDefinition where
+  rnf VariableDefinition' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON VariableDefinition where
   toJSON VariableDefinition' {..} =

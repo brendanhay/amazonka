@@ -107,6 +107,18 @@ instance Core.FromJSON ChangeLog where
             Prelude.<*> (x Core..:? "action")
       )
 
-instance Prelude.Hashable ChangeLog
+instance Prelude.Hashable ChangeLog where
+  hashWithSalt _salt ChangeLog' {..} =
+    _salt `Prelude.hashWithSalt` objectName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` objectType
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData ChangeLog
+instance Prelude.NFData ChangeLog where
+  rnf ChangeLog' {..} =
+    Prelude.rnf objectName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf objectType
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf action

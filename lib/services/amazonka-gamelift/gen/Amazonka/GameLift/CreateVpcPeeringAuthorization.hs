@@ -168,8 +168,15 @@ instance
 instance
   Prelude.Hashable
     CreateVpcPeeringAuthorization
+  where
+  hashWithSalt _salt CreateVpcPeeringAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` gameLiftAwsAccountId
+      `Prelude.hashWithSalt` peerVpcId
 
-instance Prelude.NFData CreateVpcPeeringAuthorization
+instance Prelude.NFData CreateVpcPeeringAuthorization where
+  rnf CreateVpcPeeringAuthorization' {..} =
+    Prelude.rnf gameLiftAwsAccountId
+      `Prelude.seq` Prelude.rnf peerVpcId
 
 instance Core.ToHeaders CreateVpcPeeringAuthorization where
   toHeaders =
@@ -251,3 +258,7 @@ createVpcPeeringAuthorizationResponse_httpStatus = Lens.lens (\CreateVpcPeeringA
 instance
   Prelude.NFData
     CreateVpcPeeringAuthorizationResponse
+  where
+  rnf CreateVpcPeeringAuthorizationResponse' {..} =
+    Prelude.rnf vpcPeeringAuthorization
+      `Prelude.seq` Prelude.rnf httpStatus

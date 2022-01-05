@@ -161,9 +161,27 @@ findingFilter_creationTimeRange = Lens.lens (\FindingFilter' {creationTimeRange}
 findingFilter_autoScalingGroups :: Lens.Lens' FindingFilter (Prelude.Maybe [Prelude.Text])
 findingFilter_autoScalingGroups = Lens.lens (\FindingFilter' {autoScalingGroups} -> autoScalingGroups) (\s@FindingFilter' {} a -> s {autoScalingGroups = a} :: FindingFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable FindingFilter
+instance Prelude.Hashable FindingFilter where
+  hashWithSalt _salt FindingFilter' {..} =
+    _salt `Prelude.hashWithSalt` agentIds
+      `Prelude.hashWithSalt` ruleNames
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` severities
+      `Prelude.hashWithSalt` creationTimeRange
+      `Prelude.hashWithSalt` autoScalingGroups
 
-instance Prelude.NFData FindingFilter
+instance Prelude.NFData FindingFilter where
+  rnf FindingFilter' {..} =
+    Prelude.rnf agentIds
+      `Prelude.seq` Prelude.rnf ruleNames
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf severities
+      `Prelude.seq` Prelude.rnf creationTimeRange
+      `Prelude.seq` Prelude.rnf autoScalingGroups
 
 instance Core.ToJSON FindingFilter where
   toJSON FindingFilter' {..} =

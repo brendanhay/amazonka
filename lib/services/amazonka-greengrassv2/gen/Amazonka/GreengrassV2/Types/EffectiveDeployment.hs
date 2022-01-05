@@ -192,6 +192,28 @@ instance Core.FromJSON EffectiveDeployment where
             Prelude.<*> (x Core..: "modifiedTimestamp")
       )
 
-instance Prelude.Hashable EffectiveDeployment
+instance Prelude.Hashable EffectiveDeployment where
+  hashWithSalt _salt EffectiveDeployment' {..} =
+    _salt `Prelude.hashWithSalt` iotJobId
+      `Prelude.hashWithSalt` iotJobArn
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` deploymentName
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` coreDeviceExecutionStatus
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` modifiedTimestamp
 
-instance Prelude.NFData EffectiveDeployment
+instance Prelude.NFData EffectiveDeployment where
+  rnf EffectiveDeployment' {..} =
+    Prelude.rnf iotJobId
+      `Prelude.seq` Prelude.rnf iotJobArn
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentName
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf coreDeviceExecutionStatus
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf modifiedTimestamp

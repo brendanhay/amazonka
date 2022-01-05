@@ -70,9 +70,12 @@ instance Core.AWSRequest DescribeLoggingOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLoggingOptions
+instance Prelude.Hashable DescribeLoggingOptions where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeLoggingOptions
+instance Prelude.NFData DescribeLoggingOptions where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,3 +128,7 @@ describeLoggingOptionsResponse_httpStatus = Lens.lens (\DescribeLoggingOptionsRe
 instance
   Prelude.NFData
     DescribeLoggingOptionsResponse
+  where
+  rnf DescribeLoggingOptionsResponse' {..} =
+    Prelude.rnf loggingOptions
+      `Prelude.seq` Prelude.rnf httpStatus

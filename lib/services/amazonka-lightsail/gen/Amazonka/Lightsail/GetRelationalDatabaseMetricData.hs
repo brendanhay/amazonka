@@ -466,10 +466,30 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseMetricData
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseMetricData' {..} =
+      _salt `Prelude.hashWithSalt` relationalDatabaseName
+        `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` period
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` unit
+        `Prelude.hashWithSalt` statistics
 
 instance
   Prelude.NFData
     GetRelationalDatabaseMetricData
+  where
+  rnf GetRelationalDatabaseMetricData' {..} =
+    Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf statistics
 
 instance
   Core.ToHeaders
@@ -564,3 +584,8 @@ getRelationalDatabaseMetricDataResponse_httpStatus = Lens.lens (\GetRelationalDa
 instance
   Prelude.NFData
     GetRelationalDatabaseMetricDataResponse
+  where
+  rnf GetRelationalDatabaseMetricDataResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf httpStatus

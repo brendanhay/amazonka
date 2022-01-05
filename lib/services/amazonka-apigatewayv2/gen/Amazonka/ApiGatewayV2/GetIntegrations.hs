@@ -136,9 +136,17 @@ instance Core.AWSRequest GetIntegrations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntegrations
+instance Prelude.Hashable GetIntegrations where
+  hashWithSalt _salt GetIntegrations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetIntegrations
+instance Prelude.NFData GetIntegrations where
+  rnf GetIntegrations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders GetIntegrations where
   toHeaders =
@@ -213,4 +221,8 @@ getIntegrationsResponse_nextToken = Lens.lens (\GetIntegrationsResponse' {nextTo
 getIntegrationsResponse_httpStatus :: Lens.Lens' GetIntegrationsResponse Prelude.Int
 getIntegrationsResponse_httpStatus = Lens.lens (\GetIntegrationsResponse' {httpStatus} -> httpStatus) (\s@GetIntegrationsResponse' {} a -> s {httpStatus = a} :: GetIntegrationsResponse)
 
-instance Prelude.NFData GetIntegrationsResponse
+instance Prelude.NFData GetIntegrationsResponse where
+  rnf GetIntegrationsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

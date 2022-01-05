@@ -108,6 +108,19 @@ instance Core.FromJSON Fragment where
             Prelude.<*> (x Core..:? "ProducerTimestamp")
       )
 
-instance Prelude.Hashable Fragment
+instance Prelude.Hashable Fragment where
+  hashWithSalt _salt Fragment' {..} =
+    _salt
+      `Prelude.hashWithSalt` fragmentLengthInMilliseconds
+      `Prelude.hashWithSalt` serverTimestamp
+      `Prelude.hashWithSalt` fragmentSizeInBytes
+      `Prelude.hashWithSalt` fragmentNumber
+      `Prelude.hashWithSalt` producerTimestamp
 
-instance Prelude.NFData Fragment
+instance Prelude.NFData Fragment where
+  rnf Fragment' {..} =
+    Prelude.rnf fragmentLengthInMilliseconds
+      `Prelude.seq` Prelude.rnf serverTimestamp
+      `Prelude.seq` Prelude.rnf fragmentSizeInBytes
+      `Prelude.seq` Prelude.rnf fragmentNumber
+      `Prelude.seq` Prelude.rnf producerTimestamp

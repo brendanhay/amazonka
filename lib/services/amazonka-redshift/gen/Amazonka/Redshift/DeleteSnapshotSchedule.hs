@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
     Response.receiveNull
       DeleteSnapshotScheduleResponse'
 
-instance Prelude.Hashable DeleteSnapshotSchedule
+instance Prelude.Hashable DeleteSnapshotSchedule where
+  hashWithSalt _salt DeleteSnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` scheduleIdentifier
 
-instance Prelude.NFData DeleteSnapshotSchedule
+instance Prelude.NFData DeleteSnapshotSchedule where
+  rnf DeleteSnapshotSchedule' {..} =
+    Prelude.rnf scheduleIdentifier
 
 instance Core.ToHeaders DeleteSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty
@@ -119,3 +123,5 @@ newDeleteSnapshotScheduleResponse =
 instance
   Prelude.NFData
     DeleteSnapshotScheduleResponse
+  where
+  rnf _ = ()

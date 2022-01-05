@@ -112,6 +112,20 @@ instance Core.FromJSON WirelessGatewayStatistics where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable WirelessGatewayStatistics
+instance Prelude.Hashable WirelessGatewayStatistics where
+  hashWithSalt _salt WirelessGatewayStatistics' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lastUplinkReceivedAt
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData WirelessGatewayStatistics
+instance Prelude.NFData WirelessGatewayStatistics where
+  rnf WirelessGatewayStatistics' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
+      `Prelude.seq` Prelude.rnf description

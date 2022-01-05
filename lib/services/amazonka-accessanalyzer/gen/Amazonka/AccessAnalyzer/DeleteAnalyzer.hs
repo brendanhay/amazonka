@@ -94,9 +94,15 @@ instance Core.AWSRequest DeleteAnalyzer where
   response =
     Response.receiveNull DeleteAnalyzerResponse'
 
-instance Prelude.Hashable DeleteAnalyzer
+instance Prelude.Hashable DeleteAnalyzer where
+  hashWithSalt _salt DeleteAnalyzer' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` analyzerName
 
-instance Prelude.NFData DeleteAnalyzer
+instance Prelude.NFData DeleteAnalyzer where
+  rnf DeleteAnalyzer' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf analyzerName
 
 instance Core.ToHeaders DeleteAnalyzer where
   toHeaders =
@@ -132,4 +138,5 @@ newDeleteAnalyzerResponse ::
   DeleteAnalyzerResponse
 newDeleteAnalyzerResponse = DeleteAnalyzerResponse'
 
-instance Prelude.NFData DeleteAnalyzerResponse
+instance Prelude.NFData DeleteAnalyzerResponse where
+  rnf _ = ()

@@ -137,10 +137,18 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseSnapshots
+  where
+  hashWithSalt
+    _salt
+    GetRelationalDatabaseSnapshots' {..} =
+      _salt `Prelude.hashWithSalt` pageToken
 
 instance
   Prelude.NFData
     GetRelationalDatabaseSnapshots
+  where
+  rnf GetRelationalDatabaseSnapshots' {..} =
+    Prelude.rnf pageToken
 
 instance
   Core.ToHeaders
@@ -250,3 +258,8 @@ getRelationalDatabaseSnapshotsResponse_httpStatus = Lens.lens (\GetRelationalDat
 instance
   Prelude.NFData
     GetRelationalDatabaseSnapshotsResponse
+  where
+  rnf GetRelationalDatabaseSnapshotsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshots
+      `Prelude.seq` Prelude.rnf httpStatus

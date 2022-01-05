@@ -119,10 +119,22 @@ instance
 instance
   Prelude.Hashable
     UpdateInstanceAccessControlAttributeConfiguration
+  where
+  hashWithSalt
+    _salt
+    UpdateInstanceAccessControlAttributeConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` instanceAccessControlAttributeConfiguration
 
 instance
   Prelude.NFData
     UpdateInstanceAccessControlAttributeConfiguration
+  where
+  rnf
+    UpdateInstanceAccessControlAttributeConfiguration' {..} =
+      Prelude.rnf instanceArn
+        `Prelude.seq` Prelude.rnf
+          instanceAccessControlAttributeConfiguration
 
 instance
   Core.ToHeaders
@@ -204,3 +216,7 @@ updateInstanceAccessControlAttributeConfigurationResponse_httpStatus = Lens.lens
 instance
   Prelude.NFData
     UpdateInstanceAccessControlAttributeConfigurationResponse
+  where
+  rnf
+    UpdateInstanceAccessControlAttributeConfigurationResponse' {..} =
+      Prelude.rnf httpStatus

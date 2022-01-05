@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     ModelExplainabilityBaselineConfig
+  where
+  hashWithSalt
+    _salt
+    ModelExplainabilityBaselineConfig' {..} =
+      _salt `Prelude.hashWithSalt` constraintsResource
+        `Prelude.hashWithSalt` baseliningJobName
 
 instance
   Prelude.NFData
     ModelExplainabilityBaselineConfig
+  where
+  rnf ModelExplainabilityBaselineConfig' {..} =
+    Prelude.rnf constraintsResource
+      `Prelude.seq` Prelude.rnf baseliningJobName
 
 instance
   Core.ToJSON

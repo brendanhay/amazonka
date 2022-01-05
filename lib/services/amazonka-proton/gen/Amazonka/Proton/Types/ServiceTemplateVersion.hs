@@ -202,6 +202,32 @@ instance Core.FromJSON ServiceTemplateVersion where
             Prelude.<*> (x Core..: "templateName")
       )
 
-instance Prelude.Hashable ServiceTemplateVersion
+instance Prelude.Hashable ServiceTemplateVersion where
+  hashWithSalt _salt ServiceTemplateVersion' {..} =
+    _salt `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` recommendedMinorVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` compatibleEnvironmentTemplates
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastModifiedAt
+      `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` minorVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData ServiceTemplateVersion
+instance Prelude.NFData ServiceTemplateVersion where
+  rnf ServiceTemplateVersion' {..} =
+    Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf recommendedMinorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf templateName

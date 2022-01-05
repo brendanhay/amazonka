@@ -176,9 +176,18 @@ instance Core.AWSRequest RevokeCertificate where
   response =
     Response.receiveNull RevokeCertificateResponse'
 
-instance Prelude.Hashable RevokeCertificate
+instance Prelude.Hashable RevokeCertificate where
+  hashWithSalt _salt RevokeCertificate' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` certificateSerial
+      `Prelude.hashWithSalt` revocationReason
 
-instance Prelude.NFData RevokeCertificate
+instance Prelude.NFData RevokeCertificate where
+  rnf RevokeCertificate' {..} =
+    Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf certificateSerial
+      `Prelude.seq` Prelude.rnf revocationReason
 
 instance Core.ToHeaders RevokeCertificate where
   toHeaders =
@@ -231,4 +240,5 @@ newRevokeCertificateResponse ::
 newRevokeCertificateResponse =
   RevokeCertificateResponse'
 
-instance Prelude.NFData RevokeCertificateResponse
+instance Prelude.NFData RevokeCertificateResponse where
+  rnf _ = ()

@@ -151,10 +151,22 @@ instance
 instance
   Prelude.Hashable
     ListDocumentClassificationJobs
+  where
+  hashWithSalt
+    _salt
+    ListDocumentClassificationJobs' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListDocumentClassificationJobs
+  where
+  rnf ListDocumentClassificationJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -243,3 +255,8 @@ listDocumentClassificationJobsResponse_httpStatus = Lens.lens (\ListDocumentClas
 instance
   Prelude.NFData
     ListDocumentClassificationJobsResponse
+  where
+  rnf ListDocumentClassificationJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf documentClassificationJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

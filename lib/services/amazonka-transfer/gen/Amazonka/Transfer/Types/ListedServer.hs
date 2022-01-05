@@ -228,6 +228,24 @@ instance Core.FromJSON ListedServer where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable ListedServer
+instance Prelude.Hashable ListedServer where
+  hashWithSalt _salt ListedServer' {..} =
+    _salt `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` identityProviderType
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` userCount
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListedServer
+instance Prelude.NFData ListedServer where
+  rnf ListedServer' {..} =
+    Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf identityProviderType
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf userCount
+      `Prelude.seq` Prelude.rnf arn

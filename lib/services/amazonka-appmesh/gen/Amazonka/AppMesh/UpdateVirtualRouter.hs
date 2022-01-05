@@ -155,9 +155,21 @@ instance Core.AWSRequest UpdateVirtualRouter where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVirtualRouter
+instance Prelude.Hashable UpdateVirtualRouter where
+  hashWithSalt _salt UpdateVirtualRouter' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData UpdateVirtualRouter
+instance Prelude.NFData UpdateVirtualRouter where
+  rnf UpdateVirtualRouter' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf virtualRouterName
 
 instance Core.ToHeaders UpdateVirtualRouter where
   toHeaders =
@@ -237,4 +249,7 @@ updateVirtualRouterResponse_httpStatus = Lens.lens (\UpdateVirtualRouterResponse
 updateVirtualRouterResponse_virtualRouter :: Lens.Lens' UpdateVirtualRouterResponse VirtualRouterData
 updateVirtualRouterResponse_virtualRouter = Lens.lens (\UpdateVirtualRouterResponse' {virtualRouter} -> virtualRouter) (\s@UpdateVirtualRouterResponse' {} a -> s {virtualRouter = a} :: UpdateVirtualRouterResponse)
 
-instance Prelude.NFData UpdateVirtualRouterResponse
+instance Prelude.NFData UpdateVirtualRouterResponse where
+  rnf UpdateVirtualRouterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualRouter

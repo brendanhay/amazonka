@@ -186,6 +186,30 @@ instance Core.FromXML GlobalCluster where
       Prelude.<*> (x Core..@? "FailoverState")
       Prelude.<*> (x Core..@? "GlobalClusterResourceId")
 
-instance Prelude.Hashable GlobalCluster
+instance Prelude.Hashable GlobalCluster where
+  hashWithSalt _salt GlobalCluster' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` globalClusterArn
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` globalClusterMembers
+      `Prelude.hashWithSalt` failoverState
+      `Prelude.hashWithSalt` globalClusterResourceId
 
-instance Prelude.NFData GlobalCluster
+instance Prelude.NFData GlobalCluster where
+  rnf GlobalCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf globalClusterArn
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf globalClusterMembers
+      `Prelude.seq` Prelude.rnf failoverState
+      `Prelude.seq` Prelude.rnf globalClusterResourceId

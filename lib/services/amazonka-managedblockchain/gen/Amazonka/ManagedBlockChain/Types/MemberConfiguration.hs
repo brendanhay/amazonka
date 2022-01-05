@@ -191,9 +191,23 @@ memberConfiguration_name = Lens.lens (\MemberConfiguration' {name} -> name) (\s@
 memberConfiguration_frameworkConfiguration :: Lens.Lens' MemberConfiguration MemberFrameworkConfiguration
 memberConfiguration_frameworkConfiguration = Lens.lens (\MemberConfiguration' {frameworkConfiguration} -> frameworkConfiguration) (\s@MemberConfiguration' {} a -> s {frameworkConfiguration = a} :: MemberConfiguration)
 
-instance Prelude.Hashable MemberConfiguration
+instance Prelude.Hashable MemberConfiguration where
+  hashWithSalt _salt MemberConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` logPublishingConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` frameworkConfiguration
 
-instance Prelude.NFData MemberConfiguration
+instance Prelude.NFData MemberConfiguration where
+  rnf MemberConfiguration' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf frameworkConfiguration
 
 instance Core.ToJSON MemberConfiguration where
   toJSON MemberConfiguration' {..} =

@@ -114,9 +114,22 @@ instance Core.FromJSON Output where
             Prelude.<*> (x Core..: "outputSettings")
       )
 
-instance Prelude.Hashable Output
+instance Prelude.Hashable Output where
+  hashWithSalt _salt Output' {..} =
+    _salt
+      `Prelude.hashWithSalt` captionDescriptionNames
+      `Prelude.hashWithSalt` videoDescriptionName
+      `Prelude.hashWithSalt` outputName
+      `Prelude.hashWithSalt` audioDescriptionNames
+      `Prelude.hashWithSalt` outputSettings
 
-instance Prelude.NFData Output
+instance Prelude.NFData Output where
+  rnf Output' {..} =
+    Prelude.rnf captionDescriptionNames
+      `Prelude.seq` Prelude.rnf videoDescriptionName
+      `Prelude.seq` Prelude.rnf outputName
+      `Prelude.seq` Prelude.rnf audioDescriptionNames
+      `Prelude.seq` Prelude.rnf outputSettings
 
 instance Core.ToJSON Output where
   toJSON Output' {..} =

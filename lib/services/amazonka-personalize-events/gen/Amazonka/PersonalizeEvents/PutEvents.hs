@@ -129,9 +129,19 @@ instance Core.AWSRequest PutEvents where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutEventsResponse'
 
-instance Prelude.Hashable PutEvents
+instance Prelude.Hashable PutEvents where
+  hashWithSalt _salt PutEvents' {..} =
+    _salt `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` trackingId
+      `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` eventList
 
-instance Prelude.NFData PutEvents
+instance Prelude.NFData PutEvents where
+  rnf PutEvents' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf trackingId
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf eventList
 
 instance Core.ToHeaders PutEvents where
   toHeaders =
@@ -175,4 +185,5 @@ newPutEventsResponse ::
   PutEventsResponse
 newPutEventsResponse = PutEventsResponse'
 
-instance Prelude.NFData PutEventsResponse
+instance Prelude.NFData PutEventsResponse where
+  rnf _ = ()

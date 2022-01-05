@@ -87,9 +87,17 @@ instance Core.FromJSON OracleParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable OracleParameters
+instance Prelude.Hashable OracleParameters where
+  hashWithSalt _salt OracleParameters' {..} =
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData OracleParameters
+instance Prelude.NFData OracleParameters where
+  rnf OracleParameters' {..} =
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToJSON OracleParameters where
   toJSON OracleParameters' {..} =

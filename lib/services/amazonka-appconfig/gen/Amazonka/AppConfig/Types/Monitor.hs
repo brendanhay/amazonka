@@ -71,9 +71,15 @@ instance Core.FromJSON Monitor where
             Prelude.<*> (x Core..:? "AlarmArn")
       )
 
-instance Prelude.Hashable Monitor
+instance Prelude.Hashable Monitor where
+  hashWithSalt _salt Monitor' {..} =
+    _salt `Prelude.hashWithSalt` alarmRoleArn
+      `Prelude.hashWithSalt` alarmArn
 
-instance Prelude.NFData Monitor
+instance Prelude.NFData Monitor where
+  rnf Monitor' {..} =
+    Prelude.rnf alarmRoleArn
+      `Prelude.seq` Prelude.rnf alarmArn
 
 instance Core.ToJSON Monitor where
   toJSON Monitor' {..} =

@@ -92,9 +92,17 @@ instance Core.FromJSON SsmActionDefinition where
             Prelude.<*> (x Core..: "InstanceIds")
       )
 
-instance Prelude.Hashable SsmActionDefinition
+instance Prelude.Hashable SsmActionDefinition where
+  hashWithSalt _salt SsmActionDefinition' {..} =
+    _salt `Prelude.hashWithSalt` actionSubType
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData SsmActionDefinition
+instance Prelude.NFData SsmActionDefinition where
+  rnf SsmActionDefinition' {..} =
+    Prelude.rnf actionSubType
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToJSON SsmActionDefinition where
   toJSON SsmActionDefinition' {..} =

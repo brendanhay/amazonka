@@ -106,10 +106,20 @@ instance
 instance
   Prelude.Hashable
     UpdateAuditStreamConfiguration
+  where
+  hashWithSalt
+    _salt
+    UpdateAuditStreamConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` auditStreamArn
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     UpdateAuditStreamConfiguration
+  where
+  rnf UpdateAuditStreamConfiguration' {..} =
+    Prelude.rnf auditStreamArn
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -176,3 +186,6 @@ updateAuditStreamConfigurationResponse_httpStatus = Lens.lens (\UpdateAuditStrea
 instance
   Prelude.NFData
     UpdateAuditStreamConfigurationResponse
+  where
+  rnf UpdateAuditStreamConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

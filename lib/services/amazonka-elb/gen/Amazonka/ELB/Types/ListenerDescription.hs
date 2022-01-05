@@ -71,6 +71,12 @@ instance Core.FromXML ListenerDescription where
                   )
       Prelude.<*> (x Core..@? "Listener")
 
-instance Prelude.Hashable ListenerDescription
+instance Prelude.Hashable ListenerDescription where
+  hashWithSalt _salt ListenerDescription' {..} =
+    _salt `Prelude.hashWithSalt` policyNames
+      `Prelude.hashWithSalt` listener
 
-instance Prelude.NFData ListenerDescription
+instance Prelude.NFData ListenerDescription where
+  rnf ListenerDescription' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf listener

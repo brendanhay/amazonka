@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteReplicationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReplicationTask
+instance Prelude.Hashable DeleteReplicationTask where
+  hashWithSalt _salt DeleteReplicationTask' {..} =
+    _salt `Prelude.hashWithSalt` replicationTaskArn
 
-instance Prelude.NFData DeleteReplicationTask
+instance Prelude.NFData DeleteReplicationTask where
+  rnf DeleteReplicationTask' {..} =
+    Prelude.rnf replicationTaskArn
 
 instance Core.ToHeaders DeleteReplicationTask where
   toHeaders =
@@ -166,4 +170,7 @@ deleteReplicationTaskResponse_replicationTask = Lens.lens (\DeleteReplicationTas
 deleteReplicationTaskResponse_httpStatus :: Lens.Lens' DeleteReplicationTaskResponse Prelude.Int
 deleteReplicationTaskResponse_httpStatus = Lens.lens (\DeleteReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationTaskResponse' {} a -> s {httpStatus = a} :: DeleteReplicationTaskResponse)
 
-instance Prelude.NFData DeleteReplicationTaskResponse
+instance Prelude.NFData DeleteReplicationTaskResponse where
+  rnf DeleteReplicationTaskResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

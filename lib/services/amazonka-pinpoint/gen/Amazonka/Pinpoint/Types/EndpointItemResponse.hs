@@ -78,6 +78,12 @@ instance Core.FromJSON EndpointItemResponse where
             Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable EndpointItemResponse
+instance Prelude.Hashable EndpointItemResponse where
+  hashWithSalt _salt EndpointItemResponse' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData EndpointItemResponse
+instance Prelude.NFData EndpointItemResponse where
+  rnf EndpointItemResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf statusCode

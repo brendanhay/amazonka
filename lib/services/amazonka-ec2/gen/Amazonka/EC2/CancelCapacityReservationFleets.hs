@@ -130,10 +130,20 @@ instance
 instance
   Prelude.Hashable
     CancelCapacityReservationFleets
+  where
+  hashWithSalt
+    _salt
+    CancelCapacityReservationFleets' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` capacityReservationFleetIds
 
 instance
   Prelude.NFData
     CancelCapacityReservationFleets
+  where
+  rnf CancelCapacityReservationFleets' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf capacityReservationFleetIds
 
 instance
   Core.ToHeaders
@@ -218,3 +228,8 @@ cancelCapacityReservationFleetsResponse_httpStatus = Lens.lens (\CancelCapacityR
 instance
   Prelude.NFData
     CancelCapacityReservationFleetsResponse
+  where
+  rnf CancelCapacityReservationFleetsResponse' {..} =
+    Prelude.rnf failedFleetCancellations
+      `Prelude.seq` Prelude.rnf successfulFleetCancellations
+      `Prelude.seq` Prelude.rnf httpStatus

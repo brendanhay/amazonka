@@ -63,6 +63,10 @@ instance Core.FromJSON AbortTransactionResult where
             Prelude.<$> (x Core..:? "TimingInformation")
       )
 
-instance Prelude.Hashable AbortTransactionResult
+instance Prelude.Hashable AbortTransactionResult where
+  hashWithSalt _salt AbortTransactionResult' {..} =
+    _salt `Prelude.hashWithSalt` timingInformation
 
-instance Prelude.NFData AbortTransactionResult
+instance Prelude.NFData AbortTransactionResult where
+  rnf AbortTransactionResult' {..} =
+    Prelude.rnf timingInformation

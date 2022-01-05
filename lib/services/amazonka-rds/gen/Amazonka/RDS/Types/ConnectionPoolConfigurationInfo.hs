@@ -168,7 +168,24 @@ instance Core.FromXML ConnectionPoolConfigurationInfo where
 instance
   Prelude.Hashable
     ConnectionPoolConfigurationInfo
+  where
+  hashWithSalt
+    _salt
+    ConnectionPoolConfigurationInfo' {..} =
+      _salt
+        `Prelude.hashWithSalt` maxIdleConnectionsPercent
+        `Prelude.hashWithSalt` sessionPinningFilters
+        `Prelude.hashWithSalt` maxConnectionsPercent
+        `Prelude.hashWithSalt` connectionBorrowTimeout
+        `Prelude.hashWithSalt` initQuery
 
 instance
   Prelude.NFData
     ConnectionPoolConfigurationInfo
+  where
+  rnf ConnectionPoolConfigurationInfo' {..} =
+    Prelude.rnf maxIdleConnectionsPercent
+      `Prelude.seq` Prelude.rnf sessionPinningFilters
+      `Prelude.seq` Prelude.rnf maxConnectionsPercent
+      `Prelude.seq` Prelude.rnf connectionBorrowTimeout
+      `Prelude.seq` Prelude.rnf initQuery

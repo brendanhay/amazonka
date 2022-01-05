@@ -631,6 +631,80 @@ instance Core.FromJSON Build where
             Prelude.<*> (x Core..:? "timeoutInMinutes")
       )
 
-instance Prelude.Hashable Build
+instance Prelude.Hashable Build where
+  hashWithSalt _salt Build' {..} =
+    _salt `Prelude.hashWithSalt` phases
+      `Prelude.hashWithSalt` buildComplete
+      `Prelude.hashWithSalt` secondaryArtifacts
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` exportedEnvironmentVariables
+      `Prelude.hashWithSalt` buildNumber
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` initiator
+      `Prelude.hashWithSalt` networkInterface
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` currentPhase
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` debugSession
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` buildBatchArn
+      `Prelude.hashWithSalt` logs
+      `Prelude.hashWithSalt` resolvedSourceVersion
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` buildStatus
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` reportArns
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` timeoutInMinutes
 
-instance Prelude.NFData Build
+instance Prelude.NFData Build where
+  rnf Build' {..} =
+    Prelude.rnf phases
+      `Prelude.seq` Prelude.rnf buildComplete
+      `Prelude.seq` Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf exportedEnvironmentVariables
+      `Prelude.seq` Prelude.rnf buildNumber
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf initiator
+      `Prelude.seq` Prelude.rnf networkInterface
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf currentPhase
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf debugSession
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf buildBatchArn
+      `Prelude.seq` Prelude.rnf logs
+      `Prelude.seq` Prelude.rnf
+        resolvedSourceVersion
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf
+        projectName
+      `Prelude.seq` Prelude.rnf
+        buildStatus
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf
+        fileSystemLocations
+      `Prelude.seq` Prelude.rnf
+        reportArns
+      `Prelude.seq` Prelude.rnf
+        encryptionKey
+      `Prelude.seq` Prelude.rnf
+        serviceRole
+      `Prelude.seq` Prelude.rnf
+        timeoutInMinutes

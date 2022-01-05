@@ -121,9 +121,21 @@ instance Core.FromJSON DatasetParameter where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable DatasetParameter
+instance Prelude.Hashable DatasetParameter where
+  hashWithSalt _salt DatasetParameter' {..} =
+    _salt `Prelude.hashWithSalt` createColumn
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` datetimeOptions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DatasetParameter
+instance Prelude.NFData DatasetParameter where
+  rnf DatasetParameter' {..} =
+    Prelude.rnf createColumn
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf datetimeOptions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON DatasetParameter where
   toJSON DatasetParameter' {..} =

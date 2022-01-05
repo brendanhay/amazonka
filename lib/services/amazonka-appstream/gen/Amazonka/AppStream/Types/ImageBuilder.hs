@@ -482,6 +482,44 @@ instance Core.FromJSON ImageBuilder where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable ImageBuilder
+instance Prelude.Hashable ImageBuilder where
+  hashWithSalt _salt ImageBuilder' {..} =
+    _salt `Prelude.hashWithSalt` domainJoinInfo
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` networkAccessConfiguration
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` imageBuilderErrors
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` accessEndpoints
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enableDefaultInternetAccess
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` appstreamAgentVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ImageBuilder
+instance Prelude.NFData ImageBuilder where
+  rnf ImageBuilder' {..} =
+    Prelude.rnf domainJoinInfo
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf networkAccessConfiguration
+      `Prelude.seq` Prelude.rnf stateChangeReason
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf imageBuilderErrors
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf accessEndpoints
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf appstreamAgentVersion
+      `Prelude.seq` Prelude.rnf name

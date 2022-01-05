@@ -102,9 +102,15 @@ instance Core.AWSRequest GetBackendEnvironment where
             Prelude.<*> (x Core..:> "backendEnvironment")
       )
 
-instance Prelude.Hashable GetBackendEnvironment
+instance Prelude.Hashable GetBackendEnvironment where
+  hashWithSalt _salt GetBackendEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData GetBackendEnvironment
+instance Prelude.NFData GetBackendEnvironment where
+  rnf GetBackendEnvironment' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Core.ToHeaders GetBackendEnvironment where
   toHeaders =
@@ -174,4 +180,7 @@ getBackendEnvironmentResponse_httpStatus = Lens.lens (\GetBackendEnvironmentResp
 getBackendEnvironmentResponse_backendEnvironment :: Lens.Lens' GetBackendEnvironmentResponse BackendEnvironment
 getBackendEnvironmentResponse_backendEnvironment = Lens.lens (\GetBackendEnvironmentResponse' {backendEnvironment} -> backendEnvironment) (\s@GetBackendEnvironmentResponse' {} a -> s {backendEnvironment = a} :: GetBackendEnvironmentResponse)
 
-instance Prelude.NFData GetBackendEnvironmentResponse
+instance Prelude.NFData GetBackendEnvironmentResponse where
+  rnf GetBackendEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironment

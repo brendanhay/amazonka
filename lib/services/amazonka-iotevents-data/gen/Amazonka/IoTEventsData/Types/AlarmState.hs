@@ -170,6 +170,16 @@ instance Core.FromJSON AlarmState where
             Prelude.<*> (x Core..:? "systemEvent")
       )
 
-instance Prelude.Hashable AlarmState
+instance Prelude.Hashable AlarmState where
+  hashWithSalt _salt AlarmState' {..} =
+    _salt `Prelude.hashWithSalt` customerAction
+      `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` ruleEvaluation
+      `Prelude.hashWithSalt` systemEvent
 
-instance Prelude.NFData AlarmState
+instance Prelude.NFData AlarmState where
+  rnf AlarmState' {..} =
+    Prelude.rnf customerAction
+      `Prelude.seq` Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf ruleEvaluation
+      `Prelude.seq` Prelude.rnf systemEvent

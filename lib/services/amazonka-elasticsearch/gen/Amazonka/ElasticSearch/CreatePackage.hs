@@ -128,9 +128,19 @@ instance Core.AWSRequest CreatePackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePackage
+instance Prelude.Hashable CreatePackage where
+  hashWithSalt _salt CreatePackage' {..} =
+    _salt `Prelude.hashWithSalt` packageDescription
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` packageSource
 
-instance Prelude.NFData CreatePackage
+instance Prelude.NFData CreatePackage where
+  rnf CreatePackage' {..} =
+    Prelude.rnf packageDescription
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf packageSource
 
 instance Core.ToHeaders CreatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,7 @@ createPackageResponse_packageDetails = Lens.lens (\CreatePackageResponse' {packa
 createPackageResponse_httpStatus :: Lens.Lens' CreatePackageResponse Prelude.Int
 createPackageResponse_httpStatus = Lens.lens (\CreatePackageResponse' {httpStatus} -> httpStatus) (\s@CreatePackageResponse' {} a -> s {httpStatus = a} :: CreatePackageResponse)
 
-instance Prelude.NFData CreatePackageResponse
+instance Prelude.NFData CreatePackageResponse where
+  rnf CreatePackageResponse' {..} =
+    Prelude.rnf packageDetails
+      `Prelude.seq` Prelude.rnf httpStatus

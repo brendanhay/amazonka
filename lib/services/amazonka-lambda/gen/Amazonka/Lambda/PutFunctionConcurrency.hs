@@ -146,9 +146,15 @@ instance Core.AWSRequest PutFunctionConcurrency where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutFunctionConcurrency
+instance Prelude.Hashable PutFunctionConcurrency where
+  hashWithSalt _salt PutFunctionConcurrency' {..} =
+    _salt `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` reservedConcurrentExecutions
 
-instance Prelude.NFData PutFunctionConcurrency
+instance Prelude.NFData PutFunctionConcurrency where
+  rnf PutFunctionConcurrency' {..} =
+    Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf reservedConcurrentExecutions
 
 instance Core.ToHeaders PutFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty

@@ -297,6 +297,44 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "RoleARN")
       )
 
-instance Prelude.Hashable DataSource
+instance Prelude.Hashable DataSource where
+  hashWithSalt _salt DataSource' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` numberOfFiles
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` computeTime
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` rDSMetadata
+      `Prelude.hashWithSalt` dataSizeInBytes
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` createdByIamUser
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataLocationS3
+      `Prelude.hashWithSalt` computeStatistics
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` redshiftMetadata
+      `Prelude.hashWithSalt` dataRearrangement
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData DataSource
+instance Prelude.NFData DataSource where
+  rnf DataSource' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf numberOfFiles
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf rDSMetadata
+      `Prelude.seq` Prelude.rnf dataSizeInBytes
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataLocationS3
+      `Prelude.seq` Prelude.rnf computeStatistics
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf redshiftMetadata
+      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf roleARN

@@ -87,9 +87,17 @@ toolchain_roleArn = Lens.lens (\Toolchain' {roleArn} -> roleArn) (\s@Toolchain' 
 toolchain_source :: Lens.Lens' Toolchain ToolchainSource
 toolchain_source = Lens.lens (\Toolchain' {source} -> source) (\s@Toolchain' {} a -> s {source = a} :: Toolchain)
 
-instance Prelude.Hashable Toolchain
+instance Prelude.Hashable Toolchain where
+  hashWithSalt _salt Toolchain' {..} =
+    _salt `Prelude.hashWithSalt` stackParameters
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData Toolchain
+instance Prelude.NFData Toolchain where
+  rnf Toolchain' {..} =
+    Prelude.rnf stackParameters
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON Toolchain where
   toJSON Toolchain' {..} =

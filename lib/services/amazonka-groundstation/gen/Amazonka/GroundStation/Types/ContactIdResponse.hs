@@ -59,6 +59,9 @@ instance Core.FromJSON ContactIdResponse where
             Prelude.<$> (x Core..:? "contactId")
       )
 
-instance Prelude.Hashable ContactIdResponse
+instance Prelude.Hashable ContactIdResponse where
+  hashWithSalt _salt ContactIdResponse' {..} =
+    _salt `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData ContactIdResponse
+instance Prelude.NFData ContactIdResponse where
+  rnf ContactIdResponse' {..} = Prelude.rnf contactId

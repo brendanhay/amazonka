@@ -201,9 +201,27 @@ instance Core.AWSRequest CreateContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContent
+instance Prelude.Hashable CreateContent where
+  hashWithSalt _salt CreateContent' {..} =
+    _salt `Prelude.hashWithSalt` overrideLinkOutUri
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` uploadId
 
-instance Prelude.NFData CreateContent
+instance Prelude.NFData CreateContent where
+  rnf CreateContent' {..} =
+    Prelude.rnf overrideLinkOutUri
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf uploadId
 
 instance Core.ToHeaders CreateContent where
   toHeaders =
@@ -280,4 +298,7 @@ createContentResponse_content = Lens.lens (\CreateContentResponse' {content} -> 
 createContentResponse_httpStatus :: Lens.Lens' CreateContentResponse Prelude.Int
 createContentResponse_httpStatus = Lens.lens (\CreateContentResponse' {httpStatus} -> httpStatus) (\s@CreateContentResponse' {} a -> s {httpStatus = a} :: CreateContentResponse)
 
-instance Prelude.NFData CreateContentResponse
+instance Prelude.NFData CreateContentResponse where
+  rnf CreateContentResponse' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf httpStatus

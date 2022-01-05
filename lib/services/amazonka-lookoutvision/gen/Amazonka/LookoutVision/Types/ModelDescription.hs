@@ -190,6 +190,32 @@ instance Core.FromJSON ModelDescription where
             Prelude.<*> (x Core..:? "EvaluationManifest")
       )
 
-instance Prelude.Hashable ModelDescription
+instance Prelude.Hashable ModelDescription where
+  hashWithSalt _salt ModelDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` evaluationResult
+      `Prelude.hashWithSalt` evaluationEndTimestamp
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` performance
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` evaluationManifest
 
-instance Prelude.NFData ModelDescription
+instance Prelude.NFData ModelDescription where
+  rnf ModelDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf evaluationResult
+      `Prelude.seq` Prelude.rnf evaluationEndTimestamp
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf performance
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf evaluationManifest

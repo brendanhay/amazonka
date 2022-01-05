@@ -242,6 +242,14 @@ instance Core.FromJSON BulkEmailEntryResult where
             Prelude.<*> (x Core..:? "MessageId")
       )
 
-instance Prelude.Hashable BulkEmailEntryResult
+instance Prelude.Hashable BulkEmailEntryResult where
+  hashWithSalt _salt BulkEmailEntryResult' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData BulkEmailEntryResult
+instance Prelude.NFData BulkEmailEntryResult where
+  rnf BulkEmailEntryResult' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf messageId

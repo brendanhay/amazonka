@@ -165,8 +165,19 @@ instance
 instance
   Prelude.Hashable
     PutBucketMetricsConfiguration
+  where
+  hashWithSalt _salt PutBucketMetricsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` metricsConfiguration
 
-instance Prelude.NFData PutBucketMetricsConfiguration
+instance Prelude.NFData PutBucketMetricsConfiguration where
+  rnf PutBucketMetricsConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf metricsConfiguration
 
 instance Core.ToElement PutBucketMetricsConfiguration where
   toElement PutBucketMetricsConfiguration' {..} =
@@ -207,3 +218,5 @@ newPutBucketMetricsConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketMetricsConfigurationResponse
+  where
+  rnf _ = ()

@@ -84,9 +84,13 @@ instance Core.AWSRequest ForgetSmartHomeAppliances where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ForgetSmartHomeAppliances
+instance Prelude.Hashable ForgetSmartHomeAppliances where
+  hashWithSalt _salt ForgetSmartHomeAppliances' {..} =
+    _salt `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData ForgetSmartHomeAppliances
+instance Prelude.NFData ForgetSmartHomeAppliances where
+  rnf ForgetSmartHomeAppliances' {..} =
+    Prelude.rnf roomArn
 
 instance Core.ToHeaders ForgetSmartHomeAppliances where
   toHeaders =
@@ -149,3 +153,6 @@ forgetSmartHomeAppliancesResponse_httpStatus = Lens.lens (\ForgetSmartHomeApplia
 instance
   Prelude.NFData
     ForgetSmartHomeAppliancesResponse
+  where
+  rnf ForgetSmartHomeAppliancesResponse' {..} =
+    Prelude.rnf httpStatus

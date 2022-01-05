@@ -83,9 +83,15 @@ instance Core.FromJSON Authorization where
             Prelude.<*> (x Core..: "cdnIdentifierSecret")
       )
 
-instance Prelude.Hashable Authorization
+instance Prelude.Hashable Authorization where
+  hashWithSalt _salt Authorization' {..} =
+    _salt `Prelude.hashWithSalt` secretsRoleArn
+      `Prelude.hashWithSalt` cdnIdentifierSecret
 
-instance Prelude.NFData Authorization
+instance Prelude.NFData Authorization where
+  rnf Authorization' {..} =
+    Prelude.rnf secretsRoleArn
+      `Prelude.seq` Prelude.rnf cdnIdentifierSecret
 
 instance Core.ToJSON Authorization where
   toJSON Authorization' {..} =

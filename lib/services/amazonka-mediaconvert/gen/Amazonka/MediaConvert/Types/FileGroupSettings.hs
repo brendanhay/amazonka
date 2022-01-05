@@ -91,9 +91,15 @@ instance Core.FromJSON FileGroupSettings where
             Prelude.<*> (x Core..:? "destinationSettings")
       )
 
-instance Prelude.Hashable FileGroupSettings
+instance Prelude.Hashable FileGroupSettings where
+  hashWithSalt _salt FileGroupSettings' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` destinationSettings
 
-instance Prelude.NFData FileGroupSettings
+instance Prelude.NFData FileGroupSettings where
+  rnf FileGroupSettings' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf destinationSettings
 
 instance Core.ToJSON FileGroupSettings where
   toJSON FileGroupSettings' {..} =

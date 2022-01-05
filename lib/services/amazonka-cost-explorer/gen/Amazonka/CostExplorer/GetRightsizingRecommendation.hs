@@ -169,8 +169,21 @@ instance Core.AWSRequest GetRightsizingRecommendation where
 instance
   Prelude.Hashable
     GetRightsizingRecommendation
+  where
+  hashWithSalt _salt GetRightsizingRecommendation' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData GetRightsizingRecommendation
+instance Prelude.NFData GetRightsizingRecommendation where
+  rnf GetRightsizingRecommendation' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToHeaders GetRightsizingRecommendation where
   toHeaders =
@@ -296,3 +309,11 @@ getRightsizingRecommendationResponse_httpStatus = Lens.lens (\GetRightsizingReco
 instance
   Prelude.NFData
     GetRightsizingRecommendationResponse
+  where
+  rnf GetRightsizingRecommendationResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf rightsizingRecommendations
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf httpStatus

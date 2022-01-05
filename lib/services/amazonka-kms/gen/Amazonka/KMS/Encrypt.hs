@@ -382,9 +382,21 @@ instance Core.AWSRequest Encrypt where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Encrypt
+instance Prelude.Hashable Encrypt where
+  hashWithSalt _salt Encrypt' {..} =
+    _salt `Prelude.hashWithSalt` encryptionContext
+      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` encryptionAlgorithm
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` plaintext
 
-instance Prelude.NFData Encrypt
+instance Prelude.NFData Encrypt where
+  rnf Encrypt' {..} =
+    Prelude.rnf encryptionContext
+      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf encryptionAlgorithm
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf plaintext
 
 instance Core.ToHeaders Encrypt where
   toHeaders =
@@ -495,4 +507,9 @@ encryptResponse_ciphertextBlob = Lens.lens (\EncryptResponse' {ciphertextBlob} -
 encryptResponse_httpStatus :: Lens.Lens' EncryptResponse Prelude.Int
 encryptResponse_httpStatus = Lens.lens (\EncryptResponse' {httpStatus} -> httpStatus) (\s@EncryptResponse' {} a -> s {httpStatus = a} :: EncryptResponse)
 
-instance Prelude.NFData EncryptResponse
+instance Prelude.NFData EncryptResponse where
+  rnf EncryptResponse' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf encryptionAlgorithm
+      `Prelude.seq` Prelude.rnf ciphertextBlob
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -174,6 +174,32 @@ instance Core.FromJSON PipelineExecution where
             Prelude.<*> (x Core..:? "PipelineExperimentConfig")
       )
 
-instance Prelude.Hashable PipelineExecution
+instance Prelude.Hashable PipelineExecution where
+  hashWithSalt _salt PipelineExecution' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` pipelineExecutionStatus
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` pipelineExecutionArn
+      `Prelude.hashWithSalt` pipelineParameters
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` pipelineExecutionDisplayName
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` pipelineExecutionDescription
+      `Prelude.hashWithSalt` pipelineExperimentConfig
 
-instance Prelude.NFData PipelineExecution
+instance Prelude.NFData PipelineExecution where
+  rnf PipelineExecution' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf pipelineExecutionStatus
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf pipelineParameters
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
+      `Prelude.seq` Prelude.rnf pipelineExperimentConfig

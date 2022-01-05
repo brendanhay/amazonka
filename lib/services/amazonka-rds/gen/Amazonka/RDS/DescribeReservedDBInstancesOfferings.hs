@@ -279,10 +279,34 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedDBInstancesOfferings
+  where
+  hashWithSalt
+    _salt
+    DescribeReservedDBInstancesOfferings' {..} =
+      _salt `Prelude.hashWithSalt` productDescription
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` dbInstanceClass
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` multiAZ
+        `Prelude.hashWithSalt` reservedDBInstancesOfferingId
+        `Prelude.hashWithSalt` offeringType
+        `Prelude.hashWithSalt` duration
 
 instance
   Prelude.NFData
     DescribeReservedDBInstancesOfferings
+  where
+  rnf DescribeReservedDBInstancesOfferings' {..} =
+    Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf duration
 
 instance
   Core.ToHeaders
@@ -384,3 +408,8 @@ describeReservedDBInstancesOfferingsResponse_httpStatus = Lens.lens (\DescribeRe
 instance
   Prelude.NFData
     DescribeReservedDBInstancesOfferingsResponse
+  where
+  rnf DescribeReservedDBInstancesOfferingsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferings
+      `Prelude.seq` Prelude.rnf httpStatus

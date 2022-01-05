@@ -105,6 +105,14 @@ instance Core.FromJSON AccessKeyLastUsed where
             Prelude.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable AccessKeyLastUsed
+instance Prelude.Hashable AccessKeyLastUsed where
+  hashWithSalt _salt AccessKeyLastUsed' {..} =
+    _salt `Prelude.hashWithSalt` lastUsedDate
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData AccessKeyLastUsed
+instance Prelude.NFData AccessKeyLastUsed where
+  rnf AccessKeyLastUsed' {..} =
+    Prelude.rnf lastUsedDate
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf region

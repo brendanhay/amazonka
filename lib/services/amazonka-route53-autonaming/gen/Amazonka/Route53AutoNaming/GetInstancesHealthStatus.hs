@@ -173,9 +173,19 @@ instance Core.AWSRequest GetInstancesHealthStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstancesHealthStatus
+instance Prelude.Hashable GetInstancesHealthStatus where
+  hashWithSalt _salt GetInstancesHealthStatus' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceId
 
-instance Prelude.NFData GetInstancesHealthStatus
+instance Prelude.NFData GetInstancesHealthStatus where
+  rnf GetInstancesHealthStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceId
 
 instance Core.ToHeaders GetInstancesHealthStatus where
   toHeaders =
@@ -272,3 +282,8 @@ getInstancesHealthStatusResponse_httpStatus = Lens.lens (\GetInstancesHealthStat
 instance
   Prelude.NFData
     GetInstancesHealthStatusResponse
+  where
+  rnf GetInstancesHealthStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

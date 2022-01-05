@@ -144,9 +144,21 @@ instance Core.FromJSON SpekeKeyProviderCmaf where
                         )
       )
 
-instance Prelude.Hashable SpekeKeyProviderCmaf
+instance Prelude.Hashable SpekeKeyProviderCmaf where
+  hashWithSalt _salt SpekeKeyProviderCmaf' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` dashSignaledSystemIds
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` hlsSignaledSystemIds
 
-instance Prelude.NFData SpekeKeyProviderCmaf
+instance Prelude.NFData SpekeKeyProviderCmaf where
+  rnf SpekeKeyProviderCmaf' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf dashSignaledSystemIds
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf hlsSignaledSystemIds
 
 instance Core.ToJSON SpekeKeyProviderCmaf where
   toJSON SpekeKeyProviderCmaf' {..} =

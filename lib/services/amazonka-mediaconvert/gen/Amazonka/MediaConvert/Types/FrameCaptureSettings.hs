@@ -122,9 +122,19 @@ instance Core.FromJSON FrameCaptureSettings where
             Prelude.<*> (x Core..:? "framerateNumerator")
       )
 
-instance Prelude.Hashable FrameCaptureSettings
+instance Prelude.Hashable FrameCaptureSettings where
+  hashWithSalt _salt FrameCaptureSettings' {..} =
+    _salt `Prelude.hashWithSalt` quality
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` maxCaptures
+      `Prelude.hashWithSalt` framerateNumerator
 
-instance Prelude.NFData FrameCaptureSettings
+instance Prelude.NFData FrameCaptureSettings where
+  rnf FrameCaptureSettings' {..} =
+    Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf maxCaptures
+      `Prelude.seq` Prelude.rnf framerateNumerator
 
 instance Core.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =

@@ -154,9 +154,17 @@ instance Core.AWSRequest DescribeActionTargets where
             Prelude.<*> (x Core..?> "ActionTargets" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeActionTargets
+instance Prelude.Hashable DescribeActionTargets where
+  hashWithSalt _salt DescribeActionTargets' {..} =
+    _salt `Prelude.hashWithSalt` actionTargetArns
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeActionTargets
+instance Prelude.NFData DescribeActionTargets where
+  rnf DescribeActionTargets' {..} =
+    Prelude.rnf actionTargetArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeActionTargets where
   toHeaders =
@@ -240,4 +248,8 @@ describeActionTargetsResponse_httpStatus = Lens.lens (\DescribeActionTargetsResp
 describeActionTargetsResponse_actionTargets :: Lens.Lens' DescribeActionTargetsResponse [ActionTarget]
 describeActionTargetsResponse_actionTargets = Lens.lens (\DescribeActionTargetsResponse' {actionTargets} -> actionTargets) (\s@DescribeActionTargetsResponse' {} a -> s {actionTargets = a} :: DescribeActionTargetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeActionTargetsResponse
+instance Prelude.NFData DescribeActionTargetsResponse where
+  rnf DescribeActionTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf actionTargets

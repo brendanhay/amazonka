@@ -181,8 +181,21 @@ instance Core.AWSRequest GetCommentsForComparedCommit where
 instance
   Prelude.Hashable
     GetCommentsForComparedCommit
+  where
+  hashWithSalt _salt GetCommentsForComparedCommit' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` afterCommitId
 
-instance Prelude.NFData GetCommentsForComparedCommit
+instance Prelude.NFData GetCommentsForComparedCommit where
+  rnf GetCommentsForComparedCommit' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf afterCommitId
 
 instance Core.ToHeaders GetCommentsForComparedCommit where
   toHeaders =
@@ -274,3 +287,8 @@ getCommentsForComparedCommitResponse_httpStatus = Lens.lens (\GetCommentsForComp
 instance
   Prelude.NFData
     GetCommentsForComparedCommitResponse
+  where
+  rnf GetCommentsForComparedCommitResponse' {..} =
+    Prelude.rnf commentsForComparedCommitData
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

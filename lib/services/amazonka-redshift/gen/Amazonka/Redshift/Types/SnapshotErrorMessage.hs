@@ -89,6 +89,16 @@ instance Core.FromXML SnapshotErrorMessage where
       Prelude.<*> (x Core..@? "SnapshotClusterIdentifier")
       Prelude.<*> (x Core..@? "FailureCode")
 
-instance Prelude.Hashable SnapshotErrorMessage
+instance Prelude.Hashable SnapshotErrorMessage where
+  hashWithSalt _salt SnapshotErrorMessage' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` snapshotClusterIdentifier
+      `Prelude.hashWithSalt` failureCode
 
-instance Prelude.NFData SnapshotErrorMessage
+instance Prelude.NFData SnapshotErrorMessage where
+  rnf SnapshotErrorMessage' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf failureCode

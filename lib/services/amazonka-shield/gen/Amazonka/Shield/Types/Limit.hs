@@ -73,6 +73,11 @@ instance Core.FromJSON Limit where
             Prelude.<$> (x Core..:? "Max") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Limit
+instance Prelude.Hashable Limit where
+  hashWithSalt _salt Limit' {..} =
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Limit
+instance Prelude.NFData Limit where
+  rnf Limit' {..} =
+    Prelude.rnf max `Prelude.seq` Prelude.rnf type'

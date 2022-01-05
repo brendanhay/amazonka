@@ -118,9 +118,22 @@ instance Core.FromJSON ResourceDataContainer where
             Prelude.<*> (x Core..:? "SecretsManagerSecretResourceData")
       )
 
-instance Prelude.Hashable ResourceDataContainer
+instance Prelude.Hashable ResourceDataContainer where
+  hashWithSalt _salt ResourceDataContainer' {..} =
+    _salt
+      `Prelude.hashWithSalt` s3MachineLearningModelResourceData
+      `Prelude.hashWithSalt` sageMakerMachineLearningModelResourceData
+      `Prelude.hashWithSalt` localVolumeResourceData
+      `Prelude.hashWithSalt` localDeviceResourceData
+      `Prelude.hashWithSalt` secretsManagerSecretResourceData
 
-instance Prelude.NFData ResourceDataContainer
+instance Prelude.NFData ResourceDataContainer where
+  rnf ResourceDataContainer' {..} =
+    Prelude.rnf s3MachineLearningModelResourceData
+      `Prelude.seq` Prelude.rnf sageMakerMachineLearningModelResourceData
+      `Prelude.seq` Prelude.rnf localVolumeResourceData
+      `Prelude.seq` Prelude.rnf localDeviceResourceData
+      `Prelude.seq` Prelude.rnf secretsManagerSecretResourceData
 
 instance Core.ToJSON ResourceDataContainer where
   toJSON ResourceDataContainer' {..} =

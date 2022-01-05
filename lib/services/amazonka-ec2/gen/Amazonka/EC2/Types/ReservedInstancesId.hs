@@ -59,6 +59,10 @@ instance Core.FromXML ReservedInstancesId where
     ReservedInstancesId'
       Prelude.<$> (x Core..@? "reservedInstancesId")
 
-instance Prelude.Hashable ReservedInstancesId
+instance Prelude.Hashable ReservedInstancesId where
+  hashWithSalt _salt ReservedInstancesId' {..} =
+    _salt `Prelude.hashWithSalt` reservedInstancesId
 
-instance Prelude.NFData ReservedInstancesId
+instance Prelude.NFData ReservedInstancesId where
+  rnf ReservedInstancesId' {..} =
+    Prelude.rnf reservedInstancesId

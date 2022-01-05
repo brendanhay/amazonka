@@ -856,9 +856,56 @@ instance Core.AWSRequest CloneStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CloneStack
+instance Prelude.Hashable CloneStack where
+  hashWithSalt _salt CloneStack' {..} =
+    _salt
+      `Prelude.hashWithSalt` defaultInstanceProfileArn
+      `Prelude.hashWithSalt` cloneAppIds
+      `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` defaultSshKeyName
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` clonePermissions
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` defaultAvailabilityZone
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultOs
+      `Prelude.hashWithSalt` useOpsworksSecurityGroups
+      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` defaultSubnetId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` sourceStackId
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData CloneStack
+instance Prelude.NFData CloneStack where
+  rnf CloneStack' {..} =
+    Prelude.rnf defaultInstanceProfileArn
+      `Prelude.seq` Prelude.rnf cloneAppIds
+      `Prelude.seq` Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf defaultSshKeyName
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf clonePermissions
+      `Prelude.seq` Prelude.rnf customCookbooksSource
+      `Prelude.seq` Prelude.rnf defaultAvailabilityZone
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultOs
+      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf defaultSubnetId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf sourceStackId
+      `Prelude.seq` Prelude.rnf serviceRoleArn
 
 instance Core.ToHeaders CloneStack where
   toHeaders =
@@ -962,4 +1009,7 @@ cloneStackResponse_stackId = Lens.lens (\CloneStackResponse' {stackId} -> stackI
 cloneStackResponse_httpStatus :: Lens.Lens' CloneStackResponse Prelude.Int
 cloneStackResponse_httpStatus = Lens.lens (\CloneStackResponse' {httpStatus} -> httpStatus) (\s@CloneStackResponse' {} a -> s {httpStatus = a} :: CloneStackResponse)
 
-instance Prelude.NFData CloneStackResponse
+instance Prelude.NFData CloneStackResponse where
+  rnf CloneStackResponse' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,6 +93,14 @@ instance Core.FromJSON Limits where
             Prelude.<*> (x Core..:? "StorageTypes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Limits
+instance Prelude.Hashable Limits where
+  hashWithSalt _salt Limits' {..} =
+    _salt `Prelude.hashWithSalt` instanceLimits
+      `Prelude.hashWithSalt` additionalLimits
+      `Prelude.hashWithSalt` storageTypes
 
-instance Prelude.NFData Limits
+instance Prelude.NFData Limits where
+  rnf Limits' {..} =
+    Prelude.rnf instanceLimits
+      `Prelude.seq` Prelude.rnf additionalLimits
+      `Prelude.seq` Prelude.rnf storageTypes

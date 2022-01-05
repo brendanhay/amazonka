@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteCoreDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCoreDefinition
+instance Prelude.Hashable DeleteCoreDefinition where
+  hashWithSalt _salt DeleteCoreDefinition' {..} =
+    _salt `Prelude.hashWithSalt` coreDefinitionId
 
-instance Prelude.NFData DeleteCoreDefinition
+instance Prelude.NFData DeleteCoreDefinition where
+  rnf DeleteCoreDefinition' {..} =
+    Prelude.rnf coreDefinitionId
 
 instance Core.ToHeaders DeleteCoreDefinition where
   toHeaders =
@@ -142,4 +146,6 @@ newDeleteCoreDefinitionResponse pHttpStatus_ =
 deleteCoreDefinitionResponse_httpStatus :: Lens.Lens' DeleteCoreDefinitionResponse Prelude.Int
 deleteCoreDefinitionResponse_httpStatus = Lens.lens (\DeleteCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteCoreDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteCoreDefinitionResponse)
 
-instance Prelude.NFData DeleteCoreDefinitionResponse
+instance Prelude.NFData DeleteCoreDefinitionResponse where
+  rnf DeleteCoreDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

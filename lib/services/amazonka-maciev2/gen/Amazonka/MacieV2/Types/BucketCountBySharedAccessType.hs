@@ -111,5 +111,16 @@ instance Core.FromJSON BucketCountBySharedAccessType where
 instance
   Prelude.Hashable
     BucketCountBySharedAccessType
+  where
+  hashWithSalt _salt BucketCountBySharedAccessType' {..} =
+    _salt `Prelude.hashWithSalt` notShared
+      `Prelude.hashWithSalt` internal
+      `Prelude.hashWithSalt` external
+      `Prelude.hashWithSalt` unknown
 
-instance Prelude.NFData BucketCountBySharedAccessType
+instance Prelude.NFData BucketCountBySharedAccessType where
+  rnf BucketCountBySharedAccessType' {..} =
+    Prelude.rnf notShared
+      `Prelude.seq` Prelude.rnf internal
+      `Prelude.seq` Prelude.rnf external
+      `Prelude.seq` Prelude.rnf unknown

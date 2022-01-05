@@ -74,9 +74,14 @@ instance Core.FromJSON MatchRange where
             Prelude.<$> (x Core..: "end") Prelude.<*> (x Core..: "start")
       )
 
-instance Prelude.Hashable MatchRange
+instance Prelude.Hashable MatchRange where
+  hashWithSalt _salt MatchRange' {..} =
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
-instance Prelude.NFData MatchRange
+instance Prelude.NFData MatchRange where
+  rnf MatchRange' {..} =
+    Prelude.rnf end `Prelude.seq` Prelude.rnf start
 
 instance Core.ToJSON MatchRange where
   toJSON MatchRange' {..} =

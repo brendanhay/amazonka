@@ -120,6 +120,18 @@ instance Core.FromJSON FeatureGroupSummary where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable FeatureGroupSummary
+instance Prelude.Hashable FeatureGroupSummary where
+  hashWithSalt _salt FeatureGroupSummary' {..} =
+    _salt `Prelude.hashWithSalt` featureGroupStatus
+      `Prelude.hashWithSalt` offlineStoreStatus
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` featureGroupArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData FeatureGroupSummary
+instance Prelude.NFData FeatureGroupSummary where
+  rnf FeatureGroupSummary' {..} =
+    Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf offlineStoreStatus
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf featureGroupArn
+      `Prelude.seq` Prelude.rnf creationTime

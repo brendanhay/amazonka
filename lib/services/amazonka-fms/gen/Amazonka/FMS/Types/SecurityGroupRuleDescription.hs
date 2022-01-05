@@ -124,5 +124,20 @@ instance Core.FromJSON SecurityGroupRuleDescription where
 instance
   Prelude.Hashable
     SecurityGroupRuleDescription
+  where
+  hashWithSalt _salt SecurityGroupRuleDescription' {..} =
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` iPV4Range
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` iPV6Range
 
-instance Prelude.NFData SecurityGroupRuleDescription
+instance Prelude.NFData SecurityGroupRuleDescription where
+  rnf SecurityGroupRuleDescription' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf iPV4Range
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf iPV6Range

@@ -123,6 +123,20 @@ instance Core.FromJSON PermissionSet where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable PermissionSet
+instance Prelude.Hashable PermissionSet where
+  hashWithSalt _salt PermissionSet' {..} =
+    _salt `Prelude.hashWithSalt` relayState
+      `Prelude.hashWithSalt` sessionDuration
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PermissionSet
+instance Prelude.NFData PermissionSet where
+  rnf PermissionSet' {..} =
+    Prelude.rnf relayState
+      `Prelude.seq` Prelude.rnf sessionDuration
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

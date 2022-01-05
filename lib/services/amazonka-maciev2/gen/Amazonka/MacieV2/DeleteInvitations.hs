@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteInvitations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInvitations
+instance Prelude.Hashable DeleteInvitations where
+  hashWithSalt _salt DeleteInvitations' {..} =
+    _salt `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData DeleteInvitations
+instance Prelude.NFData DeleteInvitations where
+  rnf DeleteInvitations' {..} = Prelude.rnf accountIds
 
 instance Core.ToHeaders DeleteInvitations where
   toHeaders =
@@ -163,4 +166,7 @@ deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsRes
 deleteInvitationsResponse_httpStatus :: Lens.Lens' DeleteInvitationsResponse Prelude.Int
 deleteInvitationsResponse_httpStatus = Lens.lens (\DeleteInvitationsResponse' {httpStatus} -> httpStatus) (\s@DeleteInvitationsResponse' {} a -> s {httpStatus = a} :: DeleteInvitationsResponse)
 
-instance Prelude.NFData DeleteInvitationsResponse
+instance Prelude.NFData DeleteInvitationsResponse where
+  rnf DeleteInvitationsResponse' {..} =
+    Prelude.rnf unprocessedAccounts
+      `Prelude.seq` Prelude.rnf httpStatus

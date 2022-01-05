@@ -75,6 +75,12 @@ instance Core.FromJSON GroupCount where
             Prelude.<*> (x Core..:? "count")
       )
 
-instance Prelude.Hashable GroupCount
+instance Prelude.Hashable GroupCount where
+  hashWithSalt _salt GroupCount' {..} =
+    _salt `Prelude.hashWithSalt` groupKey
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData GroupCount
+instance Prelude.NFData GroupCount where
+  rnf GroupCount' {..} =
+    Prelude.rnf groupKey
+      `Prelude.seq` Prelude.rnf count

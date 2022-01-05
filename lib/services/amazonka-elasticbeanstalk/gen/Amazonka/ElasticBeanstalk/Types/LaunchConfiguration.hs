@@ -55,6 +55,9 @@ instance Core.FromXML LaunchConfiguration where
     LaunchConfiguration'
       Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable LaunchConfiguration
+instance Prelude.Hashable LaunchConfiguration where
+  hashWithSalt _salt LaunchConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData LaunchConfiguration
+instance Prelude.NFData LaunchConfiguration where
+  rnf LaunchConfiguration' {..} = Prelude.rnf name

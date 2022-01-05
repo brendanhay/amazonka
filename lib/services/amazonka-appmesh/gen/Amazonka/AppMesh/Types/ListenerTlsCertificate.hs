@@ -91,9 +91,17 @@ instance Core.FromJSON ListenerTlsCertificate where
             Prelude.<*> (x Core..:? "file")
       )
 
-instance Prelude.Hashable ListenerTlsCertificate
+instance Prelude.Hashable ListenerTlsCertificate where
+  hashWithSalt _salt ListenerTlsCertificate' {..} =
+    _salt `Prelude.hashWithSalt` acm
+      `Prelude.hashWithSalt` sds
+      `Prelude.hashWithSalt` file
 
-instance Prelude.NFData ListenerTlsCertificate
+instance Prelude.NFData ListenerTlsCertificate where
+  rnf ListenerTlsCertificate' {..} =
+    Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
+      `Prelude.seq` Prelude.rnf file
 
 instance Core.ToJSON ListenerTlsCertificate where
   toJSON ListenerTlsCertificate' {..} =

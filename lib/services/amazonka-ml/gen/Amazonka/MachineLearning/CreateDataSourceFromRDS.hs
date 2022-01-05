@@ -311,9 +311,21 @@ instance Core.AWSRequest CreateDataSourceFromRDS where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSourceFromRDS
+instance Prelude.Hashable CreateDataSourceFromRDS where
+  hashWithSalt _salt CreateDataSourceFromRDS' {..} =
+    _salt `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` computeStatistics
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` rDSData
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData CreateDataSourceFromRDS
+instance Prelude.NFData CreateDataSourceFromRDS where
+  rnf CreateDataSourceFromRDS' {..} =
+    Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf computeStatistics
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf rDSData
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToHeaders CreateDataSourceFromRDS where
   toHeaders =
@@ -405,3 +417,7 @@ createDataSourceFromRDSResponse_httpStatus = Lens.lens (\CreateDataSourceFromRDS
 instance
   Prelude.NFData
     CreateDataSourceFromRDSResponse
+  where
+  rnf CreateDataSourceFromRDSResponse' {..} =
+    Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf httpStatus

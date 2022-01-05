@@ -72,6 +72,11 @@ instance Core.FromJSON Total where
             Prelude.<*> (x Core..:? "unit")
       )
 
-instance Prelude.Hashable Total
+instance Prelude.Hashable Total where
+  hashWithSalt _salt Total' {..} =
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData Total
+instance Prelude.NFData Total where
+  rnf Total' {..} =
+    Prelude.rnf amount `Prelude.seq` Prelude.rnf unit

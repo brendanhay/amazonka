@@ -120,9 +120,17 @@ instance Core.FromJSON PrefetchRetrieval where
             Prelude.<*> (x Core..: "EndTime")
       )
 
-instance Prelude.Hashable PrefetchRetrieval
+instance Prelude.Hashable PrefetchRetrieval where
+  hashWithSalt _salt PrefetchRetrieval' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` dynamicVariables
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData PrefetchRetrieval
+instance Prelude.NFData PrefetchRetrieval where
+  rnf PrefetchRetrieval' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf dynamicVariables
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON PrefetchRetrieval where
   toJSON PrefetchRetrieval' {..} =

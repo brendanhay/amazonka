@@ -258,9 +258,31 @@ instance Core.FromJSON Ac3Settings where
             Prelude.<*> (x Core..:? "dialnorm")
       )
 
-instance Prelude.Hashable Ac3Settings
+instance Prelude.Hashable Ac3Settings where
+  hashWithSalt _salt Ac3Settings' {..} =
+    _salt `Prelude.hashWithSalt` lfeFilter
+      `Prelude.hashWithSalt` dynamicRangeCompressionLine
+      `Prelude.hashWithSalt` metadataControl
+      `Prelude.hashWithSalt` bitstreamMode
+      `Prelude.hashWithSalt` dynamicRangeCompressionRf
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` dynamicRangeCompressionProfile
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` dialnorm
 
-instance Prelude.NFData Ac3Settings
+instance Prelude.NFData Ac3Settings where
+  rnf Ac3Settings' {..} =
+    Prelude.rnf lfeFilter
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionLine
+      `Prelude.seq` Prelude.rnf metadataControl
+      `Prelude.seq` Prelude.rnf bitstreamMode
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionRf
+      `Prelude.seq` Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionProfile
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf dialnorm
 
 instance Core.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =

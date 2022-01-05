@@ -145,9 +145,19 @@ instance Core.AWSRequest ListChannels where
             Prelude.<*> (x Core..?> "channels" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListChannels
+instance Prelude.Hashable ListChannels where
+  hashWithSalt _salt ListChannels' {..} =
+    _salt `Prelude.hashWithSalt` filterByName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterByRecordingConfigurationArn
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListChannels
+instance Prelude.NFData ListChannels where
+  rnf ListChannels' {..} =
+    Prelude.rnf filterByName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterByRecordingConfigurationArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListChannels where
   toHeaders =
@@ -228,4 +238,8 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse [ChannelSummary]
 listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListChannelsResponse
+instance Prelude.NFData ListChannelsResponse where
+  rnf ListChannelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channels

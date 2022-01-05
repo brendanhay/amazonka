@@ -131,8 +131,17 @@ instance Core.AWSRequest DeleteProvisionedProductPlan where
 instance
   Prelude.Hashable
     DeleteProvisionedProductPlan
+  where
+  hashWithSalt _salt DeleteProvisionedProductPlan' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` ignoreErrors
+      `Prelude.hashWithSalt` planId
 
-instance Prelude.NFData DeleteProvisionedProductPlan
+instance Prelude.NFData DeleteProvisionedProductPlan where
+  rnf DeleteProvisionedProductPlan' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf ignoreErrors
+      `Prelude.seq` Prelude.rnf planId
 
 instance Core.ToHeaders DeleteProvisionedProductPlan where
   toHeaders =
@@ -199,3 +208,6 @@ deleteProvisionedProductPlanResponse_httpStatus = Lens.lens (\DeleteProvisionedP
 instance
   Prelude.NFData
     DeleteProvisionedProductPlanResponse
+  where
+  rnf DeleteProvisionedProductPlanResponse' {..} =
+    Prelude.rnf httpStatus

@@ -89,6 +89,14 @@ instance Core.FromXML DelegationSet where
                       Prelude.>>= Core.parseXMLList1 "NameServer"
                   )
 
-instance Prelude.Hashable DelegationSet
+instance Prelude.Hashable DelegationSet where
+  hashWithSalt _salt DelegationSet' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` nameServers
 
-instance Prelude.NFData DelegationSet
+instance Prelude.NFData DelegationSet where
+  rnf DelegationSet' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf nameServers

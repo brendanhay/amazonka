@@ -571,9 +571,45 @@ instance Core.FromJSON XavcSettings where
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
-instance Prelude.Hashable XavcSettings
+instance Prelude.Hashable XavcSettings where
+  hashWithSalt _salt XavcSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` xavc4kProfileSettings
+      `Prelude.hashWithSalt` xavcHdIntraCbgProfileSettings
+      `Prelude.hashWithSalt` xavc4kIntraVbrProfileSettings
+      `Prelude.hashWithSalt` xavc4kIntraCbgProfileSettings
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` softness
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` entropyEncoding
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` xavcHdProfileSettings
+      `Prelude.hashWithSalt` spatialAdaptiveQuantization
 
-instance Prelude.NFData XavcSettings
+instance Prelude.NFData XavcSettings where
+  rnf XavcSettings' {..} =
+    Prelude.rnf temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf xavc4kProfileSettings
+      `Prelude.seq` Prelude.rnf xavcHdIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf xavc4kIntraVbrProfileSettings
+      `Prelude.seq` Prelude.rnf xavc4kIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf softness
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf entropyEncoding
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf xavcHdProfileSettings
+      `Prelude.seq` Prelude.rnf
+        spatialAdaptiveQuantization
 
 instance Core.ToJSON XavcSettings where
   toJSON XavcSettings' {..} =

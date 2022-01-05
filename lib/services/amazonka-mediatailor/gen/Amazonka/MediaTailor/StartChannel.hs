@@ -82,9 +82,12 @@ instance Core.AWSRequest StartChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartChannel
+instance Prelude.Hashable StartChannel where
+  hashWithSalt _salt StartChannel' {..} =
+    _salt `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData StartChannel
+instance Prelude.NFData StartChannel where
+  rnf StartChannel' {..} = Prelude.rnf channelName
 
 instance Core.ToHeaders StartChannel where
   toHeaders =
@@ -135,4 +138,6 @@ newStartChannelResponse pHttpStatus_ =
 startChannelResponse_httpStatus :: Lens.Lens' StartChannelResponse Prelude.Int
 startChannelResponse_httpStatus = Lens.lens (\StartChannelResponse' {httpStatus} -> httpStatus) (\s@StartChannelResponse' {} a -> s {httpStatus = a} :: StartChannelResponse)
 
-instance Prelude.NFData StartChannelResponse
+instance Prelude.NFData StartChannelResponse where
+  rnf StartChannelResponse' {..} =
+    Prelude.rnf httpStatus

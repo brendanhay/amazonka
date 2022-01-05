@@ -91,9 +91,13 @@ instance Core.AWSRequest SetRulePriorities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetRulePriorities
+instance Prelude.Hashable SetRulePriorities where
+  hashWithSalt _salt SetRulePriorities' {..} =
+    _salt `Prelude.hashWithSalt` rulePriorities
 
-instance Prelude.NFData SetRulePriorities
+instance Prelude.NFData SetRulePriorities where
+  rnf SetRulePriorities' {..} =
+    Prelude.rnf rulePriorities
 
 instance Core.ToHeaders SetRulePriorities where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,4 +154,7 @@ setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules}
 setRulePrioritiesResponse_httpStatus :: Lens.Lens' SetRulePrioritiesResponse Prelude.Int
 setRulePrioritiesResponse_httpStatus = Lens.lens (\SetRulePrioritiesResponse' {httpStatus} -> httpStatus) (\s@SetRulePrioritiesResponse' {} a -> s {httpStatus = a} :: SetRulePrioritiesResponse)
 
-instance Prelude.NFData SetRulePrioritiesResponse
+instance Prelude.NFData SetRulePrioritiesResponse where
+  rnf SetRulePrioritiesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus

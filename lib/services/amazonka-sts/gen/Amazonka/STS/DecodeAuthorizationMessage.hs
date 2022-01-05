@@ -124,9 +124,13 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DecodeAuthorizationMessage
+instance Prelude.Hashable DecodeAuthorizationMessage where
+  hashWithSalt _salt DecodeAuthorizationMessage' {..} =
+    _salt `Prelude.hashWithSalt` encodedMessage
 
-instance Prelude.NFData DecodeAuthorizationMessage
+instance Prelude.NFData DecodeAuthorizationMessage where
+  rnf DecodeAuthorizationMessage' {..} =
+    Prelude.rnf encodedMessage
 
 instance Core.ToHeaders DecodeAuthorizationMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +194,7 @@ decodeAuthorizationMessageResponse_httpStatus = Lens.lens (\DecodeAuthorizationM
 instance
   Prelude.NFData
     DecodeAuthorizationMessageResponse
+  where
+  rnf DecodeAuthorizationMessageResponse' {..} =
+    Prelude.rnf decodedMessage
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -75,9 +75,14 @@ instance Core.FromJSON OpsItemDataValue where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable OpsItemDataValue
+instance Prelude.Hashable OpsItemDataValue where
+  hashWithSalt _salt OpsItemDataValue' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData OpsItemDataValue
+instance Prelude.NFData OpsItemDataValue where
+  rnf OpsItemDataValue' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON OpsItemDataValue where
   toJSON OpsItemDataValue' {..} =

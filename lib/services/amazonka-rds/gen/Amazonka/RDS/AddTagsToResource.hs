@@ -103,9 +103,15 @@ instance Core.AWSRequest AddTagsToResource where
   response =
     Response.receiveNull AddTagsToResourceResponse'
 
-instance Prelude.Hashable AddTagsToResource
+instance Prelude.Hashable AddTagsToResource where
+  hashWithSalt _salt AddTagsToResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AddTagsToResource
+instance Prelude.NFData AddTagsToResource where
+  rnf AddTagsToResource' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders AddTagsToResource where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +145,5 @@ newAddTagsToResourceResponse ::
 newAddTagsToResourceResponse =
   AddTagsToResourceResponse'
 
-instance Prelude.NFData AddTagsToResourceResponse
+instance Prelude.NFData AddTagsToResourceResponse where
+  rnf _ = ()

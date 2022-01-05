@@ -169,9 +169,19 @@ instance Core.AWSRequest DescribeAddonVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddonVersions
+instance Prelude.Hashable DescribeAddonVersions where
+  hashWithSalt _salt DescribeAddonVersions' {..} =
+    _salt `Prelude.hashWithSalt` addonName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` kubernetesVersion
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeAddonVersions
+instance Prelude.NFData DescribeAddonVersions where
+  rnf DescribeAddonVersions' {..} =
+    Prelude.rnf addonName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf kubernetesVersion
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAddonVersions where
   toHeaders =
@@ -265,4 +275,8 @@ describeAddonVersionsResponse_nextToken = Lens.lens (\DescribeAddonVersionsRespo
 describeAddonVersionsResponse_httpStatus :: Lens.Lens' DescribeAddonVersionsResponse Prelude.Int
 describeAddonVersionsResponse_httpStatus = Lens.lens (\DescribeAddonVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAddonVersionsResponse' {} a -> s {httpStatus = a} :: DescribeAddonVersionsResponse)
 
-instance Prelude.NFData DescribeAddonVersionsResponse
+instance Prelude.NFData DescribeAddonVersionsResponse where
+  rnf DescribeAddonVersionsResponse' {..} =
+    Prelude.rnf addons
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -152,9 +152,19 @@ instance Core.AWSRequest CreatePullRequest where
             Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Prelude.Hashable CreatePullRequest
+instance Prelude.Hashable CreatePullRequest where
+  hashWithSalt _salt CreatePullRequest' {..} =
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` targets
 
-instance Prelude.NFData CreatePullRequest
+instance Prelude.NFData CreatePullRequest where
+  rnf CreatePullRequest' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToHeaders CreatePullRequest where
   toHeaders =
@@ -232,4 +242,7 @@ createPullRequestResponse_httpStatus = Lens.lens (\CreatePullRequestResponse' {h
 createPullRequestResponse_pullRequest :: Lens.Lens' CreatePullRequestResponse PullRequest
 createPullRequestResponse_pullRequest = Lens.lens (\CreatePullRequestResponse' {pullRequest} -> pullRequest) (\s@CreatePullRequestResponse' {} a -> s {pullRequest = a} :: CreatePullRequestResponse)
 
-instance Prelude.NFData CreatePullRequestResponse
+instance Prelude.NFData CreatePullRequestResponse where
+  rnf CreatePullRequestResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pullRequest

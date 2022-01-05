@@ -105,6 +105,18 @@ instance Core.FromJSON DistributionBundle where
             Prelude.<*> (x Core..:? "isActive")
       )
 
-instance Prelude.Hashable DistributionBundle
+instance Prelude.Hashable DistributionBundle where
+  hashWithSalt _salt DistributionBundle' {..} =
+    _salt `Prelude.hashWithSalt` transferPerMonthInGb
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` isActive
 
-instance Prelude.NFData DistributionBundle
+instance Prelude.NFData DistributionBundle where
+  rnf DistributionBundle' {..} =
+    Prelude.rnf transferPerMonthInGb
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf isActive

@@ -98,6 +98,14 @@ instance Core.FromJSON LocationAttributes where
             Prelude.<*> (x Core..:? "UpdateStatus")
       )
 
-instance Prelude.Hashable LocationAttributes
+instance Prelude.Hashable LocationAttributes where
+  hashWithSalt _salt LocationAttributes' {..} =
+    _salt `Prelude.hashWithSalt` stoppedActions
+      `Prelude.hashWithSalt` locationState
+      `Prelude.hashWithSalt` updateStatus
 
-instance Prelude.NFData LocationAttributes
+instance Prelude.NFData LocationAttributes where
+  rnf LocationAttributes' {..} =
+    Prelude.rnf stoppedActions
+      `Prelude.seq` Prelude.rnf locationState
+      `Prelude.seq` Prelude.rnf updateStatus

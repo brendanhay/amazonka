@@ -121,9 +121,19 @@ instance Core.FromJSON AbortCriteria where
             Prelude.<*> (x Core..: "minNumberOfExecutedThings")
       )
 
-instance Prelude.Hashable AbortCriteria
+instance Prelude.Hashable AbortCriteria where
+  hashWithSalt _salt AbortCriteria' {..} =
+    _salt `Prelude.hashWithSalt` failureType
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` thresholdPercentage
+      `Prelude.hashWithSalt` minNumberOfExecutedThings
 
-instance Prelude.NFData AbortCriteria
+instance Prelude.NFData AbortCriteria where
+  rnf AbortCriteria' {..} =
+    Prelude.rnf failureType
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf thresholdPercentage
+      `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
 
 instance Core.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =

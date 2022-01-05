@@ -67,6 +67,10 @@ instance Core.FromJSON ServiceIntegrationConfig where
             Prelude.<$> (x Core..:? "OpsCenter")
       )
 
-instance Prelude.Hashable ServiceIntegrationConfig
+instance Prelude.Hashable ServiceIntegrationConfig where
+  hashWithSalt _salt ServiceIntegrationConfig' {..} =
+    _salt `Prelude.hashWithSalt` opsCenter
 
-instance Prelude.NFData ServiceIntegrationConfig
+instance Prelude.NFData ServiceIntegrationConfig where
+  rnf ServiceIntegrationConfig' {..} =
+    Prelude.rnf opsCenter

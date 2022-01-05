@@ -109,9 +109,15 @@ instance Core.AWSRequest DisassociateMembers where
                         )
       )
 
-instance Prelude.Hashable DisassociateMembers
+instance Prelude.Hashable DisassociateMembers where
+  hashWithSalt _salt DisassociateMembers' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData DisassociateMembers
+instance Prelude.NFData DisassociateMembers where
+  rnf DisassociateMembers' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders DisassociateMembers where
   toHeaders =
@@ -184,4 +190,7 @@ disassociateMembersResponse_httpStatus = Lens.lens (\DisassociateMembersResponse
 disassociateMembersResponse_unprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
 disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DisassociateMembersResponse
+instance Prelude.NFData DisassociateMembersResponse where
+  rnf DisassociateMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

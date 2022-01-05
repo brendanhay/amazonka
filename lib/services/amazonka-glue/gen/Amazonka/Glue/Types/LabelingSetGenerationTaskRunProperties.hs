@@ -72,7 +72,15 @@ instance
 instance
   Prelude.Hashable
     LabelingSetGenerationTaskRunProperties
+  where
+  hashWithSalt
+    _salt
+    LabelingSetGenerationTaskRunProperties' {..} =
+      _salt `Prelude.hashWithSalt` outputS3Path
 
 instance
   Prelude.NFData
     LabelingSetGenerationTaskRunProperties
+  where
+  rnf LabelingSetGenerationTaskRunProperties' {..} =
+    Prelude.rnf outputS3Path

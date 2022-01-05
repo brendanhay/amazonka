@@ -143,9 +143,19 @@ instance Core.AWSRequest UpdateInputDevice' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInputDevice'
+instance Prelude.Hashable UpdateInputDevice' where
+  hashWithSalt _salt UpdateInputDevice'' {..} =
+    _salt `Prelude.hashWithSalt` hdDeviceSettings
+      `Prelude.hashWithSalt` uhdDeviceSettings
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` inputDeviceId
 
-instance Prelude.NFData UpdateInputDevice'
+instance Prelude.NFData UpdateInputDevice' where
+  rnf UpdateInputDevice'' {..} =
+    Prelude.rnf hdDeviceSettings
+      `Prelude.seq` Prelude.rnf uhdDeviceSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf inputDeviceId
 
 instance Core.ToHeaders UpdateInputDevice' where
   toHeaders =
@@ -329,4 +339,18 @@ updateInputDeviceResponse_connectionState = Lens.lens (\UpdateInputDeviceRespons
 updateInputDeviceResponse_httpStatus :: Lens.Lens' UpdateInputDeviceResponse Prelude.Int
 updateInputDeviceResponse_httpStatus = Lens.lens (\UpdateInputDeviceResponse' {httpStatus} -> httpStatus) (\s@UpdateInputDeviceResponse' {} a -> s {httpStatus = a} :: UpdateInputDeviceResponse)
 
-instance Prelude.NFData UpdateInputDeviceResponse
+instance Prelude.NFData UpdateInputDeviceResponse where
+  rnf UpdateInputDeviceResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf macAddress
+      `Prelude.seq` Prelude.rnf hdDeviceSettings
+      `Prelude.seq` Prelude.rnf uhdDeviceSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf deviceUpdateStatus
+      `Prelude.seq` Prelude.rnf deviceSettingsSyncState
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf networkSettings
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf httpStatus

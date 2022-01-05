@@ -116,6 +116,20 @@ instance Core.FromXML StaleSecurityGroup where
                   )
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable StaleSecurityGroup
+instance Prelude.Hashable StaleSecurityGroup where
+  hashWithSalt _salt StaleSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` staleIpPermissionsEgress
+      `Prelude.hashWithSalt` staleIpPermissions
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StaleSecurityGroup
+instance Prelude.NFData StaleSecurityGroup where
+  rnf StaleSecurityGroup' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf staleIpPermissionsEgress
+      `Prelude.seq` Prelude.rnf staleIpPermissions
+      `Prelude.seq` Prelude.rnf description

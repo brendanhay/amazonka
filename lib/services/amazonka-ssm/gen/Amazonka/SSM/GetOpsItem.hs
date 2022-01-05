@@ -95,9 +95,12 @@ instance Core.AWSRequest GetOpsItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpsItem
+instance Prelude.Hashable GetOpsItem where
+  hashWithSalt _salt GetOpsItem' {..} =
+    _salt `Prelude.hashWithSalt` opsItemId
 
-instance Prelude.NFData GetOpsItem
+instance Prelude.NFData GetOpsItem where
+  rnf GetOpsItem' {..} = Prelude.rnf opsItemId
 
 instance Core.ToHeaders GetOpsItem where
   toHeaders =
@@ -163,4 +166,7 @@ getOpsItemResponse_opsItem = Lens.lens (\GetOpsItemResponse' {opsItem} -> opsIte
 getOpsItemResponse_httpStatus :: Lens.Lens' GetOpsItemResponse Prelude.Int
 getOpsItemResponse_httpStatus = Lens.lens (\GetOpsItemResponse' {httpStatus} -> httpStatus) (\s@GetOpsItemResponse' {} a -> s {httpStatus = a} :: GetOpsItemResponse)
 
-instance Prelude.NFData GetOpsItemResponse
+instance Prelude.NFData GetOpsItemResponse where
+  rnf GetOpsItemResponse' {..} =
+    Prelude.rnf opsItem
+      `Prelude.seq` Prelude.rnf httpStatus

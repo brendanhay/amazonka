@@ -75,6 +75,12 @@ instance Core.FromJSON MergeOperations where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable MergeOperations
+instance Prelude.Hashable MergeOperations where
+  hashWithSalt _salt MergeOperations' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData MergeOperations
+instance Prelude.NFData MergeOperations where
+  rnf MergeOperations' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source

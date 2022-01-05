@@ -221,6 +221,39 @@ instance Core.FromJSON ConnectorSummary where
             Prelude.<*> (x Core..:? "serviceExecutionRoleArn")
       )
 
-instance Prelude.Hashable ConnectorSummary
+instance Prelude.Hashable ConnectorSummary where
+  hashWithSalt _salt ConnectorSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` kafkaCluster
+      `Prelude.hashWithSalt` kafkaConnectVersion
+      `Prelude.hashWithSalt` logDelivery
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` workerConfiguration
+      `Prelude.hashWithSalt` connectorArn
+      `Prelude.hashWithSalt` connectorName
+      `Prelude.hashWithSalt` connectorState
+      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` plugins
+      `Prelude.hashWithSalt` connectorDescription
+      `Prelude.hashWithSalt` kafkaClusterClientAuthentication
+      `Prelude.hashWithSalt` kafkaClusterEncryptionInTransit
+      `Prelude.hashWithSalt` serviceExecutionRoleArn
 
-instance Prelude.NFData ConnectorSummary
+instance Prelude.NFData ConnectorSummary where
+  rnf ConnectorSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf kafkaCluster
+      `Prelude.seq` Prelude.rnf kafkaConnectVersion
+      `Prelude.seq` Prelude.rnf logDelivery
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf workerConfiguration
+      `Prelude.seq` Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf connectorName
+      `Prelude.seq` Prelude.rnf connectorState
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf plugins
+      `Prelude.seq` Prelude.rnf connectorDescription
+      `Prelude.seq` Prelude.rnf kafkaClusterClientAuthentication
+      `Prelude.seq` Prelude.rnf
+        kafkaClusterEncryptionInTransit
+      `Prelude.seq` Prelude.rnf serviceExecutionRoleArn

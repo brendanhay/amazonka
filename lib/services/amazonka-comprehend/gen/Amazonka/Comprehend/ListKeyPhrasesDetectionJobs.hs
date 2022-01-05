@@ -144,9 +144,17 @@ instance Core.AWSRequest ListKeyPhrasesDetectionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListKeyPhrasesDetectionJobs
+instance Prelude.Hashable ListKeyPhrasesDetectionJobs where
+  hashWithSalt _salt ListKeyPhrasesDetectionJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListKeyPhrasesDetectionJobs
+instance Prelude.NFData ListKeyPhrasesDetectionJobs where
+  rnf ListKeyPhrasesDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListKeyPhrasesDetectionJobs where
   toHeaders =
@@ -230,3 +238,8 @@ listKeyPhrasesDetectionJobsResponse_httpStatus = Lens.lens (\ListKeyPhrasesDetec
 instance
   Prelude.NFData
     ListKeyPhrasesDetectionJobsResponse
+  where
+  rnf ListKeyPhrasesDetectionJobsResponse' {..} =
+    Prelude.rnf keyPhrasesDetectionJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

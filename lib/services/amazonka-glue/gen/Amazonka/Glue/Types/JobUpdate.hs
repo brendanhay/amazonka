@@ -415,9 +415,45 @@ jobUpdate_defaultArguments = Lens.lens (\JobUpdate' {defaultArguments} -> defaul
 jobUpdate_description :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Text)
 jobUpdate_description = Lens.lens (\JobUpdate' {description} -> description) (\s@JobUpdate' {} a -> s {description = a} :: JobUpdate)
 
-instance Prelude.Hashable JobUpdate
+instance Prelude.Hashable JobUpdate where
+  hashWithSalt _salt JobUpdate' {..} =
+    _salt `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` nonOverridableArguments
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` executionProperty
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData JobUpdate
+instance Prelude.NFData JobUpdate where
+  rnf JobUpdate' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf nonOverridableArguments
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf executionProperty
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON JobUpdate where
   toJSON JobUpdate' {..} =

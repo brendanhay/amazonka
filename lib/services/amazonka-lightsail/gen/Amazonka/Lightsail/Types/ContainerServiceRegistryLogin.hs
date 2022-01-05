@@ -120,5 +120,16 @@ instance Core.FromJSON ContainerServiceRegistryLogin where
 instance
   Prelude.Hashable
     ContainerServiceRegistryLogin
+  where
+  hashWithSalt _salt ContainerServiceRegistryLogin' {..} =
+    _salt `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` registry
 
-instance Prelude.NFData ContainerServiceRegistryLogin
+instance Prelude.NFData ContainerServiceRegistryLogin where
+  rnf ContainerServiceRegistryLogin' {..} =
+    Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf registry

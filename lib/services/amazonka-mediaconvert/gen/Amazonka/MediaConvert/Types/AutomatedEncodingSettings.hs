@@ -73,9 +73,13 @@ instance Core.FromJSON AutomatedEncodingSettings where
             Prelude.<$> (x Core..:? "abrSettings")
       )
 
-instance Prelude.Hashable AutomatedEncodingSettings
+instance Prelude.Hashable AutomatedEncodingSettings where
+  hashWithSalt _salt AutomatedEncodingSettings' {..} =
+    _salt `Prelude.hashWithSalt` abrSettings
 
-instance Prelude.NFData AutomatedEncodingSettings
+instance Prelude.NFData AutomatedEncodingSettings where
+  rnf AutomatedEncodingSettings' {..} =
+    Prelude.rnf abrSettings
 
 instance Core.ToJSON AutomatedEncodingSettings where
   toJSON AutomatedEncodingSettings' {..} =

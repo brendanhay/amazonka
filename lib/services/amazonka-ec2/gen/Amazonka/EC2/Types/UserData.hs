@@ -56,9 +56,12 @@ newUserData = UserData' {data' = Prelude.Nothing}
 userData_data :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
 userData_data = Lens.lens (\UserData' {data'} -> data') (\s@UserData' {} a -> s {data' = a} :: UserData)
 
-instance Prelude.Hashable UserData
+instance Prelude.Hashable UserData where
+  hashWithSalt _salt UserData' {..} =
+    _salt `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData UserData
+instance Prelude.NFData UserData where
+  rnf UserData' {..} = Prelude.rnf data'
 
 instance Core.ToQuery UserData where
   toQuery UserData' {..} =

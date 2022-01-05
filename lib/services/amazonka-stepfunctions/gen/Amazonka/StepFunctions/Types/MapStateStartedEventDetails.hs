@@ -62,6 +62,10 @@ instance Core.FromJSON MapStateStartedEventDetails where
             Prelude.<$> (x Core..:? "length")
       )
 
-instance Prelude.Hashable MapStateStartedEventDetails
+instance Prelude.Hashable MapStateStartedEventDetails where
+  hashWithSalt _salt MapStateStartedEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` length
 
-instance Prelude.NFData MapStateStartedEventDetails
+instance Prelude.NFData MapStateStartedEventDetails where
+  rnf MapStateStartedEventDetails' {..} =
+    Prelude.rnf length

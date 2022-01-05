@@ -106,6 +106,18 @@ instance Core.FromJSON Settings where
             Prelude.<*> (x Core..:? "isAwsOrgEnabled")
       )
 
-instance Prelude.Hashable Settings
+instance Prelude.Hashable Settings where
+  hashWithSalt _salt Settings' {..} =
+    _salt `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` snsTopic
+      `Prelude.hashWithSalt` defaultProcessOwners
+      `Prelude.hashWithSalt` isAwsOrgEnabled
 
-instance Prelude.NFData Settings
+instance Prelude.NFData Settings where
+  rnf Settings' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
+      `Prelude.seq` Prelude.rnf snsTopic
+      `Prelude.seq` Prelude.rnf defaultProcessOwners
+      `Prelude.seq` Prelude.rnf isAwsOrgEnabled

@@ -59,6 +59,9 @@ instance Core.FromJSON ResetActionConfiguration where
             Prelude.<$> (x Core..:? "note")
       )
 
-instance Prelude.Hashable ResetActionConfiguration
+instance Prelude.Hashable ResetActionConfiguration where
+  hashWithSalt _salt ResetActionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` note
 
-instance Prelude.NFData ResetActionConfiguration
+instance Prelude.NFData ResetActionConfiguration where
+  rnf ResetActionConfiguration' {..} = Prelude.rnf note

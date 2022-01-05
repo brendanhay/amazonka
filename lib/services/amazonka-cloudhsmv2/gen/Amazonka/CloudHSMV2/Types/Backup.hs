@@ -188,6 +188,30 @@ instance Core.FromJSON Backup where
             Prelude.<*> (x Core..: "BackupId")
       )
 
-instance Prelude.Hashable Backup
+instance Prelude.Hashable Backup where
+  hashWithSalt _salt Backup' {..} =
+    _salt `Prelude.hashWithSalt` deleteTimestamp
+      `Prelude.hashWithSalt` sourceCluster
+      `Prelude.hashWithSalt` neverExpires
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` sourceBackup
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` copyTimestamp
+      `Prelude.hashWithSalt` backupState
+      `Prelude.hashWithSalt` backupId
 
-instance Prelude.NFData Backup
+instance Prelude.NFData Backup where
+  rnf Backup' {..} =
+    Prelude.rnf deleteTimestamp
+      `Prelude.seq` Prelude.rnf sourceCluster
+      `Prelude.seq` Prelude.rnf neverExpires
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf sourceBackup
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf copyTimestamp
+      `Prelude.seq` Prelude.rnf backupState
+      `Prelude.seq` Prelude.rnf backupId

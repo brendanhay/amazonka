@@ -92,6 +92,16 @@ instance Core.FromJSON MissionProfileListItem where
             Prelude.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable MissionProfileListItem
+instance Prelude.Hashable MissionProfileListItem where
+  hashWithSalt _salt MissionProfileListItem' {..} =
+    _salt `Prelude.hashWithSalt` missionProfileId
+      `Prelude.hashWithSalt` missionProfileArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData MissionProfileListItem
+instance Prelude.NFData MissionProfileListItem where
+  rnf MissionProfileListItem' {..} =
+    Prelude.rnf missionProfileId
+      `Prelude.seq` Prelude.rnf missionProfileArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf region

@@ -214,9 +214,31 @@ instance Core.AWSRequest UpdateIdentityPool where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateIdentityPool
+instance Prelude.Hashable UpdateIdentityPool where
+  hashWithSalt _salt UpdateIdentityPool' {..} =
+    _salt `Prelude.hashWithSalt` samlProviderARNs
+      `Prelude.hashWithSalt` supportedLoginProviders
+      `Prelude.hashWithSalt` allowClassicFlow
+      `Prelude.hashWithSalt` developerProviderName
+      `Prelude.hashWithSalt` identityPoolTags
+      `Prelude.hashWithSalt` openIdConnectProviderARNs
+      `Prelude.hashWithSalt` cognitoIdentityProviders
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityPoolName
+      `Prelude.hashWithSalt` allowUnauthenticatedIdentities
 
-instance Prelude.NFData UpdateIdentityPool
+instance Prelude.NFData UpdateIdentityPool where
+  rnf UpdateIdentityPool' {..} =
+    Prelude.rnf samlProviderARNs
+      `Prelude.seq` Prelude.rnf supportedLoginProviders
+      `Prelude.seq` Prelude.rnf allowClassicFlow
+      `Prelude.seq` Prelude.rnf developerProviderName
+      `Prelude.seq` Prelude.rnf identityPoolTags
+      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
+      `Prelude.seq` Prelude.rnf cognitoIdentityProviders
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityPoolName
+      `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
 
 instance Core.ToHeaders UpdateIdentityPool where
   toHeaders =

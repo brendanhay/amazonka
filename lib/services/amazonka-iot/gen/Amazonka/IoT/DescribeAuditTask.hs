@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeAuditTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuditTask
+instance Prelude.Hashable DescribeAuditTask where
+  hashWithSalt _salt DescribeAuditTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData DescribeAuditTask
+instance Prelude.NFData DescribeAuditTask where
+  rnf DescribeAuditTask' {..} = Prelude.rnf taskId
 
 instance Core.ToHeaders DescribeAuditTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +207,12 @@ describeAuditTaskResponse_taskStatus = Lens.lens (\DescribeAuditTaskResponse' {t
 describeAuditTaskResponse_httpStatus :: Lens.Lens' DescribeAuditTaskResponse Prelude.Int
 describeAuditTaskResponse_httpStatus = Lens.lens (\DescribeAuditTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeAuditTaskResponse' {} a -> s {httpStatus = a} :: DescribeAuditTaskResponse)
 
-instance Prelude.NFData DescribeAuditTaskResponse
+instance Prelude.NFData DescribeAuditTaskResponse where
+  rnf DescribeAuditTaskResponse' {..} =
+    Prelude.rnf auditDetails
+      `Prelude.seq` Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf taskStartTime
+      `Prelude.seq` Prelude.rnf taskStatistics
+      `Prelude.seq` Prelude.rnf scheduledAuditName
+      `Prelude.seq` Prelude.rnf taskStatus
+      `Prelude.seq` Prelude.rnf httpStatus

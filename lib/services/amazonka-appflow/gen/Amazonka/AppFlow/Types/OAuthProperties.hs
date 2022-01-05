@@ -94,9 +94,17 @@ instance Core.FromJSON OAuthProperties where
             Prelude.<*> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OAuthProperties
+instance Prelude.Hashable OAuthProperties where
+  hashWithSalt _salt OAuthProperties' {..} =
+    _salt `Prelude.hashWithSalt` tokenUrl
+      `Prelude.hashWithSalt` authCodeUrl
+      `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData OAuthProperties
+instance Prelude.NFData OAuthProperties where
+  rnf OAuthProperties' {..} =
+    Prelude.rnf tokenUrl
+      `Prelude.seq` Prelude.rnf authCodeUrl
+      `Prelude.seq` Prelude.rnf oAuthScopes
 
 instance Core.ToJSON OAuthProperties where
   toJSON OAuthProperties' {..} =

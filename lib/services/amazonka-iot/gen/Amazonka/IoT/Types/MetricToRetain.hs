@@ -74,9 +74,15 @@ instance Core.FromJSON MetricToRetain where
             Prelude.<*> (x Core..: "metric")
       )
 
-instance Prelude.Hashable MetricToRetain
+instance Prelude.Hashable MetricToRetain where
+  hashWithSalt _salt MetricToRetain' {..} =
+    _salt `Prelude.hashWithSalt` metricDimension
+      `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData MetricToRetain
+instance Prelude.NFData MetricToRetain where
+  rnf MetricToRetain' {..} =
+    Prelude.rnf metricDimension
+      `Prelude.seq` Prelude.rnf metric
 
 instance Core.ToJSON MetricToRetain where
   toJSON MetricToRetain' {..} =

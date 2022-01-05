@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteJourney where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteJourney
+instance Prelude.Hashable DeleteJourney where
+  hashWithSalt _salt DeleteJourney' {..} =
+    _salt `Prelude.hashWithSalt` journeyId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteJourney
+instance Prelude.NFData DeleteJourney where
+  rnf DeleteJourney' {..} =
+    Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteJourney where
   toHeaders =
@@ -171,4 +177,7 @@ deleteJourneyResponse_httpStatus = Lens.lens (\DeleteJourneyResponse' {httpStatu
 deleteJourneyResponse_journeyResponse :: Lens.Lens' DeleteJourneyResponse JourneyResponse
 deleteJourneyResponse_journeyResponse = Lens.lens (\DeleteJourneyResponse' {journeyResponse} -> journeyResponse) (\s@DeleteJourneyResponse' {} a -> s {journeyResponse = a} :: DeleteJourneyResponse)
 
-instance Prelude.NFData DeleteJourneyResponse
+instance Prelude.NFData DeleteJourneyResponse where
+  rnf DeleteJourneyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyResponse

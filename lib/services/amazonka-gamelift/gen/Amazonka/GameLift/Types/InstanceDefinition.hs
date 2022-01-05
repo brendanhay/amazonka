@@ -99,9 +99,15 @@ instance Core.FromJSON InstanceDefinition where
             Prelude.<*> (x Core..: "InstanceType")
       )
 
-instance Prelude.Hashable InstanceDefinition
+instance Prelude.Hashable InstanceDefinition where
+  hashWithSalt _salt InstanceDefinition' {..} =
+    _salt `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData InstanceDefinition
+instance Prelude.NFData InstanceDefinition where
+  rnf InstanceDefinition' {..} =
+    Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =

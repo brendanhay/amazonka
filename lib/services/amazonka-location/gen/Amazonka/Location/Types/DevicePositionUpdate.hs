@@ -93,9 +93,17 @@ devicePositionUpdate_position = Lens.lens (\DevicePositionUpdate' {position} -> 
 devicePositionUpdate_sampleTime :: Lens.Lens' DevicePositionUpdate Prelude.UTCTime
 devicePositionUpdate_sampleTime = Lens.lens (\DevicePositionUpdate' {sampleTime} -> sampleTime) (\s@DevicePositionUpdate' {} a -> s {sampleTime = a} :: DevicePositionUpdate) Prelude.. Core._Time
 
-instance Prelude.Hashable DevicePositionUpdate
+instance Prelude.Hashable DevicePositionUpdate where
+  hashWithSalt _salt DevicePositionUpdate' {..} =
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` sampleTime
 
-instance Prelude.NFData DevicePositionUpdate
+instance Prelude.NFData DevicePositionUpdate where
+  rnf DevicePositionUpdate' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf sampleTime
 
 instance Core.ToJSON DevicePositionUpdate where
   toJSON DevicePositionUpdate' {..} =

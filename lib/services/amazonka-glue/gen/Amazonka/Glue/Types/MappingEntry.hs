@@ -111,9 +111,23 @@ instance Core.FromJSON MappingEntry where
             Prelude.<*> (x Core..:? "SourcePath")
       )
 
-instance Prelude.Hashable MappingEntry
+instance Prelude.Hashable MappingEntry where
+  hashWithSalt _salt MappingEntry' {..} =
+    _salt `Prelude.hashWithSalt` targetTable
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceTable
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` targetPath
+      `Prelude.hashWithSalt` sourcePath
 
-instance Prelude.NFData MappingEntry
+instance Prelude.NFData MappingEntry where
+  rnf MappingEntry' {..} =
+    Prelude.rnf targetTable
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceTable
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf targetPath
+      `Prelude.seq` Prelude.rnf sourcePath
 
 instance Core.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =

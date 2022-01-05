@@ -177,6 +177,28 @@ instance Core.FromJSON FirewallDomainList where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable FirewallDomainList
+instance Prelude.Hashable FirewallDomainList where
+  hashWithSalt _salt FirewallDomainList' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` managedOwnerName
+      `Prelude.hashWithSalt` domainCount
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FirewallDomainList
+instance Prelude.NFData FirewallDomainList where
+  rnf FirewallDomainList' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf managedOwnerName
+      `Prelude.seq` Prelude.rnf domainCount
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id

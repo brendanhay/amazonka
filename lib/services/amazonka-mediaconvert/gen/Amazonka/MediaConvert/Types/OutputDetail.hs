@@ -72,6 +72,12 @@ instance Core.FromJSON OutputDetail where
             Prelude.<*> (x Core..:? "durationInMs")
       )
 
-instance Prelude.Hashable OutputDetail
+instance Prelude.Hashable OutputDetail where
+  hashWithSalt _salt OutputDetail' {..} =
+    _salt `Prelude.hashWithSalt` videoDetails
+      `Prelude.hashWithSalt` durationInMs
 
-instance Prelude.NFData OutputDetail
+instance Prelude.NFData OutputDetail where
+  rnf OutputDetail' {..} =
+    Prelude.rnf videoDetails
+      `Prelude.seq` Prelude.rnf durationInMs

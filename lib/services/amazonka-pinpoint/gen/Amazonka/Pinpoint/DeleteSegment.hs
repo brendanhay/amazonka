@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteSegment where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteSegment
+instance Prelude.Hashable DeleteSegment where
+  hashWithSalt _salt DeleteSegment' {..} =
+    _salt `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteSegment
+instance Prelude.NFData DeleteSegment where
+  rnf DeleteSegment' {..} =
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteSegment where
   toHeaders =
@@ -171,4 +177,7 @@ deleteSegmentResponse_httpStatus = Lens.lens (\DeleteSegmentResponse' {httpStatu
 deleteSegmentResponse_segmentResponse :: Lens.Lens' DeleteSegmentResponse SegmentResponse
 deleteSegmentResponse_segmentResponse = Lens.lens (\DeleteSegmentResponse' {segmentResponse} -> segmentResponse) (\s@DeleteSegmentResponse' {} a -> s {segmentResponse = a} :: DeleteSegmentResponse)
 
-instance Prelude.NFData DeleteSegmentResponse
+instance Prelude.NFData DeleteSegmentResponse where
+  rnf DeleteSegmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf segmentResponse

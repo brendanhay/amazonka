@@ -117,6 +117,18 @@ instance Core.FromJSON FederatedUser where
             Prelude.<*> (x Core..:? "accessKeyId")
       )
 
-instance Prelude.Hashable FederatedUser
+instance Prelude.Hashable FederatedUser where
+  hashWithSalt _salt FederatedUser' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` sessionContext
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData FederatedUser
+instance Prelude.NFData FederatedUser where
+  rnf FederatedUser' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sessionContext
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf accessKeyId

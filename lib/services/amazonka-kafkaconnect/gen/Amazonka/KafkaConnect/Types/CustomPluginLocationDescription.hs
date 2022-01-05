@@ -72,7 +72,15 @@ instance
 instance
   Prelude.Hashable
     CustomPluginLocationDescription
+  where
+  hashWithSalt
+    _salt
+    CustomPluginLocationDescription' {..} =
+      _salt `Prelude.hashWithSalt` s3Location
 
 instance
   Prelude.NFData
     CustomPluginLocationDescription
+  where
+  rnf CustomPluginLocationDescription' {..} =
+    Prelude.rnf s3Location

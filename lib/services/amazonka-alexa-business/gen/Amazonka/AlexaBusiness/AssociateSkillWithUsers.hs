@@ -85,9 +85,13 @@ instance Core.AWSRequest AssociateSkillWithUsers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSkillWithUsers
+instance Prelude.Hashable AssociateSkillWithUsers where
+  hashWithSalt _salt AssociateSkillWithUsers' {..} =
+    _salt `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData AssociateSkillWithUsers
+instance Prelude.NFData AssociateSkillWithUsers where
+  rnf AssociateSkillWithUsers' {..} =
+    Prelude.rnf skillId
 
 instance Core.ToHeaders AssociateSkillWithUsers where
   toHeaders =
@@ -150,3 +154,6 @@ associateSkillWithUsersResponse_httpStatus = Lens.lens (\AssociateSkillWithUsers
 instance
   Prelude.NFData
     AssociateSkillWithUsersResponse
+  where
+  rnf AssociateSkillWithUsersResponse' {..} =
+    Prelude.rnf httpStatus

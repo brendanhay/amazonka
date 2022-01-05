@@ -118,6 +118,20 @@ instance Core.FromJSON DeploymentOverview where
             Prelude.<*> (x Core..:? "Failed")
       )
 
-instance Prelude.Hashable DeploymentOverview
+instance Prelude.Hashable DeploymentOverview where
+  hashWithSalt _salt DeploymentOverview' {..} =
+    _salt `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` skipped
+      `Prelude.hashWithSalt` inProgress
+      `Prelude.hashWithSalt` succeeded
+      `Prelude.hashWithSalt` ready
+      `Prelude.hashWithSalt` failed
 
-instance Prelude.NFData DeploymentOverview
+instance Prelude.NFData DeploymentOverview where
+  rnf DeploymentOverview' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf skipped
+      `Prelude.seq` Prelude.rnf inProgress
+      `Prelude.seq` Prelude.rnf succeeded
+      `Prelude.seq` Prelude.rnf ready
+      `Prelude.seq` Prelude.rnf failed

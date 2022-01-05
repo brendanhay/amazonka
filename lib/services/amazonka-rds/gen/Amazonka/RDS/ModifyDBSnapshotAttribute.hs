@@ -217,9 +217,19 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBSnapshotAttribute
+instance Prelude.Hashable ModifyDBSnapshotAttribute where
+  hashWithSalt _salt ModifyDBSnapshotAttribute' {..} =
+    _salt `Prelude.hashWithSalt` valuesToAdd
+      `Prelude.hashWithSalt` valuesToRemove
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData ModifyDBSnapshotAttribute
+instance Prelude.NFData ModifyDBSnapshotAttribute where
+  rnf ModifyDBSnapshotAttribute' {..} =
+    Prelude.rnf valuesToAdd
+      `Prelude.seq` Prelude.rnf valuesToRemove
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToHeaders ModifyDBSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,3 +299,7 @@ modifyDBSnapshotAttributeResponse_httpStatus = Lens.lens (\ModifyDBSnapshotAttri
 instance
   Prelude.NFData
     ModifyDBSnapshotAttributeResponse
+  where
+  rnf ModifyDBSnapshotAttributeResponse' {..} =
+    Prelude.rnf dbSnapshotAttributesResult
+      `Prelude.seq` Prelude.rnf httpStatus

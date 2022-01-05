@@ -70,9 +70,14 @@ listEventTypesFilter_name = Lens.lens (\ListEventTypesFilter' {name} -> name) (\
 listEventTypesFilter_value :: Lens.Lens' ListEventTypesFilter Prelude.Text
 listEventTypesFilter_value = Lens.lens (\ListEventTypesFilter' {value} -> value) (\s@ListEventTypesFilter' {} a -> s {value = a} :: ListEventTypesFilter)
 
-instance Prelude.Hashable ListEventTypesFilter
+instance Prelude.Hashable ListEventTypesFilter where
+  hashWithSalt _salt ListEventTypesFilter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ListEventTypesFilter
+instance Prelude.NFData ListEventTypesFilter where
+  rnf ListEventTypesFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ListEventTypesFilter where
   toJSON ListEventTypesFilter' {..} =

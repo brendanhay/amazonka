@@ -241,9 +241,35 @@ instance Core.AWSRequest CreateLicenseVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLicenseVersion
+instance Prelude.Hashable CreateLicenseVersion where
+  hashWithSalt _salt CreateLicenseVersion' {..} =
+    _salt `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` licenseMetadata
+      `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` licenseName
+      `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` consumptionConfiguration
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateLicenseVersion
+instance Prelude.NFData CreateLicenseVersion where
+  rnf CreateLicenseVersion' {..} =
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf licenseMetadata
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf licenseName
+      `Prelude.seq` Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf consumptionConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateLicenseVersion where
   toHeaders =
@@ -346,4 +372,9 @@ createLicenseVersionResponse_licenseArn = Lens.lens (\CreateLicenseVersionRespon
 createLicenseVersionResponse_httpStatus :: Lens.Lens' CreateLicenseVersionResponse Prelude.Int
 createLicenseVersionResponse_httpStatus = Lens.lens (\CreateLicenseVersionResponse' {httpStatus} -> httpStatus) (\s@CreateLicenseVersionResponse' {} a -> s {httpStatus = a} :: CreateLicenseVersionResponse)
 
-instance Prelude.NFData CreateLicenseVersionResponse
+instance Prelude.NFData CreateLicenseVersionResponse where
+  rnf CreateLicenseVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf httpStatus

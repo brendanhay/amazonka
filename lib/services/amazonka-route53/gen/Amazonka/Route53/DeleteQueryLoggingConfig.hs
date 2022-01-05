@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteQueryLoggingConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueryLoggingConfig
+instance Prelude.Hashable DeleteQueryLoggingConfig where
+  hashWithSalt _salt DeleteQueryLoggingConfig' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteQueryLoggingConfig
+instance Prelude.NFData DeleteQueryLoggingConfig where
+  rnf DeleteQueryLoggingConfig' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteQueryLoggingConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,3 +141,6 @@ deleteQueryLoggingConfigResponse_httpStatus = Lens.lens (\DeleteQueryLoggingConf
 instance
   Prelude.NFData
     DeleteQueryLoggingConfigResponse
+  where
+  rnf DeleteQueryLoggingConfigResponse' {..} =
+    Prelude.rnf httpStatus

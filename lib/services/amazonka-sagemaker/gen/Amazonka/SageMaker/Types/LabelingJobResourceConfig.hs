@@ -127,9 +127,13 @@ instance Core.FromJSON LabelingJobResourceConfig where
             Prelude.<$> (x Core..:? "VolumeKmsKeyId")
       )
 
-instance Prelude.Hashable LabelingJobResourceConfig
+instance Prelude.Hashable LabelingJobResourceConfig where
+  hashWithSalt _salt LabelingJobResourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` volumeKmsKeyId
 
-instance Prelude.NFData LabelingJobResourceConfig
+instance Prelude.NFData LabelingJobResourceConfig where
+  rnf LabelingJobResourceConfig' {..} =
+    Prelude.rnf volumeKmsKeyId
 
 instance Core.ToJSON LabelingJobResourceConfig where
   toJSON LabelingJobResourceConfig' {..} =

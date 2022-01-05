@@ -76,6 +76,12 @@ instance Core.FromJSON OutputResources where
             Prelude.<*> (x Core..:? "amis" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OutputResources
+instance Prelude.Hashable OutputResources where
+  hashWithSalt _salt OutputResources' {..} =
+    _salt `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` amis
 
-instance Prelude.NFData OutputResources
+instance Prelude.NFData OutputResources where
+  rnf OutputResources' {..} =
+    Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf amis

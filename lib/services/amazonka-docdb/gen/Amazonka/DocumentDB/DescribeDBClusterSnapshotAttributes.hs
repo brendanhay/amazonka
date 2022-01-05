@@ -107,10 +107,19 @@ instance
 instance
   Prelude.Hashable
     DescribeDBClusterSnapshotAttributes
+  where
+  hashWithSalt
+    _salt
+    DescribeDBClusterSnapshotAttributes' {..} =
+      _salt
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
 
 instance
   Prelude.NFData
     DescribeDBClusterSnapshotAttributes
+  where
+  rnf DescribeDBClusterSnapshotAttributes' {..} =
+    Prelude.rnf dbClusterSnapshotIdentifier
 
 instance
   Core.ToHeaders
@@ -182,3 +191,7 @@ describeDBClusterSnapshotAttributesResponse_httpStatus = Lens.lens (\DescribeDBC
 instance
   Prelude.NFData
     DescribeDBClusterSnapshotAttributesResponse
+  where
+  rnf DescribeDBClusterSnapshotAttributesResponse' {..} =
+    Prelude.rnf dbClusterSnapshotAttributesResult
+      `Prelude.seq` Prelude.rnf httpStatus

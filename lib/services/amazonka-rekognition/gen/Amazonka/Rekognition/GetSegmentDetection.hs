@@ -171,9 +171,17 @@ instance Core.AWSRequest GetSegmentDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSegmentDetection
+instance Prelude.Hashable GetSegmentDetection where
+  hashWithSalt _salt GetSegmentDetection' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetSegmentDetection
+instance Prelude.NFData GetSegmentDetection where
+  rnf GetSegmentDetection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetSegmentDetection where
   toHeaders =
@@ -350,4 +358,13 @@ getSegmentDetectionResponse_audioMetadata = Lens.lens (\GetSegmentDetectionRespo
 getSegmentDetectionResponse_httpStatus :: Lens.Lens' GetSegmentDetectionResponse Prelude.Int
 getSegmentDetectionResponse_httpStatus = Lens.lens (\GetSegmentDetectionResponse' {httpStatus} -> httpStatus) (\s@GetSegmentDetectionResponse' {} a -> s {httpStatus = a} :: GetSegmentDetectionResponse)
 
-instance Prelude.NFData GetSegmentDetectionResponse
+instance Prelude.NFData GetSegmentDetectionResponse where
+  rnf GetSegmentDetectionResponse' {..} =
+    Prelude.rnf selectedSegmentTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf videoMetadata
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf segments
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf audioMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

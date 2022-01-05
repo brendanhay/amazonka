@@ -133,9 +133,19 @@ instance Core.AWSRequest SendWorkflowStepState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendWorkflowStepState
+instance Prelude.Hashable SendWorkflowStepState where
+  hashWithSalt _salt SendWorkflowStepState' {..} =
+    _salt `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SendWorkflowStepState
+instance Prelude.NFData SendWorkflowStepState where
+  rnf SendWorkflowStepState' {..} =
+    Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders SendWorkflowStepState where
   toHeaders =
@@ -199,4 +209,6 @@ newSendWorkflowStepStateResponse pHttpStatus_ =
 sendWorkflowStepStateResponse_httpStatus :: Lens.Lens' SendWorkflowStepStateResponse Prelude.Int
 sendWorkflowStepStateResponse_httpStatus = Lens.lens (\SendWorkflowStepStateResponse' {httpStatus} -> httpStatus) (\s@SendWorkflowStepStateResponse' {} a -> s {httpStatus = a} :: SendWorkflowStepStateResponse)
 
-instance Prelude.NFData SendWorkflowStepStateResponse
+instance Prelude.NFData SendWorkflowStepStateResponse where
+  rnf SendWorkflowStepStateResponse' {..} =
+    Prelude.rnf httpStatus

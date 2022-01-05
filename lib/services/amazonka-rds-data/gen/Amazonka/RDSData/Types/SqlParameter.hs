@@ -138,9 +138,17 @@ sqlParameter_name = Lens.lens (\SqlParameter' {name} -> name) (\s@SqlParameter' 
 sqlParameter_typeHint :: Lens.Lens' SqlParameter (Prelude.Maybe TypeHint)
 sqlParameter_typeHint = Lens.lens (\SqlParameter' {typeHint} -> typeHint) (\s@SqlParameter' {} a -> s {typeHint = a} :: SqlParameter)
 
-instance Prelude.Hashable SqlParameter
+instance Prelude.Hashable SqlParameter where
+  hashWithSalt _salt SqlParameter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` typeHint
 
-instance Prelude.NFData SqlParameter
+instance Prelude.NFData SqlParameter where
+  rnf SqlParameter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf typeHint
 
 instance Core.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =

@@ -127,9 +127,25 @@ restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreR
 restoreRequest_description :: Lens.Lens' RestoreRequest (Prelude.Maybe Prelude.Text)
 restoreRequest_description = Lens.lens (\RestoreRequest' {description} -> description) (\s@RestoreRequest' {} a -> s {description = a} :: RestoreRequest)
 
-instance Prelude.Hashable RestoreRequest
+instance Prelude.Hashable RestoreRequest where
+  hashWithSalt _salt RestoreRequest' {..} =
+    _salt `Prelude.hashWithSalt` days
+      `Prelude.hashWithSalt` selectParameters
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` glacierJobParameters
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RestoreRequest
+instance Prelude.NFData RestoreRequest where
+  rnf RestoreRequest' {..} =
+    Prelude.rnf days
+      `Prelude.seq` Prelude.rnf selectParameters
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf glacierJobParameters
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToXML RestoreRequest where
   toXML RestoreRequest' {..} =

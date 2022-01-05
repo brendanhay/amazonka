@@ -65,9 +65,12 @@ instance Core.FromJSON M2tsScte35Esam where
             Prelude.<$> (x Core..:? "scte35EsamPid")
       )
 
-instance Prelude.Hashable M2tsScte35Esam
+instance Prelude.Hashable M2tsScte35Esam where
+  hashWithSalt _salt M2tsScte35Esam' {..} =
+    _salt `Prelude.hashWithSalt` scte35EsamPid
 
-instance Prelude.NFData M2tsScte35Esam
+instance Prelude.NFData M2tsScte35Esam where
+  rnf M2tsScte35Esam' {..} = Prelude.rnf scte35EsamPid
 
 instance Core.ToJSON M2tsScte35Esam where
   toJSON M2tsScte35Esam' {..} =

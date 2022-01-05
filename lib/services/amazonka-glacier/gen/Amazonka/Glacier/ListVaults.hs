@@ -180,9 +180,17 @@ instance Core.AWSRequest ListVaults where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVaults
+instance Prelude.Hashable ListVaults where
+  hashWithSalt _salt ListVaults' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ListVaults
+instance Prelude.NFData ListVaults where
+  rnf ListVaults' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders ListVaults where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,4 +260,8 @@ listVaultsResponse_vaultList = Lens.lens (\ListVaultsResponse' {vaultList} -> va
 listVaultsResponse_httpStatus :: Lens.Lens' ListVaultsResponse Prelude.Int
 listVaultsResponse_httpStatus = Lens.lens (\ListVaultsResponse' {httpStatus} -> httpStatus) (\s@ListVaultsResponse' {} a -> s {httpStatus = a} :: ListVaultsResponse)
 
-instance Prelude.NFData ListVaultsResponse
+instance Prelude.NFData ListVaultsResponse where
+  rnf ListVaultsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf vaultList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     ListBulkDeploymentDetailedReports
+  where
+  hashWithSalt
+    _salt
+    ListBulkDeploymentDetailedReports' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` bulkDeploymentId
 
 instance
   Prelude.NFData
     ListBulkDeploymentDetailedReports
+  where
+  rnf ListBulkDeploymentDetailedReports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf bulkDeploymentId
 
 instance
   Core.ToHeaders
@@ -247,3 +259,8 @@ listBulkDeploymentDetailedReportsResponse_httpStatus = Lens.lens (\ListBulkDeplo
 instance
   Prelude.NFData
     ListBulkDeploymentDetailedReportsResponse
+  where
+  rnf ListBulkDeploymentDetailedReportsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deployments
+      `Prelude.seq` Prelude.rnf httpStatus

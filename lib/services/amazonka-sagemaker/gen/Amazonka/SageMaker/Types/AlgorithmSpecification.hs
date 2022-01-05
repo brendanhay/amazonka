@@ -193,9 +193,22 @@ instance Core.FromJSON AlgorithmSpecification where
             Prelude.<*> (x Core..: "TrainingInputMode")
       )
 
-instance Prelude.Hashable AlgorithmSpecification
+instance Prelude.Hashable AlgorithmSpecification where
+  hashWithSalt _salt AlgorithmSpecification' {..} =
+    _salt
+      `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries
+      `Prelude.hashWithSalt` algorithmName
+      `Prelude.hashWithSalt` trainingImage
+      `Prelude.hashWithSalt` metricDefinitions
+      `Prelude.hashWithSalt` trainingInputMode
 
-instance Prelude.NFData AlgorithmSpecification
+instance Prelude.NFData AlgorithmSpecification where
+  rnf AlgorithmSpecification' {..} =
+    Prelude.rnf enableSageMakerMetricsTimeSeries
+      `Prelude.seq` Prelude.rnf algorithmName
+      `Prelude.seq` Prelude.rnf trainingImage
+      `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance Core.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =

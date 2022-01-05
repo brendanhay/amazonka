@@ -92,6 +92,16 @@ instance Core.FromJSON PathElement where
             Prelude.<*> (x Core..:? "index")
       )
 
-instance Prelude.Hashable PathElement
+instance Prelude.Hashable PathElement where
+  hashWithSalt _salt PathElement' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` substring
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` index
 
-instance Prelude.NFData PathElement
+instance Prelude.NFData PathElement where
+  rnf PathElement' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf substring
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf index

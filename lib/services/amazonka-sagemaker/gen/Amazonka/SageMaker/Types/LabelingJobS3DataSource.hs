@@ -115,9 +115,13 @@ instance Core.FromJSON LabelingJobS3DataSource where
             Prelude.<$> (x Core..: "ManifestS3Uri")
       )
 
-instance Prelude.Hashable LabelingJobS3DataSource
+instance Prelude.Hashable LabelingJobS3DataSource where
+  hashWithSalt _salt LabelingJobS3DataSource' {..} =
+    _salt `Prelude.hashWithSalt` manifestS3Uri
 
-instance Prelude.NFData LabelingJobS3DataSource
+instance Prelude.NFData LabelingJobS3DataSource where
+  rnf LabelingJobS3DataSource' {..} =
+    Prelude.rnf manifestS3Uri
 
 instance Core.ToJSON LabelingJobS3DataSource where
   toJSON LabelingJobS3DataSource' {..} =

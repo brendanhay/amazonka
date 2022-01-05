@@ -99,9 +99,15 @@ instance Core.FromJSON ModelDeployConfig where
             Prelude.<*> (x Core..:? "AutoGenerateEndpointName")
       )
 
-instance Prelude.Hashable ModelDeployConfig
+instance Prelude.Hashable ModelDeployConfig where
+  hashWithSalt _salt ModelDeployConfig' {..} =
+    _salt `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` autoGenerateEndpointName
 
-instance Prelude.NFData ModelDeployConfig
+instance Prelude.NFData ModelDeployConfig where
+  rnf ModelDeployConfig' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf autoGenerateEndpointName
 
 instance Core.ToJSON ModelDeployConfig where
   toJSON ModelDeployConfig' {..} =

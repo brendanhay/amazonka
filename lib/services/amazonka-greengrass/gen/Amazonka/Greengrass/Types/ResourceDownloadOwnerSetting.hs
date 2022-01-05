@@ -91,8 +91,15 @@ instance Core.FromJSON ResourceDownloadOwnerSetting where
 instance
   Prelude.Hashable
     ResourceDownloadOwnerSetting
+  where
+  hashWithSalt _salt ResourceDownloadOwnerSetting' {..} =
+    _salt `Prelude.hashWithSalt` groupOwner
+      `Prelude.hashWithSalt` groupPermission
 
-instance Prelude.NFData ResourceDownloadOwnerSetting
+instance Prelude.NFData ResourceDownloadOwnerSetting where
+  rnf ResourceDownloadOwnerSetting' {..} =
+    Prelude.rnf groupOwner
+      `Prelude.seq` Prelude.rnf groupPermission
 
 instance Core.ToJSON ResourceDownloadOwnerSetting where
   toJSON ResourceDownloadOwnerSetting' {..} =

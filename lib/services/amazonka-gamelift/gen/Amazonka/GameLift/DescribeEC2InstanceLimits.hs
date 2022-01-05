@@ -175,9 +175,15 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEC2InstanceLimits
+instance Prelude.Hashable DescribeEC2InstanceLimits where
+  hashWithSalt _salt DescribeEC2InstanceLimits' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` eC2InstanceType
 
-instance Prelude.NFData DescribeEC2InstanceLimits
+instance Prelude.NFData DescribeEC2InstanceLimits where
+  rnf DescribeEC2InstanceLimits' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf eC2InstanceType
 
 instance Core.ToHeaders DescribeEC2InstanceLimits where
   toHeaders =
@@ -254,3 +260,7 @@ describeEC2InstanceLimitsResponse_httpStatus = Lens.lens (\DescribeEC2InstanceLi
 instance
   Prelude.NFData
     DescribeEC2InstanceLimitsResponse
+  where
+  rnf DescribeEC2InstanceLimitsResponse' {..} =
+    Prelude.rnf eC2InstanceLimits
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -72,6 +72,12 @@ instance Core.FromJSON Principal where
             Prelude.<*> (x Core..:? "PrincipalARN")
       )
 
-instance Prelude.Hashable Principal
+instance Prelude.Hashable Principal where
+  hashWithSalt _salt Principal' {..} =
+    _salt `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` principalARN
 
-instance Prelude.NFData Principal
+instance Prelude.NFData Principal where
+  rnf Principal' {..} =
+    Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalARN

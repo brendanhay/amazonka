@@ -113,9 +113,15 @@ instance Core.AWSRequest AttachLoadBalancerToSubnets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachLoadBalancerToSubnets
+instance Prelude.Hashable AttachLoadBalancerToSubnets where
+  hashWithSalt _salt AttachLoadBalancerToSubnets' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` subnets
 
-instance Prelude.NFData AttachLoadBalancerToSubnets
+instance Prelude.NFData AttachLoadBalancerToSubnets where
+  rnf AttachLoadBalancerToSubnets' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToHeaders AttachLoadBalancerToSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +186,7 @@ attachLoadBalancerToSubnetsResponse_httpStatus = Lens.lens (\AttachLoadBalancerT
 instance
   Prelude.NFData
     AttachLoadBalancerToSubnetsResponse
+  where
+  rnf AttachLoadBalancerToSubnetsResponse' {..} =
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf httpStatus

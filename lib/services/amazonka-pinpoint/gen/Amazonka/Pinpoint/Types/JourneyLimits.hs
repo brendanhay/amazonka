@@ -104,9 +104,19 @@ instance Core.FromJSON JourneyLimits where
             Prelude.<*> (x Core..:? "DailyCap")
       )
 
-instance Prelude.Hashable JourneyLimits
+instance Prelude.Hashable JourneyLimits where
+  hashWithSalt _salt JourneyLimits' {..} =
+    _salt `Prelude.hashWithSalt` messagesPerSecond
+      `Prelude.hashWithSalt` endpointReentryCap
+      `Prelude.hashWithSalt` endpointReentryInterval
+      `Prelude.hashWithSalt` dailyCap
 
-instance Prelude.NFData JourneyLimits
+instance Prelude.NFData JourneyLimits where
+  rnf JourneyLimits' {..} =
+    Prelude.rnf messagesPerSecond
+      `Prelude.seq` Prelude.rnf endpointReentryCap
+      `Prelude.seq` Prelude.rnf endpointReentryInterval
+      `Prelude.seq` Prelude.rnf dailyCap
 
 instance Core.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =

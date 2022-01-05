@@ -413,6 +413,50 @@ instance Core.FromJSON OpsItem where
             Prelude.<*> (x Core..:? "PlannedStartTime")
       )
 
-instance Prelude.Hashable OpsItem
+instance Prelude.Hashable OpsItem where
+  hashWithSalt _salt OpsItem' {..} =
+    _salt `Prelude.hashWithSalt` actualEndTime
+      `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` opsItemType
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` relatedOpsItems
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` operationalData
+      `Prelude.hashWithSalt` actualStartTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` plannedStartTime
 
-instance Prelude.NFData OpsItem
+instance Prelude.NFData OpsItem where
+  rnf OpsItem' {..} =
+    Prelude.rnf actualEndTime
+      `Prelude.seq` Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf opsItemType
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf relatedOpsItems
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf operationalData
+      `Prelude.seq` Prelude.rnf actualStartTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf plannedStartTime

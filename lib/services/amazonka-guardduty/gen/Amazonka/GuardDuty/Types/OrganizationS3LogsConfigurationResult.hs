@@ -74,7 +74,15 @@ instance
 instance
   Prelude.Hashable
     OrganizationS3LogsConfigurationResult
+  where
+  hashWithSalt
+    _salt
+    OrganizationS3LogsConfigurationResult' {..} =
+      _salt `Prelude.hashWithSalt` autoEnable
 
 instance
   Prelude.NFData
     OrganizationS3LogsConfigurationResult
+  where
+  rnf OrganizationS3LogsConfigurationResult' {..} =
+    Prelude.rnf autoEnable

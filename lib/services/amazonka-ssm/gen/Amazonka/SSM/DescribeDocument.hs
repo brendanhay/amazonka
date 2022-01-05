@@ -118,9 +118,17 @@ instance Core.AWSRequest DescribeDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDocument
+instance Prelude.Hashable DescribeDocument where
+  hashWithSalt _salt DescribeDocument' {..} =
+    _salt `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeDocument
+instance Prelude.NFData DescribeDocument where
+  rnf DescribeDocument' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeDocument where
   toHeaders =
@@ -191,4 +199,7 @@ describeDocumentResponse_document = Lens.lens (\DescribeDocumentResponse' {docum
 describeDocumentResponse_httpStatus :: Lens.Lens' DescribeDocumentResponse Prelude.Int
 describeDocumentResponse_httpStatus = Lens.lens (\DescribeDocumentResponse' {httpStatus} -> httpStatus) (\s@DescribeDocumentResponse' {} a -> s {httpStatus = a} :: DescribeDocumentResponse)
 
-instance Prelude.NFData DescribeDocumentResponse
+instance Prelude.NFData DescribeDocumentResponse where
+  rnf DescribeDocumentResponse' {..} =
+    Prelude.rnf document
+      `Prelude.seq` Prelude.rnf httpStatus

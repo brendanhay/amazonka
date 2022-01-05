@@ -112,6 +112,18 @@ instance Core.FromJSON ConfigurationTag where
             Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable ConfigurationTag
+instance Prelude.Hashable ConfigurationTag where
+  hashWithSalt _salt ConfigurationTag' {..} =
+    _salt `Prelude.hashWithSalt` timeOfCreation
+      `Prelude.hashWithSalt` configurationId
+      `Prelude.hashWithSalt` configurationType
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ConfigurationTag
+instance Prelude.NFData ConfigurationTag where
+  rnf ConfigurationTag' {..} =
+    Prelude.rnf timeOfCreation
+      `Prelude.seq` Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf configurationType
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf key

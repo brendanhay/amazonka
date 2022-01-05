@@ -187,9 +187,17 @@ instance Core.AWSRequest UpdateDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDistribution
+instance Prelude.Hashable UpdateDistribution where
+  hashWithSalt _salt UpdateDistribution' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` distributionConfig
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateDistribution
+instance Prelude.NFData UpdateDistribution where
+  rnf UpdateDistribution' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf distributionConfig
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToElement UpdateDistribution where
   toElement UpdateDistribution' {..} =
@@ -261,4 +269,8 @@ updateDistributionResponse_distribution = Lens.lens (\UpdateDistributionResponse
 updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
 updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionResponse' {} a -> s {httpStatus = a} :: UpdateDistributionResponse)
 
-instance Prelude.NFData UpdateDistributionResponse
+instance Prelude.NFData UpdateDistributionResponse where
+  rnf UpdateDistributionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf distribution
+      `Prelude.seq` Prelude.rnf httpStatus

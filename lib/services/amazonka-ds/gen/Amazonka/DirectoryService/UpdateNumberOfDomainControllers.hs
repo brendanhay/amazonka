@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     UpdateNumberOfDomainControllers
+  where
+  hashWithSalt
+    _salt
+    UpdateNumberOfDomainControllers' {..} =
+      _salt `Prelude.hashWithSalt` directoryId
+        `Prelude.hashWithSalt` desiredNumber
 
 instance
   Prelude.NFData
     UpdateNumberOfDomainControllers
+  where
+  rnf UpdateNumberOfDomainControllers' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf desiredNumber
 
 instance
   Core.ToHeaders
@@ -188,3 +198,6 @@ updateNumberOfDomainControllersResponse_httpStatus = Lens.lens (\UpdateNumberOfD
 instance
   Prelude.NFData
     UpdateNumberOfDomainControllersResponse
+  where
+  rnf UpdateNumberOfDomainControllersResponse' {..} =
+    Prelude.rnf httpStatus

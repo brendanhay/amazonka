@@ -108,9 +108,13 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
             Prelude.<*> (x Core..@ "DeletionTaskId")
       )
 
-instance Prelude.Hashable DeleteServiceLinkedRole
+instance Prelude.Hashable DeleteServiceLinkedRole where
+  hashWithSalt _salt DeleteServiceLinkedRole' {..} =
+    _salt `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData DeleteServiceLinkedRole
+instance Prelude.NFData DeleteServiceLinkedRole where
+  rnf DeleteServiceLinkedRole' {..} =
+    Prelude.rnf roleName
 
 instance Core.ToHeaders DeleteServiceLinkedRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +184,7 @@ deleteServiceLinkedRoleResponse_deletionTaskId = Lens.lens (\DeleteServiceLinked
 instance
   Prelude.NFData
     DeleteServiceLinkedRoleResponse
+  where
+  rnf DeleteServiceLinkedRoleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deletionTaskId

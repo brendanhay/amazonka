@@ -82,9 +82,14 @@ rollbackTrigger_type = Lens.lens (\RollbackTrigger' {type'} -> type') (\s@Rollba
 rollbackTrigger_arn :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_arn = Lens.lens (\RollbackTrigger' {arn} -> arn) (\s@RollbackTrigger' {} a -> s {arn = a} :: RollbackTrigger)
 
-instance Prelude.Hashable RollbackTrigger
+instance Prelude.Hashable RollbackTrigger where
+  hashWithSalt _salt RollbackTrigger' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RollbackTrigger
+instance Prelude.NFData RollbackTrigger where
+  rnf RollbackTrigger' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON RollbackTrigger where
   toJSON RollbackTrigger' {..} =

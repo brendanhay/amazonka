@@ -169,9 +169,19 @@ instance Core.AWSRequest ListLaunchPaths where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLaunchPaths
+instance Prelude.Hashable ListLaunchPaths where
+  hashWithSalt _salt ListLaunchPaths' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData ListLaunchPaths
+instance Prelude.NFData ListLaunchPaths where
+  rnf ListLaunchPaths' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf productId
 
 instance Core.ToHeaders ListLaunchPaths where
   toHeaders =
@@ -257,4 +267,8 @@ listLaunchPathsResponse_launchPathSummaries = Lens.lens (\ListLaunchPathsRespons
 listLaunchPathsResponse_httpStatus :: Lens.Lens' ListLaunchPathsResponse Prelude.Int
 listLaunchPathsResponse_httpStatus = Lens.lens (\ListLaunchPathsResponse' {httpStatus} -> httpStatus) (\s@ListLaunchPathsResponse' {} a -> s {httpStatus = a} :: ListLaunchPathsResponse)
 
-instance Prelude.NFData ListLaunchPathsResponse
+instance Prelude.NFData ListLaunchPathsResponse where
+  rnf ListLaunchPathsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf launchPathSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

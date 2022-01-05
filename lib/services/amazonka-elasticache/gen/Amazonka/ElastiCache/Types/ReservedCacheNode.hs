@@ -467,6 +467,34 @@ instance Core.FromXML ReservedCacheNode where
       Prelude.<*> (x Core..@? "Duration")
       Prelude.<*> (x Core..@? "ReservedCacheNodesOfferingId")
 
-instance Prelude.Hashable ReservedCacheNode
+instance Prelude.Hashable ReservedCacheNode where
+  hashWithSalt _salt ReservedCacheNode' {..} =
+    _salt `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` reservationARN
+      `Prelude.hashWithSalt` cacheNodeCount
+      `Prelude.hashWithSalt` reservedCacheNodeId
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` reservedCacheNodesOfferingId
 
-instance Prelude.NFData ReservedCacheNode
+instance Prelude.NFData ReservedCacheNode where
+  rnf ReservedCacheNode' {..} =
+    Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf reservationARN
+      `Prelude.seq` Prelude.rnf cacheNodeCount
+      `Prelude.seq` Prelude.rnf reservedCacheNodeId
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId

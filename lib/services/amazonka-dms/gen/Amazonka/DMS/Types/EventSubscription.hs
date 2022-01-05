@@ -183,6 +183,26 @@ instance Core.FromJSON EventSubscription where
             Prelude.<*> (x Core..:? "SourceIdsList" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EventSubscription
+instance Prelude.Hashable EventSubscription where
+  hashWithSalt _salt EventSubscription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` customerAwsId
+      `Prelude.hashWithSalt` custSubscriptionId
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` subscriptionCreationTime
+      `Prelude.hashWithSalt` eventCategoriesList
+      `Prelude.hashWithSalt` sourceIdsList
 
-instance Prelude.NFData EventSubscription
+instance Prelude.NFData EventSubscription where
+  rnf EventSubscription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf customerAwsId
+      `Prelude.seq` Prelude.rnf custSubscriptionId
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf subscriptionCreationTime
+      `Prelude.seq` Prelude.rnf eventCategoriesList
+      `Prelude.seq` Prelude.rnf sourceIdsList

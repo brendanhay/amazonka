@@ -102,10 +102,19 @@ instance
 instance
   Prelude.Hashable
     DeleteInstanceAccessControlAttributeConfiguration
+  where
+  hashWithSalt
+    _salt
+    DeleteInstanceAccessControlAttributeConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     DeleteInstanceAccessControlAttributeConfiguration
+  where
+  rnf
+    DeleteInstanceAccessControlAttributeConfiguration' {..} =
+      Prelude.rnf instanceArn
 
 instance
   Core.ToHeaders
@@ -182,3 +191,7 @@ deleteInstanceAccessControlAttributeConfigurationResponse_httpStatus = Lens.lens
 instance
   Prelude.NFData
     DeleteInstanceAccessControlAttributeConfigurationResponse
+  where
+  rnf
+    DeleteInstanceAccessControlAttributeConfigurationResponse' {..} =
+      Prelude.rnf httpStatus

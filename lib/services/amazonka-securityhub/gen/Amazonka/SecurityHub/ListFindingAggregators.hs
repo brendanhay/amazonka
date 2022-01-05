@@ -133,9 +133,15 @@ instance Core.AWSRequest ListFindingAggregators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFindingAggregators
+instance Prelude.Hashable ListFindingAggregators where
+  hashWithSalt _salt ListFindingAggregators' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListFindingAggregators
+instance Prelude.NFData ListFindingAggregators where
+  rnf ListFindingAggregators' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFindingAggregators where
   toHeaders =
@@ -221,3 +227,8 @@ listFindingAggregatorsResponse_httpStatus = Lens.lens (\ListFindingAggregatorsRe
 instance
   Prelude.NFData
     ListFindingAggregatorsResponse
+  where
+  rnf ListFindingAggregatorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingAggregators
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -119,10 +119,22 @@ instance
 instance
   Prelude.Hashable
     DescribeEnvironmentManagedActions
+  where
+  hashWithSalt
+    _salt
+    DescribeEnvironmentManagedActions' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` environmentId
 
 instance
   Prelude.NFData
     DescribeEnvironmentManagedActions
+  where
+  rnf DescribeEnvironmentManagedActions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance
   Core.ToHeaders
@@ -198,3 +210,7 @@ describeEnvironmentManagedActionsResponse_httpStatus = Lens.lens (\DescribeEnvir
 instance
   Prelude.NFData
     DescribeEnvironmentManagedActionsResponse
+  where
+  rnf DescribeEnvironmentManagedActionsResponse' {..} =
+    Prelude.rnf managedActions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -110,9 +110,15 @@ instance Core.AWSRequest StartMonitoringMembers where
                         )
       )
 
-instance Prelude.Hashable StartMonitoringMembers
+instance Prelude.Hashable StartMonitoringMembers where
+  hashWithSalt _salt StartMonitoringMembers' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData StartMonitoringMembers
+instance Prelude.NFData StartMonitoringMembers where
+  rnf StartMonitoringMembers' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders StartMonitoringMembers where
   toHeaders =
@@ -185,3 +191,7 @@ startMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StartMonitoring
 instance
   Prelude.NFData
     StartMonitoringMembersResponse
+  where
+  rnf StartMonitoringMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

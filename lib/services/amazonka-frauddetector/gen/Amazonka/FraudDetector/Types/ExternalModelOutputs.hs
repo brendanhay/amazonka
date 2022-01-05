@@ -73,6 +73,12 @@ instance Core.FromJSON ExternalModelOutputs where
             Prelude.<*> (x Core..:? "outputs" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ExternalModelOutputs
+instance Prelude.Hashable ExternalModelOutputs where
+  hashWithSalt _salt ExternalModelOutputs' {..} =
+    _salt `Prelude.hashWithSalt` externalModel
+      `Prelude.hashWithSalt` outputs
 
-instance Prelude.NFData ExternalModelOutputs
+instance Prelude.NFData ExternalModelOutputs where
+  rnf ExternalModelOutputs' {..} =
+    Prelude.rnf externalModel
+      `Prelude.seq` Prelude.rnf outputs

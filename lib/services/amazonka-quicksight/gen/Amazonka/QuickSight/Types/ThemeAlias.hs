@@ -81,6 +81,14 @@ instance Core.FromJSON ThemeAlias where
             Prelude.<*> (x Core..:? "AliasName")
       )
 
-instance Prelude.Hashable ThemeAlias
+instance Prelude.Hashable ThemeAlias where
+  hashWithSalt _salt ThemeAlias' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` themeVersionNumber
+      `Prelude.hashWithSalt` aliasName
 
-instance Prelude.NFData ThemeAlias
+instance Prelude.NFData ThemeAlias where
+  rnf ThemeAlias' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf themeVersionNumber
+      `Prelude.seq` Prelude.rnf aliasName

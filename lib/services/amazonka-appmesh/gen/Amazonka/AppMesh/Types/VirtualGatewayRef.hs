@@ -180,6 +180,24 @@ instance Core.FromJSON VirtualGatewayRef where
             Prelude.<*> (x Core..: "virtualGatewayName")
       )
 
-instance Prelude.Hashable VirtualGatewayRef
+instance Prelude.Hashable VirtualGatewayRef where
+  hashWithSalt _salt VirtualGatewayRef' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData VirtualGatewayRef
+instance Prelude.NFData VirtualGatewayRef where
+  rnf VirtualGatewayRef' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf virtualGatewayName

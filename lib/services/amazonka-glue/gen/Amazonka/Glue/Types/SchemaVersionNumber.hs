@@ -62,9 +62,15 @@ schemaVersionNumber_versionNumber = Lens.lens (\SchemaVersionNumber' {versionNum
 schemaVersionNumber_latestVersion :: Lens.Lens' SchemaVersionNumber (Prelude.Maybe Prelude.Bool)
 schemaVersionNumber_latestVersion = Lens.lens (\SchemaVersionNumber' {latestVersion} -> latestVersion) (\s@SchemaVersionNumber' {} a -> s {latestVersion = a} :: SchemaVersionNumber)
 
-instance Prelude.Hashable SchemaVersionNumber
+instance Prelude.Hashable SchemaVersionNumber where
+  hashWithSalt _salt SchemaVersionNumber' {..} =
+    _salt `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` latestVersion
 
-instance Prelude.NFData SchemaVersionNumber
+instance Prelude.NFData SchemaVersionNumber where
+  rnf SchemaVersionNumber' {..} =
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf latestVersion
 
 instance Core.ToJSON SchemaVersionNumber where
   toJSON SchemaVersionNumber' {..} =

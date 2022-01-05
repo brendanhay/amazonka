@@ -108,10 +108,22 @@ instance
 instance
   Prelude.Hashable
     CustomerManagedDatastoreS3Storage
+  where
+  hashWithSalt
+    _salt
+    CustomerManagedDatastoreS3Storage' {..} =
+      _salt `Prelude.hashWithSalt` keyPrefix
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CustomerManagedDatastoreS3Storage
+  where
+  rnf CustomerManagedDatastoreS3Storage' {..} =
+    Prelude.rnf keyPrefix
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToJSON

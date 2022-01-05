@@ -72,9 +72,12 @@ instance Core.AWSRequest GetMasterAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMasterAccount
+instance Prelude.Hashable GetMasterAccount where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetMasterAccount
+instance Prelude.NFData GetMasterAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetMasterAccount where
   toHeaders =
@@ -140,4 +143,7 @@ getMasterAccountResponse_master = Lens.lens (\GetMasterAccountResponse' {master}
 getMasterAccountResponse_httpStatus :: Lens.Lens' GetMasterAccountResponse Prelude.Int
 getMasterAccountResponse_httpStatus = Lens.lens (\GetMasterAccountResponse' {httpStatus} -> httpStatus) (\s@GetMasterAccountResponse' {} a -> s {httpStatus = a} :: GetMasterAccountResponse)
 
-instance Prelude.NFData GetMasterAccountResponse
+instance Prelude.NFData GetMasterAccountResponse where
+  rnf GetMasterAccountResponse' {..} =
+    Prelude.rnf master
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -112,10 +112,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` securityGroups
+        `Prelude.hashWithSalt` subnets
+        `Prelude.hashWithSalt` assignPublicIp
 
 instance
   Prelude.NFData
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
+  where
+  rnf
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
+      Prelude.rnf securityGroups
+        `Prelude.seq` Prelude.rnf subnets
+        `Prelude.seq` Prelude.rnf assignPublicIp
 
 instance
   Core.ToJSON

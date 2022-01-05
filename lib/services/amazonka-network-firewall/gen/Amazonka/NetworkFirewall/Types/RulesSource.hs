@@ -129,9 +129,19 @@ instance Core.FromJSON RulesSource where
             Prelude.<*> (x Core..:? "StatelessRulesAndCustomActions")
       )
 
-instance Prelude.Hashable RulesSource
+instance Prelude.Hashable RulesSource where
+  hashWithSalt _salt RulesSource' {..} =
+    _salt `Prelude.hashWithSalt` rulesString
+      `Prelude.hashWithSalt` rulesSourceList
+      `Prelude.hashWithSalt` statefulRules
+      `Prelude.hashWithSalt` statelessRulesAndCustomActions
 
-instance Prelude.NFData RulesSource
+instance Prelude.NFData RulesSource where
+  rnf RulesSource' {..} =
+    Prelude.rnf rulesString
+      `Prelude.seq` Prelude.rnf rulesSourceList
+      `Prelude.seq` Prelude.rnf statefulRules
+      `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
 
 instance Core.ToJSON RulesSource where
   toJSON RulesSource' {..} =

@@ -73,6 +73,9 @@ instance Core.FromJSON ValidationData where
             Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ValidationData
+instance Prelude.Hashable ValidationData where
+  hashWithSalt _salt ValidationData' {..} =
+    _salt `Prelude.hashWithSalt` assets
 
-instance Prelude.NFData ValidationData
+instance Prelude.NFData ValidationData where
+  rnf ValidationData' {..} = Prelude.rnf assets

@@ -126,6 +126,20 @@ instance Core.FromJSON ListIntegrationItem where
             Prelude.<*> (x Core..: "LastUpdatedAt")
       )
 
-instance Prelude.Hashable ListIntegrationItem
+instance Prelude.Hashable ListIntegrationItem where
+  hashWithSalt _salt ListIntegrationItem' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` objectTypeName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
 
-instance Prelude.NFData ListIntegrationItem
+instance Prelude.NFData ListIntegrationItem where
+  rnf ListIntegrationItem' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

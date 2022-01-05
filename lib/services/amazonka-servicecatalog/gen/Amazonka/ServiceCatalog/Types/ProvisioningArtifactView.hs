@@ -78,6 +78,12 @@ instance Core.FromJSON ProvisioningArtifactView where
             Prelude.<*> (x Core..:? "ProvisioningArtifact")
       )
 
-instance Prelude.Hashable ProvisioningArtifactView
+instance Prelude.Hashable ProvisioningArtifactView where
+  hashWithSalt _salt ProvisioningArtifactView' {..} =
+    _salt `Prelude.hashWithSalt` productViewSummary
+      `Prelude.hashWithSalt` provisioningArtifact
 
-instance Prelude.NFData ProvisioningArtifactView
+instance Prelude.NFData ProvisioningArtifactView where
+  rnf ProvisioningArtifactView' {..} =
+    Prelude.rnf productViewSummary
+      `Prelude.seq` Prelude.rnf provisioningArtifact

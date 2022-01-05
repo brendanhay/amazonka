@@ -125,6 +125,24 @@ instance Core.FromJSON WorkloadSummary where
             Prelude.<*> (x Core..:? "UpdatedAt")
       )
 
-instance Prelude.Hashable WorkloadSummary
+instance Prelude.Hashable WorkloadSummary where
+  hashWithSalt _salt WorkloadSummary' {..} =
+    _salt `Prelude.hashWithSalt` lenses
+      `Prelude.hashWithSalt` riskCounts
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` improvementStatus
+      `Prelude.hashWithSalt` workloadArn
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData WorkloadSummary
+instance Prelude.NFData WorkloadSummary where
+  rnf WorkloadSummary' {..} =
+    Prelude.rnf lenses
+      `Prelude.seq` Prelude.rnf riskCounts
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf improvementStatus
+      `Prelude.seq` Prelude.rnf workloadArn
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf updatedAt

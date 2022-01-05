@@ -135,9 +135,15 @@ instance Core.AWSRequest AttachRolePolicy where
   response =
     Response.receiveNull AttachRolePolicyResponse'
 
-instance Prelude.Hashable AttachRolePolicy
+instance Prelude.Hashable AttachRolePolicy where
+  hashWithSalt _salt AttachRolePolicy' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData AttachRolePolicy
+instance Prelude.NFData AttachRolePolicy where
+  rnf AttachRolePolicy' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders AttachRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +177,5 @@ newAttachRolePolicyResponse ::
 newAttachRolePolicyResponse =
   AttachRolePolicyResponse'
 
-instance Prelude.NFData AttachRolePolicyResponse
+instance Prelude.NFData AttachRolePolicyResponse where
+  rnf _ = ()

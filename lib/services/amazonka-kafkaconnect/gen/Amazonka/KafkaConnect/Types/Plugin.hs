@@ -54,9 +54,12 @@ newPlugin pCustomPlugin_ =
 plugin_customPlugin :: Lens.Lens' Plugin CustomPlugin
 plugin_customPlugin = Lens.lens (\Plugin' {customPlugin} -> customPlugin) (\s@Plugin' {} a -> s {customPlugin = a} :: Plugin)
 
-instance Prelude.Hashable Plugin
+instance Prelude.Hashable Plugin where
+  hashWithSalt _salt Plugin' {..} =
+    _salt `Prelude.hashWithSalt` customPlugin
 
-instance Prelude.NFData Plugin
+instance Prelude.NFData Plugin where
+  rnf Plugin' {..} = Prelude.rnf customPlugin
 
 instance Core.ToJSON Plugin where
   toJSON Plugin' {..} =

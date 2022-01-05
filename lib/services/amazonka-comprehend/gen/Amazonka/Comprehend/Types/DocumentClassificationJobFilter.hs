@@ -101,10 +101,24 @@ documentClassificationJobFilter_jobStatus = Lens.lens (\DocumentClassificationJo
 instance
   Prelude.Hashable
     DocumentClassificationJobFilter
+  where
+  hashWithSalt
+    _salt
+    DocumentClassificationJobFilter' {..} =
+      _salt `Prelude.hashWithSalt` submitTimeAfter
+        `Prelude.hashWithSalt` submitTimeBefore
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` jobStatus
 
 instance
   Prelude.NFData
     DocumentClassificationJobFilter
+  where
+  rnf DocumentClassificationJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToJSON DocumentClassificationJobFilter where
   toJSON DocumentClassificationJobFilter' {..} =

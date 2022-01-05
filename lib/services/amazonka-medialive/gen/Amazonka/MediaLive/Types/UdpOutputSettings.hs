@@ -121,9 +121,19 @@ instance Core.FromJSON UdpOutputSettings where
             Prelude.<*> (x Core..: "containerSettings")
       )
 
-instance Prelude.Hashable UdpOutputSettings
+instance Prelude.Hashable UdpOutputSettings where
+  hashWithSalt _salt UdpOutputSettings' {..} =
+    _salt `Prelude.hashWithSalt` fecOutputSettings
+      `Prelude.hashWithSalt` bufferMsec
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` containerSettings
 
-instance Prelude.NFData UdpOutputSettings
+instance Prelude.NFData UdpOutputSettings where
+  rnf UdpOutputSettings' {..} =
+    Prelude.rnf fecOutputSettings
+      `Prelude.seq` Prelude.rnf bufferMsec
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf containerSettings
 
 instance Core.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =

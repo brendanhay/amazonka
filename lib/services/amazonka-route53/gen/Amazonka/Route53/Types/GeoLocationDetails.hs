@@ -131,6 +131,20 @@ instance Core.FromXML GeoLocationDetails where
       Prelude.<*> (x Core..@? "ContinentCode")
       Prelude.<*> (x Core..@? "ContinentName")
 
-instance Prelude.Hashable GeoLocationDetails
+instance Prelude.Hashable GeoLocationDetails where
+  hashWithSalt _salt GeoLocationDetails' {..} =
+    _salt `Prelude.hashWithSalt` subdivisionName
+      `Prelude.hashWithSalt` subdivisionCode
+      `Prelude.hashWithSalt` countryName
+      `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` continentCode
+      `Prelude.hashWithSalt` continentName
 
-instance Prelude.NFData GeoLocationDetails
+instance Prelude.NFData GeoLocationDetails where
+  rnf GeoLocationDetails' {..} =
+    Prelude.rnf subdivisionName
+      `Prelude.seq` Prelude.rnf subdivisionCode
+      `Prelude.seq` Prelude.rnf countryName
+      `Prelude.seq` Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf continentCode
+      `Prelude.seq` Prelude.rnf continentName

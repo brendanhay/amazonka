@@ -339,9 +339,30 @@ instance Core.AWSRequest CreateDiskFromSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDiskFromSnapshot
+instance Prelude.Hashable CreateDiskFromSnapshot where
+  hashWithSalt _salt CreateDiskFromSnapshot' {..} =
+    _salt
+      `Prelude.hashWithSalt` useLatestRestorableAutoSnapshot
+      `Prelude.hashWithSalt` sourceDiskName
+      `Prelude.hashWithSalt` addOns
+      `Prelude.hashWithSalt` diskSnapshotName
+      `Prelude.hashWithSalt` restoreDate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` diskName
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` sizeInGb
 
-instance Prelude.NFData CreateDiskFromSnapshot
+instance Prelude.NFData CreateDiskFromSnapshot where
+  rnf CreateDiskFromSnapshot' {..} =
+    Prelude.rnf useLatestRestorableAutoSnapshot
+      `Prelude.seq` Prelude.rnf sourceDiskName
+      `Prelude.seq` Prelude.rnf addOns
+      `Prelude.seq` Prelude.rnf diskSnapshotName
+      `Prelude.seq` Prelude.rnf restoreDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf diskName
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf sizeInGb
 
 instance Core.ToHeaders CreateDiskFromSnapshot where
   toHeaders =
@@ -432,3 +453,7 @@ createDiskFromSnapshotResponse_httpStatus = Lens.lens (\CreateDiskFromSnapshotRe
 instance
   Prelude.NFData
     CreateDiskFromSnapshotResponse
+  where
+  rnf CreateDiskFromSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

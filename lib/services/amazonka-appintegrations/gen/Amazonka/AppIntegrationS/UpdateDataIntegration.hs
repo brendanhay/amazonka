@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateDataIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataIntegration
+instance Prelude.Hashable UpdateDataIntegration where
+  hashWithSalt _salt UpdateDataIntegration' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData UpdateDataIntegration
+instance Prelude.NFData UpdateDataIntegration where
+  rnf UpdateDataIntegration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf identifier
 
 instance Core.ToHeaders UpdateDataIntegration where
   toHeaders =
@@ -174,4 +182,6 @@ newUpdateDataIntegrationResponse pHttpStatus_ =
 updateDataIntegrationResponse_httpStatus :: Lens.Lens' UpdateDataIntegrationResponse Prelude.Int
 updateDataIntegrationResponse_httpStatus = Lens.lens (\UpdateDataIntegrationResponse' {httpStatus} -> httpStatus) (\s@UpdateDataIntegrationResponse' {} a -> s {httpStatus = a} :: UpdateDataIntegrationResponse)
 
-instance Prelude.NFData UpdateDataIntegrationResponse
+instance Prelude.NFData UpdateDataIntegrationResponse where
+  rnf UpdateDataIntegrationResponse' {..} =
+    Prelude.rnf httpStatus

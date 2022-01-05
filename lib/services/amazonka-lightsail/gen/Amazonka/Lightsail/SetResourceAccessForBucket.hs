@@ -147,9 +147,17 @@ instance Core.AWSRequest SetResourceAccessForBucket where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetResourceAccessForBucket
+instance Prelude.Hashable SetResourceAccessForBucket where
+  hashWithSalt _salt SetResourceAccessForBucket' {..} =
+    _salt `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` access
 
-instance Prelude.NFData SetResourceAccessForBucket
+instance Prelude.NFData SetResourceAccessForBucket where
+  rnf SetResourceAccessForBucket' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf access
 
 instance Core.ToHeaders SetResourceAccessForBucket where
   toHeaders =
@@ -230,3 +238,7 @@ setResourceAccessForBucketResponse_httpStatus = Lens.lens (\SetResourceAccessFor
 instance
   Prelude.NFData
     SetResourceAccessForBucketResponse
+  where
+  rnf SetResourceAccessForBucketResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

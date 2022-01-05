@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQueue
+instance Prelude.Hashable DescribeQueue where
+  hashWithSalt _salt DescribeQueue' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` queueId
 
-instance Prelude.NFData DescribeQueue
+instance Prelude.NFData DescribeQueue where
+  rnf DescribeQueue' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf queueId
 
 instance Core.ToHeaders DescribeQueue where
   toHeaders =
@@ -171,4 +177,7 @@ describeQueueResponse_queue = Lens.lens (\DescribeQueueResponse' {queue} -> queu
 describeQueueResponse_httpStatus :: Lens.Lens' DescribeQueueResponse Prelude.Int
 describeQueueResponse_httpStatus = Lens.lens (\DescribeQueueResponse' {httpStatus} -> httpStatus) (\s@DescribeQueueResponse' {} a -> s {httpStatus = a} :: DescribeQueueResponse)
 
-instance Prelude.NFData DescribeQueueResponse
+instance Prelude.NFData DescribeQueueResponse where
+  rnf DescribeQueueResponse' {..} =
+    Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf httpStatus

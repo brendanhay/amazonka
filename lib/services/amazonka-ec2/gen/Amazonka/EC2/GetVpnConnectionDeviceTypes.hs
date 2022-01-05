@@ -183,9 +183,17 @@ instance Core.AWSRequest GetVpnConnectionDeviceTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVpnConnectionDeviceTypes
+instance Prelude.Hashable GetVpnConnectionDeviceTypes where
+  hashWithSalt _salt GetVpnConnectionDeviceTypes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetVpnConnectionDeviceTypes
+instance Prelude.NFData GetVpnConnectionDeviceTypes where
+  rnf GetVpnConnectionDeviceTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetVpnConnectionDeviceTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,3 +281,8 @@ getVpnConnectionDeviceTypesResponse_httpStatus = Lens.lens (\GetVpnConnectionDev
 instance
   Prelude.NFData
     GetVpnConnectionDeviceTypesResponse
+  where
+  rnf GetVpnConnectionDeviceTypesResponse' {..} =
+    Prelude.rnf vpnConnectionDeviceTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

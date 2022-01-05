@@ -135,9 +135,15 @@ instance Core.AWSRequest GetBot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBot
+instance Prelude.Hashable GetBot where
+  hashWithSalt _salt GetBot' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` versionOrAlias
 
-instance Prelude.NFData GetBot
+instance Prelude.NFData GetBot where
+  rnf GetBot' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf versionOrAlias
 
 instance Core.ToHeaders GetBot where
   toHeaders =
@@ -512,4 +518,24 @@ getBotResponse_description = Lens.lens (\GetBotResponse' {description} -> descri
 getBotResponse_httpStatus :: Lens.Lens' GetBotResponse Prelude.Int
 getBotResponse_httpStatus = Lens.lens (\GetBotResponse' {httpStatus} -> httpStatus) (\s@GetBotResponse' {} a -> s {httpStatus = a} :: GetBotResponse)
 
-instance Prelude.NFData GetBotResponse
+instance Prelude.NFData GetBotResponse where
+  rnf GetBotResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf abortStatement
+      `Prelude.seq` Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf enableModelImprovements
+      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+      `Prelude.seq` Prelude.rnf detectSentiment
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf clarificationPrompt
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf childDirected
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

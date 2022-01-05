@@ -78,9 +78,12 @@ instance Core.AWSRequest GetSendStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSendStatistics
+instance Prelude.Hashable GetSendStatistics where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetSendStatistics
+instance Prelude.NFData GetSendStatistics where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSendStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,4 +144,7 @@ getSendStatisticsResponse_sendDataPoints = Lens.lens (\GetSendStatisticsResponse
 getSendStatisticsResponse_httpStatus :: Lens.Lens' GetSendStatisticsResponse Prelude.Int
 getSendStatisticsResponse_httpStatus = Lens.lens (\GetSendStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetSendStatisticsResponse' {} a -> s {httpStatus = a} :: GetSendStatisticsResponse)
 
-instance Prelude.NFData GetSendStatisticsResponse
+instance Prelude.NFData GetSendStatisticsResponse where
+  rnf GetSendStatisticsResponse' {..} =
+    Prelude.rnf sendDataPoints
+      `Prelude.seq` Prelude.rnf httpStatus

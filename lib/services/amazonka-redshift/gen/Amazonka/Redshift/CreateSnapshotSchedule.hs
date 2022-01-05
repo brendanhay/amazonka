@@ -147,9 +147,23 @@ instance Core.AWSRequest CreateSnapshotSchedule where
       "CreateSnapshotScheduleResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateSnapshotSchedule
+instance Prelude.Hashable CreateSnapshotSchedule where
+  hashWithSalt _salt CreateSnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` nextInvocations
+      `Prelude.hashWithSalt` scheduleDefinitions
+      `Prelude.hashWithSalt` scheduleDescription
+      `Prelude.hashWithSalt` scheduleIdentifier
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateSnapshotSchedule
+instance Prelude.NFData CreateSnapshotSchedule where
+  rnf CreateSnapshotSchedule' {..} =
+    Prelude.rnf nextInvocations
+      `Prelude.seq` Prelude.rnf scheduleDefinitions
+      `Prelude.seq` Prelude.rnf scheduleDescription
+      `Prelude.seq` Prelude.rnf scheduleIdentifier
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty

@@ -72,6 +72,12 @@ instance Core.FromJSON MemberIdArnPair where
             Prelude.<*> (x Core..:? "MemberArn")
       )
 
-instance Prelude.Hashable MemberIdArnPair
+instance Prelude.Hashable MemberIdArnPair where
+  hashWithSalt _salt MemberIdArnPair' {..} =
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` memberArn
 
-instance Prelude.NFData MemberIdArnPair
+instance Prelude.NFData MemberIdArnPair where
+  rnf MemberIdArnPair' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf memberArn

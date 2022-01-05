@@ -89,9 +89,12 @@ instance Core.AWSRequest DescribeCluster where
             Prelude.<*> (x Core..:> "Cluster")
       )
 
-instance Prelude.Hashable DescribeCluster
+instance Prelude.Hashable DescribeCluster where
+  hashWithSalt _salt DescribeCluster' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData DescribeCluster
+instance Prelude.NFData DescribeCluster where
+  rnf DescribeCluster' {..} = Prelude.rnf clusterId
 
 instance Core.ToHeaders DescribeCluster where
   toHeaders =
@@ -163,4 +166,7 @@ describeClusterResponse_httpStatus = Lens.lens (\DescribeClusterResponse' {httpS
 describeClusterResponse_cluster :: Lens.Lens' DescribeClusterResponse Cluster
 describeClusterResponse_cluster = Lens.lens (\DescribeClusterResponse' {cluster} -> cluster) (\s@DescribeClusterResponse' {} a -> s {cluster = a} :: DescribeClusterResponse)
 
-instance Prelude.NFData DescribeClusterResponse
+instance Prelude.NFData DescribeClusterResponse where
+  rnf DescribeClusterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cluster

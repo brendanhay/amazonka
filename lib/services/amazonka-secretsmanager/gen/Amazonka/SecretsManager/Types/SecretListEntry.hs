@@ -301,6 +301,40 @@ instance Core.FromJSON SecretListEntry where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SecretListEntry
+instance Prelude.Hashable SecretListEntry where
+  hashWithSalt _salt SecretListEntry' {..} =
+    _salt `Prelude.hashWithSalt` lastChangedDate
+      `Prelude.hashWithSalt` primaryRegion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` secretVersionsToStages
+      `Prelude.hashWithSalt` rotationRules
+      `Prelude.hashWithSalt` deletedDate
+      `Prelude.hashWithSalt` rotationEnabled
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owningService
+      `Prelude.hashWithSalt` lastRotatedDate
+      `Prelude.hashWithSalt` lastAccessedDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rotationLambdaARN
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData SecretListEntry
+instance Prelude.NFData SecretListEntry where
+  rnf SecretListEntry' {..} =
+    Prelude.rnf lastChangedDate
+      `Prelude.seq` Prelude.rnf primaryRegion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf secretVersionsToStages
+      `Prelude.seq` Prelude.rnf rotationRules
+      `Prelude.seq` Prelude.rnf deletedDate
+      `Prelude.seq` Prelude.rnf rotationEnabled
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owningService
+      `Prelude.seq` Prelude.rnf lastRotatedDate
+      `Prelude.seq` Prelude.rnf lastAccessedDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rotationLambdaARN
+      `Prelude.seq` Prelude.rnf tags

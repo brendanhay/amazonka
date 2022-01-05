@@ -92,6 +92,16 @@ instance Core.FromJSON DetectorVersionSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable DetectorVersionSummary
+instance Prelude.Hashable DetectorVersionSummary where
+  hashWithSalt _salt DetectorVersionSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DetectorVersionSummary
+instance Prelude.NFData DetectorVersionSummary where
+  rnf DetectorVersionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf detectorVersionId
+      `Prelude.seq` Prelude.rnf description

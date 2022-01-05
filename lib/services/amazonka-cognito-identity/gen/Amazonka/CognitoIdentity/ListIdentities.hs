@@ -134,9 +134,19 @@ instance Core.AWSRequest ListIdentities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIdentities
+instance Prelude.Hashable ListIdentities where
+  hashWithSalt _salt ListIdentities' {..} =
+    _salt `Prelude.hashWithSalt` hideDisabled
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListIdentities
+instance Prelude.NFData ListIdentities where
+  rnf ListIdentities' {..} =
+    Prelude.rnf hideDisabled
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIdentities where
   toHeaders =
@@ -230,4 +240,9 @@ listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identit
 listIdentitiesResponse_httpStatus :: Lens.Lens' ListIdentitiesResponse Prelude.Int
 listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpStatus} -> httpStatus) (\s@ListIdentitiesResponse' {} a -> s {httpStatus = a} :: ListIdentitiesResponse)
 
-instance Prelude.NFData ListIdentitiesResponse
+instance Prelude.NFData ListIdentitiesResponse where
+  rnf ListIdentitiesResponse' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf httpStatus

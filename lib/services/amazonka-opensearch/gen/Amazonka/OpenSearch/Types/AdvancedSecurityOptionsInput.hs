@@ -88,8 +88,19 @@ advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsIn
 instance
   Prelude.Hashable
     AdvancedSecurityOptionsInput
+  where
+  hashWithSalt _salt AdvancedSecurityOptionsInput' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` internalUserDatabaseEnabled
+      `Prelude.hashWithSalt` masterUserOptions
+      `Prelude.hashWithSalt` sAMLOptions
 
-instance Prelude.NFData AdvancedSecurityOptionsInput
+instance Prelude.NFData AdvancedSecurityOptionsInput where
+  rnf AdvancedSecurityOptionsInput' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
+      `Prelude.seq` Prelude.rnf masterUserOptions
+      `Prelude.seq` Prelude.rnf sAMLOptions
 
 instance Core.ToJSON AdvancedSecurityOptionsInput where
   toJSON AdvancedSecurityOptionsInput' {..} =

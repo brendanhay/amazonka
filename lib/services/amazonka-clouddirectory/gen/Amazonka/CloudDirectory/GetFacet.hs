@@ -100,9 +100,15 @@ instance Core.AWSRequest GetFacet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFacet
+instance Prelude.Hashable GetFacet where
+  hashWithSalt _salt GetFacet' {..} =
+    _salt `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetFacet
+instance Prelude.NFData GetFacet where
+  rnf GetFacet' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetFacet where
   toHeaders GetFacet' {..} =
@@ -162,4 +168,7 @@ getFacetResponse_facet = Lens.lens (\GetFacetResponse' {facet} -> facet) (\s@Get
 getFacetResponse_httpStatus :: Lens.Lens' GetFacetResponse Prelude.Int
 getFacetResponse_httpStatus = Lens.lens (\GetFacetResponse' {httpStatus} -> httpStatus) (\s@GetFacetResponse' {} a -> s {httpStatus = a} :: GetFacetResponse)
 
-instance Prelude.NFData GetFacetResponse
+instance Prelude.NFData GetFacetResponse where
+  rnf GetFacetResponse' {..} =
+    Prelude.rnf facet
+      `Prelude.seq` Prelude.rnf httpStatus

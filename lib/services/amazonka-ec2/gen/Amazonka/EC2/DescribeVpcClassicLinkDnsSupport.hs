@@ -157,10 +157,22 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcClassicLinkDnsSupport
+  where
+  hashWithSalt
+    _salt
+    DescribeVpcClassicLinkDnsSupport' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` vpcIds
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeVpcClassicLinkDnsSupport
+  where
+  rnf DescribeVpcClassicLinkDnsSupport' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -244,3 +256,8 @@ describeVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\DescribeVpcCla
 instance
   Prelude.NFData
     DescribeVpcClassicLinkDnsSupportResponse
+  where
+  rnf DescribeVpcClassicLinkDnsSupportResponse' {..} =
+    Prelude.rnf vpcs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

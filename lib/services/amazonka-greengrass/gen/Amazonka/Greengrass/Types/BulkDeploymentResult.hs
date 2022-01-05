@@ -138,6 +138,24 @@ instance Core.FromJSON BulkDeploymentResult where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable BulkDeploymentResult
+instance Prelude.Hashable BulkDeploymentResult where
+  hashWithSalt _salt BulkDeploymentResult' {..} =
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` deploymentArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` groupArn
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData BulkDeploymentResult
+instance Prelude.NFData BulkDeploymentResult where
+  rnf BulkDeploymentResult' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf groupArn
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf errorMessage

@@ -92,7 +92,16 @@ instance
 instance
   Prelude.Hashable
     DBClusterParameterGroupNameMessage
+  where
+  hashWithSalt
+    _salt
+    DBClusterParameterGroupNameMessage' {..} =
+      _salt
+        `Prelude.hashWithSalt` dbClusterParameterGroupName
 
 instance
   Prelude.NFData
     DBClusterParameterGroupNameMessage
+  where
+  rnf DBClusterParameterGroupNameMessage' {..} =
+    Prelude.rnf dbClusterParameterGroupName

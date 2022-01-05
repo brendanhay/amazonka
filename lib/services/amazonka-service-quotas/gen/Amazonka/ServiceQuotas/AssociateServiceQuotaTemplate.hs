@@ -78,8 +78,12 @@ instance
 instance
   Prelude.Hashable
     AssociateServiceQuotaTemplate
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData AssociateServiceQuotaTemplate
+instance Prelude.NFData AssociateServiceQuotaTemplate where
+  rnf _ = ()
 
 instance Core.ToHeaders AssociateServiceQuotaTemplate where
   toHeaders =
@@ -138,3 +142,6 @@ associateServiceQuotaTemplateResponse_httpStatus = Lens.lens (\AssociateServiceQ
 instance
   Prelude.NFData
     AssociateServiceQuotaTemplateResponse
+  where
+  rnf AssociateServiceQuotaTemplateResponse' {..} =
+    Prelude.rnf httpStatus

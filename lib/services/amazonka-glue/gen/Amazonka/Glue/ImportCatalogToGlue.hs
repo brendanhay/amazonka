@@ -85,9 +85,12 @@ instance Core.AWSRequest ImportCatalogToGlue where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportCatalogToGlue
+instance Prelude.Hashable ImportCatalogToGlue where
+  hashWithSalt _salt ImportCatalogToGlue' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData ImportCatalogToGlue
+instance Prelude.NFData ImportCatalogToGlue where
+  rnf ImportCatalogToGlue' {..} = Prelude.rnf catalogId
 
 instance Core.ToHeaders ImportCatalogToGlue where
   toHeaders =
@@ -147,4 +150,6 @@ newImportCatalogToGlueResponse pHttpStatus_ =
 importCatalogToGlueResponse_httpStatus :: Lens.Lens' ImportCatalogToGlueResponse Prelude.Int
 importCatalogToGlueResponse_httpStatus = Lens.lens (\ImportCatalogToGlueResponse' {httpStatus} -> httpStatus) (\s@ImportCatalogToGlueResponse' {} a -> s {httpStatus = a} :: ImportCatalogToGlueResponse)
 
-instance Prelude.NFData ImportCatalogToGlueResponse
+instance Prelude.NFData ImportCatalogToGlueResponse where
+  rnf ImportCatalogToGlueResponse' {..} =
+    Prelude.rnf httpStatus

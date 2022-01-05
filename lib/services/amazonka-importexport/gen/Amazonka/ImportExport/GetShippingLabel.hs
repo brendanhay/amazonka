@@ -188,9 +188,35 @@ instance Core.AWSRequest GetShippingLabel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetShippingLabel
+instance Prelude.Hashable GetShippingLabel where
+  hashWithSalt _salt GetShippingLabel' {..} =
+    _salt `Prelude.hashWithSalt` street3
+      `Prelude.hashWithSalt` aPIVersion
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` stateOrProvince
+      `Prelude.hashWithSalt` postalCode
+      `Prelude.hashWithSalt` street2
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` company
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` street1
+      `Prelude.hashWithSalt` jobIds
 
-instance Prelude.NFData GetShippingLabel
+instance Prelude.NFData GetShippingLabel where
+  rnf GetShippingLabel' {..} =
+    Prelude.rnf street3
+      `Prelude.seq` Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf stateOrProvince
+      `Prelude.seq` Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf street2
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf company
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf street1
+      `Prelude.seq` Prelude.rnf jobIds
 
 instance Core.ToHeaders GetShippingLabel where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,4 +292,8 @@ getShippingLabelResponse_warning = Lens.lens (\GetShippingLabelResponse' {warnin
 getShippingLabelResponse_httpStatus :: Lens.Lens' GetShippingLabelResponse Prelude.Int
 getShippingLabelResponse_httpStatus = Lens.lens (\GetShippingLabelResponse' {httpStatus} -> httpStatus) (\s@GetShippingLabelResponse' {} a -> s {httpStatus = a} :: GetShippingLabelResponse)
 
-instance Prelude.NFData GetShippingLabelResponse
+instance Prelude.NFData GetShippingLabelResponse where
+  rnf GetShippingLabelResponse' {..} =
+    Prelude.rnf shippingLabelURL
+      `Prelude.seq` Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf httpStatus

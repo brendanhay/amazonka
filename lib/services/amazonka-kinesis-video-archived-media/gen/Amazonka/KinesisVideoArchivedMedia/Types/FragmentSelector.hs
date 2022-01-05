@@ -88,9 +88,15 @@ fragmentSelector_fragmentSelectorType = Lens.lens (\FragmentSelector' {fragmentS
 fragmentSelector_timestampRange :: Lens.Lens' FragmentSelector TimestampRange
 fragmentSelector_timestampRange = Lens.lens (\FragmentSelector' {timestampRange} -> timestampRange) (\s@FragmentSelector' {} a -> s {timestampRange = a} :: FragmentSelector)
 
-instance Prelude.Hashable FragmentSelector
+instance Prelude.Hashable FragmentSelector where
+  hashWithSalt _salt FragmentSelector' {..} =
+    _salt `Prelude.hashWithSalt` fragmentSelectorType
+      `Prelude.hashWithSalt` timestampRange
 
-instance Prelude.NFData FragmentSelector
+instance Prelude.NFData FragmentSelector where
+  rnf FragmentSelector' {..} =
+    Prelude.rnf fragmentSelectorType
+      `Prelude.seq` Prelude.rnf timestampRange
 
 instance Core.ToJSON FragmentSelector where
   toJSON FragmentSelector' {..} =

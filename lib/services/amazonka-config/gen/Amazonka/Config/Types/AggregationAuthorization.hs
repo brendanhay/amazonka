@@ -93,6 +93,16 @@ instance Core.FromJSON AggregationAuthorization where
             Prelude.<*> (x Core..:? "AuthorizedAccountId")
       )
 
-instance Prelude.Hashable AggregationAuthorization
+instance Prelude.Hashable AggregationAuthorization where
+  hashWithSalt _salt AggregationAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` authorizedAwsRegion
+      `Prelude.hashWithSalt` aggregationAuthorizationArn
+      `Prelude.hashWithSalt` authorizedAccountId
 
-instance Prelude.NFData AggregationAuthorization
+instance Prelude.NFData AggregationAuthorization where
+  rnf AggregationAuthorization' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf authorizedAwsRegion
+      `Prelude.seq` Prelude.rnf aggregationAuthorizationArn
+      `Prelude.seq` Prelude.rnf authorizedAccountId

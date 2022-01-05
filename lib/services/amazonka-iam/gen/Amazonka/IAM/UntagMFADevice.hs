@@ -116,9 +116,15 @@ instance Core.AWSRequest UntagMFADevice where
   response =
     Response.receiveNull UntagMFADeviceResponse'
 
-instance Prelude.Hashable UntagMFADevice
+instance Prelude.Hashable UntagMFADevice where
+  hashWithSalt _salt UntagMFADevice' {..} =
+    _salt `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagMFADevice
+instance Prelude.NFData UntagMFADevice where
+  rnf UntagMFADevice' {..} =
+    Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,4 +157,5 @@ newUntagMFADeviceResponse ::
   UntagMFADeviceResponse
 newUntagMFADeviceResponse = UntagMFADeviceResponse'
 
-instance Prelude.NFData UntagMFADeviceResponse
+instance Prelude.NFData UntagMFADeviceResponse where
+  rnf _ = ()

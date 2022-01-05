@@ -83,9 +83,15 @@ instance Core.FromJSON CreateBackendAuthMFAConfig where
             Prelude.<*> (x Core..: "MFAMode")
       )
 
-instance Prelude.Hashable CreateBackendAuthMFAConfig
+instance Prelude.Hashable CreateBackendAuthMFAConfig where
+  hashWithSalt _salt CreateBackendAuthMFAConfig' {..} =
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` mfaMode
 
-instance Prelude.NFData CreateBackendAuthMFAConfig
+instance Prelude.NFData CreateBackendAuthMFAConfig where
+  rnf CreateBackendAuthMFAConfig' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf mfaMode
 
 instance Core.ToJSON CreateBackendAuthMFAConfig where
   toJSON CreateBackendAuthMFAConfig' {..} =

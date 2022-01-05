@@ -167,6 +167,28 @@ instance Core.FromJSON ResourceDataSyncItem where
             Prelude.<*> (x Core..:? "LastSuccessfulSyncTime")
       )
 
-instance Prelude.Hashable ResourceDataSyncItem
+instance Prelude.Hashable ResourceDataSyncItem where
+  hashWithSalt _salt ResourceDataSyncItem' {..} =
+    _salt `Prelude.hashWithSalt` syncType
+      `Prelude.hashWithSalt` syncSource
+      `Prelude.hashWithSalt` lastSyncStatusMessage
+      `Prelude.hashWithSalt` syncCreatedTime
+      `Prelude.hashWithSalt` lastSyncTime
+      `Prelude.hashWithSalt` syncName
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` syncLastModifiedTime
+      `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` lastSuccessfulSyncTime
 
-instance Prelude.NFData ResourceDataSyncItem
+instance Prelude.NFData ResourceDataSyncItem where
+  rnf ResourceDataSyncItem' {..} =
+    Prelude.rnf syncType
+      `Prelude.seq` Prelude.rnf syncSource
+      `Prelude.seq` Prelude.rnf lastSyncStatusMessage
+      `Prelude.seq` Prelude.rnf syncCreatedTime
+      `Prelude.seq` Prelude.rnf lastSyncTime
+      `Prelude.seq` Prelude.rnf syncName
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf syncLastModifiedTime
+      `Prelude.seq` Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf lastSuccessfulSyncTime

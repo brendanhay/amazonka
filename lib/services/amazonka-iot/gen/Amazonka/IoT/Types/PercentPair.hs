@@ -71,6 +71,11 @@ instance Core.FromJSON PercentPair where
             Prelude.<*> (x Core..:? "percent")
       )
 
-instance Prelude.Hashable PercentPair
+instance Prelude.Hashable PercentPair where
+  hashWithSalt _salt PercentPair' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` percent
 
-instance Prelude.NFData PercentPair
+instance Prelude.NFData PercentPair where
+  rnf PercentPair' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf percent

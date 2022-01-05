@@ -160,9 +160,17 @@ instance Core.FromXML LaunchTemplateSpecification where
       Prelude.<*> (x Core..@? "LaunchTemplateId")
       Prelude.<*> (x Core..@? "Version")
 
-instance Prelude.Hashable LaunchTemplateSpecification
+instance Prelude.Hashable LaunchTemplateSpecification where
+  hashWithSalt _salt LaunchTemplateSpecification' {..} =
+    _salt `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData LaunchTemplateSpecification
+instance Prelude.NFData LaunchTemplateSpecification where
+  rnf LaunchTemplateSpecification' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =

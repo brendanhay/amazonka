@@ -219,9 +219,26 @@ instance Core.FromJSON TargetTrackingConfiguration where
             Prelude.<*> (x Core..: "TargetValue")
       )
 
-instance Prelude.Hashable TargetTrackingConfiguration
+instance Prelude.Hashable TargetTrackingConfiguration where
+  hashWithSalt _salt TargetTrackingConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` estimatedInstanceWarmup
+      `Prelude.hashWithSalt` predefinedScalingMetricSpecification
+      `Prelude.hashWithSalt` scaleInCooldown
+      `Prelude.hashWithSalt` disableScaleIn
+      `Prelude.hashWithSalt` customizedScalingMetricSpecification
+      `Prelude.hashWithSalt` scaleOutCooldown
+      `Prelude.hashWithSalt` targetValue
 
-instance Prelude.NFData TargetTrackingConfiguration
+instance Prelude.NFData TargetTrackingConfiguration where
+  rnf TargetTrackingConfiguration' {..} =
+    Prelude.rnf estimatedInstanceWarmup
+      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf scaleInCooldown
+      `Prelude.seq` Prelude.rnf disableScaleIn
+      `Prelude.seq` Prelude.rnf customizedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf scaleOutCooldown
+      `Prelude.seq` Prelude.rnf targetValue
 
 instance Core.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =

@@ -187,9 +187,17 @@ instance Core.AWSRequest ResendValidationEmail where
   response =
     Response.receiveNull ResendValidationEmailResponse'
 
-instance Prelude.Hashable ResendValidationEmail
+instance Prelude.Hashable ResendValidationEmail where
+  hashWithSalt _salt ResendValidationEmail' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` validationDomain
 
-instance Prelude.NFData ResendValidationEmail
+instance Prelude.NFData ResendValidationEmail where
+  rnf ResendValidationEmail' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf validationDomain
 
 instance Core.ToHeaders ResendValidationEmail where
   toHeaders =
@@ -239,4 +247,5 @@ newResendValidationEmailResponse ::
 newResendValidationEmailResponse =
   ResendValidationEmailResponse'
 
-instance Prelude.NFData ResendValidationEmailResponse
+instance Prelude.NFData ResendValidationEmailResponse where
+  rnf _ = ()

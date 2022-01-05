@@ -161,9 +161,23 @@ instance Core.AWSRequest CreateEnvironment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEnvironment
+instance Prelude.Hashable CreateEnvironment where
+  hashWithSalt _salt CreateEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` federationParameters
+      `Prelude.hashWithSalt` federationMode
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateEnvironment
+instance Prelude.NFData CreateEnvironment where
+  rnf CreateEnvironment' {..} =
+    Prelude.rnf federationParameters
+      `Prelude.seq` Prelude.rnf federationMode
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateEnvironment where
   toHeaders =
@@ -260,4 +274,9 @@ createEnvironmentResponse_environmentArn = Lens.lens (\CreateEnvironmentResponse
 createEnvironmentResponse_httpStatus :: Lens.Lens' CreateEnvironmentResponse Prelude.Int
 createEnvironmentResponse_httpStatus = Lens.lens (\CreateEnvironmentResponse' {httpStatus} -> httpStatus) (\s@CreateEnvironmentResponse' {} a -> s {httpStatus = a} :: CreateEnvironmentResponse)
 
-instance Prelude.NFData CreateEnvironmentResponse
+instance Prelude.NFData CreateEnvironmentResponse where
+  rnf CreateEnvironmentResponse' {..} =
+    Prelude.rnf environmentUrl
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf httpStatus

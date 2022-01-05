@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.ConditionCheck where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -121,9 +121,24 @@ conditionCheck_tableName = Lens.lens (\ConditionCheck' {tableName} -> tableName)
 conditionCheck_conditionExpression :: Lens.Lens' ConditionCheck Prelude.Text
 conditionCheck_conditionExpression = Lens.lens (\ConditionCheck' {conditionExpression} -> conditionExpression) (\s@ConditionCheck' {} a -> s {conditionExpression = a} :: ConditionCheck)
 
-instance Prelude.Hashable ConditionCheck
+instance Prelude.Hashable ConditionCheck where
+  hashWithSalt _salt ConditionCheck' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` conditionExpression
 
-instance Prelude.NFData ConditionCheck
+instance Prelude.NFData ConditionCheck where
+  rnf ConditionCheck' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf conditionExpression
 
 instance Core.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =

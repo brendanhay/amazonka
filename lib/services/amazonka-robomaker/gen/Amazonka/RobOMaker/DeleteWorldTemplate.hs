@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteWorldTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorldTemplate
+instance Prelude.Hashable DeleteWorldTemplate where
+  hashWithSalt _salt DeleteWorldTemplate' {..} =
+    _salt `Prelude.hashWithSalt` template
 
-instance Prelude.NFData DeleteWorldTemplate
+instance Prelude.NFData DeleteWorldTemplate where
+  rnf DeleteWorldTemplate' {..} = Prelude.rnf template
 
 instance Core.ToHeaders DeleteWorldTemplate where
   toHeaders =
@@ -142,4 +145,6 @@ newDeleteWorldTemplateResponse pHttpStatus_ =
 deleteWorldTemplateResponse_httpStatus :: Lens.Lens' DeleteWorldTemplateResponse Prelude.Int
 deleteWorldTemplateResponse_httpStatus = Lens.lens (\DeleteWorldTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteWorldTemplateResponse' {} a -> s {httpStatus = a} :: DeleteWorldTemplateResponse)
 
-instance Prelude.NFData DeleteWorldTemplateResponse
+instance Prelude.NFData DeleteWorldTemplateResponse where
+  rnf DeleteWorldTemplateResponse' {..} =
+    Prelude.rnf httpStatus

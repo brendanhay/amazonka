@@ -72,6 +72,11 @@ instance Core.FromXML AssociationStatus where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable AssociationStatus
+instance Prelude.Hashable AssociationStatus where
+  hashWithSalt _salt AssociationStatus' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData AssociationStatus
+instance Prelude.NFData AssociationStatus where
+  rnf AssociationStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

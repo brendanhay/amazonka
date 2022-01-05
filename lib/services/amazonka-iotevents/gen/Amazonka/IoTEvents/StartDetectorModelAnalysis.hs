@@ -91,9 +91,14 @@ instance Core.AWSRequest StartDetectorModelAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDetectorModelAnalysis
+instance Prelude.Hashable StartDetectorModelAnalysis where
+  hashWithSalt _salt StartDetectorModelAnalysis' {..} =
+    _salt
+      `Prelude.hashWithSalt` detectorModelDefinition
 
-instance Prelude.NFData StartDetectorModelAnalysis
+instance Prelude.NFData StartDetectorModelAnalysis where
+  rnf StartDetectorModelAnalysis' {..} =
+    Prelude.rnf detectorModelDefinition
 
 instance Core.ToHeaders StartDetectorModelAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +162,7 @@ startDetectorModelAnalysisResponse_httpStatus = Lens.lens (\StartDetectorModelAn
 instance
   Prelude.NFData
     StartDetectorModelAnalysisResponse
+  where
+  rnf StartDetectorModelAnalysisResponse' {..} =
+    Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf httpStatus

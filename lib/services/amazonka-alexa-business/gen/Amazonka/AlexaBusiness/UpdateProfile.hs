@@ -220,9 +220,39 @@ instance Core.AWSRequest UpdateProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProfile
+instance Prelude.Hashable UpdateProfile where
+  hashWithSalt _salt UpdateProfile' {..} =
+    _salt `Prelude.hashWithSalt` setupModeDisabled
+      `Prelude.hashWithSalt` pSTNEnabled
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` wakeWord
+      `Prelude.hashWithSalt` meetingRoomConfiguration
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` temperatureUnit
+      `Prelude.hashWithSalt` dataRetentionOptIn
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` maxVolumeLimit
+      `Prelude.hashWithSalt` isDefault
 
-instance Prelude.NFData UpdateProfile
+instance Prelude.NFData UpdateProfile where
+  rnf UpdateProfile' {..} =
+    Prelude.rnf setupModeDisabled
+      `Prelude.seq` Prelude.rnf pSTNEnabled
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf wakeWord
+      `Prelude.seq` Prelude.rnf meetingRoomConfiguration
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf temperatureUnit
+      `Prelude.seq` Prelude.rnf dataRetentionOptIn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf maxVolumeLimit
+      `Prelude.seq` Prelude.rnf isDefault
 
 instance Core.ToHeaders UpdateProfile where
   toHeaders =
@@ -298,4 +328,6 @@ newUpdateProfileResponse pHttpStatus_ =
 updateProfileResponse_httpStatus :: Lens.Lens' UpdateProfileResponse Prelude.Int
 updateProfileResponse_httpStatus = Lens.lens (\UpdateProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateProfileResponse' {} a -> s {httpStatus = a} :: UpdateProfileResponse)
 
-instance Prelude.NFData UpdateProfileResponse
+instance Prelude.NFData UpdateProfileResponse where
+  rnf UpdateProfileResponse' {..} =
+    Prelude.rnf httpStatus

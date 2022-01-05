@@ -71,9 +71,15 @@ instance Core.FromXML DestinationDetails where
       Prelude.<$> (x Core..@? "CloudWatchLogsDetails")
       Prelude.<*> (x Core..@? "KinesisFirehoseDetails")
 
-instance Prelude.Hashable DestinationDetails
+instance Prelude.Hashable DestinationDetails where
+  hashWithSalt _salt DestinationDetails' {..} =
+    _salt `Prelude.hashWithSalt` cloudWatchLogsDetails
+      `Prelude.hashWithSalt` kinesisFirehoseDetails
 
-instance Prelude.NFData DestinationDetails
+instance Prelude.NFData DestinationDetails where
+  rnf DestinationDetails' {..} =
+    Prelude.rnf cloudWatchLogsDetails
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDetails
 
 instance Core.ToQuery DestinationDetails where
   toQuery DestinationDetails' {..} =

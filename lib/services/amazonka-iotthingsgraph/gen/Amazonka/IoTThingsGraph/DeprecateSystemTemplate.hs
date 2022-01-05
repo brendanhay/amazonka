@@ -96,9 +96,12 @@ instance Core.AWSRequest DeprecateSystemTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeprecateSystemTemplate
+instance Prelude.Hashable DeprecateSystemTemplate where
+  hashWithSalt _salt DeprecateSystemTemplate' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeprecateSystemTemplate
+instance Prelude.NFData DeprecateSystemTemplate where
+  rnf DeprecateSystemTemplate' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeprecateSystemTemplate where
   toHeaders =
@@ -159,3 +162,6 @@ deprecateSystemTemplateResponse_httpStatus = Lens.lens (\DeprecateSystemTemplate
 instance
   Prelude.NFData
     DeprecateSystemTemplateResponse
+  where
+  rnf DeprecateSystemTemplateResponse' {..} =
+    Prelude.rnf httpStatus

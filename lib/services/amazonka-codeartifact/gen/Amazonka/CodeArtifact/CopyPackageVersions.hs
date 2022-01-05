@@ -309,9 +309,33 @@ instance Core.AWSRequest CopyPackageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyPackageVersions
+instance Prelude.Hashable CopyPackageVersions where
+  hashWithSalt _salt CopyPackageVersions' {..} =
+    _salt `Prelude.hashWithSalt` allowOverwrite
+      `Prelude.hashWithSalt` versionRevisions
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` versions
+      `Prelude.hashWithSalt` includeFromUpstream
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` sourceRepository
+      `Prelude.hashWithSalt` destinationRepository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
 
-instance Prelude.NFData CopyPackageVersions
+instance Prelude.NFData CopyPackageVersions where
+  rnf CopyPackageVersions' {..} =
+    Prelude.rnf allowOverwrite
+      `Prelude.seq` Prelude.rnf versionRevisions
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf includeFromUpstream
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf sourceRepository
+      `Prelude.seq` Prelude.rnf destinationRepository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
 
 instance Core.ToHeaders CopyPackageVersions where
   toHeaders =
@@ -447,4 +471,8 @@ copyPackageVersionsResponse_successfulVersions = Lens.lens (\CopyPackageVersions
 copyPackageVersionsResponse_httpStatus :: Lens.Lens' CopyPackageVersionsResponse Prelude.Int
 copyPackageVersionsResponse_httpStatus = Lens.lens (\CopyPackageVersionsResponse' {httpStatus} -> httpStatus) (\s@CopyPackageVersionsResponse' {} a -> s {httpStatus = a} :: CopyPackageVersionsResponse)
 
-instance Prelude.NFData CopyPackageVersionsResponse
+instance Prelude.NFData CopyPackageVersionsResponse where
+  rnf CopyPackageVersionsResponse' {..} =
+    Prelude.rnf failedVersions
+      `Prelude.seq` Prelude.rnf successfulVersions
+      `Prelude.seq` Prelude.rnf httpStatus

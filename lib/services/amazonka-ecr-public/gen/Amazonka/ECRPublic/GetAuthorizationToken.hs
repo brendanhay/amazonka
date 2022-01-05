@@ -75,9 +75,12 @@ instance Core.AWSRequest GetAuthorizationToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAuthorizationToken
+instance Prelude.Hashable GetAuthorizationToken where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetAuthorizationToken
+instance Prelude.NFData GetAuthorizationToken where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAuthorizationToken where
   toHeaders =
@@ -145,4 +148,7 @@ getAuthorizationTokenResponse_authorizationData = Lens.lens (\GetAuthorizationTo
 getAuthorizationTokenResponse_httpStatus :: Lens.Lens' GetAuthorizationTokenResponse Prelude.Int
 getAuthorizationTokenResponse_httpStatus = Lens.lens (\GetAuthorizationTokenResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizationTokenResponse' {} a -> s {httpStatus = a} :: GetAuthorizationTokenResponse)
 
-instance Prelude.NFData GetAuthorizationTokenResponse
+instance Prelude.NFData GetAuthorizationTokenResponse where
+  rnf GetAuthorizationTokenResponse' {..} =
+    Prelude.rnf authorizationData
+      `Prelude.seq` Prelude.rnf httpStatus

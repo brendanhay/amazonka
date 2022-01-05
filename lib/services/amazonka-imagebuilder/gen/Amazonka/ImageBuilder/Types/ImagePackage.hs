@@ -77,6 +77,12 @@ instance Core.FromJSON ImagePackage where
             Prelude.<*> (x Core..:? "packageVersion")
       )
 
-instance Prelude.Hashable ImagePackage
+instance Prelude.Hashable ImagePackage where
+  hashWithSalt _salt ImagePackage' {..} =
+    _salt `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` packageVersion
 
-instance Prelude.NFData ImagePackage
+instance Prelude.NFData ImagePackage where
+  rnf ImagePackage' {..} =
+    Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageVersion

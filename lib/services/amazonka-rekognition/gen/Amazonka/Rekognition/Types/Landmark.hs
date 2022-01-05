@@ -100,6 +100,14 @@ instance Core.FromJSON Landmark where
             Prelude.<*> (x Core..:? "Y")
       )
 
-instance Prelude.Hashable Landmark
+instance Prelude.Hashable Landmark where
+  hashWithSalt _salt Landmark' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` x
+      `Prelude.hashWithSalt` y
 
-instance Prelude.NFData Landmark
+instance Prelude.NFData Landmark where
+  rnf Landmark' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf x
+      `Prelude.seq` Prelude.rnf y

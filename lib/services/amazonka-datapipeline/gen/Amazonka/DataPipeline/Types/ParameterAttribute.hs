@@ -75,9 +75,15 @@ instance Core.FromJSON ParameterAttribute where
             Prelude.<*> (x Core..: "stringValue")
       )
 
-instance Prelude.Hashable ParameterAttribute
+instance Prelude.Hashable ParameterAttribute where
+  hashWithSalt _salt ParameterAttribute' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` stringValue
 
-instance Prelude.NFData ParameterAttribute
+instance Prelude.NFData ParameterAttribute where
+  rnf ParameterAttribute' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf stringValue
 
 instance Core.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =

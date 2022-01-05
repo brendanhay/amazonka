@@ -296,9 +296,25 @@ instance Core.AWSRequest GetComplianceSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetComplianceSummary
+instance Prelude.Hashable GetComplianceSummary where
+  hashWithSalt _salt GetComplianceSummary' {..} =
+    _salt `Prelude.hashWithSalt` groupBy
+      `Prelude.hashWithSalt` paginationToken
+      `Prelude.hashWithSalt` targetIdFilters
+      `Prelude.hashWithSalt` resourceTypeFilters
+      `Prelude.hashWithSalt` regionFilters
+      `Prelude.hashWithSalt` tagKeyFilters
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetComplianceSummary
+instance Prelude.NFData GetComplianceSummary where
+  rnf GetComplianceSummary' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf targetIdFilters
+      `Prelude.seq` Prelude.rnf resourceTypeFilters
+      `Prelude.seq` Prelude.rnf regionFilters
+      `Prelude.seq` Prelude.rnf tagKeyFilters
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetComplianceSummary where
   toHeaders =
@@ -395,4 +411,8 @@ getComplianceSummaryResponse_summaryList = Lens.lens (\GetComplianceSummaryRespo
 getComplianceSummaryResponse_httpStatus :: Lens.Lens' GetComplianceSummaryResponse Prelude.Int
 getComplianceSummaryResponse_httpStatus = Lens.lens (\GetComplianceSummaryResponse' {httpStatus} -> httpStatus) (\s@GetComplianceSummaryResponse' {} a -> s {httpStatus = a} :: GetComplianceSummaryResponse)
 
-instance Prelude.NFData GetComplianceSummaryResponse
+instance Prelude.NFData GetComplianceSummaryResponse where
+  rnf GetComplianceSummaryResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf summaryList
+      `Prelude.seq` Prelude.rnf httpStatus

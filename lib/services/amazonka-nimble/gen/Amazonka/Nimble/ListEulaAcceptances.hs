@@ -139,9 +139,17 @@ instance Core.AWSRequest ListEulaAcceptances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEulaAcceptances
+instance Prelude.Hashable ListEulaAcceptances where
+  hashWithSalt _salt ListEulaAcceptances' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` eulaIds
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData ListEulaAcceptances
+instance Prelude.NFData ListEulaAcceptances where
+  rnf ListEulaAcceptances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eulaIds
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders ListEulaAcceptances where
   toHeaders =
@@ -222,4 +230,8 @@ listEulaAcceptancesResponse_eulaAcceptances = Lens.lens (\ListEulaAcceptancesRes
 listEulaAcceptancesResponse_httpStatus :: Lens.Lens' ListEulaAcceptancesResponse Prelude.Int
 listEulaAcceptancesResponse_httpStatus = Lens.lens (\ListEulaAcceptancesResponse' {httpStatus} -> httpStatus) (\s@ListEulaAcceptancesResponse' {} a -> s {httpStatus = a} :: ListEulaAcceptancesResponse)
 
-instance Prelude.NFData ListEulaAcceptancesResponse
+instance Prelude.NFData ListEulaAcceptancesResponse where
+  rnf ListEulaAcceptancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eulaAcceptances
+      `Prelude.seq` Prelude.rnf httpStatus

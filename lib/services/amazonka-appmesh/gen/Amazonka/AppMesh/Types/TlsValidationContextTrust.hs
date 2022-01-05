@@ -94,9 +94,17 @@ instance Core.FromJSON TlsValidationContextTrust where
             Prelude.<*> (x Core..:? "file")
       )
 
-instance Prelude.Hashable TlsValidationContextTrust
+instance Prelude.Hashable TlsValidationContextTrust where
+  hashWithSalt _salt TlsValidationContextTrust' {..} =
+    _salt `Prelude.hashWithSalt` acm
+      `Prelude.hashWithSalt` sds
+      `Prelude.hashWithSalt` file
 
-instance Prelude.NFData TlsValidationContextTrust
+instance Prelude.NFData TlsValidationContextTrust where
+  rnf TlsValidationContextTrust' {..} =
+    Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
+      `Prelude.seq` Prelude.rnf file
 
 instance Core.ToJSON TlsValidationContextTrust where
   toJSON TlsValidationContextTrust' {..} =

@@ -126,9 +126,15 @@ instance Core.FromXML S3Origin where
       Prelude.<$> (x Core..@ "DomainName")
       Prelude.<*> (x Core..@ "OriginAccessIdentity")
 
-instance Prelude.Hashable S3Origin
+instance Prelude.Hashable S3Origin where
+  hashWithSalt _salt S3Origin' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` originAccessIdentity
 
-instance Prelude.NFData S3Origin
+instance Prelude.NFData S3Origin where
+  rnf S3Origin' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf originAccessIdentity
 
 instance Core.ToXML S3Origin where
   toXML S3Origin' {..} =

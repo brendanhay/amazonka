@@ -71,7 +71,15 @@ instance
 instance
   Prelude.Hashable
     BatchScheduleActionDeleteResult
+  where
+  hashWithSalt
+    _salt
+    BatchScheduleActionDeleteResult' {..} =
+      _salt `Prelude.hashWithSalt` scheduleActions
 
 instance
   Prelude.NFData
     BatchScheduleActionDeleteResult
+  where
+  rnf BatchScheduleActionDeleteResult' {..} =
+    Prelude.rnf scheduleActions

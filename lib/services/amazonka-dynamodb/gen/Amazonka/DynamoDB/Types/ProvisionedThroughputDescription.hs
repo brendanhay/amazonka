@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ProvisionedThroughputDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -143,7 +144,23 @@ instance
 instance
   Prelude.Hashable
     ProvisionedThroughputDescription
+  where
+  hashWithSalt
+    _salt
+    ProvisionedThroughputDescription' {..} =
+      _salt `Prelude.hashWithSalt` readCapacityUnits
+        `Prelude.hashWithSalt` lastDecreaseDateTime
+        `Prelude.hashWithSalt` writeCapacityUnits
+        `Prelude.hashWithSalt` numberOfDecreasesToday
+        `Prelude.hashWithSalt` lastIncreaseDateTime
 
 instance
   Prelude.NFData
     ProvisionedThroughputDescription
+  where
+  rnf ProvisionedThroughputDescription' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf lastDecreaseDateTime
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
+      `Prelude.seq` Prelude.rnf numberOfDecreasesToday
+      `Prelude.seq` Prelude.rnf lastIncreaseDateTime

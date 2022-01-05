@@ -58,9 +58,12 @@ instance Core.FromJSON LoggingInfo where
           LoggingInfo' Prelude.<$> (x Core..: "brokerLogs")
       )
 
-instance Prelude.Hashable LoggingInfo
+instance Prelude.Hashable LoggingInfo where
+  hashWithSalt _salt LoggingInfo' {..} =
+    _salt `Prelude.hashWithSalt` brokerLogs
 
-instance Prelude.NFData LoggingInfo
+instance Prelude.NFData LoggingInfo where
+  rnf LoggingInfo' {..} = Prelude.rnf brokerLogs
 
 instance Core.ToJSON LoggingInfo where
   toJSON LoggingInfo' {..} =

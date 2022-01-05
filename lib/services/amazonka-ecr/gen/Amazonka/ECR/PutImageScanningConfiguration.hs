@@ -142,8 +142,17 @@ instance
 instance
   Prelude.Hashable
     PutImageScanningConfiguration
+  where
+  hashWithSalt _salt PutImageScanningConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageScanningConfiguration
 
-instance Prelude.NFData PutImageScanningConfiguration
+instance Prelude.NFData PutImageScanningConfiguration where
+  rnf PutImageScanningConfiguration' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
 
 instance Core.ToHeaders PutImageScanningConfiguration where
   toHeaders =
@@ -241,3 +250,9 @@ putImageScanningConfigurationResponse_httpStatus = Lens.lens (\PutImageScanningC
 instance
   Prelude.NFData
     PutImageScanningConfigurationResponse
+  where
+  rnf PutImageScanningConfigurationResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf httpStatus

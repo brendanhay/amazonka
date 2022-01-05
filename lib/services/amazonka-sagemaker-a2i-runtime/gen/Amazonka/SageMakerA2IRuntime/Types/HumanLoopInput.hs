@@ -55,9 +55,12 @@ newHumanLoopInput pInputContent_ =
 humanLoopInput_inputContent :: Lens.Lens' HumanLoopInput Prelude.Text
 humanLoopInput_inputContent = Lens.lens (\HumanLoopInput' {inputContent} -> inputContent) (\s@HumanLoopInput' {} a -> s {inputContent = a} :: HumanLoopInput)
 
-instance Prelude.Hashable HumanLoopInput
+instance Prelude.Hashable HumanLoopInput where
+  hashWithSalt _salt HumanLoopInput' {..} =
+    _salt `Prelude.hashWithSalt` inputContent
 
-instance Prelude.NFData HumanLoopInput
+instance Prelude.NFData HumanLoopInput where
+  rnf HumanLoopInput' {..} = Prelude.rnf inputContent
 
 instance Core.ToJSON HumanLoopInput where
   toJSON HumanLoopInput' {..} =

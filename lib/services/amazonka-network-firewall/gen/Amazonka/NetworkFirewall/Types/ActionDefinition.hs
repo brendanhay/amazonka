@@ -88,9 +88,13 @@ instance Core.FromJSON ActionDefinition where
             Prelude.<$> (x Core..:? "PublishMetricAction")
       )
 
-instance Prelude.Hashable ActionDefinition
+instance Prelude.Hashable ActionDefinition where
+  hashWithSalt _salt ActionDefinition' {..} =
+    _salt `Prelude.hashWithSalt` publishMetricAction
 
-instance Prelude.NFData ActionDefinition
+instance Prelude.NFData ActionDefinition where
+  rnf ActionDefinition' {..} =
+    Prelude.rnf publishMetricAction
 
 instance Core.ToJSON ActionDefinition where
   toJSON ActionDefinition' {..} =

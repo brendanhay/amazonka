@@ -117,8 +117,15 @@ instance Core.AWSRequest CreateMonitoringSubscription where
 instance
   Prelude.Hashable
     CreateMonitoringSubscription
+  where
+  hashWithSalt _salt CreateMonitoringSubscription' {..} =
+    _salt `Prelude.hashWithSalt` monitoringSubscription
+      `Prelude.hashWithSalt` distributionId
 
-instance Prelude.NFData CreateMonitoringSubscription
+instance Prelude.NFData CreateMonitoringSubscription where
+  rnf CreateMonitoringSubscription' {..} =
+    Prelude.rnf monitoringSubscription
+      `Prelude.seq` Prelude.rnf distributionId
 
 instance Core.ToElement CreateMonitoringSubscription where
   toElement CreateMonitoringSubscription' {..} =
@@ -188,3 +195,7 @@ createMonitoringSubscriptionResponse_httpStatus = Lens.lens (\CreateMonitoringSu
 instance
   Prelude.NFData
     CreateMonitoringSubscriptionResponse
+  where
+  rnf CreateMonitoringSubscriptionResponse' {..} =
+    Prelude.rnf monitoringSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

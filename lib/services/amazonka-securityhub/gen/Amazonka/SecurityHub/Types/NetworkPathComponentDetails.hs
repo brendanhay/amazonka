@@ -74,9 +74,15 @@ instance Core.FromJSON NetworkPathComponentDetails where
             Prelude.<*> (x Core..:? "Address" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable NetworkPathComponentDetails
+instance Prelude.Hashable NetworkPathComponentDetails where
+  hashWithSalt _salt NetworkPathComponentDetails' {..} =
+    _salt `Prelude.hashWithSalt` portRanges
+      `Prelude.hashWithSalt` address
 
-instance Prelude.NFData NetworkPathComponentDetails
+instance Prelude.NFData NetworkPathComponentDetails where
+  rnf NetworkPathComponentDetails' {..} =
+    Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf address
 
 instance Core.ToJSON NetworkPathComponentDetails where
   toJSON NetworkPathComponentDetails' {..} =

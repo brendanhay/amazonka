@@ -131,9 +131,15 @@ instance Core.AWSRequest DescribeWorkflowType where
             Prelude.<*> (x Core..:> "configuration")
       )
 
-instance Prelude.Hashable DescribeWorkflowType
+instance Prelude.Hashable DescribeWorkflowType where
+  hashWithSalt _salt DescribeWorkflowType' {..} =
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` workflowType
 
-instance Prelude.NFData DescribeWorkflowType
+instance Prelude.NFData DescribeWorkflowType where
+  rnf DescribeWorkflowType' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf workflowType
 
 instance Core.ToHeaders DescribeWorkflowType where
   toHeaders =
@@ -255,4 +261,8 @@ describeWorkflowTypeResponse_typeInfo = Lens.lens (\DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse_configuration :: Lens.Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 describeWorkflowTypeResponse_configuration = Lens.lens (\DescribeWorkflowTypeResponse' {configuration} -> configuration) (\s@DescribeWorkflowTypeResponse' {} a -> s {configuration = a} :: DescribeWorkflowTypeResponse)
 
-instance Prelude.NFData DescribeWorkflowTypeResponse
+instance Prelude.NFData DescribeWorkflowTypeResponse where
+  rnf DescribeWorkflowTypeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf typeInfo
+      `Prelude.seq` Prelude.rnf configuration

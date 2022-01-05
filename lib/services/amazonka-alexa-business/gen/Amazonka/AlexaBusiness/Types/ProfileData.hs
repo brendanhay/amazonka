@@ -147,6 +147,26 @@ instance Core.FromJSON ProfileData where
             Prelude.<*> (x Core..:? "IsDefault")
       )
 
-instance Prelude.Hashable ProfileData
+instance Prelude.Hashable ProfileData where
+  hashWithSalt _salt ProfileData' {..} =
+    _salt `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` wakeWord
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` temperatureUnit
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` isDefault
 
-instance Prelude.NFData ProfileData
+instance Prelude.NFData ProfileData where
+  rnf ProfileData' {..} =
+    Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf wakeWord
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf temperatureUnit
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf isDefault

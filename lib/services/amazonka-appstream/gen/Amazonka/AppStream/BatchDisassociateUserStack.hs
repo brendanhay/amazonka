@@ -89,9 +89,13 @@ instance Core.AWSRequest BatchDisassociateUserStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDisassociateUserStack
+instance Prelude.Hashable BatchDisassociateUserStack where
+  hashWithSalt _salt BatchDisassociateUserStack' {..} =
+    _salt `Prelude.hashWithSalt` userStackAssociations
 
-instance Prelude.NFData BatchDisassociateUserStack
+instance Prelude.NFData BatchDisassociateUserStack where
+  rnf BatchDisassociateUserStack' {..} =
+    Prelude.rnf userStackAssociations
 
 instance Core.ToHeaders BatchDisassociateUserStack where
   toHeaders =
@@ -167,3 +171,7 @@ batchDisassociateUserStackResponse_httpStatus = Lens.lens (\BatchDisassociateUse
 instance
   Prelude.NFData
     BatchDisassociateUserStackResponse
+  where
+  rnf BatchDisassociateUserStackResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

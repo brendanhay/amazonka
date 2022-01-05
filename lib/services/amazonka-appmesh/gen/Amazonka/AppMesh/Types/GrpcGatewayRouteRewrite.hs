@@ -63,9 +63,13 @@ instance Core.FromJSON GrpcGatewayRouteRewrite where
             Prelude.<$> (x Core..:? "hostname")
       )
 
-instance Prelude.Hashable GrpcGatewayRouteRewrite
+instance Prelude.Hashable GrpcGatewayRouteRewrite where
+  hashWithSalt _salt GrpcGatewayRouteRewrite' {..} =
+    _salt `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData GrpcGatewayRouteRewrite
+instance Prelude.NFData GrpcGatewayRouteRewrite where
+  rnf GrpcGatewayRouteRewrite' {..} =
+    Prelude.rnf hostname
 
 instance Core.ToJSON GrpcGatewayRouteRewrite where
   toJSON GrpcGatewayRouteRewrite' {..} =

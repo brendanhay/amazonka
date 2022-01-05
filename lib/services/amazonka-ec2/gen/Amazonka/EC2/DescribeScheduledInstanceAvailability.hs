@@ -276,10 +276,32 @@ instance
 instance
   Prelude.Hashable
     DescribeScheduledInstanceAvailability
+  where
+  hashWithSalt
+    _salt
+    DescribeScheduledInstanceAvailability' {..} =
+      _salt `Prelude.hashWithSalt` minSlotDurationInHours
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxSlotDurationInHours
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` firstSlotStartTimeRange
+        `Prelude.hashWithSalt` recurrence
 
 instance
   Prelude.NFData
     DescribeScheduledInstanceAvailability
+  where
+  rnf DescribeScheduledInstanceAvailability' {..} =
+    Prelude.rnf minSlotDurationInHours
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxSlotDurationInHours
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf firstSlotStartTimeRange
+      `Prelude.seq` Prelude.rnf recurrence
 
 instance
   Core.ToHeaders
@@ -376,3 +398,9 @@ describeScheduledInstanceAvailabilityResponse_httpStatus = Lens.lens (\DescribeS
 instance
   Prelude.NFData
     DescribeScheduledInstanceAvailabilityResponse
+  where
+  rnf
+    DescribeScheduledInstanceAvailabilityResponse' {..} =
+      Prelude.rnf scheduledInstanceAvailabilitySet
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

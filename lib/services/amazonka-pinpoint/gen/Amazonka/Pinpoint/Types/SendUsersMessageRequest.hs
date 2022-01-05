@@ -127,9 +127,21 @@ sendUsersMessageRequest_messageConfiguration = Lens.lens (\SendUsersMessageReque
 sendUsersMessageRequest_users :: Lens.Lens' SendUsersMessageRequest (Prelude.HashMap Prelude.Text EndpointSendConfiguration)
 sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> users) (\s@SendUsersMessageRequest' {} a -> s {users = a} :: SendUsersMessageRequest) Prelude.. Lens.coerced
 
-instance Prelude.Hashable SendUsersMessageRequest
+instance Prelude.Hashable SendUsersMessageRequest where
+  hashWithSalt _salt SendUsersMessageRequest' {..} =
+    _salt `Prelude.hashWithSalt` traceId
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` messageConfiguration
+      `Prelude.hashWithSalt` users
 
-instance Prelude.NFData SendUsersMessageRequest
+instance Prelude.NFData SendUsersMessageRequest where
+  rnf SendUsersMessageRequest' {..} =
+    Prelude.rnf traceId
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf messageConfiguration
+      `Prelude.seq` Prelude.rnf users
 
 instance Core.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =

@@ -86,6 +86,14 @@ instance Core.FromXML PolicyTypeDescription where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable PolicyTypeDescription
+instance Prelude.Hashable PolicyTypeDescription where
+  hashWithSalt _salt PolicyTypeDescription' {..} =
+    _salt `Prelude.hashWithSalt` policyTypeName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policyAttributeTypeDescriptions
 
-instance Prelude.NFData PolicyTypeDescription
+instance Prelude.NFData PolicyTypeDescription where
+  rnf PolicyTypeDescription' {..} =
+    Prelude.rnf policyTypeName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyAttributeTypeDescriptions

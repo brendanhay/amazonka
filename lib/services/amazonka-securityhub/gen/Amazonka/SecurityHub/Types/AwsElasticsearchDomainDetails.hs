@@ -237,8 +237,38 @@ instance Core.FromJSON AwsElasticsearchDomainDetails where
 instance
   Prelude.Hashable
     AwsElasticsearchDomainDetails
+  where
+  hashWithSalt _salt AwsElasticsearchDomainDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` serviceSoftwareOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` elasticsearchClusterConfig
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` elasticsearchVersion
 
-instance Prelude.NFData AwsElasticsearchDomainDetails
+instance Prelude.NFData AwsElasticsearchDomainDetails where
+  rnf AwsElasticsearchDomainDetails' {..} =
+    Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf elasticsearchVersion
 
 instance Core.ToJSON AwsElasticsearchDomainDetails where
   toJSON AwsElasticsearchDomainDetails' {..} =

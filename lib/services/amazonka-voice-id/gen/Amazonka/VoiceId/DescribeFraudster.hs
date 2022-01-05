@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeFraudster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFraudster
+instance Prelude.Hashable DescribeFraudster where
+  hashWithSalt _salt DescribeFraudster' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` fraudsterId
 
-instance Prelude.NFData DescribeFraudster
+instance Prelude.NFData DescribeFraudster where
+  rnf DescribeFraudster' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf fraudsterId
 
 instance Core.ToHeaders DescribeFraudster where
   toHeaders =
@@ -171,4 +177,7 @@ describeFraudsterResponse_fraudster = Lens.lens (\DescribeFraudsterResponse' {fr
 describeFraudsterResponse_httpStatus :: Lens.Lens' DescribeFraudsterResponse Prelude.Int
 describeFraudsterResponse_httpStatus = Lens.lens (\DescribeFraudsterResponse' {httpStatus} -> httpStatus) (\s@DescribeFraudsterResponse' {} a -> s {httpStatus = a} :: DescribeFraudsterResponse)
 
-instance Prelude.NFData DescribeFraudsterResponse
+instance Prelude.NFData DescribeFraudsterResponse where
+  rnf DescribeFraudsterResponse' {..} =
+    Prelude.rnf fraudster
+      `Prelude.seq` Prelude.rnf httpStatus

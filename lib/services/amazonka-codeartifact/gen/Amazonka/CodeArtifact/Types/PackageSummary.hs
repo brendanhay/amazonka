@@ -126,6 +126,14 @@ instance Core.FromJSON PackageSummary where
             Prelude.<*> (x Core..:? "package")
       )
 
-instance Prelude.Hashable PackageSummary
+instance Prelude.Hashable PackageSummary where
+  hashWithSalt _salt PackageSummary' {..} =
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` package
 
-instance Prelude.NFData PackageSummary
+instance Prelude.NFData PackageSummary where
+  rnf PackageSummary' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf package

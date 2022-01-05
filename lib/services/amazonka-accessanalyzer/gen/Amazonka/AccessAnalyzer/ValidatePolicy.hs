@@ -185,9 +185,21 @@ instance Core.AWSRequest ValidatePolicy where
             Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ValidatePolicy
+instance Prelude.Hashable ValidatePolicy where
+  hashWithSalt _salt ValidatePolicy' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyType
 
-instance Prelude.NFData ValidatePolicy
+instance Prelude.NFData ValidatePolicy where
+  rnf ValidatePolicy' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyType
 
 instance Core.ToHeaders ValidatePolicy where
   toHeaders =
@@ -272,4 +284,8 @@ validatePolicyResponse_httpStatus = Lens.lens (\ValidatePolicyResponse' {httpSta
 validatePolicyResponse_findings :: Lens.Lens' ValidatePolicyResponse [ValidatePolicyFinding]
 validatePolicyResponse_findings = Lens.lens (\ValidatePolicyResponse' {findings} -> findings) (\s@ValidatePolicyResponse' {} a -> s {findings = a} :: ValidatePolicyResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ValidatePolicyResponse
+instance Prelude.NFData ValidatePolicyResponse where
+  rnf ValidatePolicyResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf findings

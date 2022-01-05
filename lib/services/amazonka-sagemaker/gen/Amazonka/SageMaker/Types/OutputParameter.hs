@@ -71,9 +71,14 @@ instance Core.FromJSON OutputParameter where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable OutputParameter
+instance Prelude.Hashable OutputParameter where
+  hashWithSalt _salt OutputParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData OutputParameter
+instance Prelude.NFData OutputParameter where
+  rnf OutputParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON OutputParameter where
   toJSON OutputParameter' {..} =

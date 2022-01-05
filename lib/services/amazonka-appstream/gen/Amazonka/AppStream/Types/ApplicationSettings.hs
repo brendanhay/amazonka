@@ -76,9 +76,15 @@ applicationSettings_settingsGroup = Lens.lens (\ApplicationSettings' {settingsGr
 applicationSettings_enabled :: Lens.Lens' ApplicationSettings Prelude.Bool
 applicationSettings_enabled = Lens.lens (\ApplicationSettings' {enabled} -> enabled) (\s@ApplicationSettings' {} a -> s {enabled = a} :: ApplicationSettings)
 
-instance Prelude.Hashable ApplicationSettings
+instance Prelude.Hashable ApplicationSettings where
+  hashWithSalt _salt ApplicationSettings' {..} =
+    _salt `Prelude.hashWithSalt` settingsGroup
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData ApplicationSettings
+instance Prelude.NFData ApplicationSettings where
+  rnf ApplicationSettings' {..} =
+    Prelude.rnf settingsGroup
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON ApplicationSettings where
   toJSON ApplicationSettings' {..} =

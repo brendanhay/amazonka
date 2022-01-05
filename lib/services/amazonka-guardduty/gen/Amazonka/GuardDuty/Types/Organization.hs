@@ -95,6 +95,16 @@ instance Core.FromJSON Organization where
             Prelude.<*> (x Core..:? "isp")
       )
 
-instance Prelude.Hashable Organization
+instance Prelude.Hashable Organization where
+  hashWithSalt _salt Organization' {..} =
+    _salt `Prelude.hashWithSalt` org
+      `Prelude.hashWithSalt` asnOrg
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` isp
 
-instance Prelude.NFData Organization
+instance Prelude.NFData Organization where
+  rnf Organization' {..} =
+    Prelude.rnf org
+      `Prelude.seq` Prelude.rnf asnOrg
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf isp

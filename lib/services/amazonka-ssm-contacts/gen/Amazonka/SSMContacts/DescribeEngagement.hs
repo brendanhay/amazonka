@@ -109,9 +109,13 @@ instance Core.AWSRequest DescribeEngagement where
             Prelude.<*> (x Core..:> "Content")
       )
 
-instance Prelude.Hashable DescribeEngagement
+instance Prelude.Hashable DescribeEngagement where
+  hashWithSalt _salt DescribeEngagement' {..} =
+    _salt `Prelude.hashWithSalt` engagementId
 
-instance Prelude.NFData DescribeEngagement
+instance Prelude.NFData DescribeEngagement where
+  rnf DescribeEngagement' {..} =
+    Prelude.rnf engagementId
 
 instance Core.ToHeaders DescribeEngagement where
   toHeaders =
@@ -289,4 +293,16 @@ describeEngagementResponse_subject = Lens.lens (\DescribeEngagementResponse' {su
 describeEngagementResponse_content :: Lens.Lens' DescribeEngagementResponse Prelude.Text
 describeEngagementResponse_content = Lens.lens (\DescribeEngagementResponse' {content} -> content) (\s@DescribeEngagementResponse' {} a -> s {content = a} :: DescribeEngagementResponse)
 
-instance Prelude.NFData DescribeEngagementResponse
+instance Prelude.NFData DescribeEngagementResponse where
+  rnf DescribeEngagementResponse' {..} =
+    Prelude.rnf publicSubject
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf publicContent
+      `Prelude.seq` Prelude.rnf stopTime
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf engagementArn
+      `Prelude.seq` Prelude.rnf sender
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf content

@@ -104,9 +104,13 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccessKeyLastUsed
+instance Prelude.Hashable GetAccessKeyLastUsed where
+  hashWithSalt _salt GetAccessKeyLastUsed' {..} =
+    _salt `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData GetAccessKeyLastUsed
+instance Prelude.NFData GetAccessKeyLastUsed where
+  rnf GetAccessKeyLastUsed' {..} =
+    Prelude.rnf accessKeyId
 
 instance Core.ToHeaders GetAccessKeyLastUsed where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +180,8 @@ getAccessKeyLastUsedResponse_accessKeyLastUsed = Lens.lens (\GetAccessKeyLastUse
 getAccessKeyLastUsedResponse_httpStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Prelude.Int
 getAccessKeyLastUsedResponse_httpStatus = Lens.lens (\GetAccessKeyLastUsedResponse' {httpStatus} -> httpStatus) (\s@GetAccessKeyLastUsedResponse' {} a -> s {httpStatus = a} :: GetAccessKeyLastUsedResponse)
 
-instance Prelude.NFData GetAccessKeyLastUsedResponse
+instance Prelude.NFData GetAccessKeyLastUsedResponse where
+  rnf GetAccessKeyLastUsedResponse' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyLastUsed
+      `Prelude.seq` Prelude.rnf httpStatus

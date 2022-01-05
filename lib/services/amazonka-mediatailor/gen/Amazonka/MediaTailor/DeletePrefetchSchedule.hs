@@ -103,9 +103,15 @@ instance Core.AWSRequest DeletePrefetchSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePrefetchSchedule
+instance Prelude.Hashable DeletePrefetchSchedule where
+  hashWithSalt _salt DeletePrefetchSchedule' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` playbackConfigurationName
 
-instance Prelude.NFData DeletePrefetchSchedule
+instance Prelude.NFData DeletePrefetchSchedule where
+  rnf DeletePrefetchSchedule' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance Core.ToHeaders DeletePrefetchSchedule where
   toHeaders =
@@ -163,3 +169,6 @@ deletePrefetchScheduleResponse_httpStatus = Lens.lens (\DeletePrefetchScheduleRe
 instance
   Prelude.NFData
     DeletePrefetchScheduleResponse
+  where
+  rnf DeletePrefetchScheduleResponse' {..} =
+    Prelude.rnf httpStatus

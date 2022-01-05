@@ -140,9 +140,21 @@ instance Core.AWSRequest UpdateFileSystemAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFileSystemAssociation
+instance Prelude.Hashable UpdateFileSystemAssociation where
+  hashWithSalt _salt UpdateFileSystemAssociation' {..} =
+    _salt `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` fileSystemAssociationARN
 
-instance Prelude.NFData UpdateFileSystemAssociation
+instance Prelude.NFData UpdateFileSystemAssociation where
+  rnf UpdateFileSystemAssociation' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf fileSystemAssociationARN
 
 instance Core.ToHeaders UpdateFileSystemAssociation where
   toHeaders =
@@ -224,3 +236,7 @@ updateFileSystemAssociationResponse_httpStatus = Lens.lens (\UpdateFileSystemAss
 instance
   Prelude.NFData
     UpdateFileSystemAssociationResponse
+  where
+  rnf UpdateFileSystemAssociationResponse' {..} =
+    Prelude.rnf fileSystemAssociationARN
+      `Prelude.seq` Prelude.rnf httpStatus

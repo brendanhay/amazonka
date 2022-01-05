@@ -282,10 +282,28 @@ instance
 instance
   Prelude.Hashable
     GetSavingsPlansUtilizationDetails
+  where
+  hashWithSalt
+    _salt
+    GetSavingsPlansUtilizationDetails' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dataType
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` timePeriod
 
 instance
   Prelude.NFData
     GetSavingsPlansUtilizationDetails
+  where
+  rnf GetSavingsPlansUtilizationDetails' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf timePeriod
 
 instance
   Core.ToHeaders
@@ -415,3 +433,10 @@ getSavingsPlansUtilizationDetailsResponse_timePeriod = Lens.lens (\GetSavingsPla
 instance
   Prelude.NFData
     GetSavingsPlansUtilizationDetailsResponse
+  where
+  rnf GetSavingsPlansUtilizationDetailsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf savingsPlansUtilizationDetails
+      `Prelude.seq` Prelude.rnf timePeriod

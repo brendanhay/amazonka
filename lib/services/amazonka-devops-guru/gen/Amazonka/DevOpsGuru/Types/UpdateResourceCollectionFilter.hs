@@ -60,10 +60,18 @@ updateResourceCollectionFilter_cloudFormation = Lens.lens (\UpdateResourceCollec
 instance
   Prelude.Hashable
     UpdateResourceCollectionFilter
+  where
+  hashWithSalt
+    _salt
+    UpdateResourceCollectionFilter' {..} =
+      _salt `Prelude.hashWithSalt` cloudFormation
 
 instance
   Prelude.NFData
     UpdateResourceCollectionFilter
+  where
+  rnf UpdateResourceCollectionFilter' {..} =
+    Prelude.rnf cloudFormation
 
 instance Core.ToJSON UpdateResourceCollectionFilter where
   toJSON UpdateResourceCollectionFilter' {..} =

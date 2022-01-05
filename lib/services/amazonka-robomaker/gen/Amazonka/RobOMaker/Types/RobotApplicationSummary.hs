@@ -106,6 +106,18 @@ instance Core.FromJSON RobotApplicationSummary where
             Prelude.<*> (x Core..:? "robotSoftwareSuite")
       )
 
-instance Prelude.Hashable RobotApplicationSummary
+instance Prelude.Hashable RobotApplicationSummary where
+  hashWithSalt _salt RobotApplicationSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` robotSoftwareSuite
 
-instance Prelude.NFData RobotApplicationSummary
+instance Prelude.NFData RobotApplicationSummary where
+  rnf RobotApplicationSummary' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite

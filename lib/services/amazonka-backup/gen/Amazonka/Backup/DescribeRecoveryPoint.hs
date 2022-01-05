@@ -155,9 +155,15 @@ instance Core.AWSRequest DescribeRecoveryPoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRecoveryPoint
+instance Prelude.Hashable DescribeRecoveryPoint where
+  hashWithSalt _salt DescribeRecoveryPoint' {..} =
+    _salt `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` recoveryPointArn
 
-instance Prelude.NFData DescribeRecoveryPoint
+instance Prelude.NFData DescribeRecoveryPoint where
+  rnf DescribeRecoveryPoint' {..} =
+    Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf recoveryPointArn
 
 instance Core.ToHeaders DescribeRecoveryPoint where
   toHeaders =
@@ -542,4 +548,25 @@ describeRecoveryPointResponse_backupVaultName = Lens.lens (\DescribeRecoveryPoin
 describeRecoveryPointResponse_httpStatus :: Lens.Lens' DescribeRecoveryPointResponse Prelude.Int
 describeRecoveryPointResponse_httpStatus = Lens.lens (\DescribeRecoveryPointResponse' {httpStatus} -> httpStatus) (\s@DescribeRecoveryPointResponse' {} a -> s {httpStatus = a} :: DescribeRecoveryPointResponse)
 
-instance Prelude.NFData DescribeRecoveryPointResponse
+instance Prelude.NFData DescribeRecoveryPointResponse where
+  rnf DescribeRecoveryPointResponse' {..} =
+    Prelude.rnf isEncrypted
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf calculatedLifecycle
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf lastRestoreTime
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf httpStatus

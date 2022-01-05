@@ -145,9 +145,19 @@ instance Core.AWSRequest UpdateTemplateAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTemplateAlias
+instance Prelude.Hashable UpdateTemplateAlias where
+  hashWithSalt _salt UpdateTemplateAlias' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` templateVersionNumber
 
-instance Prelude.NFData UpdateTemplateAlias
+instance Prelude.NFData UpdateTemplateAlias where
+  rnf UpdateTemplateAlias' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf templateVersionNumber
 
 instance Core.ToHeaders UpdateTemplateAlias where
   toHeaders =
@@ -233,4 +243,8 @@ updateTemplateAliasResponse_templateAlias = Lens.lens (\UpdateTemplateAliasRespo
 updateTemplateAliasResponse_status :: Lens.Lens' UpdateTemplateAliasResponse Prelude.Int
 updateTemplateAliasResponse_status = Lens.lens (\UpdateTemplateAliasResponse' {status} -> status) (\s@UpdateTemplateAliasResponse' {} a -> s {status = a} :: UpdateTemplateAliasResponse)
 
-instance Prelude.NFData UpdateTemplateAliasResponse
+instance Prelude.NFData UpdateTemplateAliasResponse where
+  rnf UpdateTemplateAliasResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf templateAlias
+      `Prelude.seq` Prelude.rnf status

@@ -253,9 +253,21 @@ instance Core.AWSRequest DescribeHsmConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHsmConfigurations
+instance Prelude.Hashable DescribeHsmConfigurations where
+  hashWithSalt _salt DescribeHsmConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeHsmConfigurations
+instance Prelude.NFData DescribeHsmConfigurations where
+  rnf DescribeHsmConfigurations' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeHsmConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -350,3 +362,8 @@ describeHsmConfigurationsResponse_httpStatus = Lens.lens (\DescribeHsmConfigurat
 instance
   Prelude.NFData
     DescribeHsmConfigurationsResponse
+  where
+  rnf DescribeHsmConfigurationsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf hsmConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

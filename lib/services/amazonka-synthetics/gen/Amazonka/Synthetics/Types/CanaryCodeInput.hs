@@ -124,9 +124,21 @@ canaryCodeInput_s3Bucket = Lens.lens (\CanaryCodeInput' {s3Bucket} -> s3Bucket) 
 canaryCodeInput_handler :: Lens.Lens' CanaryCodeInput Prelude.Text
 canaryCodeInput_handler = Lens.lens (\CanaryCodeInput' {handler} -> handler) (\s@CanaryCodeInput' {} a -> s {handler = a} :: CanaryCodeInput)
 
-instance Prelude.Hashable CanaryCodeInput
+instance Prelude.Hashable CanaryCodeInput where
+  hashWithSalt _salt CanaryCodeInput' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3Version
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` handler
 
-instance Prelude.NFData CanaryCodeInput
+instance Prelude.NFData CanaryCodeInput where
+  rnf CanaryCodeInput' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3Version
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf handler
 
 instance Core.ToJSON CanaryCodeInput where
   toJSON CanaryCodeInput' {..} =

@@ -255,6 +255,40 @@ instance Core.FromXML Volume where
       Prelude.<*> (x Core..@ "volumeId")
       Prelude.<*> (x Core..@ "volumeType")
 
-instance Prelude.Hashable Volume
+instance Prelude.Hashable Volume where
+  hashWithSalt _salt Volume' {..} =
+    _salt `Prelude.hashWithSalt` fastRestored
+      `Prelude.hashWithSalt` multiAttachEnabled
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` throughput
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` volumeType
 
-instance Prelude.NFData Volume
+instance Prelude.NFData Volume where
+  rnf Volume' {..} =
+    Prelude.rnf fastRestored
+      `Prelude.seq` Prelude.rnf multiAttachEnabled
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf throughput
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf volumeType

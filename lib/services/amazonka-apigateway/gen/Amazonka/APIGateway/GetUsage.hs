@@ -161,9 +161,23 @@ instance Core.AWSRequest GetUsage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetUsage
+instance Prelude.Hashable GetUsage where
+  hashWithSalt _salt GetUsage' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` usagePlanId
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` endDate
 
-instance Prelude.NFData GetUsage
+instance Prelude.NFData GetUsage where
+  rnf GetUsage' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf usagePlanId
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf endDate
 
 instance Core.ToHeaders GetUsage where
   toHeaders =

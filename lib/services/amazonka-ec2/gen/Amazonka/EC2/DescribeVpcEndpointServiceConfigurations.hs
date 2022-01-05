@@ -239,10 +239,26 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcEndpointServiceConfigurations
+  where
+  hashWithSalt
+    _salt
+    DescribeVpcEndpointServiceConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` serviceIds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeVpcEndpointServiceConfigurations
+  where
+  rnf DescribeVpcEndpointServiceConfigurations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -335,3 +351,9 @@ describeVpcEndpointServiceConfigurationsResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeVpcEndpointServiceConfigurationsResponse
+  where
+  rnf
+    DescribeVpcEndpointServiceConfigurationsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf serviceConfigurations
+        `Prelude.seq` Prelude.rnf httpStatus

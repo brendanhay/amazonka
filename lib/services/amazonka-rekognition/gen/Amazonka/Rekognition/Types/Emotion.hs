@@ -77,6 +77,12 @@ instance Core.FromJSON Emotion where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Emotion
+instance Prelude.Hashable Emotion where
+  hashWithSalt _salt Emotion' {..} =
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Emotion
+instance Prelude.NFData Emotion where
+  rnf Emotion' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf type'

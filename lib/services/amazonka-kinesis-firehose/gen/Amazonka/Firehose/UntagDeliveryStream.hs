@@ -108,9 +108,15 @@ instance Core.AWSRequest UntagDeliveryStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UntagDeliveryStream
+instance Prelude.Hashable UntagDeliveryStream where
+  hashWithSalt _salt UntagDeliveryStream' {..} =
+    _salt `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagDeliveryStream
+instance Prelude.NFData UntagDeliveryStream where
+  rnf UntagDeliveryStream' {..} =
+    Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagDeliveryStream where
   toHeaders =
@@ -173,4 +179,6 @@ newUntagDeliveryStreamResponse pHttpStatus_ =
 untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Prelude.Int
 untagDeliveryStreamResponse_httpStatus = Lens.lens (\UntagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@UntagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: UntagDeliveryStreamResponse)
 
-instance Prelude.NFData UntagDeliveryStreamResponse
+instance Prelude.NFData UntagDeliveryStreamResponse where
+  rnf UntagDeliveryStreamResponse' {..} =
+    Prelude.rnf httpStatus

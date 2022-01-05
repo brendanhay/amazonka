@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     StartReplicationTaskAssessment
+  where
+  hashWithSalt
+    _salt
+    StartReplicationTaskAssessment' {..} =
+      _salt `Prelude.hashWithSalt` replicationTaskArn
 
 instance
   Prelude.NFData
     StartReplicationTaskAssessment
+  where
+  rnf StartReplicationTaskAssessment' {..} =
+    Prelude.rnf replicationTaskArn
 
 instance
   Core.ToHeaders
@@ -182,3 +190,7 @@ startReplicationTaskAssessmentResponse_httpStatus = Lens.lens (\StartReplication
 instance
   Prelude.NFData
     StartReplicationTaskAssessmentResponse
+  where
+  rnf StartReplicationTaskAssessmentResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -74,6 +74,12 @@ instance Core.FromJSON ServiceActionDetail where
             Prelude.<*> (x Core..:? "Definition" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ServiceActionDetail
+instance Prelude.Hashable ServiceActionDetail where
+  hashWithSalt _salt ServiceActionDetail' {..} =
+    _salt `Prelude.hashWithSalt` serviceActionSummary
+      `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData ServiceActionDetail
+instance Prelude.NFData ServiceActionDetail where
+  rnf ServiceActionDetail' {..} =
+    Prelude.rnf serviceActionSummary
+      `Prelude.seq` Prelude.rnf definition

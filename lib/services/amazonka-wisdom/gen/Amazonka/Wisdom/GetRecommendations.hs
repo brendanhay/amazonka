@@ -148,9 +148,19 @@ instance Core.AWSRequest GetRecommendations where
                         )
       )
 
-instance Prelude.Hashable GetRecommendations
+instance Prelude.Hashable GetRecommendations where
+  hashWithSalt _salt GetRecommendations' {..} =
+    _salt `Prelude.hashWithSalt` waitTimeSeconds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData GetRecommendations
+instance Prelude.NFData GetRecommendations where
+  rnf GetRecommendations' {..} =
+    Prelude.rnf waitTimeSeconds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf sessionId
 
 instance Core.ToHeaders GetRecommendations where
   toHeaders =
@@ -219,4 +229,7 @@ getRecommendationsResponse_httpStatus = Lens.lens (\GetRecommendationsResponse' 
 getRecommendationsResponse_recommendations :: Lens.Lens' GetRecommendationsResponse [RecommendationData]
 getRecommendationsResponse_recommendations = Lens.lens (\GetRecommendationsResponse' {recommendations} -> recommendations) (\s@GetRecommendationsResponse' {} a -> s {recommendations = a} :: GetRecommendationsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetRecommendationsResponse
+instance Prelude.NFData GetRecommendationsResponse where
+  rnf GetRecommendationsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommendations

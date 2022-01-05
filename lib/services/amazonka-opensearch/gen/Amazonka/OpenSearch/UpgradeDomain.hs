@@ -135,9 +135,19 @@ instance Core.AWSRequest UpgradeDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpgradeDomain
+instance Prelude.Hashable UpgradeDomain where
+  hashWithSalt _salt UpgradeDomain' {..} =
+    _salt `Prelude.hashWithSalt` performCheckOnly
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` targetVersion
 
-instance Prelude.NFData UpgradeDomain
+instance Prelude.NFData UpgradeDomain where
+  rnf UpgradeDomain' {..} =
+    Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf targetVersion
 
 instance Core.ToHeaders UpgradeDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,4 +251,11 @@ upgradeDomainResponse_advancedOptions = Lens.lens (\UpgradeDomainResponse' {adva
 upgradeDomainResponse_httpStatus :: Lens.Lens' UpgradeDomainResponse Prelude.Int
 upgradeDomainResponse_httpStatus = Lens.lens (\UpgradeDomainResponse' {httpStatus} -> httpStatus) (\s@UpgradeDomainResponse' {} a -> s {httpStatus = a} :: UpgradeDomainResponse)
 
-instance Prelude.NFData UpgradeDomainResponse
+instance Prelude.NFData UpgradeDomainResponse where
+  rnf UpgradeDomainResponse' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf upgradeId
+      `Prelude.seq` Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf targetVersion
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf httpStatus

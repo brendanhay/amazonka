@@ -79,9 +79,15 @@ instance Core.FromJSON RateIncreaseCriteria where
             Prelude.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Prelude.Hashable RateIncreaseCriteria
+instance Prelude.Hashable RateIncreaseCriteria where
+  hashWithSalt _salt RateIncreaseCriteria' {..} =
+    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+      `Prelude.hashWithSalt` numberOfSucceededThings
 
-instance Prelude.NFData RateIncreaseCriteria
+instance Prelude.NFData RateIncreaseCriteria where
+  rnf RateIncreaseCriteria' {..} =
+    Prelude.rnf numberOfNotifiedThings
+      `Prelude.seq` Prelude.rnf numberOfSucceededThings
 
 instance Core.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =

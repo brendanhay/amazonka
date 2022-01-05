@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     GetBucketInventoryConfiguration
+  where
+  hashWithSalt
+    _salt
+    GetBucketInventoryConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetBucketInventoryConfiguration
+  where
+  rnf GetBucketInventoryConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -215,3 +227,7 @@ getBucketInventoryConfigurationResponse_httpStatus = Lens.lens (\GetBucketInvent
 instance
   Prelude.NFData
     GetBucketInventoryConfigurationResponse
+  where
+  rnf GetBucketInventoryConfigurationResponse' {..} =
+    Prelude.rnf inventoryConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

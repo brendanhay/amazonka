@@ -193,9 +193,17 @@ instance Core.AWSRequest GetCommandInvocation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCommandInvocation
+instance Prelude.Hashable GetCommandInvocation where
+  hashWithSalt _salt GetCommandInvocation' {..} =
+    _salt `Prelude.hashWithSalt` pluginName
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GetCommandInvocation
+instance Prelude.NFData GetCommandInvocation where
+  rnf GetCommandInvocation' {..} =
+    Prelude.rnf pluginName
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GetCommandInvocation where
   toHeaders =
@@ -645,4 +653,23 @@ getCommandInvocationResponse_pluginName = Lens.lens (\GetCommandInvocationRespon
 getCommandInvocationResponse_httpStatus :: Lens.Lens' GetCommandInvocationResponse Prelude.Int
 getCommandInvocationResponse_httpStatus = Lens.lens (\GetCommandInvocationResponse' {httpStatus} -> httpStatus) (\s@GetCommandInvocationResponse' {} a -> s {httpStatus = a} :: GetCommandInvocationResponse)
 
-instance Prelude.NFData GetCommandInvocationResponse
+instance Prelude.NFData GetCommandInvocationResponse where
+  rnf GetCommandInvocationResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf standardErrorContent
+      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+      `Prelude.seq` Prelude.rnf executionElapsedTime
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf standardErrorUrl
+      `Prelude.seq` Prelude.rnf executionStartDateTime
+      `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf executionEndDateTime
+      `Prelude.seq` Prelude.rnf standardOutputUrl
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf standardOutputContent
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf pluginName
+      `Prelude.seq` Prelude.rnf httpStatus

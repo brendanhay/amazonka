@@ -108,9 +108,19 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "InterruptionFilter")
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt _salt Rule' {..} =
+    _salt `Prelude.hashWithSalt` nonTalkTimeFilter
+      `Prelude.hashWithSalt` transcriptFilter
+      `Prelude.hashWithSalt` sentimentFilter
+      `Prelude.hashWithSalt` interruptionFilter
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf nonTalkTimeFilter
+      `Prelude.seq` Prelude.rnf transcriptFilter
+      `Prelude.seq` Prelude.rnf sentimentFilter
+      `Prelude.seq` Prelude.rnf interruptionFilter
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =

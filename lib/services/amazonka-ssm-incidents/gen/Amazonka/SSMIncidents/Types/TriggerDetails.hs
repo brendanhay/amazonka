@@ -96,9 +96,19 @@ triggerDetails_source = Lens.lens (\TriggerDetails' {source} -> source) (\s@Trig
 triggerDetails_timestamp :: Lens.Lens' TriggerDetails Prelude.UTCTime
 triggerDetails_timestamp = Lens.lens (\TriggerDetails' {timestamp} -> timestamp) (\s@TriggerDetails' {} a -> s {timestamp = a} :: TriggerDetails) Prelude.. Core._Time
 
-instance Prelude.Hashable TriggerDetails
+instance Prelude.Hashable TriggerDetails where
+  hashWithSalt _salt TriggerDetails' {..} =
+    _salt `Prelude.hashWithSalt` rawData
+      `Prelude.hashWithSalt` triggerArn
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData TriggerDetails
+instance Prelude.NFData TriggerDetails where
+  rnf TriggerDetails' {..} =
+    Prelude.rnf rawData
+      `Prelude.seq` Prelude.rnf triggerArn
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON TriggerDetails where
   toJSON TriggerDetails' {..} =

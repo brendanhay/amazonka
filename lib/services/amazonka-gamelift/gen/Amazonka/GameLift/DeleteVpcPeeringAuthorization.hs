@@ -139,8 +139,15 @@ instance
 instance
   Prelude.Hashable
     DeleteVpcPeeringAuthorization
+  where
+  hashWithSalt _salt DeleteVpcPeeringAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` gameLiftAwsAccountId
+      `Prelude.hashWithSalt` peerVpcId
 
-instance Prelude.NFData DeleteVpcPeeringAuthorization
+instance Prelude.NFData DeleteVpcPeeringAuthorization where
+  rnf DeleteVpcPeeringAuthorization' {..} =
+    Prelude.rnf gameLiftAwsAccountId
+      `Prelude.seq` Prelude.rnf peerVpcId
 
 instance Core.ToHeaders DeleteVpcPeeringAuthorization where
   toHeaders =
@@ -208,3 +215,6 @@ deleteVpcPeeringAuthorizationResponse_httpStatus = Lens.lens (\DeleteVpcPeeringA
 instance
   Prelude.NFData
     DeleteVpcPeeringAuthorizationResponse
+  where
+  rnf DeleteVpcPeeringAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus

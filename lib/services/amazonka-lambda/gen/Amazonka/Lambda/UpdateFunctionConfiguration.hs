@@ -409,9 +409,43 @@ instance Core.AWSRequest UpdateFunctionConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateFunctionConfiguration
+instance Prelude.Hashable UpdateFunctionConfiguration where
+  hashWithSalt _salt UpdateFunctionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` memorySize
+      `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` fileSystemConfigs
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` tracingConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData UpdateFunctionConfiguration
+instance Prelude.NFData UpdateFunctionConfiguration where
+  rnf UpdateFunctionConfiguration' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf runtime
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf fileSystemConfigs
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tracingConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders UpdateFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty

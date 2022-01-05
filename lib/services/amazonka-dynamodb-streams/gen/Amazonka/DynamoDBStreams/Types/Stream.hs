@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.Stream where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,6 +115,14 @@ instance Core.FromJSON Stream where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable Stream
+instance Prelude.Hashable Stream where
+  hashWithSalt _salt Stream' {..} =
+    _salt `Prelude.hashWithSalt` streamLabel
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Stream
+instance Prelude.NFData Stream where
+  rnf Stream' {..} =
+    Prelude.rnf streamLabel
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf tableName

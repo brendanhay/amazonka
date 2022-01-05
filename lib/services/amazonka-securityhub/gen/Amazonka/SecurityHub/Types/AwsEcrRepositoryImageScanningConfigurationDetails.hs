@@ -68,10 +68,19 @@ instance
 instance
   Prelude.Hashable
     AwsEcrRepositoryImageScanningConfigurationDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcrRepositoryImageScanningConfigurationDetails' {..} =
+      _salt `Prelude.hashWithSalt` scanOnPush
 
 instance
   Prelude.NFData
     AwsEcrRepositoryImageScanningConfigurationDetails
+  where
+  rnf
+    AwsEcrRepositoryImageScanningConfigurationDetails' {..} =
+      Prelude.rnf scanOnPush
 
 instance
   Core.ToJSON

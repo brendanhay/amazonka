@@ -231,6 +231,32 @@ instance Core.FromJSON Assignment where
             Prelude.<*> (x Core..:? "SubmitTime")
       )
 
-instance Prelude.Hashable Assignment
+instance Prelude.Hashable Assignment where
+  hashWithSalt _salt Assignment' {..} =
+    _salt `Prelude.hashWithSalt` acceptTime
+      `Prelude.hashWithSalt` answer
+      `Prelude.hashWithSalt` assignmentStatus
+      `Prelude.hashWithSalt` requesterFeedback
+      `Prelude.hashWithSalt` deadline
+      `Prelude.hashWithSalt` approvalTime
+      `Prelude.hashWithSalt` rejectionTime
+      `Prelude.hashWithSalt` autoApprovalTime
+      `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` submitTime
 
-instance Prelude.NFData Assignment
+instance Prelude.NFData Assignment where
+  rnf Assignment' {..} =
+    Prelude.rnf acceptTime
+      `Prelude.seq` Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf requesterFeedback
+      `Prelude.seq` Prelude.rnf deadline
+      `Prelude.seq` Prelude.rnf approvalTime
+      `Prelude.seq` Prelude.rnf rejectionTime
+      `Prelude.seq` Prelude.rnf autoApprovalTime
+      `Prelude.seq` Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf submitTime

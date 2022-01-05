@@ -93,6 +93,16 @@ instance Core.FromJSON ProviderDescription where
             Prelude.<*> (x Core..:? "ProviderName")
       )
 
-instance Prelude.Hashable ProviderDescription
+instance Prelude.Hashable ProviderDescription where
+  hashWithSalt _salt ProviderDescription' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` providerName
 
-instance Prelude.NFData ProviderDescription
+instance Prelude.NFData ProviderDescription where
+  rnf ProviderDescription' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf providerName

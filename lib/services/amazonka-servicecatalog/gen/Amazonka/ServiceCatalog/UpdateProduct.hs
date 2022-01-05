@@ -208,9 +208,33 @@ instance Core.AWSRequest UpdateProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProduct
+instance Prelude.Hashable UpdateProduct where
+  hashWithSalt _salt UpdateProduct' {..} =
+    _salt `Prelude.hashWithSalt` removeTags
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` supportUrl
+      `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` addTags
+      `Prelude.hashWithSalt` supportEmail
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` supportDescription
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateProduct
+instance Prelude.NFData UpdateProduct where
+  rnf UpdateProduct' {..} =
+    Prelude.rnf removeTags
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf supportUrl
+      `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf addTags
+      `Prelude.seq` Prelude.rnf supportEmail
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf supportDescription
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateProduct where
   toHeaders =
@@ -301,4 +325,8 @@ updateProductResponse_tags = Lens.lens (\UpdateProductResponse' {tags} -> tags) 
 updateProductResponse_httpStatus :: Lens.Lens' UpdateProductResponse Prelude.Int
 updateProductResponse_httpStatus = Lens.lens (\UpdateProductResponse' {httpStatus} -> httpStatus) (\s@UpdateProductResponse' {} a -> s {httpStatus = a} :: UpdateProductResponse)
 
-instance Prelude.NFData UpdateProductResponse
+instance Prelude.NFData UpdateProductResponse where
+  rnf UpdateProductResponse' {..} =
+    Prelude.rnf productViewDetail
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

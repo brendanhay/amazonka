@@ -235,10 +235,26 @@ instance
 instance
   Prelude.Hashable
     DocumentClassifierInputDataConfig
+  where
+  hashWithSalt
+    _salt
+    DocumentClassifierInputDataConfig' {..} =
+      _salt `Prelude.hashWithSalt` augmentedManifests
+        `Prelude.hashWithSalt` dataFormat
+        `Prelude.hashWithSalt` labelDelimiter
+        `Prelude.hashWithSalt` testS3Uri
+        `Prelude.hashWithSalt` s3Uri
 
 instance
   Prelude.NFData
     DocumentClassifierInputDataConfig
+  where
+  rnf DocumentClassifierInputDataConfig' {..} =
+    Prelude.rnf augmentedManifests
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf labelDelimiter
+      `Prelude.seq` Prelude.rnf testS3Uri
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance
   Core.ToJSON

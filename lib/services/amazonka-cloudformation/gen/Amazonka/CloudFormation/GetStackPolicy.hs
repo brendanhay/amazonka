@@ -93,9 +93,12 @@ instance Core.AWSRequest GetStackPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStackPolicy
+instance Prelude.Hashable GetStackPolicy where
+  hashWithSalt _salt GetStackPolicy' {..} =
+    _salt `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData GetStackPolicy
+instance Prelude.NFData GetStackPolicy where
+  rnf GetStackPolicy' {..} = Prelude.rnf stackName
 
 instance Core.ToHeaders GetStackPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +163,7 @@ getStackPolicyResponse_stackPolicyBody = Lens.lens (\GetStackPolicyResponse' {st
 getStackPolicyResponse_httpStatus :: Lens.Lens' GetStackPolicyResponse Prelude.Int
 getStackPolicyResponse_httpStatus = Lens.lens (\GetStackPolicyResponse' {httpStatus} -> httpStatus) (\s@GetStackPolicyResponse' {} a -> s {httpStatus = a} :: GetStackPolicyResponse)
 
-instance Prelude.NFData GetStackPolicyResponse
+instance Prelude.NFData GetStackPolicyResponse where
+  rnf GetStackPolicyResponse' {..} =
+    Prelude.rnf stackPolicyBody
+      `Prelude.seq` Prelude.rnf httpStatus

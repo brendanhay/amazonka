@@ -125,9 +125,17 @@ instance Core.FromXML EnvironmentTier where
       Prelude.<*> (x Core..@? "Version")
       Prelude.<*> (x Core..@? "Type")
 
-instance Prelude.Hashable EnvironmentTier
+instance Prelude.Hashable EnvironmentTier where
+  hashWithSalt _salt EnvironmentTier' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EnvironmentTier
+instance Prelude.NFData EnvironmentTier where
+  rnf EnvironmentTier' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery EnvironmentTier where
   toQuery EnvironmentTier' {..} =

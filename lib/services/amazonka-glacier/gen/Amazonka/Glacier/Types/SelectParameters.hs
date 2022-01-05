@@ -94,9 +94,19 @@ instance Core.FromJSON SelectParameters where
             Prelude.<*> (x Core..:? "InputSerialization")
       )
 
-instance Prelude.Hashable SelectParameters
+instance Prelude.Hashable SelectParameters where
+  hashWithSalt _salt SelectParameters' {..} =
+    _salt `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` outputSerialization
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` inputSerialization
 
-instance Prelude.NFData SelectParameters
+instance Prelude.NFData SelectParameters where
+  rnf SelectParameters' {..} =
+    Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf outputSerialization
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf inputSerialization
 
 instance Core.ToJSON SelectParameters where
   toJSON SelectParameters' {..} =

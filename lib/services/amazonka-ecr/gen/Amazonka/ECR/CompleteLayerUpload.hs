@@ -150,9 +150,19 @@ instance Core.AWSRequest CompleteLayerUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteLayerUpload
+instance Prelude.Hashable CompleteLayerUpload where
+  hashWithSalt _salt CompleteLayerUpload' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` layerDigests
 
-instance Prelude.NFData CompleteLayerUpload
+instance Prelude.NFData CompleteLayerUpload where
+  rnf CompleteLayerUpload' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf layerDigests
 
 instance Core.ToHeaders CompleteLayerUpload where
   toHeaders =
@@ -253,4 +263,10 @@ completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' 
 completeLayerUploadResponse_httpStatus :: Lens.Lens' CompleteLayerUploadResponse Prelude.Int
 completeLayerUploadResponse_httpStatus = Lens.lens (\CompleteLayerUploadResponse' {httpStatus} -> httpStatus) (\s@CompleteLayerUploadResponse' {} a -> s {httpStatus = a} :: CompleteLayerUploadResponse)
 
-instance Prelude.NFData CompleteLayerUploadResponse
+instance Prelude.NFData CompleteLayerUploadResponse where
+  rnf CompleteLayerUploadResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf layerDigest
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf httpStatus

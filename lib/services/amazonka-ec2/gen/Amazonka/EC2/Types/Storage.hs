@@ -54,9 +54,12 @@ storage_s3 = Lens.lens (\Storage' {s3} -> s3) (\s@Storage' {} a -> s {s3 = a} ::
 instance Core.FromXML Storage where
   parseXML x = Storage' Prelude.<$> (x Core..@? "S3")
 
-instance Prelude.Hashable Storage
+instance Prelude.Hashable Storage where
+  hashWithSalt _salt Storage' {..} =
+    _salt `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData Storage
+instance Prelude.NFData Storage where
+  rnf Storage' {..} = Prelude.rnf s3
 
 instance Core.ToQuery Storage where
   toQuery Storage' {..} =

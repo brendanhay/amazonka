@@ -97,10 +97,20 @@ componentDependencyRequirement_versionRequirement = Lens.lens (\ComponentDepende
 instance
   Prelude.Hashable
     ComponentDependencyRequirement
+  where
+  hashWithSalt
+    _salt
+    ComponentDependencyRequirement' {..} =
+      _salt `Prelude.hashWithSalt` dependencyType
+        `Prelude.hashWithSalt` versionRequirement
 
 instance
   Prelude.NFData
     ComponentDependencyRequirement
+  where
+  rnf ComponentDependencyRequirement' {..} =
+    Prelude.rnf dependencyType
+      `Prelude.seq` Prelude.rnf versionRequirement
 
 instance Core.ToJSON ComponentDependencyRequirement where
   toJSON ComponentDependencyRequirement' {..} =

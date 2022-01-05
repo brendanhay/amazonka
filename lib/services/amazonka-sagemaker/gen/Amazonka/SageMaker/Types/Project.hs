@@ -166,6 +166,28 @@ instance Core.FromJSON Project where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Project
+instance Prelude.Hashable Project where
+  hashWithSalt _salt Project' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` serviceCatalogProvisionedProductDetails
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` projectStatus
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` serviceCatalogProvisioningDetails
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` projectDescription
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Project
+instance Prelude.NFData Project where
+  rnf Project' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf serviceCatalogProvisionedProductDetails
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf projectStatus
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf serviceCatalogProvisioningDetails
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf tags

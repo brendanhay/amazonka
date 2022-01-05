@@ -85,8 +85,14 @@ instance Core.AWSRequest DeleteRetentionConfiguration where
 instance
   Prelude.Hashable
     DeleteRetentionConfiguration
+  where
+  hashWithSalt _salt DeleteRetentionConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` retentionConfigurationName
 
-instance Prelude.NFData DeleteRetentionConfiguration
+instance Prelude.NFData DeleteRetentionConfiguration where
+  rnf DeleteRetentionConfiguration' {..} =
+    Prelude.rnf retentionConfigurationName
 
 instance Core.ToHeaders DeleteRetentionConfiguration where
   toHeaders =
@@ -138,3 +144,5 @@ newDeleteRetentionConfigurationResponse =
 instance
   Prelude.NFData
     DeleteRetentionConfigurationResponse
+  where
+  rnf _ = ()

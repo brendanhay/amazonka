@@ -655,9 +655,21 @@ instance Core.AWSRequest GetFederationToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFederationToken
+instance Prelude.Hashable GetFederationToken where
+  hashWithSalt _salt GetFederationToken' {..} =
+    _salt `Prelude.hashWithSalt` policyArns
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetFederationToken
+instance Prelude.NFData GetFederationToken where
+  rnf GetFederationToken' {..} =
+    Prelude.rnf policyArns
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetFederationToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -777,4 +789,9 @@ getFederationTokenResponse_federatedUser = Lens.lens (\GetFederationTokenRespons
 getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Prelude.Int
 getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' {httpStatus} -> httpStatus) (\s@GetFederationTokenResponse' {} a -> s {httpStatus = a} :: GetFederationTokenResponse)
 
-instance Prelude.NFData GetFederationTokenResponse
+instance Prelude.NFData GetFederationTokenResponse where
+  rnf GetFederationTokenResponse' {..} =
+    Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf federatedUser
+      `Prelude.seq` Prelude.rnf httpStatus

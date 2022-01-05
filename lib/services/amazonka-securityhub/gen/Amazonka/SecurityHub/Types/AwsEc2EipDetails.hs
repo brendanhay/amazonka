@@ -175,9 +175,31 @@ instance Core.FromJSON AwsEc2EipDetails where
             Prelude.<*> (x Core..:? "PublicIp")
       )
 
-instance Prelude.Hashable AwsEc2EipDetails
+instance Prelude.Hashable AwsEc2EipDetails where
+  hashWithSalt _salt AwsEc2EipDetails' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` networkInterfaceOwnerId
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` publicIpv4Pool
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` publicIp
 
-instance Prelude.NFData AwsEc2EipDetails
+instance Prelude.NFData AwsEc2EipDetails where
+  rnf AwsEc2EipDetails' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf networkInterfaceOwnerId
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf publicIpv4Pool
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf publicIp
 
 instance Core.ToJSON AwsEc2EipDetails where
   toJSON AwsEc2EipDetails' {..} =

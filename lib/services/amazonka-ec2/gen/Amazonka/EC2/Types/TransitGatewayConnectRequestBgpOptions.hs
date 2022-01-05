@@ -57,10 +57,18 @@ transitGatewayConnectRequestBgpOptions_peerAsn = Lens.lens (\TransitGatewayConne
 instance
   Prelude.Hashable
     TransitGatewayConnectRequestBgpOptions
+  where
+  hashWithSalt
+    _salt
+    TransitGatewayConnectRequestBgpOptions' {..} =
+      _salt `Prelude.hashWithSalt` peerAsn
 
 instance
   Prelude.NFData
     TransitGatewayConnectRequestBgpOptions
+  where
+  rnf TransitGatewayConnectRequestBgpOptions' {..} =
+    Prelude.rnf peerAsn
 
 instance
   Core.ToQuery

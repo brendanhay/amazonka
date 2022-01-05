@@ -79,9 +79,16 @@ instance Core.FromJSON DataSetUsageConfiguration where
             Prelude.<*> (x Core..:? "DisableUseAsDirectQuerySource")
       )
 
-instance Prelude.Hashable DataSetUsageConfiguration
+instance Prelude.Hashable DataSetUsageConfiguration where
+  hashWithSalt _salt DataSetUsageConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` disableUseAsImportedSource
+      `Prelude.hashWithSalt` disableUseAsDirectQuerySource
 
-instance Prelude.NFData DataSetUsageConfiguration
+instance Prelude.NFData DataSetUsageConfiguration where
+  rnf DataSetUsageConfiguration' {..} =
+    Prelude.rnf disableUseAsImportedSource
+      `Prelude.seq` Prelude.rnf disableUseAsDirectQuerySource
 
 instance Core.ToJSON DataSetUsageConfiguration where
   toJSON DataSetUsageConfiguration' {..} =

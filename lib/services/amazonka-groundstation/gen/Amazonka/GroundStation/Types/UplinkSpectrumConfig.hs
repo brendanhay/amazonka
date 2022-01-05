@@ -85,9 +85,15 @@ instance Core.FromJSON UplinkSpectrumConfig where
             Prelude.<*> (x Core..: "centerFrequency")
       )
 
-instance Prelude.Hashable UplinkSpectrumConfig
+instance Prelude.Hashable UplinkSpectrumConfig where
+  hashWithSalt _salt UplinkSpectrumConfig' {..} =
+    _salt `Prelude.hashWithSalt` polarization
+      `Prelude.hashWithSalt` centerFrequency
 
-instance Prelude.NFData UplinkSpectrumConfig
+instance Prelude.NFData UplinkSpectrumConfig where
+  rnf UplinkSpectrumConfig' {..} =
+    Prelude.rnf polarization
+      `Prelude.seq` Prelude.rnf centerFrequency
 
 instance Core.ToJSON UplinkSpectrumConfig where
   toJSON UplinkSpectrumConfig' {..} =

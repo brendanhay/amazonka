@@ -76,9 +76,15 @@ instance Core.FromJSON RetentionSettings where
             Prelude.<*> (x Core..:? "ConversationRetentionSettings")
       )
 
-instance Prelude.Hashable RetentionSettings
+instance Prelude.Hashable RetentionSettings where
+  hashWithSalt _salt RetentionSettings' {..} =
+    _salt `Prelude.hashWithSalt` roomRetentionSettings
+      `Prelude.hashWithSalt` conversationRetentionSettings
 
-instance Prelude.NFData RetentionSettings
+instance Prelude.NFData RetentionSettings where
+  rnf RetentionSettings' {..} =
+    Prelude.rnf roomRetentionSettings
+      `Prelude.seq` Prelude.rnf conversationRetentionSettings
 
 instance Core.ToJSON RetentionSettings where
   toJSON RetentionSettings' {..} =

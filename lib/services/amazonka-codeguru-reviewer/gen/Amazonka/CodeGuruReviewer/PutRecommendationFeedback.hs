@@ -125,9 +125,17 @@ instance Core.AWSRequest PutRecommendationFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRecommendationFeedback
+instance Prelude.Hashable PutRecommendationFeedback where
+  hashWithSalt _salt PutRecommendationFeedback' {..} =
+    _salt `Prelude.hashWithSalt` codeReviewArn
+      `Prelude.hashWithSalt` recommendationId
+      `Prelude.hashWithSalt` reactions
 
-instance Prelude.NFData PutRecommendationFeedback
+instance Prelude.NFData PutRecommendationFeedback where
+  rnf PutRecommendationFeedback' {..} =
+    Prelude.rnf codeReviewArn
+      `Prelude.seq` Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf reactions
 
 instance Core.ToHeaders PutRecommendationFeedback where
   toHeaders =
@@ -191,3 +199,6 @@ putRecommendationFeedbackResponse_httpStatus = Lens.lens (\PutRecommendationFeed
 instance
   Prelude.NFData
     PutRecommendationFeedbackResponse
+  where
+  rnf PutRecommendationFeedbackResponse' {..} =
+    Prelude.rnf httpStatus

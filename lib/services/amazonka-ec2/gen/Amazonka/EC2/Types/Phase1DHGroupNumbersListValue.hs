@@ -62,5 +62,10 @@ instance Core.FromXML Phase1DHGroupNumbersListValue where
 instance
   Prelude.Hashable
     Phase1DHGroupNumbersListValue
+  where
+  hashWithSalt _salt Phase1DHGroupNumbersListValue' {..} =
+    _salt `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Phase1DHGroupNumbersListValue
+instance Prelude.NFData Phase1DHGroupNumbersListValue where
+  rnf Phase1DHGroupNumbersListValue' {..} =
+    Prelude.rnf value

@@ -210,9 +210,27 @@ instance Core.AWSRequest ExportImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportImage
+instance Prelude.Hashable ExportImage where
+  hashWithSalt _salt ExportImage' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` diskImageFormat
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` s3ExportLocation
 
-instance Prelude.NFData ExportImage
+instance Prelude.NFData ExportImage where
+  rnf ExportImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf diskImageFormat
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf s3ExportLocation
 
 instance Core.ToHeaders ExportImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -365,4 +383,16 @@ exportImageResponse_diskImageFormat = Lens.lens (\ExportImageResponse' {diskImag
 exportImageResponse_httpStatus :: Lens.Lens' ExportImageResponse Prelude.Int
 exportImageResponse_httpStatus = Lens.lens (\ExportImageResponse' {httpStatus} -> httpStatus) (\s@ExportImageResponse' {} a -> s {httpStatus = a} :: ExportImageResponse)
 
-instance Prelude.NFData ExportImageResponse
+instance Prelude.NFData ExportImageResponse where
+  rnf ExportImageResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf exportImageTaskId
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf s3ExportLocation
+      `Prelude.seq` Prelude.rnf diskImageFormat
+      `Prelude.seq` Prelude.rnf httpStatus

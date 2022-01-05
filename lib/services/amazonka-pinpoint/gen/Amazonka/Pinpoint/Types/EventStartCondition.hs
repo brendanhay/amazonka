@@ -71,9 +71,15 @@ instance Core.FromJSON EventStartCondition where
             Prelude.<*> (x Core..:? "SegmentId")
       )
 
-instance Prelude.Hashable EventStartCondition
+instance Prelude.Hashable EventStartCondition where
+  hashWithSalt _salt EventStartCondition' {..} =
+    _salt `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` segmentId
 
-instance Prelude.NFData EventStartCondition
+instance Prelude.NFData EventStartCondition where
+  rnf EventStartCondition' {..} =
+    Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf segmentId
 
 instance Core.ToJSON EventStartCondition where
   toJSON EventStartCondition' {..} =

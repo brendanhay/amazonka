@@ -67,6 +67,10 @@ instance Core.FromJSON SnowflakeMetadata where
                         )
       )
 
-instance Prelude.Hashable SnowflakeMetadata
+instance Prelude.Hashable SnowflakeMetadata where
+  hashWithSalt _salt SnowflakeMetadata' {..} =
+    _salt `Prelude.hashWithSalt` supportedRegions
 
-instance Prelude.NFData SnowflakeMetadata
+instance Prelude.NFData SnowflakeMetadata where
+  rnf SnowflakeMetadata' {..} =
+    Prelude.rnf supportedRegions

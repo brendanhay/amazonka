@@ -109,9 +109,17 @@ instance Core.AWSRequest DeleteInstance where
   response =
     Response.receiveNull DeleteInstanceResponse'
 
-instance Prelude.Hashable DeleteInstance
+instance Prelude.Hashable DeleteInstance where
+  hashWithSalt _salt DeleteInstance' {..} =
+    _salt `Prelude.hashWithSalt` deleteVolumes
+      `Prelude.hashWithSalt` deleteElasticIp
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DeleteInstance
+instance Prelude.NFData DeleteInstance where
+  rnf DeleteInstance' {..} =
+    Prelude.rnf deleteVolumes
+      `Prelude.seq` Prelude.rnf deleteElasticIp
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DeleteInstance where
   toHeaders =
@@ -159,4 +167,5 @@ newDeleteInstanceResponse ::
   DeleteInstanceResponse
 newDeleteInstanceResponse = DeleteInstanceResponse'
 
-instance Prelude.NFData DeleteInstanceResponse
+instance Prelude.NFData DeleteInstanceResponse where
+  rnf _ = ()

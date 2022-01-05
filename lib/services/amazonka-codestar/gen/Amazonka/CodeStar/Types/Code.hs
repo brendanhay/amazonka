@@ -84,9 +84,15 @@ code_source = Lens.lens (\Code' {source} -> source) (\s@Code' {} a -> s {source 
 code_destination :: Lens.Lens' Code CodeDestination
 code_destination = Lens.lens (\Code' {destination} -> destination) (\s@Code' {} a -> s {destination = a} :: Code)
 
-instance Prelude.Hashable Code
+instance Prelude.Hashable Code where
+  hashWithSalt _salt Code' {..} =
+    _salt `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData Code
+instance Prelude.NFData Code where
+  rnf Code' {..} =
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON Code where
   toJSON Code' {..} =

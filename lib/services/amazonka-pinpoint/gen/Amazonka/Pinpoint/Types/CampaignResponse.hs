@@ -376,6 +376,60 @@ instance Core.FromJSON CampaignResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable CampaignResponse
+instance Prelude.Hashable CampaignResponse where
+  hashWithSalt _salt CampaignResponse' {..} =
+    _salt
+      `Prelude.hashWithSalt` customDeliveryConfiguration
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` hook
+      `Prelude.hashWithSalt` treatmentName
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` isPaused
+      `Prelude.hashWithSalt` defaultState
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` holdoutPercent
+      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` messageConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` additionalTreatments
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` segmentVersion
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData CampaignResponse
+instance Prelude.NFData CampaignResponse where
+  rnf CampaignResponse' {..} =
+    Prelude.rnf customDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf hook
+      `Prelude.seq` Prelude.rnf treatmentName
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf isPaused
+      `Prelude.seq` Prelude.rnf defaultState
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf holdoutPercent
+      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf messageConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf additionalTreatments
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf segmentVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf
+        applicationId

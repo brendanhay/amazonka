@@ -91,9 +91,13 @@ instance Core.AWSRequest GetInstancePortStates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstancePortStates
+instance Prelude.Hashable GetInstancePortStates where
+  hashWithSalt _salt GetInstancePortStates' {..} =
+    _salt `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData GetInstancePortStates
+instance Prelude.NFData GetInstancePortStates where
+  rnf GetInstancePortStates' {..} =
+    Prelude.rnf instanceName
 
 instance Core.ToHeaders GetInstancePortStates where
   toHeaders =
@@ -165,4 +169,7 @@ getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResp
 getInstancePortStatesResponse_httpStatus :: Lens.Lens' GetInstancePortStatesResponse Prelude.Int
 getInstancePortStatesResponse_httpStatus = Lens.lens (\GetInstancePortStatesResponse' {httpStatus} -> httpStatus) (\s@GetInstancePortStatesResponse' {} a -> s {httpStatus = a} :: GetInstancePortStatesResponse)
 
-instance Prelude.NFData GetInstancePortStatesResponse
+instance Prelude.NFData GetInstancePortStatesResponse where
+  rnf GetInstancePortStatesResponse' {..} =
+    Prelude.rnf portStates
+      `Prelude.seq` Prelude.rnf httpStatus

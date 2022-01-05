@@ -54,10 +54,15 @@ instance
 instance
   Prelude.Hashable
     HoneycodeConnectorProfileProperties
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     HoneycodeConnectorProfileProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

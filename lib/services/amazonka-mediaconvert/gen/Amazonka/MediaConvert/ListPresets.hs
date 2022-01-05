@@ -170,9 +170,21 @@ instance Core.AWSRequest ListPresets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPresets
+instance Prelude.Hashable ListPresets where
+  hashWithSalt _salt ListPresets' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` listBy
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPresets
+instance Prelude.NFData ListPresets where
+  rnf ListPresets' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf listBy
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPresets where
   toHeaders =
@@ -245,4 +257,8 @@ listPresetsResponse_nextToken = Lens.lens (\ListPresetsResponse' {nextToken} -> 
 listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Prelude.Int
 listPresetsResponse_httpStatus = Lens.lens (\ListPresetsResponse' {httpStatus} -> httpStatus) (\s@ListPresetsResponse' {} a -> s {httpStatus = a} :: ListPresetsResponse)
 
-instance Prelude.NFData ListPresetsResponse
+instance Prelude.NFData ListPresetsResponse where
+  rnf ListPresetsResponse' {..} =
+    Prelude.rnf presets
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

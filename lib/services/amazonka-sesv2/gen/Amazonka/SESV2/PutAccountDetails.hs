@@ -189,9 +189,23 @@ instance Core.AWSRequest PutAccountDetails where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccountDetails
+instance Prelude.Hashable PutAccountDetails where
+  hashWithSalt _salt PutAccountDetails' {..} =
+    _salt `Prelude.hashWithSalt` contactLanguage
+      `Prelude.hashWithSalt` productionAccessEnabled
+      `Prelude.hashWithSalt` additionalContactEmailAddresses
+      `Prelude.hashWithSalt` mailType
+      `Prelude.hashWithSalt` websiteURL
+      `Prelude.hashWithSalt` useCaseDescription
 
-instance Prelude.NFData PutAccountDetails
+instance Prelude.NFData PutAccountDetails where
+  rnf PutAccountDetails' {..} =
+    Prelude.rnf contactLanguage
+      `Prelude.seq` Prelude.rnf productionAccessEnabled
+      `Prelude.seq` Prelude.rnf additionalContactEmailAddresses
+      `Prelude.seq` Prelude.rnf mailType
+      `Prelude.seq` Prelude.rnf websiteURL
+      `Prelude.seq` Prelude.rnf useCaseDescription
 
 instance Core.ToHeaders PutAccountDetails where
   toHeaders =
@@ -260,4 +274,6 @@ newPutAccountDetailsResponse pHttpStatus_ =
 putAccountDetailsResponse_httpStatus :: Lens.Lens' PutAccountDetailsResponse Prelude.Int
 putAccountDetailsResponse_httpStatus = Lens.lens (\PutAccountDetailsResponse' {httpStatus} -> httpStatus) (\s@PutAccountDetailsResponse' {} a -> s {httpStatus = a} :: PutAccountDetailsResponse)
 
-instance Prelude.NFData PutAccountDetailsResponse
+instance Prelude.NFData PutAccountDetailsResponse where
+  rnf PutAccountDetailsResponse' {..} =
+    Prelude.rnf httpStatus

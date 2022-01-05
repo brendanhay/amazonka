@@ -84,9 +84,12 @@ instance Core.AWSRequest GetOutpost where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOutpost
+instance Prelude.Hashable GetOutpost where
+  hashWithSalt _salt GetOutpost' {..} =
+    _salt `Prelude.hashWithSalt` outpostId
 
-instance Prelude.NFData GetOutpost
+instance Prelude.NFData GetOutpost where
+  rnf GetOutpost' {..} = Prelude.rnf outpostId
 
 instance Core.ToHeaders GetOutpost where
   toHeaders =
@@ -143,4 +146,7 @@ getOutpostResponse_outpost = Lens.lens (\GetOutpostResponse' {outpost} -> outpos
 getOutpostResponse_httpStatus :: Lens.Lens' GetOutpostResponse Prelude.Int
 getOutpostResponse_httpStatus = Lens.lens (\GetOutpostResponse' {httpStatus} -> httpStatus) (\s@GetOutpostResponse' {} a -> s {httpStatus = a} :: GetOutpostResponse)
 
-instance Prelude.NFData GetOutpostResponse
+instance Prelude.NFData GetOutpostResponse where
+  rnf GetOutpostResponse' {..} =
+    Prelude.rnf outpost
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -55,9 +55,12 @@ newTriggerProperties =
 triggerProperties_scheduled :: Lens.Lens' TriggerProperties (Prelude.Maybe ScheduledTriggerProperties)
 triggerProperties_scheduled = Lens.lens (\TriggerProperties' {scheduled} -> scheduled) (\s@TriggerProperties' {} a -> s {scheduled = a} :: TriggerProperties)
 
-instance Prelude.Hashable TriggerProperties
+instance Prelude.Hashable TriggerProperties where
+  hashWithSalt _salt TriggerProperties' {..} =
+    _salt `Prelude.hashWithSalt` scheduled
 
-instance Prelude.NFData TriggerProperties
+instance Prelude.NFData TriggerProperties where
+  rnf TriggerProperties' {..} = Prelude.rnf scheduled
 
 instance Core.ToJSON TriggerProperties where
   toJSON TriggerProperties' {..} =

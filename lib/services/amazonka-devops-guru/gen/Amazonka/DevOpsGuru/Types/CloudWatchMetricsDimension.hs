@@ -77,6 +77,11 @@ instance Core.FromJSON CloudWatchMetricsDimension where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable CloudWatchMetricsDimension
+instance Prelude.Hashable CloudWatchMetricsDimension where
+  hashWithSalt _salt CloudWatchMetricsDimension' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CloudWatchMetricsDimension
+instance Prelude.NFData CloudWatchMetricsDimension where
+  rnf CloudWatchMetricsDimension' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

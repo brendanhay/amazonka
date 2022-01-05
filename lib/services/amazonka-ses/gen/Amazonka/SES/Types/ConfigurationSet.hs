@@ -81,9 +81,12 @@ instance Core.FromXML ConfigurationSet where
   parseXML x =
     ConfigurationSet' Prelude.<$> (x Core..@ "Name")
 
-instance Prelude.Hashable ConfigurationSet
+instance Prelude.Hashable ConfigurationSet where
+  hashWithSalt _salt ConfigurationSet' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ConfigurationSet
+instance Prelude.NFData ConfigurationSet where
+  rnf ConfigurationSet' {..} = Prelude.rnf name
 
 instance Core.ToQuery ConfigurationSet where
   toQuery ConfigurationSet' {..} =

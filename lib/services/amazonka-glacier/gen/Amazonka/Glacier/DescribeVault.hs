@@ -137,9 +137,15 @@ instance Core.AWSRequest DescribeVault where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeVault
+instance Prelude.Hashable DescribeVault where
+  hashWithSalt _salt DescribeVault' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData DescribeVault
+instance Prelude.NFData DescribeVault where
+  rnf DescribeVault' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DescribeVault where
   toHeaders = Prelude.const Prelude.mempty

@@ -114,6 +114,20 @@ instance Core.FromJSON NamespaceInfoV2 where
             Prelude.<*> (x Core..:? "IdentityStore")
       )
 
-instance Prelude.Hashable NamespaceInfoV2
+instance Prelude.Hashable NamespaceInfoV2 where
+  hashWithSalt _salt NamespaceInfoV2' {..} =
+    _salt `Prelude.hashWithSalt` capacityRegion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creationStatus
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` namespaceError
+      `Prelude.hashWithSalt` identityStore
 
-instance Prelude.NFData NamespaceInfoV2
+instance Prelude.NFData NamespaceInfoV2 where
+  rnf NamespaceInfoV2' {..} =
+    Prelude.rnf capacityRegion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf namespaceError
+      `Prelude.seq` Prelude.rnf identityStore

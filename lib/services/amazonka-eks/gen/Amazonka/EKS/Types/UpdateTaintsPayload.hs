@@ -63,9 +63,15 @@ updateTaintsPayload_addOrUpdateTaints = Lens.lens (\UpdateTaintsPayload' {addOrU
 updateTaintsPayload_removeTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
 updateTaintsPayload_removeTaints = Lens.lens (\UpdateTaintsPayload' {removeTaints} -> removeTaints) (\s@UpdateTaintsPayload' {} a -> s {removeTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable UpdateTaintsPayload
+instance Prelude.Hashable UpdateTaintsPayload where
+  hashWithSalt _salt UpdateTaintsPayload' {..} =
+    _salt `Prelude.hashWithSalt` addOrUpdateTaints
+      `Prelude.hashWithSalt` removeTaints
 
-instance Prelude.NFData UpdateTaintsPayload
+instance Prelude.NFData UpdateTaintsPayload where
+  rnf UpdateTaintsPayload' {..} =
+    Prelude.rnf addOrUpdateTaints
+      `Prelude.seq` Prelude.rnf removeTaints
 
 instance Core.ToJSON UpdateTaintsPayload where
   toJSON UpdateTaintsPayload' {..} =

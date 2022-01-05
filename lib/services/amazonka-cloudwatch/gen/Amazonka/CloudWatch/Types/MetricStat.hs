@@ -186,9 +186,19 @@ instance Core.FromXML MetricStat where
       Prelude.<*> (x Core..@ "Period")
       Prelude.<*> (x Core..@ "Stat")
 
-instance Prelude.Hashable MetricStat
+instance Prelude.Hashable MetricStat where
+  hashWithSalt _salt MetricStat' {..} =
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` stat
 
-instance Prelude.NFData MetricStat
+instance Prelude.NFData MetricStat where
+  rnf MetricStat' {..} =
+    Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf stat
 
 instance Core.ToQuery MetricStat where
   toQuery MetricStat' {..} =

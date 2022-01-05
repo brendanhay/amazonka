@@ -117,6 +117,20 @@ instance Core.FromJSON AwsApiCallAction where
             Prelude.<*> (x Core..:? "api")
       )
 
-instance Prelude.Hashable AwsApiCallAction
+instance Prelude.Hashable AwsApiCallAction where
+  hashWithSalt _salt AwsApiCallAction' {..} =
+    _salt `Prelude.hashWithSalt` remoteIpDetails
+      `Prelude.hashWithSalt` callerType
+      `Prelude.hashWithSalt` domainDetails
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` api
 
-instance Prelude.NFData AwsApiCallAction
+instance Prelude.NFData AwsApiCallAction where
+  rnf AwsApiCallAction' {..} =
+    Prelude.rnf remoteIpDetails
+      `Prelude.seq` Prelude.rnf callerType
+      `Prelude.seq` Prelude.rnf domainDetails
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf api

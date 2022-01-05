@@ -146,9 +146,23 @@ instance Core.AWSRequest ReserveContact where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ReserveContact
+instance Prelude.Hashable ReserveContact where
+  hashWithSalt _salt ReserveContact' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` groundStation
+      `Prelude.hashWithSalt` missionProfileArn
+      `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData ReserveContact
+instance Prelude.NFData ReserveContact where
+  rnf ReserveContact' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf groundStation
+      `Prelude.seq` Prelude.rnf missionProfileArn
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToHeaders ReserveContact where
   toHeaders =

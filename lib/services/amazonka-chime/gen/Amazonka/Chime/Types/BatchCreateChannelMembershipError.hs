@@ -89,7 +89,19 @@ instance
 instance
   Prelude.Hashable
     BatchCreateChannelMembershipError
+  where
+  hashWithSalt
+    _salt
+    BatchCreateChannelMembershipError' {..} =
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` memberArn
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     BatchCreateChannelMembershipError
+  where
+  rnf BatchCreateChannelMembershipError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf memberArn
+      `Prelude.seq` Prelude.rnf errorMessage

@@ -79,9 +79,17 @@ priceScheduleSpecification_term = Lens.lens (\PriceScheduleSpecification' {term}
 priceScheduleSpecification_price :: Lens.Lens' PriceScheduleSpecification (Prelude.Maybe Prelude.Double)
 priceScheduleSpecification_price = Lens.lens (\PriceScheduleSpecification' {price} -> price) (\s@PriceScheduleSpecification' {} a -> s {price = a} :: PriceScheduleSpecification)
 
-instance Prelude.Hashable PriceScheduleSpecification
+instance Prelude.Hashable PriceScheduleSpecification where
+  hashWithSalt _salt PriceScheduleSpecification' {..} =
+    _salt `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` term
+      `Prelude.hashWithSalt` price
 
-instance Prelude.NFData PriceScheduleSpecification
+instance Prelude.NFData PriceScheduleSpecification where
+  rnf PriceScheduleSpecification' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf term
+      `Prelude.seq` Prelude.rnf price
 
 instance Core.ToQuery PriceScheduleSpecification where
   toQuery PriceScheduleSpecification' {..} =

@@ -69,10 +69,18 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketServerSideEncryptionConfiguration
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketServerSideEncryptionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` rules
 
 instance
   Prelude.NFData
     AwsS3BucketServerSideEncryptionConfiguration
+  where
+  rnf AwsS3BucketServerSideEncryptionConfiguration' {..} =
+    Prelude.rnf rules
 
 instance
   Core.ToJSON

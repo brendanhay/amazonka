@@ -81,10 +81,19 @@ instance Core.FromJSON InferenceS3OutputConfiguration where
 instance
   Prelude.Hashable
     InferenceS3OutputConfiguration
+  where
+  hashWithSalt
+    _salt
+    InferenceS3OutputConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` bucket
 
 instance
   Prelude.NFData
     InferenceS3OutputConfiguration
+  where
+  rnf InferenceS3OutputConfiguration' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToJSON InferenceS3OutputConfiguration where
   toJSON InferenceS3OutputConfiguration' {..} =

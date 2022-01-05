@@ -94,10 +94,18 @@ instance
 instance
   Prelude.Hashable
     GetWirelessGatewayFirmwareInformation
+  where
+  hashWithSalt
+    _salt
+    GetWirelessGatewayFirmwareInformation' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetWirelessGatewayFirmwareInformation
+  where
+  rnf GetWirelessGatewayFirmwareInformation' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -165,3 +173,8 @@ getWirelessGatewayFirmwareInformationResponse_httpStatus = Lens.lens (\GetWirele
 instance
   Prelude.NFData
     GetWirelessGatewayFirmwareInformationResponse
+  where
+  rnf
+    GetWirelessGatewayFirmwareInformationResponse' {..} =
+      Prelude.rnf loRaWAN
+        `Prelude.seq` Prelude.rnf httpStatus

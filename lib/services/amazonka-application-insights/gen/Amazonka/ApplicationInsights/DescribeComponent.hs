@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeComponent
+instance Prelude.Hashable DescribeComponent where
+  hashWithSalt _salt DescribeComponent' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` componentName
 
-instance Prelude.NFData DescribeComponent
+instance Prelude.NFData DescribeComponent where
+  rnf DescribeComponent' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf componentName
 
 instance Core.ToHeaders DescribeComponent where
   toHeaders =
@@ -189,4 +195,8 @@ describeComponentResponse_resourceList = Lens.lens (\DescribeComponentResponse' 
 describeComponentResponse_httpStatus :: Lens.Lens' DescribeComponentResponse Prelude.Int
 describeComponentResponse_httpStatus = Lens.lens (\DescribeComponentResponse' {httpStatus} -> httpStatus) (\s@DescribeComponentResponse' {} a -> s {httpStatus = a} :: DescribeComponentResponse)
 
-instance Prelude.NFData DescribeComponentResponse
+instance Prelude.NFData DescribeComponentResponse where
+  rnf DescribeComponentResponse' {..} =
+    Prelude.rnf applicationComponent
+      `Prelude.seq` Prelude.rnf resourceList
+      `Prelude.seq` Prelude.rnf httpStatus

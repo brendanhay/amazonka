@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     SendPipelineExecutionStepFailure
+  where
+  hashWithSalt
+    _salt
+    SendPipelineExecutionStepFailure' {..} =
+      _salt `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` callbackToken
 
 instance
   Prelude.NFData
     SendPipelineExecutionStepFailure
+  where
+  rnf SendPipelineExecutionStepFailure' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf callbackToken
 
 instance
   Core.ToHeaders
@@ -211,3 +223,7 @@ sendPipelineExecutionStepFailureResponse_httpStatus = Lens.lens (\SendPipelineEx
 instance
   Prelude.NFData
     SendPipelineExecutionStepFailureResponse
+  where
+  rnf SendPipelineExecutionStepFailureResponse' {..} =
+    Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf httpStatus

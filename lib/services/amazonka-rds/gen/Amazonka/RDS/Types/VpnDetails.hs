@@ -117,6 +117,20 @@ instance Core.FromXML VpnDetails where
       Prelude.<*> (x Core..@? "VpnPSK")
       Prelude.<*> (x Core..@? "VpnGatewayIp")
 
-instance Prelude.Hashable VpnDetails
+instance Prelude.Hashable VpnDetails where
+  hashWithSalt _salt VpnDetails' {..} =
+    _salt `Prelude.hashWithSalt` vpnName
+      `Prelude.hashWithSalt` vpnTunnelOriginatorIP
+      `Prelude.hashWithSalt` vpnId
+      `Prelude.hashWithSalt` vpnState
+      `Prelude.hashWithSalt` vpnPSK
+      `Prelude.hashWithSalt` vpnGatewayIp
 
-instance Prelude.NFData VpnDetails
+instance Prelude.NFData VpnDetails where
+  rnf VpnDetails' {..} =
+    Prelude.rnf vpnName
+      `Prelude.seq` Prelude.rnf vpnTunnelOriginatorIP
+      `Prelude.seq` Prelude.rnf vpnId
+      `Prelude.seq` Prelude.rnf vpnState
+      `Prelude.seq` Prelude.rnf vpnPSK
+      `Prelude.seq` Prelude.rnf vpnGatewayIp

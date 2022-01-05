@@ -91,9 +91,12 @@ instance Core.AWSRequest RestoreBackup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreBackup
+instance Prelude.Hashable RestoreBackup where
+  hashWithSalt _salt RestoreBackup' {..} =
+    _salt `Prelude.hashWithSalt` backupId
 
-instance Prelude.NFData RestoreBackup
+instance Prelude.NFData RestoreBackup where
+  rnf RestoreBackup' {..} = Prelude.rnf backupId
 
 instance Core.ToHeaders RestoreBackup where
   toHeaders =
@@ -161,4 +164,7 @@ restoreBackupResponse_backup = Lens.lens (\RestoreBackupResponse' {backup} -> ba
 restoreBackupResponse_httpStatus :: Lens.Lens' RestoreBackupResponse Prelude.Int
 restoreBackupResponse_httpStatus = Lens.lens (\RestoreBackupResponse' {httpStatus} -> httpStatus) (\s@RestoreBackupResponse' {} a -> s {httpStatus = a} :: RestoreBackupResponse)
 
-instance Prelude.NFData RestoreBackupResponse
+instance Prelude.NFData RestoreBackupResponse where
+  rnf RestoreBackupResponse' {..} =
+    Prelude.rnf backup
+      `Prelude.seq` Prelude.rnf httpStatus

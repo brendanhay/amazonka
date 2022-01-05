@@ -146,9 +146,19 @@ instance Core.FromJSON CustomRule where
             Prelude.<*> (x Core..: "target")
       )
 
-instance Prelude.Hashable CustomRule
+instance Prelude.Hashable CustomRule where
+  hashWithSalt _salt CustomRule' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData CustomRule
+instance Prelude.NFData CustomRule where
+  rnf CustomRule' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON CustomRule where
   toJSON CustomRule' {..} =

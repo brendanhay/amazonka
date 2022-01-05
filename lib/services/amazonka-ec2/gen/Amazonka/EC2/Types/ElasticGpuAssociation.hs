@@ -96,6 +96,16 @@ instance Core.FromXML ElasticGpuAssociation where
       Prelude.<*> (x Core..@? "elasticGpuAssociationTime")
       Prelude.<*> (x Core..@? "elasticGpuAssociationState")
 
-instance Prelude.Hashable ElasticGpuAssociation
+instance Prelude.Hashable ElasticGpuAssociation where
+  hashWithSalt _salt ElasticGpuAssociation' {..} =
+    _salt `Prelude.hashWithSalt` elasticGpuId
+      `Prelude.hashWithSalt` elasticGpuAssociationId
+      `Prelude.hashWithSalt` elasticGpuAssociationTime
+      `Prelude.hashWithSalt` elasticGpuAssociationState
 
-instance Prelude.NFData ElasticGpuAssociation
+instance Prelude.NFData ElasticGpuAssociation where
+  rnf ElasticGpuAssociation' {..} =
+    Prelude.rnf elasticGpuId
+      `Prelude.seq` Prelude.rnf elasticGpuAssociationId
+      `Prelude.seq` Prelude.rnf elasticGpuAssociationTime
+      `Prelude.seq` Prelude.rnf elasticGpuAssociationState

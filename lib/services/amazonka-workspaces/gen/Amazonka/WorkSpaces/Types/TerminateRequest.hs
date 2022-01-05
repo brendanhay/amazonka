@@ -52,9 +52,12 @@ newTerminateRequest pWorkspaceId_ =
 terminateRequest_workspaceId :: Lens.Lens' TerminateRequest Prelude.Text
 terminateRequest_workspaceId = Lens.lens (\TerminateRequest' {workspaceId} -> workspaceId) (\s@TerminateRequest' {} a -> s {workspaceId = a} :: TerminateRequest)
 
-instance Prelude.Hashable TerminateRequest
+instance Prelude.Hashable TerminateRequest where
+  hashWithSalt _salt TerminateRequest' {..} =
+    _salt `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData TerminateRequest
+instance Prelude.NFData TerminateRequest where
+  rnf TerminateRequest' {..} = Prelude.rnf workspaceId
 
 instance Core.ToJSON TerminateRequest where
   toJSON TerminateRequest' {..} =

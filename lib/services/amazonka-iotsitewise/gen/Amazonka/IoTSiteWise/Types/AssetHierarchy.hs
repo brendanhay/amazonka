@@ -84,6 +84,11 @@ instance Core.FromJSON AssetHierarchy where
             Prelude.<$> (x Core..:? "id") Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable AssetHierarchy
+instance Prelude.Hashable AssetHierarchy where
+  hashWithSalt _salt AssetHierarchy' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssetHierarchy
+instance Prelude.NFData AssetHierarchy where
+  rnf AssetHierarchy' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf name

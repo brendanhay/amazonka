@@ -205,6 +205,38 @@ instance Core.FromJSON BatchPrediction where
             Prelude.<*> (x Core..:? "inputPath")
       )
 
-instance Prelude.Hashable BatchPrediction
+instance Prelude.Hashable BatchPrediction where
+  hashWithSalt _salt BatchPrediction' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` processedRecordsCount
+      `Prelude.hashWithSalt` totalRecordsCount
+      `Prelude.hashWithSalt` lastHeartbeatTime
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` outputPath
+      `Prelude.hashWithSalt` detectorName
+      `Prelude.hashWithSalt` detectorVersion
+      `Prelude.hashWithSalt` inputPath
 
-instance Prelude.NFData BatchPrediction
+instance Prelude.NFData BatchPrediction where
+  rnf BatchPrediction' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf processedRecordsCount
+      `Prelude.seq` Prelude.rnf totalRecordsCount
+      `Prelude.seq` Prelude.rnf lastHeartbeatTime
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf outputPath
+      `Prelude.seq` Prelude.rnf detectorName
+      `Prelude.seq` Prelude.rnf detectorVersion
+      `Prelude.seq` Prelude.rnf inputPath

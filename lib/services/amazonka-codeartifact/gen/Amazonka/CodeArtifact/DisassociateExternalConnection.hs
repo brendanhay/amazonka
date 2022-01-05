@@ -141,10 +141,24 @@ instance
 instance
   Prelude.Hashable
     DisassociateExternalConnection
+  where
+  hashWithSalt
+    _salt
+    DisassociateExternalConnection' {..} =
+      _salt `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` repository
+        `Prelude.hashWithSalt` externalConnection
 
 instance
   Prelude.NFData
     DisassociateExternalConnection
+  where
+  rnf DisassociateExternalConnection' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf externalConnection
 
 instance
   Core.ToHeaders
@@ -216,3 +230,7 @@ disassociateExternalConnectionResponse_httpStatus = Lens.lens (\DisassociateExte
 instance
   Prelude.NFData
     DisassociateExternalConnectionResponse
+  where
+  rnf DisassociateExternalConnectionResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus

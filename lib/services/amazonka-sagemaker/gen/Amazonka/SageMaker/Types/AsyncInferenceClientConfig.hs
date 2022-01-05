@@ -69,9 +69,14 @@ instance Core.FromJSON AsyncInferenceClientConfig where
             Prelude.<$> (x Core..:? "MaxConcurrentInvocationsPerInstance")
       )
 
-instance Prelude.Hashable AsyncInferenceClientConfig
+instance Prelude.Hashable AsyncInferenceClientConfig where
+  hashWithSalt _salt AsyncInferenceClientConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` maxConcurrentInvocationsPerInstance
 
-instance Prelude.NFData AsyncInferenceClientConfig
+instance Prelude.NFData AsyncInferenceClientConfig where
+  rnf AsyncInferenceClientConfig' {..} =
+    Prelude.rnf maxConcurrentInvocationsPerInstance
 
 instance Core.ToJSON AsyncInferenceClientConfig where
   toJSON AsyncInferenceClientConfig' {..} =

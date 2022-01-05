@@ -165,9 +165,25 @@ instance Core.AWSRequest UpdateNetworkProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNetworkProfile
+instance Prelude.Hashable UpdateNetworkProfile where
+  hashWithSalt _salt UpdateNetworkProfile' {..} =
+    _salt `Prelude.hashWithSalt` networkProfileName
+      `Prelude.hashWithSalt` currentPassword
+      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` trustAnchors
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` networkProfileArn
 
-instance Prelude.NFData UpdateNetworkProfile
+instance Prelude.NFData UpdateNetworkProfile where
+  rnf UpdateNetworkProfile' {..} =
+    Prelude.rnf networkProfileName
+      `Prelude.seq` Prelude.rnf currentPassword
+      `Prelude.seq` Prelude.rnf nextPassword
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf trustAnchors
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf networkProfileArn
 
 instance Core.ToHeaders UpdateNetworkProfile where
   toHeaders =
@@ -238,4 +254,6 @@ newUpdateNetworkProfileResponse pHttpStatus_ =
 updateNetworkProfileResponse_httpStatus :: Lens.Lens' UpdateNetworkProfileResponse Prelude.Int
 updateNetworkProfileResponse_httpStatus = Lens.lens (\UpdateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateNetworkProfileResponse' {} a -> s {httpStatus = a} :: UpdateNetworkProfileResponse)
 
-instance Prelude.NFData UpdateNetworkProfileResponse
+instance Prelude.NFData UpdateNetworkProfileResponse where
+  rnf UpdateNetworkProfileResponse' {..} =
+    Prelude.rnf httpStatus

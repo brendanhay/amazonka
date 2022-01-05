@@ -219,9 +219,27 @@ instance Core.AWSRequest StartTaskContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTaskContact
+instance Prelude.Hashable StartTaskContact where
+  hashWithSalt _salt StartTaskContact' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` references
+      `Prelude.hashWithSalt` previousContactId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartTaskContact
+instance Prelude.NFData StartTaskContact where
+  rnf StartTaskContact' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf references
+      `Prelude.seq` Prelude.rnf previousContactId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartTaskContact where
   toHeaders =
@@ -295,4 +313,7 @@ startTaskContactResponse_contactId = Lens.lens (\StartTaskContactResponse' {cont
 startTaskContactResponse_httpStatus :: Lens.Lens' StartTaskContactResponse Prelude.Int
 startTaskContactResponse_httpStatus = Lens.lens (\StartTaskContactResponse' {httpStatus} -> httpStatus) (\s@StartTaskContactResponse' {} a -> s {httpStatus = a} :: StartTaskContactResponse)
 
-instance Prelude.NFData StartTaskContactResponse
+instance Prelude.NFData StartTaskContactResponse where
+  rnf StartTaskContactResponse' {..} =
+    Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf httpStatus

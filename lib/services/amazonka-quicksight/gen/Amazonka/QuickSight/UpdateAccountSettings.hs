@@ -132,9 +132,17 @@ instance Core.AWSRequest UpdateAccountSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccountSettings
+instance Prelude.Hashable UpdateAccountSettings where
+  hashWithSalt _salt UpdateAccountSettings' {..} =
+    _salt `Prelude.hashWithSalt` notificationEmail
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` defaultNamespace
 
-instance Prelude.NFData UpdateAccountSettings
+instance Prelude.NFData UpdateAccountSettings where
+  rnf UpdateAccountSettings' {..} =
+    Prelude.rnf notificationEmail
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf defaultNamespace
 
 instance Core.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -205,4 +213,7 @@ updateAccountSettingsResponse_requestId = Lens.lens (\UpdateAccountSettingsRespo
 updateAccountSettingsResponse_status :: Lens.Lens' UpdateAccountSettingsResponse Prelude.Int
 updateAccountSettingsResponse_status = Lens.lens (\UpdateAccountSettingsResponse' {status} -> status) (\s@UpdateAccountSettingsResponse' {} a -> s {status = a} :: UpdateAccountSettingsResponse)
 
-instance Prelude.NFData UpdateAccountSettingsResponse
+instance Prelude.NFData UpdateAccountSettingsResponse where
+  rnf UpdateAccountSettingsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status

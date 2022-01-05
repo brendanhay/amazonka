@@ -63,9 +63,12 @@ instance Core.FromJSON QueryFilter where
           QueryFilter' Prelude.<$> (x Core..:? "deltaTime")
       )
 
-instance Prelude.Hashable QueryFilter
+instance Prelude.Hashable QueryFilter where
+  hashWithSalt _salt QueryFilter' {..} =
+    _salt `Prelude.hashWithSalt` deltaTime
 
-instance Prelude.NFData QueryFilter
+instance Prelude.NFData QueryFilter where
+  rnf QueryFilter' {..} = Prelude.rnf deltaTime
 
 instance Core.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =

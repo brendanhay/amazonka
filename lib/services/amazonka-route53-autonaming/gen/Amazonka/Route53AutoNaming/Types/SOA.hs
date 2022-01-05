@@ -58,9 +58,12 @@ instance Core.FromJSON SOA where
       "SOA"
       (\x -> SOA' Prelude.<$> (x Core..: "TTL"))
 
-instance Prelude.Hashable SOA
+instance Prelude.Hashable SOA where
+  hashWithSalt _salt SOA' {..} =
+    _salt `Prelude.hashWithSalt` ttl
 
-instance Prelude.NFData SOA
+instance Prelude.NFData SOA where
+  rnf SOA' {..} = Prelude.rnf ttl
 
 instance Core.ToJSON SOA where
   toJSON SOA' {..} =

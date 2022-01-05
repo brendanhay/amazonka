@@ -82,9 +82,15 @@ instance Core.FromJSON UplinkEchoConfig where
             Prelude.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable UplinkEchoConfig
+instance Prelude.Hashable UplinkEchoConfig where
+  hashWithSalt _salt UplinkEchoConfig' {..} =
+    _salt `Prelude.hashWithSalt` antennaUplinkConfigArn
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData UplinkEchoConfig
+instance Prelude.NFData UplinkEchoConfig where
+  rnf UplinkEchoConfig' {..} =
+    Prelude.rnf antennaUplinkConfigArn
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON UplinkEchoConfig where
   toJSON UplinkEchoConfig' {..} =

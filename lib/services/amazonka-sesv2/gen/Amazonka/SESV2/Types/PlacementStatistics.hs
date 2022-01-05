@@ -117,6 +117,18 @@ instance Core.FromJSON PlacementStatistics where
             Prelude.<*> (x Core..:? "InboxPercentage")
       )
 
-instance Prelude.Hashable PlacementStatistics
+instance Prelude.Hashable PlacementStatistics where
+  hashWithSalt _salt PlacementStatistics' {..} =
+    _salt `Prelude.hashWithSalt` missingPercentage
+      `Prelude.hashWithSalt` spamPercentage
+      `Prelude.hashWithSalt` spfPercentage
+      `Prelude.hashWithSalt` dkimPercentage
+      `Prelude.hashWithSalt` inboxPercentage
 
-instance Prelude.NFData PlacementStatistics
+instance Prelude.NFData PlacementStatistics where
+  rnf PlacementStatistics' {..} =
+    Prelude.rnf missingPercentage
+      `Prelude.seq` Prelude.rnf spamPercentage
+      `Prelude.seq` Prelude.rnf spfPercentage
+      `Prelude.seq` Prelude.rnf dkimPercentage
+      `Prelude.seq` Prelude.rnf inboxPercentage

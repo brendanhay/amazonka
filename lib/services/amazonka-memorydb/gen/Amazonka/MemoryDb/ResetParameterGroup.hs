@@ -124,9 +124,17 @@ instance Core.AWSRequest ResetParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetParameterGroup
+instance Prelude.Hashable ResetParameterGroup where
+  hashWithSalt _salt ResetParameterGroup' {..} =
+    _salt `Prelude.hashWithSalt` parameterNames
+      `Prelude.hashWithSalt` allParameters
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ResetParameterGroup
+instance Prelude.NFData ResetParameterGroup where
+  rnf ResetParameterGroup' {..} =
+    Prelude.rnf parameterNames
+      `Prelude.seq` Prelude.rnf allParameters
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders ResetParameterGroup where
   toHeaders =
@@ -200,4 +208,7 @@ resetParameterGroupResponse_parameterGroup = Lens.lens (\ResetParameterGroupResp
 resetParameterGroupResponse_httpStatus :: Lens.Lens' ResetParameterGroupResponse Prelude.Int
 resetParameterGroupResponse_httpStatus = Lens.lens (\ResetParameterGroupResponse' {httpStatus} -> httpStatus) (\s@ResetParameterGroupResponse' {} a -> s {httpStatus = a} :: ResetParameterGroupResponse)
 
-instance Prelude.NFData ResetParameterGroupResponse
+instance Prelude.NFData ResetParameterGroupResponse where
+  rnf ResetParameterGroupResponse' {..} =
+    Prelude.rnf parameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

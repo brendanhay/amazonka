@@ -149,9 +149,21 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUser
+instance Prelude.Hashable UpdateUser where
+  hashWithSalt _salt UpdateUser' {..} =
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` consoleAccess
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` brokerId
 
-instance Prelude.NFData UpdateUser
+instance Prelude.NFData UpdateUser where
+  rnf UpdateUser' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf consoleAccess
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf brokerId
 
 instance Core.ToHeaders UpdateUser where
   toHeaders =
@@ -213,4 +225,5 @@ newUpdateUserResponse pHttpStatus_ =
 updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Prelude.Int
 updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> httpStatus) (\s@UpdateUserResponse' {} a -> s {httpStatus = a} :: UpdateUserResponse)
 
-instance Prelude.NFData UpdateUserResponse
+instance Prelude.NFData UpdateUserResponse where
+  rnf UpdateUserResponse' {..} = Prelude.rnf httpStatus

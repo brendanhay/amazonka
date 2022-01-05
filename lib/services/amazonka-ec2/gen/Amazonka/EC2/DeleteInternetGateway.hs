@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteInternetGateway where
   response =
     Response.receiveNull DeleteInternetGatewayResponse'
 
-instance Prelude.Hashable DeleteInternetGateway
+instance Prelude.Hashable DeleteInternetGateway where
+  hashWithSalt _salt DeleteInternetGateway' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` internetGatewayId
 
-instance Prelude.NFData DeleteInternetGateway
+instance Prelude.NFData DeleteInternetGateway where
+  rnf DeleteInternetGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf internetGatewayId
 
 instance Core.ToHeaders DeleteInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +141,5 @@ newDeleteInternetGatewayResponse ::
 newDeleteInternetGatewayResponse =
   DeleteInternetGatewayResponse'
 
-instance Prelude.NFData DeleteInternetGatewayResponse
+instance Prelude.NFData DeleteInternetGatewayResponse where
+  rnf _ = ()

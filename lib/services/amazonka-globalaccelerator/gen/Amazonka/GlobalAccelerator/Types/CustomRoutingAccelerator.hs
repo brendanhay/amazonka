@@ -192,6 +192,26 @@ instance Core.FromJSON CustomRoutingAccelerator where
             Prelude.<*> (x Core..:? "DnsName")
       )
 
-instance Prelude.Hashable CustomRoutingAccelerator
+instance Prelude.Hashable CustomRoutingAccelerator where
+  hashWithSalt _salt CustomRoutingAccelerator' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ipSets
+      `Prelude.hashWithSalt` dnsName
 
-instance Prelude.NFData CustomRoutingAccelerator
+instance Prelude.NFData CustomRoutingAccelerator where
+  rnf CustomRoutingAccelerator' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ipSets
+      `Prelude.seq` Prelude.rnf dnsName

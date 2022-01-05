@@ -92,6 +92,16 @@ instance Core.FromJSON FlowExecutionMessage where
             Prelude.<*> (x Core..:? "messageId")
       )
 
-instance Prelude.Hashable FlowExecutionMessage
+instance Prelude.Hashable FlowExecutionMessage where
+  hashWithSalt _salt FlowExecutionMessage' {..} =
+    _salt `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData FlowExecutionMessage
+instance Prelude.NFData FlowExecutionMessage where
+  rnf FlowExecutionMessage' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf messageId

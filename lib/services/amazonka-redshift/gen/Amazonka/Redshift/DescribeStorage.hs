@@ -73,9 +73,12 @@ instance Core.AWSRequest DescribeStorage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStorage
+instance Prelude.Hashable DescribeStorage where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeStorage
+instance Prelude.NFData DescribeStorage where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeStorage where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +145,8 @@ describeStorageResponse_totalBackupSizeInMegaBytes = Lens.lens (\DescribeStorage
 describeStorageResponse_httpStatus :: Lens.Lens' DescribeStorageResponse Prelude.Int
 describeStorageResponse_httpStatus = Lens.lens (\DescribeStorageResponse' {httpStatus} -> httpStatus) (\s@DescribeStorageResponse' {} a -> s {httpStatus = a} :: DescribeStorageResponse)
 
-instance Prelude.NFData DescribeStorageResponse
+instance Prelude.NFData DescribeStorageResponse where
+  rnf DescribeStorageResponse' {..} =
+    Prelude.rnf totalProvisionedStorageInMegaBytes
+      `Prelude.seq` Prelude.rnf totalBackupSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf httpStatus

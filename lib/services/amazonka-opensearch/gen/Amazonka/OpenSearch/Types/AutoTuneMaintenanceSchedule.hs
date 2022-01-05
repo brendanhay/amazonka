@@ -100,9 +100,17 @@ instance Core.FromJSON AutoTuneMaintenanceSchedule where
             Prelude.<*> (x Core..:? "Duration")
       )
 
-instance Prelude.Hashable AutoTuneMaintenanceSchedule
+instance Prelude.Hashable AutoTuneMaintenanceSchedule where
+  hashWithSalt _salt AutoTuneMaintenanceSchedule' {..} =
+    _salt `Prelude.hashWithSalt` startAt
+      `Prelude.hashWithSalt` cronExpressionForRecurrence
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData AutoTuneMaintenanceSchedule
+instance Prelude.NFData AutoTuneMaintenanceSchedule where
+  rnf AutoTuneMaintenanceSchedule' {..} =
+    Prelude.rnf startAt
+      `Prelude.seq` Prelude.rnf cronExpressionForRecurrence
+      `Prelude.seq` Prelude.rnf duration
 
 instance Core.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =

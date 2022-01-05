@@ -72,6 +72,13 @@ instance Core.FromJSON AutoMLJobArtifacts where
             Prelude.<*> (x Core..:? "DataExplorationNotebookLocation")
       )
 
-instance Prelude.Hashable AutoMLJobArtifacts
+instance Prelude.Hashable AutoMLJobArtifacts where
+  hashWithSalt _salt AutoMLJobArtifacts' {..} =
+    _salt
+      `Prelude.hashWithSalt` candidateDefinitionNotebookLocation
+      `Prelude.hashWithSalt` dataExplorationNotebookLocation
 
-instance Prelude.NFData AutoMLJobArtifacts
+instance Prelude.NFData AutoMLJobArtifacts where
+  rnf AutoMLJobArtifacts' {..} =
+    Prelude.rnf candidateDefinitionNotebookLocation
+      `Prelude.seq` Prelude.rnf dataExplorationNotebookLocation

@@ -87,10 +87,22 @@ updateBackendAuthForgotPasswordConfig_deliveryMethod = Lens.lens (\UpdateBackend
 instance
   Prelude.Hashable
     UpdateBackendAuthForgotPasswordConfig
+  where
+  hashWithSalt
+    _salt
+    UpdateBackendAuthForgotPasswordConfig' {..} =
+      _salt `Prelude.hashWithSalt` emailSettings
+        `Prelude.hashWithSalt` smsSettings
+        `Prelude.hashWithSalt` deliveryMethod
 
 instance
   Prelude.NFData
     UpdateBackendAuthForgotPasswordConfig
+  where
+  rnf UpdateBackendAuthForgotPasswordConfig' {..} =
+    Prelude.rnf emailSettings
+      `Prelude.seq` Prelude.rnf smsSettings
+      `Prelude.seq` Prelude.rnf deliveryMethod
 
 instance
   Core.ToJSON

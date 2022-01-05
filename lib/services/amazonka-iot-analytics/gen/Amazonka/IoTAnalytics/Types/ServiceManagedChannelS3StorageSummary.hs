@@ -54,7 +54,12 @@ instance
 instance
   Prelude.Hashable
     ServiceManagedChannelS3StorageSummary
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     ServiceManagedChannelS3StorageSummary
+  where
+  rnf _ = ()

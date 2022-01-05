@@ -84,9 +84,14 @@ terminologyData_file = Lens.lens (\TerminologyData' {file} -> file) (\s@Terminol
 terminologyData_format :: Lens.Lens' TerminologyData TerminologyDataFormat
 terminologyData_format = Lens.lens (\TerminologyData' {format} -> format) (\s@TerminologyData' {} a -> s {format = a} :: TerminologyData)
 
-instance Prelude.Hashable TerminologyData
+instance Prelude.Hashable TerminologyData where
+  hashWithSalt _salt TerminologyData' {..} =
+    _salt `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData TerminologyData
+instance Prelude.NFData TerminologyData where
+  rnf TerminologyData' {..} =
+    Prelude.rnf file `Prelude.seq` Prelude.rnf format
 
 instance Core.ToJSON TerminologyData where
   toJSON TerminologyData' {..} =

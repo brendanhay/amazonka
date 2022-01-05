@@ -61,6 +61,9 @@ instance Core.FromJSON RouteStatus where
           RouteStatus' Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable RouteStatus
+instance Prelude.Hashable RouteStatus where
+  hashWithSalt _salt RouteStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData RouteStatus
+instance Prelude.NFData RouteStatus where
+  rnf RouteStatus' {..} = Prelude.rnf status

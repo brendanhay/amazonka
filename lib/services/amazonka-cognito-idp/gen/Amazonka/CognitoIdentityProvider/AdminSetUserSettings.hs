@@ -121,9 +121,17 @@ instance Core.AWSRequest AdminSetUserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminSetUserSettings
+instance Prelude.Hashable AdminSetUserSettings where
+  hashWithSalt _salt AdminSetUserSettings' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` mfaOptions
 
-instance Prelude.NFData AdminSetUserSettings
+instance Prelude.NFData AdminSetUserSettings where
+  rnf AdminSetUserSettings' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf mfaOptions
 
 instance Core.ToHeaders AdminSetUserSettings where
   toHeaders =
@@ -189,4 +197,6 @@ newAdminSetUserSettingsResponse pHttpStatus_ =
 adminSetUserSettingsResponse_httpStatus :: Lens.Lens' AdminSetUserSettingsResponse Prelude.Int
 adminSetUserSettingsResponse_httpStatus = Lens.lens (\AdminSetUserSettingsResponse' {httpStatus} -> httpStatus) (\s@AdminSetUserSettingsResponse' {} a -> s {httpStatus = a} :: AdminSetUserSettingsResponse)
 
-instance Prelude.NFData AdminSetUserSettingsResponse
+instance Prelude.NFData AdminSetUserSettingsResponse where
+  rnf AdminSetUserSettingsResponse' {..} =
+    Prelude.rnf httpStatus

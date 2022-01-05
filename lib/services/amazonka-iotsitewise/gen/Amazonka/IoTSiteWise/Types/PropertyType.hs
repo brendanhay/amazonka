@@ -126,9 +126,19 @@ instance Core.FromJSON PropertyType where
             Prelude.<*> (x Core..:? "measurement")
       )
 
-instance Prelude.Hashable PropertyType
+instance Prelude.Hashable PropertyType where
+  hashWithSalt _salt PropertyType' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` transform
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` measurement
 
-instance Prelude.NFData PropertyType
+instance Prelude.NFData PropertyType where
+  rnf PropertyType' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf transform
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf measurement
 
 instance Core.ToJSON PropertyType where
   toJSON PropertyType' {..} =

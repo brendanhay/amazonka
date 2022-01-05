@@ -171,6 +171,26 @@ instance Core.FromJSON FargateProfile where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FargateProfile
+instance Prelude.Hashable FargateProfile where
+  hashWithSalt _salt FargateProfile' {..} =
+    _salt `Prelude.hashWithSalt` fargateProfileArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` podExecutionRoleArn
+      `Prelude.hashWithSalt` fargateProfileName
+      `Prelude.hashWithSalt` selectors
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData FargateProfile
+instance Prelude.NFData FargateProfile where
+  rnf FargateProfile' {..} =
+    Prelude.rnf fargateProfileArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf podExecutionRoleArn
+      `Prelude.seq` Prelude.rnf fargateProfileName
+      `Prelude.seq` Prelude.rnf selectors
+      `Prelude.seq` Prelude.rnf tags

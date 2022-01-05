@@ -85,6 +85,14 @@ instance Core.FromJSON QueueTransition where
             Prelude.<*> (x Core..:? "timestamp")
       )
 
-instance Prelude.Hashable QueueTransition
+instance Prelude.Hashable QueueTransition where
+  hashWithSalt _salt QueueTransition' {..} =
+    _salt `Prelude.hashWithSalt` sourceQueue
+      `Prelude.hashWithSalt` destinationQueue
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData QueueTransition
+instance Prelude.NFData QueueTransition where
+  rnf QueueTransition' {..} =
+    Prelude.rnf sourceQueue
+      `Prelude.seq` Prelude.rnf destinationQueue
+      `Prelude.seq` Prelude.rnf timestamp

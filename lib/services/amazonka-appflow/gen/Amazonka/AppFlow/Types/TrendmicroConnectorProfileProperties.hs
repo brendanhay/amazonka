@@ -55,10 +55,15 @@ instance
 instance
   Prelude.Hashable
     TrendmicroConnectorProfileProperties
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     TrendmicroConnectorProfileProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

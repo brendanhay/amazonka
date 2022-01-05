@@ -262,9 +262,19 @@ instance Core.AWSRequest UpdateApiCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApiCache
+instance Prelude.Hashable UpdateApiCache where
+  hashWithSalt _salt UpdateApiCache' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` apiCachingBehavior
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UpdateApiCache
+instance Prelude.NFData UpdateApiCache where
+  rnf UpdateApiCache' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf apiCachingBehavior
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders UpdateApiCache where
   toHeaders =
@@ -336,4 +346,7 @@ updateApiCacheResponse_apiCache = Lens.lens (\UpdateApiCacheResponse' {apiCache}
 updateApiCacheResponse_httpStatus :: Lens.Lens' UpdateApiCacheResponse Prelude.Int
 updateApiCacheResponse_httpStatus = Lens.lens (\UpdateApiCacheResponse' {httpStatus} -> httpStatus) (\s@UpdateApiCacheResponse' {} a -> s {httpStatus = a} :: UpdateApiCacheResponse)
 
-instance Prelude.NFData UpdateApiCacheResponse
+instance Prelude.NFData UpdateApiCacheResponse where
+  rnf UpdateApiCacheResponse' {..} =
+    Prelude.rnf apiCache
+      `Prelude.seq` Prelude.rnf httpStatus

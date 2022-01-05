@@ -77,6 +77,9 @@ instance Core.FromJSON LegGeometry where
           LegGeometry' Prelude.<$> (x Core..:? "LineString")
       )
 
-instance Prelude.Hashable LegGeometry
+instance Prelude.Hashable LegGeometry where
+  hashWithSalt _salt LegGeometry' {..} =
+    _salt `Prelude.hashWithSalt` lineString
 
-instance Prelude.NFData LegGeometry
+instance Prelude.NFData LegGeometry where
+  rnf LegGeometry' {..} = Prelude.rnf lineString

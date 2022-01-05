@@ -86,9 +86,12 @@ instance Core.AWSRequest GetGraphqlApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGraphqlApi
+instance Prelude.Hashable GetGraphqlApi where
+  hashWithSalt _salt GetGraphqlApi' {..} =
+    _salt `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetGraphqlApi
+instance Prelude.NFData GetGraphqlApi where
+  rnf GetGraphqlApi' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders GetGraphqlApi where
   toHeaders =
@@ -147,4 +150,7 @@ getGraphqlApiResponse_graphqlApi = Lens.lens (\GetGraphqlApiResponse' {graphqlAp
 getGraphqlApiResponse_httpStatus :: Lens.Lens' GetGraphqlApiResponse Prelude.Int
 getGraphqlApiResponse_httpStatus = Lens.lens (\GetGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@GetGraphqlApiResponse' {} a -> s {httpStatus = a} :: GetGraphqlApiResponse)
 
-instance Prelude.NFData GetGraphqlApiResponse
+instance Prelude.NFData GetGraphqlApiResponse where
+  rnf GetGraphqlApiResponse' {..} =
+    Prelude.rnf graphqlApi
+      `Prelude.seq` Prelude.rnf httpStatus

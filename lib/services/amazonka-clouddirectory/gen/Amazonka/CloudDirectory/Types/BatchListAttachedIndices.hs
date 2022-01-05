@@ -76,9 +76,17 @@ batchListAttachedIndices_maxResults = Lens.lens (\BatchListAttachedIndices' {max
 batchListAttachedIndices_targetReference :: Lens.Lens' BatchListAttachedIndices ObjectReference
 batchListAttachedIndices_targetReference = Lens.lens (\BatchListAttachedIndices' {targetReference} -> targetReference) (\s@BatchListAttachedIndices' {} a -> s {targetReference = a} :: BatchListAttachedIndices)
 
-instance Prelude.Hashable BatchListAttachedIndices
+instance Prelude.Hashable BatchListAttachedIndices where
+  hashWithSalt _salt BatchListAttachedIndices' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` targetReference
 
-instance Prelude.NFData BatchListAttachedIndices
+instance Prelude.NFData BatchListAttachedIndices where
+  rnf BatchListAttachedIndices' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf targetReference
 
 instance Core.ToJSON BatchListAttachedIndices where
   toJSON BatchListAttachedIndices' {..} =

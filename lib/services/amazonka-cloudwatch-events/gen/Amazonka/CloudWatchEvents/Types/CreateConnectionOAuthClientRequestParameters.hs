@@ -74,10 +74,20 @@ createConnectionOAuthClientRequestParameters_clientSecret = Lens.lens (\CreateCo
 instance
   Prelude.Hashable
     CreateConnectionOAuthClientRequestParameters
+  where
+  hashWithSalt
+    _salt
+    CreateConnectionOAuthClientRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` clientID
+        `Prelude.hashWithSalt` clientSecret
 
 instance
   Prelude.NFData
     CreateConnectionOAuthClientRequestParameters
+  where
+  rnf CreateConnectionOAuthClientRequestParameters' {..} =
+    Prelude.rnf clientID
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance
   Core.ToJSON

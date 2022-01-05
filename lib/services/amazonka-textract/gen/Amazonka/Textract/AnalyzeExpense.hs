@@ -99,9 +99,12 @@ instance Core.AWSRequest AnalyzeExpense where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AnalyzeExpense
+instance Prelude.Hashable AnalyzeExpense where
+  hashWithSalt _salt AnalyzeExpense' {..} =
+    _salt `Prelude.hashWithSalt` document
 
-instance Prelude.NFData AnalyzeExpense
+instance Prelude.NFData AnalyzeExpense where
+  rnf AnalyzeExpense' {..} = Prelude.rnf document
 
 instance Core.ToHeaders AnalyzeExpense where
   toHeaders =
@@ -176,4 +179,8 @@ analyzeExpenseResponse_expenseDocuments = Lens.lens (\AnalyzeExpenseResponse' {e
 analyzeExpenseResponse_httpStatus :: Lens.Lens' AnalyzeExpenseResponse Prelude.Int
 analyzeExpenseResponse_httpStatus = Lens.lens (\AnalyzeExpenseResponse' {httpStatus} -> httpStatus) (\s@AnalyzeExpenseResponse' {} a -> s {httpStatus = a} :: AnalyzeExpenseResponse)
 
-instance Prelude.NFData AnalyzeExpenseResponse
+instance Prelude.NFData AnalyzeExpenseResponse where
+  rnf AnalyzeExpenseResponse' {..} =
+    Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf expenseDocuments
+      `Prelude.seq` Prelude.rnf httpStatus

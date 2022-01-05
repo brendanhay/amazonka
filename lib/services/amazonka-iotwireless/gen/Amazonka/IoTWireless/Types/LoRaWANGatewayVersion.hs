@@ -82,9 +82,17 @@ instance Core.FromJSON LoRaWANGatewayVersion where
             Prelude.<*> (x Core..:? "Station")
       )
 
-instance Prelude.Hashable LoRaWANGatewayVersion
+instance Prelude.Hashable LoRaWANGatewayVersion where
+  hashWithSalt _salt LoRaWANGatewayVersion' {..} =
+    _salt `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` station
 
-instance Prelude.NFData LoRaWANGatewayVersion
+instance Prelude.NFData LoRaWANGatewayVersion where
+  rnf LoRaWANGatewayVersion' {..} =
+    Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf station
 
 instance Core.ToJSON LoRaWANGatewayVersion where
   toJSON LoRaWANGatewayVersion' {..} =

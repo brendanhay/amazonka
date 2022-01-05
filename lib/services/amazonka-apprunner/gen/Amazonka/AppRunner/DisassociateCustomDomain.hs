@@ -118,9 +118,15 @@ instance Core.AWSRequest DisassociateCustomDomain where
             Prelude.<*> (x Core..:> "CustomDomain")
       )
 
-instance Prelude.Hashable DisassociateCustomDomain
+instance Prelude.Hashable DisassociateCustomDomain where
+  hashWithSalt _salt DisassociateCustomDomain' {..} =
+    _salt `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DisassociateCustomDomain
+instance Prelude.NFData DisassociateCustomDomain where
+  rnf DisassociateCustomDomain' {..} =
+    Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DisassociateCustomDomain where
   toHeaders =
@@ -228,3 +234,9 @@ disassociateCustomDomainResponse_customDomain = Lens.lens (\DisassociateCustomDo
 instance
   Prelude.NFData
     DisassociateCustomDomainResponse
+  where
+  rnf DisassociateCustomDomainResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dNSTarget
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf customDomain

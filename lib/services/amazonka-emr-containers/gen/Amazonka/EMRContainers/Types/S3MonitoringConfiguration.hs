@@ -62,9 +62,13 @@ instance Core.FromJSON S3MonitoringConfiguration where
             Prelude.<$> (x Core..: "logUri")
       )
 
-instance Prelude.Hashable S3MonitoringConfiguration
+instance Prelude.Hashable S3MonitoringConfiguration where
+  hashWithSalt _salt S3MonitoringConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` logUri
 
-instance Prelude.NFData S3MonitoringConfiguration
+instance Prelude.NFData S3MonitoringConfiguration where
+  rnf S3MonitoringConfiguration' {..} =
+    Prelude.rnf logUri
 
 instance Core.ToJSON S3MonitoringConfiguration where
   toJSON S3MonitoringConfiguration' {..} =

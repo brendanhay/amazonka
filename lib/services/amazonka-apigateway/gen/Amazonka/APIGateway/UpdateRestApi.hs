@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateRestApi where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateRestApi
+instance Prelude.Hashable UpdateRestApi where
+  hashWithSalt _salt UpdateRestApi' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData UpdateRestApi
+instance Prelude.NFData UpdateRestApi where
+  rnf UpdateRestApi' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateRestApi where
   toHeaders =

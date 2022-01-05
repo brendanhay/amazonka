@@ -116,8 +116,15 @@ instance Core.AWSRequest DescribeElasticLoadBalancers where
 instance
   Prelude.Hashable
     DescribeElasticLoadBalancers
+  where
+  hashWithSalt _salt DescribeElasticLoadBalancers' {..} =
+    _salt `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DescribeElasticLoadBalancers
+instance Prelude.NFData DescribeElasticLoadBalancers where
+  rnf DescribeElasticLoadBalancers' {..} =
+    Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeElasticLoadBalancers where
   toHeaders =
@@ -196,3 +203,7 @@ describeElasticLoadBalancersResponse_httpStatus = Lens.lens (\DescribeElasticLoa
 instance
   Prelude.NFData
     DescribeElasticLoadBalancersResponse
+  where
+  rnf DescribeElasticLoadBalancersResponse' {..} =
+    Prelude.rnf elasticLoadBalancers
+      `Prelude.seq` Prelude.rnf httpStatus

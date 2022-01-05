@@ -89,9 +89,12 @@ instance Core.AWSRequest ListTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTags
+instance Prelude.Hashable ListTags where
+  hashWithSalt _salt ListTags' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListTags
+instance Prelude.NFData ListTags where
+  rnf ListTags' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders ListTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,7 @@ listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
-instance Prelude.NFData ListTagsResponse
+instance Prelude.NFData ListTagsResponse where
+  rnf ListTagsResponse' {..} =
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf httpStatus

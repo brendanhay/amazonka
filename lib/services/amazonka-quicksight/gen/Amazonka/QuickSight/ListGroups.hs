@@ -128,9 +128,19 @@ instance Core.AWSRequest ListGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroups
+instance Prelude.Hashable ListGroups where
+  hashWithSalt _salt ListGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData ListGroups
+instance Prelude.NFData ListGroups where
+  rnf ListGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders ListGroups where
   toHeaders =
@@ -216,4 +226,9 @@ listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> ne
 listGroupsResponse_status :: Lens.Lens' ListGroupsResponse Prelude.Int
 listGroupsResponse_status = Lens.lens (\ListGroupsResponse' {status} -> status) (\s@ListGroupsResponse' {} a -> s {status = a} :: ListGroupsResponse)
 
-instance Prelude.NFData ListGroupsResponse
+instance Prelude.NFData ListGroupsResponse where
+  rnf ListGroupsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf groupList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status

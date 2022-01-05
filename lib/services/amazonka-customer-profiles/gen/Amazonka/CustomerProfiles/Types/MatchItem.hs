@@ -71,6 +71,12 @@ instance Core.FromJSON MatchItem where
             Prelude.<*> (x Core..:? "MatchId")
       )
 
-instance Prelude.Hashable MatchItem
+instance Prelude.Hashable MatchItem where
+  hashWithSalt _salt MatchItem' {..} =
+    _salt `Prelude.hashWithSalt` profileIds
+      `Prelude.hashWithSalt` matchId
 
-instance Prelude.NFData MatchItem
+instance Prelude.NFData MatchItem where
+  rnf MatchItem' {..} =
+    Prelude.rnf profileIds
+      `Prelude.seq` Prelude.rnf matchId

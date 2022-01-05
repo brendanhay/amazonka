@@ -68,6 +68,11 @@ instance Core.FromXML SpotInstanceStateFault where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable SpotInstanceStateFault
+instance Prelude.Hashable SpotInstanceStateFault where
+  hashWithSalt _salt SpotInstanceStateFault' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData SpotInstanceStateFault
+instance Prelude.NFData SpotInstanceStateFault where
+  rnf SpotInstanceStateFault' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

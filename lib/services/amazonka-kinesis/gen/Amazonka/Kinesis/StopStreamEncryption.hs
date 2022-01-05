@@ -176,9 +176,17 @@ instance Core.AWSRequest StopStreamEncryption where
   response =
     Response.receiveNull StopStreamEncryptionResponse'
 
-instance Prelude.Hashable StopStreamEncryption
+instance Prelude.Hashable StopStreamEncryption where
+  hashWithSalt _salt StopStreamEncryption' {..} =
+    _salt `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData StopStreamEncryption
+instance Prelude.NFData StopStreamEncryption where
+  rnf StopStreamEncryption' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders StopStreamEncryption where
   toHeaders =
@@ -227,4 +235,5 @@ newStopStreamEncryptionResponse ::
 newStopStreamEncryptionResponse =
   StopStreamEncryptionResponse'
 
-instance Prelude.NFData StopStreamEncryptionResponse
+instance Prelude.NFData StopStreamEncryptionResponse where
+  rnf _ = ()

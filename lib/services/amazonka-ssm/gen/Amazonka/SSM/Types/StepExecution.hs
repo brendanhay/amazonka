@@ -310,6 +310,52 @@ instance Core.FromJSON StepExecution where
             Prelude.<*> (x Core..:? "IsCritical")
       )
 
-instance Prelude.Hashable StepExecution
+instance Prelude.Hashable StepExecution where
+  hashWithSalt _salt StepExecution' {..} =
+    _salt `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` isEnd
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` stepName
+      `Prelude.hashWithSalt` executionEndTime
+      `Prelude.hashWithSalt` failureMessage
+      `Prelude.hashWithSalt` response
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` responseCode
+      `Prelude.hashWithSalt` stepStatus
+      `Prelude.hashWithSalt` targetLocation
+      `Prelude.hashWithSalt` overriddenParameters
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` executionStartTime
+      `Prelude.hashWithSalt` maxAttempts
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` nextStep
+      `Prelude.hashWithSalt` stepExecutionId
+      `Prelude.hashWithSalt` validNextSteps
+      `Prelude.hashWithSalt` timeoutSeconds
+      `Prelude.hashWithSalt` onFailure
+      `Prelude.hashWithSalt` isCritical
 
-instance Prelude.NFData StepExecution
+instance Prelude.NFData StepExecution where
+  rnf StepExecution' {..} =
+    Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf isEnd
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf stepName
+      `Prelude.seq` Prelude.rnf executionEndTime
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf response
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf stepStatus
+      `Prelude.seq` Prelude.rnf targetLocation
+      `Prelude.seq` Prelude.rnf overriddenParameters
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf executionStartTime
+      `Prelude.seq` Prelude.rnf maxAttempts
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf nextStep
+      `Prelude.seq` Prelude.rnf stepExecutionId
+      `Prelude.seq` Prelude.rnf validNextSteps
+      `Prelude.seq` Prelude.rnf timeoutSeconds
+      `Prelude.seq` Prelude.rnf onFailure
+      `Prelude.seq` Prelude.rnf isCritical

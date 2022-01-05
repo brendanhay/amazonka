@@ -106,9 +106,17 @@ instance Core.AWSRequest CreateScript where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateScript
+instance Prelude.Hashable CreateScript where
+  hashWithSalt _salt CreateScript' {..} =
+    _salt `Prelude.hashWithSalt` dagEdges
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` dagNodes
 
-instance Prelude.NFData CreateScript
+instance Prelude.NFData CreateScript where
+  rnf CreateScript' {..} =
+    Prelude.rnf dagEdges
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf dagNodes
 
 instance Core.ToHeaders CreateScript where
   toHeaders =
@@ -187,4 +195,8 @@ createScriptResponse_scalaCode = Lens.lens (\CreateScriptResponse' {scalaCode} -
 createScriptResponse_httpStatus :: Lens.Lens' CreateScriptResponse Prelude.Int
 createScriptResponse_httpStatus = Lens.lens (\CreateScriptResponse' {httpStatus} -> httpStatus) (\s@CreateScriptResponse' {} a -> s {httpStatus = a} :: CreateScriptResponse)
 
-instance Prelude.NFData CreateScriptResponse
+instance Prelude.NFData CreateScriptResponse where
+  rnf CreateScriptResponse' {..} =
+    Prelude.rnf pythonScript
+      `Prelude.seq` Prelude.rnf scalaCode
+      `Prelude.seq` Prelude.rnf httpStatus

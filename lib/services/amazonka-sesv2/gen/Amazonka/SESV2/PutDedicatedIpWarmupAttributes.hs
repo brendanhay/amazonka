@@ -114,10 +114,20 @@ instance
 instance
   Prelude.Hashable
     PutDedicatedIpWarmupAttributes
+  where
+  hashWithSalt
+    _salt
+    PutDedicatedIpWarmupAttributes' {..} =
+      _salt `Prelude.hashWithSalt` ip
+        `Prelude.hashWithSalt` warmupPercentage
 
 instance
   Prelude.NFData
     PutDedicatedIpWarmupAttributes
+  where
+  rnf PutDedicatedIpWarmupAttributes' {..} =
+    Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf warmupPercentage
 
 instance
   Core.ToHeaders
@@ -187,3 +197,6 @@ putDedicatedIpWarmupAttributesResponse_httpStatus = Lens.lens (\PutDedicatedIpWa
 instance
   Prelude.NFData
     PutDedicatedIpWarmupAttributesResponse
+  where
+  rnf PutDedicatedIpWarmupAttributesResponse' {..} =
+    Prelude.rnf httpStatus

@@ -121,9 +121,15 @@ instance Core.AWSRequest DeleteReportGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReportGroup
+instance Prelude.Hashable DeleteReportGroup where
+  hashWithSalt _salt DeleteReportGroup' {..} =
+    _salt `Prelude.hashWithSalt` deleteReports
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteReportGroup
+instance Prelude.NFData DeleteReportGroup where
+  rnf DeleteReportGroup' {..} =
+    Prelude.rnf deleteReports
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders DeleteReportGroup where
   toHeaders =
@@ -185,4 +191,6 @@ newDeleteReportGroupResponse pHttpStatus_ =
 deleteReportGroupResponse_httpStatus :: Lens.Lens' DeleteReportGroupResponse Prelude.Int
 deleteReportGroupResponse_httpStatus = Lens.lens (\DeleteReportGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteReportGroupResponse' {} a -> s {httpStatus = a} :: DeleteReportGroupResponse)
 
-instance Prelude.NFData DeleteReportGroupResponse
+instance Prelude.NFData DeleteReportGroupResponse where
+  rnf DeleteReportGroupResponse' {..} =
+    Prelude.rnf httpStatus

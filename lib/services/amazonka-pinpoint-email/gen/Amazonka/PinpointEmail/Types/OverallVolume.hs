@@ -96,6 +96,14 @@ instance Core.FromJSON OverallVolume where
             Prelude.<*> (x Core..:? "ReadRatePercent")
       )
 
-instance Prelude.Hashable OverallVolume
+instance Prelude.Hashable OverallVolume where
+  hashWithSalt _salt OverallVolume' {..} =
+    _salt `Prelude.hashWithSalt` domainIspPlacements
+      `Prelude.hashWithSalt` volumeStatistics
+      `Prelude.hashWithSalt` readRatePercent
 
-instance Prelude.NFData OverallVolume
+instance Prelude.NFData OverallVolume where
+  rnf OverallVolume' {..} =
+    Prelude.rnf domainIspPlacements
+      `Prelude.seq` Prelude.rnf volumeStatistics
+      `Prelude.seq` Prelude.rnf readRatePercent

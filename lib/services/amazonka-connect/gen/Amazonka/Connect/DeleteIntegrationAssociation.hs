@@ -103,8 +103,15 @@ instance Core.AWSRequest DeleteIntegrationAssociation where
 instance
   Prelude.Hashable
     DeleteIntegrationAssociation
+  where
+  hashWithSalt _salt DeleteIntegrationAssociation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` integrationAssociationId
 
-instance Prelude.NFData DeleteIntegrationAssociation
+instance Prelude.NFData DeleteIntegrationAssociation where
+  rnf DeleteIntegrationAssociation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf integrationAssociationId
 
 instance Core.ToHeaders DeleteIntegrationAssociation where
   toHeaders =
@@ -147,3 +154,5 @@ newDeleteIntegrationAssociationResponse =
 instance
   Prelude.NFData
     DeleteIntegrationAssociationResponse
+  where
+  rnf _ = ()

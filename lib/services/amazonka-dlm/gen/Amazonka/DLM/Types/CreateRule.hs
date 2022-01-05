@@ -160,9 +160,21 @@ instance Core.FromJSON CreateRule where
             Prelude.<*> (x Core..:? "IntervalUnit")
       )
 
-instance Prelude.Hashable CreateRule
+instance Prelude.Hashable CreateRule where
+  hashWithSalt _salt CreateRule' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` times
+      `Prelude.hashWithSalt` intervalUnit
 
-instance Prelude.NFData CreateRule
+instance Prelude.NFData CreateRule where
+  rnf CreateRule' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf times
+      `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON CreateRule where
   toJSON CreateRule' {..} =

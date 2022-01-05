@@ -447,6 +447,79 @@ instance Core.FromXML AutoScalingGroup where
       Prelude.<*> (x Core..@ "HealthCheckType")
       Prelude.<*> (x Core..@ "CreatedTime")
 
-instance Prelude.Hashable AutoScalingGroup
+instance Prelude.Hashable AutoScalingGroup where
+  hashWithSalt _salt AutoScalingGroup' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` terminationPolicies
+      `Prelude.hashWithSalt` healthCheckGracePeriod
+      `Prelude.hashWithSalt` serviceLinkedRoleARN
+      `Prelude.hashWithSalt` newInstancesProtectedFromScaleIn'
+      `Prelude.hashWithSalt` vPCZoneIdentifier
+      `Prelude.hashWithSalt` targetGroupARNs
+      `Prelude.hashWithSalt` maxInstanceLifetime
+      `Prelude.hashWithSalt` mixedInstancesPolicy
+      `Prelude.hashWithSalt` enabledMetrics
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` warmPoolConfiguration
+      `Prelude.hashWithSalt` capacityRebalance
+      `Prelude.hashWithSalt` autoScalingGroupARN
+      `Prelude.hashWithSalt` predictedCapacity
+      `Prelude.hashWithSalt` warmPoolSize
+      `Prelude.hashWithSalt` placementGroup
+      `Prelude.hashWithSalt` suspendedProcesses
+      `Prelude.hashWithSalt` loadBalancerNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` defaultCooldown
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` healthCheckType
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData AutoScalingGroup
+instance Prelude.NFData AutoScalingGroup where
+  rnf AutoScalingGroup' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf terminationPolicies
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
+      `Prelude.seq` Prelude.rnf serviceLinkedRoleARN
+      `Prelude.seq` Prelude.rnf newInstancesProtectedFromScaleIn'
+      `Prelude.seq` Prelude.rnf vPCZoneIdentifier
+      `Prelude.seq` Prelude.rnf targetGroupARNs
+      `Prelude.seq` Prelude.rnf maxInstanceLifetime
+      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
+      `Prelude.seq` Prelude.rnf enabledMetrics
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf warmPoolConfiguration
+      `Prelude.seq` Prelude.rnf capacityRebalance
+      `Prelude.seq` Prelude.rnf autoScalingGroupARN
+      `Prelude.seq` Prelude.rnf predictedCapacity
+      `Prelude.seq` Prelude.rnf warmPoolSize
+      `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf
+        suspendedProcesses
+      `Prelude.seq` Prelude.rnf
+        loadBalancerNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        autoScalingGroupName
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf
+        maxSize
+      `Prelude.seq` Prelude.rnf
+        desiredCapacity
+      `Prelude.seq` Prelude.rnf
+        defaultCooldown
+      `Prelude.seq` Prelude.rnf
+        availabilityZones
+      `Prelude.seq` Prelude.rnf
+        healthCheckType
+      `Prelude.seq` Prelude.rnf
+        createdTime

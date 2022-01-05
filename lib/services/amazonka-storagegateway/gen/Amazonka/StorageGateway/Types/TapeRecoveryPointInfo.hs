@@ -104,6 +104,16 @@ instance Core.FromJSON TapeRecoveryPointInfo where
             Prelude.<*> (x Core..:? "TapeSizeInBytes")
       )
 
-instance Prelude.Hashable TapeRecoveryPointInfo
+instance Prelude.Hashable TapeRecoveryPointInfo where
+  hashWithSalt _salt TapeRecoveryPointInfo' {..} =
+    _salt `Prelude.hashWithSalt` tapeStatus
+      `Prelude.hashWithSalt` tapeRecoveryPointTime
+      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` tapeSizeInBytes
 
-instance Prelude.NFData TapeRecoveryPointInfo
+instance Prelude.NFData TapeRecoveryPointInfo where
+  rnf TapeRecoveryPointInfo' {..} =
+    Prelude.rnf tapeStatus
+      `Prelude.seq` Prelude.rnf tapeRecoveryPointTime
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes

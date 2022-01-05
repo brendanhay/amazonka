@@ -91,9 +91,13 @@ instance Core.AWSRequest DescribeEventTracker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventTracker
+instance Prelude.Hashable DescribeEventTracker where
+  hashWithSalt _salt DescribeEventTracker' {..} =
+    _salt `Prelude.hashWithSalt` eventTrackerArn
 
-instance Prelude.NFData DescribeEventTracker
+instance Prelude.NFData DescribeEventTracker where
+  rnf DescribeEventTracker' {..} =
+    Prelude.rnf eventTrackerArn
 
 instance Core.ToHeaders DescribeEventTracker where
   toHeaders =
@@ -164,4 +168,7 @@ describeEventTrackerResponse_eventTracker = Lens.lens (\DescribeEventTrackerResp
 describeEventTrackerResponse_httpStatus :: Lens.Lens' DescribeEventTrackerResponse Prelude.Int
 describeEventTrackerResponse_httpStatus = Lens.lens (\DescribeEventTrackerResponse' {httpStatus} -> httpStatus) (\s@DescribeEventTrackerResponse' {} a -> s {httpStatus = a} :: DescribeEventTrackerResponse)
 
-instance Prelude.NFData DescribeEventTrackerResponse
+instance Prelude.NFData DescribeEventTrackerResponse where
+  rnf DescribeEventTrackerResponse' {..} =
+    Prelude.rnf eventTracker
+      `Prelude.seq` Prelude.rnf httpStatus

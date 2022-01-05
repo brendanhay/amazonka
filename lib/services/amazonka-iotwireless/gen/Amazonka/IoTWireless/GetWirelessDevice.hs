@@ -118,9 +118,15 @@ instance Core.AWSRequest GetWirelessDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWirelessDevice
+instance Prelude.Hashable GetWirelessDevice where
+  hashWithSalt _salt GetWirelessDevice' {..} =
+    _salt `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` identifierType
 
-instance Prelude.NFData GetWirelessDevice
+instance Prelude.NFData GetWirelessDevice where
+  rnf GetWirelessDevice' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf identifierType
 
 instance Core.ToHeaders GetWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,4 +264,16 @@ getWirelessDeviceResponse_description = Lens.lens (\GetWirelessDeviceResponse' {
 getWirelessDeviceResponse_httpStatus :: Lens.Lens' GetWirelessDeviceResponse Prelude.Int
 getWirelessDeviceResponse_httpStatus = Lens.lens (\GetWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@GetWirelessDeviceResponse' {} a -> s {httpStatus = a} :: GetWirelessDeviceResponse)
 
-instance Prelude.NFData GetWirelessDeviceResponse
+instance Prelude.NFData GetWirelessDeviceResponse where
+  rnf GetWirelessDeviceResponse' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -103,9 +103,12 @@ instance Core.AWSRequest DescribeRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRecipe
+instance Prelude.Hashable DescribeRecipe where
+  hashWithSalt _salt DescribeRecipe' {..} =
+    _salt `Prelude.hashWithSalt` recipeArn
 
-instance Prelude.NFData DescribeRecipe
+instance Prelude.NFData DescribeRecipe where
+  rnf DescribeRecipe' {..} = Prelude.rnf recipeArn
 
 instance Core.ToHeaders DescribeRecipe where
   toHeaders =
@@ -173,4 +176,7 @@ describeRecipeResponse_recipe = Lens.lens (\DescribeRecipeResponse' {recipe} -> 
 describeRecipeResponse_httpStatus :: Lens.Lens' DescribeRecipeResponse Prelude.Int
 describeRecipeResponse_httpStatus = Lens.lens (\DescribeRecipeResponse' {httpStatus} -> httpStatus) (\s@DescribeRecipeResponse' {} a -> s {httpStatus = a} :: DescribeRecipeResponse)
 
-instance Prelude.NFData DescribeRecipeResponse
+instance Prelude.NFData DescribeRecipeResponse where
+  rnf DescribeRecipeResponse' {..} =
+    Prelude.rnf recipe
+      `Prelude.seq` Prelude.rnf httpStatus

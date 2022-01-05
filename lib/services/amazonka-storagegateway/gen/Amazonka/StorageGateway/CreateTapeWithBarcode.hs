@@ -256,9 +256,27 @@ instance Core.AWSRequest CreateTapeWithBarcode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTapeWithBarcode
+instance Prelude.Hashable CreateTapeWithBarcode where
+  hashWithSalt _salt CreateTapeWithBarcode' {..} =
+    _salt `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` worm
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` tapeBarcode
 
-instance Prelude.NFData CreateTapeWithBarcode
+instance Prelude.NFData CreateTapeWithBarcode where
+  rnf CreateTapeWithBarcode' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf tapeBarcode
 
 instance Core.ToHeaders CreateTapeWithBarcode where
   toHeaders =
@@ -341,4 +359,7 @@ createTapeWithBarcodeResponse_tapeARN = Lens.lens (\CreateTapeWithBarcodeRespons
 createTapeWithBarcodeResponse_httpStatus :: Lens.Lens' CreateTapeWithBarcodeResponse Prelude.Int
 createTapeWithBarcodeResponse_httpStatus = Lens.lens (\CreateTapeWithBarcodeResponse' {httpStatus} -> httpStatus) (\s@CreateTapeWithBarcodeResponse' {} a -> s {httpStatus = a} :: CreateTapeWithBarcodeResponse)
 
-instance Prelude.NFData CreateTapeWithBarcodeResponse
+instance Prelude.NFData CreateTapeWithBarcodeResponse where
+  rnf CreateTapeWithBarcodeResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

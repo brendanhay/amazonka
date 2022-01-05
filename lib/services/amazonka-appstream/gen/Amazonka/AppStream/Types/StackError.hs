@@ -72,6 +72,12 @@ instance Core.FromJSON StackError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable StackError
+instance Prelude.Hashable StackError where
+  hashWithSalt _salt StackError' {..} =
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData StackError
+instance Prelude.NFData StackError where
+  rnf StackError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

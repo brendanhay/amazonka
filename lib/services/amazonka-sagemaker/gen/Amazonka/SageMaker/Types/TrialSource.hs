@@ -73,6 +73,12 @@ instance Core.FromJSON TrialSource where
             Prelude.<*> (x Core..: "SourceArn")
       )
 
-instance Prelude.Hashable TrialSource
+instance Prelude.Hashable TrialSource where
+  hashWithSalt _salt TrialSource' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceArn
 
-instance Prelude.NFData TrialSource
+instance Prelude.NFData TrialSource where
+  rnf TrialSource' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceArn

@@ -104,9 +104,15 @@ instance Core.AWSRequest DeletePublishingDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePublishingDestination
+instance Prelude.Hashable DeletePublishingDestination where
+  hashWithSalt _salt DeletePublishingDestination' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` destinationId
 
-instance Prelude.NFData DeletePublishingDestination
+instance Prelude.NFData DeletePublishingDestination where
+  rnf DeletePublishingDestination' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf destinationId
 
 instance Core.ToHeaders DeletePublishingDestination where
   toHeaders =
@@ -164,3 +170,6 @@ deletePublishingDestinationResponse_httpStatus = Lens.lens (\DeletePublishingDes
 instance
   Prelude.NFData
     DeletePublishingDestinationResponse
+  where
+  rnf DeletePublishingDestinationResponse' {..} =
+    Prelude.rnf httpStatus

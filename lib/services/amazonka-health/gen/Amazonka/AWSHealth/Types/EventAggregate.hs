@@ -73,6 +73,12 @@ instance Core.FromJSON EventAggregate where
             Prelude.<*> (x Core..:? "aggregateValue")
       )
 
-instance Prelude.Hashable EventAggregate
+instance Prelude.Hashable EventAggregate where
+  hashWithSalt _salt EventAggregate' {..} =
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` aggregateValue
 
-instance Prelude.NFData EventAggregate
+instance Prelude.NFData EventAggregate where
+  rnf EventAggregate' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf aggregateValue

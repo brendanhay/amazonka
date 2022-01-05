@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     LoadBalancerTlsCertificateSummary
+  where
+  hashWithSalt
+    _salt
+    LoadBalancerTlsCertificateSummary' {..} =
+      _salt `Prelude.hashWithSalt` isAttached
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     LoadBalancerTlsCertificateSummary
+  where
+  rnf LoadBalancerTlsCertificateSummary' {..} =
+    Prelude.rnf isAttached
+      `Prelude.seq` Prelude.rnf name

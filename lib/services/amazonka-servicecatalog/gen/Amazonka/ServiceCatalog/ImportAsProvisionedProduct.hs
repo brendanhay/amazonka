@@ -205,9 +205,23 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportAsProvisionedProduct
+instance Prelude.Hashable ImportAsProvisionedProduct where
+  hashWithSalt _salt ImportAsProvisionedProduct' {..} =
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` physicalId
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData ImportAsProvisionedProduct
+instance Prelude.NFData ImportAsProvisionedProduct where
+  rnf ImportAsProvisionedProduct' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf physicalId
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders ImportAsProvisionedProduct where
   toHeaders =
@@ -292,3 +306,7 @@ importAsProvisionedProductResponse_httpStatus = Lens.lens (\ImportAsProvisionedP
 instance
   Prelude.NFData
     ImportAsProvisionedProductResponse
+  where
+  rnf ImportAsProvisionedProductResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf httpStatus

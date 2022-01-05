@@ -71,9 +71,14 @@ instance Core.FromJSON HttpPathMatch where
             Prelude.<*> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable HttpPathMatch
+instance Prelude.Hashable HttpPathMatch where
+  hashWithSalt _salt HttpPathMatch' {..} =
+    _salt `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData HttpPathMatch
+instance Prelude.NFData HttpPathMatch where
+  rnf HttpPathMatch' {..} =
+    Prelude.rnf regex `Prelude.seq` Prelude.rnf exact
 
 instance Core.ToJSON HttpPathMatch where
   toJSON HttpPathMatch' {..} =

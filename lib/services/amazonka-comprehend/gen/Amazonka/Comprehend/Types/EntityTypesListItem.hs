@@ -79,9 +79,12 @@ instance Core.FromJSON EntityTypesListItem where
           EntityTypesListItem' Prelude.<$> (x Core..: "Type")
       )
 
-instance Prelude.Hashable EntityTypesListItem
+instance Prelude.Hashable EntityTypesListItem where
+  hashWithSalt _salt EntityTypesListItem' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EntityTypesListItem
+instance Prelude.NFData EntityTypesListItem where
+  rnf EntityTypesListItem' {..} = Prelude.rnf type'
 
 instance Core.ToJSON EntityTypesListItem where
   toJSON EntityTypesListItem' {..} =

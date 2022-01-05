@@ -96,6 +96,16 @@ instance Core.FromJSON ImageScanFindings where
             Prelude.<*> (x Core..:? "vulnerabilitySourceUpdatedAt")
       )
 
-instance Prelude.Hashable ImageScanFindings
+instance Prelude.Hashable ImageScanFindings where
+  hashWithSalt _salt ImageScanFindings' {..} =
+    _salt `Prelude.hashWithSalt` imageScanCompletedAt
+      `Prelude.hashWithSalt` findings
+      `Prelude.hashWithSalt` findingSeverityCounts
+      `Prelude.hashWithSalt` vulnerabilitySourceUpdatedAt
 
-instance Prelude.NFData ImageScanFindings
+instance Prelude.NFData ImageScanFindings where
+  rnf ImageScanFindings' {..} =
+    Prelude.rnf imageScanCompletedAt
+      `Prelude.seq` Prelude.rnf findings
+      `Prelude.seq` Prelude.rnf findingSeverityCounts
+      `Prelude.seq` Prelude.rnf vulnerabilitySourceUpdatedAt

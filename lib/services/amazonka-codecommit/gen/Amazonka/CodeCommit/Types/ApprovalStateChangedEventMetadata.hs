@@ -80,7 +80,17 @@ instance
 instance
   Prelude.Hashable
     ApprovalStateChangedEventMetadata
+  where
+  hashWithSalt
+    _salt
+    ApprovalStateChangedEventMetadata' {..} =
+      _salt `Prelude.hashWithSalt` approvalStatus
+        `Prelude.hashWithSalt` revisionId
 
 instance
   Prelude.NFData
     ApprovalStateChangedEventMetadata
+  where
+  rnf ApprovalStateChangedEventMetadata' {..} =
+    Prelude.rnf approvalStatus
+      `Prelude.seq` Prelude.rnf revisionId

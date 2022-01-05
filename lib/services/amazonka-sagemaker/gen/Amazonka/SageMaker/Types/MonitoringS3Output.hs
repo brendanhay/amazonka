@@ -99,9 +99,17 @@ instance Core.FromJSON MonitoringS3Output where
             Prelude.<*> (x Core..: "LocalPath")
       )
 
-instance Prelude.Hashable MonitoringS3Output
+instance Prelude.Hashable MonitoringS3Output where
+  hashWithSalt _salt MonitoringS3Output' {..} =
+    _salt `Prelude.hashWithSalt` s3UploadMode
+      `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` localPath
 
-instance Prelude.NFData MonitoringS3Output
+instance Prelude.NFData MonitoringS3Output where
+  rnf MonitoringS3Output' {..} =
+    Prelude.rnf s3UploadMode
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf localPath
 
 instance Core.ToJSON MonitoringS3Output where
   toJSON MonitoringS3Output' {..} =

@@ -39,8 +39,8 @@ module Amazonka.SSM.GetParameter
     newGetParameterResponse,
 
     -- * Response Lenses
-    getParameterResponse_parameter,
     getParameterResponse_httpStatus,
+    getParameterResponse_parameter,
   )
 where
 
@@ -108,13 +108,19 @@ instance Core.AWSRequest GetParameter where
     Response.receiveJSON
       ( \s h x ->
           GetParameterResponse'
-            Prelude.<$> (x Core..?> "Parameter")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Parameter")
       )
 
-instance Prelude.Hashable GetParameter
+instance Prelude.Hashable GetParameter where
+  hashWithSalt _salt GetParameter' {..} =
+    _salt `Prelude.hashWithSalt` withDecryption
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetParameter
+instance Prelude.NFData GetParameter where
+  rnf GetParameter' {..} =
+    Prelude.rnf withDecryption
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetParameter where
   toHeaders =
@@ -147,10 +153,10 @@ instance Core.ToQuery GetParameter where
 
 -- | /See:/ 'newGetParameterResponse' smart constructor.
 data GetParameterResponse = GetParameterResponse'
-  { -- | Information about a parameter.
-    parameter :: Prelude.Maybe Parameter,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about a parameter.
+    parameter :: Parameter
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -162,25 +168,30 @@ data GetParameterResponse = GetParameterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameter', 'getParameterResponse_parameter' - Information about a parameter.
---
 -- 'httpStatus', 'getParameterResponse_httpStatus' - The response's http status code.
+--
+-- 'parameter', 'getParameterResponse_parameter' - Information about a parameter.
 newGetParameterResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'parameter'
+  Parameter ->
   GetParameterResponse
-newGetParameterResponse pHttpStatus_ =
+newGetParameterResponse pHttpStatus_ pParameter_ =
   GetParameterResponse'
-    { parameter = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+    { httpStatus = pHttpStatus_,
+      parameter = pParameter_
     }
-
--- | Information about a parameter.
-getParameterResponse_parameter :: Lens.Lens' GetParameterResponse (Prelude.Maybe Parameter)
-getParameterResponse_parameter = Lens.lens (\GetParameterResponse' {parameter} -> parameter) (\s@GetParameterResponse' {} a -> s {parameter = a} :: GetParameterResponse)
 
 -- | The response's http status code.
 getParameterResponse_httpStatus :: Lens.Lens' GetParameterResponse Prelude.Int
 getParameterResponse_httpStatus = Lens.lens (\GetParameterResponse' {httpStatus} -> httpStatus) (\s@GetParameterResponse' {} a -> s {httpStatus = a} :: GetParameterResponse)
 
-instance Prelude.NFData GetParameterResponse
+-- | Information about a parameter.
+getParameterResponse_parameter :: Lens.Lens' GetParameterResponse Parameter
+getParameterResponse_parameter = Lens.lens (\GetParameterResponse' {parameter} -> parameter) (\s@GetParameterResponse' {} a -> s {parameter = a} :: GetParameterResponse)
+
+instance Prelude.NFData GetParameterResponse where
+  rnf GetParameterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameter

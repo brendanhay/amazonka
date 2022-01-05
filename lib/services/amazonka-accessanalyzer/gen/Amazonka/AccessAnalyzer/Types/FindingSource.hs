@@ -78,6 +78,11 @@ instance Core.FromJSON FindingSource where
             Prelude.<$> (x Core..:? "detail") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FindingSource
+instance Prelude.Hashable FindingSource where
+  hashWithSalt _salt FindingSource' {..} =
+    _salt `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData FindingSource
+instance Prelude.NFData FindingSource where
+  rnf FindingSource' {..} =
+    Prelude.rnf detail `Prelude.seq` Prelude.rnf type'

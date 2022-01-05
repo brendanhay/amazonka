@@ -71,10 +71,19 @@ instance Core.FromXML IamInstanceProfileSpecification where
 instance
   Prelude.Hashable
     IamInstanceProfileSpecification
+  where
+  hashWithSalt
+    _salt
+    IamInstanceProfileSpecification' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     IamInstanceProfileSpecification
+  where
+  rnf IamInstanceProfileSpecification' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery IamInstanceProfileSpecification where
   toQuery IamInstanceProfileSpecification' {..} =

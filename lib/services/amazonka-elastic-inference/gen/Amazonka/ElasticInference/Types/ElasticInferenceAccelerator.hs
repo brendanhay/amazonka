@@ -109,6 +109,18 @@ instance Core.FromJSON ElasticInferenceAccelerator where
             Prelude.<*> (x Core..:? "availabilityZone")
       )
 
-instance Prelude.Hashable ElasticInferenceAccelerator
+instance Prelude.Hashable ElasticInferenceAccelerator where
+  hashWithSalt _salt ElasticInferenceAccelerator' {..} =
+    _salt `Prelude.hashWithSalt` acceleratorType
+      `Prelude.hashWithSalt` acceleratorId
+      `Prelude.hashWithSalt` attachedResource
+      `Prelude.hashWithSalt` acceleratorHealth
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData ElasticInferenceAccelerator
+instance Prelude.NFData ElasticInferenceAccelerator where
+  rnf ElasticInferenceAccelerator' {..} =
+    Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf acceleratorId
+      `Prelude.seq` Prelude.rnf attachedResource
+      `Prelude.seq` Prelude.rnf acceleratorHealth
+      `Prelude.seq` Prelude.rnf availabilityZone

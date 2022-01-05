@@ -118,9 +118,19 @@ instance Core.FromJSON ConditionalSplitActivity where
             Prelude.<*> (x Core..:? "Condition")
       )
 
-instance Prelude.Hashable ConditionalSplitActivity
+instance Prelude.Hashable ConditionalSplitActivity where
+  hashWithSalt _salt ConditionalSplitActivity' {..} =
+    _salt `Prelude.hashWithSalt` evaluationWaitTime
+      `Prelude.hashWithSalt` trueActivity
+      `Prelude.hashWithSalt` falseActivity
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData ConditionalSplitActivity
+instance Prelude.NFData ConditionalSplitActivity where
+  rnf ConditionalSplitActivity' {..} =
+    Prelude.rnf evaluationWaitTime
+      `Prelude.seq` Prelude.rnf trueActivity
+      `Prelude.seq` Prelude.rnf falseActivity
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON ConditionalSplitActivity where
   toJSON ConditionalSplitActivity' {..} =

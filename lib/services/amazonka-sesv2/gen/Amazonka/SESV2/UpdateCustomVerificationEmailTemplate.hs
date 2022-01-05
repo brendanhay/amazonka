@@ -193,10 +193,28 @@ instance
 instance
   Prelude.Hashable
     UpdateCustomVerificationEmailTemplate
+  where
+  hashWithSalt
+    _salt
+    UpdateCustomVerificationEmailTemplate' {..} =
+      _salt `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` fromEmailAddress
+        `Prelude.hashWithSalt` templateSubject
+        `Prelude.hashWithSalt` templateContent
+        `Prelude.hashWithSalt` successRedirectionURL
+        `Prelude.hashWithSalt` failureRedirectionURL
 
 instance
   Prelude.NFData
     UpdateCustomVerificationEmailTemplate
+  where
+  rnf UpdateCustomVerificationEmailTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf templateSubject
+      `Prelude.seq` Prelude.rnf templateContent
+      `Prelude.seq` Prelude.rnf successRedirectionURL
+      `Prelude.seq` Prelude.rnf failureRedirectionURL
 
 instance
   Core.ToHeaders
@@ -289,3 +307,7 @@ updateCustomVerificationEmailTemplateResponse_httpStatus = Lens.lens (\UpdateCus
 instance
   Prelude.NFData
     UpdateCustomVerificationEmailTemplateResponse
+  where
+  rnf
+    UpdateCustomVerificationEmailTemplateResponse' {..} =
+      Prelude.rnf httpStatus

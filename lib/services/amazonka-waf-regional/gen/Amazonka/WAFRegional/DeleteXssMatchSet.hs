@@ -133,9 +133,15 @@ instance Core.AWSRequest DeleteXssMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteXssMatchSet
+instance Prelude.Hashable DeleteXssMatchSet where
+  hashWithSalt _salt DeleteXssMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` xssMatchSetId
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData DeleteXssMatchSet
+instance Prelude.NFData DeleteXssMatchSet where
+  rnf DeleteXssMatchSet' {..} =
+    Prelude.rnf xssMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteXssMatchSet where
   toHeaders =
@@ -215,4 +221,7 @@ deleteXssMatchSetResponse_changeToken = Lens.lens (\DeleteXssMatchSetResponse' {
 deleteXssMatchSetResponse_httpStatus :: Lens.Lens' DeleteXssMatchSetResponse Prelude.Int
 deleteXssMatchSetResponse_httpStatus = Lens.lens (\DeleteXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteXssMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteXssMatchSetResponse)
 
-instance Prelude.NFData DeleteXssMatchSetResponse
+instance Prelude.NFData DeleteXssMatchSetResponse where
+  rnf DeleteXssMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

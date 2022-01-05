@@ -204,7 +204,31 @@ instance Core.FromJSON AutoScalingGroupRecommendation where
 instance
   Prelude.Hashable
     AutoScalingGroupRecommendation
+  where
+  hashWithSalt
+    _salt
+    AutoScalingGroupRecommendation' {..} =
+      _salt `Prelude.hashWithSalt` finding
+        `Prelude.hashWithSalt` lastRefreshTimestamp
+        `Prelude.hashWithSalt` currentConfiguration
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` autoScalingGroupName
+        `Prelude.hashWithSalt` utilizationMetrics
+        `Prelude.hashWithSalt` autoScalingGroupArn
+        `Prelude.hashWithSalt` recommendationOptions
+        `Prelude.hashWithSalt` lookBackPeriodInDays
 
 instance
   Prelude.NFData
     AutoScalingGroupRecommendation
+  where
+  rnf AutoScalingGroupRecommendation' {..} =
+    Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
+      `Prelude.seq` Prelude.rnf currentConfiguration
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf utilizationMetrics
+      `Prelude.seq` Prelude.rnf autoScalingGroupArn
+      `Prelude.seq` Prelude.rnf recommendationOptions
+      `Prelude.seq` Prelude.rnf lookBackPeriodInDays

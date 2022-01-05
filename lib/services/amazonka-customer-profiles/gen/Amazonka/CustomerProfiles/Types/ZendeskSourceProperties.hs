@@ -52,9 +52,13 @@ newZendeskSourceProperties pObject_ =
 zendeskSourceProperties_object :: Lens.Lens' ZendeskSourceProperties Prelude.Text
 zendeskSourceProperties_object = Lens.lens (\ZendeskSourceProperties' {object'} -> object') (\s@ZendeskSourceProperties' {} a -> s {object' = a} :: ZendeskSourceProperties)
 
-instance Prelude.Hashable ZendeskSourceProperties
+instance Prelude.Hashable ZendeskSourceProperties where
+  hashWithSalt _salt ZendeskSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData ZendeskSourceProperties
+instance Prelude.NFData ZendeskSourceProperties where
+  rnf ZendeskSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON ZendeskSourceProperties where
   toJSON ZendeskSourceProperties' {..} =

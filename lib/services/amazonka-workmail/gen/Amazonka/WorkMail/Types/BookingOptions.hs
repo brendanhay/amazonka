@@ -89,9 +89,18 @@ instance Core.FromJSON BookingOptions where
             Prelude.<*> (x Core..:? "AutoAcceptRequests")
       )
 
-instance Prelude.Hashable BookingOptions
+instance Prelude.Hashable BookingOptions where
+  hashWithSalt _salt BookingOptions' {..} =
+    _salt
+      `Prelude.hashWithSalt` autoDeclineConflictingRequests
+      `Prelude.hashWithSalt` autoDeclineRecurringRequests
+      `Prelude.hashWithSalt` autoAcceptRequests
 
-instance Prelude.NFData BookingOptions
+instance Prelude.NFData BookingOptions where
+  rnf BookingOptions' {..} =
+    Prelude.rnf autoDeclineConflictingRequests
+      `Prelude.seq` Prelude.rnf autoDeclineRecurringRequests
+      `Prelude.seq` Prelude.rnf autoAcceptRequests
 
 instance Core.ToJSON BookingOptions where
   toJSON BookingOptions' {..} =

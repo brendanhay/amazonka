@@ -384,9 +384,59 @@ instance Core.FromJSON AwsEcsServiceDetails where
             Prelude.<*> (x Core..:? "EnableExecuteCommand")
       )
 
-instance Prelude.Hashable AwsEcsServiceDetails
+instance Prelude.Hashable AwsEcsServiceDetails where
+  hashWithSalt _salt AwsEcsServiceDetails' {..} =
+    _salt `Prelude.hashWithSalt` placementStrategies
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` enableEcsManagedTags
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` deploymentController
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` schedulingStrategy
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` deploymentConfiguration
+      `Prelude.hashWithSalt` enableExecuteCommand
 
-instance Prelude.NFData AwsEcsServiceDetails
+instance Prelude.NFData AwsEcsServiceDetails where
+  rnf AwsEcsServiceDetails' {..} =
+    Prelude.rnf placementStrategies
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf enableEcsManagedTags
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf deploymentController
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf schedulingStrategy
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf
+        healthCheckGracePeriodSeconds
+      `Prelude.seq` Prelude.rnf
+        networkConfiguration
+      `Prelude.seq` Prelude.rnf
+        deploymentConfiguration
+      `Prelude.seq` Prelude.rnf
+        enableExecuteCommand
 
 instance Core.ToJSON AwsEcsServiceDetails where
   toJSON AwsEcsServiceDetails' {..} =

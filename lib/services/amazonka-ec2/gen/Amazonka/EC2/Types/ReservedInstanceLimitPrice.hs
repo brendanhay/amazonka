@@ -70,9 +70,15 @@ reservedInstanceLimitPrice_amount = Lens.lens (\ReservedInstanceLimitPrice' {amo
 reservedInstanceLimitPrice_currencyCode :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe CurrencyCodeValues)
 reservedInstanceLimitPrice_currencyCode = Lens.lens (\ReservedInstanceLimitPrice' {currencyCode} -> currencyCode) (\s@ReservedInstanceLimitPrice' {} a -> s {currencyCode = a} :: ReservedInstanceLimitPrice)
 
-instance Prelude.Hashable ReservedInstanceLimitPrice
+instance Prelude.Hashable ReservedInstanceLimitPrice where
+  hashWithSalt _salt ReservedInstanceLimitPrice' {..} =
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` currencyCode
 
-instance Prelude.NFData ReservedInstanceLimitPrice
+instance Prelude.NFData ReservedInstanceLimitPrice where
+  rnf ReservedInstanceLimitPrice' {..} =
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf currencyCode
 
 instance Core.ToQuery ReservedInstanceLimitPrice where
   toQuery ReservedInstanceLimitPrice' {..} =

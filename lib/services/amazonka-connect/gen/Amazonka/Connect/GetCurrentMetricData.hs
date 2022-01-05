@@ -479,9 +479,23 @@ instance Core.AWSRequest GetCurrentMetricData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCurrentMetricData
+instance Prelude.Hashable GetCurrentMetricData where
+  hashWithSalt _salt GetCurrentMetricData' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` groupings
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` currentMetrics
 
-instance Prelude.NFData GetCurrentMetricData
+instance Prelude.NFData GetCurrentMetricData where
+  rnf GetCurrentMetricData' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupings
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf currentMetrics
 
 instance Core.ToHeaders GetCurrentMetricData where
   toHeaders =
@@ -587,4 +601,9 @@ getCurrentMetricDataResponse_nextToken = Lens.lens (\GetCurrentMetricDataRespons
 getCurrentMetricDataResponse_httpStatus :: Lens.Lens' GetCurrentMetricDataResponse Prelude.Int
 getCurrentMetricDataResponse_httpStatus = Lens.lens (\GetCurrentMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetCurrentMetricDataResponse' {} a -> s {httpStatus = a} :: GetCurrentMetricDataResponse)
 
-instance Prelude.NFData GetCurrentMetricDataResponse
+instance Prelude.NFData GetCurrentMetricDataResponse where
+  rnf GetCurrentMetricDataResponse' {..} =
+    Prelude.rnf metricResults
+      `Prelude.seq` Prelude.rnf dataSnapshotTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

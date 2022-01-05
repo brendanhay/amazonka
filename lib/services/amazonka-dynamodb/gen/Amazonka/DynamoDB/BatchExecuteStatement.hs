@@ -90,9 +90,13 @@ instance Core.AWSRequest BatchExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchExecuteStatement
+instance Prelude.Hashable BatchExecuteStatement where
+  hashWithSalt _salt BatchExecuteStatement' {..} =
+    _salt `Prelude.hashWithSalt` statements
 
-instance Prelude.NFData BatchExecuteStatement
+instance Prelude.NFData BatchExecuteStatement where
+  rnf BatchExecuteStatement' {..} =
+    Prelude.rnf statements
 
 instance Core.ToHeaders BatchExecuteStatement where
   toHeaders =
@@ -161,4 +165,7 @@ batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementRespo
 batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int
 batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@BatchExecuteStatementResponse' {} a -> s {httpStatus = a} :: BatchExecuteStatementResponse)
 
-instance Prelude.NFData BatchExecuteStatementResponse
+instance Prelude.NFData BatchExecuteStatementResponse where
+  rnf BatchExecuteStatementResponse' {..} =
+    Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf httpStatus

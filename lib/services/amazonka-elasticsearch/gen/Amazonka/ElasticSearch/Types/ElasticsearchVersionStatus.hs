@@ -83,6 +83,12 @@ instance Core.FromJSON ElasticsearchVersionStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable ElasticsearchVersionStatus
+instance Prelude.Hashable ElasticsearchVersionStatus where
+  hashWithSalt _salt ElasticsearchVersionStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ElasticsearchVersionStatus
+instance Prelude.NFData ElasticsearchVersionStatus where
+  rnf ElasticsearchVersionStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

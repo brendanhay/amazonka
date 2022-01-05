@@ -90,10 +90,22 @@ s3ResourceClassificationUpdate_classificationTypeUpdate = Lens.lens (\S3Resource
 instance
   Prelude.Hashable
     S3ResourceClassificationUpdate
+  where
+  hashWithSalt
+    _salt
+    S3ResourceClassificationUpdate' {..} =
+      _salt `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` bucketName
+        `Prelude.hashWithSalt` classificationTypeUpdate
 
 instance
   Prelude.NFData
     S3ResourceClassificationUpdate
+  where
+  rnf S3ResourceClassificationUpdate' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf classificationTypeUpdate
 
 instance Core.ToJSON S3ResourceClassificationUpdate where
   toJSON S3ResourceClassificationUpdate' {..} =

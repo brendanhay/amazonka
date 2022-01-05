@@ -142,9 +142,19 @@ instance Core.AWSRequest CreateUserProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserProfile
+instance Prelude.Hashable CreateUserProfile where
+  hashWithSalt _salt CreateUserProfile' {..} =
+    _salt `Prelude.hashWithSalt` allowSelfManagement
+      `Prelude.hashWithSalt` sshPublicKey
+      `Prelude.hashWithSalt` sshUsername
+      `Prelude.hashWithSalt` iamUserArn
 
-instance Prelude.NFData CreateUserProfile
+instance Prelude.NFData CreateUserProfile where
+  rnf CreateUserProfile' {..} =
+    Prelude.rnf allowSelfManagement
+      `Prelude.seq` Prelude.rnf sshPublicKey
+      `Prelude.seq` Prelude.rnf sshUsername
+      `Prelude.seq` Prelude.rnf iamUserArn
 
 instance Core.ToHeaders CreateUserProfile where
   toHeaders =
@@ -220,4 +230,7 @@ createUserProfileResponse_iamUserArn = Lens.lens (\CreateUserProfileResponse' {i
 createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Prelude.Int
 createUserProfileResponse_httpStatus = Lens.lens (\CreateUserProfileResponse' {httpStatus} -> httpStatus) (\s@CreateUserProfileResponse' {} a -> s {httpStatus = a} :: CreateUserProfileResponse)
 
-instance Prelude.NFData CreateUserProfileResponse
+instance Prelude.NFData CreateUserProfileResponse where
+  rnf CreateUserProfileResponse' {..} =
+    Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf httpStatus

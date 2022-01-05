@@ -79,9 +79,14 @@ instance Core.FromJSON MotionImageInsertionOffset where
             Prelude.<*> (x Core..:? "imageY")
       )
 
-instance Prelude.Hashable MotionImageInsertionOffset
+instance Prelude.Hashable MotionImageInsertionOffset where
+  hashWithSalt _salt MotionImageInsertionOffset' {..} =
+    _salt `Prelude.hashWithSalt` imageX
+      `Prelude.hashWithSalt` imageY
 
-instance Prelude.NFData MotionImageInsertionOffset
+instance Prelude.NFData MotionImageInsertionOffset where
+  rnf MotionImageInsertionOffset' {..} =
+    Prelude.rnf imageX `Prelude.seq` Prelude.rnf imageY
 
 instance Core.ToJSON MotionImageInsertionOffset where
   toJSON MotionImageInsertionOffset' {..} =

@@ -174,9 +174,21 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchLocalGatewayRoutes
+instance Prelude.Hashable SearchLocalGatewayRoutes where
+  hashWithSalt _salt SearchLocalGatewayRoutes' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` localGatewayRouteTableId
 
-instance Prelude.NFData SearchLocalGatewayRoutes
+instance Prelude.NFData SearchLocalGatewayRoutes where
+  rnf SearchLocalGatewayRoutes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
 instance Core.ToHeaders SearchLocalGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +266,8 @@ searchLocalGatewayRoutesResponse_httpStatus = Lens.lens (\SearchLocalGatewayRout
 instance
   Prelude.NFData
     SearchLocalGatewayRoutesResponse
+  where
+  rnf SearchLocalGatewayRoutesResponse' {..} =
+    Prelude.rnf routes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

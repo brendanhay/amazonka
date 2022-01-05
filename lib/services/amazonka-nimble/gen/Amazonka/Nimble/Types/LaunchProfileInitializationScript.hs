@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     LaunchProfileInitializationScript
+  where
+  hashWithSalt
+    _salt
+    LaunchProfileInitializationScript' {..} =
+      _salt `Prelude.hashWithSalt` script
+        `Prelude.hashWithSalt` studioComponentId
+        `Prelude.hashWithSalt` studioComponentName
 
 instance
   Prelude.NFData
     LaunchProfileInitializationScript
+  where
+  rnf LaunchProfileInitializationScript' {..} =
+    Prelude.rnf script
+      `Prelude.seq` Prelude.rnf studioComponentId
+      `Prelude.seq` Prelude.rnf studioComponentName

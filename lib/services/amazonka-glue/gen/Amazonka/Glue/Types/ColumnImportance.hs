@@ -76,6 +76,12 @@ instance Core.FromJSON ColumnImportance where
             Prelude.<*> (x Core..:? "ColumnName")
       )
 
-instance Prelude.Hashable ColumnImportance
+instance Prelude.Hashable ColumnImportance where
+  hashWithSalt _salt ColumnImportance' {..} =
+    _salt `Prelude.hashWithSalt` importance
+      `Prelude.hashWithSalt` columnName
 
-instance Prelude.NFData ColumnImportance
+instance Prelude.NFData ColumnImportance where
+  rnf ColumnImportance' {..} =
+    Prelude.rnf importance
+      `Prelude.seq` Prelude.rnf columnName

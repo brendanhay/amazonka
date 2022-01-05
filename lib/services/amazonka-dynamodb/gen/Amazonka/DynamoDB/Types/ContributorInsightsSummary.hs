@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ContributorInsightsSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ContributorInsightsStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -86,6 +87,15 @@ instance Core.FromJSON ContributorInsightsSummary where
             Prelude.<*> (x Core..:? "IndexName")
       )
 
-instance Prelude.Hashable ContributorInsightsSummary
+instance Prelude.Hashable ContributorInsightsSummary where
+  hashWithSalt _salt ContributorInsightsSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` contributorInsightsStatus
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData ContributorInsightsSummary
+instance Prelude.NFData ContributorInsightsSummary where
+  rnf ContributorInsightsSummary' {..} =
+    Prelude.rnf contributorInsightsStatus
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf indexName

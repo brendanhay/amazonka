@@ -99,9 +99,19 @@ instance Core.FromJSON HlsCaptionLanguageMapping where
             Prelude.<*> (x Core..:? "captionChannel")
       )
 
-instance Prelude.Hashable HlsCaptionLanguageMapping
+instance Prelude.Hashable HlsCaptionLanguageMapping where
+  hashWithSalt _salt HlsCaptionLanguageMapping' {..} =
+    _salt `Prelude.hashWithSalt` customLanguageCode
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` languageDescription
+      `Prelude.hashWithSalt` captionChannel
 
-instance Prelude.NFData HlsCaptionLanguageMapping
+instance Prelude.NFData HlsCaptionLanguageMapping where
+  rnf HlsCaptionLanguageMapping' {..} =
+    Prelude.rnf customLanguageCode
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf languageDescription
+      `Prelude.seq` Prelude.rnf captionChannel
 
 instance Core.ToJSON HlsCaptionLanguageMapping where
   toJSON HlsCaptionLanguageMapping' {..} =

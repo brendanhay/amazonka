@@ -68,9 +68,15 @@ runConfigurationUpdate_flinkRunConfiguration = Lens.lens (\RunConfigurationUpdat
 runConfigurationUpdate_applicationRestoreConfiguration :: Lens.Lens' RunConfigurationUpdate (Prelude.Maybe ApplicationRestoreConfiguration)
 runConfigurationUpdate_applicationRestoreConfiguration = Lens.lens (\RunConfigurationUpdate' {applicationRestoreConfiguration} -> applicationRestoreConfiguration) (\s@RunConfigurationUpdate' {} a -> s {applicationRestoreConfiguration = a} :: RunConfigurationUpdate)
 
-instance Prelude.Hashable RunConfigurationUpdate
+instance Prelude.Hashable RunConfigurationUpdate where
+  hashWithSalt _salt RunConfigurationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` flinkRunConfiguration
+      `Prelude.hashWithSalt` applicationRestoreConfiguration
 
-instance Prelude.NFData RunConfigurationUpdate
+instance Prelude.NFData RunConfigurationUpdate where
+  rnf RunConfigurationUpdate' {..} =
+    Prelude.rnf flinkRunConfiguration
+      `Prelude.seq` Prelude.rnf applicationRestoreConfiguration
 
 instance Core.ToJSON RunConfigurationUpdate where
   toJSON RunConfigurationUpdate' {..} =

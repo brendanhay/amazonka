@@ -115,6 +115,20 @@ instance Core.FromJSON Group where
             Prelude.<*> (x Core..:? "EnabledDate")
       )
 
-instance Prelude.Hashable Group
+instance Prelude.Hashable Group where
+  hashWithSalt _salt Group' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` disabledDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` enabledDate
 
-instance Prelude.NFData Group
+instance Prelude.NFData Group where
+  rnf Group' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf disabledDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf enabledDate

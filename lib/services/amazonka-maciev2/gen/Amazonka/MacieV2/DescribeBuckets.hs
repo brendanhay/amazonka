@@ -148,9 +148,19 @@ instance Core.AWSRequest DescribeBuckets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBuckets
+instance Prelude.Hashable DescribeBuckets where
+  hashWithSalt _salt DescribeBuckets' {..} =
+    _salt `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` criteria
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeBuckets
+instance Prelude.NFData DescribeBuckets where
+  rnf DescribeBuckets' {..} =
+    Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf criteria
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeBuckets where
   toHeaders =
@@ -236,4 +246,8 @@ describeBucketsResponse_nextToken = Lens.lens (\DescribeBucketsResponse' {nextTo
 describeBucketsResponse_httpStatus :: Lens.Lens' DescribeBucketsResponse Prelude.Int
 describeBucketsResponse_httpStatus = Lens.lens (\DescribeBucketsResponse' {httpStatus} -> httpStatus) (\s@DescribeBucketsResponse' {} a -> s {httpStatus = a} :: DescribeBucketsResponse)
 
-instance Prelude.NFData DescribeBucketsResponse
+instance Prelude.NFData DescribeBucketsResponse where
+  rnf DescribeBucketsResponse' {..} =
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

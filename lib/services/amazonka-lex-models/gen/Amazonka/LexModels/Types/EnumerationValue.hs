@@ -84,9 +84,15 @@ instance Core.FromJSON EnumerationValue where
             Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable EnumerationValue
+instance Prelude.Hashable EnumerationValue where
+  hashWithSalt _salt EnumerationValue' {..} =
+    _salt `Prelude.hashWithSalt` synonyms
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData EnumerationValue
+instance Prelude.NFData EnumerationValue where
+  rnf EnumerationValue' {..} =
+    Prelude.rnf synonyms
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON EnumerationValue where
   toJSON EnumerationValue' {..} =

@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     DescribeWorkspaceImagePermissions
+  where
+  hashWithSalt
+    _salt
+    DescribeWorkspaceImagePermissions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` imageId
 
 instance
   Prelude.NFData
     DescribeWorkspaceImagePermissions
+  where
+  rnf DescribeWorkspaceImagePermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf imageId
 
 instance
   Core.ToHeaders
@@ -240,3 +252,9 @@ describeWorkspaceImagePermissionsResponse_httpStatus = Lens.lens (\DescribeWorks
 instance
   Prelude.NFData
     DescribeWorkspaceImagePermissionsResponse
+  where
+  rnf DescribeWorkspaceImagePermissionsResponse' {..} =
+    Prelude.rnf imagePermissions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

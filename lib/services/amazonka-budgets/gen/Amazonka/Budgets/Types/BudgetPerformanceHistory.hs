@@ -125,6 +125,21 @@ instance Core.FromJSON BudgetPerformanceHistory where
             Prelude.<*> (x Core..:? "CostFilters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BudgetPerformanceHistory
+instance Prelude.Hashable BudgetPerformanceHistory where
+  hashWithSalt _salt BudgetPerformanceHistory' {..} =
+    _salt
+      `Prelude.hashWithSalt` budgetedAndActualAmountsList
+      `Prelude.hashWithSalt` timeUnit
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` budgetType
+      `Prelude.hashWithSalt` costTypes
+      `Prelude.hashWithSalt` costFilters
 
-instance Prelude.NFData BudgetPerformanceHistory
+instance Prelude.NFData BudgetPerformanceHistory where
+  rnf BudgetPerformanceHistory' {..} =
+    Prelude.rnf budgetedAndActualAmountsList
+      `Prelude.seq` Prelude.rnf timeUnit
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf budgetType
+      `Prelude.seq` Prelude.rnf costTypes
+      `Prelude.seq` Prelude.rnf costFilters

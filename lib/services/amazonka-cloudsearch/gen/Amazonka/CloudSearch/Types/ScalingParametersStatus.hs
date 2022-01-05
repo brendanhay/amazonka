@@ -71,6 +71,12 @@ instance Core.FromXML ScalingParametersStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable ScalingParametersStatus
+instance Prelude.Hashable ScalingParametersStatus where
+  hashWithSalt _salt ScalingParametersStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ScalingParametersStatus
+instance Prelude.NFData ScalingParametersStatus where
+  rnf ScalingParametersStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

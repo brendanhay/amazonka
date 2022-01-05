@@ -121,9 +121,15 @@ instance Core.AWSRequest CreateConnectionAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnectionAlias
+instance Prelude.Hashable CreateConnectionAlias where
+  hashWithSalt _salt CreateConnectionAlias' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` connectionString
 
-instance Prelude.NFData CreateConnectionAlias
+instance Prelude.NFData CreateConnectionAlias where
+  rnf CreateConnectionAlias' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf connectionString
 
 instance Core.ToHeaders CreateConnectionAlias where
   toHeaders =
@@ -195,4 +201,7 @@ createConnectionAliasResponse_aliasId = Lens.lens (\CreateConnectionAliasRespons
 createConnectionAliasResponse_httpStatus :: Lens.Lens' CreateConnectionAliasResponse Prelude.Int
 createConnectionAliasResponse_httpStatus = Lens.lens (\CreateConnectionAliasResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionAliasResponse' {} a -> s {httpStatus = a} :: CreateConnectionAliasResponse)
 
-instance Prelude.NFData CreateConnectionAliasResponse
+instance Prelude.NFData CreateConnectionAliasResponse where
+  rnf CreateConnectionAliasResponse' {..} =
+    Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,6 +88,10 @@ instance Core.FromJSON LogConfiguration where
             Prelude.<$> (x Core..: "PercentEnabled")
       )
 
-instance Prelude.Hashable LogConfiguration
+instance Prelude.Hashable LogConfiguration where
+  hashWithSalt _salt LogConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` percentEnabled
 
-instance Prelude.NFData LogConfiguration
+instance Prelude.NFData LogConfiguration where
+  rnf LogConfiguration' {..} =
+    Prelude.rnf percentEnabled

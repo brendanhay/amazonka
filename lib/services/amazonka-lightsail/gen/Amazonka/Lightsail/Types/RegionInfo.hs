@@ -127,6 +127,20 @@ instance Core.FromJSON RegionInfo where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable RegionInfo
+instance Prelude.Hashable RegionInfo where
+  hashWithSalt _salt RegionInfo' {..} =
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` relationalDatabaseAvailabilityZones
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` continentCode
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RegionInfo
+instance Prelude.NFData RegionInfo where
+  rnf RegionInfo' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf relationalDatabaseAvailabilityZones
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf continentCode
+      `Prelude.seq` Prelude.rnf description

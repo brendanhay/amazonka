@@ -244,9 +244,29 @@ instance Core.AWSRequest CreateLicenseConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLicenseConfiguration
+instance Prelude.Hashable CreateLicenseConfiguration where
+  hashWithSalt _salt CreateLicenseConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` licenseCount
+      `Prelude.hashWithSalt` licenseCountHardLimit
+      `Prelude.hashWithSalt` disassociateWhenNotFound
+      `Prelude.hashWithSalt` productInformationList
+      `Prelude.hashWithSalt` licenseRules
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` licenseCountingType
 
-instance Prelude.NFData CreateLicenseConfiguration
+instance Prelude.NFData CreateLicenseConfiguration where
+  rnf CreateLicenseConfiguration' {..} =
+    Prelude.rnf licenseCount
+      `Prelude.seq` Prelude.rnf licenseCountHardLimit
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+      `Prelude.seq` Prelude.rnf productInformationList
+      `Prelude.seq` Prelude.rnf licenseRules
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf licenseCountingType
 
 instance Core.ToHeaders CreateLicenseConfiguration where
   toHeaders =
@@ -331,3 +351,7 @@ createLicenseConfigurationResponse_httpStatus = Lens.lens (\CreateLicenseConfigu
 instance
   Prelude.NFData
     CreateLicenseConfigurationResponse
+  where
+  rnf CreateLicenseConfigurationResponse' {..} =
+    Prelude.rnf licenseConfigurationArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,9 +120,17 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDomainAutoTunes
+instance Prelude.Hashable DescribeDomainAutoTunes where
+  hashWithSalt _salt DescribeDomainAutoTunes' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeDomainAutoTunes
+instance Prelude.NFData DescribeDomainAutoTunes where
+  rnf DescribeDomainAutoTunes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeDomainAutoTunes where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,3 +210,8 @@ describeDomainAutoTunesResponse_httpStatus = Lens.lens (\DescribeDomainAutoTunes
 instance
   Prelude.NFData
     DescribeDomainAutoTunesResponse
+  where
+  rnf DescribeDomainAutoTunesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf autoTunes
+      `Prelude.seq` Prelude.rnf httpStatus

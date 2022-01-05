@@ -100,9 +100,15 @@ instance Core.AWSRequest GetBranch where
             Prelude.<*> (x Core..:> "branch")
       )
 
-instance Prelude.Hashable GetBranch
+instance Prelude.Hashable GetBranch where
+  hashWithSalt _salt GetBranch' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData GetBranch
+instance Prelude.NFData GetBranch where
+  rnf GetBranch' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders GetBranch where
   toHeaders =
@@ -166,4 +172,7 @@ getBranchResponse_httpStatus = Lens.lens (\GetBranchResponse' {httpStatus} -> ht
 getBranchResponse_branch :: Lens.Lens' GetBranchResponse Branch
 getBranchResponse_branch = Lens.lens (\GetBranchResponse' {branch} -> branch) (\s@GetBranchResponse' {} a -> s {branch = a} :: GetBranchResponse)
 
-instance Prelude.NFData GetBranchResponse
+instance Prelude.NFData GetBranchResponse where
+  rnf GetBranchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf branch

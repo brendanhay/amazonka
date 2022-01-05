@@ -229,8 +229,31 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
 instance
   Prelude.Hashable
     ListHyperParameterTuningJobs
+  where
+  hashWithSalt _salt ListHyperParameterTuningJobs' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListHyperParameterTuningJobs
+instance Prelude.NFData ListHyperParameterTuningJobs where
+  rnf ListHyperParameterTuningJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListHyperParameterTuningJobs where
   toHeaders =
@@ -335,3 +358,8 @@ listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.len
 instance
   Prelude.NFData
     ListHyperParameterTuningJobsResponse
+  where
+  rnf ListHyperParameterTuningJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobSummaries

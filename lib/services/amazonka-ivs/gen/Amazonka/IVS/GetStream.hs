@@ -84,9 +84,12 @@ instance Core.AWSRequest GetStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStream
+instance Prelude.Hashable GetStream where
+  hashWithSalt _salt GetStream' {..} =
+    _salt `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData GetStream
+instance Prelude.NFData GetStream where
+  rnf GetStream' {..} = Prelude.rnf channelArn
 
 instance Core.ToHeaders GetStream where
   toHeaders =
@@ -149,4 +152,7 @@ getStreamResponse_stream = Lens.lens (\GetStreamResponse' {stream} -> stream) (\
 getStreamResponse_httpStatus :: Lens.Lens' GetStreamResponse Prelude.Int
 getStreamResponse_httpStatus = Lens.lens (\GetStreamResponse' {httpStatus} -> httpStatus) (\s@GetStreamResponse' {} a -> s {httpStatus = a} :: GetStreamResponse)
 
-instance Prelude.NFData GetStreamResponse
+instance Prelude.NFData GetStreamResponse where
+  rnf GetStreamResponse' {..} =
+    Prelude.rnf stream
+      `Prelude.seq` Prelude.rnf httpStatus

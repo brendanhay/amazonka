@@ -116,9 +116,15 @@ instance Core.AWSRequest DescribeCanaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCanaries
+instance Prelude.Hashable DescribeCanaries where
+  hashWithSalt _salt DescribeCanaries' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeCanaries
+instance Prelude.NFData DescribeCanaries where
+  rnf DescribeCanaries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCanaries where
   toHeaders =
@@ -203,4 +209,8 @@ describeCanariesResponse_nextToken = Lens.lens (\DescribeCanariesResponse' {next
 describeCanariesResponse_httpStatus :: Lens.Lens' DescribeCanariesResponse Prelude.Int
 describeCanariesResponse_httpStatus = Lens.lens (\DescribeCanariesResponse' {httpStatus} -> httpStatus) (\s@DescribeCanariesResponse' {} a -> s {httpStatus = a} :: DescribeCanariesResponse)
 
-instance Prelude.NFData DescribeCanariesResponse
+instance Prelude.NFData DescribeCanariesResponse where
+  rnf DescribeCanariesResponse' {..} =
+    Prelude.rnf canaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

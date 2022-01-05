@@ -71,6 +71,11 @@ instance Core.FromJSON KeyListEntry where
             Prelude.<*> (x Core..:? "KeyArn")
       )
 
-instance Prelude.Hashable KeyListEntry
+instance Prelude.Hashable KeyListEntry where
+  hashWithSalt _salt KeyListEntry' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` keyArn
 
-instance Prelude.NFData KeyListEntry
+instance Prelude.NFData KeyListEntry where
+  rnf KeyListEntry' {..} =
+    Prelude.rnf keyId `Prelude.seq` Prelude.rnf keyArn

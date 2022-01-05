@@ -103,9 +103,23 @@ requestDetails_importAssetsFromS3 = Lens.lens (\RequestDetails' {importAssetsFro
 requestDetails_exportAssetToSignedUrl :: Lens.Lens' RequestDetails (Prelude.Maybe ExportAssetToSignedUrlRequestDetails)
 requestDetails_exportAssetToSignedUrl = Lens.lens (\RequestDetails' {exportAssetToSignedUrl} -> exportAssetToSignedUrl) (\s@RequestDetails' {} a -> s {exportAssetToSignedUrl = a} :: RequestDetails)
 
-instance Prelude.Hashable RequestDetails
+instance Prelude.Hashable RequestDetails where
+  hashWithSalt _salt RequestDetails' {..} =
+    _salt `Prelude.hashWithSalt` exportAssetsToS3
+      `Prelude.hashWithSalt` exportRevisionsToS3
+      `Prelude.hashWithSalt` importAssetFromSignedUrl
+      `Prelude.hashWithSalt` importAssetsFromRedshiftDataShares
+      `Prelude.hashWithSalt` importAssetsFromS3
+      `Prelude.hashWithSalt` exportAssetToSignedUrl
 
-instance Prelude.NFData RequestDetails
+instance Prelude.NFData RequestDetails where
+  rnf RequestDetails' {..} =
+    Prelude.rnf exportAssetsToS3
+      `Prelude.seq` Prelude.rnf exportRevisionsToS3
+      `Prelude.seq` Prelude.rnf importAssetFromSignedUrl
+      `Prelude.seq` Prelude.rnf importAssetsFromRedshiftDataShares
+      `Prelude.seq` Prelude.rnf importAssetsFromS3
+      `Prelude.seq` Prelude.rnf exportAssetToSignedUrl
 
 instance Core.ToJSON RequestDetails where
   toJSON RequestDetails' {..} =

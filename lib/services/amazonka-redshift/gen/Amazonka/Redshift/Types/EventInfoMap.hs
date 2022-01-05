@@ -96,6 +96,16 @@ instance Core.FromXML EventInfoMap where
                   )
       Prelude.<*> (x Core..@? "EventId")
 
-instance Prelude.Hashable EventInfoMap
+instance Prelude.Hashable EventInfoMap where
+  hashWithSalt _salt EventInfoMap' {..} =
+    _salt `Prelude.hashWithSalt` eventDescription
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData EventInfoMap
+instance Prelude.NFData EventInfoMap where
+  rnf EventInfoMap' {..} =
+    Prelude.rnf eventDescription
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf eventId

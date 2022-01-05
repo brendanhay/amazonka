@@ -75,9 +75,12 @@ instance Core.AWSRequest DescribeGlobalSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGlobalSettings
+instance Prelude.Hashable DescribeGlobalSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeGlobalSettings
+instance Prelude.NFData DescribeGlobalSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeGlobalSettings where
   toHeaders =
@@ -159,3 +162,8 @@ describeGlobalSettingsResponse_httpStatus = Lens.lens (\DescribeGlobalSettingsRe
 instance
   Prelude.NFData
     DescribeGlobalSettingsResponse
+  where
+  rnf DescribeGlobalSettingsResponse' {..} =
+    Prelude.rnf globalSettings
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf httpStatus

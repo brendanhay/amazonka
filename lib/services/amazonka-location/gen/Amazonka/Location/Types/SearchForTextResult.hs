@@ -61,6 +61,9 @@ instance Core.FromJSON SearchForTextResult where
           SearchForTextResult' Prelude.<$> (x Core..: "Place")
       )
 
-instance Prelude.Hashable SearchForTextResult
+instance Prelude.Hashable SearchForTextResult where
+  hashWithSalt _salt SearchForTextResult' {..} =
+    _salt `Prelude.hashWithSalt` place
 
-instance Prelude.NFData SearchForTextResult
+instance Prelude.NFData SearchForTextResult where
+  rnf SearchForTextResult' {..} = Prelude.rnf place

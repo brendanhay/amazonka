@@ -87,9 +87,12 @@ instance Core.AWSRequest DescribeInsight where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInsight
+instance Prelude.Hashable DescribeInsight where
+  hashWithSalt _salt DescribeInsight' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeInsight
+instance Prelude.NFData DescribeInsight where
+  rnf DescribeInsight' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeInsight where
   toHeaders =
@@ -157,4 +160,8 @@ describeInsightResponse_reactiveInsight = Lens.lens (\DescribeInsightResponse' {
 describeInsightResponse_httpStatus :: Lens.Lens' DescribeInsightResponse Prelude.Int
 describeInsightResponse_httpStatus = Lens.lens (\DescribeInsightResponse' {httpStatus} -> httpStatus) (\s@DescribeInsightResponse' {} a -> s {httpStatus = a} :: DescribeInsightResponse)
 
-instance Prelude.NFData DescribeInsightResponse
+instance Prelude.NFData DescribeInsightResponse where
+  rnf DescribeInsightResponse' {..} =
+    Prelude.rnf proactiveInsight
+      `Prelude.seq` Prelude.rnf reactiveInsight
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -172,9 +172,15 @@ instance Core.AWSRequest DeleteGameServerGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGameServerGroup
+instance Prelude.Hashable DeleteGameServerGroup where
+  hashWithSalt _salt DeleteGameServerGroup' {..} =
+    _salt `Prelude.hashWithSalt` deleteOption
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData DeleteGameServerGroup
+instance Prelude.NFData DeleteGameServerGroup where
+  rnf DeleteGameServerGroup' {..} =
+    Prelude.rnf deleteOption
+      `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders DeleteGameServerGroup where
   toHeaders =
@@ -249,4 +255,7 @@ deleteGameServerGroupResponse_gameServerGroup = Lens.lens (\DeleteGameServerGrou
 deleteGameServerGroupResponse_httpStatus :: Lens.Lens' DeleteGameServerGroupResponse Prelude.Int
 deleteGameServerGroupResponse_httpStatus = Lens.lens (\DeleteGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGameServerGroupResponse' {} a -> s {httpStatus = a} :: DeleteGameServerGroupResponse)
 
-instance Prelude.NFData DeleteGameServerGroupResponse
+instance Prelude.NFData DeleteGameServerGroupResponse where
+  rnf DeleteGameServerGroupResponse' {..} =
+    Prelude.rnf gameServerGroup
+      `Prelude.seq` Prelude.rnf httpStatus

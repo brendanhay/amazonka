@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateVodSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVodSource
+instance Prelude.Hashable CreateVodSource where
+  hashWithSalt _salt CreateVodSource' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` httpPackageConfigurations
 
-instance Prelude.NFData CreateVodSource
+instance Prelude.NFData CreateVodSource where
+  rnf CreateVodSource' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
 
 instance Core.ToHeaders CreateVodSource where
   toHeaders =
@@ -268,4 +278,13 @@ createVodSourceResponse_tags = Lens.lens (\CreateVodSourceResponse' {tags} -> ta
 createVodSourceResponse_httpStatus :: Lens.Lens' CreateVodSourceResponse Prelude.Int
 createVodSourceResponse_httpStatus = Lens.lens (\CreateVodSourceResponse' {httpStatus} -> httpStatus) (\s@CreateVodSourceResponse' {} a -> s {httpStatus = a} :: CreateVodSourceResponse)
 
-instance Prelude.NFData CreateVodSourceResponse
+instance Prelude.NFData CreateVodSourceResponse where
+  rnf CreateVodSourceResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

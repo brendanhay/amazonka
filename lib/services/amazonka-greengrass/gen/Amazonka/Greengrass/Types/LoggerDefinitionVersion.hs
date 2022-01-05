@@ -60,9 +60,13 @@ instance Core.FromJSON LoggerDefinitionVersion where
             Prelude.<$> (x Core..:? "Loggers" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LoggerDefinitionVersion
+instance Prelude.Hashable LoggerDefinitionVersion where
+  hashWithSalt _salt LoggerDefinitionVersion' {..} =
+    _salt `Prelude.hashWithSalt` loggers
 
-instance Prelude.NFData LoggerDefinitionVersion
+instance Prelude.NFData LoggerDefinitionVersion where
+  rnf LoggerDefinitionVersion' {..} =
+    Prelude.rnf loggers
 
 instance Core.ToJSON LoggerDefinitionVersion where
   toJSON LoggerDefinitionVersion' {..} =

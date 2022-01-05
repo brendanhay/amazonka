@@ -76,9 +76,15 @@ instance Core.FromJSON MultiConditionalBranch where
             Prelude.<*> (x Core..:? "Condition")
       )
 
-instance Prelude.Hashable MultiConditionalBranch
+instance Prelude.Hashable MultiConditionalBranch where
+  hashWithSalt _salt MultiConditionalBranch' {..} =
+    _salt `Prelude.hashWithSalt` nextActivity
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData MultiConditionalBranch
+instance Prelude.NFData MultiConditionalBranch where
+  rnf MultiConditionalBranch' {..} =
+    Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON MultiConditionalBranch where
   toJSON MultiConditionalBranch' {..} =

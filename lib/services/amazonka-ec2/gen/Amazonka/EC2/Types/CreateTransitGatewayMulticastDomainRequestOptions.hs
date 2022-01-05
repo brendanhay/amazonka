@@ -92,10 +92,24 @@ createTransitGatewayMulticastDomainRequestOptions_staticSourcesSupport = Lens.le
 instance
   Prelude.Hashable
     CreateTransitGatewayMulticastDomainRequestOptions
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayMulticastDomainRequestOptions' {..} =
+      _salt
+        `Prelude.hashWithSalt` autoAcceptSharedAssociations
+        `Prelude.hashWithSalt` igmpv2Support
+        `Prelude.hashWithSalt` staticSourcesSupport
 
 instance
   Prelude.NFData
     CreateTransitGatewayMulticastDomainRequestOptions
+  where
+  rnf
+    CreateTransitGatewayMulticastDomainRequestOptions' {..} =
+      Prelude.rnf autoAcceptSharedAssociations
+        `Prelude.seq` Prelude.rnf igmpv2Support
+        `Prelude.seq` Prelude.rnf staticSourcesSupport
 
 instance
   Core.ToQuery

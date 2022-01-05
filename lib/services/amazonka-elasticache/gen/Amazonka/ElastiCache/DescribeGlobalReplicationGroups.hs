@@ -174,10 +174,24 @@ instance
 instance
   Prelude.Hashable
     DescribeGlobalReplicationGroups
+  where
+  hashWithSalt
+    _salt
+    DescribeGlobalReplicationGroups' {..} =
+      _salt `Prelude.hashWithSalt` showMemberInfo
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` globalReplicationGroupId
 
 instance
   Prelude.NFData
     DescribeGlobalReplicationGroups
+  where
+  rnf DescribeGlobalReplicationGroups' {..} =
+    Prelude.rnf showMemberInfo
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId
 
 instance
   Core.ToHeaders
@@ -269,3 +283,8 @@ describeGlobalReplicationGroupsResponse_httpStatus = Lens.lens (\DescribeGlobalR
 instance
   Prelude.NFData
     DescribeGlobalReplicationGroupsResponse
+  where
+  rnf DescribeGlobalReplicationGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf globalReplicationGroups
+      `Prelude.seq` Prelude.rnf httpStatus

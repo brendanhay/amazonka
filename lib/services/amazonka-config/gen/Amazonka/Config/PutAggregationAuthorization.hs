@@ -114,9 +114,17 @@ instance Core.AWSRequest PutAggregationAuthorization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAggregationAuthorization
+instance Prelude.Hashable PutAggregationAuthorization where
+  hashWithSalt _salt PutAggregationAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` authorizedAccountId
+      `Prelude.hashWithSalt` authorizedAwsRegion
 
-instance Prelude.NFData PutAggregationAuthorization
+instance Prelude.NFData PutAggregationAuthorization where
+  rnf PutAggregationAuthorization' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf authorizedAccountId
+      `Prelude.seq` Prelude.rnf authorizedAwsRegion
 
 instance Core.ToHeaders PutAggregationAuthorization where
   toHeaders =
@@ -193,3 +201,7 @@ putAggregationAuthorizationResponse_httpStatus = Lens.lens (\PutAggregationAutho
 instance
   Prelude.NFData
     PutAggregationAuthorizationResponse
+  where
+  rnf PutAggregationAuthorizationResponse' {..} =
+    Prelude.rnf aggregationAuthorization
+      `Prelude.seq` Prelude.rnf httpStatus

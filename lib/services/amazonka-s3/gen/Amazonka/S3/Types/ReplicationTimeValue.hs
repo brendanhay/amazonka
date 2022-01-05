@@ -63,9 +63,12 @@ instance Core.FromXML ReplicationTimeValue where
     ReplicationTimeValue'
       Prelude.<$> (x Core..@? "Minutes")
 
-instance Prelude.Hashable ReplicationTimeValue
+instance Prelude.Hashable ReplicationTimeValue where
+  hashWithSalt _salt ReplicationTimeValue' {..} =
+    _salt `Prelude.hashWithSalt` minutes
 
-instance Prelude.NFData ReplicationTimeValue
+instance Prelude.NFData ReplicationTimeValue where
+  rnf ReplicationTimeValue' {..} = Prelude.rnf minutes
 
 instance Core.ToXML ReplicationTimeValue where
   toXML ReplicationTimeValue' {..} =

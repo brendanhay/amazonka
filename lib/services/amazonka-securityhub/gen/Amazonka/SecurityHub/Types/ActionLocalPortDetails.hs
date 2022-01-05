@@ -73,9 +73,14 @@ instance Core.FromJSON ActionLocalPortDetails where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable ActionLocalPortDetails
+instance Prelude.Hashable ActionLocalPortDetails where
+  hashWithSalt _salt ActionLocalPortDetails' {..} =
+    _salt `Prelude.hashWithSalt` portName
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData ActionLocalPortDetails
+instance Prelude.NFData ActionLocalPortDetails where
+  rnf ActionLocalPortDetails' {..} =
+    Prelude.rnf portName `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON ActionLocalPortDetails where
   toJSON ActionLocalPortDetails' {..} =

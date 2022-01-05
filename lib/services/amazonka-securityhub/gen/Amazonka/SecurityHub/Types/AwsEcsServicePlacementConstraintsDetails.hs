@@ -96,10 +96,20 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServicePlacementConstraintsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsServicePlacementConstraintsDetails' {..} =
+      _salt `Prelude.hashWithSalt` expression
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsEcsServicePlacementConstraintsDetails
+  where
+  rnf AwsEcsServicePlacementConstraintsDetails' {..} =
+    Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

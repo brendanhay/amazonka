@@ -105,6 +105,18 @@ instance Core.FromXML ManagedAction where
       Prelude.<*> (x Core..@? "ActionDescription")
       Prelude.<*> (x Core..@? "ActionType")
 
-instance Prelude.Hashable ManagedAction
+instance Prelude.Hashable ManagedAction where
+  hashWithSalt _salt ManagedAction' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` windowStartTime
+      `Prelude.hashWithSalt` actionDescription
+      `Prelude.hashWithSalt` actionType
 
-instance Prelude.NFData ManagedAction
+instance Prelude.NFData ManagedAction where
+  rnf ManagedAction' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf windowStartTime
+      `Prelude.seq` Prelude.rnf actionDescription
+      `Prelude.seq` Prelude.rnf actionType

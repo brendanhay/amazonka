@@ -124,9 +124,17 @@ instance Core.AWSRequest UpdateBrokerCount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBrokerCount
+instance Prelude.Hashable UpdateBrokerCount where
+  hashWithSalt _salt UpdateBrokerCount' {..} =
+    _salt `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` targetNumberOfBrokerNodes
 
-instance Prelude.NFData UpdateBrokerCount
+instance Prelude.NFData UpdateBrokerCount where
+  rnf UpdateBrokerCount' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf targetNumberOfBrokerNodes
 
 instance Core.ToHeaders UpdateBrokerCount where
   toHeaders =
@@ -211,4 +219,8 @@ updateBrokerCountResponse_clusterOperationArn = Lens.lens (\UpdateBrokerCountRes
 updateBrokerCountResponse_httpStatus :: Lens.Lens' UpdateBrokerCountResponse Prelude.Int
 updateBrokerCountResponse_httpStatus = Lens.lens (\UpdateBrokerCountResponse' {httpStatus} -> httpStatus) (\s@UpdateBrokerCountResponse' {} a -> s {httpStatus = a} :: UpdateBrokerCountResponse)
 
-instance Prelude.NFData UpdateBrokerCountResponse
+instance Prelude.NFData UpdateBrokerCountResponse where
+  rnf UpdateBrokerCountResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterOperationArn
+      `Prelude.seq` Prelude.rnf httpStatus

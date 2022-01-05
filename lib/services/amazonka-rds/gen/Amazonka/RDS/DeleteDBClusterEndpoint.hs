@@ -101,9 +101,14 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
       "DeleteDBClusterEndpointResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteDBClusterEndpoint
+instance Prelude.Hashable DeleteDBClusterEndpoint where
+  hashWithSalt _salt DeleteDBClusterEndpoint' {..} =
+    _salt
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
 
-instance Prelude.NFData DeleteDBClusterEndpoint
+instance Prelude.NFData DeleteDBClusterEndpoint where
+  rnf DeleteDBClusterEndpoint' {..} =
+    Prelude.rnf dbClusterEndpointIdentifier
 
 instance Core.ToHeaders DeleteDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty

@@ -146,9 +146,19 @@ instance Core.AWSRequest PutPipelineDefinition where
             Prelude.<*> (x Core..:> "errored")
       )
 
-instance Prelude.Hashable PutPipelineDefinition
+instance Prelude.Hashable PutPipelineDefinition where
+  hashWithSalt _salt PutPipelineDefinition' {..} =
+    _salt `Prelude.hashWithSalt` parameterObjects
+      `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` pipelineObjects
 
-instance Prelude.NFData PutPipelineDefinition
+instance Prelude.NFData PutPipelineDefinition where
+  rnf PutPipelineDefinition' {..} =
+    Prelude.rnf parameterObjects
+      `Prelude.seq` Prelude.rnf parameterValues
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf pipelineObjects
 
 instance Core.ToHeaders PutPipelineDefinition where
   toHeaders =
@@ -263,4 +273,9 @@ putPipelineDefinitionResponse_httpStatus = Lens.lens (\PutPipelineDefinitionResp
 putPipelineDefinitionResponse_errored :: Lens.Lens' PutPipelineDefinitionResponse Prelude.Bool
 putPipelineDefinitionResponse_errored = Lens.lens (\PutPipelineDefinitionResponse' {errored} -> errored) (\s@PutPipelineDefinitionResponse' {} a -> s {errored = a} :: PutPipelineDefinitionResponse)
 
-instance Prelude.NFData PutPipelineDefinitionResponse
+instance Prelude.NFData PutPipelineDefinitionResponse where
+  rnf PutPipelineDefinitionResponse' {..} =
+    Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf validationWarnings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errored

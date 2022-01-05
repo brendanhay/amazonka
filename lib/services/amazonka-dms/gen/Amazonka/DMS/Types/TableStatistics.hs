@@ -368,6 +368,46 @@ instance Core.FromJSON TableStatistics where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable TableStatistics
+instance Prelude.Hashable TableStatistics where
+  hashWithSalt _salt TableStatistics' {..} =
+    _salt `Prelude.hashWithSalt` validationState
+      `Prelude.hashWithSalt` fullLoadRows
+      `Prelude.hashWithSalt` inserts
+      `Prelude.hashWithSalt` fullLoadEndTime
+      `Prelude.hashWithSalt` fullLoadCondtnlChkFailedRows
+      `Prelude.hashWithSalt` fullLoadReloaded
+      `Prelude.hashWithSalt` validationFailedRecords
+      `Prelude.hashWithSalt` validationSuspendedRecords
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` validationStateDetails
+      `Prelude.hashWithSalt` tableState
+      `Prelude.hashWithSalt` fullLoadErrorRows
+      `Prelude.hashWithSalt` ddls
+      `Prelude.hashWithSalt` deletes
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` validationPendingRecords
+      `Prelude.hashWithSalt` fullLoadStartTime
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData TableStatistics
+instance Prelude.NFData TableStatistics where
+  rnf TableStatistics' {..} =
+    Prelude.rnf validationState
+      `Prelude.seq` Prelude.rnf fullLoadRows
+      `Prelude.seq` Prelude.rnf inserts
+      `Prelude.seq` Prelude.rnf fullLoadEndTime
+      `Prelude.seq` Prelude.rnf fullLoadCondtnlChkFailedRows
+      `Prelude.seq` Prelude.rnf fullLoadReloaded
+      `Prelude.seq` Prelude.rnf validationFailedRecords
+      `Prelude.seq` Prelude.rnf validationSuspendedRecords
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf validationStateDetails
+      `Prelude.seq` Prelude.rnf tableState
+      `Prelude.seq` Prelude.rnf fullLoadErrorRows
+      `Prelude.seq` Prelude.rnf ddls
+      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf validationPendingRecords
+      `Prelude.seq` Prelude.rnf fullLoadStartTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf tableName

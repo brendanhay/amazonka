@@ -73,6 +73,12 @@ instance Core.FromJSON JobExecutionSummaryForThing where
             Prelude.<*> (x Core..:? "jobExecutionSummary")
       )
 
-instance Prelude.Hashable JobExecutionSummaryForThing
+instance Prelude.Hashable JobExecutionSummaryForThing where
+  hashWithSalt _salt JobExecutionSummaryForThing' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobExecutionSummary
 
-instance Prelude.NFData JobExecutionSummaryForThing
+instance Prelude.NFData JobExecutionSummaryForThing where
+  rnf JobExecutionSummaryForThing' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobExecutionSummary

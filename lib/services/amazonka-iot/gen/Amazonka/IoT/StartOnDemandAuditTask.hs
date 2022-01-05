@@ -103,9 +103,13 @@ instance Core.AWSRequest StartOnDemandAuditTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartOnDemandAuditTask
+instance Prelude.Hashable StartOnDemandAuditTask where
+  hashWithSalt _salt StartOnDemandAuditTask' {..} =
+    _salt `Prelude.hashWithSalt` targetCheckNames
 
-instance Prelude.NFData StartOnDemandAuditTask
+instance Prelude.NFData StartOnDemandAuditTask where
+  rnf StartOnDemandAuditTask' {..} =
+    Prelude.rnf targetCheckNames
 
 instance Core.ToHeaders StartOnDemandAuditTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +171,7 @@ startOnDemandAuditTaskResponse_httpStatus = Lens.lens (\StartOnDemandAuditTaskRe
 instance
   Prelude.NFData
     StartOnDemandAuditTaskResponse
+  where
+  rnf StartOnDemandAuditTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

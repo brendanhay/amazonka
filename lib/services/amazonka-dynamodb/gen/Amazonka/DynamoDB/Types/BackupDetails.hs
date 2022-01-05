@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.BackupDetails where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BackupStatus
 import Amazonka.DynamoDB.Types.BackupType
 import qualified Amazonka.Lens as Lens
@@ -185,6 +186,22 @@ instance Core.FromJSON BackupDetails where
             Prelude.<*> (x Core..: "BackupCreationDateTime")
       )
 
-instance Prelude.Hashable BackupDetails
+instance Prelude.Hashable BackupDetails where
+  hashWithSalt _salt BackupDetails' {..} =
+    _salt `Prelude.hashWithSalt` backupExpiryDateTime
+      `Prelude.hashWithSalt` backupSizeBytes
+      `Prelude.hashWithSalt` backupArn
+      `Prelude.hashWithSalt` backupName
+      `Prelude.hashWithSalt` backupStatus
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` backupCreationDateTime
 
-instance Prelude.NFData BackupDetails
+instance Prelude.NFData BackupDetails where
+  rnf BackupDetails' {..} =
+    Prelude.rnf backupExpiryDateTime
+      `Prelude.seq` Prelude.rnf backupSizeBytes
+      `Prelude.seq` Prelude.rnf backupArn
+      `Prelude.seq` Prelude.rnf backupName
+      `Prelude.seq` Prelude.rnf backupStatus
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf backupCreationDateTime

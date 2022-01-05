@@ -72,9 +72,14 @@ instance Core.FromJSON FeatureActivations where
             Prelude.<$> (x Core..:? "inputPrepareScheduleActions")
       )
 
-instance Prelude.Hashable FeatureActivations
+instance Prelude.Hashable FeatureActivations where
+  hashWithSalt _salt FeatureActivations' {..} =
+    _salt
+      `Prelude.hashWithSalt` inputPrepareScheduleActions
 
-instance Prelude.NFData FeatureActivations
+instance Prelude.NFData FeatureActivations where
+  rnf FeatureActivations' {..} =
+    Prelude.rnf inputPrepareScheduleActions
 
 instance Core.ToJSON FeatureActivations where
   toJSON FeatureActivations' {..} =

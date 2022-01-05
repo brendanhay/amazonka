@@ -99,9 +99,12 @@ instance Core.AWSRequest GetReportDefinition where
             Prelude.<*> (x Core..:> "lastUpdated")
       )
 
-instance Prelude.Hashable GetReportDefinition
+instance Prelude.Hashable GetReportDefinition where
+  hashWithSalt _salt GetReportDefinition' {..} =
+    _salt `Prelude.hashWithSalt` reportId
 
-instance Prelude.NFData GetReportDefinition
+instance Prelude.NFData GetReportDefinition where
+  rnf GetReportDefinition' {..} = Prelude.rnf reportId
 
 instance Core.ToHeaders GetReportDefinition where
   toHeaders =
@@ -241,4 +244,13 @@ getReportDefinitionResponse_createdAt = Lens.lens (\GetReportDefinitionResponse'
 getReportDefinitionResponse_lastUpdated :: Lens.Lens' GetReportDefinitionResponse Prelude.UTCTime
 getReportDefinitionResponse_lastUpdated = Lens.lens (\GetReportDefinitionResponse' {lastUpdated} -> lastUpdated) (\s@GetReportDefinitionResponse' {} a -> s {lastUpdated = a} :: GetReportDefinitionResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetReportDefinitionResponse
+instance Prelude.NFData GetReportDefinitionResponse where
+  rnf GetReportDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf reportDescription
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf destinationS3Location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdated

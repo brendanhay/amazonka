@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     CategoricalParameterRangeSpecification
+  where
+  hashWithSalt
+    _salt
+    CategoricalParameterRangeSpecification' {..} =
+      _salt `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     CategoricalParameterRangeSpecification
+  where
+  rnf CategoricalParameterRangeSpecification' {..} =
+    Prelude.rnf values
 
 instance
   Core.ToJSON

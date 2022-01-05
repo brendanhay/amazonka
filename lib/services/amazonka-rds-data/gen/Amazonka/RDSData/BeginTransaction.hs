@@ -125,9 +125,19 @@ instance Core.AWSRequest BeginTransaction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BeginTransaction
+instance Prelude.Hashable BeginTransaction where
+  hashWithSalt _salt BeginTransaction' {..} =
+    _salt `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` secretArn
 
-instance Prelude.NFData BeginTransaction
+instance Prelude.NFData BeginTransaction where
+  rnf BeginTransaction' {..} =
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf secretArn
 
 instance Core.ToHeaders BeginTransaction where
   toHeaders =
@@ -199,4 +209,7 @@ beginTransactionResponse_transactionId = Lens.lens (\BeginTransactionResponse' {
 beginTransactionResponse_httpStatus :: Lens.Lens' BeginTransactionResponse Prelude.Int
 beginTransactionResponse_httpStatus = Lens.lens (\BeginTransactionResponse' {httpStatus} -> httpStatus) (\s@BeginTransactionResponse' {} a -> s {httpStatus = a} :: BeginTransactionResponse)
 
-instance Prelude.NFData BeginTransactionResponse
+instance Prelude.NFData BeginTransactionResponse where
+  rnf BeginTransactionResponse' {..} =
+    Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -275,9 +275,23 @@ instance Core.FromJSON QualificationRequirement where
             Prelude.<*> (x Core..: "Comparator")
       )
 
-instance Prelude.Hashable QualificationRequirement
+instance Prelude.Hashable QualificationRequirement where
+  hashWithSalt _salt QualificationRequirement' {..} =
+    _salt `Prelude.hashWithSalt` localeValues
+      `Prelude.hashWithSalt` actionsGuarded
+      `Prelude.hashWithSalt` requiredToPreview
+      `Prelude.hashWithSalt` integerValues
+      `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` comparator
 
-instance Prelude.NFData QualificationRequirement
+instance Prelude.NFData QualificationRequirement where
+  rnf QualificationRequirement' {..} =
+    Prelude.rnf localeValues
+      `Prelude.seq` Prelude.rnf actionsGuarded
+      `Prelude.seq` Prelude.rnf requiredToPreview
+      `Prelude.seq` Prelude.rnf integerValues
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf comparator
 
 instance Core.ToJSON QualificationRequirement where
   toJSON QualificationRequirement' {..} =

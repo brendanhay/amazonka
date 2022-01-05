@@ -72,6 +72,9 @@ module Amazonka.DynamoDBStreams
 
     -- * Types
 
+    -- ** Common
+    module Amazonka.DynamoDBStreams.Internal,
+
     -- ** KeyType
     KeyType (..),
 
@@ -86,10 +89,6 @@ module Amazonka.DynamoDBStreams
 
     -- ** StreamViewType
     StreamViewType (..),
-
-    -- ** AttributeValue
-    AttributeValue (AttributeValue'),
-    newAttributeValue,
 
     -- ** Identity
     Identity (Identity'),
@@ -128,6 +127,7 @@ where
 import Amazonka.DynamoDBStreams.DescribeStream
 import Amazonka.DynamoDBStreams.GetRecords
 import Amazonka.DynamoDBStreams.GetShardIterator
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Lens
 import Amazonka.DynamoDBStreams.ListStreams
 import Amazonka.DynamoDBStreams.Types

@@ -70,6 +70,11 @@ instance Core.FromJSON GroupMetadata where
             Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable GroupMetadata
+instance Prelude.Hashable GroupMetadata where
+  hashWithSalt _salt GroupMetadata' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GroupMetadata
+instance Prelude.NFData GroupMetadata where
+  rnf GroupMetadata' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id

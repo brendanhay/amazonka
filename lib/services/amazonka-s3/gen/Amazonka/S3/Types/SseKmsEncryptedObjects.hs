@@ -66,9 +66,12 @@ instance Core.FromXML SseKmsEncryptedObjects where
     SseKmsEncryptedObjects'
       Prelude.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable SseKmsEncryptedObjects
+instance Prelude.Hashable SseKmsEncryptedObjects where
+  hashWithSalt _salt SseKmsEncryptedObjects' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SseKmsEncryptedObjects
+instance Prelude.NFData SseKmsEncryptedObjects where
+  rnf SseKmsEncryptedObjects' {..} = Prelude.rnf status
 
 instance Core.ToXML SseKmsEncryptedObjects where
   toXML SseKmsEncryptedObjects' {..} =

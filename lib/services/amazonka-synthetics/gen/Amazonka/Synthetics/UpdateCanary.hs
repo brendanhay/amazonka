@@ -326,9 +326,36 @@ instance Core.AWSRequest UpdateCanary where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCanary
+instance Prelude.Hashable UpdateCanary where
+  hashWithSalt _salt UpdateCanary' {..} =
+    _salt
+      `Prelude.hashWithSalt` successRetentionPeriodInDays
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` artifactS3Location
+      `Prelude.hashWithSalt` runConfig
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` runtimeVersion
+      `Prelude.hashWithSalt` failureRetentionPeriodInDays
+      `Prelude.hashWithSalt` artifactConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` visualReference
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateCanary
+instance Prelude.NFData UpdateCanary where
+  rnf UpdateCanary' {..} =
+    Prelude.rnf successRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf artifactS3Location
+      `Prelude.seq` Prelude.rnf runConfig
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf runtimeVersion
+      `Prelude.seq` Prelude.rnf failureRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf artifactConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf visualReference
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateCanary where
   toHeaders =
@@ -400,4 +427,6 @@ newUpdateCanaryResponse pHttpStatus_ =
 updateCanaryResponse_httpStatus :: Lens.Lens' UpdateCanaryResponse Prelude.Int
 updateCanaryResponse_httpStatus = Lens.lens (\UpdateCanaryResponse' {httpStatus} -> httpStatus) (\s@UpdateCanaryResponse' {} a -> s {httpStatus = a} :: UpdateCanaryResponse)
 
-instance Prelude.NFData UpdateCanaryResponse
+instance Prelude.NFData UpdateCanaryResponse where
+  rnf UpdateCanaryResponse' {..} =
+    Prelude.rnf httpStatus

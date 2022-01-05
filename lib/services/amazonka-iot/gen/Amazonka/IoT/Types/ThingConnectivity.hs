@@ -97,6 +97,14 @@ instance Core.FromJSON ThingConnectivity where
             Prelude.<*> (x Core..:? "timestamp")
       )
 
-instance Prelude.Hashable ThingConnectivity
+instance Prelude.Hashable ThingConnectivity where
+  hashWithSalt _salt ThingConnectivity' {..} =
+    _salt `Prelude.hashWithSalt` disconnectReason
+      `Prelude.hashWithSalt` connected
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ThingConnectivity
+instance Prelude.NFData ThingConnectivity where
+  rnf ThingConnectivity' {..} =
+    Prelude.rnf disconnectReason
+      `Prelude.seq` Prelude.rnf connected
+      `Prelude.seq` Prelude.rnf timestamp

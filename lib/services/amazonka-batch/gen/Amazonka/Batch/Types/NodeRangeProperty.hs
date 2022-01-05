@@ -96,9 +96,15 @@ instance Core.FromJSON NodeRangeProperty where
             Prelude.<*> (x Core..: "targetNodes")
       )
 
-instance Prelude.Hashable NodeRangeProperty
+instance Prelude.Hashable NodeRangeProperty where
+  hashWithSalt _salt NodeRangeProperty' {..} =
+    _salt `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` targetNodes
 
-instance Prelude.NFData NodeRangeProperty
+instance Prelude.NFData NodeRangeProperty where
+  rnf NodeRangeProperty' {..} =
+    Prelude.rnf container
+      `Prelude.seq` Prelude.rnf targetNodes
 
 instance Core.ToJSON NodeRangeProperty where
   toJSON NodeRangeProperty' {..} =

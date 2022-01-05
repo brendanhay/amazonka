@@ -71,8 +71,13 @@ instance Core.FromJSON AwsEc2SecurityGroupIpv6Range where
 instance
   Prelude.Hashable
     AwsEc2SecurityGroupIpv6Range
+  where
+  hashWithSalt _salt AwsEc2SecurityGroupIpv6Range' {..} =
+    _salt `Prelude.hashWithSalt` cidrIpv6
 
-instance Prelude.NFData AwsEc2SecurityGroupIpv6Range
+instance Prelude.NFData AwsEc2SecurityGroupIpv6Range where
+  rnf AwsEc2SecurityGroupIpv6Range' {..} =
+    Prelude.rnf cidrIpv6
 
 instance Core.ToJSON AwsEc2SecurityGroupIpv6Range where
   toJSON AwsEc2SecurityGroupIpv6Range' {..} =

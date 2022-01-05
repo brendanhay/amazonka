@@ -170,9 +170,23 @@ instance Core.FromXML ReceiptRule where
       Prelude.<*> (x Core..@? "TlsPolicy")
       Prelude.<*> (x Core..@ "Name")
 
-instance Prelude.Hashable ReceiptRule
+instance Prelude.Hashable ReceiptRule where
+  hashWithSalt _salt ReceiptRule' {..} =
+    _salt `Prelude.hashWithSalt` scanEnabled
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` recipients
+      `Prelude.hashWithSalt` tlsPolicy
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ReceiptRule
+instance Prelude.NFData ReceiptRule where
+  rnf ReceiptRule' {..} =
+    Prelude.rnf scanEnabled
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf recipients
+      `Prelude.seq` Prelude.rnf tlsPolicy
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery ReceiptRule where
   toQuery ReceiptRule' {..} =

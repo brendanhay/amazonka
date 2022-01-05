@@ -149,6 +149,24 @@ instance Core.FromXML SecurityGroup where
       Prelude.<*> (x Core..@ "groupName")
       Prelude.<*> (x Core..@ "groupDescription")
 
-instance Prelude.Hashable SecurityGroup
+instance Prelude.Hashable SecurityGroup where
+  hashWithSalt _salt SecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` ipPermissions
+      `Prelude.hashWithSalt` ipPermissionsEgress
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SecurityGroup
+instance Prelude.NFData SecurityGroup where
+  rnf SecurityGroup' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf ipPermissions
+      `Prelude.seq` Prelude.rnf ipPermissionsEgress
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf description

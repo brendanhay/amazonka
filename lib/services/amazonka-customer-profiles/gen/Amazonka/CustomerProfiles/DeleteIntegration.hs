@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteIntegration where
             Prelude.<*> (x Core..:> "Message")
       )
 
-instance Prelude.Hashable DeleteIntegration
+instance Prelude.Hashable DeleteIntegration where
+  hashWithSalt _salt DeleteIntegration' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData DeleteIntegration
+instance Prelude.NFData DeleteIntegration where
+  rnf DeleteIntegration' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToHeaders DeleteIntegration where
   toHeaders =
@@ -174,4 +180,7 @@ deleteIntegrationResponse_httpStatus = Lens.lens (\DeleteIntegrationResponse' {h
 deleteIntegrationResponse_message :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
 deleteIntegrationResponse_message = Lens.lens (\DeleteIntegrationResponse' {message} -> message) (\s@DeleteIntegrationResponse' {} a -> s {message = a} :: DeleteIntegrationResponse)
 
-instance Prelude.NFData DeleteIntegrationResponse
+instance Prelude.NFData DeleteIntegrationResponse where
+  rnf DeleteIntegrationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message

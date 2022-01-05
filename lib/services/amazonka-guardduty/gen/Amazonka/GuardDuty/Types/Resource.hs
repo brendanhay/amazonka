@@ -103,6 +103,16 @@ instance Core.FromJSON Resource where
             Prelude.<*> (x Core..:? "accessKeyDetails")
       )
 
-instance Prelude.Hashable Resource
+instance Prelude.Hashable Resource where
+  hashWithSalt _salt Resource' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` s3BucketDetails
+      `Prelude.hashWithSalt` instanceDetails
+      `Prelude.hashWithSalt` accessKeyDetails
 
-instance Prelude.NFData Resource
+instance Prelude.NFData Resource where
+  rnf Resource' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf s3BucketDetails
+      `Prelude.seq` Prelude.rnf instanceDetails
+      `Prelude.seq` Prelude.rnf accessKeyDetails

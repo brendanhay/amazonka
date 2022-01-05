@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteExperimentTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteExperimentTemplate
+instance Prelude.Hashable DeleteExperimentTemplate where
+  hashWithSalt _salt DeleteExperimentTemplate' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteExperimentTemplate
+instance Prelude.NFData DeleteExperimentTemplate where
+  rnf DeleteExperimentTemplate' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteExperimentTemplate where
   toHeaders =
@@ -151,3 +154,7 @@ deleteExperimentTemplateResponse_httpStatus = Lens.lens (\DeleteExperimentTempla
 instance
   Prelude.NFData
     DeleteExperimentTemplateResponse
+  where
+  rnf DeleteExperimentTemplateResponse' {..} =
+    Prelude.rnf experimentTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

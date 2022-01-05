@@ -186,9 +186,21 @@ instance Core.AWSRequest QueryForecast where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable QueryForecast
+instance Prelude.Hashable QueryForecast where
+  hashWithSalt _salt QueryForecast' {..} =
+    _salt `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` forecastArn
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData QueryForecast
+instance Prelude.NFData QueryForecast where
+  rnf QueryForecast' {..} =
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders QueryForecast where
   toHeaders =
@@ -261,4 +273,7 @@ queryForecastResponse_forecast = Lens.lens (\QueryForecastResponse' {forecast} -
 queryForecastResponse_httpStatus :: Lens.Lens' QueryForecastResponse Prelude.Int
 queryForecastResponse_httpStatus = Lens.lens (\QueryForecastResponse' {httpStatus} -> httpStatus) (\s@QueryForecastResponse' {} a -> s {httpStatus = a} :: QueryForecastResponse)
 
-instance Prelude.NFData QueryForecastResponse
+instance Prelude.NFData QueryForecastResponse where
+  rnf QueryForecastResponse' {..} =
+    Prelude.rnf forecast
+      `Prelude.seq` Prelude.rnf httpStatus

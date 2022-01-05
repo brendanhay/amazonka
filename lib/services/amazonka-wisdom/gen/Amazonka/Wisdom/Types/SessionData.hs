@@ -107,6 +107,18 @@ instance Core.FromJSON SessionData where
             Prelude.<*> (x Core..: "sessionId")
       )
 
-instance Prelude.Hashable SessionData
+instance Prelude.Hashable SessionData where
+  hashWithSalt _salt SessionData' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sessionArn
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData SessionData
+instance Prelude.NFData SessionData where
+  rnf SessionData' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sessionArn
+      `Prelude.seq` Prelude.rnf sessionId

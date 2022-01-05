@@ -79,9 +79,15 @@ instance Core.FromJSON AwsRedshiftClusterIamRole where
             Prelude.<*> (x Core..:? "ApplyStatus")
       )
 
-instance Prelude.Hashable AwsRedshiftClusterIamRole
+instance Prelude.Hashable AwsRedshiftClusterIamRole where
+  hashWithSalt _salt AwsRedshiftClusterIamRole' {..} =
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` applyStatus
 
-instance Prelude.NFData AwsRedshiftClusterIamRole
+instance Prelude.NFData AwsRedshiftClusterIamRole where
+  rnf AwsRedshiftClusterIamRole' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf applyStatus
 
 instance Core.ToJSON AwsRedshiftClusterIamRole where
   toJSON AwsRedshiftClusterIamRole' {..} =

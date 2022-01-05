@@ -282,6 +282,38 @@ instance Core.FromJSON FaceDetail where
             Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FaceDetail
+instance Prelude.Hashable FaceDetail where
+  hashWithSalt _salt FaceDetail' {..} =
+    _salt `Prelude.hashWithSalt` ageRange
+      `Prelude.hashWithSalt` sunglasses
+      `Prelude.hashWithSalt` mouthOpen
+      `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` emotions
+      `Prelude.hashWithSalt` eyesOpen
+      `Prelude.hashWithSalt` pose
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` quality
+      `Prelude.hashWithSalt` eyeglasses
+      `Prelude.hashWithSalt` beard
+      `Prelude.hashWithSalt` mustache
+      `Prelude.hashWithSalt` smile
+      `Prelude.hashWithSalt` landmarks
 
-instance Prelude.NFData FaceDetail
+instance Prelude.NFData FaceDetail where
+  rnf FaceDetail' {..} =
+    Prelude.rnf ageRange
+      `Prelude.seq` Prelude.rnf sunglasses
+      `Prelude.seq` Prelude.rnf mouthOpen
+      `Prelude.seq` Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf emotions
+      `Prelude.seq` Prelude.rnf eyesOpen
+      `Prelude.seq` Prelude.rnf pose
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf eyeglasses
+      `Prelude.seq` Prelude.rnf beard
+      `Prelude.seq` Prelude.rnf mustache
+      `Prelude.seq` Prelude.rnf smile
+      `Prelude.seq` Prelude.rnf landmarks

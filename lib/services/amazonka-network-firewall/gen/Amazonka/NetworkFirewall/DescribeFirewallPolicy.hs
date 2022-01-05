@@ -116,9 +116,15 @@ instance Core.AWSRequest DescribeFirewallPolicy where
             Prelude.<*> (x Core..:> "FirewallPolicyResponse")
       )
 
-instance Prelude.Hashable DescribeFirewallPolicy
+instance Prelude.Hashable DescribeFirewallPolicy where
+  hashWithSalt _salt DescribeFirewallPolicy' {..} =
+    _salt `Prelude.hashWithSalt` firewallPolicyName
+      `Prelude.hashWithSalt` firewallPolicyArn
 
-instance Prelude.NFData DescribeFirewallPolicy
+instance Prelude.NFData DescribeFirewallPolicy where
+  rnf DescribeFirewallPolicy' {..} =
+    Prelude.rnf firewallPolicyName
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
 
 instance Core.ToHeaders DescribeFirewallPolicy where
   toHeaders =
@@ -256,3 +262,9 @@ describeFirewallPolicyResponse_firewallPolicyResponse = Lens.lens (\DescribeFire
 instance
   Prelude.NFData
     DescribeFirewallPolicyResponse
+  where
+  rnf DescribeFirewallPolicyResponse' {..} =
+    Prelude.rnf firewallPolicy
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallPolicyResponse

@@ -650,9 +650,19 @@ instance Core.FromJSON ByteMatchTuple where
             Prelude.<*> (x Core..: "PositionalConstraint")
       )
 
-instance Prelude.Hashable ByteMatchTuple
+instance Prelude.Hashable ByteMatchTuple where
+  hashWithSalt _salt ByteMatchTuple' {..} =
+    _salt `Prelude.hashWithSalt` fieldToMatch
+      `Prelude.hashWithSalt` targetString
+      `Prelude.hashWithSalt` textTransformation
+      `Prelude.hashWithSalt` positionalConstraint
 
-instance Prelude.NFData ByteMatchTuple
+instance Prelude.NFData ByteMatchTuple where
+  rnf ByteMatchTuple' {..} =
+    Prelude.rnf fieldToMatch
+      `Prelude.seq` Prelude.rnf targetString
+      `Prelude.seq` Prelude.rnf textTransformation
+      `Prelude.seq` Prelude.rnf positionalConstraint
 
 instance Core.ToJSON ByteMatchTuple where
   toJSON ByteMatchTuple' {..} =

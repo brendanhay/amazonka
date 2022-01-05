@@ -116,9 +116,17 @@ instance Core.AWSRequest GetModel where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetModel
+instance Prelude.Hashable GetModel where
+  hashWithSalt _salt GetModel' {..} =
+    _salt `Prelude.hashWithSalt` flatten
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData GetModel
+instance Prelude.NFData GetModel where
+  rnf GetModel' {..} =
+    Prelude.rnf flatten
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf modelName
 
 instance Core.ToHeaders GetModel where
   toHeaders =

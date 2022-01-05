@@ -283,6 +283,53 @@ instance Core.FromJSON Profile where
             Prelude.<*> (x Core..:? "BusinessName")
       )
 
-instance Prelude.Hashable Profile
+instance Prelude.Hashable Profile where
+  hashWithSalt _salt Profile' {..} =
+    _salt `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` mobilePhoneNumber
+      `Prelude.hashWithSalt` mailingAddress
+      `Prelude.hashWithSalt` middleName
+      `Prelude.hashWithSalt` personalEmailAddress
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` additionalInformation
+      `Prelude.hashWithSalt` homePhoneNumber
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` profileId
+      `Prelude.hashWithSalt` businessEmailAddress
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` accountNumber
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` billingAddress
+      `Prelude.hashWithSalt` businessPhoneNumber
+      `Prelude.hashWithSalt` birthDate
+      `Prelude.hashWithSalt` businessName
 
-instance Prelude.NFData Profile
+instance Prelude.NFData Profile where
+  rnf Profile' {..} =
+    Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf mobilePhoneNumber
+      `Prelude.seq` Prelude.rnf mailingAddress
+      `Prelude.seq` Prelude.rnf middleName
+      `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf additionalInformation
+      `Prelude.seq` Prelude.rnf homePhoneNumber
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf partyType
+      `Prelude.seq` Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf businessEmailAddress
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf accountNumber
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf billingAddress
+      `Prelude.seq` Prelude.rnf
+        businessPhoneNumber
+      `Prelude.seq` Prelude.rnf birthDate
+      `Prelude.seq` Prelude.rnf businessName

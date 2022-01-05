@@ -106,10 +106,21 @@ capacityReservationSpecification_capacityReservationPreference = Lens.lens (\Cap
 instance
   Prelude.Hashable
     CapacityReservationSpecification
+  where
+  hashWithSalt
+    _salt
+    CapacityReservationSpecification' {..} =
+      _salt
+        `Prelude.hashWithSalt` capacityReservationTarget
+        `Prelude.hashWithSalt` capacityReservationPreference
 
 instance
   Prelude.NFData
     CapacityReservationSpecification
+  where
+  rnf CapacityReservationSpecification' {..} =
+    Prelude.rnf capacityReservationTarget
+      `Prelude.seq` Prelude.rnf capacityReservationPreference
 
 instance
   Core.ToQuery

@@ -107,9 +107,13 @@ instance Core.AWSRequest GetGameSessionLogUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGameSessionLogUrl
+instance Prelude.Hashable GetGameSessionLogUrl where
+  hashWithSalt _salt GetGameSessionLogUrl' {..} =
+    _salt `Prelude.hashWithSalt` gameSessionId
 
-instance Prelude.NFData GetGameSessionLogUrl
+instance Prelude.NFData GetGameSessionLogUrl where
+  rnf GetGameSessionLogUrl' {..} =
+    Prelude.rnf gameSessionId
 
 instance Core.ToHeaders GetGameSessionLogUrl where
   toHeaders =
@@ -191,4 +195,7 @@ getGameSessionLogUrlResponse_preSignedUrl = Lens.lens (\GetGameSessionLogUrlResp
 getGameSessionLogUrlResponse_httpStatus :: Lens.Lens' GetGameSessionLogUrlResponse Prelude.Int
 getGameSessionLogUrlResponse_httpStatus = Lens.lens (\GetGameSessionLogUrlResponse' {httpStatus} -> httpStatus) (\s@GetGameSessionLogUrlResponse' {} a -> s {httpStatus = a} :: GetGameSessionLogUrlResponse)
 
-instance Prelude.NFData GetGameSessionLogUrlResponse
+instance Prelude.NFData GetGameSessionLogUrlResponse where
+  rnf GetGameSessionLogUrlResponse' {..} =
+    Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf httpStatus

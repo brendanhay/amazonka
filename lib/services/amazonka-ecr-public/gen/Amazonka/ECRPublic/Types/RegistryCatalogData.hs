@@ -71,6 +71,10 @@ instance Core.FromJSON RegistryCatalogData where
             Prelude.<$> (x Core..:? "displayName")
       )
 
-instance Prelude.Hashable RegistryCatalogData
+instance Prelude.Hashable RegistryCatalogData where
+  hashWithSalt _salt RegistryCatalogData' {..} =
+    _salt `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData RegistryCatalogData
+instance Prelude.NFData RegistryCatalogData where
+  rnf RegistryCatalogData' {..} =
+    Prelude.rnf displayName

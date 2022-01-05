@@ -98,9 +98,15 @@ instance Core.AWSRequest NotifyAppValidationOutput where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable NotifyAppValidationOutput
+instance Prelude.Hashable NotifyAppValidationOutput where
+  hashWithSalt _salt NotifyAppValidationOutput' {..} =
+    _salt `Prelude.hashWithSalt` notificationContext
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData NotifyAppValidationOutput
+instance Prelude.NFData NotifyAppValidationOutput where
+  rnf NotifyAppValidationOutput' {..} =
+    Prelude.rnf notificationContext
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders NotifyAppValidationOutput where
   toHeaders =
@@ -166,3 +172,6 @@ notifyAppValidationOutputResponse_httpStatus = Lens.lens (\NotifyAppValidationOu
 instance
   Prelude.NFData
     NotifyAppValidationOutputResponse
+  where
+  rnf NotifyAppValidationOutputResponse' {..} =
+    Prelude.rnf httpStatus

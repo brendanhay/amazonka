@@ -197,9 +197,21 @@ instance Core.AWSRequest GetExecutionHistory where
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetExecutionHistory
+instance Prelude.Hashable GetExecutionHistory where
+  hashWithSalt _salt GetExecutionHistory' {..} =
+    _salt `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` includeExecutionData
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` executionArn
 
-instance Prelude.NFData GetExecutionHistory
+instance Prelude.NFData GetExecutionHistory where
+  rnf GetExecutionHistory' {..} =
+    Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf includeExecutionData
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf executionArn
 
 instance Core.ToHeaders GetExecutionHistory where
   toHeaders =
@@ -298,4 +310,8 @@ getExecutionHistoryResponse_httpStatus = Lens.lens (\GetExecutionHistoryResponse
 getExecutionHistoryResponse_events :: Lens.Lens' GetExecutionHistoryResponse [HistoryEvent]
 getExecutionHistoryResponse_events = Lens.lens (\GetExecutionHistoryResponse' {events} -> events) (\s@GetExecutionHistoryResponse' {} a -> s {events = a} :: GetExecutionHistoryResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetExecutionHistoryResponse
+instance Prelude.NFData GetExecutionHistoryResponse where
+  rnf GetExecutionHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events

@@ -86,9 +86,17 @@ instance Core.FromXML AnalysisScheme where
       Prelude.<*> (x Core..@ "AnalysisSchemeName")
       Prelude.<*> (x Core..@ "AnalysisSchemeLanguage")
 
-instance Prelude.Hashable AnalysisScheme
+instance Prelude.Hashable AnalysisScheme where
+  hashWithSalt _salt AnalysisScheme' {..} =
+    _salt `Prelude.hashWithSalt` analysisOptions
+      `Prelude.hashWithSalt` analysisSchemeName
+      `Prelude.hashWithSalt` analysisSchemeLanguage
 
-instance Prelude.NFData AnalysisScheme
+instance Prelude.NFData AnalysisScheme where
+  rnf AnalysisScheme' {..} =
+    Prelude.rnf analysisOptions
+      `Prelude.seq` Prelude.rnf analysisSchemeName
+      `Prelude.seq` Prelude.rnf analysisSchemeLanguage
 
 instance Core.ToQuery AnalysisScheme where
   toQuery AnalysisScheme' {..} =

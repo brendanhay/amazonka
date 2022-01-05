@@ -116,9 +116,15 @@ instance Core.AWSRequest VerifySMSSandboxPhoneNumber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VerifySMSSandboxPhoneNumber
+instance Prelude.Hashable VerifySMSSandboxPhoneNumber where
+  hashWithSalt _salt VerifySMSSandboxPhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` oneTimePassword
 
-instance Prelude.NFData VerifySMSSandboxPhoneNumber
+instance Prelude.NFData VerifySMSSandboxPhoneNumber where
+  rnf VerifySMSSandboxPhoneNumber' {..} =
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf oneTimePassword
 
 instance Core.ToHeaders VerifySMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,3 +180,6 @@ verifySMSSandboxPhoneNumberResponse_httpStatus = Lens.lens (\VerifySMSSandboxPho
 instance
   Prelude.NFData
     VerifySMSSandboxPhoneNumberResponse
+  where
+  rnf VerifySMSSandboxPhoneNumberResponse' {..} =
+    Prelude.rnf httpStatus

@@ -68,10 +68,20 @@ updateConnectionBasicAuthRequestParameters_password = Lens.lens (\UpdateConnecti
 instance
   Prelude.Hashable
     UpdateConnectionBasicAuthRequestParameters
+  where
+  hashWithSalt
+    _salt
+    UpdateConnectionBasicAuthRequestParameters' {..} =
+      _salt `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` password
 
 instance
   Prelude.NFData
     UpdateConnectionBasicAuthRequestParameters
+  where
+  rnf UpdateConnectionBasicAuthRequestParameters' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToJSON

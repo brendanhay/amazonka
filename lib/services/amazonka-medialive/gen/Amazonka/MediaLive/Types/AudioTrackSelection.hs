@@ -60,9 +60,12 @@ instance Core.FromJSON AudioTrackSelection where
             Prelude.<$> (x Core..:? "tracks" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AudioTrackSelection
+instance Prelude.Hashable AudioTrackSelection where
+  hashWithSalt _salt AudioTrackSelection' {..} =
+    _salt `Prelude.hashWithSalt` tracks
 
-instance Prelude.NFData AudioTrackSelection
+instance Prelude.NFData AudioTrackSelection where
+  rnf AudioTrackSelection' {..} = Prelude.rnf tracks
 
 instance Core.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =

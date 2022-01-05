@@ -103,9 +103,15 @@ instance Core.AWSRequest BatchDeleteGeofence where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDeleteGeofence
+instance Prelude.Hashable BatchDeleteGeofence where
+  hashWithSalt _salt BatchDeleteGeofence' {..} =
+    _salt `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` geofenceIds
 
-instance Prelude.NFData BatchDeleteGeofence
+instance Prelude.NFData BatchDeleteGeofence where
+  rnf BatchDeleteGeofence' {..} =
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf geofenceIds
 
 instance Core.ToHeaders BatchDeleteGeofence where
   toHeaders =
@@ -175,4 +181,7 @@ batchDeleteGeofenceResponse_httpStatus = Lens.lens (\BatchDeleteGeofenceResponse
 batchDeleteGeofenceResponse_errors :: Lens.Lens' BatchDeleteGeofenceResponse [BatchDeleteGeofenceError]
 batchDeleteGeofenceResponse_errors = Lens.lens (\BatchDeleteGeofenceResponse' {errors} -> errors) (\s@BatchDeleteGeofenceResponse' {} a -> s {errors = a} :: BatchDeleteGeofenceResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchDeleteGeofenceResponse
+instance Prelude.NFData BatchDeleteGeofenceResponse where
+  rnf BatchDeleteGeofenceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

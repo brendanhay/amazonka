@@ -106,9 +106,17 @@ instance Core.AWSRequest DeleteArchiveRule where
   response =
     Response.receiveNull DeleteArchiveRuleResponse'
 
-instance Prelude.Hashable DeleteArchiveRule
+instance Prelude.Hashable DeleteArchiveRule where
+  hashWithSalt _salt DeleteArchiveRule' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` analyzerName
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData DeleteArchiveRule
+instance Prelude.NFData DeleteArchiveRule where
+  rnf DeleteArchiveRule' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf analyzerName
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders DeleteArchiveRule where
   toHeaders =
@@ -149,4 +157,5 @@ newDeleteArchiveRuleResponse ::
 newDeleteArchiveRuleResponse =
   DeleteArchiveRuleResponse'
 
-instance Prelude.NFData DeleteArchiveRuleResponse
+instance Prelude.NFData DeleteArchiveRuleResponse where
+  rnf _ = ()

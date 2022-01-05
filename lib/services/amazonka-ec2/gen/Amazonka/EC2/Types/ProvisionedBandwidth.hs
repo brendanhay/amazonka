@@ -146,6 +146,18 @@ instance Core.FromXML ProvisionedBandwidth where
       Prelude.<*> (x Core..@? "requestTime")
       Prelude.<*> (x Core..@? "provisionTime")
 
-instance Prelude.Hashable ProvisionedBandwidth
+instance Prelude.Hashable ProvisionedBandwidth where
+  hashWithSalt _salt ProvisionedBandwidth' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` requested
+      `Prelude.hashWithSalt` provisioned
+      `Prelude.hashWithSalt` requestTime
+      `Prelude.hashWithSalt` provisionTime
 
-instance Prelude.NFData ProvisionedBandwidth
+instance Prelude.NFData ProvisionedBandwidth where
+  rnf ProvisionedBandwidth' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf requested
+      `Prelude.seq` Prelude.rnf provisioned
+      `Prelude.seq` Prelude.rnf requestTime
+      `Prelude.seq` Prelude.rnf provisionTime

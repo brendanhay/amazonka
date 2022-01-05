@@ -170,9 +170,21 @@ instance Core.AWSRequest DetachVolume where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DetachVolume
+instance Prelude.Hashable DetachVolume where
+  hashWithSalt _salt DetachVolume' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData DetachVolume
+instance Prelude.NFData DetachVolume where
+  rnf DetachVolume' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf force
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders DetachVolume where
   toHeaders = Prelude.const Prelude.mempty

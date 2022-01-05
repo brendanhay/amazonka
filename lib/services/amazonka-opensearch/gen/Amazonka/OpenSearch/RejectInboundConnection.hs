@@ -93,9 +93,13 @@ instance Core.AWSRequest RejectInboundConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectInboundConnection
+instance Prelude.Hashable RejectInboundConnection where
+  hashWithSalt _salt RejectInboundConnection' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData RejectInboundConnection
+instance Prelude.NFData RejectInboundConnection where
+  rnf RejectInboundConnection' {..} =
+    Prelude.rnf connectionId
 
 instance Core.ToHeaders RejectInboundConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,3 +163,7 @@ rejectInboundConnectionResponse_httpStatus = Lens.lens (\RejectInboundConnection
 instance
   Prelude.NFData
     RejectInboundConnectionResponse
+  where
+  rnf RejectInboundConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

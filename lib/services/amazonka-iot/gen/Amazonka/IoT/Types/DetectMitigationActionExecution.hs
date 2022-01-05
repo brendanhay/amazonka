@@ -149,7 +149,31 @@ instance
 instance
   Prelude.Hashable
     DetectMitigationActionExecution
+  where
+  hashWithSalt
+    _salt
+    DetectMitigationActionExecution' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` actionName
+        `Prelude.hashWithSalt` violationId
+        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` thingName
+        `Prelude.hashWithSalt` executionStartDate
+        `Prelude.hashWithSalt` executionEndDate
 
 instance
   Prelude.NFData
     DetectMitigationActionExecution
+  where
+  rnf DetectMitigationActionExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf violationId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf executionStartDate
+      `Prelude.seq` Prelude.rnf executionEndDate

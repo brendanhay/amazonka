@@ -77,8 +77,15 @@ instance Core.FromJSON AssessmentReportsDestination where
 instance
   Prelude.Hashable
     AssessmentReportsDestination
+  where
+  hashWithSalt _salt AssessmentReportsDestination' {..} =
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` destinationType
 
-instance Prelude.NFData AssessmentReportsDestination
+instance Prelude.NFData AssessmentReportsDestination where
+  rnf AssessmentReportsDestination' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf destinationType
 
 instance Core.ToJSON AssessmentReportsDestination where
   toJSON AssessmentReportsDestination' {..} =

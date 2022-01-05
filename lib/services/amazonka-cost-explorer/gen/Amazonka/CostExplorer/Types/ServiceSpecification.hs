@@ -67,9 +67,13 @@ instance Core.FromJSON ServiceSpecification where
             Prelude.<$> (x Core..:? "EC2Specification")
       )
 
-instance Prelude.Hashable ServiceSpecification
+instance Prelude.Hashable ServiceSpecification where
+  hashWithSalt _salt ServiceSpecification' {..} =
+    _salt `Prelude.hashWithSalt` eC2Specification
 
-instance Prelude.NFData ServiceSpecification
+instance Prelude.NFData ServiceSpecification where
+  rnf ServiceSpecification' {..} =
+    Prelude.rnf eC2Specification
 
 instance Core.ToJSON ServiceSpecification where
   toJSON ServiceSpecification' {..} =

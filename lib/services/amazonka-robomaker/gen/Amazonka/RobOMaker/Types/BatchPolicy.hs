@@ -104,9 +104,15 @@ instance Core.FromJSON BatchPolicy where
             Prelude.<*> (x Core..:? "maxConcurrency")
       )
 
-instance Prelude.Hashable BatchPolicy
+instance Prelude.Hashable BatchPolicy where
+  hashWithSalt _salt BatchPolicy' {..} =
+    _salt `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` maxConcurrency
 
-instance Prelude.NFData BatchPolicy
+instance Prelude.NFData BatchPolicy where
+  rnf BatchPolicy' {..} =
+    Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf maxConcurrency
 
 instance Core.ToJSON BatchPolicy where
   toJSON BatchPolicy' {..} =

@@ -161,9 +161,17 @@ instance Core.AWSRequest ListFirewalls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFirewalls
+instance Prelude.Hashable ListFirewalls where
+  hashWithSalt _salt ListFirewalls' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` vpcIds
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListFirewalls
+instance Prelude.NFData ListFirewalls where
+  rnf ListFirewalls' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFirewalls where
   toHeaders =
@@ -261,4 +269,8 @@ listFirewallsResponse_firewalls = Lens.lens (\ListFirewallsResponse' {firewalls}
 listFirewallsResponse_httpStatus :: Lens.Lens' ListFirewallsResponse Prelude.Int
 listFirewallsResponse_httpStatus = Lens.lens (\ListFirewallsResponse' {httpStatus} -> httpStatus) (\s@ListFirewallsResponse' {} a -> s {httpStatus = a} :: ListFirewallsResponse)
 
-instance Prelude.NFData ListFirewallsResponse
+instance Prelude.NFData ListFirewallsResponse where
+  rnf ListFirewallsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf firewalls
+      `Prelude.seq` Prelude.rnf httpStatus

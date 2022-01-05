@@ -108,9 +108,15 @@ instance Core.AWSRequest PutSuppressedDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSuppressedDestination
+instance Prelude.Hashable PutSuppressedDestination where
+  hashWithSalt _salt PutSuppressedDestination' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData PutSuppressedDestination
+instance Prelude.NFData PutSuppressedDestination where
+  rnf PutSuppressedDestination' {..} =
+    Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf reason
 
 instance Core.ToHeaders PutSuppressedDestination where
   toHeaders =
@@ -175,3 +181,6 @@ putSuppressedDestinationResponse_httpStatus = Lens.lens (\PutSuppressedDestinati
 instance
   Prelude.NFData
     PutSuppressedDestinationResponse
+  where
+  rnf PutSuppressedDestinationResponse' {..} =
+    Prelude.rnf httpStatus

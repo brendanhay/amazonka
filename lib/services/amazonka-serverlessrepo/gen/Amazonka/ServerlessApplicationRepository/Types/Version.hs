@@ -294,6 +294,26 @@ instance Core.FromJSON Version where
             Prelude.<*> (x Core..: "semanticVersion")
       )
 
-instance Prelude.Hashable Version
+instance Prelude.Hashable Version where
+  hashWithSalt _salt Version' {..} =
+    _salt `Prelude.hashWithSalt` sourceCodeUrl
+      `Prelude.hashWithSalt` sourceCodeArchiveUrl
+      `Prelude.hashWithSalt` templateUrl
+      `Prelude.hashWithSalt` parameterDefinitions
+      `Prelude.hashWithSalt` resourcesSupported
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` requiredCapabilities
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` semanticVersion
 
-instance Prelude.NFData Version
+instance Prelude.NFData Version where
+  rnf Version' {..} =
+    Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf templateUrl
+      `Prelude.seq` Prelude.rnf parameterDefinitions
+      `Prelude.seq` Prelude.rnf resourcesSupported
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf requiredCapabilities
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf semanticVersion

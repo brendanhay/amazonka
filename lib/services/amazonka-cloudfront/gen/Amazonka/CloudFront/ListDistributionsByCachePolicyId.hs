@@ -138,10 +138,22 @@ instance
 instance
   Prelude.Hashable
     ListDistributionsByCachePolicyId
+  where
+  hashWithSalt
+    _salt
+    ListDistributionsByCachePolicyId' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` cachePolicyId
 
 instance
   Prelude.NFData
     ListDistributionsByCachePolicyId
+  where
+  rnf ListDistributionsByCachePolicyId' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf cachePolicyId
 
 instance
   Core.ToHeaders
@@ -209,3 +221,7 @@ listDistributionsByCachePolicyIdResponse_httpStatus = Lens.lens (\ListDistributi
 instance
   Prelude.NFData
     ListDistributionsByCachePolicyIdResponse
+  where
+  rnf ListDistributionsByCachePolicyIdResponse' {..} =
+    Prelude.rnf distributionIdList
+      `Prelude.seq` Prelude.rnf httpStatus

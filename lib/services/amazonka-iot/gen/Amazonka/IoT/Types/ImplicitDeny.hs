@@ -65,6 +65,9 @@ instance Core.FromJSON ImplicitDeny where
             Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ImplicitDeny
+instance Prelude.Hashable ImplicitDeny where
+  hashWithSalt _salt ImplicitDeny' {..} =
+    _salt `Prelude.hashWithSalt` policies
 
-instance Prelude.NFData ImplicitDeny
+instance Prelude.NFData ImplicitDeny where
+  rnf ImplicitDeny' {..} = Prelude.rnf policies

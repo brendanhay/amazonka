@@ -96,9 +96,14 @@ instance Core.AWSRequest GetSamplingTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSamplingTargets
+instance Prelude.Hashable GetSamplingTargets where
+  hashWithSalt _salt GetSamplingTargets' {..} =
+    _salt
+      `Prelude.hashWithSalt` samplingStatisticsDocuments
 
-instance Prelude.NFData GetSamplingTargets
+instance Prelude.NFData GetSamplingTargets where
+  rnf GetSamplingTargets' {..} =
+    Prelude.rnf samplingStatisticsDocuments
 
 instance Core.ToHeaders GetSamplingTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +200,9 @@ getSamplingTargetsResponse_samplingTargetDocuments = Lens.lens (\GetSamplingTarg
 getSamplingTargetsResponse_httpStatus :: Lens.Lens' GetSamplingTargetsResponse Prelude.Int
 getSamplingTargetsResponse_httpStatus = Lens.lens (\GetSamplingTargetsResponse' {httpStatus} -> httpStatus) (\s@GetSamplingTargetsResponse' {} a -> s {httpStatus = a} :: GetSamplingTargetsResponse)
 
-instance Prelude.NFData GetSamplingTargetsResponse
+instance Prelude.NFData GetSamplingTargetsResponse where
+  rnf GetSamplingTargetsResponse' {..} =
+    Prelude.rnf unprocessedStatistics
+      `Prelude.seq` Prelude.rnf lastRuleModification
+      `Prelude.seq` Prelude.rnf samplingTargetDocuments
+      `Prelude.seq` Prelude.rnf httpStatus

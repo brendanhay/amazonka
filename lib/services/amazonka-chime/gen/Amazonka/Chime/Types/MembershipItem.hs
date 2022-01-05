@@ -62,9 +62,15 @@ membershipItem_memberId = Lens.lens (\MembershipItem' {memberId} -> memberId) (\
 membershipItem_role :: Lens.Lens' MembershipItem (Prelude.Maybe RoomMembershipRole)
 membershipItem_role = Lens.lens (\MembershipItem' {role'} -> role') (\s@MembershipItem' {} a -> s {role' = a} :: MembershipItem)
 
-instance Prelude.Hashable MembershipItem
+instance Prelude.Hashable MembershipItem where
+  hashWithSalt _salt MembershipItem' {..} =
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` role'
 
-instance Prelude.NFData MembershipItem
+instance Prelude.NFData MembershipItem where
+  rnf MembershipItem' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf role'
 
 instance Core.ToJSON MembershipItem where
   toJSON MembershipItem' {..} =

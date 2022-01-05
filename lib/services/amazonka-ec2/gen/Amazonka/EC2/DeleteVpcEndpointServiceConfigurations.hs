@@ -118,10 +118,20 @@ instance
 instance
   Prelude.Hashable
     DeleteVpcEndpointServiceConfigurations
+  where
+  hashWithSalt
+    _salt
+    DeleteVpcEndpointServiceConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` serviceIds
 
 instance
   Prelude.NFData
     DeleteVpcEndpointServiceConfigurations
+  where
+  rnf DeleteVpcEndpointServiceConfigurations' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf serviceIds
 
 instance
   Core.ToHeaders
@@ -197,3 +207,8 @@ deleteVpcEndpointServiceConfigurationsResponse_httpStatus = Lens.lens (\DeleteVp
 instance
   Prelude.NFData
     DeleteVpcEndpointServiceConfigurationsResponse
+  where
+  rnf
+    DeleteVpcEndpointServiceConfigurationsResponse' {..} =
+      Prelude.rnf unsuccessful
+        `Prelude.seq` Prelude.rnf httpStatus

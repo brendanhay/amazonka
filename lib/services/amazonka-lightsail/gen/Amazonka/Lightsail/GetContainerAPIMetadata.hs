@@ -71,9 +71,12 @@ instance Core.AWSRequest GetContainerAPIMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerAPIMetadata
+instance Prelude.Hashable GetContainerAPIMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetContainerAPIMetadata
+instance Prelude.NFData GetContainerAPIMetadata where
+  rnf _ = ()
 
 instance Core.ToHeaders GetContainerAPIMetadata where
   toHeaders =
@@ -144,3 +147,7 @@ getContainerAPIMetadataResponse_httpStatus = Lens.lens (\GetContainerAPIMetadata
 instance
   Prelude.NFData
     GetContainerAPIMetadataResponse
+  where
+  rnf GetContainerAPIMetadataResponse' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf httpStatus

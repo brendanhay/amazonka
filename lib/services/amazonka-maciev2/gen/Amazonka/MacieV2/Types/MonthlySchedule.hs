@@ -80,9 +80,12 @@ instance Core.FromJSON MonthlySchedule where
             Prelude.<$> (x Core..:? "dayOfMonth")
       )
 
-instance Prelude.Hashable MonthlySchedule
+instance Prelude.Hashable MonthlySchedule where
+  hashWithSalt _salt MonthlySchedule' {..} =
+    _salt `Prelude.hashWithSalt` dayOfMonth
 
-instance Prelude.NFData MonthlySchedule
+instance Prelude.NFData MonthlySchedule where
+  rnf MonthlySchedule' {..} = Prelude.rnf dayOfMonth
 
 instance Core.ToJSON MonthlySchedule where
   toJSON MonthlySchedule' {..} =

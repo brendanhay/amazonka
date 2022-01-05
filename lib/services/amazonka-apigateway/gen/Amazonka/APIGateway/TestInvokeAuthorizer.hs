@@ -200,9 +200,27 @@ instance Core.AWSRequest TestInvokeAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestInvokeAuthorizer
+instance Prelude.Hashable TestInvokeAuthorizer where
+  hashWithSalt _salt TestInvokeAuthorizer' {..} =
+    _salt `Prelude.hashWithSalt` pathWithQueryString
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` additionalContext
+      `Prelude.hashWithSalt` stageVariables
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` multiValueHeaders
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` authorizerId
 
-instance Prelude.NFData TestInvokeAuthorizer
+instance Prelude.NFData TestInvokeAuthorizer where
+  rnf TestInvokeAuthorizer' {..} =
+    Prelude.rnf pathWithQueryString
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf additionalContext
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf multiValueHeaders
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf authorizerId
 
 instance Core.ToHeaders TestInvokeAuthorizer where
   toHeaders =
@@ -349,4 +367,13 @@ testInvokeAuthorizerResponse_policy = Lens.lens (\TestInvokeAuthorizerResponse' 
 testInvokeAuthorizerResponse_httpStatus :: Lens.Lens' TestInvokeAuthorizerResponse Prelude.Int
 testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {httpStatus = a} :: TestInvokeAuthorizerResponse)
 
-instance Prelude.NFData TestInvokeAuthorizerResponse
+instance Prelude.NFData TestInvokeAuthorizerResponse where
+  rnf TestInvokeAuthorizerResponse' {..} =
+    Prelude.rnf log
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf latency
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf claims
+      `Prelude.seq` Prelude.rnf clientStatus
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

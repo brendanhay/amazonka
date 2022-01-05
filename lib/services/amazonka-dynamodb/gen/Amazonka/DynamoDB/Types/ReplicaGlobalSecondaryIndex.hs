@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -68,9 +69,16 @@ replicaGlobalSecondaryIndex_provisionedThroughputOverride = Lens.lens (\ReplicaG
 replicaGlobalSecondaryIndex_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndex Prelude.Text
 replicaGlobalSecondaryIndex_indexName = Lens.lens (\ReplicaGlobalSecondaryIndex' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndex' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndex)
 
-instance Prelude.Hashable ReplicaGlobalSecondaryIndex
+instance Prelude.Hashable ReplicaGlobalSecondaryIndex where
+  hashWithSalt _salt ReplicaGlobalSecondaryIndex' {..} =
+    _salt
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData ReplicaGlobalSecondaryIndex
+instance Prelude.NFData ReplicaGlobalSecondaryIndex where
+  rnf ReplicaGlobalSecondaryIndex' {..} =
+    Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToJSON ReplicaGlobalSecondaryIndex where
   toJSON ReplicaGlobalSecondaryIndex' {..} =

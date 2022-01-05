@@ -89,6 +89,14 @@ instance Core.FromXML VpcEndpoint where
                   )
       Prelude.<*> (x Core..@? "VpcEndpointId")
 
-instance Prelude.Hashable VpcEndpoint
+instance Prelude.Hashable VpcEndpoint where
+  hashWithSalt _salt VpcEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` vpcEndpointId
 
-instance Prelude.NFData VpcEndpoint
+instance Prelude.NFData VpcEndpoint where
+  rnf VpcEndpoint' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf vpcEndpointId

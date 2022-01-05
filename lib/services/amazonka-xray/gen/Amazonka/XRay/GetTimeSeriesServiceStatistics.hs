@@ -212,10 +212,33 @@ instance
 instance
   Prelude.Hashable
     GetTimeSeriesServiceStatistics
+  where
+  hashWithSalt
+    _salt
+    GetTimeSeriesServiceStatistics' {..} =
+      _salt
+        `Prelude.hashWithSalt` entitySelectorExpression
+        `Prelude.hashWithSalt` period
+        `Prelude.hashWithSalt` forecastStatistics
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` groupARN
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` endTime
 
 instance
   Prelude.NFData
     GetTimeSeriesServiceStatistics
+  where
+  rnf GetTimeSeriesServiceStatistics' {..} =
+    Prelude.rnf entitySelectorExpression
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf forecastStatistics
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupARN
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance
   Core.ToHeaders
@@ -314,3 +337,9 @@ getTimeSeriesServiceStatisticsResponse_httpStatus = Lens.lens (\GetTimeSeriesSer
 instance
   Prelude.NFData
     GetTimeSeriesServiceStatisticsResponse
+  where
+  rnf GetTimeSeriesServiceStatisticsResponse' {..} =
+    Prelude.rnf containsOldGroupVersions
+      `Prelude.seq` Prelude.rnf timeSeriesServiceStatistics
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

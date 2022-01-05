@@ -182,8 +182,20 @@ instance
 instance
   Prelude.Hashable
     ListAutoScalingConfigurations
+  where
+  hashWithSalt _salt ListAutoScalingConfigurations' {..} =
+    _salt
+      `Prelude.hashWithSalt` autoScalingConfigurationName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` latestOnly
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListAutoScalingConfigurations
+instance Prelude.NFData ListAutoScalingConfigurations where
+  rnf ListAutoScalingConfigurations' {..} =
+    Prelude.rnf autoScalingConfigurationName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf latestOnly
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAutoScalingConfigurations where
   toHeaders =
@@ -279,3 +291,8 @@ listAutoScalingConfigurationsResponse_autoScalingConfigurationSummaryList = Lens
 instance
   Prelude.NFData
     ListAutoScalingConfigurationsResponse
+  where
+  rnf ListAutoScalingConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationSummaryList

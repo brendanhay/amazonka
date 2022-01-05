@@ -93,9 +93,15 @@ instance Core.AWSRequest SetTagsForResource where
   response =
     Response.receiveNull SetTagsForResourceResponse'
 
-instance Prelude.Hashable SetTagsForResource
+instance Prelude.Hashable SetTagsForResource where
+  hashWithSalt _salt SetTagsForResource' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData SetTagsForResource
+instance Prelude.NFData SetTagsForResource where
+  rnf SetTagsForResource' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders SetTagsForResource where
   toHeaders =
@@ -142,4 +148,5 @@ newSetTagsForResourceResponse ::
 newSetTagsForResourceResponse =
   SetTagsForResourceResponse'
 
-instance Prelude.NFData SetTagsForResourceResponse
+instance Prelude.NFData SetTagsForResourceResponse where
+  rnf _ = ()

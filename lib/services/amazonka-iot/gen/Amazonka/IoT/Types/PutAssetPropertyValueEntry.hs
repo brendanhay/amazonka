@@ -133,9 +133,21 @@ instance Core.FromJSON PutAssetPropertyValueEntry where
             Prelude.<*> (x Core..: "propertyValues")
       )
 
-instance Prelude.Hashable PutAssetPropertyValueEntry
+instance Prelude.Hashable PutAssetPropertyValueEntry where
+  hashWithSalt _salt PutAssetPropertyValueEntry' {..} =
+    _salt `Prelude.hashWithSalt` entryId
+      `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyValues
 
-instance Prelude.NFData PutAssetPropertyValueEntry
+instance Prelude.NFData PutAssetPropertyValueEntry where
+  rnf PutAssetPropertyValueEntry' {..} =
+    Prelude.rnf entryId
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyValues
 
 instance Core.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =

@@ -200,9 +200,27 @@ instance Core.AWSRequest UpdateContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContent
+instance Prelude.Hashable UpdateContent where
+  hashWithSalt _salt UpdateContent' {..} =
+    _salt `Prelude.hashWithSalt` overrideLinkOutUri
+      `Prelude.hashWithSalt` removeOverrideLinkOutUri
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` contentId
+      `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData UpdateContent
+instance Prelude.NFData UpdateContent where
+  rnf UpdateContent' {..} =
+    Prelude.rnf overrideLinkOutUri
+      `Prelude.seq` Prelude.rnf removeOverrideLinkOutUri
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders UpdateContent where
   toHeaders =
@@ -280,4 +298,7 @@ updateContentResponse_content = Lens.lens (\UpdateContentResponse' {content} -> 
 updateContentResponse_httpStatus :: Lens.Lens' UpdateContentResponse Prelude.Int
 updateContentResponse_httpStatus = Lens.lens (\UpdateContentResponse' {httpStatus} -> httpStatus) (\s@UpdateContentResponse' {} a -> s {httpStatus = a} :: UpdateContentResponse)
 
-instance Prelude.NFData UpdateContentResponse
+instance Prelude.NFData UpdateContentResponse where
+  rnf UpdateContentResponse' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf httpStatus

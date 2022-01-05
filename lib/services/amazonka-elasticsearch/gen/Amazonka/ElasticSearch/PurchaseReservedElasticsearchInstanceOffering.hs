@@ -127,10 +127,23 @@ instance
 instance
   Prelude.Hashable
     PurchaseReservedElasticsearchInstanceOffering
+  where
+  hashWithSalt
+    _salt
+    PurchaseReservedElasticsearchInstanceOffering' {..} =
+      _salt `Prelude.hashWithSalt` instanceCount
+        `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
+        `Prelude.hashWithSalt` reservationName
 
 instance
   Prelude.NFData
     PurchaseReservedElasticsearchInstanceOffering
+  where
+  rnf
+    PurchaseReservedElasticsearchInstanceOffering' {..} =
+      Prelude.rnf instanceCount
+        `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
+        `Prelude.seq` Prelude.rnf reservationName
 
 instance
   Core.ToHeaders
@@ -227,3 +240,9 @@ purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus = Lens.lens (\P
 instance
   Prelude.NFData
     PurchaseReservedElasticsearchInstanceOfferingResponse
+  where
+  rnf
+    PurchaseReservedElasticsearchInstanceOfferingResponse' {..} =
+      Prelude.rnf reservedElasticsearchInstanceId
+        `Prelude.seq` Prelude.rnf reservationName
+        `Prelude.seq` Prelude.rnf httpStatus

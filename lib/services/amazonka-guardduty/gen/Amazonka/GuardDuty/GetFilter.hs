@@ -108,9 +108,15 @@ instance Core.AWSRequest GetFilter where
             Prelude.<*> (x Core..:> "findingCriteria")
       )
 
-instance Prelude.Hashable GetFilter
+instance Prelude.Hashable GetFilter where
+  hashWithSalt _salt GetFilter' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` filterName
 
-instance Prelude.NFData GetFilter
+instance Prelude.NFData GetFilter where
+  rnf GetFilter' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders GetFilter where
   toHeaders =
@@ -237,4 +243,12 @@ getFilterResponse_action = Lens.lens (\GetFilterResponse' {action} -> action) (\
 getFilterResponse_findingCriteria :: Lens.Lens' GetFilterResponse FindingCriteria
 getFilterResponse_findingCriteria = Lens.lens (\GetFilterResponse' {findingCriteria} -> findingCriteria) (\s@GetFilterResponse' {} a -> s {findingCriteria = a} :: GetFilterResponse)
 
-instance Prelude.NFData GetFilterResponse
+instance Prelude.NFData GetFilterResponse where
+  rnf GetFilterResponse' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf findingCriteria

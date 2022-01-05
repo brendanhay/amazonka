@@ -369,9 +369,33 @@ instance Core.AWSRequest DescribeEvaluations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvaluations
+instance Prelude.Hashable DescribeEvaluations where
+  hashWithSalt _salt DescribeEvaluations' {..} =
+    _salt `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` ne
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` filterVariable
+      `Prelude.hashWithSalt` le
 
-instance Prelude.NFData DescribeEvaluations
+instance Prelude.NFData DescribeEvaluations where
+  rnf DescribeEvaluations' {..} =
+    Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf ne
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf filterVariable
+      `Prelude.seq` Prelude.rnf le
 
 instance Core.ToHeaders DescribeEvaluations where
   toHeaders =
@@ -467,4 +491,8 @@ describeEvaluationsResponse_nextToken = Lens.lens (\DescribeEvaluationsResponse'
 describeEvaluationsResponse_httpStatus :: Lens.Lens' DescribeEvaluationsResponse Prelude.Int
 describeEvaluationsResponse_httpStatus = Lens.lens (\DescribeEvaluationsResponse' {httpStatus} -> httpStatus) (\s@DescribeEvaluationsResponse' {} a -> s {httpStatus = a} :: DescribeEvaluationsResponse)
 
-instance Prelude.NFData DescribeEvaluationsResponse
+instance Prelude.NFData DescribeEvaluationsResponse where
+  rnf DescribeEvaluationsResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

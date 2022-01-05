@@ -120,9 +120,19 @@ instance Core.AWSRequest TransferInputDevice' where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TransferInputDevice'
+instance Prelude.Hashable TransferInputDevice' where
+  hashWithSalt _salt TransferInputDevice'' {..} =
+    _salt `Prelude.hashWithSalt` targetRegion
+      `Prelude.hashWithSalt` transferMessage
+      `Prelude.hashWithSalt` targetCustomerId
+      `Prelude.hashWithSalt` inputDeviceId
 
-instance Prelude.NFData TransferInputDevice'
+instance Prelude.NFData TransferInputDevice' where
+  rnf TransferInputDevice'' {..} =
+    Prelude.rnf targetRegion
+      `Prelude.seq` Prelude.rnf transferMessage
+      `Prelude.seq` Prelude.rnf targetCustomerId
+      `Prelude.seq` Prelude.rnf inputDeviceId
 
 instance Core.ToHeaders TransferInputDevice' where
   toHeaders =
@@ -190,4 +200,6 @@ newTransferInputDeviceResponse pHttpStatus_ =
 transferInputDeviceResponse_httpStatus :: Lens.Lens' TransferInputDeviceResponse Prelude.Int
 transferInputDeviceResponse_httpStatus = Lens.lens (\TransferInputDeviceResponse' {httpStatus} -> httpStatus) (\s@TransferInputDeviceResponse' {} a -> s {httpStatus = a} :: TransferInputDeviceResponse)
 
-instance Prelude.NFData TransferInputDeviceResponse
+instance Prelude.NFData TransferInputDeviceResponse where
+  rnf TransferInputDeviceResponse' {..} =
+    Prelude.rnf httpStatus

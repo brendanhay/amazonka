@@ -99,9 +99,13 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVolumeRecoveryPoints
+instance Prelude.Hashable ListVolumeRecoveryPoints where
+  hashWithSalt _salt ListVolumeRecoveryPoints' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ListVolumeRecoveryPoints
+instance Prelude.NFData ListVolumeRecoveryPoints where
+  rnf ListVolumeRecoveryPoints' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders ListVolumeRecoveryPoints where
   toHeaders =
@@ -181,3 +185,8 @@ listVolumeRecoveryPointsResponse_httpStatus = Lens.lens (\ListVolumeRecoveryPoin
 instance
   Prelude.NFData
     ListVolumeRecoveryPointsResponse
+  where
+  rnf ListVolumeRecoveryPointsResponse' {..} =
+    Prelude.rnf volumeRecoveryPointInfos
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

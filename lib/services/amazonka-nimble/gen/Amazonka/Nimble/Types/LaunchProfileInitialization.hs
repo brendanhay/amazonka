@@ -152,6 +152,26 @@ instance Core.FromJSON LaunchProfileInitialization where
                         )
       )
 
-instance Prelude.Hashable LaunchProfileInitialization
+instance Prelude.Hashable LaunchProfileInitialization where
+  hashWithSalt _salt LaunchProfileInitialization' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` activeDirectory
+      `Prelude.hashWithSalt` launchPurpose
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` launchProfileProtocolVersion
+      `Prelude.hashWithSalt` userInitializationScripts
+      `Prelude.hashWithSalt` systemInitializationScripts
 
-instance Prelude.NFData LaunchProfileInitialization
+instance Prelude.NFData LaunchProfileInitialization where
+  rnf LaunchProfileInitialization' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf activeDirectory
+      `Prelude.seq` Prelude.rnf launchPurpose
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersion
+      `Prelude.seq` Prelude.rnf userInitializationScripts
+      `Prelude.seq` Prelude.rnf systemInitializationScripts

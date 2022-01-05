@@ -77,9 +77,12 @@ instance Core.FromJSON S3Config where
             Prelude.<$> (x Core..: "BucketAccessRoleArn")
       )
 
-instance Prelude.Hashable S3Config
+instance Prelude.Hashable S3Config where
+  hashWithSalt _salt S3Config' {..} =
+    _salt `Prelude.hashWithSalt` bucketAccessRoleArn
 
-instance Prelude.NFData S3Config
+instance Prelude.NFData S3Config where
+  rnf S3Config' {..} = Prelude.rnf bucketAccessRoleArn
 
 instance Core.ToJSON S3Config where
   toJSON S3Config' {..} =

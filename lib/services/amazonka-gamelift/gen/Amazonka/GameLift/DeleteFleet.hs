@@ -104,9 +104,12 @@ instance Core.AWSRequest DeleteFleet where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteFleetResponse'
 
-instance Prelude.Hashable DeleteFleet
+instance Prelude.Hashable DeleteFleet where
+  hashWithSalt _salt DeleteFleet' {..} =
+    _salt `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteFleet
+instance Prelude.NFData DeleteFleet where
+  rnf DeleteFleet' {..} = Prelude.rnf fleetId
 
 instance Core.ToHeaders DeleteFleet where
   toHeaders =
@@ -148,4 +151,5 @@ newDeleteFleetResponse ::
   DeleteFleetResponse
 newDeleteFleetResponse = DeleteFleetResponse'
 
-instance Prelude.NFData DeleteFleetResponse
+instance Prelude.NFData DeleteFleetResponse where
+  rnf _ = ()

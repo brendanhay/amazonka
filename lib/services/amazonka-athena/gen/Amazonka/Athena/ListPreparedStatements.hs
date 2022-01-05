@@ -122,9 +122,17 @@ instance Core.AWSRequest ListPreparedStatements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPreparedStatements
+instance Prelude.Hashable ListPreparedStatements where
+  hashWithSalt _salt ListPreparedStatements' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workGroup
 
-instance Prelude.NFData ListPreparedStatements
+instance Prelude.NFData ListPreparedStatements where
+  rnf ListPreparedStatements' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders ListPreparedStatements where
   toHeaders =
@@ -217,3 +225,8 @@ listPreparedStatementsResponse_httpStatus = Lens.lens (\ListPreparedStatementsRe
 instance
   Prelude.NFData
     ListPreparedStatementsResponse
+  where
+  rnf ListPreparedStatementsResponse' {..} =
+    Prelude.rnf preparedStatements
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

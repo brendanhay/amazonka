@@ -198,9 +198,23 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApplicationDateRangeKpi
+instance Prelude.Hashable GetApplicationDateRangeKpi where
+  hashWithSalt _salt GetApplicationDateRangeKpi' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` kpiName
 
-instance Prelude.NFData GetApplicationDateRangeKpi
+instance Prelude.NFData GetApplicationDateRangeKpi where
+  rnf GetApplicationDateRangeKpi' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf kpiName
 
 instance Core.ToHeaders GetApplicationDateRangeKpi where
   toHeaders =
@@ -277,3 +291,7 @@ getApplicationDateRangeKpiResponse_applicationDateRangeKpiResponse = Lens.lens (
 instance
   Prelude.NFData
     GetApplicationDateRangeKpiResponse
+  where
+  rnf GetApplicationDateRangeKpiResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationDateRangeKpiResponse

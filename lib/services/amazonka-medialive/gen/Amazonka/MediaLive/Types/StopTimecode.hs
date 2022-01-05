@@ -85,9 +85,16 @@ instance Core.FromJSON StopTimecode where
             Prelude.<*> (x Core..:? "timecode")
       )
 
-instance Prelude.Hashable StopTimecode
+instance Prelude.Hashable StopTimecode where
+  hashWithSalt _salt StopTimecode' {..} =
+    _salt
+      `Prelude.hashWithSalt` lastFrameClippingBehavior
+      `Prelude.hashWithSalt` timecode
 
-instance Prelude.NFData StopTimecode
+instance Prelude.NFData StopTimecode where
+  rnf StopTimecode' {..} =
+    Prelude.rnf lastFrameClippingBehavior
+      `Prelude.seq` Prelude.rnf timecode
 
 instance Core.ToJSON StopTimecode where
   toJSON StopTimecode' {..} =

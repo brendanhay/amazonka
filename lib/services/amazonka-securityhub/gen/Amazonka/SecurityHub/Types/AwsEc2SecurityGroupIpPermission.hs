@@ -200,10 +200,30 @@ instance
 instance
   Prelude.Hashable
     AwsEc2SecurityGroupIpPermission
+  where
+  hashWithSalt
+    _salt
+    AwsEc2SecurityGroupIpPermission' {..} =
+      _salt `Prelude.hashWithSalt` fromPort
+        `Prelude.hashWithSalt` userIdGroupPairs
+        `Prelude.hashWithSalt` prefixListIds
+        `Prelude.hashWithSalt` ipProtocol
+        `Prelude.hashWithSalt` toPort
+        `Prelude.hashWithSalt` ipv6Ranges
+        `Prelude.hashWithSalt` ipRanges
 
 instance
   Prelude.NFData
     AwsEc2SecurityGroupIpPermission
+  where
+  rnf AwsEc2SecurityGroupIpPermission' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf userIdGroupPairs
+      `Prelude.seq` Prelude.rnf prefixListIds
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf ipv6Ranges
+      `Prelude.seq` Prelude.rnf ipRanges
 
 instance Core.ToJSON AwsEc2SecurityGroupIpPermission where
   toJSON AwsEc2SecurityGroupIpPermission' {..} =

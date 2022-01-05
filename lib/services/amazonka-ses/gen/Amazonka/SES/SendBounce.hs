@@ -185,9 +185,23 @@ instance Core.AWSRequest SendBounce where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendBounce
+instance Prelude.Hashable SendBounce where
+  hashWithSalt _salt SendBounce' {..} =
+    _salt `Prelude.hashWithSalt` messageDsn
+      `Prelude.hashWithSalt` explanation
+      `Prelude.hashWithSalt` bounceSenderArn
+      `Prelude.hashWithSalt` originalMessageId
+      `Prelude.hashWithSalt` bounceSender
+      `Prelude.hashWithSalt` bouncedRecipientInfoList
 
-instance Prelude.NFData SendBounce
+instance Prelude.NFData SendBounce where
+  rnf SendBounce' {..} =
+    Prelude.rnf messageDsn
+      `Prelude.seq` Prelude.rnf explanation
+      `Prelude.seq` Prelude.rnf bounceSenderArn
+      `Prelude.seq` Prelude.rnf originalMessageId
+      `Prelude.seq` Prelude.rnf bounceSender
+      `Prelude.seq` Prelude.rnf bouncedRecipientInfoList
 
 instance Core.ToHeaders SendBounce where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,4 +265,7 @@ sendBounceResponse_messageId = Lens.lens (\SendBounceResponse' {messageId} -> me
 sendBounceResponse_httpStatus :: Lens.Lens' SendBounceResponse Prelude.Int
 sendBounceResponse_httpStatus = Lens.lens (\SendBounceResponse' {httpStatus} -> httpStatus) (\s@SendBounceResponse' {} a -> s {httpStatus = a} :: SendBounceResponse)
 
-instance Prelude.NFData SendBounceResponse
+instance Prelude.NFData SendBounceResponse where
+  rnf SendBounceResponse' {..} =
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf httpStatus

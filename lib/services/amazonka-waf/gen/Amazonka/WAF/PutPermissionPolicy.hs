@@ -140,9 +140,15 @@ instance Core.AWSRequest PutPermissionPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutPermissionPolicy
+instance Prelude.Hashable PutPermissionPolicy where
+  hashWithSalt _salt PutPermissionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutPermissionPolicy
+instance Prelude.NFData PutPermissionPolicy where
+  rnf PutPermissionPolicy' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutPermissionPolicy where
   toHeaders =
@@ -204,4 +210,6 @@ newPutPermissionPolicyResponse pHttpStatus_ =
 putPermissionPolicyResponse_httpStatus :: Lens.Lens' PutPermissionPolicyResponse Prelude.Int
 putPermissionPolicyResponse_httpStatus = Lens.lens (\PutPermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@PutPermissionPolicyResponse' {} a -> s {httpStatus = a} :: PutPermissionPolicyResponse)
 
-instance Prelude.NFData PutPermissionPolicyResponse
+instance Prelude.NFData PutPermissionPolicyResponse where
+  rnf PutPermissionPolicyResponse' {..} =
+    Prelude.rnf httpStatus

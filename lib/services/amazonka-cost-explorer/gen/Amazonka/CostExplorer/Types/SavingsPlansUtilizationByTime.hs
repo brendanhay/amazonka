@@ -116,5 +116,16 @@ instance Core.FromJSON SavingsPlansUtilizationByTime where
 instance
   Prelude.Hashable
     SavingsPlansUtilizationByTime
+  where
+  hashWithSalt _salt SavingsPlansUtilizationByTime' {..} =
+    _salt `Prelude.hashWithSalt` amortizedCommitment
+      `Prelude.hashWithSalt` savings
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` utilization
 
-instance Prelude.NFData SavingsPlansUtilizationByTime
+instance Prelude.NFData SavingsPlansUtilizationByTime where
+  rnf SavingsPlansUtilizationByTime' {..} =
+    Prelude.rnf amortizedCommitment
+      `Prelude.seq` Prelude.rnf savings
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf utilization

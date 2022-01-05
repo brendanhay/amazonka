@@ -169,9 +169,19 @@ instance Core.FromJSON S3DestinationConfiguration where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable S3DestinationConfiguration
+instance Prelude.Hashable S3DestinationConfiguration where
+  hashWithSalt _salt S3DestinationConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` glueConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData S3DestinationConfiguration
+instance Prelude.NFData S3DestinationConfiguration where
+  rnf S3DestinationConfiguration' {..} =
+    Prelude.rnf glueConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =

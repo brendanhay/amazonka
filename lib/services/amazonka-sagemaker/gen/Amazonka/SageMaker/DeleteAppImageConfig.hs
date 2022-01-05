@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteAppImageConfig where
   response =
     Response.receiveNull DeleteAppImageConfigResponse'
 
-instance Prelude.Hashable DeleteAppImageConfig
+instance Prelude.Hashable DeleteAppImageConfig where
+  hashWithSalt _salt DeleteAppImageConfig' {..} =
+    _salt `Prelude.hashWithSalt` appImageConfigName
 
-instance Prelude.NFData DeleteAppImageConfig
+instance Prelude.NFData DeleteAppImageConfig where
+  rnf DeleteAppImageConfig' {..} =
+    Prelude.rnf appImageConfigName
 
 instance Core.ToHeaders DeleteAppImageConfig where
   toHeaders =
@@ -129,4 +133,5 @@ newDeleteAppImageConfigResponse ::
 newDeleteAppImageConfigResponse =
   DeleteAppImageConfigResponse'
 
-instance Prelude.NFData DeleteAppImageConfigResponse
+instance Prelude.NFData DeleteAppImageConfigResponse where
+  rnf _ = ()

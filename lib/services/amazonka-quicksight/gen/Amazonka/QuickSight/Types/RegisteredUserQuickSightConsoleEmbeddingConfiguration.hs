@@ -107,10 +107,19 @@ registeredUserQuickSightConsoleEmbeddingConfiguration_initialPath = Lens.lens (\
 instance
   Prelude.Hashable
     RegisteredUserQuickSightConsoleEmbeddingConfiguration
+  where
+  hashWithSalt
+    _salt
+    RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` initialPath
 
 instance
   Prelude.NFData
     RegisteredUserQuickSightConsoleEmbeddingConfiguration
+  where
+  rnf
+    RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
+      Prelude.rnf initialPath
 
 instance
   Core.ToJSON

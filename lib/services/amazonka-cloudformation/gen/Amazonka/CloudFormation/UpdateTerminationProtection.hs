@@ -117,9 +117,16 @@ instance Core.AWSRequest UpdateTerminationProtection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTerminationProtection
+instance Prelude.Hashable UpdateTerminationProtection where
+  hashWithSalt _salt UpdateTerminationProtection' {..} =
+    _salt
+      `Prelude.hashWithSalt` enableTerminationProtection
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData UpdateTerminationProtection
+instance Prelude.NFData UpdateTerminationProtection where
+  rnf UpdateTerminationProtection' {..} =
+    Prelude.rnf enableTerminationProtection
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders UpdateTerminationProtection where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +190,7 @@ updateTerminationProtectionResponse_httpStatus = Lens.lens (\UpdateTerminationPr
 instance
   Prelude.NFData
     UpdateTerminationProtectionResponse
+  where
+  rnf UpdateTerminationProtectionResponse' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -264,6 +264,38 @@ instance Core.FromJSON Interconnect where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable Interconnect
+instance Prelude.Hashable Interconnect where
+  hashWithSalt _salt Interconnect' {..} =
+    _salt `Prelude.hashWithSalt` lagId
+      `Prelude.hashWithSalt` interconnectId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` interconnectName
+      `Prelude.hashWithSalt` awsDevice
+      `Prelude.hashWithSalt` hasLogicalRedundancy
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` loaIssueTime
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` jumboFrameCapable
+      `Prelude.hashWithSalt` interconnectState
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` awsDeviceV2
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Interconnect
+instance Prelude.NFData Interconnect where
+  rnf Interconnect' {..} =
+    Prelude.rnf lagId
+      `Prelude.seq` Prelude.rnf interconnectId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf interconnectName
+      `Prelude.seq` Prelude.rnf awsDevice
+      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf loaIssueTime
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf jumboFrameCapable
+      `Prelude.seq` Prelude.rnf interconnectState
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf awsDeviceV2
+      `Prelude.seq` Prelude.rnf tags

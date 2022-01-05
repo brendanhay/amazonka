@@ -106,9 +106,15 @@ instance Core.AWSRequest CreateWorkerBlock where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkerBlock
+instance Prelude.Hashable CreateWorkerBlock where
+  hashWithSalt _salt CreateWorkerBlock' {..} =
+    _salt `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData CreateWorkerBlock
+instance Prelude.NFData CreateWorkerBlock where
+  rnf CreateWorkerBlock' {..} =
+    Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf reason
 
 instance Core.ToHeaders CreateWorkerBlock where
   toHeaders =
@@ -170,4 +176,6 @@ newCreateWorkerBlockResponse pHttpStatus_ =
 createWorkerBlockResponse_httpStatus :: Lens.Lens' CreateWorkerBlockResponse Prelude.Int
 createWorkerBlockResponse_httpStatus = Lens.lens (\CreateWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@CreateWorkerBlockResponse' {} a -> s {httpStatus = a} :: CreateWorkerBlockResponse)
 
-instance Prelude.NFData CreateWorkerBlockResponse
+instance Prelude.NFData CreateWorkerBlockResponse where
+  rnf CreateWorkerBlockResponse' {..} =
+    Prelude.rnf httpStatus

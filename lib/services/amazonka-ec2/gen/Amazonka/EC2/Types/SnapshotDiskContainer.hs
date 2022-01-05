@@ -90,9 +90,19 @@ snapshotDiskContainer_userBucket = Lens.lens (\SnapshotDiskContainer' {userBucke
 snapshotDiskContainer_description :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
 snapshotDiskContainer_description = Lens.lens (\SnapshotDiskContainer' {description} -> description) (\s@SnapshotDiskContainer' {} a -> s {description = a} :: SnapshotDiskContainer)
 
-instance Prelude.Hashable SnapshotDiskContainer
+instance Prelude.Hashable SnapshotDiskContainer where
+  hashWithSalt _salt SnapshotDiskContainer' {..} =
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` userBucket
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SnapshotDiskContainer
+instance Prelude.NFData SnapshotDiskContainer where
+  rnf SnapshotDiskContainer' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf userBucket
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =

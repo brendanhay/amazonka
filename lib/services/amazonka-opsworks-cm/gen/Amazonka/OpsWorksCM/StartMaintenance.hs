@@ -135,9 +135,15 @@ instance Core.AWSRequest StartMaintenance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMaintenance
+instance Prelude.Hashable StartMaintenance where
+  hashWithSalt _salt StartMaintenance' {..} =
+    _salt `Prelude.hashWithSalt` engineAttributes
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData StartMaintenance
+instance Prelude.NFData StartMaintenance where
+  rnf StartMaintenance' {..} =
+    Prelude.rnf engineAttributes
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders StartMaintenance where
   toHeaders =
@@ -208,4 +214,7 @@ startMaintenanceResponse_server = Lens.lens (\StartMaintenanceResponse' {server}
 startMaintenanceResponse_httpStatus :: Lens.Lens' StartMaintenanceResponse Prelude.Int
 startMaintenanceResponse_httpStatus = Lens.lens (\StartMaintenanceResponse' {httpStatus} -> httpStatus) (\s@StartMaintenanceResponse' {} a -> s {httpStatus = a} :: StartMaintenanceResponse)
 
-instance Prelude.NFData StartMaintenanceResponse
+instance Prelude.NFData StartMaintenanceResponse where
+  rnf StartMaintenanceResponse' {..} =
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -118,9 +118,15 @@ instance Core.FromJSON EncryptionInTransit where
             Prelude.<*> (x Core..:? "inCluster")
       )
 
-instance Prelude.Hashable EncryptionInTransit
+instance Prelude.Hashable EncryptionInTransit where
+  hashWithSalt _salt EncryptionInTransit' {..} =
+    _salt `Prelude.hashWithSalt` clientBroker
+      `Prelude.hashWithSalt` inCluster
 
-instance Prelude.NFData EncryptionInTransit
+instance Prelude.NFData EncryptionInTransit where
+  rnf EncryptionInTransit' {..} =
+    Prelude.rnf clientBroker
+      `Prelude.seq` Prelude.rnf inCluster
 
 instance Core.ToJSON EncryptionInTransit where
   toJSON EncryptionInTransit' {..} =

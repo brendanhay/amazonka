@@ -1149,9 +1149,126 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreDBInstanceFromS3
+instance Prelude.Hashable RestoreDBInstanceFromS3 where
+  hashWithSalt _salt RestoreDBInstanceFromS3' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` dbSecurityGroups
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
+      `Prelude.hashWithSalt` maxAllocatedStorage
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` useDefaultProcessorFeatures
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` sourceEngine
+      `Prelude.hashWithSalt` sourceEngineVersion
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3IngestionRoleArn
 
-instance Prelude.NFData RestoreDBInstanceFromS3
+instance Prelude.NFData RestoreDBInstanceFromS3 where
+  rnf RestoreDBInstanceFromS3' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf dbSecurityGroups
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        performanceInsightsRetentionPeriod
+      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf
+        enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        dbParameterGroupName
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf
+        availabilityZone
+      `Prelude.seq` Prelude.rnf
+        backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf
+        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf
+        vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf
+        multiAZ
+      `Prelude.seq` Prelude.rnf
+        s3Prefix
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
+      `Prelude.seq` Prelude.rnf
+        optionGroupName
+      `Prelude.seq` Prelude.rnf
+        copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf
+        tags
+      `Prelude.seq` Prelude.rnf
+        port
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        useDefaultProcessorFeatures
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        dbName
+      `Prelude.seq` Prelude.rnf
+        dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
+        dbInstanceClass
+      `Prelude.seq` Prelude.rnf
+        engine
+      `Prelude.seq` Prelude.rnf
+        sourceEngine
+      `Prelude.seq` Prelude.rnf
+        sourceEngineVersion
+      `Prelude.seq` Prelude.rnf
+        s3BucketName
+      `Prelude.seq` Prelude.rnf
+        s3IngestionRoleArn
 
 instance Core.ToHeaders RestoreDBInstanceFromS3 where
   toHeaders = Prelude.const Prelude.mempty
@@ -1280,3 +1397,7 @@ restoreDBInstanceFromS3Response_httpStatus = Lens.lens (\RestoreDBInstanceFromS3
 instance
   Prelude.NFData
     RestoreDBInstanceFromS3Response
+  where
+  rnf RestoreDBInstanceFromS3Response' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

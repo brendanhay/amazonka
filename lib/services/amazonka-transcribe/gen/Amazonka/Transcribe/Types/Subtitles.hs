@@ -50,9 +50,12 @@ newSubtitles = Subtitles' {formats = Prelude.Nothing}
 subtitles_formats :: Lens.Lens' Subtitles (Prelude.Maybe [SubtitleFormat])
 subtitles_formats = Lens.lens (\Subtitles' {formats} -> formats) (\s@Subtitles' {} a -> s {formats = a} :: Subtitles) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Subtitles
+instance Prelude.Hashable Subtitles where
+  hashWithSalt _salt Subtitles' {..} =
+    _salt `Prelude.hashWithSalt` formats
 
-instance Prelude.NFData Subtitles
+instance Prelude.NFData Subtitles where
+  rnf Subtitles' {..} = Prelude.rnf formats
 
 instance Core.ToJSON Subtitles where
   toJSON Subtitles' {..} =

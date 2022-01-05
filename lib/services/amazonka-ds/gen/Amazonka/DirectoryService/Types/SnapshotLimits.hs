@@ -82,6 +82,15 @@ instance Core.FromJSON SnapshotLimits where
             Prelude.<*> (x Core..:? "ManualSnapshotsLimit")
       )
 
-instance Prelude.Hashable SnapshotLimits
+instance Prelude.Hashable SnapshotLimits where
+  hashWithSalt _salt SnapshotLimits' {..} =
+    _salt
+      `Prelude.hashWithSalt` manualSnapshotsLimitReached
+      `Prelude.hashWithSalt` manualSnapshotsCurrentCount
+      `Prelude.hashWithSalt` manualSnapshotsLimit
 
-instance Prelude.NFData SnapshotLimits
+instance Prelude.NFData SnapshotLimits where
+  rnf SnapshotLimits' {..} =
+    Prelude.rnf manualSnapshotsLimitReached
+      `Prelude.seq` Prelude.rnf manualSnapshotsCurrentCount
+      `Prelude.seq` Prelude.rnf manualSnapshotsLimit

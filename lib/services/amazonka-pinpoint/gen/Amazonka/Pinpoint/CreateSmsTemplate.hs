@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateSmsTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateSmsTemplate
+instance Prelude.Hashable CreateSmsTemplate where
+  hashWithSalt _salt CreateSmsTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` sMSTemplateRequest
 
-instance Prelude.NFData CreateSmsTemplate
+instance Prelude.NFData CreateSmsTemplate where
+  rnf CreateSmsTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf sMSTemplateRequest
 
 instance Core.ToHeaders CreateSmsTemplate where
   toHeaders =
@@ -186,4 +192,7 @@ createSmsTemplateResponse_httpStatus = Lens.lens (\CreateSmsTemplateResponse' {h
 createSmsTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateSmsTemplateResponse CreateTemplateMessageBody
 createSmsTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateSmsTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateSmsTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateSmsTemplateResponse)
 
-instance Prelude.NFData CreateSmsTemplateResponse
+instance Prelude.NFData CreateSmsTemplateResponse where
+  rnf CreateSmsTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTemplateMessageBody

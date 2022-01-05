@@ -154,8 +154,19 @@ instance Core.AWSRequest ListMedicalTranscriptionJobs where
 instance
   Prelude.Hashable
     ListMedicalTranscriptionJobs
+  where
+  hashWithSalt _salt ListMedicalTranscriptionJobs' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` jobNameContains
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListMedicalTranscriptionJobs
+instance Prelude.NFData ListMedicalTranscriptionJobs where
+  rnf ListMedicalTranscriptionJobs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobNameContains
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMedicalTranscriptionJobs where
   toHeaders =
@@ -269,3 +280,9 @@ listMedicalTranscriptionJobsResponse_httpStatus = Lens.lens (\ListMedicalTranscr
 instance
   Prelude.NFData
     ListMedicalTranscriptionJobsResponse
+  where
+  rnf ListMedicalTranscriptionJobsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

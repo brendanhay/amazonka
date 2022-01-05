@@ -133,9 +133,19 @@ instance Core.AWSRequest GetColumnStatisticsForTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetColumnStatisticsForTable
+instance Prelude.Hashable GetColumnStatisticsForTable where
+  hashWithSalt _salt GetColumnStatisticsForTable' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` columnNames
 
-instance Prelude.NFData GetColumnStatisticsForTable
+instance Prelude.NFData GetColumnStatisticsForTable where
+  rnf GetColumnStatisticsForTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf columnNames
 
 instance Core.ToHeaders GetColumnStatisticsForTable where
   toHeaders =
@@ -220,3 +230,8 @@ getColumnStatisticsForTableResponse_httpStatus = Lens.lens (\GetColumnStatistics
 instance
   Prelude.NFData
     GetColumnStatisticsForTableResponse
+  where
+  rnf GetColumnStatisticsForTableResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf columnStatisticsList
+      `Prelude.seq` Prelude.rnf httpStatus

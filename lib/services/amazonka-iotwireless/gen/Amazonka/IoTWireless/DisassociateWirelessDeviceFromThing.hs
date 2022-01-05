@@ -90,10 +90,18 @@ instance
 instance
   Prelude.Hashable
     DisassociateWirelessDeviceFromThing
+  where
+  hashWithSalt
+    _salt
+    DisassociateWirelessDeviceFromThing' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DisassociateWirelessDeviceFromThing
+  where
+  rnf DisassociateWirelessDeviceFromThing' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -149,3 +157,6 @@ disassociateWirelessDeviceFromThingResponse_httpStatus = Lens.lens (\Disassociat
 instance
   Prelude.NFData
     DisassociateWirelessDeviceFromThingResponse
+  where
+  rnf DisassociateWirelessDeviceFromThingResponse' {..} =
+    Prelude.rnf httpStatus

@@ -91,9 +91,15 @@ instance Core.AWSRequest DeregisterDevices where
   response =
     Response.receiveNull DeregisterDevicesResponse'
 
-instance Prelude.Hashable DeregisterDevices
+instance Prelude.Hashable DeregisterDevices where
+  hashWithSalt _salt DeregisterDevices' {..} =
+    _salt `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` deviceNames
 
-instance Prelude.NFData DeregisterDevices
+instance Prelude.NFData DeregisterDevices where
+  rnf DeregisterDevices' {..} =
+    Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceNames
 
 instance Core.ToHeaders DeregisterDevices where
   toHeaders =
@@ -141,4 +147,5 @@ newDeregisterDevicesResponse ::
 newDeregisterDevicesResponse =
   DeregisterDevicesResponse'
 
-instance Prelude.NFData DeregisterDevicesResponse
+instance Prelude.NFData DeregisterDevicesResponse where
+  rnf _ = ()

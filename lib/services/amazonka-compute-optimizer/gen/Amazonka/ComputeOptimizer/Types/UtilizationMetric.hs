@@ -406,6 +406,14 @@ instance Core.FromJSON UtilizationMetric where
             Prelude.<*> (x Core..:? "statistic")
       )
 
-instance Prelude.Hashable UtilizationMetric
+instance Prelude.Hashable UtilizationMetric where
+  hashWithSalt _salt UtilizationMetric' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statistic
 
-instance Prelude.NFData UtilizationMetric
+instance Prelude.NFData UtilizationMetric where
+  rnf UtilizationMetric' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statistic

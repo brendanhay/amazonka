@@ -235,9 +235,35 @@ instance Core.AWSRequest CreateImagePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImagePipeline
+instance Prelude.Hashable CreateImagePipeline where
+  hashWithSalt _salt CreateImagePipeline' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` containerRecipeArn
+      `Prelude.hashWithSalt` imageTestsConfiguration
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` enhancedImageMetadataEnabled
+      `Prelude.hashWithSalt` distributionConfigurationArn
+      `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` infrastructureConfigurationArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateImagePipeline
+instance Prelude.NFData CreateImagePipeline where
+  rnf CreateImagePipeline' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf imageTestsConfiguration
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
+      `Prelude.seq` Prelude.rnf distributionConfigurationArn
+      `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateImagePipeline where
   toHeaders =
@@ -343,4 +369,9 @@ createImagePipelineResponse_imagePipelineArn = Lens.lens (\CreateImagePipelineRe
 createImagePipelineResponse_httpStatus :: Lens.Lens' CreateImagePipelineResponse Prelude.Int
 createImagePipelineResponse_httpStatus = Lens.lens (\CreateImagePipelineResponse' {httpStatus} -> httpStatus) (\s@CreateImagePipelineResponse' {} a -> s {httpStatus = a} :: CreateImagePipelineResponse)
 
-instance Prelude.NFData CreateImagePipelineResponse
+instance Prelude.NFData CreateImagePipelineResponse where
+  rnf CreateImagePipelineResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf imagePipelineArn
+      `Prelude.seq` Prelude.rnf httpStatus

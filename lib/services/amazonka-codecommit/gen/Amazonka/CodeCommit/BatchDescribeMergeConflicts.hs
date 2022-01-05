@@ -239,9 +239,31 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
             Prelude.<*> (x Core..:> "sourceCommitId")
       )
 
-instance Prelude.Hashable BatchDescribeMergeConflicts
+instance Prelude.Hashable BatchDescribeMergeConflicts where
+  hashWithSalt _salt BatchDescribeMergeConflicts' {..} =
+    _salt `Prelude.hashWithSalt` filePaths
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxConflictFiles
+      `Prelude.hashWithSalt` maxMergeHunks
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` mergeOption
 
-instance Prelude.NFData BatchDescribeMergeConflicts
+instance Prelude.NFData BatchDescribeMergeConflicts where
+  rnf BatchDescribeMergeConflicts' {..} =
+    Prelude.rnf filePaths
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxConflictFiles
+      `Prelude.seq` Prelude.rnf maxMergeHunks
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf mergeOption
 
 instance Core.ToHeaders BatchDescribeMergeConflicts where
   toHeaders =
@@ -401,3 +423,12 @@ batchDescribeMergeConflictsResponse_sourceCommitId = Lens.lens (\BatchDescribeMe
 instance
   Prelude.NFData
     BatchDescribeMergeConflictsResponse
+  where
+  rnf BatchDescribeMergeConflictsResponse' {..} =
+    Prelude.rnf baseCommitId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf conflicts
+      `Prelude.seq` Prelude.rnf destinationCommitId
+      `Prelude.seq` Prelude.rnf sourceCommitId

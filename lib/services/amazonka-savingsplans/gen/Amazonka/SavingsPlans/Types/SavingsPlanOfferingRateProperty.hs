@@ -77,7 +77,16 @@ instance
 instance
   Prelude.Hashable
     SavingsPlanOfferingRateProperty
+  where
+  hashWithSalt
+    _salt
+    SavingsPlanOfferingRateProperty' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     SavingsPlanOfferingRateProperty
+  where
+  rnf SavingsPlanOfferingRateProperty' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

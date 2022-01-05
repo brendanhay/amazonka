@@ -83,6 +83,14 @@ instance Core.FromJSON InAppMessage where
             Prelude.<*> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InAppMessage
+instance Prelude.Hashable InAppMessage where
+  hashWithSalt _salt InAppMessage' {..} =
+    _salt `Prelude.hashWithSalt` layout
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` customConfig
 
-instance Prelude.NFData InAppMessage
+instance Prelude.NFData InAppMessage where
+  rnf InAppMessage' {..} =
+    Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf customConfig

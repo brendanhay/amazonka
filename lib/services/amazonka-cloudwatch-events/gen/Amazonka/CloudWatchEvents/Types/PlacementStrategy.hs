@@ -109,9 +109,14 @@ instance Core.FromJSON PlacementStrategy where
             Prelude.<$> (x Core..:? "field") Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable PlacementStrategy
+instance Prelude.Hashable PlacementStrategy where
+  hashWithSalt _salt PlacementStrategy' {..} =
+    _salt `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData PlacementStrategy
+instance Prelude.NFData PlacementStrategy where
+  rnf PlacementStrategy' {..} =
+    Prelude.rnf field `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON PlacementStrategy where
   toJSON PlacementStrategy' {..} =

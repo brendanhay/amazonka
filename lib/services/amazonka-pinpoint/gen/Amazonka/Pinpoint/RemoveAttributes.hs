@@ -154,9 +154,17 @@ instance Core.AWSRequest RemoveAttributes where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable RemoveAttributes
+instance Prelude.Hashable RemoveAttributes where
+  hashWithSalt _salt RemoveAttributes' {..} =
+    _salt `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` updateAttributesRequest
 
-instance Prelude.NFData RemoveAttributes
+instance Prelude.NFData RemoveAttributes where
+  rnf RemoveAttributes' {..} =
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf updateAttributesRequest
 
 instance Core.ToHeaders RemoveAttributes where
   toHeaders =
@@ -234,4 +242,7 @@ removeAttributesResponse_httpStatus = Lens.lens (\RemoveAttributesResponse' {htt
 removeAttributesResponse_attributesResource :: Lens.Lens' RemoveAttributesResponse AttributesResource
 removeAttributesResponse_attributesResource = Lens.lens (\RemoveAttributesResponse' {attributesResource} -> attributesResource) (\s@RemoveAttributesResponse' {} a -> s {attributesResource = a} :: RemoveAttributesResponse)
 
-instance Prelude.NFData RemoveAttributesResponse
+instance Prelude.NFData RemoveAttributesResponse where
+  rnf RemoveAttributesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf attributesResource

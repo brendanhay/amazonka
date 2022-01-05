@@ -434,6 +434,40 @@ instance Core.FromXML KeySigningKey where
       Prelude.<*> (x Core..@? "KmsArn")
       Prelude.<*> (x Core..@? "DigestValue")
 
-instance Prelude.Hashable KeySigningKey
+instance Prelude.Hashable KeySigningKey where
+  hashWithSalt _salt KeySigningKey' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` signingAlgorithmMnemonic
+      `Prelude.hashWithSalt` digestAlgorithmMnemonic
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` keyTag
+      `Prelude.hashWithSalt` dNSKEYRecord
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` signingAlgorithmType
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` flag
+      `Prelude.hashWithSalt` digestAlgorithmType
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dSRecord
+      `Prelude.hashWithSalt` kmsArn
+      `Prelude.hashWithSalt` digestValue
 
-instance Prelude.NFData KeySigningKey
+instance Prelude.NFData KeySigningKey where
+  rnf KeySigningKey' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf signingAlgorithmMnemonic
+      `Prelude.seq` Prelude.rnf digestAlgorithmMnemonic
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf keyTag
+      `Prelude.seq` Prelude.rnf dNSKEYRecord
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf signingAlgorithmType
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf flag
+      `Prelude.seq` Prelude.rnf digestAlgorithmType
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dSRecord
+      `Prelude.seq` Prelude.rnf kmsArn
+      `Prelude.seq` Prelude.rnf digestValue

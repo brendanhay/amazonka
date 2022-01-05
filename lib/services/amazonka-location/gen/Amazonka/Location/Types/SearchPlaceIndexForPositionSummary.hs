@@ -130,7 +130,19 @@ instance
 instance
   Prelude.Hashable
     SearchPlaceIndexForPositionSummary
+  where
+  hashWithSalt
+    _salt
+    SearchPlaceIndexForPositionSummary' {..} =
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dataSource
+        `Prelude.hashWithSalt` position
 
 instance
   Prelude.NFData
     SearchPlaceIndexForPositionSummary
+  where
+  rnf SearchPlaceIndexForPositionSummary' {..} =
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf position

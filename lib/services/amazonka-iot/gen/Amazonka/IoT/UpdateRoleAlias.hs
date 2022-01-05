@@ -115,9 +115,18 @@ instance Core.AWSRequest UpdateRoleAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRoleAlias
+instance Prelude.Hashable UpdateRoleAlias where
+  hashWithSalt _salt UpdateRoleAlias' {..} =
+    _salt
+      `Prelude.hashWithSalt` credentialDurationSeconds
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` roleAlias
 
-instance Prelude.NFData UpdateRoleAlias
+instance Prelude.NFData UpdateRoleAlias where
+  rnf UpdateRoleAlias' {..} =
+    Prelude.rnf credentialDurationSeconds
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf roleAlias
 
 instance Core.ToHeaders UpdateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,4 +197,8 @@ updateRoleAliasResponse_roleAlias = Lens.lens (\UpdateRoleAliasResponse' {roleAl
 updateRoleAliasResponse_httpStatus :: Lens.Lens' UpdateRoleAliasResponse Prelude.Int
 updateRoleAliasResponse_httpStatus = Lens.lens (\UpdateRoleAliasResponse' {httpStatus} -> httpStatus) (\s@UpdateRoleAliasResponse' {} a -> s {httpStatus = a} :: UpdateRoleAliasResponse)
 
-instance Prelude.NFData UpdateRoleAliasResponse
+instance Prelude.NFData UpdateRoleAliasResponse where
+  rnf UpdateRoleAliasResponse' {..} =
+    Prelude.rnf roleAliasArn
+      `Prelude.seq` Prelude.rnf roleAlias
+      `Prelude.seq` Prelude.rnf httpStatus

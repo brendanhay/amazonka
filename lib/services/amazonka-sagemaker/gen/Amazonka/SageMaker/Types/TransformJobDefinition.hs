@@ -166,9 +166,25 @@ instance Core.FromJSON TransformJobDefinition where
             Prelude.<*> (x Core..: "TransformResources")
       )
 
-instance Prelude.Hashable TransformJobDefinition
+instance Prelude.Hashable TransformJobDefinition where
+  hashWithSalt _salt TransformJobDefinition' {..} =
+    _salt `Prelude.hashWithSalt` batchStrategy
+      `Prelude.hashWithSalt` maxPayloadInMB
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` maxConcurrentTransforms
+      `Prelude.hashWithSalt` transformInput
+      `Prelude.hashWithSalt` transformOutput
+      `Prelude.hashWithSalt` transformResources
 
-instance Prelude.NFData TransformJobDefinition
+instance Prelude.NFData TransformJobDefinition where
+  rnf TransformJobDefinition' {..} =
+    Prelude.rnf batchStrategy
+      `Prelude.seq` Prelude.rnf maxPayloadInMB
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf maxConcurrentTransforms
+      `Prelude.seq` Prelude.rnf transformInput
+      `Prelude.seq` Prelude.rnf transformOutput
+      `Prelude.seq` Prelude.rnf transformResources
 
 instance Core.ToJSON TransformJobDefinition where
   toJSON TransformJobDefinition' {..} =

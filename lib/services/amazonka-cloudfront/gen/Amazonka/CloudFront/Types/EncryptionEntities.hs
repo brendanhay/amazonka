@@ -79,9 +79,15 @@ instance Core.FromXML EncryptionEntities where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable EncryptionEntities
+instance Prelude.Hashable EncryptionEntities where
+  hashWithSalt _salt EncryptionEntities' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData EncryptionEntities
+instance Prelude.NFData EncryptionEntities where
+  rnf EncryptionEntities' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML EncryptionEntities where
   toXML EncryptionEntities' {..} =

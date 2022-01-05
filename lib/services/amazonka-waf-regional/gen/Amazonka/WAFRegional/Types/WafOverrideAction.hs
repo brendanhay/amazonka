@@ -73,9 +73,12 @@ instance Core.FromJSON WafOverrideAction where
           WafOverrideAction' Prelude.<$> (x Core..: "Type")
       )
 
-instance Prelude.Hashable WafOverrideAction
+instance Prelude.Hashable WafOverrideAction where
+  hashWithSalt _salt WafOverrideAction' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData WafOverrideAction
+instance Prelude.NFData WafOverrideAction where
+  rnf WafOverrideAction' {..} = Prelude.rnf type'
 
 instance Core.ToJSON WafOverrideAction where
   toJSON WafOverrideAction' {..} =

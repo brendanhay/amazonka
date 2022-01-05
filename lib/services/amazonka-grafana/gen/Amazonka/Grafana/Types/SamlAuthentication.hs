@@ -77,6 +77,12 @@ instance Core.FromJSON SamlAuthentication where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable SamlAuthentication
+instance Prelude.Hashable SamlAuthentication where
+  hashWithSalt _salt SamlAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SamlAuthentication
+instance Prelude.NFData SamlAuthentication where
+  rnf SamlAuthentication' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf status

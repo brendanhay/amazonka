@@ -71,6 +71,12 @@ instance Core.FromJSON Disk where
             Prelude.<*> (x Core..:? "bytes")
       )
 
-instance Prelude.Hashable Disk
+instance Prelude.Hashable Disk where
+  hashWithSalt _salt Disk' {..} =
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` bytes
 
-instance Prelude.NFData Disk
+instance Prelude.NFData Disk where
+  rnf Disk' {..} =
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf bytes

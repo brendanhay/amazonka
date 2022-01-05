@@ -100,7 +100,21 @@ instance
 instance
   Prelude.Hashable
     DefaultIntegerHyperParameterRange
+  where
+  hashWithSalt
+    _salt
+    DefaultIntegerHyperParameterRange' {..} =
+      _salt `Prelude.hashWithSalt` maxValue
+        `Prelude.hashWithSalt` isTunable
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` minValue
 
 instance
   Prelude.NFData
     DefaultIntegerHyperParameterRange
+  where
+  rnf DefaultIntegerHyperParameterRange' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minValue

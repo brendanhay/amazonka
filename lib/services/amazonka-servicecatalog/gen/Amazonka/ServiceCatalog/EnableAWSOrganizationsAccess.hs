@@ -82,8 +82,12 @@ instance Core.AWSRequest EnableAWSOrganizationsAccess where
 instance
   Prelude.Hashable
     EnableAWSOrganizationsAccess
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData EnableAWSOrganizationsAccess
+instance Prelude.NFData EnableAWSOrganizationsAccess where
+  rnf _ = ()
 
 instance Core.ToHeaders EnableAWSOrganizationsAccess where
   toHeaders =
@@ -142,3 +146,6 @@ enableAWSOrganizationsAccessResponse_httpStatus = Lens.lens (\EnableAWSOrganizat
 instance
   Prelude.NFData
     EnableAWSOrganizationsAccessResponse
+  where
+  rnf EnableAWSOrganizationsAccessResponse' {..} =
+    Prelude.rnf httpStatus

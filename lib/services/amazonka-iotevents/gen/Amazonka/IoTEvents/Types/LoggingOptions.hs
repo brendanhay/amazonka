@@ -106,9 +106,19 @@ instance Core.FromJSON LoggingOptions where
             Prelude.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable LoggingOptions
+instance Prelude.Hashable LoggingOptions where
+  hashWithSalt _salt LoggingOptions' {..} =
+    _salt `Prelude.hashWithSalt` detectorDebugOptions
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LoggingOptions
+instance Prelude.NFData LoggingOptions where
+  rnf LoggingOptions' {..} =
+    Prelude.rnf detectorDebugOptions
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON LoggingOptions where
   toJSON LoggingOptions' {..} =

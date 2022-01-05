@@ -80,10 +80,18 @@ instance
 instance
   Prelude.Hashable
     AwsApiGatewayEndpointConfiguration
+  where
+  hashWithSalt
+    _salt
+    AwsApiGatewayEndpointConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` types
 
 instance
   Prelude.NFData
     AwsApiGatewayEndpointConfiguration
+  where
+  rnf AwsApiGatewayEndpointConfiguration' {..} =
+    Prelude.rnf types
 
 instance
   Core.ToJSON

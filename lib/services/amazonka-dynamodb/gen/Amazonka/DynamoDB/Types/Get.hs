@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.Get where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,9 +101,19 @@ get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Pr
 get_tableName :: Lens.Lens' Get Prelude.Text
 get_tableName = Lens.lens (\Get' {tableName} -> tableName) (\s@Get' {} a -> s {tableName = a} :: Get)
 
-instance Prelude.Hashable Get
+instance Prelude.Hashable Get where
+  hashWithSalt _salt Get' {..} =
+    _salt `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Get
+instance Prelude.NFData Get where
+  rnf Get' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON Get where
   toJSON Get' {..} =

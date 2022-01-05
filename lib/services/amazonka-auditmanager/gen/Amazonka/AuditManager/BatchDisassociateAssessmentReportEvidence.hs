@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateAssessmentReportEvidence
+  where
+  hashWithSalt
+    _salt
+    BatchDisassociateAssessmentReportEvidence' {..} =
+      _salt `Prelude.hashWithSalt` assessmentId
+        `Prelude.hashWithSalt` evidenceFolderId
+        `Prelude.hashWithSalt` evidenceIds
 
 instance
   Prelude.NFData
     BatchDisassociateAssessmentReportEvidence
+  where
+  rnf BatchDisassociateAssessmentReportEvidence' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf evidenceFolderId
+      `Prelude.seq` Prelude.rnf evidenceIds
 
 instance
   Core.ToHeaders
@@ -229,3 +241,9 @@ batchDisassociateAssessmentReportEvidenceResponse_httpStatus = Lens.lens (\Batch
 instance
   Prelude.NFData
     BatchDisassociateAssessmentReportEvidenceResponse
+  where
+  rnf
+    BatchDisassociateAssessmentReportEvidenceResponse' {..} =
+      Prelude.rnf evidenceIds
+        `Prelude.seq` Prelude.rnf errors
+        `Prelude.seq` Prelude.rnf httpStatus

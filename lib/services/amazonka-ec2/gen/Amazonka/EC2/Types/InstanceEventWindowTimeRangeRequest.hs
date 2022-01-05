@@ -86,10 +86,24 @@ instanceEventWindowTimeRangeRequest_startHour = Lens.lens (\InstanceEventWindowT
 instance
   Prelude.Hashable
     InstanceEventWindowTimeRangeRequest
+  where
+  hashWithSalt
+    _salt
+    InstanceEventWindowTimeRangeRequest' {..} =
+      _salt `Prelude.hashWithSalt` endHour
+        `Prelude.hashWithSalt` endWeekDay
+        `Prelude.hashWithSalt` startWeekDay
+        `Prelude.hashWithSalt` startHour
 
 instance
   Prelude.NFData
     InstanceEventWindowTimeRangeRequest
+  where
+  rnf InstanceEventWindowTimeRangeRequest' {..} =
+    Prelude.rnf endHour
+      `Prelude.seq` Prelude.rnf endWeekDay
+      `Prelude.seq` Prelude.rnf startWeekDay
+      `Prelude.seq` Prelude.rnf startHour
 
 instance
   Core.ToQuery

@@ -448,9 +448,29 @@ instance Core.AWSRequest DescribeDBSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBSnapshots
+instance Prelude.Hashable DescribeDBSnapshots where
+  hashWithSalt _salt DescribeDBSnapshots' {..} =
+    _salt `Prelude.hashWithSalt` includeShared
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` includePublic
+      `Prelude.hashWithSalt` dbiResourceId
 
-instance Prelude.NFData DescribeDBSnapshots
+instance Prelude.NFData DescribeDBSnapshots where
+  rnf DescribeDBSnapshots' {..} =
+    Prelude.rnf includeShared
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf includePublic
+      `Prelude.seq` Prelude.rnf dbiResourceId
 
 instance Core.ToHeaders DescribeDBSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -535,4 +555,8 @@ describeDBSnapshotsResponse_dbSnapshots = Lens.lens (\DescribeDBSnapshotsRespons
 describeDBSnapshotsResponse_httpStatus :: Lens.Lens' DescribeDBSnapshotsResponse Prelude.Int
 describeDBSnapshotsResponse_httpStatus = Lens.lens (\DescribeDBSnapshotsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBSnapshotsResponse' {} a -> s {httpStatus = a} :: DescribeDBSnapshotsResponse)
 
-instance Prelude.NFData DescribeDBSnapshotsResponse
+instance Prelude.NFData DescribeDBSnapshotsResponse where
+  rnf DescribeDBSnapshotsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbSnapshots
+      `Prelude.seq` Prelude.rnf httpStatus

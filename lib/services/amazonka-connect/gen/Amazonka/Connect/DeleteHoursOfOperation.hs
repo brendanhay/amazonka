@@ -97,9 +97,15 @@ instance Core.AWSRequest DeleteHoursOfOperation where
     Response.receiveNull
       DeleteHoursOfOperationResponse'
 
-instance Prelude.Hashable DeleteHoursOfOperation
+instance Prelude.Hashable DeleteHoursOfOperation where
+  hashWithSalt _salt DeleteHoursOfOperation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hoursOfOperationId
 
-instance Prelude.NFData DeleteHoursOfOperation
+instance Prelude.NFData DeleteHoursOfOperation where
+  rnf DeleteHoursOfOperation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
 
 instance Core.ToHeaders DeleteHoursOfOperation where
   toHeaders =
@@ -142,3 +148,5 @@ newDeleteHoursOfOperationResponse =
 instance
   Prelude.NFData
     DeleteHoursOfOperationResponse
+  where
+  rnf _ = ()

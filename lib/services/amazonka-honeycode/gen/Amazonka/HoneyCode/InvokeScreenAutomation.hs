@@ -204,9 +204,25 @@ instance Core.AWSRequest InvokeScreenAutomation where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable InvokeScreenAutomation
+instance Prelude.Hashable InvokeScreenAutomation where
+  hashWithSalt _salt InvokeScreenAutomation' {..} =
+    _salt `Prelude.hashWithSalt` rowId
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` screenId
+      `Prelude.hashWithSalt` screenAutomationId
 
-instance Prelude.NFData InvokeScreenAutomation
+instance Prelude.NFData InvokeScreenAutomation where
+  rnf InvokeScreenAutomation' {..} =
+    Prelude.rnf rowId
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf screenId
+      `Prelude.seq` Prelude.rnf screenAutomationId
 
 instance Core.ToHeaders InvokeScreenAutomation where
   toHeaders =
@@ -292,3 +308,7 @@ invokeScreenAutomationResponse_workbookCursor = Lens.lens (\InvokeScreenAutomati
 instance
   Prelude.NFData
     InvokeScreenAutomationResponse
+  where
+  rnf InvokeScreenAutomationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workbookCursor

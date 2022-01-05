@@ -75,6 +75,12 @@ instance Core.FromJSON ComplianceByConfigRule where
             Prelude.<*> (x Core..:? "ConfigRuleName")
       )
 
-instance Prelude.Hashable ComplianceByConfigRule
+instance Prelude.Hashable ComplianceByConfigRule where
+  hashWithSalt _salt ComplianceByConfigRule' {..} =
+    _salt `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData ComplianceByConfigRule
+instance Prelude.NFData ComplianceByConfigRule where
+  rnf ComplianceByConfigRule' {..} =
+    Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf configRuleName

@@ -99,6 +99,14 @@ instance Core.FromXML FieldLevelEncryption where
       Prelude.<*> (x Core..@ "LastModifiedTime")
       Prelude.<*> (x Core..@ "FieldLevelEncryptionConfig")
 
-instance Prelude.Hashable FieldLevelEncryption
+instance Prelude.Hashable FieldLevelEncryption where
+  hashWithSalt _salt FieldLevelEncryption' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` fieldLevelEncryptionConfig
 
-instance Prelude.NFData FieldLevelEncryption
+instance Prelude.NFData FieldLevelEncryption where
+  rnf FieldLevelEncryption' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionConfig

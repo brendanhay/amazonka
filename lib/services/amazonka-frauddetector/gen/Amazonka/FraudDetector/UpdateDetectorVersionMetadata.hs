@@ -121,8 +121,17 @@ instance
 instance
   Prelude.Hashable
     UpdateDetectorVersionMetadata
+  where
+  hashWithSalt _salt UpdateDetectorVersionMetadata' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateDetectorVersionMetadata
+instance Prelude.NFData UpdateDetectorVersionMetadata where
+  rnf UpdateDetectorVersionMetadata' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf detectorVersionId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateDetectorVersionMetadata where
   toHeaders =
@@ -189,3 +198,6 @@ updateDetectorVersionMetadataResponse_httpStatus = Lens.lens (\UpdateDetectorVer
 instance
   Prelude.NFData
     UpdateDetectorVersionMetadataResponse
+  where
+  rnf UpdateDetectorVersionMetadataResponse' {..} =
+    Prelude.rnf httpStatus

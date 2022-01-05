@@ -71,9 +71,15 @@ instance Core.FromXML Expression where
       Prelude.<$> (x Core..@ "ExpressionName")
       Prelude.<*> (x Core..@ "ExpressionValue")
 
-instance Prelude.Hashable Expression
+instance Prelude.Hashable Expression where
+  hashWithSalt _salt Expression' {..} =
+    _salt `Prelude.hashWithSalt` expressionName
+      `Prelude.hashWithSalt` expressionValue
 
-instance Prelude.NFData Expression
+instance Prelude.NFData Expression where
+  rnf Expression' {..} =
+    Prelude.rnf expressionName
+      `Prelude.seq` Prelude.rnf expressionValue
 
 instance Core.ToQuery Expression where
   toQuery Expression' {..} =

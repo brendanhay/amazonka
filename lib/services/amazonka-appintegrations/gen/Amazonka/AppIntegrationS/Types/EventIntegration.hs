@@ -112,6 +112,20 @@ instance Core.FromJSON EventIntegration where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EventIntegration
+instance Prelude.Hashable EventIntegration where
+  hashWithSalt _salt EventIntegration' {..} =
+    _salt `Prelude.hashWithSalt` eventBridgeBus
+      `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` eventIntegrationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData EventIntegration
+instance Prelude.NFData EventIntegration where
+  rnf EventIntegration' {..} =
+    Prelude.rnf eventBridgeBus
+      `Prelude.seq` Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf eventIntegrationArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

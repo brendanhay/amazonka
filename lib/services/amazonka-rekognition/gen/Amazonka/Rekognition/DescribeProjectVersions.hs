@@ -186,9 +186,19 @@ instance Core.AWSRequest DescribeProjectVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProjectVersions
+instance Prelude.Hashable DescribeProjectVersions where
+  hashWithSalt _salt DescribeProjectVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` versionNames
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` projectArn
 
-instance Prelude.NFData DescribeProjectVersions
+instance Prelude.NFData DescribeProjectVersions where
+  rnf DescribeProjectVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionNames
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf projectArn
 
 instance Core.ToHeaders DescribeProjectVersions where
   toHeaders =
@@ -286,3 +296,8 @@ describeProjectVersionsResponse_httpStatus = Lens.lens (\DescribeProjectVersions
 instance
   Prelude.NFData
     DescribeProjectVersionsResponse
+  where
+  rnf DescribeProjectVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projectVersionDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

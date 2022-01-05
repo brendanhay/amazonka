@@ -64,9 +64,15 @@ redshiftDatabaseCredentials_username = Lens.lens (\RedshiftDatabaseCredentials' 
 redshiftDatabaseCredentials_password :: Lens.Lens' RedshiftDatabaseCredentials Prelude.Text
 redshiftDatabaseCredentials_password = Lens.lens (\RedshiftDatabaseCredentials' {password} -> password) (\s@RedshiftDatabaseCredentials' {} a -> s {password = a} :: RedshiftDatabaseCredentials)
 
-instance Prelude.Hashable RedshiftDatabaseCredentials
+instance Prelude.Hashable RedshiftDatabaseCredentials where
+  hashWithSalt _salt RedshiftDatabaseCredentials' {..} =
+    _salt `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData RedshiftDatabaseCredentials
+instance Prelude.NFData RedshiftDatabaseCredentials where
+  rnf RedshiftDatabaseCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON RedshiftDatabaseCredentials where
   toJSON RedshiftDatabaseCredentials' {..} =

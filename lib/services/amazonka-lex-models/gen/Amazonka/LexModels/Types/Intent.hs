@@ -75,9 +75,15 @@ instance Core.FromJSON Intent where
             Prelude.<*> (x Core..: "intentVersion")
       )
 
-instance Prelude.Hashable Intent
+instance Prelude.Hashable Intent where
+  hashWithSalt _salt Intent' {..} =
+    _salt `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` intentVersion
 
-instance Prelude.NFData Intent
+instance Prelude.NFData Intent where
+  rnf Intent' {..} =
+    Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf intentVersion
 
 instance Core.ToJSON Intent where
   toJSON Intent' {..} =

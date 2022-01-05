@@ -122,9 +122,15 @@ scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scaling
 scalingProcessQuery_autoScalingGroupName :: Lens.Lens' ScalingProcessQuery Prelude.Text
 scalingProcessQuery_autoScalingGroupName = Lens.lens (\ScalingProcessQuery' {autoScalingGroupName} -> autoScalingGroupName) (\s@ScalingProcessQuery' {} a -> s {autoScalingGroupName = a} :: ScalingProcessQuery)
 
-instance Prelude.Hashable ScalingProcessQuery
+instance Prelude.Hashable ScalingProcessQuery where
+  hashWithSalt _salt ScalingProcessQuery' {..} =
+    _salt `Prelude.hashWithSalt` scalingProcesses
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData ScalingProcessQuery
+instance Prelude.NFData ScalingProcessQuery where
+  rnf ScalingProcessQuery' {..} =
+    Prelude.rnf scalingProcesses
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToQuery ScalingProcessQuery where
   toQuery ScalingProcessQuery' {..} =

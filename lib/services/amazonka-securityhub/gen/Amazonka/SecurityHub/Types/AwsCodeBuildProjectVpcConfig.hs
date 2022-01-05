@@ -87,8 +87,17 @@ instance Core.FromJSON AwsCodeBuildProjectVpcConfig where
 instance
   Prelude.Hashable
     AwsCodeBuildProjectVpcConfig
+  where
+  hashWithSalt _salt AwsCodeBuildProjectVpcConfig' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnets
 
-instance Prelude.NFData AwsCodeBuildProjectVpcConfig
+instance Prelude.NFData AwsCodeBuildProjectVpcConfig where
+  rnf AwsCodeBuildProjectVpcConfig' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToJSON AwsCodeBuildProjectVpcConfig where
   toJSON AwsCodeBuildProjectVpcConfig' {..} =

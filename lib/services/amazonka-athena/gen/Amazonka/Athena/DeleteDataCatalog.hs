@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteDataCatalog where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataCatalog
+instance Prelude.Hashable DeleteDataCatalog where
+  hashWithSalt _salt DeleteDataCatalog' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteDataCatalog
+instance Prelude.NFData DeleteDataCatalog where
+  rnf DeleteDataCatalog' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteDataCatalog where
   toHeaders =
@@ -146,4 +149,6 @@ newDeleteDataCatalogResponse pHttpStatus_ =
 deleteDataCatalogResponse_httpStatus :: Lens.Lens' DeleteDataCatalogResponse Prelude.Int
 deleteDataCatalogResponse_httpStatus = Lens.lens (\DeleteDataCatalogResponse' {httpStatus} -> httpStatus) (\s@DeleteDataCatalogResponse' {} a -> s {httpStatus = a} :: DeleteDataCatalogResponse)
 
-instance Prelude.NFData DeleteDataCatalogResponse
+instance Prelude.NFData DeleteDataCatalogResponse where
+  rnf DeleteDataCatalogResponse' {..} =
+    Prelude.rnf httpStatus

@@ -232,6 +232,38 @@ instance Core.FromJSON Finding where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable Finding
+instance Prelude.Hashable Finding where
+  hashWithSalt _salt Finding' {..} =
+    _salt `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` partition
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData Finding
+instance Prelude.NFData Finding where
+  rnf Finding' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf partition
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf updatedAt

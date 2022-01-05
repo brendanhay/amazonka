@@ -98,6 +98,16 @@ instance Core.FromJSON Credentials where
             Prelude.<*> (x Core..:? "RefreshTokenExpiration")
       )
 
-instance Prelude.Hashable Credentials
+instance Prelude.Hashable Credentials where
+  hashWithSalt _salt Credentials' {..} =
+    _salt `Prelude.hashWithSalt` accessTokenExpiration
+      `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` refreshTokenExpiration
 
-instance Prelude.NFData Credentials
+instance Prelude.NFData Credentials where
+  rnf Credentials' {..} =
+    Prelude.rnf accessTokenExpiration
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf refreshTokenExpiration

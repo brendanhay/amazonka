@@ -129,9 +129,21 @@ instance Core.FromJSON AwsElbLoadBalancerListener where
             Prelude.<*> (x Core..:? "SslCertificateId")
       )
 
-instance Prelude.Hashable AwsElbLoadBalancerListener
+instance Prelude.Hashable AwsElbLoadBalancerListener where
+  hashWithSalt _salt AwsElbLoadBalancerListener' {..} =
+    _salt `Prelude.hashWithSalt` instanceProtocol
+      `Prelude.hashWithSalt` instancePort
+      `Prelude.hashWithSalt` loadBalancerPort
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` sslCertificateId
 
-instance Prelude.NFData AwsElbLoadBalancerListener
+instance Prelude.NFData AwsElbLoadBalancerListener where
+  rnf AwsElbLoadBalancerListener' {..} =
+    Prelude.rnf instanceProtocol
+      `Prelude.seq` Prelude.rnf instancePort
+      `Prelude.seq` Prelude.rnf loadBalancerPort
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf sslCertificateId
 
 instance Core.ToJSON AwsElbLoadBalancerListener where
   toJSON AwsElbLoadBalancerListener' {..} =

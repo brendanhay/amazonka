@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteKnownHostKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteKnownHostKeys
+instance Prelude.Hashable DeleteKnownHostKeys where
+  hashWithSalt _salt DeleteKnownHostKeys' {..} =
+    _salt `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData DeleteKnownHostKeys
+instance Prelude.NFData DeleteKnownHostKeys where
+  rnf DeleteKnownHostKeys' {..} =
+    Prelude.rnf instanceName
 
 instance Core.ToHeaders DeleteKnownHostKeys where
   toHeaders =
@@ -174,4 +178,7 @@ deleteKnownHostKeysResponse_operations = Lens.lens (\DeleteKnownHostKeysResponse
 deleteKnownHostKeysResponse_httpStatus :: Lens.Lens' DeleteKnownHostKeysResponse Prelude.Int
 deleteKnownHostKeysResponse_httpStatus = Lens.lens (\DeleteKnownHostKeysResponse' {httpStatus} -> httpStatus) (\s@DeleteKnownHostKeysResponse' {} a -> s {httpStatus = a} :: DeleteKnownHostKeysResponse)
 
-instance Prelude.NFData DeleteKnownHostKeysResponse
+instance Prelude.NFData DeleteKnownHostKeysResponse where
+  rnf DeleteKnownHostKeysResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

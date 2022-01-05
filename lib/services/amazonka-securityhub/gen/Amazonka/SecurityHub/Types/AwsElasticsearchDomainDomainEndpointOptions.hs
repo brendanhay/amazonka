@@ -101,10 +101,20 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainDomainEndpointOptions
+  where
+  hashWithSalt
+    _salt
+    AwsElasticsearchDomainDomainEndpointOptions' {..} =
+      _salt `Prelude.hashWithSalt` enforceHTTPS
+        `Prelude.hashWithSalt` tLSSecurityPolicy
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainDomainEndpointOptions
+  where
+  rnf AwsElasticsearchDomainDomainEndpointOptions' {..} =
+    Prelude.rnf enforceHTTPS
+      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
 
 instance
   Core.ToJSON

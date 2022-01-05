@@ -78,9 +78,17 @@ associationExecutionFilter_value = Lens.lens (\AssociationExecutionFilter' {valu
 associationExecutionFilter_type :: Lens.Lens' AssociationExecutionFilter AssociationFilterOperatorType
 associationExecutionFilter_type = Lens.lens (\AssociationExecutionFilter' {type'} -> type') (\s@AssociationExecutionFilter' {} a -> s {type' = a} :: AssociationExecutionFilter)
 
-instance Prelude.Hashable AssociationExecutionFilter
+instance Prelude.Hashable AssociationExecutionFilter where
+  hashWithSalt _salt AssociationExecutionFilter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AssociationExecutionFilter
+instance Prelude.NFData AssociationExecutionFilter where
+  rnf AssociationExecutionFilter' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON AssociationExecutionFilter where
   toJSON AssociationExecutionFilter' {..} =

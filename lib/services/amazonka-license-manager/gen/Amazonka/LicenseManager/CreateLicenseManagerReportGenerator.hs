@@ -190,10 +190,30 @@ instance
 instance
   Prelude.Hashable
     CreateLicenseManagerReportGenerator
+  where
+  hashWithSalt
+    _salt
+    CreateLicenseManagerReportGenerator' {..} =
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` reportGeneratorName
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` reportContext
+        `Prelude.hashWithSalt` reportFrequency
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     CreateLicenseManagerReportGenerator
+  where
+  rnf CreateLicenseManagerReportGenerator' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reportGeneratorName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf reportContext
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance
   Core.ToHeaders
@@ -287,3 +307,7 @@ createLicenseManagerReportGeneratorResponse_httpStatus = Lens.lens (\CreateLicen
 instance
   Prelude.NFData
     CreateLicenseManagerReportGeneratorResponse
+  where
+  rnf CreateLicenseManagerReportGeneratorResponse' {..} =
+    Prelude.rnf licenseManagerReportGeneratorArn
+      `Prelude.seq` Prelude.rnf httpStatus

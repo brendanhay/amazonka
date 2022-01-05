@@ -74,6 +74,13 @@ instance Core.FromJSON RecommendationSource where
             Prelude.<*> (x Core..:? "recommendationSourceType")
       )
 
-instance Prelude.Hashable RecommendationSource
+instance Prelude.Hashable RecommendationSource where
+  hashWithSalt _salt RecommendationSource' {..} =
+    _salt
+      `Prelude.hashWithSalt` recommendationSourceArn
+      `Prelude.hashWithSalt` recommendationSourceType
 
-instance Prelude.NFData RecommendationSource
+instance Prelude.NFData RecommendationSource where
+  rnf RecommendationSource' {..} =
+    Prelude.rnf recommendationSourceArn
+      `Prelude.seq` Prelude.rnf recommendationSourceType

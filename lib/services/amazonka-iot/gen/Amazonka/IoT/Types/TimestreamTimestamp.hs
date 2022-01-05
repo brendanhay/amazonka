@@ -87,9 +87,14 @@ instance Core.FromJSON TimestreamTimestamp where
             Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "unit")
       )
 
-instance Prelude.Hashable TimestreamTimestamp
+instance Prelude.Hashable TimestreamTimestamp where
+  hashWithSalt _salt TimestreamTimestamp' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData TimestreamTimestamp
+instance Prelude.NFData TimestreamTimestamp where
+  rnf TimestreamTimestamp' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON TimestreamTimestamp where
   toJSON TimestreamTimestamp' {..} =

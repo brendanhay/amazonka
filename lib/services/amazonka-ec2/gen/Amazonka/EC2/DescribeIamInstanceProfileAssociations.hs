@@ -177,10 +177,24 @@ instance
 instance
   Prelude.Hashable
     DescribeIamInstanceProfileAssociations
+  where
+  hashWithSalt
+    _salt
+    DescribeIamInstanceProfileAssociations' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` associationIds
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeIamInstanceProfileAssociations
+  where
+  rnf DescribeIamInstanceProfileAssociations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf associationIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -271,3 +285,9 @@ describeIamInstanceProfileAssociationsResponse_httpStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeIamInstanceProfileAssociationsResponse
+  where
+  rnf
+    DescribeIamInstanceProfileAssociationsResponse' {..} =
+      Prelude.rnf iamInstanceProfileAssociations
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

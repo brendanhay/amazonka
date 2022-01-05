@@ -101,10 +101,22 @@ instance
 instance
   Prelude.Hashable
     DNISEmergencyCallingConfiguration
+  where
+  hashWithSalt
+    _salt
+    DNISEmergencyCallingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` testPhoneNumber
+        `Prelude.hashWithSalt` emergencyPhoneNumber
+        `Prelude.hashWithSalt` callingCountry
 
 instance
   Prelude.NFData
     DNISEmergencyCallingConfiguration
+  where
+  rnf DNISEmergencyCallingConfiguration' {..} =
+    Prelude.rnf testPhoneNumber
+      `Prelude.seq` Prelude.rnf emergencyPhoneNumber
+      `Prelude.seq` Prelude.rnf callingCountry
 
 instance
   Core.ToJSON

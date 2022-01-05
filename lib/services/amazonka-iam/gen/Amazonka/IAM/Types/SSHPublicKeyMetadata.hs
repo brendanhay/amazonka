@@ -116,6 +116,16 @@ instance Core.FromXML SSHPublicKeyMetadata where
       Prelude.<*> (x Core..@ "Status")
       Prelude.<*> (x Core..@ "UploadDate")
 
-instance Prelude.Hashable SSHPublicKeyMetadata
+instance Prelude.Hashable SSHPublicKeyMetadata where
+  hashWithSalt _salt SSHPublicKeyMetadata' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` sSHPublicKeyId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` uploadDate
 
-instance Prelude.NFData SSHPublicKeyMetadata
+instance Prelude.NFData SSHPublicKeyMetadata where
+  rnf SSHPublicKeyMetadata' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf sSHPublicKeyId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf uploadDate

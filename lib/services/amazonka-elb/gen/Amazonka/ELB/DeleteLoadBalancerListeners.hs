@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteLoadBalancerListeners where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoadBalancerListeners
+instance Prelude.Hashable DeleteLoadBalancerListeners where
+  hashWithSalt _salt DeleteLoadBalancerListeners' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` loadBalancerPorts
 
-instance Prelude.NFData DeleteLoadBalancerListeners
+instance Prelude.NFData DeleteLoadBalancerListeners where
+  rnf DeleteLoadBalancerListeners' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf loadBalancerPorts
 
 instance Core.ToHeaders DeleteLoadBalancerListeners where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,3 +165,6 @@ deleteLoadBalancerListenersResponse_httpStatus = Lens.lens (\DeleteLoadBalancerL
 instance
   Prelude.NFData
     DeleteLoadBalancerListenersResponse
+  where
+  rnf DeleteLoadBalancerListenersResponse' {..} =
+    Prelude.rnf httpStatus

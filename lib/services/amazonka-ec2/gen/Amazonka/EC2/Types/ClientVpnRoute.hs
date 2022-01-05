@@ -131,6 +131,22 @@ instance Core.FromXML ClientVpnRoute where
       Prelude.<*> (x Core..@? "type")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable ClientVpnRoute
+instance Prelude.Hashable ClientVpnRoute where
+  hashWithSalt _salt ClientVpnRoute' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` targetSubnet
+      `Prelude.hashWithSalt` destinationCidr
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ClientVpnRoute
+instance Prelude.NFData ClientVpnRoute where
+  rnf ClientVpnRoute' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf targetSubnet
+      `Prelude.seq` Prelude.rnf destinationCidr
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

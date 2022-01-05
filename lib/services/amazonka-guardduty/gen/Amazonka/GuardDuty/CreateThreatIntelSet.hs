@@ -179,9 +179,25 @@ instance Core.AWSRequest CreateThreatIntelSet where
             Prelude.<*> (x Core..:> "threatIntelSetId")
       )
 
-instance Prelude.Hashable CreateThreatIntelSet
+instance Prelude.Hashable CreateThreatIntelSet where
+  hashWithSalt _salt CreateThreatIntelSet' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` activate
 
-instance Prelude.NFData CreateThreatIntelSet
+instance Prelude.NFData CreateThreatIntelSet where
+  rnf CreateThreatIntelSet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf activate
 
 instance Core.ToHeaders CreateThreatIntelSet where
   toHeaders =
@@ -261,4 +277,7 @@ createThreatIntelSetResponse_httpStatus = Lens.lens (\CreateThreatIntelSetRespon
 createThreatIntelSetResponse_threatIntelSetId :: Lens.Lens' CreateThreatIntelSetResponse Prelude.Text
 createThreatIntelSetResponse_threatIntelSetId = Lens.lens (\CreateThreatIntelSetResponse' {threatIntelSetId} -> threatIntelSetId) (\s@CreateThreatIntelSetResponse' {} a -> s {threatIntelSetId = a} :: CreateThreatIntelSetResponse)
 
-instance Prelude.NFData CreateThreatIntelSetResponse
+instance Prelude.NFData CreateThreatIntelSetResponse where
+  rnf CreateThreatIntelSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf threatIntelSetId

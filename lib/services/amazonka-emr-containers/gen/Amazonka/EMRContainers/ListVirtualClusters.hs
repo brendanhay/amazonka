@@ -182,9 +182,25 @@ instance Core.AWSRequest ListVirtualClusters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVirtualClusters
+instance Prelude.Hashable ListVirtualClusters where
+  hashWithSalt _salt ListVirtualClusters' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` containerProviderType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` containerProviderId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdBefore
 
-instance Prelude.NFData ListVirtualClusters
+instance Prelude.NFData ListVirtualClusters where
+  rnf ListVirtualClusters' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf containerProviderType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf containerProviderId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdBefore
 
 instance Core.ToHeaders ListVirtualClusters where
   toHeaders =
@@ -263,4 +279,8 @@ listVirtualClustersResponse_virtualClusters = Lens.lens (\ListVirtualClustersRes
 listVirtualClustersResponse_httpStatus :: Lens.Lens' ListVirtualClustersResponse Prelude.Int
 listVirtualClustersResponse_httpStatus = Lens.lens (\ListVirtualClustersResponse' {httpStatus} -> httpStatus) (\s@ListVirtualClustersResponse' {} a -> s {httpStatus = a} :: ListVirtualClustersResponse)
 
-instance Prelude.NFData ListVirtualClustersResponse
+instance Prelude.NFData ListVirtualClustersResponse where
+  rnf ListVirtualClustersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf virtualClusters
+      `Prelude.seq` Prelude.rnf httpStatus

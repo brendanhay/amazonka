@@ -176,9 +176,21 @@ instance Core.AWSRequest GetObjectLegalHold where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectLegalHold
+instance Prelude.Hashable GetObjectLegalHold where
+  hashWithSalt _salt GetObjectLegalHold' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GetObjectLegalHold
+instance Prelude.NFData GetObjectLegalHold where
+  rnf GetObjectLegalHold' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
@@ -237,4 +249,7 @@ getObjectLegalHoldResponse_legalHold = Lens.lens (\GetObjectLegalHoldResponse' {
 getObjectLegalHoldResponse_httpStatus :: Lens.Lens' GetObjectLegalHoldResponse Prelude.Int
 getObjectLegalHoldResponse_httpStatus = Lens.lens (\GetObjectLegalHoldResponse' {httpStatus} -> httpStatus) (\s@GetObjectLegalHoldResponse' {} a -> s {httpStatus = a} :: GetObjectLegalHoldResponse)
 
-instance Prelude.NFData GetObjectLegalHoldResponse
+instance Prelude.NFData GetObjectLegalHoldResponse where
+  rnf GetObjectLegalHoldResponse' {..} =
+    Prelude.rnf legalHold
+      `Prelude.seq` Prelude.rnf httpStatus

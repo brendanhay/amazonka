@@ -105,9 +105,17 @@ instance Core.FromJSON S3Resource where
                         )
       )
 
-instance Prelude.Hashable S3Resource
+instance Prelude.Hashable S3Resource where
+  hashWithSalt _salt S3Resource' {..} =
+    _salt `Prelude.hashWithSalt` keyRange
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` targetOnDeviceServices
 
-instance Prelude.NFData S3Resource
+instance Prelude.NFData S3Resource where
+  rnf S3Resource' {..} =
+    Prelude.rnf keyRange
+      `Prelude.seq` Prelude.rnf bucketArn
+      `Prelude.seq` Prelude.rnf targetOnDeviceServices
 
 instance Core.ToJSON S3Resource where
   toJSON S3Resource' {..} =

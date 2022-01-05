@@ -144,9 +144,15 @@ instance Core.AWSRequest DescribeStackSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackSet
+instance Prelude.Hashable DescribeStackSet where
+  hashWithSalt _salt DescribeStackSet' {..} =
+    _salt `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` stackSetName
 
-instance Prelude.NFData DescribeStackSet
+instance Prelude.NFData DescribeStackSet where
+  rnf DescribeStackSet' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders DescribeStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +210,7 @@ describeStackSetResponse_stackSet = Lens.lens (\DescribeStackSetResponse' {stack
 describeStackSetResponse_httpStatus :: Lens.Lens' DescribeStackSetResponse Prelude.Int
 describeStackSetResponse_httpStatus = Lens.lens (\DescribeStackSetResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSetResponse' {} a -> s {httpStatus = a} :: DescribeStackSetResponse)
 
-instance Prelude.NFData DescribeStackSetResponse
+instance Prelude.NFData DescribeStackSetResponse where
+  rnf DescribeStackSetResponse' {..} =
+    Prelude.rnf stackSet
+      `Prelude.seq` Prelude.rnf httpStatus

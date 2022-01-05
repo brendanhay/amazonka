@@ -69,10 +69,18 @@ instance Core.FromXML AbortIncompleteMultipartUpload where
 instance
   Prelude.Hashable
     AbortIncompleteMultipartUpload
+  where
+  hashWithSalt
+    _salt
+    AbortIncompleteMultipartUpload' {..} =
+      _salt `Prelude.hashWithSalt` daysAfterInitiation
 
 instance
   Prelude.NFData
     AbortIncompleteMultipartUpload
+  where
+  rnf AbortIncompleteMultipartUpload' {..} =
+    Prelude.rnf daysAfterInitiation
 
 instance Core.ToXML AbortIncompleteMultipartUpload where
   toXML AbortIncompleteMultipartUpload' {..} =

@@ -188,5 +188,26 @@ instance Core.FromJSON SplunkDestinationDescription where
 instance
   Prelude.Hashable
     SplunkDestinationDescription
+  where
+  hashWithSalt _salt SplunkDestinationDescription' {..} =
+    _salt `Prelude.hashWithSalt` s3BackupMode
+      `Prelude.hashWithSalt` hECToken
+      `Prelude.hashWithSalt` hECEndpointType
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` hECAcknowledgmentTimeoutInSeconds
+      `Prelude.hashWithSalt` s3DestinationDescription
+      `Prelude.hashWithSalt` hECEndpoint
+      `Prelude.hashWithSalt` retryOptions
+      `Prelude.hashWithSalt` processingConfiguration
 
-instance Prelude.NFData SplunkDestinationDescription
+instance Prelude.NFData SplunkDestinationDescription where
+  rnf SplunkDestinationDescription' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf hECToken
+      `Prelude.seq` Prelude.rnf hECEndpointType
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf s3DestinationDescription
+      `Prelude.seq` Prelude.rnf hECEndpoint
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration

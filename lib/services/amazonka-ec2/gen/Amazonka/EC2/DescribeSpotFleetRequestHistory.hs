@@ -193,10 +193,28 @@ instance
 instance
   Prelude.Hashable
     DescribeSpotFleetRequestHistory
+  where
+  hashWithSalt
+    _salt
+    DescribeSpotFleetRequestHistory' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` eventType
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` spotFleetRequestId
+        `Prelude.hashWithSalt` startTime
 
 instance
   Prelude.NFData
     DescribeSpotFleetRequestHistory
+  where
+  rnf DescribeSpotFleetRequestHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
+      `Prelude.seq` Prelude.rnf startTime
 
 instance
   Core.ToHeaders
@@ -328,3 +346,11 @@ describeSpotFleetRequestHistoryResponse_httpStatus = Lens.lens (\DescribeSpotFle
 instance
   Prelude.NFData
     DescribeSpotFleetRequestHistoryResponse
+  where
+  rnf DescribeSpotFleetRequestHistoryResponse' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf lastEvaluatedTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf historyRecords
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
+      `Prelude.seq` Prelude.rnf httpStatus

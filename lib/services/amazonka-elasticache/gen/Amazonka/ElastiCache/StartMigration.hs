@@ -103,9 +103,15 @@ instance Core.AWSRequest StartMigration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMigration
+instance Prelude.Hashable StartMigration where
+  hashWithSalt _salt StartMigration' {..} =
+    _salt `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` customerNodeEndpointList
 
-instance Prelude.NFData StartMigration
+instance Prelude.NFData StartMigration where
+  rnf StartMigration' {..} =
+    Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf customerNodeEndpointList
 
 instance Core.ToHeaders StartMigration where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,4 +169,7 @@ startMigrationResponse_replicationGroup = Lens.lens (\StartMigrationResponse' {r
 startMigrationResponse_httpStatus :: Lens.Lens' StartMigrationResponse Prelude.Int
 startMigrationResponse_httpStatus = Lens.lens (\StartMigrationResponse' {httpStatus} -> httpStatus) (\s@StartMigrationResponse' {} a -> s {httpStatus = a} :: StartMigrationResponse)
 
-instance Prelude.NFData StartMigrationResponse
+instance Prelude.NFData StartMigrationResponse where
+  rnf StartMigrationResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,19 @@ instance Core.FromJSON RowLevelPermissionTagRule where
             Prelude.<*> (x Core..: "ColumnName")
       )
 
-instance Prelude.Hashable RowLevelPermissionTagRule
+instance Prelude.Hashable RowLevelPermissionTagRule where
+  hashWithSalt _salt RowLevelPermissionTagRule' {..} =
+    _salt `Prelude.hashWithSalt` tagMultiValueDelimiter
+      `Prelude.hashWithSalt` matchAllValue
+      `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` columnName
 
-instance Prelude.NFData RowLevelPermissionTagRule
+instance Prelude.NFData RowLevelPermissionTagRule where
+  rnf RowLevelPermissionTagRule' {..} =
+    Prelude.rnf tagMultiValueDelimiter
+      `Prelude.seq` Prelude.rnf matchAllValue
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf columnName
 
 instance Core.ToJSON RowLevelPermissionTagRule where
   toJSON RowLevelPermissionTagRule' {..} =

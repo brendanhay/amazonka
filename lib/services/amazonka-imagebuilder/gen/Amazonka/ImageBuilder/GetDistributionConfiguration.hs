@@ -98,8 +98,14 @@ instance Core.AWSRequest GetDistributionConfiguration where
 instance
   Prelude.Hashable
     GetDistributionConfiguration
+  where
+  hashWithSalt _salt GetDistributionConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` distributionConfigurationArn
 
-instance Prelude.NFData GetDistributionConfiguration
+instance Prelude.NFData GetDistributionConfiguration where
+  rnf GetDistributionConfiguration' {..} =
+    Prelude.rnf distributionConfigurationArn
 
 instance Core.ToHeaders GetDistributionConfiguration where
   toHeaders =
@@ -175,3 +181,8 @@ getDistributionConfigurationResponse_httpStatus = Lens.lens (\GetDistributionCon
 instance
   Prelude.NFData
     GetDistributionConfigurationResponse
+  where
+  rnf GetDistributionConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf distributionConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

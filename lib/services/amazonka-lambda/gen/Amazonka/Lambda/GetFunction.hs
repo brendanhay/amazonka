@@ -150,9 +150,15 @@ instance Core.AWSRequest GetFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFunction
+instance Prelude.Hashable GetFunction where
+  hashWithSalt _salt GetFunction' {..} =
+    _salt `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData GetFunction
+instance Prelude.NFData GetFunction where
+  rnf GetFunction' {..} =
+    Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders GetFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,4 +243,10 @@ getFunctionResponse_tags = Lens.lens (\GetFunctionResponse' {tags} -> tags) (\s@
 getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Prelude.Int
 getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -> httpStatus) (\s@GetFunctionResponse' {} a -> s {httpStatus = a} :: GetFunctionResponse)
 
-instance Prelude.NFData GetFunctionResponse
+instance Prelude.NFData GetFunctionResponse where
+  rnf GetFunctionResponse' {..} =
+    Prelude.rnf concurrency
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

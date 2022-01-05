@@ -75,8 +75,13 @@ cancelTimerDecisionAttributes_timerId = Lens.lens (\CancelTimerDecisionAttribute
 instance
   Prelude.Hashable
     CancelTimerDecisionAttributes
+  where
+  hashWithSalt _salt CancelTimerDecisionAttributes' {..} =
+    _salt `Prelude.hashWithSalt` timerId
 
-instance Prelude.NFData CancelTimerDecisionAttributes
+instance Prelude.NFData CancelTimerDecisionAttributes where
+  rnf CancelTimerDecisionAttributes' {..} =
+    Prelude.rnf timerId
 
 instance Core.ToJSON CancelTimerDecisionAttributes where
   toJSON CancelTimerDecisionAttributes' {..} =

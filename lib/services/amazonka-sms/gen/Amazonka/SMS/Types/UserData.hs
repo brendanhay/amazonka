@@ -59,9 +59,12 @@ instance Core.FromJSON UserData where
           UserData' Prelude.<$> (x Core..:? "s3Location")
       )
 
-instance Prelude.Hashable UserData
+instance Prelude.Hashable UserData where
+  hashWithSalt _salt UserData' {..} =
+    _salt `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData UserData
+instance Prelude.NFData UserData where
+  rnf UserData' {..} = Prelude.rnf s3Location
 
 instance Core.ToJSON UserData where
   toJSON UserData' {..} =

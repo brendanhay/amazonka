@@ -132,6 +132,20 @@ instance Core.FromXML TrafficMirrorFilter where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TrafficMirrorFilter
+instance Prelude.Hashable TrafficMirrorFilter where
+  hashWithSalt _salt TrafficMirrorFilter' {..} =
+    _salt `Prelude.hashWithSalt` trafficMirrorFilterId
+      `Prelude.hashWithSalt` ingressFilterRules
+      `Prelude.hashWithSalt` networkServices
+      `Prelude.hashWithSalt` egressFilterRules
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TrafficMirrorFilter
+instance Prelude.NFData TrafficMirrorFilter where
+  rnf TrafficMirrorFilter' {..} =
+    Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf ingressFilterRules
+      `Prelude.seq` Prelude.rnf networkServices
+      `Prelude.seq` Prelude.rnf egressFilterRules
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

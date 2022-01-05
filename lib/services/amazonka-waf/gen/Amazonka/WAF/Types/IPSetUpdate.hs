@@ -79,9 +79,15 @@ iPSetUpdate_action = Lens.lens (\IPSetUpdate' {action} -> action) (\s@IPSetUpdat
 iPSetUpdate_iPSetDescriptor :: Lens.Lens' IPSetUpdate IPSetDescriptor
 iPSetUpdate_iPSetDescriptor = Lens.lens (\IPSetUpdate' {iPSetDescriptor} -> iPSetDescriptor) (\s@IPSetUpdate' {} a -> s {iPSetDescriptor = a} :: IPSetUpdate)
 
-instance Prelude.Hashable IPSetUpdate
+instance Prelude.Hashable IPSetUpdate where
+  hashWithSalt _salt IPSetUpdate' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` iPSetDescriptor
 
-instance Prelude.NFData IPSetUpdate
+instance Prelude.NFData IPSetUpdate where
+  rnf IPSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf iPSetDescriptor
 
 instance Core.ToJSON IPSetUpdate where
   toJSON IPSetUpdate' {..} =

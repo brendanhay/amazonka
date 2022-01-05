@@ -257,9 +257,27 @@ instance Core.AWSRequest GetEventPrediction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventPrediction
+instance Prelude.Hashable GetEventPrediction where
+  hashWithSalt _salt GetEventPrediction' {..} =
+    _salt `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` externalModelEndpointDataBlobs
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` entities
+      `Prelude.hashWithSalt` eventTimestamp
+      `Prelude.hashWithSalt` eventVariables
 
-instance Prelude.NFData GetEventPrediction
+instance Prelude.NFData GetEventPrediction where
+  rnf GetEventPrediction' {..} =
+    Prelude.rnf detectorVersionId
+      `Prelude.seq` Prelude.rnf externalModelEndpointDataBlobs
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf eventTimestamp
+      `Prelude.seq` Prelude.rnf eventVariables
 
 instance Core.ToHeaders GetEventPrediction where
   toHeaders =
@@ -373,4 +391,9 @@ getEventPredictionResponse_ruleResults = Lens.lens (\GetEventPredictionResponse'
 getEventPredictionResponse_httpStatus :: Lens.Lens' GetEventPredictionResponse Prelude.Int
 getEventPredictionResponse_httpStatus = Lens.lens (\GetEventPredictionResponse' {httpStatus} -> httpStatus) (\s@GetEventPredictionResponse' {} a -> s {httpStatus = a} :: GetEventPredictionResponse)
 
-instance Prelude.NFData GetEventPredictionResponse
+instance Prelude.NFData GetEventPredictionResponse where
+  rnf GetEventPredictionResponse' {..} =
+    Prelude.rnf modelScores
+      `Prelude.seq` Prelude.rnf externalModelOutputs
+      `Prelude.seq` Prelude.rnf ruleResults
+      `Prelude.seq` Prelude.rnf httpStatus

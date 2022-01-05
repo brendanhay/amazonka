@@ -103,9 +103,15 @@ instance Core.FromJSON HlsAdditionalManifest where
                         )
       )
 
-instance Prelude.Hashable HlsAdditionalManifest
+instance Prelude.Hashable HlsAdditionalManifest where
+  hashWithSalt _salt HlsAdditionalManifest' {..} =
+    _salt `Prelude.hashWithSalt` manifestNameModifier
+      `Prelude.hashWithSalt` selectedOutputs
 
-instance Prelude.NFData HlsAdditionalManifest
+instance Prelude.NFData HlsAdditionalManifest where
+  rnf HlsAdditionalManifest' {..} =
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Core.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =

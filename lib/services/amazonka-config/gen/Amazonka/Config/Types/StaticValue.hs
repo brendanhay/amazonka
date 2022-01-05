@@ -59,9 +59,12 @@ instance Core.FromJSON StaticValue where
             Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StaticValue
+instance Prelude.Hashable StaticValue where
+  hashWithSalt _salt StaticValue' {..} =
+    _salt `Prelude.hashWithSalt` values
 
-instance Prelude.NFData StaticValue
+instance Prelude.NFData StaticValue where
+  rnf StaticValue' {..} = Prelude.rnf values
 
 instance Core.ToJSON StaticValue where
   toJSON StaticValue' {..} =

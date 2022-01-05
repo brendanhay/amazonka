@@ -57,8 +57,13 @@ assistantAssociationInputData_knowledgeBaseId = Lens.lens (\AssistantAssociation
 instance
   Prelude.Hashable
     AssistantAssociationInputData
+  where
+  hashWithSalt _salt AssistantAssociationInputData' {..} =
+    _salt `Prelude.hashWithSalt` knowledgeBaseId
 
-instance Prelude.NFData AssistantAssociationInputData
+instance Prelude.NFData AssistantAssociationInputData where
+  rnf AssistantAssociationInputData' {..} =
+    Prelude.rnf knowledgeBaseId
 
 instance Core.ToJSON AssistantAssociationInputData where
   toJSON AssistantAssociationInputData' {..} =

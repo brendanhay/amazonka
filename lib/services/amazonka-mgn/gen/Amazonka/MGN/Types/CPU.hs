@@ -71,6 +71,12 @@ instance Core.FromJSON CPU where
             Prelude.<*> (x Core..:? "cores")
       )
 
-instance Prelude.Hashable CPU
+instance Prelude.Hashable CPU where
+  hashWithSalt _salt CPU' {..} =
+    _salt `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` cores
 
-instance Prelude.NFData CPU
+instance Prelude.NFData CPU where
+  rnf CPU' {..} =
+    Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf cores

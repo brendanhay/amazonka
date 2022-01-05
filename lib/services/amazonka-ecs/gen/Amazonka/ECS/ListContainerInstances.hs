@@ -231,9 +231,21 @@ instance Core.AWSRequest ListContainerInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContainerInstances
+instance Prelude.Hashable ListContainerInstances where
+  hashWithSalt _salt ListContainerInstances' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListContainerInstances
+instance Prelude.NFData ListContainerInstances where
+  rnf ListContainerInstances' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListContainerInstances where
   toHeaders =
@@ -331,3 +343,8 @@ listContainerInstancesResponse_httpStatus = Lens.lens (\ListContainerInstancesRe
 instance
   Prelude.NFData
     ListContainerInstancesResponse
+  where
+  rnf ListContainerInstancesResponse' {..} =
+    Prelude.rnf containerInstanceArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

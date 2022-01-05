@@ -106,9 +106,15 @@ instance Core.AWSRequest ListApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplications
+instance Prelude.Hashable ListApplications where
+  hashWithSalt _salt ListApplications' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListApplications
+instance Prelude.NFData ListApplications where
+  rnf ListApplications' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListApplications where
   toHeaders =
@@ -191,4 +197,8 @@ listApplicationsResponse_applicationInfoList = Lens.lens (\ListApplicationsRespo
 listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Prelude.Int
 listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {httpStatus} -> httpStatus) (\s@ListApplicationsResponse' {} a -> s {httpStatus = a} :: ListApplicationsResponse)
 
-instance Prelude.NFData ListApplicationsResponse
+instance Prelude.NFData ListApplicationsResponse where
+  rnf ListApplicationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

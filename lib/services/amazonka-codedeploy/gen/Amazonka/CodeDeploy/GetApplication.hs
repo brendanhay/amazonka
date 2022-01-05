@@ -94,9 +94,12 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApplication
+instance Prelude.Hashable GetApplication where
+  hashWithSalt _salt GetApplication' {..} =
+    _salt `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData GetApplication
+instance Prelude.NFData GetApplication where
+  rnf GetApplication' {..} = Prelude.rnf applicationName
 
 instance Core.ToHeaders GetApplication where
   toHeaders =
@@ -169,4 +172,7 @@ getApplicationResponse_application = Lens.lens (\GetApplicationResponse' {applic
 getApplicationResponse_httpStatus :: Lens.Lens' GetApplicationResponse Prelude.Int
 getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpStatus} -> httpStatus) (\s@GetApplicationResponse' {} a -> s {httpStatus = a} :: GetApplicationResponse)
 
-instance Prelude.NFData GetApplicationResponse
+instance Prelude.NFData GetApplicationResponse where
+  rnf GetApplicationResponse' {..} =
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf httpStatus

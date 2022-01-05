@@ -92,6 +92,16 @@ instance Core.FromJSON ExecutionSummary where
             Prelude.<*> (x Core..:? "managedDeviceId")
       )
 
-instance Prelude.Hashable ExecutionSummary
+instance Prelude.Hashable ExecutionSummary where
+  hashWithSalt _salt ExecutionSummary' {..} =
+    _salt `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` managedDeviceId
 
-instance Prelude.NFData ExecutionSummary
+instance Prelude.NFData ExecutionSummary where
+  rnf ExecutionSummary' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf managedDeviceId

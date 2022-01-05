@@ -91,6 +91,14 @@ instance Core.FromJSON NodePropertiesSummary where
             Prelude.<*> (x Core..:? "isMainNode")
       )
 
-instance Prelude.Hashable NodePropertiesSummary
+instance Prelude.Hashable NodePropertiesSummary where
+  hashWithSalt _salt NodePropertiesSummary' {..} =
+    _salt `Prelude.hashWithSalt` numNodes
+      `Prelude.hashWithSalt` nodeIndex
+      `Prelude.hashWithSalt` isMainNode
 
-instance Prelude.NFData NodePropertiesSummary
+instance Prelude.NFData NodePropertiesSummary where
+  rnf NodePropertiesSummary' {..} =
+    Prelude.rnf numNodes
+      `Prelude.seq` Prelude.rnf nodeIndex
+      `Prelude.seq` Prelude.rnf isMainNode

@@ -73,6 +73,12 @@ instance Core.FromXML FederatedAuthentication where
       Prelude.<$> (x Core..@? "samlProviderArn")
       Prelude.<*> (x Core..@? "selfServiceSamlProviderArn")
 
-instance Prelude.Hashable FederatedAuthentication
+instance Prelude.Hashable FederatedAuthentication where
+  hashWithSalt _salt FederatedAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` samlProviderArn
+      `Prelude.hashWithSalt` selfServiceSamlProviderArn
 
-instance Prelude.NFData FederatedAuthentication
+instance Prelude.NFData FederatedAuthentication where
+  rnf FederatedAuthentication' {..} =
+    Prelude.rnf samlProviderArn
+      `Prelude.seq` Prelude.rnf selfServiceSamlProviderArn

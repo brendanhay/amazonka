@@ -85,9 +85,15 @@ memberFabricConfiguration_adminUsername = Lens.lens (\MemberFabricConfiguration'
 memberFabricConfiguration_adminPassword :: Lens.Lens' MemberFabricConfiguration Prelude.Text
 memberFabricConfiguration_adminPassword = Lens.lens (\MemberFabricConfiguration' {adminPassword} -> adminPassword) (\s@MemberFabricConfiguration' {} a -> s {adminPassword = a} :: MemberFabricConfiguration) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable MemberFabricConfiguration
+instance Prelude.Hashable MemberFabricConfiguration where
+  hashWithSalt _salt MemberFabricConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` adminUsername
+      `Prelude.hashWithSalt` adminPassword
 
-instance Prelude.NFData MemberFabricConfiguration
+instance Prelude.NFData MemberFabricConfiguration where
+  rnf MemberFabricConfiguration' {..} =
+    Prelude.rnf adminUsername
+      `Prelude.seq` Prelude.rnf adminPassword
 
 instance Core.ToJSON MemberFabricConfiguration where
   toJSON MemberFabricConfiguration' {..} =

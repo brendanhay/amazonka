@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteRestApi where
   response =
     Response.receiveNull DeleteRestApiResponse'
 
-instance Prelude.Hashable DeleteRestApi
+instance Prelude.Hashable DeleteRestApi where
+  hashWithSalt _salt DeleteRestApi' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData DeleteRestApi
+instance Prelude.NFData DeleteRestApi where
+  rnf DeleteRestApi' {..} = Prelude.rnf restApiId
 
 instance Core.ToHeaders DeleteRestApi where
   toHeaders =
@@ -113,4 +116,5 @@ newDeleteRestApiResponse ::
   DeleteRestApiResponse
 newDeleteRestApiResponse = DeleteRestApiResponse'
 
-instance Prelude.NFData DeleteRestApiResponse
+instance Prelude.NFData DeleteRestApiResponse where
+  rnf _ = ()

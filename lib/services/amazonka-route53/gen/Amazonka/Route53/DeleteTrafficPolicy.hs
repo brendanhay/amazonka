@@ -113,9 +113,14 @@ instance Core.AWSRequest DeleteTrafficPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrafficPolicy
+instance Prelude.Hashable DeleteTrafficPolicy where
+  hashWithSalt _salt DeleteTrafficPolicy' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteTrafficPolicy
+instance Prelude.NFData DeleteTrafficPolicy where
+  rnf DeleteTrafficPolicy' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteTrafficPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +169,6 @@ newDeleteTrafficPolicyResponse pHttpStatus_ =
 deleteTrafficPolicyResponse_httpStatus :: Lens.Lens' DeleteTrafficPolicyResponse Prelude.Int
 deleteTrafficPolicyResponse_httpStatus = Lens.lens (\DeleteTrafficPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteTrafficPolicyResponse' {} a -> s {httpStatus = a} :: DeleteTrafficPolicyResponse)
 
-instance Prelude.NFData DeleteTrafficPolicyResponse
+instance Prelude.NFData DeleteTrafficPolicyResponse where
+  rnf DeleteTrafficPolicyResponse' {..} =
+    Prelude.rnf httpStatus

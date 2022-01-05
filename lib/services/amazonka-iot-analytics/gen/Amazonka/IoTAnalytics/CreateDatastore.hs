@@ -170,9 +170,24 @@ instance Core.AWSRequest CreateDatastore where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatastore
+instance Prelude.Hashable CreateDatastore where
+  hashWithSalt _salt CreateDatastore' {..} =
+    _salt
+      `Prelude.hashWithSalt` fileFormatConfiguration
+      `Prelude.hashWithSalt` datastorePartitions
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` datastoreStorage
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` datastoreName
 
-instance Prelude.NFData CreateDatastore
+instance Prelude.NFData CreateDatastore where
+  rnf CreateDatastore' {..} =
+    Prelude.rnf fileFormatConfiguration
+      `Prelude.seq` Prelude.rnf datastorePartitions
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf datastoreStorage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf datastoreName
 
 instance Core.ToHeaders CreateDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,4 +273,9 @@ createDatastoreResponse_retentionPeriod = Lens.lens (\CreateDatastoreResponse' {
 createDatastoreResponse_httpStatus :: Lens.Lens' CreateDatastoreResponse Prelude.Int
 createDatastoreResponse_httpStatus = Lens.lens (\CreateDatastoreResponse' {httpStatus} -> httpStatus) (\s@CreateDatastoreResponse' {} a -> s {httpStatus = a} :: CreateDatastoreResponse)
 
-instance Prelude.NFData CreateDatastoreResponse
+instance Prelude.NFData CreateDatastoreResponse where
+  rnf CreateDatastoreResponse' {..} =
+    Prelude.rnf datastoreArn
+      `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf httpStatus

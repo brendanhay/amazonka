@@ -86,6 +86,13 @@ instance Core.FromXML AvailableCapacity where
                   )
       Prelude.<*> (x Core..@? "availableVCpus")
 
-instance Prelude.Hashable AvailableCapacity
+instance Prelude.Hashable AvailableCapacity where
+  hashWithSalt _salt AvailableCapacity' {..} =
+    _salt
+      `Prelude.hashWithSalt` availableInstanceCapacity
+      `Prelude.hashWithSalt` availableVCpus
 
-instance Prelude.NFData AvailableCapacity
+instance Prelude.NFData AvailableCapacity where
+  rnf AvailableCapacity' {..} =
+    Prelude.rnf availableInstanceCapacity
+      `Prelude.seq` Prelude.rnf availableVCpus

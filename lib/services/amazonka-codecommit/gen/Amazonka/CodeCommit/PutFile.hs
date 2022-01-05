@@ -237,9 +237,29 @@ instance Core.AWSRequest PutFile where
             Prelude.<*> (x Core..:> "treeId")
       )
 
-instance Prelude.Hashable PutFile
+instance Prelude.Hashable PutFile where
+  hashWithSalt _salt PutFile' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` parentCommitId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` fileContent
+      `Prelude.hashWithSalt` filePath
 
-instance Prelude.NFData PutFile
+instance Prelude.NFData PutFile where
+  rnf PutFile' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf parentCommitId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf fileContent
+      `Prelude.seq` Prelude.rnf filePath
 
 instance Core.ToHeaders PutFile where
   toHeaders =
@@ -349,4 +369,9 @@ putFileResponse_blobId = Lens.lens (\PutFileResponse' {blobId} -> blobId) (\s@Pu
 putFileResponse_treeId :: Lens.Lens' PutFileResponse Prelude.Text
 putFileResponse_treeId = Lens.lens (\PutFileResponse' {treeId} -> treeId) (\s@PutFileResponse' {} a -> s {treeId = a} :: PutFileResponse)
 
-instance Prelude.NFData PutFileResponse
+instance Prelude.NFData PutFileResponse where
+  rnf PutFileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf treeId

@@ -141,9 +141,19 @@ instance Core.AWSRequest UpgradePublishedSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpgradePublishedSchema
+instance Prelude.Hashable UpgradePublishedSchema where
+  hashWithSalt _salt UpgradePublishedSchema' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` developmentSchemaArn
+      `Prelude.hashWithSalt` publishedSchemaArn
+      `Prelude.hashWithSalt` minorVersion
 
-instance Prelude.NFData UpgradePublishedSchema
+instance Prelude.NFData UpgradePublishedSchema where
+  rnf UpgradePublishedSchema' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf developmentSchemaArn
+      `Prelude.seq` Prelude.rnf publishedSchemaArn
+      `Prelude.seq` Prelude.rnf minorVersion
 
 instance Core.ToHeaders UpgradePublishedSchema where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +223,7 @@ upgradePublishedSchemaResponse_httpStatus = Lens.lens (\UpgradePublishedSchemaRe
 instance
   Prelude.NFData
     UpgradePublishedSchemaResponse
+  where
+  rnf UpgradePublishedSchemaResponse' {..} =
+    Prelude.rnf upgradedSchemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

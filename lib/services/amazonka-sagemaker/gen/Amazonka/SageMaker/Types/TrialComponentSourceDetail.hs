@@ -105,6 +105,16 @@ instance Core.FromJSON TrialComponentSourceDetail where
             Prelude.<*> (x Core..:? "TransformJob")
       )
 
-instance Prelude.Hashable TrialComponentSourceDetail
+instance Prelude.Hashable TrialComponentSourceDetail where
+  hashWithSalt _salt TrialComponentSourceDetail' {..} =
+    _salt `Prelude.hashWithSalt` trainingJob
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` processingJob
+      `Prelude.hashWithSalt` transformJob
 
-instance Prelude.NFData TrialComponentSourceDetail
+instance Prelude.NFData TrialComponentSourceDetail where
+  rnf TrialComponentSourceDetail' {..} =
+    Prelude.rnf trainingJob
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf processingJob
+      `Prelude.seq` Prelude.rnf transformJob

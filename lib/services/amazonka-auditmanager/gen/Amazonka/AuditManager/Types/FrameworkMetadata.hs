@@ -95,6 +95,16 @@ instance Core.FromJSON FrameworkMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable FrameworkMetadata
+instance Prelude.Hashable FrameworkMetadata where
+  hashWithSalt _salt FrameworkMetadata' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` logo
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData FrameworkMetadata
+instance Prelude.NFData FrameworkMetadata where
+  rnf FrameworkMetadata' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf logo
+      `Prelude.seq` Prelude.rnf description

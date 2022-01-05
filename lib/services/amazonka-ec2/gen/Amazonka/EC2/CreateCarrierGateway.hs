@@ -137,9 +137,19 @@ instance Core.AWSRequest CreateCarrierGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCarrierGateway
+instance Prelude.Hashable CreateCarrierGateway where
+  hashWithSalt _salt CreateCarrierGateway' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData CreateCarrierGateway
+instance Prelude.NFData CreateCarrierGateway where
+  rnf CreateCarrierGateway' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders CreateCarrierGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,4 +212,7 @@ createCarrierGatewayResponse_carrierGateway = Lens.lens (\CreateCarrierGatewayRe
 createCarrierGatewayResponse_httpStatus :: Lens.Lens' CreateCarrierGatewayResponse Prelude.Int
 createCarrierGatewayResponse_httpStatus = Lens.lens (\CreateCarrierGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateCarrierGatewayResponse' {} a -> s {httpStatus = a} :: CreateCarrierGatewayResponse)
 
-instance Prelude.NFData CreateCarrierGatewayResponse
+instance Prelude.NFData CreateCarrierGatewayResponse where
+  rnf CreateCarrierGatewayResponse' {..} =
+    Prelude.rnf carrierGateway
+      `Prelude.seq` Prelude.rnf httpStatus

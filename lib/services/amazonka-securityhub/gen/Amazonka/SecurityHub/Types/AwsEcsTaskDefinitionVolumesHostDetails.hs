@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionVolumesHostDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionVolumesHostDetails' {..} =
+      _salt `Prelude.hashWithSalt` sourcePath
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesHostDetails
+  where
+  rnf AwsEcsTaskDefinitionVolumesHostDetails' {..} =
+    Prelude.rnf sourcePath
 
 instance
   Core.ToJSON

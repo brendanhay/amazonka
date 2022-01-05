@@ -104,9 +104,15 @@ instance Core.AWSRequest StartMeetingTranscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMeetingTranscription
+instance Prelude.Hashable StartMeetingTranscription where
+  hashWithSalt _salt StartMeetingTranscription' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` transcriptionConfiguration
 
-instance Prelude.NFData StartMeetingTranscription
+instance Prelude.NFData StartMeetingTranscription where
+  rnf StartMeetingTranscription' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf transcriptionConfiguration
 
 instance Core.ToHeaders StartMeetingTranscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,3 +170,6 @@ startMeetingTranscriptionResponse_httpStatus = Lens.lens (\StartMeetingTranscrip
 instance
   Prelude.NFData
     StartMeetingTranscriptionResponse
+  where
+  rnf StartMeetingTranscriptionResponse' {..} =
+    Prelude.rnf httpStatus

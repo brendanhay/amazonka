@@ -123,9 +123,19 @@ instance Core.AWSRequest StartSuiteRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSuiteRun
+instance Prelude.Hashable StartSuiteRun where
+  hashWithSalt _salt StartSuiteRun' {..} =
+    _salt `Prelude.hashWithSalt` suiteRunConfiguration
+      `Prelude.hashWithSalt` suiteDefinitionVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` suiteDefinitionId
 
-instance Prelude.NFData StartSuiteRun
+instance Prelude.NFData StartSuiteRun where
+  rnf StartSuiteRun' {..} =
+    Prelude.rnf suiteRunConfiguration
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
 
 instance Core.ToHeaders StartSuiteRun where
   toHeaders =
@@ -217,4 +227,9 @@ startSuiteRunResponse_suiteRunId = Lens.lens (\StartSuiteRunResponse' {suiteRunI
 startSuiteRunResponse_httpStatus :: Lens.Lens' StartSuiteRunResponse Prelude.Int
 startSuiteRunResponse_httpStatus = Lens.lens (\StartSuiteRunResponse' {httpStatus} -> httpStatus) (\s@StartSuiteRunResponse' {} a -> s {httpStatus = a} :: StartSuiteRunResponse)
 
-instance Prelude.NFData StartSuiteRunResponse
+instance Prelude.NFData StartSuiteRunResponse where
+  rnf StartSuiteRunResponse' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf suiteRunArn
+      `Prelude.seq` Prelude.rnf suiteRunId
+      `Prelude.seq` Prelude.rnf httpStatus

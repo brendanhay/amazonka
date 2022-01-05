@@ -77,6 +77,12 @@ instance Core.FromJSON BatchDetectSyntaxItemResult where
             Prelude.<*> (x Core..:? "SyntaxTokens" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDetectSyntaxItemResult
+instance Prelude.Hashable BatchDetectSyntaxItemResult where
+  hashWithSalt _salt BatchDetectSyntaxItemResult' {..} =
+    _salt `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` syntaxTokens
 
-instance Prelude.NFData BatchDetectSyntaxItemResult
+instance Prelude.NFData BatchDetectSyntaxItemResult where
+  rnf BatchDetectSyntaxItemResult' {..} =
+    Prelude.rnf index
+      `Prelude.seq` Prelude.rnf syntaxTokens

@@ -163,10 +163,26 @@ instance
 instance
   Prelude.Hashable
     GetAggregateConformancePackComplianceSummary
+  where
+  hashWithSalt
+    _salt
+    GetAggregateConformancePackComplianceSummary' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` groupByKey
+        `Prelude.hashWithSalt` configurationAggregatorName
 
 instance
   Prelude.NFData
     GetAggregateConformancePackComplianceSummary
+  where
+  rnf GetAggregateConformancePackComplianceSummary' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf groupByKey
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
   Core.ToHeaders
@@ -287,3 +303,11 @@ getAggregateConformancePackComplianceSummaryResponse_httpStatus = Lens.lens (\Ge
 instance
   Prelude.NFData
     GetAggregateConformancePackComplianceSummaryResponse
+  where
+  rnf
+    GetAggregateConformancePackComplianceSummaryResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf
+          aggregateConformancePackComplianceSummaries
+        `Prelude.seq` Prelude.rnf groupByKey
+        `Prelude.seq` Prelude.rnf httpStatus

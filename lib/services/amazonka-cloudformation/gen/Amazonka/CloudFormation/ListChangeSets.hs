@@ -136,9 +136,15 @@ instance Core.AWSRequest ListChangeSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChangeSets
+instance Prelude.Hashable ListChangeSets where
+  hashWithSalt _salt ListChangeSets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData ListChangeSets
+instance Prelude.NFData ListChangeSets where
+  rnf ListChangeSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders ListChangeSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,4 +219,8 @@ listChangeSetsResponse_summaries = Lens.lens (\ListChangeSetsResponse' {summarie
 listChangeSetsResponse_httpStatus :: Lens.Lens' ListChangeSetsResponse Prelude.Int
 listChangeSetsResponse_httpStatus = Lens.lens (\ListChangeSetsResponse' {httpStatus} -> httpStatus) (\s@ListChangeSetsResponse' {} a -> s {httpStatus = a} :: ListChangeSetsResponse)
 
-instance Prelude.NFData ListChangeSetsResponse
+instance Prelude.NFData ListChangeSetsResponse where
+  rnf ListChangeSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf summaries
+      `Prelude.seq` Prelude.rnf httpStatus

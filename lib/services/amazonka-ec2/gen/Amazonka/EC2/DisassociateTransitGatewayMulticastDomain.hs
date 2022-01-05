@@ -136,10 +136,24 @@ instance
 instance
   Prelude.Hashable
     DisassociateTransitGatewayMulticastDomain
+  where
+  hashWithSalt
+    _salt
+    DisassociateTransitGatewayMulticastDomain' {..} =
+      _salt `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DisassociateTransitGatewayMulticastDomain
+  where
+  rnf DisassociateTransitGatewayMulticastDomain' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -219,3 +233,8 @@ disassociateTransitGatewayMulticastDomainResponse_httpStatus = Lens.lens (\Disas
 instance
   Prelude.NFData
     DisassociateTransitGatewayMulticastDomainResponse
+  where
+  rnf
+    DisassociateTransitGatewayMulticastDomainResponse' {..} =
+      Prelude.rnf associations
+        `Prelude.seq` Prelude.rnf httpStatus

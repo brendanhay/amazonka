@@ -128,8 +128,15 @@ instance Core.FromJSON AppIntegrationsConfiguration where
 instance
   Prelude.Hashable
     AppIntegrationsConfiguration
+  where
+  hashWithSalt _salt AppIntegrationsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` appIntegrationArn
+      `Prelude.hashWithSalt` objectFields
 
-instance Prelude.NFData AppIntegrationsConfiguration
+instance Prelude.NFData AppIntegrationsConfiguration where
+  rnf AppIntegrationsConfiguration' {..} =
+    Prelude.rnf appIntegrationArn
+      `Prelude.seq` Prelude.rnf objectFields
 
 instance Core.ToJSON AppIntegrationsConfiguration where
   toJSON AppIntegrationsConfiguration' {..} =

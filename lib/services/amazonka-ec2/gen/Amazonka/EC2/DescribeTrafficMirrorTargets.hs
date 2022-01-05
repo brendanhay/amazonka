@@ -213,8 +213,21 @@ instance Core.AWSRequest DescribeTrafficMirrorTargets where
 instance
   Prelude.Hashable
     DescribeTrafficMirrorTargets
+  where
+  hashWithSalt _salt DescribeTrafficMirrorTargets' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` trafficMirrorTargetIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeTrafficMirrorTargets
+instance Prelude.NFData DescribeTrafficMirrorTargets where
+  rnf DescribeTrafficMirrorTargets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trafficMirrorTargetIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTrafficMirrorTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -296,3 +309,8 @@ describeTrafficMirrorTargetsResponse_httpStatus = Lens.lens (\DescribeTrafficMir
 instance
   Prelude.NFData
     DescribeTrafficMirrorTargetsResponse
+  where
+  rnf DescribeTrafficMirrorTargetsResponse' {..} =
+    Prelude.rnf trafficMirrorTargets
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

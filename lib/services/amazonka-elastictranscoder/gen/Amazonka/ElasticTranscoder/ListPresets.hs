@@ -135,9 +135,15 @@ instance Core.AWSRequest ListPresets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPresets
+instance Prelude.Hashable ListPresets where
+  hashWithSalt _salt ListPresets' {..} =
+    _salt `Prelude.hashWithSalt` ascending
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData ListPresets
+instance Prelude.NFData ListPresets where
+  rnf ListPresets' {..} =
+    Prelude.rnf ascending
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders ListPresets where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,4 +217,8 @@ listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> pres
 listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Prelude.Int
 listPresetsResponse_httpStatus = Lens.lens (\ListPresetsResponse' {httpStatus} -> httpStatus) (\s@ListPresetsResponse' {} a -> s {httpStatus = a} :: ListPresetsResponse)
 
-instance Prelude.NFData ListPresetsResponse
+instance Prelude.NFData ListPresetsResponse where
+  rnf ListPresetsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf presets
+      `Prelude.seq` Prelude.rnf httpStatus

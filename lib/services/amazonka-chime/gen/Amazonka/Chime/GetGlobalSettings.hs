@@ -73,9 +73,12 @@ instance Core.AWSRequest GetGlobalSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGlobalSettings
+instance Prelude.Hashable GetGlobalSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData GetGlobalSettings
+instance Prelude.NFData GetGlobalSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders GetGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -134,4 +137,8 @@ getGlobalSettingsResponse_voiceConnector = Lens.lens (\GetGlobalSettingsResponse
 getGlobalSettingsResponse_httpStatus :: Lens.Lens' GetGlobalSettingsResponse Prelude.Int
 getGlobalSettingsResponse_httpStatus = Lens.lens (\GetGlobalSettingsResponse' {httpStatus} -> httpStatus) (\s@GetGlobalSettingsResponse' {} a -> s {httpStatus = a} :: GetGlobalSettingsResponse)
 
-instance Prelude.NFData GetGlobalSettingsResponse
+instance Prelude.NFData GetGlobalSettingsResponse where
+  rnf GetGlobalSettingsResponse' {..} =
+    Prelude.rnf businessCalling
+      `Prelude.seq` Prelude.rnf voiceConnector
+      `Prelude.seq` Prelude.rnf httpStatus

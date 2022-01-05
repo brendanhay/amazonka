@@ -128,6 +128,20 @@ instance Core.FromJSON Exclusion where
             Prelude.<*> (x Core..: "scopes")
       )
 
-instance Prelude.Hashable Exclusion
+instance Prelude.Hashable Exclusion where
+  hashWithSalt _salt Exclusion' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` recommendation
+      `Prelude.hashWithSalt` scopes
 
-instance Prelude.NFData Exclusion
+instance Prelude.NFData Exclusion where
+  rnf Exclusion' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf recommendation
+      `Prelude.seq` Prelude.rnf scopes

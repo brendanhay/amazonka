@@ -72,9 +72,15 @@ instance Core.FromJSON AwsSnsTopicSubscription where
             Prelude.<*> (x Core..:? "Endpoint")
       )
 
-instance Prelude.Hashable AwsSnsTopicSubscription
+instance Prelude.Hashable AwsSnsTopicSubscription where
+  hashWithSalt _salt AwsSnsTopicSubscription' {..} =
+    _salt `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData AwsSnsTopicSubscription
+instance Prelude.NFData AwsSnsTopicSubscription where
+  rnf AwsSnsTopicSubscription' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Core.ToJSON AwsSnsTopicSubscription where
   toJSON AwsSnsTopicSubscription' {..} =

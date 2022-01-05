@@ -117,9 +117,15 @@ instance Core.FromJSON AvailMatchingCriteria where
             Prelude.<*> (x Core..: "DynamicVariable")
       )
 
-instance Prelude.Hashable AvailMatchingCriteria
+instance Prelude.Hashable AvailMatchingCriteria where
+  hashWithSalt _salt AvailMatchingCriteria' {..} =
+    _salt `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` dynamicVariable
 
-instance Prelude.NFData AvailMatchingCriteria
+instance Prelude.NFData AvailMatchingCriteria where
+  rnf AvailMatchingCriteria' {..} =
+    Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf dynamicVariable
 
 instance Core.ToJSON AvailMatchingCriteria where
   toJSON AvailMatchingCriteria' {..} =

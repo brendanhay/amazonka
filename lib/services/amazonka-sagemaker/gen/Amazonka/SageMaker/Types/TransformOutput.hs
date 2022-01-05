@@ -229,9 +229,19 @@ instance Core.FromJSON TransformOutput where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable TransformOutput
+instance Prelude.Hashable TransformOutput where
+  hashWithSalt _salt TransformOutput' {..} =
+    _salt `Prelude.hashWithSalt` assembleWith
+      `Prelude.hashWithSalt` accept
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` s3OutputPath
 
-instance Prelude.NFData TransformOutput
+instance Prelude.NFData TransformOutput where
+  rnf TransformOutput' {..} =
+    Prelude.rnf assembleWith
+      `Prelude.seq` Prelude.rnf accept
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON TransformOutput where
   toJSON TransformOutput' {..} =

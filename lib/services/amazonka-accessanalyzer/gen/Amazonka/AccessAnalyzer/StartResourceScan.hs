@@ -100,9 +100,15 @@ instance Core.AWSRequest StartResourceScan where
   response =
     Response.receiveNull StartResourceScanResponse'
 
-instance Prelude.Hashable StartResourceScan
+instance Prelude.Hashable StartResourceScan where
+  hashWithSalt _salt StartResourceScan' {..} =
+    _salt `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData StartResourceScan
+instance Prelude.NFData StartResourceScan where
+  rnf StartResourceScan' {..} =
+    Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders StartResourceScan where
   toHeaders =
@@ -145,4 +151,5 @@ newStartResourceScanResponse ::
 newStartResourceScanResponse =
   StartResourceScanResponse'
 
-instance Prelude.NFData StartResourceScanResponse
+instance Prelude.NFData StartResourceScanResponse where
+  rnf _ = ()

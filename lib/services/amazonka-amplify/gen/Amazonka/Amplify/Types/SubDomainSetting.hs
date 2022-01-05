@@ -75,9 +75,15 @@ instance Core.FromJSON SubDomainSetting where
             Prelude.<*> (x Core..: "branchName")
       )
 
-instance Prelude.Hashable SubDomainSetting
+instance Prelude.Hashable SubDomainSetting where
+  hashWithSalt _salt SubDomainSetting' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData SubDomainSetting
+instance Prelude.NFData SubDomainSetting where
+  rnf SubDomainSetting' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToJSON SubDomainSetting where
   toJSON SubDomainSetting' {..} =

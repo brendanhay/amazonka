@@ -219,9 +219,23 @@ instance Core.FromJSON DomainEntry where
             Prelude.<*> (x Core..:? "target")
       )
 
-instance Prelude.Hashable DomainEntry
+instance Prelude.Hashable DomainEntry where
+  hashWithSalt _salt DomainEntry' {..} =
+    _salt `Prelude.hashWithSalt` isAlias
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData DomainEntry
+instance Prelude.NFData DomainEntry where
+  rnf DomainEntry' {..} =
+    Prelude.rnf isAlias
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON DomainEntry where
   toJSON DomainEntry' {..} =

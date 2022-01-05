@@ -200,6 +200,26 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..:? "ingestEndpoint")
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt _salt Channel' {..} =
+    _salt `Prelude.hashWithSalt` playbackUrl
+      `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recordingConfigurationArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ingestEndpoint
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf playbackUrl
+      `Prelude.seq` Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recordingConfigurationArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingestEndpoint

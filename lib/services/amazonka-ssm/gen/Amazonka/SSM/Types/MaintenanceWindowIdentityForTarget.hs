@@ -78,7 +78,16 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowIdentityForTarget
+  where
+  hashWithSalt
+    _salt
+    MaintenanceWindowIdentityForTarget' {..} =
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` windowId
 
 instance
   Prelude.NFData
     MaintenanceWindowIdentityForTarget
+  where
+  rnf MaintenanceWindowIdentityForTarget' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf windowId

@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateEvaluation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEvaluation
+instance Prelude.Hashable UpdateEvaluation where
+  hashWithSalt _salt UpdateEvaluation' {..} =
+    _salt `Prelude.hashWithSalt` evaluationId
+      `Prelude.hashWithSalt` evaluationName
 
-instance Prelude.NFData UpdateEvaluation
+instance Prelude.NFData UpdateEvaluation where
+  rnf UpdateEvaluation' {..} =
+    Prelude.rnf evaluationId
+      `Prelude.seq` Prelude.rnf evaluationName
 
 instance Core.ToHeaders UpdateEvaluation where
   toHeaders =
@@ -187,4 +193,7 @@ updateEvaluationResponse_evaluationId = Lens.lens (\UpdateEvaluationResponse' {e
 updateEvaluationResponse_httpStatus :: Lens.Lens' UpdateEvaluationResponse Prelude.Int
 updateEvaluationResponse_httpStatus = Lens.lens (\UpdateEvaluationResponse' {httpStatus} -> httpStatus) (\s@UpdateEvaluationResponse' {} a -> s {httpStatus = a} :: UpdateEvaluationResponse)
 
-instance Prelude.NFData UpdateEvaluationResponse
+instance Prelude.NFData UpdateEvaluationResponse where
+  rnf UpdateEvaluationResponse' {..} =
+    Prelude.rnf evaluationId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -184,9 +184,17 @@ instance Core.AWSRequest ListDeploymentJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentJobs
+instance Prelude.Hashable ListDeploymentJobs where
+  hashWithSalt _salt ListDeploymentJobs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDeploymentJobs
+instance Prelude.NFData ListDeploymentJobs where
+  rnf ListDeploymentJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeploymentJobs where
   toHeaders =
@@ -278,4 +286,8 @@ listDeploymentJobsResponse_nextToken = Lens.lens (\ListDeploymentJobsResponse' {
 listDeploymentJobsResponse_httpStatus :: Lens.Lens' ListDeploymentJobsResponse Prelude.Int
 listDeploymentJobsResponse_httpStatus = Lens.lens (\ListDeploymentJobsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentJobsResponse' {} a -> s {httpStatus = a} :: ListDeploymentJobsResponse)
 
-instance Prelude.NFData ListDeploymentJobsResponse
+instance Prelude.NFData ListDeploymentJobsResponse where
+  rnf ListDeploymentJobsResponse' {..} =
+    Prelude.rnf deploymentJobs
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

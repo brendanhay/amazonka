@@ -120,9 +120,15 @@ instance Core.AWSRequest GetMLTaskRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMLTaskRun
+instance Prelude.Hashable GetMLTaskRun where
+  hashWithSalt _salt GetMLTaskRun' {..} =
+    _salt `Prelude.hashWithSalt` transformId
+      `Prelude.hashWithSalt` taskRunId
 
-instance Prelude.NFData GetMLTaskRun
+instance Prelude.NFData GetMLTaskRun where
+  rnf GetMLTaskRun' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf taskRunId
 
 instance Core.ToHeaders GetMLTaskRun where
   toHeaders =
@@ -272,4 +278,16 @@ getMLTaskRunResponse_taskRunId = Lens.lens (\GetMLTaskRunResponse' {taskRunId} -
 getMLTaskRunResponse_httpStatus :: Lens.Lens' GetMLTaskRunResponse Prelude.Int
 getMLTaskRunResponse_httpStatus = Lens.lens (\GetMLTaskRunResponse' {httpStatus} -> httpStatus) (\s@GetMLTaskRunResponse' {} a -> s {httpStatus = a} :: GetMLTaskRunResponse)
 
-instance Prelude.NFData GetMLTaskRunResponse
+instance Prelude.NFData GetMLTaskRunResponse where
+  rnf GetMLTaskRunResponse' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf errorString
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf httpStatus

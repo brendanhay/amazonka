@@ -95,9 +95,13 @@ instance Core.AWSRequest DescribeApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplications
+instance Prelude.Hashable DescribeApplications where
+  hashWithSalt _salt DescribeApplications' {..} =
+    _salt `Prelude.hashWithSalt` applicationNames
 
-instance Prelude.NFData DescribeApplications
+instance Prelude.NFData DescribeApplications where
+  rnf DescribeApplications' {..} =
+    Prelude.rnf applicationNames
 
 instance Core.ToHeaders DescribeApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +164,7 @@ describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResp
 describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Prelude.Int
 describeApplicationsResponse_httpStatus = Lens.lens (\DescribeApplicationsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationsResponse' {} a -> s {httpStatus = a} :: DescribeApplicationsResponse)
 
-instance Prelude.NFData DescribeApplicationsResponse
+instance Prelude.NFData DescribeApplicationsResponse where
+  rnf DescribeApplicationsResponse' {..} =
+    Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf httpStatus

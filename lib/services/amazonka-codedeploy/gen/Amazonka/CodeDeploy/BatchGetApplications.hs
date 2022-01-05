@@ -95,9 +95,13 @@ instance Core.AWSRequest BatchGetApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetApplications
+instance Prelude.Hashable BatchGetApplications where
+  hashWithSalt _salt BatchGetApplications' {..} =
+    _salt `Prelude.hashWithSalt` applicationNames
 
-instance Prelude.NFData BatchGetApplications
+instance Prelude.NFData BatchGetApplications where
+  rnf BatchGetApplications' {..} =
+    Prelude.rnf applicationNames
 
 instance Core.ToHeaders BatchGetApplications where
   toHeaders =
@@ -170,4 +174,7 @@ batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplications
 batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Prelude.Int
 batchGetApplicationsResponse_httpStatus = Lens.lens (\BatchGetApplicationsResponse' {httpStatus} -> httpStatus) (\s@BatchGetApplicationsResponse' {} a -> s {httpStatus = a} :: BatchGetApplicationsResponse)
 
-instance Prelude.NFData BatchGetApplicationsResponse
+instance Prelude.NFData BatchGetApplicationsResponse where
+  rnf BatchGetApplicationsResponse' {..} =
+    Prelude.rnf applicationsInfo
+      `Prelude.seq` Prelude.rnf httpStatus

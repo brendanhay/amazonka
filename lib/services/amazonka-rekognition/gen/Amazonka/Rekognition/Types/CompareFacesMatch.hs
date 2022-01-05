@@ -79,6 +79,12 @@ instance Core.FromJSON CompareFacesMatch where
             Prelude.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable CompareFacesMatch
+instance Prelude.Hashable CompareFacesMatch where
+  hashWithSalt _salt CompareFacesMatch' {..} =
+    _salt `Prelude.hashWithSalt` similarity
+      `Prelude.hashWithSalt` face
 
-instance Prelude.NFData CompareFacesMatch
+instance Prelude.NFData CompareFacesMatch where
+  rnf CompareFacesMatch' {..} =
+    Prelude.rnf similarity
+      `Prelude.seq` Prelude.rnf face

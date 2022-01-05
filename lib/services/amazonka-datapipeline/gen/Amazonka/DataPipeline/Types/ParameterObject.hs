@@ -74,9 +74,14 @@ instance Core.FromJSON ParameterObject where
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ParameterObject
+instance Prelude.Hashable ParameterObject where
+  hashWithSalt _salt ParameterObject' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData ParameterObject
+instance Prelude.NFData ParameterObject where
+  rnf ParameterObject' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON ParameterObject where
   toJSON ParameterObject' {..} =

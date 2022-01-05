@@ -90,9 +90,14 @@ instance Core.FromXML ReplicationConfiguration where
       Prelude.<$> (x Core..@ "Role")
       Prelude.<*> (Core.parseXMLList "Rule" x)
 
-instance Prelude.Hashable ReplicationConfiguration
+instance Prelude.Hashable ReplicationConfiguration where
+  hashWithSalt _salt ReplicationConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData ReplicationConfiguration
+instance Prelude.NFData ReplicationConfiguration where
+  rnf ReplicationConfiguration' {..} =
+    Prelude.rnf role' `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToXML ReplicationConfiguration where
   toXML ReplicationConfiguration' {..} =

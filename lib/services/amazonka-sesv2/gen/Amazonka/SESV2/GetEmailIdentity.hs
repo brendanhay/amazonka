@@ -104,9 +104,12 @@ instance Core.AWSRequest GetEmailIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEmailIdentity
+instance Prelude.Hashable GetEmailIdentity where
+  hashWithSalt _salt GetEmailIdentity' {..} =
+    _salt `Prelude.hashWithSalt` emailIdentity
 
-instance Prelude.NFData GetEmailIdentity
+instance Prelude.NFData GetEmailIdentity where
+  rnf GetEmailIdentity' {..} = Prelude.rnf emailIdentity
 
 instance Core.ToHeaders GetEmailIdentity where
   toHeaders =
@@ -282,4 +285,14 @@ getEmailIdentityResponse_tags = Lens.lens (\GetEmailIdentityResponse' {tags} -> 
 getEmailIdentityResponse_httpStatus :: Lens.Lens' GetEmailIdentityResponse Prelude.Int
 getEmailIdentityResponse_httpStatus = Lens.lens (\GetEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@GetEmailIdentityResponse' {} a -> s {httpStatus = a} :: GetEmailIdentityResponse)
 
-instance Prelude.NFData GetEmailIdentityResponse
+instance Prelude.NFData GetEmailIdentityResponse where
+  rnf GetEmailIdentityResponse' {..} =
+    Prelude.rnf dkimAttributes
+      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf mailFromAttributes
+      `Prelude.seq` Prelude.rnf feedbackForwardingStatus
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

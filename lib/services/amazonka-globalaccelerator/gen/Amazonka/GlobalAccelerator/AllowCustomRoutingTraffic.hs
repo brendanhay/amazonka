@@ -201,9 +201,21 @@ instance Core.AWSRequest AllowCustomRoutingTraffic where
     Response.receiveNull
       AllowCustomRoutingTrafficResponse'
 
-instance Prelude.Hashable AllowCustomRoutingTraffic
+instance Prelude.Hashable AllowCustomRoutingTraffic where
+  hashWithSalt _salt AllowCustomRoutingTraffic' {..} =
+    _salt `Prelude.hashWithSalt` destinationAddresses
+      `Prelude.hashWithSalt` destinationPorts
+      `Prelude.hashWithSalt` allowAllTrafficToEndpoint
+      `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` endpointId
 
-instance Prelude.NFData AllowCustomRoutingTraffic
+instance Prelude.NFData AllowCustomRoutingTraffic where
+  rnf AllowCustomRoutingTraffic' {..} =
+    Prelude.rnf destinationAddresses
+      `Prelude.seq` Prelude.rnf destinationPorts
+      `Prelude.seq` Prelude.rnf allowAllTrafficToEndpoint
+      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf endpointId
 
 instance Core.ToHeaders AllowCustomRoutingTraffic where
   toHeaders =
@@ -260,3 +272,5 @@ newAllowCustomRoutingTrafficResponse =
 instance
   Prelude.NFData
     AllowCustomRoutingTrafficResponse
+  where
+  rnf _ = ()

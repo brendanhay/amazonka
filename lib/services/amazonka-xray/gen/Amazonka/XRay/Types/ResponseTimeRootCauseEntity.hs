@@ -83,6 +83,14 @@ instance Core.FromJSON ResponseTimeRootCauseEntity where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ResponseTimeRootCauseEntity
+instance Prelude.Hashable ResponseTimeRootCauseEntity where
+  hashWithSalt _salt ResponseTimeRootCauseEntity' {..} =
+    _salt `Prelude.hashWithSalt` remote
+      `Prelude.hashWithSalt` coverage
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ResponseTimeRootCauseEntity
+instance Prelude.NFData ResponseTimeRootCauseEntity where
+  rnf ResponseTimeRootCauseEntity' {..} =
+    Prelude.rnf remote
+      `Prelude.seq` Prelude.rnf coverage
+      `Prelude.seq` Prelude.rnf name

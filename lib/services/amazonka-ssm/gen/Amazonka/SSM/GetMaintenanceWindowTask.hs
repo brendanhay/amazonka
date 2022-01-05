@@ -134,9 +134,15 @@ instance Core.AWSRequest GetMaintenanceWindowTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMaintenanceWindowTask
+instance Prelude.Hashable GetMaintenanceWindowTask where
+  hashWithSalt _salt GetMaintenanceWindowTask' {..} =
+    _salt `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` windowTaskId
 
-instance Prelude.NFData GetMaintenanceWindowTask
+instance Prelude.NFData GetMaintenanceWindowTask where
+  rnf GetMaintenanceWindowTask' {..} =
+    Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf windowTaskId
 
 instance Core.ToHeaders GetMaintenanceWindowTask where
   toHeaders =
@@ -457,3 +463,21 @@ getMaintenanceWindowTaskResponse_httpStatus = Lens.lens (\GetMaintenanceWindowTa
 instance
   Prelude.NFData
     GetMaintenanceWindowTaskResponse
+  where
+  rnf GetMaintenanceWindowTaskResponse' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf windowTaskId
+      `Prelude.seq` Prelude.rnf taskParameters
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf cutoffBehavior
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf taskInvocationParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf httpStatus

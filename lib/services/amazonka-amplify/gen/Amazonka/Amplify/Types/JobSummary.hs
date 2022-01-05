@@ -176,6 +176,26 @@ instance Core.FromJSON JobSummary where
             Prelude.<*> (x Core..: "jobType")
       )
 
-instance Prelude.Hashable JobSummary
+instance Prelude.Hashable JobSummary where
+  hashWithSalt _salt JobSummary' {..} =
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` commitTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobType
 
-instance Prelude.NFData JobSummary
+instance Prelude.NFData JobSummary where
+  rnf JobSummary' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf commitTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobType

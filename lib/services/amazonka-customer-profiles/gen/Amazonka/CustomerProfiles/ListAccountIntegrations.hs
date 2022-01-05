@@ -112,9 +112,17 @@ instance Core.AWSRequest ListAccountIntegrations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccountIntegrations
+instance Prelude.Hashable ListAccountIntegrations where
+  hashWithSalt _salt ListAccountIntegrations' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData ListAccountIntegrations
+instance Prelude.NFData ListAccountIntegrations where
+  rnf ListAccountIntegrations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToHeaders ListAccountIntegrations where
   toHeaders =
@@ -195,3 +203,8 @@ listAccountIntegrationsResponse_httpStatus = Lens.lens (\ListAccountIntegrations
 instance
   Prelude.NFData
     ListAccountIntegrationsResponse
+  where
+  rnf ListAccountIntegrationsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

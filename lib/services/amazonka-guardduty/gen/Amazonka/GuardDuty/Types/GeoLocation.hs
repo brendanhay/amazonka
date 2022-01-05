@@ -70,6 +70,11 @@ instance Core.FromJSON GeoLocation where
             Prelude.<$> (x Core..:? "lat") Prelude.<*> (x Core..:? "lon")
       )
 
-instance Prelude.Hashable GeoLocation
+instance Prelude.Hashable GeoLocation where
+  hashWithSalt _salt GeoLocation' {..} =
+    _salt `Prelude.hashWithSalt` lat
+      `Prelude.hashWithSalt` lon
 
-instance Prelude.NFData GeoLocation
+instance Prelude.NFData GeoLocation where
+  rnf GeoLocation' {..} =
+    Prelude.rnf lat `Prelude.seq` Prelude.rnf lon

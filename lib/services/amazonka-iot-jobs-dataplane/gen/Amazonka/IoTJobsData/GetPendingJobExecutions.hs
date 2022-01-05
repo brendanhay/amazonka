@@ -88,9 +88,13 @@ instance Core.AWSRequest GetPendingJobExecutions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPendingJobExecutions
+instance Prelude.Hashable GetPendingJobExecutions where
+  hashWithSalt _salt GetPendingJobExecutions' {..} =
+    _salt `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData GetPendingJobExecutions
+instance Prelude.NFData GetPendingJobExecutions where
+  rnf GetPendingJobExecutions' {..} =
+    Prelude.rnf thingName
 
 instance Core.ToHeaders GetPendingJobExecutions where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +158,8 @@ getPendingJobExecutionsResponse_httpStatus = Lens.lens (\GetPendingJobExecutions
 instance
   Prelude.NFData
     GetPendingJobExecutionsResponse
+  where
+  rnf GetPendingJobExecutionsResponse' {..} =
+    Prelude.rnf inProgressJobs
+      `Prelude.seq` Prelude.rnf queuedJobs
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -76,9 +76,12 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVerifiedEmailAddresses
+instance Prelude.Hashable ListVerifiedEmailAddresses where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData ListVerifiedEmailAddresses
+instance Prelude.NFData ListVerifiedEmailAddresses where
+  rnf _ = ()
 
 instance Core.ToHeaders ListVerifiedEmailAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,3 +145,7 @@ listVerifiedEmailAddressesResponse_httpStatus = Lens.lens (\ListVerifiedEmailAdd
 instance
   Prelude.NFData
     ListVerifiedEmailAddressesResponse
+  where
+  rnf ListVerifiedEmailAddressesResponse' {..} =
+    Prelude.rnf verifiedEmailAddresses
+      `Prelude.seq` Prelude.rnf httpStatus

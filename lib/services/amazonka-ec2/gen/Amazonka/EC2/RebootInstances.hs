@@ -106,9 +106,15 @@ instance Core.AWSRequest RebootInstances where
   response =
     Response.receiveNull RebootInstancesResponse'
 
-instance Prelude.Hashable RebootInstances
+instance Prelude.Hashable RebootInstances where
+  hashWithSalt _salt RebootInstances' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData RebootInstances
+instance Prelude.NFData RebootInstances where
+  rnf RebootInstances' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders RebootInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,4 +147,5 @@ newRebootInstancesResponse ::
   RebootInstancesResponse
 newRebootInstancesResponse = RebootInstancesResponse'
 
-instance Prelude.NFData RebootInstancesResponse
+instance Prelude.NFData RebootInstancesResponse where
+  rnf _ = ()

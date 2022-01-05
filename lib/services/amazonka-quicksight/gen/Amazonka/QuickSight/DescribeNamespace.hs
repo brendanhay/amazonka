@@ -105,9 +105,15 @@ instance Core.AWSRequest DescribeNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNamespace
+instance Prelude.Hashable DescribeNamespace where
+  hashWithSalt _salt DescribeNamespace' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData DescribeNamespace
+instance Prelude.NFData DescribeNamespace where
+  rnf DescribeNamespace' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DescribeNamespace where
   toHeaders =
@@ -195,4 +201,8 @@ describeNamespaceResponse_namespace = Lens.lens (\DescribeNamespaceResponse' {na
 describeNamespaceResponse_status :: Lens.Lens' DescribeNamespaceResponse Prelude.Int
 describeNamespaceResponse_status = Lens.lens (\DescribeNamespaceResponse' {status} -> status) (\s@DescribeNamespaceResponse' {} a -> s {status = a} :: DescribeNamespaceResponse)
 
-instance Prelude.NFData DescribeNamespaceResponse
+instance Prelude.NFData DescribeNamespaceResponse where
+  rnf DescribeNamespaceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf status

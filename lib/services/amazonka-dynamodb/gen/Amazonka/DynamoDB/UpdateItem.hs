@@ -791,9 +791,36 @@ instance Core.AWSRequest UpdateItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateItem
+instance Prelude.Hashable UpdateItem where
+  hashWithSalt _salt UpdateItem' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` returnValues
+      `Prelude.hashWithSalt` updateExpression
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` attributeUpdates
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` expected
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData UpdateItem
+instance Prelude.NFData UpdateItem where
+  rnf UpdateItem' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf returnValues
+      `Prelude.seq` Prelude.rnf updateExpression
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf attributeUpdates
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf expected
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders UpdateItem where
   toHeaders =
@@ -998,4 +1025,9 @@ updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> 
 updateItemResponse_httpStatus :: Lens.Lens' UpdateItemResponse Prelude.Int
 updateItemResponse_httpStatus = Lens.lens (\UpdateItemResponse' {httpStatus} -> httpStatus) (\s@UpdateItemResponse' {} a -> s {httpStatus = a} :: UpdateItemResponse)
 
-instance Prelude.NFData UpdateItemResponse
+instance Prelude.NFData UpdateItemResponse where
+  rnf UpdateItemResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

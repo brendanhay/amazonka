@@ -142,9 +142,19 @@ instance Core.AWSRequest SearchAddressBooks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchAddressBooks
+instance Prelude.Hashable SearchAddressBooks where
+  hashWithSalt _salt SearchAddressBooks' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchAddressBooks
+instance Prelude.NFData SearchAddressBooks where
+  rnf SearchAddressBooks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchAddressBooks where
   toHeaders =
@@ -238,4 +248,9 @@ searchAddressBooksResponse_totalCount = Lens.lens (\SearchAddressBooksResponse' 
 searchAddressBooksResponse_httpStatus :: Lens.Lens' SearchAddressBooksResponse Prelude.Int
 searchAddressBooksResponse_httpStatus = Lens.lens (\SearchAddressBooksResponse' {httpStatus} -> httpStatus) (\s@SearchAddressBooksResponse' {} a -> s {httpStatus = a} :: SearchAddressBooksResponse)
 
-instance Prelude.NFData SearchAddressBooksResponse
+instance Prelude.NFData SearchAddressBooksResponse where
+  rnf SearchAddressBooksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf addressBooks
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf httpStatus

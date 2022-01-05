@@ -101,7 +101,19 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionMemoryRecommendationOption
+  where
+  hashWithSalt
+    _salt
+    LambdaFunctionMemoryRecommendationOption' {..} =
+      _salt `Prelude.hashWithSalt` memorySize
+        `Prelude.hashWithSalt` projectedUtilizationMetrics
+        `Prelude.hashWithSalt` rank
 
 instance
   Prelude.NFData
     LambdaFunctionMemoryRecommendationOption
+  where
+  rnf LambdaFunctionMemoryRecommendationOption' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
+      `Prelude.seq` Prelude.rnf rank

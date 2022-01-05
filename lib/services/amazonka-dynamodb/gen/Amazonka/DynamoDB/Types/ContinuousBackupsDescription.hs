@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ContinuousBackupsDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ContinuousBackupsStatus
 import Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription
 import qualified Amazonka.Lens as Lens
@@ -88,5 +89,13 @@ instance Core.FromJSON ContinuousBackupsDescription where
 instance
   Prelude.Hashable
     ContinuousBackupsDescription
+  where
+  hashWithSalt _salt ContinuousBackupsDescription' {..} =
+    _salt
+      `Prelude.hashWithSalt` pointInTimeRecoveryDescription
+      `Prelude.hashWithSalt` continuousBackupsStatus
 
-instance Prelude.NFData ContinuousBackupsDescription
+instance Prelude.NFData ContinuousBackupsDescription where
+  rnf ContinuousBackupsDescription' {..} =
+    Prelude.rnf pointInTimeRecoveryDescription
+      `Prelude.seq` Prelude.rnf continuousBackupsStatus

@@ -92,9 +92,12 @@ instance Core.AWSRequest GetUpgradeStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUpgradeStatus
+instance Prelude.Hashable GetUpgradeStatus where
+  hashWithSalt _salt GetUpgradeStatus' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetUpgradeStatus
+instance Prelude.NFData GetUpgradeStatus where
+  rnf GetUpgradeStatus' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders GetUpgradeStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +208,9 @@ getUpgradeStatusResponse_upgradeStep = Lens.lens (\GetUpgradeStatusResponse' {up
 getUpgradeStatusResponse_httpStatus :: Lens.Lens' GetUpgradeStatusResponse Prelude.Int
 getUpgradeStatusResponse_httpStatus = Lens.lens (\GetUpgradeStatusResponse' {httpStatus} -> httpStatus) (\s@GetUpgradeStatusResponse' {} a -> s {httpStatus = a} :: GetUpgradeStatusResponse)
 
-instance Prelude.NFData GetUpgradeStatusResponse
+instance Prelude.NFData GetUpgradeStatusResponse where
+  rnf GetUpgradeStatusResponse' {..} =
+    Prelude.rnf stepStatus
+      `Prelude.seq` Prelude.rnf upgradeName
+      `Prelude.seq` Prelude.rnf upgradeStep
+      `Prelude.seq` Prelude.rnf httpStatus

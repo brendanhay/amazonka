@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdateHttpNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateHttpNamespace
+instance Prelude.Hashable UpdateHttpNamespace where
+  hashWithSalt _salt UpdateHttpNamespace' {..} =
+    _salt `Prelude.hashWithSalt` updaterRequestId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData UpdateHttpNamespace
+instance Prelude.NFData UpdateHttpNamespace where
+  rnf UpdateHttpNamespace' {..} =
+    Prelude.rnf updaterRequestId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders UpdateHttpNamespace where
   toHeaders =
@@ -201,4 +209,7 @@ updateHttpNamespaceResponse_operationId = Lens.lens (\UpdateHttpNamespaceRespons
 updateHttpNamespaceResponse_httpStatus :: Lens.Lens' UpdateHttpNamespaceResponse Prelude.Int
 updateHttpNamespaceResponse_httpStatus = Lens.lens (\UpdateHttpNamespaceResponse' {httpStatus} -> httpStatus) (\s@UpdateHttpNamespaceResponse' {} a -> s {httpStatus = a} :: UpdateHttpNamespaceResponse)
 
-instance Prelude.NFData UpdateHttpNamespaceResponse
+instance Prelude.NFData UpdateHttpNamespaceResponse where
+  rnf UpdateHttpNamespaceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

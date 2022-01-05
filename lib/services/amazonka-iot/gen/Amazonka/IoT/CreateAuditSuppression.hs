@@ -155,9 +155,23 @@ instance Core.AWSRequest CreateAuditSuppression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAuditSuppression
+instance Prelude.Hashable CreateAuditSuppression where
+  hashWithSalt _salt CreateAuditSuppression' {..} =
+    _salt `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` suppressIndefinitely
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateAuditSuppression
+instance Prelude.NFData CreateAuditSuppression where
+  rnf CreateAuditSuppression' {..} =
+    Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf suppressIndefinitely
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,3 +232,6 @@ createAuditSuppressionResponse_httpStatus = Lens.lens (\CreateAuditSuppressionRe
 instance
   Prelude.NFData
     CreateAuditSuppressionResponse
+  where
+  rnf CreateAuditSuppressionResponse' {..} =
+    Prelude.rnf httpStatus

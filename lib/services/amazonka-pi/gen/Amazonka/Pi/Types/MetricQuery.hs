@@ -155,9 +155,17 @@ metricQuery_filter = Lens.lens (\MetricQuery' {filter'} -> filter') (\s@MetricQu
 metricQuery_metric :: Lens.Lens' MetricQuery Prelude.Text
 metricQuery_metric = Lens.lens (\MetricQuery' {metric} -> metric) (\s@MetricQuery' {} a -> s {metric = a} :: MetricQuery)
 
-instance Prelude.Hashable MetricQuery
+instance Prelude.Hashable MetricQuery where
+  hashWithSalt _salt MetricQuery' {..} =
+    _salt `Prelude.hashWithSalt` groupBy
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData MetricQuery
+instance Prelude.NFData MetricQuery where
+  rnf MetricQuery' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf metric
 
 instance Core.ToJSON MetricQuery where
   toJSON MetricQuery' {..} =

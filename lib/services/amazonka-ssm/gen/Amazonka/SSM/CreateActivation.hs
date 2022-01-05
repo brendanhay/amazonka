@@ -270,9 +270,23 @@ instance Core.AWSRequest CreateActivation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateActivation
+instance Prelude.Hashable CreateActivation where
+  hashWithSalt _salt CreateActivation' {..} =
+    _salt `Prelude.hashWithSalt` defaultInstanceName
+      `Prelude.hashWithSalt` registrationLimit
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData CreateActivation
+instance Prelude.NFData CreateActivation where
+  rnf CreateActivation' {..} =
+    Prelude.rnf defaultInstanceName
+      `Prelude.seq` Prelude.rnf registrationLimit
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iamRole
 
 instance Core.ToHeaders CreateActivation where
   toHeaders =
@@ -363,4 +377,8 @@ createActivationResponse_activationCode = Lens.lens (\CreateActivationResponse' 
 createActivationResponse_httpStatus :: Lens.Lens' CreateActivationResponse Prelude.Int
 createActivationResponse_httpStatus = Lens.lens (\CreateActivationResponse' {httpStatus} -> httpStatus) (\s@CreateActivationResponse' {} a -> s {httpStatus = a} :: CreateActivationResponse)
 
-instance Prelude.NFData CreateActivationResponse
+instance Prelude.NFData CreateActivationResponse where
+  rnf CreateActivationResponse' {..} =
+    Prelude.rnf activationId
+      `Prelude.seq` Prelude.rnf activationCode
+      `Prelude.seq` Prelude.rnf httpStatus

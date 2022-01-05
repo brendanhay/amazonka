@@ -107,9 +107,21 @@ snoozeAlarmActionRequest_alarmModelName = Lens.lens (\SnoozeAlarmActionRequest' 
 snoozeAlarmActionRequest_snoozeDuration :: Lens.Lens' SnoozeAlarmActionRequest Prelude.Int
 snoozeAlarmActionRequest_snoozeDuration = Lens.lens (\SnoozeAlarmActionRequest' {snoozeDuration} -> snoozeDuration) (\s@SnoozeAlarmActionRequest' {} a -> s {snoozeDuration = a} :: SnoozeAlarmActionRequest)
 
-instance Prelude.Hashable SnoozeAlarmActionRequest
+instance Prelude.Hashable SnoozeAlarmActionRequest where
+  hashWithSalt _salt SnoozeAlarmActionRequest' {..} =
+    _salt `Prelude.hashWithSalt` keyValue
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` snoozeDuration
 
-instance Prelude.NFData SnoozeAlarmActionRequest
+instance Prelude.NFData SnoozeAlarmActionRequest where
+  rnf SnoozeAlarmActionRequest' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf note
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf snoozeDuration
 
 instance Core.ToJSON SnoozeAlarmActionRequest where
   toJSON SnoozeAlarmActionRequest' {..} =

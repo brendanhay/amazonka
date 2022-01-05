@@ -85,9 +85,13 @@ instance Core.AWSRequest DisassociateKmsKey where
   response =
     Response.receiveNull DisassociateKmsKeyResponse'
 
-instance Prelude.Hashable DisassociateKmsKey
+instance Prelude.Hashable DisassociateKmsKey where
+  hashWithSalt _salt DisassociateKmsKey' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData DisassociateKmsKey
+instance Prelude.NFData DisassociateKmsKey where
+  rnf DisassociateKmsKey' {..} =
+    Prelude.rnf logGroupName
 
 instance Core.ToHeaders DisassociateKmsKey where
   toHeaders =
@@ -132,4 +136,5 @@ newDisassociateKmsKeyResponse ::
 newDisassociateKmsKeyResponse =
   DisassociateKmsKeyResponse'
 
-instance Prelude.NFData DisassociateKmsKeyResponse
+instance Prelude.NFData DisassociateKmsKeyResponse where
+  rnf _ = ()

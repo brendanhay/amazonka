@@ -228,6 +228,38 @@ instance Core.FromJSON Evidence where
             Prelude.<*> (x Core..:? "eventSource")
       )
 
-instance Prelude.Hashable Evidence
+instance Prelude.Hashable Evidence where
+  hashWithSalt _salt Evidence' {..} =
+    _salt `Prelude.hashWithSalt` time
+      `Prelude.hashWithSalt` assessmentReportSelection
+      `Prelude.hashWithSalt` evidenceByType
+      `Prelude.hashWithSalt` complianceCheck
+      `Prelude.hashWithSalt` awsOrganization
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` evidenceAwsAccountId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` evidenceFolderId
+      `Prelude.hashWithSalt` iamId
+      `Prelude.hashWithSalt` eventName
+      `Prelude.hashWithSalt` resourcesIncluded
+      `Prelude.hashWithSalt` eventSource
 
-instance Prelude.NFData Evidence
+instance Prelude.NFData Evidence where
+  rnf Evidence' {..} =
+    Prelude.rnf time
+      `Prelude.seq` Prelude.rnf assessmentReportSelection
+      `Prelude.seq` Prelude.rnf evidenceByType
+      `Prelude.seq` Prelude.rnf complianceCheck
+      `Prelude.seq` Prelude.rnf awsOrganization
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf evidenceAwsAccountId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf evidenceFolderId
+      `Prelude.seq` Prelude.rnf iamId
+      `Prelude.seq` Prelude.rnf eventName
+      `Prelude.seq` Prelude.rnf resourcesIncluded
+      `Prelude.seq` Prelude.rnf eventSource

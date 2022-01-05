@@ -73,6 +73,11 @@ instance Core.FromXML MessageData where
     MessageData'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Code")
 
-instance Prelude.Hashable MessageData
+instance Prelude.Hashable MessageData where
+  hashWithSalt _salt MessageData' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData MessageData
+instance Prelude.NFData MessageData where
+  rnf MessageData' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf code

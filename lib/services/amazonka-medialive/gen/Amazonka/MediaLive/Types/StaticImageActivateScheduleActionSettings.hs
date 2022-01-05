@@ -224,10 +224,36 @@ instance
 instance
   Prelude.Hashable
     StaticImageActivateScheduleActionSettings
+  where
+  hashWithSalt
+    _salt
+    StaticImageActivateScheduleActionSettings' {..} =
+      _salt `Prelude.hashWithSalt` imageX
+        `Prelude.hashWithSalt` height
+        `Prelude.hashWithSalt` fadeOut
+        `Prelude.hashWithSalt` width
+        `Prelude.hashWithSalt` opacity
+        `Prelude.hashWithSalt` layer
+        `Prelude.hashWithSalt` duration
+        `Prelude.hashWithSalt` imageY
+        `Prelude.hashWithSalt` fadeIn
+        `Prelude.hashWithSalt` image
 
 instance
   Prelude.NFData
     StaticImageActivateScheduleActionSettings
+  where
+  rnf StaticImageActivateScheduleActionSettings' {..} =
+    Prelude.rnf imageX
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf fadeOut
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf opacity
+      `Prelude.seq` Prelude.rnf layer
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf imageY
+      `Prelude.seq` Prelude.rnf fadeIn
+      `Prelude.seq` Prelude.rnf image
 
 instance
   Core.ToJSON

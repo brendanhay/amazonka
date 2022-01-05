@@ -45,8 +45,8 @@ module Amazonka.SSM.PutParameter
 
     -- * Response Lenses
     putParameterResponse_tier,
-    putParameterResponse_version,
     putParameterResponse_httpStatus,
+    putParameterResponse_version,
   )
 where
 
@@ -756,13 +756,37 @@ instance Core.AWSRequest PutParameter where
       ( \s h x ->
           PutParameterResponse'
             Prelude.<$> (x Core..?> "Tier")
-            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Version")
       )
 
-instance Prelude.Hashable PutParameter
+instance Prelude.Hashable PutParameter where
+  hashWithSalt _salt PutParameter' {..} =
+    _salt `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` allowedPattern
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData PutParameter
+instance Prelude.NFData PutParameter where
+  rnf PutParameter' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf allowedPattern
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToHeaders PutParameter where
   toHeaders =
@@ -806,15 +830,15 @@ instance Core.ToQuery PutParameter where
 data PutParameterResponse = PutParameterResponse'
   { -- | The tier assigned to the parameter.
     tier :: Prelude.Maybe ParameterTier,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
     -- | The new version number of a parameter. If you edit a parameter value,
     -- Parameter Store automatically creates a new version and assigns this new
     -- version a unique ID. You can reference a parameter version ID in API
     -- operations or in Systems Manager documents (SSM documents). By default,
     -- if you don\'t specify a specific version, the system returns the latest
     -- parameter value when a parameter is called.
-    version :: Prelude.Maybe Prelude.Integer,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    version :: Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -828,28 +852,34 @@ data PutParameterResponse = PutParameterResponse'
 --
 -- 'tier', 'putParameterResponse_tier' - The tier assigned to the parameter.
 --
+-- 'httpStatus', 'putParameterResponse_httpStatus' - The response's http status code.
+--
 -- 'version', 'putParameterResponse_version' - The new version number of a parameter. If you edit a parameter value,
 -- Parameter Store automatically creates a new version and assigns this new
 -- version a unique ID. You can reference a parameter version ID in API
 -- operations or in Systems Manager documents (SSM documents). By default,
 -- if you don\'t specify a specific version, the system returns the latest
 -- parameter value when a parameter is called.
---
--- 'httpStatus', 'putParameterResponse_httpStatus' - The response's http status code.
 newPutParameterResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'version'
+  Prelude.Integer ->
   PutParameterResponse
-newPutParameterResponse pHttpStatus_ =
+newPutParameterResponse pHttpStatus_ pVersion_ =
   PutParameterResponse'
     { tier = Prelude.Nothing,
-      version = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+      httpStatus = pHttpStatus_,
+      version = pVersion_
     }
 
 -- | The tier assigned to the parameter.
 putParameterResponse_tier :: Lens.Lens' PutParameterResponse (Prelude.Maybe ParameterTier)
 putParameterResponse_tier = Lens.lens (\PutParameterResponse' {tier} -> tier) (\s@PutParameterResponse' {} a -> s {tier = a} :: PutParameterResponse)
+
+-- | The response's http status code.
+putParameterResponse_httpStatus :: Lens.Lens' PutParameterResponse Prelude.Int
+putParameterResponse_httpStatus = Lens.lens (\PutParameterResponse' {httpStatus} -> httpStatus) (\s@PutParameterResponse' {} a -> s {httpStatus = a} :: PutParameterResponse)
 
 -- | The new version number of a parameter. If you edit a parameter value,
 -- Parameter Store automatically creates a new version and assigns this new
@@ -857,11 +887,11 @@ putParameterResponse_tier = Lens.lens (\PutParameterResponse' {tier} -> tier) (\
 -- operations or in Systems Manager documents (SSM documents). By default,
 -- if you don\'t specify a specific version, the system returns the latest
 -- parameter value when a parameter is called.
-putParameterResponse_version :: Lens.Lens' PutParameterResponse (Prelude.Maybe Prelude.Integer)
+putParameterResponse_version :: Lens.Lens' PutParameterResponse Prelude.Integer
 putParameterResponse_version = Lens.lens (\PutParameterResponse' {version} -> version) (\s@PutParameterResponse' {} a -> s {version = a} :: PutParameterResponse)
 
--- | The response's http status code.
-putParameterResponse_httpStatus :: Lens.Lens' PutParameterResponse Prelude.Int
-putParameterResponse_httpStatus = Lens.lens (\PutParameterResponse' {httpStatus} -> httpStatus) (\s@PutParameterResponse' {} a -> s {httpStatus = a} :: PutParameterResponse)
-
-instance Prelude.NFData PutParameterResponse
+instance Prelude.NFData PutParameterResponse where
+  rnf PutParameterResponse' {..} =
+    Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf version

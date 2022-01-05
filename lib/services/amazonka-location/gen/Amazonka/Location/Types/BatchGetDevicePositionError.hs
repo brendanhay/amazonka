@@ -76,6 +76,12 @@ instance Core.FromJSON BatchGetDevicePositionError where
             Prelude.<*> (x Core..: "Error")
       )
 
-instance Prelude.Hashable BatchGetDevicePositionError
+instance Prelude.Hashable BatchGetDevicePositionError where
+  hashWithSalt _salt BatchGetDevicePositionError' {..} =
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData BatchGetDevicePositionError
+instance Prelude.NFData BatchGetDevicePositionError where
+  rnf BatchGetDevicePositionError' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf error

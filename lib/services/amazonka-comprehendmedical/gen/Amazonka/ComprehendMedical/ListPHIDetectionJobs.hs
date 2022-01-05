@@ -120,9 +120,17 @@ instance Core.AWSRequest ListPHIDetectionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPHIDetectionJobs
+instance Prelude.Hashable ListPHIDetectionJobs where
+  hashWithSalt _salt ListPHIDetectionJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPHIDetectionJobs
+instance Prelude.NFData ListPHIDetectionJobs where
+  rnf ListPHIDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPHIDetectionJobs where
   toHeaders =
@@ -204,4 +212,8 @@ listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList = Lens.lens
 listPHIDetectionJobsResponse_httpStatus :: Lens.Lens' ListPHIDetectionJobsResponse Prelude.Int
 listPHIDetectionJobsResponse_httpStatus = Lens.lens (\ListPHIDetectionJobsResponse' {httpStatus} -> httpStatus) (\s@ListPHIDetectionJobsResponse' {} a -> s {httpStatus = a} :: ListPHIDetectionJobsResponse)
 
-instance Prelude.NFData ListPHIDetectionJobsResponse
+instance Prelude.NFData ListPHIDetectionJobsResponse where
+  rnf ListPHIDetectionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf comprehendMedicalAsyncJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

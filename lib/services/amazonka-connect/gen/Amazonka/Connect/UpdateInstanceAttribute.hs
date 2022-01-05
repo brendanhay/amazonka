@@ -122,9 +122,17 @@ instance Core.AWSRequest UpdateInstanceAttribute where
     Response.receiveNull
       UpdateInstanceAttributeResponse'
 
-instance Prelude.Hashable UpdateInstanceAttribute
+instance Prelude.Hashable UpdateInstanceAttribute where
+  hashWithSalt _salt UpdateInstanceAttribute' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData UpdateInstanceAttribute
+instance Prelude.NFData UpdateInstanceAttribute where
+  rnf UpdateInstanceAttribute' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToHeaders UpdateInstanceAttribute where
   toHeaders =
@@ -174,3 +182,5 @@ newUpdateInstanceAttributeResponse =
 instance
   Prelude.NFData
     UpdateInstanceAttributeResponse
+  where
+  rnf _ = ()

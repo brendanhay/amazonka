@@ -120,7 +120,25 @@ instance
 instance
   Prelude.Hashable
     DirectoryConnectSettingsDescription
+  where
+  hashWithSalt
+    _salt
+    DirectoryConnectSettingsDescription' {..} =
+      _salt `Prelude.hashWithSalt` customerUserName
+        `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` securityGroupId
+        `Prelude.hashWithSalt` connectIps
+        `Prelude.hashWithSalt` availabilityZones
 
 instance
   Prelude.NFData
     DirectoryConnectSettingsDescription
+  where
+  rnf DirectoryConnectSettingsDescription' {..} =
+    Prelude.rnf customerUserName
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf securityGroupId
+      `Prelude.seq` Prelude.rnf connectIps
+      `Prelude.seq` Prelude.rnf availabilityZones

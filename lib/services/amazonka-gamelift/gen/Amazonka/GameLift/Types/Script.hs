@@ -154,6 +154,22 @@ instance Core.FromJSON Script where
             Prelude.<*> (x Core..:? "SizeOnDisk")
       )
 
-instance Prelude.Hashable Script
+instance Prelude.Hashable Script where
+  hashWithSalt _salt Script' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` storageLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scriptId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` scriptArn
+      `Prelude.hashWithSalt` sizeOnDisk
 
-instance Prelude.NFData Script
+instance Prelude.NFData Script where
+  rnf Script' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scriptId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf scriptArn
+      `Prelude.seq` Prelude.rnf sizeOnDisk

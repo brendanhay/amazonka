@@ -101,9 +101,15 @@ instance Core.FromJSON SecurityHubConfiguration where
             Prelude.<*> (x Core..: "publishClassificationFindings")
       )
 
-instance Prelude.Hashable SecurityHubConfiguration
+instance Prelude.Hashable SecurityHubConfiguration where
+  hashWithSalt _salt SecurityHubConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` publishPolicyFindings
+      `Prelude.hashWithSalt` publishClassificationFindings
 
-instance Prelude.NFData SecurityHubConfiguration
+instance Prelude.NFData SecurityHubConfiguration where
+  rnf SecurityHubConfiguration' {..} =
+    Prelude.rnf publishPolicyFindings
+      `Prelude.seq` Prelude.rnf publishClassificationFindings
 
 instance Core.ToJSON SecurityHubConfiguration where
   toJSON SecurityHubConfiguration' {..} =

@@ -66,9 +66,13 @@ instance Core.FromJSON ProcessingStoppingCondition where
             Prelude.<$> (x Core..: "MaxRuntimeInSeconds")
       )
 
-instance Prelude.Hashable ProcessingStoppingCondition
+instance Prelude.Hashable ProcessingStoppingCondition where
+  hashWithSalt _salt ProcessingStoppingCondition' {..} =
+    _salt `Prelude.hashWithSalt` maxRuntimeInSeconds
 
-instance Prelude.NFData ProcessingStoppingCondition
+instance Prelude.NFData ProcessingStoppingCondition where
+  rnf ProcessingStoppingCondition' {..} =
+    Prelude.rnf maxRuntimeInSeconds
 
 instance Core.ToJSON ProcessingStoppingCondition where
   toJSON ProcessingStoppingCondition' {..} =

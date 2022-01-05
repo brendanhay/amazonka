@@ -70,9 +70,14 @@ instance Core.FromJSON EngineAttribute where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable EngineAttribute
+instance Prelude.Hashable EngineAttribute where
+  hashWithSalt _salt EngineAttribute' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData EngineAttribute
+instance Prelude.NFData EngineAttribute where
+  rnf EngineAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EngineAttribute where
   toJSON EngineAttribute' {..} =

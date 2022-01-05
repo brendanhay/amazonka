@@ -82,6 +82,12 @@ instance Core.FromJSON JourneysResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JourneysResponse
+instance Prelude.Hashable JourneysResponse where
+  hashWithSalt _salt JourneysResponse' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` item
 
-instance Prelude.NFData JourneysResponse
+instance Prelude.NFData JourneysResponse where
+  rnf JourneysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

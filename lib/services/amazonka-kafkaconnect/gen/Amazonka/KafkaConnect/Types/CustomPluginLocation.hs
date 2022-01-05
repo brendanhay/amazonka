@@ -56,9 +56,13 @@ newCustomPluginLocation pS3Location_ =
 customPluginLocation_s3Location :: Lens.Lens' CustomPluginLocation S3Location
 customPluginLocation_s3Location = Lens.lens (\CustomPluginLocation' {s3Location} -> s3Location) (\s@CustomPluginLocation' {} a -> s {s3Location = a} :: CustomPluginLocation)
 
-instance Prelude.Hashable CustomPluginLocation
+instance Prelude.Hashable CustomPluginLocation where
+  hashWithSalt _salt CustomPluginLocation' {..} =
+    _salt `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData CustomPluginLocation
+instance Prelude.NFData CustomPluginLocation where
+  rnf CustomPluginLocation' {..} =
+    Prelude.rnf s3Location
 
 instance Core.ToJSON CustomPluginLocation where
   toJSON CustomPluginLocation' {..} =

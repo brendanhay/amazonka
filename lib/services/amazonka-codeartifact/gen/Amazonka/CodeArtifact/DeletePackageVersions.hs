@@ -255,9 +255,27 @@ instance Core.AWSRequest DeletePackageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePackageVersions
+instance Prelude.Hashable DeletePackageVersions where
+  hashWithSalt _salt DeletePackageVersions' {..} =
+    _salt `Prelude.hashWithSalt` expectedStatus
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` versions
 
-instance Prelude.NFData DeletePackageVersions
+instance Prelude.NFData DeletePackageVersions where
+  rnf DeletePackageVersions' {..} =
+    Prelude.rnf expectedStatus
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf versions
 
 instance Core.ToHeaders DeletePackageVersions where
   toHeaders =
@@ -381,4 +399,8 @@ deletePackageVersionsResponse_successfulVersions = Lens.lens (\DeletePackageVers
 deletePackageVersionsResponse_httpStatus :: Lens.Lens' DeletePackageVersionsResponse Prelude.Int
 deletePackageVersionsResponse_httpStatus = Lens.lens (\DeletePackageVersionsResponse' {httpStatus} -> httpStatus) (\s@DeletePackageVersionsResponse' {} a -> s {httpStatus = a} :: DeletePackageVersionsResponse)
 
-instance Prelude.NFData DeletePackageVersionsResponse
+instance Prelude.NFData DeletePackageVersionsResponse where
+  rnf DeletePackageVersionsResponse' {..} =
+    Prelude.rnf failedVersions
+      `Prelude.seq` Prelude.rnf successfulVersions
+      `Prelude.seq` Prelude.rnf httpStatus

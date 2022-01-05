@@ -94,6 +94,16 @@ instance Core.FromJSON PipelineSummary where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable PipelineSummary
+instance Prelude.Hashable PipelineSummary where
+  hashWithSalt _salt PipelineSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` reprocessingSummaries
+      `Prelude.hashWithSalt` lastUpdateTime
 
-instance Prelude.NFData PipelineSummary
+instance Prelude.NFData PipelineSummary where
+  rnf PipelineSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf reprocessingSummaries
+      `Prelude.seq` Prelude.rnf lastUpdateTime

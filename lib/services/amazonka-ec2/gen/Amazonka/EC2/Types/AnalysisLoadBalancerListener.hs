@@ -72,5 +72,12 @@ instance Core.FromXML AnalysisLoadBalancerListener where
 instance
   Prelude.Hashable
     AnalysisLoadBalancerListener
+  where
+  hashWithSalt _salt AnalysisLoadBalancerListener' {..} =
+    _salt `Prelude.hashWithSalt` instancePort
+      `Prelude.hashWithSalt` loadBalancerPort
 
-instance Prelude.NFData AnalysisLoadBalancerListener
+instance Prelude.NFData AnalysisLoadBalancerListener where
+  rnf AnalysisLoadBalancerListener' {..} =
+    Prelude.rnf instancePort
+      `Prelude.seq` Prelude.rnf loadBalancerPort

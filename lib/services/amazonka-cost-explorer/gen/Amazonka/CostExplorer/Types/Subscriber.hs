@@ -86,9 +86,17 @@ instance Core.FromJSON Subscriber where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Subscriber
+instance Prelude.Hashable Subscriber where
+  hashWithSalt _salt Subscriber' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Subscriber
+instance Prelude.NFData Subscriber where
+  rnf Subscriber' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Subscriber where
   toJSON Subscriber' {..} =

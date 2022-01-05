@@ -64,9 +64,15 @@ durationRange_minSeconds = Lens.lens (\DurationRange' {minSeconds} -> minSeconds
 durationRange_maxSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
 durationRange_maxSeconds = Lens.lens (\DurationRange' {maxSeconds} -> maxSeconds) (\s@DurationRange' {} a -> s {maxSeconds = a} :: DurationRange)
 
-instance Prelude.Hashable DurationRange
+instance Prelude.Hashable DurationRange where
+  hashWithSalt _salt DurationRange' {..} =
+    _salt `Prelude.hashWithSalt` minSeconds
+      `Prelude.hashWithSalt` maxSeconds
 
-instance Prelude.NFData DurationRange
+instance Prelude.NFData DurationRange where
+  rnf DurationRange' {..} =
+    Prelude.rnf minSeconds
+      `Prelude.seq` Prelude.rnf maxSeconds
 
 instance Core.ToJSON DurationRange where
   toJSON DurationRange' {..} =

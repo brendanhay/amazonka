@@ -87,9 +87,17 @@ simpleEmail_textPart = Lens.lens (\SimpleEmail' {textPart} -> textPart) (\s@Simp
 simpleEmail_htmlPart :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
 simpleEmail_htmlPart = Lens.lens (\SimpleEmail' {htmlPart} -> htmlPart) (\s@SimpleEmail' {} a -> s {htmlPart = a} :: SimpleEmail)
 
-instance Prelude.Hashable SimpleEmail
+instance Prelude.Hashable SimpleEmail where
+  hashWithSalt _salt SimpleEmail' {..} =
+    _salt `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` textPart
+      `Prelude.hashWithSalt` htmlPart
 
-instance Prelude.NFData SimpleEmail
+instance Prelude.NFData SimpleEmail where
+  rnf SimpleEmail' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf textPart
+      `Prelude.seq` Prelude.rnf htmlPart
 
 instance Core.ToJSON SimpleEmail where
   toJSON SimpleEmail' {..} =

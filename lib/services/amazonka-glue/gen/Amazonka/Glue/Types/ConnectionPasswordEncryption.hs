@@ -125,8 +125,15 @@ instance Core.FromJSON ConnectionPasswordEncryption where
 instance
   Prelude.Hashable
     ConnectionPasswordEncryption
+  where
+  hashWithSalt _salt ConnectionPasswordEncryption' {..} =
+    _salt `Prelude.hashWithSalt` awsKmsKeyId
+      `Prelude.hashWithSalt` returnConnectionPasswordEncrypted
 
-instance Prelude.NFData ConnectionPasswordEncryption
+instance Prelude.NFData ConnectionPasswordEncryption where
+  rnf ConnectionPasswordEncryption' {..} =
+    Prelude.rnf awsKmsKeyId
+      `Prelude.seq` Prelude.rnf returnConnectionPasswordEncrypted
 
 instance Core.ToJSON ConnectionPasswordEncryption where
   toJSON ConnectionPasswordEncryption' {..} =

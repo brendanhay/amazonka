@@ -58,9 +58,12 @@ instance Core.FromJSON WorldConfig where
           WorldConfig' Prelude.<$> (x Core..:? "world")
       )
 
-instance Prelude.Hashable WorldConfig
+instance Prelude.Hashable WorldConfig where
+  hashWithSalt _salt WorldConfig' {..} =
+    _salt `Prelude.hashWithSalt` world
 
-instance Prelude.NFData WorldConfig
+instance Prelude.NFData WorldConfig where
+  rnf WorldConfig' {..} = Prelude.rnf world
 
 instance Core.ToJSON WorldConfig where
   toJSON WorldConfig' {..} =

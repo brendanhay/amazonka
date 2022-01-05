@@ -123,9 +123,17 @@ instance Core.AWSRequest DescribeVirtualRouter where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeVirtualRouter
+instance Prelude.Hashable DescribeVirtualRouter where
+  hashWithSalt _salt DescribeVirtualRouter' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData DescribeVirtualRouter
+instance Prelude.NFData DescribeVirtualRouter where
+  rnf DescribeVirtualRouter' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualRouterName
 
 instance Core.ToHeaders DescribeVirtualRouter where
   toHeaders =
@@ -196,4 +204,7 @@ describeVirtualRouterResponse_httpStatus = Lens.lens (\DescribeVirtualRouterResp
 describeVirtualRouterResponse_virtualRouter :: Lens.Lens' DescribeVirtualRouterResponse VirtualRouterData
 describeVirtualRouterResponse_virtualRouter = Lens.lens (\DescribeVirtualRouterResponse' {virtualRouter} -> virtualRouter) (\s@DescribeVirtualRouterResponse' {} a -> s {virtualRouter = a} :: DescribeVirtualRouterResponse)
 
-instance Prelude.NFData DescribeVirtualRouterResponse
+instance Prelude.NFData DescribeVirtualRouterResponse where
+  rnf DescribeVirtualRouterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualRouter

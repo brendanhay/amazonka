@@ -206,9 +206,19 @@ instance Core.AWSRequest DeleteStack where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteStackResponse'
 
-instance Prelude.Hashable DeleteStack
+instance Prelude.Hashable DeleteStack where
+  hashWithSalt _salt DeleteStack' {..} =
+    _salt `Prelude.hashWithSalt` retainResources
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData DeleteStack
+instance Prelude.NFData DeleteStack where
+  rnf DeleteStack' {..} =
+    Prelude.rnf retainResources
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders DeleteStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,4 +257,5 @@ newDeleteStackResponse ::
   DeleteStackResponse
 newDeleteStackResponse = DeleteStackResponse'
 
-instance Prelude.NFData DeleteStackResponse
+instance Prelude.NFData DeleteStackResponse where
+  rnf _ = ()

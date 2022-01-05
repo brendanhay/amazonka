@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.SSEDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.SSEStatus
 import Amazonka.DynamoDB.Types.SSEType
 import qualified Amazonka.Lens as Lens
@@ -139,6 +140,16 @@ instance Core.FromJSON SSEDescription where
             Prelude.<*> (x Core..:? "KMSMasterKeyArn")
       )
 
-instance Prelude.Hashable SSEDescription
+instance Prelude.Hashable SSEDescription where
+  hashWithSalt _salt SSEDescription' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
+      `Prelude.hashWithSalt` sSEType
+      `Prelude.hashWithSalt` kmsMasterKeyArn
 
-instance Prelude.NFData SSEDescription
+instance Prelude.NFData SSEDescription where
+  rnf SSEDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf inaccessibleEncryptionDateTime
+      `Prelude.seq` Prelude.rnf sSEType
+      `Prelude.seq` Prelude.rnf kmsMasterKeyArn

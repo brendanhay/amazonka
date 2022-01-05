@@ -212,9 +212,25 @@ instance Core.AWSRequest GetTraceSummaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTraceSummaries
+instance Prelude.Hashable GetTraceSummaries where
+  hashWithSalt _salt GetTraceSummaries' {..} =
+    _salt `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` timeRangeType
+      `Prelude.hashWithSalt` samplingStrategy
+      `Prelude.hashWithSalt` sampling
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData GetTraceSummaries
+instance Prelude.NFData GetTraceSummaries where
+  rnf GetTraceSummaries' {..} =
+    Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf timeRangeType
+      `Prelude.seq` Prelude.rnf samplingStrategy
+      `Prelude.seq` Prelude.rnf sampling
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders GetTraceSummaries where
   toHeaders = Prelude.const Prelude.mempty
@@ -319,4 +335,10 @@ getTraceSummariesResponse_traceSummaries = Lens.lens (\GetTraceSummariesResponse
 getTraceSummariesResponse_httpStatus :: Lens.Lens' GetTraceSummariesResponse Prelude.Int
 getTraceSummariesResponse_httpStatus = Lens.lens (\GetTraceSummariesResponse' {httpStatus} -> httpStatus) (\s@GetTraceSummariesResponse' {} a -> s {httpStatus = a} :: GetTraceSummariesResponse)
 
-instance Prelude.NFData GetTraceSummariesResponse
+instance Prelude.NFData GetTraceSummariesResponse where
+  rnf GetTraceSummariesResponse' {..} =
+    Prelude.rnf tracesProcessedCount
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf approximateTime
+      `Prelude.seq` Prelude.rnf traceSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -118,9 +118,19 @@ instance Core.FromJSON PresetSettings where
                         )
       )
 
-instance Prelude.Hashable PresetSettings
+instance Prelude.Hashable PresetSettings where
+  hashWithSalt _salt PresetSettings' {..} =
+    _salt `Prelude.hashWithSalt` captionDescriptions
+      `Prelude.hashWithSalt` videoDescription
+      `Prelude.hashWithSalt` containerSettings
+      `Prelude.hashWithSalt` audioDescriptions
 
-instance Prelude.NFData PresetSettings
+instance Prelude.NFData PresetSettings where
+  rnf PresetSettings' {..} =
+    Prelude.rnf captionDescriptions
+      `Prelude.seq` Prelude.rnf videoDescription
+      `Prelude.seq` Prelude.rnf containerSettings
+      `Prelude.seq` Prelude.rnf audioDescriptions
 
 instance Core.ToJSON PresetSettings where
   toJSON PresetSettings' {..} =

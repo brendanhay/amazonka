@@ -193,9 +193,17 @@ instance Core.AWSRequest ListPolicyVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPolicyVersions
+instance Prelude.Hashable ListPolicyVersions where
+  hashWithSalt _salt ListPolicyVersions' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData ListPolicyVersions
+instance Prelude.NFData ListPolicyVersions where
+  rnf ListPolicyVersions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders ListPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,4 +318,9 @@ listPolicyVersionsResponse_isTruncated = Lens.lens (\ListPolicyVersionsResponse'
 listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int
 listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyVersionsResponse' {} a -> s {httpStatus = a} :: ListPolicyVersionsResponse)
 
-instance Prelude.NFData ListPolicyVersionsResponse
+instance Prelude.NFData ListPolicyVersionsResponse where
+  rnf ListPolicyVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus

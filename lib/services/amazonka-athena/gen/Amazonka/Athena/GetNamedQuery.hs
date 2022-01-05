@@ -87,9 +87,12 @@ instance Core.AWSRequest GetNamedQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNamedQuery
+instance Prelude.Hashable GetNamedQuery where
+  hashWithSalt _salt GetNamedQuery' {..} =
+    _salt `Prelude.hashWithSalt` namedQueryId
 
-instance Prelude.NFData GetNamedQuery
+instance Prelude.NFData GetNamedQuery where
+  rnf GetNamedQuery' {..} = Prelude.rnf namedQueryId
 
 instance Core.ToHeaders GetNamedQuery where
   toHeaders =
@@ -156,4 +159,7 @@ getNamedQueryResponse_namedQuery = Lens.lens (\GetNamedQueryResponse' {namedQuer
 getNamedQueryResponse_httpStatus :: Lens.Lens' GetNamedQueryResponse Prelude.Int
 getNamedQueryResponse_httpStatus = Lens.lens (\GetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@GetNamedQueryResponse' {} a -> s {httpStatus = a} :: GetNamedQueryResponse)
 
-instance Prelude.NFData GetNamedQueryResponse
+instance Prelude.NFData GetNamedQueryResponse where
+  rnf GetNamedQueryResponse' {..} =
+    Prelude.rnf namedQuery
+      `Prelude.seq` Prelude.rnf httpStatus

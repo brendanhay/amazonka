@@ -264,6 +264,40 @@ instance Core.FromJSON InstanceSnapshot where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InstanceSnapshot
+instance Prelude.Hashable InstanceSnapshot where
+  hashWithSalt _salt InstanceSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` fromBlueprintId
+      `Prelude.hashWithSalt` isFromAutoSnapshot
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` fromAttachedDisks
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` fromBundleId
+      `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` fromInstanceArn
+      `Prelude.hashWithSalt` fromInstanceName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData InstanceSnapshot
+instance Prelude.NFData InstanceSnapshot where
+  rnf InstanceSnapshot' {..} =
+    Prelude.rnf fromBlueprintId
+      `Prelude.seq` Prelude.rnf isFromAutoSnapshot
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf fromAttachedDisks
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fromBundleId
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf fromInstanceArn
+      `Prelude.seq` Prelude.rnf fromInstanceName
+      `Prelude.seq` Prelude.rnf tags

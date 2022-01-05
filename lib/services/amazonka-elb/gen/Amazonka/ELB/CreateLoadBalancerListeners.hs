@@ -107,9 +107,15 @@ instance Core.AWSRequest CreateLoadBalancerListeners where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancerListeners
+instance Prelude.Hashable CreateLoadBalancerListeners where
+  hashWithSalt _salt CreateLoadBalancerListeners' {..} =
+    _salt `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` listeners
 
-instance Prelude.NFData CreateLoadBalancerListeners
+instance Prelude.NFData CreateLoadBalancerListeners where
+  rnf CreateLoadBalancerListeners' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf listeners
 
 instance Core.ToHeaders CreateLoadBalancerListeners where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,3 +172,6 @@ createLoadBalancerListenersResponse_httpStatus = Lens.lens (\CreateLoadBalancerL
 instance
   Prelude.NFData
     CreateLoadBalancerListenersResponse
+  where
+  rnf CreateLoadBalancerListenersResponse' {..} =
+    Prelude.rnf httpStatus

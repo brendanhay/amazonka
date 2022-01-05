@@ -85,9 +85,17 @@ instance Core.FromJSON AwsLambdaFunctionVpcConfig where
             Prelude.<*> (x Core..:? "VpcId")
       )
 
-instance Prelude.Hashable AwsLambdaFunctionVpcConfig
+instance Prelude.Hashable AwsLambdaFunctionVpcConfig where
+  hashWithSalt _salt AwsLambdaFunctionVpcConfig' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData AwsLambdaFunctionVpcConfig
+instance Prelude.NFData AwsLambdaFunctionVpcConfig where
+  rnf AwsLambdaFunctionVpcConfig' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToJSON AwsLambdaFunctionVpcConfig where
   toJSON AwsLambdaFunctionVpcConfig' {..} =

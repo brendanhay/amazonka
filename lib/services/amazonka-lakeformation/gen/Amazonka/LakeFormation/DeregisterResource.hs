@@ -90,9 +90,12 @@ instance Core.AWSRequest DeregisterResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterResource
+instance Prelude.Hashable DeregisterResource where
+  hashWithSalt _salt DeregisterResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DeregisterResource
+instance Prelude.NFData DeregisterResource where
+  rnf DeregisterResource' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders DeregisterResource where
   toHeaders =
@@ -152,4 +155,6 @@ newDeregisterResourceResponse pHttpStatus_ =
 deregisterResourceResponse_httpStatus :: Lens.Lens' DeregisterResourceResponse Prelude.Int
 deregisterResourceResponse_httpStatus = Lens.lens (\DeregisterResourceResponse' {httpStatus} -> httpStatus) (\s@DeregisterResourceResponse' {} a -> s {httpStatus = a} :: DeregisterResourceResponse)
 
-instance Prelude.NFData DeregisterResourceResponse
+instance Prelude.NFData DeregisterResourceResponse where
+  rnf DeregisterResourceResponse' {..} =
+    Prelude.rnf httpStatus

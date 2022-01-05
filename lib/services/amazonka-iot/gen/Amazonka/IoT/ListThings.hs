@@ -193,9 +193,24 @@ instance Core.AWSRequest ListThings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListThings
+instance Prelude.Hashable ListThings where
+  hashWithSalt _salt ListThings' {..} =
+    _salt
+      `Prelude.hashWithSalt` usePrefixAttributeValue
+      `Prelude.hashWithSalt` attributeValue
+      `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListThings
+instance Prelude.NFData ListThings where
+  rnf ListThings' {..} =
+    Prelude.rnf usePrefixAttributeValue
+      `Prelude.seq` Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListThings where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,4 +282,8 @@ listThingsResponse_things = Lens.lens (\ListThingsResponse' {things} -> things) 
 listThingsResponse_httpStatus :: Lens.Lens' ListThingsResponse Prelude.Int
 listThingsResponse_httpStatus = Lens.lens (\ListThingsResponse' {httpStatus} -> httpStatus) (\s@ListThingsResponse' {} a -> s {httpStatus = a} :: ListThingsResponse)
 
-instance Prelude.NFData ListThingsResponse
+instance Prelude.NFData ListThingsResponse where
+  rnf ListThingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf things
+      `Prelude.seq` Prelude.rnf httpStatus

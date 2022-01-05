@@ -108,7 +108,19 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionCompletedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    LambdaFunctionCompletedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` result
+        `Prelude.hashWithSalt` scheduledEventId
+        `Prelude.hashWithSalt` startedEventId
 
 instance
   Prelude.NFData
     LambdaFunctionCompletedEventAttributes
+  where
+  rnf LambdaFunctionCompletedEventAttributes' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf scheduledEventId
+      `Prelude.seq` Prelude.rnf startedEventId

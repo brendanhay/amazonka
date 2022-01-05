@@ -212,9 +212,17 @@ instance Core.FromJSON CaptionFormat where
             Prelude.<*> (x Core..:? "Encryption")
       )
 
-instance Prelude.Hashable CaptionFormat
+instance Prelude.Hashable CaptionFormat where
+  hashWithSalt _salt CaptionFormat' {..} =
+    _salt `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` encryption
 
-instance Prelude.NFData CaptionFormat
+instance Prelude.NFData CaptionFormat where
+  rnf CaptionFormat' {..} =
+    Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =

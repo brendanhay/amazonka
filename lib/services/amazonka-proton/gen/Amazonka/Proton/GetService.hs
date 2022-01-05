@@ -83,9 +83,12 @@ instance Core.AWSRequest GetService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetService
+instance Prelude.Hashable GetService where
+  hashWithSalt _salt GetService' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetService
+instance Prelude.NFData GetService where
+  rnf GetService' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetService where
   toHeaders =
@@ -153,4 +156,7 @@ getServiceResponse_service = Lens.lens (\GetServiceResponse' {service} -> servic
 getServiceResponse_httpStatus :: Lens.Lens' GetServiceResponse Prelude.Int
 getServiceResponse_httpStatus = Lens.lens (\GetServiceResponse' {httpStatus} -> httpStatus) (\s@GetServiceResponse' {} a -> s {httpStatus = a} :: GetServiceResponse)
 
-instance Prelude.NFData GetServiceResponse
+instance Prelude.NFData GetServiceResponse where
+  rnf GetServiceResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

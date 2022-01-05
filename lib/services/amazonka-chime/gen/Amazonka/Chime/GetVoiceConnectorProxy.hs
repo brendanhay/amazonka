@@ -90,9 +90,13 @@ instance Core.AWSRequest GetVoiceConnectorProxy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVoiceConnectorProxy
+instance Prelude.Hashable GetVoiceConnectorProxy where
+  hashWithSalt _salt GetVoiceConnectorProxy' {..} =
+    _salt `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData GetVoiceConnectorProxy
+instance Prelude.NFData GetVoiceConnectorProxy where
+  rnf GetVoiceConnectorProxy' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance Core.ToHeaders GetVoiceConnectorProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,3 +154,7 @@ getVoiceConnectorProxyResponse_httpStatus = Lens.lens (\GetVoiceConnectorProxyRe
 instance
   Prelude.NFData
     GetVoiceConnectorProxyResponse
+  where
+  rnf GetVoiceConnectorProxyResponse' {..} =
+    Prelude.rnf proxy
+      `Prelude.seq` Prelude.rnf httpStatus

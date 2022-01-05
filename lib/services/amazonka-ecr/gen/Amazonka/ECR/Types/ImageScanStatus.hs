@@ -72,6 +72,12 @@ instance Core.FromJSON ImageScanStatus where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ImageScanStatus
+instance Prelude.Hashable ImageScanStatus where
+  hashWithSalt _salt ImageScanStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ImageScanStatus
+instance Prelude.NFData ImageScanStatus where
+  rnf ImageScanStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description

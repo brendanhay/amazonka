@@ -152,10 +152,34 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableGlobalSecondaryIndex
+  where
+  hashWithSalt
+    _salt
+    AwsDynamoDbTableGlobalSecondaryIndex' {..} =
+      _salt `Prelude.hashWithSalt` backfilling
+        `Prelude.hashWithSalt` indexSizeBytes
+        `Prelude.hashWithSalt` indexStatus
+        `Prelude.hashWithSalt` provisionedThroughput
+        `Prelude.hashWithSalt` indexArn
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` itemCount
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     AwsDynamoDbTableGlobalSecondaryIndex
+  where
+  rnf AwsDynamoDbTableGlobalSecondaryIndex' {..} =
+    Prelude.rnf backfilling
+      `Prelude.seq` Prelude.rnf indexSizeBytes
+      `Prelude.seq` Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf indexArn
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON

@@ -94,9 +94,15 @@ instance Core.FromJSON Role where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable Role
+instance Prelude.Hashable Role where
+  hashWithSalt _salt Role' {..} =
+    _salt `Prelude.hashWithSalt` roleType
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData Role
+instance Prelude.NFData Role where
+  rnf Role' {..} =
+    Prelude.rnf roleType
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON Role where
   toJSON Role' {..} =

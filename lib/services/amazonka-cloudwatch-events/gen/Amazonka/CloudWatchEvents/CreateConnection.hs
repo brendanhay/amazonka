@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection where
+  hashWithSalt _salt CreateConnection' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` authParameters
 
-instance Prelude.NFData CreateConnection
+instance Prelude.NFData CreateConnection where
+  rnf CreateConnection' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf authParameters
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =
@@ -238,4 +248,10 @@ createConnectionResponse_connectionState = Lens.lens (\CreateConnectionResponse'
 createConnectionResponse_httpStatus :: Lens.Lens' CreateConnectionResponse Prelude.Int
 createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionResponse' {} a -> s {httpStatus = a} :: CreateConnectionResponse)
 
-instance Prelude.NFData CreateConnectionResponse
+instance Prelude.NFData CreateConnectionResponse where
+  rnf CreateConnectionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -142,10 +142,24 @@ instance
 instance
   Prelude.Hashable
     CreateFunctionDefinitionVersion
+  where
+  hashWithSalt
+    _salt
+    CreateFunctionDefinitionVersion' {..} =
+      _salt `Prelude.hashWithSalt` amznClientToken
+        `Prelude.hashWithSalt` defaultConfig
+        `Prelude.hashWithSalt` functions
+        `Prelude.hashWithSalt` functionDefinitionId
 
 instance
   Prelude.NFData
     CreateFunctionDefinitionVersion
+  where
+  rnf CreateFunctionDefinitionVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf defaultConfig
+      `Prelude.seq` Prelude.rnf functions
+      `Prelude.seq` Prelude.rnf functionDefinitionId
 
 instance
   Core.ToHeaders
@@ -249,3 +263,10 @@ createFunctionDefinitionVersionResponse_httpStatus = Lens.lens (\CreateFunctionD
 instance
   Prelude.NFData
     CreateFunctionDefinitionVersionResponse
+  where
+  rnf CreateFunctionDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

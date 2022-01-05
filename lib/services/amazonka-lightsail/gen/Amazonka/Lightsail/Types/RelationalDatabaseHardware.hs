@@ -82,6 +82,14 @@ instance Core.FromJSON RelationalDatabaseHardware where
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
-instance Prelude.Hashable RelationalDatabaseHardware
+instance Prelude.Hashable RelationalDatabaseHardware where
+  hashWithSalt _salt RelationalDatabaseHardware' {..} =
+    _salt `Prelude.hashWithSalt` cpuCount
+      `Prelude.hashWithSalt` diskSizeInGb
+      `Prelude.hashWithSalt` ramSizeInGb
 
-instance Prelude.NFData RelationalDatabaseHardware
+instance Prelude.NFData RelationalDatabaseHardware where
+  rnf RelationalDatabaseHardware' {..} =
+    Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf diskSizeInGb
+      `Prelude.seq` Prelude.rnf ramSizeInGb

@@ -133,6 +133,20 @@ instance Core.FromJSON DescribedSecurityPolicy where
             Prelude.<*> (x Core..: "SecurityPolicyName")
       )
 
-instance Prelude.Hashable DescribedSecurityPolicy
+instance Prelude.Hashable DescribedSecurityPolicy where
+  hashWithSalt _salt DescribedSecurityPolicy' {..} =
+    _salt `Prelude.hashWithSalt` fips
+      `Prelude.hashWithSalt` sshMacs
+      `Prelude.hashWithSalt` sshKexs
+      `Prelude.hashWithSalt` tlsCiphers
+      `Prelude.hashWithSalt` sshCiphers
+      `Prelude.hashWithSalt` securityPolicyName
 
-instance Prelude.NFData DescribedSecurityPolicy
+instance Prelude.NFData DescribedSecurityPolicy where
+  rnf DescribedSecurityPolicy' {..} =
+    Prelude.rnf fips
+      `Prelude.seq` Prelude.rnf sshMacs
+      `Prelude.seq` Prelude.rnf sshKexs
+      `Prelude.seq` Prelude.rnf tlsCiphers
+      `Prelude.seq` Prelude.rnf sshCiphers
+      `Prelude.seq` Prelude.rnf securityPolicyName

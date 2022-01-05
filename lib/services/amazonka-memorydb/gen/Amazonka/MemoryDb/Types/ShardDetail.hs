@@ -92,6 +92,16 @@ instance Core.FromJSON ShardDetail where
             Prelude.<*> (x Core..:? "Configuration")
       )
 
-instance Prelude.Hashable ShardDetail
+instance Prelude.Hashable ShardDetail where
+  hashWithSalt _salt ShardDetail' {..} =
+    _salt `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` snapshotCreationTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData ShardDetail
+instance Prelude.NFData ShardDetail where
+  rnf ShardDetail' {..} =
+    Prelude.rnf size
+      `Prelude.seq` Prelude.rnf snapshotCreationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf configuration

@@ -155,9 +155,21 @@ instance Core.AWSRequest UpdateVirtualNode where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVirtualNode
+instance Prelude.Hashable UpdateVirtualNode where
+  hashWithSalt _salt UpdateVirtualNode' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` virtualNodeName
 
-instance Prelude.NFData UpdateVirtualNode
+instance Prelude.NFData UpdateVirtualNode where
+  rnf UpdateVirtualNode' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf virtualNodeName
 
 instance Core.ToHeaders UpdateVirtualNode where
   toHeaders =
@@ -237,4 +249,7 @@ updateVirtualNodeResponse_httpStatus = Lens.lens (\UpdateVirtualNodeResponse' {h
 updateVirtualNodeResponse_virtualNode :: Lens.Lens' UpdateVirtualNodeResponse VirtualNodeData
 updateVirtualNodeResponse_virtualNode = Lens.lens (\UpdateVirtualNodeResponse' {virtualNode} -> virtualNode) (\s@UpdateVirtualNodeResponse' {} a -> s {virtualNode = a} :: UpdateVirtualNodeResponse)
 
-instance Prelude.NFData UpdateVirtualNodeResponse
+instance Prelude.NFData UpdateVirtualNodeResponse where
+  rnf UpdateVirtualNodeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualNode

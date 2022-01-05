@@ -58,9 +58,12 @@ instance Core.FromJSON Configuration where
           Configuration' Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable Configuration
+instance Prelude.Hashable Configuration where
+  hashWithSalt _salt Configuration' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData Configuration
+instance Prelude.NFData Configuration where
+  rnf Configuration' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =

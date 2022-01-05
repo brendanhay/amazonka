@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.AutoScalingPolicyDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -79,5 +80,12 @@ instance Core.FromJSON AutoScalingPolicyDescription where
 instance
   Prelude.Hashable
     AutoScalingPolicyDescription
+  where
+  hashWithSalt _salt AutoScalingPolicyDescription' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
 
-instance Prelude.NFData AutoScalingPolicyDescription
+instance Prelude.NFData AutoScalingPolicyDescription where
+  rnf AutoScalingPolicyDescription' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration

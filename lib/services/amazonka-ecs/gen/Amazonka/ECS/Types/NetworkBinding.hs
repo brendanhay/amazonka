@@ -95,9 +95,19 @@ instance Core.FromJSON NetworkBinding where
             Prelude.<*> (x Core..:? "containerPort")
       )
 
-instance Prelude.Hashable NetworkBinding
+instance Prelude.Hashable NetworkBinding where
+  hashWithSalt _salt NetworkBinding' {..} =
+    _salt `Prelude.hashWithSalt` bindIP
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` hostPort
+      `Prelude.hashWithSalt` containerPort
 
-instance Prelude.NFData NetworkBinding
+instance Prelude.NFData NetworkBinding where
+  rnf NetworkBinding' {..} =
+    Prelude.rnf bindIP
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf hostPort
+      `Prelude.seq` Prelude.rnf containerPort
 
 instance Core.ToJSON NetworkBinding where
   toJSON NetworkBinding' {..} =

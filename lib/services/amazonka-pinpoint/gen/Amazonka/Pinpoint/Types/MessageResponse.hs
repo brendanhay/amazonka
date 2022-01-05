@@ -114,6 +114,16 @@ instance Core.FromJSON MessageResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable MessageResponse
+instance Prelude.Hashable MessageResponse where
+  hashWithSalt _salt MessageResponse' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` endpointResult
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData MessageResponse
+instance Prelude.NFData MessageResponse where
+  rnf MessageResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf endpointResult
+      `Prelude.seq` Prelude.rnf applicationId

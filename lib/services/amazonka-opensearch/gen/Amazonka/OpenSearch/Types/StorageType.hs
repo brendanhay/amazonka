@@ -83,6 +83,14 @@ instance Core.FromJSON StorageType where
             Prelude.<*> (x Core..:? "StorageTypeName")
       )
 
-instance Prelude.Hashable StorageType
+instance Prelude.Hashable StorageType where
+  hashWithSalt _salt StorageType' {..} =
+    _salt `Prelude.hashWithSalt` storageTypeLimits
+      `Prelude.hashWithSalt` storageSubTypeName
+      `Prelude.hashWithSalt` storageTypeName
 
-instance Prelude.NFData StorageType
+instance Prelude.NFData StorageType where
+  rnf StorageType' {..} =
+    Prelude.rnf storageTypeLimits
+      `Prelude.seq` Prelude.rnf storageSubTypeName
+      `Prelude.seq` Prelude.rnf storageTypeName

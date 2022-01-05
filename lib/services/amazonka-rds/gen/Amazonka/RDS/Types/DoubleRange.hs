@@ -66,6 +66,11 @@ instance Core.FromXML DoubleRange where
     DoubleRange'
       Prelude.<$> (x Core..@? "To") Prelude.<*> (x Core..@? "From")
 
-instance Prelude.Hashable DoubleRange
+instance Prelude.Hashable DoubleRange where
+  hashWithSalt _salt DoubleRange' {..} =
+    _salt `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` from
 
-instance Prelude.NFData DoubleRange
+instance Prelude.NFData DoubleRange where
+  rnf DoubleRange' {..} =
+    Prelude.rnf to `Prelude.seq` Prelude.rnf from

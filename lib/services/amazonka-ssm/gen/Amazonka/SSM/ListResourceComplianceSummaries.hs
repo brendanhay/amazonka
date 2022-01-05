@@ -158,10 +158,22 @@ instance
 instance
   Prelude.Hashable
     ListResourceComplianceSummaries
+  where
+  hashWithSalt
+    _salt
+    ListResourceComplianceSummaries' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListResourceComplianceSummaries
+  where
+  rnf ListResourceComplianceSummaries' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -261,3 +273,8 @@ listResourceComplianceSummariesResponse_httpStatus = Lens.lens (\ListResourceCom
 instance
   Prelude.NFData
     ListResourceComplianceSummariesResponse
+  where
+  rnf ListResourceComplianceSummariesResponse' {..} =
+    Prelude.rnf resourceComplianceSummaryItems
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

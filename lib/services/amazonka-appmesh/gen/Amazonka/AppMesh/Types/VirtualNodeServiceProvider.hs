@@ -64,9 +64,13 @@ instance Core.FromJSON VirtualNodeServiceProvider where
             Prelude.<$> (x Core..: "virtualNodeName")
       )
 
-instance Prelude.Hashable VirtualNodeServiceProvider
+instance Prelude.Hashable VirtualNodeServiceProvider where
+  hashWithSalt _salt VirtualNodeServiceProvider' {..} =
+    _salt `Prelude.hashWithSalt` virtualNodeName
 
-instance Prelude.NFData VirtualNodeServiceProvider
+instance Prelude.NFData VirtualNodeServiceProvider where
+  rnf VirtualNodeServiceProvider' {..} =
+    Prelude.rnf virtualNodeName
 
 instance Core.ToJSON VirtualNodeServiceProvider where
   toJSON VirtualNodeServiceProvider' {..} =

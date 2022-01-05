@@ -130,9 +130,19 @@ instance Core.AWSRequest ListTriggers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTriggers
+instance Prelude.Hashable ListTriggers where
+  hashWithSalt _salt ListTriggers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dependentJobName
 
-instance Prelude.NFData ListTriggers
+instance Prelude.NFData ListTriggers where
+  rnf ListTriggers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dependentJobName
 
 instance Core.ToHeaders ListTriggers where
   toHeaders =
@@ -219,4 +229,8 @@ listTriggersResponse_nextToken = Lens.lens (\ListTriggersResponse' {nextToken} -
 listTriggersResponse_httpStatus :: Lens.Lens' ListTriggersResponse Prelude.Int
 listTriggersResponse_httpStatus = Lens.lens (\ListTriggersResponse' {httpStatus} -> httpStatus) (\s@ListTriggersResponse' {} a -> s {httpStatus = a} :: ListTriggersResponse)
 
-instance Prelude.NFData ListTriggersResponse
+instance Prelude.NFData ListTriggersResponse where
+  rnf ListTriggersResponse' {..} =
+    Prelude.rnf triggerNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

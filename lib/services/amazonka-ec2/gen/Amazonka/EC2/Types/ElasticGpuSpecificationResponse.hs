@@ -62,7 +62,15 @@ instance Core.FromXML ElasticGpuSpecificationResponse where
 instance
   Prelude.Hashable
     ElasticGpuSpecificationResponse
+  where
+  hashWithSalt
+    _salt
+    ElasticGpuSpecificationResponse' {..} =
+      _salt `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ElasticGpuSpecificationResponse
+  where
+  rnf ElasticGpuSpecificationResponse' {..} =
+    Prelude.rnf type'

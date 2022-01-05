@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteInsight where
             Prelude.<*> (x Core..:> "InsightArn")
       )
 
-instance Prelude.Hashable DeleteInsight
+instance Prelude.Hashable DeleteInsight where
+  hashWithSalt _salt DeleteInsight' {..} =
+    _salt `Prelude.hashWithSalt` insightArn
 
-instance Prelude.NFData DeleteInsight
+instance Prelude.NFData DeleteInsight where
+  rnf DeleteInsight' {..} = Prelude.rnf insightArn
 
 instance Core.ToHeaders DeleteInsight where
   toHeaders =
@@ -149,4 +152,7 @@ deleteInsightResponse_httpStatus = Lens.lens (\DeleteInsightResponse' {httpStatu
 deleteInsightResponse_insightArn :: Lens.Lens' DeleteInsightResponse Prelude.Text
 deleteInsightResponse_insightArn = Lens.lens (\DeleteInsightResponse' {insightArn} -> insightArn) (\s@DeleteInsightResponse' {} a -> s {insightArn = a} :: DeleteInsightResponse)
 
-instance Prelude.NFData DeleteInsightResponse
+instance Prelude.NFData DeleteInsightResponse where
+  rnf DeleteInsightResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf insightArn

@@ -63,9 +63,14 @@ instance Core.FromJSON PackageImportJobInputConfig where
             Prelude.<$> (x Core..:? "PackageVersionInputConfig")
       )
 
-instance Prelude.Hashable PackageImportJobInputConfig
+instance Prelude.Hashable PackageImportJobInputConfig where
+  hashWithSalt _salt PackageImportJobInputConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` packageVersionInputConfig
 
-instance Prelude.NFData PackageImportJobInputConfig
+instance Prelude.NFData PackageImportJobInputConfig where
+  rnf PackageImportJobInputConfig' {..} =
+    Prelude.rnf packageVersionInputConfig
 
 instance Core.ToJSON PackageImportJobInputConfig where
   toJSON PackageImportJobInputConfig' {..} =

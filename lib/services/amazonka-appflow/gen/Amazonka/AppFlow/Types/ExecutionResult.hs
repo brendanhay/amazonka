@@ -93,6 +93,16 @@ instance Core.FromJSON ExecutionResult where
             Prelude.<*> (x Core..:? "errorInfo")
       )
 
-instance Prelude.Hashable ExecutionResult
+instance Prelude.Hashable ExecutionResult where
+  hashWithSalt _salt ExecutionResult' {..} =
+    _salt `Prelude.hashWithSalt` recordsProcessed
+      `Prelude.hashWithSalt` bytesWritten
+      `Prelude.hashWithSalt` bytesProcessed
+      `Prelude.hashWithSalt` errorInfo
 
-instance Prelude.NFData ExecutionResult
+instance Prelude.NFData ExecutionResult where
+  rnf ExecutionResult' {..} =
+    Prelude.rnf recordsProcessed
+      `Prelude.seq` Prelude.rnf bytesWritten
+      `Prelude.seq` Prelude.rnf bytesProcessed
+      `Prelude.seq` Prelude.rnf errorInfo

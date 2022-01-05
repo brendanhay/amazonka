@@ -80,6 +80,12 @@ instance Core.FromJSON CognitoOptionsStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable CognitoOptionsStatus
+instance Prelude.Hashable CognitoOptionsStatus where
+  hashWithSalt _salt CognitoOptionsStatus' {..} =
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CognitoOptionsStatus
+instance Prelude.NFData CognitoOptionsStatus where
+  rnf CognitoOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

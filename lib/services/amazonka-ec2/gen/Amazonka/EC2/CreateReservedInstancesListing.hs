@@ -183,10 +183,24 @@ instance
 instance
   Prelude.Hashable
     CreateReservedInstancesListing
+  where
+  hashWithSalt
+    _salt
+    CreateReservedInstancesListing' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` instanceCount
+        `Prelude.hashWithSalt` priceSchedules
+        `Prelude.hashWithSalt` reservedInstancesId
 
 instance
   Prelude.NFData
     CreateReservedInstancesListing
+  where
+  rnf CreateReservedInstancesListing' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf priceSchedules
+      `Prelude.seq` Prelude.rnf reservedInstancesId
 
 instance
   Core.ToHeaders
@@ -257,3 +271,7 @@ createReservedInstancesListingResponse_httpStatus = Lens.lens (\CreateReservedIn
 instance
   Prelude.NFData
     CreateReservedInstancesListingResponse
+  where
+  rnf CreateReservedInstancesListingResponse' {..} =
+    Prelude.rnf reservedInstancesListings
+      `Prelude.seq` Prelude.rnf httpStatus

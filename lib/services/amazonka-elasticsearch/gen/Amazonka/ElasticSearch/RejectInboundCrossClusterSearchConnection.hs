@@ -101,10 +101,19 @@ instance
 instance
   Prelude.Hashable
     RejectInboundCrossClusterSearchConnection
+  where
+  hashWithSalt
+    _salt
+    RejectInboundCrossClusterSearchConnection' {..} =
+      _salt
+        `Prelude.hashWithSalt` crossClusterSearchConnectionId
 
 instance
   Prelude.NFData
     RejectInboundCrossClusterSearchConnection
+  where
+  rnf RejectInboundCrossClusterSearchConnection' {..} =
+    Prelude.rnf crossClusterSearchConnectionId
 
 instance
   Core.ToHeaders
@@ -185,3 +194,8 @@ rejectInboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\Rejec
 instance
   Prelude.NFData
     RejectInboundCrossClusterSearchConnectionResponse
+  where
+  rnf
+    RejectInboundCrossClusterSearchConnectionResponse' {..} =
+      Prelude.rnf crossClusterSearchConnection
+        `Prelude.seq` Prelude.rnf httpStatus

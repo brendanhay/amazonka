@@ -76,10 +76,20 @@ instance
 instance
   Prelude.Hashable
     AwsCertificateManagerCertificateOptions
+  where
+  hashWithSalt
+    _salt
+    AwsCertificateManagerCertificateOptions' {..} =
+      _salt
+        `Prelude.hashWithSalt` certificateTransparencyLoggingPreference
 
 instance
   Prelude.NFData
     AwsCertificateManagerCertificateOptions
+  where
+  rnf AwsCertificateManagerCertificateOptions' {..} =
+    Prelude.rnf
+      certificateTransparencyLoggingPreference
 
 instance
   Core.ToJSON

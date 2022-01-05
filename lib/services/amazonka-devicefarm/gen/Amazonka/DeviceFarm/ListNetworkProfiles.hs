@@ -148,9 +148,17 @@ instance Core.AWSRequest ListNetworkProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNetworkProfiles
+instance Prelude.Hashable ListNetworkProfiles where
+  hashWithSalt _salt ListNetworkProfiles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListNetworkProfiles
+instance Prelude.NFData ListNetworkProfiles where
+  rnf ListNetworkProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListNetworkProfiles where
   toHeaders =
@@ -237,4 +245,8 @@ listNetworkProfilesResponse_nextToken = Lens.lens (\ListNetworkProfilesResponse'
 listNetworkProfilesResponse_httpStatus :: Lens.Lens' ListNetworkProfilesResponse Prelude.Int
 listNetworkProfilesResponse_httpStatus = Lens.lens (\ListNetworkProfilesResponse' {httpStatus} -> httpStatus) (\s@ListNetworkProfilesResponse' {} a -> s {httpStatus = a} :: ListNetworkProfilesResponse)
 
-instance Prelude.NFData ListNetworkProfilesResponse
+instance Prelude.NFData ListNetworkProfilesResponse where
+  rnf ListNetworkProfilesResponse' {..} =
+    Prelude.rnf networkProfiles
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

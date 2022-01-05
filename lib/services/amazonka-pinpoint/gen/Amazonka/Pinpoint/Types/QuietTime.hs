@@ -89,9 +89,14 @@ instance Core.FromJSON QuietTime where
             Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
       )
 
-instance Prelude.Hashable QuietTime
+instance Prelude.Hashable QuietTime where
+  hashWithSalt _salt QuietTime' {..} =
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` end
 
-instance Prelude.NFData QuietTime
+instance Prelude.NFData QuietTime where
+  rnf QuietTime' {..} =
+    Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
 instance Core.ToJSON QuietTime where
   toJSON QuietTime' {..} =

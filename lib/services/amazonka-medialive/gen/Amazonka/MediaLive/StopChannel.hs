@@ -124,9 +124,12 @@ instance Core.AWSRequest StopChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopChannel
+instance Prelude.Hashable StopChannel where
+  hashWithSalt _salt StopChannel' {..} =
+    _salt `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData StopChannel
+instance Prelude.NFData StopChannel where
+  rnf StopChannel' {..} = Prelude.rnf channelId
 
 instance Core.ToHeaders StopChannel where
   toHeaders =
@@ -344,4 +347,23 @@ stopChannelResponse_roleArn = Lens.lens (\StopChannelResponse' {roleArn} -> role
 stopChannelResponse_httpStatus :: Lens.Lens' StopChannelResponse Prelude.Int
 stopChannelResponse_httpStatus = Lens.lens (\StopChannelResponse' {httpStatus} -> httpStatus) (\s@StopChannelResponse' {} a -> s {httpStatus = a} :: StopChannelResponse)
 
-instance Prelude.NFData StopChannelResponse
+instance Prelude.NFData StopChannelResponse where
+  rnf StopChannelResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

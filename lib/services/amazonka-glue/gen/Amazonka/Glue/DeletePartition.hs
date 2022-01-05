@@ -121,9 +121,19 @@ instance Core.AWSRequest DeletePartition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePartition
+instance Prelude.Hashable DeletePartition where
+  hashWithSalt _salt DeletePartition' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` partitionValues
 
-instance Prelude.NFData DeletePartition
+instance Prelude.NFData DeletePartition where
+  rnf DeletePartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf partitionValues
 
 instance Core.ToHeaders DeletePartition where
   toHeaders =
@@ -183,4 +193,6 @@ newDeletePartitionResponse pHttpStatus_ =
 deletePartitionResponse_httpStatus :: Lens.Lens' DeletePartitionResponse Prelude.Int
 deletePartitionResponse_httpStatus = Lens.lens (\DeletePartitionResponse' {httpStatus} -> httpStatus) (\s@DeletePartitionResponse' {} a -> s {httpStatus = a} :: DeletePartitionResponse)
 
-instance Prelude.NFData DeletePartitionResponse
+instance Prelude.NFData DeletePartitionResponse where
+  rnf DeletePartitionResponse' {..} =
+    Prelude.rnf httpStatus

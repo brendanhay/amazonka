@@ -126,9 +126,15 @@ instance Core.AWSRequest ListSatellites where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSatellites
+instance Prelude.Hashable ListSatellites where
+  hashWithSalt _salt ListSatellites' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListSatellites
+instance Prelude.NFData ListSatellites where
+  rnf ListSatellites' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSatellites where
   toHeaders =
@@ -204,4 +210,8 @@ listSatellitesResponse_nextToken = Lens.lens (\ListSatellitesResponse' {nextToke
 listSatellitesResponse_httpStatus :: Lens.Lens' ListSatellitesResponse Prelude.Int
 listSatellitesResponse_httpStatus = Lens.lens (\ListSatellitesResponse' {httpStatus} -> httpStatus) (\s@ListSatellitesResponse' {} a -> s {httpStatus = a} :: ListSatellitesResponse)
 
-instance Prelude.NFData ListSatellitesResponse
+instance Prelude.NFData ListSatellitesResponse where
+  rnf ListSatellitesResponse' {..} =
+    Prelude.rnf satellites
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

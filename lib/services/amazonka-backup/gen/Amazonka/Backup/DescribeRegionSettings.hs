@@ -76,9 +76,12 @@ instance Core.AWSRequest DescribeRegionSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRegionSettings
+instance Prelude.Hashable DescribeRegionSettings where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeRegionSettings
+instance Prelude.NFData DescribeRegionSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeRegionSettings where
   toHeaders =
@@ -142,3 +145,7 @@ describeRegionSettingsResponse_httpStatus = Lens.lens (\DescribeRegionSettingsRe
 instance
   Prelude.NFData
     DescribeRegionSettingsResponse
+  where
+  rnf DescribeRegionSettingsResponse' {..} =
+    Prelude.rnf resourceTypeOptInPreference
+      `Prelude.seq` Prelude.rnf httpStatus

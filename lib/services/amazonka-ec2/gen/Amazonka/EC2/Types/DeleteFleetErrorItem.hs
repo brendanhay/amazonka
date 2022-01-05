@@ -69,6 +69,11 @@ instance Core.FromXML DeleteFleetErrorItem where
       Prelude.<$> (x Core..@? "error")
       Prelude.<*> (x Core..@? "fleetId")
 
-instance Prelude.Hashable DeleteFleetErrorItem
+instance Prelude.Hashable DeleteFleetErrorItem where
+  hashWithSalt _salt DeleteFleetErrorItem' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteFleetErrorItem
+instance Prelude.NFData DeleteFleetErrorItem where
+  rnf DeleteFleetErrorItem' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf fleetId

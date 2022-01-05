@@ -136,9 +136,17 @@ instance Core.AWSRequest DescribeSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSchedule
+instance Prelude.Hashable DescribeSchedule where
+  hashWithSalt _salt DescribeSchedule' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData DescribeSchedule
+instance Prelude.NFData DescribeSchedule where
+  rnf DescribeSchedule' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf channelId
 
 instance Core.ToHeaders DescribeSchedule where
   toHeaders =
@@ -213,4 +221,8 @@ describeScheduleResponse_scheduleActions = Lens.lens (\DescribeScheduleResponse'
 describeScheduleResponse_httpStatus :: Lens.Lens' DescribeScheduleResponse Prelude.Int
 describeScheduleResponse_httpStatus = Lens.lens (\DescribeScheduleResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduleResponse' {} a -> s {httpStatus = a} :: DescribeScheduleResponse)
 
-instance Prelude.NFData DescribeScheduleResponse
+instance Prelude.NFData DescribeScheduleResponse where
+  rnf DescribeScheduleResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scheduleActions
+      `Prelude.seq` Prelude.rnf httpStatus

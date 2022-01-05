@@ -104,6 +104,18 @@ instance Core.FromJSON IntentMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable IntentMetadata
+instance Prelude.Hashable IntentMetadata where
+  hashWithSalt _salt IntentMetadata' {..} =
+    _salt `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData IntentMetadata
+instance Prelude.NFData IntentMetadata where
+  rnf IntentMetadata' {..} =
+    Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description

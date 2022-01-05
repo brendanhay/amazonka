@@ -129,7 +129,19 @@ instance
 instance
   Prelude.Hashable
     StartTimerFailedEventAttributes
+  where
+  hashWithSalt
+    _salt
+    StartTimerFailedEventAttributes' {..} =
+      _salt `Prelude.hashWithSalt` timerId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance
   Prelude.NFData
     StartTimerFailedEventAttributes
+  where
+  rnf StartTimerFailedEventAttributes' {..} =
+    Prelude.rnf timerId
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

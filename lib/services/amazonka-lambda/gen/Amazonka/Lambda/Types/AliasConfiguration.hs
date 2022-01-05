@@ -120,6 +120,20 @@ instance Core.FromJSON AliasConfiguration where
             Prelude.<*> (x Core..:? "RevisionId")
       )
 
-instance Prelude.Hashable AliasConfiguration
+instance Prelude.Hashable AliasConfiguration where
+  hashWithSalt _salt AliasConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` routingConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` aliasArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData AliasConfiguration
+instance Prelude.NFData AliasConfiguration where
+  rnf AliasConfiguration' {..} =
+    Prelude.rnf routingConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf aliasArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf revisionId

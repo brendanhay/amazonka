@@ -99,9 +99,15 @@ instance Core.AWSRequest UpdateRepositoryName where
   response =
     Response.receiveNull UpdateRepositoryNameResponse'
 
-instance Prelude.Hashable UpdateRepositoryName
+instance Prelude.Hashable UpdateRepositoryName where
+  hashWithSalt _salt UpdateRepositoryName' {..} =
+    _salt `Prelude.hashWithSalt` oldName
+      `Prelude.hashWithSalt` newName'
 
-instance Prelude.NFData UpdateRepositoryName
+instance Prelude.NFData UpdateRepositoryName where
+  rnf UpdateRepositoryName' {..} =
+    Prelude.rnf oldName
+      `Prelude.seq` Prelude.rnf newName'
 
 instance Core.ToHeaders UpdateRepositoryName where
   toHeaders =
@@ -148,4 +154,5 @@ newUpdateRepositoryNameResponse ::
 newUpdateRepositoryNameResponse =
   UpdateRepositoryNameResponse'
 
-instance Prelude.NFData UpdateRepositoryNameResponse
+instance Prelude.NFData UpdateRepositoryNameResponse where
+  rnf _ = ()

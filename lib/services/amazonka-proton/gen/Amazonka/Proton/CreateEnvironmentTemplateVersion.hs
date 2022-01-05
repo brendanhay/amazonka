@@ -173,10 +173,28 @@ instance
 instance
   Prelude.Hashable
     CreateEnvironmentTemplateVersion
+  where
+  hashWithSalt
+    _salt
+    CreateEnvironmentTemplateVersion' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` majorVersion
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` source
+        `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     CreateEnvironmentTemplateVersion
+  where
+  rnf CreateEnvironmentTemplateVersion' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf templateName
 
 instance
   Core.ToHeaders
@@ -265,3 +283,7 @@ createEnvironmentTemplateVersionResponse_environmentTemplateVersion = Lens.lens 
 instance
   Prelude.NFData
     CreateEnvironmentTemplateVersionResponse
+  where
+  rnf CreateEnvironmentTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplateVersion

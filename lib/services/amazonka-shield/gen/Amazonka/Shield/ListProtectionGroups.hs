@@ -127,9 +127,15 @@ instance Core.AWSRequest ListProtectionGroups where
                         )
       )
 
-instance Prelude.Hashable ListProtectionGroups
+instance Prelude.Hashable ListProtectionGroups where
+  hashWithSalt _salt ListProtectionGroups' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListProtectionGroups
+instance Prelude.NFData ListProtectionGroups where
+  rnf ListProtectionGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProtectionGroups where
   toHeaders =
@@ -214,4 +220,8 @@ listProtectionGroupsResponse_httpStatus = Lens.lens (\ListProtectionGroupsRespon
 listProtectionGroupsResponse_protectionGroups :: Lens.Lens' ListProtectionGroupsResponse [ProtectionGroup]
 listProtectionGroupsResponse_protectionGroups = Lens.lens (\ListProtectionGroupsResponse' {protectionGroups} -> protectionGroups) (\s@ListProtectionGroupsResponse' {} a -> s {protectionGroups = a} :: ListProtectionGroupsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProtectionGroupsResponse
+instance Prelude.NFData ListProtectionGroupsResponse where
+  rnf ListProtectionGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf protectionGroups

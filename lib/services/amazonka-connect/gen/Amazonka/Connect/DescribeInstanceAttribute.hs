@@ -109,9 +109,15 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceAttribute
+instance Prelude.Hashable DescribeInstanceAttribute where
+  hashWithSalt _salt DescribeInstanceAttribute' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` attributeType
 
-instance Prelude.NFData DescribeInstanceAttribute
+instance Prelude.NFData DescribeInstanceAttribute where
+  rnf DescribeInstanceAttribute' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf attributeType
 
 instance Core.ToHeaders DescribeInstanceAttribute where
   toHeaders =
@@ -178,3 +184,7 @@ describeInstanceAttributeResponse_httpStatus = Lens.lens (\DescribeInstanceAttri
 instance
   Prelude.NFData
     DescribeInstanceAttributeResponse
+  where
+  rnf DescribeInstanceAttributeResponse' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf httpStatus

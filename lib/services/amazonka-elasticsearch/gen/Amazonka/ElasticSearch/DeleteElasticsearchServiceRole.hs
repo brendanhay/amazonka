@@ -74,10 +74,15 @@ instance
 instance
   Prelude.Hashable
     DeleteElasticsearchServiceRole
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     DeleteElasticsearchServiceRole
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -109,3 +114,5 @@ newDeleteElasticsearchServiceRoleResponse =
 instance
   Prelude.NFData
     DeleteElasticsearchServiceRoleResponse
+  where
+  rnf _ = ()

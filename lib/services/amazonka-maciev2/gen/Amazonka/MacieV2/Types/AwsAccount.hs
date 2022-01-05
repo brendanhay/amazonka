@@ -74,6 +74,12 @@ instance Core.FromJSON AwsAccount where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable AwsAccount
+instance Prelude.Hashable AwsAccount where
+  hashWithSalt _salt AwsAccount' {..} =
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData AwsAccount
+instance Prelude.NFData AwsAccount where
+  rnf AwsAccount' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf accountId

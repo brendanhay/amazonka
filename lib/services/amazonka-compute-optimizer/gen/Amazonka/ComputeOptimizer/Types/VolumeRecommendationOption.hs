@@ -117,6 +117,14 @@ instance Core.FromJSON VolumeRecommendationOption where
             Prelude.<*> (x Core..:? "rank")
       )
 
-instance Prelude.Hashable VolumeRecommendationOption
+instance Prelude.Hashable VolumeRecommendationOption where
+  hashWithSalt _salt VolumeRecommendationOption' {..} =
+    _salt `Prelude.hashWithSalt` performanceRisk
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` rank
 
-instance Prelude.NFData VolumeRecommendationOption
+instance Prelude.NFData VolumeRecommendationOption where
+  rnf VolumeRecommendationOption' {..} =
+    Prelude.rnf performanceRisk
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf rank

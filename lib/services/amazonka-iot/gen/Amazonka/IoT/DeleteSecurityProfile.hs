@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteSecurityProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSecurityProfile
+instance Prelude.Hashable DeleteSecurityProfile where
+  hashWithSalt _salt DeleteSecurityProfile' {..} =
+    _salt `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` securityProfileName
 
-instance Prelude.NFData DeleteSecurityProfile
+instance Prelude.NFData DeleteSecurityProfile where
+  rnf DeleteSecurityProfile' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf securityProfileName
 
 instance Core.ToHeaders DeleteSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,4 +165,6 @@ newDeleteSecurityProfileResponse pHttpStatus_ =
 deleteSecurityProfileResponse_httpStatus :: Lens.Lens' DeleteSecurityProfileResponse Prelude.Int
 deleteSecurityProfileResponse_httpStatus = Lens.lens (\DeleteSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteSecurityProfileResponse' {} a -> s {httpStatus = a} :: DeleteSecurityProfileResponse)
 
-instance Prelude.NFData DeleteSecurityProfileResponse
+instance Prelude.NFData DeleteSecurityProfileResponse where
+  rnf DeleteSecurityProfileResponse' {..} =
+    Prelude.rnf httpStatus

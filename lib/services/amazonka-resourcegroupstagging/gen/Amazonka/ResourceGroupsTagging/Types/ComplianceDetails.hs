@@ -93,6 +93,15 @@ instance Core.FromJSON ComplianceDetails where
                         )
       )
 
-instance Prelude.Hashable ComplianceDetails
+instance Prelude.Hashable ComplianceDetails where
+  hashWithSalt _salt ComplianceDetails' {..} =
+    _salt
+      `Prelude.hashWithSalt` keysWithNoncompliantValues
+      `Prelude.hashWithSalt` complianceStatus
+      `Prelude.hashWithSalt` noncompliantKeys
 
-instance Prelude.NFData ComplianceDetails
+instance Prelude.NFData ComplianceDetails where
+  rnf ComplianceDetails' {..} =
+    Prelude.rnf keysWithNoncompliantValues
+      `Prelude.seq` Prelude.rnf complianceStatus
+      `Prelude.seq` Prelude.rnf noncompliantKeys

@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteArtifact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteArtifact
+instance Prelude.Hashable DeleteArtifact where
+  hashWithSalt _salt DeleteArtifact' {..} =
+    _salt `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` artifactArn
 
-instance Prelude.NFData DeleteArtifact
+instance Prelude.NFData DeleteArtifact where
+  rnf DeleteArtifact' {..} =
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf artifactArn
 
 instance Core.ToHeaders DeleteArtifact where
   toHeaders =
@@ -167,4 +173,7 @@ deleteArtifactResponse_artifactArn = Lens.lens (\DeleteArtifactResponse' {artifa
 deleteArtifactResponse_httpStatus :: Lens.Lens' DeleteArtifactResponse Prelude.Int
 deleteArtifactResponse_httpStatus = Lens.lens (\DeleteArtifactResponse' {httpStatus} -> httpStatus) (\s@DeleteArtifactResponse' {} a -> s {httpStatus = a} :: DeleteArtifactResponse)
 
-instance Prelude.NFData DeleteArtifactResponse
+instance Prelude.NFData DeleteArtifactResponse where
+  rnf DeleteArtifactResponse' {..} =
+    Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf httpStatus

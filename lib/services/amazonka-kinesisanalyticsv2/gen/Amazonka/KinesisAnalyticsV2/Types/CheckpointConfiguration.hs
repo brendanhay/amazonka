@@ -190,9 +190,19 @@ checkpointConfiguration_checkpointInterval = Lens.lens (\CheckpointConfiguration
 checkpointConfiguration_configurationType :: Lens.Lens' CheckpointConfiguration ConfigurationType
 checkpointConfiguration_configurationType = Lens.lens (\CheckpointConfiguration' {configurationType} -> configurationType) (\s@CheckpointConfiguration' {} a -> s {configurationType = a} :: CheckpointConfiguration)
 
-instance Prelude.Hashable CheckpointConfiguration
+instance Prelude.Hashable CheckpointConfiguration where
+  hashWithSalt _salt CheckpointConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` checkpointingEnabled
+      `Prelude.hashWithSalt` minPauseBetweenCheckpoints
+      `Prelude.hashWithSalt` checkpointInterval
+      `Prelude.hashWithSalt` configurationType
 
-instance Prelude.NFData CheckpointConfiguration
+instance Prelude.NFData CheckpointConfiguration where
+  rnf CheckpointConfiguration' {..} =
+    Prelude.rnf checkpointingEnabled
+      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpoints
+      `Prelude.seq` Prelude.rnf checkpointInterval
+      `Prelude.seq` Prelude.rnf configurationType
 
 instance Core.ToJSON CheckpointConfiguration where
   toJSON CheckpointConfiguration' {..} =

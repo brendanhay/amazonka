@@ -69,8 +69,15 @@ applicationCodeConfiguration_codeContentType = Lens.lens (\ApplicationCodeConfig
 instance
   Prelude.Hashable
     ApplicationCodeConfiguration
+  where
+  hashWithSalt _salt ApplicationCodeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` codeContent
+      `Prelude.hashWithSalt` codeContentType
 
-instance Prelude.NFData ApplicationCodeConfiguration
+instance Prelude.NFData ApplicationCodeConfiguration where
+  rnf ApplicationCodeConfiguration' {..} =
+    Prelude.rnf codeContent
+      `Prelude.seq` Prelude.rnf codeContentType
 
 instance Core.ToJSON ApplicationCodeConfiguration where
   toJSON ApplicationCodeConfiguration' {..} =

@@ -292,9 +292,17 @@ instance Core.AWSRequest CreateTopic where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTopic
+instance Prelude.Hashable CreateTopic where
+  hashWithSalt _salt CreateTopic' {..} =
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateTopic
+instance Prelude.NFData CreateTopic where
+  rnf CreateTopic' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -360,4 +368,7 @@ createTopicResponse_topicArn = Lens.lens (\CreateTopicResponse' {topicArn} -> to
 createTopicResponse_httpStatus :: Lens.Lens' CreateTopicResponse Prelude.Int
 createTopicResponse_httpStatus = Lens.lens (\CreateTopicResponse' {httpStatus} -> httpStatus) (\s@CreateTopicResponse' {} a -> s {httpStatus = a} :: CreateTopicResponse)
 
-instance Prelude.NFData CreateTopicResponse
+instance Prelude.NFData CreateTopicResponse where
+  rnf CreateTopicResponse' {..} =
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf httpStatus

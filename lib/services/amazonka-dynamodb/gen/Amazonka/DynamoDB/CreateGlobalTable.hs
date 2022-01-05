@@ -144,9 +144,15 @@ instance Core.AWSRequest CreateGlobalTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGlobalTable
+instance Prelude.Hashable CreateGlobalTable where
+  hashWithSalt _salt CreateGlobalTable' {..} =
+    _salt `Prelude.hashWithSalt` globalTableName
+      `Prelude.hashWithSalt` replicationGroup
 
-instance Prelude.NFData CreateGlobalTable
+instance Prelude.NFData CreateGlobalTable where
+  rnf CreateGlobalTable' {..} =
+    Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf replicationGroup
 
 instance Core.ToHeaders CreateGlobalTable where
   toHeaders =
@@ -219,4 +225,7 @@ createGlobalTableResponse_globalTableDescription = Lens.lens (\CreateGlobalTable
 createGlobalTableResponse_httpStatus :: Lens.Lens' CreateGlobalTableResponse Prelude.Int
 createGlobalTableResponse_httpStatus = Lens.lens (\CreateGlobalTableResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalTableResponse' {} a -> s {httpStatus = a} :: CreateGlobalTableResponse)
 
-instance Prelude.NFData CreateGlobalTableResponse
+instance Prelude.NFData CreateGlobalTableResponse where
+  rnf CreateGlobalTableResponse' {..} =
+    Prelude.rnf globalTableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

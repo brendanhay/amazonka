@@ -63,9 +63,12 @@ instance Core.FromJSON OutputFormatOptions where
           OutputFormatOptions' Prelude.<$> (x Core..:? "Csv")
       )
 
-instance Prelude.Hashable OutputFormatOptions
+instance Prelude.Hashable OutputFormatOptions where
+  hashWithSalt _salt OutputFormatOptions' {..} =
+    _salt `Prelude.hashWithSalt` csv
 
-instance Prelude.NFData OutputFormatOptions
+instance Prelude.NFData OutputFormatOptions where
+  rnf OutputFormatOptions' {..} = Prelude.rnf csv
 
 instance Core.ToJSON OutputFormatOptions where
   toJSON OutputFormatOptions' {..} =

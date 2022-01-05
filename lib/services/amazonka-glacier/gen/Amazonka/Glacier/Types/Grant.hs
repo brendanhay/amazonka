@@ -73,9 +73,15 @@ instance Core.FromJSON Grant where
             Prelude.<*> (x Core..:? "Grantee")
       )
 
-instance Prelude.Hashable Grant
+instance Prelude.Hashable Grant where
+  hashWithSalt _salt Grant' {..} =
+    _salt `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` grantee
 
-instance Prelude.NFData Grant
+instance Prelude.NFData Grant where
+  rnf Grant' {..} =
+    Prelude.rnf permission
+      `Prelude.seq` Prelude.rnf grantee
 
 instance Core.ToJSON Grant where
   toJSON Grant' {..} =

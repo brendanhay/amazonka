@@ -175,9 +175,17 @@ instance Core.AWSRequest CreateDBClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBClusterSnapshot
+instance Prelude.Hashable CreateDBClusterSnapshot where
+  hashWithSalt _salt CreateDBClusterSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData CreateDBClusterSnapshot
+instance Prelude.NFData CreateDBClusterSnapshot where
+  rnf CreateDBClusterSnapshot' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders CreateDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,3 +249,7 @@ createDBClusterSnapshotResponse_httpStatus = Lens.lens (\CreateDBClusterSnapshot
 instance
   Prelude.NFData
     CreateDBClusterSnapshotResponse
+  where
+  rnf CreateDBClusterSnapshotResponse' {..} =
+    Prelude.rnf dbClusterSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -231,8 +231,8 @@ module Amazonka.Glacier.Lens
     initiateMultipartUpload_vaultName,
     initiateMultipartUpload_partSize,
     initiateMultipartUploadResponse_location,
-    initiateMultipartUploadResponse_uploadId,
     initiateMultipartUploadResponse_httpStatus,
+    initiateMultipartUploadResponse_uploadId,
 
     -- ** ListParts
     listParts_marker,

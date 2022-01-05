@@ -100,9 +100,12 @@ instance Core.AWSRequest ReleaseHosts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReleaseHosts
+instance Prelude.Hashable ReleaseHosts where
+  hashWithSalt _salt ReleaseHosts' {..} =
+    _salt `Prelude.hashWithSalt` hostIds
 
-instance Prelude.NFData ReleaseHosts
+instance Prelude.NFData ReleaseHosts where
+  rnf ReleaseHosts' {..} = Prelude.rnf hostIds
 
 instance Core.ToHeaders ReleaseHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +174,8 @@ releaseHostsResponse_successful = Lens.lens (\ReleaseHostsResponse' {successful}
 releaseHostsResponse_httpStatus :: Lens.Lens' ReleaseHostsResponse Prelude.Int
 releaseHostsResponse_httpStatus = Lens.lens (\ReleaseHostsResponse' {httpStatus} -> httpStatus) (\s@ReleaseHostsResponse' {} a -> s {httpStatus = a} :: ReleaseHostsResponse)
 
-instance Prelude.NFData ReleaseHostsResponse
+instance Prelude.NFData ReleaseHostsResponse where
+  rnf ReleaseHostsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf httpStatus

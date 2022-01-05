@@ -73,10 +73,19 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayTlsValidationContextAcmTrust
+  where
+  hashWithSalt
+    _salt
+    VirtualGatewayTlsValidationContextAcmTrust' {..} =
+      _salt
+        `Prelude.hashWithSalt` certificateAuthorityArns
 
 instance
   Prelude.NFData
     VirtualGatewayTlsValidationContextAcmTrust
+  where
+  rnf VirtualGatewayTlsValidationContextAcmTrust' {..} =
+    Prelude.rnf certificateAuthorityArns
 
 instance
   Core.ToJSON

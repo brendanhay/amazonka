@@ -124,9 +124,19 @@ instance Core.AWSRequest ListDataIngestionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDataIngestionJobs
+instance Prelude.Hashable ListDataIngestionJobs where
+  hashWithSalt _salt ListDataIngestionJobs' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListDataIngestionJobs
+instance Prelude.NFData ListDataIngestionJobs where
+  rnf ListDataIngestionJobs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDataIngestionJobs where
   toHeaders =
@@ -214,4 +224,8 @@ listDataIngestionJobsResponse_dataIngestionJobSummaries = Lens.lens (\ListDataIn
 listDataIngestionJobsResponse_httpStatus :: Lens.Lens' ListDataIngestionJobsResponse Prelude.Int
 listDataIngestionJobsResponse_httpStatus = Lens.lens (\ListDataIngestionJobsResponse' {httpStatus} -> httpStatus) (\s@ListDataIngestionJobsResponse' {} a -> s {httpStatus = a} :: ListDataIngestionJobsResponse)
 
-instance Prelude.NFData ListDataIngestionJobsResponse
+instance Prelude.NFData ListDataIngestionJobsResponse where
+  rnf ListDataIngestionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataIngestionJobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

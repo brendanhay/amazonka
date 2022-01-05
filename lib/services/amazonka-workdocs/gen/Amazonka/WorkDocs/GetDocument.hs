@@ -111,9 +111,17 @@ instance Core.AWSRequest GetDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocument
+instance Prelude.Hashable GetDocument where
+  hashWithSalt _salt GetDocument' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` includeCustomMetadata
+      `Prelude.hashWithSalt` documentId
 
-instance Prelude.NFData GetDocument
+instance Prelude.NFData GetDocument where
+  rnf GetDocument' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf includeCustomMetadata
+      `Prelude.seq` Prelude.rnf documentId
 
 instance Core.ToHeaders GetDocument where
   toHeaders GetDocument' {..} =
@@ -183,4 +191,8 @@ getDocumentResponse_metadata = Lens.lens (\GetDocumentResponse' {metadata} -> me
 getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Prelude.Int
 getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -> httpStatus) (\s@GetDocumentResponse' {} a -> s {httpStatus = a} :: GetDocumentResponse)
 
-instance Prelude.NFData GetDocumentResponse
+instance Prelude.NFData GetDocumentResponse where
+  rnf GetDocumentResponse' {..} =
+    Prelude.rnf customMetadata
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -119,9 +119,17 @@ instance Core.AWSRequest CancelIngestion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelIngestion
+instance Prelude.Hashable CancelIngestion where
+  hashWithSalt _salt CancelIngestion' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` ingestionId
 
-instance Prelude.NFData CancelIngestion
+instance Prelude.NFData CancelIngestion where
+  rnf CancelIngestion' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf ingestionId
 
 instance Core.ToHeaders CancelIngestion where
   toHeaders =
@@ -205,4 +213,9 @@ cancelIngestionResponse_ingestionId = Lens.lens (\CancelIngestionResponse' {inge
 cancelIngestionResponse_status :: Lens.Lens' CancelIngestionResponse Prelude.Int
 cancelIngestionResponse_status = Lens.lens (\CancelIngestionResponse' {status} -> status) (\s@CancelIngestionResponse' {} a -> s {status = a} :: CancelIngestionResponse)
 
-instance Prelude.NFData CancelIngestionResponse
+instance Prelude.NFData CancelIngestionResponse where
+  rnf CancelIngestionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf status

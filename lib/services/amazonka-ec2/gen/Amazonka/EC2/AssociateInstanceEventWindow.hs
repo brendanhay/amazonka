@@ -132,8 +132,17 @@ instance Core.AWSRequest AssociateInstanceEventWindow where
 instance
   Prelude.Hashable
     AssociateInstanceEventWindow
+  where
+  hashWithSalt _salt AssociateInstanceEventWindow' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceEventWindowId
+      `Prelude.hashWithSalt` associationTarget
 
-instance Prelude.NFData AssociateInstanceEventWindow
+instance Prelude.NFData AssociateInstanceEventWindow where
+  rnf AssociateInstanceEventWindow' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceEventWindowId
+      `Prelude.seq` Prelude.rnf associationTarget
 
 instance Core.ToHeaders AssociateInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,3 +207,7 @@ associateInstanceEventWindowResponse_httpStatus = Lens.lens (\AssociateInstanceE
 instance
   Prelude.NFData
     AssociateInstanceEventWindowResponse
+  where
+  rnf AssociateInstanceEventWindowResponse' {..} =
+    Prelude.rnf instanceEventWindow
+      `Prelude.seq` Prelude.rnf httpStatus

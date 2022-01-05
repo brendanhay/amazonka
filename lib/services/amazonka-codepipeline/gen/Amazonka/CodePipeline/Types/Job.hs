@@ -98,6 +98,16 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "nonce")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` nonce
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf nonce

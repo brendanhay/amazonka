@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeCollection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCollection
+instance Prelude.Hashable DescribeCollection where
+  hashWithSalt _salt DescribeCollection' {..} =
+    _salt `Prelude.hashWithSalt` collectionId
 
-instance Prelude.NFData DescribeCollection
+instance Prelude.NFData DescribeCollection where
+  rnf DescribeCollection' {..} =
+    Prelude.rnf collectionId
 
 instance Core.ToHeaders DescribeCollection where
   toHeaders =
@@ -216,4 +220,10 @@ describeCollectionResponse_collectionARN = Lens.lens (\DescribeCollectionRespons
 describeCollectionResponse_httpStatus :: Lens.Lens' DescribeCollectionResponse Prelude.Int
 describeCollectionResponse_httpStatus = Lens.lens (\DescribeCollectionResponse' {httpStatus} -> httpStatus) (\s@DescribeCollectionResponse' {} a -> s {httpStatus = a} :: DescribeCollectionResponse)
 
-instance Prelude.NFData DescribeCollectionResponse
+instance Prelude.NFData DescribeCollectionResponse where
+  rnf DescribeCollectionResponse' {..} =
+    Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf faceCount
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf collectionARN
+      `Prelude.seq` Prelude.rnf httpStatus

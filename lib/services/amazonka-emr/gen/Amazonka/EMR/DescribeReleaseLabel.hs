@@ -113,9 +113,17 @@ instance Core.AWSRequest DescribeReleaseLabel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReleaseLabel
+instance Prelude.Hashable DescribeReleaseLabel where
+  hashWithSalt _salt DescribeReleaseLabel' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeReleaseLabel
+instance Prelude.NFData DescribeReleaseLabel where
+  rnf DescribeReleaseLabel' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeReleaseLabel where
   toHeaders =
@@ -211,4 +219,9 @@ describeReleaseLabelResponse_applications = Lens.lens (\DescribeReleaseLabelResp
 describeReleaseLabelResponse_httpStatus :: Lens.Lens' DescribeReleaseLabelResponse Prelude.Int
 describeReleaseLabelResponse_httpStatus = Lens.lens (\DescribeReleaseLabelResponse' {httpStatus} -> httpStatus) (\s@DescribeReleaseLabelResponse' {} a -> s {httpStatus = a} :: DescribeReleaseLabelResponse)
 
-instance Prelude.NFData DescribeReleaseLabelResponse
+instance Prelude.NFData DescribeReleaseLabelResponse where
+  rnf DescribeReleaseLabelResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -121,9 +121,15 @@ instance Core.AWSRequest CreateCollection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCollection
+instance Prelude.Hashable CreateCollection where
+  hashWithSalt _salt CreateCollection' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` collectionId
 
-instance Prelude.NFData CreateCollection
+instance Prelude.NFData CreateCollection where
+  rnf CreateCollection' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf collectionId
 
 instance Core.ToHeaders CreateCollection where
   toHeaders =
@@ -218,4 +224,9 @@ createCollectionResponse_statusCode = Lens.lens (\CreateCollectionResponse' {sta
 createCollectionResponse_httpStatus :: Lens.Lens' CreateCollectionResponse Prelude.Int
 createCollectionResponse_httpStatus = Lens.lens (\CreateCollectionResponse' {httpStatus} -> httpStatus) (\s@CreateCollectionResponse' {} a -> s {httpStatus = a} :: CreateCollectionResponse)
 
-instance Prelude.NFData CreateCollectionResponse
+instance Prelude.NFData CreateCollectionResponse where
+  rnf CreateCollectionResponse' {..} =
+    Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf collectionArn
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpStatus

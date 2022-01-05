@@ -71,6 +71,12 @@ instance Core.FromJSON ItemizedMetricStats where
             Prelude.<*> (x Core..:? "OccurrenceCount")
       )
 
-instance Prelude.Hashable ItemizedMetricStats
+instance Prelude.Hashable ItemizedMetricStats where
+  hashWithSalt _salt ItemizedMetricStats' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` occurrenceCount
 
-instance Prelude.NFData ItemizedMetricStats
+instance Prelude.NFData ItemizedMetricStats where
+  rnf ItemizedMetricStats' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf occurrenceCount

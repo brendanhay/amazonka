@@ -131,9 +131,15 @@ instance Core.AWSRequest ListBusinessReportSchedules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBusinessReportSchedules
+instance Prelude.Hashable ListBusinessReportSchedules where
+  hashWithSalt _salt ListBusinessReportSchedules' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListBusinessReportSchedules
+instance Prelude.NFData ListBusinessReportSchedules where
+  rnf ListBusinessReportSchedules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBusinessReportSchedules where
   toHeaders =
@@ -219,3 +225,8 @@ listBusinessReportSchedulesResponse_httpStatus = Lens.lens (\ListBusinessReportS
 instance
   Prelude.NFData
     ListBusinessReportSchedulesResponse
+  where
+  rnf ListBusinessReportSchedulesResponse' {..} =
+    Prelude.rnf businessReportSchedules
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

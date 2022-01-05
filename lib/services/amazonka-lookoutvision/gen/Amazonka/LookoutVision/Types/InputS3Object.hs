@@ -74,9 +74,17 @@ inputS3Object_bucket = Lens.lens (\InputS3Object' {bucket} -> bucket) (\s@InputS
 inputS3Object_key :: Lens.Lens' InputS3Object Prelude.Text
 inputS3Object_key = Lens.lens (\InputS3Object' {key} -> key) (\s@InputS3Object' {} a -> s {key = a} :: InputS3Object)
 
-instance Prelude.Hashable InputS3Object
+instance Prelude.Hashable InputS3Object where
+  hashWithSalt _salt InputS3Object' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData InputS3Object
+instance Prelude.NFData InputS3Object where
+  rnf InputS3Object' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON InputS3Object where
   toJSON InputS3Object' {..} =

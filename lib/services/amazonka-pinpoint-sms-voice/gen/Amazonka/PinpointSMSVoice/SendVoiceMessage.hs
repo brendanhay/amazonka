@@ -143,9 +143,21 @@ instance Core.AWSRequest SendVoiceMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendVoiceMessage
+instance Prelude.Hashable SendVoiceMessage where
+  hashWithSalt _salt SendVoiceMessage' {..} =
+    _salt `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` callerId
+      `Prelude.hashWithSalt` originationPhoneNumber
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` destinationPhoneNumber
 
-instance Prelude.NFData SendVoiceMessage
+instance Prelude.NFData SendVoiceMessage where
+  rnf SendVoiceMessage' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf callerId
+      `Prelude.seq` Prelude.rnf originationPhoneNumber
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf destinationPhoneNumber
 
 instance Core.ToHeaders SendVoiceMessage where
   toHeaders =
@@ -221,4 +233,7 @@ sendVoiceMessageResponse_messageId = Lens.lens (\SendVoiceMessageResponse' {mess
 sendVoiceMessageResponse_httpStatus :: Lens.Lens' SendVoiceMessageResponse Prelude.Int
 sendVoiceMessageResponse_httpStatus = Lens.lens (\SendVoiceMessageResponse' {httpStatus} -> httpStatus) (\s@SendVoiceMessageResponse' {} a -> s {httpStatus = a} :: SendVoiceMessageResponse)
 
-instance Prelude.NFData SendVoiceMessageResponse
+instance Prelude.NFData SendVoiceMessageResponse where
+  rnf SendVoiceMessageResponse' {..} =
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf httpStatus

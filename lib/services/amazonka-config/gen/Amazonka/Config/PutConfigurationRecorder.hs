@@ -98,9 +98,13 @@ instance Core.AWSRequest PutConfigurationRecorder where
     Response.receiveNull
       PutConfigurationRecorderResponse'
 
-instance Prelude.Hashable PutConfigurationRecorder
+instance Prelude.Hashable PutConfigurationRecorder where
+  hashWithSalt _salt PutConfigurationRecorder' {..} =
+    _salt `Prelude.hashWithSalt` configurationRecorder
 
-instance Prelude.NFData PutConfigurationRecorder
+instance Prelude.NFData PutConfigurationRecorder where
+  rnf PutConfigurationRecorder' {..} =
+    Prelude.rnf configurationRecorder
 
 instance Core.ToHeaders PutConfigurationRecorder where
   toHeaders =
@@ -152,3 +156,5 @@ newPutConfigurationRecorderResponse =
 instance
   Prelude.NFData
     PutConfigurationRecorderResponse
+  where
+  rnf _ = ()

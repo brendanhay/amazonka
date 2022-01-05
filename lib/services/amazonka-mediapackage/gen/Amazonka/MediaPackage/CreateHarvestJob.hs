@@ -164,9 +164,21 @@ instance Core.AWSRequest CreateHarvestJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHarvestJob
+instance Prelude.Hashable CreateHarvestJob where
+  hashWithSalt _salt CreateHarvestJob' {..} =
+    _salt `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` originEndpointId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData CreateHarvestJob
+instance Prelude.NFData CreateHarvestJob where
+  rnf CreateHarvestJob' {..} =
+    Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf originEndpointId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders CreateHarvestJob where
   toHeaders =
@@ -323,4 +335,15 @@ createHarvestJobResponse_id = Lens.lens (\CreateHarvestJobResponse' {id} -> id) 
 createHarvestJobResponse_httpStatus :: Lens.Lens' CreateHarvestJobResponse Prelude.Int
 createHarvestJobResponse_httpStatus = Lens.lens (\CreateHarvestJobResponse' {httpStatus} -> httpStatus) (\s@CreateHarvestJobResponse' {} a -> s {httpStatus = a} :: CreateHarvestJobResponse)
 
-instance Prelude.NFData CreateHarvestJobResponse
+instance Prelude.NFData CreateHarvestJobResponse where
+  rnf CreateHarvestJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf originEndpointId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

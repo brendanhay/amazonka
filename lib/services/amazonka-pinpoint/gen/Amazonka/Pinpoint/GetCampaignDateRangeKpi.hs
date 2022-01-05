@@ -211,9 +211,25 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaignDateRangeKpi
+instance Prelude.Hashable GetCampaignDateRangeKpi where
+  hashWithSalt _salt GetCampaignDateRangeKpi' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` kpiName
+      `Prelude.hashWithSalt` campaignId
 
-instance Prelude.NFData GetCampaignDateRangeKpi
+instance Prelude.NFData GetCampaignDateRangeKpi where
+  rnf GetCampaignDateRangeKpi' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf kpiName
+      `Prelude.seq` Prelude.rnf campaignId
 
 instance Core.ToHeaders GetCampaignDateRangeKpi where
   toHeaders =
@@ -292,3 +308,7 @@ getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse = Lens.lens (\GetCa
 instance
   Prelude.NFData
     GetCampaignDateRangeKpiResponse
+  where
+  rnf GetCampaignDateRangeKpiResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf campaignDateRangeKpiResponse

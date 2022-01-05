@@ -75,10 +75,19 @@ updateExperimentTemplateStopConditionInput_source = Lens.lens (\UpdateExperiment
 instance
   Prelude.Hashable
     UpdateExperimentTemplateStopConditionInput
+  where
+  hashWithSalt
+    _salt
+    UpdateExperimentTemplateStopConditionInput' {..} =
+      _salt `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` source
 
 instance
   Prelude.NFData
     UpdateExperimentTemplateStopConditionInput
+  where
+  rnf UpdateExperimentTemplateStopConditionInput' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf source
 
 instance
   Core.ToJSON

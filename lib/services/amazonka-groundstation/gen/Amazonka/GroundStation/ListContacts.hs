@@ -190,9 +190,27 @@ instance Core.AWSRequest ListContacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContacts
+instance Prelude.Hashable ListContacts where
+  hashWithSalt _salt ListContacts' {..} =
+    _salt `Prelude.hashWithSalt` missionProfileArn
+      `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` groundStation
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` statusList
 
-instance Prelude.NFData ListContacts
+instance Prelude.NFData ListContacts where
+  rnf ListContacts' {..} =
+    Prelude.rnf missionProfileArn
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groundStation
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf statusList
 
 instance Core.ToHeaders ListContacts where
   toHeaders =
@@ -280,4 +298,8 @@ listContactsResponse_nextToken = Lens.lens (\ListContactsResponse' {nextToken} -
 listContactsResponse_httpStatus :: Lens.Lens' ListContactsResponse Prelude.Int
 listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus} -> httpStatus) (\s@ListContactsResponse' {} a -> s {httpStatus = a} :: ListContactsResponse)
 
-instance Prelude.NFData ListContactsResponse
+instance Prelude.NFData ListContactsResponse where
+  rnf ListContactsResponse' {..} =
+    Prelude.rnf contactList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

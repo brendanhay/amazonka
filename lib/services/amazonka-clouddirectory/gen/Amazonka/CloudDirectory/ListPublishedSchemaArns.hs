@@ -138,9 +138,17 @@ instance Core.AWSRequest ListPublishedSchemaArns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPublishedSchemaArns
+instance Prelude.Hashable ListPublishedSchemaArns where
+  hashWithSalt _salt ListPublishedSchemaArns' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPublishedSchemaArns
+instance Prelude.NFData ListPublishedSchemaArns where
+  rnf ListPublishedSchemaArns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPublishedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,3 +222,8 @@ listPublishedSchemaArnsResponse_httpStatus = Lens.lens (\ListPublishedSchemaArns
 instance
   Prelude.NFData
     ListPublishedSchemaArnsResponse
+  where
+  rnf ListPublishedSchemaArnsResponse' {..} =
+    Prelude.rnf schemaArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

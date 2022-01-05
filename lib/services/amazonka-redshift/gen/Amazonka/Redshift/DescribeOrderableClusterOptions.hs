@@ -231,10 +231,24 @@ instance
 instance
   Prelude.Hashable
     DescribeOrderableClusterOptions
+  where
+  hashWithSalt
+    _salt
+    DescribeOrderableClusterOptions' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` clusterVersion
+        `Prelude.hashWithSalt` nodeType
 
 instance
   Prelude.NFData
     DescribeOrderableClusterOptions
+  where
+  rnf DescribeOrderableClusterOptions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf nodeType
 
 instance
   Core.ToHeaders
@@ -333,3 +347,8 @@ describeOrderableClusterOptionsResponse_httpStatus = Lens.lens (\DescribeOrderab
 instance
   Prelude.NFData
     DescribeOrderableClusterOptionsResponse
+  where
+  rnf DescribeOrderableClusterOptionsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf orderableClusterOptions
+      `Prelude.seq` Prelude.rnf httpStatus

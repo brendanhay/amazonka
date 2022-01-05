@@ -129,7 +129,23 @@ instance
 instance
   Prelude.Hashable
     DnsRuleGroupPriorityConflictViolation
+  where
+  hashWithSalt
+    _salt
+    DnsRuleGroupPriorityConflictViolation' {..} =
+      _salt `Prelude.hashWithSalt` conflictingPriority
+        `Prelude.hashWithSalt` conflictingPolicyId
+        `Prelude.hashWithSalt` violationTargetDescription
+        `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` unavailablePriorities
 
 instance
   Prelude.NFData
     DnsRuleGroupPriorityConflictViolation
+  where
+  rnf DnsRuleGroupPriorityConflictViolation' {..} =
+    Prelude.rnf conflictingPriority
+      `Prelude.seq` Prelude.rnf conflictingPolicyId
+      `Prelude.seq` Prelude.rnf violationTargetDescription
+      `Prelude.seq` Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf unavailablePriorities

@@ -223,9 +223,35 @@ instance Core.AWSRequest UpdateStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStack
+instance Prelude.Hashable UpdateStack where
+  hashWithSalt _salt UpdateStack' {..} =
+    _salt `Prelude.hashWithSalt` userSettings
+      `Prelude.hashWithSalt` applicationSettings
+      `Prelude.hashWithSalt` feedbackURL
+      `Prelude.hashWithSalt` attributesToDelete
+      `Prelude.hashWithSalt` deleteStorageConnectors
+      `Prelude.hashWithSalt` storageConnectors
+      `Prelude.hashWithSalt` accessEndpoints
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` embedHostDomains
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateStack
+instance Prelude.NFData UpdateStack where
+  rnf UpdateStack' {..} =
+    Prelude.rnf userSettings
+      `Prelude.seq` Prelude.rnf applicationSettings
+      `Prelude.seq` Prelude.rnf feedbackURL
+      `Prelude.seq` Prelude.rnf attributesToDelete
+      `Prelude.seq` Prelude.rnf deleteStorageConnectors
+      `Prelude.seq` Prelude.rnf storageConnectors
+      `Prelude.seq` Prelude.rnf accessEndpoints
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf embedHostDomains
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateStack where
   toHeaders =
@@ -311,4 +337,7 @@ updateStackResponse_stack = Lens.lens (\UpdateStackResponse' {stack} -> stack) (
 updateStackResponse_httpStatus :: Lens.Lens' UpdateStackResponse Prelude.Int
 updateStackResponse_httpStatus = Lens.lens (\UpdateStackResponse' {httpStatus} -> httpStatus) (\s@UpdateStackResponse' {} a -> s {httpStatus = a} :: UpdateStackResponse)
 
-instance Prelude.NFData UpdateStackResponse
+instance Prelude.NFData UpdateStackResponse where
+  rnf UpdateStackResponse' {..} =
+    Prelude.rnf stack
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromJSON AudioSelector where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable AudioSelector
+instance Prelude.Hashable AudioSelector where
+  hashWithSalt _salt AudioSelector' {..} =
+    _salt `Prelude.hashWithSalt` selectorSettings
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AudioSelector
+instance Prelude.NFData AudioSelector where
+  rnf AudioSelector' {..} =
+    Prelude.rnf selectorSettings
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =

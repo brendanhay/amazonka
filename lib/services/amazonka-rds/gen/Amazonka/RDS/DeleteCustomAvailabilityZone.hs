@@ -100,8 +100,14 @@ instance Core.AWSRequest DeleteCustomAvailabilityZone where
 instance
   Prelude.Hashable
     DeleteCustomAvailabilityZone
+  where
+  hashWithSalt _salt DeleteCustomAvailabilityZone' {..} =
+    _salt
+      `Prelude.hashWithSalt` customAvailabilityZoneId
 
-instance Prelude.NFData DeleteCustomAvailabilityZone
+instance Prelude.NFData DeleteCustomAvailabilityZone where
+  rnf DeleteCustomAvailabilityZone' {..} =
+    Prelude.rnf customAvailabilityZoneId
 
 instance Core.ToHeaders DeleteCustomAvailabilityZone where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,3 +169,7 @@ deleteCustomAvailabilityZoneResponse_httpStatus = Lens.lens (\DeleteCustomAvaila
 instance
   Prelude.NFData
     DeleteCustomAvailabilityZoneResponse
+  where
+  rnf DeleteCustomAvailabilityZoneResponse' {..} =
+    Prelude.rnf customAvailabilityZone
+      `Prelude.seq` Prelude.rnf httpStatus

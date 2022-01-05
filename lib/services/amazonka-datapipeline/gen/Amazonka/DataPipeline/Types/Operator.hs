@@ -159,9 +159,14 @@ operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -
 operator_type :: Lens.Lens' Operator (Prelude.Maybe OperatorType)
 operator_type = Lens.lens (\Operator' {type'} -> type') (\s@Operator' {} a -> s {type' = a} :: Operator)
 
-instance Prelude.Hashable Operator
+instance Prelude.Hashable Operator where
+  hashWithSalt _salt Operator' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Operator
+instance Prelude.NFData Operator where
+  rnf Operator' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Operator where
   toJSON Operator' {..} =

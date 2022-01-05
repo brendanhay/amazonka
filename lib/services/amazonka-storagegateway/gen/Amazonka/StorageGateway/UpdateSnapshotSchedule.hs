@@ -187,9 +187,21 @@ instance Core.AWSRequest UpdateSnapshotSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSnapshotSchedule
+instance Prelude.Hashable UpdateSnapshotSchedule where
+  hashWithSalt _salt UpdateSnapshotSchedule' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` startAt
+      `Prelude.hashWithSalt` recurrenceInHours
 
-instance Prelude.NFData UpdateSnapshotSchedule
+instance Prelude.NFData UpdateSnapshotSchedule where
+  rnf UpdateSnapshotSchedule' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf startAt
+      `Prelude.seq` Prelude.rnf recurrenceInHours
 
 instance Core.ToHeaders UpdateSnapshotSchedule where
   toHeaders =
@@ -273,3 +285,7 @@ updateSnapshotScheduleResponse_httpStatus = Lens.lens (\UpdateSnapshotScheduleRe
 instance
   Prelude.NFData
     UpdateSnapshotScheduleResponse
+  where
+  rnf UpdateSnapshotScheduleResponse' {..} =
+    Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -54,7 +54,12 @@ instance
 instance
   Prelude.Hashable
     BatchUpdateLinkAttributesResponse
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     BatchUpdateLinkAttributesResponse
+  where
+  rnf _ = ()

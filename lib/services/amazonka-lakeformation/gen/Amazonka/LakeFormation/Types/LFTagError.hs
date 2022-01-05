@@ -74,6 +74,11 @@ instance Core.FromJSON LFTagError where
             Prelude.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable LFTagError
+instance Prelude.Hashable LFTagError where
+  hashWithSalt _salt LFTagError' {..} =
+    _salt `Prelude.hashWithSalt` lFTag
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData LFTagError
+instance Prelude.NFData LFTagError where
+  rnf LFTagError' {..} =
+    Prelude.rnf lFTag `Prelude.seq` Prelude.rnf error

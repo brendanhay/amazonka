@@ -300,6 +300,36 @@ instance Core.FromJSON Proposal where
             Prelude.<*> (x Core..:? "OutstandingVoteCount")
       )
 
-instance Prelude.Hashable Proposal
+instance Prelude.Hashable Proposal where
+  hashWithSalt _salt Proposal' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` yesVoteCount
+      `Prelude.hashWithSalt` noVoteCount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` proposedByMemberId
+      `Prelude.hashWithSalt` proposalId
+      `Prelude.hashWithSalt` proposedByMemberName
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` outstandingVoteCount
 
-instance Prelude.NFData Proposal
+instance Prelude.NFData Proposal where
+  rnf Proposal' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf yesVoteCount
+      `Prelude.seq` Prelude.rnf noVoteCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf proposedByMemberId
+      `Prelude.seq` Prelude.rnf proposalId
+      `Prelude.seq` Prelude.rnf proposedByMemberName
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf outstandingVoteCount

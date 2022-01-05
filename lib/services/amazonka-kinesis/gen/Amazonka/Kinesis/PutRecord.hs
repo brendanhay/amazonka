@@ -241,9 +241,21 @@ instance Core.AWSRequest PutRecord where
             Prelude.<*> (x Core..:> "SequenceNumber")
       )
 
-instance Prelude.Hashable PutRecord
+instance Prelude.Hashable PutRecord where
+  hashWithSalt _salt PutRecord' {..} =
+    _salt `Prelude.hashWithSalt` explicitHashKey
+      `Prelude.hashWithSalt` sequenceNumberForOrdering
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` partitionKey
 
-instance Prelude.NFData PutRecord
+instance Prelude.NFData PutRecord where
+  rnf PutRecord' {..} =
+    Prelude.rnf explicitHashKey
+      `Prelude.seq` Prelude.rnf sequenceNumberForOrdering
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf partitionKey
 
 instance Core.ToHeaders PutRecord where
   toHeaders =
@@ -371,4 +383,9 @@ putRecordResponse_shardId = Lens.lens (\PutRecordResponse' {shardId} -> shardId)
 putRecordResponse_sequenceNumber :: Lens.Lens' PutRecordResponse Prelude.Text
 putRecordResponse_sequenceNumber = Lens.lens (\PutRecordResponse' {sequenceNumber} -> sequenceNumber) (\s@PutRecordResponse' {} a -> s {sequenceNumber = a} :: PutRecordResponse)
 
-instance Prelude.NFData PutRecordResponse
+instance Prelude.NFData PutRecordResponse where
+  rnf PutRecordResponse' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf sequenceNumber

@@ -88,6 +88,16 @@ instance Core.FromXML CoipAddressUsage where
       Prelude.<*> (x Core..@? "coIp")
       Prelude.<*> (x Core..@? "awsService")
 
-instance Prelude.Hashable CoipAddressUsage
+instance Prelude.Hashable CoipAddressUsage where
+  hashWithSalt _salt CoipAddressUsage' {..} =
+    _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` coIp
+      `Prelude.hashWithSalt` awsService
 
-instance Prelude.NFData CoipAddressUsage
+instance Prelude.NFData CoipAddressUsage where
+  rnf CoipAddressUsage' {..} =
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf coIp
+      `Prelude.seq` Prelude.rnf awsService

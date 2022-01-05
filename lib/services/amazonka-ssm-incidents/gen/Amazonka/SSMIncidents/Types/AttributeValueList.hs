@@ -61,9 +61,15 @@ attributeValueList_stringValues = Lens.lens (\AttributeValueList' {stringValues}
 attributeValueList_integerValues :: Lens.Lens' AttributeValueList (Prelude.Maybe [Prelude.Int])
 attributeValueList_integerValues = Lens.lens (\AttributeValueList' {integerValues} -> integerValues) (\s@AttributeValueList' {} a -> s {integerValues = a} :: AttributeValueList) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable AttributeValueList
+instance Prelude.Hashable AttributeValueList where
+  hashWithSalt _salt AttributeValueList' {..} =
+    _salt `Prelude.hashWithSalt` stringValues
+      `Prelude.hashWithSalt` integerValues
 
-instance Prelude.NFData AttributeValueList
+instance Prelude.NFData AttributeValueList where
+  rnf AttributeValueList' {..} =
+    Prelude.rnf stringValues
+      `Prelude.seq` Prelude.rnf integerValues
 
 instance Core.ToJSON AttributeValueList where
   toJSON AttributeValueList' {..} =

@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteEndpointConfig where
   response =
     Response.receiveNull DeleteEndpointConfigResponse'
 
-instance Prelude.Hashable DeleteEndpointConfig
+instance Prelude.Hashable DeleteEndpointConfig where
+  hashWithSalt _salt DeleteEndpointConfig' {..} =
+    _salt `Prelude.hashWithSalt` endpointConfigName
 
-instance Prelude.NFData DeleteEndpointConfig
+instance Prelude.NFData DeleteEndpointConfig where
+  rnf DeleteEndpointConfig' {..} =
+    Prelude.rnf endpointConfigName
 
 instance Core.ToHeaders DeleteEndpointConfig where
   toHeaders =
@@ -138,4 +142,5 @@ newDeleteEndpointConfigResponse ::
 newDeleteEndpointConfigResponse =
   DeleteEndpointConfigResponse'
 
-instance Prelude.NFData DeleteEndpointConfigResponse
+instance Prelude.NFData DeleteEndpointConfigResponse where
+  rnf _ = ()

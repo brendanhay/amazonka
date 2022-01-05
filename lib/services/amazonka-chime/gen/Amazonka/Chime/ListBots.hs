@@ -112,9 +112,17 @@ instance Core.AWSRequest ListBots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBots
+instance Prelude.Hashable ListBots where
+  hashWithSalt _salt ListBots' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ListBots
+instance Prelude.NFData ListBots where
+  rnf ListBots' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders ListBots where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +186,8 @@ listBotsResponse_nextToken = Lens.lens (\ListBotsResponse' {nextToken} -> nextTo
 listBotsResponse_httpStatus :: Lens.Lens' ListBotsResponse Prelude.Int
 listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> httpStatus) (\s@ListBotsResponse' {} a -> s {httpStatus = a} :: ListBotsResponse)
 
-instance Prelude.NFData ListBotsResponse
+instance Prelude.NFData ListBotsResponse where
+  rnf ListBotsResponse' {..} =
+    Prelude.rnf bots
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

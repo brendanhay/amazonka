@@ -200,6 +200,30 @@ instance Core.FromJSON ReplicationRun where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ReplicationRun
+instance Prelude.Hashable ReplicationRun where
+  hashWithSalt _salt ReplicationRun' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` replicationRunId
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` stageDetails
+      `Prelude.hashWithSalt` scheduledStartTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` completedTime
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ReplicationRun
+instance Prelude.NFData ReplicationRun where
+  rnf ReplicationRun' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf replicationRunId
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf stageDetails
+      `Prelude.seq` Prelude.rnf scheduledStartTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf completedTime
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

@@ -76,9 +76,16 @@ instance Core.FromJSON DomainJoinInfo where
             Prelude.<*> (x Core..:? "DirectoryName")
       )
 
-instance Prelude.Hashable DomainJoinInfo
+instance Prelude.Hashable DomainJoinInfo where
+  hashWithSalt _salt DomainJoinInfo' {..} =
+    _salt
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedName
+      `Prelude.hashWithSalt` directoryName
 
-instance Prelude.NFData DomainJoinInfo
+instance Prelude.NFData DomainJoinInfo where
+  rnf DomainJoinInfo' {..} =
+    Prelude.rnf organizationalUnitDistinguishedName
+      `Prelude.seq` Prelude.rnf directoryName
 
 instance Core.ToJSON DomainJoinInfo where
   toJSON DomainJoinInfo' {..} =

@@ -148,10 +148,22 @@ instance
 instance
   Prelude.Hashable
     DeleteApplicationReferenceDataSource
+  where
+  hashWithSalt
+    _salt
+    DeleteApplicationReferenceDataSource' {..} =
+      _salt `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` currentApplicationVersionId
+        `Prelude.hashWithSalt` referenceId
 
 instance
   Prelude.NFData
     DeleteApplicationReferenceDataSource
+  where
+  rnf DeleteApplicationReferenceDataSource' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf referenceId
 
 instance
   Core.ToHeaders
@@ -253,3 +265,8 @@ deleteApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\DeleteAppl
 instance
   Prelude.NFData
     DeleteApplicationReferenceDataSourceResponse
+  where
+  rnf DeleteApplicationReferenceDataSourceResponse' {..} =
+    Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf httpStatus

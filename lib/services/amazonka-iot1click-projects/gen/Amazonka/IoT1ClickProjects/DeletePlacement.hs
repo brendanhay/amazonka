@@ -101,9 +101,15 @@ instance Core.AWSRequest DeletePlacement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePlacement
+instance Prelude.Hashable DeletePlacement where
+  hashWithSalt _salt DeletePlacement' {..} =
+    _salt `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DeletePlacement
+instance Prelude.NFData DeletePlacement where
+  rnf DeletePlacement' {..} =
+    Prelude.rnf placementName
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders DeletePlacement where
   toHeaders =
@@ -155,4 +161,6 @@ newDeletePlacementResponse pHttpStatus_ =
 deletePlacementResponse_httpStatus :: Lens.Lens' DeletePlacementResponse Prelude.Int
 deletePlacementResponse_httpStatus = Lens.lens (\DeletePlacementResponse' {httpStatus} -> httpStatus) (\s@DeletePlacementResponse' {} a -> s {httpStatus = a} :: DeletePlacementResponse)
 
-instance Prelude.NFData DeletePlacementResponse
+instance Prelude.NFData DeletePlacementResponse where
+  rnf DeletePlacementResponse' {..} =
+    Prelude.rnf httpStatus

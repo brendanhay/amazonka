@@ -142,9 +142,17 @@ instance Core.AWSRequest ListAWSDefaultServiceQuotas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAWSDefaultServiceQuotas
+instance Prelude.Hashable ListAWSDefaultServiceQuotas where
+  hashWithSalt _salt ListAWSDefaultServiceQuotas' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceCode
 
-instance Prelude.NFData ListAWSDefaultServiceQuotas
+instance Prelude.NFData ListAWSDefaultServiceQuotas where
+  rnf ListAWSDefaultServiceQuotas' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceCode
 
 instance Core.ToHeaders ListAWSDefaultServiceQuotas where
   toHeaders =
@@ -231,3 +239,8 @@ listAWSDefaultServiceQuotasResponse_httpStatus = Lens.lens (\ListAWSDefaultServi
 instance
   Prelude.NFData
     ListAWSDefaultServiceQuotasResponse
+  where
+  rnf ListAWSDefaultServiceQuotasResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf quotas
+      `Prelude.seq` Prelude.rnf httpStatus

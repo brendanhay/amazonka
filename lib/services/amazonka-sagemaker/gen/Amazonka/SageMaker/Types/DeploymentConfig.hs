@@ -74,9 +74,16 @@ instance Core.FromJSON DeploymentConfig where
             Prelude.<*> (x Core..: "BlueGreenUpdatePolicy")
       )
 
-instance Prelude.Hashable DeploymentConfig
+instance Prelude.Hashable DeploymentConfig where
+  hashWithSalt _salt DeploymentConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` blueGreenUpdatePolicy
 
-instance Prelude.NFData DeploymentConfig
+instance Prelude.NFData DeploymentConfig where
+  rnf DeploymentConfig' {..} =
+    Prelude.rnf autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf blueGreenUpdatePolicy
 
 instance Core.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =

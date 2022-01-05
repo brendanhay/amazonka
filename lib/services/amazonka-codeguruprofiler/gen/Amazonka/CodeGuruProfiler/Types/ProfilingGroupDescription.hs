@@ -180,6 +180,24 @@ instance Core.FromJSON ProfilingGroupDescription where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProfilingGroupDescription
+instance Prelude.Hashable ProfilingGroupDescription where
+  hashWithSalt _salt ProfilingGroupDescription' {..} =
+    _salt `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` profilingStatus
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` agentOrchestrationConfig
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ProfilingGroupDescription
+instance Prelude.NFData ProfilingGroupDescription where
+  rnf ProfilingGroupDescription' {..} =
+    Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf profilingStatus
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf agentOrchestrationConfig
+      `Prelude.seq` Prelude.rnf tags

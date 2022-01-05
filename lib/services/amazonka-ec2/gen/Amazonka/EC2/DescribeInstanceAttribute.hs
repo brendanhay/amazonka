@@ -168,9 +168,17 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceAttribute
+instance Prelude.Hashable DescribeInstanceAttribute where
+  hashWithSalt _salt DescribeInstanceAttribute' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeInstanceAttribute
+instance Prelude.NFData DescribeInstanceAttribute where
+  rnf DescribeInstanceAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -400,3 +408,23 @@ describeInstanceAttributeResponse_httpStatus = Lens.lens (\DescribeInstanceAttri
 instance
   Prelude.NFData
     DescribeInstanceAttributeResponse
+  where
+  rnf DescribeInstanceAttributeResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf disableApiTermination
+      `Prelude.seq` Prelude.rnf enclaveOptions
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf
+        instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -113,9 +113,15 @@ instance Core.AWSRequest UngroupResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UngroupResources
+instance Prelude.Hashable UngroupResources where
+  hashWithSalt _salt UngroupResources' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` resourceArns
 
-instance Prelude.NFData UngroupResources
+instance Prelude.NFData UngroupResources where
+  rnf UngroupResources' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf resourceArns
 
 instance Core.ToHeaders UngroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,4 +216,9 @@ ungroupResourcesResponse_failed = Lens.lens (\UngroupResourcesResponse' {failed}
 ungroupResourcesResponse_httpStatus :: Lens.Lens' UngroupResourcesResponse Prelude.Int
 ungroupResourcesResponse_httpStatus = Lens.lens (\UngroupResourcesResponse' {httpStatus} -> httpStatus) (\s@UngroupResourcesResponse' {} a -> s {httpStatus = a} :: UngroupResourcesResponse)
 
-instance Prelude.NFData UngroupResourcesResponse
+instance Prelude.NFData UngroupResourcesResponse where
+  rnf UngroupResourcesResponse' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf succeeded
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf httpStatus

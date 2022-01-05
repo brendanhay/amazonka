@@ -87,9 +87,14 @@ instance Core.AWSRequest UpdateRegionSettings where
   response =
     Response.receiveNull UpdateRegionSettingsResponse'
 
-instance Prelude.Hashable UpdateRegionSettings
+instance Prelude.Hashable UpdateRegionSettings where
+  hashWithSalt _salt UpdateRegionSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` resourceTypeOptInPreference
 
-instance Prelude.NFData UpdateRegionSettings
+instance Prelude.NFData UpdateRegionSettings where
+  rnf UpdateRegionSettings' {..} =
+    Prelude.rnf resourceTypeOptInPreference
 
 instance Core.ToHeaders UpdateRegionSettings where
   toHeaders =
@@ -132,4 +137,5 @@ newUpdateRegionSettingsResponse ::
 newUpdateRegionSettingsResponse =
   UpdateRegionSettingsResponse'
 
-instance Prelude.NFData UpdateRegionSettingsResponse
+instance Prelude.NFData UpdateRegionSettingsResponse where
+  rnf _ = ()

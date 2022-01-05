@@ -91,10 +91,20 @@ instance
 instance
   Prelude.Hashable
     CreateBackendAuthPasswordPolicyConfig
+  where
+  hashWithSalt
+    _salt
+    CreateBackendAuthPasswordPolicyConfig' {..} =
+      _salt `Prelude.hashWithSalt` additionalConstraints
+        `Prelude.hashWithSalt` minimumLength
 
 instance
   Prelude.NFData
     CreateBackendAuthPasswordPolicyConfig
+  where
+  rnf CreateBackendAuthPasswordPolicyConfig' {..} =
+    Prelude.rnf additionalConstraints
+      `Prelude.seq` Prelude.rnf minimumLength
 
 instance
   Core.ToJSON

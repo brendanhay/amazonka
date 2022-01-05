@@ -82,9 +82,17 @@ listInsightsStatusFilter_ongoing = Lens.lens (\ListInsightsStatusFilter' {ongoin
 listInsightsStatusFilter_any :: Lens.Lens' ListInsightsStatusFilter (Prelude.Maybe ListInsightsAnyStatusFilter)
 listInsightsStatusFilter_any = Lens.lens (\ListInsightsStatusFilter' {any} -> any) (\s@ListInsightsStatusFilter' {} a -> s {any = a} :: ListInsightsStatusFilter)
 
-instance Prelude.Hashable ListInsightsStatusFilter
+instance Prelude.Hashable ListInsightsStatusFilter where
+  hashWithSalt _salt ListInsightsStatusFilter' {..} =
+    _salt `Prelude.hashWithSalt` closed
+      `Prelude.hashWithSalt` ongoing
+      `Prelude.hashWithSalt` any
 
-instance Prelude.NFData ListInsightsStatusFilter
+instance Prelude.NFData ListInsightsStatusFilter where
+  rnf ListInsightsStatusFilter' {..} =
+    Prelude.rnf closed
+      `Prelude.seq` Prelude.rnf ongoing
+      `Prelude.seq` Prelude.rnf any
 
 instance Core.ToJSON ListInsightsStatusFilter where
   toJSON ListInsightsStatusFilter' {..} =

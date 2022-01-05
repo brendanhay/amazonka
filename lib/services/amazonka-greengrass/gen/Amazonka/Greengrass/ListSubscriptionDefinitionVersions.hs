@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     ListSubscriptionDefinitionVersions
+  where
+  hashWithSalt
+    _salt
+    ListSubscriptionDefinitionVersions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` subscriptionDefinitionId
 
 instance
   Prelude.NFData
     ListSubscriptionDefinitionVersions
+  where
+  rnf ListSubscriptionDefinitionVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
 
 instance
   Core.ToHeaders
@@ -244,3 +256,8 @@ listSubscriptionDefinitionVersionsResponse_httpStatus = Lens.lens (\ListSubscrip
 instance
   Prelude.NFData
     ListSubscriptionDefinitionVersionsResponse
+  where
+  rnf ListSubscriptionDefinitionVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

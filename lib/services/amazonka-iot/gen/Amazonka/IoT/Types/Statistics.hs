@@ -132,6 +132,24 @@ instance Core.FromJSON Statistics where
             Prelude.<*> (x Core..:? "sum")
       )
 
-instance Prelude.Hashable Statistics
+instance Prelude.Hashable Statistics where
+  hashWithSalt _salt Statistics' {..} =
+    _salt `Prelude.hashWithSalt` stdDeviation
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` variance
+      `Prelude.hashWithSalt` sumOfSquares
+      `Prelude.hashWithSalt` sum
 
-instance Prelude.NFData Statistics
+instance Prelude.NFData Statistics where
+  rnf Statistics' {..} =
+    Prelude.rnf stdDeviation
+      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf variance
+      `Prelude.seq` Prelude.rnf sumOfSquares
+      `Prelude.seq` Prelude.rnf sum

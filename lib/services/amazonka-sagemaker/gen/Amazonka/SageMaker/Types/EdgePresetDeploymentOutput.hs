@@ -99,6 +99,16 @@ instance Core.FromJSON EdgePresetDeploymentOutput where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable EdgePresetDeploymentOutput
+instance Prelude.Hashable EdgePresetDeploymentOutput where
+  hashWithSalt _salt EdgePresetDeploymentOutput' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` artifact
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EdgePresetDeploymentOutput
+instance Prelude.NFData EdgePresetDeploymentOutput where
+  rnf EdgePresetDeploymentOutput' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf artifact
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf type'

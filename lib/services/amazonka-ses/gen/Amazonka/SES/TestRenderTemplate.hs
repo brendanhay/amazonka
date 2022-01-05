@@ -110,9 +110,15 @@ instance Core.AWSRequest TestRenderTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestRenderTemplate
+instance Prelude.Hashable TestRenderTemplate where
+  hashWithSalt _salt TestRenderTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateData
 
-instance Prelude.NFData TestRenderTemplate
+instance Prelude.NFData TestRenderTemplate where
+  rnf TestRenderTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateData
 
 instance Core.ToHeaders TestRenderTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +182,7 @@ testRenderTemplateResponse_renderedTemplate = Lens.lens (\TestRenderTemplateResp
 testRenderTemplateResponse_httpStatus :: Lens.Lens' TestRenderTemplateResponse Prelude.Int
 testRenderTemplateResponse_httpStatus = Lens.lens (\TestRenderTemplateResponse' {httpStatus} -> httpStatus) (\s@TestRenderTemplateResponse' {} a -> s {httpStatus = a} :: TestRenderTemplateResponse)
 
-instance Prelude.NFData TestRenderTemplateResponse
+instance Prelude.NFData TestRenderTemplateResponse where
+  rnf TestRenderTemplateResponse' {..} =
+    Prelude.rnf renderedTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

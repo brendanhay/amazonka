@@ -87,8 +87,13 @@ instance Core.AWSRequest DeleteRecordingConfiguration where
 instance
   Prelude.Hashable
     DeleteRecordingConfiguration
+  where
+  hashWithSalt _salt DeleteRecordingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteRecordingConfiguration
+instance Prelude.NFData DeleteRecordingConfiguration where
+  rnf DeleteRecordingConfiguration' {..} =
+    Prelude.rnf arn
 
 instance Core.ToHeaders DeleteRecordingConfiguration where
   toHeaders =
@@ -133,3 +138,5 @@ newDeleteRecordingConfigurationResponse =
 instance
   Prelude.NFData
     DeleteRecordingConfigurationResponse
+  where
+  rnf _ = ()

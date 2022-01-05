@@ -65,9 +65,13 @@ instance Core.FromXML InventoryDestination where
     InventoryDestination'
       Prelude.<$> (x Core..@ "S3BucketDestination")
 
-instance Prelude.Hashable InventoryDestination
+instance Prelude.Hashable InventoryDestination where
+  hashWithSalt _salt InventoryDestination' {..} =
+    _salt `Prelude.hashWithSalt` s3BucketDestination
 
-instance Prelude.NFData InventoryDestination
+instance Prelude.NFData InventoryDestination where
+  rnf InventoryDestination' {..} =
+    Prelude.rnf s3BucketDestination
 
 instance Core.ToXML InventoryDestination where
   toXML InventoryDestination' {..} =

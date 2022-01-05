@@ -69,9 +69,12 @@ instance Core.FromJSON IoTJobAbortConfig where
             Prelude.<$> (x Core..: "criteriaList")
       )
 
-instance Prelude.Hashable IoTJobAbortConfig
+instance Prelude.Hashable IoTJobAbortConfig where
+  hashWithSalt _salt IoTJobAbortConfig' {..} =
+    _salt `Prelude.hashWithSalt` criteriaList
 
-instance Prelude.NFData IoTJobAbortConfig
+instance Prelude.NFData IoTJobAbortConfig where
+  rnf IoTJobAbortConfig' {..} = Prelude.rnf criteriaList
 
 instance Core.ToJSON IoTJobAbortConfig where
   toJSON IoTJobAbortConfig' {..} =

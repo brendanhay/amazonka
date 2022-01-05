@@ -88,6 +88,13 @@ instance Core.FromJSON EvaluationResultIdentifier where
             Prelude.<*> (x Core..:? "OrderingTimestamp")
       )
 
-instance Prelude.Hashable EvaluationResultIdentifier
+instance Prelude.Hashable EvaluationResultIdentifier where
+  hashWithSalt _salt EvaluationResultIdentifier' {..} =
+    _salt
+      `Prelude.hashWithSalt` evaluationResultQualifier
+      `Prelude.hashWithSalt` orderingTimestamp
 
-instance Prelude.NFData EvaluationResultIdentifier
+instance Prelude.NFData EvaluationResultIdentifier where
+  rnf EvaluationResultIdentifier' {..} =
+    Prelude.rnf evaluationResultQualifier
+      `Prelude.seq` Prelude.rnf orderingTimestamp

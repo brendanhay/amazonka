@@ -157,9 +157,19 @@ instance Core.FromJSON AbsoluteTimeRange where
             Prelude.<*> (x Core..:? "EndTime")
       )
 
-instance Prelude.Hashable AbsoluteTimeRange
+instance Prelude.Hashable AbsoluteTimeRange where
+  hashWithSalt _salt AbsoluteTimeRange' {..} =
+    _salt `Prelude.hashWithSalt` first
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` last
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData AbsoluteTimeRange
+instance Prelude.NFData AbsoluteTimeRange where
+  rnf AbsoluteTimeRange' {..} =
+    Prelude.rnf first
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf last
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON AbsoluteTimeRange where
   toJSON AbsoluteTimeRange' {..} =

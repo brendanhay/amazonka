@@ -62,9 +62,12 @@ instance Core.FromJSON UserSettings where
           UserSettings' Prelude.<$> (x Core..: "Telephony")
       )
 
-instance Prelude.Hashable UserSettings
+instance Prelude.Hashable UserSettings where
+  hashWithSalt _salt UserSettings' {..} =
+    _salt `Prelude.hashWithSalt` telephony
 
-instance Prelude.NFData UserSettings
+instance Prelude.NFData UserSettings where
+  rnf UserSettings' {..} = Prelude.rnf telephony
 
 instance Core.ToJSON UserSettings where
   toJSON UserSettings' {..} =

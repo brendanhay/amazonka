@@ -83,7 +83,17 @@ instance
 instance
   Prelude.Hashable
     BatchDetectDominantLanguageItemResult
+  where
+  hashWithSalt
+    _salt
+    BatchDetectDominantLanguageItemResult' {..} =
+      _salt `Prelude.hashWithSalt` languages
+        `Prelude.hashWithSalt` index
 
 instance
   Prelude.NFData
     BatchDetectDominantLanguageItemResult
+  where
+  rnf BatchDetectDominantLanguageItemResult' {..} =
+    Prelude.rnf languages
+      `Prelude.seq` Prelude.rnf index

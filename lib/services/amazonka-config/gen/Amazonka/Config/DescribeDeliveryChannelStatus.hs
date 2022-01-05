@@ -102,8 +102,13 @@ instance
 instance
   Prelude.Hashable
     DescribeDeliveryChannelStatus
+  where
+  hashWithSalt _salt DescribeDeliveryChannelStatus' {..} =
+    _salt `Prelude.hashWithSalt` deliveryChannelNames
 
-instance Prelude.NFData DescribeDeliveryChannelStatus
+instance Prelude.NFData DescribeDeliveryChannelStatus where
+  rnf DescribeDeliveryChannelStatus' {..} =
+    Prelude.rnf deliveryChannelNames
 
 instance Core.ToHeaders DescribeDeliveryChannelStatus where
   toHeaders =
@@ -179,3 +184,7 @@ describeDeliveryChannelStatusResponse_httpStatus = Lens.lens (\DescribeDeliveryC
 instance
   Prelude.NFData
     DescribeDeliveryChannelStatusResponse
+  where
+  rnf DescribeDeliveryChannelStatusResponse' {..} =
+    Prelude.rnf deliveryChannelsStatus
+      `Prelude.seq` Prelude.rnf httpStatus

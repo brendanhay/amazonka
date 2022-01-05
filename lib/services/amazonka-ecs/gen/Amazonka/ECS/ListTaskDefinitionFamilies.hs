@@ -228,9 +228,19 @@ instance Core.AWSRequest ListTaskDefinitionFamilies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTaskDefinitionFamilies
+instance Prelude.Hashable ListTaskDefinitionFamilies where
+  hashWithSalt _salt ListTaskDefinitionFamilies' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` familyPrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListTaskDefinitionFamilies
+instance Prelude.NFData ListTaskDefinitionFamilies where
+  rnf ListTaskDefinitionFamilies' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf familyPrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTaskDefinitionFamilies where
   toHeaders =
@@ -330,3 +340,8 @@ listTaskDefinitionFamiliesResponse_httpStatus = Lens.lens (\ListTaskDefinitionFa
 instance
   Prelude.NFData
     ListTaskDefinitionFamiliesResponse
+  where
+  rnf ListTaskDefinitionFamiliesResponse' {..} =
+    Prelude.rnf families
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

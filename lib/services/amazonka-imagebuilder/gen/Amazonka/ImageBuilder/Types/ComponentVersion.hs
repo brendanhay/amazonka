@@ -252,6 +252,26 @@ instance Core.FromJSON ComponentVersion where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ComponentVersion
+instance Prelude.Hashable ComponentVersion where
+  hashWithSalt _salt ComponentVersion' {..} =
+    _salt `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ComponentVersion
+instance Prelude.NFData ComponentVersion where
+  rnf ComponentVersion' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

@@ -122,9 +122,15 @@ instance Core.AWSRequest DescribeNode where
             Prelude.<*> (x Core..:> "LastUpdatedTime")
       )
 
-instance Prelude.Hashable DescribeNode
+instance Prelude.Hashable DescribeNode where
+  hashWithSalt _salt DescribeNode' {..} =
+    _salt `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` nodeId
 
-instance Prelude.NFData DescribeNode
+instance Prelude.NFData DescribeNode where
+  rnf DescribeNode' {..} =
+    Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf nodeId
 
 instance Core.ToHeaders DescribeNode where
   toHeaders =
@@ -339,4 +345,20 @@ describeNodeResponse_createdTime = Lens.lens (\DescribeNodeResponse' {createdTim
 describeNodeResponse_lastUpdatedTime :: Lens.Lens' DescribeNodeResponse Prelude.UTCTime
 describeNodeResponse_lastUpdatedTime = Lens.lens (\DescribeNodeResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeNodeResponse' {} a -> s {lastUpdatedTime = a} :: DescribeNodeResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeNodeResponse
+instance Prelude.NFData DescribeNodeResponse where
+  rnf DescribeNodeResponse' {..} =
+    Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf packageArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf nodeInterface
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

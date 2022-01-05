@@ -99,9 +99,12 @@ instance Core.AWSRequest GetVocabulary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVocabulary
+instance Prelude.Hashable GetVocabulary where
+  hashWithSalt _salt GetVocabulary' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyName
 
-instance Prelude.NFData GetVocabulary
+instance Prelude.NFData GetVocabulary where
+  rnf GetVocabulary' {..} = Prelude.rnf vocabularyName
 
 instance Core.ToHeaders GetVocabulary where
   toHeaders =
@@ -221,4 +224,12 @@ getVocabularyResponse_vocabularyState = Lens.lens (\GetVocabularyResponse' {voca
 getVocabularyResponse_httpStatus :: Lens.Lens' GetVocabularyResponse Prelude.Int
 getVocabularyResponse_httpStatus = Lens.lens (\GetVocabularyResponse' {httpStatus} -> httpStatus) (\s@GetVocabularyResponse' {} a -> s {httpStatus = a} :: GetVocabularyResponse)
 
-instance Prelude.NFData GetVocabularyResponse
+instance Prelude.NFData GetVocabularyResponse where
+  rnf GetVocabularyResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf downloadUri
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf httpStatus

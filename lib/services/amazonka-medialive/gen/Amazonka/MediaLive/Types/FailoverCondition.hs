@@ -64,9 +64,14 @@ instance Core.FromJSON FailoverCondition where
             Prelude.<$> (x Core..:? "failoverConditionSettings")
       )
 
-instance Prelude.Hashable FailoverCondition
+instance Prelude.Hashable FailoverCondition where
+  hashWithSalt _salt FailoverCondition' {..} =
+    _salt
+      `Prelude.hashWithSalt` failoverConditionSettings
 
-instance Prelude.NFData FailoverCondition
+instance Prelude.NFData FailoverCondition where
+  rnf FailoverCondition' {..} =
+    Prelude.rnf failoverConditionSettings
 
 instance Core.ToJSON FailoverCondition where
   toJSON FailoverCondition' {..} =

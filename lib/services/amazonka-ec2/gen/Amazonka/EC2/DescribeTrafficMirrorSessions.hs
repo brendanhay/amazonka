@@ -242,8 +242,21 @@ instance
 instance
   Prelude.Hashable
     DescribeTrafficMirrorSessions
+  where
+  hashWithSalt _salt DescribeTrafficMirrorSessions' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` trafficMirrorSessionIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeTrafficMirrorSessions
+instance Prelude.NFData DescribeTrafficMirrorSessions where
+  rnf DescribeTrafficMirrorSessions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trafficMirrorSessionIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTrafficMirrorSessions where
   toHeaders = Prelude.const Prelude.mempty
@@ -332,3 +345,8 @@ describeTrafficMirrorSessionsResponse_httpStatus = Lens.lens (\DescribeTrafficMi
 instance
   Prelude.NFData
     DescribeTrafficMirrorSessionsResponse
+  where
+  rnf DescribeTrafficMirrorSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trafficMirrorSessions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
@@ -118,10 +119,24 @@ createGlobalSecondaryIndexAction_projection = Lens.lens (\CreateGlobalSecondaryI
 instance
   Prelude.Hashable
     CreateGlobalSecondaryIndexAction
+  where
+  hashWithSalt
+    _salt
+    CreateGlobalSecondaryIndexAction' {..} =
+      _salt `Prelude.hashWithSalt` provisionedThroughput
+        `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` projection
 
 instance
   Prelude.NFData
     CreateGlobalSecondaryIndexAction
+  where
+  rnf CreateGlobalSecondaryIndexAction' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
 
 instance Core.ToJSON CreateGlobalSecondaryIndexAction where
   toJSON CreateGlobalSecondaryIndexAction' {..} =

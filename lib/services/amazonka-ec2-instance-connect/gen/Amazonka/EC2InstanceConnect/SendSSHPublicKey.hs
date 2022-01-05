@@ -140,9 +140,19 @@ instance Core.AWSRequest SendSSHPublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendSSHPublicKey
+instance Prelude.Hashable SendSSHPublicKey where
+  hashWithSalt _salt SendSSHPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` instanceOSUser
+      `Prelude.hashWithSalt` sSHPublicKey
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData SendSSHPublicKey
+instance Prelude.NFData SendSSHPublicKey where
+  rnf SendSSHPublicKey' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf instanceOSUser
+      `Prelude.seq` Prelude.rnf sSHPublicKey
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders SendSSHPublicKey where
   toHeaders =
@@ -229,4 +239,8 @@ sendSSHPublicKeyResponse_success = Lens.lens (\SendSSHPublicKeyResponse' {succes
 sendSSHPublicKeyResponse_httpStatus :: Lens.Lens' SendSSHPublicKeyResponse Prelude.Int
 sendSSHPublicKeyResponse_httpStatus = Lens.lens (\SendSSHPublicKeyResponse' {httpStatus} -> httpStatus) (\s@SendSSHPublicKeyResponse' {} a -> s {httpStatus = a} :: SendSSHPublicKeyResponse)
 
-instance Prelude.NFData SendSSHPublicKeyResponse
+instance Prelude.NFData SendSSHPublicKeyResponse where
+  rnf SendSSHPublicKeyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf success
+      `Prelude.seq` Prelude.rnf httpStatus

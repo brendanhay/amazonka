@@ -120,9 +120,17 @@ instance Core.AWSRequest DeleteMailboxPermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMailboxPermissions
+instance Prelude.Hashable DeleteMailboxPermissions where
+  hashWithSalt _salt DeleteMailboxPermissions' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` granteeId
 
-instance Prelude.NFData DeleteMailboxPermissions
+instance Prelude.NFData DeleteMailboxPermissions where
+  rnf DeleteMailboxPermissions' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf granteeId
 
 instance Core.ToHeaders DeleteMailboxPermissions where
   toHeaders =
@@ -189,3 +197,6 @@ deleteMailboxPermissionsResponse_httpStatus = Lens.lens (\DeleteMailboxPermissio
 instance
   Prelude.NFData
     DeleteMailboxPermissionsResponse
+  where
+  rnf DeleteMailboxPermissionsResponse' {..} =
+    Prelude.rnf httpStatus

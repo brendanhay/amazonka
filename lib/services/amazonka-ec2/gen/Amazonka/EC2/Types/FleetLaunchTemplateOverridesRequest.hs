@@ -170,10 +170,30 @@ fleetLaunchTemplateOverridesRequest_maxPrice = Lens.lens (\FleetLaunchTemplateOv
 instance
   Prelude.Hashable
     FleetLaunchTemplateOverridesRequest
+  where
+  hashWithSalt
+    _salt
+    FleetLaunchTemplateOverridesRequest' {..} =
+      _salt `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` weightedCapacity
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` placement
+        `Prelude.hashWithSalt` maxPrice
 
 instance
   Prelude.NFData
     FleetLaunchTemplateOverridesRequest
+  where
+  rnf FleetLaunchTemplateOverridesRequest' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf maxPrice
 
 instance
   Core.ToQuery

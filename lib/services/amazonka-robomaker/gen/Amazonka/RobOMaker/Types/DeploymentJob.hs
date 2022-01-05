@@ -138,6 +138,24 @@ instance Core.FromJSON DeploymentJob where
             Prelude.<*> (x Core..:? "fleet")
       )
 
-instance Prelude.Hashable DeploymentJob
+instance Prelude.Hashable DeploymentJob where
+  hashWithSalt _salt DeploymentJob' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentApplicationConfigs
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` deploymentConfig
+      `Prelude.hashWithSalt` fleet
 
-instance Prelude.NFData DeploymentJob
+instance Prelude.NFData DeploymentJob where
+  rnf DeploymentJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf fleet

@@ -100,9 +100,15 @@ instance Core.AWSRequest BatchWrite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchWrite
+instance Prelude.Hashable BatchWrite where
+  hashWithSalt _salt BatchWrite' {..} =
+    _salt `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` operations
 
-instance Prelude.NFData BatchWrite
+instance Prelude.NFData BatchWrite where
+  rnf BatchWrite' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf operations
 
 instance Core.ToHeaders BatchWrite where
   toHeaders BatchWrite' {..} =
@@ -162,4 +168,7 @@ batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> re
 batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Prelude.Int
 batchWriteResponse_httpStatus = Lens.lens (\BatchWriteResponse' {httpStatus} -> httpStatus) (\s@BatchWriteResponse' {} a -> s {httpStatus = a} :: BatchWriteResponse)
 
-instance Prelude.NFData BatchWriteResponse
+instance Prelude.NFData BatchWriteResponse where
+  rnf BatchWriteResponse' {..} =
+    Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf httpStatus

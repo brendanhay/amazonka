@@ -88,9 +88,15 @@ instance Core.AWSRequest TagMeeting where
   request = Request.postJSON defaultService
   response = Response.receiveNull TagMeetingResponse'
 
-instance Prelude.Hashable TagMeeting
+instance Prelude.Hashable TagMeeting where
+  hashWithSalt _salt TagMeeting' {..} =
+    _salt `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagMeeting
+instance Prelude.NFData TagMeeting where
+  rnf TagMeeting' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagMeeting where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,4 +131,5 @@ newTagMeetingResponse ::
   TagMeetingResponse
 newTagMeetingResponse = TagMeetingResponse'
 
-instance Prelude.NFData TagMeetingResponse
+instance Prelude.NFData TagMeetingResponse where
+  rnf _ = ()

@@ -85,9 +85,12 @@ instance Core.AWSRequest GetProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProject
+instance Prelude.Hashable GetProject where
+  hashWithSalt _salt GetProject' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetProject
+instance Prelude.NFData GetProject where
+  rnf GetProject' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetProject where
   toHeaders =
@@ -157,4 +160,7 @@ getProjectResponse_project = Lens.lens (\GetProjectResponse' {project} -> projec
 getProjectResponse_httpStatus :: Lens.Lens' GetProjectResponse Prelude.Int
 getProjectResponse_httpStatus = Lens.lens (\GetProjectResponse' {httpStatus} -> httpStatus) (\s@GetProjectResponse' {} a -> s {httpStatus = a} :: GetProjectResponse)
 
-instance Prelude.NFData GetProjectResponse
+instance Prelude.NFData GetProjectResponse where
+  rnf GetProjectResponse' {..} =
+    Prelude.rnf project
+      `Prelude.seq` Prelude.rnf httpStatus

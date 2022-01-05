@@ -97,9 +97,17 @@ instance Core.FromJSON AutoTuneOptions where
                         )
       )
 
-instance Prelude.Hashable AutoTuneOptions
+instance Prelude.Hashable AutoTuneOptions where
+  hashWithSalt _salt AutoTuneOptions' {..} =
+    _salt `Prelude.hashWithSalt` desiredState
+      `Prelude.hashWithSalt` rollbackOnDisable
+      `Prelude.hashWithSalt` maintenanceSchedules
 
-instance Prelude.NFData AutoTuneOptions
+instance Prelude.NFData AutoTuneOptions where
+  rnf AutoTuneOptions' {..} =
+    Prelude.rnf desiredState
+      `Prelude.seq` Prelude.rnf rollbackOnDisable
+      `Prelude.seq` Prelude.rnf maintenanceSchedules
 
 instance Core.ToJSON AutoTuneOptions where
   toJSON AutoTuneOptions' {..} =

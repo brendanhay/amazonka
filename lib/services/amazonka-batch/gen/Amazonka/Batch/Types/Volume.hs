@@ -116,9 +116,17 @@ instance Core.FromJSON Volume where
             Prelude.<*> (x Core..:? "host")
       )
 
-instance Prelude.Hashable Volume
+instance Prelude.Hashable Volume where
+  hashWithSalt _salt Volume' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` efsVolumeConfiguration
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData Volume
+instance Prelude.NFData Volume where
+  rnf Volume' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
+      `Prelude.seq` Prelude.rnf host
 
 instance Core.ToJSON Volume where
   toJSON Volume' {..} =

@@ -65,6 +65,9 @@ instance Core.FromJSON ServiceMetadata where
             Prelude.<$> (x Core..: "UserDetails")
       )
 
-instance Prelude.Hashable ServiceMetadata
+instance Prelude.Hashable ServiceMetadata where
+  hashWithSalt _salt ServiceMetadata' {..} =
+    _salt `Prelude.hashWithSalt` userDetails
 
-instance Prelude.NFData ServiceMetadata
+instance Prelude.NFData ServiceMetadata where
+  rnf ServiceMetadata' {..} = Prelude.rnf userDetails

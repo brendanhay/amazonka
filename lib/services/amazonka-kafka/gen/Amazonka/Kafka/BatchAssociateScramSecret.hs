@@ -105,9 +105,15 @@ instance Core.AWSRequest BatchAssociateScramSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchAssociateScramSecret
+instance Prelude.Hashable BatchAssociateScramSecret where
+  hashWithSalt _salt BatchAssociateScramSecret' {..} =
+    _salt `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` secretArnList
 
-instance Prelude.NFData BatchAssociateScramSecret
+instance Prelude.NFData BatchAssociateScramSecret where
+  rnf BatchAssociateScramSecret' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf secretArnList
 
 instance Core.ToHeaders BatchAssociateScramSecret where
   toHeaders =
@@ -192,3 +198,8 @@ batchAssociateScramSecretResponse_httpStatus = Lens.lens (\BatchAssociateScramSe
 instance
   Prelude.NFData
     BatchAssociateScramSecretResponse
+  where
+  rnf BatchAssociateScramSecretResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf unprocessedScramSecrets
+      `Prelude.seq` Prelude.rnf httpStatus

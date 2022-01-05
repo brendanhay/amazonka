@@ -76,9 +76,15 @@ s3DestinationConfig_bucket = Lens.lens (\S3DestinationConfig' {bucket} -> bucket
 s3DestinationConfig_keyPrefix :: Lens.Lens' S3DestinationConfig (Prelude.Maybe Prelude.Text)
 s3DestinationConfig_keyPrefix = Lens.lens (\S3DestinationConfig' {keyPrefix} -> keyPrefix) (\s@S3DestinationConfig' {} a -> s {keyPrefix = a} :: S3DestinationConfig)
 
-instance Prelude.Hashable S3DestinationConfig
+instance Prelude.Hashable S3DestinationConfig where
+  hashWithSalt _salt S3DestinationConfig' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` keyPrefix
 
-instance Prelude.NFData S3DestinationConfig
+instance Prelude.NFData S3DestinationConfig where
+  rnf S3DestinationConfig' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf keyPrefix
 
 instance Core.ToJSON S3DestinationConfig where
   toJSON S3DestinationConfig' {..} =

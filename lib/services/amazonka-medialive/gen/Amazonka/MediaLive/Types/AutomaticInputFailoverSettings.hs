@@ -125,10 +125,24 @@ instance Core.FromJSON AutomaticInputFailoverSettings where
 instance
   Prelude.Hashable
     AutomaticInputFailoverSettings
+  where
+  hashWithSalt
+    _salt
+    AutomaticInputFailoverSettings' {..} =
+      _salt `Prelude.hashWithSalt` failoverConditions
+        `Prelude.hashWithSalt` errorClearTimeMsec
+        `Prelude.hashWithSalt` inputPreference
+        `Prelude.hashWithSalt` secondaryInputId
 
 instance
   Prelude.NFData
     AutomaticInputFailoverSettings
+  where
+  rnf AutomaticInputFailoverSettings' {..} =
+    Prelude.rnf failoverConditions
+      `Prelude.seq` Prelude.rnf errorClearTimeMsec
+      `Prelude.seq` Prelude.rnf inputPreference
+      `Prelude.seq` Prelude.rnf secondaryInputId
 
 instance Core.ToJSON AutomaticInputFailoverSettings where
   toJSON AutomaticInputFailoverSettings' {..} =

@@ -95,9 +95,13 @@ instance Core.AWSRequest DescribeProtectionGroup where
             Prelude.<*> (x Core..:> "ProtectionGroup")
       )
 
-instance Prelude.Hashable DescribeProtectionGroup
+instance Prelude.Hashable DescribeProtectionGroup where
+  hashWithSalt _salt DescribeProtectionGroup' {..} =
+    _salt `Prelude.hashWithSalt` protectionGroupId
 
-instance Prelude.NFData DescribeProtectionGroup
+instance Prelude.NFData DescribeProtectionGroup where
+  rnf DescribeProtectionGroup' {..} =
+    Prelude.rnf protectionGroupId
 
 instance Core.ToHeaders DescribeProtectionGroup where
   toHeaders =
@@ -181,3 +185,7 @@ describeProtectionGroupResponse_protectionGroup = Lens.lens (\DescribeProtection
 instance
   Prelude.NFData
     DescribeProtectionGroupResponse
+  where
+  rnf DescribeProtectionGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf protectionGroup

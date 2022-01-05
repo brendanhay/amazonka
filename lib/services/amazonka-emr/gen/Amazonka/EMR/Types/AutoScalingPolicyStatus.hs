@@ -73,6 +73,12 @@ instance Core.FromJSON AutoScalingPolicyStatus where
             Prelude.<*> (x Core..:? "StateChangeReason")
       )
 
-instance Prelude.Hashable AutoScalingPolicyStatus
+instance Prelude.Hashable AutoScalingPolicyStatus where
+  hashWithSalt _salt AutoScalingPolicyStatus' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stateChangeReason
 
-instance Prelude.NFData AutoScalingPolicyStatus
+instance Prelude.NFData AutoScalingPolicyStatus where
+  rnf AutoScalingPolicyStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateChangeReason

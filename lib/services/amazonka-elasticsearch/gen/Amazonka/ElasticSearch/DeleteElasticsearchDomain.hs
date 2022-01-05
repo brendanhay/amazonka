@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteElasticsearchDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteElasticsearchDomain
+instance Prelude.Hashable DeleteElasticsearchDomain where
+  hashWithSalt _salt DeleteElasticsearchDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteElasticsearchDomain
+instance Prelude.NFData DeleteElasticsearchDomain where
+  rnf DeleteElasticsearchDomain' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders DeleteElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,3 +162,7 @@ deleteElasticsearchDomainResponse_httpStatus = Lens.lens (\DeleteElasticsearchDo
 instance
   Prelude.NFData
     DeleteElasticsearchDomainResponse
+  where
+  rnf DeleteElasticsearchDomainResponse' {..} =
+    Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf httpStatus

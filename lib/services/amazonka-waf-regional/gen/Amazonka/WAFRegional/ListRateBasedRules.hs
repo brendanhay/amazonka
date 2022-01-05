@@ -131,9 +131,15 @@ instance Core.AWSRequest ListRateBasedRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRateBasedRules
+instance Prelude.Hashable ListRateBasedRules where
+  hashWithSalt _salt ListRateBasedRules' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListRateBasedRules
+instance Prelude.NFData ListRateBasedRules where
+  rnf ListRateBasedRules' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListRateBasedRules where
   toHeaders =
@@ -225,4 +231,8 @@ listRateBasedRulesResponse_nextMarker = Lens.lens (\ListRateBasedRulesResponse' 
 listRateBasedRulesResponse_httpStatus :: Lens.Lens' ListRateBasedRulesResponse Prelude.Int
 listRateBasedRulesResponse_httpStatus = Lens.lens (\ListRateBasedRulesResponse' {httpStatus} -> httpStatus) (\s@ListRateBasedRulesResponse' {} a -> s {httpStatus = a} :: ListRateBasedRulesResponse)
 
-instance Prelude.NFData ListRateBasedRulesResponse
+instance Prelude.NFData ListRateBasedRulesResponse where
+  rnf ListRateBasedRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

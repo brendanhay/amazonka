@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeFindings where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeFindings
+instance Prelude.Hashable DescribeFindings where
+  hashWithSalt _salt DescribeFindings' {..} =
+    _salt `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` findingArns
 
-instance Prelude.NFData DescribeFindings
+instance Prelude.NFData DescribeFindings where
+  rnf DescribeFindings' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf findingArns
 
 instance Core.ToHeaders DescribeFindings where
   toHeaders =
@@ -188,4 +194,8 @@ describeFindingsResponse_findings = Lens.lens (\DescribeFindingsResponse' {findi
 describeFindingsResponse_failedItems :: Lens.Lens' DescribeFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
 describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {failedItems} -> failedItems) (\s@DescribeFindingsResponse' {} a -> s {failedItems = a} :: DescribeFindingsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeFindingsResponse
+instance Prelude.NFData DescribeFindingsResponse where
+  rnf DescribeFindingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf findings
+      `Prelude.seq` Prelude.rnf failedItems

@@ -103,6 +103,16 @@ instance Core.FromJSON DatasetGroupSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable DatasetGroupSummary
+instance Prelude.Hashable DatasetGroupSummary where
+  hashWithSalt _salt DatasetGroupSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` datasetGroupName
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` lastModificationTime
 
-instance Prelude.NFData DatasetGroupSummary
+instance Prelude.NFData DatasetGroupSummary where
+  rnf DatasetGroupSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf datasetGroupName
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf lastModificationTime

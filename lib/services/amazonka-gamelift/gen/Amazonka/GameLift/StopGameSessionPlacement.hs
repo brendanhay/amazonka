@@ -101,9 +101,13 @@ instance Core.AWSRequest StopGameSessionPlacement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopGameSessionPlacement
+instance Prelude.Hashable StopGameSessionPlacement where
+  hashWithSalt _salt StopGameSessionPlacement' {..} =
+    _salt `Prelude.hashWithSalt` placementId
 
-instance Prelude.NFData StopGameSessionPlacement
+instance Prelude.NFData StopGameSessionPlacement where
+  rnf StopGameSessionPlacement' {..} =
+    Prelude.rnf placementId
 
 instance Core.ToHeaders StopGameSessionPlacement where
   toHeaders =
@@ -180,3 +184,7 @@ stopGameSessionPlacementResponse_httpStatus = Lens.lens (\StopGameSessionPlaceme
 instance
   Prelude.NFData
     StopGameSessionPlacementResponse
+  where
+  rnf StopGameSessionPlacementResponse' {..} =
+    Prelude.rnf gameSessionPlacement
+      `Prelude.seq` Prelude.rnf httpStatus

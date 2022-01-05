@@ -476,6 +476,26 @@ instance Core.FromJSON Connection where
             Prelude.<*> (x Core..:? "ConnectionType")
       )
 
-instance Prelude.Hashable Connection
+instance Prelude.Hashable Connection where
+  hashWithSalt _salt Connection' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdatedBy
+      `Prelude.hashWithSalt` connectionProperties
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` matchCriteria
+      `Prelude.hashWithSalt` physicalConnectionRequirements
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` connectionType
 
-instance Prelude.NFData Connection
+instance Prelude.NFData Connection where
+  rnf Connection' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf connectionProperties
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf matchCriteria
+      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionType

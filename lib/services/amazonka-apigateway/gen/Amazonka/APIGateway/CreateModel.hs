@@ -137,9 +137,21 @@ instance Core.AWSRequest CreateModel where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateModel
+instance Prelude.Hashable CreateModel where
+  hashWithSalt _salt CreateModel' {..} =
+    _salt `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData CreateModel
+instance Prelude.NFData CreateModel where
+  rnf CreateModel' {..} =
+    Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToHeaders CreateModel where
   toHeaders =

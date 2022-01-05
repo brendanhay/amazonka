@@ -180,9 +180,21 @@ instance Core.AWSRequest ListUpdates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUpdates
+instance Prelude.Hashable ListUpdates where
+  hashWithSalt _salt ListUpdates' {..} =
+    _salt `Prelude.hashWithSalt` addonName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ListUpdates
+instance Prelude.NFData ListUpdates where
+  rnf ListUpdates' {..} =
+    Prelude.rnf addonName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ListUpdates where
   toHeaders =
@@ -265,4 +277,8 @@ listUpdatesResponse_updateIds = Lens.lens (\ListUpdatesResponse' {updateIds} -> 
 listUpdatesResponse_httpStatus :: Lens.Lens' ListUpdatesResponse Prelude.Int
 listUpdatesResponse_httpStatus = Lens.lens (\ListUpdatesResponse' {httpStatus} -> httpStatus) (\s@ListUpdatesResponse' {} a -> s {httpStatus = a} :: ListUpdatesResponse)
 
-instance Prelude.NFData ListUpdatesResponse
+instance Prelude.NFData ListUpdatesResponse where
+  rnf ListUpdatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf updateIds
+      `Prelude.seq` Prelude.rnf httpStatus

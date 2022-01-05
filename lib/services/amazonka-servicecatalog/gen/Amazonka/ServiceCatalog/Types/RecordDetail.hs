@@ -257,6 +257,36 @@ instance Core.FromJSON RecordDetail where
             Prelude.<*> (x Core..:? "ProductId")
       )
 
-instance Prelude.Hashable RecordDetail
+instance Prelude.Hashable RecordDetail where
+  hashWithSalt _salt RecordDetail' {..} =
+    _salt `Prelude.hashWithSalt` launchRoleArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` recordTags
+      `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` recordType
+      `Prelude.hashWithSalt` recordId
+      `Prelude.hashWithSalt` provisionedProductType
+      `Prelude.hashWithSalt` updatedTime
+      `Prelude.hashWithSalt` pathId
+      `Prelude.hashWithSalt` provisionedProductId
+      `Prelude.hashWithSalt` recordErrors
+      `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData RecordDetail
+instance Prelude.NFData RecordDetail where
+  rnf RecordDetail' {..} =
+    Prelude.rnf launchRoleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf recordTags
+      `Prelude.seq` Prelude.rnf provisionedProductName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf recordType
+      `Prelude.seq` Prelude.rnf recordId
+      `Prelude.seq` Prelude.rnf provisionedProductType
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf recordErrors
+      `Prelude.seq` Prelude.rnf productId

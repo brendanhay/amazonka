@@ -196,9 +196,21 @@ instance Core.FromJSON DockerVolumeConfiguration where
             Prelude.<*> (x Core..:? "autoprovision")
       )
 
-instance Prelude.Hashable DockerVolumeConfiguration
+instance Prelude.Hashable DockerVolumeConfiguration where
+  hashWithSalt _salt DockerVolumeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` driverOpts
+      `Prelude.hashWithSalt` driver
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` autoprovision
 
-instance Prelude.NFData DockerVolumeConfiguration
+instance Prelude.NFData DockerVolumeConfiguration where
+  rnf DockerVolumeConfiguration' {..} =
+    Prelude.rnf driverOpts
+      `Prelude.seq` Prelude.rnf driver
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf autoprovision
 
 instance Core.ToJSON DockerVolumeConfiguration where
   toJSON DockerVolumeConfiguration' {..} =

@@ -112,10 +112,18 @@ instance
 instance
   Prelude.Hashable
     CancelServicePipelineDeployment
+  where
+  hashWithSalt
+    _salt
+    CancelServicePipelineDeployment' {..} =
+      _salt `Prelude.hashWithSalt` serviceName
 
 instance
   Prelude.NFData
     CancelServicePipelineDeployment
+  where
+  rnf CancelServicePipelineDeployment' {..} =
+    Prelude.rnf serviceName
 
 instance
   Core.ToHeaders
@@ -194,3 +202,7 @@ cancelServicePipelineDeploymentResponse_pipeline = Lens.lens (\CancelServicePipe
 instance
   Prelude.NFData
     CancelServicePipelineDeploymentResponse
+  where
+  rnf CancelServicePipelineDeploymentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipeline

@@ -122,9 +122,17 @@ instance Core.AWSRequest RemoveLFTagsFromResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveLFTagsFromResource
+instance Prelude.Hashable RemoveLFTagsFromResource where
+  hashWithSalt _salt RemoveLFTagsFromResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` lFTags
 
-instance Prelude.NFData RemoveLFTagsFromResource
+instance Prelude.NFData RemoveLFTagsFromResource where
+  rnf RemoveLFTagsFromResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf lFTags
 
 instance Core.ToHeaders RemoveLFTagsFromResource where
   toHeaders =
@@ -199,3 +207,7 @@ removeLFTagsFromResourceResponse_httpStatus = Lens.lens (\RemoveLFTagsFromResour
 instance
   Prelude.NFData
     RemoveLFTagsFromResourceResponse
+  where
+  rnf RemoveLFTagsFromResourceResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

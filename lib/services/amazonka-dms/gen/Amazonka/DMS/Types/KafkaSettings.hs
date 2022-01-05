@@ -358,9 +358,47 @@ instance Core.FromJSON KafkaSettings where
             Prelude.<*> (x Core..:? "IncludeNullAndEmpty")
       )
 
-instance Prelude.Hashable KafkaSettings
+instance Prelude.Hashable KafkaSettings where
+  hashWithSalt _salt KafkaSettings' {..} =
+    _salt `Prelude.hashWithSalt` sslClientKeyArn
+      `Prelude.hashWithSalt` includeTransactionDetails
+      `Prelude.hashWithSalt` includeTableAlterOperations
+      `Prelude.hashWithSalt` sslClientCertificateArn
+      `Prelude.hashWithSalt` sslCaCertificateArn
+      `Prelude.hashWithSalt` partitionIncludeSchemaTable
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` includeControlDetails
+      `Prelude.hashWithSalt` noHexPrefix
+      `Prelude.hashWithSalt` saslPassword
+      `Prelude.hashWithSalt` sslClientKeyPassword
+      `Prelude.hashWithSalt` includePartitionValue
+      `Prelude.hashWithSalt` messageFormat
+      `Prelude.hashWithSalt` securityProtocol
+      `Prelude.hashWithSalt` saslUsername
+      `Prelude.hashWithSalt` broker
+      `Prelude.hashWithSalt` messageMaxBytes
+      `Prelude.hashWithSalt` includeNullAndEmpty
 
-instance Prelude.NFData KafkaSettings
+instance Prelude.NFData KafkaSettings where
+  rnf KafkaSettings' {..} =
+    Prelude.rnf sslClientKeyArn
+      `Prelude.seq` Prelude.rnf includeTransactionDetails
+      `Prelude.seq` Prelude.rnf includeTableAlterOperations
+      `Prelude.seq` Prelude.rnf sslClientCertificateArn
+      `Prelude.seq` Prelude.rnf sslCaCertificateArn
+      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf includeControlDetails
+      `Prelude.seq` Prelude.rnf noHexPrefix
+      `Prelude.seq` Prelude.rnf saslPassword
+      `Prelude.seq` Prelude.rnf sslClientKeyPassword
+      `Prelude.seq` Prelude.rnf includePartitionValue
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf securityProtocol
+      `Prelude.seq` Prelude.rnf saslUsername
+      `Prelude.seq` Prelude.rnf broker
+      `Prelude.seq` Prelude.rnf messageMaxBytes
+      `Prelude.seq` Prelude.rnf includeNullAndEmpty
 
 instance Core.ToJSON KafkaSettings where
   toJSON KafkaSettings' {..} =

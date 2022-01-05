@@ -134,9 +134,17 @@ instance Core.AWSRequest StartSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSession
+instance Prelude.Hashable StartSession where
+  hashWithSalt _salt StartSession' {..} =
+    _salt `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData StartSession
+instance Prelude.NFData StartSession where
+  rnf StartSession' {..} =
+    Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders StartSession where
   toHeaders =
@@ -262,4 +270,9 @@ startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -
 startSessionResponse_httpStatus :: Lens.Lens' StartSessionResponse Prelude.Int
 startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus} -> httpStatus) (\s@StartSessionResponse' {} a -> s {httpStatus = a} :: StartSessionResponse)
 
-instance Prelude.NFData StartSessionResponse
+instance Prelude.NFData StartSessionResponse where
+  rnf StartSessionResponse' {..} =
+    Prelude.rnf streamUrl
+      `Prelude.seq` Prelude.rnf tokenValue
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf httpStatus

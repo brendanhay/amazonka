@@ -100,9 +100,15 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportKeyPair
+instance Prelude.Hashable ImportKeyPair where
+  hashWithSalt _salt ImportKeyPair' {..} =
+    _salt `Prelude.hashWithSalt` keyPairName
+      `Prelude.hashWithSalt` publicKeyBase64
 
-instance Prelude.NFData ImportKeyPair
+instance Prelude.NFData ImportKeyPair where
+  rnf ImportKeyPair' {..} =
+    Prelude.rnf keyPairName
+      `Prelude.seq` Prelude.rnf publicKeyBase64
 
 instance Core.ToHeaders ImportKeyPair where
   toHeaders =
@@ -179,4 +185,7 @@ importKeyPairResponse_operation = Lens.lens (\ImportKeyPairResponse' {operation}
 importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Prelude.Int
 importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatus} -> httpStatus) (\s@ImportKeyPairResponse' {} a -> s {httpStatus = a} :: ImportKeyPairResponse)
 
-instance Prelude.NFData ImportKeyPairResponse
+instance Prelude.NFData ImportKeyPairResponse where
+  rnf ImportKeyPairResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

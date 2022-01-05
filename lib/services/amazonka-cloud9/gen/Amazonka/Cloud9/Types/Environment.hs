@@ -232,6 +232,26 @@ instance Core.FromJSON Environment where
             Prelude.<*> (x Core..: "ownerArn")
       )
 
-instance Prelude.Hashable Environment
+instance Prelude.Hashable Environment where
+  hashWithSalt _salt Environment' {..} =
+    _salt `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` managedCredentialsStatus
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` ownerArn
 
-instance Prelude.NFData Environment
+instance Prelude.NFData Environment where
+  rnf Environment' {..} =
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf managedCredentialsStatus
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ownerArn

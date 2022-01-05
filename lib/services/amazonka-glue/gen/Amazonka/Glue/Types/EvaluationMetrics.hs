@@ -77,6 +77,12 @@ instance Core.FromJSON EvaluationMetrics where
             Prelude.<*> (x Core..: "TransformType")
       )
 
-instance Prelude.Hashable EvaluationMetrics
+instance Prelude.Hashable EvaluationMetrics where
+  hashWithSalt _salt EvaluationMetrics' {..} =
+    _salt `Prelude.hashWithSalt` findMatchesMetrics
+      `Prelude.hashWithSalt` transformType
 
-instance Prelude.NFData EvaluationMetrics
+instance Prelude.NFData EvaluationMetrics where
+  rnf EvaluationMetrics' {..} =
+    Prelude.rnf findMatchesMetrics
+      `Prelude.seq` Prelude.rnf transformType

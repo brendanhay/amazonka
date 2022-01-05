@@ -64,6 +64,10 @@ instance Core.FromJSON Recommendation where
             Prelude.<$> (x Core..: "recommendationText")
       )
 
-instance Prelude.Hashable Recommendation
+instance Prelude.Hashable Recommendation where
+  hashWithSalt _salt Recommendation' {..} =
+    _salt `Prelude.hashWithSalt` recommendationText
 
-instance Prelude.NFData Recommendation
+instance Prelude.NFData Recommendation where
+  rnf Recommendation' {..} =
+    Prelude.rnf recommendationText

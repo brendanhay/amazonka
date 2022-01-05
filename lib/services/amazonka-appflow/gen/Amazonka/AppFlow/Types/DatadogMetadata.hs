@@ -45,6 +45,9 @@ instance Core.FromJSON DatadogMetadata where
       "DatadogMetadata"
       (\x -> Prelude.pure DatadogMetadata')
 
-instance Prelude.Hashable DatadogMetadata
+instance Prelude.Hashable DatadogMetadata where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DatadogMetadata
+instance Prelude.NFData DatadogMetadata where
+  rnf _ = ()

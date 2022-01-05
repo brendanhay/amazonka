@@ -73,6 +73,12 @@ instance Core.FromJSON ResourceReceivingAccess where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ResourceReceivingAccess
+instance Prelude.Hashable ResourceReceivingAccess where
+  hashWithSalt _salt ResourceReceivingAccess' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ResourceReceivingAccess
+instance Prelude.NFData ResourceReceivingAccess where
+  rnf ResourceReceivingAccess' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf name

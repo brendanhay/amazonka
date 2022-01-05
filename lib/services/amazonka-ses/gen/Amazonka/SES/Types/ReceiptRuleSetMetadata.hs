@@ -95,6 +95,12 @@ instance Core.FromXML ReceiptRuleSetMetadata where
       Prelude.<$> (x Core..@? "Name")
       Prelude.<*> (x Core..@? "CreatedTimestamp")
 
-instance Prelude.Hashable ReceiptRuleSetMetadata
+instance Prelude.Hashable ReceiptRuleSetMetadata where
+  hashWithSalt _salt ReceiptRuleSetMetadata' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTimestamp
 
-instance Prelude.NFData ReceiptRuleSetMetadata
+instance Prelude.NFData ReceiptRuleSetMetadata where
+  rnf ReceiptRuleSetMetadata' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTimestamp

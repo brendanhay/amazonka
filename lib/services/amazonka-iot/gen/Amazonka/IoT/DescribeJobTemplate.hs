@@ -107,9 +107,13 @@ instance Core.AWSRequest DescribeJobTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeJobTemplate
+instance Prelude.Hashable DescribeJobTemplate where
+  hashWithSalt _salt DescribeJobTemplate' {..} =
+    _salt `Prelude.hashWithSalt` jobTemplateId
 
-instance Prelude.NFData DescribeJobTemplate
+instance Prelude.NFData DescribeJobTemplate where
+  rnf DescribeJobTemplate' {..} =
+    Prelude.rnf jobTemplateId
 
 instance Core.ToHeaders DescribeJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,4 +242,16 @@ describeJobTemplateResponse_timeoutConfig = Lens.lens (\DescribeJobTemplateRespo
 describeJobTemplateResponse_httpStatus :: Lens.Lens' DescribeJobTemplateResponse Prelude.Int
 describeJobTemplateResponse_httpStatus = Lens.lens (\DescribeJobTemplateResponse' {httpStatus} -> httpStatus) (\s@DescribeJobTemplateResponse' {} a -> s {httpStatus = a} :: DescribeJobTemplateResponse)
 
-instance Prelude.NFData DescribeJobTemplateResponse
+instance Prelude.NFData DescribeJobTemplateResponse where
+  rnf DescribeJobTemplateResponse' {..} =
+    Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf documentSource
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -59,6 +59,9 @@ instance Core.FromJSON ServerValidationOutput where
             Prelude.<$> (x Core..:? "server")
       )
 
-instance Prelude.Hashable ServerValidationOutput
+instance Prelude.Hashable ServerValidationOutput where
+  hashWithSalt _salt ServerValidationOutput' {..} =
+    _salt `Prelude.hashWithSalt` server
 
-instance Prelude.NFData ServerValidationOutput
+instance Prelude.NFData ServerValidationOutput where
+  rnf ServerValidationOutput' {..} = Prelude.rnf server

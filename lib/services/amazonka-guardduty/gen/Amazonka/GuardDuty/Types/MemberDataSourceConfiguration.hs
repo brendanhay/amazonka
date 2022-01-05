@@ -83,5 +83,12 @@ instance Core.FromJSON MemberDataSourceConfiguration where
 instance
   Prelude.Hashable
     MemberDataSourceConfiguration
+  where
+  hashWithSalt _salt MemberDataSourceConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` dataSources
 
-instance Prelude.NFData MemberDataSourceConfiguration
+instance Prelude.NFData MemberDataSourceConfiguration where
+  rnf MemberDataSourceConfiguration' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf dataSources

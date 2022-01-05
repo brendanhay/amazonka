@@ -76,6 +76,12 @@ instance Core.FromXML DBSecurityGroupMembership where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "DBSecurityGroupName")
 
-instance Prelude.Hashable DBSecurityGroupMembership
+instance Prelude.Hashable DBSecurityGroupMembership where
+  hashWithSalt _salt DBSecurityGroupMembership' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dbSecurityGroupName
 
-instance Prelude.NFData DBSecurityGroupMembership
+instance Prelude.NFData DBSecurityGroupMembership where
+  rnf DBSecurityGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbSecurityGroupName

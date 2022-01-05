@@ -288,9 +288,43 @@ aDMMessage_title = Lens.lens (\ADMMessage' {title} -> title) (\s@ADMMessage' {} 
 aDMMessage_iconReference :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_iconReference = Lens.lens (\ADMMessage' {iconReference} -> iconReference) (\s@ADMMessage' {} a -> s {iconReference = a} :: ADMMessage)
 
-instance Prelude.Hashable ADMMessage
+instance Prelude.Hashable ADMMessage where
+  hashWithSalt _salt ADMMessage' {..} =
+    _salt `Prelude.hashWithSalt` substitutions
+      `Prelude.hashWithSalt` expiresAfter
+      `Prelude.hashWithSalt` md5
+      `Prelude.hashWithSalt` silentPush
+      `Prelude.hashWithSalt` imageIconUrl
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` smallImageIconUrl
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` sound
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` consolidationKey
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` iconReference
 
-instance Prelude.NFData ADMMessage
+instance Prelude.NFData ADMMessage where
+  rnf ADMMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf expiresAfter
+      `Prelude.seq` Prelude.rnf md5
+      `Prelude.seq` Prelude.rnf silentPush
+      `Prelude.seq` Prelude.rnf imageIconUrl
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf smallImageIconUrl
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf consolidationKey
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf iconReference
 
 instance Core.ToJSON ADMMessage where
   toJSON ADMMessage' {..} =

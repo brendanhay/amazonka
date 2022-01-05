@@ -115,10 +115,18 @@ instance
 instance
   Prelude.Hashable
     GetDomainDeliverabilityCampaign
+  where
+  hashWithSalt
+    _salt
+    GetDomainDeliverabilityCampaign' {..} =
+      _salt `Prelude.hashWithSalt` campaignId
 
 instance
   Prelude.NFData
     GetDomainDeliverabilityCampaign
+  where
+  rnf GetDomainDeliverabilityCampaign' {..} =
+    Prelude.rnf campaignId
 
 instance
   Core.ToHeaders
@@ -196,3 +204,7 @@ getDomainDeliverabilityCampaignResponse_domainDeliverabilityCampaign = Lens.lens
 instance
   Prelude.NFData
     GetDomainDeliverabilityCampaignResponse
+  where
+  rnf GetDomainDeliverabilityCampaignResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainDeliverabilityCampaign

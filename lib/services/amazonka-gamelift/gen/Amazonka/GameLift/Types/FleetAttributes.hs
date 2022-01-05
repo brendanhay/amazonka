@@ -503,6 +503,55 @@ instance Core.FromJSON FleetAttributes where
             Prelude.<*> (x Core..:? "ResourceCreationLimitPolicy")
       )
 
-instance Prelude.Hashable FleetAttributes
+instance Prelude.Hashable FleetAttributes where
+  hashWithSalt _salt FleetAttributes' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` serverLaunchParameters
+      `Prelude.hashWithSalt` logPaths
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` buildId
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` fleetType
+      `Prelude.hashWithSalt` terminationTime
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` stoppedActions
+      `Prelude.hashWithSalt` newGameSessionProtectionPolicy'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scriptId
+      `Prelude.hashWithSalt` scriptArn
+      `Prelude.hashWithSalt` certificateConfiguration
+      `Prelude.hashWithSalt` serverLaunchPath
+      `Prelude.hashWithSalt` instanceRoleArn
+      `Prelude.hashWithSalt` metricGroups
+      `Prelude.hashWithSalt` buildArn
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resourceCreationLimitPolicy
 
-instance Prelude.NFData FleetAttributes
+instance Prelude.NFData FleetAttributes where
+  rnf FleetAttributes' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serverLaunchParameters
+      `Prelude.seq` Prelude.rnf logPaths
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf buildId
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetType
+      `Prelude.seq` Prelude.rnf terminationTime
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf stoppedActions
+      `Prelude.seq` Prelude.rnf newGameSessionProtectionPolicy'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scriptId
+      `Prelude.seq` Prelude.rnf scriptArn
+      `Prelude.seq` Prelude.rnf certificateConfiguration
+      `Prelude.seq` Prelude.rnf serverLaunchPath
+      `Prelude.seq` Prelude.rnf instanceRoleArn
+      `Prelude.seq` Prelude.rnf metricGroups
+      `Prelude.seq` Prelude.rnf buildArn
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf
+        resourceCreationLimitPolicy

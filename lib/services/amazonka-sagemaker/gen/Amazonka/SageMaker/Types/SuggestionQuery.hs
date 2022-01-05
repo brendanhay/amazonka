@@ -58,9 +58,13 @@ newSuggestionQuery =
 suggestionQuery_propertyNameQuery :: Lens.Lens' SuggestionQuery (Prelude.Maybe PropertyNameQuery)
 suggestionQuery_propertyNameQuery = Lens.lens (\SuggestionQuery' {propertyNameQuery} -> propertyNameQuery) (\s@SuggestionQuery' {} a -> s {propertyNameQuery = a} :: SuggestionQuery)
 
-instance Prelude.Hashable SuggestionQuery
+instance Prelude.Hashable SuggestionQuery where
+  hashWithSalt _salt SuggestionQuery' {..} =
+    _salt `Prelude.hashWithSalt` propertyNameQuery
 
-instance Prelude.NFData SuggestionQuery
+instance Prelude.NFData SuggestionQuery where
+  rnf SuggestionQuery' {..} =
+    Prelude.rnf propertyNameQuery
 
 instance Core.ToJSON SuggestionQuery where
   toJSON SuggestionQuery' {..} =

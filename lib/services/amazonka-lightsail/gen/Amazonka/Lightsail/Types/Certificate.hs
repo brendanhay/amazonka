@@ -463,6 +463,50 @@ instance Core.FromJSON Certificate where
             Prelude.<*> (x Core..:? "notAfter")
       )
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt _salt Certificate' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` eligibleToRenew
+      `Prelude.hashWithSalt` requestFailureReason
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` revocationReason
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` renewalSummary
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` domainValidationRecords
+      `Prelude.hashWithSalt` inUseResourceCount
+      `Prelude.hashWithSalt` issuedAt
+      `Prelude.hashWithSalt` keyAlgorithm
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` issuerCA
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notAfter
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf eligibleToRenew
+      `Prelude.seq` Prelude.rnf requestFailureReason
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf revocationReason
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSummary
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf domainValidationRecords
+      `Prelude.seq` Prelude.rnf inUseResourceCount
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf issuerCA
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notAfter

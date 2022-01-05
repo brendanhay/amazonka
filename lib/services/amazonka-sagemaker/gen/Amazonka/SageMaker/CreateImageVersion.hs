@@ -135,9 +135,17 @@ instance Core.AWSRequest CreateImageVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImageVersion
+instance Prelude.Hashable CreateImageVersion where
+  hashWithSalt _salt CreateImageVersion' {..} =
+    _salt `Prelude.hashWithSalt` baseImage
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` imageName
 
-instance Prelude.NFData CreateImageVersion
+instance Prelude.NFData CreateImageVersion where
+  rnf CreateImageVersion' {..} =
+    Prelude.rnf baseImage
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf imageName
 
 instance Core.ToHeaders CreateImageVersion where
   toHeaders =
@@ -209,4 +217,7 @@ createImageVersionResponse_imageVersionArn = Lens.lens (\CreateImageVersionRespo
 createImageVersionResponse_httpStatus :: Lens.Lens' CreateImageVersionResponse Prelude.Int
 createImageVersionResponse_httpStatus = Lens.lens (\CreateImageVersionResponse' {httpStatus} -> httpStatus) (\s@CreateImageVersionResponse' {} a -> s {httpStatus = a} :: CreateImageVersionResponse)
 
-instance Prelude.NFData CreateImageVersionResponse
+instance Prelude.NFData CreateImageVersionResponse where
+  rnf CreateImageVersionResponse' {..} =
+    Prelude.rnf imageVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

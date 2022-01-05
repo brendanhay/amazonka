@@ -79,6 +79,14 @@ instance Core.FromJSON RegistrySummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RegistrySummary
+instance Prelude.Hashable RegistrySummary where
+  hashWithSalt _salt RegistrySummary' {..} =
+    _salt `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` registryArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RegistrySummary
+instance Prelude.NFData RegistrySummary where
+  rnf RegistrySummary' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf tags

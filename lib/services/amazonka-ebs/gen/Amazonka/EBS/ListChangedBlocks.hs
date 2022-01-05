@@ -165,9 +165,21 @@ instance Core.AWSRequest ListChangedBlocks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChangedBlocks
+instance Prelude.Hashable ListChangedBlocks where
+  hashWithSalt _salt ListChangedBlocks' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startingBlockIndex
+      `Prelude.hashWithSalt` firstSnapshotId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` secondSnapshotId
 
-instance Prelude.NFData ListChangedBlocks
+instance Prelude.NFData ListChangedBlocks where
+  rnf ListChangedBlocks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startingBlockIndex
+      `Prelude.seq` Prelude.rnf firstSnapshotId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf secondSnapshotId
 
 instance Core.ToHeaders ListChangedBlocks where
   toHeaders =
@@ -275,4 +287,11 @@ listChangedBlocksResponse_nextToken = Lens.lens (\ListChangedBlocksResponse' {ne
 listChangedBlocksResponse_httpStatus :: Lens.Lens' ListChangedBlocksResponse Prelude.Int
 listChangedBlocksResponse_httpStatus = Lens.lens (\ListChangedBlocksResponse' {httpStatus} -> httpStatus) (\s@ListChangedBlocksResponse' {} a -> s {httpStatus = a} :: ListChangedBlocksResponse)
 
-instance Prelude.NFData ListChangedBlocksResponse
+instance Prelude.NFData ListChangedBlocksResponse where
+  rnf ListChangedBlocksResponse' {..} =
+    Prelude.rnf blockSize
+      `Prelude.seq` Prelude.rnf expiryTime
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf changedBlocks
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

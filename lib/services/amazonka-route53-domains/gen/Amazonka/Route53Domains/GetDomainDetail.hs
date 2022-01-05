@@ -130,9 +130,12 @@ instance Core.AWSRequest GetDomainDetail where
             Prelude.<*> (x Core..:> "TechContact")
       )
 
-instance Prelude.Hashable GetDomainDetail
+instance Prelude.Hashable GetDomainDetail where
+  hashWithSalt _salt GetDomainDetail' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetDomainDetail
+instance Prelude.NFData GetDomainDetail where
+  rnf GetDomainDetail' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders GetDomainDetail where
   toHeaders =
@@ -524,4 +527,28 @@ getDomainDetailResponse_registrantContact = Lens.lens (\GetDomainDetailResponse'
 getDomainDetailResponse_techContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
 getDomainDetailResponse_techContact = Lens.lens (\GetDomainDetailResponse' {techContact} -> techContact) (\s@GetDomainDetailResponse' {} a -> s {techContact = a} :: GetDomainDetailResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData GetDomainDetailResponse
+instance Prelude.NFData GetDomainDetailResponse where
+  rnf GetDomainDetailResponse' {..} =
+    Prelude.rnf techPrivacy
+      `Prelude.seq` Prelude.rnf dnsSec
+      `Prelude.seq` Prelude.rnf whoIsServer
+      `Prelude.seq` Prelude.rnf registryDomainId
+      `Prelude.seq` Prelude.rnf registrantPrivacy
+      `Prelude.seq` Prelude.rnf updatedDate
+      `Prelude.seq` Prelude.rnf adminPrivacy
+      `Prelude.seq` Prelude.rnf autoRenew
+      `Prelude.seq` Prelude.rnf abuseContactPhone
+      `Prelude.seq` Prelude.rnf registrarUrl
+      `Prelude.seq` Prelude.rnf abuseContactEmail
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf registrarName
+      `Prelude.seq` Prelude.rnf reseller
+      `Prelude.seq` Prelude.rnf statusList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf nameservers
+      `Prelude.seq` Prelude.rnf adminContact
+      `Prelude.seq` Prelude.rnf
+        registrantContact
+      `Prelude.seq` Prelude.rnf techContact

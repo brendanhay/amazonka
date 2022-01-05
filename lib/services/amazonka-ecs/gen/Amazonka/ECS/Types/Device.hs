@@ -90,9 +90,17 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..: "hostPath")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt _salt Device' {..} =
+    _salt `Prelude.hashWithSalt` containerPath
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` hostPath
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf containerPath
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf hostPath
 
 instance Core.ToJSON Device where
   toJSON Device' {..} =

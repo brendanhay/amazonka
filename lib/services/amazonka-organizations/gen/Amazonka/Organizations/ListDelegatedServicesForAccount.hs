@@ -193,10 +193,22 @@ instance
 instance
   Prelude.Hashable
     ListDelegatedServicesForAccount
+  where
+  hashWithSalt
+    _salt
+    ListDelegatedServicesForAccount' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
     ListDelegatedServicesForAccount
+  where
+  rnf ListDelegatedServicesForAccount' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accountId
 
 instance
   Core.ToHeaders
@@ -296,3 +308,8 @@ listDelegatedServicesForAccountResponse_httpStatus = Lens.lens (\ListDelegatedSe
 instance
   Prelude.NFData
     ListDelegatedServicesForAccountResponse
+  where
+  rnf ListDelegatedServicesForAccountResponse' {..} =
+    Prelude.rnf delegatedServices
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

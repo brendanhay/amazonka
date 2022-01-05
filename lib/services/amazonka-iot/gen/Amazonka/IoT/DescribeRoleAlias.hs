@@ -90,9 +90,12 @@ instance Core.AWSRequest DescribeRoleAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRoleAlias
+instance Prelude.Hashable DescribeRoleAlias where
+  hashWithSalt _salt DescribeRoleAlias' {..} =
+    _salt `Prelude.hashWithSalt` roleAlias
 
-instance Prelude.NFData DescribeRoleAlias
+instance Prelude.NFData DescribeRoleAlias where
+  rnf DescribeRoleAlias' {..} = Prelude.rnf roleAlias
 
 instance Core.ToHeaders DescribeRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,7 @@ describeRoleAliasResponse_roleAliasDescription = Lens.lens (\DescribeRoleAliasRe
 describeRoleAliasResponse_httpStatus :: Lens.Lens' DescribeRoleAliasResponse Prelude.Int
 describeRoleAliasResponse_httpStatus = Lens.lens (\DescribeRoleAliasResponse' {httpStatus} -> httpStatus) (\s@DescribeRoleAliasResponse' {} a -> s {httpStatus = a} :: DescribeRoleAliasResponse)
 
-instance Prelude.NFData DescribeRoleAliasResponse
+instance Prelude.NFData DescribeRoleAliasResponse where
+  rnf DescribeRoleAliasResponse' {..} =
+    Prelude.rnf roleAliasDescription
+      `Prelude.seq` Prelude.rnf httpStatus

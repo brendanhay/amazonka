@@ -123,6 +123,20 @@ instance Core.FromXML AnomalyDetector where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable AnomalyDetector
+instance Prelude.Hashable AnomalyDetector where
+  hashWithSalt _salt AnomalyDetector' {..} =
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` stat
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData AnomalyDetector
+instance Prelude.NFData AnomalyDetector where
+  rnf AnomalyDetector' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf stat
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf dimensions

@@ -77,9 +77,15 @@ instance Core.FromJSON ThrottleSettings where
             Prelude.<*> (x Core..:? "rateLimit")
       )
 
-instance Prelude.Hashable ThrottleSettings
+instance Prelude.Hashable ThrottleSettings where
+  hashWithSalt _salt ThrottleSettings' {..} =
+    _salt `Prelude.hashWithSalt` burstLimit
+      `Prelude.hashWithSalt` rateLimit
 
-instance Prelude.NFData ThrottleSettings
+instance Prelude.NFData ThrottleSettings where
+  rnf ThrottleSettings' {..} =
+    Prelude.rnf burstLimit
+      `Prelude.seq` Prelude.rnf rateLimit
 
 instance Core.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =

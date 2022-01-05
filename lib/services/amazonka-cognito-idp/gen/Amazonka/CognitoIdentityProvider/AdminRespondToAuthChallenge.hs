@@ -391,9 +391,27 @@ instance Core.AWSRequest AdminRespondToAuthChallenge where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminRespondToAuthChallenge
+instance Prelude.Hashable AdminRespondToAuthChallenge where
+  hashWithSalt _salt AdminRespondToAuthChallenge' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` contextData
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` challengeResponses
+      `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` challengeName
 
-instance Prelude.NFData AdminRespondToAuthChallenge
+instance Prelude.NFData AdminRespondToAuthChallenge where
+  rnf AdminRespondToAuthChallenge' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf contextData
+      `Prelude.seq` Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf challengeResponses
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf challengeName
 
 instance Core.ToHeaders AdminRespondToAuthChallenge where
   toHeaders =
@@ -524,3 +542,10 @@ adminRespondToAuthChallengeResponse_httpStatus = Lens.lens (\AdminRespondToAuthC
 instance
   Prelude.NFData
     AdminRespondToAuthChallengeResponse
+  where
+  rnf AdminRespondToAuthChallengeResponse' {..} =
+    Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf challengeParameters
+      `Prelude.seq` Prelude.rnf authenticationResult
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

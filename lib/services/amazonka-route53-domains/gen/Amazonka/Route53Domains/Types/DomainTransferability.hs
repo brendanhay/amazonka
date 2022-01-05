@@ -63,6 +63,10 @@ instance Core.FromJSON DomainTransferability where
             Prelude.<$> (x Core..:? "Transferable")
       )
 
-instance Prelude.Hashable DomainTransferability
+instance Prelude.Hashable DomainTransferability where
+  hashWithSalt _salt DomainTransferability' {..} =
+    _salt `Prelude.hashWithSalt` transferable
 
-instance Prelude.NFData DomainTransferability
+instance Prelude.NFData DomainTransferability where
+  rnf DomainTransferability' {..} =
+    Prelude.rnf transferable

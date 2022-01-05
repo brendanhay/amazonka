@@ -195,6 +195,22 @@ instance Core.FromJSON ForecastExportJobSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable ForecastExportJobSummary
+instance Prelude.Hashable ForecastExportJobSummary where
+  hashWithSalt _salt ForecastExportJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` forecastExportJobArn
+      `Prelude.hashWithSalt` forecastExportJobName
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` lastModificationTime
 
-instance Prelude.NFData ForecastExportJobSummary
+instance Prelude.NFData ForecastExportJobSummary where
+  rnf ForecastExportJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf forecastExportJobArn
+      `Prelude.seq` Prelude.rnf forecastExportJobName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf lastModificationTime

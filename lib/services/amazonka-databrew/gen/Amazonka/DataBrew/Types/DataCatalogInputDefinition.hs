@@ -109,9 +109,19 @@ instance Core.FromJSON DataCatalogInputDefinition where
             Prelude.<*> (x Core..: "TableName")
       )
 
-instance Prelude.Hashable DataCatalogInputDefinition
+instance Prelude.Hashable DataCatalogInputDefinition where
+  hashWithSalt _salt DataCatalogInputDefinition' {..} =
+    _salt `Prelude.hashWithSalt` tempDirectory
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DataCatalogInputDefinition
+instance Prelude.NFData DataCatalogInputDefinition where
+  rnf DataCatalogInputDefinition' {..} =
+    Prelude.rnf tempDirectory
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON DataCatalogInputDefinition where
   toJSON DataCatalogInputDefinition' {..} =

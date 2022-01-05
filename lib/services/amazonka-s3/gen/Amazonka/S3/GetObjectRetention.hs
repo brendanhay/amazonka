@@ -176,9 +176,21 @@ instance Core.AWSRequest GetObjectRetention where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectRetention
+instance Prelude.Hashable GetObjectRetention where
+  hashWithSalt _salt GetObjectRetention' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GetObjectRetention
+instance Prelude.NFData GetObjectRetention where
+  rnf GetObjectRetention' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
@@ -237,4 +249,7 @@ getObjectRetentionResponse_retention = Lens.lens (\GetObjectRetentionResponse' {
 getObjectRetentionResponse_httpStatus :: Lens.Lens' GetObjectRetentionResponse Prelude.Int
 getObjectRetentionResponse_httpStatus = Lens.lens (\GetObjectRetentionResponse' {httpStatus} -> httpStatus) (\s@GetObjectRetentionResponse' {} a -> s {httpStatus = a} :: GetObjectRetentionResponse)
 
-instance Prelude.NFData GetObjectRetentionResponse
+instance Prelude.NFData GetObjectRetentionResponse where
+  rnf GetObjectRetentionResponse' {..} =
+    Prelude.rnf retention
+      `Prelude.seq` Prelude.rnf httpStatus

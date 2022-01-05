@@ -190,6 +190,24 @@ instance Core.FromJSON ReportJob where
             Prelude.<*> (x Core..:? "ReportTemplate")
       )
 
-instance Prelude.Hashable ReportJob
+instance Prelude.Hashable ReportJob where
+  hashWithSalt _salt ReportJob' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reportPlanArn
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` reportJobId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` reportDestination
+      `Prelude.hashWithSalt` reportTemplate
 
-instance Prelude.NFData ReportJob
+instance Prelude.NFData ReportJob where
+  rnf ReportJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf reportJobId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf reportDestination
+      `Prelude.seq` Prelude.rnf reportTemplate

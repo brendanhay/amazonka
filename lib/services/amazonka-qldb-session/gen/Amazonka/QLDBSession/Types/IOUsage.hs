@@ -71,6 +71,12 @@ instance Core.FromJSON IOUsage where
             Prelude.<*> (x Core..:? "WriteIOs")
       )
 
-instance Prelude.Hashable IOUsage
+instance Prelude.Hashable IOUsage where
+  hashWithSalt _salt IOUsage' {..} =
+    _salt `Prelude.hashWithSalt` readIOs
+      `Prelude.hashWithSalt` writeIOs
 
-instance Prelude.NFData IOUsage
+instance Prelude.NFData IOUsage where
+  rnf IOUsage' {..} =
+    Prelude.rnf readIOs
+      `Prelude.seq` Prelude.rnf writeIOs

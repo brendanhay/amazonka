@@ -187,5 +187,34 @@ instance Core.FromXML ScheduledInstanceAvailability where
 instance
   Prelude.Hashable
     ScheduledInstanceAvailability
+  where
+  hashWithSalt _salt ScheduledInstanceAvailability' {..} =
+    _salt `Prelude.hashWithSalt` maxTermDurationInDays
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` purchaseToken
+      `Prelude.hashWithSalt` hourlyPrice
+      `Prelude.hashWithSalt` availableInstanceCount
+      `Prelude.hashWithSalt` slotDurationInHours
+      `Prelude.hashWithSalt` totalScheduledInstanceHours
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` minTermDurationInDays
+      `Prelude.hashWithSalt` firstSlotStartTime
+      `Prelude.hashWithSalt` networkPlatform
 
-instance Prelude.NFData ScheduledInstanceAvailability
+instance Prelude.NFData ScheduledInstanceAvailability where
+  rnf ScheduledInstanceAvailability' {..} =
+    Prelude.rnf maxTermDurationInDays
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf purchaseToken
+      `Prelude.seq` Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf availableInstanceCount
+      `Prelude.seq` Prelude.rnf slotDurationInHours
+      `Prelude.seq` Prelude.rnf totalScheduledInstanceHours
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf minTermDurationInDays
+      `Prelude.seq` Prelude.rnf firstSlotStartTime
+      `Prelude.seq` Prelude.rnf networkPlatform

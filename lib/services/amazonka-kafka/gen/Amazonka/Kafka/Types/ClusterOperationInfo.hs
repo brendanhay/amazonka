@@ -165,6 +165,30 @@ instance Core.FromJSON ClusterOperationInfo where
             Prelude.<*> (x Core..:? "errorInfo")
       )
 
-instance Prelude.Hashable ClusterOperationInfo
+instance Prelude.Hashable ClusterOperationInfo where
+  hashWithSalt _salt ClusterOperationInfo' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` clientRequestId
+      `Prelude.hashWithSalt` targetClusterInfo
+      `Prelude.hashWithSalt` sourceClusterInfo
+      `Prelude.hashWithSalt` operationSteps
+      `Prelude.hashWithSalt` operationState
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` operationType
+      `Prelude.hashWithSalt` operationArn
+      `Prelude.hashWithSalt` errorInfo
 
-instance Prelude.NFData ClusterOperationInfo
+instance Prelude.NFData ClusterOperationInfo where
+  rnf ClusterOperationInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clientRequestId
+      `Prelude.seq` Prelude.rnf targetClusterInfo
+      `Prelude.seq` Prelude.rnf sourceClusterInfo
+      `Prelude.seq` Prelude.rnf operationSteps
+      `Prelude.seq` Prelude.rnf operationState
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf operationType
+      `Prelude.seq` Prelude.rnf operationArn
+      `Prelude.seq` Prelude.rnf errorInfo

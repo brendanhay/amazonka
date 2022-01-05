@@ -96,6 +96,16 @@ instance Core.FromXML InstancePrivateIpAddress where
       Prelude.<*> (x Core..@? "privateDnsName")
       Prelude.<*> (x Core..@? "association")
 
-instance Prelude.Hashable InstancePrivateIpAddress
+instance Prelude.Hashable InstancePrivateIpAddress where
+  hashWithSalt _salt InstancePrivateIpAddress' {..} =
+    _salt `Prelude.hashWithSalt` primary
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` association
 
-instance Prelude.NFData InstancePrivateIpAddress
+instance Prelude.NFData InstancePrivateIpAddress where
+  rnf InstancePrivateIpAddress' {..} =
+    Prelude.rnf primary
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf association

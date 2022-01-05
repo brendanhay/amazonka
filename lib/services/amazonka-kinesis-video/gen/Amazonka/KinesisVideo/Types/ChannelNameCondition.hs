@@ -72,9 +72,15 @@ channelNameCondition_comparisonOperator = Lens.lens (\ChannelNameCondition' {com
 channelNameCondition_comparisonValue :: Lens.Lens' ChannelNameCondition (Prelude.Maybe Prelude.Text)
 channelNameCondition_comparisonValue = Lens.lens (\ChannelNameCondition' {comparisonValue} -> comparisonValue) (\s@ChannelNameCondition' {} a -> s {comparisonValue = a} :: ChannelNameCondition)
 
-instance Prelude.Hashable ChannelNameCondition
+instance Prelude.Hashable ChannelNameCondition where
+  hashWithSalt _salt ChannelNameCondition' {..} =
+    _salt `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` comparisonValue
 
-instance Prelude.NFData ChannelNameCondition
+instance Prelude.NFData ChannelNameCondition where
+  rnf ChannelNameCondition' {..} =
+    Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf comparisonValue
 
 instance Core.ToJSON ChannelNameCondition where
   toJSON ChannelNameCondition' {..} =

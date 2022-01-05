@@ -75,9 +75,15 @@ instance Core.FromJSON DatastorePartition where
             Prelude.<*> (x Core..:? "timestampPartition")
       )
 
-instance Prelude.Hashable DatastorePartition
+instance Prelude.Hashable DatastorePartition where
+  hashWithSalt _salt DatastorePartition' {..} =
+    _salt `Prelude.hashWithSalt` attributePartition
+      `Prelude.hashWithSalt` timestampPartition
 
-instance Prelude.NFData DatastorePartition
+instance Prelude.NFData DatastorePartition where
+  rnf DatastorePartition' {..} =
+    Prelude.rnf attributePartition
+      `Prelude.seq` Prelude.rnf timestampPartition
 
 instance Core.ToJSON DatastorePartition where
   toJSON DatastorePartition' {..} =

@@ -141,6 +141,26 @@ instance Core.FromJSON OpsItemRelatedItemSummary where
             Prelude.<*> (x Core..:? "LastModifiedBy")
       )
 
-instance Prelude.Hashable OpsItemRelatedItemSummary
+instance Prelude.Hashable OpsItemRelatedItemSummary where
+  hashWithSalt _salt OpsItemRelatedItemSummary' {..} =
+    _salt `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` resourceUri
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` lastModifiedBy
 
-instance Prelude.NFData OpsItemRelatedItemSummary
+instance Prelude.NFData OpsItemRelatedItemSummary where
+  rnf OpsItemRelatedItemSummary' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf resourceUri
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf lastModifiedBy

@@ -85,10 +85,20 @@ instance
 instance
   Prelude.Hashable
     ServerGroupReplicationConfiguration
+  where
+  hashWithSalt
+    _salt
+    ServerGroupReplicationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` serverGroupId
+        `Prelude.hashWithSalt` serverReplicationConfigurations
 
 instance
   Prelude.NFData
     ServerGroupReplicationConfiguration
+  where
+  rnf ServerGroupReplicationConfiguration' {..} =
+    Prelude.rnf serverGroupId
+      `Prelude.seq` Prelude.rnf serverReplicationConfigurations
 
 instance
   Core.ToJSON

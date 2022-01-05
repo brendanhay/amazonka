@@ -108,9 +108,17 @@ instance Core.AWSRequest BatchApplyUpdateAction where
       "BatchApplyUpdateActionResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable BatchApplyUpdateAction
+instance Prelude.Hashable BatchApplyUpdateAction where
+  hashWithSalt _salt BatchApplyUpdateAction' {..} =
+    _salt `Prelude.hashWithSalt` cacheClusterIds
+      `Prelude.hashWithSalt` replicationGroupIds
+      `Prelude.hashWithSalt` serviceUpdateName
 
-instance Prelude.NFData BatchApplyUpdateAction
+instance Prelude.NFData BatchApplyUpdateAction where
+  rnf BatchApplyUpdateAction' {..} =
+    Prelude.rnf cacheClusterIds
+      `Prelude.seq` Prelude.rnf replicationGroupIds
+      `Prelude.seq` Prelude.rnf serviceUpdateName
 
 instance Core.ToHeaders BatchApplyUpdateAction where
   toHeaders = Prelude.const Prelude.mempty

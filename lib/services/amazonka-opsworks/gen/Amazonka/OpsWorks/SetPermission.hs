@@ -173,9 +173,21 @@ instance Core.AWSRequest SetPermission where
   response =
     Response.receiveNull SetPermissionResponse'
 
-instance Prelude.Hashable SetPermission
+instance Prelude.Hashable SetPermission where
+  hashWithSalt _salt SetPermission' {..} =
+    _salt `Prelude.hashWithSalt` allowSudo
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` allowSsh
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` iamUserArn
 
-instance Prelude.NFData SetPermission
+instance Prelude.NFData SetPermission where
+  rnf SetPermission' {..} =
+    Prelude.rnf allowSudo
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf allowSsh
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf iamUserArn
 
 instance Core.ToHeaders SetPermission where
   toHeaders =
@@ -224,4 +236,5 @@ newSetPermissionResponse ::
   SetPermissionResponse
 newSetPermissionResponse = SetPermissionResponse'
 
-instance Prelude.NFData SetPermissionResponse
+instance Prelude.NFData SetPermissionResponse where
+  rnf _ = ()

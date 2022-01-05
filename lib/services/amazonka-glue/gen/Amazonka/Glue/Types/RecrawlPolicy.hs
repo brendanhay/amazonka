@@ -95,9 +95,12 @@ instance Core.FromJSON RecrawlPolicy where
             Prelude.<$> (x Core..:? "RecrawlBehavior")
       )
 
-instance Prelude.Hashable RecrawlPolicy
+instance Prelude.Hashable RecrawlPolicy where
+  hashWithSalt _salt RecrawlPolicy' {..} =
+    _salt `Prelude.hashWithSalt` recrawlBehavior
 
-instance Prelude.NFData RecrawlPolicy
+instance Prelude.NFData RecrawlPolicy where
+  rnf RecrawlPolicy' {..} = Prelude.rnf recrawlBehavior
 
 instance Core.ToJSON RecrawlPolicy where
   toJSON RecrawlPolicy' {..} =

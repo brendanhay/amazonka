@@ -158,6 +158,27 @@ instance Core.FromXML ReservedNodeOffering where
       Prelude.<*> (x Core..@? "FixedPrice")
       Prelude.<*> (x Core..@? "Duration")
 
-instance Prelude.Hashable ReservedNodeOffering
+instance Prelude.Hashable ReservedNodeOffering where
+  hashWithSalt _salt ReservedNodeOffering' {..} =
+    _salt
+      `Prelude.hashWithSalt` reservedNodeOfferingType
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` reservedNodeOfferingId
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData ReservedNodeOffering
+instance Prelude.NFData ReservedNodeOffering where
+  rnf ReservedNodeOffering' {..} =
+    Prelude.rnf reservedNodeOfferingType
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf reservedNodeOfferingId
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf duration

@@ -158,9 +158,17 @@ instance Core.AWSRequest GetSlotTypeVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSlotTypeVersions
+instance Prelude.Hashable GetSlotTypeVersions where
+  hashWithSalt _salt GetSlotTypeVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetSlotTypeVersions
+instance Prelude.NFData GetSlotTypeVersions where
+  rnf GetSlotTypeVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetSlotTypeVersions where
   toHeaders =
@@ -245,4 +253,8 @@ getSlotTypeVersionsResponse_slotTypes = Lens.lens (\GetSlotTypeVersionsResponse'
 getSlotTypeVersionsResponse_httpStatus :: Lens.Lens' GetSlotTypeVersionsResponse Prelude.Int
 getSlotTypeVersionsResponse_httpStatus = Lens.lens (\GetSlotTypeVersionsResponse' {httpStatus} -> httpStatus) (\s@GetSlotTypeVersionsResponse' {} a -> s {httpStatus = a} :: GetSlotTypeVersionsResponse)
 
-instance Prelude.NFData GetSlotTypeVersionsResponse
+instance Prelude.NFData GetSlotTypeVersionsResponse where
+  rnf GetSlotTypeVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf slotTypes
+      `Prelude.seq` Prelude.rnf httpStatus

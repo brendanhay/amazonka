@@ -93,9 +93,17 @@ instance Core.FromJSON JobCommand where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable JobCommand
+instance Prelude.Hashable JobCommand where
+  hashWithSalt _salt JobCommand' {..} =
+    _salt `Prelude.hashWithSalt` scriptLocation
+      `Prelude.hashWithSalt` pythonVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData JobCommand
+instance Prelude.NFData JobCommand where
+  rnf JobCommand' {..} =
+    Prelude.rnf scriptLocation
+      `Prelude.seq` Prelude.rnf pythonVersion
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON JobCommand where
   toJSON JobCommand' {..} =

@@ -158,9 +158,21 @@ instance Core.AWSRequest ListWorkteams where
             Prelude.<*> (x Core..?> "Workteams" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListWorkteams
+instance Prelude.Hashable ListWorkteams where
+  hashWithSalt _salt ListWorkteams' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListWorkteams
+instance Prelude.NFData ListWorkteams where
+  rnf ListWorkteams' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListWorkteams where
   toHeaders =
@@ -243,4 +255,8 @@ listWorkteamsResponse_httpStatus = Lens.lens (\ListWorkteamsResponse' {httpStatu
 listWorkteamsResponse_workteams :: Lens.Lens' ListWorkteamsResponse [Workteam]
 listWorkteamsResponse_workteams = Lens.lens (\ListWorkteamsResponse' {workteams} -> workteams) (\s@ListWorkteamsResponse' {} a -> s {workteams = a} :: ListWorkteamsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorkteamsResponse
+instance Prelude.NFData ListWorkteamsResponse where
+  rnf ListWorkteamsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workteams

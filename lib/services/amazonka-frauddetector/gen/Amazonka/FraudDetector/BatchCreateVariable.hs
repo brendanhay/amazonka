@@ -99,9 +99,15 @@ instance Core.AWSRequest BatchCreateVariable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCreateVariable
+instance Prelude.Hashable BatchCreateVariable where
+  hashWithSalt _salt BatchCreateVariable' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` variableEntries
 
-instance Prelude.NFData BatchCreateVariable
+instance Prelude.NFData BatchCreateVariable where
+  rnf BatchCreateVariable' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf variableEntries
 
 instance Core.ToHeaders BatchCreateVariable where
   toHeaders =
@@ -173,4 +179,7 @@ batchCreateVariableResponse_errors = Lens.lens (\BatchCreateVariableResponse' {e
 batchCreateVariableResponse_httpStatus :: Lens.Lens' BatchCreateVariableResponse Prelude.Int
 batchCreateVariableResponse_httpStatus = Lens.lens (\BatchCreateVariableResponse' {httpStatus} -> httpStatus) (\s@BatchCreateVariableResponse' {} a -> s {httpStatus = a} :: BatchCreateVariableResponse)
 
-instance Prelude.NFData BatchCreateVariableResponse
+instance Prelude.NFData BatchCreateVariableResponse where
+  rnf BatchCreateVariableResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

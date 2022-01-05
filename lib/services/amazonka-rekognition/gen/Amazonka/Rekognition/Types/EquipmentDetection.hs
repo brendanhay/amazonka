@@ -99,6 +99,16 @@ instance Core.FromJSON EquipmentDetection where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EquipmentDetection
+instance Prelude.Hashable EquipmentDetection where
+  hashWithSalt _salt EquipmentDetection' {..} =
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` coversBodyPart
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EquipmentDetection
+instance Prelude.NFData EquipmentDetection where
+  rnf EquipmentDetection' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf coversBodyPart
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf type'

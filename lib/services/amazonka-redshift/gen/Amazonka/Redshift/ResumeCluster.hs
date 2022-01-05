@@ -93,9 +93,13 @@ instance Core.AWSRequest ResumeCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeCluster
+instance Prelude.Hashable ResumeCluster where
+  hashWithSalt _salt ResumeCluster' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ResumeCluster
+instance Prelude.NFData ResumeCluster where
+  rnf ResumeCluster' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ResumeCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,4 +154,7 @@ resumeClusterResponse_cluster = Lens.lens (\ResumeClusterResponse' {cluster} -> 
 resumeClusterResponse_httpStatus :: Lens.Lens' ResumeClusterResponse Prelude.Int
 resumeClusterResponse_httpStatus = Lens.lens (\ResumeClusterResponse' {httpStatus} -> httpStatus) (\s@ResumeClusterResponse' {} a -> s {httpStatus = a} :: ResumeClusterResponse)
 
-instance Prelude.NFData ResumeClusterResponse
+instance Prelude.NFData ResumeClusterResponse where
+  rnf ResumeClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

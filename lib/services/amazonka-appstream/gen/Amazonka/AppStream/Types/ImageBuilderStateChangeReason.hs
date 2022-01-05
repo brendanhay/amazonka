@@ -76,5 +76,11 @@ instance Core.FromJSON ImageBuilderStateChangeReason where
 instance
   Prelude.Hashable
     ImageBuilderStateChangeReason
+  where
+  hashWithSalt _salt ImageBuilderStateChangeReason' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ImageBuilderStateChangeReason
+instance Prelude.NFData ImageBuilderStateChangeReason where
+  rnf ImageBuilderStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -80,6 +80,12 @@ instance Core.FromJSON ResourceIdPreference where
             Prelude.<*> (x Core..:? "ResourceIdType")
       )
 
-instance Prelude.Hashable ResourceIdPreference
+instance Prelude.Hashable ResourceIdPreference where
+  hashWithSalt _salt ResourceIdPreference' {..} =
+    _salt `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` resourceIdType
 
-instance Prelude.NFData ResourceIdPreference
+instance Prelude.NFData ResourceIdPreference where
+  rnf ResourceIdPreference' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf resourceIdType

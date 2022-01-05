@@ -120,9 +120,17 @@ instance Core.AWSRequest ListTextTranslationJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTextTranslationJobs
+instance Prelude.Hashable ListTextTranslationJobs where
+  hashWithSalt _salt ListTextTranslationJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListTextTranslationJobs
+instance Prelude.NFData ListTextTranslationJobs where
+  rnf ListTextTranslationJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTextTranslationJobs where
   toHeaders =
@@ -209,3 +217,8 @@ listTextTranslationJobsResponse_httpStatus = Lens.lens (\ListTextTranslationJobs
 instance
   Prelude.NFData
     ListTextTranslationJobsResponse
+  where
+  rnf ListTextTranslationJobsResponse' {..} =
+    Prelude.rnf textTranslationJobPropertiesList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

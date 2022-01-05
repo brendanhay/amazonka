@@ -156,6 +156,28 @@ instance Core.FromJSON Connector where
                         )
       )
 
-instance Prelude.Hashable Connector
+instance Prelude.Hashable Connector where
+  hashWithSalt _salt Connector' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` vmManagerName
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` vmManagerId
+      `Prelude.hashWithSalt` vmManagerType
+      `Prelude.hashWithSalt` connectorId
+      `Prelude.hashWithSalt` associatedOn
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` capabilityList
 
-instance Prelude.NFData Connector
+instance Prelude.NFData Connector where
+  rnf Connector' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vmManagerName
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf vmManagerId
+      `Prelude.seq` Prelude.rnf vmManagerType
+      `Prelude.seq` Prelude.rnf connectorId
+      `Prelude.seq` Prelude.rnf associatedOn
+      `Prelude.seq` Prelude.rnf macAddress
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf capabilityList

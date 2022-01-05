@@ -150,9 +150,18 @@ instance Core.FromJSON LabelingJobAlgorithmsConfig where
             Prelude.<*> (x Core..: "LabelingJobAlgorithmSpecificationArn")
       )
 
-instance Prelude.Hashable LabelingJobAlgorithmsConfig
+instance Prelude.Hashable LabelingJobAlgorithmsConfig where
+  hashWithSalt _salt LabelingJobAlgorithmsConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` labelingJobResourceConfig
+      `Prelude.hashWithSalt` initialActiveLearningModelArn
+      `Prelude.hashWithSalt` labelingJobAlgorithmSpecificationArn
 
-instance Prelude.NFData LabelingJobAlgorithmsConfig
+instance Prelude.NFData LabelingJobAlgorithmsConfig where
+  rnf LabelingJobAlgorithmsConfig' {..} =
+    Prelude.rnf labelingJobResourceConfig
+      `Prelude.seq` Prelude.rnf initialActiveLearningModelArn
+      `Prelude.seq` Prelude.rnf labelingJobAlgorithmSpecificationArn
 
 instance Core.ToJSON LabelingJobAlgorithmsConfig where
   toJSON LabelingJobAlgorithmsConfig' {..} =

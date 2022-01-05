@@ -76,9 +76,15 @@ instance Core.FromJSON DatabaseResource where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable DatabaseResource
+instance Prelude.Hashable DatabaseResource where
+  hashWithSalt _salt DatabaseResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DatabaseResource
+instance Prelude.NFData DatabaseResource where
+  rnf DatabaseResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DatabaseResource where
   toJSON DatabaseResource' {..} =

@@ -57,10 +57,19 @@ importImageLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\Imp
 instance
   Prelude.Hashable
     ImportImageLicenseConfigurationRequest
+  where
+  hashWithSalt
+    _salt
+    ImportImageLicenseConfigurationRequest' {..} =
+      _salt
+        `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
   Prelude.NFData
     ImportImageLicenseConfigurationRequest
+  where
+  rnf ImportImageLicenseConfigurationRequest' {..} =
+    Prelude.rnf licenseConfigurationArn
 
 instance
   Core.ToQuery

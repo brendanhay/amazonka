@@ -116,5 +116,16 @@ instance Core.FromJSON VpcOutputSettingsDescription where
 instance
   Prelude.Hashable
     VpcOutputSettingsDescription
+  where
+  hashWithSalt _salt VpcOutputSettingsDescription' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` networkInterfaceIds
+      `Prelude.hashWithSalt` availabilityZones
 
-instance Prelude.NFData VpcOutputSettingsDescription
+instance Prelude.NFData VpcOutputSettingsDescription where
+  rnf VpcOutputSettingsDescription' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf networkInterfaceIds
+      `Prelude.seq` Prelude.rnf availabilityZones

@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     RegisterOrganizationAdminAccount
+  where
+  hashWithSalt
+    _salt
+    RegisterOrganizationAdminAccount' {..} =
+      _salt `Prelude.hashWithSalt` adminAccountId
 
 instance
   Prelude.NFData
     RegisterOrganizationAdminAccount
+  where
+  rnf RegisterOrganizationAdminAccount' {..} =
+    Prelude.rnf adminAccountId
 
 instance
   Core.ToHeaders
@@ -189,3 +197,8 @@ registerOrganizationAdminAccountResponse_httpStatus = Lens.lens (\RegisterOrgani
 instance
   Prelude.NFData
     RegisterOrganizationAdminAccountResponse
+  where
+  rnf RegisterOrganizationAdminAccountResponse' {..} =
+    Prelude.rnf adminAccountId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf httpStatus

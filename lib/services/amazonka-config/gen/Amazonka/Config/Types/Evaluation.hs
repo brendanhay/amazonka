@@ -161,9 +161,21 @@ instance Core.FromJSON Evaluation where
             Prelude.<*> (x Core..: "OrderingTimestamp")
       )
 
-instance Prelude.Hashable Evaluation
+instance Prelude.Hashable Evaluation where
+  hashWithSalt _salt Evaluation' {..} =
+    _salt `Prelude.hashWithSalt` annotation
+      `Prelude.hashWithSalt` complianceResourceType
+      `Prelude.hashWithSalt` complianceResourceId
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` orderingTimestamp
 
-instance Prelude.NFData Evaluation
+instance Prelude.NFData Evaluation where
+  rnf Evaluation' {..} =
+    Prelude.rnf annotation
+      `Prelude.seq` Prelude.rnf complianceResourceType
+      `Prelude.seq` Prelude.rnf complianceResourceId
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf orderingTimestamp
 
 instance Core.ToJSON Evaluation where
   toJSON Evaluation' {..} =

@@ -71,9 +71,15 @@ instance Core.FromXML DesiredConfiguration where
       Prelude.<$> (x Core..@? "MixedInstancesPolicy")
       Prelude.<*> (x Core..@? "LaunchTemplate")
 
-instance Prelude.Hashable DesiredConfiguration
+instance Prelude.Hashable DesiredConfiguration where
+  hashWithSalt _salt DesiredConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` mixedInstancesPolicy
+      `Prelude.hashWithSalt` launchTemplate
 
-instance Prelude.NFData DesiredConfiguration
+instance Prelude.NFData DesiredConfiguration where
+  rnf DesiredConfiguration' {..} =
+    Prelude.rnf mixedInstancesPolicy
+      `Prelude.seq` Prelude.rnf launchTemplate
 
 instance Core.ToQuery DesiredConfiguration where
   toQuery DesiredConfiguration' {..} =

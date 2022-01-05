@@ -61,9 +61,14 @@ instance Core.FromXML MonitoringSubscription where
     MonitoringSubscription'
       Prelude.<$> (x Core..@? "RealtimeMetricsSubscriptionConfig")
 
-instance Prelude.Hashable MonitoringSubscription
+instance Prelude.Hashable MonitoringSubscription where
+  hashWithSalt _salt MonitoringSubscription' {..} =
+    _salt
+      `Prelude.hashWithSalt` realtimeMetricsSubscriptionConfig
 
-instance Prelude.NFData MonitoringSubscription
+instance Prelude.NFData MonitoringSubscription where
+  rnf MonitoringSubscription' {..} =
+    Prelude.rnf realtimeMetricsSubscriptionConfig
 
 instance Core.ToXML MonitoringSubscription where
   toXML MonitoringSubscription' {..} =

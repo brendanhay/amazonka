@@ -105,9 +105,12 @@ instance Core.AWSRequest GetUser where
             Prelude.<*> (x Core..@ "User")
       )
 
-instance Prelude.Hashable GetUser
+instance Prelude.Hashable GetUser where
+  hashWithSalt _salt GetUser' {..} =
+    _salt `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData GetUser
+instance Prelude.NFData GetUser where
+  rnf GetUser' {..} = Prelude.rnf userName
 
 instance Core.ToHeaders GetUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +226,7 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 getUserResponse_user :: Lens.Lens' GetUserResponse User
 getUserResponse_user = Lens.lens (\GetUserResponse' {user} -> user) (\s@GetUserResponse' {} a -> s {user = a} :: GetUserResponse)
 
-instance Prelude.NFData GetUserResponse
+instance Prelude.NFData GetUserResponse where
+  rnf GetUserResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf user

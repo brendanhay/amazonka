@@ -122,9 +122,15 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChangeSet
+instance Prelude.Hashable DescribeChangeSet where
+  hashWithSalt _salt DescribeChangeSet' {..} =
+    _salt `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` changeSetId
 
-instance Prelude.NFData DescribeChangeSet
+instance Prelude.NFData DescribeChangeSet where
+  rnf DescribeChangeSet' {..} =
+    Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf changeSetId
 
 instance Core.ToHeaders DescribeChangeSet where
   toHeaders =
@@ -288,4 +294,15 @@ describeChangeSetResponse_changeSetArn = Lens.lens (\DescribeChangeSetResponse' 
 describeChangeSetResponse_httpStatus :: Lens.Lens' DescribeChangeSetResponse Prelude.Int
 describeChangeSetResponse_httpStatus = Lens.lens (\DescribeChangeSetResponse' {httpStatus} -> httpStatus) (\s@DescribeChangeSetResponse' {} a -> s {httpStatus = a} :: DescribeChangeSetResponse)
 
-instance Prelude.NFData DescribeChangeSetResponse
+instance Prelude.NFData DescribeChangeSetResponse where
+  rnf DescribeChangeSetResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf changeSet
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf httpStatus

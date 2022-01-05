@@ -116,9 +116,17 @@ instance Core.AWSRequest CreateHomeRegionControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHomeRegionControl
+instance Prelude.Hashable CreateHomeRegionControl where
+  hashWithSalt _salt CreateHomeRegionControl' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData CreateHomeRegionControl
+instance Prelude.NFData CreateHomeRegionControl where
+  rnf CreateHomeRegionControl' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders CreateHomeRegionControl where
   toHeaders =
@@ -196,3 +204,7 @@ createHomeRegionControlResponse_httpStatus = Lens.lens (\CreateHomeRegionControl
 instance
   Prelude.NFData
     CreateHomeRegionControlResponse
+  where
+  rnf CreateHomeRegionControlResponse' {..} =
+    Prelude.rnf homeRegionControl
+      `Prelude.seq` Prelude.rnf httpStatus

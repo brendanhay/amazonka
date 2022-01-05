@@ -23,6 +23,9 @@ module Amazonka.DynamoDBStreams.Types
     _ResourceNotFoundException,
     _LimitExceededException,
 
+    -- * Re-exported Types
+    module Amazonka.DynamoDBStreams.Internal,
+
     -- * KeyType
     KeyType (..),
 
@@ -37,20 +40,6 @@ module Amazonka.DynamoDBStreams.Types
 
     -- * StreamViewType
     StreamViewType (..),
-
-    -- * AttributeValue
-    AttributeValue (..),
-    newAttributeValue,
-    attributeValue_l,
-    attributeValue_ns,
-    attributeValue_m,
-    attributeValue_null,
-    attributeValue_n,
-    attributeValue_bs,
-    attributeValue_b,
-    attributeValue_ss,
-    attributeValue_s,
-    attributeValue_bool,
 
     -- * Identity
     Identity (..),
@@ -122,7 +111,7 @@ module Amazonka.DynamoDBStreams.Types
 where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDBStreams.Types.AttributeValue
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.KeyType

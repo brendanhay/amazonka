@@ -200,9 +200,21 @@ instance Core.AWSRequest DecreaseReplicaCount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DecreaseReplicaCount
+instance Prelude.Hashable DecreaseReplicaCount where
+  hashWithSalt _salt DecreaseReplicaCount' {..} =
+    _salt `Prelude.hashWithSalt` newReplicaCount'
+      `Prelude.hashWithSalt` replicaConfiguration
+      `Prelude.hashWithSalt` replicasToRemove
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` applyImmediately
 
-instance Prelude.NFData DecreaseReplicaCount
+instance Prelude.NFData DecreaseReplicaCount where
+  rnf DecreaseReplicaCount' {..} =
+    Prelude.rnf newReplicaCount'
+      `Prelude.seq` Prelude.rnf replicaConfiguration
+      `Prelude.seq` Prelude.rnf replicasToRemove
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance Core.ToHeaders DecreaseReplicaCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,4 +282,7 @@ decreaseReplicaCountResponse_replicationGroup = Lens.lens (\DecreaseReplicaCount
 decreaseReplicaCountResponse_httpStatus :: Lens.Lens' DecreaseReplicaCountResponse Prelude.Int
 decreaseReplicaCountResponse_httpStatus = Lens.lens (\DecreaseReplicaCountResponse' {httpStatus} -> httpStatus) (\s@DecreaseReplicaCountResponse' {} a -> s {httpStatus = a} :: DecreaseReplicaCountResponse)
 
-instance Prelude.NFData DecreaseReplicaCountResponse
+instance Prelude.NFData DecreaseReplicaCountResponse where
+  rnf DecreaseReplicaCountResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

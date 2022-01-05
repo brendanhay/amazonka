@@ -114,6 +114,18 @@ instance Core.FromJSON MigrationTask where
             Prelude.<*> (x Core..:? "MigrationTaskName")
       )
 
-instance Prelude.Hashable MigrationTask
+instance Prelude.Hashable MigrationTask where
+  hashWithSalt _salt MigrationTask' {..} =
+    _salt `Prelude.hashWithSalt` updateDateTime
+      `Prelude.hashWithSalt` resourceAttributeList
+      `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` migrationTaskName
 
-instance Prelude.NFData MigrationTask
+instance Prelude.NFData MigrationTask where
+  rnf MigrationTask' {..} =
+    Prelude.rnf updateDateTime
+      `Prelude.seq` Prelude.rnf resourceAttributeList
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf migrationTaskName

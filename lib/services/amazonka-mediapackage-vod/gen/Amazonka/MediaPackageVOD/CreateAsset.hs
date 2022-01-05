@@ -165,9 +165,23 @@ instance Core.AWSRequest CreateAsset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAsset
+instance Prelude.Hashable CreateAsset where
+  hashWithSalt _salt CreateAsset' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` packagingGroupId
+      `Prelude.hashWithSalt` sourceRoleArn
 
-instance Prelude.NFData CreateAsset
+instance Prelude.NFData CreateAsset where
+  rnf CreateAsset' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf sourceRoleArn
 
 instance Core.ToHeaders CreateAsset where
   toHeaders =
@@ -310,4 +324,15 @@ createAssetResponse_tags = Lens.lens (\CreateAssetResponse' {tags} -> tags) (\s@
 createAssetResponse_httpStatus :: Lens.Lens' CreateAssetResponse Prelude.Int
 createAssetResponse_httpStatus = Lens.lens (\CreateAssetResponse' {httpStatus} -> httpStatus) (\s@CreateAssetResponse' {} a -> s {httpStatus = a} :: CreateAssetResponse)
 
-instance Prelude.NFData CreateAssetResponse
+instance Prelude.NFData CreateAssetResponse where
+  rnf CreateAssetResponse' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf sourceRoleArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

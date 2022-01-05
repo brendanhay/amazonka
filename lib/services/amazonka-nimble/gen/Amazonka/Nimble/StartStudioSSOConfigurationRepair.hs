@@ -139,10 +139,20 @@ instance
 instance
   Prelude.Hashable
     StartStudioSSOConfigurationRepair
+  where
+  hashWithSalt
+    _salt
+    StartStudioSSOConfigurationRepair' {..} =
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` studioId
 
 instance
   Prelude.NFData
     StartStudioSSOConfigurationRepair
+  where
+  rnf StartStudioSSOConfigurationRepair' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf studioId
 
 instance
   Core.ToHeaders
@@ -221,3 +231,7 @@ startStudioSSOConfigurationRepairResponse_httpStatus = Lens.lens (\StartStudioSS
 instance
   Prelude.NFData
     StartStudioSSOConfigurationRepairResponse
+  where
+  rnf StartStudioSSOConfigurationRepairResponse' {..} =
+    Prelude.rnf studio
+      `Prelude.seq` Prelude.rnf httpStatus

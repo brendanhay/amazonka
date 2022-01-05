@@ -146,10 +146,24 @@ instance
 instance
   Prelude.Hashable
     IncreaseNodeGroupsInGlobalReplicationGroup
+  where
+  hashWithSalt
+    _salt
+    IncreaseNodeGroupsInGlobalReplicationGroup' {..} =
+      _salt `Prelude.hashWithSalt` regionalConfigurations
+        `Prelude.hashWithSalt` globalReplicationGroupId
+        `Prelude.hashWithSalt` nodeGroupCount
+        `Prelude.hashWithSalt` applyImmediately
 
 instance
   Prelude.NFData
     IncreaseNodeGroupsInGlobalReplicationGroup
+  where
+  rnf IncreaseNodeGroupsInGlobalReplicationGroup' {..} =
+    Prelude.rnf regionalConfigurations
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf nodeGroupCount
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
   Core.ToHeaders
@@ -230,3 +244,8 @@ increaseNodeGroupsInGlobalReplicationGroupResponse_httpStatus = Lens.lens (\Incr
 instance
   Prelude.NFData
     IncreaseNodeGroupsInGlobalReplicationGroupResponse
+  where
+  rnf
+    IncreaseNodeGroupsInGlobalReplicationGroupResponse' {..} =
+      Prelude.rnf globalReplicationGroup
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -83,6 +83,12 @@ instance Core.FromXML PolicyGroup where
       Prelude.<$> (x Core..@? "GroupId")
       Prelude.<*> (x Core..@? "GroupName")
 
-instance Prelude.Hashable PolicyGroup
+instance Prelude.Hashable PolicyGroup where
+  hashWithSalt _salt PolicyGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData PolicyGroup
+instance Prelude.NFData PolicyGroup where
+  rnf PolicyGroup' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName

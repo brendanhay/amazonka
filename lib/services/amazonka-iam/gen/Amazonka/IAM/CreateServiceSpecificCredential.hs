@@ -156,10 +156,20 @@ instance
 instance
   Prelude.Hashable
     CreateServiceSpecificCredential
+  where
+  hashWithSalt
+    _salt
+    CreateServiceSpecificCredential' {..} =
+      _salt `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` serviceName
 
 instance
   Prelude.NFData
     CreateServiceSpecificCredential
+  where
+  rnf CreateServiceSpecificCredential' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance
   Core.ToHeaders
@@ -241,3 +251,7 @@ createServiceSpecificCredentialResponse_httpStatus = Lens.lens (\CreateServiceSp
 instance
   Prelude.NFData
     CreateServiceSpecificCredentialResponse
+  where
+  rnf CreateServiceSpecificCredentialResponse' {..} =
+    Prelude.rnf serviceSpecificCredential
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -66,6 +66,9 @@ instance Core.FromJSON SupportedFieldTypeDetails where
             Prelude.<$> (x Core..: "v1")
       )
 
-instance Prelude.Hashable SupportedFieldTypeDetails
+instance Prelude.Hashable SupportedFieldTypeDetails where
+  hashWithSalt _salt SupportedFieldTypeDetails' {..} =
+    _salt `Prelude.hashWithSalt` v1
 
-instance Prelude.NFData SupportedFieldTypeDetails
+instance Prelude.NFData SupportedFieldTypeDetails where
+  rnf SupportedFieldTypeDetails' {..} = Prelude.rnf v1

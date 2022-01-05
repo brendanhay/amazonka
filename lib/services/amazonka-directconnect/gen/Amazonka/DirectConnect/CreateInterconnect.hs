@@ -175,9 +175,23 @@ instance Core.AWSRequest CreateInterconnect where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateInterconnect
+instance Prelude.Hashable CreateInterconnect where
+  hashWithSalt _salt CreateInterconnect' {..} =
+    _salt `Prelude.hashWithSalt` lagId
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` interconnectName
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData CreateInterconnect
+instance Prelude.NFData CreateInterconnect where
+  rnf CreateInterconnect' {..} =
+    Prelude.rnf lagId
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf interconnectName
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders CreateInterconnect where
   toHeaders =

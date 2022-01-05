@@ -82,9 +82,13 @@ instance Core.AWSRequest VerifyEmailAddress where
   response =
     Response.receiveNull VerifyEmailAddressResponse'
 
-instance Prelude.Hashable VerifyEmailAddress
+instance Prelude.Hashable VerifyEmailAddress where
+  hashWithSalt _salt VerifyEmailAddress' {..} =
+    _salt `Prelude.hashWithSalt` emailAddress
 
-instance Prelude.NFData VerifyEmailAddress
+instance Prelude.NFData VerifyEmailAddress where
+  rnf VerifyEmailAddress' {..} =
+    Prelude.rnf emailAddress
 
 instance Core.ToHeaders VerifyEmailAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -117,4 +121,5 @@ newVerifyEmailAddressResponse ::
 newVerifyEmailAddressResponse =
   VerifyEmailAddressResponse'
 
-instance Prelude.NFData VerifyEmailAddressResponse
+instance Prelude.NFData VerifyEmailAddressResponse where
+  rnf _ = ()

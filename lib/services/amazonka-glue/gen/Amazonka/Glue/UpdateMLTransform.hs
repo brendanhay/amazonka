@@ -285,9 +285,33 @@ instance Core.AWSRequest UpdateMLTransform where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMLTransform
+instance Prelude.Hashable UpdateMLTransform where
+  hashWithSalt _salt UpdateMLTransform' {..} =
+    _salt `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` transformId
 
-instance Prelude.NFData UpdateMLTransform
+instance Prelude.NFData UpdateMLTransform where
+  rnf UpdateMLTransform' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf transformId
 
 instance Core.ToHeaders UpdateMLTransform where
   toHeaders =
@@ -366,4 +390,7 @@ updateMLTransformResponse_transformId = Lens.lens (\UpdateMLTransformResponse' {
 updateMLTransformResponse_httpStatus :: Lens.Lens' UpdateMLTransformResponse Prelude.Int
 updateMLTransformResponse_httpStatus = Lens.lens (\UpdateMLTransformResponse' {httpStatus} -> httpStatus) (\s@UpdateMLTransformResponse' {} a -> s {httpStatus = a} :: UpdateMLTransformResponse)
 
-instance Prelude.NFData UpdateMLTransformResponse
+instance Prelude.NFData UpdateMLTransformResponse where
+  rnf UpdateMLTransformResponse' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf httpStatus

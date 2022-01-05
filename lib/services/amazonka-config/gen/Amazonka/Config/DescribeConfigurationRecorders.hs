@@ -102,10 +102,19 @@ instance
 instance
   Prelude.Hashable
     DescribeConfigurationRecorders
+  where
+  hashWithSalt
+    _salt
+    DescribeConfigurationRecorders' {..} =
+      _salt
+        `Prelude.hashWithSalt` configurationRecorderNames
 
 instance
   Prelude.NFData
     DescribeConfigurationRecorders
+  where
+  rnf DescribeConfigurationRecorders' {..} =
+    Prelude.rnf configurationRecorderNames
 
 instance
   Core.ToHeaders
@@ -188,3 +197,7 @@ describeConfigurationRecordersResponse_httpStatus = Lens.lens (\DescribeConfigur
 instance
   Prelude.NFData
     DescribeConfigurationRecordersResponse
+  where
+  rnf DescribeConfigurationRecordersResponse' {..} =
+    Prelude.rnf configurationRecorders
+      `Prelude.seq` Prelude.rnf httpStatus

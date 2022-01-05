@@ -76,9 +76,14 @@ instance Core.FromJSON VideoArtifactsConfiguration where
             Prelude.<*> (x Core..: "State")
       )
 
-instance Prelude.Hashable VideoArtifactsConfiguration
+instance Prelude.Hashable VideoArtifactsConfiguration where
+  hashWithSalt _salt VideoArtifactsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` muxType
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData VideoArtifactsConfiguration
+instance Prelude.NFData VideoArtifactsConfiguration where
+  rnf VideoArtifactsConfiguration' {..} =
+    Prelude.rnf muxType `Prelude.seq` Prelude.rnf state
 
 instance Core.ToJSON VideoArtifactsConfiguration where
   toJSON VideoArtifactsConfiguration' {..} =

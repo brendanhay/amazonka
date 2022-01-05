@@ -111,9 +111,15 @@ instance Core.AWSRequest GetDatasetContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDatasetContent
+instance Prelude.Hashable GetDatasetContent where
+  hashWithSalt _salt GetDatasetContent' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` datasetName
 
-instance Prelude.NFData GetDatasetContent
+instance Prelude.NFData GetDatasetContent where
+  rnf GetDatasetContent' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf datasetName
 
 instance Core.ToHeaders GetDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +190,9 @@ getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {ti
 getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Prelude.Int
 getDatasetContentResponse_httpStatus = Lens.lens (\GetDatasetContentResponse' {httpStatus} -> httpStatus) (\s@GetDatasetContentResponse' {} a -> s {httpStatus = a} :: GetDatasetContentResponse)
 
-instance Prelude.NFData GetDatasetContentResponse
+instance Prelude.NFData GetDatasetContentResponse where
+  rnf GetDatasetContentResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf httpStatus

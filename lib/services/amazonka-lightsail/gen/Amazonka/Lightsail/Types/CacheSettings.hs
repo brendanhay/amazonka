@@ -277,9 +277,27 @@ instance Core.FromJSON CacheSettings where
             Prelude.<*> (x Core..:? "forwardedQueryStrings")
       )
 
-instance Prelude.Hashable CacheSettings
+instance Prelude.Hashable CacheSettings where
+  hashWithSalt _salt CacheSettings' {..} =
+    _salt `Prelude.hashWithSalt` maximumTTL
+      `Prelude.hashWithSalt` cachedHTTPMethods
+      `Prelude.hashWithSalt` forwardedCookies
+      `Prelude.hashWithSalt` allowedHTTPMethods
+      `Prelude.hashWithSalt` defaultTTL
+      `Prelude.hashWithSalt` minimumTTL
+      `Prelude.hashWithSalt` forwardedHeaders
+      `Prelude.hashWithSalt` forwardedQueryStrings
 
-instance Prelude.NFData CacheSettings
+instance Prelude.NFData CacheSettings where
+  rnf CacheSettings' {..} =
+    Prelude.rnf maximumTTL
+      `Prelude.seq` Prelude.rnf cachedHTTPMethods
+      `Prelude.seq` Prelude.rnf forwardedCookies
+      `Prelude.seq` Prelude.rnf allowedHTTPMethods
+      `Prelude.seq` Prelude.rnf defaultTTL
+      `Prelude.seq` Prelude.rnf minimumTTL
+      `Prelude.seq` Prelude.rnf forwardedHeaders
+      `Prelude.seq` Prelude.rnf forwardedQueryStrings
 
 instance Core.ToJSON CacheSettings where
   toJSON CacheSettings' {..} =

@@ -92,9 +92,19 @@ instance Core.FromJSON AwsEc2VolumeAttachment where
             Prelude.<*> (x Core..:? "AttachTime")
       )
 
-instance Prelude.Hashable AwsEc2VolumeAttachment
+instance Prelude.Hashable AwsEc2VolumeAttachment where
+  hashWithSalt _salt AwsEc2VolumeAttachment' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` attachTime
 
-instance Prelude.NFData AwsEc2VolumeAttachment
+instance Prelude.NFData AwsEc2VolumeAttachment where
+  rnf AwsEc2VolumeAttachment' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf attachTime
 
 instance Core.ToJSON AwsEc2VolumeAttachment where
   toJSON AwsEc2VolumeAttachment' {..} =

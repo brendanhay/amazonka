@@ -230,9 +230,33 @@ instance Core.AWSRequest CreateProcessingJob where
             Prelude.<*> (x Core..:> "ProcessingJobArn")
       )
 
-instance Prelude.Hashable CreateProcessingJob
+instance Prelude.Hashable CreateProcessingJob where
+  hashWithSalt _salt CreateProcessingJob' {..} =
+    _salt `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` processingInputs
+      `Prelude.hashWithSalt` networkConfig
+      `Prelude.hashWithSalt` processingOutputConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` processingJobName
+      `Prelude.hashWithSalt` processingResources
+      `Prelude.hashWithSalt` appSpecification
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateProcessingJob
+instance Prelude.NFData CreateProcessingJob where
+  rnf CreateProcessingJob' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf processingInputs
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf processingOutputConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf processingJobName
+      `Prelude.seq` Prelude.rnf processingResources
+      `Prelude.seq` Prelude.rnf appSpecification
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateProcessingJob where
   toHeaders =
@@ -323,4 +347,7 @@ createProcessingJobResponse_httpStatus = Lens.lens (\CreateProcessingJobResponse
 createProcessingJobResponse_processingJobArn :: Lens.Lens' CreateProcessingJobResponse Prelude.Text
 createProcessingJobResponse_processingJobArn = Lens.lens (\CreateProcessingJobResponse' {processingJobArn} -> processingJobArn) (\s@CreateProcessingJobResponse' {} a -> s {processingJobArn = a} :: CreateProcessingJobResponse)
 
-instance Prelude.NFData CreateProcessingJobResponse
+instance Prelude.NFData CreateProcessingJobResponse where
+  rnf CreateProcessingJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf processingJobArn

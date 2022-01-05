@@ -143,9 +143,23 @@ instance Core.AWSRequest CreateAssistant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssistant
+instance Prelude.Hashable CreateAssistant where
+  hashWithSalt _salt CreateAssistant' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateAssistant
+instance Prelude.NFData CreateAssistant where
+  rnf CreateAssistant' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateAssistant where
   toHeaders =
@@ -217,4 +231,7 @@ createAssistantResponse_assistant = Lens.lens (\CreateAssistantResponse' {assist
 createAssistantResponse_httpStatus :: Lens.Lens' CreateAssistantResponse Prelude.Int
 createAssistantResponse_httpStatus = Lens.lens (\CreateAssistantResponse' {httpStatus} -> httpStatus) (\s@CreateAssistantResponse' {} a -> s {httpStatus = a} :: CreateAssistantResponse)
 
-instance Prelude.NFData CreateAssistantResponse
+instance Prelude.NFData CreateAssistantResponse where
+  rnf CreateAssistantResponse' {..} =
+    Prelude.rnf assistant
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,9 +88,12 @@ instance Core.AWSRequest GetResolverRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResolverRule
+instance Prelude.Hashable GetResolverRule where
+  hashWithSalt _salt GetResolverRule' {..} =
+    _salt `Prelude.hashWithSalt` resolverRuleId
 
-instance Prelude.NFData GetResolverRule
+instance Prelude.NFData GetResolverRule where
+  rnf GetResolverRule' {..} = Prelude.rnf resolverRuleId
 
 instance Core.ToHeaders GetResolverRule where
   toHeaders =
@@ -164,4 +167,7 @@ getResolverRuleResponse_resolverRule = Lens.lens (\GetResolverRuleResponse' {res
 getResolverRuleResponse_httpStatus :: Lens.Lens' GetResolverRuleResponse Prelude.Int
 getResolverRuleResponse_httpStatus = Lens.lens (\GetResolverRuleResponse' {httpStatus} -> httpStatus) (\s@GetResolverRuleResponse' {} a -> s {httpStatus = a} :: GetResolverRuleResponse)
 
-instance Prelude.NFData GetResolverRuleResponse
+instance Prelude.NFData GetResolverRuleResponse where
+  rnf GetResolverRuleResponse' {..} =
+    Prelude.rnf resolverRule
+      `Prelude.seq` Prelude.rnf httpStatus

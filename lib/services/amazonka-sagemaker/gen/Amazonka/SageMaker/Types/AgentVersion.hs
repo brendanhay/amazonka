@@ -75,6 +75,12 @@ instance Core.FromJSON AgentVersion where
             Prelude.<*> (x Core..: "AgentCount")
       )
 
-instance Prelude.Hashable AgentVersion
+instance Prelude.Hashable AgentVersion where
+  hashWithSalt _salt AgentVersion' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` agentCount
 
-instance Prelude.NFData AgentVersion
+instance Prelude.NFData AgentVersion where
+  rnf AgentVersion' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf agentCount

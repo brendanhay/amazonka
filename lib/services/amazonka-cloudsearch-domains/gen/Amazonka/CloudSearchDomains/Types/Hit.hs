@@ -94,6 +94,16 @@ instance Core.FromJSON Hit where
             Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Hit
+instance Prelude.Hashable Hit where
+  hashWithSalt _salt Hit' {..} =
+    _salt `Prelude.hashWithSalt` exprs
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` highlights
+      `Prelude.hashWithSalt` fields
 
-instance Prelude.NFData Hit
+instance Prelude.NFData Hit where
+  rnf Hit' {..} =
+    Prelude.rnf exprs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf highlights
+      `Prelude.seq` Prelude.rnf fields

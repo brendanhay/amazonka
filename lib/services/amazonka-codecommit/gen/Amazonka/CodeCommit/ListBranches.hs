@@ -121,9 +121,15 @@ instance Core.AWSRequest ListBranches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBranches
+instance Prelude.Hashable ListBranches where
+  hashWithSalt _salt ListBranches' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData ListBranches
+instance Prelude.NFData ListBranches where
+  rnf ListBranches' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders ListBranches where
   toHeaders =
@@ -205,4 +211,8 @@ listBranchesResponse_nextToken = Lens.lens (\ListBranchesResponse' {nextToken} -
 listBranchesResponse_httpStatus :: Lens.Lens' ListBranchesResponse Prelude.Int
 listBranchesResponse_httpStatus = Lens.lens (\ListBranchesResponse' {httpStatus} -> httpStatus) (\s@ListBranchesResponse' {} a -> s {httpStatus = a} :: ListBranchesResponse)
 
-instance Prelude.NFData ListBranchesResponse
+instance Prelude.NFData ListBranchesResponse where
+  rnf ListBranchesResponse' {..} =
+    Prelude.rnf branches
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

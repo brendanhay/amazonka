@@ -79,9 +79,15 @@ instance Core.FromJSON CodeHook where
             Prelude.<*> (x Core..: "messageVersion")
       )
 
-instance Prelude.Hashable CodeHook
+instance Prelude.Hashable CodeHook where
+  hashWithSalt _salt CodeHook' {..} =
+    _salt `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` messageVersion
 
-instance Prelude.NFData CodeHook
+instance Prelude.NFData CodeHook where
+  rnf CodeHook' {..} =
+    Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf messageVersion
 
 instance Core.ToJSON CodeHook where
   toJSON CodeHook' {..} =

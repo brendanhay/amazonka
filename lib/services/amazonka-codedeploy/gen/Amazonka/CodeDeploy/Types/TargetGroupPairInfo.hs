@@ -100,9 +100,17 @@ instance Core.FromJSON TargetGroupPairInfo where
             Prelude.<*> (x Core..:? "targetGroups" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TargetGroupPairInfo
+instance Prelude.Hashable TargetGroupPairInfo where
+  hashWithSalt _salt TargetGroupPairInfo' {..} =
+    _salt `Prelude.hashWithSalt` prodTrafficRoute
+      `Prelude.hashWithSalt` testTrafficRoute
+      `Prelude.hashWithSalt` targetGroups
 
-instance Prelude.NFData TargetGroupPairInfo
+instance Prelude.NFData TargetGroupPairInfo where
+  rnf TargetGroupPairInfo' {..} =
+    Prelude.rnf prodTrafficRoute
+      `Prelude.seq` Prelude.rnf testTrafficRoute
+      `Prelude.seq` Prelude.rnf targetGroups
 
 instance Core.ToJSON TargetGroupPairInfo where
   toJSON TargetGroupPairInfo' {..} =

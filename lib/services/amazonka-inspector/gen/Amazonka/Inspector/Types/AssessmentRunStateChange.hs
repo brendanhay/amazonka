@@ -77,6 +77,12 @@ instance Core.FromJSON AssessmentRunStateChange where
             Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable AssessmentRunStateChange
+instance Prelude.Hashable AssessmentRunStateChange where
+  hashWithSalt _salt AssessmentRunStateChange' {..} =
+    _salt `Prelude.hashWithSalt` stateChangedAt
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData AssessmentRunStateChange
+instance Prelude.NFData AssessmentRunStateChange where
+  rnf AssessmentRunStateChange' {..} =
+    Prelude.rnf stateChangedAt
+      `Prelude.seq` Prelude.rnf state

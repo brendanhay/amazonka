@@ -119,6 +119,18 @@ instance Core.FromJSON VirtualGatewayData where
             Prelude.<*> (x Core..: "virtualGatewayName")
       )
 
-instance Prelude.Hashable VirtualGatewayData
+instance Prelude.Hashable VirtualGatewayData where
+  hashWithSalt _salt VirtualGatewayData' {..} =
+    _salt `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData VirtualGatewayData
+instance Prelude.NFData VirtualGatewayData where
+  rnf VirtualGatewayData' {..} =
+    Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf virtualGatewayName

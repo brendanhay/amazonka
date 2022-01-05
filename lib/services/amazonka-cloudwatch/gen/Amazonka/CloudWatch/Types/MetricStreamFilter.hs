@@ -56,9 +56,12 @@ instance Core.FromXML MetricStreamFilter where
     MetricStreamFilter'
       Prelude.<$> (x Core..@? "Namespace")
 
-instance Prelude.Hashable MetricStreamFilter
+instance Prelude.Hashable MetricStreamFilter where
+  hashWithSalt _salt MetricStreamFilter' {..} =
+    _salt `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData MetricStreamFilter
+instance Prelude.NFData MetricStreamFilter where
+  rnf MetricStreamFilter' {..} = Prelude.rnf namespace
 
 instance Core.ToQuery MetricStreamFilter where
   toQuery MetricStreamFilter' {..} =

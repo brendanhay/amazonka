@@ -132,10 +132,22 @@ instance
 instance
   Prelude.Hashable
     ListRepositoriesForApprovalRuleTemplate
+  where
+  hashWithSalt
+    _salt
+    ListRepositoriesForApprovalRuleTemplate' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` approvalRuleTemplateName
 
 instance
   Prelude.NFData
     ListRepositoriesForApprovalRuleTemplate
+  where
+  rnf ListRepositoriesForApprovalRuleTemplate' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
 
 instance
   Core.ToHeaders
@@ -242,3 +254,9 @@ listRepositoriesForApprovalRuleTemplateResponse_httpStatus = Lens.lens (\ListRep
 instance
   Prelude.NFData
     ListRepositoriesForApprovalRuleTemplateResponse
+  where
+  rnf
+    ListRepositoriesForApprovalRuleTemplateResponse' {..} =
+      Prelude.rnf repositoryNames
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -129,6 +129,16 @@ instance Core.FromJSON Consumer where
             Prelude.<*> (x Core..: "ConsumerCreationTimestamp")
       )
 
-instance Prelude.Hashable Consumer
+instance Prelude.Hashable Consumer where
+  hashWithSalt _salt Consumer' {..} =
+    _salt `Prelude.hashWithSalt` consumerName
+      `Prelude.hashWithSalt` consumerARN
+      `Prelude.hashWithSalt` consumerStatus
+      `Prelude.hashWithSalt` consumerCreationTimestamp
 
-instance Prelude.NFData Consumer
+instance Prelude.NFData Consumer where
+  rnf Consumer' {..} =
+    Prelude.rnf consumerName
+      `Prelude.seq` Prelude.rnf consumerARN
+      `Prelude.seq` Prelude.rnf consumerStatus
+      `Prelude.seq` Prelude.rnf consumerCreationTimestamp

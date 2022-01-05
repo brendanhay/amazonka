@@ -163,9 +163,22 @@ instance Core.FromJSON ComputeLimits where
             Prelude.<*> (x Core..: "MaximumCapacityUnits")
       )
 
-instance Prelude.Hashable ComputeLimits
+instance Prelude.Hashable ComputeLimits where
+  hashWithSalt _salt ComputeLimits' {..} =
+    _salt
+      `Prelude.hashWithSalt` maximumOnDemandCapacityUnits
+      `Prelude.hashWithSalt` maximumCoreCapacityUnits
+      `Prelude.hashWithSalt` unitType
+      `Prelude.hashWithSalt` minimumCapacityUnits
+      `Prelude.hashWithSalt` maximumCapacityUnits
 
-instance Prelude.NFData ComputeLimits
+instance Prelude.NFData ComputeLimits where
+  rnf ComputeLimits' {..} =
+    Prelude.rnf maximumOnDemandCapacityUnits
+      `Prelude.seq` Prelude.rnf maximumCoreCapacityUnits
+      `Prelude.seq` Prelude.rnf unitType
+      `Prelude.seq` Prelude.rnf minimumCapacityUnits
+      `Prelude.seq` Prelude.rnf maximumCapacityUnits
 
 instance Core.ToJSON ComputeLimits where
   toJSON ComputeLimits' {..} =

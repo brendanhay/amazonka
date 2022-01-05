@@ -93,10 +93,20 @@ instance
 instance
   Prelude.Hashable
     AwsIamAccessKeySessionContextAttributes
+  where
+  hashWithSalt
+    _salt
+    AwsIamAccessKeySessionContextAttributes' {..} =
+      _salt `Prelude.hashWithSalt` creationDate
+        `Prelude.hashWithSalt` mfaAuthenticated
 
 instance
   Prelude.NFData
     AwsIamAccessKeySessionContextAttributes
+  where
+  rnf AwsIamAccessKeySessionContextAttributes' {..} =
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf mfaAuthenticated
 
 instance
   Core.ToJSON

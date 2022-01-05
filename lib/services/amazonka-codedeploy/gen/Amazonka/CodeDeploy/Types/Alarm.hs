@@ -58,9 +58,12 @@ instance Core.FromJSON Alarm where
       "Alarm"
       (\x -> Alarm' Prelude.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable Alarm
+instance Prelude.Hashable Alarm where
+  hashWithSalt _salt Alarm' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Alarm
+instance Prelude.NFData Alarm where
+  rnf Alarm' {..} = Prelude.rnf name
 
 instance Core.ToJSON Alarm where
   toJSON Alarm' {..} =

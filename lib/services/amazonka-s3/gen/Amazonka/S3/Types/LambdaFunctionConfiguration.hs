@@ -102,9 +102,19 @@ instance Core.FromXML LambdaFunctionConfiguration where
       Prelude.<*> (x Core..@ "CloudFunction")
       Prelude.<*> (Core.parseXMLList "Event" x)
 
-instance Prelude.Hashable LambdaFunctionConfiguration
+instance Prelude.Hashable LambdaFunctionConfiguration where
+  hashWithSalt _salt LambdaFunctionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` lambdaFunctionArn
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData LambdaFunctionConfiguration
+instance Prelude.NFData LambdaFunctionConfiguration where
+  rnf LambdaFunctionConfiguration' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =

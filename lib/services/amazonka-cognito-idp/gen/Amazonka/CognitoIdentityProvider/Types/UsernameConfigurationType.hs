@@ -106,9 +106,13 @@ instance Core.FromJSON UsernameConfigurationType where
             Prelude.<$> (x Core..: "CaseSensitive")
       )
 
-instance Prelude.Hashable UsernameConfigurationType
+instance Prelude.Hashable UsernameConfigurationType where
+  hashWithSalt _salt UsernameConfigurationType' {..} =
+    _salt `Prelude.hashWithSalt` caseSensitive
 
-instance Prelude.NFData UsernameConfigurationType
+instance Prelude.NFData UsernameConfigurationType where
+  rnf UsernameConfigurationType' {..} =
+    Prelude.rnf caseSensitive
 
 instance Core.ToJSON UsernameConfigurationType where
   toJSON UsernameConfigurationType' {..} =

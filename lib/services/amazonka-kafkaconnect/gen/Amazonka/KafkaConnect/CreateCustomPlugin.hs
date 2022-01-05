@@ -128,9 +128,19 @@ instance Core.AWSRequest CreateCustomPlugin where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomPlugin
+instance Prelude.Hashable CreateCustomPlugin where
+  hashWithSalt _salt CreateCustomPlugin' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateCustomPlugin
+instance Prelude.NFData CreateCustomPlugin where
+  rnf CreateCustomPlugin' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateCustomPlugin where
   toHeaders =
@@ -228,4 +238,10 @@ createCustomPluginResponse_revision = Lens.lens (\CreateCustomPluginResponse' {r
 createCustomPluginResponse_httpStatus :: Lens.Lens' CreateCustomPluginResponse Prelude.Int
 createCustomPluginResponse_httpStatus = Lens.lens (\CreateCustomPluginResponse' {httpStatus} -> httpStatus) (\s@CreateCustomPluginResponse' {} a -> s {httpStatus = a} :: CreateCustomPluginResponse)
 
-instance Prelude.NFData CreateCustomPluginResponse
+instance Prelude.NFData CreateCustomPluginResponse where
+  rnf CreateCustomPluginResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf customPluginState
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf httpStatus

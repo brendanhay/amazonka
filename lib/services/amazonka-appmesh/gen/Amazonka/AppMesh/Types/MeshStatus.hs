@@ -58,6 +58,9 @@ instance Core.FromJSON MeshStatus where
           MeshStatus' Prelude.<$> (x Core..:? "status")
       )
 
-instance Prelude.Hashable MeshStatus
+instance Prelude.Hashable MeshStatus where
+  hashWithSalt _salt MeshStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
 
-instance Prelude.NFData MeshStatus
+instance Prelude.NFData MeshStatus where
+  rnf MeshStatus' {..} = Prelude.rnf status

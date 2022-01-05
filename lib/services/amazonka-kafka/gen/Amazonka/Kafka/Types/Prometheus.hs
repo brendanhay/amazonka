@@ -73,6 +73,12 @@ instance Core.FromJSON Prometheus where
             Prelude.<*> (x Core..:? "nodeExporter")
       )
 
-instance Prelude.Hashable Prometheus
+instance Prelude.Hashable Prometheus where
+  hashWithSalt _salt Prometheus' {..} =
+    _salt `Prelude.hashWithSalt` jmxExporter
+      `Prelude.hashWithSalt` nodeExporter
 
-instance Prelude.NFData Prometheus
+instance Prelude.NFData Prometheus where
+  rnf Prometheus' {..} =
+    Prelude.rnf jmxExporter
+      `Prelude.seq` Prelude.rnf nodeExporter

@@ -69,9 +69,13 @@ instance Core.FromJSON ClientProperties where
             Prelude.<$> (x Core..:? "ReconnectEnabled")
       )
 
-instance Prelude.Hashable ClientProperties
+instance Prelude.Hashable ClientProperties where
+  hashWithSalt _salt ClientProperties' {..} =
+    _salt `Prelude.hashWithSalt` reconnectEnabled
 
-instance Prelude.NFData ClientProperties
+instance Prelude.NFData ClientProperties where
+  rnf ClientProperties' {..} =
+    Prelude.rnf reconnectEnabled
 
 instance Core.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =

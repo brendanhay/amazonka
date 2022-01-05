@@ -140,8 +140,19 @@ instance
 instance
   Prelude.Hashable
     CreateSipMediaApplicationCall
+  where
+  hashWithSalt _salt CreateSipMediaApplicationCall' {..} =
+    _salt `Prelude.hashWithSalt` sipHeaders
+      `Prelude.hashWithSalt` fromPhoneNumber
+      `Prelude.hashWithSalt` toPhoneNumber
+      `Prelude.hashWithSalt` sipMediaApplicationId
 
-instance Prelude.NFData CreateSipMediaApplicationCall
+instance Prelude.NFData CreateSipMediaApplicationCall where
+  rnf CreateSipMediaApplicationCall' {..} =
+    Prelude.rnf sipHeaders
+      `Prelude.seq` Prelude.rnf fromPhoneNumber
+      `Prelude.seq` Prelude.rnf toPhoneNumber
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
 instance Core.ToHeaders CreateSipMediaApplicationCall where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,3 +222,7 @@ createSipMediaApplicationCallResponse_httpStatus = Lens.lens (\CreateSipMediaApp
 instance
   Prelude.NFData
     CreateSipMediaApplicationCallResponse
+  where
+  rnf CreateSipMediaApplicationCallResponse' {..} =
+    Prelude.rnf sipMediaApplicationCall
+      `Prelude.seq` Prelude.rnf httpStatus

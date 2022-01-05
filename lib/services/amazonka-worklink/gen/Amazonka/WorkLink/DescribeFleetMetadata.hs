@@ -101,9 +101,12 @@ instance Core.AWSRequest DescribeFleetMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetMetadata
+instance Prelude.Hashable DescribeFleetMetadata where
+  hashWithSalt _salt DescribeFleetMetadata' {..} =
+    _salt `Prelude.hashWithSalt` fleetArn
 
-instance Prelude.NFData DescribeFleetMetadata
+instance Prelude.NFData DescribeFleetMetadata where
+  rnf DescribeFleetMetadata' {..} = Prelude.rnf fleetArn
 
 instance Core.ToHeaders DescribeFleetMetadata where
   toHeaders =
@@ -237,4 +240,14 @@ describeFleetMetadataResponse_tags = Lens.lens (\DescribeFleetMetadataResponse' 
 describeFleetMetadataResponse_httpStatus :: Lens.Lens' DescribeFleetMetadataResponse Prelude.Int
 describeFleetMetadataResponse_httpStatus = Lens.lens (\DescribeFleetMetadataResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetMetadataResponse' {} a -> s {httpStatus = a} :: DescribeFleetMetadataResponse)
 
-instance Prelude.NFData DescribeFleetMetadataResponse
+instance Prelude.NFData DescribeFleetMetadataResponse where
+  rnf DescribeFleetMetadataResponse' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf fleetStatus
+      `Prelude.seq` Prelude.rnf companyCode
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf optimizeForEndUserLocation
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

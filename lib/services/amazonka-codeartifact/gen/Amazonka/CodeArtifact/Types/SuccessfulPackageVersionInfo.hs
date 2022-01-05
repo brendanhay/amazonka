@@ -106,5 +106,12 @@ instance Core.FromJSON SuccessfulPackageVersionInfo where
 instance
   Prelude.Hashable
     SuccessfulPackageVersionInfo
+  where
+  hashWithSalt _salt SuccessfulPackageVersionInfo' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData SuccessfulPackageVersionInfo
+instance Prelude.NFData SuccessfulPackageVersionInfo where
+  rnf SuccessfulPackageVersionInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf revision

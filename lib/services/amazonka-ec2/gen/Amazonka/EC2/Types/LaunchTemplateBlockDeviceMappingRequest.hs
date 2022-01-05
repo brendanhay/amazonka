@@ -103,10 +103,24 @@ launchTemplateBlockDeviceMappingRequest_deviceName = Lens.lens (\LaunchTemplateB
 instance
   Prelude.Hashable
     LaunchTemplateBlockDeviceMappingRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateBlockDeviceMappingRequest' {..} =
+      _salt `Prelude.hashWithSalt` virtualName
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` ebs
+        `Prelude.hashWithSalt` deviceName
 
 instance
   Prelude.NFData
     LaunchTemplateBlockDeviceMappingRequest
+  where
+  rnf LaunchTemplateBlockDeviceMappingRequest' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf noDevice
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance
   Core.ToQuery

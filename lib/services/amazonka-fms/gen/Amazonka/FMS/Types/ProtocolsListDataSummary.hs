@@ -92,6 +92,16 @@ instance Core.FromJSON ProtocolsListDataSummary where
             Prelude.<*> (x Core..:? "ListName")
       )
 
-instance Prelude.Hashable ProtocolsListDataSummary
+instance Prelude.Hashable ProtocolsListDataSummary where
+  hashWithSalt _salt ProtocolsListDataSummary' {..} =
+    _salt `Prelude.hashWithSalt` protocolsList
+      `Prelude.hashWithSalt` listArn
+      `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` listName
 
-instance Prelude.NFData ProtocolsListDataSummary
+instance Prelude.NFData ProtocolsListDataSummary where
+  rnf ProtocolsListDataSummary' {..} =
+    Prelude.rnf protocolsList
+      `Prelude.seq` Prelude.rnf listArn
+      `Prelude.seq` Prelude.rnf listId
+      `Prelude.seq` Prelude.rnf listName

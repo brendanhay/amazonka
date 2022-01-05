@@ -202,9 +202,29 @@ instance Core.AWSRequest ListFeatureGroups where
                         )
       )
 
-instance Prelude.Hashable ListFeatureGroups
+instance Prelude.Hashable ListFeatureGroups where
+  hashWithSalt _salt ListFeatureGroups' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` offlineStoreStatusEquals
+      `Prelude.hashWithSalt` featureGroupStatusEquals
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
 
-instance Prelude.NFData ListFeatureGroups
+instance Prelude.NFData ListFeatureGroups where
+  rnf ListFeatureGroups' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf offlineStoreStatusEquals
+      `Prelude.seq` Prelude.rnf featureGroupStatusEquals
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToHeaders ListFeatureGroups where
   toHeaders =
@@ -295,4 +315,8 @@ listFeatureGroupsResponse_httpStatus = Lens.lens (\ListFeatureGroupsResponse' {h
 listFeatureGroupsResponse_featureGroupSummaries :: Lens.Lens' ListFeatureGroupsResponse [FeatureGroupSummary]
 listFeatureGroupsResponse_featureGroupSummaries = Lens.lens (\ListFeatureGroupsResponse' {featureGroupSummaries} -> featureGroupSummaries) (\s@ListFeatureGroupsResponse' {} a -> s {featureGroupSummaries = a} :: ListFeatureGroupsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFeatureGroupsResponse
+instance Prelude.NFData ListFeatureGroupsResponse where
+  rnf ListFeatureGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf featureGroupSummaries

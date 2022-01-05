@@ -71,7 +71,16 @@ instance
 instance
   Prelude.Hashable
     EnvironmentPropertyDescriptions
+  where
+  hashWithSalt
+    _salt
+    EnvironmentPropertyDescriptions' {..} =
+      _salt
+        `Prelude.hashWithSalt` propertyGroupDescriptions
 
 instance
   Prelude.NFData
     EnvironmentPropertyDescriptions
+  where
+  rnf EnvironmentPropertyDescriptions' {..} =
+    Prelude.rnf propertyGroupDescriptions

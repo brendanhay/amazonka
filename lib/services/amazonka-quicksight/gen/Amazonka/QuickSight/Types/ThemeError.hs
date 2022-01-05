@@ -72,6 +72,11 @@ instance Core.FromJSON ThemeError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ThemeError
+instance Prelude.Hashable ThemeError where
+  hashWithSalt _salt ThemeError' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ThemeError
+instance Prelude.NFData ThemeError where
+  rnf ThemeError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

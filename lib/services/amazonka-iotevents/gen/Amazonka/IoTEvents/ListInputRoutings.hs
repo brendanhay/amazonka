@@ -112,9 +112,17 @@ instance Core.AWSRequest ListInputRoutings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInputRoutings
+instance Prelude.Hashable ListInputRoutings where
+  hashWithSalt _salt ListInputRoutings' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` inputIdentifier
 
-instance Prelude.NFData ListInputRoutings
+instance Prelude.NFData ListInputRoutings where
+  rnf ListInputRoutings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf inputIdentifier
 
 instance Core.ToHeaders ListInputRoutings where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,4 +195,8 @@ listInputRoutingsResponse_nextToken = Lens.lens (\ListInputRoutingsResponse' {ne
 listInputRoutingsResponse_httpStatus :: Lens.Lens' ListInputRoutingsResponse Prelude.Int
 listInputRoutingsResponse_httpStatus = Lens.lens (\ListInputRoutingsResponse' {httpStatus} -> httpStatus) (\s@ListInputRoutingsResponse' {} a -> s {httpStatus = a} :: ListInputRoutingsResponse)
 
-instance Prelude.NFData ListInputRoutingsResponse
+instance Prelude.NFData ListInputRoutingsResponse where
+  rnf ListInputRoutingsResponse' {..} =
+    Prelude.rnf routedResources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteTrigger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrigger
+instance Prelude.Hashable DeleteTrigger where
+  hashWithSalt _salt DeleteTrigger' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteTrigger
+instance Prelude.NFData DeleteTrigger where
+  rnf DeleteTrigger' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteTrigger where
   toHeaders =
@@ -155,4 +158,7 @@ deleteTriggerResponse_name = Lens.lens (\DeleteTriggerResponse' {name} -> name) 
 deleteTriggerResponse_httpStatus :: Lens.Lens' DeleteTriggerResponse Prelude.Int
 deleteTriggerResponse_httpStatus = Lens.lens (\DeleteTriggerResponse' {httpStatus} -> httpStatus) (\s@DeleteTriggerResponse' {} a -> s {httpStatus = a} :: DeleteTriggerResponse)
 
-instance Prelude.NFData DeleteTriggerResponse
+instance Prelude.NFData DeleteTriggerResponse where
+  rnf DeleteTriggerResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

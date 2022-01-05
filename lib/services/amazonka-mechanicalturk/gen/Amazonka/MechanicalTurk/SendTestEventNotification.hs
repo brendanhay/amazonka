@@ -121,9 +121,15 @@ instance Core.AWSRequest SendTestEventNotification where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendTestEventNotification
+instance Prelude.Hashable SendTestEventNotification where
+  hashWithSalt _salt SendTestEventNotification' {..} =
+    _salt `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` testEventType
 
-instance Prelude.NFData SendTestEventNotification
+instance Prelude.NFData SendTestEventNotification where
+  rnf SendTestEventNotification' {..} =
+    Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf testEventType
 
 instance Core.ToHeaders SendTestEventNotification where
   toHeaders =
@@ -189,3 +195,6 @@ sendTestEventNotificationResponse_httpStatus = Lens.lens (\SendTestEventNotifica
 instance
   Prelude.NFData
     SendTestEventNotificationResponse
+  where
+  rnf SendTestEventNotificationResponse' {..} =
+    Prelude.rnf httpStatus

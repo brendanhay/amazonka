@@ -84,9 +84,15 @@ instance Core.FromJSON ActiveContextTimeToLive where
             Prelude.<*> (x Core..:? "timeToLiveInSeconds")
       )
 
-instance Prelude.Hashable ActiveContextTimeToLive
+instance Prelude.Hashable ActiveContextTimeToLive where
+  hashWithSalt _salt ActiveContextTimeToLive' {..} =
+    _salt `Prelude.hashWithSalt` turnsToLive
+      `Prelude.hashWithSalt` timeToLiveInSeconds
 
-instance Prelude.NFData ActiveContextTimeToLive
+instance Prelude.NFData ActiveContextTimeToLive where
+  rnf ActiveContextTimeToLive' {..} =
+    Prelude.rnf turnsToLive
+      `Prelude.seq` Prelude.rnf timeToLiveInSeconds
 
 instance Core.ToJSON ActiveContextTimeToLive where
   toJSON ActiveContextTimeToLive' {..} =

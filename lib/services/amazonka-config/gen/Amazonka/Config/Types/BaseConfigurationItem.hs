@@ -253,6 +253,36 @@ instance Core.FromJSON BaseConfigurationItem where
             Prelude.<*> (x Core..:? "configuration")
       )
 
-instance Prelude.Hashable BaseConfigurationItem
+instance Prelude.Hashable BaseConfigurationItem where
+  hashWithSalt _salt BaseConfigurationItem' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` configurationStateId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceCreationTime
+      `Prelude.hashWithSalt` configurationItemStatus
+      `Prelude.hashWithSalt` configurationItemCaptureTime
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` supplementaryConfiguration
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData BaseConfigurationItem
+instance Prelude.NFData BaseConfigurationItem where
+  rnf BaseConfigurationItem' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf configurationStateId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceCreationTime
+      `Prelude.seq` Prelude.rnf configurationItemStatus
+      `Prelude.seq` Prelude.rnf configurationItemCaptureTime
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf supplementaryConfiguration
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf configuration

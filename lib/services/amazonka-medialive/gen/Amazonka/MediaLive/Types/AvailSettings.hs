@@ -72,9 +72,15 @@ instance Core.FromJSON AvailSettings where
             Prelude.<*> (x Core..:? "scte35TimeSignalApos")
       )
 
-instance Prelude.Hashable AvailSettings
+instance Prelude.Hashable AvailSettings where
+  hashWithSalt _salt AvailSettings' {..} =
+    _salt `Prelude.hashWithSalt` scte35SpliceInsert
+      `Prelude.hashWithSalt` scte35TimeSignalApos
 
-instance Prelude.NFData AvailSettings
+instance Prelude.NFData AvailSettings where
+  rnf AvailSettings' {..} =
+    Prelude.rnf scte35SpliceInsert
+      `Prelude.seq` Prelude.rnf scte35TimeSignalApos
 
 instance Core.ToJSON AvailSettings where
   toJSON AvailSettings' {..} =

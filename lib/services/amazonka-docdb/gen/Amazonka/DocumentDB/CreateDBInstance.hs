@@ -296,9 +296,30 @@ instance Core.AWSRequest CreateDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBInstance
+instance Prelude.Hashable CreateDBInstance where
+  hashWithSalt _salt CreateDBInstance' {..} =
+    _salt
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData CreateDBInstance
+instance Prelude.NFData CreateDBInstance where
+  rnf CreateDBInstance' {..} =
+    Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -366,4 +387,7 @@ createDBInstanceResponse_dbInstance = Lens.lens (\CreateDBInstanceResponse' {dbI
 createDBInstanceResponse_httpStatus :: Lens.Lens' CreateDBInstanceResponse Prelude.Int
 createDBInstanceResponse_httpStatus = Lens.lens (\CreateDBInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateDBInstanceResponse' {} a -> s {httpStatus = a} :: CreateDBInstanceResponse)
 
-instance Prelude.NFData CreateDBInstanceResponse
+instance Prelude.NFData CreateDBInstanceResponse where
+  rnf CreateDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

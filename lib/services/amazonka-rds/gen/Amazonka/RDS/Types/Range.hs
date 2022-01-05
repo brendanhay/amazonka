@@ -89,6 +89,14 @@ instance Core.FromXML Range where
       Prelude.<*> (x Core..@? "From")
       Prelude.<*> (x Core..@? "Step")
 
-instance Prelude.Hashable Range
+instance Prelude.Hashable Range where
+  hashWithSalt _salt Range' {..} =
+    _salt `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` step
 
-instance Prelude.NFData Range
+instance Prelude.NFData Range where
+  rnf Range' {..} =
+    Prelude.rnf to
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf step

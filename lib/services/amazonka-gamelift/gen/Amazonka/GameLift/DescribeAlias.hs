@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlias
+instance Prelude.Hashable DescribeAlias where
+  hashWithSalt _salt DescribeAlias' {..} =
+    _salt `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData DescribeAlias
+instance Prelude.NFData DescribeAlias where
+  rnf DescribeAlias' {..} = Prelude.rnf aliasId
 
 instance Core.ToHeaders DescribeAlias where
   toHeaders =
@@ -172,4 +175,7 @@ describeAliasResponse_alias = Lens.lens (\DescribeAliasResponse' {alias} -> alia
 describeAliasResponse_httpStatus :: Lens.Lens' DescribeAliasResponse Prelude.Int
 describeAliasResponse_httpStatus = Lens.lens (\DescribeAliasResponse' {httpStatus} -> httpStatus) (\s@DescribeAliasResponse' {} a -> s {httpStatus = a} :: DescribeAliasResponse)
 
-instance Prelude.NFData DescribeAliasResponse
+instance Prelude.NFData DescribeAliasResponse where
+  rnf DescribeAliasResponse' {..} =
+    Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf httpStatus

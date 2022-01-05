@@ -71,7 +71,15 @@ instance
 instance
   Prelude.Hashable
     HistoryEventExecutionDataDetails
+  where
+  hashWithSalt
+    _salt
+    HistoryEventExecutionDataDetails' {..} =
+      _salt `Prelude.hashWithSalt` truncated
 
 instance
   Prelude.NFData
     HistoryEventExecutionDataDetails
+  where
+  rnf HistoryEventExecutionDataDetails' {..} =
+    Prelude.rnf truncated

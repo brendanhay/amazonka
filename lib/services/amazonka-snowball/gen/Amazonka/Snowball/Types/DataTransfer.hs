@@ -105,6 +105,16 @@ instance Core.FromJSON DataTransfer where
             Prelude.<*> (x Core..:? "BytesTransferred")
       )
 
-instance Prelude.Hashable DataTransfer
+instance Prelude.Hashable DataTransfer where
+  hashWithSalt _salt DataTransfer' {..} =
+    _salt `Prelude.hashWithSalt` totalObjects
+      `Prelude.hashWithSalt` totalBytes
+      `Prelude.hashWithSalt` objectsTransferred
+      `Prelude.hashWithSalt` bytesTransferred
 
-instance Prelude.NFData DataTransfer
+instance Prelude.NFData DataTransfer where
+  rnf DataTransfer' {..} =
+    Prelude.rnf totalObjects
+      `Prelude.seq` Prelude.rnf totalBytes
+      `Prelude.seq` Prelude.rnf objectsTransferred
+      `Prelude.seq` Prelude.rnf bytesTransferred

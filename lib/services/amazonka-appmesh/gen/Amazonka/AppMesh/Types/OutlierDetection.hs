@@ -112,9 +112,19 @@ instance Core.FromJSON OutlierDetection where
             Prelude.<*> (x Core..: "maxServerErrors")
       )
 
-instance Prelude.Hashable OutlierDetection
+instance Prelude.Hashable OutlierDetection where
+  hashWithSalt _salt OutlierDetection' {..} =
+    _salt `Prelude.hashWithSalt` baseEjectionDuration
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` maxEjectionPercent
+      `Prelude.hashWithSalt` maxServerErrors
 
-instance Prelude.NFData OutlierDetection
+instance Prelude.NFData OutlierDetection where
+  rnf OutlierDetection' {..} =
+    Prelude.rnf baseEjectionDuration
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf maxEjectionPercent
+      `Prelude.seq` Prelude.rnf maxServerErrors
 
 instance Core.ToJSON OutlierDetection where
   toJSON OutlierDetection' {..} =

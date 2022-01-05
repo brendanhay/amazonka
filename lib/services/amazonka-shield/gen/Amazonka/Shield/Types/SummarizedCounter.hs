@@ -111,6 +111,20 @@ instance Core.FromJSON SummarizedCounter where
             Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable SummarizedCounter
+instance Prelude.Hashable SummarizedCounter where
+  hashWithSalt _salt SummarizedCounter' {..} =
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` n
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData SummarizedCounter
+instance Prelude.NFData SummarizedCounter where
+  rnf SummarizedCounter' {..} =
+    Prelude.rnf max
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf n
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf unit

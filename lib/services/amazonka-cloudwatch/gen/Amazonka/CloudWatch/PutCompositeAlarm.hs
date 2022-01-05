@@ -420,9 +420,27 @@ instance Core.AWSRequest PutCompositeAlarm where
   response =
     Response.receiveNull PutCompositeAlarmResponse'
 
-instance Prelude.Hashable PutCompositeAlarm
+instance Prelude.Hashable PutCompositeAlarm where
+  hashWithSalt _salt PutCompositeAlarm' {..} =
+    _salt `Prelude.hashWithSalt` alarmDescription
+      `Prelude.hashWithSalt` oKActions
+      `Prelude.hashWithSalt` actionsEnabled
+      `Prelude.hashWithSalt` insufficientDataActions
+      `Prelude.hashWithSalt` alarmActions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` alarmRule
 
-instance Prelude.NFData PutCompositeAlarm
+instance Prelude.NFData PutCompositeAlarm where
+  rnf PutCompositeAlarm' {..} =
+    Prelude.rnf alarmDescription
+      `Prelude.seq` Prelude.rnf oKActions
+      `Prelude.seq` Prelude.rnf actionsEnabled
+      `Prelude.seq` Prelude.rnf insufficientDataActions
+      `Prelude.seq` Prelude.rnf alarmActions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf alarmRule
 
 instance Core.ToHeaders PutCompositeAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -472,4 +490,5 @@ newPutCompositeAlarmResponse ::
 newPutCompositeAlarmResponse =
   PutCompositeAlarmResponse'
 
-instance Prelude.NFData PutCompositeAlarmResponse
+instance Prelude.NFData PutCompositeAlarmResponse where
+  rnf _ = ()

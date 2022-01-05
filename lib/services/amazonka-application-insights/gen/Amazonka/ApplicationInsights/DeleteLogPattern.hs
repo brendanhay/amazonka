@@ -114,9 +114,17 @@ instance Core.AWSRequest DeleteLogPattern where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLogPattern
+instance Prelude.Hashable DeleteLogPattern where
+  hashWithSalt _salt DeleteLogPattern' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` patternSetName
+      `Prelude.hashWithSalt` patternName
 
-instance Prelude.NFData DeleteLogPattern
+instance Prelude.NFData DeleteLogPattern where
+  rnf DeleteLogPattern' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf patternSetName
+      `Prelude.seq` Prelude.rnf patternName
 
 instance Core.ToHeaders DeleteLogPattern where
   toHeaders =
@@ -181,4 +189,6 @@ newDeleteLogPatternResponse pHttpStatus_ =
 deleteLogPatternResponse_httpStatus :: Lens.Lens' DeleteLogPatternResponse Prelude.Int
 deleteLogPatternResponse_httpStatus = Lens.lens (\DeleteLogPatternResponse' {httpStatus} -> httpStatus) (\s@DeleteLogPatternResponse' {} a -> s {httpStatus = a} :: DeleteLogPatternResponse)
 
-instance Prelude.NFData DeleteLogPatternResponse
+instance Prelude.NFData DeleteLogPatternResponse where
+  rnf DeleteLogPatternResponse' {..} =
+    Prelude.rnf httpStatus

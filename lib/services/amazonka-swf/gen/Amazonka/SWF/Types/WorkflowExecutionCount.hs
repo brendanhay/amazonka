@@ -81,6 +81,12 @@ instance Core.FromJSON WorkflowExecutionCount where
             Prelude.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable WorkflowExecutionCount
+instance Prelude.Hashable WorkflowExecutionCount where
+  hashWithSalt _salt WorkflowExecutionCount' {..} =
+    _salt `Prelude.hashWithSalt` truncated
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData WorkflowExecutionCount
+instance Prelude.NFData WorkflowExecutionCount where
+  rnf WorkflowExecutionCount' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf count

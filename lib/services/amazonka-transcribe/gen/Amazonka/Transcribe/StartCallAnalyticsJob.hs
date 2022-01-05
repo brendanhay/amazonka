@@ -358,9 +358,25 @@ instance Core.AWSRequest StartCallAnalyticsJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCallAnalyticsJob
+instance Prelude.Hashable StartCallAnalyticsJob where
+  hashWithSalt _salt StartCallAnalyticsJob' {..} =
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` outputEncryptionKMSKeyId
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` channelDefinitions
+      `Prelude.hashWithSalt` callAnalyticsJobName
+      `Prelude.hashWithSalt` media
+      `Prelude.hashWithSalt` dataAccessRoleArn
 
-instance Prelude.NFData StartCallAnalyticsJob
+instance Prelude.NFData StartCallAnalyticsJob where
+  rnf StartCallAnalyticsJob' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf channelDefinitions
+      `Prelude.seq` Prelude.rnf callAnalyticsJobName
+      `Prelude.seq` Prelude.rnf media
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
 instance Core.ToHeaders StartCallAnalyticsJob where
   toHeaders =
@@ -443,4 +459,7 @@ startCallAnalyticsJobResponse_callAnalyticsJob = Lens.lens (\StartCallAnalyticsJ
 startCallAnalyticsJobResponse_httpStatus :: Lens.Lens' StartCallAnalyticsJobResponse Prelude.Int
 startCallAnalyticsJobResponse_httpStatus = Lens.lens (\StartCallAnalyticsJobResponse' {httpStatus} -> httpStatus) (\s@StartCallAnalyticsJobResponse' {} a -> s {httpStatus = a} :: StartCallAnalyticsJobResponse)
 
-instance Prelude.NFData StartCallAnalyticsJobResponse
+instance Prelude.NFData StartCallAnalyticsJobResponse where
+  rnf StartCallAnalyticsJobResponse' {..} =
+    Prelude.rnf callAnalyticsJob
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -86,7 +86,19 @@ instance Core.FromJSON UpdateWirelessGatewayTaskEntry where
 instance
   Prelude.Hashable
     UpdateWirelessGatewayTaskEntry
+  where
+  hashWithSalt
+    _salt
+    UpdateWirelessGatewayTaskEntry' {..} =
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` loRaWAN
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     UpdateWirelessGatewayTaskEntry
+  where
+  rnf UpdateWirelessGatewayTaskEntry' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf id

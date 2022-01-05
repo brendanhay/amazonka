@@ -119,9 +119,19 @@ instance Core.AWSRequest RemoveResourcePermission where
     Response.receiveNull
       RemoveResourcePermissionResponse'
 
-instance Prelude.Hashable RemoveResourcePermission
+instance Prelude.Hashable RemoveResourcePermission where
+  hashWithSalt _salt RemoveResourcePermission' {..} =
+    _salt `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData RemoveResourcePermission
+instance Prelude.NFData RemoveResourcePermission where
+  rnf RemoveResourcePermission' {..} =
+    Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToHeaders RemoveResourcePermission where
   toHeaders RemoveResourcePermission' {..} =
@@ -162,3 +172,5 @@ newRemoveResourcePermissionResponse =
 instance
   Prelude.NFData
     RemoveResourcePermissionResponse
+  where
+  rnf _ = ()

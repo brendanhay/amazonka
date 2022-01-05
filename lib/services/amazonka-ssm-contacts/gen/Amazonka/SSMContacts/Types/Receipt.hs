@@ -99,6 +99,16 @@ instance Core.FromJSON Receipt where
             Prelude.<*> (x Core..: "ReceiptTime")
       )
 
-instance Prelude.Hashable Receipt
+instance Prelude.Hashable Receipt where
+  hashWithSalt _salt Receipt' {..} =
+    _salt `Prelude.hashWithSalt` receiptInfo
+      `Prelude.hashWithSalt` contactChannelArn
+      `Prelude.hashWithSalt` receiptType
+      `Prelude.hashWithSalt` receiptTime
 
-instance Prelude.NFData Receipt
+instance Prelude.NFData Receipt where
+  rnf Receipt' {..} =
+    Prelude.rnf receiptInfo
+      `Prelude.seq` Prelude.rnf contactChannelArn
+      `Prelude.seq` Prelude.rnf receiptType
+      `Prelude.seq` Prelude.rnf receiptTime

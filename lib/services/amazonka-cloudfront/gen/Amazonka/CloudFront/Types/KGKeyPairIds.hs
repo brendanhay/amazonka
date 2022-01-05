@@ -68,6 +68,12 @@ instance Core.FromXML KGKeyPairIds where
       Prelude.<$> (x Core..@? "KeyPairIds")
       Prelude.<*> (x Core..@? "KeyGroupId")
 
-instance Prelude.Hashable KGKeyPairIds
+instance Prelude.Hashable KGKeyPairIds where
+  hashWithSalt _salt KGKeyPairIds' {..} =
+    _salt `Prelude.hashWithSalt` keyPairIds
+      `Prelude.hashWithSalt` keyGroupId
 
-instance Prelude.NFData KGKeyPairIds
+instance Prelude.NFData KGKeyPairIds where
+  rnf KGKeyPairIds' {..} =
+    Prelude.rnf keyPairIds
+      `Prelude.seq` Prelude.rnf keyGroupId

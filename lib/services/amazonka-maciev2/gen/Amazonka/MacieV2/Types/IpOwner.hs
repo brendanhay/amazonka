@@ -103,6 +103,16 @@ instance Core.FromJSON IpOwner where
             Prelude.<*> (x Core..:? "isp")
       )
 
-instance Prelude.Hashable IpOwner
+instance Prelude.Hashable IpOwner where
+  hashWithSalt _salt IpOwner' {..} =
+    _salt `Prelude.hashWithSalt` org
+      `Prelude.hashWithSalt` asnOrg
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` isp
 
-instance Prelude.NFData IpOwner
+instance Prelude.NFData IpOwner where
+  rnf IpOwner' {..} =
+    Prelude.rnf org
+      `Prelude.seq` Prelude.rnf asnOrg
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf isp

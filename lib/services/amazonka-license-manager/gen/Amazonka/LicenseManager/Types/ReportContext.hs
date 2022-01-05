@@ -67,9 +67,14 @@ instance Core.FromJSON ReportContext where
                         )
       )
 
-instance Prelude.Hashable ReportContext
+instance Prelude.Hashable ReportContext where
+  hashWithSalt _salt ReportContext' {..} =
+    _salt
+      `Prelude.hashWithSalt` licenseConfigurationArns
 
-instance Prelude.NFData ReportContext
+instance Prelude.NFData ReportContext where
+  rnf ReportContext' {..} =
+    Prelude.rnf licenseConfigurationArns
 
 instance Core.ToJSON ReportContext where
   toJSON ReportContext' {..} =

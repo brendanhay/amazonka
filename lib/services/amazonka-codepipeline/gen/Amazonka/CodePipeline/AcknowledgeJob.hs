@@ -109,9 +109,14 @@ instance Core.AWSRequest AcknowledgeJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcknowledgeJob
+instance Prelude.Hashable AcknowledgeJob where
+  hashWithSalt _salt AcknowledgeJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` nonce
 
-instance Prelude.NFData AcknowledgeJob
+instance Prelude.NFData AcknowledgeJob where
+  rnf AcknowledgeJob' {..} =
+    Prelude.rnf jobId `Prelude.seq` Prelude.rnf nonce
 
 instance Core.ToHeaders AcknowledgeJob where
   toHeaders =
@@ -183,4 +188,7 @@ acknowledgeJobResponse_status = Lens.lens (\AcknowledgeJobResponse' {status} -> 
 acknowledgeJobResponse_httpStatus :: Lens.Lens' AcknowledgeJobResponse Prelude.Int
 acknowledgeJobResponse_httpStatus = Lens.lens (\AcknowledgeJobResponse' {httpStatus} -> httpStatus) (\s@AcknowledgeJobResponse' {} a -> s {httpStatus = a} :: AcknowledgeJobResponse)
 
-instance Prelude.NFData AcknowledgeJobResponse
+instance Prelude.NFData AcknowledgeJobResponse where
+  rnf AcknowledgeJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

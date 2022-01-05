@@ -76,6 +76,11 @@ instance Core.FromJSON ResultField where
             Prelude.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable ResultField
+instance Prelude.Hashable ResultField where
+  hashWithSalt _salt ResultField' {..} =
+    _salt `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ResultField
+instance Prelude.NFData ResultField where
+  rnf ResultField' {..} =
+    Prelude.rnf field `Prelude.seq` Prelude.rnf value

@@ -92,8 +92,14 @@ instance
 instance
   Prelude.Hashable
     DeleteMedicalTranscriptionJob
+  where
+  hashWithSalt _salt DeleteMedicalTranscriptionJob' {..} =
+    _salt
+      `Prelude.hashWithSalt` medicalTranscriptionJobName
 
-instance Prelude.NFData DeleteMedicalTranscriptionJob
+instance Prelude.NFData DeleteMedicalTranscriptionJob where
+  rnf DeleteMedicalTranscriptionJob' {..} =
+    Prelude.rnf medicalTranscriptionJobName
 
 instance Core.ToHeaders DeleteMedicalTranscriptionJob where
   toHeaders =
@@ -145,3 +151,5 @@ newDeleteMedicalTranscriptionJobResponse =
 instance
   Prelude.NFData
     DeleteMedicalTranscriptionJobResponse
+  where
+  rnf _ = ()

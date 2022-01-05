@@ -96,9 +96,15 @@ instance Core.AWSRequest DetachPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull DetachPolicyResponse'
 
-instance Prelude.Hashable DetachPolicy
+instance Prelude.Hashable DetachPolicy where
+  hashWithSalt _salt DetachPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData DetachPolicy
+instance Prelude.NFData DetachPolicy where
+  rnf DetachPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders DetachPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -132,4 +138,5 @@ newDetachPolicyResponse ::
   DetachPolicyResponse
 newDetachPolicyResponse = DetachPolicyResponse'
 
-instance Prelude.NFData DetachPolicyResponse
+instance Prelude.NFData DetachPolicyResponse where
+  rnf _ = ()

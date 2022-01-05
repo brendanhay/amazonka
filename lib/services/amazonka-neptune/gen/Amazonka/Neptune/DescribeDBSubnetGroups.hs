@@ -181,9 +181,19 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBSubnetGroups
+instance Prelude.Hashable DescribeDBSubnetGroups where
+  hashWithSalt _salt DescribeDBSubnetGroups' {..} =
+    _salt `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeDBSubnetGroups
+instance Prelude.NFData DescribeDBSubnetGroups where
+  rnf DescribeDBSubnetGroups' {..} =
+    Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeDBSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,3 +273,8 @@ describeDBSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeDBSubnetGroupsRe
 instance
   Prelude.NFData
     DescribeDBSubnetGroupsResponse
+  where
+  rnf DescribeDBSubnetGroupsResponse' {..} =
+    Prelude.rnf dbSubnetGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

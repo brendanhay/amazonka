@@ -117,9 +117,17 @@ instance Core.AWSRequest UpdateRelatedItems where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRelatedItems
+instance Prelude.Hashable UpdateRelatedItems where
+  hashWithSalt _salt UpdateRelatedItems' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` incidentRecordArn
+      `Prelude.hashWithSalt` relatedItemsUpdate
 
-instance Prelude.NFData UpdateRelatedItems
+instance Prelude.NFData UpdateRelatedItems where
+  rnf UpdateRelatedItems' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf incidentRecordArn
+      `Prelude.seq` Prelude.rnf relatedItemsUpdate
 
 instance Core.ToHeaders UpdateRelatedItems where
   toHeaders =
@@ -180,4 +188,6 @@ newUpdateRelatedItemsResponse pHttpStatus_ =
 updateRelatedItemsResponse_httpStatus :: Lens.Lens' UpdateRelatedItemsResponse Prelude.Int
 updateRelatedItemsResponse_httpStatus = Lens.lens (\UpdateRelatedItemsResponse' {httpStatus} -> httpStatus) (\s@UpdateRelatedItemsResponse' {} a -> s {httpStatus = a} :: UpdateRelatedItemsResponse)
 
-instance Prelude.NFData UpdateRelatedItemsResponse
+instance Prelude.NFData UpdateRelatedItemsResponse where
+  rnf UpdateRelatedItemsResponse' {..} =
+    Prelude.rnf httpStatus

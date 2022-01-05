@@ -154,10 +154,24 @@ instance
 instance
   Prelude.Hashable
     AssociateQualificationWithWorker
+  where
+  hashWithSalt
+    _salt
+    AssociateQualificationWithWorker' {..} =
+      _salt `Prelude.hashWithSalt` integerValue
+        `Prelude.hashWithSalt` sendNotification
+        `Prelude.hashWithSalt` qualificationTypeId
+        `Prelude.hashWithSalt` workerId
 
 instance
   Prelude.NFData
     AssociateQualificationWithWorker
+  where
+  rnf AssociateQualificationWithWorker' {..} =
+    Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf sendNotification
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf workerId
 
 instance
   Core.ToHeaders
@@ -233,3 +247,6 @@ associateQualificationWithWorkerResponse_httpStatus = Lens.lens (\AssociateQuali
 instance
   Prelude.NFData
     AssociateQualificationWithWorkerResponse
+  where
+  rnf AssociateQualificationWithWorkerResponse' {..} =
+    Prelude.rnf httpStatus

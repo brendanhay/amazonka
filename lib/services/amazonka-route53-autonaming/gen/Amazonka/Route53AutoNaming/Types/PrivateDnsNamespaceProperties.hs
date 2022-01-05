@@ -59,8 +59,13 @@ privateDnsNamespaceProperties_dnsProperties = Lens.lens (\PrivateDnsNamespacePro
 instance
   Prelude.Hashable
     PrivateDnsNamespaceProperties
+  where
+  hashWithSalt _salt PrivateDnsNamespaceProperties' {..} =
+    _salt `Prelude.hashWithSalt` dnsProperties
 
-instance Prelude.NFData PrivateDnsNamespaceProperties
+instance Prelude.NFData PrivateDnsNamespaceProperties where
+  rnf PrivateDnsNamespaceProperties' {..} =
+    Prelude.rnf dnsProperties
 
 instance Core.ToJSON PrivateDnsNamespaceProperties where
   toJSON PrivateDnsNamespaceProperties' {..} =

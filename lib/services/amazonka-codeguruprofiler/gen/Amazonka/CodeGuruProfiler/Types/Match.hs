@@ -88,6 +88,14 @@ instance Core.FromJSON Match where
             Prelude.<*> (x Core..:? "targetFramesIndex")
       )
 
-instance Prelude.Hashable Match
+instance Prelude.Hashable Match where
+  hashWithSalt _salt Match' {..} =
+    _salt `Prelude.hashWithSalt` thresholdBreachValue
+      `Prelude.hashWithSalt` frameAddress
+      `Prelude.hashWithSalt` targetFramesIndex
 
-instance Prelude.NFData Match
+instance Prelude.NFData Match where
+  rnf Match' {..} =
+    Prelude.rnf thresholdBreachValue
+      `Prelude.seq` Prelude.rnf frameAddress
+      `Prelude.seq` Prelude.rnf targetFramesIndex

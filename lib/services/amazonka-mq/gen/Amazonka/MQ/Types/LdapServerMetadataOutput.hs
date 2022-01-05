@@ -243,6 +243,28 @@ instance Core.FromJSON LdapServerMetadataOutput where
             Prelude.<*> (x Core..: "roleBase")
       )
 
-instance Prelude.Hashable LdapServerMetadataOutput
+instance Prelude.Hashable LdapServerMetadataOutput where
+  hashWithSalt _salt LdapServerMetadataOutput' {..} =
+    _salt `Prelude.hashWithSalt` userRoleName
+      `Prelude.hashWithSalt` userSearchSubtree
+      `Prelude.hashWithSalt` roleSearchSubtree
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` hosts
+      `Prelude.hashWithSalt` userSearchMatching
+      `Prelude.hashWithSalt` userBase
+      `Prelude.hashWithSalt` roleSearchMatching
+      `Prelude.hashWithSalt` serviceAccountUsername
+      `Prelude.hashWithSalt` roleBase
 
-instance Prelude.NFData LdapServerMetadataOutput
+instance Prelude.NFData LdapServerMetadataOutput where
+  rnf LdapServerMetadataOutput' {..} =
+    Prelude.rnf userRoleName
+      `Prelude.seq` Prelude.rnf userSearchSubtree
+      `Prelude.seq` Prelude.rnf roleSearchSubtree
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf hosts
+      `Prelude.seq` Prelude.rnf userSearchMatching
+      `Prelude.seq` Prelude.rnf userBase
+      `Prelude.seq` Prelude.rnf roleSearchMatching
+      `Prelude.seq` Prelude.rnf serviceAccountUsername
+      `Prelude.seq` Prelude.rnf roleBase

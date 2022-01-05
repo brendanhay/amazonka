@@ -153,9 +153,19 @@ instance Core.AWSRequest SearchContent where
                         )
       )
 
-instance Prelude.Hashable SearchContent
+instance Prelude.Hashable SearchContent where
+  hashWithSalt _salt SearchContent' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` searchExpression
 
-instance Prelude.NFData SearchContent
+instance Prelude.NFData SearchContent where
+  rnf SearchContent' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf searchExpression
 
 instance Core.ToHeaders SearchContent where
   toHeaders =
@@ -242,4 +252,8 @@ searchContentResponse_httpStatus = Lens.lens (\SearchContentResponse' {httpStatu
 searchContentResponse_contentSummaries :: Lens.Lens' SearchContentResponse [ContentSummary]
 searchContentResponse_contentSummaries = Lens.lens (\SearchContentResponse' {contentSummaries} -> contentSummaries) (\s@SearchContentResponse' {} a -> s {contentSummaries = a} :: SearchContentResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SearchContentResponse
+instance Prelude.NFData SearchContentResponse where
+  rnf SearchContentResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentSummaries

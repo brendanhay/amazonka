@@ -101,10 +101,22 @@ instance
 instance
   Prelude.Hashable
     ModelExplainabilityAppSpecification
+  where
+  hashWithSalt
+    _salt
+    ModelExplainabilityAppSpecification' {..} =
+      _salt `Prelude.hashWithSalt` environment
+        `Prelude.hashWithSalt` imageUri
+        `Prelude.hashWithSalt` configUri
 
 instance
   Prelude.NFData
     ModelExplainabilityAppSpecification
+  where
+  rnf ModelExplainabilityAppSpecification' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf configUri
 
 instance
   Core.ToJSON

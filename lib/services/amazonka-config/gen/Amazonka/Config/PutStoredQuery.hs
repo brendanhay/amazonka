@@ -116,9 +116,15 @@ instance Core.AWSRequest PutStoredQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutStoredQuery
+instance Prelude.Hashable PutStoredQuery where
+  hashWithSalt _salt PutStoredQuery' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` storedQuery
 
-instance Prelude.NFData PutStoredQuery
+instance Prelude.NFData PutStoredQuery where
+  rnf PutStoredQuery' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf storedQuery
 
 instance Core.ToHeaders PutStoredQuery where
   toHeaders =
@@ -191,4 +197,7 @@ putStoredQueryResponse_queryArn = Lens.lens (\PutStoredQueryResponse' {queryArn}
 putStoredQueryResponse_httpStatus :: Lens.Lens' PutStoredQueryResponse Prelude.Int
 putStoredQueryResponse_httpStatus = Lens.lens (\PutStoredQueryResponse' {httpStatus} -> httpStatus) (\s@PutStoredQueryResponse' {} a -> s {httpStatus = a} :: PutStoredQueryResponse)
 
-instance Prelude.NFData PutStoredQueryResponse
+instance Prelude.NFData PutStoredQueryResponse where
+  rnf PutStoredQueryResponse' {..} =
+    Prelude.rnf queryArn
+      `Prelude.seq` Prelude.rnf httpStatus

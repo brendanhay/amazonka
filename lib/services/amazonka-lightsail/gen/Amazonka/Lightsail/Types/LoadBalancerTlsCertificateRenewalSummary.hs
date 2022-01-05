@@ -183,7 +183,17 @@ instance
 instance
   Prelude.Hashable
     LoadBalancerTlsCertificateRenewalSummary
+  where
+  hashWithSalt
+    _salt
+    LoadBalancerTlsCertificateRenewalSummary' {..} =
+      _salt `Prelude.hashWithSalt` renewalStatus
+        `Prelude.hashWithSalt` domainValidationOptions
 
 instance
   Prelude.NFData
     LoadBalancerTlsCertificateRenewalSummary
+  where
+  rnf LoadBalancerTlsCertificateRenewalSummary' {..} =
+    Prelude.rnf renewalStatus
+      `Prelude.seq` Prelude.rnf domainValidationOptions

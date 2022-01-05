@@ -63,9 +63,12 @@ instance Core.FromJSON VirtualServiceSpec where
             Prelude.<$> (x Core..:? "provider")
       )
 
-instance Prelude.Hashable VirtualServiceSpec
+instance Prelude.Hashable VirtualServiceSpec where
+  hashWithSalt _salt VirtualServiceSpec' {..} =
+    _salt `Prelude.hashWithSalt` provider
 
-instance Prelude.NFData VirtualServiceSpec
+instance Prelude.NFData VirtualServiceSpec where
+  rnf VirtualServiceSpec' {..} = Prelude.rnf provider
 
 instance Core.ToJSON VirtualServiceSpec where
   toJSON VirtualServiceSpec' {..} =

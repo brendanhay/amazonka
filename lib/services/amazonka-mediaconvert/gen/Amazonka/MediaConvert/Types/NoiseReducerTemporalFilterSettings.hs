@@ -141,10 +141,24 @@ instance
 instance
   Prelude.Hashable
     NoiseReducerTemporalFilterSettings
+  where
+  hashWithSalt
+    _salt
+    NoiseReducerTemporalFilterSettings' {..} =
+      _salt `Prelude.hashWithSalt` postTemporalSharpening
+        `Prelude.hashWithSalt` aggressiveMode
+        `Prelude.hashWithSalt` strength
+        `Prelude.hashWithSalt` speed
 
 instance
   Prelude.NFData
     NoiseReducerTemporalFilterSettings
+  where
+  rnf NoiseReducerTemporalFilterSettings' {..} =
+    Prelude.rnf postTemporalSharpening
+      `Prelude.seq` Prelude.rnf aggressiveMode
+      `Prelude.seq` Prelude.rnf strength
+      `Prelude.seq` Prelude.rnf speed
 
 instance
   Core.ToJSON

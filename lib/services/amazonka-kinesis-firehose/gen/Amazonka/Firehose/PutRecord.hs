@@ -141,9 +141,15 @@ instance Core.AWSRequest PutRecord where
             Prelude.<*> (x Core..:> "RecordId")
       )
 
-instance Prelude.Hashable PutRecord
+instance Prelude.Hashable PutRecord where
+  hashWithSalt _salt PutRecord' {..} =
+    _salt `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` record
 
-instance Prelude.NFData PutRecord
+instance Prelude.NFData PutRecord where
+  rnf PutRecord' {..} =
+    Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf record
 
 instance Core.ToHeaders PutRecord where
   toHeaders =
@@ -228,4 +234,8 @@ putRecordResponse_httpStatus = Lens.lens (\PutRecordResponse' {httpStatus} -> ht
 putRecordResponse_recordId :: Lens.Lens' PutRecordResponse Prelude.Text
 putRecordResponse_recordId = Lens.lens (\PutRecordResponse' {recordId} -> recordId) (\s@PutRecordResponse' {} a -> s {recordId = a} :: PutRecordResponse)
 
-instance Prelude.NFData PutRecordResponse
+instance Prelude.NFData PutRecordResponse where
+  rnf PutRecordResponse' {..} =
+    Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recordId

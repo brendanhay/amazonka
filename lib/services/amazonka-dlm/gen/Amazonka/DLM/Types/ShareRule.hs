@@ -92,9 +92,17 @@ instance Core.FromJSON ShareRule where
             Prelude.<*> (x Core..: "TargetAccounts")
       )
 
-instance Prelude.Hashable ShareRule
+instance Prelude.Hashable ShareRule where
+  hashWithSalt _salt ShareRule' {..} =
+    _salt `Prelude.hashWithSalt` unshareIntervalUnit
+      `Prelude.hashWithSalt` unshareInterval
+      `Prelude.hashWithSalt` targetAccounts
 
-instance Prelude.NFData ShareRule
+instance Prelude.NFData ShareRule where
+  rnf ShareRule' {..} =
+    Prelude.rnf unshareIntervalUnit
+      `Prelude.seq` Prelude.rnf unshareInterval
+      `Prelude.seq` Prelude.rnf targetAccounts
 
 instance Core.ToJSON ShareRule where
   toJSON ShareRule' {..} =

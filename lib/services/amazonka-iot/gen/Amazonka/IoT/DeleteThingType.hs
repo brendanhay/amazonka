@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteThingType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteThingType
+instance Prelude.Hashable DeleteThingType where
+  hashWithSalt _salt DeleteThingType' {..} =
+    _salt `Prelude.hashWithSalt` thingTypeName
 
-instance Prelude.NFData DeleteThingType
+instance Prelude.NFData DeleteThingType where
+  rnf DeleteThingType' {..} = Prelude.rnf thingTypeName
 
 instance Core.ToHeaders DeleteThingType where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,6 @@ newDeleteThingTypeResponse pHttpStatus_ =
 deleteThingTypeResponse_httpStatus :: Lens.Lens' DeleteThingTypeResponse Prelude.Int
 deleteThingTypeResponse_httpStatus = Lens.lens (\DeleteThingTypeResponse' {httpStatus} -> httpStatus) (\s@DeleteThingTypeResponse' {} a -> s {httpStatus = a} :: DeleteThingTypeResponse)
 
-instance Prelude.NFData DeleteThingTypeResponse
+instance Prelude.NFData DeleteThingTypeResponse where
+  rnf DeleteThingTypeResponse' {..} =
+    Prelude.rnf httpStatus

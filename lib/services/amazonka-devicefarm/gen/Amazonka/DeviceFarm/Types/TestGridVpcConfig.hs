@@ -91,9 +91,17 @@ instance Core.FromJSON TestGridVpcConfig where
             Prelude.<*> (x Core..: "vpcId")
       )
 
-instance Prelude.Hashable TestGridVpcConfig
+instance Prelude.Hashable TestGridVpcConfig where
+  hashWithSalt _salt TestGridVpcConfig' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData TestGridVpcConfig
+instance Prelude.NFData TestGridVpcConfig where
+  rnf TestGridVpcConfig' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToJSON TestGridVpcConfig where
   toJSON TestGridVpcConfig' {..} =

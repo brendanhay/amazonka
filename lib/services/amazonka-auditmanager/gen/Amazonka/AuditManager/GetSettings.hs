@@ -84,9 +84,12 @@ instance Core.AWSRequest GetSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSettings
+instance Prelude.Hashable GetSettings where
+  hashWithSalt _salt GetSettings' {..} =
+    _salt `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData GetSettings
+instance Prelude.NFData GetSettings where
+  rnf GetSettings' {..} = Prelude.rnf attribute
 
 instance Core.ToHeaders GetSettings where
   toHeaders =
@@ -144,4 +147,7 @@ getSettingsResponse_settings = Lens.lens (\GetSettingsResponse' {settings} -> se
 getSettingsResponse_httpStatus :: Lens.Lens' GetSettingsResponse Prelude.Int
 getSettingsResponse_httpStatus = Lens.lens (\GetSettingsResponse' {httpStatus} -> httpStatus) (\s@GetSettingsResponse' {} a -> s {httpStatus = a} :: GetSettingsResponse)
 
-instance Prelude.NFData GetSettingsResponse
+instance Prelude.NFData GetSettingsResponse where
+  rnf GetSettingsResponse' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf httpStatus

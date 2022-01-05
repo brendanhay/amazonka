@@ -104,9 +104,13 @@ instance Core.AWSRequest RenewCertificate where
   response =
     Response.receiveNull RenewCertificateResponse'
 
-instance Prelude.Hashable RenewCertificate
+instance Prelude.Hashable RenewCertificate where
+  hashWithSalt _salt RenewCertificate' {..} =
+    _salt `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData RenewCertificate
+instance Prelude.NFData RenewCertificate where
+  rnf RenewCertificate' {..} =
+    Prelude.rnf certificateArn
 
 instance Core.ToHeaders RenewCertificate where
   toHeaders =
@@ -153,4 +157,5 @@ newRenewCertificateResponse ::
 newRenewCertificateResponse =
   RenewCertificateResponse'
 
-instance Prelude.NFData RenewCertificateResponse
+instance Prelude.NFData RenewCertificateResponse where
+  rnf _ = ()

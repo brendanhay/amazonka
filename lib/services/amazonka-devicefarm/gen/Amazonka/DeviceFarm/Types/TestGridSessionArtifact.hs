@@ -86,6 +86,14 @@ instance Core.FromJSON TestGridSessionArtifact where
             Prelude.<*> (x Core..:? "filename")
       )
 
-instance Prelude.Hashable TestGridSessionArtifact
+instance Prelude.Hashable TestGridSessionArtifact where
+  hashWithSalt _salt TestGridSessionArtifact' {..} =
+    _salt `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` filename
 
-instance Prelude.NFData TestGridSessionArtifact
+instance Prelude.NFData TestGridSessionArtifact where
+  rnf TestGridSessionArtifact' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf filename

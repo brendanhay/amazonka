@@ -101,10 +101,22 @@ instance
 instance
   Prelude.Hashable
     AwsWafRateBasedRuleMatchPredicate
+  where
+  hashWithSalt
+    _salt
+    AwsWafRateBasedRuleMatchPredicate' {..} =
+      _salt `Prelude.hashWithSalt` negated
+        `Prelude.hashWithSalt` dataId
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsWafRateBasedRuleMatchPredicate
+  where
+  rnf AwsWafRateBasedRuleMatchPredicate' {..} =
+    Prelude.rnf negated
+      `Prelude.seq` Prelude.rnf dataId
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

@@ -68,10 +68,20 @@ launchTemplateInstanceMarketOptionsRequest_spotOptions = Lens.lens (\LaunchTempl
 instance
   Prelude.Hashable
     LaunchTemplateInstanceMarketOptionsRequest
+  where
+  hashWithSalt
+    _salt
+    LaunchTemplateInstanceMarketOptionsRequest' {..} =
+      _salt `Prelude.hashWithSalt` marketType
+        `Prelude.hashWithSalt` spotOptions
 
 instance
   Prelude.NFData
     LaunchTemplateInstanceMarketOptionsRequest
+  where
+  rnf LaunchTemplateInstanceMarketOptionsRequest' {..} =
+    Prelude.rnf marketType
+      `Prelude.seq` Prelude.rnf spotOptions
 
 instance
   Core.ToQuery

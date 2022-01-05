@@ -64,6 +64,9 @@ instance Core.FromJSON HumanLoopOutput where
             Prelude.<$> (x Core..: "OutputS3Uri")
       )
 
-instance Prelude.Hashable HumanLoopOutput
+instance Prelude.Hashable HumanLoopOutput where
+  hashWithSalt _salt HumanLoopOutput' {..} =
+    _salt `Prelude.hashWithSalt` outputS3Uri
 
-instance Prelude.NFData HumanLoopOutput
+instance Prelude.NFData HumanLoopOutput where
+  rnf HumanLoopOutput' {..} = Prelude.rnf outputS3Uri

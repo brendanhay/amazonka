@@ -148,6 +148,24 @@ instance Core.FromJSON JobSummary where
             Prelude.<*> (x Core..:? "targetSelection")
       )
 
-instance Prelude.Hashable JobSummary
+instance Prelude.Hashable JobSummary where
+  hashWithSalt _salt JobSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` thingGroupId
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` targetSelection
 
-instance Prelude.NFData JobSummary
+instance Prelude.NFData JobSummary where
+  rnf JobSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf thingGroupId
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf targetSelection

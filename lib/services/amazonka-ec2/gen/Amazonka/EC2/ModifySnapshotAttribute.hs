@@ -166,9 +166,25 @@ instance Core.AWSRequest ModifySnapshotAttribute where
     Response.receiveNull
       ModifySnapshotAttributeResponse'
 
-instance Prelude.Hashable ModifySnapshotAttribute
+instance Prelude.Hashable ModifySnapshotAttribute where
+  hashWithSalt _salt ModifySnapshotAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` createVolumePermission
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` groupNames
+      `Prelude.hashWithSalt` operationType
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` snapshotId
 
-instance Prelude.NFData ModifySnapshotAttribute
+instance Prelude.NFData ModifySnapshotAttribute where
+  rnf ModifySnapshotAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf createVolumePermission
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf groupNames
+      `Prelude.seq` Prelude.rnf operationType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToHeaders ModifySnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,3 +231,5 @@ newModifySnapshotAttributeResponse =
 instance
   Prelude.NFData
     ModifySnapshotAttributeResponse
+  where
+  rnf _ = ()

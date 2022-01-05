@@ -62,9 +62,14 @@ samplingStrategy_value = Lens.lens (\SamplingStrategy' {value} -> value) (\s@Sam
 samplingStrategy_name :: Lens.Lens' SamplingStrategy (Prelude.Maybe SamplingStrategyName)
 samplingStrategy_name = Lens.lens (\SamplingStrategy' {name} -> name) (\s@SamplingStrategy' {} a -> s {name = a} :: SamplingStrategy)
 
-instance Prelude.Hashable SamplingStrategy
+instance Prelude.Hashable SamplingStrategy where
+  hashWithSalt _salt SamplingStrategy' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SamplingStrategy
+instance Prelude.NFData SamplingStrategy where
+  rnf SamplingStrategy' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SamplingStrategy where
   toJSON SamplingStrategy' {..} =

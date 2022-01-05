@@ -161,9 +161,19 @@ instance Core.AWSRequest CreateDatasetImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatasetImportJob
+instance Prelude.Hashable CreateDatasetImportJob where
+  hashWithSalt _salt CreateDatasetImportJob' {..} =
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CreateDatasetImportJob
+instance Prelude.NFData CreateDatasetImportJob where
+  rnf CreateDatasetImportJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders CreateDatasetImportJob where
   toHeaders =
@@ -239,3 +249,7 @@ createDatasetImportJobResponse_httpStatus = Lens.lens (\CreateDatasetImportJobRe
 instance
   Prelude.NFData
     CreateDatasetImportJobResponse
+  where
+  rnf CreateDatasetImportJobResponse' {..} =
+    Prelude.rnf datasetImportJobArn
+      `Prelude.seq` Prelude.rnf httpStatus

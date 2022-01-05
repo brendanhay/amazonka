@@ -39,9 +39,12 @@ newUnlock ::
   Unlock
 newUnlock = Unlock'
 
-instance Prelude.Hashable Unlock
+instance Prelude.Hashable Unlock where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData Unlock
+instance Prelude.NFData Unlock where
+  rnf _ = ()
 
 instance Core.ToJSON Unlock where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

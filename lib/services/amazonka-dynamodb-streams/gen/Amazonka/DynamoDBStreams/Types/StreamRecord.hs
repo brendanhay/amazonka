@@ -20,7 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.StreamRecord where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDBStreams.Types.AttributeValue
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.StreamViewType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -160,6 +160,22 @@ instance Core.FromJSON StreamRecord where
             Prelude.<*> (x Core..:? "NewImage" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StreamRecord
+instance Prelude.Hashable StreamRecord where
+  hashWithSalt _salt StreamRecord' {..} =
+    _salt `Prelude.hashWithSalt` sizeBytes
+      `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` approximateCreationDateTime
+      `Prelude.hashWithSalt` streamViewType
+      `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` oldImage
+      `Prelude.hashWithSalt` newImage'
 
-instance Prelude.NFData StreamRecord
+instance Prelude.NFData StreamRecord where
+  rnf StreamRecord' {..} =
+    Prelude.rnf sizeBytes
+      `Prelude.seq` Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf approximateCreationDateTime
+      `Prelude.seq` Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf oldImage
+      `Prelude.seq` Prelude.rnf newImage'

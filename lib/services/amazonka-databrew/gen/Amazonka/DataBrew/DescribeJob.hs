@@ -127,9 +127,12 @@ instance Core.AWSRequest DescribeJob where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DescribeJob
+instance Prelude.Hashable DescribeJob where
+  hashWithSalt _salt DescribeJob' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeJob
+instance Prelude.NFData DescribeJob where
+  rnf DescribeJob' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeJob where
   toHeaders =
@@ -444,4 +447,29 @@ describeJobResponse_httpStatus = Lens.lens (\DescribeJobResponse' {httpStatus} -
 describeJobResponse_name :: Lens.Lens' DescribeJobResponse Prelude.Text
 describeJobResponse_name = Lens.lens (\DescribeJobResponse' {name} -> name) (\s@DescribeJobResponse' {} a -> s {name = a} :: DescribeJobResponse)
 
-instance Prelude.NFData DescribeJobResponse
+instance Prelude.NFData DescribeJobResponse where
+  rnf DescribeJobResponse' {..} =
+    Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf recipeReference
+      `Prelude.seq` Prelude.rnf profileConfiguration
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf databaseOutputs
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

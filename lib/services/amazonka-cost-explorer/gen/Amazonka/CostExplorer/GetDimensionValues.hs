@@ -590,9 +590,27 @@ instance Core.AWSRequest GetDimensionValues where
             Prelude.<*> (x Core..:> "TotalSize")
       )
 
-instance Prelude.Hashable GetDimensionValues
+instance Prelude.Hashable GetDimensionValues where
+  hashWithSalt _salt GetDimensionValues' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` searchString
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` dimension
 
-instance Prelude.NFData GetDimensionValues
+instance Prelude.NFData GetDimensionValues where
+  rnf GetDimensionValues' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf searchString
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf dimension
 
 instance Core.ToHeaders GetDimensionValues where
   toHeaders =
@@ -1006,4 +1024,10 @@ getDimensionValuesResponse_returnSize = Lens.lens (\GetDimensionValuesResponse' 
 getDimensionValuesResponse_totalSize :: Lens.Lens' GetDimensionValuesResponse Prelude.Int
 getDimensionValuesResponse_totalSize = Lens.lens (\GetDimensionValuesResponse' {totalSize} -> totalSize) (\s@GetDimensionValuesResponse' {} a -> s {totalSize = a} :: GetDimensionValuesResponse)
 
-instance Prelude.NFData GetDimensionValuesResponse
+instance Prelude.NFData GetDimensionValuesResponse where
+  rnf GetDimensionValuesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dimensionValues
+      `Prelude.seq` Prelude.rnf returnSize
+      `Prelude.seq` Prelude.rnf totalSize

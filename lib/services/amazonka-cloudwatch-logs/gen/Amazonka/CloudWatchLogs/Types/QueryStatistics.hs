@@ -83,6 +83,14 @@ instance Core.FromJSON QueryStatistics where
             Prelude.<*> (x Core..:? "recordsMatched")
       )
 
-instance Prelude.Hashable QueryStatistics
+instance Prelude.Hashable QueryStatistics where
+  hashWithSalt _salt QueryStatistics' {..} =
+    _salt `Prelude.hashWithSalt` recordsScanned
+      `Prelude.hashWithSalt` bytesScanned
+      `Prelude.hashWithSalt` recordsMatched
 
-instance Prelude.NFData QueryStatistics
+instance Prelude.NFData QueryStatistics where
+  rnf QueryStatistics' {..} =
+    Prelude.rnf recordsScanned
+      `Prelude.seq` Prelude.rnf bytesScanned
+      `Prelude.seq` Prelude.rnf recordsMatched

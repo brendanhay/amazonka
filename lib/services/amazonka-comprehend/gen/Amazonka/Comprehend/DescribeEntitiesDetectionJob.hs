@@ -93,8 +93,13 @@ instance Core.AWSRequest DescribeEntitiesDetectionJob where
 instance
   Prelude.Hashable
     DescribeEntitiesDetectionJob
+  where
+  hashWithSalt _salt DescribeEntitiesDetectionJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeEntitiesDetectionJob
+instance Prelude.NFData DescribeEntitiesDetectionJob where
+  rnf DescribeEntitiesDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeEntitiesDetectionJob where
   toHeaders =
@@ -169,3 +174,7 @@ describeEntitiesDetectionJobResponse_httpStatus = Lens.lens (\DescribeEntitiesDe
 instance
   Prelude.NFData
     DescribeEntitiesDetectionJobResponse
+  where
+  rnf DescribeEntitiesDetectionJobResponse' {..} =
+    Prelude.rnf entitiesDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

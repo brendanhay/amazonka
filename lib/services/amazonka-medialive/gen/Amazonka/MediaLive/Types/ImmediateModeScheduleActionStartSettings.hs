@@ -55,10 +55,15 @@ instance
 instance
   Prelude.Hashable
     ImmediateModeScheduleActionStartSettings
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     ImmediateModeScheduleActionStartSettings
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

@@ -103,9 +103,14 @@ instance Core.AWSRequest CreateFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleet
+instance Prelude.Hashable CreateFleet where
+  hashWithSalt _salt CreateFleet' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateFleet
+instance Prelude.NFData CreateFleet where
+  rnf CreateFleet' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateFleet where
   toHeaders =
@@ -198,4 +203,10 @@ createFleetResponse_tags = Lens.lens (\CreateFleetResponse' {tags} -> tags) (\s@
 createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Prelude.Int
 createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -> httpStatus) (\s@CreateFleetResponse' {} a -> s {httpStatus = a} :: CreateFleetResponse)
 
-instance Prelude.NFData CreateFleetResponse
+instance Prelude.NFData CreateFleetResponse where
+  rnf CreateFleetResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

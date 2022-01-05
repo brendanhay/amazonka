@@ -52,9 +52,12 @@ newS3LogsConfiguration pEnable_ =
 s3LogsConfiguration_enable :: Lens.Lens' S3LogsConfiguration Prelude.Bool
 s3LogsConfiguration_enable = Lens.lens (\S3LogsConfiguration' {enable} -> enable) (\s@S3LogsConfiguration' {} a -> s {enable = a} :: S3LogsConfiguration)
 
-instance Prelude.Hashable S3LogsConfiguration
+instance Prelude.Hashable S3LogsConfiguration where
+  hashWithSalt _salt S3LogsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` enable
 
-instance Prelude.NFData S3LogsConfiguration
+instance Prelude.NFData S3LogsConfiguration where
+  rnf S3LogsConfiguration' {..} = Prelude.rnf enable
 
 instance Core.ToJSON S3LogsConfiguration where
   toJSON S3LogsConfiguration' {..} =

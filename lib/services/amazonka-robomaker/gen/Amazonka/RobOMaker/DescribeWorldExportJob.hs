@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeWorldExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorldExportJob
+instance Prelude.Hashable DescribeWorldExportJob where
+  hashWithSalt _salt DescribeWorldExportJob' {..} =
+    _salt `Prelude.hashWithSalt` job
 
-instance Prelude.NFData DescribeWorldExportJob
+instance Prelude.NFData DescribeWorldExportJob where
+  rnf DescribeWorldExportJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders DescribeWorldExportJob where
   toHeaders =
@@ -377,3 +380,16 @@ describeWorldExportJobResponse_httpStatus = Lens.lens (\DescribeWorldExportJobRe
 instance
   Prelude.NFData
     DescribeWorldExportJobResponse
+  where
+  rnf DescribeWorldExportJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf worlds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

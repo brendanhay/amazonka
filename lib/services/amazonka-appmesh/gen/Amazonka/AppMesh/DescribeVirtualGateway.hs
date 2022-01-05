@@ -122,9 +122,17 @@ instance Core.AWSRequest DescribeVirtualGateway where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeVirtualGateway
+instance Prelude.Hashable DescribeVirtualGateway where
+  hashWithSalt _salt DescribeVirtualGateway' {..} =
+    _salt `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData DescribeVirtualGateway
+instance Prelude.NFData DescribeVirtualGateway where
+  rnf DescribeVirtualGateway' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders DescribeVirtualGateway where
   toHeaders =
@@ -196,3 +204,7 @@ describeVirtualGatewayResponse_virtualGateway = Lens.lens (\DescribeVirtualGatew
 instance
   Prelude.NFData
     DescribeVirtualGatewayResponse
+  where
+  rnf DescribeVirtualGatewayResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualGateway

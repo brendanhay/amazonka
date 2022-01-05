@@ -168,9 +168,17 @@ instance Core.AWSRequest StartMatchmaking where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMatchmaking
+instance Prelude.Hashable StartMatchmaking where
+  hashWithSalt _salt StartMatchmaking' {..} =
+    _salt `Prelude.hashWithSalt` ticketId
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` players
 
-instance Prelude.NFData StartMatchmaking
+instance Prelude.NFData StartMatchmaking where
+  rnf StartMatchmaking' {..} =
+    Prelude.rnf ticketId
+      `Prelude.seq` Prelude.rnf configurationName
+      `Prelude.seq` Prelude.rnf players
 
 instance Core.ToHeaders StartMatchmaking where
   toHeaders =
@@ -249,4 +257,7 @@ startMatchmakingResponse_matchmakingTicket = Lens.lens (\StartMatchmakingRespons
 startMatchmakingResponse_httpStatus :: Lens.Lens' StartMatchmakingResponse Prelude.Int
 startMatchmakingResponse_httpStatus = Lens.lens (\StartMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StartMatchmakingResponse' {} a -> s {httpStatus = a} :: StartMatchmakingResponse)
 
-instance Prelude.NFData StartMatchmakingResponse
+instance Prelude.NFData StartMatchmakingResponse where
+  rnf StartMatchmakingResponse' {..} =
+    Prelude.rnf matchmakingTicket
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -150,9 +150,17 @@ instance Core.AWSRequest DescribeUserGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserGroups
+instance Prelude.Hashable DescribeUserGroups where
+  hashWithSalt _salt DescribeUserGroups' {..} =
+    _salt `Prelude.hashWithSalt` userGroupId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeUserGroups
+instance Prelude.NFData DescribeUserGroups where
+  rnf DescribeUserGroups' {..} =
+    Prelude.rnf userGroupId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeUserGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,4 +237,8 @@ describeUserGroupsResponse_marker = Lens.lens (\DescribeUserGroupsResponse' {mar
 describeUserGroupsResponse_httpStatus :: Lens.Lens' DescribeUserGroupsResponse Prelude.Int
 describeUserGroupsResponse_httpStatus = Lens.lens (\DescribeUserGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeUserGroupsResponse' {} a -> s {httpStatus = a} :: DescribeUserGroupsResponse)
 
-instance Prelude.NFData DescribeUserGroupsResponse
+instance Prelude.NFData DescribeUserGroupsResponse where
+  rnf DescribeUserGroupsResponse' {..} =
+    Prelude.rnf userGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

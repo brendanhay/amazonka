@@ -148,10 +148,20 @@ instance
 instance
   Prelude.Hashable
     PutEmailIdentityFeedbackAttributes
+  where
+  hashWithSalt
+    _salt
+    PutEmailIdentityFeedbackAttributes' {..} =
+      _salt `Prelude.hashWithSalt` emailForwardingEnabled
+        `Prelude.hashWithSalt` emailIdentity
 
 instance
   Prelude.NFData
     PutEmailIdentityFeedbackAttributes
+  where
+  rnf PutEmailIdentityFeedbackAttributes' {..} =
+    Prelude.rnf emailForwardingEnabled
+      `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
   Core.ToHeaders
@@ -233,3 +243,6 @@ putEmailIdentityFeedbackAttributesResponse_httpStatus = Lens.lens (\PutEmailIden
 instance
   Prelude.NFData
     PutEmailIdentityFeedbackAttributesResponse
+  where
+  rnf PutEmailIdentityFeedbackAttributesResponse' {..} =
+    Prelude.rnf httpStatus

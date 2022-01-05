@@ -63,6 +63,10 @@ instance Core.FromJSON KafkaClusterDescription where
             Prelude.<$> (x Core..:? "apacheKafkaCluster")
       )
 
-instance Prelude.Hashable KafkaClusterDescription
+instance Prelude.Hashable KafkaClusterDescription where
+  hashWithSalt _salt KafkaClusterDescription' {..} =
+    _salt `Prelude.hashWithSalt` apacheKafkaCluster
 
-instance Prelude.NFData KafkaClusterDescription
+instance Prelude.NFData KafkaClusterDescription where
+  rnf KafkaClusterDescription' {..} =
+    Prelude.rnf apacheKafkaCluster

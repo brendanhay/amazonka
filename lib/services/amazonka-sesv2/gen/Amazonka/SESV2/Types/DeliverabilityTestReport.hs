@@ -138,6 +138,20 @@ instance Core.FromJSON DeliverabilityTestReport where
             Prelude.<*> (x Core..:? "DeliverabilityTestStatus")
       )
 
-instance Prelude.Hashable DeliverabilityTestReport
+instance Prelude.Hashable DeliverabilityTestReport where
+  hashWithSalt _salt DeliverabilityTestReport' {..} =
+    _salt `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` fromEmailAddress
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` reportId
+      `Prelude.hashWithSalt` reportName
+      `Prelude.hashWithSalt` deliverabilityTestStatus
 
-instance Prelude.NFData DeliverabilityTestReport
+instance Prelude.NFData DeliverabilityTestReport where
+  rnf DeliverabilityTestReport' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf reportName
+      `Prelude.seq` Prelude.rnf deliverabilityTestStatus

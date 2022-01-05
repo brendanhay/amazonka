@@ -147,9 +147,15 @@ instance Core.AWSRequest GetBlueprints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBlueprints
+instance Prelude.Hashable GetBlueprints where
+  hashWithSalt _salt GetBlueprints' {..} =
+    _salt `Prelude.hashWithSalt` includeInactive
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetBlueprints
+instance Prelude.NFData GetBlueprints where
+  rnf GetBlueprints' {..} =
+    Prelude.rnf includeInactive
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetBlueprints where
   toHeaders =
@@ -251,4 +257,8 @@ getBlueprintsResponse_nextPageToken = Lens.lens (\GetBlueprintsResponse' {nextPa
 getBlueprintsResponse_httpStatus :: Lens.Lens' GetBlueprintsResponse Prelude.Int
 getBlueprintsResponse_httpStatus = Lens.lens (\GetBlueprintsResponse' {httpStatus} -> httpStatus) (\s@GetBlueprintsResponse' {} a -> s {httpStatus = a} :: GetBlueprintsResponse)
 
-instance Prelude.NFData GetBlueprintsResponse
+instance Prelude.NFData GetBlueprintsResponse where
+  rnf GetBlueprintsResponse' {..} =
+    Prelude.rnf blueprints
+      `Prelude.seq` Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus

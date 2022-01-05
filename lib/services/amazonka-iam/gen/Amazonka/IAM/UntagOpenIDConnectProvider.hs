@@ -116,9 +116,16 @@ instance Core.AWSRequest UntagOpenIDConnectProvider where
     Response.receiveNull
       UntagOpenIDConnectProviderResponse'
 
-instance Prelude.Hashable UntagOpenIDConnectProvider
+instance Prelude.Hashable UntagOpenIDConnectProvider where
+  hashWithSalt _salt UntagOpenIDConnectProvider' {..} =
+    _salt
+      `Prelude.hashWithSalt` openIDConnectProviderArn
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagOpenIDConnectProvider
+instance Prelude.NFData UntagOpenIDConnectProvider where
+  rnf UntagOpenIDConnectProvider' {..} =
+    Prelude.rnf openIDConnectProviderArn
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +163,5 @@ newUntagOpenIDConnectProviderResponse =
 instance
   Prelude.NFData
     UntagOpenIDConnectProviderResponse
+  where
+  rnf _ = ()

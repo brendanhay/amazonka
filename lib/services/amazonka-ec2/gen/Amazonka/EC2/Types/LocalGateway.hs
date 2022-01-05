@@ -101,6 +101,18 @@ instance Core.FromXML LocalGateway where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable LocalGateway
+instance Prelude.Hashable LocalGateway where
+  hashWithSalt _salt LocalGateway' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData LocalGateway
+instance Prelude.NFData LocalGateway where
+  rnf LocalGateway' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf tags

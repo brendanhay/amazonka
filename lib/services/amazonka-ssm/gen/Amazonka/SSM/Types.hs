@@ -1460,12 +1460,12 @@ module Amazonka.SSM.Types
     parameter_lastModifiedDate,
     parameter_selector,
     parameter_arn,
-    parameter_value,
     parameter_sourceResult,
-    parameter_name,
-    parameter_version,
-    parameter_type,
     parameter_dataType,
+    parameter_name,
+    parameter_type,
+    parameter_value,
+    parameter_version,
 
     -- * ParameterHistory
     ParameterHistory (..),

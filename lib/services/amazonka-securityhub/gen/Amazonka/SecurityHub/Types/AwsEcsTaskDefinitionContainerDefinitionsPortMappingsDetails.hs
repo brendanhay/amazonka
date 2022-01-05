@@ -93,10 +93,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
+  where
+  hashWithSalt
+    _salt
+    AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
+      _salt `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` hostPort
+        `Prelude.hashWithSalt` containerPort
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
+      Prelude.rnf protocol
+        `Prelude.seq` Prelude.rnf hostPort
+        `Prelude.seq` Prelude.rnf containerPort
 
 instance
   Core.ToJSON

@@ -97,8 +97,13 @@ instance
 instance
   Prelude.Hashable
     DescribeSecurityConfiguration
+  where
+  hashWithSalt _salt DescribeSecurityConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeSecurityConfiguration
+instance Prelude.NFData DescribeSecurityConfiguration where
+  rnf DescribeSecurityConfiguration' {..} =
+    Prelude.rnf name
 
 instance Core.ToHeaders DescribeSecurityConfiguration where
   toHeaders =
@@ -188,3 +193,9 @@ describeSecurityConfigurationResponse_httpStatus = Lens.lens (\DescribeSecurityC
 instance
   Prelude.NFData
     DescribeSecurityConfigurationResponse
+  where
+  rnf DescribeSecurityConfigurationResponse' {..} =
+    Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf httpStatus

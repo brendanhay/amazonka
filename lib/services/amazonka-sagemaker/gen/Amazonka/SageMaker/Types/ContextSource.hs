@@ -83,9 +83,17 @@ instance Core.FromJSON ContextSource where
             Prelude.<*> (x Core..: "SourceUri")
       )
 
-instance Prelude.Hashable ContextSource
+instance Prelude.Hashable ContextSource where
+  hashWithSalt _salt ContextSource' {..} =
+    _salt `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` sourceUri
 
-instance Prelude.NFData ContextSource
+instance Prelude.NFData ContextSource where
+  rnf ContextSource' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf sourceUri
 
 instance Core.ToJSON ContextSource where
   toJSON ContextSource' {..} =

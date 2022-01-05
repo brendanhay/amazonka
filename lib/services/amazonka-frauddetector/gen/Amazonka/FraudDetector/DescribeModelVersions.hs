@@ -132,9 +132,21 @@ instance Core.AWSRequest DescribeModelVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeModelVersions
+instance Prelude.Hashable DescribeModelVersions where
+  hashWithSalt _salt DescribeModelVersions' {..} =
+    _salt `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeModelVersions
+instance Prelude.NFData DescribeModelVersions where
+  rnf DescribeModelVersions' {..} =
+    Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeModelVersions where
   toHeaders =
@@ -218,4 +230,8 @@ describeModelVersionsResponse_modelVersionDetails = Lens.lens (\DescribeModelVer
 describeModelVersionsResponse_httpStatus :: Lens.Lens' DescribeModelVersionsResponse Prelude.Int
 describeModelVersionsResponse_httpStatus = Lens.lens (\DescribeModelVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeModelVersionsResponse' {} a -> s {httpStatus = a} :: DescribeModelVersionsResponse)
 
-instance Prelude.NFData DescribeModelVersionsResponse
+instance Prelude.NFData DescribeModelVersionsResponse where
+  rnf DescribeModelVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modelVersionDetails
+      `Prelude.seq` Prelude.rnf httpStatus

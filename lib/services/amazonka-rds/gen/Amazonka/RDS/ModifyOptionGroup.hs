@@ -149,9 +149,19 @@ instance Core.AWSRequest ModifyOptionGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyOptionGroup
+instance Prelude.Hashable ModifyOptionGroup where
+  hashWithSalt _salt ModifyOptionGroup' {..} =
+    _salt `Prelude.hashWithSalt` optionsToInclude
+      `Prelude.hashWithSalt` optionsToRemove
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` optionGroupName
 
-instance Prelude.NFData ModifyOptionGroup
+instance Prelude.NFData ModifyOptionGroup where
+  rnf ModifyOptionGroup' {..} =
+    Prelude.rnf optionsToInclude
+      `Prelude.seq` Prelude.rnf optionsToRemove
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf optionGroupName
 
 instance Core.ToHeaders ModifyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +228,7 @@ modifyOptionGroupResponse_optionGroup = Lens.lens (\ModifyOptionGroupResponse' {
 modifyOptionGroupResponse_httpStatus :: Lens.Lens' ModifyOptionGroupResponse Prelude.Int
 modifyOptionGroupResponse_httpStatus = Lens.lens (\ModifyOptionGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyOptionGroupResponse' {} a -> s {httpStatus = a} :: ModifyOptionGroupResponse)
 
-instance Prelude.NFData ModifyOptionGroupResponse
+instance Prelude.NFData ModifyOptionGroupResponse where
+  rnf ModifyOptionGroupResponse' {..} =
+    Prelude.rnf optionGroup
+      `Prelude.seq` Prelude.rnf httpStatus

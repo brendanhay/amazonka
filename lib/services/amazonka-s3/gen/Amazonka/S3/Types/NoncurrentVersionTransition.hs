@@ -95,9 +95,15 @@ instance Core.FromXML NoncurrentVersionTransition where
       Prelude.<$> (x Core..@ "NoncurrentDays")
       Prelude.<*> (x Core..@ "StorageClass")
 
-instance Prelude.Hashable NoncurrentVersionTransition
+instance Prelude.Hashable NoncurrentVersionTransition where
+  hashWithSalt _salt NoncurrentVersionTransition' {..} =
+    _salt `Prelude.hashWithSalt` noncurrentDays
+      `Prelude.hashWithSalt` storageClass
 
-instance Prelude.NFData NoncurrentVersionTransition
+instance Prelude.NFData NoncurrentVersionTransition where
+  rnf NoncurrentVersionTransition' {..} =
+    Prelude.rnf noncurrentDays
+      `Prelude.seq` Prelude.rnf storageClass
 
 instance Core.ToXML NoncurrentVersionTransition where
   toXML NoncurrentVersionTransition' {..} =

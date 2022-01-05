@@ -256,9 +256,29 @@ instance Core.AWSRequest DescribeTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTable
+instance Prelude.Hashable DescribeTable where
+  hashWithSalt _salt DescribeTable' {..} =
+    _salt `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` connectedDatabase
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` table
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData DescribeTable
+instance Prelude.NFData DescribeTable where
+  rnf DescribeTable' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf connectedDatabase
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf table
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToHeaders DescribeTable where
   toHeaders =
@@ -369,4 +389,9 @@ describeTableResponse_tableName = Lens.lens (\DescribeTableResponse' {tableName}
 describeTableResponse_httpStatus :: Lens.Lens' DescribeTableResponse Prelude.Int
 describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatus} -> httpStatus) (\s@DescribeTableResponse' {} a -> s {httpStatus = a} :: DescribeTableResponse)
 
-instance Prelude.NFData DescribeTableResponse
+instance Prelude.NFData DescribeTableResponse where
+  rnf DescribeTableResponse' {..} =
+    Prelude.rnf columnList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf httpStatus

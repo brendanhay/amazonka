@@ -148,9 +148,17 @@ instance Core.FromJSON Captions where
                         )
       )
 
-instance Prelude.Hashable Captions
+instance Prelude.Hashable Captions where
+  hashWithSalt _salt Captions' {..} =
+    _salt `Prelude.hashWithSalt` mergePolicy
+      `Prelude.hashWithSalt` captionSources
+      `Prelude.hashWithSalt` captionFormats
 
-instance Prelude.NFData Captions
+instance Prelude.NFData Captions where
+  rnf Captions' {..} =
+    Prelude.rnf mergePolicy
+      `Prelude.seq` Prelude.rnf captionSources
+      `Prelude.seq` Prelude.rnf captionFormats
 
 instance Core.ToJSON Captions where
   toJSON Captions' {..} =

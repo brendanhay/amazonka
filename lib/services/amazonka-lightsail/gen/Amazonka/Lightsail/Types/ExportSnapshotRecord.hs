@@ -142,6 +142,24 @@ instance Core.FromJSON ExportSnapshotRecord where
             Prelude.<*> (x Core..:? "sourceInfo")
       )
 
-instance Prelude.Hashable ExportSnapshotRecord
+instance Prelude.Hashable ExportSnapshotRecord where
+  hashWithSalt _salt ExportSnapshotRecord' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` destinationInfo
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceInfo
 
-instance Prelude.NFData ExportSnapshotRecord
+instance Prelude.NFData ExportSnapshotRecord where
+  rnf ExportSnapshotRecord' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationInfo
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceInfo

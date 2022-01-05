@@ -104,9 +104,15 @@ instance Core.AWSRequest GetLayerVersionPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLayerVersionPolicy
+instance Prelude.Hashable GetLayerVersionPolicy where
+  hashWithSalt _salt GetLayerVersionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` versionNumber
 
-instance Prelude.NFData GetLayerVersionPolicy
+instance Prelude.NFData GetLayerVersionPolicy where
+  rnf GetLayerVersionPolicy' {..} =
+    Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance Core.ToHeaders GetLayerVersionPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,8 @@ getLayerVersionPolicyResponse_revisionId = Lens.lens (\GetLayerVersionPolicyResp
 getLayerVersionPolicyResponse_httpStatus :: Lens.Lens' GetLayerVersionPolicyResponse Prelude.Int
 getLayerVersionPolicyResponse_httpStatus = Lens.lens (\GetLayerVersionPolicyResponse' {httpStatus} -> httpStatus) (\s@GetLayerVersionPolicyResponse' {} a -> s {httpStatus = a} :: GetLayerVersionPolicyResponse)
 
-instance Prelude.NFData GetLayerVersionPolicyResponse
+instance Prelude.NFData GetLayerVersionPolicyResponse where
+  rnf GetLayerVersionPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

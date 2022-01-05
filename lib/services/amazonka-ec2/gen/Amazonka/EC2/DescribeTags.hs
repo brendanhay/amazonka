@@ -218,9 +218,19 @@ instance Core.AWSRequest DescribeTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTags
+instance Prelude.Hashable DescribeTags where
+  hashWithSalt _salt DescribeTags' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeTags
+instance Prelude.NFData DescribeTags where
+  rnf DescribeTags' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,4 +302,8 @@ describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Prelude.NFData DescribeTagsResponse
+instance Prelude.NFData DescribeTagsResponse where
+  rnf DescribeTagsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -330,6 +330,14 @@ instance Core.FromXML EventInformation where
       Prelude.<*> (x Core..@? "eventDescription")
       Prelude.<*> (x Core..@? "eventSubType")
 
-instance Prelude.Hashable EventInformation
+instance Prelude.Hashable EventInformation where
+  hashWithSalt _salt EventInformation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` eventDescription
+      `Prelude.hashWithSalt` eventSubType
 
-instance Prelude.NFData EventInformation
+instance Prelude.NFData EventInformation where
+  rnf EventInformation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf eventDescription
+      `Prelude.seq` Prelude.rnf eventSubType

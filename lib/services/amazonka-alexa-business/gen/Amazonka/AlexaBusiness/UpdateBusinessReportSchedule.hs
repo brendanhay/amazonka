@@ -144,8 +144,23 @@ instance Core.AWSRequest UpdateBusinessReportSchedule where
 instance
   Prelude.Hashable
     UpdateBusinessReportSchedule
+  where
+  hashWithSalt _salt UpdateBusinessReportSchedule' {..} =
+    _salt `Prelude.hashWithSalt` s3KeyPrefix
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` recurrence
+      `Prelude.hashWithSalt` scheduleName
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` scheduleArn
 
-instance Prelude.NFData UpdateBusinessReportSchedule
+instance Prelude.NFData UpdateBusinessReportSchedule where
+  rnf UpdateBusinessReportSchedule' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf scheduleName
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf scheduleArn
 
 instance Core.ToHeaders UpdateBusinessReportSchedule where
   toHeaders =
@@ -214,3 +229,6 @@ updateBusinessReportScheduleResponse_httpStatus = Lens.lens (\UpdateBusinessRepo
 instance
   Prelude.NFData
     UpdateBusinessReportScheduleResponse
+  where
+  rnf UpdateBusinessReportScheduleResponse' {..} =
+    Prelude.rnf httpStatus

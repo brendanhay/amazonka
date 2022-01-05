@@ -150,9 +150,17 @@ instance Core.AWSRequest DescribeProducts where
             Prelude.<*> (x Core..?> "Products" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeProducts
+instance Prelude.Hashable DescribeProducts where
+  hashWithSalt _salt DescribeProducts' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` productArn
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData DescribeProducts
+instance Prelude.NFData DescribeProducts where
+  rnf DescribeProducts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf productArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeProducts where
   toHeaders =
@@ -224,4 +232,8 @@ describeProductsResponse_httpStatus = Lens.lens (\DescribeProductsResponse' {htt
 describeProductsResponse_products :: Lens.Lens' DescribeProductsResponse [Product]
 describeProductsResponse_products = Lens.lens (\DescribeProductsResponse' {products} -> products) (\s@DescribeProductsResponse' {} a -> s {products = a} :: DescribeProductsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeProductsResponse
+instance Prelude.NFData DescribeProductsResponse where
+  rnf DescribeProductsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf products

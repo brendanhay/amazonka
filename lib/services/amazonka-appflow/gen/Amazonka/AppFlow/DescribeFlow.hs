@@ -119,9 +119,12 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFlow
+instance Prelude.Hashable DescribeFlow where
+  hashWithSalt _salt DescribeFlow' {..} =
+    _salt `Prelude.hashWithSalt` flowName
 
-instance Prelude.NFData DescribeFlow
+instance Prelude.NFData DescribeFlow where
+  rnf DescribeFlow' {..} = Prelude.rnf flowName
 
 instance Core.ToHeaders DescribeFlow where
   toHeaders =
@@ -348,4 +351,22 @@ describeFlowResponse_tags = Lens.lens (\DescribeFlowResponse' {tags} -> tags) (\
 describeFlowResponse_httpStatus :: Lens.Lens' DescribeFlowResponse Prelude.Int
 describeFlowResponse_httpStatus = Lens.lens (\DescribeFlowResponse' {httpStatus} -> httpStatus) (\s@DescribeFlowResponse' {} a -> s {httpStatus = a} :: DescribeFlowResponse)
 
-instance Prelude.NFData DescribeFlowResponse
+instance Prelude.NFData DescribeFlowResponse where
+  rnf DescribeFlowResponse' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf triggerConfig
+      `Prelude.seq` Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf sourceFlowConfig
+      `Prelude.seq` Prelude.rnf flowStatusMessage
+      `Prelude.seq` Prelude.rnf kmsArn
+      `Prelude.seq` Prelude.rnf lastRunExecutionDetails
+      `Prelude.seq` Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf destinationFlowConfigList
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

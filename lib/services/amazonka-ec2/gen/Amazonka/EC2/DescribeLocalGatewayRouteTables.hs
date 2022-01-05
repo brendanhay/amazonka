@@ -210,10 +210,26 @@ instance
 instance
   Prelude.Hashable
     DescribeLocalGatewayRouteTables
+  where
+  hashWithSalt
+    _salt
+    DescribeLocalGatewayRouteTables' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` localGatewayRouteTableIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTables
+  where
+  rnf DescribeLocalGatewayRouteTables' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -300,3 +316,8 @@ describeLocalGatewayRouteTablesResponse_httpStatus = Lens.lens (\DescribeLocalGa
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTablesResponse
+  where
+  rnf DescribeLocalGatewayRouteTablesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf localGatewayRouteTables
+      `Prelude.seq` Prelude.rnf httpStatus

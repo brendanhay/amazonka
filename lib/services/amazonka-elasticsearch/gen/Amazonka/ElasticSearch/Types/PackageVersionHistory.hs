@@ -81,6 +81,14 @@ instance Core.FromJSON PackageVersionHistory where
             Prelude.<*> (x Core..:? "CommitMessage")
       )
 
-instance Prelude.Hashable PackageVersionHistory
+instance Prelude.Hashable PackageVersionHistory where
+  hashWithSalt _salt PackageVersionHistory' {..} =
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` commitMessage
 
-instance Prelude.NFData PackageVersionHistory
+instance Prelude.NFData PackageVersionHistory where
+  rnf PackageVersionHistory' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf commitMessage

@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     DescribeSpotDatafeedSubscription
+  where
+  hashWithSalt
+    _salt
+    DescribeSpotDatafeedSubscription' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DescribeSpotDatafeedSubscription
+  where
+  rnf DescribeSpotDatafeedSubscription' {..} =
+    Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -180,3 +188,7 @@ describeSpotDatafeedSubscriptionResponse_httpStatus = Lens.lens (\DescribeSpotDa
 instance
   Prelude.NFData
     DescribeSpotDatafeedSubscriptionResponse
+  where
+  rnf DescribeSpotDatafeedSubscriptionResponse' {..} =
+    Prelude.rnf spotDatafeedSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

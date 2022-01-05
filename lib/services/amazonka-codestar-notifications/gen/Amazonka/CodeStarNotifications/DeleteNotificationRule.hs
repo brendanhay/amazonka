@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteNotificationRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNotificationRule
+instance Prelude.Hashable DeleteNotificationRule where
+  hashWithSalt _salt DeleteNotificationRule' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteNotificationRule
+instance Prelude.NFData DeleteNotificationRule where
+  rnf DeleteNotificationRule' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteNotificationRule where
   toHeaders =
@@ -159,3 +162,7 @@ deleteNotificationRuleResponse_httpStatus = Lens.lens (\DeleteNotificationRuleRe
 instance
   Prelude.NFData
     DeleteNotificationRuleResponse
+  where
+  rnf DeleteNotificationRuleResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

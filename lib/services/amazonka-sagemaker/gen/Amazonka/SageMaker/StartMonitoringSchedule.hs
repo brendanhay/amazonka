@@ -84,9 +84,13 @@ instance Core.AWSRequest StartMonitoringSchedule where
     Response.receiveNull
       StartMonitoringScheduleResponse'
 
-instance Prelude.Hashable StartMonitoringSchedule
+instance Prelude.Hashable StartMonitoringSchedule where
+  hashWithSalt _salt StartMonitoringSchedule' {..} =
+    _salt `Prelude.hashWithSalt` monitoringScheduleName
 
-instance Prelude.NFData StartMonitoringSchedule
+instance Prelude.NFData StartMonitoringSchedule where
+  rnf StartMonitoringSchedule' {..} =
+    Prelude.rnf monitoringScheduleName
 
 instance Core.ToHeaders StartMonitoringSchedule where
   toHeaders =
@@ -138,3 +142,5 @@ newStartMonitoringScheduleResponse =
 instance
   Prelude.NFData
     StartMonitoringScheduleResponse
+  where
+  rnf _ = ()

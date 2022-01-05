@@ -124,9 +124,19 @@ instance Core.AWSRequest GetAnswer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAnswer
+instance Prelude.Hashable GetAnswer where
+  hashWithSalt _salt GetAnswer' {..} =
+    _salt `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` questionId
 
-instance Prelude.NFData GetAnswer
+instance Prelude.NFData GetAnswer where
+  rnf GetAnswer' {..} =
+    Prelude.rnf milestoneNumber
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf questionId
 
 instance Core.ToHeaders GetAnswer where
   toHeaders =
@@ -218,4 +228,10 @@ getAnswerResponse_workloadId = Lens.lens (\GetAnswerResponse' {workloadId} -> wo
 getAnswerResponse_httpStatus :: Lens.Lens' GetAnswerResponse Prelude.Int
 getAnswerResponse_httpStatus = Lens.lens (\GetAnswerResponse' {httpStatus} -> httpStatus) (\s@GetAnswerResponse' {} a -> s {httpStatus = a} :: GetAnswerResponse)
 
-instance Prelude.NFData GetAnswerResponse
+instance Prelude.NFData GetAnswerResponse where
+  rnf GetAnswerResponse' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf milestoneNumber
+      `Prelude.seq` Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf httpStatus

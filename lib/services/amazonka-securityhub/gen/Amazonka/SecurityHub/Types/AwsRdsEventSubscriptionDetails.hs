@@ -185,10 +185,36 @@ instance Core.FromJSON AwsRdsEventSubscriptionDetails where
 instance
   Prelude.Hashable
     AwsRdsEventSubscriptionDetails
+  where
+  hashWithSalt
+    _salt
+    AwsRdsEventSubscriptionDetails' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` customerAwsId
+        `Prelude.hashWithSalt` custSubscriptionId
+        `Prelude.hashWithSalt` snsTopicArn
+        `Prelude.hashWithSalt` eventSubscriptionArn
+        `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` sourceType
+        `Prelude.hashWithSalt` subscriptionCreationTime
+        `Prelude.hashWithSalt` eventCategoriesList
+        `Prelude.hashWithSalt` sourceIdsList
 
 instance
   Prelude.NFData
     AwsRdsEventSubscriptionDetails
+  where
+  rnf AwsRdsEventSubscriptionDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf customerAwsId
+      `Prelude.seq` Prelude.rnf custSubscriptionId
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf eventSubscriptionArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf subscriptionCreationTime
+      `Prelude.seq` Prelude.rnf eventCategoriesList
+      `Prelude.seq` Prelude.rnf sourceIdsList
 
 instance Core.ToJSON AwsRdsEventSubscriptionDetails where
   toJSON AwsRdsEventSubscriptionDetails' {..} =

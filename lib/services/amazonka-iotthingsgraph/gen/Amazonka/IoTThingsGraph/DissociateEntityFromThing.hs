@@ -100,9 +100,15 @@ instance Core.AWSRequest DissociateEntityFromThing where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DissociateEntityFromThing
+instance Prelude.Hashable DissociateEntityFromThing where
+  hashWithSalt _salt DissociateEntityFromThing' {..} =
+    _salt `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` entityType
 
-instance Prelude.NFData DissociateEntityFromThing
+instance Prelude.NFData DissociateEntityFromThing where
+  rnf DissociateEntityFromThing' {..} =
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf entityType
 
 instance Core.ToHeaders DissociateEntityFromThing where
   toHeaders =
@@ -167,3 +173,6 @@ dissociateEntityFromThingResponse_httpStatus = Lens.lens (\DissociateEntityFromT
 instance
   Prelude.NFData
     DissociateEntityFromThingResponse
+  where
+  rnf DissociateEntityFromThingResponse' {..} =
+    Prelude.rnf httpStatus

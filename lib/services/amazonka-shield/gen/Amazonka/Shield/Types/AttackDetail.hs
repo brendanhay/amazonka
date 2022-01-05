@@ -170,6 +170,24 @@ instance Core.FromJSON AttackDetail where
             Prelude.<*> (x Core..:? "EndTime")
       )
 
-instance Prelude.Hashable AttackDetail
+instance Prelude.Hashable AttackDetail where
+  hashWithSalt _salt AttackDetail' {..} =
+    _salt `Prelude.hashWithSalt` attackId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` subResources
+      `Prelude.hashWithSalt` mitigations
+      `Prelude.hashWithSalt` attackProperties
+      `Prelude.hashWithSalt` attackCounters
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData AttackDetail
+instance Prelude.NFData AttackDetail where
+  rnf AttackDetail' {..} =
+    Prelude.rnf attackId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf subResources
+      `Prelude.seq` Prelude.rnf mitigations
+      `Prelude.seq` Prelude.rnf attackProperties
+      `Prelude.seq` Prelude.rnf attackCounters
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf endTime

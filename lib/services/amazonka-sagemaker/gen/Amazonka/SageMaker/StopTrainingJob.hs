@@ -87,9 +87,13 @@ instance Core.AWSRequest StopTrainingJob where
   response =
     Response.receiveNull StopTrainingJobResponse'
 
-instance Prelude.Hashable StopTrainingJob
+instance Prelude.Hashable StopTrainingJob where
+  hashWithSalt _salt StopTrainingJob' {..} =
+    _salt `Prelude.hashWithSalt` trainingJobName
 
-instance Prelude.NFData StopTrainingJob
+instance Prelude.NFData StopTrainingJob where
+  rnf StopTrainingJob' {..} =
+    Prelude.rnf trainingJobName
 
 instance Core.ToHeaders StopTrainingJob where
   toHeaders =
@@ -133,4 +137,5 @@ newStopTrainingJobResponse ::
   StopTrainingJobResponse
 newStopTrainingJobResponse = StopTrainingJobResponse'
 
-instance Prelude.NFData StopTrainingJobResponse
+instance Prelude.NFData StopTrainingJobResponse where
+  rnf _ = ()

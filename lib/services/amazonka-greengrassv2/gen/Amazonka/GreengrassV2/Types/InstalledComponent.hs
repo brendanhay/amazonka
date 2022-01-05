@@ -102,6 +102,18 @@ instance Core.FromJSON InstalledComponent where
             Prelude.<*> (x Core..:? "lifecycleState")
       )
 
-instance Prelude.Hashable InstalledComponent
+instance Prelude.Hashable InstalledComponent where
+  hashWithSalt _salt InstalledComponent' {..} =
+    _salt `Prelude.hashWithSalt` isRoot
+      `Prelude.hashWithSalt` componentVersion
+      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` lifecycleStateDetails
+      `Prelude.hashWithSalt` lifecycleState
 
-instance Prelude.NFData InstalledComponent
+instance Prelude.NFData InstalledComponent where
+  rnf InstalledComponent' {..} =
+    Prelude.rnf isRoot
+      `Prelude.seq` Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf lifecycleStateDetails
+      `Prelude.seq` Prelude.rnf lifecycleState

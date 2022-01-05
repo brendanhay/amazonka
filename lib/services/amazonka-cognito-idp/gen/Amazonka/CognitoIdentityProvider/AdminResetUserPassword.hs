@@ -234,9 +234,17 @@ instance Core.AWSRequest AdminResetUserPassword where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminResetUserPassword
+instance Prelude.Hashable AdminResetUserPassword where
+  hashWithSalt _salt AdminResetUserPassword' {..} =
+    _salt `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData AdminResetUserPassword
+instance Prelude.NFData AdminResetUserPassword where
+  rnf AdminResetUserPassword' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminResetUserPassword where
   toHeaders =
@@ -306,3 +314,6 @@ adminResetUserPasswordResponse_httpStatus = Lens.lens (\AdminResetUserPasswordRe
 instance
   Prelude.NFData
     AdminResetUserPasswordResponse
+  where
+  rnf AdminResetUserPasswordResponse' {..} =
+    Prelude.rnf httpStatus

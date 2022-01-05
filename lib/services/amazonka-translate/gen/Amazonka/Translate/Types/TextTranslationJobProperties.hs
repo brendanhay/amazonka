@@ -236,5 +236,36 @@ instance Core.FromJSON TextTranslationJobProperties where
 instance
   Prelude.Hashable
     TextTranslationJobProperties
+  where
+  hashWithSalt _salt TextTranslationJobProperties' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` targetLanguageCodes
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` submittedTime
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` parallelDataNames
+      `Prelude.hashWithSalt` terminologyNames
+      `Prelude.hashWithSalt` sourceLanguageCode
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` jobDetails
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData TextTranslationJobProperties
+instance Prelude.NFData TextTranslationJobProperties where
+  rnf TextTranslationJobProperties' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf targetLanguageCodes
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf submittedTime
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf parallelDataNames
+      `Prelude.seq` Prelude.rnf terminologyNames
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf jobDetails
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf message

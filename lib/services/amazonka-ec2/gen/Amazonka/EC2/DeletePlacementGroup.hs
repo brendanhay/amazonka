@@ -102,9 +102,15 @@ instance Core.AWSRequest DeletePlacementGroup where
   response =
     Response.receiveNull DeletePlacementGroupResponse'
 
-instance Prelude.Hashable DeletePlacementGroup
+instance Prelude.Hashable DeletePlacementGroup where
+  hashWithSalt _salt DeletePlacementGroup' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData DeletePlacementGroup
+instance Prelude.NFData DeletePlacementGroup where
+  rnf DeletePlacementGroup' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders DeletePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +144,5 @@ newDeletePlacementGroupResponse ::
 newDeletePlacementGroupResponse =
   DeletePlacementGroupResponse'
 
-instance Prelude.NFData DeletePlacementGroupResponse
+instance Prelude.NFData DeletePlacementGroupResponse where
+  rnf _ = ()

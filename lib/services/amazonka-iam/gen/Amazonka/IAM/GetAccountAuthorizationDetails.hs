@@ -221,10 +221,22 @@ instance
 instance
   Prelude.Hashable
     GetAccountAuthorizationDetails
+  where
+  hashWithSalt
+    _salt
+    GetAccountAuthorizationDetails' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` filter'
 
 instance
   Prelude.NFData
     GetAccountAuthorizationDetails
+  where
+  rnf GetAccountAuthorizationDetails' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf filter'
 
 instance
   Core.ToHeaders
@@ -366,3 +378,12 @@ getAccountAuthorizationDetailsResponse_httpStatus = Lens.lens (\GetAccountAuthor
 instance
   Prelude.NFData
     GetAccountAuthorizationDetailsResponse
+  where
+  rnf GetAccountAuthorizationDetailsResponse' {..} =
+    Prelude.rnf roleDetailList
+      `Prelude.seq` Prelude.rnf groupDetailList
+      `Prelude.seq` Prelude.rnf userDetailList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf httpStatus

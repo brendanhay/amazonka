@@ -86,9 +86,12 @@ instance Core.AWSRequest StopICD10CMInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopICD10CMInferenceJob
+instance Prelude.Hashable StopICD10CMInferenceJob where
+  hashWithSalt _salt StopICD10CMInferenceJob' {..} =
+    _salt `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopICD10CMInferenceJob
+instance Prelude.NFData StopICD10CMInferenceJob where
+  rnf StopICD10CMInferenceJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StopICD10CMInferenceJob where
   toHeaders =
@@ -163,3 +166,7 @@ stopICD10CMInferenceJobResponse_httpStatus = Lens.lens (\StopICD10CMInferenceJob
 instance
   Prelude.NFData
     StopICD10CMInferenceJobResponse
+  where
+  rnf StopICD10CMInferenceJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

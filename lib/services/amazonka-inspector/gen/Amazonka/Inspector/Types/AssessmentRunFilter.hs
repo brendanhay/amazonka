@@ -163,9 +163,25 @@ assessmentRunFilter_completionTimeRange = Lens.lens (\AssessmentRunFilter' {comp
 assessmentRunFilter_durationRange :: Lens.Lens' AssessmentRunFilter (Prelude.Maybe DurationRange)
 assessmentRunFilter_durationRange = Lens.lens (\AssessmentRunFilter' {durationRange} -> durationRange) (\s@AssessmentRunFilter' {} a -> s {durationRange = a} :: AssessmentRunFilter)
 
-instance Prelude.Hashable AssessmentRunFilter
+instance Prelude.Hashable AssessmentRunFilter where
+  hashWithSalt _salt AssessmentRunFilter' {..} =
+    _salt `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` namePattern
+      `Prelude.hashWithSalt` startTimeRange
+      `Prelude.hashWithSalt` stateChangeTimeRange
+      `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` completionTimeRange
+      `Prelude.hashWithSalt` durationRange
 
-instance Prelude.NFData AssessmentRunFilter
+instance Prelude.NFData AssessmentRunFilter where
+  rnf AssessmentRunFilter' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf namePattern
+      `Prelude.seq` Prelude.rnf startTimeRange
+      `Prelude.seq` Prelude.rnf stateChangeTimeRange
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf completionTimeRange
+      `Prelude.seq` Prelude.rnf durationRange
 
 instance Core.ToJSON AssessmentRunFilter where
   toJSON AssessmentRunFilter' {..} =

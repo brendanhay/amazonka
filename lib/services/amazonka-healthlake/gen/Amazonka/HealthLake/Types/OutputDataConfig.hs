@@ -67,9 +67,13 @@ instance Core.FromJSON OutputDataConfig where
             Prelude.<$> (x Core..:? "S3Configuration")
       )
 
-instance Prelude.Hashable OutputDataConfig
+instance Prelude.Hashable OutputDataConfig where
+  hashWithSalt _salt OutputDataConfig' {..} =
+    _salt `Prelude.hashWithSalt` s3Configuration
 
-instance Prelude.NFData OutputDataConfig
+instance Prelude.NFData OutputDataConfig where
+  rnf OutputDataConfig' {..} =
+    Prelude.rnf s3Configuration
 
 instance Core.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =

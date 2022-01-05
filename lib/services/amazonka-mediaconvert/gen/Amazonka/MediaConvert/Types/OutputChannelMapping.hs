@@ -83,9 +83,15 @@ instance Core.FromJSON OutputChannelMapping where
             Prelude.<*> (x Core..:? "inputChannels" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OutputChannelMapping
+instance Prelude.Hashable OutputChannelMapping where
+  hashWithSalt _salt OutputChannelMapping' {..} =
+    _salt `Prelude.hashWithSalt` inputChannelsFineTune
+      `Prelude.hashWithSalt` inputChannels
 
-instance Prelude.NFData OutputChannelMapping
+instance Prelude.NFData OutputChannelMapping where
+  rnf OutputChannelMapping' {..} =
+    Prelude.rnf inputChannelsFineTune
+      `Prelude.seq` Prelude.rnf inputChannels
 
 instance Core.ToJSON OutputChannelMapping where
   toJSON OutputChannelMapping' {..} =

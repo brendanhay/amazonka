@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicationGroupUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction
@@ -84,9 +85,17 @@ replicationGroupUpdate_delete = Lens.lens (\ReplicationGroupUpdate' {delete'} ->
 replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
 replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
 
-instance Prelude.Hashable ReplicationGroupUpdate
+instance Prelude.Hashable ReplicationGroupUpdate where
+  hashWithSalt _salt ReplicationGroupUpdate' {..} =
+    _salt `Prelude.hashWithSalt` create
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` update
 
-instance Prelude.NFData ReplicationGroupUpdate
+instance Prelude.NFData ReplicationGroupUpdate where
+  rnf ReplicationGroupUpdate' {..} =
+    Prelude.rnf create
+      `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf update
 
 instance Core.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =

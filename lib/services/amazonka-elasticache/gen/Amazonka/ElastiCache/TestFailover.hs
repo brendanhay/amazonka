@@ -159,9 +159,15 @@ instance Core.AWSRequest TestFailover where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestFailover
+instance Prelude.Hashable TestFailover where
+  hashWithSalt _salt TestFailover' {..} =
+    _salt `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` nodeGroupId
 
-instance Prelude.NFData TestFailover
+instance Prelude.NFData TestFailover where
+  rnf TestFailover' {..} =
+    Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf nodeGroupId
 
 instance Core.ToHeaders TestFailover where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +224,7 @@ testFailoverResponse_replicationGroup = Lens.lens (\TestFailoverResponse' {repli
 testFailoverResponse_httpStatus :: Lens.Lens' TestFailoverResponse Prelude.Int
 testFailoverResponse_httpStatus = Lens.lens (\TestFailoverResponse' {httpStatus} -> httpStatus) (\s@TestFailoverResponse' {} a -> s {httpStatus = a} :: TestFailoverResponse)
 
-instance Prelude.NFData TestFailoverResponse
+instance Prelude.NFData TestFailoverResponse where
+  rnf TestFailoverResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

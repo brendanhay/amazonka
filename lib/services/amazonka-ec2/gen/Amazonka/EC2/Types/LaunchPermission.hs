@@ -78,9 +78,14 @@ instance Core.FromXML LaunchPermission where
       Prelude.<$> (x Core..@? "group")
       Prelude.<*> (x Core..@? "userId")
 
-instance Prelude.Hashable LaunchPermission
+instance Prelude.Hashable LaunchPermission where
+  hashWithSalt _salt LaunchPermission' {..} =
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData LaunchPermission
+instance Prelude.NFData LaunchPermission where
+  rnf LaunchPermission' {..} =
+    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =

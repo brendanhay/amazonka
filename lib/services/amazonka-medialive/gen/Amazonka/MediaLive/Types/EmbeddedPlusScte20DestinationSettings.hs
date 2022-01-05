@@ -54,10 +54,15 @@ instance
 instance
   Prelude.Hashable
     EmbeddedPlusScte20DestinationSettings
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     EmbeddedPlusScte20DestinationSettings
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

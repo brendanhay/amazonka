@@ -133,9 +133,23 @@ instance Core.FromJSON AwsWafRateBasedRuleDetails where
                         )
       )
 
-instance Prelude.Hashable AwsWafRateBasedRuleDetails
+instance Prelude.Hashable AwsWafRateBasedRuleDetails where
+  hashWithSalt _salt AwsWafRateBasedRuleDetails' {..} =
+    _salt `Prelude.hashWithSalt` rateLimit
+      `Prelude.hashWithSalt` rateKey
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` matchPredicates
 
-instance Prelude.NFData AwsWafRateBasedRuleDetails
+instance Prelude.NFData AwsWafRateBasedRuleDetails where
+  rnf AwsWafRateBasedRuleDetails' {..} =
+    Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf rateKey
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf matchPredicates
 
 instance Core.ToJSON AwsWafRateBasedRuleDetails where
   toJSON AwsWafRateBasedRuleDetails' {..} =

@@ -121,9 +121,19 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
             Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
 
-instance Prelude.Hashable UpdateCodeSigningConfig
+instance Prelude.Hashable UpdateCodeSigningConfig where
+  hashWithSalt _salt UpdateCodeSigningConfig' {..} =
+    _salt `Prelude.hashWithSalt` allowedPublishers
+      `Prelude.hashWithSalt` codeSigningPolicies
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` codeSigningConfigArn
 
-instance Prelude.NFData UpdateCodeSigningConfig
+instance Prelude.NFData UpdateCodeSigningConfig where
+  rnf UpdateCodeSigningConfig' {..} =
+    Prelude.rnf allowedPublishers
+      `Prelude.seq` Prelude.rnf codeSigningPolicies
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
 
 instance Core.ToHeaders UpdateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,3 +206,7 @@ updateCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\UpdateCodeSignin
 instance
   Prelude.NFData
     UpdateCodeSigningConfigResponse
+  where
+  rnf UpdateCodeSigningConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeSigningConfig

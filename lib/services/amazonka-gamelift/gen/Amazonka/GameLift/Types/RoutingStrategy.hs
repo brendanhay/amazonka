@@ -121,9 +121,17 @@ instance Core.FromJSON RoutingStrategy where
             Prelude.<*> (x Core..:? "FleetId")
       )
 
-instance Prelude.Hashable RoutingStrategy
+instance Prelude.Hashable RoutingStrategy where
+  hashWithSalt _salt RoutingStrategy' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData RoutingStrategy
+instance Prelude.NFData RoutingStrategy where
+  rnf RoutingStrategy' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =

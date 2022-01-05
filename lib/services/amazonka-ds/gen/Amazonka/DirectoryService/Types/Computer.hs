@@ -87,6 +87,14 @@ instance Core.FromJSON Computer where
             Prelude.<*> (x Core..:? "ComputerName")
       )
 
-instance Prelude.Hashable Computer
+instance Prelude.Hashable Computer where
+  hashWithSalt _salt Computer' {..} =
+    _salt `Prelude.hashWithSalt` computerId
+      `Prelude.hashWithSalt` computerAttributes
+      `Prelude.hashWithSalt` computerName
 
-instance Prelude.NFData Computer
+instance Prelude.NFData Computer where
+  rnf Computer' {..} =
+    Prelude.rnf computerId
+      `Prelude.seq` Prelude.rnf computerAttributes
+      `Prelude.seq` Prelude.rnf computerName

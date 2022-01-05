@@ -63,9 +63,13 @@ instance Core.FromJSON RoomRetentionSettings where
             Prelude.<$> (x Core..:? "RetentionDays")
       )
 
-instance Prelude.Hashable RoomRetentionSettings
+instance Prelude.Hashable RoomRetentionSettings where
+  hashWithSalt _salt RoomRetentionSettings' {..} =
+    _salt `Prelude.hashWithSalt` retentionDays
 
-instance Prelude.NFData RoomRetentionSettings
+instance Prelude.NFData RoomRetentionSettings where
+  rnf RoomRetentionSettings' {..} =
+    Prelude.rnf retentionDays
 
 instance Core.ToJSON RoomRetentionSettings where
   toJSON RoomRetentionSettings' {..} =

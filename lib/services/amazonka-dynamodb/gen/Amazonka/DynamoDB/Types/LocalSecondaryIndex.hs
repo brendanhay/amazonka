@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.LocalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import qualified Amazonka.Lens as Lens
@@ -135,9 +136,17 @@ localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> 
 localSecondaryIndex_projection :: Lens.Lens' LocalSecondaryIndex Projection
 localSecondaryIndex_projection = Lens.lens (\LocalSecondaryIndex' {projection} -> projection) (\s@LocalSecondaryIndex' {} a -> s {projection = a} :: LocalSecondaryIndex)
 
-instance Prelude.Hashable LocalSecondaryIndex
+instance Prelude.Hashable LocalSecondaryIndex where
+  hashWithSalt _salt LocalSecondaryIndex' {..} =
+    _salt `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` projection
 
-instance Prelude.NFData LocalSecondaryIndex
+instance Prelude.NFData LocalSecondaryIndex where
+  rnf LocalSecondaryIndex' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
 
 instance Core.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =

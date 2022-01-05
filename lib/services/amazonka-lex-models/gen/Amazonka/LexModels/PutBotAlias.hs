@@ -207,9 +207,25 @@ instance Core.AWSRequest PutBotAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutBotAlias
+instance Prelude.Hashable PutBotAlias where
+  hashWithSalt _salt PutBotAlias' {..} =
+    _salt `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` conversationLogs
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` botVersion
+      `Prelude.hashWithSalt` botName
 
-instance Prelude.NFData PutBotAlias
+instance Prelude.NFData PutBotAlias where
+  rnf PutBotAlias' {..} =
+    Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf conversationLogs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf botName
 
 instance Core.ToHeaders PutBotAlias where
   toHeaders =
@@ -363,4 +379,15 @@ putBotAliasResponse_tags = Lens.lens (\PutBotAliasResponse' {tags} -> tags) (\s@
 putBotAliasResponse_httpStatus :: Lens.Lens' PutBotAliasResponse Prelude.Int
 putBotAliasResponse_httpStatus = Lens.lens (\PutBotAliasResponse' {httpStatus} -> httpStatus) (\s@PutBotAliasResponse' {} a -> s {httpStatus = a} :: PutBotAliasResponse)
 
-instance Prelude.NFData PutBotAliasResponse
+instance Prelude.NFData PutBotAliasResponse where
+  rnf PutBotAliasResponse' {..} =
+    Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf conversationLogs
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

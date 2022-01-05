@@ -329,9 +329,55 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "sqs")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt _salt Action' {..} =
+    _salt `Prelude.hashWithSalt` cloudwatchMetric
+      `Prelude.hashWithSalt` cloudwatchLogs
+      `Prelude.hashWithSalt` dynamoDBv2
+      `Prelude.hashWithSalt` stepFunctions
+      `Prelude.hashWithSalt` cloudwatchAlarm
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` dynamoDB
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` timestream
+      `Prelude.hashWithSalt` iotSiteWise
+      `Prelude.hashWithSalt` iotAnalytics
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` openSearch
+      `Prelude.hashWithSalt` iotEvents
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` kinesis
+      `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` elasticsearch
+      `Prelude.hashWithSalt` kafka
+      `Prelude.hashWithSalt` republish
+      `Prelude.hashWithSalt` sqs
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf cloudwatchMetric
+      `Prelude.seq` Prelude.rnf cloudwatchLogs
+      `Prelude.seq` Prelude.rnf dynamoDBv2
+      `Prelude.seq` Prelude.rnf stepFunctions
+      `Prelude.seq` Prelude.rnf cloudwatchAlarm
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf dynamoDB
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf timestream
+      `Prelude.seq` Prelude.rnf iotSiteWise
+      `Prelude.seq` Prelude.rnf iotAnalytics
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf openSearch
+      `Prelude.seq` Prelude.rnf iotEvents
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf kinesis
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf elasticsearch
+      `Prelude.seq` Prelude.rnf kafka
+      `Prelude.seq` Prelude.rnf republish
+      `Prelude.seq` Prelude.rnf sqs
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

@@ -73,6 +73,11 @@ instance Core.FromJSON DeviceStatusDetail where
             Prelude.<*> (x Core..:? "Code")
       )
 
-instance Prelude.Hashable DeviceStatusDetail
+instance Prelude.Hashable DeviceStatusDetail where
+  hashWithSalt _salt DeviceStatusDetail' {..} =
+    _salt `Prelude.hashWithSalt` feature
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData DeviceStatusDetail
+instance Prelude.NFData DeviceStatusDetail where
+  rnf DeviceStatusDetail' {..} =
+    Prelude.rnf feature `Prelude.seq` Prelude.rnf code

@@ -102,9 +102,17 @@ instance Core.FromJSON ImageConfiguration where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable ImageConfiguration
+instance Prelude.Hashable ImageConfiguration where
+  hashWithSalt _salt ImageConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` startCommand
+      `Prelude.hashWithSalt` runtimeEnvironmentVariables
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData ImageConfiguration
+instance Prelude.NFData ImageConfiguration where
+  rnf ImageConfiguration' {..} =
+    Prelude.rnf startCommand
+      `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON ImageConfiguration where
   toJSON ImageConfiguration' {..} =

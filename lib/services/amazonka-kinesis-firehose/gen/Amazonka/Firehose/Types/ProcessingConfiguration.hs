@@ -72,9 +72,15 @@ instance Core.FromJSON ProcessingConfiguration where
             Prelude.<*> (x Core..:? "Processors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProcessingConfiguration
+instance Prelude.Hashable ProcessingConfiguration where
+  hashWithSalt _salt ProcessingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` processors
 
-instance Prelude.NFData ProcessingConfiguration
+instance Prelude.NFData ProcessingConfiguration where
+  rnf ProcessingConfiguration' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf processors
 
 instance Core.ToJSON ProcessingConfiguration where
   toJSON ProcessingConfiguration' {..} =

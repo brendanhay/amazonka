@@ -125,9 +125,17 @@ instance Core.AWSRequest SetReceiptRulePosition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetReceiptRulePosition
+instance Prelude.Hashable SetReceiptRulePosition where
+  hashWithSalt _salt SetReceiptRulePosition' {..} =
+    _salt `Prelude.hashWithSalt` after
+      `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData SetReceiptRulePosition
+instance Prelude.NFData SetReceiptRulePosition where
+  rnf SetReceiptRulePosition' {..} =
+    Prelude.rnf after
+      `Prelude.seq` Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders SetReceiptRulePosition where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +190,6 @@ setReceiptRulePositionResponse_httpStatus = Lens.lens (\SetReceiptRulePositionRe
 instance
   Prelude.NFData
     SetReceiptRulePositionResponse
+  where
+  rnf SetReceiptRulePositionResponse' {..} =
+    Prelude.rnf httpStatus

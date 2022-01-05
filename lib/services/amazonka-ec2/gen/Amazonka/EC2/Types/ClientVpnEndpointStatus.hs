@@ -111,6 +111,11 @@ instance Core.FromXML ClientVpnEndpointStatus where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable ClientVpnEndpointStatus
+instance Prelude.Hashable ClientVpnEndpointStatus where
+  hashWithSalt _salt ClientVpnEndpointStatus' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ClientVpnEndpointStatus
+instance Prelude.NFData ClientVpnEndpointStatus where
+  rnf ClientVpnEndpointStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

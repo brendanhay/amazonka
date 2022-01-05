@@ -94,10 +94,18 @@ instance
 instance
   Prelude.Hashable
     StartSmartHomeApplianceDiscovery
+  where
+  hashWithSalt
+    _salt
+    StartSmartHomeApplianceDiscovery' {..} =
+      _salt `Prelude.hashWithSalt` roomArn
 
 instance
   Prelude.NFData
     StartSmartHomeApplianceDiscovery
+  where
+  rnf StartSmartHomeApplianceDiscovery' {..} =
+    Prelude.rnf roomArn
 
 instance
   Core.ToHeaders
@@ -167,3 +175,6 @@ startSmartHomeApplianceDiscoveryResponse_httpStatus = Lens.lens (\StartSmartHome
 instance
   Prelude.NFData
     StartSmartHomeApplianceDiscoveryResponse
+  where
+  rnf StartSmartHomeApplianceDiscoveryResponse' {..} =
+    Prelude.rnf httpStatus

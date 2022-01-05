@@ -79,6 +79,12 @@ instance Core.FromJSON EnabledServicePrincipal where
             Prelude.<*> (x Core..:? "DateEnabled")
       )
 
-instance Prelude.Hashable EnabledServicePrincipal
+instance Prelude.Hashable EnabledServicePrincipal where
+  hashWithSalt _salt EnabledServicePrincipal' {..} =
+    _salt `Prelude.hashWithSalt` servicePrincipal
+      `Prelude.hashWithSalt` dateEnabled
 
-instance Prelude.NFData EnabledServicePrincipal
+instance Prelude.NFData EnabledServicePrincipal where
+  rnf EnabledServicePrincipal' {..} =
+    Prelude.rnf servicePrincipal
+      `Prelude.seq` Prelude.rnf dateEnabled

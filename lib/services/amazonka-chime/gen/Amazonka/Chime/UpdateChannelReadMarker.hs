@@ -103,9 +103,15 @@ instance Core.AWSRequest UpdateChannelReadMarker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateChannelReadMarker
+instance Prelude.Hashable UpdateChannelReadMarker where
+  hashWithSalt _salt UpdateChannelReadMarker' {..} =
+    _salt `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData UpdateChannelReadMarker
+instance Prelude.NFData UpdateChannelReadMarker where
+  rnf UpdateChannelReadMarker' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance Core.ToHeaders UpdateChannelReadMarker where
   toHeaders UpdateChannelReadMarker' {..} =
@@ -165,3 +171,7 @@ updateChannelReadMarkerResponse_httpStatus = Lens.lens (\UpdateChannelReadMarker
 instance
   Prelude.NFData
     UpdateChannelReadMarkerResponse
+  where
+  rnf UpdateChannelReadMarkerResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus

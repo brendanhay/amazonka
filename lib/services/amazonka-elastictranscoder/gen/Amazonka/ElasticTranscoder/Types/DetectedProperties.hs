@@ -102,9 +102,21 @@ instance Core.FromJSON DetectedProperties where
             Prelude.<*> (x Core..:? "DurationMillis")
       )
 
-instance Prelude.Hashable DetectedProperties
+instance Prelude.Hashable DetectedProperties where
+  hashWithSalt _salt DetectedProperties' {..} =
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` durationMillis
 
-instance Prelude.NFData DetectedProperties
+instance Prelude.NFData DetectedProperties where
+  rnf DetectedProperties' {..} =
+    Prelude.rnf height
+      `Prelude.seq` Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf durationMillis
 
 instance Core.ToJSON DetectedProperties where
   toJSON DetectedProperties' {..} =

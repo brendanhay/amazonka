@@ -144,9 +144,21 @@ instance Core.AWSRequest UpdateReportDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReportDefinition
+instance Prelude.Hashable UpdateReportDefinition where
+  hashWithSalt _salt UpdateReportDefinition' {..} =
+    _salt `Prelude.hashWithSalt` reportId
+      `Prelude.hashWithSalt` reportDescription
+      `Prelude.hashWithSalt` reportFrequency
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` destinationS3Location
 
-instance Prelude.NFData UpdateReportDefinition
+instance Prelude.NFData UpdateReportDefinition where
+  rnf UpdateReportDefinition' {..} =
+    Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf reportDescription
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf destinationS3Location
 
 instance Core.ToHeaders UpdateReportDefinition where
   toHeaders =
@@ -225,3 +237,7 @@ updateReportDefinitionResponse_httpStatus = Lens.lens (\UpdateReportDefinitionRe
 instance
   Prelude.NFData
     UpdateReportDefinitionResponse
+  where
+  rnf UpdateReportDefinitionResponse' {..} =
+    Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf httpStatus

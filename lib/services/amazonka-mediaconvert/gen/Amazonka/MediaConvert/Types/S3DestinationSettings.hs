@@ -83,9 +83,15 @@ instance Core.FromJSON S3DestinationSettings where
             Prelude.<*> (x Core..:? "encryption")
       )
 
-instance Prelude.Hashable S3DestinationSettings
+instance Prelude.Hashable S3DestinationSettings where
+  hashWithSalt _salt S3DestinationSettings' {..} =
+    _salt `Prelude.hashWithSalt` accessControl
+      `Prelude.hashWithSalt` encryption
 
-instance Prelude.NFData S3DestinationSettings
+instance Prelude.NFData S3DestinationSettings where
+  rnf S3DestinationSettings' {..} =
+    Prelude.rnf accessControl
+      `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON S3DestinationSettings where
   toJSON S3DestinationSettings' {..} =

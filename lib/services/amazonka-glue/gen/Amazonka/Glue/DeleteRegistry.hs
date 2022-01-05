@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteRegistry where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRegistry
+instance Prelude.Hashable DeleteRegistry where
+  hashWithSalt _salt DeleteRegistry' {..} =
+    _salt `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData DeleteRegistry
+instance Prelude.NFData DeleteRegistry where
+  rnf DeleteRegistry' {..} = Prelude.rnf registryId
 
 instance Core.ToHeaders DeleteRegistry where
   toHeaders =
@@ -186,4 +189,9 @@ deleteRegistryResponse_registryArn = Lens.lens (\DeleteRegistryResponse' {regist
 deleteRegistryResponse_httpStatus :: Lens.Lens' DeleteRegistryResponse Prelude.Int
 deleteRegistryResponse_httpStatus = Lens.lens (\DeleteRegistryResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistryResponse' {} a -> s {httpStatus = a} :: DeleteRegistryResponse)
 
-instance Prelude.NFData DeleteRegistryResponse
+instance Prelude.NFData DeleteRegistryResponse where
+  rnf DeleteRegistryResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf httpStatus

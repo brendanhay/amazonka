@@ -70,9 +70,14 @@ instance Core.FromJSON S3Location where
             Prelude.<$> (x Core..:? "bucket") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt _salt S3Location' {..} =
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =

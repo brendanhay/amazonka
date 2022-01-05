@@ -493,10 +493,46 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedInstancesOfferings
+  where
+  hashWithSalt
+    _salt
+    DescribeReservedInstancesOfferings' {..} =
+      _salt `Prelude.hashWithSalt` maxDuration
+        `Prelude.hashWithSalt` productDescription
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` includeMarketplace
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` minDuration
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` offeringType
+        `Prelude.hashWithSalt` reservedInstancesOfferingIds
+        `Prelude.hashWithSalt` instanceTenancy
+        `Prelude.hashWithSalt` offeringClass
+        `Prelude.hashWithSalt` maxInstanceCount
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeReservedInstancesOfferings
+  where
+  rnf DescribeReservedInstancesOfferings' {..} =
+    Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf includeMarketplace
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf minDuration
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf reservedInstancesOfferingIds
+      `Prelude.seq` Prelude.rnf instanceTenancy
+      `Prelude.seq` Prelude.rnf offeringClass
+      `Prelude.seq` Prelude.rnf maxInstanceCount
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -601,3 +637,8 @@ describeReservedInstancesOfferingsResponse_httpStatus = Lens.lens (\DescribeRese
 instance
   Prelude.NFData
     DescribeReservedInstancesOfferingsResponse
+  where
+  rnf DescribeReservedInstancesOfferingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reservedInstancesOfferings
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -87,9 +87,12 @@ instance Core.AWSRequest GetLexicon where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLexicon
+instance Prelude.Hashable GetLexicon where
+  hashWithSalt _salt GetLexicon' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetLexicon
+instance Prelude.NFData GetLexicon where
+  rnf GetLexicon' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetLexicon where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +158,8 @@ getLexiconResponse_lexicon = Lens.lens (\GetLexiconResponse' {lexicon} -> lexico
 getLexiconResponse_httpStatus :: Lens.Lens' GetLexiconResponse Prelude.Int
 getLexiconResponse_httpStatus = Lens.lens (\GetLexiconResponse' {httpStatus} -> httpStatus) (\s@GetLexiconResponse' {} a -> s {httpStatus = a} :: GetLexiconResponse)
 
-instance Prelude.NFData GetLexiconResponse
+instance Prelude.NFData GetLexiconResponse where
+  rnf GetLexiconResponse' {..} =
+    Prelude.rnf lexiconAttributes
+      `Prelude.seq` Prelude.rnf lexicon
+      `Prelude.seq` Prelude.rnf httpStatus

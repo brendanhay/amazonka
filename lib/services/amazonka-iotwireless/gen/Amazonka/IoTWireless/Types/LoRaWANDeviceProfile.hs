@@ -246,9 +246,49 @@ instance Core.FromJSON LoRaWANDeviceProfile where
             Prelude.<*> (x Core..:? "PingSlotPeriod")
       )
 
-instance Prelude.Hashable LoRaWANDeviceProfile
+instance Prelude.Hashable LoRaWANDeviceProfile where
+  hashWithSalt _salt LoRaWANDeviceProfile' {..} =
+    _salt `Prelude.hashWithSalt` rfRegion
+      `Prelude.hashWithSalt` pingSlotFreq
+      `Prelude.hashWithSalt` classBTimeout
+      `Prelude.hashWithSalt` maxEirp
+      `Prelude.hashWithSalt` rxDataRate2
+      `Prelude.hashWithSalt` macVersion
+      `Prelude.hashWithSalt` factoryPresetFreqsList
+      `Prelude.hashWithSalt` rxFreq2
+      `Prelude.hashWithSalt` classCTimeout
+      `Prelude.hashWithSalt` regParamsRevision
+      `Prelude.hashWithSalt` pingSlotDr
+      `Prelude.hashWithSalt` supports32BitFCnt
+      `Prelude.hashWithSalt` maxDutyCycle
+      `Prelude.hashWithSalt` rxDrOffset1
+      `Prelude.hashWithSalt` supportsClassB
+      `Prelude.hashWithSalt` supportsJoin
+      `Prelude.hashWithSalt` rxDelay1
+      `Prelude.hashWithSalt` supportsClassC
+      `Prelude.hashWithSalt` pingSlotPeriod
 
-instance Prelude.NFData LoRaWANDeviceProfile
+instance Prelude.NFData LoRaWANDeviceProfile where
+  rnf LoRaWANDeviceProfile' {..} =
+    Prelude.rnf rfRegion
+      `Prelude.seq` Prelude.rnf pingSlotFreq
+      `Prelude.seq` Prelude.rnf classBTimeout
+      `Prelude.seq` Prelude.rnf maxEirp
+      `Prelude.seq` Prelude.rnf rxDataRate2
+      `Prelude.seq` Prelude.rnf macVersion
+      `Prelude.seq` Prelude.rnf factoryPresetFreqsList
+      `Prelude.seq` Prelude.rnf rxFreq2
+      `Prelude.seq` Prelude.rnf classCTimeout
+      `Prelude.seq` Prelude.rnf regParamsRevision
+      `Prelude.seq` Prelude.rnf pingSlotDr
+      `Prelude.seq` Prelude.rnf supports32BitFCnt
+      `Prelude.seq` Prelude.rnf maxDutyCycle
+      `Prelude.seq` Prelude.rnf rxDrOffset1
+      `Prelude.seq` Prelude.rnf supportsClassB
+      `Prelude.seq` Prelude.rnf supportsJoin
+      `Prelude.seq` Prelude.rnf rxDelay1
+      `Prelude.seq` Prelude.rnf supportsClassC
+      `Prelude.seq` Prelude.rnf pingSlotPeriod
 
 instance Core.ToJSON LoRaWANDeviceProfile where
   toJSON LoRaWANDeviceProfile' {..} =

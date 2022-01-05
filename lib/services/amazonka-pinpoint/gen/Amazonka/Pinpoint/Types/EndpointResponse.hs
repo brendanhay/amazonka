@@ -314,6 +314,38 @@ instance Core.FromJSON EndpointResponse where
             Prelude.<*> (x Core..:? "ChannelType")
       )
 
-instance Prelude.Hashable EndpointResponse
+instance Prelude.Hashable EndpointResponse where
+  hashWithSalt _salt EndpointResponse' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` demographic
+      `Prelude.hashWithSalt` cohortId
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` effectiveDate
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` optOut
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` channelType
 
-instance Prelude.NFData EndpointResponse
+instance Prelude.NFData EndpointResponse where
+  rnf EndpointResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf demographic
+      `Prelude.seq` Prelude.rnf cohortId
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf effectiveDate
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf optOut
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf channelType

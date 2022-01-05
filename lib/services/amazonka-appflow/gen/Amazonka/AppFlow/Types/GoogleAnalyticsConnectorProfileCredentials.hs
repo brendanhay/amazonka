@@ -110,10 +110,26 @@ googleAnalyticsConnectorProfileCredentials_clientSecret = Lens.lens (\GoogleAnal
 instance
   Prelude.Hashable
     GoogleAnalyticsConnectorProfileCredentials
+  where
+  hashWithSalt
+    _salt
+    GoogleAnalyticsConnectorProfileCredentials' {..} =
+      _salt `Prelude.hashWithSalt` accessToken
+        `Prelude.hashWithSalt` refreshToken
+        `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` clientSecret
 
 instance
   Prelude.NFData
     GoogleAnalyticsConnectorProfileCredentials
+  where
+  rnf GoogleAnalyticsConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf oAuthRequest
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance
   Core.ToJSON

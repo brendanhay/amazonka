@@ -90,6 +90,14 @@ instance Core.FromJSON ResourceTargetDefinition where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ResourceTargetDefinition
+instance Prelude.Hashable ResourceTargetDefinition where
+  hashWithSalt _salt ResourceTargetDefinition' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` requiresRecreation
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ResourceTargetDefinition
+instance Prelude.NFData ResourceTargetDefinition where
+  rnf ResourceTargetDefinition' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf requiresRecreation
+      `Prelude.seq` Prelude.rnf name

@@ -75,9 +75,17 @@ s3LogDelivery_bucket = Lens.lens (\S3LogDelivery' {bucket} -> bucket) (\s@S3LogD
 s3LogDelivery_enabled :: Lens.Lens' S3LogDelivery Prelude.Bool
 s3LogDelivery_enabled = Lens.lens (\S3LogDelivery' {enabled} -> enabled) (\s@S3LogDelivery' {} a -> s {enabled = a} :: S3LogDelivery)
 
-instance Prelude.Hashable S3LogDelivery
+instance Prelude.Hashable S3LogDelivery where
+  hashWithSalt _salt S3LogDelivery' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData S3LogDelivery
+instance Prelude.NFData S3LogDelivery where
+  rnf S3LogDelivery' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON S3LogDelivery where
   toJSON S3LogDelivery' {..} =

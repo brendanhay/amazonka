@@ -202,9 +202,21 @@ instance Core.AWSRequest CreateWebACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWebACL
+instance Prelude.Hashable CreateWebACL where
+  hashWithSalt _salt CreateWebACL' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` defaultAction
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateWebACL
+instance Prelude.NFData CreateWebACL where
+  rnf CreateWebACL' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf defaultAction
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateWebACL where
   toHeaders =
@@ -292,4 +304,8 @@ createWebACLResponse_changeToken = Lens.lens (\CreateWebACLResponse' {changeToke
 createWebACLResponse_httpStatus :: Lens.Lens' CreateWebACLResponse Prelude.Int
 createWebACLResponse_httpStatus = Lens.lens (\CreateWebACLResponse' {httpStatus} -> httpStatus) (\s@CreateWebACLResponse' {} a -> s {httpStatus = a} :: CreateWebACLResponse)
 
-instance Prelude.NFData CreateWebACLResponse
+instance Prelude.NFData CreateWebACLResponse where
+  rnf CreateWebACLResponse' {..} =
+    Prelude.rnf webACL
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

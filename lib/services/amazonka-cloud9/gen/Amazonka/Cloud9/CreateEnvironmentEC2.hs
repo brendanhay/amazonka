@@ -340,9 +340,34 @@ instance Core.AWSRequest CreateEnvironmentEC2 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEnvironmentEC2
+instance Prelude.Hashable CreateEnvironmentEC2 where
+  hashWithSalt _salt CreateEnvironmentEC2' {..} =
+    _salt
+      `Prelude.hashWithSalt` automaticStopTimeMinutes
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` ownerArn
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData CreateEnvironmentEC2
+instance Prelude.NFData CreateEnvironmentEC2 where
+  rnf CreateEnvironmentEC2' {..} =
+    Prelude.rnf automaticStopTimeMinutes
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf ownerArn
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToHeaders CreateEnvironmentEC2 where
   toHeaders =
@@ -425,4 +450,7 @@ createEnvironmentEC2Response_environmentId = Lens.lens (\CreateEnvironmentEC2Res
 createEnvironmentEC2Response_httpStatus :: Lens.Lens' CreateEnvironmentEC2Response Prelude.Int
 createEnvironmentEC2Response_httpStatus = Lens.lens (\CreateEnvironmentEC2Response' {httpStatus} -> httpStatus) (\s@CreateEnvironmentEC2Response' {} a -> s {httpStatus = a} :: CreateEnvironmentEC2Response)
 
-instance Prelude.NFData CreateEnvironmentEC2Response
+instance Prelude.NFData CreateEnvironmentEC2Response where
+  rnf CreateEnvironmentEC2Response' {..} =
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf httpStatus

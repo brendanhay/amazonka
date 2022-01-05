@@ -161,10 +161,24 @@ instance
 instance
   Prelude.Hashable
     UpdateFirewallRuleGroupAssociation
+  where
+  hashWithSalt
+    _salt
+    UpdateFirewallRuleGroupAssociation' {..} =
+      _salt `Prelude.hashWithSalt` mutationProtection
+        `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` firewallRuleGroupAssociationId
 
 instance
   Prelude.NFData
     UpdateFirewallRuleGroupAssociation
+  where
+  rnf UpdateFirewallRuleGroupAssociation' {..} =
+    Prelude.rnf mutationProtection
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf firewallRuleGroupAssociationId
 
 instance
   Core.ToHeaders
@@ -257,3 +271,7 @@ updateFirewallRuleGroupAssociationResponse_httpStatus = Lens.lens (\UpdateFirewa
 instance
   Prelude.NFData
     UpdateFirewallRuleGroupAssociationResponse
+  where
+  rnf UpdateFirewallRuleGroupAssociationResponse' {..} =
+    Prelude.rnf firewallRuleGroupAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

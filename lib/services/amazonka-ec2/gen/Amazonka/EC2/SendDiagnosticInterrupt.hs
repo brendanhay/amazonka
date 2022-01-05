@@ -118,9 +118,15 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
     Response.receiveNull
       SendDiagnosticInterruptResponse'
 
-instance Prelude.Hashable SendDiagnosticInterrupt
+instance Prelude.Hashable SendDiagnosticInterrupt where
+  hashWithSalt _salt SendDiagnosticInterrupt' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData SendDiagnosticInterrupt
+instance Prelude.NFData SendDiagnosticInterrupt where
+  rnf SendDiagnosticInterrupt' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders SendDiagnosticInterrupt where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +163,5 @@ newSendDiagnosticInterruptResponse =
 instance
   Prelude.NFData
     SendDiagnosticInterruptResponse
+  where
+  rnf _ = ()

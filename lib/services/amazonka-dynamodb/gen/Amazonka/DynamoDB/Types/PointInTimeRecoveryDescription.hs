@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -111,7 +112,20 @@ instance Core.FromJSON PointInTimeRecoveryDescription where
 instance
   Prelude.Hashable
     PointInTimeRecoveryDescription
+  where
+  hashWithSalt
+    _salt
+    PointInTimeRecoveryDescription' {..} =
+      _salt
+        `Prelude.hashWithSalt` pointInTimeRecoveryStatus
+        `Prelude.hashWithSalt` earliestRestorableDateTime
+        `Prelude.hashWithSalt` latestRestorableDateTime
 
 instance
   Prelude.NFData
     PointInTimeRecoveryDescription
+  where
+  rnf PointInTimeRecoveryDescription' {..} =
+    Prelude.rnf pointInTimeRecoveryStatus
+      `Prelude.seq` Prelude.rnf earliestRestorableDateTime
+      `Prelude.seq` Prelude.rnf latestRestorableDateTime

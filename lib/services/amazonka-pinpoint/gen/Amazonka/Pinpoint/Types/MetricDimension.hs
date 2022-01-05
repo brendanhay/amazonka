@@ -84,9 +84,15 @@ instance Core.FromJSON MetricDimension where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension where
+  hashWithSalt _salt MetricDimension' {..} =
+    _salt `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MetricDimension
+instance Prelude.NFData MetricDimension where
+  rnf MetricDimension' {..} =
+    Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =

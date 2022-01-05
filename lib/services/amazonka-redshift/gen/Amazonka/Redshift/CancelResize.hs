@@ -101,9 +101,12 @@ instance Core.AWSRequest CancelResize where
       "CancelResizeResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CancelResize
+instance Prelude.Hashable CancelResize where
+  hashWithSalt _salt CancelResize' {..} =
+    _salt `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData CancelResize
+instance Prelude.NFData CancelResize where
+  rnf CancelResize' {..} = Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders CancelResize where
   toHeaders = Prelude.const Prelude.mempty

@@ -93,9 +93,17 @@ instance Core.FromJSON Connector where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable Connector
+instance Prelude.Hashable Connector where
+  hashWithSalt _salt Connector' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` connectorArn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Connector
+instance Prelude.NFData Connector where
+  rnf Connector' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON Connector where
   toJSON Connector' {..} =

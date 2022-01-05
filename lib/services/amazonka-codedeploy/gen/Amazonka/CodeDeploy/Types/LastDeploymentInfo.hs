@@ -99,6 +99,16 @@ instance Core.FromJSON LastDeploymentInfo where
             Prelude.<*> (x Core..:? "createTime")
       )
 
-instance Prelude.Hashable LastDeploymentInfo
+instance Prelude.Hashable LastDeploymentInfo where
+  hashWithSalt _salt LastDeploymentInfo' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData LastDeploymentInfo
+instance Prelude.NFData LastDeploymentInfo where
+  rnf LastDeploymentInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf createTime

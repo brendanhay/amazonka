@@ -56,9 +56,12 @@ instance Core.FromXML S3KeyFilter where
     S3KeyFilter'
       Prelude.<$> (Core.may (Core.parseXMLList "FilterRule") x)
 
-instance Prelude.Hashable S3KeyFilter
+instance Prelude.Hashable S3KeyFilter where
+  hashWithSalt _salt S3KeyFilter' {..} =
+    _salt `Prelude.hashWithSalt` filterRules
 
-instance Prelude.NFData S3KeyFilter
+instance Prelude.NFData S3KeyFilter where
+  rnf S3KeyFilter' {..} = Prelude.rnf filterRules
 
 instance Core.ToXML S3KeyFilter where
   toXML S3KeyFilter' {..} =

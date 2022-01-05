@@ -141,9 +141,17 @@ instance Core.AWSRequest ListDashboards where
                         )
       )
 
-instance Prelude.Hashable ListDashboards
+instance Prelude.Hashable ListDashboards where
+  hashWithSalt _salt ListDashboards' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` projectId
 
-instance Prelude.NFData ListDashboards
+instance Prelude.NFData ListDashboards where
+  rnf ListDashboards' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf projectId
 
 instance Core.ToHeaders ListDashboards where
   toHeaders =
@@ -218,4 +226,8 @@ listDashboardsResponse_httpStatus = Lens.lens (\ListDashboardsResponse' {httpSta
 listDashboardsResponse_dashboardSummaries :: Lens.Lens' ListDashboardsResponse [DashboardSummary]
 listDashboardsResponse_dashboardSummaries = Lens.lens (\ListDashboardsResponse' {dashboardSummaries} -> dashboardSummaries) (\s@ListDashboardsResponse' {} a -> s {dashboardSummaries = a} :: ListDashboardsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDashboardsResponse
+instance Prelude.NFData ListDashboardsResponse where
+  rnf ListDashboardsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dashboardSummaries

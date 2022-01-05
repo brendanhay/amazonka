@@ -77,6 +77,12 @@ instance Core.FromJSON ContentModerationDetection where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable ContentModerationDetection
+instance Prelude.Hashable ContentModerationDetection where
+  hashWithSalt _salt ContentModerationDetection' {..} =
+    _salt `Prelude.hashWithSalt` moderationLabel
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ContentModerationDetection
+instance Prelude.NFData ContentModerationDetection where
+  rnf ContentModerationDetection' {..} =
+    Prelude.rnf moderationLabel
+      `Prelude.seq` Prelude.rnf timestamp

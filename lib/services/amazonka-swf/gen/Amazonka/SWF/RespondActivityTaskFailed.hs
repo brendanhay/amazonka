@@ -146,9 +146,17 @@ instance Core.AWSRequest RespondActivityTaskFailed where
     Response.receiveNull
       RespondActivityTaskFailedResponse'
 
-instance Prelude.Hashable RespondActivityTaskFailed
+instance Prelude.Hashable RespondActivityTaskFailed where
+  hashWithSalt _salt RespondActivityTaskFailed' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData RespondActivityTaskFailed
+instance Prelude.NFData RespondActivityTaskFailed where
+  rnf RespondActivityTaskFailed' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf taskToken
 
 instance Core.ToHeaders RespondActivityTaskFailed where
   toHeaders =
@@ -199,3 +207,5 @@ newRespondActivityTaskFailedResponse =
 instance
   Prelude.NFData
     RespondActivityTaskFailedResponse
+  where
+  rnf _ = ()

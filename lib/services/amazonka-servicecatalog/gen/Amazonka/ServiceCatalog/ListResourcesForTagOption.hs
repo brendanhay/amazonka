@@ -162,9 +162,19 @@ instance Core.AWSRequest ListResourcesForTagOption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourcesForTagOption
+instance Prelude.Hashable ListResourcesForTagOption where
+  hashWithSalt _salt ListResourcesForTagOption' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` tagOptionId
 
-instance Prelude.NFData ListResourcesForTagOption
+instance Prelude.NFData ListResourcesForTagOption where
+  rnf ListResourcesForTagOption' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf tagOptionId
 
 instance Core.ToHeaders ListResourcesForTagOption where
   toHeaders =
@@ -252,3 +262,8 @@ listResourcesForTagOptionResponse_httpStatus = Lens.lens (\ListResourcesForTagOp
 instance
   Prelude.NFData
     ListResourcesForTagOptionResponse
+  where
+  rnf ListResourcesForTagOptionResponse' {..} =
+    Prelude.rnf resourceDetails
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf httpStatus

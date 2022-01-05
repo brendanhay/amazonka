@@ -61,9 +61,13 @@ instance Core.FromJSON MarketoSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable MarketoSourceProperties
+instance Prelude.Hashable MarketoSourceProperties where
+  hashWithSalt _salt MarketoSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData MarketoSourceProperties
+instance Prelude.NFData MarketoSourceProperties where
+  rnf MarketoSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON MarketoSourceProperties where
   toJSON MarketoSourceProperties' {..} =

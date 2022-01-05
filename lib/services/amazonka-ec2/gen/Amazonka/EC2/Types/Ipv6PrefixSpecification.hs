@@ -59,6 +59,10 @@ instance Core.FromXML Ipv6PrefixSpecification where
     Ipv6PrefixSpecification'
       Prelude.<$> (x Core..@? "ipv6Prefix")
 
-instance Prelude.Hashable Ipv6PrefixSpecification
+instance Prelude.Hashable Ipv6PrefixSpecification where
+  hashWithSalt _salt Ipv6PrefixSpecification' {..} =
+    _salt `Prelude.hashWithSalt` ipv6Prefix
 
-instance Prelude.NFData Ipv6PrefixSpecification
+instance Prelude.NFData Ipv6PrefixSpecification where
+  rnf Ipv6PrefixSpecification' {..} =
+    Prelude.rnf ipv6Prefix

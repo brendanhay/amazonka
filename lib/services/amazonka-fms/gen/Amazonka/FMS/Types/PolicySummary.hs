@@ -176,6 +176,22 @@ instance Core.FromJSON PolicySummary where
             Prelude.<*> (x Core..:? "SecurityServiceType")
       )
 
-instance Prelude.Hashable PolicySummary
+instance Prelude.Hashable PolicySummary where
+  hashWithSalt _salt PolicySummary' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` remediationEnabled
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` deleteUnusedFMManagedResources
+      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` securityServiceType
 
-instance Prelude.NFData PolicySummary
+instance Prelude.NFData PolicySummary where
+  rnf PolicySummary' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf remediationEnabled
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf deleteUnusedFMManagedResources
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf securityServiceType

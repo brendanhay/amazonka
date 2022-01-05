@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteAssessmentFramework where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAssessmentFramework
+instance Prelude.Hashable DeleteAssessmentFramework where
+  hashWithSalt _salt DeleteAssessmentFramework' {..} =
+    _salt `Prelude.hashWithSalt` frameworkId
 
-instance Prelude.NFData DeleteAssessmentFramework
+instance Prelude.NFData DeleteAssessmentFramework where
+  rnf DeleteAssessmentFramework' {..} =
+    Prelude.rnf frameworkId
 
 instance Core.ToHeaders DeleteAssessmentFramework where
   toHeaders =
@@ -143,3 +147,6 @@ deleteAssessmentFrameworkResponse_httpStatus = Lens.lens (\DeleteAssessmentFrame
 instance
   Prelude.NFData
     DeleteAssessmentFrameworkResponse
+  where
+  rnf DeleteAssessmentFrameworkResponse' {..} =
+    Prelude.rnf httpStatus

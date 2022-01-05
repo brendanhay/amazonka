@@ -72,6 +72,11 @@ instance Core.FromJSON DashboardError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable DashboardError
+instance Prelude.Hashable DashboardError where
+  hashWithSalt _salt DashboardError' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData DashboardError
+instance Prelude.NFData DashboardError where
+  rnf DashboardError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

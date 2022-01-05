@@ -140,9 +140,17 @@ instance Core.AWSRequest ListApiKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApiKeys
+instance Prelude.Hashable ListApiKeys where
+  hashWithSalt _salt ListApiKeys' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData ListApiKeys
+instance Prelude.NFData ListApiKeys where
+  rnf ListApiKeys' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders ListApiKeys where
   toHeaders =
@@ -217,4 +225,8 @@ listApiKeysResponse_nextToken = Lens.lens (\ListApiKeysResponse' {nextToken} -> 
 listApiKeysResponse_httpStatus :: Lens.Lens' ListApiKeysResponse Prelude.Int
 listApiKeysResponse_httpStatus = Lens.lens (\ListApiKeysResponse' {httpStatus} -> httpStatus) (\s@ListApiKeysResponse' {} a -> s {httpStatus = a} :: ListApiKeysResponse)
 
-instance Prelude.NFData ListApiKeysResponse
+instance Prelude.NFData ListApiKeysResponse where
+  rnf ListApiKeysResponse' {..} =
+    Prelude.rnf apiKeys
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

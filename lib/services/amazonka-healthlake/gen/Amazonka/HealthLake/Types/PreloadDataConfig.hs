@@ -66,9 +66,13 @@ instance Core.FromJSON PreloadDataConfig where
             Prelude.<$> (x Core..: "PreloadDataType")
       )
 
-instance Prelude.Hashable PreloadDataConfig
+instance Prelude.Hashable PreloadDataConfig where
+  hashWithSalt _salt PreloadDataConfig' {..} =
+    _salt `Prelude.hashWithSalt` preloadDataType
 
-instance Prelude.NFData PreloadDataConfig
+instance Prelude.NFData PreloadDataConfig where
+  rnf PreloadDataConfig' {..} =
+    Prelude.rnf preloadDataType
 
 instance Core.ToJSON PreloadDataConfig where
   toJSON PreloadDataConfig' {..} =

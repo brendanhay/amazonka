@@ -96,6 +96,16 @@ instance Core.FromJSON ComputeCapacityStatus where
             Prelude.<*> (x Core..: "Desired")
       )
 
-instance Prelude.Hashable ComputeCapacityStatus
+instance Prelude.Hashable ComputeCapacityStatus where
+  hashWithSalt _salt ComputeCapacityStatus' {..} =
+    _salt `Prelude.hashWithSalt` inUse
+      `Prelude.hashWithSalt` running
+      `Prelude.hashWithSalt` available
+      `Prelude.hashWithSalt` desired
 
-instance Prelude.NFData ComputeCapacityStatus
+instance Prelude.NFData ComputeCapacityStatus where
+  rnf ComputeCapacityStatus' {..} =
+    Prelude.rnf inUse
+      `Prelude.seq` Prelude.rnf running
+      `Prelude.seq` Prelude.rnf available
+      `Prelude.seq` Prelude.rnf desired

@@ -85,9 +85,15 @@ instance Core.FromJSON HttpDataSourceConfig where
             Prelude.<*> (x Core..:? "endpoint")
       )
 
-instance Prelude.Hashable HttpDataSourceConfig
+instance Prelude.Hashable HttpDataSourceConfig where
+  hashWithSalt _salt HttpDataSourceConfig' {..} =
+    _salt `Prelude.hashWithSalt` authorizationConfig
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData HttpDataSourceConfig
+instance Prelude.NFData HttpDataSourceConfig where
+  rnf HttpDataSourceConfig' {..} =
+    Prelude.rnf authorizationConfig
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Core.ToJSON HttpDataSourceConfig where
   toJSON HttpDataSourceConfig' {..} =

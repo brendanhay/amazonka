@@ -77,6 +77,12 @@ instance Core.FromJSON ExecutionResults where
             Prelude.<*> (x Core..:? "Steps")
       )
 
-instance Prelude.Hashable ExecutionResults
+instance Prelude.Hashable ExecutionResults where
+  hashWithSalt _salt ExecutionResults' {..} =
+    _salt `Prelude.hashWithSalt` onExceptionSteps
+      `Prelude.hashWithSalt` steps
 
-instance Prelude.NFData ExecutionResults
+instance Prelude.NFData ExecutionResults where
+  rnf ExecutionResults' {..} =
+    Prelude.rnf onExceptionSteps
+      `Prelude.seq` Prelude.rnf steps

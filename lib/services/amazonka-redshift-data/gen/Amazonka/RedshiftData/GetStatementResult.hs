@@ -159,9 +159,14 @@ instance Core.AWSRequest GetStatementResult where
             Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetStatementResult
+instance Prelude.Hashable GetStatementResult where
+  hashWithSalt _salt GetStatementResult' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetStatementResult
+instance Prelude.NFData GetStatementResult where
+  rnf GetStatementResult' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetStatementResult where
   toHeaders =
@@ -280,4 +285,10 @@ getStatementResultResponse_httpStatus = Lens.lens (\GetStatementResultResponse' 
 getStatementResultResponse_records :: Lens.Lens' GetStatementResultResponse [[Field]]
 getStatementResultResponse_records = Lens.lens (\GetStatementResultResponse' {records} -> records) (\s@GetStatementResultResponse' {} a -> s {records = a} :: GetStatementResultResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetStatementResultResponse
+instance Prelude.NFData GetStatementResultResponse where
+  rnf GetStatementResultResponse' {..} =
+    Prelude.rnf totalNumRows
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf columnMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf records

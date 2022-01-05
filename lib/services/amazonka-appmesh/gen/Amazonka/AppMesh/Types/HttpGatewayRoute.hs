@@ -76,9 +76,14 @@ instance Core.FromJSON HttpGatewayRoute where
             Prelude.<$> (x Core..: "action") Prelude.<*> (x Core..: "match")
       )
 
-instance Prelude.Hashable HttpGatewayRoute
+instance Prelude.Hashable HttpGatewayRoute where
+  hashWithSalt _salt HttpGatewayRoute' {..} =
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` match
 
-instance Prelude.NFData HttpGatewayRoute
+instance Prelude.NFData HttpGatewayRoute where
+  rnf HttpGatewayRoute' {..} =
+    Prelude.rnf action `Prelude.seq` Prelude.rnf match
 
 instance Core.ToJSON HttpGatewayRoute where
   toJSON HttpGatewayRoute' {..} =

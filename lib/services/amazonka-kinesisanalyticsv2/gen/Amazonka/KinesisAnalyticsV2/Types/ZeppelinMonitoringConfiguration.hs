@@ -62,10 +62,18 @@ zeppelinMonitoringConfiguration_logLevel = Lens.lens (\ZeppelinMonitoringConfigu
 instance
   Prelude.Hashable
     ZeppelinMonitoringConfiguration
+  where
+  hashWithSalt
+    _salt
+    ZeppelinMonitoringConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` logLevel
 
 instance
   Prelude.NFData
     ZeppelinMonitoringConfiguration
+  where
+  rnf ZeppelinMonitoringConfiguration' {..} =
+    Prelude.rnf logLevel
 
 instance Core.ToJSON ZeppelinMonitoringConfiguration where
   toJSON ZeppelinMonitoringConfiguration' {..} =

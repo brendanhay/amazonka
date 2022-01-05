@@ -144,9 +144,17 @@ instance Core.AWSRequest DescribeConformancePacks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConformancePacks
+instance Prelude.Hashable DescribeConformancePacks where
+  hashWithSalt _salt DescribeConformancePacks' {..} =
+    _salt `Prelude.hashWithSalt` conformancePackNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeConformancePacks
+instance Prelude.NFData DescribeConformancePacks where
+  rnf DescribeConformancePacks' {..} =
+    Prelude.rnf conformancePackNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeConformancePacks where
   toHeaders =
@@ -234,3 +242,8 @@ describeConformancePacksResponse_httpStatus = Lens.lens (\DescribeConformancePac
 instance
   Prelude.NFData
     DescribeConformancePacksResponse
+  where
+  rnf DescribeConformancePacksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf conformancePackDetails
+      `Prelude.seq` Prelude.rnf httpStatus

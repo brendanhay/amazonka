@@ -80,8 +80,12 @@ instance Core.AWSRequest DescribeStorageConfiguration where
 instance
   Prelude.Hashable
     DescribeStorageConfiguration
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeStorageConfiguration
+instance Prelude.NFData DescribeStorageConfiguration where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeStorageConfiguration where
   toHeaders =
@@ -201,3 +205,10 @@ describeStorageConfigurationResponse_configurationStatus = Lens.lens (\DescribeS
 instance
   Prelude.NFData
     DescribeStorageConfigurationResponse
+  where
+  rnf DescribeStorageConfigurationResponse' {..} =
+    Prelude.rnf multiLayerStorage
+      `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf configurationStatus

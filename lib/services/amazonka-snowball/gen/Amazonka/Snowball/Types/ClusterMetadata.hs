@@ -299,6 +299,38 @@ instance Core.FromJSON ClusterMetadata where
             Prelude.<*> (x Core..:? "RoleARN")
       )
 
-instance Prelude.Hashable ClusterMetadata
+instance Prelude.Hashable ClusterMetadata where
+  hashWithSalt _salt ClusterMetadata' {..} =
+    _salt `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` kmsKeyARN
+      `Prelude.hashWithSalt` clusterState
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` shippingOption
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` onDeviceServiceConfiguration
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` taxDocuments
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData ClusterMetadata
+instance Prelude.NFData ClusterMetadata where
+  rnf ClusterMetadata' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf kmsKeyARN
+      `Prelude.seq` Prelude.rnf clusterState
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf forwardingAddressId
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf shippingOption
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf taxDocuments
+      `Prelude.seq` Prelude.rnf roleARN

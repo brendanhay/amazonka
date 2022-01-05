@@ -79,7 +79,16 @@ instance
 instance
   Prelude.Hashable
     ClientCertificateRevocationListStatus
+  where
+  hashWithSalt
+    _salt
+    ClientCertificateRevocationListStatus' {..} =
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     ClientCertificateRevocationListStatus
+  where
+  rnf ClientCertificateRevocationListStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

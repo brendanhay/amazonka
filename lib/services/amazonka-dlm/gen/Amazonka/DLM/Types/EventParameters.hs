@@ -122,9 +122,17 @@ instance Core.FromJSON EventParameters where
             Prelude.<*> (x Core..: "DescriptionRegex")
       )
 
-instance Prelude.Hashable EventParameters
+instance Prelude.Hashable EventParameters where
+  hashWithSalt _salt EventParameters' {..} =
+    _salt `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` snapshotOwner
+      `Prelude.hashWithSalt` descriptionRegex
 
-instance Prelude.NFData EventParameters
+instance Prelude.NFData EventParameters where
+  rnf EventParameters' {..} =
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf snapshotOwner
+      `Prelude.seq` Prelude.rnf descriptionRegex
 
 instance Core.ToJSON EventParameters where
   toJSON EventParameters' {..} =

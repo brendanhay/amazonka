@@ -154,9 +154,21 @@ instance Core.AWSRequest UpdateVirtualGateway where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVirtualGateway
+instance Prelude.Hashable UpdateVirtualGateway where
+  hashWithSalt _salt UpdateVirtualGateway' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` virtualGatewayName
 
-instance Prelude.NFData UpdateVirtualGateway
+instance Prelude.NFData UpdateVirtualGateway where
+  rnf UpdateVirtualGateway' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf virtualGatewayName
 
 instance Core.ToHeaders UpdateVirtualGateway where
   toHeaders =
@@ -234,4 +246,7 @@ updateVirtualGatewayResponse_httpStatus = Lens.lens (\UpdateVirtualGatewayRespon
 updateVirtualGatewayResponse_virtualGateway :: Lens.Lens' UpdateVirtualGatewayResponse VirtualGatewayData
 updateVirtualGatewayResponse_virtualGateway = Lens.lens (\UpdateVirtualGatewayResponse' {virtualGateway} -> virtualGateway) (\s@UpdateVirtualGatewayResponse' {} a -> s {virtualGateway = a} :: UpdateVirtualGatewayResponse)
 
-instance Prelude.NFData UpdateVirtualGatewayResponse
+instance Prelude.NFData UpdateVirtualGatewayResponse where
+  rnf UpdateVirtualGatewayResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualGateway

@@ -154,9 +154,19 @@ instance Core.AWSRequest DeleteStudioSessionMapping where
     Response.receiveNull
       DeleteStudioSessionMappingResponse'
 
-instance Prelude.Hashable DeleteStudioSessionMapping
+instance Prelude.Hashable DeleteStudioSessionMapping where
+  hashWithSalt _salt DeleteStudioSessionMapping' {..} =
+    _salt `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` identityType
 
-instance Prelude.NFData DeleteStudioSessionMapping
+instance Prelude.NFData DeleteStudioSessionMapping where
+  rnf DeleteStudioSessionMapping' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders DeleteStudioSessionMapping where
   toHeaders =
@@ -208,3 +218,5 @@ newDeleteStudioSessionMappingResponse =
 instance
   Prelude.NFData
     DeleteStudioSessionMappingResponse
+  where
+  rnf _ = ()

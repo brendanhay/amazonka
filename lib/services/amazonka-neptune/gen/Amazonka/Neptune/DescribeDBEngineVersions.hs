@@ -257,9 +257,29 @@ instance Core.AWSRequest DescribeDBEngineVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBEngineVersions
+instance Prelude.Hashable DescribeDBEngineVersions where
+  hashWithSalt _salt DescribeDBEngineVersions' {..} =
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` listSupportedTimezones
+      `Prelude.hashWithSalt` defaultOnly
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` listSupportedCharacterSets
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeDBEngineVersions
+instance Prelude.NFData DescribeDBEngineVersions where
+  rnf DescribeDBEngineVersions' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf listSupportedTimezones
+      `Prelude.seq` Prelude.rnf defaultOnly
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf listSupportedCharacterSets
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeDBEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -347,3 +367,8 @@ describeDBEngineVersionsResponse_httpStatus = Lens.lens (\DescribeDBEngineVersio
 instance
   Prelude.NFData
     DescribeDBEngineVersionsResponse
+  where
+  rnf DescribeDBEngineVersionsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbEngineVersions
+      `Prelude.seq` Prelude.rnf httpStatus

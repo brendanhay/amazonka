@@ -219,9 +219,39 @@ instance Core.FromJSON AwsEcsTaskDefinitionDetails where
             Prelude.<*> (x Core..:? "Cpu")
       )
 
-instance Prelude.Hashable AwsEcsTaskDefinitionDetails
+instance Prelude.Hashable AwsEcsTaskDefinitionDetails where
+  hashWithSalt _salt AwsEcsTaskDefinitionDetails' {..} =
+    _salt `Prelude.hashWithSalt` inferenceAccelerators
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` pidMode
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` requiresCompatibilities
+      `Prelude.hashWithSalt` containerDefinitions
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` ipcMode
+      `Prelude.hashWithSalt` taskRoleArn
+      `Prelude.hashWithSalt` proxyConfiguration
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` networkMode
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` cpu
 
-instance Prelude.NFData AwsEcsTaskDefinitionDetails
+instance Prelude.NFData AwsEcsTaskDefinitionDetails where
+  rnf AwsEcsTaskDefinitionDetails' {..} =
+    Prelude.rnf inferenceAccelerators
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf pidMode
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf requiresCompatibilities
+      `Prelude.seq` Prelude.rnf containerDefinitions
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf ipcMode
+      `Prelude.seq` Prelude.rnf taskRoleArn
+      `Prelude.seq` Prelude.rnf proxyConfiguration
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf networkMode
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf cpu
 
 instance Core.ToJSON AwsEcsTaskDefinitionDetails where
   toJSON AwsEcsTaskDefinitionDetails' {..} =

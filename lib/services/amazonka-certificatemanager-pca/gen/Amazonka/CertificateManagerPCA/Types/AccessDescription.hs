@@ -79,9 +79,15 @@ instance Core.FromJSON AccessDescription where
             Prelude.<*> (x Core..: "AccessLocation")
       )
 
-instance Prelude.Hashable AccessDescription
+instance Prelude.Hashable AccessDescription where
+  hashWithSalt _salt AccessDescription' {..} =
+    _salt `Prelude.hashWithSalt` accessMethod
+      `Prelude.hashWithSalt` accessLocation
 
-instance Prelude.NFData AccessDescription
+instance Prelude.NFData AccessDescription where
+  rnf AccessDescription' {..} =
+    Prelude.rnf accessMethod
+      `Prelude.seq` Prelude.rnf accessLocation
 
 instance Core.ToJSON AccessDescription where
   toJSON AccessDescription' {..} =

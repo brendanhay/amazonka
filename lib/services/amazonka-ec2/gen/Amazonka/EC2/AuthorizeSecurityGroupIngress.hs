@@ -342,8 +342,33 @@ instance
 instance
   Prelude.Hashable
     AuthorizeSecurityGroupIngress
+  where
+  hashWithSalt _salt AuthorizeSecurityGroupIngress' {..} =
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` ipPermissions
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` sourceSecurityGroupName
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData AuthorizeSecurityGroupIngress
+instance Prelude.NFData AuthorizeSecurityGroupIngress where
+  rnf AuthorizeSecurityGroupIngress' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf ipPermissions
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders AuthorizeSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -435,3 +460,8 @@ authorizeSecurityGroupIngressResponse_httpStatus = Lens.lens (\AuthorizeSecurity
 instance
   Prelude.NFData
     AuthorizeSecurityGroupIngressResponse
+  where
+  rnf AuthorizeSecurityGroupIngressResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf securityGroupRules
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,9 +111,17 @@ instance Core.AWSRequest UpdateIpRestriction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIpRestriction
+instance Prelude.Hashable UpdateIpRestriction where
+  hashWithSalt _salt UpdateIpRestriction' {..} =
+    _salt `Prelude.hashWithSalt` ipRestrictionRuleMap
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData UpdateIpRestriction
+instance Prelude.NFData UpdateIpRestriction where
+  rnf UpdateIpRestriction' {..} =
+    Prelude.rnf ipRestrictionRuleMap
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Core.ToHeaders UpdateIpRestriction where
   toHeaders =
@@ -198,4 +206,8 @@ updateIpRestrictionResponse_awsAccountId = Lens.lens (\UpdateIpRestrictionRespon
 updateIpRestrictionResponse_status :: Lens.Lens' UpdateIpRestrictionResponse Prelude.Int
 updateIpRestrictionResponse_status = Lens.lens (\UpdateIpRestrictionResponse' {status} -> status) (\s@UpdateIpRestrictionResponse' {} a -> s {status = a} :: UpdateIpRestrictionResponse)
 
-instance Prelude.NFData UpdateIpRestrictionResponse
+instance Prelude.NFData UpdateIpRestrictionResponse where
+  rnf UpdateIpRestrictionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf status

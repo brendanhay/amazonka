@@ -219,9 +219,19 @@ instance Core.AWSRequest DescribeClusterParameters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterParameters
+instance Prelude.Hashable DescribeClusterParameters where
+  hashWithSalt _salt DescribeClusterParameters' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData DescribeClusterParameters
+instance Prelude.NFData DescribeClusterParameters where
+  rnf DescribeClusterParameters' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders DescribeClusterParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,3 +323,8 @@ describeClusterParametersResponse_httpStatus = Lens.lens (\DescribeClusterParame
 instance
   Prelude.NFData
     DescribeClusterParametersResponse
+  where
+  rnf DescribeClusterParametersResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf httpStatus

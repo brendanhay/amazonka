@@ -53,9 +53,12 @@ newOpenMonitoringInfo pPrometheus_ =
 openMonitoringInfo_prometheus :: Lens.Lens' OpenMonitoringInfo PrometheusInfo
 openMonitoringInfo_prometheus = Lens.lens (\OpenMonitoringInfo' {prometheus} -> prometheus) (\s@OpenMonitoringInfo' {} a -> s {prometheus = a} :: OpenMonitoringInfo)
 
-instance Prelude.Hashable OpenMonitoringInfo
+instance Prelude.Hashable OpenMonitoringInfo where
+  hashWithSalt _salt OpenMonitoringInfo' {..} =
+    _salt `Prelude.hashWithSalt` prometheus
 
-instance Prelude.NFData OpenMonitoringInfo
+instance Prelude.NFData OpenMonitoringInfo where
+  rnf OpenMonitoringInfo' {..} = Prelude.rnf prometheus
 
 instance Core.ToJSON OpenMonitoringInfo where
   toJSON OpenMonitoringInfo' {..} =

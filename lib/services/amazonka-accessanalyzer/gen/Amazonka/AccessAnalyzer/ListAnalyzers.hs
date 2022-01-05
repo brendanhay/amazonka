@@ -129,9 +129,17 @@ instance Core.AWSRequest ListAnalyzers where
             Prelude.<*> (x Core..?> "analyzers" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListAnalyzers
+instance Prelude.Hashable ListAnalyzers where
+  hashWithSalt _salt ListAnalyzers' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListAnalyzers
+instance Prelude.NFData ListAnalyzers where
+  rnf ListAnalyzers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAnalyzers where
   toHeaders =
@@ -204,4 +212,8 @@ listAnalyzersResponse_httpStatus = Lens.lens (\ListAnalyzersResponse' {httpStatu
 listAnalyzersResponse_analyzers :: Lens.Lens' ListAnalyzersResponse [AnalyzerSummary]
 listAnalyzersResponse_analyzers = Lens.lens (\ListAnalyzersResponse' {analyzers} -> analyzers) (\s@ListAnalyzersResponse' {} a -> s {analyzers = a} :: ListAnalyzersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAnalyzersResponse
+instance Prelude.NFData ListAnalyzersResponse where
+  rnf ListAnalyzersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analyzers

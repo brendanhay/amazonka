@@ -98,9 +98,15 @@ instance Core.AWSRequest RevokeDomainAccess where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeDomainAccess
+instance Prelude.Hashable RevokeDomainAccess where
+  hashWithSalt _salt RevokeDomainAccess' {..} =
+    _salt `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData RevokeDomainAccess
+instance Prelude.NFData RevokeDomainAccess where
+  rnf RevokeDomainAccess' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders RevokeDomainAccess where
   toHeaders =
@@ -158,4 +164,6 @@ newRevokeDomainAccessResponse pHttpStatus_ =
 revokeDomainAccessResponse_httpStatus :: Lens.Lens' RevokeDomainAccessResponse Prelude.Int
 revokeDomainAccessResponse_httpStatus = Lens.lens (\RevokeDomainAccessResponse' {httpStatus} -> httpStatus) (\s@RevokeDomainAccessResponse' {} a -> s {httpStatus = a} :: RevokeDomainAccessResponse)
 
-instance Prelude.NFData RevokeDomainAccessResponse
+instance Prelude.NFData RevokeDomainAccessResponse where
+  rnf RevokeDomainAccessResponse' {..} =
+    Prelude.rnf httpStatus

@@ -66,9 +66,15 @@ customPlugin_customPluginArn = Lens.lens (\CustomPlugin' {customPluginArn} -> cu
 customPlugin_revision :: Lens.Lens' CustomPlugin Prelude.Natural
 customPlugin_revision = Lens.lens (\CustomPlugin' {revision} -> revision) (\s@CustomPlugin' {} a -> s {revision = a} :: CustomPlugin)
 
-instance Prelude.Hashable CustomPlugin
+instance Prelude.Hashable CustomPlugin where
+  hashWithSalt _salt CustomPlugin' {..} =
+    _salt `Prelude.hashWithSalt` customPluginArn
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData CustomPlugin
+instance Prelude.NFData CustomPlugin where
+  rnf CustomPlugin' {..} =
+    Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf revision
 
 instance Core.ToJSON CustomPlugin where
   toJSON CustomPlugin' {..} =

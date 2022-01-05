@@ -200,9 +200,15 @@ instance Core.AWSRequest ChangeResourceRecordSets where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable ChangeResourceRecordSets
+instance Prelude.Hashable ChangeResourceRecordSets where
+  hashWithSalt _salt ChangeResourceRecordSets' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` changeBatch
 
-instance Prelude.NFData ChangeResourceRecordSets
+instance Prelude.NFData ChangeResourceRecordSets where
+  rnf ChangeResourceRecordSets' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf changeBatch
 
 instance Core.ToElement ChangeResourceRecordSets where
   toElement =
@@ -290,3 +296,7 @@ changeResourceRecordSetsResponse_changeInfo = Lens.lens (\ChangeResourceRecordSe
 instance
   Prelude.NFData
     ChangeResourceRecordSetsResponse
+  where
+  rnf ChangeResourceRecordSetsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

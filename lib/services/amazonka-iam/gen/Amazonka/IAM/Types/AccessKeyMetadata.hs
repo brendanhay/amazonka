@@ -95,6 +95,16 @@ instance Core.FromXML AccessKeyMetadata where
       Prelude.<*> (x Core..@? "UserName")
       Prelude.<*> (x Core..@? "AccessKeyId")
 
-instance Prelude.Hashable AccessKeyMetadata
+instance Prelude.Hashable AccessKeyMetadata where
+  hashWithSalt _salt AccessKeyMetadata' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData AccessKeyMetadata
+instance Prelude.NFData AccessKeyMetadata where
+  rnf AccessKeyMetadata' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyId

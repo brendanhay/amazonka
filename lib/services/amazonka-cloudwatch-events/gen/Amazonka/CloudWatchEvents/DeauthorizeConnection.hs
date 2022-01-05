@@ -96,9 +96,12 @@ instance Core.AWSRequest DeauthorizeConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeauthorizeConnection
+instance Prelude.Hashable DeauthorizeConnection where
+  hashWithSalt _salt DeauthorizeConnection' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeauthorizeConnection
+instance Prelude.NFData DeauthorizeConnection where
+  rnf DeauthorizeConnection' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeauthorizeConnection where
   toHeaders =
@@ -203,4 +206,11 @@ deauthorizeConnectionResponse_connectionState = Lens.lens (\DeauthorizeConnectio
 deauthorizeConnectionResponse_httpStatus :: Lens.Lens' DeauthorizeConnectionResponse Prelude.Int
 deauthorizeConnectionResponse_httpStatus = Lens.lens (\DeauthorizeConnectionResponse' {httpStatus} -> httpStatus) (\s@DeauthorizeConnectionResponse' {} a -> s {httpStatus = a} :: DeauthorizeConnectionResponse)
 
-instance Prelude.NFData DeauthorizeConnectionResponse
+instance Prelude.NFData DeauthorizeConnectionResponse where
+  rnf DeauthorizeConnectionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf httpStatus

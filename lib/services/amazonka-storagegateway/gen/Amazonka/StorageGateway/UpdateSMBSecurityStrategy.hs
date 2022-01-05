@@ -155,9 +155,15 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSMBSecurityStrategy
+instance Prelude.Hashable UpdateSMBSecurityStrategy where
+  hashWithSalt _salt UpdateSMBSecurityStrategy' {..} =
+    _salt `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` sMBSecurityStrategy
 
-instance Prelude.NFData UpdateSMBSecurityStrategy
+instance Prelude.NFData UpdateSMBSecurityStrategy where
+  rnf UpdateSMBSecurityStrategy' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf sMBSecurityStrategy
 
 instance Core.ToHeaders UpdateSMBSecurityStrategy where
   toHeaders =
@@ -231,3 +237,7 @@ updateSMBSecurityStrategyResponse_httpStatus = Lens.lens (\UpdateSMBSecurityStra
 instance
   Prelude.NFData
     UpdateSMBSecurityStrategyResponse
+  where
+  rnf UpdateSMBSecurityStrategyResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

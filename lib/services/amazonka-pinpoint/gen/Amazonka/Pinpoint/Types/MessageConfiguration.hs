@@ -189,9 +189,29 @@ instance Core.FromJSON MessageConfiguration where
             Prelude.<*> (x Core..:? "BaiduMessage")
       )
 
-instance Prelude.Hashable MessageConfiguration
+instance Prelude.Hashable MessageConfiguration where
+  hashWithSalt _salt MessageConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` aPNSMessage
+      `Prelude.hashWithSalt` gCMMessage
+      `Prelude.hashWithSalt` defaultMessage
+      `Prelude.hashWithSalt` customMessage
+      `Prelude.hashWithSalt` aDMMessage
+      `Prelude.hashWithSalt` sMSMessage
+      `Prelude.hashWithSalt` emailMessage
+      `Prelude.hashWithSalt` inAppMessage
+      `Prelude.hashWithSalt` baiduMessage
 
-instance Prelude.NFData MessageConfiguration
+instance Prelude.NFData MessageConfiguration where
+  rnf MessageConfiguration' {..} =
+    Prelude.rnf aPNSMessage
+      `Prelude.seq` Prelude.rnf gCMMessage
+      `Prelude.seq` Prelude.rnf defaultMessage
+      `Prelude.seq` Prelude.rnf customMessage
+      `Prelude.seq` Prelude.rnf aDMMessage
+      `Prelude.seq` Prelude.rnf sMSMessage
+      `Prelude.seq` Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf inAppMessage
+      `Prelude.seq` Prelude.rnf baiduMessage
 
 instance Core.ToJSON MessageConfiguration where
   toJSON MessageConfiguration' {..} =

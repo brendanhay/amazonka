@@ -265,6 +265,14 @@ instance Core.FromXML TargetHealth where
       Prelude.<*> (x Core..@? "Reason")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable TargetHealth
+instance Prelude.Hashable TargetHealth where
+  hashWithSalt _salt TargetHealth' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData TargetHealth
+instance Prelude.NFData TargetHealth where
+  rnf TargetHealth' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf description

@@ -72,6 +72,11 @@ instance Core.FromJSON Resolution where
             Prelude.<*> (x Core..:? "width")
       )
 
-instance Prelude.Hashable Resolution
+instance Prelude.Hashable Resolution where
+  hashWithSalt _salt Resolution' {..} =
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
 
-instance Prelude.NFData Resolution
+instance Prelude.NFData Resolution where
+  rnf Resolution' {..} =
+    Prelude.rnf height `Prelude.seq` Prelude.rnf width

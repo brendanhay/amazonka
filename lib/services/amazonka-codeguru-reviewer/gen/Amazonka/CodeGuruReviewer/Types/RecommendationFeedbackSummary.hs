@@ -107,5 +107,14 @@ instance Core.FromJSON RecommendationFeedbackSummary where
 instance
   Prelude.Hashable
     RecommendationFeedbackSummary
+  where
+  hashWithSalt _salt RecommendationFeedbackSummary' {..} =
+    _salt `Prelude.hashWithSalt` recommendationId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` reactions
 
-instance Prelude.NFData RecommendationFeedbackSummary
+instance Prelude.NFData RecommendationFeedbackSummary where
+  rnf RecommendationFeedbackSummary' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf reactions

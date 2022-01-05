@@ -85,9 +85,15 @@ instance Core.FromJSON NielsenConfiguration where
             Prelude.<*> (x Core..:? "distributorId")
       )
 
-instance Prelude.Hashable NielsenConfiguration
+instance Prelude.Hashable NielsenConfiguration where
+  hashWithSalt _salt NielsenConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` breakoutCode
+      `Prelude.hashWithSalt` distributorId
 
-instance Prelude.NFData NielsenConfiguration
+instance Prelude.NFData NielsenConfiguration where
+  rnf NielsenConfiguration' {..} =
+    Prelude.rnf breakoutCode
+      `Prelude.seq` Prelude.rnf distributorId
 
 instance Core.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =

@@ -146,9 +146,17 @@ instance Core.AWSRequest AssociateCustomDomain where
             Prelude.<*> (x Core..:> "CustomDomain")
       )
 
-instance Prelude.Hashable AssociateCustomDomain
+instance Prelude.Hashable AssociateCustomDomain where
+  hashWithSalt _salt AssociateCustomDomain' {..} =
+    _salt `Prelude.hashWithSalt` enableWWWSubdomain
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData AssociateCustomDomain
+instance Prelude.NFData AssociateCustomDomain where
+  rnf AssociateCustomDomain' {..} =
+    Prelude.rnf enableWWWSubdomain
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders AssociateCustomDomain where
   toHeaders =
@@ -255,4 +263,9 @@ associateCustomDomainResponse_serviceArn = Lens.lens (\AssociateCustomDomainResp
 associateCustomDomainResponse_customDomain :: Lens.Lens' AssociateCustomDomainResponse CustomDomain
 associateCustomDomainResponse_customDomain = Lens.lens (\AssociateCustomDomainResponse' {customDomain} -> customDomain) (\s@AssociateCustomDomainResponse' {} a -> s {customDomain = a} :: AssociateCustomDomainResponse)
 
-instance Prelude.NFData AssociateCustomDomainResponse
+instance Prelude.NFData AssociateCustomDomainResponse where
+  rnf AssociateCustomDomainResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dNSTarget
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf customDomain

@@ -342,6 +342,47 @@ instance Core.FromJSON InstanceInformation where
             Prelude.<*> (x Core..:? "IamRole")
       )
 
-instance Prelude.Hashable InstanceInformation
+instance Prelude.Hashable InstanceInformation where
+  hashWithSalt _salt InstanceInformation' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` pingStatus
+      `Prelude.hashWithSalt` iPAddress
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` registrationDate
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` isLatestVersion
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` lastPingDateTime
+      `Prelude.hashWithSalt` lastSuccessfulAssociationExecutionDate
+      `Prelude.hashWithSalt` activationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` platformType
+      `Prelude.hashWithSalt` associationOverview
+      `Prelude.hashWithSalt` associationStatus
+      `Prelude.hashWithSalt` lastAssociationExecutionDate
+      `Prelude.hashWithSalt` platformName
+      `Prelude.hashWithSalt` computerName
+      `Prelude.hashWithSalt` iamRole
 
-instance Prelude.NFData InstanceInformation
+instance Prelude.NFData InstanceInformation where
+  rnf InstanceInformation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf pingStatus
+      `Prelude.seq` Prelude.rnf iPAddress
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf registrationDate
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf isLatestVersion
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf lastPingDateTime
+      `Prelude.seq` Prelude.rnf lastSuccessfulAssociationExecutionDate
+      `Prelude.seq` Prelude.rnf activationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf platformType
+      `Prelude.seq` Prelude.rnf associationOverview
+      `Prelude.seq` Prelude.rnf associationStatus
+      `Prelude.seq` Prelude.rnf
+        lastAssociationExecutionDate
+      `Prelude.seq` Prelude.rnf platformName
+      `Prelude.seq` Prelude.rnf computerName
+      `Prelude.seq` Prelude.rnf iamRole

@@ -67,10 +67,18 @@ instance Core.FromJSON SubjectAlternativeNameMatchers where
 instance
   Prelude.Hashable
     SubjectAlternativeNameMatchers
+  where
+  hashWithSalt
+    _salt
+    SubjectAlternativeNameMatchers' {..} =
+      _salt `Prelude.hashWithSalt` exact
 
 instance
   Prelude.NFData
     SubjectAlternativeNameMatchers
+  where
+  rnf SubjectAlternativeNameMatchers' {..} =
+    Prelude.rnf exact
 
 instance Core.ToJSON SubjectAlternativeNameMatchers where
   toJSON SubjectAlternativeNameMatchers' {..} =

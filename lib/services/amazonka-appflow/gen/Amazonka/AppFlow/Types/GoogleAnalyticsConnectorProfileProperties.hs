@@ -55,10 +55,15 @@ instance
 instance
   Prelude.Hashable
     GoogleAnalyticsConnectorProfileProperties
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     GoogleAnalyticsConnectorProfileProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

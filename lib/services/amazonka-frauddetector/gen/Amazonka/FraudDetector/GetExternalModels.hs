@@ -114,9 +114,17 @@ instance Core.AWSRequest GetExternalModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetExternalModels
+instance Prelude.Hashable GetExternalModels where
+  hashWithSalt _salt GetExternalModels' {..} =
+    _salt `Prelude.hashWithSalt` modelEndpoint
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData GetExternalModels
+instance Prelude.NFData GetExternalModels where
+  rnf GetExternalModels' {..} =
+    Prelude.rnf modelEndpoint
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetExternalModels where
   toHeaders =
@@ -197,4 +205,8 @@ getExternalModelsResponse_externalModels = Lens.lens (\GetExternalModelsResponse
 getExternalModelsResponse_httpStatus :: Lens.Lens' GetExternalModelsResponse Prelude.Int
 getExternalModelsResponse_httpStatus = Lens.lens (\GetExternalModelsResponse' {httpStatus} -> httpStatus) (\s@GetExternalModelsResponse' {} a -> s {httpStatus = a} :: GetExternalModelsResponse)
 
-instance Prelude.NFData GetExternalModelsResponse
+instance Prelude.NFData GetExternalModelsResponse where
+  rnf GetExternalModelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf externalModels
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ArchivalSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,6 +109,14 @@ instance Core.FromJSON ArchivalSummary where
             Prelude.<*> (x Core..:? "ArchivalBackupArn")
       )
 
-instance Prelude.Hashable ArchivalSummary
+instance Prelude.Hashable ArchivalSummary where
+  hashWithSalt _salt ArchivalSummary' {..} =
+    _salt `Prelude.hashWithSalt` archivalReason
+      `Prelude.hashWithSalt` archivalDateTime
+      `Prelude.hashWithSalt` archivalBackupArn
 
-instance Prelude.NFData ArchivalSummary
+instance Prelude.NFData ArchivalSummary where
+  rnf ArchivalSummary' {..} =
+    Prelude.rnf archivalReason
+      `Prelude.seq` Prelude.rnf archivalDateTime
+      `Prelude.seq` Prelude.rnf archivalBackupArn

@@ -111,6 +111,14 @@ instance Core.FromJSON JobLogs where
             Prelude.<*> (x Core..:? "JobSuccessLogURI")
       )
 
-instance Prelude.Hashable JobLogs
+instance Prelude.Hashable JobLogs where
+  hashWithSalt _salt JobLogs' {..} =
+    _salt `Prelude.hashWithSalt` jobFailureLogURI
+      `Prelude.hashWithSalt` jobCompletionReportURI
+      `Prelude.hashWithSalt` jobSuccessLogURI
 
-instance Prelude.NFData JobLogs
+instance Prelude.NFData JobLogs where
+  rnf JobLogs' {..} =
+    Prelude.rnf jobFailureLogURI
+      `Prelude.seq` Prelude.rnf jobCompletionReportURI
+      `Prelude.seq` Prelude.rnf jobSuccessLogURI

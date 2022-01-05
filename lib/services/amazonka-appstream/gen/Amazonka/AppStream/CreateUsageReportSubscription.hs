@@ -79,8 +79,12 @@ instance
 instance
   Prelude.Hashable
     CreateUsageReportSubscription
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData CreateUsageReportSubscription
+instance Prelude.NFData CreateUsageReportSubscription where
+  rnf _ = ()
 
 instance Core.ToHeaders CreateUsageReportSubscription where
   toHeaders =
@@ -181,3 +185,8 @@ createUsageReportSubscriptionResponse_httpStatus = Lens.lens (\CreateUsageReport
 instance
   Prelude.NFData
     CreateUsageReportSubscriptionResponse
+  where
+  rnf CreateUsageReportSubscriptionResponse' {..} =
+    Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf httpStatus

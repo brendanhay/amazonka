@@ -57,8 +57,13 @@ scheduledInstancesIpv6Address_ipv6Address = Lens.lens (\ScheduledInstancesIpv6Ad
 instance
   Prelude.Hashable
     ScheduledInstancesIpv6Address
+  where
+  hashWithSalt _salt ScheduledInstancesIpv6Address' {..} =
+    _salt `Prelude.hashWithSalt` ipv6Address
 
-instance Prelude.NFData ScheduledInstancesIpv6Address
+instance Prelude.NFData ScheduledInstancesIpv6Address where
+  rnf ScheduledInstancesIpv6Address' {..} =
+    Prelude.rnf ipv6Address
 
 instance Core.ToQuery ScheduledInstancesIpv6Address where
   toQuery ScheduledInstancesIpv6Address' {..} =

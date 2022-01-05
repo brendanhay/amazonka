@@ -109,8 +109,13 @@ instance
 instance
   Prelude.Hashable
     DescribeTargetGroupAttributes
+  where
+  hashWithSalt _salt DescribeTargetGroupAttributes' {..} =
+    _salt `Prelude.hashWithSalt` targetGroupArn
 
-instance Prelude.NFData DescribeTargetGroupAttributes
+instance Prelude.NFData DescribeTargetGroupAttributes where
+  rnf DescribeTargetGroupAttributes' {..} =
+    Prelude.rnf targetGroupArn
 
 instance Core.ToHeaders DescribeTargetGroupAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,3 +177,7 @@ describeTargetGroupAttributesResponse_httpStatus = Lens.lens (\DescribeTargetGro
 instance
   Prelude.NFData
     DescribeTargetGroupAttributesResponse
+  where
+  rnf DescribeTargetGroupAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

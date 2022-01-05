@@ -109,6 +109,18 @@ instance Core.FromJSON Contact where
                         )
       )
 
-instance Prelude.Hashable Contact
+instance Prelude.Hashable Contact where
+  hashWithSalt _salt Contact' {..} =
+    _salt `Prelude.hashWithSalt` unsubscribeAll
+      `Prelude.hashWithSalt` topicDefaultPreferences
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` topicPreferences
 
-instance Prelude.NFData Contact
+instance Prelude.NFData Contact where
+  rnf Contact' {..} =
+    Prelude.rnf unsubscribeAll
+      `Prelude.seq` Prelude.rnf topicDefaultPreferences
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf topicPreferences

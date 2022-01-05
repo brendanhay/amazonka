@@ -656,9 +656,49 @@ instance Core.AWSRequest UpdateIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIntegration
+instance Prelude.Hashable UpdateIntegration where
+  hashWithSalt _salt UpdateIntegration' {..} =
+    _salt `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` integrationSubtype
+      `Prelude.hashWithSalt` credentialsArn
+      `Prelude.hashWithSalt` integrationUri
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` integrationMethod
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` payloadFormatVersion
+      `Prelude.hashWithSalt` templateSelectionExpression
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` integrationType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` integrationId
 
-instance Prelude.NFData UpdateIntegration
+instance Prelude.NFData UpdateIntegration where
+  rnf UpdateIntegration' {..} =
+    Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf integrationSubtype
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf integrationUri
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf integrationMethod
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf payloadFormatVersion
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf integrationId
 
 instance Core.ToHeaders UpdateIntegration where
   toHeaders =
@@ -1285,4 +1325,26 @@ updateIntegrationResponse'_responseParameters = Lens.lens (\UpdateIntegrationRes
 updateIntegrationResponse'_httpStatus :: Lens.Lens' UpdateIntegrationResponse' Prelude.Int
 updateIntegrationResponse'_httpStatus = Lens.lens (\UpdateIntegrationResponse'' {httpStatus} -> httpStatus) (\s@UpdateIntegrationResponse'' {} a -> s {httpStatus = a} :: UpdateIntegrationResponse')
 
-instance Prelude.NFData UpdateIntegrationResponse'
+instance Prelude.NFData UpdateIntegrationResponse' where
+  rnf UpdateIntegrationResponse'' {..} =
+    Prelude.rnf integrationResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf integrationSubtype
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf integrationUri
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf integrationMethod
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf payloadFormatVersion
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf httpStatus

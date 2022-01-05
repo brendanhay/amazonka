@@ -155,9 +155,19 @@ instance Core.AWSRequest DeregisterType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterType
+instance Prelude.Hashable DeregisterType where
+  hashWithSalt _salt DeregisterType' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DeregisterType
+instance Prelude.NFData DeregisterType where
+  rnf DeregisterType' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders DeregisterType where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +215,6 @@ newDeregisterTypeResponse pHttpStatus_ =
 deregisterTypeResponse_httpStatus :: Lens.Lens' DeregisterTypeResponse Prelude.Int
 deregisterTypeResponse_httpStatus = Lens.lens (\DeregisterTypeResponse' {httpStatus} -> httpStatus) (\s@DeregisterTypeResponse' {} a -> s {httpStatus = a} :: DeregisterTypeResponse)
 
-instance Prelude.NFData DeregisterTypeResponse
+instance Prelude.NFData DeregisterTypeResponse where
+  rnf DeregisterTypeResponse' {..} =
+    Prelude.rnf httpStatus

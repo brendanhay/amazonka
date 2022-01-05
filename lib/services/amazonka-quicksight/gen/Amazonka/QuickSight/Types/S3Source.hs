@@ -96,9 +96,17 @@ instance Core.FromJSON S3Source where
             Prelude.<*> (x Core..: "InputColumns")
       )
 
-instance Prelude.Hashable S3Source
+instance Prelude.Hashable S3Source where
+  hashWithSalt _salt S3Source' {..} =
+    _salt `Prelude.hashWithSalt` uploadSettings
+      `Prelude.hashWithSalt` dataSourceArn
+      `Prelude.hashWithSalt` inputColumns
 
-instance Prelude.NFData S3Source
+instance Prelude.NFData S3Source where
+  rnf S3Source' {..} =
+    Prelude.rnf uploadSettings
+      `Prelude.seq` Prelude.rnf dataSourceArn
+      `Prelude.seq` Prelude.rnf inputColumns
 
 instance Core.ToJSON S3Source where
   toJSON S3Source' {..} =

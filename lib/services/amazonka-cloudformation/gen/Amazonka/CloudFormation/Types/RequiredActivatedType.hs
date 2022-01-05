@@ -133,6 +133,16 @@ instance Core.FromXML RequiredActivatedType where
                   )
       Prelude.<*> (x Core..@? "PublisherId")
 
-instance Prelude.Hashable RequiredActivatedType
+instance Prelude.Hashable RequiredActivatedType where
+  hashWithSalt _salt RequiredActivatedType' {..} =
+    _salt `Prelude.hashWithSalt` originalTypeName
+      `Prelude.hashWithSalt` typeNameAlias
+      `Prelude.hashWithSalt` supportedMajorVersions
+      `Prelude.hashWithSalt` publisherId
 
-instance Prelude.NFData RequiredActivatedType
+instance Prelude.NFData RequiredActivatedType where
+  rnf RequiredActivatedType' {..} =
+    Prelude.rnf originalTypeName
+      `Prelude.seq` Prelude.rnf typeNameAlias
+      `Prelude.seq` Prelude.rnf supportedMajorVersions
+      `Prelude.seq` Prelude.rnf publisherId

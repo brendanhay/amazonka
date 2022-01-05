@@ -154,9 +154,15 @@ instance Core.AWSRequest PutMetricData where
   response =
     Response.receiveNull PutMetricDataResponse'
 
-instance Prelude.Hashable PutMetricData
+instance Prelude.Hashable PutMetricData where
+  hashWithSalt _salt PutMetricData' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricData
 
-instance Prelude.NFData PutMetricData
+instance Prelude.NFData PutMetricData where
+  rnf PutMetricData' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricData
 
 instance Core.ToHeaders PutMetricData where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,4 +196,5 @@ newPutMetricDataResponse ::
   PutMetricDataResponse
 newPutMetricDataResponse = PutMetricDataResponse'
 
-instance Prelude.NFData PutMetricDataResponse
+instance Prelude.NFData PutMetricDataResponse where
+  rnf _ = ()

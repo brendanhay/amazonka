@@ -78,9 +78,17 @@ viewFrame_columnRange = Lens.lens (\ViewFrame' {columnRange} -> columnRange) (\s
 viewFrame_startColumnIndex :: Lens.Lens' ViewFrame Prelude.Natural
 viewFrame_startColumnIndex = Lens.lens (\ViewFrame' {startColumnIndex} -> startColumnIndex) (\s@ViewFrame' {} a -> s {startColumnIndex = a} :: ViewFrame)
 
-instance Prelude.Hashable ViewFrame
+instance Prelude.Hashable ViewFrame where
+  hashWithSalt _salt ViewFrame' {..} =
+    _salt `Prelude.hashWithSalt` hiddenColumns
+      `Prelude.hashWithSalt` columnRange
+      `Prelude.hashWithSalt` startColumnIndex
 
-instance Prelude.NFData ViewFrame
+instance Prelude.NFData ViewFrame where
+  rnf ViewFrame' {..} =
+    Prelude.rnf hiddenColumns
+      `Prelude.seq` Prelude.rnf columnRange
+      `Prelude.seq` Prelude.rnf startColumnIndex
 
 instance Core.ToJSON ViewFrame where
   toJSON ViewFrame' {..} =

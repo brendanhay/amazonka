@@ -122,6 +122,14 @@ instance Core.FromJSON GeoMatchSet where
                         )
       )
 
-instance Prelude.Hashable GeoMatchSet
+instance Prelude.Hashable GeoMatchSet where
+  hashWithSalt _salt GeoMatchSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` geoMatchSetId
+      `Prelude.hashWithSalt` geoMatchConstraints
 
-instance Prelude.NFData GeoMatchSet
+instance Prelude.NFData GeoMatchSet where
+  rnf GeoMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf geoMatchSetId
+      `Prelude.seq` Prelude.rnf geoMatchConstraints

@@ -77,6 +77,12 @@ instance Core.FromJSON CharacterOffsets where
             Prelude.<*> (x Core..: "EndOffsetChar")
       )
 
-instance Prelude.Hashable CharacterOffsets
+instance Prelude.Hashable CharacterOffsets where
+  hashWithSalt _salt CharacterOffsets' {..} =
+    _salt `Prelude.hashWithSalt` beginOffsetChar
+      `Prelude.hashWithSalt` endOffsetChar
 
-instance Prelude.NFData CharacterOffsets
+instance Prelude.NFData CharacterOffsets where
+  rnf CharacterOffsets' {..} =
+    Prelude.rnf beginOffsetChar
+      `Prelude.seq` Prelude.rnf endOffsetChar

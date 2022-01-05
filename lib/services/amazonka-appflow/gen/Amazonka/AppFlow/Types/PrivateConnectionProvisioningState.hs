@@ -90,7 +90,19 @@ instance
 instance
   Prelude.Hashable
     PrivateConnectionProvisioningState
+  where
+  hashWithSalt
+    _salt
+    PrivateConnectionProvisioningState' {..} =
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` failureMessage
+        `Prelude.hashWithSalt` failureCause
 
 instance
   Prelude.NFData
     PrivateConnectionProvisioningState
+  where
+  rnf PrivateConnectionProvisioningState' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf failureCause

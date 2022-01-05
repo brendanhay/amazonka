@@ -88,9 +88,13 @@ instance Core.AWSRequest DescribeInterconnects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInterconnects
+instance Prelude.Hashable DescribeInterconnects where
+  hashWithSalt _salt DescribeInterconnects' {..} =
+    _salt `Prelude.hashWithSalt` interconnectId
 
-instance Prelude.NFData DescribeInterconnects
+instance Prelude.NFData DescribeInterconnects where
+  rnf DescribeInterconnects' {..} =
+    Prelude.rnf interconnectId
 
 instance Core.ToHeaders DescribeInterconnects where
   toHeaders =
@@ -161,4 +165,7 @@ describeInterconnectsResponse_interconnects = Lens.lens (\DescribeInterconnectsR
 describeInterconnectsResponse_httpStatus :: Lens.Lens' DescribeInterconnectsResponse Prelude.Int
 describeInterconnectsResponse_httpStatus = Lens.lens (\DescribeInterconnectsResponse' {httpStatus} -> httpStatus) (\s@DescribeInterconnectsResponse' {} a -> s {httpStatus = a} :: DescribeInterconnectsResponse)
 
-instance Prelude.NFData DescribeInterconnectsResponse
+instance Prelude.NFData DescribeInterconnectsResponse where
+  rnf DescribeInterconnectsResponse' {..} =
+    Prelude.rnf interconnects
+      `Prelude.seq` Prelude.rnf httpStatus

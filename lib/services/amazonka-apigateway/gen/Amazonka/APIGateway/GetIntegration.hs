@@ -124,9 +124,17 @@ instance Core.AWSRequest GetIntegration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetIntegration
+instance Prelude.Hashable GetIntegration where
+  hashWithSalt _salt GetIntegration' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` httpMethod
 
-instance Prelude.NFData GetIntegration
+instance Prelude.NFData GetIntegration where
+  rnf GetIntegration' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpMethod
 
 instance Core.ToHeaders GetIntegration where
   toHeaders =

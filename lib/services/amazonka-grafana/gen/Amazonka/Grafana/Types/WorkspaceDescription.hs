@@ -394,6 +394,50 @@ instance Core.FromJSON WorkspaceDescription where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable WorkspaceDescription
+instance Prelude.Hashable WorkspaceDescription where
+  hashWithSalt _salt WorkspaceDescription' {..} =
+    _salt `Prelude.hashWithSalt` workspaceRoleArn
+      `Prelude.hashWithSalt` freeTrialExpiration
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` notificationDestinations
+      `Prelude.hashWithSalt` accountAccessType
+      `Prelude.hashWithSalt` licenseExpiration
+      `Prelude.hashWithSalt` organizationRoleName
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` organizationalUnits
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` freeTrialConsumed
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` grafanaVersion
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` modified
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorkspaceDescription
+instance Prelude.NFData WorkspaceDescription where
+  rnf WorkspaceDescription' {..} =
+    Prelude.rnf workspaceRoleArn
+      `Prelude.seq` Prelude.rnf freeTrialExpiration
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf notificationDestinations
+      `Prelude.seq` Prelude.rnf accountAccessType
+      `Prelude.seq` Prelude.rnf licenseExpiration
+      `Prelude.seq` Prelude.rnf organizationRoleName
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf organizationalUnits
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf freeTrialConsumed
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf grafanaVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf modified
+      `Prelude.seq` Prelude.rnf status

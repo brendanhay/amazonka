@@ -159,9 +159,19 @@ instance Core.AWSRequest ChangeTagsForResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ChangeTagsForResource
+instance Prelude.Hashable ChangeTagsForResource where
+  hashWithSalt _salt ChangeTagsForResource' {..} =
+    _salt `Prelude.hashWithSalt` removeTagKeys
+      `Prelude.hashWithSalt` addTags
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ChangeTagsForResource
+instance Prelude.NFData ChangeTagsForResource where
+  rnf ChangeTagsForResource' {..} =
+    Prelude.rnf removeTagKeys
+      `Prelude.seq` Prelude.rnf addTags
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToElement ChangeTagsForResource where
   toElement =
@@ -226,4 +236,6 @@ newChangeTagsForResourceResponse pHttpStatus_ =
 changeTagsForResourceResponse_httpStatus :: Lens.Lens' ChangeTagsForResourceResponse Prelude.Int
 changeTagsForResourceResponse_httpStatus = Lens.lens (\ChangeTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ChangeTagsForResourceResponse' {} a -> s {httpStatus = a} :: ChangeTagsForResourceResponse)
 
-instance Prelude.NFData ChangeTagsForResourceResponse
+instance Prelude.NFData ChangeTagsForResourceResponse where
+  rnf ChangeTagsForResourceResponse' {..} =
+    Prelude.rnf httpStatus

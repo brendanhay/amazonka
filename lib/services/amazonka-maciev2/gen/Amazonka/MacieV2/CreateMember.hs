@@ -111,9 +111,14 @@ instance Core.AWSRequest CreateMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMember
+instance Prelude.Hashable CreateMember where
+  hashWithSalt _salt CreateMember' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` account
 
-instance Prelude.NFData CreateMember
+instance Prelude.NFData CreateMember where
+  rnf CreateMember' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf account
 
 instance Core.ToHeaders CreateMember where
   toHeaders =
@@ -182,4 +187,7 @@ createMemberResponse_arn = Lens.lens (\CreateMemberResponse' {arn} -> arn) (\s@C
 createMemberResponse_httpStatus :: Lens.Lens' CreateMemberResponse Prelude.Int
 createMemberResponse_httpStatus = Lens.lens (\CreateMemberResponse' {httpStatus} -> httpStatus) (\s@CreateMemberResponse' {} a -> s {httpStatus = a} :: CreateMemberResponse)
 
-instance Prelude.NFData CreateMemberResponse
+instance Prelude.NFData CreateMemberResponse where
+  rnf CreateMemberResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -183,9 +183,25 @@ instance Core.AWSRequest ListBackendJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBackendJobs
+instance Prelude.Hashable ListBackendJobs where
+  hashWithSalt _salt ListBackendJobs' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
 
-instance Prelude.NFData ListBackendJobs
+instance Prelude.NFData ListBackendJobs where
+  rnf ListBackendJobs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
 
 instance Core.ToHeaders ListBackendJobs where
   toHeaders =
@@ -270,4 +286,8 @@ listBackendJobsResponse_jobs = Lens.lens (\ListBackendJobsResponse' {jobs} -> jo
 listBackendJobsResponse_httpStatus :: Lens.Lens' ListBackendJobsResponse Prelude.Int
 listBackendJobsResponse_httpStatus = Lens.lens (\ListBackendJobsResponse' {httpStatus} -> httpStatus) (\s@ListBackendJobsResponse' {} a -> s {httpStatus = a} :: ListBackendJobsResponse)
 
-instance Prelude.NFData ListBackendJobsResponse
+instance Prelude.NFData ListBackendJobsResponse where
+  rnf ListBackendJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus

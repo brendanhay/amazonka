@@ -172,6 +172,22 @@ instance Core.FromJSON BuildArtifacts where
             Prelude.<*> (x Core..:? "bucketOwnerAccess")
       )
 
-instance Prelude.Hashable BuildArtifacts
+instance Prelude.Hashable BuildArtifacts where
+  hashWithSalt _salt BuildArtifacts' {..} =
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` md5sum
+      `Prelude.hashWithSalt` encryptionDisabled
+      `Prelude.hashWithSalt` overrideArtifactName
+      `Prelude.hashWithSalt` artifactIdentifier
+      `Prelude.hashWithSalt` sha256sum
+      `Prelude.hashWithSalt` bucketOwnerAccess
 
-instance Prelude.NFData BuildArtifacts
+instance Prelude.NFData BuildArtifacts where
+  rnf BuildArtifacts' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf md5sum
+      `Prelude.seq` Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf overrideArtifactName
+      `Prelude.seq` Prelude.rnf artifactIdentifier
+      `Prelude.seq` Prelude.rnf sha256sum
+      `Prelude.seq` Prelude.rnf bucketOwnerAccess

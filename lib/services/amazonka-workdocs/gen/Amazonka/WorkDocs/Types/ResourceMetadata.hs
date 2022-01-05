@@ -126,6 +126,22 @@ instance Core.FromJSON ResourceMetadata where
             Prelude.<*> (x Core..:? "ParentId")
       )
 
-instance Prelude.Hashable ResourceMetadata
+instance Prelude.Hashable ResourceMetadata where
+  hashWithSalt _salt ResourceMetadata' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` originalName
+      `Prelude.hashWithSalt` parentId
 
-instance Prelude.NFData ResourceMetadata
+instance Prelude.NFData ResourceMetadata where
+  rnf ResourceMetadata' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf originalName
+      `Prelude.seq` Prelude.rnf parentId

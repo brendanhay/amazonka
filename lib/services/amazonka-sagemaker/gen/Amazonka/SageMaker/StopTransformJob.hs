@@ -86,9 +86,13 @@ instance Core.AWSRequest StopTransformJob where
   response =
     Response.receiveNull StopTransformJobResponse'
 
-instance Prelude.Hashable StopTransformJob
+instance Prelude.Hashable StopTransformJob where
+  hashWithSalt _salt StopTransformJob' {..} =
+    _salt `Prelude.hashWithSalt` transformJobName
 
-instance Prelude.NFData StopTransformJob
+instance Prelude.NFData StopTransformJob where
+  rnf StopTransformJob' {..} =
+    Prelude.rnf transformJobName
 
 instance Core.ToHeaders StopTransformJob where
   toHeaders =
@@ -133,4 +137,5 @@ newStopTransformJobResponse ::
 newStopTransformJobResponse =
   StopTransformJobResponse'
 
-instance Prelude.NFData StopTransformJobResponse
+instance Prelude.NFData StopTransformJobResponse where
+  rnf _ = ()

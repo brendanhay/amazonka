@@ -331,10 +331,34 @@ instance
 instance
   Prelude.Hashable
     DescribeLaunchTemplateVersions
+  where
+  hashWithSalt
+    _salt
+    DescribeLaunchTemplateVersions' {..} =
+      _salt `Prelude.hashWithSalt` launchTemplateName
+        `Prelude.hashWithSalt` launchTemplateId
+        `Prelude.hashWithSalt` minVersion
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` maxVersion
+        `Prelude.hashWithSalt` versions
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeLaunchTemplateVersions
+  where
+  rnf DescribeLaunchTemplateVersions' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf minVersion
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxVersion
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -425,3 +449,8 @@ describeLaunchTemplateVersionsResponse_httpStatus = Lens.lens (\DescribeLaunchTe
 instance
   Prelude.NFData
     DescribeLaunchTemplateVersionsResponse
+  where
+  rnf DescribeLaunchTemplateVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf launchTemplateVersions
+      `Prelude.seq` Prelude.rnf httpStatus

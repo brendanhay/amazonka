@@ -125,9 +125,15 @@ instance Core.AWSRequest RemoveTagsFromResource where
       "RemoveTagsFromResourceResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable RemoveTagsFromResource
+instance Prelude.Hashable RemoveTagsFromResource where
+  hashWithSalt _salt RemoveTagsFromResource' {..} =
+    _salt `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData RemoveTagsFromResource
+instance Prelude.NFData RemoveTagsFromResource where
+  rnf RemoveTagsFromResource' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders RemoveTagsFromResource where
   toHeaders = Prelude.const Prelude.mempty

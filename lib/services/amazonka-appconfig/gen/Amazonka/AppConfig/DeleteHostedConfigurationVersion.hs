@@ -116,10 +116,22 @@ instance
 instance
   Prelude.Hashable
     DeleteHostedConfigurationVersion
+  where
+  hashWithSalt
+    _salt
+    DeleteHostedConfigurationVersion' {..} =
+      _salt `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` configurationProfileId
+        `Prelude.hashWithSalt` versionNumber
 
 instance
   Prelude.NFData
     DeleteHostedConfigurationVersion
+  where
+  rnf DeleteHostedConfigurationVersion' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance
   Core.ToHeaders
@@ -170,3 +182,5 @@ newDeleteHostedConfigurationVersionResponse =
 instance
   Prelude.NFData
     DeleteHostedConfigurationVersionResponse
+  where
+  rnf _ = ()

@@ -77,9 +77,15 @@ lambdaLinuxProcessParams_containerParams = Lens.lens (\LambdaLinuxProcessParams'
 lambdaLinuxProcessParams_isolationMode :: Lens.Lens' LambdaLinuxProcessParams (Prelude.Maybe LambdaIsolationMode)
 lambdaLinuxProcessParams_isolationMode = Lens.lens (\LambdaLinuxProcessParams' {isolationMode} -> isolationMode) (\s@LambdaLinuxProcessParams' {} a -> s {isolationMode = a} :: LambdaLinuxProcessParams)
 
-instance Prelude.Hashable LambdaLinuxProcessParams
+instance Prelude.Hashable LambdaLinuxProcessParams where
+  hashWithSalt _salt LambdaLinuxProcessParams' {..} =
+    _salt `Prelude.hashWithSalt` containerParams
+      `Prelude.hashWithSalt` isolationMode
 
-instance Prelude.NFData LambdaLinuxProcessParams
+instance Prelude.NFData LambdaLinuxProcessParams where
+  rnf LambdaLinuxProcessParams' {..} =
+    Prelude.rnf containerParams
+      `Prelude.seq` Prelude.rnf isolationMode
 
 instance Core.ToJSON LambdaLinuxProcessParams where
   toJSON LambdaLinuxProcessParams' {..} =

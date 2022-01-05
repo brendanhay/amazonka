@@ -150,9 +150,19 @@ instance Core.AWSRequest ListMedicalVocabularies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMedicalVocabularies
+instance Prelude.Hashable ListMedicalVocabularies where
+  hashWithSalt _salt ListMedicalVocabularies' {..} =
+    _salt `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stateEquals
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListMedicalVocabularies
+instance Prelude.NFData ListMedicalVocabularies where
+  rnf ListMedicalVocabularies' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stateEquals
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMedicalVocabularies where
   toHeaders =
@@ -264,3 +274,9 @@ listMedicalVocabulariesResponse_httpStatus = Lens.lens (\ListMedicalVocabularies
 instance
   Prelude.NFData
     ListMedicalVocabulariesResponse
+  where
+  rnf ListMedicalVocabulariesResponse' {..} =
+    Prelude.rnf vocabularies
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

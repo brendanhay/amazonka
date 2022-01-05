@@ -137,9 +137,17 @@ instance Core.AWSRequest CreateOpsMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOpsMetadata
+instance Prelude.Hashable CreateOpsMetadata where
+  hashWithSalt _salt CreateOpsMetadata' {..} =
+    _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData CreateOpsMetadata
+instance Prelude.NFData CreateOpsMetadata where
+  rnf CreateOpsMetadata' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders CreateOpsMetadata where
   toHeaders =
@@ -214,4 +222,7 @@ createOpsMetadataResponse_opsMetadataArn = Lens.lens (\CreateOpsMetadataResponse
 createOpsMetadataResponse_httpStatus :: Lens.Lens' CreateOpsMetadataResponse Prelude.Int
 createOpsMetadataResponse_httpStatus = Lens.lens (\CreateOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@CreateOpsMetadataResponse' {} a -> s {httpStatus = a} :: CreateOpsMetadataResponse)
 
-instance Prelude.NFData CreateOpsMetadataResponse
+instance Prelude.NFData CreateOpsMetadataResponse where
+  rnf CreateOpsMetadataResponse' {..} =
+    Prelude.rnf opsMetadataArn
+      `Prelude.seq` Prelude.rnf httpStatus

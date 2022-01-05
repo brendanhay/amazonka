@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFolder
+instance Prelude.Hashable DeleteFolder where
+  hashWithSalt _salt DeleteFolder' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` folderId
 
-instance Prelude.NFData DeleteFolder
+instance Prelude.NFData DeleteFolder where
+  rnf DeleteFolder' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DeleteFolder where
   toHeaders =
@@ -188,4 +194,9 @@ deleteFolderResponse_folderId = Lens.lens (\DeleteFolderResponse' {folderId} -> 
 deleteFolderResponse_status :: Lens.Lens' DeleteFolderResponse Prelude.Int
 deleteFolderResponse_status = Lens.lens (\DeleteFolderResponse' {status} -> status) (\s@DeleteFolderResponse' {} a -> s {status = a} :: DeleteFolderResponse)
 
-instance Prelude.NFData DeleteFolderResponse
+instance Prelude.NFData DeleteFolderResponse where
+  rnf DeleteFolderResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf status

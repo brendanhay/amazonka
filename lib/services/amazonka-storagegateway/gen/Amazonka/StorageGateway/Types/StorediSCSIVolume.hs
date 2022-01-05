@@ -295,6 +295,38 @@ instance Core.FromJSON StorediSCSIVolume where
             Prelude.<*> (x Core..:? "TargetName")
       )
 
-instance Prelude.Hashable StorediSCSIVolume
+instance Prelude.Hashable StorediSCSIVolume where
+  hashWithSalt _salt StorediSCSIVolume' {..} =
+    _salt `Prelude.hashWithSalt` volumeiSCSIAttributes
+      `Prelude.hashWithSalt` volumeStatus
+      `Prelude.hashWithSalt` sourceSnapshotId
+      `Prelude.hashWithSalt` preservedExistingData
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` volumeAttachmentStatus
+      `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` volumeProgress
+      `Prelude.hashWithSalt` volumeSizeInBytes
+      `Prelude.hashWithSalt` volumeUsedInBytes
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` volumeDiskId
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` targetName
 
-instance Prelude.NFData StorediSCSIVolume
+instance Prelude.NFData StorediSCSIVolume where
+  rnf StorediSCSIVolume' {..} =
+    Prelude.rnf volumeiSCSIAttributes
+      `Prelude.seq` Prelude.rnf volumeStatus
+      `Prelude.seq` Prelude.rnf sourceSnapshotId
+      `Prelude.seq` Prelude.rnf preservedExistingData
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf volumeAttachmentStatus
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf volumeProgress
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf volumeUsedInBytes
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf volumeDiskId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf targetName

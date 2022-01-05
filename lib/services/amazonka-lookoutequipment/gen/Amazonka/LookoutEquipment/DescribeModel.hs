@@ -128,9 +128,12 @@ instance Core.AWSRequest DescribeModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeModel
+instance Prelude.Hashable DescribeModel where
+  hashWithSalt _salt DescribeModel' {..} =
+    _salt `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData DescribeModel
+instance Prelude.NFData DescribeModel where
+  rnf DescribeModel' {..} = Prelude.rnf modelName
 
 instance Core.ToHeaders DescribeModel where
   toHeaders =
@@ -453,4 +456,29 @@ describeModelResponse_roleArn = Lens.lens (\DescribeModelResponse' {roleArn} -> 
 describeModelResponse_httpStatus :: Lens.Lens' DescribeModelResponse Prelude.Int
 describeModelResponse_httpStatus = Lens.lens (\DescribeModelResponse' {httpStatus} -> httpStatus) (\s@DescribeModelResponse' {} a -> s {httpStatus = a} :: DescribeModelResponse)
 
-instance Prelude.NFData DescribeModelResponse
+instance Prelude.NFData DescribeModelResponse where
+  rnf DescribeModelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataPreProcessingConfiguration
+      `Prelude.seq` Prelude.rnf trainingExecutionStartTime
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf failedReason
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf trainingDataEndTime
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf evaluationDataStartTime
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf offCondition
+      `Prelude.seq` Prelude.rnf evaluationDataEndTime
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf trainingDataStartTime
+      `Prelude.seq` Prelude.rnf
+        trainingExecutionEndTime
+      `Prelude.seq` Prelude.rnf
+        labelsInputConfiguration
+      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf httpStatus

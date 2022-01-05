@@ -97,8 +97,15 @@ instance Core.AWSRequest RemoveAllResourcePermissions where
 instance
   Prelude.Hashable
     RemoveAllResourcePermissions
+  where
+  hashWithSalt _salt RemoveAllResourcePermissions' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData RemoveAllResourcePermissions
+instance Prelude.NFData RemoveAllResourcePermissions where
+  rnf RemoveAllResourcePermissions' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders RemoveAllResourcePermissions where
   toHeaders RemoveAllResourcePermissions' {..} =
@@ -137,3 +144,5 @@ newRemoveAllResourcePermissionsResponse =
 instance
   Prelude.NFData
     RemoveAllResourcePermissionsResponse
+  where
+  rnf _ = ()

@@ -105,9 +105,12 @@ instance Core.AWSRequest GetCelebrityInfo where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCelebrityInfo
+instance Prelude.Hashable GetCelebrityInfo where
+  hashWithSalt _salt GetCelebrityInfo' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetCelebrityInfo
+instance Prelude.NFData GetCelebrityInfo where
+  rnf GetCelebrityInfo' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetCelebrityInfo where
   toHeaders =
@@ -191,4 +194,9 @@ getCelebrityInfoResponse_name = Lens.lens (\GetCelebrityInfoResponse' {name} -> 
 getCelebrityInfoResponse_httpStatus :: Lens.Lens' GetCelebrityInfoResponse Prelude.Int
 getCelebrityInfoResponse_httpStatus = Lens.lens (\GetCelebrityInfoResponse' {httpStatus} -> httpStatus) (\s@GetCelebrityInfoResponse' {} a -> s {httpStatus = a} :: GetCelebrityInfoResponse)
 
-instance Prelude.NFData GetCelebrityInfoResponse
+instance Prelude.NFData GetCelebrityInfoResponse where
+  rnf GetCelebrityInfoResponse' {..} =
+    Prelude.rnf urls
+      `Prelude.seq` Prelude.rnf knownGender
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

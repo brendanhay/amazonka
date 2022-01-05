@@ -91,9 +91,13 @@ instance Core.AWSRequest GetLaunchConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetLaunchConfiguration
+instance Prelude.Hashable GetLaunchConfiguration where
+  hashWithSalt _salt GetLaunchConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData GetLaunchConfiguration
+instance Prelude.NFData GetLaunchConfiguration where
+  rnf GetLaunchConfiguration' {..} =
+    Prelude.rnf sourceServerID
 
 instance Core.ToHeaders GetLaunchConfiguration where
   toHeaders =

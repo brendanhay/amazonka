@@ -79,8 +79,14 @@ instance Core.FromJSON ContentArtifactsConfiguration where
 instance
   Prelude.Hashable
     ContentArtifactsConfiguration
+  where
+  hashWithSalt _salt ContentArtifactsConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` muxType
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ContentArtifactsConfiguration
+instance Prelude.NFData ContentArtifactsConfiguration where
+  rnf ContentArtifactsConfiguration' {..} =
+    Prelude.rnf muxType `Prelude.seq` Prelude.rnf state
 
 instance Core.ToJSON ContentArtifactsConfiguration where
   toJSON ContentArtifactsConfiguration' {..} =

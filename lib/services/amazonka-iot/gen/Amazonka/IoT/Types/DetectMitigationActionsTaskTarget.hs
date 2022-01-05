@@ -88,10 +88,22 @@ instance
 instance
   Prelude.Hashable
     DetectMitigationActionsTaskTarget
+  where
+  hashWithSalt
+    _salt
+    DetectMitigationActionsTaskTarget' {..} =
+      _salt `Prelude.hashWithSalt` violationIds
+        `Prelude.hashWithSalt` behaviorName
+        `Prelude.hashWithSalt` securityProfileName
 
 instance
   Prelude.NFData
     DetectMitigationActionsTaskTarget
+  where
+  rnf DetectMitigationActionsTaskTarget' {..} =
+    Prelude.rnf violationIds
+      `Prelude.seq` Prelude.rnf behaviorName
+      `Prelude.seq` Prelude.rnf securityProfileName
 
 instance
   Core.ToJSON

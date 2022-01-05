@@ -186,10 +186,22 @@ instance
 instance
   Prelude.Hashable
     ListProvisionedConcurrencyConfigs
+  where
+  hashWithSalt
+    _salt
+    ListProvisionedConcurrencyConfigs' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     ListProvisionedConcurrencyConfigs
+  where
+  rnf ListProvisionedConcurrencyConfigs' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf functionName
 
 instance
   Core.ToHeaders
@@ -271,3 +283,8 @@ listProvisionedConcurrencyConfigsResponse_httpStatus = Lens.lens (\ListProvision
 instance
   Prelude.NFData
     ListProvisionedConcurrencyConfigsResponse
+  where
+  rnf ListProvisionedConcurrencyConfigsResponse' {..} =
+    Prelude.rnf provisionedConcurrencyConfigs
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

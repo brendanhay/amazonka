@@ -94,9 +94,15 @@ instance Core.FromJSON MsSmoothAdditionalManifest where
                         )
       )
 
-instance Prelude.Hashable MsSmoothAdditionalManifest
+instance Prelude.Hashable MsSmoothAdditionalManifest where
+  hashWithSalt _salt MsSmoothAdditionalManifest' {..} =
+    _salt `Prelude.hashWithSalt` manifestNameModifier
+      `Prelude.hashWithSalt` selectedOutputs
 
-instance Prelude.NFData MsSmoothAdditionalManifest
+instance Prelude.NFData MsSmoothAdditionalManifest where
+  rnf MsSmoothAdditionalManifest' {..} =
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Core.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =

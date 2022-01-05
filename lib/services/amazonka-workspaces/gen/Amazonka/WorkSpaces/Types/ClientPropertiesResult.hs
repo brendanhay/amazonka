@@ -73,6 +73,12 @@ instance Core.FromJSON ClientPropertiesResult where
             Prelude.<*> (x Core..:? "ClientProperties")
       )
 
-instance Prelude.Hashable ClientPropertiesResult
+instance Prelude.Hashable ClientPropertiesResult where
+  hashWithSalt _salt ClientPropertiesResult' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` clientProperties
 
-instance Prelude.NFData ClientPropertiesResult
+instance Prelude.NFData ClientPropertiesResult where
+  rnf ClientPropertiesResult' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf clientProperties

@@ -95,6 +95,16 @@ instance Core.FromJSON ApiMapping where
             Prelude.<*> (x Core..: "apiId")
       )
 
-instance Prelude.Hashable ApiMapping
+instance Prelude.Hashable ApiMapping where
+  hashWithSalt _salt ApiMapping' {..} =
+    _salt `Prelude.hashWithSalt` apiMappingKey
+      `Prelude.hashWithSalt` apiMappingId
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData ApiMapping
+instance Prelude.NFData ApiMapping where
+  rnf ApiMapping' {..} =
+    Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf apiMappingId
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf apiId

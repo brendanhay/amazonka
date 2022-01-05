@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     DescribeUsageReportSubscriptions
+  where
+  hashWithSalt
+    _salt
+    DescribeUsageReportSubscriptions' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeUsageReportSubscriptions
+  where
+  rnf DescribeUsageReportSubscriptions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -206,3 +216,8 @@ describeUsageReportSubscriptionsResponse_httpStatus = Lens.lens (\DescribeUsageR
 instance
   Prelude.NFData
     DescribeUsageReportSubscriptionsResponse
+  where
+  rnf DescribeUsageReportSubscriptionsResponse' {..} =
+    Prelude.rnf usageReportSubscriptions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -126,9 +126,15 @@ instance Core.AWSRequest ListPortals where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPortals
+instance Prelude.Hashable ListPortals where
+  hashWithSalt _salt ListPortals' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListPortals
+instance Prelude.NFData ListPortals where
+  rnf ListPortals' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPortals where
   toHeaders =
@@ -202,4 +208,8 @@ listPortalsResponse_nextToken = Lens.lens (\ListPortalsResponse' {nextToken} -> 
 listPortalsResponse_httpStatus :: Lens.Lens' ListPortalsResponse Prelude.Int
 listPortalsResponse_httpStatus = Lens.lens (\ListPortalsResponse' {httpStatus} -> httpStatus) (\s@ListPortalsResponse' {} a -> s {httpStatus = a} :: ListPortalsResponse)
 
-instance Prelude.NFData ListPortalsResponse
+instance Prelude.NFData ListPortalsResponse where
+  rnf ListPortalsResponse' {..} =
+    Prelude.rnf portalSummaries
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

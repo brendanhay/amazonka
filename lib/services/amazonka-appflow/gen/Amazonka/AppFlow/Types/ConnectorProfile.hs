@@ -154,6 +154,26 @@ instance Core.FromJSON ConnectorProfile where
             Prelude.<*> (x Core..:? "connectorType")
       )
 
-instance Prelude.Hashable ConnectorProfile
+instance Prelude.Hashable ConnectorProfile where
+  hashWithSalt _salt ConnectorProfile' {..} =
+    _salt `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` credentialsArn
+      `Prelude.hashWithSalt` connectorProfileProperties
+      `Prelude.hashWithSalt` connectionMode
+      `Prelude.hashWithSalt` connectorProfileArn
+      `Prelude.hashWithSalt` privateConnectionProvisioningState
+      `Prelude.hashWithSalt` connectorType
 
-instance Prelude.NFData ConnectorProfile
+instance Prelude.NFData ConnectorProfile where
+  rnf ConnectorProfile' {..} =
+    Prelude.rnf connectorProfileName
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf connectorProfileProperties
+      `Prelude.seq` Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf privateConnectionProvisioningState
+      `Prelude.seq` Prelude.rnf connectorType

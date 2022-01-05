@@ -122,9 +122,17 @@ instance Core.AWSRequest ModifyReservedInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReservedInstances
+instance Prelude.Hashable ModifyReservedInstances where
+  hashWithSalt _salt ModifyReservedInstances' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` reservedInstancesIds
+      `Prelude.hashWithSalt` targetConfigurations
 
-instance Prelude.NFData ModifyReservedInstances
+instance Prelude.NFData ModifyReservedInstances where
+  rnf ModifyReservedInstances' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf reservedInstancesIds
+      `Prelude.seq` Prelude.rnf targetConfigurations
 
 instance Core.ToHeaders ModifyReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +200,7 @@ modifyReservedInstancesResponse_httpStatus = Lens.lens (\ModifyReservedInstances
 instance
   Prelude.NFData
     ModifyReservedInstancesResponse
+  where
+  rnf ModifyReservedInstancesResponse' {..} =
+    Prelude.rnf reservedInstancesModificationId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -219,9 +219,15 @@ instance Core.AWSRequest ScheduleKeyDeletion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ScheduleKeyDeletion
+instance Prelude.Hashable ScheduleKeyDeletion where
+  hashWithSalt _salt ScheduleKeyDeletion' {..} =
+    _salt `Prelude.hashWithSalt` pendingWindowInDays
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData ScheduleKeyDeletion
+instance Prelude.NFData ScheduleKeyDeletion where
+  rnf ScheduleKeyDeletion' {..} =
+    Prelude.rnf pendingWindowInDays
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders ScheduleKeyDeletion where
   toHeaders =
@@ -365,4 +371,10 @@ scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletio
 scheduleKeyDeletionResponse_httpStatus :: Lens.Lens' ScheduleKeyDeletionResponse Prelude.Int
 scheduleKeyDeletionResponse_httpStatus = Lens.lens (\ScheduleKeyDeletionResponse' {httpStatus} -> httpStatus) (\s@ScheduleKeyDeletionResponse' {} a -> s {httpStatus = a} :: ScheduleKeyDeletionResponse)
 
-instance Prelude.NFData ScheduleKeyDeletionResponse
+instance Prelude.NFData ScheduleKeyDeletionResponse where
+  rnf ScheduleKeyDeletionResponse' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyState
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf pendingWindowInDays
+      `Prelude.seq` Prelude.rnf httpStatus

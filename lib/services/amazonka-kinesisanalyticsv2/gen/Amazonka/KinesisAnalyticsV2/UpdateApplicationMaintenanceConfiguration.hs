@@ -140,10 +140,20 @@ instance
 instance
   Prelude.Hashable
     UpdateApplicationMaintenanceConfiguration
+  where
+  hashWithSalt
+    _salt
+    UpdateApplicationMaintenanceConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` applicationMaintenanceConfigurationUpdate
 
 instance
   Prelude.NFData
     UpdateApplicationMaintenanceConfiguration
+  where
+  rnf UpdateApplicationMaintenanceConfiguration' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationMaintenanceConfigurationUpdate
 
 instance
   Core.ToHeaders
@@ -245,3 +255,10 @@ updateApplicationMaintenanceConfigurationResponse_httpStatus = Lens.lens (\Updat
 instance
   Prelude.NFData
     UpdateApplicationMaintenanceConfigurationResponse
+  where
+  rnf
+    UpdateApplicationMaintenanceConfigurationResponse' {..} =
+      Prelude.rnf applicationARN
+        `Prelude.seq` Prelude.rnf
+          applicationMaintenanceConfigurationDescription
+        `Prelude.seq` Prelude.rnf httpStatus

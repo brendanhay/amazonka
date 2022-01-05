@@ -102,9 +102,12 @@ instance Core.AWSRequest AdvertiseByoipCidr where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdvertiseByoipCidr
+instance Prelude.Hashable AdvertiseByoipCidr where
+  hashWithSalt _salt AdvertiseByoipCidr' {..} =
+    _salt `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData AdvertiseByoipCidr
+instance Prelude.NFData AdvertiseByoipCidr where
+  rnf AdvertiseByoipCidr' {..} = Prelude.rnf cidr
 
 instance Core.ToHeaders AdvertiseByoipCidr where
   toHeaders =
@@ -173,4 +176,7 @@ advertiseByoipCidrResponse_byoipCidr = Lens.lens (\AdvertiseByoipCidrResponse' {
 advertiseByoipCidrResponse_httpStatus :: Lens.Lens' AdvertiseByoipCidrResponse Prelude.Int
 advertiseByoipCidrResponse_httpStatus = Lens.lens (\AdvertiseByoipCidrResponse' {httpStatus} -> httpStatus) (\s@AdvertiseByoipCidrResponse' {} a -> s {httpStatus = a} :: AdvertiseByoipCidrResponse)
 
-instance Prelude.NFData AdvertiseByoipCidrResponse
+instance Prelude.NFData AdvertiseByoipCidrResponse where
+  rnf AdvertiseByoipCidrResponse' {..} =
+    Prelude.rnf byoipCidr
+      `Prelude.seq` Prelude.rnf httpStatus

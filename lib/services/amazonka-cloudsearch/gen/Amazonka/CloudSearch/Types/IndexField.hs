@@ -224,9 +224,37 @@ instance Core.FromXML IndexField where
       Prelude.<*> (x Core..@ "IndexFieldName")
       Prelude.<*> (x Core..@ "IndexFieldType")
 
-instance Prelude.Hashable IndexField
+instance Prelude.Hashable IndexField where
+  hashWithSalt _salt IndexField' {..} =
+    _salt `Prelude.hashWithSalt` doubleArrayOptions
+      `Prelude.hashWithSalt` dateOptions
+      `Prelude.hashWithSalt` textArrayOptions
+      `Prelude.hashWithSalt` doubleOptions
+      `Prelude.hashWithSalt` textOptions
+      `Prelude.hashWithSalt` latLonOptions
+      `Prelude.hashWithSalt` literalArrayOptions
+      `Prelude.hashWithSalt` intArrayOptions
+      `Prelude.hashWithSalt` dateArrayOptions
+      `Prelude.hashWithSalt` intOptions
+      `Prelude.hashWithSalt` literalOptions
+      `Prelude.hashWithSalt` indexFieldName
+      `Prelude.hashWithSalt` indexFieldType
 
-instance Prelude.NFData IndexField
+instance Prelude.NFData IndexField where
+  rnf IndexField' {..} =
+    Prelude.rnf doubleArrayOptions
+      `Prelude.seq` Prelude.rnf dateOptions
+      `Prelude.seq` Prelude.rnf textArrayOptions
+      `Prelude.seq` Prelude.rnf doubleOptions
+      `Prelude.seq` Prelude.rnf textOptions
+      `Prelude.seq` Prelude.rnf latLonOptions
+      `Prelude.seq` Prelude.rnf literalArrayOptions
+      `Prelude.seq` Prelude.rnf intArrayOptions
+      `Prelude.seq` Prelude.rnf dateArrayOptions
+      `Prelude.seq` Prelude.rnf intOptions
+      `Prelude.seq` Prelude.rnf literalOptions
+      `Prelude.seq` Prelude.rnf indexFieldName
+      `Prelude.seq` Prelude.rnf indexFieldType
 
 instance Core.ToQuery IndexField where
   toQuery IndexField' {..} =

@@ -72,6 +72,12 @@ instance Core.FromJSON UsageAccountResult where
             Prelude.<*> (x Core..:? "total")
       )
 
-instance Prelude.Hashable UsageAccountResult
+instance Prelude.Hashable UsageAccountResult where
+  hashWithSalt _salt UsageAccountResult' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` total
 
-instance Prelude.NFData UsageAccountResult
+instance Prelude.NFData UsageAccountResult where
+  rnf UsageAccountResult' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf total

@@ -62,10 +62,18 @@ httpUrlDestinationConfiguration_confirmationUrl = Lens.lens (\HttpUrlDestination
 instance
   Prelude.Hashable
     HttpUrlDestinationConfiguration
+  where
+  hashWithSalt
+    _salt
+    HttpUrlDestinationConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` confirmationUrl
 
 instance
   Prelude.NFData
     HttpUrlDestinationConfiguration
+  where
+  rnf HttpUrlDestinationConfiguration' {..} =
+    Prelude.rnf confirmationUrl
 
 instance Core.ToJSON HttpUrlDestinationConfiguration where
   toJSON HttpUrlDestinationConfiguration' {..} =

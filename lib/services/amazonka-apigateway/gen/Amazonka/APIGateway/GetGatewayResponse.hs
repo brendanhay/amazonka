@@ -107,9 +107,15 @@ instance Core.AWSRequest GetGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetGatewayResponse
+instance Prelude.Hashable GetGatewayResponse where
+  hashWithSalt _salt GetGatewayResponse' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` responseType
 
-instance Prelude.NFData GetGatewayResponse
+instance Prelude.NFData GetGatewayResponse where
+  rnf GetGatewayResponse' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf responseType
 
 instance Core.ToHeaders GetGatewayResponse where
   toHeaders =

@@ -80,9 +80,15 @@ instance Core.FromJSON ResourceAccessPolicy where
             Prelude.<*> (x Core..: "ResourceId")
       )
 
-instance Prelude.Hashable ResourceAccessPolicy
+instance Prelude.Hashable ResourceAccessPolicy where
+  hashWithSalt _salt ResourceAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ResourceAccessPolicy
+instance Prelude.NFData ResourceAccessPolicy where
+  rnf ResourceAccessPolicy' {..} =
+    Prelude.rnf permission
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToJSON ResourceAccessPolicy where
   toJSON ResourceAccessPolicy' {..} =

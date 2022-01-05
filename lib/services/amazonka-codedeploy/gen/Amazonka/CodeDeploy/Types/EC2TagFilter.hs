@@ -100,9 +100,17 @@ instance Core.FromJSON EC2TagFilter where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EC2TagFilter
+instance Prelude.Hashable EC2TagFilter where
+  hashWithSalt _salt EC2TagFilter' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EC2TagFilter
+instance Prelude.NFData EC2TagFilter where
+  rnf EC2TagFilter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON EC2TagFilter where
   toJSON EC2TagFilter' {..} =

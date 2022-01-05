@@ -85,5 +85,12 @@ instance Core.FromXML PendingCloudwatchLogsExports where
 instance
   Prelude.Hashable
     PendingCloudwatchLogsExports
+  where
+  hashWithSalt _salt PendingCloudwatchLogsExports' {..} =
+    _salt `Prelude.hashWithSalt` logTypesToEnable
+      `Prelude.hashWithSalt` logTypesToDisable
 
-instance Prelude.NFData PendingCloudwatchLogsExports
+instance Prelude.NFData PendingCloudwatchLogsExports where
+  rnf PendingCloudwatchLogsExports' {..} =
+    Prelude.rnf logTypesToEnable
+      `Prelude.seq` Prelude.rnf logTypesToDisable

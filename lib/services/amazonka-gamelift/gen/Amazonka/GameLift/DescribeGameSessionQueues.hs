@@ -170,9 +170,17 @@ instance Core.AWSRequest DescribeGameSessionQueues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGameSessionQueues
+instance Prelude.Hashable DescribeGameSessionQueues where
+  hashWithSalt _salt DescribeGameSessionQueues' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeGameSessionQueues
+instance Prelude.NFData DescribeGameSessionQueues where
+  rnf DescribeGameSessionQueues' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeGameSessionQueues where
   toHeaders =
@@ -264,3 +272,8 @@ describeGameSessionQueuesResponse_httpStatus = Lens.lens (\DescribeGameSessionQu
 instance
   Prelude.NFData
     DescribeGameSessionQueuesResponse
+  where
+  rnf DescribeGameSessionQueuesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf gameSessionQueues
+      `Prelude.seq` Prelude.rnf httpStatus

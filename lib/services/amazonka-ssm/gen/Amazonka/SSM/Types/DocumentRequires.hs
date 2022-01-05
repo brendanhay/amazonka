@@ -76,9 +76,14 @@ instance Core.FromJSON DocumentRequires where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable DocumentRequires
+instance Prelude.Hashable DocumentRequires where
+  hashWithSalt _salt DocumentRequires' {..} =
+    _salt `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DocumentRequires
+instance Prelude.NFData DocumentRequires where
+  rnf DocumentRequires' {..} =
+    Prelude.rnf version `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DocumentRequires where
   toJSON DocumentRequires' {..} =

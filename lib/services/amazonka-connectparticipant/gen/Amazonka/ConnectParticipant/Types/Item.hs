@@ -153,6 +153,26 @@ instance Core.FromJSON Item where
             Prelude.<*> (x Core..:? "ContentType")
       )
 
-instance Prelude.Hashable Item
+instance Prelude.Hashable Item where
+  hashWithSalt _salt Item' {..} =
+    _salt `Prelude.hashWithSalt` participantId
+      `Prelude.hashWithSalt` absoluteTime
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` participantRole
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData Item
+instance Prelude.NFData Item where
+  rnf Item' {..} =
+    Prelude.rnf participantId
+      `Prelude.seq` Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf contentType

@@ -186,6 +186,26 @@ instance Core.FromJSON BackupPlansListMember where
             Prelude.<*> (x Core..:? "DeletionDate")
       )
 
-instance Prelude.Hashable BackupPlansListMember
+instance Prelude.Hashable BackupPlansListMember where
+  hashWithSalt _salt BackupPlansListMember' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` backupPlanName
+      `Prelude.hashWithSalt` advancedBackupSettings
+      `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` backupPlanArn
+      `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` deletionDate
 
-instance Prelude.NFData BackupPlansListMember
+instance Prelude.NFData BackupPlansListMember where
+  rnf BackupPlansListMember' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf backupPlanName
+      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf deletionDate

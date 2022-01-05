@@ -138,9 +138,17 @@ instance Core.AWSRequest GetResourcePolicies where
                         )
       )
 
-instance Prelude.Hashable GetResourcePolicies
+instance Prelude.Hashable GetResourcePolicies where
+  hashWithSalt _salt GetResourcePolicies' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetResourcePolicies
+instance Prelude.NFData GetResourcePolicies where
+  rnf GetResourcePolicies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetResourcePolicies where
   toHeaders =
@@ -217,4 +225,8 @@ getResourcePoliciesResponse_httpStatus = Lens.lens (\GetResourcePoliciesResponse
 getResourcePoliciesResponse_resourcePolicies :: Lens.Lens' GetResourcePoliciesResponse [ResourcePolicy]
 getResourcePoliciesResponse_resourcePolicies = Lens.lens (\GetResourcePoliciesResponse' {resourcePolicies} -> resourcePolicies) (\s@GetResourcePoliciesResponse' {} a -> s {resourcePolicies = a} :: GetResourcePoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetResourcePoliciesResponse
+instance Prelude.NFData GetResourcePoliciesResponse where
+  rnf GetResourcePoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourcePolicies

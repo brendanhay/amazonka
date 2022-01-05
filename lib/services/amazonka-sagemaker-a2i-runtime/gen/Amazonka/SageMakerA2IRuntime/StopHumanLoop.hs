@@ -84,9 +84,12 @@ instance Core.AWSRequest StopHumanLoop where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopHumanLoop
+instance Prelude.Hashable StopHumanLoop where
+  hashWithSalt _salt StopHumanLoop' {..} =
+    _salt `Prelude.hashWithSalt` humanLoopName
 
-instance Prelude.NFData StopHumanLoop
+instance Prelude.NFData StopHumanLoop where
+  rnf StopHumanLoop' {..} = Prelude.rnf humanLoopName
 
 instance Core.ToHeaders StopHumanLoop where
   toHeaders =
@@ -141,4 +144,6 @@ newStopHumanLoopResponse pHttpStatus_ =
 stopHumanLoopResponse_httpStatus :: Lens.Lens' StopHumanLoopResponse Prelude.Int
 stopHumanLoopResponse_httpStatus = Lens.lens (\StopHumanLoopResponse' {httpStatus} -> httpStatus) (\s@StopHumanLoopResponse' {} a -> s {httpStatus = a} :: StopHumanLoopResponse)
 
-instance Prelude.NFData StopHumanLoopResponse
+instance Prelude.NFData StopHumanLoopResponse where
+  rnf StopHumanLoopResponse' {..} =
+    Prelude.rnf httpStatus

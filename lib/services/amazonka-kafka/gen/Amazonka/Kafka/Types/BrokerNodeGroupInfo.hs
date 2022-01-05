@@ -153,9 +153,21 @@ instance Core.FromJSON BrokerNodeGroupInfo where
             Prelude.<*> (x Core..: "instanceType")
       )
 
-instance Prelude.Hashable BrokerNodeGroupInfo
+instance Prelude.Hashable BrokerNodeGroupInfo where
+  hashWithSalt _salt BrokerNodeGroupInfo' {..} =
+    _salt `Prelude.hashWithSalt` storageInfo
+      `Prelude.hashWithSalt` brokerAZDistribution
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` clientSubnets
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData BrokerNodeGroupInfo
+instance Prelude.NFData BrokerNodeGroupInfo where
+  rnf BrokerNodeGroupInfo' {..} =
+    Prelude.rnf storageInfo
+      `Prelude.seq` Prelude.rnf brokerAZDistribution
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf clientSubnets
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON BrokerNodeGroupInfo where
   toJSON BrokerNodeGroupInfo' {..} =

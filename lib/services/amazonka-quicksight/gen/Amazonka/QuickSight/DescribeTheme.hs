@@ -143,9 +143,19 @@ instance Core.AWSRequest DescribeTheme where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTheme
+instance Prelude.Hashable DescribeTheme where
+  hashWithSalt _salt DescribeTheme' {..} =
+    _salt `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` themeId
 
-instance Prelude.NFData DescribeTheme
+instance Prelude.NFData DescribeTheme where
+  rnf DescribeTheme' {..} =
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf themeId
 
 instance Core.ToHeaders DescribeTheme where
   toHeaders =
@@ -221,4 +231,8 @@ describeThemeResponse_theme = Lens.lens (\DescribeThemeResponse' {theme} -> them
 describeThemeResponse_status :: Lens.Lens' DescribeThemeResponse Prelude.Int
 describeThemeResponse_status = Lens.lens (\DescribeThemeResponse' {status} -> status) (\s@DescribeThemeResponse' {} a -> s {status = a} :: DescribeThemeResponse)
 
-instance Prelude.NFData DescribeThemeResponse
+instance Prelude.NFData DescribeThemeResponse where
+  rnf DescribeThemeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf theme
+      `Prelude.seq` Prelude.rnf status

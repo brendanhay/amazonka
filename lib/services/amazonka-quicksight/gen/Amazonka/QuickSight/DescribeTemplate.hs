@@ -143,9 +143,19 @@ instance Core.AWSRequest DescribeTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTemplate
+instance Prelude.Hashable DescribeTemplate where
+  hashWithSalt _salt DescribeTemplate' {..} =
+    _salt `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` templateId
 
-instance Prelude.NFData DescribeTemplate
+instance Prelude.NFData DescribeTemplate where
+  rnf DescribeTemplate' {..} =
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf templateId
 
 instance Core.ToHeaders DescribeTemplate where
   toHeaders =
@@ -222,4 +232,8 @@ describeTemplateResponse_template = Lens.lens (\DescribeTemplateResponse' {templ
 describeTemplateResponse_status :: Lens.Lens' DescribeTemplateResponse Prelude.Int
 describeTemplateResponse_status = Lens.lens (\DescribeTemplateResponse' {status} -> status) (\s@DescribeTemplateResponse' {} a -> s {status = a} :: DescribeTemplateResponse)
 
-instance Prelude.NFData DescribeTemplateResponse
+instance Prelude.NFData DescribeTemplateResponse where
+  rnf DescribeTemplateResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf status

@@ -141,6 +141,26 @@ instance Core.FromJSON TrialComponentMetricSummary where
             Prelude.<*> (x Core..:? "TimeStamp")
       )
 
-instance Prelude.Hashable TrialComponentMetricSummary
+instance Prelude.Hashable TrialComponentMetricSummary where
+  hashWithSalt _salt TrialComponentMetricSummary' {..} =
+    _salt `Prelude.hashWithSalt` max
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` avg
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` stdDev
+      `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` last
+      `Prelude.hashWithSalt` timeStamp
 
-instance Prelude.NFData TrialComponentMetricSummary
+instance Prelude.NFData TrialComponentMetricSummary where
+  rnf TrialComponentMetricSummary' {..} =
+    Prelude.rnf max
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf avg
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf stdDev
+      `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf last
+      `Prelude.seq` Prelude.rnf timeStamp

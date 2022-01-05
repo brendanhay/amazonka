@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.RestoreSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,6 +102,16 @@ instance Core.FromJSON RestoreSummary where
             Prelude.<*> (x Core..: "RestoreInProgress")
       )
 
-instance Prelude.Hashable RestoreSummary
+instance Prelude.Hashable RestoreSummary where
+  hashWithSalt _salt RestoreSummary' {..} =
+    _salt `Prelude.hashWithSalt` sourceTableArn
+      `Prelude.hashWithSalt` sourceBackupArn
+      `Prelude.hashWithSalt` restoreDateTime
+      `Prelude.hashWithSalt` restoreInProgress
 
-instance Prelude.NFData RestoreSummary
+instance Prelude.NFData RestoreSummary where
+  rnf RestoreSummary' {..} =
+    Prelude.rnf sourceTableArn
+      `Prelude.seq` Prelude.rnf sourceBackupArn
+      `Prelude.seq` Prelude.rnf restoreDateTime
+      `Prelude.seq` Prelude.rnf restoreInProgress

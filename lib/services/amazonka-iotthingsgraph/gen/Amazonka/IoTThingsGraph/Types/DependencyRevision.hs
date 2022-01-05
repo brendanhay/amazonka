@@ -73,6 +73,12 @@ instance Core.FromJSON DependencyRevision where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable DependencyRevision
+instance Prelude.Hashable DependencyRevision where
+  hashWithSalt _salt DependencyRevision' {..} =
+    _salt `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DependencyRevision
+instance Prelude.NFData DependencyRevision where
+  rnf DependencyRevision' {..} =
+    Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf id

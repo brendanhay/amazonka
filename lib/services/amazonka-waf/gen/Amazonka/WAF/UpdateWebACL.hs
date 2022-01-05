@@ -242,9 +242,19 @@ instance Core.AWSRequest UpdateWebACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWebACL
+instance Prelude.Hashable UpdateWebACL where
+  hashWithSalt _salt UpdateWebACL' {..} =
+    _salt `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` defaultAction
+      `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData UpdateWebACL
+instance Prelude.NFData UpdateWebACL where
+  rnf UpdateWebACL' {..} =
+    Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf defaultAction
+      `Prelude.seq` Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateWebACL where
   toHeaders =
@@ -323,4 +333,7 @@ updateWebACLResponse_changeToken = Lens.lens (\UpdateWebACLResponse' {changeToke
 updateWebACLResponse_httpStatus :: Lens.Lens' UpdateWebACLResponse Prelude.Int
 updateWebACLResponse_httpStatus = Lens.lens (\UpdateWebACLResponse' {httpStatus} -> httpStatus) (\s@UpdateWebACLResponse' {} a -> s {httpStatus = a} :: UpdateWebACLResponse)
 
-instance Prelude.NFData UpdateWebACLResponse
+instance Prelude.NFData UpdateWebACLResponse where
+  rnf UpdateWebACLResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

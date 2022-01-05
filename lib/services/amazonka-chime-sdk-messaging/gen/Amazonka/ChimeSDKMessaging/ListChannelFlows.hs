@@ -114,9 +114,17 @@ instance Core.AWSRequest ListChannelFlows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChannelFlows
+instance Prelude.Hashable ListChannelFlows where
+  hashWithSalt _salt ListChannelFlows' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appInstanceArn
 
-instance Prelude.NFData ListChannelFlows
+instance Prelude.NFData ListChannelFlows where
+  rnf ListChannelFlows' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders ListChannelFlows where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +191,8 @@ listChannelFlowsResponse_nextToken = Lens.lens (\ListChannelFlowsResponse' {next
 listChannelFlowsResponse_httpStatus :: Lens.Lens' ListChannelFlowsResponse Prelude.Int
 listChannelFlowsResponse_httpStatus = Lens.lens (\ListChannelFlowsResponse' {httpStatus} -> httpStatus) (\s@ListChannelFlowsResponse' {} a -> s {httpStatus = a} :: ListChannelFlowsResponse)
 
-instance Prelude.NFData ListChannelFlowsResponse
+instance Prelude.NFData ListChannelFlowsResponse where
+  rnf ListChannelFlowsResponse' {..} =
+    Prelude.rnf channelFlows
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

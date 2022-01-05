@@ -149,9 +149,23 @@ instance Core.AWSRequest UpdateRuleVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRuleVersion
+instance Prelude.Hashable UpdateRuleVersion where
+  hashWithSalt _salt UpdateRuleVersion' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` rule
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` outcomes
 
-instance Prelude.NFData UpdateRuleVersion
+instance Prelude.NFData UpdateRuleVersion where
+  rnf UpdateRuleVersion' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf outcomes
 
 instance Core.ToHeaders UpdateRuleVersion where
   toHeaders =
@@ -225,4 +239,7 @@ updateRuleVersionResponse_rule = Lens.lens (\UpdateRuleVersionResponse' {rule} -
 updateRuleVersionResponse_httpStatus :: Lens.Lens' UpdateRuleVersionResponse Prelude.Int
 updateRuleVersionResponse_httpStatus = Lens.lens (\UpdateRuleVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleVersionResponse' {} a -> s {httpStatus = a} :: UpdateRuleVersionResponse)
 
-instance Prelude.NFData UpdateRuleVersionResponse
+instance Prelude.NFData UpdateRuleVersionResponse where
+  rnf UpdateRuleVersionResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf httpStatus

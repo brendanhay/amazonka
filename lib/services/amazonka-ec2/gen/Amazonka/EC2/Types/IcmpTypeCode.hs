@@ -70,9 +70,14 @@ instance Core.FromXML IcmpTypeCode where
     IcmpTypeCode'
       Prelude.<$> (x Core..@? "code") Prelude.<*> (x Core..@? "type")
 
-instance Prelude.Hashable IcmpTypeCode
+instance Prelude.Hashable IcmpTypeCode where
+  hashWithSalt _salt IcmpTypeCode' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData IcmpTypeCode
+instance Prelude.NFData IcmpTypeCode where
+  rnf IcmpTypeCode' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery IcmpTypeCode where
   toQuery IcmpTypeCode' {..} =

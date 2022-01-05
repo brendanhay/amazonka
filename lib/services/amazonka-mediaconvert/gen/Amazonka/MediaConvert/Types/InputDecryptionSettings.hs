@@ -126,9 +126,19 @@ instance Core.FromJSON InputDecryptionSettings where
             Prelude.<*> (x Core..:? "initializationVector")
       )
 
-instance Prelude.Hashable InputDecryptionSettings
+instance Prelude.Hashable InputDecryptionSettings where
+  hashWithSalt _salt InputDecryptionSettings' {..} =
+    _salt `Prelude.hashWithSalt` encryptedDecryptionKey
+      `Prelude.hashWithSalt` kmsKeyRegion
+      `Prelude.hashWithSalt` decryptionMode
+      `Prelude.hashWithSalt` initializationVector
 
-instance Prelude.NFData InputDecryptionSettings
+instance Prelude.NFData InputDecryptionSettings where
+  rnf InputDecryptionSettings' {..} =
+    Prelude.rnf encryptedDecryptionKey
+      `Prelude.seq` Prelude.rnf kmsKeyRegion
+      `Prelude.seq` Prelude.rnf decryptionMode
+      `Prelude.seq` Prelude.rnf initializationVector
 
 instance Core.ToJSON InputDecryptionSettings where
   toJSON InputDecryptionSettings' {..} =

@@ -70,9 +70,15 @@ domain_hostedZoneId = Lens.lens (\Domain' {hostedZoneId} -> hostedZoneId) (\s@Do
 domain_domainName :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_domainName = Lens.lens (\Domain' {domainName} -> domainName) (\s@Domain' {} a -> s {domainName = a} :: Domain)
 
-instance Prelude.Hashable Domain
+instance Prelude.Hashable Domain where
+  hashWithSalt _salt Domain' {..} =
+    _salt `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData Domain
+instance Prelude.NFData Domain where
+  rnf Domain' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToJSON Domain where
   toJSON Domain' {..} =

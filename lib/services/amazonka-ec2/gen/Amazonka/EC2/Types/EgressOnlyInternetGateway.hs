@@ -85,6 +85,15 @@ instance Core.FromXML EgressOnlyInternetGateway where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable EgressOnlyInternetGateway
+instance Prelude.Hashable EgressOnlyInternetGateway where
+  hashWithSalt _salt EgressOnlyInternetGateway' {..} =
+    _salt
+      `Prelude.hashWithSalt` egressOnlyInternetGatewayId
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData EgressOnlyInternetGateway
+instance Prelude.NFData EgressOnlyInternetGateway where
+  rnf EgressOnlyInternetGateway' {..} =
+    Prelude.rnf egressOnlyInternetGatewayId
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf tags

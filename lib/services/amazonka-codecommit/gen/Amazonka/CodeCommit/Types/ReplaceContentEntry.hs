@@ -100,9 +100,19 @@ replaceContentEntry_filePath = Lens.lens (\ReplaceContentEntry' {filePath} -> fi
 replaceContentEntry_replacementType :: Lens.Lens' ReplaceContentEntry ReplacementTypeEnum
 replaceContentEntry_replacementType = Lens.lens (\ReplaceContentEntry' {replacementType} -> replacementType) (\s@ReplaceContentEntry' {} a -> s {replacementType = a} :: ReplaceContentEntry)
 
-instance Prelude.Hashable ReplaceContentEntry
+instance Prelude.Hashable ReplaceContentEntry where
+  hashWithSalt _salt ReplaceContentEntry' {..} =
+    _salt `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` replacementType
 
-instance Prelude.NFData ReplaceContentEntry
+instance Prelude.NFData ReplaceContentEntry where
+  rnf ReplaceContentEntry' {..} =
+    Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf replacementType
 
 instance Core.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =

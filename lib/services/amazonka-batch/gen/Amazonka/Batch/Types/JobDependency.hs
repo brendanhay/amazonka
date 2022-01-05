@@ -71,9 +71,14 @@ instance Core.FromJSON JobDependency where
             Prelude.<$> (x Core..:? "jobId") Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable JobDependency
+instance Prelude.Hashable JobDependency where
+  hashWithSalt _salt JobDependency' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData JobDependency
+instance Prelude.NFData JobDependency where
+  rnf JobDependency' {..} =
+    Prelude.rnf jobId `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON JobDependency where
   toJSON JobDependency' {..} =

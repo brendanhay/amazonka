@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeInput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInput
+instance Prelude.Hashable DescribeInput where
+  hashWithSalt _salt DescribeInput' {..} =
+    _salt `Prelude.hashWithSalt` inputName
 
-instance Prelude.NFData DescribeInput
+instance Prelude.NFData DescribeInput where
+  rnf DescribeInput' {..} = Prelude.rnf inputName
 
 instance Core.ToHeaders DescribeInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,7 @@ describeInputResponse_input = Lens.lens (\DescribeInputResponse' {input} -> inpu
 describeInputResponse_httpStatus :: Lens.Lens' DescribeInputResponse Prelude.Int
 describeInputResponse_httpStatus = Lens.lens (\DescribeInputResponse' {httpStatus} -> httpStatus) (\s@DescribeInputResponse' {} a -> s {httpStatus = a} :: DescribeInputResponse)
 
-instance Prelude.NFData DescribeInputResponse
+instance Prelude.NFData DescribeInputResponse where
+  rnf DescribeInputResponse' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -118,6 +118,16 @@ instance Core.FromJSON BatchGetRecordError where
             Prelude.<*> (x Core..: "ErrorMessage")
       )
 
-instance Prelude.Hashable BatchGetRecordError
+instance Prelude.Hashable BatchGetRecordError where
+  hashWithSalt _salt BatchGetRecordError' {..} =
+    _salt `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` recordIdentifierValueAsString
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData BatchGetRecordError
+instance Prelude.NFData BatchGetRecordError where
+  rnf BatchGetRecordError' {..} =
+    Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

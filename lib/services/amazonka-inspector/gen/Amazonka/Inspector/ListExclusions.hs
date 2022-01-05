@@ -151,9 +151,17 @@ instance Core.AWSRequest ListExclusions where
             Prelude.<*> (x Core..?> "exclusionArns" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListExclusions
+instance Prelude.Hashable ListExclusions where
+  hashWithSalt _salt ListExclusions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assessmentRunArn
 
-instance Prelude.NFData ListExclusions
+instance Prelude.NFData ListExclusions where
+  rnf ListExclusions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assessmentRunArn
 
 instance Core.ToHeaders ListExclusions where
   toHeaders =
@@ -244,4 +252,8 @@ listExclusionsResponse_httpStatus = Lens.lens (\ListExclusionsResponse' {httpSta
 listExclusionsResponse_exclusionArns :: Lens.Lens' ListExclusionsResponse [Prelude.Text]
 listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {exclusionArns} -> exclusionArns) (\s@ListExclusionsResponse' {} a -> s {exclusionArns = a} :: ListExclusionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListExclusionsResponse
+instance Prelude.NFData ListExclusionsResponse where
+  rnf ListExclusionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exclusionArns

@@ -62,9 +62,14 @@ instance Core.FromJSON DataLakePrincipal where
             Prelude.<$> (x Core..:? "DataLakePrincipalIdentifier")
       )
 
-instance Prelude.Hashable DataLakePrincipal
+instance Prelude.Hashable DataLakePrincipal where
+  hashWithSalt _salt DataLakePrincipal' {..} =
+    _salt
+      `Prelude.hashWithSalt` dataLakePrincipalIdentifier
 
-instance Prelude.NFData DataLakePrincipal
+instance Prelude.NFData DataLakePrincipal where
+  rnf DataLakePrincipal' {..} =
+    Prelude.rnf dataLakePrincipalIdentifier
 
 instance Core.ToJSON DataLakePrincipal where
   toJSON DataLakePrincipal' {..} =

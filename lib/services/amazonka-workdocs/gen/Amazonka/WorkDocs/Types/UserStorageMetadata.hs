@@ -73,6 +73,12 @@ instance Core.FromJSON UserStorageMetadata where
             Prelude.<*> (x Core..:? "StorageRule")
       )
 
-instance Prelude.Hashable UserStorageMetadata
+instance Prelude.Hashable UserStorageMetadata where
+  hashWithSalt _salt UserStorageMetadata' {..} =
+    _salt `Prelude.hashWithSalt` storageUtilizedInBytes
+      `Prelude.hashWithSalt` storageRule
 
-instance Prelude.NFData UserStorageMetadata
+instance Prelude.NFData UserStorageMetadata where
+  rnf UserStorageMetadata' {..} =
+    Prelude.rnf storageUtilizedInBytes
+      `Prelude.seq` Prelude.rnf storageRule

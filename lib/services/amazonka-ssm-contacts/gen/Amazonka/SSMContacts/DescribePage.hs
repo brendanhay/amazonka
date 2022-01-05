@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribePage where
             Prelude.<*> (x Core..:> "Content")
       )
 
-instance Prelude.Hashable DescribePage
+instance Prelude.Hashable DescribePage where
+  hashWithSalt _salt DescribePage' {..} =
+    _salt `Prelude.hashWithSalt` pageId
 
-instance Prelude.NFData DescribePage
+instance Prelude.NFData DescribePage where
+  rnf DescribePage' {..} = Prelude.rnf pageId
 
 instance Core.ToHeaders DescribePage where
   toHeaders =
@@ -304,4 +307,18 @@ describePageResponse_subject = Lens.lens (\DescribePageResponse' {subject} -> su
 describePageResponse_content :: Lens.Lens' DescribePageResponse Prelude.Text
 describePageResponse_content = Lens.lens (\DescribePageResponse' {content} -> content) (\s@DescribePageResponse' {} a -> s {content = a} :: DescribePageResponse)
 
-instance Prelude.NFData DescribePageResponse
+instance Prelude.NFData DescribePageResponse where
+  rnf DescribePageResponse' {..} =
+    Prelude.rnf readTime
+      `Prelude.seq` Prelude.rnf publicSubject
+      `Prelude.seq` Prelude.rnf publicContent
+      `Prelude.seq` Prelude.rnf deliveryTime
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf sentTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pageArn
+      `Prelude.seq` Prelude.rnf engagementArn
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf sender
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf content

@@ -138,9 +138,19 @@ instance Core.AWSRequest AssociateRouteTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateRouteTable
+instance Prelude.Hashable AssociateRouteTable where
+  hashWithSalt _salt AssociateRouteTable' {..} =
+    _salt `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` routeTableId
 
-instance Prelude.NFData AssociateRouteTable
+instance Prelude.NFData AssociateRouteTable where
+  rnf AssociateRouteTable' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf routeTableId
 
 instance Core.ToHeaders AssociateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,4 +222,8 @@ associateRouteTableResponse_associationState = Lens.lens (\AssociateRouteTableRe
 associateRouteTableResponse_httpStatus :: Lens.Lens' AssociateRouteTableResponse Prelude.Int
 associateRouteTableResponse_httpStatus = Lens.lens (\AssociateRouteTableResponse' {httpStatus} -> httpStatus) (\s@AssociateRouteTableResponse' {} a -> s {httpStatus = a} :: AssociateRouteTableResponse)
 
-instance Prelude.NFData AssociateRouteTableResponse
+instance Prelude.NFData AssociateRouteTableResponse where
+  rnf AssociateRouteTableResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf associationState
+      `Prelude.seq` Prelude.rnf httpStatus

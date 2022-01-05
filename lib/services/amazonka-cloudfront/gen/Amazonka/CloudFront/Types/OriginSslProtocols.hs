@@ -77,9 +77,15 @@ instance Core.FromXML OriginSslProtocols where
                       Prelude.>>= Core.parseXMLList "SslProtocol"
                   )
 
-instance Prelude.Hashable OriginSslProtocols
+instance Prelude.Hashable OriginSslProtocols where
+  hashWithSalt _salt OriginSslProtocols' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData OriginSslProtocols
+instance Prelude.NFData OriginSslProtocols where
+  rnf OriginSslProtocols' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToXML OriginSslProtocols where
   toXML OriginSslProtocols' {..} =

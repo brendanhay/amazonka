@@ -178,8 +178,27 @@ instance
 instance
   Prelude.Hashable
     InitiateDocumentVersionUpload
+  where
+  hashWithSalt _salt InitiateDocumentVersionUpload' {..} =
+    _salt `Prelude.hashWithSalt` documentSizeInBytes
+      `Prelude.hashWithSalt` contentCreatedTimestamp
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` contentModifiedTimestamp
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` parentFolderId
 
-instance Prelude.NFData InitiateDocumentVersionUpload
+instance Prelude.NFData InitiateDocumentVersionUpload where
+  rnf InitiateDocumentVersionUpload' {..} =
+    Prelude.rnf documentSizeInBytes
+      `Prelude.seq` Prelude.rnf contentCreatedTimestamp
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf contentModifiedTimestamp
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf parentFolderId
 
 instance Core.ToHeaders InitiateDocumentVersionUpload where
   toHeaders InitiateDocumentVersionUpload' {..} =
@@ -264,3 +283,8 @@ initiateDocumentVersionUploadResponse_httpStatus = Lens.lens (\InitiateDocumentV
 instance
   Prelude.NFData
     InitiateDocumentVersionUploadResponse
+  where
+  rnf InitiateDocumentVersionUploadResponse' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf uploadMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

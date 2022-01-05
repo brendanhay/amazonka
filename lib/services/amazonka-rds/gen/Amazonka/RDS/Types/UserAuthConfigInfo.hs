@@ -115,6 +115,18 @@ instance Core.FromXML UserAuthConfigInfo where
       Prelude.<*> (x Core..@? "SecretArn")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable UserAuthConfigInfo
+instance Prelude.Hashable UserAuthConfigInfo where
+  hashWithSalt _salt UserAuthConfigInfo' {..} =
+    _salt `Prelude.hashWithSalt` iAMAuth
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` authScheme
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UserAuthConfigInfo
+instance Prelude.NFData UserAuthConfigInfo where
+  rnf UserAuthConfigInfo' {..} =
+    Prelude.rnf iAMAuth
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf authScheme
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf description

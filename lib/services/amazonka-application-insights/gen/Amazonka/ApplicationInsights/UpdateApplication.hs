@@ -147,9 +147,21 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt _salt UpdateApplication' {..} =
+    _salt `Prelude.hashWithSalt` cWEMonitorEnabled
+      `Prelude.hashWithSalt` opsItemSNSTopicArn
+      `Prelude.hashWithSalt` removeSNSTopic
+      `Prelude.hashWithSalt` opsCenterEnabled
+      `Prelude.hashWithSalt` resourceGroupName
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf cWEMonitorEnabled
+      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
+      `Prelude.seq` Prelude.rnf removeSNSTopic
+      `Prelude.seq` Prelude.rnf opsCenterEnabled
+      `Prelude.seq` Prelude.rnf resourceGroupName
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
@@ -228,4 +240,7 @@ updateApplicationResponse_applicationInfo = Lens.lens (\UpdateApplicationRespons
 updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
 updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse where
+  rnf UpdateApplicationResponse' {..} =
+    Prelude.rnf applicationInfo
+      `Prelude.seq` Prelude.rnf httpStatus

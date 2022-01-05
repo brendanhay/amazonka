@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
 import Amazonka.DynamoDB.Types.ReplicaStatus
@@ -221,6 +222,24 @@ instance Core.FromJSON ReplicaDescription where
                         )
       )
 
-instance Prelude.Hashable ReplicaDescription
+instance Prelude.Hashable ReplicaDescription where
+  hashWithSalt _salt ReplicaDescription' {..} =
+    _salt `Prelude.hashWithSalt` replicaStatus
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaStatusPercentProgress
+      `Prelude.hashWithSalt` replicaStatusDescription
+      `Prelude.hashWithSalt` replicaInaccessibleDateTime
+      `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` globalSecondaryIndexes
 
-instance Prelude.NFData ReplicaDescription
+instance Prelude.NFData ReplicaDescription where
+  rnf ReplicaDescription' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf replicaStatusPercentProgress
+      `Prelude.seq` Prelude.rnf replicaStatusDescription
+      `Prelude.seq` Prelude.rnf replicaInaccessibleDateTime
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes

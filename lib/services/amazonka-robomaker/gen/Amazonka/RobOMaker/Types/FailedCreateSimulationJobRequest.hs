@@ -103,7 +103,21 @@ instance
 instance
   Prelude.Hashable
     FailedCreateSimulationJobRequest
+  where
+  hashWithSalt
+    _salt
+    FailedCreateSimulationJobRequest' {..} =
+      _salt `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` failureCode
+        `Prelude.hashWithSalt` failedAt
+        `Prelude.hashWithSalt` request
 
 instance
   Prelude.NFData
     FailedCreateSimulationJobRequest
+  where
+  rnf FailedCreateSimulationJobRequest' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf failedAt
+      `Prelude.seq` Prelude.rnf request

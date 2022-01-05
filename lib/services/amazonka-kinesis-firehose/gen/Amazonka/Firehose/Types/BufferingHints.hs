@@ -109,9 +109,15 @@ instance Core.FromJSON BufferingHints where
             Prelude.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Prelude.Hashable BufferingHints
+instance Prelude.Hashable BufferingHints where
+  hashWithSalt _salt BufferingHints' {..} =
+    _salt `Prelude.hashWithSalt` sizeInMBs
+      `Prelude.hashWithSalt` intervalInSeconds
 
-instance Prelude.NFData BufferingHints
+instance Prelude.NFData BufferingHints where
+  rnf BufferingHints' {..} =
+    Prelude.rnf sizeInMBs
+      `Prelude.seq` Prelude.rnf intervalInSeconds
 
 instance Core.ToJSON BufferingHints where
   toJSON BufferingHints' {..} =

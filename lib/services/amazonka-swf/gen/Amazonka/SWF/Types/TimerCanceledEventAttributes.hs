@@ -109,5 +109,14 @@ instance Core.FromJSON TimerCanceledEventAttributes where
 instance
   Prelude.Hashable
     TimerCanceledEventAttributes
+  where
+  hashWithSalt _salt TimerCanceledEventAttributes' {..} =
+    _salt `Prelude.hashWithSalt` timerId
+      `Prelude.hashWithSalt` startedEventId
+      `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
-instance Prelude.NFData TimerCanceledEventAttributes
+instance Prelude.NFData TimerCanceledEventAttributes where
+  rnf TimerCanceledEventAttributes' {..} =
+    Prelude.rnf timerId
+      `Prelude.seq` Prelude.rnf startedEventId
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

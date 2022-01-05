@@ -74,10 +74,18 @@ instance
 instance
   Prelude.Hashable
     ClassificationExportConfiguration
+  where
+  hashWithSalt
+    _salt
+    ClassificationExportConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` s3Destination
 
 instance
   Prelude.NFData
     ClassificationExportConfiguration
+  where
+  rnf ClassificationExportConfiguration' {..} =
+    Prelude.rnf s3Destination
 
 instance
   Core.ToJSON

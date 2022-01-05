@@ -167,9 +167,20 @@ instance Core.AWSRequest CreateMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMembers
+instance Prelude.Hashable CreateMembers where
+  hashWithSalt _salt CreateMembers' {..} =
+    _salt
+      `Prelude.hashWithSalt` disableEmailNotification
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` graphArn
+      `Prelude.hashWithSalt` accounts
 
-instance Prelude.NFData CreateMembers
+instance Prelude.NFData CreateMembers where
+  rnf CreateMembers' {..} =
+    Prelude.rnf disableEmailNotification
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf graphArn
+      `Prelude.seq` Prelude.rnf accounts
 
 instance Core.ToHeaders CreateMembers where
   toHeaders =
@@ -265,4 +276,8 @@ createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {
 createMembersResponse_httpStatus :: Lens.Lens' CreateMembersResponse Prelude.Int
 createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatus} -> httpStatus) (\s@CreateMembersResponse' {} a -> s {httpStatus = a} :: CreateMembersResponse)
 
-instance Prelude.NFData CreateMembersResponse
+instance Prelude.NFData CreateMembersResponse where
+  rnf CreateMembersResponse' {..} =
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
+      `Prelude.seq` Prelude.rnf httpStatus

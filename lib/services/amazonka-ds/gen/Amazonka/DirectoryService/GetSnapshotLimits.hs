@@ -88,9 +88,12 @@ instance Core.AWSRequest GetSnapshotLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSnapshotLimits
+instance Prelude.Hashable GetSnapshotLimits where
+  hashWithSalt _salt GetSnapshotLimits' {..} =
+    _salt `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData GetSnapshotLimits
+instance Prelude.NFData GetSnapshotLimits where
+  rnf GetSnapshotLimits' {..} = Prelude.rnf directoryId
 
 instance Core.ToHeaders GetSnapshotLimits where
   toHeaders =
@@ -164,4 +167,7 @@ getSnapshotLimitsResponse_snapshotLimits = Lens.lens (\GetSnapshotLimitsResponse
 getSnapshotLimitsResponse_httpStatus :: Lens.Lens' GetSnapshotLimitsResponse Prelude.Int
 getSnapshotLimitsResponse_httpStatus = Lens.lens (\GetSnapshotLimitsResponse' {httpStatus} -> httpStatus) (\s@GetSnapshotLimitsResponse' {} a -> s {httpStatus = a} :: GetSnapshotLimitsResponse)
 
-instance Prelude.NFData GetSnapshotLimitsResponse
+instance Prelude.NFData GetSnapshotLimitsResponse where
+  rnf GetSnapshotLimitsResponse' {..} =
+    Prelude.rnf snapshotLimits
+      `Prelude.seq` Prelude.rnf httpStatus

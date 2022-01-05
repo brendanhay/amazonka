@@ -101,9 +101,19 @@ instance Core.FromJSON CampaignEmailMessage where
             Prelude.<*> (x Core..:? "Title")
       )
 
-instance Prelude.Hashable CampaignEmailMessage
+instance Prelude.Hashable CampaignEmailMessage where
+  hashWithSalt _salt CampaignEmailMessage' {..} =
+    _salt `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` htmlBody
+      `Prelude.hashWithSalt` title
 
-instance Prelude.NFData CampaignEmailMessage
+instance Prelude.NFData CampaignEmailMessage where
+  rnf CampaignEmailMessage' {..} =
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf htmlBody
+      `Prelude.seq` Prelude.rnf title
 
 instance Core.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =

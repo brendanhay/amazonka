@@ -182,10 +182,40 @@ scheduledInstancesNetworkInterface_ipv6Addresses = Lens.lens (\ScheduledInstance
 instance
   Prelude.Hashable
     ScheduledInstancesNetworkInterface
+  where
+  hashWithSalt
+    _salt
+    ScheduledInstancesNetworkInterface' {..} =
+      _salt `Prelude.hashWithSalt` groups
+        `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` associatePublicIpAddress
+        `Prelude.hashWithSalt` privateIpAddressConfigs
+        `Prelude.hashWithSalt` networkInterfaceId
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` ipv6AddressCount
+        `Prelude.hashWithSalt` privateIpAddress
+        `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` deviceIndex
+        `Prelude.hashWithSalt` ipv6Addresses
 
 instance
   Prelude.NFData
     ScheduledInstancesNetworkInterface
+  where
+  rnf ScheduledInstancesNetworkInterface' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf privateIpAddressConfigs
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceIndex
+      `Prelude.seq` Prelude.rnf ipv6Addresses
 
 instance
   Core.ToQuery

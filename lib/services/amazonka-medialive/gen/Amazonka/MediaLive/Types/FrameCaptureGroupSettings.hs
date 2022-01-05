@@ -100,9 +100,16 @@ instance Core.FromJSON FrameCaptureGroupSettings where
             Prelude.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable FrameCaptureGroupSettings
+instance Prelude.Hashable FrameCaptureGroupSettings where
+  hashWithSalt _salt FrameCaptureGroupSettings' {..} =
+    _salt
+      `Prelude.hashWithSalt` frameCaptureCdnSettings
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData FrameCaptureGroupSettings
+instance Prelude.NFData FrameCaptureGroupSettings where
+  rnf FrameCaptureGroupSettings' {..} =
+    Prelude.rnf frameCaptureCdnSettings
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =

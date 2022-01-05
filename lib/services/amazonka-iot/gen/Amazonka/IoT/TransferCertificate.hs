@@ -134,9 +134,17 @@ instance Core.AWSRequest TransferCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TransferCertificate
+instance Prelude.Hashable TransferCertificate where
+  hashWithSalt _salt TransferCertificate' {..} =
+    _salt `Prelude.hashWithSalt` transferMessage
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` targetAwsAccount
 
-instance Prelude.NFData TransferCertificate
+instance Prelude.NFData TransferCertificate where
+  rnf TransferCertificate' {..} =
+    Prelude.rnf transferMessage
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf targetAwsAccount
 
 instance Core.ToHeaders TransferCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +209,7 @@ transferCertificateResponse_transferredCertificateArn = Lens.lens (\TransferCert
 transferCertificateResponse_httpStatus :: Lens.Lens' TransferCertificateResponse Prelude.Int
 transferCertificateResponse_httpStatus = Lens.lens (\TransferCertificateResponse' {httpStatus} -> httpStatus) (\s@TransferCertificateResponse' {} a -> s {httpStatus = a} :: TransferCertificateResponse)
 
-instance Prelude.NFData TransferCertificateResponse
+instance Prelude.NFData TransferCertificateResponse where
+  rnf TransferCertificateResponse' {..} =
+    Prelude.rnf transferredCertificateArn
+      `Prelude.seq` Prelude.rnf httpStatus

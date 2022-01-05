@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayRouteTable
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayRouteTable' {..} =
+      _salt `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayId
 
 instance
   Prelude.NFData
     CreateTransitGatewayRouteTable
+  where
+  rnf CreateTransitGatewayRouteTable' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance
   Core.ToHeaders
@@ -198,3 +210,7 @@ createTransitGatewayRouteTableResponse_httpStatus = Lens.lens (\CreateTransitGat
 instance
   Prelude.NFData
     CreateTransitGatewayRouteTableResponse
+  where
+  rnf CreateTransitGatewayRouteTableResponse' {..} =
+    Prelude.rnf transitGatewayRouteTable
+      `Prelude.seq` Prelude.rnf httpStatus

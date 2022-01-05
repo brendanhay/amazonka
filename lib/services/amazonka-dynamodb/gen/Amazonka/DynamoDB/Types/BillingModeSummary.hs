@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.BillingModeSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BillingMode
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -100,6 +101,13 @@ instance Core.FromJSON BillingModeSummary where
             Prelude.<*> (x Core..:? "BillingMode")
       )
 
-instance Prelude.Hashable BillingModeSummary
+instance Prelude.Hashable BillingModeSummary where
+  hashWithSalt _salt BillingModeSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
+      `Prelude.hashWithSalt` billingMode
 
-instance Prelude.NFData BillingModeSummary
+instance Prelude.NFData BillingModeSummary where
+  rnf BillingModeSummary' {..} =
+    Prelude.rnf lastUpdateToPayPerRequestDateTime
+      `Prelude.seq` Prelude.rnf billingMode

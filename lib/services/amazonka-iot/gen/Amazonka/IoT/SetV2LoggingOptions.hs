@@ -102,9 +102,17 @@ instance Core.AWSRequest SetV2LoggingOptions where
   response =
     Response.receiveNull SetV2LoggingOptionsResponse'
 
-instance Prelude.Hashable SetV2LoggingOptions
+instance Prelude.Hashable SetV2LoggingOptions where
+  hashWithSalt _salt SetV2LoggingOptions' {..} =
+    _salt `Prelude.hashWithSalt` disableAllLogs
+      `Prelude.hashWithSalt` defaultLogLevel
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData SetV2LoggingOptions
+instance Prelude.NFData SetV2LoggingOptions where
+  rnf SetV2LoggingOptions' {..} =
+    Prelude.rnf disableAllLogs
+      `Prelude.seq` Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders SetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +150,5 @@ newSetV2LoggingOptionsResponse ::
 newSetV2LoggingOptionsResponse =
   SetV2LoggingOptionsResponse'
 
-instance Prelude.NFData SetV2LoggingOptionsResponse
+instance Prelude.NFData SetV2LoggingOptionsResponse where
+  rnf _ = ()

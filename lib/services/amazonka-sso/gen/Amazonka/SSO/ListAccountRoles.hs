@@ -158,9 +158,19 @@ instance Core.AWSRequest ListAccountRoles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccountRoles
+instance Prelude.Hashable ListAccountRoles where
+  hashWithSalt _salt ListAccountRoles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ListAccountRoles
+instance Prelude.NFData ListAccountRoles where
+  rnf ListAccountRoles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders ListAccountRoles where
   toHeaders ListAccountRoles' {..} =
@@ -232,4 +242,8 @@ listAccountRolesResponse_nextToken = Lens.lens (\ListAccountRolesResponse' {next
 listAccountRolesResponse_httpStatus :: Lens.Lens' ListAccountRolesResponse Prelude.Int
 listAccountRolesResponse_httpStatus = Lens.lens (\ListAccountRolesResponse' {httpStatus} -> httpStatus) (\s@ListAccountRolesResponse' {} a -> s {httpStatus = a} :: ListAccountRolesResponse)
 
-instance Prelude.NFData ListAccountRolesResponse
+instance Prelude.NFData ListAccountRolesResponse where
+  rnf ListAccountRolesResponse' {..} =
+    Prelude.rnf roleList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

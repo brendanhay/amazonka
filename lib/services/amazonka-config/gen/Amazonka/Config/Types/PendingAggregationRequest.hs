@@ -73,6 +73,12 @@ instance Core.FromJSON PendingAggregationRequest where
             Prelude.<*> (x Core..:? "RequesterAwsRegion")
       )
 
-instance Prelude.Hashable PendingAggregationRequest
+instance Prelude.Hashable PendingAggregationRequest where
+  hashWithSalt _salt PendingAggregationRequest' {..} =
+    _salt `Prelude.hashWithSalt` requesterAccountId
+      `Prelude.hashWithSalt` requesterAwsRegion
 
-instance Prelude.NFData PendingAggregationRequest
+instance Prelude.NFData PendingAggregationRequest where
+  rnf PendingAggregationRequest' {..} =
+    Prelude.rnf requesterAccountId
+      `Prelude.seq` Prelude.rnf requesterAwsRegion

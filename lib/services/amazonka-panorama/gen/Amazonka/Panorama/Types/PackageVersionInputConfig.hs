@@ -65,9 +65,13 @@ instance Core.FromJSON PackageVersionInputConfig where
             Prelude.<$> (x Core..: "S3Location")
       )
 
-instance Prelude.Hashable PackageVersionInputConfig
+instance Prelude.Hashable PackageVersionInputConfig where
+  hashWithSalt _salt PackageVersionInputConfig' {..} =
+    _salt `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData PackageVersionInputConfig
+instance Prelude.NFData PackageVersionInputConfig where
+  rnf PackageVersionInputConfig' {..} =
+    Prelude.rnf s3Location
 
 instance Core.ToJSON PackageVersionInputConfig where
   toJSON PackageVersionInputConfig' {..} =

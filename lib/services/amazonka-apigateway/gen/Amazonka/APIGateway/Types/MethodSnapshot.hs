@@ -82,6 +82,12 @@ instance Core.FromJSON MethodSnapshot where
             Prelude.<*> (x Core..:? "apiKeyRequired")
       )
 
-instance Prelude.Hashable MethodSnapshot
+instance Prelude.Hashable MethodSnapshot where
+  hashWithSalt _salt MethodSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` apiKeyRequired
 
-instance Prelude.NFData MethodSnapshot
+instance Prelude.NFData MethodSnapshot where
+  rnf MethodSnapshot' {..} =
+    Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiKeyRequired

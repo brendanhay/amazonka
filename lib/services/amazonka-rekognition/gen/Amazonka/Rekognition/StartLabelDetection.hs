@@ -200,9 +200,21 @@ instance Core.AWSRequest StartLabelDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartLabelDetection
+instance Prelude.Hashable StartLabelDetection where
+  hashWithSalt _salt StartLabelDetection' {..} =
+    _salt `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` video
 
-instance Prelude.NFData StartLabelDetection
+instance Prelude.NFData StartLabelDetection where
+  rnf StartLabelDetection' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf video
 
 instance Core.ToHeaders StartLabelDetection where
   toHeaders =
@@ -281,4 +293,7 @@ startLabelDetectionResponse_jobId = Lens.lens (\StartLabelDetectionResponse' {jo
 startLabelDetectionResponse_httpStatus :: Lens.Lens' StartLabelDetectionResponse Prelude.Int
 startLabelDetectionResponse_httpStatus = Lens.lens (\StartLabelDetectionResponse' {httpStatus} -> httpStatus) (\s@StartLabelDetectionResponse' {} a -> s {httpStatus = a} :: StartLabelDetectionResponse)
 
-instance Prelude.NFData StartLabelDetectionResponse
+instance Prelude.NFData StartLabelDetectionResponse where
+  rnf StartLabelDetectionResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -162,9 +162,17 @@ instance Core.AWSRequest DescribeStackSetOperation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackSetOperation
+instance Prelude.Hashable DescribeStackSetOperation where
+  hashWithSalt _salt DescribeStackSetOperation' {..} =
+    _salt `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` operationId
 
-instance Prelude.NFData DescribeStackSetOperation
+instance Prelude.NFData DescribeStackSetOperation where
+  rnf DescribeStackSetOperation' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf operationId
 
 instance Core.ToHeaders DescribeStackSetOperation where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,3 +234,7 @@ describeStackSetOperationResponse_httpStatus = Lens.lens (\DescribeStackSetOpera
 instance
   Prelude.NFData
     DescribeStackSetOperationResponse
+  where
+  rnf DescribeStackSetOperationResponse' {..} =
+    Prelude.rnf stackSetOperation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -145,6 +145,26 @@ instance Core.FromJSON DestinationDescription where
             Prelude.<*> (x Core..: "DestinationId")
       )
 
-instance Prelude.Hashable DestinationDescription
+instance Prelude.Hashable DestinationDescription where
+  hashWithSalt _salt DestinationDescription' {..} =
+    _salt
+      `Prelude.hashWithSalt` splunkDestinationDescription
+      `Prelude.hashWithSalt` amazonopensearchserviceDestinationDescription
+      `Prelude.hashWithSalt` httpEndpointDestinationDescription
+      `Prelude.hashWithSalt` s3DestinationDescription
+      `Prelude.hashWithSalt` extendedS3DestinationDescription
+      `Prelude.hashWithSalt` elasticsearchDestinationDescription
+      `Prelude.hashWithSalt` redshiftDestinationDescription
+      `Prelude.hashWithSalt` destinationId
 
-instance Prelude.NFData DestinationDescription
+instance Prelude.NFData DestinationDescription where
+  rnf DestinationDescription' {..} =
+    Prelude.rnf splunkDestinationDescription
+      `Prelude.seq` Prelude.rnf
+        amazonopensearchserviceDestinationDescription
+      `Prelude.seq` Prelude.rnf httpEndpointDestinationDescription
+      `Prelude.seq` Prelude.rnf s3DestinationDescription
+      `Prelude.seq` Prelude.rnf extendedS3DestinationDescription
+      `Prelude.seq` Prelude.rnf elasticsearchDestinationDescription
+      `Prelude.seq` Prelude.rnf redshiftDestinationDescription
+      `Prelude.seq` Prelude.rnf destinationId

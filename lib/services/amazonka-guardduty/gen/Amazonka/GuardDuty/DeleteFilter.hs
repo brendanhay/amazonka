@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFilter
+instance Prelude.Hashable DeleteFilter where
+  hashWithSalt _salt DeleteFilter' {..} =
+    _salt `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` filterName
 
-instance Prelude.NFData DeleteFilter
+instance Prelude.NFData DeleteFilter where
+  rnf DeleteFilter' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders DeleteFilter where
   toHeaders =
@@ -150,4 +156,6 @@ newDeleteFilterResponse pHttpStatus_ =
 deleteFilterResponse_httpStatus :: Lens.Lens' DeleteFilterResponse Prelude.Int
 deleteFilterResponse_httpStatus = Lens.lens (\DeleteFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteFilterResponse' {} a -> s {httpStatus = a} :: DeleteFilterResponse)
 
-instance Prelude.NFData DeleteFilterResponse
+instance Prelude.NFData DeleteFilterResponse where
+  rnf DeleteFilterResponse' {..} =
+    Prelude.rnf httpStatus

@@ -125,9 +125,17 @@ instance Core.AWSRequest CreateFirewallDomainList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFirewallDomainList
+instance Prelude.Hashable CreateFirewallDomainList where
+  hashWithSalt _salt CreateFirewallDomainList' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateFirewallDomainList
+instance Prelude.NFData CreateFirewallDomainList where
+  rnf CreateFirewallDomainList' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateFirewallDomainList where
   toHeaders =
@@ -203,3 +211,7 @@ createFirewallDomainListResponse_httpStatus = Lens.lens (\CreateFirewallDomainLi
 instance
   Prelude.NFData
     CreateFirewallDomainListResponse
+  where
+  rnf CreateFirewallDomainListResponse' {..} =
+    Prelude.rnf firewallDomainList
+      `Prelude.seq` Prelude.rnf httpStatus

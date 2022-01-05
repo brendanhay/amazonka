@@ -268,9 +268,32 @@ instance Core.AWSRequest CreateInferenceScheduler where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInferenceScheduler
+instance Prelude.Hashable CreateInferenceScheduler where
+  hashWithSalt _salt CreateInferenceScheduler' {..} =
+    _salt
+      `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverSideKmsKeyId
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` inferenceSchedulerName
+      `Prelude.hashWithSalt` dataUploadFrequency
+      `Prelude.hashWithSalt` dataInputConfiguration
+      `Prelude.hashWithSalt` dataOutputConfiguration
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateInferenceScheduler
+instance Prelude.NFData CreateInferenceScheduler where
+  rnf CreateInferenceScheduler' {..} =
+    Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf dataUploadFrequency
+      `Prelude.seq` Prelude.rnf dataInputConfiguration
+      `Prelude.seq` Prelude.rnf dataOutputConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateInferenceScheduler where
   toHeaders =
@@ -382,3 +405,9 @@ createInferenceSchedulerResponse_httpStatus = Lens.lens (\CreateInferenceSchedul
 instance
   Prelude.NFData
     CreateInferenceSchedulerResponse
+  where
+  rnf CreateInferenceSchedulerResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf httpStatus

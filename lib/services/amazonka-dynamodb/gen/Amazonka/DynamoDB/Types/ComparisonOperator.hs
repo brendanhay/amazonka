@@ -38,6 +38,7 @@ module Amazonka.DynamoDB.Types.ComparisonOperator
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype ComparisonOperator = ComparisonOperator'

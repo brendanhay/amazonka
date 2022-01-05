@@ -118,9 +118,13 @@ instance Core.AWSRequest BatchPutAssetPropertyValue where
             Prelude.<*> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchPutAssetPropertyValue
+instance Prelude.Hashable BatchPutAssetPropertyValue where
+  hashWithSalt _salt BatchPutAssetPropertyValue' {..} =
+    _salt `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData BatchPutAssetPropertyValue
+instance Prelude.NFData BatchPutAssetPropertyValue where
+  rnf BatchPutAssetPropertyValue' {..} =
+    Prelude.rnf entries
 
 instance Core.ToHeaders BatchPutAssetPropertyValue where
   toHeaders =
@@ -191,3 +195,7 @@ batchPutAssetPropertyValueResponse_errorEntries = Lens.lens (\BatchPutAssetPrope
 instance
   Prelude.NFData
     BatchPutAssetPropertyValueResponse
+  where
+  rnf BatchPutAssetPropertyValueResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorEntries

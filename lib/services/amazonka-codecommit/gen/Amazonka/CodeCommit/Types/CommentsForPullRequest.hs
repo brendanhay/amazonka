@@ -164,6 +164,24 @@ instance Core.FromJSON CommentsForPullRequest where
             Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CommentsForPullRequest
+instance Prelude.Hashable CommentsForPullRequest where
+  hashWithSalt _salt CommentsForPullRequest' {..} =
+    _salt `Prelude.hashWithSalt` beforeBlobId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` afterCommitId
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` afterBlobId
+      `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` comments
 
-instance Prelude.NFData CommentsForPullRequest
+instance Prelude.NFData CommentsForPullRequest where
+  rnf CommentsForPullRequest' {..} =
+    Prelude.rnf beforeBlobId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf afterBlobId
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf comments

@@ -152,10 +152,20 @@ instance
 instance
   Prelude.Hashable
     DescribeEventDetailsForOrganization
+  where
+  hashWithSalt
+    _salt
+    DescribeEventDetailsForOrganization' {..} =
+      _salt `Prelude.hashWithSalt` locale
+        `Prelude.hashWithSalt` organizationEventDetailFilters
 
 instance
   Prelude.NFData
     DescribeEventDetailsForOrganization
+  where
+  rnf DescribeEventDetailsForOrganization' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf organizationEventDetailFilters
 
 instance
   Core.ToHeaders
@@ -254,3 +264,8 @@ describeEventDetailsForOrganizationResponse_httpStatus = Lens.lens (\DescribeEve
 instance
   Prelude.NFData
     DescribeEventDetailsForOrganizationResponse
+  where
+  rnf DescribeEventDetailsForOrganizationResponse' {..} =
+    Prelude.rnf successfulSet
+      `Prelude.seq` Prelude.rnf failedSet
+      `Prelude.seq` Prelude.rnf httpStatus

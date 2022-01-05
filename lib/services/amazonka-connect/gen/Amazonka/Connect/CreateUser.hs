@@ -245,9 +245,31 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUser
+instance Prelude.Hashable CreateUser where
+  hashWithSalt _salt CreateUser' {..} =
+    _salt `Prelude.hashWithSalt` directoryUserId
+      `Prelude.hashWithSalt` identityInfo
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` hierarchyGroupId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` phoneConfig
+      `Prelude.hashWithSalt` securityProfileIds
+      `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData CreateUser
+instance Prelude.NFData CreateUser where
+  rnf CreateUser' {..} =
+    Prelude.rnf directoryUserId
+      `Prelude.seq` Prelude.rnf identityInfo
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf hierarchyGroupId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf phoneConfig
+      `Prelude.seq` Prelude.rnf securityProfileIds
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders CreateUser where
   toHeaders =
@@ -334,4 +356,8 @@ createUserResponse_userArn = Lens.lens (\CreateUserResponse' {userArn} -> userAr
 createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Prelude.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse where
+  rnf CreateUserResponse' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf httpStatus

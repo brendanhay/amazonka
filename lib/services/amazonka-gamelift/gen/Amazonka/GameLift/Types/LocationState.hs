@@ -80,6 +80,12 @@ instance Core.FromJSON LocationState where
             Prelude.<*> (x Core..:? "Location")
       )
 
-instance Prelude.Hashable LocationState
+instance Prelude.Hashable LocationState where
+  hashWithSalt _salt LocationState' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData LocationState
+instance Prelude.NFData LocationState where
+  rnf LocationState' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf location

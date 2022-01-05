@@ -96,9 +96,13 @@ instance Core.AWSRequest UpdateServiceIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServiceIntegration
+instance Prelude.Hashable UpdateServiceIntegration where
+  hashWithSalt _salt UpdateServiceIntegration' {..} =
+    _salt `Prelude.hashWithSalt` serviceIntegration
 
-instance Prelude.NFData UpdateServiceIntegration
+instance Prelude.NFData UpdateServiceIntegration where
+  rnf UpdateServiceIntegration' {..} =
+    Prelude.rnf serviceIntegration
 
 instance Core.ToHeaders UpdateServiceIntegration where
   toHeaders =
@@ -159,3 +163,6 @@ updateServiceIntegrationResponse_httpStatus = Lens.lens (\UpdateServiceIntegrati
 instance
   Prelude.NFData
     UpdateServiceIntegrationResponse
+  where
+  rnf UpdateServiceIntegrationResponse' {..} =
+    Prelude.rnf httpStatus

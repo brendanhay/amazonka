@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteOutpost where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOutpost
+instance Prelude.Hashable DeleteOutpost where
+  hashWithSalt _salt DeleteOutpost' {..} =
+    _salt `Prelude.hashWithSalt` outpostId
 
-instance Prelude.NFData DeleteOutpost
+instance Prelude.NFData DeleteOutpost where
+  rnf DeleteOutpost' {..} = Prelude.rnf outpostId
 
 instance Core.ToHeaders DeleteOutpost where
   toHeaders =
@@ -133,4 +136,6 @@ newDeleteOutpostResponse pHttpStatus_ =
 deleteOutpostResponse_httpStatus :: Lens.Lens' DeleteOutpostResponse Prelude.Int
 deleteOutpostResponse_httpStatus = Lens.lens (\DeleteOutpostResponse' {httpStatus} -> httpStatus) (\s@DeleteOutpostResponse' {} a -> s {httpStatus = a} :: DeleteOutpostResponse)
 
-instance Prelude.NFData DeleteOutpostResponse
+instance Prelude.NFData DeleteOutpostResponse where
+  rnf DeleteOutpostResponse' {..} =
+    Prelude.rnf httpStatus

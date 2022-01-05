@@ -106,9 +106,15 @@ instance Core.AWSRequest ListWirelessGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWirelessGateways
+instance Prelude.Hashable ListWirelessGateways where
+  hashWithSalt _salt ListWirelessGateways' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListWirelessGateways
+instance Prelude.NFData ListWirelessGateways where
+  rnf ListWirelessGateways' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWirelessGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,8 @@ listWirelessGatewaysResponse_nextToken = Lens.lens (\ListWirelessGatewaysRespons
 listWirelessGatewaysResponse_httpStatus :: Lens.Lens' ListWirelessGatewaysResponse Prelude.Int
 listWirelessGatewaysResponse_httpStatus = Lens.lens (\ListWirelessGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListWirelessGatewaysResponse' {} a -> s {httpStatus = a} :: ListWirelessGatewaysResponse)
 
-instance Prelude.NFData ListWirelessGatewaysResponse
+instance Prelude.NFData ListWirelessGatewaysResponse where
+  rnf ListWirelessGatewaysResponse' {..} =
+    Prelude.rnf wirelessGatewayList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

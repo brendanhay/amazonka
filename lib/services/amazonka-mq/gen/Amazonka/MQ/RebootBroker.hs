@@ -82,9 +82,12 @@ instance Core.AWSRequest RebootBroker where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebootBroker
+instance Prelude.Hashable RebootBroker where
+  hashWithSalt _salt RebootBroker' {..} =
+    _salt `Prelude.hashWithSalt` brokerId
 
-instance Prelude.NFData RebootBroker
+instance Prelude.NFData RebootBroker where
+  rnf RebootBroker' {..} = Prelude.rnf brokerId
 
 instance Core.ToHeaders RebootBroker where
   toHeaders =
@@ -135,4 +138,6 @@ newRebootBrokerResponse pHttpStatus_ =
 rebootBrokerResponse_httpStatus :: Lens.Lens' RebootBrokerResponse Prelude.Int
 rebootBrokerResponse_httpStatus = Lens.lens (\RebootBrokerResponse' {httpStatus} -> httpStatus) (\s@RebootBrokerResponse' {} a -> s {httpStatus = a} :: RebootBrokerResponse)
 
-instance Prelude.NFData RebootBrokerResponse
+instance Prelude.NFData RebootBrokerResponse where
+  rnf RebootBrokerResponse' {..} =
+    Prelude.rnf httpStatus

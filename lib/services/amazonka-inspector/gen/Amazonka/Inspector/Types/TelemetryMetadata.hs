@@ -93,6 +93,14 @@ instance Core.FromJSON TelemetryMetadata where
             Prelude.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable TelemetryMetadata
+instance Prelude.Hashable TelemetryMetadata where
+  hashWithSalt _salt TelemetryMetadata' {..} =
+    _salt `Prelude.hashWithSalt` dataSize
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData TelemetryMetadata
+instance Prelude.NFData TelemetryMetadata where
+  rnf TelemetryMetadata' {..} =
+    Prelude.rnf dataSize
+      `Prelude.seq` Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf count

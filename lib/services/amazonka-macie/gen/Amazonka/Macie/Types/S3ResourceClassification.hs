@@ -100,9 +100,17 @@ instance Core.FromJSON S3ResourceClassification where
             Prelude.<*> (x Core..: "classificationType")
       )
 
-instance Prelude.Hashable S3ResourceClassification
+instance Prelude.Hashable S3ResourceClassification where
+  hashWithSalt _salt S3ResourceClassification' {..} =
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` classificationType
 
-instance Prelude.NFData S3ResourceClassification
+instance Prelude.NFData S3ResourceClassification where
+  rnf S3ResourceClassification' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf classificationType
 
 instance Core.ToJSON S3ResourceClassification where
   toJSON S3ResourceClassification' {..} =

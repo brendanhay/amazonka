@@ -99,9 +99,12 @@ instance Core.AWSRequest VerifyDomainIdentity where
             Prelude.<*> (x Core..@ "VerificationToken")
       )
 
-instance Prelude.Hashable VerifyDomainIdentity
+instance Prelude.Hashable VerifyDomainIdentity where
+  hashWithSalt _salt VerifyDomainIdentity' {..} =
+    _salt `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData VerifyDomainIdentity
+instance Prelude.NFData VerifyDomainIdentity where
+  rnf VerifyDomainIdentity' {..} = Prelude.rnf domain
 
 instance Core.ToHeaders VerifyDomainIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,4 +192,7 @@ verifyDomainIdentityResponse_httpStatus = Lens.lens (\VerifyDomainIdentityRespon
 verifyDomainIdentityResponse_verificationToken :: Lens.Lens' VerifyDomainIdentityResponse Prelude.Text
 verifyDomainIdentityResponse_verificationToken = Lens.lens (\VerifyDomainIdentityResponse' {verificationToken} -> verificationToken) (\s@VerifyDomainIdentityResponse' {} a -> s {verificationToken = a} :: VerifyDomainIdentityResponse)
 
-instance Prelude.NFData VerifyDomainIdentityResponse
+instance Prelude.NFData VerifyDomainIdentityResponse where
+  rnf VerifyDomainIdentityResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf verificationToken

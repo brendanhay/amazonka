@@ -214,9 +214,23 @@ instance Core.AWSRequest CreateSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSnapshots
+instance Prelude.Hashable CreateSnapshots where
+  hashWithSalt _salt CreateSnapshots' {..} =
+    _salt `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` copyTagsFromSource
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceSpecification
 
-instance Prelude.NFData CreateSnapshots
+instance Prelude.NFData CreateSnapshots where
+  rnf CreateSnapshots' {..} =
+    Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf copyTagsFromSource
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceSpecification
 
 instance Core.ToHeaders CreateSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,4 +296,7 @@ createSnapshotsResponse_snapshots = Lens.lens (\CreateSnapshotsResponse' {snapsh
 createSnapshotsResponse_httpStatus :: Lens.Lens' CreateSnapshotsResponse Prelude.Int
 createSnapshotsResponse_httpStatus = Lens.lens (\CreateSnapshotsResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotsResponse' {} a -> s {httpStatus = a} :: CreateSnapshotsResponse)
 
-instance Prelude.NFData CreateSnapshotsResponse
+instance Prelude.NFData CreateSnapshotsResponse where
+  rnf CreateSnapshotsResponse' {..} =
+    Prelude.rnf snapshots
+      `Prelude.seq` Prelude.rnf httpStatus

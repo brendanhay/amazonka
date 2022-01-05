@@ -128,9 +128,15 @@ instance Core.AWSRequest UpdateDistributionBundle where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDistributionBundle
+instance Prelude.Hashable UpdateDistributionBundle where
+  hashWithSalt _salt UpdateDistributionBundle' {..} =
+    _salt `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` distributionName
 
-instance Prelude.NFData UpdateDistributionBundle
+instance Prelude.NFData UpdateDistributionBundle where
+  rnf UpdateDistributionBundle' {..} =
+    Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf distributionName
 
 instance Core.ToHeaders UpdateDistributionBundle where
   toHeaders =
@@ -204,3 +210,7 @@ updateDistributionBundleResponse_httpStatus = Lens.lens (\UpdateDistributionBund
 instance
   Prelude.NFData
     UpdateDistributionBundleResponse
+  where
+  rnf UpdateDistributionBundleResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

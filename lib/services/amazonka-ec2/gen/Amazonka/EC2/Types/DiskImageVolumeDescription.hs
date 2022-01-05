@@ -67,6 +67,11 @@ instance Core.FromXML DiskImageVolumeDescription where
     DiskImageVolumeDescription'
       Prelude.<$> (x Core..@? "size") Prelude.<*> (x Core..@? "id")
 
-instance Prelude.Hashable DiskImageVolumeDescription
+instance Prelude.Hashable DiskImageVolumeDescription where
+  hashWithSalt _salt DiskImageVolumeDescription' {..} =
+    _salt `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DiskImageVolumeDescription
+instance Prelude.NFData DiskImageVolumeDescription where
+  rnf DiskImageVolumeDescription' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf id

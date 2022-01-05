@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteCommentContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCommentContent
+instance Prelude.Hashable DeleteCommentContent where
+  hashWithSalt _salt DeleteCommentContent' {..} =
+    _salt `Prelude.hashWithSalt` commentId
 
-instance Prelude.NFData DeleteCommentContent
+instance Prelude.NFData DeleteCommentContent where
+  rnf DeleteCommentContent' {..} = Prelude.rnf commentId
 
 instance Core.ToHeaders DeleteCommentContent where
   toHeaders =
@@ -161,4 +164,7 @@ deleteCommentContentResponse_comment = Lens.lens (\DeleteCommentContentResponse'
 deleteCommentContentResponse_httpStatus :: Lens.Lens' DeleteCommentContentResponse Prelude.Int
 deleteCommentContentResponse_httpStatus = Lens.lens (\DeleteCommentContentResponse' {httpStatus} -> httpStatus) (\s@DeleteCommentContentResponse' {} a -> s {httpStatus = a} :: DeleteCommentContentResponse)
 
-instance Prelude.NFData DeleteCommentContentResponse
+instance Prelude.NFData DeleteCommentContentResponse where
+  rnf DeleteCommentContentResponse' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -161,6 +161,24 @@ instance Core.FromJSON ConformancePackDetail where
             Prelude.<*> (x Core..: "ConformancePackId")
       )
 
-instance Prelude.Hashable ConformancePackDetail
+instance Prelude.Hashable ConformancePackDetail where
+  hashWithSalt _salt ConformancePackDetail' {..} =
+    _salt `Prelude.hashWithSalt` deliveryS3Bucket
+      `Prelude.hashWithSalt` deliveryS3KeyPrefix
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastUpdateRequestedTime
+      `Prelude.hashWithSalt` conformancePackInputParameters
+      `Prelude.hashWithSalt` conformancePackName
+      `Prelude.hashWithSalt` conformancePackArn
+      `Prelude.hashWithSalt` conformancePackId
 
-instance Prelude.NFData ConformancePackDetail
+instance Prelude.NFData ConformancePackDetail where
+  rnf ConformancePackDetail' {..} =
+    Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastUpdateRequestedTime
+      `Prelude.seq` Prelude.rnf conformancePackInputParameters
+      `Prelude.seq` Prelude.rnf conformancePackName
+      `Prelude.seq` Prelude.rnf conformancePackArn
+      `Prelude.seq` Prelude.rnf conformancePackId

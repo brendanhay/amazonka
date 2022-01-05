@@ -77,9 +77,12 @@ instance Core.AWSRequest DescribeLimits where
             Prelude.<*> (x Core..:> "OpenShardCount")
       )
 
-instance Prelude.Hashable DescribeLimits
+instance Prelude.Hashable DescribeLimits where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeLimits
+instance Prelude.NFData DescribeLimits where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLimits where
   toHeaders =
@@ -159,4 +162,8 @@ describeLimitsResponse_shardLimit = Lens.lens (\DescribeLimitsResponse' {shardLi
 describeLimitsResponse_openShardCount :: Lens.Lens' DescribeLimitsResponse Prelude.Natural
 describeLimitsResponse_openShardCount = Lens.lens (\DescribeLimitsResponse' {openShardCount} -> openShardCount) (\s@DescribeLimitsResponse' {} a -> s {openShardCount = a} :: DescribeLimitsResponse)
 
-instance Prelude.NFData DescribeLimitsResponse
+instance Prelude.NFData DescribeLimitsResponse where
+  rnf DescribeLimitsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf shardLimit
+      `Prelude.seq` Prelude.rnf openShardCount

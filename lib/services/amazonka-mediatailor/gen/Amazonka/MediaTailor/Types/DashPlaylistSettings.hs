@@ -113,9 +113,19 @@ instance Core.FromJSON DashPlaylistSettings where
             Prelude.<*> (x Core..:? "ManifestWindowSeconds")
       )
 
-instance Prelude.Hashable DashPlaylistSettings
+instance Prelude.Hashable DashPlaylistSettings where
+  hashWithSalt _salt DashPlaylistSettings' {..} =
+    _salt `Prelude.hashWithSalt` minBufferTimeSeconds
+      `Prelude.hashWithSalt` minUpdatePeriodSeconds
+      `Prelude.hashWithSalt` suggestedPresentationDelaySeconds
+      `Prelude.hashWithSalt` manifestWindowSeconds
 
-instance Prelude.NFData DashPlaylistSettings
+instance Prelude.NFData DashPlaylistSettings where
+  rnf DashPlaylistSettings' {..} =
+    Prelude.rnf minBufferTimeSeconds
+      `Prelude.seq` Prelude.rnf minUpdatePeriodSeconds
+      `Prelude.seq` Prelude.rnf suggestedPresentationDelaySeconds
+      `Prelude.seq` Prelude.rnf manifestWindowSeconds
 
 instance Core.ToJSON DashPlaylistSettings where
   toJSON DashPlaylistSettings' {..} =

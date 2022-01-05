@@ -61,6 +61,9 @@ instance Core.FromJSON SecurityProfileTarget where
           SecurityProfileTarget' Prelude.<$> (x Core..: "arn")
       )
 
-instance Prelude.Hashable SecurityProfileTarget
+instance Prelude.Hashable SecurityProfileTarget where
+  hashWithSalt _salt SecurityProfileTarget' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData SecurityProfileTarget
+instance Prelude.NFData SecurityProfileTarget where
+  rnf SecurityProfileTarget' {..} = Prelude.rnf arn

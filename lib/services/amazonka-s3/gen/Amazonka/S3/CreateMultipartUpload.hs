@@ -293,9 +293,9 @@ module Amazonka.S3.CreateMultipartUpload
     createMultipartUploadResponse_sSECustomerKeyMD5,
     createMultipartUploadResponse_sSEKMSKeyId,
     createMultipartUploadResponse_sSEKMSEncryptionContext,
-    createMultipartUploadResponse_uploadId,
     createMultipartUploadResponse_serverSideEncryption,
     createMultipartUploadResponse_httpStatus,
+    createMultipartUploadResponse_uploadId,
   )
 where
 
@@ -816,14 +816,83 @@ instance Core.AWSRequest CreateMultipartUpload where
                             Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
             Prelude.<*> (h Core..#? "x-amz-server-side-encryption-context")
-            Prelude.<*> (x Core..@? "UploadId")
             Prelude.<*> (h Core..#? "x-amz-server-side-encryption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "UploadId")
       )
 
-instance Prelude.Hashable CreateMultipartUpload
+instance Prelude.Hashable CreateMultipartUpload where
+  hashWithSalt _salt CreateMultipartUpload' {..} =
+    _salt `Prelude.hashWithSalt` objectLockMode
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` bucketKeyEnabled
+      `Prelude.hashWithSalt` websiteRedirectLocation
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` sSEKMSKeyId
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` contentEncoding
+      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` objectLockRetainUntilDate
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` sSEKMSEncryptionContext
+      `Prelude.hashWithSalt` cacheControl
+      `Prelude.hashWithSalt` contentLanguage
+      `Prelude.hashWithSalt` objectLockLegalHoldStatus
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` contentDisposition
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData CreateMultipartUpload
+instance Prelude.NFData CreateMultipartUpload where
+  rnf CreateMultipartUpload' {..} =
+    Prelude.rnf objectLockMode
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf websiteRedirectLocation
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf contentEncoding
+      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf
+        objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf
+        sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf contentLanguage
+      `Prelude.seq` Prelude.rnf
+        objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf
+        contentDisposition
+      `Prelude.seq` Prelude.rnf
+        expectedBucketOwner
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryption
+      `Prelude.seq` Prelude.rnf
+        contentType
+      `Prelude.seq` Prelude.rnf
+        bucket
+      `Prelude.seq` Prelude.rnf
+        key
 
 instance Core.ToHeaders CreateMultipartUpload where
   toHeaders CreateMultipartUpload' {..} =
@@ -937,13 +1006,13 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
     sSEKMSEncryptionContext :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | ID for the initiated multipart upload.
-    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Prelude.Int,
+    -- | ID for the initiated multipart upload.
+    uploadId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -1015,33 +1084,37 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
 --
--- 'uploadId', 'createMultipartUploadResponse_uploadId' - ID for the initiated multipart upload.
---
 -- 'serverSideEncryption', 'createMultipartUploadResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
 --
 -- 'httpStatus', 'createMultipartUploadResponse_httpStatus' - The response's http status code.
+--
+-- 'uploadId', 'createMultipartUploadResponse_uploadId' - ID for the initiated multipart upload.
 newCreateMultipartUploadResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'uploadId'
+  Prelude.Text ->
   CreateMultipartUploadResponse
-newCreateMultipartUploadResponse pHttpStatus_ =
-  CreateMultipartUploadResponse'
-    { requestCharged =
-        Prelude.Nothing,
-      bucket = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
-      abortDate = Prelude.Nothing,
-      abortRuleId = Prelude.Nothing,
-      bucketKeyEnabled = Prelude.Nothing,
-      key = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
-      sSEKMSEncryptionContext = Prelude.Nothing,
-      uploadId = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+newCreateMultipartUploadResponse
+  pHttpStatus_
+  pUploadId_ =
+    CreateMultipartUploadResponse'
+      { requestCharged =
+          Prelude.Nothing,
+        bucket = Prelude.Nothing,
+        sSECustomerAlgorithm = Prelude.Nothing,
+        abortDate = Prelude.Nothing,
+        abortRuleId = Prelude.Nothing,
+        bucketKeyEnabled = Prelude.Nothing,
+        key = Prelude.Nothing,
+        sSECustomerKeyMD5 = Prelude.Nothing,
+        sSEKMSKeyId = Prelude.Nothing,
+        sSEKMSEncryptionContext = Prelude.Nothing,
+        serverSideEncryption = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        uploadId = pUploadId_
+      }
 
 -- | Undocumented member.
 createMultipartUploadResponse_requestCharged :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe RequestCharged)
@@ -1123,10 +1196,6 @@ createMultipartUploadResponse_sSEKMSKeyId = Lens.lens (\CreateMultipartUploadRes
 createMultipartUploadResponse_sSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 createMultipartUploadResponse_sSEKMSEncryptionContext = Lens.lens (\CreateMultipartUploadResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CreateMultipartUploadResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUploadResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | ID for the initiated multipart upload.
-createMultipartUploadResponse_uploadId :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
-createMultipartUploadResponse_uploadId = Lens.lens (\CreateMultipartUploadResponse' {uploadId} -> uploadId) (\s@CreateMultipartUploadResponse' {} a -> s {uploadId = a} :: CreateMultipartUploadResponse)
-
 -- | The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
 createMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
@@ -1136,4 +1205,22 @@ createMultipartUploadResponse_serverSideEncryption = Lens.lens (\CreateMultipart
 createMultipartUploadResponse_httpStatus :: Lens.Lens' CreateMultipartUploadResponse Prelude.Int
 createMultipartUploadResponse_httpStatus = Lens.lens (\CreateMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@CreateMultipartUploadResponse' {} a -> s {httpStatus = a} :: CreateMultipartUploadResponse)
 
-instance Prelude.NFData CreateMultipartUploadResponse
+-- | ID for the initiated multipart upload.
+createMultipartUploadResponse_uploadId :: Lens.Lens' CreateMultipartUploadResponse Prelude.Text
+createMultipartUploadResponse_uploadId = Lens.lens (\CreateMultipartUploadResponse' {uploadId} -> uploadId) (\s@CreateMultipartUploadResponse' {} a -> s {uploadId = a} :: CreateMultipartUploadResponse)
+
+instance Prelude.NFData CreateMultipartUploadResponse where
+  rnf CreateMultipartUploadResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf abortDate
+      `Prelude.seq` Prelude.rnf abortRuleId
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId

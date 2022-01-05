@@ -151,6 +151,20 @@ instance Core.FromXML ServerCertificateMetadata where
       Prelude.<*> (x Core..@ "ServerCertificateId")
       Prelude.<*> (x Core..@ "Arn")
 
-instance Prelude.Hashable ServerCertificateMetadata
+instance Prelude.Hashable ServerCertificateMetadata where
+  hashWithSalt _salt ServerCertificateMetadata' {..} =
+    _salt `Prelude.hashWithSalt` uploadDate
+      `Prelude.hashWithSalt` expiration
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` serverCertificateName
+      `Prelude.hashWithSalt` serverCertificateId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ServerCertificateMetadata
+instance Prelude.NFData ServerCertificateMetadata where
+  rnf ServerCertificateMetadata' {..} =
+    Prelude.rnf uploadDate
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf serverCertificateName
+      `Prelude.seq` Prelude.rnf serverCertificateId
+      `Prelude.seq` Prelude.rnf arn

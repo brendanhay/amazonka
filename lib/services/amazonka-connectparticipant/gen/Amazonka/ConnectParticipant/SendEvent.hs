@@ -142,9 +142,19 @@ instance Core.AWSRequest SendEvent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendEvent
+instance Prelude.Hashable SendEvent where
+  hashWithSalt _salt SendEvent' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` connectionToken
 
-instance Prelude.NFData SendEvent
+instance Prelude.NFData SendEvent where
+  rnf SendEvent' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf connectionToken
 
 instance Core.ToHeaders SendEvent where
   toHeaders SendEvent' {..} =
@@ -226,4 +236,8 @@ sendEventResponse_id = Lens.lens (\SendEventResponse' {id} -> id) (\s@SendEventR
 sendEventResponse_httpStatus :: Lens.Lens' SendEventResponse Prelude.Int
 sendEventResponse_httpStatus = Lens.lens (\SendEventResponse' {httpStatus} -> httpStatus) (\s@SendEventResponse' {} a -> s {httpStatus = a} :: SendEventResponse)
 
-instance Prelude.NFData SendEventResponse
+instance Prelude.NFData SendEventResponse where
+  rnf SendEventResponse' {..} =
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

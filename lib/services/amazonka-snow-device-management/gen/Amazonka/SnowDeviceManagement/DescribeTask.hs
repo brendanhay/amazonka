@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTask
+instance Prelude.Hashable DescribeTask where
+  hashWithSalt _salt DescribeTask' {..} =
+    _salt `Prelude.hashWithSalt` taskId
 
-instance Prelude.NFData DescribeTask
+instance Prelude.NFData DescribeTask where
+  rnf DescribeTask' {..} = Prelude.rnf taskId
 
 instance Core.ToHeaders DescribeTask where
   toHeaders =
@@ -241,4 +244,15 @@ describeTaskResponse_tags = Lens.lens (\DescribeTaskResponse' {tags} -> tags) (\
 describeTaskResponse_httpStatus :: Lens.Lens' DescribeTaskResponse Prelude.Int
 describeTaskResponse_httpStatus = Lens.lens (\DescribeTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskResponse' {} a -> s {httpStatus = a} :: DescribeTaskResponse)
 
-instance Prelude.NFData DescribeTaskResponse
+instance Prelude.NFData DescribeTaskResponse where
+  rnf DescribeTaskResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

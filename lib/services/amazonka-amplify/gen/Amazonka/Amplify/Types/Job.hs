@@ -72,6 +72,11 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "steps" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` steps
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf summary `Prelude.seq` Prelude.rnf steps

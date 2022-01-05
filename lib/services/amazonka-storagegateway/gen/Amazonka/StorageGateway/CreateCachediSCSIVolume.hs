@@ -309,9 +309,31 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCachediSCSIVolume
+instance Prelude.Hashable CreateCachediSCSIVolume where
+  hashWithSalt _salt CreateCachediSCSIVolume' {..} =
+    _salt `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` sourceVolumeARN
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` volumeSizeInBytes
+      `Prelude.hashWithSalt` targetName
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateCachediSCSIVolume
+instance Prelude.NFData CreateCachediSCSIVolume where
+  rnf CreateCachediSCSIVolume' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf sourceVolumeARN
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf targetName
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateCachediSCSIVolume where
   toHeaders =
@@ -408,3 +430,8 @@ createCachediSCSIVolumeResponse_httpStatus = Lens.lens (\CreateCachediSCSIVolume
 instance
   Prelude.NFData
     CreateCachediSCSIVolumeResponse
+  where
+  rnf CreateCachediSCSIVolumeResponse' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf httpStatus

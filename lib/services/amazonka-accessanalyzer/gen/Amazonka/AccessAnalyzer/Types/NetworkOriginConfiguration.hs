@@ -83,9 +83,15 @@ instance Core.FromJSON NetworkOriginConfiguration where
             Prelude.<*> (x Core..:? "vpcConfiguration")
       )
 
-instance Prelude.Hashable NetworkOriginConfiguration
+instance Prelude.Hashable NetworkOriginConfiguration where
+  hashWithSalt _salt NetworkOriginConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` internetConfiguration
+      `Prelude.hashWithSalt` vpcConfiguration
 
-instance Prelude.NFData NetworkOriginConfiguration
+instance Prelude.NFData NetworkOriginConfiguration where
+  rnf NetworkOriginConfiguration' {..} =
+    Prelude.rnf internetConfiguration
+      `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance Core.ToJSON NetworkOriginConfiguration where
   toJSON NetworkOriginConfiguration' {..} =

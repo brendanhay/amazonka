@@ -102,9 +102,17 @@ instance Core.FromJSON SetTimerAction where
             Prelude.<*> (x Core..: "timerName")
       )
 
-instance Prelude.Hashable SetTimerAction
+instance Prelude.Hashable SetTimerAction where
+  hashWithSalt _salt SetTimerAction' {..} =
+    _salt `Prelude.hashWithSalt` durationExpression
+      `Prelude.hashWithSalt` seconds
+      `Prelude.hashWithSalt` timerName
 
-instance Prelude.NFData SetTimerAction
+instance Prelude.NFData SetTimerAction where
+  rnf SetTimerAction' {..} =
+    Prelude.rnf durationExpression
+      `Prelude.seq` Prelude.rnf seconds
+      `Prelude.seq` Prelude.rnf timerName
 
 instance Core.ToJSON SetTimerAction where
   toJSON SetTimerAction' {..} =

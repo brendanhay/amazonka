@@ -133,9 +133,17 @@ instance Core.FromJSON RulesSourceList where
             Prelude.<*> (x Core..: "GeneratedRulesType")
       )
 
-instance Prelude.Hashable RulesSourceList
+instance Prelude.Hashable RulesSourceList where
+  hashWithSalt _salt RulesSourceList' {..} =
+    _salt `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` targetTypes
+      `Prelude.hashWithSalt` generatedRulesType
 
-instance Prelude.NFData RulesSourceList
+instance Prelude.NFData RulesSourceList where
+  rnf RulesSourceList' {..} =
+    Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf targetTypes
+      `Prelude.seq` Prelude.rnf generatedRulesType
 
 instance Core.ToJSON RulesSourceList where
   toJSON RulesSourceList' {..} =

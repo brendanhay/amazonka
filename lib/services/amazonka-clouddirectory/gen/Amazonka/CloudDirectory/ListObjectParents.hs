@@ -164,9 +164,23 @@ instance Core.AWSRequest ListObjectParents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectParents
+instance Prelude.Hashable ListObjectParents where
+  hashWithSalt _salt ListObjectParents' {..} =
+    _salt `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` includeAllLinksToEachParent
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData ListObjectParents
+instance Prelude.NFData ListObjectParents where
+  rnf ListObjectParents' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf includeAllLinksToEachParent
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders ListObjectParents where
   toHeaders ListObjectParents' {..} =
@@ -256,4 +270,9 @@ listObjectParentsResponse_parentLinks = Lens.lens (\ListObjectParentsResponse' {
 listObjectParentsResponse_httpStatus :: Lens.Lens' ListObjectParentsResponse Prelude.Int
 listObjectParentsResponse_httpStatus = Lens.lens (\ListObjectParentsResponse' {httpStatus} -> httpStatus) (\s@ListObjectParentsResponse' {} a -> s {httpStatus = a} :: ListObjectParentsResponse)
 
-instance Prelude.NFData ListObjectParentsResponse
+instance Prelude.NFData ListObjectParentsResponse where
+  rnf ListObjectParentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parents
+      `Prelude.seq` Prelude.rnf parentLinks
+      `Prelude.seq` Prelude.rnf httpStatus

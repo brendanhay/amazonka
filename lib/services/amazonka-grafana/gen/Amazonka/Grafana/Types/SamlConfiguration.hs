@@ -131,9 +131,21 @@ instance Core.FromJSON SamlConfiguration where
             Prelude.<*> (x Core..: "idpMetadata")
       )
 
-instance Prelude.Hashable SamlConfiguration
+instance Prelude.Hashable SamlConfiguration where
+  hashWithSalt _salt SamlConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` loginValidityDuration
+      `Prelude.hashWithSalt` assertionAttributes
+      `Prelude.hashWithSalt` allowedOrganizations
+      `Prelude.hashWithSalt` roleValues
+      `Prelude.hashWithSalt` idpMetadata
 
-instance Prelude.NFData SamlConfiguration
+instance Prelude.NFData SamlConfiguration where
+  rnf SamlConfiguration' {..} =
+    Prelude.rnf loginValidityDuration
+      `Prelude.seq` Prelude.rnf assertionAttributes
+      `Prelude.seq` Prelude.rnf allowedOrganizations
+      `Prelude.seq` Prelude.rnf roleValues
+      `Prelude.seq` Prelude.rnf idpMetadata
 
 instance Core.ToJSON SamlConfiguration where
   toJSON SamlConfiguration' {..} =

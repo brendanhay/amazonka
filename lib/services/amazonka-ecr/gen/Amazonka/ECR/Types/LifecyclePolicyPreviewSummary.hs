@@ -65,5 +65,11 @@ instance Core.FromJSON LifecyclePolicyPreviewSummary where
 instance
   Prelude.Hashable
     LifecyclePolicyPreviewSummary
+  where
+  hashWithSalt _salt LifecyclePolicyPreviewSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` expiringImageTotalCount
 
-instance Prelude.NFData LifecyclePolicyPreviewSummary
+instance Prelude.NFData LifecyclePolicyPreviewSummary where
+  rnf LifecyclePolicyPreviewSummary' {..} =
+    Prelude.rnf expiringImageTotalCount

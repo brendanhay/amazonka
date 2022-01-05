@@ -127,6 +127,20 @@ instance Core.FromJSON DatasetSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable DatasetSummary
+instance Prelude.Hashable DatasetSummary where
+  hashWithSalt _salt DatasetSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` lastModificationTime
 
-instance Prelude.NFData DatasetSummary
+instance Prelude.NFData DatasetSummary where
+  rnf DatasetSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf lastModificationTime

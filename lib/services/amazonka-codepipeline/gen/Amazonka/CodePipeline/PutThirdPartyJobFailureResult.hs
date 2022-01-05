@@ -125,8 +125,17 @@ instance
 instance
   Prelude.Hashable
     PutThirdPartyJobFailureResult
+  where
+  hashWithSalt _salt PutThirdPartyJobFailureResult' {..} =
+    _salt `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` failureDetails
 
-instance Prelude.NFData PutThirdPartyJobFailureResult
+instance Prelude.NFData PutThirdPartyJobFailureResult where
+  rnf PutThirdPartyJobFailureResult' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf failureDetails
 
 instance Core.ToHeaders PutThirdPartyJobFailureResult where
   toHeaders =
@@ -178,3 +187,5 @@ newPutThirdPartyJobFailureResultResponse =
 instance
   Prelude.NFData
     PutThirdPartyJobFailureResultResponse
+  where
+  rnf _ = ()

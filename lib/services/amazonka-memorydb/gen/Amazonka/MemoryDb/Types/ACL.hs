@@ -128,6 +128,22 @@ instance Core.FromJSON ACL where
             Prelude.<*> (x Core..:? "Clusters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ACL
+instance Prelude.Hashable ACL where
+  hashWithSalt _salt ACL' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` userNames
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` pendingChanges
+      `Prelude.hashWithSalt` minimumEngineVersion
+      `Prelude.hashWithSalt` clusters
 
-instance Prelude.NFData ACL
+instance Prelude.NFData ACL where
+  rnf ACL' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf userNames
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf pendingChanges
+      `Prelude.seq` Prelude.rnf minimumEngineVersion
+      `Prelude.seq` Prelude.rnf clusters

@@ -86,9 +86,15 @@ instance Core.FromJSON RecipeStep where
             Prelude.<*> (x Core..: "Action")
       )
 
-instance Prelude.Hashable RecipeStep
+instance Prelude.Hashable RecipeStep where
+  hashWithSalt _salt RecipeStep' {..} =
+    _salt `Prelude.hashWithSalt` conditionExpressions
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData RecipeStep
+instance Prelude.NFData RecipeStep where
+  rnf RecipeStep' {..} =
+    Prelude.rnf conditionExpressions
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON RecipeStep where
   toJSON RecipeStep' {..} =

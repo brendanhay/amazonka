@@ -85,6 +85,12 @@ instance Core.FromJSON ByoipCidrEvent where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable ByoipCidrEvent
+instance Prelude.Hashable ByoipCidrEvent where
+  hashWithSalt _salt ByoipCidrEvent' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ByoipCidrEvent
+instance Prelude.NFData ByoipCidrEvent where
+  rnf ByoipCidrEvent' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf timestamp

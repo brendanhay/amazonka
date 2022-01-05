@@ -110,8 +110,15 @@ instance Core.AWSRequest RemoveAttributesFromFindings where
 instance
   Prelude.Hashable
     RemoveAttributesFromFindings
+  where
+  hashWithSalt _salt RemoveAttributesFromFindings' {..} =
+    _salt `Prelude.hashWithSalt` findingArns
+      `Prelude.hashWithSalt` attributeKeys
 
-instance Prelude.NFData RemoveAttributesFromFindings
+instance Prelude.NFData RemoveAttributesFromFindings where
+  rnf RemoveAttributesFromFindings' {..} =
+    Prelude.rnf findingArns
+      `Prelude.seq` Prelude.rnf attributeKeys
 
 instance Core.ToHeaders RemoveAttributesFromFindings where
   toHeaders =
@@ -189,3 +196,7 @@ removeAttributesFromFindingsResponse_failedItems = Lens.lens (\RemoveAttributesF
 instance
   Prelude.NFData
     RemoveAttributesFromFindingsResponse
+  where
+  rnf RemoveAttributesFromFindingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems

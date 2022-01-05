@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribePublisher where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePublisher
+instance Prelude.Hashable DescribePublisher where
+  hashWithSalt _salt DescribePublisher' {..} =
+    _salt `Prelude.hashWithSalt` publisherId
 
-instance Prelude.NFData DescribePublisher
+instance Prelude.NFData DescribePublisher where
+  rnf DescribePublisher' {..} = Prelude.rnf publisherId
 
 instance Core.ToHeaders DescribePublisher where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,4 +209,10 @@ describePublisherResponse_publisherId = Lens.lens (\DescribePublisherResponse' {
 describePublisherResponse_httpStatus :: Lens.Lens' DescribePublisherResponse Prelude.Int
 describePublisherResponse_httpStatus = Lens.lens (\DescribePublisherResponse' {httpStatus} -> httpStatus) (\s@DescribePublisherResponse' {} a -> s {httpStatus = a} :: DescribePublisherResponse)
 
-instance Prelude.NFData DescribePublisherResponse
+instance Prelude.NFData DescribePublisherResponse where
+  rnf DescribePublisherResponse' {..} =
+    Prelude.rnf publisherStatus
+      `Prelude.seq` Prelude.rnf publisherProfile
+      `Prelude.seq` Prelude.rnf identityProvider
+      `Prelude.seq` Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf httpStatus

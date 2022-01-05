@@ -261,9 +261,21 @@ instance Core.AWSRequest CreateLocationNfs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationNfs
+instance Prelude.Hashable CreateLocationNfs where
+  hashWithSalt _salt CreateLocationNfs' {..} =
+    _salt `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` serverHostname
+      `Prelude.hashWithSalt` onPremConfig
 
-instance Prelude.NFData CreateLocationNfs
+instance Prelude.NFData CreateLocationNfs where
+  rnf CreateLocationNfs' {..} =
+    Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf serverHostname
+      `Prelude.seq` Prelude.rnf onPremConfig
 
 instance Core.ToHeaders CreateLocationNfs where
   toHeaders =
@@ -343,4 +355,7 @@ createLocationNfsResponse_locationArn = Lens.lens (\CreateLocationNfsResponse' {
 createLocationNfsResponse_httpStatus :: Lens.Lens' CreateLocationNfsResponse Prelude.Int
 createLocationNfsResponse_httpStatus = Lens.lens (\CreateLocationNfsResponse' {httpStatus} -> httpStatus) (\s@CreateLocationNfsResponse' {} a -> s {httpStatus = a} :: CreateLocationNfsResponse)
 
-instance Prelude.NFData CreateLocationNfsResponse
+instance Prelude.NFData CreateLocationNfsResponse where
+  rnf CreateLocationNfsResponse' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

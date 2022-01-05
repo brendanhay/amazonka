@@ -72,9 +72,12 @@ instance Core.FromJSON ELBInfo where
       "ELBInfo"
       (\x -> ELBInfo' Prelude.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable ELBInfo
+instance Prelude.Hashable ELBInfo where
+  hashWithSalt _salt ELBInfo' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ELBInfo
+instance Prelude.NFData ELBInfo where
+  rnf ELBInfo' {..} = Prelude.rnf name
 
 instance Core.ToJSON ELBInfo where
   toJSON ELBInfo' {..} =

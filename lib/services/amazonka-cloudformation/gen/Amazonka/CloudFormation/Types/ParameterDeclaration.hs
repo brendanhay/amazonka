@@ -112,6 +112,20 @@ instance Core.FromXML ParameterDeclaration where
       Prelude.<*> (x Core..@? "NoEcho")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable ParameterDeclaration
+instance Prelude.Hashable ParameterDeclaration where
+  hashWithSalt _salt ParameterDeclaration' {..} =
+    _salt `Prelude.hashWithSalt` parameterKey
+      `Prelude.hashWithSalt` parameterType
+      `Prelude.hashWithSalt` parameterConstraints
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` noEcho
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ParameterDeclaration
+instance Prelude.NFData ParameterDeclaration where
+  rnf ParameterDeclaration' {..} =
+    Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf parameterType
+      `Prelude.seq` Prelude.rnf parameterConstraints
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf noEcho
+      `Prelude.seq` Prelude.rnf description

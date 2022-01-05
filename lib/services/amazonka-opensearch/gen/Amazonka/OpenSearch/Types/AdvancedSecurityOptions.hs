@@ -83,6 +83,14 @@ instance Core.FromJSON AdvancedSecurityOptions where
             Prelude.<*> (x Core..:? "SAMLOptions")
       )
 
-instance Prelude.Hashable AdvancedSecurityOptions
+instance Prelude.Hashable AdvancedSecurityOptions where
+  hashWithSalt _salt AdvancedSecurityOptions' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` internalUserDatabaseEnabled
+      `Prelude.hashWithSalt` sAMLOptions
 
-instance Prelude.NFData AdvancedSecurityOptions
+instance Prelude.NFData AdvancedSecurityOptions where
+  rnf AdvancedSecurityOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
+      `Prelude.seq` Prelude.rnf sAMLOptions

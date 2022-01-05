@@ -85,7 +85,17 @@ instance
 instance
   Prelude.Hashable
     ValidDBInstanceModificationsMessage
+  where
+  hashWithSalt
+    _salt
+    ValidDBInstanceModificationsMessage' {..} =
+      _salt `Prelude.hashWithSalt` validProcessorFeatures
+        `Prelude.hashWithSalt` storage
 
 instance
   Prelude.NFData
     ValidDBInstanceModificationsMessage
+  where
+  rnf ValidDBInstanceModificationsMessage' {..} =
+    Prelude.rnf validProcessorFeatures
+      `Prelude.seq` Prelude.rnf storage

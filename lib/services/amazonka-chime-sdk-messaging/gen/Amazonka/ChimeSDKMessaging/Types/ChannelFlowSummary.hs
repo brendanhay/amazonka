@@ -82,6 +82,14 @@ instance Core.FromJSON ChannelFlowSummary where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ChannelFlowSummary
+instance Prelude.Hashable ChannelFlowSummary where
+  hashWithSalt _salt ChannelFlowSummary' {..} =
+    _salt `Prelude.hashWithSalt` processors
+      `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ChannelFlowSummary
+instance Prelude.NFData ChannelFlowSummary where
+  rnf ChannelFlowSummary' {..} =
+    Prelude.rnf processors
+      `Prelude.seq` Prelude.rnf channelFlowArn
+      `Prelude.seq` Prelude.rnf name

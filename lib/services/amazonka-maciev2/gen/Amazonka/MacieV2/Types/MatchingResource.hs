@@ -62,6 +62,10 @@ instance Core.FromJSON MatchingResource where
             Prelude.<$> (x Core..:? "matchingBucket")
       )
 
-instance Prelude.Hashable MatchingResource
+instance Prelude.Hashable MatchingResource where
+  hashWithSalt _salt MatchingResource' {..} =
+    _salt `Prelude.hashWithSalt` matchingBucket
 
-instance Prelude.NFData MatchingResource
+instance Prelude.NFData MatchingResource where
+  rnf MatchingResource' {..} =
+    Prelude.rnf matchingBucket

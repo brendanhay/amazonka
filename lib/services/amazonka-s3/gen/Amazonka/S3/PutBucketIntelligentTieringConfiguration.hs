@@ -176,10 +176,22 @@ instance
 instance
   Prelude.Hashable
     PutBucketIntelligentTieringConfiguration
+  where
+  hashWithSalt
+    _salt
+    PutBucketIntelligentTieringConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` intelligentTieringConfiguration
 
 instance
   Prelude.NFData
     PutBucketIntelligentTieringConfiguration
+  where
+  rnf PutBucketIntelligentTieringConfiguration' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf intelligentTieringConfiguration
 
 instance
   Core.ToElement
@@ -230,3 +242,5 @@ newPutBucketIntelligentTieringConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketIntelligentTieringConfigurationResponse
+  where
+  rnf _ = ()

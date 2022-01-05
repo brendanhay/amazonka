@@ -247,6 +247,46 @@ instance Core.FromJSON AppSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AppSummary
+instance Prelude.Hashable AppSummary where
+  hashWithSalt _salt AppSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` totalServers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` launchDetails
+      `Prelude.hashWithSalt` launchStatusMessage
+      `Prelude.hashWithSalt` replicationConfigurationStatus
+      `Prelude.hashWithSalt` replicationStatusMessage
+      `Prelude.hashWithSalt` totalServerGroups
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` launchConfigurationStatus
+      `Prelude.hashWithSalt` launchStatus
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` latestReplicationTime
+      `Prelude.hashWithSalt` importedAppId
+      `Prelude.hashWithSalt` replicationStatus
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AppSummary
+instance Prelude.NFData AppSummary where
+  rnf AppSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf totalServers
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf launchDetails
+      `Prelude.seq` Prelude.rnf launchStatusMessage
+      `Prelude.seq` Prelude.rnf replicationConfigurationStatus
+      `Prelude.seq` Prelude.rnf replicationStatusMessage
+      `Prelude.seq` Prelude.rnf totalServerGroups
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf launchConfigurationStatus
+      `Prelude.seq` Prelude.rnf launchStatus
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf latestReplicationTime
+      `Prelude.seq` Prelude.rnf importedAppId
+      `Prelude.seq` Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf description

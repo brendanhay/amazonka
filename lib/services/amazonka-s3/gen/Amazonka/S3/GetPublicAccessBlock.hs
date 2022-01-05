@@ -134,9 +134,15 @@ instance Core.AWSRequest GetPublicAccessBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPublicAccessBlock
+instance Prelude.Hashable GetPublicAccessBlock where
+  hashWithSalt _salt GetPublicAccessBlock' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetPublicAccessBlock
+instance Prelude.NFData GetPublicAccessBlock where
+  rnf GetPublicAccessBlock' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetPublicAccessBlock where
   toHeaders GetPublicAccessBlock' {..} =
@@ -196,4 +202,7 @@ getPublicAccessBlockResponse_publicAccessBlockConfiguration = Lens.lens (\GetPub
 getPublicAccessBlockResponse_httpStatus :: Lens.Lens' GetPublicAccessBlockResponse Prelude.Int
 getPublicAccessBlockResponse_httpStatus = Lens.lens (\GetPublicAccessBlockResponse' {httpStatus} -> httpStatus) (\s@GetPublicAccessBlockResponse' {} a -> s {httpStatus = a} :: GetPublicAccessBlockResponse)
 
-instance Prelude.NFData GetPublicAccessBlockResponse
+instance Prelude.NFData GetPublicAccessBlockResponse where
+  rnf GetPublicAccessBlockResponse' {..} =
+    Prelude.rnf publicAccessBlockConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

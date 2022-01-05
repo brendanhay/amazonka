@@ -111,9 +111,21 @@ batchListIncomingTypedLinks_maxResults = Lens.lens (\BatchListIncomingTypedLinks
 batchListIncomingTypedLinks_objectReference :: Lens.Lens' BatchListIncomingTypedLinks ObjectReference
 batchListIncomingTypedLinks_objectReference = Lens.lens (\BatchListIncomingTypedLinks' {objectReference} -> objectReference) (\s@BatchListIncomingTypedLinks' {} a -> s {objectReference = a} :: BatchListIncomingTypedLinks)
 
-instance Prelude.Hashable BatchListIncomingTypedLinks
+instance Prelude.Hashable BatchListIncomingTypedLinks where
+  hashWithSalt _salt BatchListIncomingTypedLinks' {..} =
+    _salt `Prelude.hashWithSalt` filterAttributeRanges
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterTypedLink
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchListIncomingTypedLinks
+instance Prelude.NFData BatchListIncomingTypedLinks where
+  rnf BatchListIncomingTypedLinks' {..} =
+    Prelude.rnf filterAttributeRanges
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterTypedLink
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchListIncomingTypedLinks where
   toJSON BatchListIncomingTypedLinks' {..} =

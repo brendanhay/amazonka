@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     RegisterInstanceEventNotificationAttributes
+  where
+  hashWithSalt
+    _salt
+    RegisterInstanceEventNotificationAttributes' {..} =
+      _salt `Prelude.hashWithSalt` instanceTagAttribute
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     RegisterInstanceEventNotificationAttributes
+  where
+  rnf RegisterInstanceEventNotificationAttributes' {..} =
+    Prelude.rnf instanceTagAttribute
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -194,3 +204,8 @@ registerInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\Reg
 instance
   Prelude.NFData
     RegisterInstanceEventNotificationAttributesResponse
+  where
+  rnf
+    RegisterInstanceEventNotificationAttributesResponse' {..} =
+      Prelude.rnf instanceTagAttribute
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -74,6 +74,11 @@ instance Core.FromJSON PortalStatus where
             Prelude.<$> (x Core..:? "error") Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable PortalStatus
+instance Prelude.Hashable PortalStatus where
+  hashWithSalt _salt PortalStatus' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData PortalStatus
+instance Prelude.NFData PortalStatus where
+  rnf PortalStatus' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf state

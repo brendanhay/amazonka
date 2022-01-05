@@ -89,9 +89,13 @@ instance Core.AWSRequest GetNetworkProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNetworkProfile
+instance Prelude.Hashable GetNetworkProfile where
+  hashWithSalt _salt GetNetworkProfile' {..} =
+    _salt `Prelude.hashWithSalt` networkProfileArn
 
-instance Prelude.NFData GetNetworkProfile
+instance Prelude.NFData GetNetworkProfile where
+  rnf GetNetworkProfile' {..} =
+    Prelude.rnf networkProfileArn
 
 instance Core.ToHeaders GetNetworkProfile where
   toHeaders =
@@ -162,4 +166,7 @@ getNetworkProfileResponse_networkProfile = Lens.lens (\GetNetworkProfileResponse
 getNetworkProfileResponse_httpStatus :: Lens.Lens' GetNetworkProfileResponse Prelude.Int
 getNetworkProfileResponse_httpStatus = Lens.lens (\GetNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@GetNetworkProfileResponse' {} a -> s {httpStatus = a} :: GetNetworkProfileResponse)
 
-instance Prelude.NFData GetNetworkProfileResponse
+instance Prelude.NFData GetNetworkProfileResponse where
+  rnf GetNetworkProfileResponse' {..} =
+    Prelude.rnf networkProfile
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -156,9 +156,15 @@ instance Core.AWSRequest GetDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataSource
+instance Prelude.Hashable GetDataSource where
+  hashWithSalt _salt GetDataSource' {..} =
+    _salt `Prelude.hashWithSalt` verbose
+      `Prelude.hashWithSalt` dataSourceId
 
-instance Prelude.NFData GetDataSource
+instance Prelude.NFData GetDataSource where
+  rnf GetDataSource' {..} =
+    Prelude.rnf verbose
+      `Prelude.seq` Prelude.rnf dataSourceId
 
 instance Core.ToHeaders GetDataSource where
   toHeaders =
@@ -492,4 +498,26 @@ getDataSourceResponse_roleARN = Lens.lens (\GetDataSourceResponse' {roleARN} -> 
 getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Prelude.Int
 getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatus} -> httpStatus) (\s@GetDataSourceResponse' {} a -> s {httpStatus = a} :: GetDataSourceResponse)
 
-instance Prelude.NFData GetDataSourceResponse
+instance Prelude.NFData GetDataSourceResponse where
+  rnf GetDataSourceResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf numberOfFiles
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf rDSMetadata
+      `Prelude.seq` Prelude.rnf dataSizeInBytes
+      `Prelude.seq` Prelude.rnf dataSourceSchema
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf dataLocationS3
+      `Prelude.seq` Prelude.rnf computeStatistics
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf redshiftMetadata
+      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf httpStatus

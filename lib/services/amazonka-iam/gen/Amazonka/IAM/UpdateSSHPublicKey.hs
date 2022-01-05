@@ -149,9 +149,17 @@ instance Core.AWSRequest UpdateSSHPublicKey where
   response =
     Response.receiveNull UpdateSSHPublicKeyResponse'
 
-instance Prelude.Hashable UpdateSSHPublicKey
+instance Prelude.Hashable UpdateSSHPublicKey where
+  hashWithSalt _salt UpdateSSHPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` sSHPublicKeyId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateSSHPublicKey
+instance Prelude.NFData UpdateSSHPublicKey where
+  rnf UpdateSSHPublicKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf sSHPublicKeyId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +194,5 @@ newUpdateSSHPublicKeyResponse ::
 newUpdateSSHPublicKeyResponse =
   UpdateSSHPublicKeyResponse'
 
-instance Prelude.NFData UpdateSSHPublicKeyResponse
+instance Prelude.NFData UpdateSSHPublicKeyResponse where
+  rnf _ = ()

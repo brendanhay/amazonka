@@ -347,6 +347,54 @@ instance Core.FromJSON Patch where
             Prelude.<*> (x Core..:? "Epoch")
       )
 
-instance Prelude.Hashable Patch
+instance Prelude.Hashable Patch where
+  hashWithSalt _salt Patch' {..} =
+    _salt `Prelude.hashWithSalt` bugzillaIds
+      `Prelude.hashWithSalt` vendor
+      `Prelude.hashWithSalt` msrcSeverity
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` productFamily
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` advisoryIds
+      `Prelude.hashWithSalt` cVEIds
+      `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` release
+      `Prelude.hashWithSalt` msrcNumber
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` kbNumber
+      `Prelude.hashWithSalt` contentUrl
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` releaseDate
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` arch
+      `Prelude.hashWithSalt` product
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` epoch
 
-instance Prelude.NFData Patch
+instance Prelude.NFData Patch where
+  rnf Patch' {..} =
+    Prelude.rnf bugzillaIds
+      `Prelude.seq` Prelude.rnf vendor
+      `Prelude.seq` Prelude.rnf msrcSeverity
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf productFamily
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf advisoryIds
+      `Prelude.seq` Prelude.rnf cVEIds
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf release
+      `Prelude.seq` Prelude.rnf msrcNumber
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf kbNumber
+      `Prelude.seq` Prelude.rnf contentUrl
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf releaseDate
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf arch
+      `Prelude.seq` Prelude.rnf product
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf epoch

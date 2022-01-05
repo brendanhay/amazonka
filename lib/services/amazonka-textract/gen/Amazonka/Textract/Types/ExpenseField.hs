@@ -100,6 +100,16 @@ instance Core.FromJSON ExpenseField where
             Prelude.<*> (x Core..:? "PageNumber")
       )
 
-instance Prelude.Hashable ExpenseField
+instance Prelude.Hashable ExpenseField where
+  hashWithSalt _salt ExpenseField' {..} =
+    _salt `Prelude.hashWithSalt` labelDetection
+      `Prelude.hashWithSalt` valueDetection
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` pageNumber
 
-instance Prelude.NFData ExpenseField
+instance Prelude.NFData ExpenseField where
+  rnf ExpenseField' {..} =
+    Prelude.rnf labelDetection
+      `Prelude.seq` Prelude.rnf valueDetection
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf pageNumber

@@ -117,9 +117,15 @@ instance Core.AWSRequest DeleteVaultAccessPolicy where
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'
 
-instance Prelude.Hashable DeleteVaultAccessPolicy
+instance Prelude.Hashable DeleteVaultAccessPolicy where
+  hashWithSalt _salt DeleteVaultAccessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData DeleteVaultAccessPolicy
+instance Prelude.NFData DeleteVaultAccessPolicy where
+  rnf DeleteVaultAccessPolicy' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DeleteVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,3 +161,5 @@ newDeleteVaultAccessPolicyResponse =
 instance
   Prelude.NFData
     DeleteVaultAccessPolicyResponse
+  where
+  rnf _ = ()

@@ -219,6 +219,32 @@ instance Core.FromJSON LabelingJobSummary where
             Prelude.<*> (x Core..: "PreHumanTaskLambdaArn")
       )
 
-instance Prelude.Hashable LabelingJobSummary
+instance Prelude.Hashable LabelingJobSummary where
+  hashWithSalt _salt LabelingJobSummary' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` annotationConsolidationLambdaArn
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` labelingJobOutput
+      `Prelude.hashWithSalt` labelingJobName
+      `Prelude.hashWithSalt` labelingJobArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` labelingJobStatus
+      `Prelude.hashWithSalt` labelCounters
+      `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` preHumanTaskLambdaArn
 
-instance Prelude.NFData LabelingJobSummary
+instance Prelude.NFData LabelingJobSummary where
+  rnf LabelingJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf annotationConsolidationLambdaArn
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf labelingJobOutput
+      `Prelude.seq` Prelude.rnf labelingJobName
+      `Prelude.seq` Prelude.rnf labelingJobArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf labelingJobStatus
+      `Prelude.seq` Prelude.rnf labelCounters
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn

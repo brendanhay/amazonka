@@ -89,9 +89,13 @@ instance Core.AWSRequest GetFirewallRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFirewallRuleGroup
+instance Prelude.Hashable GetFirewallRuleGroup where
+  hashWithSalt _salt GetFirewallRuleGroup' {..} =
+    _salt `Prelude.hashWithSalt` firewallRuleGroupId
 
-instance Prelude.NFData GetFirewallRuleGroup
+instance Prelude.NFData GetFirewallRuleGroup where
+  rnf GetFirewallRuleGroup' {..} =
+    Prelude.rnf firewallRuleGroupId
 
 instance Core.ToHeaders GetFirewallRuleGroup where
   toHeaders =
@@ -162,4 +166,7 @@ getFirewallRuleGroupResponse_firewallRuleGroup = Lens.lens (\GetFirewallRuleGrou
 getFirewallRuleGroupResponse_httpStatus :: Lens.Lens' GetFirewallRuleGroupResponse Prelude.Int
 getFirewallRuleGroupResponse_httpStatus = Lens.lens (\GetFirewallRuleGroupResponse' {httpStatus} -> httpStatus) (\s@GetFirewallRuleGroupResponse' {} a -> s {httpStatus = a} :: GetFirewallRuleGroupResponse)
 
-instance Prelude.NFData GetFirewallRuleGroupResponse
+instance Prelude.NFData GetFirewallRuleGroupResponse where
+  rnf GetFirewallRuleGroupResponse' {..} =
+    Prelude.rnf firewallRuleGroup
+      `Prelude.seq` Prelude.rnf httpStatus

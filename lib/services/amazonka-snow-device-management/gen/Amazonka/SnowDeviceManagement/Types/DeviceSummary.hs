@@ -97,6 +97,16 @@ instance Core.FromJSON DeviceSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeviceSummary
+instance Prelude.Hashable DeviceSummary where
+  hashWithSalt _salt DeviceSummary' {..} =
+    _salt `Prelude.hashWithSalt` associatedWithJob
+      `Prelude.hashWithSalt` managedDeviceId
+      `Prelude.hashWithSalt` managedDeviceArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData DeviceSummary
+instance Prelude.NFData DeviceSummary where
+  rnf DeviceSummary' {..} =
+    Prelude.rnf associatedWithJob
+      `Prelude.seq` Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf managedDeviceArn
+      `Prelude.seq` Prelude.rnf tags

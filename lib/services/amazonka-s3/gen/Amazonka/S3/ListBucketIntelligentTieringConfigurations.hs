@@ -152,10 +152,20 @@ instance
 instance
   Prelude.Hashable
     ListBucketIntelligentTieringConfigurations
+  where
+  hashWithSalt
+    _salt
+    ListBucketIntelligentTieringConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` continuationToken
+        `Prelude.hashWithSalt` bucket
 
 instance
   Prelude.NFData
     ListBucketIntelligentTieringConfigurations
+  where
+  rnf ListBucketIntelligentTieringConfigurations' {..} =
+    Prelude.rnf continuationToken
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToHeaders
@@ -274,3 +284,11 @@ listBucketIntelligentTieringConfigurationsResponse_httpStatus = Lens.lens (\List
 instance
   Prelude.NFData
     ListBucketIntelligentTieringConfigurationsResponse
+  where
+  rnf
+    ListBucketIntelligentTieringConfigurationsResponse' {..} =
+      Prelude.rnf intelligentTieringConfigurationList
+        `Prelude.seq` Prelude.rnf continuationToken
+        `Prelude.seq` Prelude.rnf nextContinuationToken
+        `Prelude.seq` Prelude.rnf isTruncated
+        `Prelude.seq` Prelude.rnf httpStatus

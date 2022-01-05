@@ -149,6 +149,26 @@ instance Core.FromXML TransitGatewayVpcAttachment where
                   )
       Prelude.<*> (x Core..@? "vpcOwnerId")
 
-instance Prelude.Hashable TransitGatewayVpcAttachment
+instance Prelude.Hashable TransitGatewayVpcAttachment where
+  hashWithSalt _salt TransitGatewayVpcAttachment' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcOwnerId
 
-instance Prelude.NFData TransitGatewayVpcAttachment
+instance Prelude.NFData TransitGatewayVpcAttachment where
+  rnf TransitGatewayVpcAttachment' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcOwnerId

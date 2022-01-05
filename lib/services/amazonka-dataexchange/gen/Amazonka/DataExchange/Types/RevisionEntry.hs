@@ -179,6 +179,24 @@ instance Core.FromJSON RevisionEntry where
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
-instance Prelude.Hashable RevisionEntry
+instance Prelude.Hashable RevisionEntry where
+  hashWithSalt _salt RevisionEntry' {..} =
+    _salt `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` finalized
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` updatedAt
 
-instance Prelude.NFData RevisionEntry
+instance Prelude.NFData RevisionEntry where
+  rnf RevisionEntry' {..} =
+    Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf updatedAt

@@ -59,6 +59,9 @@ instance Core.FromJSON OperatingSystem where
           OperatingSystem' Prelude.<$> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable OperatingSystem
+instance Prelude.Hashable OperatingSystem where
+  hashWithSalt _salt OperatingSystem' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData OperatingSystem
+instance Prelude.NFData OperatingSystem where
+  rnf OperatingSystem' {..} = Prelude.rnf type'

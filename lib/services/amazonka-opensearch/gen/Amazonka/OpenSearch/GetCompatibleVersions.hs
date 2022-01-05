@@ -94,9 +94,13 @@ instance Core.AWSRequest GetCompatibleVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCompatibleVersions
+instance Prelude.Hashable GetCompatibleVersions where
+  hashWithSalt _salt GetCompatibleVersions' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetCompatibleVersions
+instance Prelude.NFData GetCompatibleVersions where
+  rnf GetCompatibleVersions' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders GetCompatibleVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +159,7 @@ getCompatibleVersionsResponse_compatibleVersions = Lens.lens (\GetCompatibleVers
 getCompatibleVersionsResponse_httpStatus :: Lens.Lens' GetCompatibleVersionsResponse Prelude.Int
 getCompatibleVersionsResponse_httpStatus = Lens.lens (\GetCompatibleVersionsResponse' {httpStatus} -> httpStatus) (\s@GetCompatibleVersionsResponse' {} a -> s {httpStatus = a} :: GetCompatibleVersionsResponse)
 
-instance Prelude.NFData GetCompatibleVersionsResponse
+instance Prelude.NFData GetCompatibleVersionsResponse where
+  rnf GetCompatibleVersionsResponse' {..} =
+    Prelude.rnf compatibleVersions
+      `Prelude.seq` Prelude.rnf httpStatus

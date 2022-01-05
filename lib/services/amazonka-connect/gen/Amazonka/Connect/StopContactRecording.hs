@@ -127,9 +127,17 @@ instance Core.AWSRequest StopContactRecording where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopContactRecording
+instance Prelude.Hashable StopContactRecording where
+  hashWithSalt _salt StopContactRecording' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` initialContactId
 
-instance Prelude.NFData StopContactRecording
+instance Prelude.NFData StopContactRecording where
+  rnf StopContactRecording' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf initialContactId
 
 instance Core.ToHeaders StopContactRecording where
   toHeaders =
@@ -189,4 +197,6 @@ newStopContactRecordingResponse pHttpStatus_ =
 stopContactRecordingResponse_httpStatus :: Lens.Lens' StopContactRecordingResponse Prelude.Int
 stopContactRecordingResponse_httpStatus = Lens.lens (\StopContactRecordingResponse' {httpStatus} -> httpStatus) (\s@StopContactRecordingResponse' {} a -> s {httpStatus = a} :: StopContactRecordingResponse)
 
-instance Prelude.NFData StopContactRecordingResponse
+instance Prelude.NFData StopContactRecordingResponse where
+  rnf StopContactRecordingResponse' {..} =
+    Prelude.rnf httpStatus

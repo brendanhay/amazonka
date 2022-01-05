@@ -57,9 +57,13 @@ newCallInstructionsMessageType =
 callInstructionsMessageType_text :: Lens.Lens' CallInstructionsMessageType (Prelude.Maybe Prelude.Text)
 callInstructionsMessageType_text = Lens.lens (\CallInstructionsMessageType' {text} -> text) (\s@CallInstructionsMessageType' {} a -> s {text = a} :: CallInstructionsMessageType)
 
-instance Prelude.Hashable CallInstructionsMessageType
+instance Prelude.Hashable CallInstructionsMessageType where
+  hashWithSalt _salt CallInstructionsMessageType' {..} =
+    _salt `Prelude.hashWithSalt` text
 
-instance Prelude.NFData CallInstructionsMessageType
+instance Prelude.NFData CallInstructionsMessageType where
+  rnf CallInstructionsMessageType' {..} =
+    Prelude.rnf text
 
 instance Core.ToJSON CallInstructionsMessageType where
   toJSON CallInstructionsMessageType' {..} =

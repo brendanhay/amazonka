@@ -131,7 +131,23 @@ instance
 instance
   Prelude.Hashable
     FieldLevelEncryptionProfileSummary
+  where
+  hashWithSalt
+    _salt
+    FieldLevelEncryptionProfileSummary' {..} =
+      _salt `Prelude.hashWithSalt` comment
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` lastModifiedTime
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` encryptionEntities
 
 instance
   Prelude.NFData
     FieldLevelEncryptionProfileSummary
+  where
+  rnf FieldLevelEncryptionProfileSummary' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryptionEntities

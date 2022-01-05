@@ -116,9 +116,19 @@ instance Core.AWSRequest DeleteApp where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAppResponse'
 
-instance Prelude.Hashable DeleteApp
+instance Prelude.Hashable DeleteApp where
+  hashWithSalt _salt DeleteApp' {..} =
+    _salt `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` appType
+      `Prelude.hashWithSalt` appName
 
-instance Prelude.NFData DeleteApp
+instance Prelude.NFData DeleteApp where
+  rnf DeleteApp' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf appType
+      `Prelude.seq` Prelude.rnf appName
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
@@ -165,4 +175,5 @@ newDeleteAppResponse ::
   DeleteAppResponse
 newDeleteAppResponse = DeleteAppResponse'
 
-instance Prelude.NFData DeleteAppResponse
+instance Prelude.NFData DeleteAppResponse where
+  rnf _ = ()

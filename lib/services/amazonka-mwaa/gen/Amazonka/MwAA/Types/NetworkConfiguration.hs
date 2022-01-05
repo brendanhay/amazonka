@@ -89,9 +89,15 @@ instance Core.FromJSON NetworkConfiguration where
             Prelude.<*> (x Core..:? "SubnetIds")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Prelude.Hashable NetworkConfiguration where
+  hashWithSalt _salt NetworkConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData NetworkConfiguration
+instance Prelude.NFData NetworkConfiguration where
+  rnf NetworkConfiguration' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =

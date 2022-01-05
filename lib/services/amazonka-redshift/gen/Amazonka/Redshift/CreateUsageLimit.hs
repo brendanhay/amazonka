@@ -185,9 +185,25 @@ instance Core.AWSRequest CreateUsageLimit where
       "CreateUsageLimitResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateUsageLimit
+instance Prelude.Hashable CreateUsageLimit where
+  hashWithSalt _salt CreateUsageLimit' {..} =
+    _salt `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` breachAction
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` featureType
+      `Prelude.hashWithSalt` limitType
+      `Prelude.hashWithSalt` amount
 
-instance Prelude.NFData CreateUsageLimit
+instance Prelude.NFData CreateUsageLimit where
+  rnf CreateUsageLimit' {..} =
+    Prelude.rnf period
+      `Prelude.seq` Prelude.rnf breachAction
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf featureType
+      `Prelude.seq` Prelude.rnf limitType
+      `Prelude.seq` Prelude.rnf amount
 
 instance Core.ToHeaders CreateUsageLimit where
   toHeaders = Prelude.const Prelude.mempty

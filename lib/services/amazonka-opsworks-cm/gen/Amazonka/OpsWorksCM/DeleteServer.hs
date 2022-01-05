@@ -93,9 +93,12 @@ instance Core.AWSRequest DeleteServer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteServer
+instance Prelude.Hashable DeleteServer where
+  hashWithSalt _salt DeleteServer' {..} =
+    _salt `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData DeleteServer
+instance Prelude.NFData DeleteServer where
+  rnf DeleteServer' {..} = Prelude.rnf serverName
 
 instance Core.ToHeaders DeleteServer where
   toHeaders =
@@ -152,4 +155,6 @@ newDeleteServerResponse pHttpStatus_ =
 deleteServerResponse_httpStatus :: Lens.Lens' DeleteServerResponse Prelude.Int
 deleteServerResponse_httpStatus = Lens.lens (\DeleteServerResponse' {httpStatus} -> httpStatus) (\s@DeleteServerResponse' {} a -> s {httpStatus = a} :: DeleteServerResponse)
 
-instance Prelude.NFData DeleteServerResponse
+instance Prelude.NFData DeleteServerResponse where
+  rnf DeleteServerResponse' {..} =
+    Prelude.rnf httpStatus

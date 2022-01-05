@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.Put where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -126,9 +126,24 @@ put_item = Lens.lens (\Put' {item} -> item) (\s@Put' {} a -> s {item = a} :: Put
 put_tableName :: Lens.Lens' Put Prelude.Text
 put_tableName = Lens.lens (\Put' {tableName} -> tableName) (\s@Put' {} a -> s {tableName = a} :: Put)
 
-instance Prelude.Hashable Put
+instance Prelude.Hashable Put where
+  hashWithSalt _salt Put' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Put
+instance Prelude.NFData Put where
+  rnf Put' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf item
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON Put where
   toJSON Put' {..} =

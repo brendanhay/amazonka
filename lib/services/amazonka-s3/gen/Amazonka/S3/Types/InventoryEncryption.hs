@@ -71,9 +71,14 @@ instance Core.FromXML InventoryEncryption where
       Prelude.<$> (x Core..@? "SSE-S3")
       Prelude.<*> (x Core..@? "SSE-KMS")
 
-instance Prelude.Hashable InventoryEncryption
+instance Prelude.Hashable InventoryEncryption where
+  hashWithSalt _salt InventoryEncryption' {..} =
+    _salt `Prelude.hashWithSalt` sses3
+      `Prelude.hashWithSalt` ssekms
 
-instance Prelude.NFData InventoryEncryption
+instance Prelude.NFData InventoryEncryption where
+  rnf InventoryEncryption' {..} =
+    Prelude.rnf sses3 `Prelude.seq` Prelude.rnf ssekms
 
 instance Core.ToXML InventoryEncryption where
   toXML InventoryEncryption' {..} =

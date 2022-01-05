@@ -88,6 +88,16 @@ instance Core.FromJSON LensSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable LensSummary
+instance Prelude.Hashable LensSummary where
+  hashWithSalt _salt LensSummary' {..} =
+    _salt `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` lensName
+      `Prelude.hashWithSalt` lensVersion
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData LensSummary
+instance Prelude.NFData LensSummary where
+  rnf LensSummary' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf lensName
+      `Prelude.seq` Prelude.rnf lensVersion
+      `Prelude.seq` Prelude.rnf description

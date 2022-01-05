@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.SourceTableFeatureDetails where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.SSEDescription
@@ -127,6 +128,18 @@ instance Core.FromJSON SourceTableFeatureDetails where
             Prelude.<*> (x Core..:? "TimeToLiveDescription")
       )
 
-instance Prelude.Hashable SourceTableFeatureDetails
+instance Prelude.Hashable SourceTableFeatureDetails where
+  hashWithSalt _salt SourceTableFeatureDetails' {..} =
+    _salt `Prelude.hashWithSalt` streamDescription
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` localSecondaryIndexes
+      `Prelude.hashWithSalt` sSEDescription
+      `Prelude.hashWithSalt` timeToLiveDescription
 
-instance Prelude.NFData SourceTableFeatureDetails
+instance Prelude.NFData SourceTableFeatureDetails where
+  rnf SourceTableFeatureDetails' {..} =
+    Prelude.rnf streamDescription
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf localSecondaryIndexes
+      `Prelude.seq` Prelude.rnf sSEDescription
+      `Prelude.seq` Prelude.rnf timeToLiveDescription

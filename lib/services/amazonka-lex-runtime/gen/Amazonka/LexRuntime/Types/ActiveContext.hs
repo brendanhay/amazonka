@@ -93,9 +93,17 @@ instance Core.FromJSON ActiveContext where
             Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ActiveContext
+instance Prelude.Hashable ActiveContext where
+  hashWithSalt _salt ActiveContext' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData ActiveContext
+instance Prelude.NFData ActiveContext where
+  rnf ActiveContext' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON ActiveContext where
   toJSON ActiveContext' {..} =

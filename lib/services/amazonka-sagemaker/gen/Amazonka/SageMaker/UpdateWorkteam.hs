@@ -192,9 +192,20 @@ instance Core.AWSRequest UpdateWorkteam where
             Prelude.<*> (x Core..:> "Workteam")
       )
 
-instance Prelude.Hashable UpdateWorkteam
+instance Prelude.Hashable UpdateWorkteam where
+  hashWithSalt _salt UpdateWorkteam' {..} =
+    _salt
+      `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` memberDefinitions
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workteamName
 
-instance Prelude.NFData UpdateWorkteam
+instance Prelude.NFData UpdateWorkteam where
+  rnf UpdateWorkteam' {..} =
+    Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf memberDefinitions
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workteamName
 
 instance Core.ToHeaders UpdateWorkteam where
   toHeaders =
@@ -268,4 +279,7 @@ updateWorkteamResponse_httpStatus = Lens.lens (\UpdateWorkteamResponse' {httpSta
 updateWorkteamResponse_workteam :: Lens.Lens' UpdateWorkteamResponse Workteam
 updateWorkteamResponse_workteam = Lens.lens (\UpdateWorkteamResponse' {workteam} -> workteam) (\s@UpdateWorkteamResponse' {} a -> s {workteam = a} :: UpdateWorkteamResponse)
 
-instance Prelude.NFData UpdateWorkteamResponse
+instance Prelude.NFData UpdateWorkteamResponse where
+  rnf UpdateWorkteamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workteam

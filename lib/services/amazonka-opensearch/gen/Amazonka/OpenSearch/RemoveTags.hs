@@ -90,9 +90,14 @@ instance Core.AWSRequest RemoveTags where
   request = Request.postJSON defaultService
   response = Response.receiveNull RemoveTagsResponse'
 
-instance Prelude.Hashable RemoveTags
+instance Prelude.Hashable RemoveTags where
+  hashWithSalt _salt RemoveTags' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData RemoveTags
+instance Prelude.NFData RemoveTags where
+  rnf RemoveTags' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders RemoveTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -126,4 +131,5 @@ newRemoveTagsResponse ::
   RemoveTagsResponse
 newRemoveTagsResponse = RemoveTagsResponse'
 
-instance Prelude.NFData RemoveTagsResponse
+instance Prelude.NFData RemoveTagsResponse where
+  rnf _ = ()

@@ -62,9 +62,13 @@ instance Core.FromJSON Mpeg2FilterSettings where
             Prelude.<$> (x Core..:? "temporalFilterSettings")
       )
 
-instance Prelude.Hashable Mpeg2FilterSettings
+instance Prelude.Hashable Mpeg2FilterSettings where
+  hashWithSalt _salt Mpeg2FilterSettings' {..} =
+    _salt `Prelude.hashWithSalt` temporalFilterSettings
 
-instance Prelude.NFData Mpeg2FilterSettings
+instance Prelude.NFData Mpeg2FilterSettings where
+  rnf Mpeg2FilterSettings' {..} =
+    Prelude.rnf temporalFilterSettings
 
 instance Core.ToJSON Mpeg2FilterSettings where
   toJSON Mpeg2FilterSettings' {..} =

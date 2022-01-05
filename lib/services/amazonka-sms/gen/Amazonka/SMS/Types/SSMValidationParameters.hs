@@ -117,9 +117,23 @@ instance Core.FromJSON SSMValidationParameters where
             Prelude.<*> (x Core..:? "outputS3BucketName")
       )
 
-instance Prelude.Hashable SSMValidationParameters
+instance Prelude.Hashable SSMValidationParameters where
+  hashWithSalt _salt SSMValidationParameters' {..} =
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` executionTimeoutSeconds
+      `Prelude.hashWithSalt` scriptType
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` outputS3BucketName
 
-instance Prelude.NFData SSMValidationParameters
+instance Prelude.NFData SSMValidationParameters where
+  rnf SSMValidationParameters' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf executionTimeoutSeconds
+      `Prelude.seq` Prelude.rnf scriptType
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf outputS3BucketName
 
 instance Core.ToJSON SSMValidationParameters where
   toJSON SSMValidationParameters' {..} =

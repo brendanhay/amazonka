@@ -120,9 +120,17 @@ instance Core.AWSRequest ListConfigurationProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConfigurationProfiles
+instance Prelude.Hashable ListConfigurationProfiles where
+  hashWithSalt _salt ListConfigurationProfiles' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData ListConfigurationProfiles
+instance Prelude.NFData ListConfigurationProfiles where
+  rnf ListConfigurationProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders ListConfigurationProfiles where
   toHeaders =
@@ -204,3 +212,8 @@ listConfigurationProfilesResponse_httpStatus = Lens.lens (\ListConfigurationProf
 instance
   Prelude.NFData
     ListConfigurationProfilesResponse
+  where
+  rnf ListConfigurationProfilesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -58,10 +58,18 @@ phase2EncryptionAlgorithmsRequestListValue_value = Lens.lens (\Phase2EncryptionA
 instance
   Prelude.Hashable
     Phase2EncryptionAlgorithmsRequestListValue
+  where
+  hashWithSalt
+    _salt
+    Phase2EncryptionAlgorithmsRequestListValue' {..} =
+      _salt `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     Phase2EncryptionAlgorithmsRequestListValue
+  where
+  rnf Phase2EncryptionAlgorithmsRequestListValue' {..} =
+    Prelude.rnf value
 
 instance
   Core.ToQuery

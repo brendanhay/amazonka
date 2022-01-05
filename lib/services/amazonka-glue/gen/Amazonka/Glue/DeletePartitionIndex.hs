@@ -129,9 +129,19 @@ instance Core.AWSRequest DeletePartitionIndex where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePartitionIndex
+instance Prelude.Hashable DeletePartitionIndex where
+  hashWithSalt _salt DeletePartitionIndex' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData DeletePartitionIndex
+instance Prelude.NFData DeletePartitionIndex where
+  rnf DeletePartitionIndex' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToHeaders DeletePartitionIndex where
   toHeaders =
@@ -195,4 +205,6 @@ newDeletePartitionIndexResponse pHttpStatus_ =
 deletePartitionIndexResponse_httpStatus :: Lens.Lens' DeletePartitionIndexResponse Prelude.Int
 deletePartitionIndexResponse_httpStatus = Lens.lens (\DeletePartitionIndexResponse' {httpStatus} -> httpStatus) (\s@DeletePartitionIndexResponse' {} a -> s {httpStatus = a} :: DeletePartitionIndexResponse)
 
-instance Prelude.NFData DeletePartitionIndexResponse
+instance Prelude.NFData DeletePartitionIndexResponse where
+  rnf DeletePartitionIndexResponse' {..} =
+    Prelude.rnf httpStatus

@@ -91,9 +91,12 @@ instance Core.AWSRequest UpdatePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline where
+  hashWithSalt _salt UpdatePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipeline
 
-instance Prelude.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline where
+  rnf UpdatePipeline' {..} = Prelude.rnf pipeline
 
 instance Core.ToHeaders UpdatePipeline where
   toHeaders =
@@ -163,4 +166,7 @@ updatePipelineResponse_pipeline = Lens.lens (\UpdatePipelineResponse' {pipeline}
 updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Prelude.Int
 updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineResponse' {} a -> s {httpStatus = a} :: UpdatePipelineResponse)
 
-instance Prelude.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse where
+  rnf UpdatePipelineResponse' {..} =
+    Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf httpStatus

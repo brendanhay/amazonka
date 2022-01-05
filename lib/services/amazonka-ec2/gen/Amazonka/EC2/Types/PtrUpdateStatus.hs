@@ -78,6 +78,14 @@ instance Core.FromXML PtrUpdateStatus where
       Prelude.<*> (x Core..@? "value")
       Prelude.<*> (x Core..@? "reason")
 
-instance Prelude.Hashable PtrUpdateStatus
+instance Prelude.Hashable PtrUpdateStatus where
+  hashWithSalt _salt PtrUpdateStatus' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData PtrUpdateStatus
+instance Prelude.NFData PtrUpdateStatus where
+  rnf PtrUpdateStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf reason

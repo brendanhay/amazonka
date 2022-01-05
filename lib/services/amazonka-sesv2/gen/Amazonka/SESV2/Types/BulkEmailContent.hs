@@ -52,9 +52,12 @@ newBulkEmailContent =
 bulkEmailContent_template :: Lens.Lens' BulkEmailContent (Prelude.Maybe Template)
 bulkEmailContent_template = Lens.lens (\BulkEmailContent' {template} -> template) (\s@BulkEmailContent' {} a -> s {template = a} :: BulkEmailContent)
 
-instance Prelude.Hashable BulkEmailContent
+instance Prelude.Hashable BulkEmailContent where
+  hashWithSalt _salt BulkEmailContent' {..} =
+    _salt `Prelude.hashWithSalt` template
 
-instance Prelude.NFData BulkEmailContent
+instance Prelude.NFData BulkEmailContent where
+  rnf BulkEmailContent' {..} = Prelude.rnf template
 
 instance Core.ToJSON BulkEmailContent where
   toJSON BulkEmailContent' {..} =

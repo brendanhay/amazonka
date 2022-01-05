@@ -72,9 +72,15 @@ instance Core.FromJSON EmailSettings where
             Prelude.<*> (x Core..:? "emailMessage")
       )
 
-instance Prelude.Hashable EmailSettings
+instance Prelude.Hashable EmailSettings where
+  hashWithSalt _salt EmailSettings' {..} =
+    _salt `Prelude.hashWithSalt` emailSubject
+      `Prelude.hashWithSalt` emailMessage
 
-instance Prelude.NFData EmailSettings
+instance Prelude.NFData EmailSettings where
+  rnf EmailSettings' {..} =
+    Prelude.rnf emailSubject
+      `Prelude.seq` Prelude.rnf emailMessage
 
 instance Core.ToJSON EmailSettings where
   toJSON EmailSettings' {..} =

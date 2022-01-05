@@ -141,9 +141,21 @@ instance Core.AWSRequest CreateEnvironment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateEnvironment
+instance Prelude.Hashable CreateEnvironment where
+  hashWithSalt _salt CreateEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` monitors
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateEnvironment
+instance Prelude.NFData CreateEnvironment where
+  rnf CreateEnvironment' {..} =
+    Prelude.rnf monitors
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateEnvironment where
   toHeaders =

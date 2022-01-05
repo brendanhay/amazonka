@@ -139,9 +139,17 @@ instance Core.AWSRequest ListDomainConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomainConfigurations
+instance Prelude.Hashable ListDomainConfigurations where
+  hashWithSalt _salt ListDomainConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListDomainConfigurations
+instance Prelude.NFData ListDomainConfigurations where
+  rnf ListDomainConfigurations' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListDomainConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,3 +219,8 @@ listDomainConfigurationsResponse_httpStatus = Lens.lens (\ListDomainConfiguratio
 instance
   Prelude.NFData
     ListDomainConfigurationsResponse
+  where
+  rnf ListDomainConfigurationsResponse' {..} =
+    Prelude.rnf domainConfigurations
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus

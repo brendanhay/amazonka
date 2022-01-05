@@ -57,9 +57,12 @@ newCodeSource pS3_ = CodeSource' {s3 = pS3_}
 codeSource_s3 :: Lens.Lens' CodeSource S3Location
 codeSource_s3 = Lens.lens (\CodeSource' {s3} -> s3) (\s@CodeSource' {} a -> s {s3 = a} :: CodeSource)
 
-instance Prelude.Hashable CodeSource
+instance Prelude.Hashable CodeSource where
+  hashWithSalt _salt CodeSource' {..} =
+    _salt `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData CodeSource
+instance Prelude.NFData CodeSource where
+  rnf CodeSource' {..} = Prelude.rnf s3
 
 instance Core.ToJSON CodeSource where
   toJSON CodeSource' {..} =

@@ -116,9 +116,19 @@ instance Core.AWSRequest UpdatePreset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePreset
+instance Prelude.Hashable UpdatePreset where
+  hashWithSalt _salt UpdatePreset' {..} =
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdatePreset
+instance Prelude.NFData UpdatePreset where
+  rnf UpdatePreset' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdatePreset where
   toHeaders =
@@ -193,4 +203,7 @@ updatePresetResponse_preset = Lens.lens (\UpdatePresetResponse' {preset} -> pres
 updatePresetResponse_httpStatus :: Lens.Lens' UpdatePresetResponse Prelude.Int
 updatePresetResponse_httpStatus = Lens.lens (\UpdatePresetResponse' {httpStatus} -> httpStatus) (\s@UpdatePresetResponse' {} a -> s {httpStatus = a} :: UpdatePresetResponse)
 
-instance Prelude.NFData UpdatePresetResponse
+instance Prelude.NFData UpdatePresetResponse where
+  rnf UpdatePresetResponse' {..} =
+    Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf httpStatus

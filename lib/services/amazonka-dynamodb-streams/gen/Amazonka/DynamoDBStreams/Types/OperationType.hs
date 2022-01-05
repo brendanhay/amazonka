@@ -28,6 +28,7 @@ module Amazonka.DynamoDBStreams.Types.OperationType
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype OperationType = OperationType'

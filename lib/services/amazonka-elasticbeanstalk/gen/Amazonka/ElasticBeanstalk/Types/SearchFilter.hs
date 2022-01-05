@@ -91,9 +91,17 @@ searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFi
 searchFilter_operator :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
 searchFilter_operator = Lens.lens (\SearchFilter' {operator} -> operator) (\s@SearchFilter' {} a -> s {operator = a} :: SearchFilter)
 
-instance Prelude.Hashable SearchFilter
+instance Prelude.Hashable SearchFilter where
+  hashWithSalt _salt SearchFilter' {..} =
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData SearchFilter
+instance Prelude.NFData SearchFilter where
+  rnf SearchFilter' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToQuery SearchFilter where
   toQuery SearchFilter' {..} =

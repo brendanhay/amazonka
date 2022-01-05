@@ -132,9 +132,21 @@ instance Core.AWSRequest UpdateStudio where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateStudioResponse'
 
-instance Prelude.Hashable UpdateStudio
+instance Prelude.Hashable UpdateStudio where
+  hashWithSalt _salt UpdateStudio' {..} =
+    _salt `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` defaultS3Location
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData UpdateStudio
+instance Prelude.NFData UpdateStudio where
+  rnf UpdateStudio' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf defaultS3Location
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateStudio where
   toHeaders =
@@ -184,4 +196,5 @@ newUpdateStudioResponse ::
   UpdateStudioResponse
 newUpdateStudioResponse = UpdateStudioResponse'
 
-instance Prelude.NFData UpdateStudioResponse
+instance Prelude.NFData UpdateStudioResponse where
+  rnf _ = ()

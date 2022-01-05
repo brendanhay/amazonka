@@ -179,6 +179,16 @@ instance Core.FromJSON ListedAccess where
             Prelude.<*> (x Core..:? "HomeDirectory")
       )
 
-instance Prelude.Hashable ListedAccess
+instance Prelude.Hashable ListedAccess where
+  hashWithSalt _salt ListedAccess' {..} =
+    _salt `Prelude.hashWithSalt` homeDirectoryType
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` homeDirectory
 
-instance Prelude.NFData ListedAccess
+instance Prelude.NFData ListedAccess where
+  rnf ListedAccess' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf homeDirectory

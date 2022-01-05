@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRun
+instance Prelude.Hashable DeleteRun where
+  hashWithSalt _salt DeleteRun' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteRun
+instance Prelude.NFData DeleteRun where
+  rnf DeleteRun' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteRun where
   toHeaders =
@@ -146,4 +149,5 @@ newDeleteRunResponse pHttpStatus_ =
 deleteRunResponse_httpStatus :: Lens.Lens' DeleteRunResponse Prelude.Int
 deleteRunResponse_httpStatus = Lens.lens (\DeleteRunResponse' {httpStatus} -> httpStatus) (\s@DeleteRunResponse' {} a -> s {httpStatus = a} :: DeleteRunResponse)
 
-instance Prelude.NFData DeleteRunResponse
+instance Prelude.NFData DeleteRunResponse where
+  rnf DeleteRunResponse' {..} = Prelude.rnf httpStatus

@@ -86,9 +86,12 @@ instance Core.AWSRequest FlushApiCache where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FlushApiCache
+instance Prelude.Hashable FlushApiCache where
+  hashWithSalt _salt FlushApiCache' {..} =
+    _salt `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData FlushApiCache
+instance Prelude.NFData FlushApiCache where
+  rnf FlushApiCache' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders FlushApiCache where
   toHeaders =
@@ -138,4 +141,6 @@ newFlushApiCacheResponse pHttpStatus_ =
 flushApiCacheResponse_httpStatus :: Lens.Lens' FlushApiCacheResponse Prelude.Int
 flushApiCacheResponse_httpStatus = Lens.lens (\FlushApiCacheResponse' {httpStatus} -> httpStatus) (\s@FlushApiCacheResponse' {} a -> s {httpStatus = a} :: FlushApiCacheResponse)
 
-instance Prelude.NFData FlushApiCacheResponse
+instance Prelude.NFData FlushApiCacheResponse where
+  rnf FlushApiCacheResponse' {..} =
+    Prelude.rnf httpStatus

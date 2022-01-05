@@ -172,9 +172,25 @@ instance Core.AWSRequest PutSigningProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSigningProfile
+instance Prelude.Hashable PutSigningProfile where
+  hashWithSalt _salt PutSigningProfile' {..} =
+    _salt `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` signingMaterial
+      `Prelude.hashWithSalt` signatureValidityPeriod
+      `Prelude.hashWithSalt` signingParameters
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` platformId
 
-instance Prelude.NFData PutSigningProfile
+instance Prelude.NFData PutSigningProfile where
+  rnf PutSigningProfile' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf signingMaterial
+      `Prelude.seq` Prelude.rnf signatureValidityPeriod
+      `Prelude.seq` Prelude.rnf signingParameters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf platformId
 
 instance Core.ToHeaders PutSigningProfile where
   toHeaders =
@@ -267,4 +283,9 @@ putSigningProfileResponse_profileVersionArn = Lens.lens (\PutSigningProfileRespo
 putSigningProfileResponse_httpStatus :: Lens.Lens' PutSigningProfileResponse Prelude.Int
 putSigningProfileResponse_httpStatus = Lens.lens (\PutSigningProfileResponse' {httpStatus} -> httpStatus) (\s@PutSigningProfileResponse' {} a -> s {httpStatus = a} :: PutSigningProfileResponse)
 
-instance Prelude.NFData PutSigningProfileResponse
+instance Prelude.NFData PutSigningProfileResponse where
+  rnf PutSigningProfileResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf profileVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

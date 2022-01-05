@@ -61,9 +61,14 @@ keyValue_value = Lens.lens (\KeyValue' {value} -> value) (\s@KeyValue' {} a -> s
 keyValue_key :: Lens.Lens' KeyValue (Prelude.Maybe Prelude.Text)
 keyValue_key = Lens.lens (\KeyValue' {key} -> key) (\s@KeyValue' {} a -> s {key = a} :: KeyValue)
 
-instance Prelude.Hashable KeyValue
+instance Prelude.Hashable KeyValue where
+  hashWithSalt _salt KeyValue' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData KeyValue
+instance Prelude.NFData KeyValue where
+  rnf KeyValue' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON KeyValue where
   toJSON KeyValue' {..} =

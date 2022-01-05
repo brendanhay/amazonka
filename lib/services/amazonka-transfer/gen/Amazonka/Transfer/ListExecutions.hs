@@ -166,9 +166,17 @@ instance Core.AWSRequest ListExecutions where
             Prelude.<*> (x Core..?> "Executions" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListExecutions
+instance Prelude.Hashable ListExecutions where
+  hashWithSalt _salt ListExecutions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData ListExecutions
+instance Prelude.NFData ListExecutions where
+  rnf ListExecutions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workflowId
 
 instance Core.ToHeaders ListExecutions where
   toHeaders =
@@ -302,4 +310,9 @@ listExecutionsResponse_workflowId = Lens.lens (\ListExecutionsResponse' {workflo
 listExecutionsResponse_executions :: Lens.Lens' ListExecutionsResponse [ListedExecution]
 listExecutionsResponse_executions = Lens.lens (\ListExecutionsResponse' {executions} -> executions) (\s@ListExecutionsResponse' {} a -> s {executions = a} :: ListExecutionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListExecutionsResponse
+instance Prelude.NFData ListExecutionsResponse where
+  rnf ListExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf executions

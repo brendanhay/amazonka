@@ -71,6 +71,12 @@ instance Core.FromJSON DatasetEntry where
             Prelude.<*> (x Core..:? "dataURI")
       )
 
-instance Prelude.Hashable DatasetEntry
+instance Prelude.Hashable DatasetEntry where
+  hashWithSalt _salt DatasetEntry' {..} =
+    _salt `Prelude.hashWithSalt` entryName
+      `Prelude.hashWithSalt` dataURI
 
-instance Prelude.NFData DatasetEntry
+instance Prelude.NFData DatasetEntry where
+  rnf DatasetEntry' {..} =
+    Prelude.rnf entryName
+      `Prelude.seq` Prelude.rnf dataURI

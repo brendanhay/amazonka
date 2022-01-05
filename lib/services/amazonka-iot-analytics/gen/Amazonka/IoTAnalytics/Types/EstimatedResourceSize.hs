@@ -72,6 +72,12 @@ instance Core.FromJSON EstimatedResourceSize where
             Prelude.<*> (x Core..:? "estimatedSizeInBytes")
       )
 
-instance Prelude.Hashable EstimatedResourceSize
+instance Prelude.Hashable EstimatedResourceSize where
+  hashWithSalt _salt EstimatedResourceSize' {..} =
+    _salt `Prelude.hashWithSalt` estimatedOn
+      `Prelude.hashWithSalt` estimatedSizeInBytes
 
-instance Prelude.NFData EstimatedResourceSize
+instance Prelude.NFData EstimatedResourceSize where
+  rnf EstimatedResourceSize' {..} =
+    Prelude.rnf estimatedOn
+      `Prelude.seq` Prelude.rnf estimatedSizeInBytes

@@ -222,10 +222,26 @@ instance
 instance
   Prelude.Hashable
     CreateAutoScalingConfiguration
+  where
+  hashWithSalt
+    _salt
+    CreateAutoScalingConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` maxSize
+        `Prelude.hashWithSalt` minSize
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` maxConcurrency
+        `Prelude.hashWithSalt` autoScalingConfigurationName
 
 instance
   Prelude.NFData
     CreateAutoScalingConfiguration
+  where
+  rnf CreateAutoScalingConfiguration' {..} =
+    Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
 
 instance
   Core.ToHeaders
@@ -317,3 +333,7 @@ createAutoScalingConfigurationResponse_autoScalingConfiguration = Lens.lens (\Cr
 instance
   Prelude.NFData
     CreateAutoScalingConfigurationResponse
+  where
+  rnf CreateAutoScalingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoScalingConfiguration

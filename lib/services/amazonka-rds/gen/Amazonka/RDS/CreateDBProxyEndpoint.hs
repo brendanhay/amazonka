@@ -165,9 +165,23 @@ instance Core.AWSRequest CreateDBProxyEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBProxyEndpoint
+instance Prelude.Hashable CreateDBProxyEndpoint where
+  hashWithSalt _salt CreateDBProxyEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` targetRole
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` dbProxyEndpointName
+      `Prelude.hashWithSalt` vpcSubnetIds
 
-instance Prelude.NFData CreateDBProxyEndpoint
+instance Prelude.NFData CreateDBProxyEndpoint where
+  rnf CreateDBProxyEndpoint' {..} =
+    Prelude.rnf targetRole
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf dbProxyEndpointName
+      `Prelude.seq` Prelude.rnf vpcSubnetIds
 
 instance Core.ToHeaders CreateDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,4 +259,7 @@ createDBProxyEndpointResponse_dbProxyEndpoint = Lens.lens (\CreateDBProxyEndpoin
 createDBProxyEndpointResponse_httpStatus :: Lens.Lens' CreateDBProxyEndpointResponse Prelude.Int
 createDBProxyEndpointResponse_httpStatus = Lens.lens (\CreateDBProxyEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateDBProxyEndpointResponse' {} a -> s {httpStatus = a} :: CreateDBProxyEndpointResponse)
 
-instance Prelude.NFData CreateDBProxyEndpointResponse
+instance Prelude.NFData CreateDBProxyEndpointResponse where
+  rnf CreateDBProxyEndpointResponse' {..} =
+    Prelude.rnf dbProxyEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,9 +82,15 @@ instance Core.FromJSON JobScopeTerm where
             Prelude.<*> (x Core..:? "tagScopeTerm")
       )
 
-instance Prelude.Hashable JobScopeTerm
+instance Prelude.Hashable JobScopeTerm where
+  hashWithSalt _salt JobScopeTerm' {..} =
+    _salt `Prelude.hashWithSalt` simpleScopeTerm
+      `Prelude.hashWithSalt` tagScopeTerm
 
-instance Prelude.NFData JobScopeTerm
+instance Prelude.NFData JobScopeTerm where
+  rnf JobScopeTerm' {..} =
+    Prelude.rnf simpleScopeTerm
+      `Prelude.seq` Prelude.rnf tagScopeTerm
 
 instance Core.ToJSON JobScopeTerm where
   toJSON JobScopeTerm' {..} =

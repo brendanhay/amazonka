@@ -144,6 +144,17 @@ instance Core.FromJSON StandardsSubscription where
             Prelude.<*> (x Core..: "StandardsStatus")
       )
 
-instance Prelude.Hashable StandardsSubscription
+instance Prelude.Hashable StandardsSubscription where
+  hashWithSalt _salt StandardsSubscription' {..} =
+    _salt
+      `Prelude.hashWithSalt` standardsSubscriptionArn
+      `Prelude.hashWithSalt` standardsArn
+      `Prelude.hashWithSalt` standardsInput
+      `Prelude.hashWithSalt` standardsStatus
 
-instance Prelude.NFData StandardsSubscription
+instance Prelude.NFData StandardsSubscription where
+  rnf StandardsSubscription' {..} =
+    Prelude.rnf standardsSubscriptionArn
+      `Prelude.seq` Prelude.rnf standardsArn
+      `Prelude.seq` Prelude.rnf standardsInput
+      `Prelude.seq` Prelude.rnf standardsStatus

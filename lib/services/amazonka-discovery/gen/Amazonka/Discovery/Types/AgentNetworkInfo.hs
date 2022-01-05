@@ -71,6 +71,12 @@ instance Core.FromJSON AgentNetworkInfo where
             Prelude.<*> (x Core..:? "macAddress")
       )
 
-instance Prelude.Hashable AgentNetworkInfo
+instance Prelude.Hashable AgentNetworkInfo where
+  hashWithSalt _salt AgentNetworkInfo' {..} =
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` macAddress
 
-instance Prelude.NFData AgentNetworkInfo
+instance Prelude.NFData AgentNetworkInfo where
+  rnf AgentNetworkInfo' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf macAddress

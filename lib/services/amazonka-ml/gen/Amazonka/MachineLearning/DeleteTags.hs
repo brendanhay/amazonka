@@ -113,9 +113,17 @@ instance Core.AWSRequest DeleteTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags where
+  hashWithSalt _salt DeleteTags' {..} =
+    _salt `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData DeleteTags
+instance Prelude.NFData DeleteTags where
+  rnf DeleteTags' {..} =
+    Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToHeaders DeleteTags where
   toHeaders =
@@ -197,4 +205,8 @@ deleteTagsResponse_resourceType = Lens.lens (\DeleteTagsResponse' {resourceType}
 deleteTagsResponse_httpStatus :: Lens.Lens' DeleteTagsResponse Prelude.Int
 deleteTagsResponse_httpStatus = Lens.lens (\DeleteTagsResponse' {httpStatus} -> httpStatus) (\s@DeleteTagsResponse' {} a -> s {httpStatus = a} :: DeleteTagsResponse)
 
-instance Prelude.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse where
+  rnf DeleteTagsResponse' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,6 +65,10 @@ instance Core.FromJSON InAppMessagesResponse where
                         )
       )
 
-instance Prelude.Hashable InAppMessagesResponse
+instance Prelude.Hashable InAppMessagesResponse where
+  hashWithSalt _salt InAppMessagesResponse' {..} =
+    _salt `Prelude.hashWithSalt` inAppMessageCampaigns
 
-instance Prelude.NFData InAppMessagesResponse
+instance Prelude.NFData InAppMessagesResponse where
+  rnf InAppMessagesResponse' {..} =
+    Prelude.rnf inAppMessageCampaigns

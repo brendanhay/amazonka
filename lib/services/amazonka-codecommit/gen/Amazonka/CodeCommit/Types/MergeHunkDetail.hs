@@ -85,6 +85,14 @@ instance Core.FromJSON MergeHunkDetail where
             Prelude.<*> (x Core..:? "hunkContent")
       )
 
-instance Prelude.Hashable MergeHunkDetail
+instance Prelude.Hashable MergeHunkDetail where
+  hashWithSalt _salt MergeHunkDetail' {..} =
+    _salt `Prelude.hashWithSalt` startLine
+      `Prelude.hashWithSalt` endLine
+      `Prelude.hashWithSalt` hunkContent
 
-instance Prelude.NFData MergeHunkDetail
+instance Prelude.NFData MergeHunkDetail where
+  rnf MergeHunkDetail' {..} =
+    Prelude.rnf startLine
+      `Prelude.seq` Prelude.rnf endLine
+      `Prelude.seq` Prelude.rnf hunkContent

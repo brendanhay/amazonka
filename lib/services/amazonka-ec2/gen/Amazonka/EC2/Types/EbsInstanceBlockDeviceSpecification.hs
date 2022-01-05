@@ -67,10 +67,20 @@ ebsInstanceBlockDeviceSpecification_volumeId = Lens.lens (\EbsInstanceBlockDevic
 instance
   Prelude.Hashable
     EbsInstanceBlockDeviceSpecification
+  where
+  hashWithSalt
+    _salt
+    EbsInstanceBlockDeviceSpecification' {..} =
+      _salt `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` volumeId
 
 instance
   Prelude.NFData
     EbsInstanceBlockDeviceSpecification
+  where
+  rnf EbsInstanceBlockDeviceSpecification' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance
   Core.ToQuery

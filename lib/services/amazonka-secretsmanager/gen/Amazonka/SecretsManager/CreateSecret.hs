@@ -660,9 +660,29 @@ instance Core.AWSRequest CreateSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSecret
+instance Prelude.Hashable CreateSecret where
+  hashWithSalt _salt CreateSecret' {..} =
+    _salt `Prelude.hashWithSalt` addReplicaRegions
+      `Prelude.hashWithSalt` secretBinary
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` forceOverwriteReplicaSecret
+      `Prelude.hashWithSalt` secretString
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateSecret
+instance Prelude.NFData CreateSecret where
+  rnf CreateSecret' {..} =
+    Prelude.rnf addReplicaRegions
+      `Prelude.seq` Prelude.rnf secretBinary
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf forceOverwriteReplicaSecret
+      `Prelude.seq` Prelude.rnf secretString
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateSecret where
   toHeaders =
@@ -799,4 +819,10 @@ createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {repl
 createSecretResponse_httpStatus :: Lens.Lens' CreateSecretResponse Prelude.Int
 createSecretResponse_httpStatus = Lens.lens (\CreateSecretResponse' {httpStatus} -> httpStatus) (\s@CreateSecretResponse' {} a -> s {httpStatus = a} :: CreateSecretResponse)
 
-instance Prelude.NFData CreateSecretResponse
+instance Prelude.NFData CreateSecretResponse where
+  rnf CreateSecretResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf httpStatus

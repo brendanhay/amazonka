@@ -80,9 +80,12 @@ instance Core.AWSRequest StopStack where
   request = Request.postJSON defaultService
   response = Response.receiveNull StopStackResponse'
 
-instance Prelude.Hashable StopStack
+instance Prelude.Hashable StopStack where
+  hashWithSalt _salt StopStack' {..} =
+    _salt `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData StopStack
+instance Prelude.NFData StopStack where
+  rnf StopStack' {..} = Prelude.rnf stackId
 
 instance Core.ToHeaders StopStack where
   toHeaders =
@@ -126,4 +129,5 @@ newStopStackResponse ::
   StopStackResponse
 newStopStackResponse = StopStackResponse'
 
-instance Prelude.NFData StopStackResponse
+instance Prelude.NFData StopStackResponse where
+  rnf _ = ()

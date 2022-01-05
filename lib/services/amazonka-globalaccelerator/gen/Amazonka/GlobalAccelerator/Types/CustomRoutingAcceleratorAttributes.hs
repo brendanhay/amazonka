@@ -139,7 +139,19 @@ instance
 instance
   Prelude.Hashable
     CustomRoutingAcceleratorAttributes
+  where
+  hashWithSalt
+    _salt
+    CustomRoutingAcceleratorAttributes' {..} =
+      _salt `Prelude.hashWithSalt` flowLogsS3Prefix
+        `Prelude.hashWithSalt` flowLogsEnabled
+        `Prelude.hashWithSalt` flowLogsS3Bucket
 
 instance
   Prelude.NFData
     CustomRoutingAcceleratorAttributes
+  where
+  rnf CustomRoutingAcceleratorAttributes' {..} =
+    Prelude.rnf flowLogsS3Prefix
+      `Prelude.seq` Prelude.rnf flowLogsEnabled
+      `Prelude.seq` Prelude.rnf flowLogsS3Bucket

@@ -132,6 +132,24 @@ instance Core.FromJSON MediaPlacement where
             Prelude.<*> (x Core..:? "TurnControlUrl")
       )
 
-instance Prelude.Hashable MediaPlacement
+instance Prelude.Hashable MediaPlacement where
+  hashWithSalt _salt MediaPlacement' {..} =
+    _salt `Prelude.hashWithSalt` screenDataUrl
+      `Prelude.hashWithSalt` eventIngestionUrl
+      `Prelude.hashWithSalt` signalingUrl
+      `Prelude.hashWithSalt` screenSharingUrl
+      `Prelude.hashWithSalt` screenViewingUrl
+      `Prelude.hashWithSalt` audioHostUrl
+      `Prelude.hashWithSalt` audioFallbackUrl
+      `Prelude.hashWithSalt` turnControlUrl
 
-instance Prelude.NFData MediaPlacement
+instance Prelude.NFData MediaPlacement where
+  rnf MediaPlacement' {..} =
+    Prelude.rnf screenDataUrl
+      `Prelude.seq` Prelude.rnf eventIngestionUrl
+      `Prelude.seq` Prelude.rnf signalingUrl
+      `Prelude.seq` Prelude.rnf screenSharingUrl
+      `Prelude.seq` Prelude.rnf screenViewingUrl
+      `Prelude.seq` Prelude.rnf audioHostUrl
+      `Prelude.seq` Prelude.rnf audioFallbackUrl
+      `Prelude.seq` Prelude.rnf turnControlUrl

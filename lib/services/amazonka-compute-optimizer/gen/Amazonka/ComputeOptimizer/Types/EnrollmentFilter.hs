@@ -79,9 +79,14 @@ enrollmentFilter_values = Lens.lens (\EnrollmentFilter' {values} -> values) (\s@
 enrollmentFilter_name :: Lens.Lens' EnrollmentFilter (Prelude.Maybe EnrollmentFilterName)
 enrollmentFilter_name = Lens.lens (\EnrollmentFilter' {name} -> name) (\s@EnrollmentFilter' {} a -> s {name = a} :: EnrollmentFilter)
 
-instance Prelude.Hashable EnrollmentFilter
+instance Prelude.Hashable EnrollmentFilter where
+  hashWithSalt _salt EnrollmentFilter' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData EnrollmentFilter
+instance Prelude.NFData EnrollmentFilter where
+  rnf EnrollmentFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EnrollmentFilter where
   toJSON EnrollmentFilter' {..} =

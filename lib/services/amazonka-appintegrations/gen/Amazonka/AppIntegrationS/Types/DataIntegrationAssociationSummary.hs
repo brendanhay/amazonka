@@ -92,7 +92,19 @@ instance
 instance
   Prelude.Hashable
     DataIntegrationAssociationSummary
+  where
+  hashWithSalt
+    _salt
+    DataIntegrationAssociationSummary' {..} =
+      _salt `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` dataIntegrationAssociationArn
+        `Prelude.hashWithSalt` dataIntegrationArn
 
 instance
   Prelude.NFData
     DataIntegrationAssociationSummary
+  where
+  rnf DataIntegrationAssociationSummary' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf dataIntegrationAssociationArn
+      `Prelude.seq` Prelude.rnf dataIntegrationArn

@@ -220,9 +220,25 @@ instance Core.AWSRequest GetResourceConfigHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceConfigHistory
+instance Prelude.Hashable GetResourceConfigHistory where
+  hashWithSalt _salt GetResourceConfigHistory' {..} =
+    _salt `Prelude.hashWithSalt` chronologicalOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` laterTime
+      `Prelude.hashWithSalt` earlierTime
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData GetResourceConfigHistory
+instance Prelude.NFData GetResourceConfigHistory where
+  rnf GetResourceConfigHistory' {..} =
+    Prelude.rnf chronologicalOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf laterTime
+      `Prelude.seq` Prelude.rnf earlierTime
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders GetResourceConfigHistory where
   toHeaders =
@@ -316,3 +332,8 @@ getResourceConfigHistoryResponse_httpStatus = Lens.lens (\GetResourceConfigHisto
 instance
   Prelude.NFData
     GetResourceConfigHistoryResponse
+  where
+  rnf GetResourceConfigHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configurationItems
+      `Prelude.seq` Prelude.rnf httpStatus

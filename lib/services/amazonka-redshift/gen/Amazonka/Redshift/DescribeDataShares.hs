@@ -139,9 +139,17 @@ instance Core.AWSRequest DescribeDataShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataShares
+instance Prelude.Hashable DescribeDataShares where
+  hashWithSalt _salt DescribeDataShares' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` dataShareArn
 
-instance Prelude.NFData DescribeDataShares
+instance Prelude.NFData DescribeDataShares where
+  rnf DescribeDataShares' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf dataShareArn
 
 instance Core.ToHeaders DescribeDataShares where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,4 +232,8 @@ describeDataSharesResponse_dataShares = Lens.lens (\DescribeDataSharesResponse' 
 describeDataSharesResponse_httpStatus :: Lens.Lens' DescribeDataSharesResponse Prelude.Int
 describeDataSharesResponse_httpStatus = Lens.lens (\DescribeDataSharesResponse' {httpStatus} -> httpStatus) (\s@DescribeDataSharesResponse' {} a -> s {httpStatus = a} :: DescribeDataSharesResponse)
 
-instance Prelude.NFData DescribeDataSharesResponse
+instance Prelude.NFData DescribeDataSharesResponse where
+  rnf DescribeDataSharesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dataShares
+      `Prelude.seq` Prelude.rnf httpStatus

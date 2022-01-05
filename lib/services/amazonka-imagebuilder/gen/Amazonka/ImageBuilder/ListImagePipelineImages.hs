@@ -142,9 +142,19 @@ instance Core.AWSRequest ListImagePipelineImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImagePipelineImages
+instance Prelude.Hashable ListImagePipelineImages where
+  hashWithSalt _salt ListImagePipelineImages' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` imagePipelineArn
 
-instance Prelude.NFData ListImagePipelineImages
+instance Prelude.NFData ListImagePipelineImages where
+  rnf ListImagePipelineImages' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf imagePipelineArn
 
 instance Core.ToHeaders ListImagePipelineImages where
   toHeaders =
@@ -244,3 +254,9 @@ listImagePipelineImagesResponse_httpStatus = Lens.lens (\ListImagePipelineImages
 instance
   Prelude.NFData
     ListImagePipelineImagesResponse
+  where
+  rnf ListImagePipelineImagesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

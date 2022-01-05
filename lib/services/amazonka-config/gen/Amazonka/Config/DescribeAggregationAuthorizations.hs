@@ -141,10 +141,20 @@ instance
 instance
   Prelude.Hashable
     DescribeAggregationAuthorizations
+  where
+  hashWithSalt
+    _salt
+    DescribeAggregationAuthorizations' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
 
 instance
   Prelude.NFData
     DescribeAggregationAuthorizations
+  where
+  rnf DescribeAggregationAuthorizations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -246,3 +256,8 @@ describeAggregationAuthorizationsResponse_httpStatus = Lens.lens (\DescribeAggre
 instance
   Prelude.NFData
     DescribeAggregationAuthorizationsResponse
+  where
+  rnf DescribeAggregationAuthorizationsResponse' {..} =
+    Prelude.rnf aggregationAuthorizations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

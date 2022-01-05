@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.KeySchemaElement where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeyType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -130,6 +131,12 @@ instance Core.FromJSON KeySchemaElement where
             Prelude.<*> (x Core..: "KeyType")
       )
 
-instance Prelude.Hashable KeySchemaElement
+instance Prelude.Hashable KeySchemaElement where
+  hashWithSalt _salt KeySchemaElement' {..} =
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` keyType
 
-instance Prelude.NFData KeySchemaElement
+instance Prelude.NFData KeySchemaElement where
+  rnf KeySchemaElement' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf keyType

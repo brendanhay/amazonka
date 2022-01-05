@@ -84,9 +84,17 @@ opsItemEventFilter_values = Lens.lens (\OpsItemEventFilter' {values} -> values) 
 opsItemEventFilter_operator :: Lens.Lens' OpsItemEventFilter OpsItemEventFilterOperator
 opsItemEventFilter_operator = Lens.lens (\OpsItemEventFilter' {operator} -> operator) (\s@OpsItemEventFilter' {} a -> s {operator = a} :: OpsItemEventFilter)
 
-instance Prelude.Hashable OpsItemEventFilter
+instance Prelude.Hashable OpsItemEventFilter where
+  hashWithSalt _salt OpsItemEventFilter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData OpsItemEventFilter
+instance Prelude.NFData OpsItemEventFilter where
+  rnf OpsItemEventFilter' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON OpsItemEventFilter where
   toJSON OpsItemEventFilter' {..} =

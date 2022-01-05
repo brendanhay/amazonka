@@ -231,9 +231,19 @@ instance Core.AWSRequest ListSecretVersionIds where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecretVersionIds
+instance Prelude.Hashable ListSecretVersionIds where
+  hashWithSalt _salt ListSecretVersionIds' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` includeDeprecated
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData ListSecretVersionIds
+instance Prelude.NFData ListSecretVersionIds where
+  rnf ListSecretVersionIds' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf includeDeprecated
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf secretId
 
 instance Core.ToHeaders ListSecretVersionIds where
   toHeaders =
@@ -379,4 +389,10 @@ listSecretVersionIdsResponse_name = Lens.lens (\ListSecretVersionIdsResponse' {n
 listSecretVersionIdsResponse_httpStatus :: Lens.Lens' ListSecretVersionIdsResponse Prelude.Int
 listSecretVersionIdsResponse_httpStatus = Lens.lens (\ListSecretVersionIdsResponse' {httpStatus} -> httpStatus) (\s@ListSecretVersionIdsResponse' {} a -> s {httpStatus = a} :: ListSecretVersionIdsResponse)
 
-instance Prelude.NFData ListSecretVersionIdsResponse
+instance Prelude.NFData ListSecretVersionIdsResponse where
+  rnf ListSecretVersionIdsResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

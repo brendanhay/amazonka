@@ -145,6 +145,20 @@ instance Core.FromXML TrafficPolicy where
       Prelude.<*> (x Core..@ "Type")
       Prelude.<*> (x Core..@ "Document")
 
-instance Prelude.Hashable TrafficPolicy
+instance Prelude.Hashable TrafficPolicy where
+  hashWithSalt _salt TrafficPolicy' {..} =
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` document
 
-instance Prelude.NFData TrafficPolicy
+instance Prelude.NFData TrafficPolicy where
+  rnf TrafficPolicy' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf document

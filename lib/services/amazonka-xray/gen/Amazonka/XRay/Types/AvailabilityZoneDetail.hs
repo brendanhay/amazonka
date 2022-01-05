@@ -59,6 +59,9 @@ instance Core.FromJSON AvailabilityZoneDetail where
             Prelude.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AvailabilityZoneDetail
+instance Prelude.Hashable AvailabilityZoneDetail where
+  hashWithSalt _salt AvailabilityZoneDetail' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AvailabilityZoneDetail
+instance Prelude.NFData AvailabilityZoneDetail where
+  rnf AvailabilityZoneDetail' {..} = Prelude.rnf name

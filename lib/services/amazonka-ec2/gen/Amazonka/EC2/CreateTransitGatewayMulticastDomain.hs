@@ -140,10 +140,24 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayMulticastDomain
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayMulticastDomain' {..} =
+      _salt `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayId
 
 instance
   Prelude.NFData
     CreateTransitGatewayMulticastDomain
+  where
+  rnf CreateTransitGatewayMulticastDomain' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance
   Core.ToHeaders
@@ -221,3 +235,7 @@ createTransitGatewayMulticastDomainResponse_httpStatus = Lens.lens (\CreateTrans
 instance
   Prelude.NFData
     CreateTransitGatewayMulticastDomainResponse
+  where
+  rnf CreateTransitGatewayMulticastDomainResponse' {..} =
+    Prelude.rnf transitGatewayMulticastDomain
+      `Prelude.seq` Prelude.rnf httpStatus

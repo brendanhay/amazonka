@@ -345,6 +345,54 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt _salt Job' {..} =
+    _salt `Prelude.hashWithSalt` dataCatalogOutputs
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` recipeReference
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` databaseOutputs
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` jobSample
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf recipeReference
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf databaseOutputs
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf name

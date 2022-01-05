@@ -168,10 +168,26 @@ instance
 instance
   Prelude.Hashable
     DescribeBudgetPerformanceHistory
+  where
+  hashWithSalt
+    _salt
+    DescribeBudgetPerformanceHistory' {..} =
+      _salt `Prelude.hashWithSalt` timePeriod
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` budgetName
 
 instance
   Prelude.NFData
     DescribeBudgetPerformanceHistory
+  where
+  rnf DescribeBudgetPerformanceHistory' {..} =
+    Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance
   Core.ToHeaders
@@ -281,3 +297,8 @@ describeBudgetPerformanceHistoryResponse_httpStatus = Lens.lens (\DescribeBudget
 instance
   Prelude.NFData
     DescribeBudgetPerformanceHistoryResponse
+  where
+  rnf DescribeBudgetPerformanceHistoryResponse' {..} =
+    Prelude.rnf budgetPerformanceHistory
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

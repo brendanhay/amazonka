@@ -202,9 +202,19 @@ instance Core.AWSRequest StartInstanceRefresh where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartInstanceRefresh
+instance Prelude.Hashable StartInstanceRefresh where
+  hashWithSalt _salt StartInstanceRefresh' {..} =
+    _salt `Prelude.hashWithSalt` preferences
+      `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` desiredConfiguration
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData StartInstanceRefresh
+instance Prelude.NFData StartInstanceRefresh where
+  rnf StartInstanceRefresh' {..} =
+    Prelude.rnf preferences
+      `Prelude.seq` Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf desiredConfiguration
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders StartInstanceRefresh where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,4 +274,7 @@ startInstanceRefreshResponse_instanceRefreshId = Lens.lens (\StartInstanceRefres
 startInstanceRefreshResponse_httpStatus :: Lens.Lens' StartInstanceRefreshResponse Prelude.Int
 startInstanceRefreshResponse_httpStatus = Lens.lens (\StartInstanceRefreshResponse' {httpStatus} -> httpStatus) (\s@StartInstanceRefreshResponse' {} a -> s {httpStatus = a} :: StartInstanceRefreshResponse)
 
-instance Prelude.NFData StartInstanceRefreshResponse
+instance Prelude.NFData StartInstanceRefreshResponse where
+  rnf StartInstanceRefreshResponse' {..} =
+    Prelude.rnf instanceRefreshId
+      `Prelude.seq` Prelude.rnf httpStatus

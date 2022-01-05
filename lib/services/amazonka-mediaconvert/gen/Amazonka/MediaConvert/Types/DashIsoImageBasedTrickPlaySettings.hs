@@ -165,10 +165,28 @@ instance
 instance
   Prelude.Hashable
     DashIsoImageBasedTrickPlaySettings
+  where
+  hashWithSalt
+    _salt
+    DashIsoImageBasedTrickPlaySettings' {..} =
+      _salt `Prelude.hashWithSalt` tileWidth
+        `Prelude.hashWithSalt` thumbnailHeight
+        `Prelude.hashWithSalt` intervalCadence
+        `Prelude.hashWithSalt` thumbnailWidth
+        `Prelude.hashWithSalt` thumbnailInterval
+        `Prelude.hashWithSalt` tileHeight
 
 instance
   Prelude.NFData
     DashIsoImageBasedTrickPlaySettings
+  where
+  rnf DashIsoImageBasedTrickPlaySettings' {..} =
+    Prelude.rnf tileWidth
+      `Prelude.seq` Prelude.rnf thumbnailHeight
+      `Prelude.seq` Prelude.rnf intervalCadence
+      `Prelude.seq` Prelude.rnf thumbnailWidth
+      `Prelude.seq` Prelude.rnf thumbnailInterval
+      `Prelude.seq` Prelude.rnf tileHeight
 
 instance
   Core.ToJSON

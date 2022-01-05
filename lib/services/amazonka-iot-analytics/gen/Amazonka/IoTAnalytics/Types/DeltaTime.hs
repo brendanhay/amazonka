@@ -106,9 +106,15 @@ instance Core.FromJSON DeltaTime where
             Prelude.<*> (x Core..: "timeExpression")
       )
 
-instance Prelude.Hashable DeltaTime
+instance Prelude.Hashable DeltaTime where
+  hashWithSalt _salt DeltaTime' {..} =
+    _salt `Prelude.hashWithSalt` offsetSeconds
+      `Prelude.hashWithSalt` timeExpression
 
-instance Prelude.NFData DeltaTime
+instance Prelude.NFData DeltaTime where
+  rnf DeltaTime' {..} =
+    Prelude.rnf offsetSeconds
+      `Prelude.seq` Prelude.rnf timeExpression
 
 instance Core.ToJSON DeltaTime where
   toJSON DeltaTime' {..} =

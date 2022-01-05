@@ -121,10 +121,20 @@ instance
 instance
   Prelude.Hashable
     AcceptTransitGatewayVpcAttachment
+  where
+  hashWithSalt
+    _salt
+    AcceptTransitGatewayVpcAttachment' {..} =
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance
   Prelude.NFData
     AcceptTransitGatewayVpcAttachment
+  where
+  rnf AcceptTransitGatewayVpcAttachment' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
   Core.ToHeaders
@@ -198,3 +208,7 @@ acceptTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\AcceptTransit
 instance
   Prelude.NFData
     AcceptTransitGatewayVpcAttachmentResponse
+  where
+  rnf AcceptTransitGatewayVpcAttachmentResponse' {..} =
+    Prelude.rnf transitGatewayVpcAttachment
+      `Prelude.seq` Prelude.rnf httpStatus

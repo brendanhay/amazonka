@@ -110,9 +110,15 @@ instance Core.AWSRequest UntagPolicy where
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagPolicyResponse'
 
-instance Prelude.Hashable UntagPolicy
+instance Prelude.Hashable UntagPolicy where
+  hashWithSalt _salt UntagPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagPolicy
+instance Prelude.NFData UntagPolicy where
+  rnf UntagPolicy' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,4 +151,5 @@ newUntagPolicyResponse ::
   UntagPolicyResponse
 newUntagPolicyResponse = UntagPolicyResponse'
 
-instance Prelude.NFData UntagPolicyResponse
+instance Prelude.NFData UntagPolicyResponse where
+  rnf _ = ()

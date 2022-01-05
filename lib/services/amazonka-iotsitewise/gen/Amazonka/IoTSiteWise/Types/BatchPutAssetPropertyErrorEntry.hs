@@ -84,7 +84,17 @@ instance
 instance
   Prelude.Hashable
     BatchPutAssetPropertyErrorEntry
+  where
+  hashWithSalt
+    _salt
+    BatchPutAssetPropertyErrorEntry' {..} =
+      _salt `Prelude.hashWithSalt` entryId
+        `Prelude.hashWithSalt` errors
 
 instance
   Prelude.NFData
     BatchPutAssetPropertyErrorEntry
+  where
+  rnf BatchPutAssetPropertyErrorEntry' {..} =
+    Prelude.rnf entryId
+      `Prelude.seq` Prelude.rnf errors

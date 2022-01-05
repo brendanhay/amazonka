@@ -169,9 +169,21 @@ instance Core.AWSRequest UpdateScheduledAudit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateScheduledAudit
+instance Prelude.Hashable UpdateScheduledAudit where
+  hashWithSalt _salt UpdateScheduledAudit' {..} =
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` targetCheckNames
+      `Prelude.hashWithSalt` dayOfWeek
+      `Prelude.hashWithSalt` scheduledAuditName
 
-instance Prelude.NFData UpdateScheduledAudit
+instance Prelude.NFData UpdateScheduledAudit where
+  rnf UpdateScheduledAudit' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf targetCheckNames
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf scheduledAuditName
 
 instance Core.ToHeaders UpdateScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,4 +249,7 @@ updateScheduledAuditResponse_scheduledAuditArn = Lens.lens (\UpdateScheduledAudi
 updateScheduledAuditResponse_httpStatus :: Lens.Lens' UpdateScheduledAuditResponse Prelude.Int
 updateScheduledAuditResponse_httpStatus = Lens.lens (\UpdateScheduledAuditResponse' {httpStatus} -> httpStatus) (\s@UpdateScheduledAuditResponse' {} a -> s {httpStatus = a} :: UpdateScheduledAuditResponse)
 
-instance Prelude.NFData UpdateScheduledAuditResponse
+instance Prelude.NFData UpdateScheduledAuditResponse where
+  rnf UpdateScheduledAuditResponse' {..} =
+    Prelude.rnf scheduledAuditArn
+      `Prelude.seq` Prelude.rnf httpStatus

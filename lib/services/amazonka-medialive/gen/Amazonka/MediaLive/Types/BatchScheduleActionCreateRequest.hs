@@ -58,10 +58,18 @@ batchScheduleActionCreateRequest_scheduleActions = Lens.lens (\BatchScheduleActi
 instance
   Prelude.Hashable
     BatchScheduleActionCreateRequest
+  where
+  hashWithSalt
+    _salt
+    BatchScheduleActionCreateRequest' {..} =
+      _salt `Prelude.hashWithSalt` scheduleActions
 
 instance
   Prelude.NFData
     BatchScheduleActionCreateRequest
+  where
+  rnf BatchScheduleActionCreateRequest' {..} =
+    Prelude.rnf scheduleActions
 
 instance Core.ToJSON BatchScheduleActionCreateRequest where
   toJSON BatchScheduleActionCreateRequest' {..} =

@@ -98,10 +98,22 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayListenerTlsCertificate
+  where
+  hashWithSalt
+    _salt
+    VirtualGatewayListenerTlsCertificate' {..} =
+      _salt `Prelude.hashWithSalt` acm
+        `Prelude.hashWithSalt` sds
+        `Prelude.hashWithSalt` file
 
 instance
   Prelude.NFData
     VirtualGatewayListenerTlsCertificate
+  where
+  rnf VirtualGatewayListenerTlsCertificate' {..} =
+    Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
+      `Prelude.seq` Prelude.rnf file
 
 instance
   Core.ToJSON

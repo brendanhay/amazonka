@@ -101,6 +101,12 @@ instance Core.FromXML DBClusterRole where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "RoleArn")
 
-instance Prelude.Hashable DBClusterRole
+instance Prelude.Hashable DBClusterRole where
+  hashWithSalt _salt DBClusterRole' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DBClusterRole
+instance Prelude.NFData DBClusterRole where
+  rnf DBClusterRole' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf roleArn

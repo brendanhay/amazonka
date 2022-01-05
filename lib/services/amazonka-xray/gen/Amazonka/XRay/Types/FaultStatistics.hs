@@ -78,6 +78,12 @@ instance Core.FromJSON FaultStatistics where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable FaultStatistics
+instance Prelude.Hashable FaultStatistics where
+  hashWithSalt _salt FaultStatistics' {..} =
+    _salt `Prelude.hashWithSalt` otherCount
+      `Prelude.hashWithSalt` totalCount
 
-instance Prelude.NFData FaultStatistics
+instance Prelude.NFData FaultStatistics where
+  rnf FaultStatistics' {..} =
+    Prelude.rnf otherCount
+      `Prelude.seq` Prelude.rnf totalCount

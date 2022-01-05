@@ -63,9 +63,13 @@ instance Core.FromJSON SourceDataColumnProperties where
             Prelude.<$> (x Core..:? "columnIndex")
       )
 
-instance Prelude.Hashable SourceDataColumnProperties
+instance Prelude.Hashable SourceDataColumnProperties where
+  hashWithSalt _salt SourceDataColumnProperties' {..} =
+    _salt `Prelude.hashWithSalt` columnIndex
 
-instance Prelude.NFData SourceDataColumnProperties
+instance Prelude.NFData SourceDataColumnProperties where
+  rnf SourceDataColumnProperties' {..} =
+    Prelude.rnf columnIndex
 
 instance Core.ToJSON SourceDataColumnProperties where
   toJSON SourceDataColumnProperties' {..} =

@@ -181,9 +181,23 @@ instance Core.AWSRequest UpdateAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAnalysis
+instance Prelude.Hashable UpdateAnalysis where
+  hashWithSalt _salt UpdateAnalysis' {..} =
+    _salt `Prelude.hashWithSalt` themeArn
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceEntity
 
-instance Prelude.NFData UpdateAnalysis
+instance Prelude.NFData UpdateAnalysis where
+  rnf UpdateAnalysis' {..} =
+    Prelude.rnf themeArn
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceEntity
 
 instance Core.ToHeaders UpdateAnalysis where
   toHeaders =
@@ -285,4 +299,10 @@ updateAnalysisResponse_updateStatus = Lens.lens (\UpdateAnalysisResponse' {updat
 updateAnalysisResponse_status :: Lens.Lens' UpdateAnalysisResponse Prelude.Int
 updateAnalysisResponse_status = Lens.lens (\UpdateAnalysisResponse' {status} -> status) (\s@UpdateAnalysisResponse' {} a -> s {status = a} :: UpdateAnalysisResponse)
 
-instance Prelude.NFData UpdateAnalysisResponse
+instance Prelude.NFData UpdateAnalysisResponse where
+  rnf UpdateAnalysisResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf status

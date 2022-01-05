@@ -72,6 +72,12 @@ instance Core.FromJSON LifeCycleLastTestInitiated where
             Prelude.<*> (x Core..:? "apiCallDateTime")
       )
 
-instance Prelude.Hashable LifeCycleLastTestInitiated
+instance Prelude.Hashable LifeCycleLastTestInitiated where
+  hashWithSalt _salt LifeCycleLastTestInitiated' {..} =
+    _salt `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` apiCallDateTime
 
-instance Prelude.NFData LifeCycleLastTestInitiated
+instance Prelude.NFData LifeCycleLastTestInitiated where
+  rnf LifeCycleLastTestInitiated' {..} =
+    Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf apiCallDateTime

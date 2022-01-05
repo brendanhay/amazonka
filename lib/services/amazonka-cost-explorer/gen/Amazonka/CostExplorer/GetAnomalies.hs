@@ -160,9 +160,23 @@ instance Core.AWSRequest GetAnomalies where
             Prelude.<*> (x Core..?> "Anomalies" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetAnomalies
+instance Prelude.Hashable GetAnomalies where
+  hashWithSalt _salt GetAnomalies' {..} =
+    _salt `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` totalImpact
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` monitorArn
+      `Prelude.hashWithSalt` dateInterval
 
-instance Prelude.NFData GetAnomalies
+instance Prelude.NFData GetAnomalies where
+  rnf GetAnomalies' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf totalImpact
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf feedback
+      `Prelude.seq` Prelude.rnf monitorArn
+      `Prelude.seq` Prelude.rnf dateInterval
 
 instance Core.ToHeaders GetAnomalies where
   toHeaders =
@@ -252,4 +266,8 @@ getAnomaliesResponse_httpStatus = Lens.lens (\GetAnomaliesResponse' {httpStatus}
 getAnomaliesResponse_anomalies :: Lens.Lens' GetAnomaliesResponse [Anomaly]
 getAnomaliesResponse_anomalies = Lens.lens (\GetAnomaliesResponse' {anomalies} -> anomalies) (\s@GetAnomaliesResponse' {} a -> s {anomalies = a} :: GetAnomaliesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetAnomaliesResponse
+instance Prelude.NFData GetAnomaliesResponse where
+  rnf GetAnomaliesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf anomalies

@@ -106,6 +106,14 @@ instance Core.FromXML CachePolicy where
       Prelude.<*> (x Core..@ "LastModifiedTime")
       Prelude.<*> (x Core..@ "CachePolicyConfig")
 
-instance Prelude.Hashable CachePolicy
+instance Prelude.Hashable CachePolicy where
+  hashWithSalt _salt CachePolicy' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` cachePolicyConfig
 
-instance Prelude.NFData CachePolicy
+instance Prelude.NFData CachePolicy where
+  rnf CachePolicy' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf cachePolicyConfig

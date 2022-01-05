@@ -163,6 +163,30 @@ instance Core.FromJSON Connection where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Connection
+instance Prelude.Hashable Connection where
+  hashWithSalt _salt Connection' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` connectedDeviceId
+      `Prelude.hashWithSalt` connectedLinkId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Connection
+instance Prelude.NFData Connection where
+  rnf Connection' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf connectedDeviceId
+      `Prelude.seq` Prelude.rnf connectedLinkId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

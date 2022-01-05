@@ -178,8 +178,22 @@ instance Core.AWSRequest RevokeDBSecurityGroupIngress where
 instance
   Prelude.Hashable
     RevokeDBSecurityGroupIngress
+  where
+  hashWithSalt _salt RevokeDBSecurityGroupIngress' {..} =
+    _salt
+      `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+      `Prelude.hashWithSalt` eC2SecurityGroupName
+      `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` eC2SecurityGroupId
+      `Prelude.hashWithSalt` dbSecurityGroupName
 
-instance Prelude.NFData RevokeDBSecurityGroupIngress
+instance Prelude.NFData RevokeDBSecurityGroupIngress where
+  rnf RevokeDBSecurityGroupIngress' {..} =
+    Prelude.rnf eC2SecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
+      `Prelude.seq` Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupId
+      `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
 instance Core.ToHeaders RevokeDBSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,3 +259,7 @@ revokeDBSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeDBSecurityGr
 instance
   Prelude.NFData
     RevokeDBSecurityGroupIngressResponse
+  where
+  rnf RevokeDBSecurityGroupIngressResponse' {..} =
+    Prelude.rnf dbSecurityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -159,9 +159,14 @@ instance Core.AWSRequest CreateBotVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBotVersion
+instance Prelude.Hashable CreateBotVersion where
+  hashWithSalt _salt CreateBotVersion' {..} =
+    _salt `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateBotVersion
+instance Prelude.NFData CreateBotVersion where
+  rnf CreateBotVersion' {..} =
+    Prelude.rnf checksum `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateBotVersion where
   toHeaders =
@@ -477,4 +482,23 @@ createBotVersionResponse_description = Lens.lens (\CreateBotVersionResponse' {de
 createBotVersionResponse_httpStatus :: Lens.Lens' CreateBotVersionResponse Prelude.Int
 createBotVersionResponse_httpStatus = Lens.lens (\CreateBotVersionResponse' {httpStatus} -> httpStatus) (\s@CreateBotVersionResponse' {} a -> s {httpStatus = a} :: CreateBotVersionResponse)
 
-instance Prelude.NFData CreateBotVersionResponse
+instance Prelude.NFData CreateBotVersionResponse where
+  rnf CreateBotVersionResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf abortStatement
+      `Prelude.seq` Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf enableModelImprovements
+      `Prelude.seq` Prelude.rnf detectSentiment
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf clarificationPrompt
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf childDirected
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -99,9 +99,17 @@ instance Core.FromJSON ActionRevision where
             Prelude.<*> (x Core..: "created")
       )
 
-instance Prelude.Hashable ActionRevision
+instance Prelude.Hashable ActionRevision where
+  hashWithSalt _salt ActionRevision' {..} =
+    _salt `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` revisionChangeId
+      `Prelude.hashWithSalt` created
 
-instance Prelude.NFData ActionRevision
+instance Prelude.NFData ActionRevision where
+  rnf ActionRevision' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf revisionChangeId
+      `Prelude.seq` Prelude.rnf created
 
 instance Core.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =

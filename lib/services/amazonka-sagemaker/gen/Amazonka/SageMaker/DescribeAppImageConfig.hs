@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeAppImageConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAppImageConfig
+instance Prelude.Hashable DescribeAppImageConfig where
+  hashWithSalt _salt DescribeAppImageConfig' {..} =
+    _salt `Prelude.hashWithSalt` appImageConfigName
 
-instance Prelude.NFData DescribeAppImageConfig
+instance Prelude.NFData DescribeAppImageConfig where
+  rnf DescribeAppImageConfig' {..} =
+    Prelude.rnf appImageConfigName
 
 instance Core.ToHeaders DescribeAppImageConfig where
   toHeaders =
@@ -209,3 +213,11 @@ describeAppImageConfigResponse_httpStatus = Lens.lens (\DescribeAppImageConfigRe
 instance
   Prelude.NFData
     DescribeAppImageConfigResponse
+  where
+  rnf DescribeAppImageConfigResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf appImageConfigName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
+      `Prelude.seq` Prelude.rnf appImageConfigArn
+      `Prelude.seq` Prelude.rnf httpStatus

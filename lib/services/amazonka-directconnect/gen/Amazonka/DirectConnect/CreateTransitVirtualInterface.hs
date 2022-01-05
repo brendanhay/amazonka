@@ -127,8 +127,15 @@ instance
 instance
   Prelude.Hashable
     CreateTransitVirtualInterface
+  where
+  hashWithSalt _salt CreateTransitVirtualInterface' {..} =
+    _salt `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` newTransitVirtualInterface'
 
-instance Prelude.NFData CreateTransitVirtualInterface
+instance Prelude.NFData CreateTransitVirtualInterface where
+  rnf CreateTransitVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf newTransitVirtualInterface'
 
 instance Core.ToHeaders CreateTransitVirtualInterface where
   toHeaders =
@@ -204,3 +211,7 @@ createTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\CreateTransitVirt
 instance
   Prelude.NFData
     CreateTransitVirtualInterfaceResponse
+  where
+  rnf CreateTransitVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterface
+      `Prelude.seq` Prelude.rnf httpStatus

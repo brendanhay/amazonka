@@ -112,9 +112,15 @@ instance Core.AWSRequest DeleteRepositoryPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRepositoryPolicy
+instance Prelude.Hashable DeleteRepositoryPolicy where
+  hashWithSalt _salt DeleteRepositoryPolicy' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData DeleteRepositoryPolicy
+instance Prelude.NFData DeleteRepositoryPolicy where
+  rnf DeleteRepositoryPolicy' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders DeleteRepositoryPolicy where
   toHeaders =
@@ -207,3 +213,9 @@ deleteRepositoryPolicyResponse_httpStatus = Lens.lens (\DeleteRepositoryPolicyRe
 instance
   Prelude.NFData
     DeleteRepositoryPolicyResponse
+  where
+  rnf DeleteRepositoryPolicyResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf policyText
+      `Prelude.seq` Prelude.rnf httpStatus

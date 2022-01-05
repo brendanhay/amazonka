@@ -54,9 +54,13 @@ newScheduleConfiguration pTransition_ =
 scheduleConfiguration_transition :: Lens.Lens' ScheduleConfiguration Transition
 scheduleConfiguration_transition = Lens.lens (\ScheduleConfiguration' {transition} -> transition) (\s@ScheduleConfiguration' {} a -> s {transition = a} :: ScheduleConfiguration)
 
-instance Prelude.Hashable ScheduleConfiguration
+instance Prelude.Hashable ScheduleConfiguration where
+  hashWithSalt _salt ScheduleConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` transition
 
-instance Prelude.NFData ScheduleConfiguration
+instance Prelude.NFData ScheduleConfiguration where
+  rnf ScheduleConfiguration' {..} =
+    Prelude.rnf transition
 
 instance Core.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =

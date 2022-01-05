@@ -61,10 +61,18 @@ createTransitGatewayConnectRequestOptions_protocol = Lens.lens (\CreateTransitGa
 instance
   Prelude.Hashable
     CreateTransitGatewayConnectRequestOptions
+  where
+  hashWithSalt
+    _salt
+    CreateTransitGatewayConnectRequestOptions' {..} =
+      _salt `Prelude.hashWithSalt` protocol
 
 instance
   Prelude.NFData
     CreateTransitGatewayConnectRequestOptions
+  where
+  rnf CreateTransitGatewayConnectRequestOptions' {..} =
+    Prelude.rnf protocol
 
 instance
   Core.ToQuery

@@ -162,9 +162,27 @@ securityGroupRuleRequest_cidrIpv6 = Lens.lens (\SecurityGroupRuleRequest' {cidrI
 securityGroupRuleRequest_description :: Lens.Lens' SecurityGroupRuleRequest (Prelude.Maybe Prelude.Text)
 securityGroupRuleRequest_description = Lens.lens (\SecurityGroupRuleRequest' {description} -> description) (\s@SecurityGroupRuleRequest' {} a -> s {description = a} :: SecurityGroupRuleRequest)
 
-instance Prelude.Hashable SecurityGroupRuleRequest
+instance Prelude.Hashable SecurityGroupRuleRequest where
+  hashWithSalt _salt SecurityGroupRuleRequest' {..} =
+    _salt `Prelude.hashWithSalt` cidrIpv4
+      `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` referencedGroupId
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` cidrIpv6
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData SecurityGroupRuleRequest
+instance Prelude.NFData SecurityGroupRuleRequest where
+  rnf SecurityGroupRuleRequest' {..} =
+    Prelude.rnf cidrIpv4
+      `Prelude.seq` Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf referencedGroupId
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf cidrIpv6
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery SecurityGroupRuleRequest where
   toQuery SecurityGroupRuleRequest' {..} =

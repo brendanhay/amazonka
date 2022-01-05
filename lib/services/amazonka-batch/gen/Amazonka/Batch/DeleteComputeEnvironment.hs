@@ -100,9 +100,13 @@ instance Core.AWSRequest DeleteComputeEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteComputeEnvironment
+instance Prelude.Hashable DeleteComputeEnvironment where
+  hashWithSalt _salt DeleteComputeEnvironment' {..} =
+    _salt `Prelude.hashWithSalt` computeEnvironment
 
-instance Prelude.NFData DeleteComputeEnvironment
+instance Prelude.NFData DeleteComputeEnvironment where
+  rnf DeleteComputeEnvironment' {..} =
+    Prelude.rnf computeEnvironment
 
 instance Core.ToHeaders DeleteComputeEnvironment where
   toHeaders =
@@ -163,3 +167,6 @@ deleteComputeEnvironmentResponse_httpStatus = Lens.lens (\DeleteComputeEnvironme
 instance
   Prelude.NFData
     DeleteComputeEnvironmentResponse
+  where
+  rnf DeleteComputeEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus

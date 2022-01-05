@@ -193,9 +193,31 @@ instance Core.FromJSON IdentityPool where
             Prelude.<*> (x Core..: "AllowUnauthenticatedIdentities")
       )
 
-instance Prelude.Hashable IdentityPool
+instance Prelude.Hashable IdentityPool where
+  hashWithSalt _salt IdentityPool' {..} =
+    _salt `Prelude.hashWithSalt` samlProviderARNs
+      `Prelude.hashWithSalt` supportedLoginProviders
+      `Prelude.hashWithSalt` allowClassicFlow
+      `Prelude.hashWithSalt` developerProviderName
+      `Prelude.hashWithSalt` identityPoolTags
+      `Prelude.hashWithSalt` openIdConnectProviderARNs
+      `Prelude.hashWithSalt` cognitoIdentityProviders
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityPoolName
+      `Prelude.hashWithSalt` allowUnauthenticatedIdentities
 
-instance Prelude.NFData IdentityPool
+instance Prelude.NFData IdentityPool where
+  rnf IdentityPool' {..} =
+    Prelude.rnf samlProviderARNs
+      `Prelude.seq` Prelude.rnf supportedLoginProviders
+      `Prelude.seq` Prelude.rnf allowClassicFlow
+      `Prelude.seq` Prelude.rnf developerProviderName
+      `Prelude.seq` Prelude.rnf identityPoolTags
+      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
+      `Prelude.seq` Prelude.rnf cognitoIdentityProviders
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityPoolName
+      `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
 
 instance Core.ToJSON IdentityPool where
   toJSON IdentityPool' {..} =

@@ -99,6 +99,16 @@ instance Core.FromXML ExportToS3Task where
       Prelude.<*> (x Core..@? "s3Bucket")
       Prelude.<*> (x Core..@? "diskImageFormat")
 
-instance Prelude.Hashable ExportToS3Task
+instance Prelude.Hashable ExportToS3Task where
+  hashWithSalt _salt ExportToS3Task' {..} =
+    _salt `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` containerFormat
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` diskImageFormat
 
-instance Prelude.NFData ExportToS3Task
+instance Prelude.NFData ExportToS3Task where
+  rnf ExportToS3Task' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf containerFormat
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf diskImageFormat

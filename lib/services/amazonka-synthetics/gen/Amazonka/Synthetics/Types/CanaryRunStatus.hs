@@ -92,6 +92,14 @@ instance Core.FromJSON CanaryRunStatus where
             Prelude.<*> (x Core..:? "StateReasonCode")
       )
 
-instance Prelude.Hashable CanaryRunStatus
+instance Prelude.Hashable CanaryRunStatus where
+  hashWithSalt _salt CanaryRunStatus' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` stateReasonCode
 
-instance Prelude.NFData CanaryRunStatus
+instance Prelude.NFData CanaryRunStatus where
+  rnf CanaryRunStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf stateReasonCode

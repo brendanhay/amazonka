@@ -105,9 +105,15 @@ instance Core.AWSRequest GetInvalidation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInvalidation
+instance Prelude.Hashable GetInvalidation where
+  hashWithSalt _salt GetInvalidation' {..} =
+    _salt `Prelude.hashWithSalt` distributionId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetInvalidation
+instance Prelude.NFData GetInvalidation where
+  rnf GetInvalidation' {..} =
+    Prelude.rnf distributionId
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetInvalidation where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +174,7 @@ getInvalidationResponse_invalidation = Lens.lens (\GetInvalidationResponse' {inv
 getInvalidationResponse_httpStatus :: Lens.Lens' GetInvalidationResponse Prelude.Int
 getInvalidationResponse_httpStatus = Lens.lens (\GetInvalidationResponse' {httpStatus} -> httpStatus) (\s@GetInvalidationResponse' {} a -> s {httpStatus = a} :: GetInvalidationResponse)
 
-instance Prelude.NFData GetInvalidationResponse
+instance Prelude.NFData GetInvalidationResponse where
+  rnf GetInvalidationResponse' {..} =
+    Prelude.rnf invalidation
+      `Prelude.seq` Prelude.rnf httpStatus

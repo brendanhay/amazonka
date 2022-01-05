@@ -58,9 +58,12 @@ newCORSConfiguration =
 cORSConfiguration_cORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
 cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Prelude.. Lens.coerced
 
-instance Prelude.Hashable CORSConfiguration
+instance Prelude.Hashable CORSConfiguration where
+  hashWithSalt _salt CORSConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` cORSRules
 
-instance Prelude.NFData CORSConfiguration
+instance Prelude.NFData CORSConfiguration where
+  rnf CORSConfiguration' {..} = Prelude.rnf cORSRules
 
 instance Core.ToXML CORSConfiguration where
   toXML CORSConfiguration' {..} =

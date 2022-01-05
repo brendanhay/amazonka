@@ -208,9 +208,21 @@ instance Core.AWSRequest UpdateScript where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateScript
+instance Prelude.Hashable UpdateScript where
+  hashWithSalt _salt UpdateScript' {..} =
+    _salt `Prelude.hashWithSalt` storageLocation
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` scriptId
 
-instance Prelude.NFData UpdateScript
+instance Prelude.NFData UpdateScript where
+  rnf UpdateScript' {..} =
+    Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf scriptId
 
 instance Core.ToHeaders UpdateScript where
   toHeaders =
@@ -300,4 +312,7 @@ updateScriptResponse_script = Lens.lens (\UpdateScriptResponse' {script} -> scri
 updateScriptResponse_httpStatus :: Lens.Lens' UpdateScriptResponse Prelude.Int
 updateScriptResponse_httpStatus = Lens.lens (\UpdateScriptResponse' {httpStatus} -> httpStatus) (\s@UpdateScriptResponse' {} a -> s {httpStatus = a} :: UpdateScriptResponse)
 
-instance Prelude.NFData UpdateScriptResponse
+instance Prelude.NFData UpdateScriptResponse where
+  rnf UpdateScriptResponse' {..} =
+    Prelude.rnf script
+      `Prelude.seq` Prelude.rnf httpStatus

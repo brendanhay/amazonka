@@ -106,9 +106,16 @@ instance Core.AWSRequest ModifyCacheParameterGroup where
       "ModifyCacheParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyCacheParameterGroup
+instance Prelude.Hashable ModifyCacheParameterGroup where
+  hashWithSalt _salt ModifyCacheParameterGroup' {..} =
+    _salt
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` parameterNameValues
 
-instance Prelude.NFData ModifyCacheParameterGroup
+instance Prelude.NFData ModifyCacheParameterGroup where
+  rnf ModifyCacheParameterGroup' {..} =
+    Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf parameterNameValues
 
 instance Core.ToHeaders ModifyCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

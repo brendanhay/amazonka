@@ -73,9 +73,15 @@ instance Core.FromJSON SheetStyle where
             Prelude.<*> (x Core..:? "Tile")
       )
 
-instance Prelude.Hashable SheetStyle
+instance Prelude.Hashable SheetStyle where
+  hashWithSalt _salt SheetStyle' {..} =
+    _salt `Prelude.hashWithSalt` tileLayout
+      `Prelude.hashWithSalt` tile
 
-instance Prelude.NFData SheetStyle
+instance Prelude.NFData SheetStyle where
+  rnf SheetStyle' {..} =
+    Prelude.rnf tileLayout
+      `Prelude.seq` Prelude.rnf tile
 
 instance Core.ToJSON SheetStyle where
   toJSON SheetStyle' {..} =

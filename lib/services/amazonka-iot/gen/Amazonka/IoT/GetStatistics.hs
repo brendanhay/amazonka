@@ -128,9 +128,19 @@ instance Core.AWSRequest GetStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStatistics
+instance Prelude.Hashable GetStatistics where
+  hashWithSalt _salt GetStatistics' {..} =
+    _salt `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryString
 
-instance Prelude.NFData GetStatistics
+instance Prelude.NFData GetStatistics where
+  rnf GetStatistics' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders GetStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,7 @@ getStatisticsResponse_statistics = Lens.lens (\GetStatisticsResponse' {statistic
 getStatisticsResponse_httpStatus :: Lens.Lens' GetStatisticsResponse Prelude.Int
 getStatisticsResponse_httpStatus = Lens.lens (\GetStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetStatisticsResponse' {} a -> s {httpStatus = a} :: GetStatisticsResponse)
 
-instance Prelude.NFData GetStatisticsResponse
+instance Prelude.NFData GetStatisticsResponse where
+  rnf GetStatisticsResponse' {..} =
+    Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -112,6 +112,20 @@ instance Core.FromJSON WorkflowRunStatistics where
             Prelude.<*> (x Core..:? "SucceededActions")
       )
 
-instance Prelude.Hashable WorkflowRunStatistics
+instance Prelude.Hashable WorkflowRunStatistics where
+  hashWithSalt _salt WorkflowRunStatistics' {..} =
+    _salt `Prelude.hashWithSalt` runningActions
+      `Prelude.hashWithSalt` stoppedActions
+      `Prelude.hashWithSalt` totalActions
+      `Prelude.hashWithSalt` failedActions
+      `Prelude.hashWithSalt` timeoutActions
+      `Prelude.hashWithSalt` succeededActions
 
-instance Prelude.NFData WorkflowRunStatistics
+instance Prelude.NFData WorkflowRunStatistics where
+  rnf WorkflowRunStatistics' {..} =
+    Prelude.rnf runningActions
+      `Prelude.seq` Prelude.rnf stoppedActions
+      `Prelude.seq` Prelude.rnf totalActions
+      `Prelude.seq` Prelude.rnf failedActions
+      `Prelude.seq` Prelude.rnf timeoutActions
+      `Prelude.seq` Prelude.rnf succeededActions

@@ -330,10 +330,26 @@ instance
 instance
   Prelude.Hashable
     GenerateDataKeyWithoutPlaintext
+  where
+  hashWithSalt
+    _salt
+    GenerateDataKeyWithoutPlaintext' {..} =
+      _salt `Prelude.hashWithSalt` keySpec
+        `Prelude.hashWithSalt` encryptionContext
+        `Prelude.hashWithSalt` numberOfBytes
+        `Prelude.hashWithSalt` grantTokens
+        `Prelude.hashWithSalt` keyId
 
 instance
   Prelude.NFData
     GenerateDataKeyWithoutPlaintext
+  where
+  rnf GenerateDataKeyWithoutPlaintext' {..} =
+    Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf encryptionContext
+      `Prelude.seq` Prelude.rnf numberOfBytes
+      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keyId
 
 instance
   Core.ToHeaders
@@ -444,3 +460,8 @@ generateDataKeyWithoutPlaintextResponse_httpStatus = Lens.lens (\GenerateDataKey
 instance
   Prelude.NFData
     GenerateDataKeyWithoutPlaintextResponse
+  where
+  rnf GenerateDataKeyWithoutPlaintextResponse' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf ciphertextBlob
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -125,9 +125,17 @@ instance Core.AWSRequest StartImageScan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartImageScan
+instance Prelude.Hashable StartImageScan where
+  hashWithSalt _salt StartImageScan' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData StartImageScan
+instance Prelude.NFData StartImageScan where
+  rnf StartImageScan' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders StartImageScan where
   toHeaders =
@@ -226,4 +234,10 @@ startImageScanResponse_repositoryName = Lens.lens (\StartImageScanResponse' {rep
 startImageScanResponse_httpStatus :: Lens.Lens' StartImageScanResponse Prelude.Int
 startImageScanResponse_httpStatus = Lens.lens (\StartImageScanResponse' {httpStatus} -> httpStatus) (\s@StartImageScanResponse' {} a -> s {httpStatus = a} :: StartImageScanResponse)
 
-instance Prelude.NFData StartImageScanResponse
+instance Prelude.NFData StartImageScanResponse where
+  rnf StartImageScanResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageScanStatus
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf httpStatus

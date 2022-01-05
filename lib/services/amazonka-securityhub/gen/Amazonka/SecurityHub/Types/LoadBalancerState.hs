@@ -86,9 +86,14 @@ instance Core.FromJSON LoadBalancerState where
             Prelude.<*> (x Core..:? "Code")
       )
 
-instance Prelude.Hashable LoadBalancerState
+instance Prelude.Hashable LoadBalancerState where
+  hashWithSalt _salt LoadBalancerState' {..} =
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData LoadBalancerState
+instance Prelude.NFData LoadBalancerState where
+  rnf LoadBalancerState' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf code
 
 instance Core.ToJSON LoadBalancerState where
   toJSON LoadBalancerState' {..} =

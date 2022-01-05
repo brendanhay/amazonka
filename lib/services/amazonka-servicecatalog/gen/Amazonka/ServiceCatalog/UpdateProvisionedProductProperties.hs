@@ -241,10 +241,24 @@ instance
 instance
   Prelude.Hashable
     UpdateProvisionedProductProperties
+  where
+  hashWithSalt
+    _salt
+    UpdateProvisionedProductProperties' {..} =
+      _salt `Prelude.hashWithSalt` acceptLanguage
+        `Prelude.hashWithSalt` provisionedProductId
+        `Prelude.hashWithSalt` provisionedProductProperties
+        `Prelude.hashWithSalt` idempotencyToken
 
 instance
   Prelude.NFData
     UpdateProvisionedProductProperties
+  where
+  rnf UpdateProvisionedProductProperties' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf provisionedProductProperties
+      `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance
   Core.ToHeaders
@@ -370,3 +384,10 @@ updateProvisionedProductPropertiesResponse_httpStatus = Lens.lens (\UpdateProvis
 instance
   Prelude.NFData
     UpdateProvisionedProductPropertiesResponse
+  where
+  rnf UpdateProvisionedProductPropertiesResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf provisionedProductProperties
+      `Prelude.seq` Prelude.rnf recordId
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf httpStatus

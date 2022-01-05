@@ -151,9 +151,17 @@ attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@Attachm
 attachmentsSource_name :: Lens.Lens' AttachmentsSource (Prelude.Maybe Prelude.Text)
 attachmentsSource_name = Lens.lens (\AttachmentsSource' {name} -> name) (\s@AttachmentsSource' {} a -> s {name = a} :: AttachmentsSource)
 
-instance Prelude.Hashable AttachmentsSource
+instance Prelude.Hashable AttachmentsSource where
+  hashWithSalt _salt AttachmentsSource' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AttachmentsSource
+instance Prelude.NFData AttachmentsSource where
+  rnf AttachmentsSource' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =

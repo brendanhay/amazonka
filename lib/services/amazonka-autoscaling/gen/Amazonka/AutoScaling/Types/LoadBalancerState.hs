@@ -118,6 +118,12 @@ instance Core.FromXML LoadBalancerState where
       Prelude.<$> (x Core..@? "State")
       Prelude.<*> (x Core..@? "LoadBalancerName")
 
-instance Prelude.Hashable LoadBalancerState
+instance Prelude.Hashable LoadBalancerState where
+  hashWithSalt _salt LoadBalancerState' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData LoadBalancerState
+instance Prelude.NFData LoadBalancerState where
+  rnf LoadBalancerState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf loadBalancerName

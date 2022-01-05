@@ -81,6 +81,14 @@ instance Core.FromJSON ShareError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ShareError
+instance Prelude.Hashable ShareError where
+  hashWithSalt _salt ShareError' {..} =
+    _salt `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ShareError
+instance Prelude.NFData ShareError where
+  rnf ShareError' {..} =
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf message

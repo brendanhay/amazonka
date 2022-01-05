@@ -251,9 +251,27 @@ instance Core.AWSRequest AllocateHosts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AllocateHosts
+instance Prelude.Hashable AllocateHosts where
+  hashWithSalt _salt AllocateHosts' {..} =
+    _salt `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` hostRecovery
+      `Prelude.hashWithSalt` autoPlacement
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData AllocateHosts
+instance Prelude.NFData AllocateHosts where
+  rnf AllocateHosts' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf hostRecovery
+      `Prelude.seq` Prelude.rnf autoPlacement
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToHeaders AllocateHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,4 +342,7 @@ allocateHostsResponse_hostIds = Lens.lens (\AllocateHostsResponse' {hostIds} -> 
 allocateHostsResponse_httpStatus :: Lens.Lens' AllocateHostsResponse Prelude.Int
 allocateHostsResponse_httpStatus = Lens.lens (\AllocateHostsResponse' {httpStatus} -> httpStatus) (\s@AllocateHostsResponse' {} a -> s {httpStatus = a} :: AllocateHostsResponse)
 
-instance Prelude.NFData AllocateHostsResponse
+instance Prelude.NFData AllocateHostsResponse where
+  rnf AllocateHostsResponse' {..} =
+    Prelude.rnf hostIds
+      `Prelude.seq` Prelude.rnf httpStatus

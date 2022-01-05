@@ -91,9 +91,12 @@ instance Core.AWSRequest RebootInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebootInstance
+instance Prelude.Hashable RebootInstance where
+  hashWithSalt _salt RebootInstance' {..} =
+    _salt `Prelude.hashWithSalt` instanceName
 
-instance Prelude.NFData RebootInstance
+instance Prelude.NFData RebootInstance where
+  rnf RebootInstance' {..} = Prelude.rnf instanceName
 
 instance Core.ToHeaders RebootInstance where
   toHeaders =
@@ -168,4 +171,7 @@ rebootInstanceResponse_operations = Lens.lens (\RebootInstanceResponse' {operati
 rebootInstanceResponse_httpStatus :: Lens.Lens' RebootInstanceResponse Prelude.Int
 rebootInstanceResponse_httpStatus = Lens.lens (\RebootInstanceResponse' {httpStatus} -> httpStatus) (\s@RebootInstanceResponse' {} a -> s {httpStatus = a} :: RebootInstanceResponse)
 
-instance Prelude.NFData RebootInstanceResponse
+instance Prelude.NFData RebootInstanceResponse where
+  rnf RebootInstanceResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

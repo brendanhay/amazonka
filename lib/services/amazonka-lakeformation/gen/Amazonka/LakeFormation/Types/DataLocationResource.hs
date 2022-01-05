@@ -80,9 +80,15 @@ instance Core.FromJSON DataLocationResource where
             Prelude.<*> (x Core..: "ResourceArn")
       )
 
-instance Prelude.Hashable DataLocationResource
+instance Prelude.Hashable DataLocationResource where
+  hashWithSalt _salt DataLocationResource' {..} =
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DataLocationResource
+instance Prelude.NFData DataLocationResource where
+  rnf DataLocationResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToJSON DataLocationResource where
   toJSON DataLocationResource' {..} =

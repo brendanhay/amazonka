@@ -54,6 +54,9 @@ instance Core.FromXML AutoScalingGroup where
   parseXML x =
     AutoScalingGroup' Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable AutoScalingGroup
+instance Prelude.Hashable AutoScalingGroup where
+  hashWithSalt _salt AutoScalingGroup' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AutoScalingGroup
+instance Prelude.NFData AutoScalingGroup where
+  rnf AutoScalingGroup' {..} = Prelude.rnf name

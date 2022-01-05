@@ -115,9 +115,15 @@ instance Core.AWSRequest GetPrefetchSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPrefetchSchedule
+instance Prelude.Hashable GetPrefetchSchedule where
+  hashWithSalt _salt GetPrefetchSchedule' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` playbackConfigurationName
 
-instance Prelude.NFData GetPrefetchSchedule
+instance Prelude.NFData GetPrefetchSchedule where
+  rnf GetPrefetchSchedule' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance Core.ToHeaders GetPrefetchSchedule where
   toHeaders =
@@ -252,4 +258,12 @@ getPrefetchScheduleResponse_streamId = Lens.lens (\GetPrefetchScheduleResponse' 
 getPrefetchScheduleResponse_httpStatus :: Lens.Lens' GetPrefetchScheduleResponse Prelude.Int
 getPrefetchScheduleResponse_httpStatus = Lens.lens (\GetPrefetchScheduleResponse' {httpStatus} -> httpStatus) (\s@GetPrefetchScheduleResponse' {} a -> s {httpStatus = a} :: GetPrefetchScheduleResponse)
 
-instance Prelude.NFData GetPrefetchScheduleResponse
+instance Prelude.NFData GetPrefetchScheduleResponse where
+  rnf GetPrefetchScheduleResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
+      `Prelude.seq` Prelude.rnf retrieval
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf consumption
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf httpStatus

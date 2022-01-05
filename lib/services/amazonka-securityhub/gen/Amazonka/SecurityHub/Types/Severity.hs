@@ -227,9 +227,19 @@ instance Core.FromJSON Severity where
             Prelude.<*> (x Core..:? "Normalized")
       )
 
-instance Prelude.Hashable Severity
+instance Prelude.Hashable Severity where
+  hashWithSalt _salt Severity' {..} =
+    _salt `Prelude.hashWithSalt` product
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` original
+      `Prelude.hashWithSalt` normalized
 
-instance Prelude.NFData Severity
+instance Prelude.NFData Severity where
+  rnf Severity' {..} =
+    Prelude.rnf product
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf original
+      `Prelude.seq` Prelude.rnf normalized
 
 instance Core.ToJSON Severity where
   toJSON Severity' {..} =

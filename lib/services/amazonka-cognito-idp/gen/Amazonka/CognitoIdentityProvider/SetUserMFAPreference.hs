@@ -117,9 +117,17 @@ instance Core.AWSRequest SetUserMFAPreference where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetUserMFAPreference
+instance Prelude.Hashable SetUserMFAPreference where
+  hashWithSalt _salt SetUserMFAPreference' {..} =
+    _salt `Prelude.hashWithSalt` sMSMfaSettings
+      `Prelude.hashWithSalt` softwareTokenMfaSettings
+      `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData SetUserMFAPreference
+instance Prelude.NFData SetUserMFAPreference where
+  rnf SetUserMFAPreference' {..} =
+    Prelude.rnf sMSMfaSettings
+      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
+      `Prelude.seq` Prelude.rnf accessToken
 
 instance Core.ToHeaders SetUserMFAPreference where
   toHeaders =
@@ -184,4 +192,6 @@ newSetUserMFAPreferenceResponse pHttpStatus_ =
 setUserMFAPreferenceResponse_httpStatus :: Lens.Lens' SetUserMFAPreferenceResponse Prelude.Int
 setUserMFAPreferenceResponse_httpStatus = Lens.lens (\SetUserMFAPreferenceResponse' {httpStatus} -> httpStatus) (\s@SetUserMFAPreferenceResponse' {} a -> s {httpStatus = a} :: SetUserMFAPreferenceResponse)
 
-instance Prelude.NFData SetUserMFAPreferenceResponse
+instance Prelude.NFData SetUserMFAPreferenceResponse where
+  rnf SetUserMFAPreferenceResponse' {..} =
+    Prelude.rnf httpStatus

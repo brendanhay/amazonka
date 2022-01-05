@@ -95,10 +95,22 @@ mediaStreamSourceConfigurationRequest_encodingName = Lens.lens (\MediaStreamSour
 instance
   Prelude.Hashable
     MediaStreamSourceConfigurationRequest
+  where
+  hashWithSalt
+    _salt
+    MediaStreamSourceConfigurationRequest' {..} =
+      _salt `Prelude.hashWithSalt` inputConfigurations
+        `Prelude.hashWithSalt` mediaStreamName
+        `Prelude.hashWithSalt` encodingName
 
 instance
   Prelude.NFData
     MediaStreamSourceConfigurationRequest
+  where
+  rnf MediaStreamSourceConfigurationRequest' {..} =
+    Prelude.rnf inputConfigurations
+      `Prelude.seq` Prelude.rnf mediaStreamName
+      `Prelude.seq` Prelude.rnf encodingName
 
 instance
   Core.ToJSON

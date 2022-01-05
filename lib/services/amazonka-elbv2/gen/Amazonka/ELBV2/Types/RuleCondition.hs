@@ -284,9 +284,27 @@ instance Core.FromXML RuleCondition where
       Prelude.<*> (x Core..@? "PathPatternConfig")
       Prelude.<*> (x Core..@? "QueryStringConfig")
 
-instance Prelude.Hashable RuleCondition
+instance Prelude.Hashable RuleCondition where
+  hashWithSalt _salt RuleCondition' {..} =
+    _salt `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` httpHeaderConfig
+      `Prelude.hashWithSalt` hostHeaderConfig
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` httpRequestMethodConfig
+      `Prelude.hashWithSalt` pathPatternConfig
+      `Prelude.hashWithSalt` queryStringConfig
 
-instance Prelude.NFData RuleCondition
+instance Prelude.NFData RuleCondition where
+  rnf RuleCondition' {..} =
+    Prelude.rnf field
+      `Prelude.seq` Prelude.rnf httpHeaderConfig
+      `Prelude.seq` Prelude.rnf hostHeaderConfig
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf httpRequestMethodConfig
+      `Prelude.seq` Prelude.rnf pathPatternConfig
+      `Prelude.seq` Prelude.rnf queryStringConfig
 
 instance Core.ToQuery RuleCondition where
   toQuery RuleCondition' {..} =

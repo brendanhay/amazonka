@@ -211,9 +211,25 @@ instance Core.AWSRequest GetJourneyDateRangeKpi where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetJourneyDateRangeKpi
+instance Prelude.Hashable GetJourneyDateRangeKpi where
+  hashWithSalt _salt GetJourneyDateRangeKpi' {..} =
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` journeyId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` kpiName
 
-instance Prelude.NFData GetJourneyDateRangeKpi
+instance Prelude.NFData GetJourneyDateRangeKpi where
+  rnf GetJourneyDateRangeKpi' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf kpiName
 
 instance Core.ToHeaders GetJourneyDateRangeKpi where
   toHeaders =
@@ -292,3 +308,7 @@ getJourneyDateRangeKpiResponse_journeyDateRangeKpiResponse = Lens.lens (\GetJour
 instance
   Prelude.NFData
     GetJourneyDateRangeKpiResponse
+  where
+  rnf GetJourneyDateRangeKpiResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyDateRangeKpiResponse

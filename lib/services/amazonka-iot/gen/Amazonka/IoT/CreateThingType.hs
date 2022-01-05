@@ -125,9 +125,17 @@ instance Core.AWSRequest CreateThingType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateThingType
+instance Prelude.Hashable CreateThingType where
+  hashWithSalt _salt CreateThingType' {..} =
+    _salt `Prelude.hashWithSalt` thingTypeProperties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` thingTypeName
 
-instance Prelude.NFData CreateThingType
+instance Prelude.NFData CreateThingType where
+  rnf CreateThingType' {..} =
+    Prelude.rnf thingTypeProperties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf thingTypeName
 
 instance Core.ToHeaders CreateThingType where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,4 +217,9 @@ createThingTypeResponse_thingTypeArn = Lens.lens (\CreateThingTypeResponse' {thi
 createThingTypeResponse_httpStatus :: Lens.Lens' CreateThingTypeResponse Prelude.Int
 createThingTypeResponse_httpStatus = Lens.lens (\CreateThingTypeResponse' {httpStatus} -> httpStatus) (\s@CreateThingTypeResponse' {} a -> s {httpStatus = a} :: CreateThingTypeResponse)
 
-instance Prelude.NFData CreateThingTypeResponse
+instance Prelude.NFData CreateThingTypeResponse where
+  rnf CreateThingTypeResponse' {..} =
+    Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf thingTypeId
+      `Prelude.seq` Prelude.rnf thingTypeArn
+      `Prelude.seq` Prelude.rnf httpStatus

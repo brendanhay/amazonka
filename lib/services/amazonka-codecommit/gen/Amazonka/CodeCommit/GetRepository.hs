@@ -95,9 +95,12 @@ instance Core.AWSRequest GetRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepository
+instance Prelude.Hashable GetRepository where
+  hashWithSalt _salt GetRepository' {..} =
+    _salt `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetRepository
+instance Prelude.NFData GetRepository where
+  rnf GetRepository' {..} = Prelude.rnf repositoryName
 
 instance Core.ToHeaders GetRepository where
   toHeaders =
@@ -170,4 +173,7 @@ getRepositoryResponse_repositoryMetadata = Lens.lens (\GetRepositoryResponse' {r
 getRepositoryResponse_httpStatus :: Lens.Lens' GetRepositoryResponse Prelude.Int
 getRepositoryResponse_httpStatus = Lens.lens (\GetRepositoryResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryResponse' {} a -> s {httpStatus = a} :: GetRepositoryResponse)
 
-instance Prelude.NFData GetRepositoryResponse
+instance Prelude.NFData GetRepositoryResponse where
+  rnf GetRepositoryResponse' {..} =
+    Prelude.rnf repositoryMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

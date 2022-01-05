@@ -117,9 +117,12 @@ instance Core.AWSRequest GetMaintenanceWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMaintenanceWindow
+instance Prelude.Hashable GetMaintenanceWindow where
+  hashWithSalt _salt GetMaintenanceWindow' {..} =
+    _salt `Prelude.hashWithSalt` windowId
 
-instance Prelude.NFData GetMaintenanceWindow
+instance Prelude.NFData GetMaintenanceWindow where
+  rnf GetMaintenanceWindow' {..} = Prelude.rnf windowId
 
 instance Core.ToHeaders GetMaintenanceWindow where
   toHeaders =
@@ -359,4 +362,21 @@ getMaintenanceWindowResponse_windowId = Lens.lens (\GetMaintenanceWindowResponse
 getMaintenanceWindowResponse_httpStatus :: Lens.Lens' GetMaintenanceWindowResponse Prelude.Int
 getMaintenanceWindowResponse_httpStatus = Lens.lens (\GetMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@GetMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: GetMaintenanceWindowResponse)
 
-instance Prelude.NFData GetMaintenanceWindowResponse
+instance Prelude.NFData GetMaintenanceWindowResponse where
+  rnf GetMaintenanceWindowResponse' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf nextExecutionTime
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf scheduleTimezone
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf modifiedDate
+      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf allowUnassociatedTargets
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf httpStatus

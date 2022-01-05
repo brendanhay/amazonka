@@ -87,9 +87,17 @@ instance Core.FromJSON AuroraParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable AuroraParameters
+instance Prelude.Hashable AuroraParameters where
+  hashWithSalt _salt AuroraParameters' {..} =
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData AuroraParameters
+instance Prelude.NFData AuroraParameters where
+  rnf AuroraParameters' {..} =
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToJSON AuroraParameters where
   toJSON AuroraParameters' {..} =

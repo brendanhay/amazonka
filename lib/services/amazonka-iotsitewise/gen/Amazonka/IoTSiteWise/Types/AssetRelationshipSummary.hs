@@ -97,6 +97,12 @@ instance Core.FromJSON AssetRelationshipSummary where
             Prelude.<*> (x Core..: "relationshipType")
       )
 
-instance Prelude.Hashable AssetRelationshipSummary
+instance Prelude.Hashable AssetRelationshipSummary where
+  hashWithSalt _salt AssetRelationshipSummary' {..} =
+    _salt `Prelude.hashWithSalt` hierarchyInfo
+      `Prelude.hashWithSalt` relationshipType
 
-instance Prelude.NFData AssetRelationshipSummary
+instance Prelude.NFData AssetRelationshipSummary where
+  rnf AssetRelationshipSummary' {..} =
+    Prelude.rnf hierarchyInfo
+      `Prelude.seq` Prelude.rnf relationshipType

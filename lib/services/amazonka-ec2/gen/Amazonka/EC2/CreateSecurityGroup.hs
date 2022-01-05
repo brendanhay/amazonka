@@ -212,9 +212,21 @@ instance Core.AWSRequest CreateSecurityGroup where
             Prelude.<*> (x Core..@ "groupId")
       )
 
-instance Prelude.Hashable CreateSecurityGroup
+instance Prelude.Hashable CreateSecurityGroup where
+  hashWithSalt _salt CreateSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData CreateSecurityGroup
+instance Prelude.NFData CreateSecurityGroup where
+  rnf CreateSecurityGroup' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders CreateSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,4 +301,8 @@ createSecurityGroupResponse_httpStatus = Lens.lens (\CreateSecurityGroupResponse
 createSecurityGroupResponse_groupId :: Lens.Lens' CreateSecurityGroupResponse Prelude.Text
 createSecurityGroupResponse_groupId = Lens.lens (\CreateSecurityGroupResponse' {groupId} -> groupId) (\s@CreateSecurityGroupResponse' {} a -> s {groupId = a} :: CreateSecurityGroupResponse)
 
-instance Prelude.NFData CreateSecurityGroupResponse
+instance Prelude.NFData CreateSecurityGroupResponse where
+  rnf CreateSecurityGroupResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groupId

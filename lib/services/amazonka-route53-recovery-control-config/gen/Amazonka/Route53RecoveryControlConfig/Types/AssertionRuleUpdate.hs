@@ -94,9 +94,17 @@ assertionRuleUpdate_waitPeriodMs = Lens.lens (\AssertionRuleUpdate' {waitPeriodM
 assertionRuleUpdate_name :: Lens.Lens' AssertionRuleUpdate Prelude.Text
 assertionRuleUpdate_name = Lens.lens (\AssertionRuleUpdate' {name} -> name) (\s@AssertionRuleUpdate' {} a -> s {name = a} :: AssertionRuleUpdate)
 
-instance Prelude.Hashable AssertionRuleUpdate
+instance Prelude.Hashable AssertionRuleUpdate where
+  hashWithSalt _salt AssertionRuleUpdate' {..} =
+    _salt `Prelude.hashWithSalt` safetyRuleArn
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssertionRuleUpdate
+instance Prelude.NFData AssertionRuleUpdate where
+  rnf AssertionRuleUpdate' {..} =
+    Prelude.rnf safetyRuleArn
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AssertionRuleUpdate where
   toJSON AssertionRuleUpdate' {..} =

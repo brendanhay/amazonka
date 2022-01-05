@@ -134,9 +134,23 @@ instance Core.FromJSON DataCatalogOutput where
             Prelude.<*> (x Core..: "TableName")
       )
 
-instance Prelude.Hashable DataCatalogOutput
+instance Prelude.Hashable DataCatalogOutput where
+  hashWithSalt _salt DataCatalogOutput' {..} =
+    _salt `Prelude.hashWithSalt` databaseOptions
+      `Prelude.hashWithSalt` s3Options
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DataCatalogOutput
+instance Prelude.NFData DataCatalogOutput where
+  rnf DataCatalogOutput' {..} =
+    Prelude.rnf databaseOptions
+      `Prelude.seq` Prelude.rnf s3Options
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON DataCatalogOutput where
   toJSON DataCatalogOutput' {..} =

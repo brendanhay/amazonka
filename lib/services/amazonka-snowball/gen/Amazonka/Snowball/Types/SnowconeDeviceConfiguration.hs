@@ -63,9 +63,13 @@ instance Core.FromJSON SnowconeDeviceConfiguration where
             Prelude.<$> (x Core..:? "WirelessConnection")
       )
 
-instance Prelude.Hashable SnowconeDeviceConfiguration
+instance Prelude.Hashable SnowconeDeviceConfiguration where
+  hashWithSalt _salt SnowconeDeviceConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` wirelessConnection
 
-instance Prelude.NFData SnowconeDeviceConfiguration
+instance Prelude.NFData SnowconeDeviceConfiguration where
+  rnf SnowconeDeviceConfiguration' {..} =
+    Prelude.rnf wirelessConnection
 
 instance Core.ToJSON SnowconeDeviceConfiguration where
   toJSON SnowconeDeviceConfiguration' {..} =

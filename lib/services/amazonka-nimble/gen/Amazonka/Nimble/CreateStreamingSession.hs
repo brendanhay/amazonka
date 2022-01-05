@@ -177,9 +177,25 @@ instance Core.AWSRequest CreateStreamingSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamingSession
+instance Prelude.Hashable CreateStreamingSession where
+  hashWithSalt _salt CreateStreamingSession' {..} =
+    _salt `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` ec2InstanceType
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData CreateStreamingSession
+instance Prelude.NFData CreateStreamingSession where
+  rnf CreateStreamingSession' {..} =
+    Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ec2InstanceType
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf streamingImageId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders CreateStreamingSession where
   toHeaders CreateStreamingSession' {..} =
@@ -257,3 +273,7 @@ createStreamingSessionResponse_httpStatus = Lens.lens (\CreateStreamingSessionRe
 instance
   Prelude.NFData
     CreateStreamingSessionResponse
+  where
+  rnf CreateStreamingSessionResponse' {..} =
+    Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -122,6 +122,18 @@ instance Core.FromXML AccessKeyInfo where
       Prelude.<*> (x Core..@ "Status")
       Prelude.<*> (x Core..@ "SecretAccessKey")
 
-instance Prelude.Hashable AccessKeyInfo
+instance Prelude.Hashable AccessKeyInfo where
+  hashWithSalt _salt AccessKeyInfo' {..} =
+    _salt `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` secretAccessKey
 
-instance Prelude.NFData AccessKeyInfo
+instance Prelude.NFData AccessKeyInfo where
+  rnf AccessKeyInfo' {..} =
+    Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf secretAccessKey

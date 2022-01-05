@@ -110,9 +110,15 @@ instance Core.AWSRequest RegisterEcsCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterEcsCluster
+instance Prelude.Hashable RegisterEcsCluster where
+  hashWithSalt _salt RegisterEcsCluster' {..} =
+    _salt `Prelude.hashWithSalt` ecsClusterArn
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData RegisterEcsCluster
+instance Prelude.NFData RegisterEcsCluster where
+  rnf RegisterEcsCluster' {..} =
+    Prelude.rnf ecsClusterArn
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders RegisterEcsCluster where
   toHeaders =
@@ -186,4 +192,7 @@ registerEcsClusterResponse_ecsClusterArn = Lens.lens (\RegisterEcsClusterRespons
 registerEcsClusterResponse_httpStatus :: Lens.Lens' RegisterEcsClusterResponse Prelude.Int
 registerEcsClusterResponse_httpStatus = Lens.lens (\RegisterEcsClusterResponse' {httpStatus} -> httpStatus) (\s@RegisterEcsClusterResponse' {} a -> s {httpStatus = a} :: RegisterEcsClusterResponse)
 
-instance Prelude.NFData RegisterEcsClusterResponse
+instance Prelude.NFData RegisterEcsClusterResponse where
+  rnf RegisterEcsClusterResponse' {..} =
+    Prelude.rnf ecsClusterArn
+      `Prelude.seq` Prelude.rnf httpStatus

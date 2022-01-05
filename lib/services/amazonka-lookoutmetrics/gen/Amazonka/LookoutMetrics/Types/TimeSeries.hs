@@ -88,6 +88,14 @@ instance Core.FromJSON TimeSeries where
                         )
       )
 
-instance Prelude.Hashable TimeSeries
+instance Prelude.Hashable TimeSeries where
+  hashWithSalt _salt TimeSeries' {..} =
+    _salt `Prelude.hashWithSalt` timeSeriesId
+      `Prelude.hashWithSalt` dimensionList
+      `Prelude.hashWithSalt` metricValueList
 
-instance Prelude.NFData TimeSeries
+instance Prelude.NFData TimeSeries where
+  rnf TimeSeries' {..} =
+    Prelude.rnf timeSeriesId
+      `Prelude.seq` Prelude.rnf dimensionList
+      `Prelude.seq` Prelude.rnf metricValueList

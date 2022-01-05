@@ -124,10 +124,24 @@ instance
 instance
   Prelude.Hashable
     SalesforceDestinationProperties
+  where
+  hashWithSalt
+    _salt
+    SalesforceDestinationProperties' {..} =
+      _salt `Prelude.hashWithSalt` writeOperationType
+        `Prelude.hashWithSalt` idFieldNames
+        `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` object'
 
 instance
   Prelude.NFData
     SalesforceDestinationProperties
+  where
+  rnf SalesforceDestinationProperties' {..} =
+    Prelude.rnf writeOperationType
+      `Prelude.seq` Prelude.rnf idFieldNames
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON SalesforceDestinationProperties where
   toJSON SalesforceDestinationProperties' {..} =

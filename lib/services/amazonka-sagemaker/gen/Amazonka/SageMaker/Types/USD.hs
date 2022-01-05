@@ -81,9 +81,17 @@ instance Core.FromJSON USD where
             Prelude.<*> (x Core..:? "TenthFractionsOfACent")
       )
 
-instance Prelude.Hashable USD
+instance Prelude.Hashable USD where
+  hashWithSalt _salt USD' {..} =
+    _salt `Prelude.hashWithSalt` cents
+      `Prelude.hashWithSalt` dollars
+      `Prelude.hashWithSalt` tenthFractionsOfACent
 
-instance Prelude.NFData USD
+instance Prelude.NFData USD where
+  rnf USD' {..} =
+    Prelude.rnf cents
+      `Prelude.seq` Prelude.rnf dollars
+      `Prelude.seq` Prelude.rnf tenthFractionsOfACent
 
 instance Core.ToJSON USD where
   toJSON USD' {..} =

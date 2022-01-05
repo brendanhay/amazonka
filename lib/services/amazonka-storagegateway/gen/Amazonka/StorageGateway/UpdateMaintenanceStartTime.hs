@@ -171,9 +171,21 @@ instance Core.AWSRequest UpdateMaintenanceStartTime where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMaintenanceStartTime
+instance Prelude.Hashable UpdateMaintenanceStartTime where
+  hashWithSalt _salt UpdateMaintenanceStartTime' {..} =
+    _salt `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` hourOfDay
+      `Prelude.hashWithSalt` minuteOfHour
 
-instance Prelude.NFData UpdateMaintenanceStartTime
+instance Prelude.NFData UpdateMaintenanceStartTime where
+  rnf UpdateMaintenanceStartTime' {..} =
+    Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf hourOfDay
+      `Prelude.seq` Prelude.rnf minuteOfHour
 
 instance Core.ToHeaders UpdateMaintenanceStartTime where
   toHeaders =
@@ -252,3 +264,7 @@ updateMaintenanceStartTimeResponse_httpStatus = Lens.lens (\UpdateMaintenanceSta
 instance
   Prelude.NFData
     UpdateMaintenanceStartTimeResponse
+  where
+  rnf UpdateMaintenanceStartTimeResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

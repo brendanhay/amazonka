@@ -172,5 +172,22 @@ instance Core.FromXML FleetLaunchTemplateOverrides where
 instance
   Prelude.Hashable
     FleetLaunchTemplateOverrides
+  where
+  hashWithSalt _salt FleetLaunchTemplateOverrides' {..} =
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` maxPrice
 
-instance Prelude.NFData FleetLaunchTemplateOverrides
+instance Prelude.NFData FleetLaunchTemplateOverrides where
+  rnf FleetLaunchTemplateOverrides' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf maxPrice

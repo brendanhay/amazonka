@@ -184,9 +184,23 @@ instance Core.AWSRequest GetScreenData where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable GetScreenData
+instance Prelude.Hashable GetScreenData where
+  hashWithSalt _salt GetScreenData' {..} =
+    _salt `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` screenId
 
-instance Prelude.NFData GetScreenData
+instance Prelude.NFData GetScreenData where
+  rnf GetScreenData' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf screenId
 
 instance Core.ToHeaders GetScreenData where
   toHeaders =
@@ -290,4 +304,9 @@ getScreenDataResponse_results = Lens.lens (\GetScreenDataResponse' {results} -> 
 getScreenDataResponse_workbookCursor :: Lens.Lens' GetScreenDataResponse Prelude.Integer
 getScreenDataResponse_workbookCursor = Lens.lens (\GetScreenDataResponse' {workbookCursor} -> workbookCursor) (\s@GetScreenDataResponse' {} a -> s {workbookCursor = a} :: GetScreenDataResponse)
 
-instance Prelude.NFData GetScreenDataResponse
+instance Prelude.NFData GetScreenDataResponse where
+  rnf GetScreenDataResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf results
+      `Prelude.seq` Prelude.rnf workbookCursor

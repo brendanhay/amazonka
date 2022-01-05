@@ -103,9 +103,18 @@ credentialPair_username = Lens.lens (\CredentialPair' {username} -> username) (\
 credentialPair_password :: Lens.Lens' CredentialPair Prelude.Text
 credentialPair_password = Lens.lens (\CredentialPair' {password} -> password) (\s@CredentialPair' {} a -> s {password = a} :: CredentialPair)
 
-instance Prelude.Hashable CredentialPair
+instance Prelude.Hashable CredentialPair where
+  hashWithSalt _salt CredentialPair' {..} =
+    _salt
+      `Prelude.hashWithSalt` alternateDataSourceParameters
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData CredentialPair
+instance Prelude.NFData CredentialPair where
+  rnf CredentialPair' {..} =
+    Prelude.rnf alternateDataSourceParameters
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON CredentialPair where
   toJSON CredentialPair' {..} =

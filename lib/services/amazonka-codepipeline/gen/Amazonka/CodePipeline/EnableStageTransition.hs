@@ -127,9 +127,17 @@ instance Core.AWSRequest EnableStageTransition where
   response =
     Response.receiveNull EnableStageTransitionResponse'
 
-instance Prelude.Hashable EnableStageTransition
+instance Prelude.Hashable EnableStageTransition where
+  hashWithSalt _salt EnableStageTransition' {..} =
+    _salt `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` transitionType
 
-instance Prelude.NFData EnableStageTransition
+instance Prelude.NFData EnableStageTransition where
+  rnf EnableStageTransition' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf transitionType
 
 instance Core.ToHeaders EnableStageTransition where
   toHeaders =
@@ -178,4 +186,5 @@ newEnableStageTransitionResponse ::
 newEnableStageTransitionResponse =
   EnableStageTransitionResponse'
 
-instance Prelude.NFData EnableStageTransitionResponse
+instance Prelude.NFData EnableStageTransitionResponse where
+  rnf _ = ()

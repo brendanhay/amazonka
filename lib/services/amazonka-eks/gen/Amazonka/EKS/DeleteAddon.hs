@@ -124,9 +124,17 @@ instance Core.AWSRequest DeleteAddon where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAddon
+instance Prelude.Hashable DeleteAddon where
+  hashWithSalt _salt DeleteAddon' {..} =
+    _salt `Prelude.hashWithSalt` preserve
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` addonName
 
-instance Prelude.NFData DeleteAddon
+instance Prelude.NFData DeleteAddon where
+  rnf DeleteAddon' {..} =
+    Prelude.rnf preserve
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf addonName
 
 instance Core.ToHeaders DeleteAddon where
   toHeaders =
@@ -189,4 +197,7 @@ deleteAddonResponse_addon = Lens.lens (\DeleteAddonResponse' {addon} -> addon) (
 deleteAddonResponse_httpStatus :: Lens.Lens' DeleteAddonResponse Prelude.Int
 deleteAddonResponse_httpStatus = Lens.lens (\DeleteAddonResponse' {httpStatus} -> httpStatus) (\s@DeleteAddonResponse' {} a -> s {httpStatus = a} :: DeleteAddonResponse)
 
-instance Prelude.NFData DeleteAddonResponse
+instance Prelude.NFData DeleteAddonResponse where
+  rnf DeleteAddonResponse' {..} =
+    Prelude.rnf addon
+      `Prelude.seq` Prelude.rnf httpStatus

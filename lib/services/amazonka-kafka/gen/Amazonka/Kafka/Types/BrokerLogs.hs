@@ -79,9 +79,17 @@ instance Core.FromJSON BrokerLogs where
             Prelude.<*> (x Core..:? "s3")
       )
 
-instance Prelude.Hashable BrokerLogs
+instance Prelude.Hashable BrokerLogs where
+  hashWithSalt _salt BrokerLogs' {..} =
+    _salt `Prelude.hashWithSalt` cloudWatchLogs
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData BrokerLogs
+instance Prelude.NFData BrokerLogs where
+  rnf BrokerLogs' {..} =
+    Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf s3
 
 instance Core.ToJSON BrokerLogs where
   toJSON BrokerLogs' {..} =

@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteFunction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFunction
+instance Prelude.Hashable DeleteFunction where
+  hashWithSalt _salt DeleteFunction' {..} =
+    _salt `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` functionId
 
-instance Prelude.NFData DeleteFunction
+instance Prelude.NFData DeleteFunction where
+  rnf DeleteFunction' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf functionId
 
 instance Core.ToHeaders DeleteFunction where
   toHeaders =
@@ -152,4 +158,6 @@ newDeleteFunctionResponse pHttpStatus_ =
 deleteFunctionResponse_httpStatus :: Lens.Lens' DeleteFunctionResponse Prelude.Int
 deleteFunctionResponse_httpStatus = Lens.lens (\DeleteFunctionResponse' {httpStatus} -> httpStatus) (\s@DeleteFunctionResponse' {} a -> s {httpStatus = a} :: DeleteFunctionResponse)
 
-instance Prelude.NFData DeleteFunctionResponse
+instance Prelude.NFData DeleteFunctionResponse where
+  rnf DeleteFunctionResponse' {..} =
+    Prelude.rnf httpStatus

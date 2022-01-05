@@ -106,9 +106,15 @@ instance Core.AWSRequest GetApiMapping where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApiMapping
+instance Prelude.Hashable GetApiMapping where
+  hashWithSalt _salt GetApiMapping' {..} =
+    _salt `Prelude.hashWithSalt` apiMappingId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetApiMapping
+instance Prelude.NFData GetApiMapping where
+  rnf GetApiMapping' {..} =
+    Prelude.rnf apiMappingId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders GetApiMapping where
   toHeaders =
@@ -198,4 +204,10 @@ getApiMappingResponse_apiMappingId = Lens.lens (\GetApiMappingResponse' {apiMapp
 getApiMappingResponse_httpStatus :: Lens.Lens' GetApiMappingResponse Prelude.Int
 getApiMappingResponse_httpStatus = Lens.lens (\GetApiMappingResponse' {httpStatus} -> httpStatus) (\s@GetApiMappingResponse' {} a -> s {httpStatus = a} :: GetApiMappingResponse)
 
-instance Prelude.NFData GetApiMappingResponse
+instance Prelude.NFData GetApiMappingResponse where
+  rnf GetApiMappingResponse' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf apiMappingId
+      `Prelude.seq` Prelude.rnf httpStatus

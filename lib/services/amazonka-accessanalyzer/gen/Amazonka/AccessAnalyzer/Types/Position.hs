@@ -90,6 +90,14 @@ instance Core.FromJSON Position where
             Prelude.<*> (x Core..: "offset")
       )
 
-instance Prelude.Hashable Position
+instance Prelude.Hashable Position where
+  hashWithSalt _salt Position' {..} =
+    _salt `Prelude.hashWithSalt` column
+      `Prelude.hashWithSalt` line
+      `Prelude.hashWithSalt` offset
 
-instance Prelude.NFData Position
+instance Prelude.NFData Position where
+  rnf Position' {..} =
+    Prelude.rnf column
+      `Prelude.seq` Prelude.rnf line
+      `Prelude.seq` Prelude.rnf offset

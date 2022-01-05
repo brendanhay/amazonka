@@ -602,9 +602,45 @@ instance Core.AWSRequest UpdateFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleet
+instance Prelude.Hashable UpdateFleet where
+  hashWithSalt _salt UpdateFleet' {..} =
+    _salt `Prelude.hashWithSalt` domainJoinInfo
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` disconnectTimeoutInSeconds
+      `Prelude.hashWithSalt` maxUserDurationInSeconds
+      `Prelude.hashWithSalt` attributesToDelete
+      `Prelude.hashWithSalt` idleDisconnectTimeoutInSeconds
+      `Prelude.hashWithSalt` deleteVpcConfig
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enableDefaultInternetAccess
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` streamView
+      `Prelude.hashWithSalt` computeCapacity
 
-instance Prelude.NFData UpdateFleet
+instance Prelude.NFData UpdateFleet where
+  rnf UpdateFleet' {..} =
+    Prelude.rnf domainJoinInfo
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
+      `Prelude.seq` Prelude.rnf attributesToDelete
+      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf deleteVpcConfig
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf streamView
+      `Prelude.seq` Prelude.rnf computeCapacity
 
 instance Core.ToHeaders UpdateFleet where
   toHeaders =
@@ -697,4 +733,7 @@ updateFleetResponse_fleet = Lens.lens (\UpdateFleetResponse' {fleet} -> fleet) (
 updateFleetResponse_httpStatus :: Lens.Lens' UpdateFleetResponse Prelude.Int
 updateFleetResponse_httpStatus = Lens.lens (\UpdateFleetResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetResponse' {} a -> s {httpStatus = a} :: UpdateFleetResponse)
 
-instance Prelude.NFData UpdateFleetResponse
+instance Prelude.NFData UpdateFleetResponse where
+  rnf UpdateFleetResponse' {..} =
+    Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf httpStatus

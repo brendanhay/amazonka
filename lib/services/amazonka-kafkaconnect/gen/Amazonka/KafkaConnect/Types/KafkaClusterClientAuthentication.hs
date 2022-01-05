@@ -64,10 +64,18 @@ kafkaClusterClientAuthentication_authenticationType = Lens.lens (\KafkaClusterCl
 instance
   Prelude.Hashable
     KafkaClusterClientAuthentication
+  where
+  hashWithSalt
+    _salt
+    KafkaClusterClientAuthentication' {..} =
+      _salt `Prelude.hashWithSalt` authenticationType
 
 instance
   Prelude.NFData
     KafkaClusterClientAuthentication
+  where
+  rnf KafkaClusterClientAuthentication' {..} =
+    Prelude.rnf authenticationType
 
 instance Core.ToJSON KafkaClusterClientAuthentication where
   toJSON KafkaClusterClientAuthentication' {..} =

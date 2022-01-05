@@ -73,6 +73,12 @@ instance Core.FromJSON Parent where
             Prelude.<*> (x Core..:? "TrialName")
       )
 
-instance Prelude.Hashable Parent
+instance Prelude.Hashable Parent where
+  hashWithSalt _salt Parent' {..} =
+    _salt `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` trialName
 
-instance Prelude.NFData Parent
+instance Prelude.NFData Parent where
+  rnf Parent' {..} =
+    Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf trialName

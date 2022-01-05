@@ -94,9 +94,17 @@ instance Core.FromXML Transition where
       Prelude.<*> (x Core..@? "Date")
       Prelude.<*> (x Core..@? "StorageClass")
 
-instance Prelude.Hashable Transition
+instance Prelude.Hashable Transition where
+  hashWithSalt _salt Transition' {..} =
+    _salt `Prelude.hashWithSalt` days
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` storageClass
 
-instance Prelude.NFData Transition
+instance Prelude.NFData Transition where
+  rnf Transition' {..} =
+    Prelude.rnf days
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf storageClass
 
 instance Core.ToXML Transition where
   toXML Transition' {..} =

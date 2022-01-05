@@ -233,9 +233,19 @@ instance Core.AWSRequest SetSubnets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetSubnets
+instance Prelude.Hashable SetSubnets where
+  hashWithSalt _salt SetSubnets' {..} =
+    _salt `Prelude.hashWithSalt` subnetMappings
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` loadBalancerArn
 
-instance Prelude.NFData SetSubnets
+instance Prelude.NFData SetSubnets where
+  rnf SetSubnets' {..} =
+    Prelude.rnf subnetMappings
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf loadBalancerArn
 
 instance Core.ToHeaders SetSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,4 +320,8 @@ setSubnetsResponse_ipAddressType = Lens.lens (\SetSubnetsResponse' {ipAddressTyp
 setSubnetsResponse_httpStatus :: Lens.Lens' SetSubnetsResponse Prelude.Int
 setSubnetsResponse_httpStatus = Lens.lens (\SetSubnetsResponse' {httpStatus} -> httpStatus) (\s@SetSubnetsResponse' {} a -> s {httpStatus = a} :: SetSubnetsResponse)
 
-instance Prelude.NFData SetSubnetsResponse
+instance Prelude.NFData SetSubnetsResponse where
+  rnf SetSubnetsResponse' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf httpStatus

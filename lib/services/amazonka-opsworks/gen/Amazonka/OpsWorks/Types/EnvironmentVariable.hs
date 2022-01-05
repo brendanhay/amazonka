@@ -109,9 +109,17 @@ instance Core.FromJSON EnvironmentVariable where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable EnvironmentVariable
+instance Prelude.Hashable EnvironmentVariable where
+  hashWithSalt _salt EnvironmentVariable' {..} =
+    _salt `Prelude.hashWithSalt` secure
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData EnvironmentVariable
+instance Prelude.NFData EnvironmentVariable where
+  rnf EnvironmentVariable' {..} =
+    Prelude.rnf secure
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =

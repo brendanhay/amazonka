@@ -74,9 +74,15 @@ instance Core.FromXML TargetGroupStickinessConfig where
       Prelude.<$> (x Core..@? "Enabled")
       Prelude.<*> (x Core..@? "DurationSeconds")
 
-instance Prelude.Hashable TargetGroupStickinessConfig
+instance Prelude.Hashable TargetGroupStickinessConfig where
+  hashWithSalt _salt TargetGroupStickinessConfig' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` durationSeconds
 
-instance Prelude.NFData TargetGroupStickinessConfig
+instance Prelude.NFData TargetGroupStickinessConfig where
+  rnf TargetGroupStickinessConfig' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf durationSeconds
 
 instance Core.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =

@@ -136,6 +136,20 @@ instance Core.FromJSON ReviewResultDetail where
             Prelude.<*> (x Core..:? "SubjectId")
       )
 
-instance Prelude.Hashable ReviewResultDetail
+instance Prelude.Hashable ReviewResultDetail where
+  hashWithSalt _salt ReviewResultDetail' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` subjectType
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` subjectId
 
-instance Prelude.NFData ReviewResultDetail
+instance Prelude.NFData ReviewResultDetail where
+  rnf ReviewResultDetail' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf subjectType
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf subjectId

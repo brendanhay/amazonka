@@ -91,9 +91,17 @@ instance Core.FromJSON LogicalTable where
             Prelude.<*> (x Core..: "Source")
       )
 
-instance Prelude.Hashable LogicalTable
+instance Prelude.Hashable LogicalTable where
+  hashWithSalt _salt LogicalTable' {..} =
+    _salt `Prelude.hashWithSalt` dataTransforms
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData LogicalTable
+instance Prelude.NFData LogicalTable where
+  rnf LogicalTable' {..} =
+    Prelude.rnf dataTransforms
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON LogicalTable where
   toJSON LogicalTable' {..} =

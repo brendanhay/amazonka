@@ -203,6 +203,34 @@ instance Core.FromXML SecurityGroupRule where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable SecurityGroupRule
+instance Prelude.Hashable SecurityGroupRule where
+  hashWithSalt _salt SecurityGroupRule' {..} =
+    _salt `Prelude.hashWithSalt` cidrIpv4
+      `Prelude.hashWithSalt` isEgress
+      `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` securityGroupRuleId
+      `Prelude.hashWithSalt` groupOwnerId
+      `Prelude.hashWithSalt` referencedGroupInfo
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` cidrIpv6
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData SecurityGroupRule
+instance Prelude.NFData SecurityGroupRule where
+  rnf SecurityGroupRule' {..} =
+    Prelude.rnf cidrIpv4
+      `Prelude.seq` Prelude.rnf isEgress
+      `Prelude.seq` Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf securityGroupRuleId
+      `Prelude.seq` Prelude.rnf groupOwnerId
+      `Prelude.seq` Prelude.rnf referencedGroupInfo
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf cidrIpv6
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

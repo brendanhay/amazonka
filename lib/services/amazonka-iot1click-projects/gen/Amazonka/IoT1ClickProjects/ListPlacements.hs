@@ -133,9 +133,17 @@ instance Core.AWSRequest ListPlacements where
             Prelude.<*> (x Core..?> "placements" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPlacements
+instance Prelude.Hashable ListPlacements where
+  hashWithSalt _salt ListPlacements' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData ListPlacements
+instance Prelude.NFData ListPlacements where
+  rnf ListPlacements' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders ListPlacements where
   toHeaders =
@@ -211,4 +219,8 @@ listPlacementsResponse_httpStatus = Lens.lens (\ListPlacementsResponse' {httpSta
 listPlacementsResponse_placements :: Lens.Lens' ListPlacementsResponse [PlacementSummary]
 listPlacementsResponse_placements = Lens.lens (\ListPlacementsResponse' {placements} -> placements) (\s@ListPlacementsResponse' {} a -> s {placements = a} :: ListPlacementsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPlacementsResponse
+instance Prelude.NFData ListPlacementsResponse where
+  rnf ListPlacementsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf placements

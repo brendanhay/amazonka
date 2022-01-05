@@ -78,6 +78,12 @@ instance Core.FromXML LBCookieStickinessPolicy where
       Prelude.<$> (x Core..@? "PolicyName")
       Prelude.<*> (x Core..@? "CookieExpirationPeriod")
 
-instance Prelude.Hashable LBCookieStickinessPolicy
+instance Prelude.Hashable LBCookieStickinessPolicy where
+  hashWithSalt _salt LBCookieStickinessPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` cookieExpirationPeriod
 
-instance Prelude.NFData LBCookieStickinessPolicy
+instance Prelude.NFData LBCookieStickinessPolicy where
+  rnf LBCookieStickinessPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf cookieExpirationPeriod

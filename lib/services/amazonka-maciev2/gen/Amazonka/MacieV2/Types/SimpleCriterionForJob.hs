@@ -147,9 +147,17 @@ instance Core.FromJSON SimpleCriterionForJob where
             Prelude.<*> (x Core..:? "comparator")
       )
 
-instance Prelude.Hashable SimpleCriterionForJob
+instance Prelude.Hashable SimpleCriterionForJob where
+  hashWithSalt _salt SimpleCriterionForJob' {..} =
+    _salt `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` comparator
 
-instance Prelude.NFData SimpleCriterionForJob
+instance Prelude.NFData SimpleCriterionForJob where
+  rnf SimpleCriterionForJob' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf comparator
 
 instance Core.ToJSON SimpleCriterionForJob where
   toJSON SimpleCriterionForJob' {..} =

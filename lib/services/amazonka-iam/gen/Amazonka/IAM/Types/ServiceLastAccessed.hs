@@ -254,6 +254,22 @@ instance Core.FromXML ServiceLastAccessed where
       Prelude.<*> (x Core..@ "ServiceName")
       Prelude.<*> (x Core..@ "ServiceNamespace")
 
-instance Prelude.Hashable ServiceLastAccessed
+instance Prelude.Hashable ServiceLastAccessed where
+  hashWithSalt _salt ServiceLastAccessed' {..} =
+    _salt `Prelude.hashWithSalt` lastAuthenticated
+      `Prelude.hashWithSalt` trackedActionsLastAccessed
+      `Prelude.hashWithSalt` lastAuthenticatedEntity
+      `Prelude.hashWithSalt` lastAuthenticatedRegion
+      `Prelude.hashWithSalt` totalAuthenticatedEntities
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceNamespace
 
-instance Prelude.NFData ServiceLastAccessed
+instance Prelude.NFData ServiceLastAccessed where
+  rnf ServiceLastAccessed' {..} =
+    Prelude.rnf lastAuthenticated
+      `Prelude.seq` Prelude.rnf trackedActionsLastAccessed
+      `Prelude.seq` Prelude.rnf lastAuthenticatedEntity
+      `Prelude.seq` Prelude.rnf lastAuthenticatedRegion
+      `Prelude.seq` Prelude.rnf totalAuthenticatedEntities
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceNamespace

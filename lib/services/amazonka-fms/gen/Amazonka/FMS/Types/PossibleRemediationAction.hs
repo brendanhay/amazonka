@@ -85,6 +85,14 @@ instance Core.FromJSON PossibleRemediationAction where
                         )
       )
 
-instance Prelude.Hashable PossibleRemediationAction
+instance Prelude.Hashable PossibleRemediationAction where
+  hashWithSalt _salt PossibleRemediationAction' {..} =
+    _salt `Prelude.hashWithSalt` isDefaultAction
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` orderedRemediationActions
 
-instance Prelude.NFData PossibleRemediationAction
+instance Prelude.NFData PossibleRemediationAction where
+  rnf PossibleRemediationAction' {..} =
+    Prelude.rnf isDefaultAction
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf orderedRemediationActions

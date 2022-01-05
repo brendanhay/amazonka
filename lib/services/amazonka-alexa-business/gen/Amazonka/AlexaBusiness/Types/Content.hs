@@ -74,9 +74,17 @@ content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} 
 content_ssmlList :: Lens.Lens' Content (Prelude.Maybe [Ssml])
 content_ssmlList = Lens.lens (\Content' {ssmlList} -> ssmlList) (\s@Content' {} a -> s {ssmlList = a} :: Content) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Content
+instance Prelude.Hashable Content where
+  hashWithSalt _salt Content' {..} =
+    _salt `Prelude.hashWithSalt` audioList
+      `Prelude.hashWithSalt` textList
+      `Prelude.hashWithSalt` ssmlList
 
-instance Prelude.NFData Content
+instance Prelude.NFData Content where
+  rnf Content' {..} =
+    Prelude.rnf audioList
+      `Prelude.seq` Prelude.rnf textList
+      `Prelude.seq` Prelude.rnf ssmlList
 
 instance Core.ToJSON Content where
   toJSON Content' {..} =

@@ -46,9 +46,12 @@ instance Core.FromJSON DailySchedule where
       "DailySchedule"
       (\x -> Prelude.pure DailySchedule')
 
-instance Prelude.Hashable DailySchedule
+instance Prelude.Hashable DailySchedule where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DailySchedule
+instance Prelude.NFData DailySchedule where
+  rnf _ = ()
 
 instance Core.ToJSON DailySchedule where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

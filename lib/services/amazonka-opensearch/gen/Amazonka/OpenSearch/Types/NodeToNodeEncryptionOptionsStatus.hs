@@ -89,7 +89,17 @@ instance
 instance
   Prelude.Hashable
     NodeToNodeEncryptionOptionsStatus
+  where
+  hashWithSalt
+    _salt
+    NodeToNodeEncryptionOptionsStatus' {..} =
+      _salt `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     NodeToNodeEncryptionOptionsStatus
+  where
+  rnf NodeToNodeEncryptionOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

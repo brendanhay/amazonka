@@ -299,9 +299,25 @@ instance Core.AWSRequest StartExportTask where
       "StartExportTaskResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable StartExportTask
+instance Prelude.Hashable StartExportTask where
+  hashWithSalt _salt StartExportTask' {..} =
+    _salt `Prelude.hashWithSalt` exportOnly
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` exportTaskIdentifier
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData StartExportTask
+instance Prelude.NFData StartExportTask where
+  rnf StartExportTask' {..} =
+    Prelude.rnf exportOnly
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf exportTaskIdentifier
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders StartExportTask where
   toHeaders = Prelude.const Prelude.mempty

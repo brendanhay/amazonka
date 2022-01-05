@@ -175,9 +175,17 @@ instance Core.AWSRequest ChangeMessageVisibility where
     Response.receiveNull
       ChangeMessageVisibilityResponse'
 
-instance Prelude.Hashable ChangeMessageVisibility
+instance Prelude.Hashable ChangeMessageVisibility where
+  hashWithSalt _salt ChangeMessageVisibility' {..} =
+    _salt `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` receiptHandle
+      `Prelude.hashWithSalt` visibilityTimeout
 
-instance Prelude.NFData ChangeMessageVisibility
+instance Prelude.NFData ChangeMessageVisibility where
+  rnf ChangeMessageVisibility' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf receiptHandle
+      `Prelude.seq` Prelude.rnf visibilityTimeout
 
 instance Core.ToHeaders ChangeMessageVisibility where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,3 +223,5 @@ newChangeMessageVisibilityResponse =
 instance
   Prelude.NFData
     ChangeMessageVisibilityResponse
+  where
+  rnf _ = ()

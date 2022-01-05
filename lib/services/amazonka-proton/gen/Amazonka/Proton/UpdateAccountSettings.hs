@@ -87,9 +87,13 @@ instance Core.AWSRequest UpdateAccountSettings where
             Prelude.<*> (x Core..:> "accountSettings")
       )
 
-instance Prelude.Hashable UpdateAccountSettings
+instance Prelude.Hashable UpdateAccountSettings where
+  hashWithSalt _salt UpdateAccountSettings' {..} =
+    _salt `Prelude.hashWithSalt` pipelineServiceRoleArn
 
-instance Prelude.NFData UpdateAccountSettings
+instance Prelude.NFData UpdateAccountSettings where
+  rnf UpdateAccountSettings' {..} =
+    Prelude.rnf pipelineServiceRoleArn
 
 instance Core.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -167,4 +171,7 @@ updateAccountSettingsResponse_httpStatus = Lens.lens (\UpdateAccountSettingsResp
 updateAccountSettingsResponse_accountSettings :: Lens.Lens' UpdateAccountSettingsResponse AccountSettings
 updateAccountSettingsResponse_accountSettings = Lens.lens (\UpdateAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@UpdateAccountSettingsResponse' {} a -> s {accountSettings = a} :: UpdateAccountSettingsResponse)
 
-instance Prelude.NFData UpdateAccountSettingsResponse
+instance Prelude.NFData UpdateAccountSettingsResponse where
+  rnf UpdateAccountSettingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accountSettings

@@ -108,6 +108,14 @@ instance Core.FromJSON SensitiveDataItem where
             Prelude.<*> (x Core..:? "totalCount")
       )
 
-instance Prelude.Hashable SensitiveDataItem
+instance Prelude.Hashable SensitiveDataItem where
+  hashWithSalt _salt SensitiveDataItem' {..} =
+    _salt `Prelude.hashWithSalt` detections
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` totalCount
 
-instance Prelude.NFData SensitiveDataItem
+instance Prelude.NFData SensitiveDataItem where
+  rnf SensitiveDataItem' {..} =
+    Prelude.rnf detections
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf totalCount

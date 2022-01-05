@@ -120,10 +120,18 @@ instance
 instance
   Prelude.Hashable
     DescribeTrustedAdvisorCheckRefreshStatuses
+  where
+  hashWithSalt
+    _salt
+    DescribeTrustedAdvisorCheckRefreshStatuses' {..} =
+      _salt `Prelude.hashWithSalt` checkIds
 
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckRefreshStatuses
+  where
+  rnf DescribeTrustedAdvisorCheckRefreshStatuses' {..} =
+    Prelude.rnf checkIds
 
 instance
   Core.ToHeaders
@@ -213,3 +221,8 @@ describeTrustedAdvisorCheckRefreshStatusesResponse_statuses = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckRefreshStatusesResponse
+  where
+  rnf
+    DescribeTrustedAdvisorCheckRefreshStatusesResponse' {..} =
+      Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf statuses

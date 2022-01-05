@@ -103,9 +103,19 @@ putFileEntry_sourceFile = Lens.lens (\PutFileEntry' {sourceFile} -> sourceFile) 
 putFileEntry_filePath :: Lens.Lens' PutFileEntry Prelude.Text
 putFileEntry_filePath = Lens.lens (\PutFileEntry' {filePath} -> filePath) (\s@PutFileEntry' {} a -> s {filePath = a} :: PutFileEntry)
 
-instance Prelude.Hashable PutFileEntry
+instance Prelude.Hashable PutFileEntry where
+  hashWithSalt _salt PutFileEntry' {..} =
+    _salt `Prelude.hashWithSalt` fileContent
+      `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` sourceFile
+      `Prelude.hashWithSalt` filePath
 
-instance Prelude.NFData PutFileEntry
+instance Prelude.NFData PutFileEntry where
+  rnf PutFileEntry' {..} =
+    Prelude.rnf fileContent
+      `Prelude.seq` Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf sourceFile
+      `Prelude.seq` Prelude.rnf filePath
 
 instance Core.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =

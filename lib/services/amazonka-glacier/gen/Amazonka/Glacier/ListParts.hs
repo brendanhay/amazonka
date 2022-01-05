@@ -224,9 +224,21 @@ instance Core.AWSRequest ListParts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListParts
+instance Prelude.Hashable ListParts where
+  hashWithSalt _salt ListParts' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` uploadId
 
-instance Prelude.NFData ListParts
+instance Prelude.NFData ListParts where
+  rnf ListParts' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf uploadId
 
 instance Core.ToHeaders ListParts where
   toHeaders = Prelude.const Prelude.mempty
@@ -359,4 +371,13 @@ listPartsResponse_creationDate = Lens.lens (\ListPartsResponse' {creationDate} -
 listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Prelude.Int
 listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> httpStatus) (\s@ListPartsResponse' {} a -> s {httpStatus = a} :: ListPartsResponse)
 
-instance Prelude.NFData ListPartsResponse
+instance Prelude.NFData ListPartsResponse where
+  rnf ListPartsResponse' {..} =
+    Prelude.rnf parts
+      `Prelude.seq` Prelude.rnf multipartUploadId
+      `Prelude.seq` Prelude.rnf partSizeInBytes
+      `Prelude.seq` Prelude.rnf archiveDescription
+      `Prelude.seq` Prelude.rnf vaultARN
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf httpStatus

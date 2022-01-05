@@ -158,9 +158,21 @@ instance Core.AWSRequest CompleteSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteSnapshot
+instance Prelude.Hashable CompleteSnapshot where
+  hashWithSalt _salt CompleteSnapshot' {..} =
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` checksumAggregationMethod
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` changedBlocksCount
 
-instance Prelude.NFData CompleteSnapshot
+instance Prelude.NFData CompleteSnapshot where
+  rnf CompleteSnapshot' {..} =
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf checksumAggregationMethod
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf changedBlocksCount
 
 instance Core.ToHeaders CompleteSnapshot where
   toHeaders CompleteSnapshot' {..} =
@@ -225,4 +237,7 @@ completeSnapshotResponse_status = Lens.lens (\CompleteSnapshotResponse' {status}
 completeSnapshotResponse_httpStatus :: Lens.Lens' CompleteSnapshotResponse Prelude.Int
 completeSnapshotResponse_httpStatus = Lens.lens (\CompleteSnapshotResponse' {httpStatus} -> httpStatus) (\s@CompleteSnapshotResponse' {} a -> s {httpStatus = a} :: CompleteSnapshotResponse)
 
-instance Prelude.NFData CompleteSnapshotResponse
+instance Prelude.NFData CompleteSnapshotResponse where
+  rnf CompleteSnapshotResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

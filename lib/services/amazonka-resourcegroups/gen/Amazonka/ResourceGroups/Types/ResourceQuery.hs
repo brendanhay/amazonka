@@ -257,9 +257,14 @@ instance Core.FromJSON ResourceQuery where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Query")
       )
 
-instance Prelude.Hashable ResourceQuery
+instance Prelude.Hashable ResourceQuery where
+  hashWithSalt _salt ResourceQuery' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` query
 
-instance Prelude.NFData ResourceQuery
+instance Prelude.NFData ResourceQuery where
+  rnf ResourceQuery' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf query
 
 instance Core.ToJSON ResourceQuery where
   toJSON ResourceQuery' {..} =

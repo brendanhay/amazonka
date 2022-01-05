@@ -96,9 +96,16 @@ instance Core.FromJSON AudioLanguageSelection where
             Prelude.<*> (x Core..: "languageCode")
       )
 
-instance Prelude.Hashable AudioLanguageSelection
+instance Prelude.Hashable AudioLanguageSelection where
+  hashWithSalt _salt AudioLanguageSelection' {..} =
+    _salt
+      `Prelude.hashWithSalt` languageSelectionPolicy
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData AudioLanguageSelection
+instance Prelude.NFData AudioLanguageSelection where
+  rnf AudioLanguageSelection' {..} =
+    Prelude.rnf languageSelectionPolicy
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToJSON AudioLanguageSelection where
   toJSON AudioLanguageSelection' {..} =

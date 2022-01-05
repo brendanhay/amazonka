@@ -84,9 +84,12 @@ instance Core.AWSRequest GetControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetControl
+instance Prelude.Hashable GetControl where
+  hashWithSalt _salt GetControl' {..} =
+    _salt `Prelude.hashWithSalt` controlId
 
-instance Prelude.NFData GetControl
+instance Prelude.NFData GetControl where
+  rnf GetControl' {..} = Prelude.rnf controlId
 
 instance Core.ToHeaders GetControl where
   toHeaders =
@@ -144,4 +147,7 @@ getControlResponse_control = Lens.lens (\GetControlResponse' {control} -> contro
 getControlResponse_httpStatus :: Lens.Lens' GetControlResponse Prelude.Int
 getControlResponse_httpStatus = Lens.lens (\GetControlResponse' {httpStatus} -> httpStatus) (\s@GetControlResponse' {} a -> s {httpStatus = a} :: GetControlResponse)
 
-instance Prelude.NFData GetControlResponse
+instance Prelude.NFData GetControlResponse where
+  rnf GetControlResponse' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf httpStatus

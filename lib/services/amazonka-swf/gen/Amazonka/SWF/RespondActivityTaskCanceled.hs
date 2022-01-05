@@ -142,9 +142,15 @@ instance Core.AWSRequest RespondActivityTaskCanceled where
     Response.receiveNull
       RespondActivityTaskCanceledResponse'
 
-instance Prelude.Hashable RespondActivityTaskCanceled
+instance Prelude.Hashable RespondActivityTaskCanceled where
+  hashWithSalt _salt RespondActivityTaskCanceled' {..} =
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData RespondActivityTaskCanceled
+instance Prelude.NFData RespondActivityTaskCanceled where
+  rnf RespondActivityTaskCanceled' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf taskToken
 
 instance Core.ToHeaders RespondActivityTaskCanceled where
   toHeaders =
@@ -194,3 +200,5 @@ newRespondActivityTaskCanceledResponse =
 instance
   Prelude.NFData
     RespondActivityTaskCanceledResponse
+  where
+  rnf _ = ()

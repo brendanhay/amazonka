@@ -87,9 +87,15 @@ instance Core.FromXML AutoDeployment where
       Prelude.<$> (x Core..@? "Enabled")
       Prelude.<*> (x Core..@? "RetainStacksOnAccountRemoval")
 
-instance Prelude.Hashable AutoDeployment
+instance Prelude.Hashable AutoDeployment where
+  hashWithSalt _salt AutoDeployment' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` retainStacksOnAccountRemoval
 
-instance Prelude.NFData AutoDeployment
+instance Prelude.NFData AutoDeployment where
+  rnf AutoDeployment' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf retainStacksOnAccountRemoval
 
 instance Core.ToQuery AutoDeployment where
   toQuery AutoDeployment' {..} =

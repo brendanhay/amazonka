@@ -394,6 +394,53 @@ instance Core.FromJSON JobMetadata where
             Prelude.<*> (x Core..:? "SnowballCapacityPreference")
       )
 
-instance Prelude.Hashable JobMetadata
+instance Prelude.Hashable JobMetadata where
+  hashWithSalt _salt JobMetadata' {..} =
+    _salt `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` kmsKeyARN
+      `Prelude.hashWithSalt` remoteManagement
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobLogInfo
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` jobState
+      `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` shippingDetails
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` dataTransferProgress
+      `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` onDeviceServiceConfiguration
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` taxDocuments
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` snowballCapacityPreference
 
-instance Prelude.NFData JobMetadata
+instance Prelude.NFData JobMetadata where
+  rnf JobMetadata' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf kmsKeyARN
+      `Prelude.seq` Prelude.rnf remoteManagement
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobLogInfo
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf jobState
+      `Prelude.seq` Prelude.rnf forwardingAddressId
+      `Prelude.seq` Prelude.rnf shippingDetails
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf dataTransferProgress
+      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf taxDocuments
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf
+        snowballCapacityPreference

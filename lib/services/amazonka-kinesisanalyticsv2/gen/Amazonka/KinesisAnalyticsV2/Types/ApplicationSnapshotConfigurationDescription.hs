@@ -75,7 +75,15 @@ instance
 instance
   Prelude.Hashable
     ApplicationSnapshotConfigurationDescription
+  where
+  hashWithSalt
+    _salt
+    ApplicationSnapshotConfigurationDescription' {..} =
+      _salt `Prelude.hashWithSalt` snapshotsEnabled
 
 instance
   Prelude.NFData
     ApplicationSnapshotConfigurationDescription
+  where
+  rnf ApplicationSnapshotConfigurationDescription' {..} =
+    Prelude.rnf snapshotsEnabled

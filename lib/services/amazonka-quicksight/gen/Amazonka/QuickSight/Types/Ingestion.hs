@@ -171,6 +171,30 @@ instance Core.FromJSON Ingestion where
             Prelude.<*> (x Core..: "CreatedTime")
       )
 
-instance Prelude.Hashable Ingestion
+instance Prelude.Hashable Ingestion where
+  hashWithSalt _salt Ingestion' {..} =
+    _salt `Prelude.hashWithSalt` requestSource
+      `Prelude.hashWithSalt` queueInfo
+      `Prelude.hashWithSalt` ingestionTimeInSeconds
+      `Prelude.hashWithSalt` requestType
+      `Prelude.hashWithSalt` ingestionSizeInBytes
+      `Prelude.hashWithSalt` rowInfo
+      `Prelude.hashWithSalt` ingestionId
+      `Prelude.hashWithSalt` errorInfo
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` ingestionStatus
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData Ingestion
+instance Prelude.NFData Ingestion where
+  rnf Ingestion' {..} =
+    Prelude.rnf requestSource
+      `Prelude.seq` Prelude.rnf queueInfo
+      `Prelude.seq` Prelude.rnf ingestionTimeInSeconds
+      `Prelude.seq` Prelude.rnf requestType
+      `Prelude.seq` Prelude.rnf ingestionSizeInBytes
+      `Prelude.seq` Prelude.rnf rowInfo
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf errorInfo
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ingestionStatus
+      `Prelude.seq` Prelude.rnf createdTime

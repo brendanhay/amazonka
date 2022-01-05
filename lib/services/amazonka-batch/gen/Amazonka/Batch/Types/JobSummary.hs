@@ -209,6 +209,32 @@ instance Core.FromJSON JobSummary where
             Prelude.<*> (x Core..: "jobName")
       )
 
-instance Prelude.Hashable JobSummary
+instance Prelude.Hashable JobSummary where
+  hashWithSalt _salt JobSummary' {..} =
+    _salt `Prelude.hashWithSalt` stoppedAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` jobDefinition
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` arrayProperties
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData JobSummary
+instance Prelude.NFData JobSummary where
+  rnf JobSummary' {..} =
+    Prelude.rnf stoppedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf arrayProperties
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobName

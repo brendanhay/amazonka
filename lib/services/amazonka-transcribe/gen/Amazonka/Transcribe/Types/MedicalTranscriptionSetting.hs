@@ -199,9 +199,23 @@ instance Core.FromJSON MedicalTranscriptionSetting where
             Prelude.<*> (x Core..:? "ShowSpeakerLabels")
       )
 
-instance Prelude.Hashable MedicalTranscriptionSetting
+instance Prelude.Hashable MedicalTranscriptionSetting where
+  hashWithSalt _salt MedicalTranscriptionSetting' {..} =
+    _salt `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` maxAlternatives
+      `Prelude.hashWithSalt` channelIdentification
+      `Prelude.hashWithSalt` showAlternatives
+      `Prelude.hashWithSalt` maxSpeakerLabels
+      `Prelude.hashWithSalt` showSpeakerLabels
 
-instance Prelude.NFData MedicalTranscriptionSetting
+instance Prelude.NFData MedicalTranscriptionSetting where
+  rnf MedicalTranscriptionSetting' {..} =
+    Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf maxAlternatives
+      `Prelude.seq` Prelude.rnf channelIdentification
+      `Prelude.seq` Prelude.rnf showAlternatives
+      `Prelude.seq` Prelude.rnf maxSpeakerLabels
+      `Prelude.seq` Prelude.rnf showSpeakerLabels
 
 instance Core.ToJSON MedicalTranscriptionSetting where
   toJSON MedicalTranscriptionSetting' {..} =

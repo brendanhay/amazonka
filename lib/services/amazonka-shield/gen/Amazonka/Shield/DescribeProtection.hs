@@ -111,9 +111,15 @@ instance Core.AWSRequest DescribeProtection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProtection
+instance Prelude.Hashable DescribeProtection where
+  hashWithSalt _salt DescribeProtection' {..} =
+    _salt `Prelude.hashWithSalt` protectionId
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DescribeProtection
+instance Prelude.NFData DescribeProtection where
+  rnf DescribeProtection' {..} =
+    Prelude.rnf protectionId
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders DescribeProtection where
   toHeaders =
@@ -184,4 +190,7 @@ describeProtectionResponse_protection = Lens.lens (\DescribeProtectionResponse' 
 describeProtectionResponse_httpStatus :: Lens.Lens' DescribeProtectionResponse Prelude.Int
 describeProtectionResponse_httpStatus = Lens.lens (\DescribeProtectionResponse' {httpStatus} -> httpStatus) (\s@DescribeProtectionResponse' {} a -> s {httpStatus = a} :: DescribeProtectionResponse)
 
-instance Prelude.NFData DescribeProtectionResponse
+instance Prelude.NFData DescribeProtectionResponse where
+  rnf DescribeProtectionResponse' {..} =
+    Prelude.rnf protection
+      `Prelude.seq` Prelude.rnf httpStatus

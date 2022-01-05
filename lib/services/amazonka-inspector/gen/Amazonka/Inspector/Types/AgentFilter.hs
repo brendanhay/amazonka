@@ -73,9 +73,15 @@ agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealt
 agentFilter_agentHealthCodes :: Lens.Lens' AgentFilter [AgentHealthCode]
 agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable AgentFilter
+instance Prelude.Hashable AgentFilter where
+  hashWithSalt _salt AgentFilter' {..} =
+    _salt `Prelude.hashWithSalt` agentHealths
+      `Prelude.hashWithSalt` agentHealthCodes
 
-instance Prelude.NFData AgentFilter
+instance Prelude.NFData AgentFilter where
+  rnf AgentFilter' {..} =
+    Prelude.rnf agentHealths
+      `Prelude.seq` Prelude.rnf agentHealthCodes
 
 instance Core.ToJSON AgentFilter where
   toJSON AgentFilter' {..} =

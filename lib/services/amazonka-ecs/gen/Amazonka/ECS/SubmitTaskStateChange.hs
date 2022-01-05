@@ -182,9 +182,31 @@ instance Core.AWSRequest SubmitTaskStateChange where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SubmitTaskStateChange
+instance Prelude.Hashable SubmitTaskStateChange where
+  hashWithSalt _salt SubmitTaskStateChange' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` managedAgents
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` executionStoppedAt
+      `Prelude.hashWithSalt` pullStoppedAt
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` pullStartedAt
 
-instance Prelude.NFData SubmitTaskStateChange
+instance Prelude.NFData SubmitTaskStateChange where
+  rnf SubmitTaskStateChange' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf managedAgents
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf executionStoppedAt
+      `Prelude.seq` Prelude.rnf pullStoppedAt
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf pullStartedAt
 
 instance Core.ToHeaders SubmitTaskStateChange where
   toHeaders =
@@ -264,4 +286,7 @@ submitTaskStateChangeResponse_acknowledgment = Lens.lens (\SubmitTaskStateChange
 submitTaskStateChangeResponse_httpStatus :: Lens.Lens' SubmitTaskStateChangeResponse Prelude.Int
 submitTaskStateChangeResponse_httpStatus = Lens.lens (\SubmitTaskStateChangeResponse' {httpStatus} -> httpStatus) (\s@SubmitTaskStateChangeResponse' {} a -> s {httpStatus = a} :: SubmitTaskStateChangeResponse)
 
-instance Prelude.NFData SubmitTaskStateChangeResponse
+instance Prelude.NFData SubmitTaskStateChangeResponse where
+  rnf SubmitTaskStateChangeResponse' {..} =
+    Prelude.rnf acknowledgment
+      `Prelude.seq` Prelude.rnf httpStatus

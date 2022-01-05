@@ -136,9 +136,12 @@ instance Core.AWSRequest DescribeIdFormat where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIdFormat
+instance Prelude.Hashable DescribeIdFormat where
+  hashWithSalt _salt DescribeIdFormat' {..} =
+    _salt `Prelude.hashWithSalt` resource
 
-instance Prelude.NFData DescribeIdFormat
+instance Prelude.NFData DescribeIdFormat where
+  rnf DescribeIdFormat' {..} = Prelude.rnf resource
 
 instance Core.ToHeaders DescribeIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +198,7 @@ describeIdFormatResponse_statuses = Lens.lens (\DescribeIdFormatResponse' {statu
 describeIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdFormatResponse Prelude.Int
 describeIdFormatResponse_httpStatus = Lens.lens (\DescribeIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribeIdFormatResponse' {} a -> s {httpStatus = a} :: DescribeIdFormatResponse)
 
-instance Prelude.NFData DescribeIdFormatResponse
+instance Prelude.NFData DescribeIdFormatResponse where
+  rnf DescribeIdFormatResponse' {..} =
+    Prelude.rnf statuses
+      `Prelude.seq` Prelude.rnf httpStatus

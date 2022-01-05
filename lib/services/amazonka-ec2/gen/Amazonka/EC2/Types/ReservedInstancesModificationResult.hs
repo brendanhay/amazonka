@@ -85,7 +85,17 @@ instance
 instance
   Prelude.Hashable
     ReservedInstancesModificationResult
+  where
+  hashWithSalt
+    _salt
+    ReservedInstancesModificationResult' {..} =
+      _salt `Prelude.hashWithSalt` reservedInstancesId
+        `Prelude.hashWithSalt` targetConfiguration
 
 instance
   Prelude.NFData
     ReservedInstancesModificationResult
+  where
+  rnf ReservedInstancesModificationResult' {..} =
+    Prelude.rnf reservedInstancesId
+      `Prelude.seq` Prelude.rnf targetConfiguration

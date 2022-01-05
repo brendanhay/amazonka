@@ -73,6 +73,12 @@ instance Core.FromJSON ResourcesAffected where
             Prelude.<*> (x Core..:? "s3Bucket")
       )
 
-instance Prelude.Hashable ResourcesAffected
+instance Prelude.Hashable ResourcesAffected where
+  hashWithSalt _salt ResourcesAffected' {..} =
+    _salt `Prelude.hashWithSalt` s3Object
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData ResourcesAffected
+instance Prelude.NFData ResourcesAffected where
+  rnf ResourcesAffected' {..} =
+    Prelude.rnf s3Object
+      `Prelude.seq` Prelude.rnf s3Bucket

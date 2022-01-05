@@ -145,6 +145,23 @@ instance Core.FromJSON AggregateEvaluationResult where
             Prelude.<*> (x Core..:? "AwsRegion")
       )
 
-instance Prelude.Hashable AggregateEvaluationResult
+instance Prelude.Hashable AggregateEvaluationResult where
+  hashWithSalt _salt AggregateEvaluationResult' {..} =
+    _salt
+      `Prelude.hashWithSalt` evaluationResultIdentifier
+      `Prelude.hashWithSalt` annotation
+      `Prelude.hashWithSalt` configRuleInvokedTime
+      `Prelude.hashWithSalt` resultRecordedTime
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` awsRegion
 
-instance Prelude.NFData AggregateEvaluationResult
+instance Prelude.NFData AggregateEvaluationResult where
+  rnf AggregateEvaluationResult' {..} =
+    Prelude.rnf evaluationResultIdentifier
+      `Prelude.seq` Prelude.rnf annotation
+      `Prelude.seq` Prelude.rnf configRuleInvokedTime
+      `Prelude.seq` Prelude.rnf resultRecordedTime
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf awsRegion

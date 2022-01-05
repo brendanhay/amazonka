@@ -191,7 +191,35 @@ instance
 instance
   Prelude.Hashable
     DisableFastSnapshotRestoreSuccessItem
+  where
+  hashWithSalt
+    _salt
+    DisableFastSnapshotRestoreSuccessItem' {..} =
+      _salt `Prelude.hashWithSalt` disablingTime
+        `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` ownerAlias
+        `Prelude.hashWithSalt` disabledTime
+        `Prelude.hashWithSalt` enabledTime
+        `Prelude.hashWithSalt` optimizingTime
+        `Prelude.hashWithSalt` ownerId
+        `Prelude.hashWithSalt` stateTransitionReason
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` snapshotId
+        `Prelude.hashWithSalt` enablingTime
 
 instance
   Prelude.NFData
     DisableFastSnapshotRestoreSuccessItem
+  where
+  rnf DisableFastSnapshotRestoreSuccessItem' {..} =
+    Prelude.rnf disablingTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf ownerAlias
+      `Prelude.seq` Prelude.rnf disabledTime
+      `Prelude.seq` Prelude.rnf enabledTime
+      `Prelude.seq` Prelude.rnf optimizingTime
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf stateTransitionReason
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf enablingTime

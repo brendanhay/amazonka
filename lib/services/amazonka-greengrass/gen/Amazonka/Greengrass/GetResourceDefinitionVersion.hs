@@ -130,8 +130,16 @@ instance Core.AWSRequest GetResourceDefinitionVersion where
 instance
   Prelude.Hashable
     GetResourceDefinitionVersion
+  where
+  hashWithSalt _salt GetResourceDefinitionVersion' {..} =
+    _salt
+      `Prelude.hashWithSalt` resourceDefinitionVersionId
+      `Prelude.hashWithSalt` resourceDefinitionId
 
-instance Prelude.NFData GetResourceDefinitionVersion
+instance Prelude.NFData GetResourceDefinitionVersion where
+  rnf GetResourceDefinitionVersion' {..} =
+    Prelude.rnf resourceDefinitionVersionId
+      `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance Core.ToHeaders GetResourceDefinitionVersion where
   toHeaders =
@@ -237,3 +245,11 @@ getResourceDefinitionVersionResponse_httpStatus = Lens.lens (\GetResourceDefinit
 instance
   Prelude.NFData
     GetResourceDefinitionVersionResponse
+  where
+  rnf GetResourceDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus

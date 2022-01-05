@@ -78,10 +78,20 @@ dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOption
 instance
   Prelude.Hashable
     DnsServersOptionsModifyStructure
+  where
+  hashWithSalt
+    _salt
+    DnsServersOptionsModifyStructure' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` customDnsServers
 
 instance
   Prelude.NFData
     DnsServersOptionsModifyStructure
+  where
+  rnf DnsServersOptionsModifyStructure' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf customDnsServers
 
 instance
   Core.ToQuery

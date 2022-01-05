@@ -89,9 +89,15 @@ instance Core.FromJSON ReputationOptions where
             Prelude.<*> (x Core..:? "ReputationMetricsEnabled")
       )
 
-instance Prelude.Hashable ReputationOptions
+instance Prelude.Hashable ReputationOptions where
+  hashWithSalt _salt ReputationOptions' {..} =
+    _salt `Prelude.hashWithSalt` lastFreshStart
+      `Prelude.hashWithSalt` reputationMetricsEnabled
 
-instance Prelude.NFData ReputationOptions
+instance Prelude.NFData ReputationOptions where
+  rnf ReputationOptions' {..} =
+    Prelude.rnf lastFreshStart
+      `Prelude.seq` Prelude.rnf reputationMetricsEnabled
 
 instance Core.ToJSON ReputationOptions where
   toJSON ReputationOptions' {..} =

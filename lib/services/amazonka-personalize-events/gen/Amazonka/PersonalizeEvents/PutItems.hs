@@ -92,9 +92,15 @@ instance Core.AWSRequest PutItems where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutItemsResponse'
 
-instance Prelude.Hashable PutItems
+instance Prelude.Hashable PutItems where
+  hashWithSalt _salt PutItems' {..} =
+    _salt `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData PutItems
+instance Prelude.NFData PutItems where
+  rnf PutItems' {..} =
+    Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToHeaders PutItems where
   toHeaders =
@@ -136,4 +142,5 @@ newPutItemsResponse ::
   PutItemsResponse
 newPutItemsResponse = PutItemsResponse'
 
-instance Prelude.NFData PutItemsResponse
+instance Prelude.NFData PutItemsResponse where
+  rnf _ = ()

@@ -115,9 +115,15 @@ instance Core.AWSRequest CreateSecurityConfiguration where
             Prelude.<*> (x Core..:> "CreationDateTime")
       )
 
-instance Prelude.Hashable CreateSecurityConfiguration
+instance Prelude.Hashable CreateSecurityConfiguration where
+  hashWithSalt _salt CreateSecurityConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` securityConfiguration
 
-instance Prelude.NFData CreateSecurityConfiguration
+instance Prelude.NFData CreateSecurityConfiguration where
+  rnf CreateSecurityConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf securityConfiguration
 
 instance Core.ToHeaders CreateSecurityConfiguration where
   toHeaders =
@@ -211,3 +217,8 @@ createSecurityConfigurationResponse_creationDateTime = Lens.lens (\CreateSecurit
 instance
   Prelude.NFData
     CreateSecurityConfigurationResponse
+  where
+  rnf CreateSecurityConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime

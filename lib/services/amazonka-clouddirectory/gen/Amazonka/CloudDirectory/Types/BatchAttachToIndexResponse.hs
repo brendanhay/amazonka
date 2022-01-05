@@ -62,6 +62,11 @@ instance Core.FromJSON BatchAttachToIndexResponse where
             Prelude.<$> (x Core..:? "AttachedObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchAttachToIndexResponse
+instance Prelude.Hashable BatchAttachToIndexResponse where
+  hashWithSalt _salt BatchAttachToIndexResponse' {..} =
+    _salt
+      `Prelude.hashWithSalt` attachedObjectIdentifier
 
-instance Prelude.NFData BatchAttachToIndexResponse
+instance Prelude.NFData BatchAttachToIndexResponse where
+  rnf BatchAttachToIndexResponse' {..} =
+    Prelude.rnf attachedObjectIdentifier

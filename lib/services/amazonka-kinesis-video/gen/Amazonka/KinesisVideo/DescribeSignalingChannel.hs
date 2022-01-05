@@ -99,9 +99,15 @@ instance Core.AWSRequest DescribeSignalingChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSignalingChannel
+instance Prelude.Hashable DescribeSignalingChannel where
+  hashWithSalt _salt DescribeSignalingChannel' {..} =
+    _salt `Prelude.hashWithSalt` channelARN
+      `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DescribeSignalingChannel
+instance Prelude.NFData DescribeSignalingChannel where
+  rnf DescribeSignalingChannel' {..} =
+    Prelude.rnf channelARN
+      `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders DescribeSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,3 +172,7 @@ describeSignalingChannelResponse_httpStatus = Lens.lens (\DescribeSignalingChann
 instance
   Prelude.NFData
     DescribeSignalingChannelResponse
+  where
+  rnf DescribeSignalingChannelResponse' {..} =
+    Prelude.rnf channelInfo
+      `Prelude.seq` Prelude.rnf httpStatus

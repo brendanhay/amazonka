@@ -332,6 +332,36 @@ instance Core.FromJSON ProvisionedProductDetail where
             Prelude.<*> (x Core..:? "ProductId")
       )
 
-instance Prelude.Hashable ProvisionedProductDetail
+instance Prelude.Hashable ProvisionedProductDetail where
+  hashWithSalt _salt ProvisionedProductDetail' {..} =
+    _salt `Prelude.hashWithSalt` launchRoleArn
+      `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastSuccessfulProvisioningRecordId
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastRecordId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` lastProvisioningRecordId
+      `Prelude.hashWithSalt` productId
 
-instance Prelude.NFData ProvisionedProductDetail
+instance Prelude.NFData ProvisionedProductDetail where
+  rnf ProvisionedProductDetail' {..} =
+    Prelude.rnf launchRoleArn
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastSuccessfulProvisioningRecordId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastRecordId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf lastProvisioningRecordId
+      `Prelude.seq` Prelude.rnf productId

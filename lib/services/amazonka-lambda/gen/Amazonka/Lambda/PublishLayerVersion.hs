@@ -199,9 +199,23 @@ instance Core.AWSRequest PublishLayerVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PublishLayerVersion
+instance Prelude.Hashable PublishLayerVersion where
+  hashWithSalt _salt PublishLayerVersion' {..} =
+    _salt `Prelude.hashWithSalt` licenseInfo
+      `Prelude.hashWithSalt` compatibleArchitectures
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` compatibleRuntimes
+      `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData PublishLayerVersion
+instance Prelude.NFData PublishLayerVersion where
+  rnf PublishLayerVersion' {..} =
+    Prelude.rnf licenseInfo
+      `Prelude.seq` Prelude.rnf compatibleArchitectures
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf compatibleRuntimes
+      `Prelude.seq` Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders PublishLayerVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -351,4 +365,15 @@ publishLayerVersionResponse_compatibleRuntimes = Lens.lens (\PublishLayerVersion
 publishLayerVersionResponse_httpStatus :: Lens.Lens' PublishLayerVersionResponse Prelude.Int
 publishLayerVersionResponse_httpStatus = Lens.lens (\PublishLayerVersionResponse' {httpStatus} -> httpStatus) (\s@PublishLayerVersionResponse' {} a -> s {httpStatus = a} :: PublishLayerVersionResponse)
 
-instance Prelude.NFData PublishLayerVersionResponse
+instance Prelude.NFData PublishLayerVersionResponse where
+  rnf PublishLayerVersionResponse' {..} =
+    Prelude.rnf layerVersionArn
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf licenseInfo
+      `Prelude.seq` Prelude.rnf compatibleArchitectures
+      `Prelude.seq` Prelude.rnf layerArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf compatibleRuntimes
+      `Prelude.seq` Prelude.rnf httpStatus

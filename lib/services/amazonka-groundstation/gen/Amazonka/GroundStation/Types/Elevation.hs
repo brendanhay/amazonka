@@ -72,6 +72,11 @@ instance Core.FromJSON Elevation where
             Prelude.<$> (x Core..: "unit") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable Elevation
+instance Prelude.Hashable Elevation where
+  hashWithSalt _salt Elevation' {..} =
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Elevation
+instance Prelude.NFData Elevation where
+  rnf Elevation' {..} =
+    Prelude.rnf unit `Prelude.seq` Prelude.rnf value

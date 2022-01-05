@@ -99,9 +99,16 @@ instance Core.AWSRequest UpdateAppImageConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAppImageConfig
+instance Prelude.Hashable UpdateAppImageConfig where
+  hashWithSalt _salt UpdateAppImageConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` kernelGatewayImageConfig
+      `Prelude.hashWithSalt` appImageConfigName
 
-instance Prelude.NFData UpdateAppImageConfig
+instance Prelude.NFData UpdateAppImageConfig where
+  rnf UpdateAppImageConfig' {..} =
+    Prelude.rnf kernelGatewayImageConfig
+      `Prelude.seq` Prelude.rnf appImageConfigName
 
 instance Core.ToHeaders UpdateAppImageConfig where
   toHeaders =
@@ -174,4 +181,7 @@ updateAppImageConfigResponse_appImageConfigArn = Lens.lens (\UpdateAppImageConfi
 updateAppImageConfigResponse_httpStatus :: Lens.Lens' UpdateAppImageConfigResponse Prelude.Int
 updateAppImageConfigResponse_httpStatus = Lens.lens (\UpdateAppImageConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateAppImageConfigResponse' {} a -> s {httpStatus = a} :: UpdateAppImageConfigResponse)
 
-instance Prelude.NFData UpdateAppImageConfigResponse
+instance Prelude.NFData UpdateAppImageConfigResponse where
+  rnf UpdateAppImageConfigResponse' {..} =
+    Prelude.rnf appImageConfigArn
+      `Prelude.seq` Prelude.rnf httpStatus

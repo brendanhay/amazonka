@@ -141,8 +141,21 @@ instance Core.FromXML CustomizedMetricSpecification where
 instance
   Prelude.Hashable
     CustomizedMetricSpecification
+  where
+  hashWithSalt _salt CustomizedMetricSpecification' {..} =
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` statistic
 
-instance Prelude.NFData CustomizedMetricSpecification
+instance Prelude.NFData CustomizedMetricSpecification where
+  rnf CustomizedMetricSpecification' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf statistic
 
 instance Core.ToQuery CustomizedMetricSpecification where
   toQuery CustomizedMetricSpecification' {..} =

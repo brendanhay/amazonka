@@ -76,6 +76,11 @@ instance Core.FromJSON ColumnMetadata where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "format")
       )
 
-instance Prelude.Hashable ColumnMetadata
+instance Prelude.Hashable ColumnMetadata where
+  hashWithSalt _salt ColumnMetadata' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData ColumnMetadata
+instance Prelude.NFData ColumnMetadata where
+  rnf ColumnMetadata' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf format

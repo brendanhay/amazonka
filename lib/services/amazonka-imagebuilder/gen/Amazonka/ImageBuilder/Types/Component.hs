@@ -230,6 +230,40 @@ instance Core.FromJSON Component where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Component
+instance Prelude.Hashable Component where
+  hashWithSalt _salt Component' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` changeDescription
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Component
+instance Prelude.NFData Component where
+  rnf Component' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf changeDescription
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

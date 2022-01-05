@@ -86,6 +86,14 @@ instance Core.FromXML InstanceCapacity where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "totalCapacity")
 
-instance Prelude.Hashable InstanceCapacity
+instance Prelude.Hashable InstanceCapacity where
+  hashWithSalt _salt InstanceCapacity' {..} =
+    _salt `Prelude.hashWithSalt` availableCapacity
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` totalCapacity
 
-instance Prelude.NFData InstanceCapacity
+instance Prelude.NFData InstanceCapacity where
+  rnf InstanceCapacity' {..} =
+    Prelude.rnf availableCapacity
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf totalCapacity

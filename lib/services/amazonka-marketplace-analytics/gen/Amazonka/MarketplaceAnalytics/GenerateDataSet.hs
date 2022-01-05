@@ -572,9 +572,25 @@ instance Core.AWSRequest GenerateDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateDataSet
+instance Prelude.Hashable GenerateDataSet where
+  hashWithSalt _salt GenerateDataSet' {..} =
+    _salt `Prelude.hashWithSalt` customerDefinedValues
+      `Prelude.hashWithSalt` destinationS3Prefix
+      `Prelude.hashWithSalt` dataSetType
+      `Prelude.hashWithSalt` dataSetPublicationDate
+      `Prelude.hashWithSalt` roleNameArn
+      `Prelude.hashWithSalt` destinationS3BucketName
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData GenerateDataSet
+instance Prelude.NFData GenerateDataSet where
+  rnf GenerateDataSet' {..} =
+    Prelude.rnf customerDefinedValues
+      `Prelude.seq` Prelude.rnf destinationS3Prefix
+      `Prelude.seq` Prelude.rnf dataSetType
+      `Prelude.seq` Prelude.rnf dataSetPublicationDate
+      `Prelude.seq` Prelude.rnf roleNameArn
+      `Prelude.seq` Prelude.rnf destinationS3BucketName
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance Core.ToHeaders GenerateDataSet where
   toHeaders =
@@ -666,4 +682,7 @@ generateDataSetResponse_dataSetRequestId = Lens.lens (\GenerateDataSetResponse' 
 generateDataSetResponse_httpStatus :: Lens.Lens' GenerateDataSetResponse Prelude.Int
 generateDataSetResponse_httpStatus = Lens.lens (\GenerateDataSetResponse' {httpStatus} -> httpStatus) (\s@GenerateDataSetResponse' {} a -> s {httpStatus = a} :: GenerateDataSetResponse)
 
-instance Prelude.NFData GenerateDataSetResponse
+instance Prelude.NFData GenerateDataSetResponse where
+  rnf GenerateDataSetResponse' {..} =
+    Prelude.rnf dataSetRequestId
+      `Prelude.seq` Prelude.rnf httpStatus

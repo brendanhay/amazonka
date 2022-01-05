@@ -213,9 +213,19 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMultipartUploads
+instance Prelude.Hashable ListMultipartUploads where
+  hashWithSalt _salt ListMultipartUploads' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData ListMultipartUploads
+instance Prelude.NFData ListMultipartUploads where
+  rnf ListMultipartUploads' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders ListMultipartUploads where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,4 +304,8 @@ listMultipartUploadsResponse_marker = Lens.lens (\ListMultipartUploadsResponse' 
 listMultipartUploadsResponse_httpStatus :: Lens.Lens' ListMultipartUploadsResponse Prelude.Int
 listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsResponse' {httpStatus} -> httpStatus) (\s@ListMultipartUploadsResponse' {} a -> s {httpStatus = a} :: ListMultipartUploadsResponse)
 
-instance Prelude.NFData ListMultipartUploadsResponse
+instance Prelude.NFData ListMultipartUploadsResponse where
+  rnf ListMultipartUploadsResponse' {..} =
+    Prelude.rnf uploadsList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

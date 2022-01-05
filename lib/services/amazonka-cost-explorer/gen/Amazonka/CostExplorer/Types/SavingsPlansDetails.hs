@@ -91,6 +91,14 @@ instance Core.FromJSON SavingsPlansDetails where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable SavingsPlansDetails
+instance Prelude.Hashable SavingsPlansDetails where
+  hashWithSalt _salt SavingsPlansDetails' {..} =
+    _salt `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData SavingsPlansDetails
+instance Prelude.NFData SavingsPlansDetails where
+  rnf SavingsPlansDetails' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf region

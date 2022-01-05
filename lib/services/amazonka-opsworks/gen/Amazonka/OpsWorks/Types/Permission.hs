@@ -149,6 +149,18 @@ instance Core.FromJSON Permission where
             Prelude.<*> (x Core..:? "AllowSsh")
       )
 
-instance Prelude.Hashable Permission
+instance Prelude.Hashable Permission where
+  hashWithSalt _salt Permission' {..} =
+    _salt `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` allowSudo
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` allowSsh
 
-instance Prelude.NFData Permission
+instance Prelude.NFData Permission where
+  rnf Permission' {..} =
+    Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf allowSudo
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf allowSsh

@@ -113,9 +113,15 @@ instance Core.AWSRequest RetrieveTapeRecoveryPoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetrieveTapeRecoveryPoint
+instance Prelude.Hashable RetrieveTapeRecoveryPoint where
+  hashWithSalt _salt RetrieveTapeRecoveryPoint' {..} =
+    _salt `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData RetrieveTapeRecoveryPoint
+instance Prelude.NFData RetrieveTapeRecoveryPoint where
+  rnf RetrieveTapeRecoveryPoint' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders RetrieveTapeRecoveryPoint where
   toHeaders =
@@ -194,3 +200,7 @@ retrieveTapeRecoveryPointResponse_httpStatus = Lens.lens (\RetrieveTapeRecoveryP
 instance
   Prelude.NFData
     RetrieveTapeRecoveryPointResponse
+  where
+  rnf RetrieveTapeRecoveryPointResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

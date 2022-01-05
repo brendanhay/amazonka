@@ -206,7 +206,33 @@ instance Core.FromJSON HyperParameterTuningJobSummary where
 instance
   Prelude.Hashable
     HyperParameterTuningJobSummary
+  where
+  hashWithSalt
+    _salt
+    HyperParameterTuningJobSummary' {..} =
+      _salt `Prelude.hashWithSalt` resourceLimits
+        `Prelude.hashWithSalt` lastModifiedTime
+        `Prelude.hashWithSalt` hyperParameterTuningEndTime
+        `Prelude.hashWithSalt` hyperParameterTuningJobName
+        `Prelude.hashWithSalt` hyperParameterTuningJobArn
+        `Prelude.hashWithSalt` hyperParameterTuningJobStatus
+        `Prelude.hashWithSalt` strategy
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` trainingJobStatusCounters
+        `Prelude.hashWithSalt` objectiveStatusCounters
 
 instance
   Prelude.NFData
     HyperParameterTuningJobSummary
+  where
+  rnf HyperParameterTuningJobSummary' {..} =
+    Prelude.rnf resourceLimits
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf hyperParameterTuningEndTime
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobStatus
+      `Prelude.seq` Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf trainingJobStatusCounters
+      `Prelude.seq` Prelude.rnf objectiveStatusCounters

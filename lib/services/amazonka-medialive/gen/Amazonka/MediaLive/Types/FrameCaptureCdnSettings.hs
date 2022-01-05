@@ -62,9 +62,13 @@ instance Core.FromJSON FrameCaptureCdnSettings where
             Prelude.<$> (x Core..:? "frameCaptureS3Settings")
       )
 
-instance Prelude.Hashable FrameCaptureCdnSettings
+instance Prelude.Hashable FrameCaptureCdnSettings where
+  hashWithSalt _salt FrameCaptureCdnSettings' {..} =
+    _salt `Prelude.hashWithSalt` frameCaptureS3Settings
 
-instance Prelude.NFData FrameCaptureCdnSettings
+instance Prelude.NFData FrameCaptureCdnSettings where
+  rnf FrameCaptureCdnSettings' {..} =
+    Prelude.rnf frameCaptureS3Settings
 
 instance Core.ToJSON FrameCaptureCdnSettings where
   toJSON FrameCaptureCdnSettings' {..} =

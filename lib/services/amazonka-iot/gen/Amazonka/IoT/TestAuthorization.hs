@@ -162,9 +162,23 @@ instance Core.AWSRequest TestAuthorization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestAuthorization
+instance Prelude.Hashable TestAuthorization where
+  hashWithSalt _salt TestAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` policyNamesToAdd
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` cognitoIdentityPoolId
+      `Prelude.hashWithSalt` policyNamesToSkip
+      `Prelude.hashWithSalt` authInfos
 
-instance Prelude.NFData TestAuthorization
+instance Prelude.NFData TestAuthorization where
+  rnf TestAuthorization' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf policyNamesToAdd
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
+      `Prelude.seq` Prelude.rnf policyNamesToSkip
+      `Prelude.seq` Prelude.rnf authInfos
 
 instance Core.ToHeaders TestAuthorization where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,4 +244,7 @@ testAuthorizationResponse_authResults = Lens.lens (\TestAuthorizationResponse' {
 testAuthorizationResponse_httpStatus :: Lens.Lens' TestAuthorizationResponse Prelude.Int
 testAuthorizationResponse_httpStatus = Lens.lens (\TestAuthorizationResponse' {httpStatus} -> httpStatus) (\s@TestAuthorizationResponse' {} a -> s {httpStatus = a} :: TestAuthorizationResponse)
 
-instance Prelude.NFData TestAuthorizationResponse
+instance Prelude.NFData TestAuthorizationResponse where
+  rnf TestAuthorizationResponse' {..} =
+    Prelude.rnf authResults
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -85,9 +85,13 @@ instance Core.AWSRequest AssociateMemberAccount where
     Response.receiveNull
       AssociateMemberAccountResponse'
 
-instance Prelude.Hashable AssociateMemberAccount
+instance Prelude.Hashable AssociateMemberAccount where
+  hashWithSalt _salt AssociateMemberAccount' {..} =
+    _salt `Prelude.hashWithSalt` memberAccountId
 
-instance Prelude.NFData AssociateMemberAccount
+instance Prelude.NFData AssociateMemberAccount where
+  rnf AssociateMemberAccount' {..} =
+    Prelude.rnf memberAccountId
 
 instance Core.ToHeaders AssociateMemberAccount where
   toHeaders =
@@ -137,3 +141,5 @@ newAssociateMemberAccountResponse =
 instance
   Prelude.NFData
     AssociateMemberAccountResponse
+  where
+  rnf _ = ()

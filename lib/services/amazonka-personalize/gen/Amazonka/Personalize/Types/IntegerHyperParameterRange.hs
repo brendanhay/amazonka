@@ -82,9 +82,17 @@ instance Core.FromJSON IntegerHyperParameterRange where
             Prelude.<*> (x Core..:? "minValue")
       )
 
-instance Prelude.Hashable IntegerHyperParameterRange
+instance Prelude.Hashable IntegerHyperParameterRange where
+  hashWithSalt _salt IntegerHyperParameterRange' {..} =
+    _salt `Prelude.hashWithSalt` maxValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minValue
 
-instance Prelude.NFData IntegerHyperParameterRange
+instance Prelude.NFData IntegerHyperParameterRange where
+  rnf IntegerHyperParameterRange' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minValue
 
 instance Core.ToJSON IntegerHyperParameterRange where
   toJSON IntegerHyperParameterRange' {..} =

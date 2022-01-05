@@ -99,9 +99,12 @@ instance Core.AWSRequest DeleteQueue where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteQueueResponse'
 
-instance Prelude.Hashable DeleteQueue
+instance Prelude.Hashable DeleteQueue where
+  hashWithSalt _salt DeleteQueue' {..} =
+    _salt `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData DeleteQueue
+instance Prelude.NFData DeleteQueue where
+  rnf DeleteQueue' {..} = Prelude.rnf queueUrl
 
 instance Core.ToHeaders DeleteQueue where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,4 +136,5 @@ newDeleteQueueResponse ::
   DeleteQueueResponse
 newDeleteQueueResponse = DeleteQueueResponse'
 
-instance Prelude.NFData DeleteQueueResponse
+instance Prelude.NFData DeleteQueueResponse where
+  rnf _ = ()

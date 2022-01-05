@@ -104,9 +104,15 @@ instance Core.AWSRequest GetSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSession
+instance Prelude.Hashable GetSession where
+  hashWithSalt _salt GetSession' {..} =
+    _salt `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData GetSession
+instance Prelude.NFData GetSession where
+  rnf GetSession' {..} =
+    Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf sessionId
 
 instance Core.ToHeaders GetSession where
   toHeaders =
@@ -169,4 +175,7 @@ getSessionResponse_session = Lens.lens (\GetSessionResponse' {session} -> sessio
 getSessionResponse_httpStatus :: Lens.Lens' GetSessionResponse Prelude.Int
 getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> httpStatus) (\s@GetSessionResponse' {} a -> s {httpStatus = a} :: GetSessionResponse)
 
-instance Prelude.NFData GetSessionResponse
+instance Prelude.NFData GetSessionResponse where
+  rnf GetSessionResponse' {..} =
+    Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

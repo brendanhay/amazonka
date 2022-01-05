@@ -72,9 +72,12 @@ instance Core.AWSRequest CreateSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubscription
+instance Prelude.Hashable CreateSubscription where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData CreateSubscription
+instance Prelude.NFData CreateSubscription where
+  rnf _ = ()
 
 instance Core.ToHeaders CreateSubscription where
   toHeaders =
@@ -130,4 +133,6 @@ newCreateSubscriptionResponse pHttpStatus_ =
 createSubscriptionResponse_httpStatus :: Lens.Lens' CreateSubscriptionResponse Prelude.Int
 createSubscriptionResponse_httpStatus = Lens.lens (\CreateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateSubscriptionResponse)
 
-instance Prelude.NFData CreateSubscriptionResponse
+instance Prelude.NFData CreateSubscriptionResponse where
+  rnf CreateSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

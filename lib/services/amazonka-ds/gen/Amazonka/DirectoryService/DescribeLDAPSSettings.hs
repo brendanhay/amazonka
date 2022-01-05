@@ -125,9 +125,19 @@ instance Core.AWSRequest DescribeLDAPSSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLDAPSSettings
+instance Prelude.Hashable DescribeLDAPSSettings where
+  hashWithSalt _salt DescribeLDAPSSettings' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DescribeLDAPSSettings
+instance Prelude.NFData DescribeLDAPSSettings where
+  rnf DescribeLDAPSSettings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders DescribeLDAPSSettings where
   toHeaders =
@@ -218,4 +228,8 @@ describeLDAPSSettingsResponse_nextToken = Lens.lens (\DescribeLDAPSSettingsRespo
 describeLDAPSSettingsResponse_httpStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Prelude.Int
 describeLDAPSSettingsResponse_httpStatus = Lens.lens (\DescribeLDAPSSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeLDAPSSettingsResponse' {} a -> s {httpStatus = a} :: DescribeLDAPSSettingsResponse)
 
-instance Prelude.NFData DescribeLDAPSSettingsResponse
+instance Prelude.NFData DescribeLDAPSSettingsResponse where
+  rnf DescribeLDAPSSettingsResponse' {..} =
+    Prelude.rnf lDAPSSettingsInfo
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

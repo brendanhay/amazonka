@@ -95,9 +95,13 @@ instance Core.AWSRequest DescribeAccountSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountSettings
+instance Prelude.Hashable DescribeAccountSettings where
+  hashWithSalt _salt DescribeAccountSettings' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeAccountSettings
+instance Prelude.NFData DescribeAccountSettings where
+  rnf DescribeAccountSettings' {..} =
+    Prelude.rnf awsAccountId
 
 instance Core.ToHeaders DescribeAccountSettings where
   toHeaders =
@@ -196,3 +200,8 @@ describeAccountSettingsResponse_status = Lens.lens (\DescribeAccountSettingsResp
 instance
   Prelude.NFData
     DescribeAccountSettingsResponse
+  where
+  rnf DescribeAccountSettingsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf accountSettings
+      `Prelude.seq` Prelude.rnf status

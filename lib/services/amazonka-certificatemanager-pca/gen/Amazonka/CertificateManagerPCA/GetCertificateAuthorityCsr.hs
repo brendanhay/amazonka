@@ -109,9 +109,14 @@ instance Core.AWSRequest GetCertificateAuthorityCsr where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCertificateAuthorityCsr
+instance Prelude.Hashable GetCertificateAuthorityCsr where
+  hashWithSalt _salt GetCertificateAuthorityCsr' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
 
-instance Prelude.NFData GetCertificateAuthorityCsr
+instance Prelude.NFData GetCertificateAuthorityCsr where
+  rnf GetCertificateAuthorityCsr' {..} =
+    Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders GetCertificateAuthorityCsr where
   toHeaders =
@@ -190,3 +195,7 @@ getCertificateAuthorityCsrResponse_httpStatus = Lens.lens (\GetCertificateAuthor
 instance
   Prelude.NFData
     GetCertificateAuthorityCsrResponse
+  where
+  rnf GetCertificateAuthorityCsrResponse' {..} =
+    Prelude.rnf csr
+      `Prelude.seq` Prelude.rnf httpStatus

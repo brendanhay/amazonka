@@ -128,9 +128,17 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
                         )
       )
 
-instance Prelude.Hashable DescribeAnalysisSchemes
+instance Prelude.Hashable DescribeAnalysisSchemes where
+  hashWithSalt _salt DescribeAnalysisSchemes' {..} =
+    _salt `Prelude.hashWithSalt` deployed
+      `Prelude.hashWithSalt` analysisSchemeNames
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeAnalysisSchemes
+instance Prelude.NFData DescribeAnalysisSchemes where
+  rnf DescribeAnalysisSchemes' {..} =
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf analysisSchemeNames
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeAnalysisSchemes where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,3 +207,7 @@ describeAnalysisSchemesResponse_analysisSchemes = Lens.lens (\DescribeAnalysisSc
 instance
   Prelude.NFData
     DescribeAnalysisSchemesResponse
+  where
+  rnf DescribeAnalysisSchemesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analysisSchemes

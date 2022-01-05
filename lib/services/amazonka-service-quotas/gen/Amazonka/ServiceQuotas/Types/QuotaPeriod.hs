@@ -72,6 +72,12 @@ instance Core.FromJSON QuotaPeriod where
             Prelude.<*> (x Core..:? "PeriodValue")
       )
 
-instance Prelude.Hashable QuotaPeriod
+instance Prelude.Hashable QuotaPeriod where
+  hashWithSalt _salt QuotaPeriod' {..} =
+    _salt `Prelude.hashWithSalt` periodUnit
+      `Prelude.hashWithSalt` periodValue
 
-instance Prelude.NFData QuotaPeriod
+instance Prelude.NFData QuotaPeriod where
+  rnf QuotaPeriod' {..} =
+    Prelude.rnf periodUnit
+      `Prelude.seq` Prelude.rnf periodValue

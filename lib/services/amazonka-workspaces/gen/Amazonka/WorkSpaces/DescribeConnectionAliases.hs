@@ -124,9 +124,19 @@ instance Core.AWSRequest DescribeConnectionAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnectionAliases
+instance Prelude.Hashable DescribeConnectionAliases where
+  hashWithSalt _salt DescribeConnectionAliases' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` aliasIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData DescribeConnectionAliases
+instance Prelude.NFData DescribeConnectionAliases where
+  rnf DescribeConnectionAliases' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf aliasIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeConnectionAliases where
   toHeaders =
@@ -214,3 +224,8 @@ describeConnectionAliasesResponse_httpStatus = Lens.lens (\DescribeConnectionAli
 instance
   Prelude.NFData
     DescribeConnectionAliasesResponse
+  where
+  rnf DescribeConnectionAliasesResponse' {..} =
+    Prelude.rnf connectionAliases
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

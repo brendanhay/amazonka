@@ -199,9 +199,25 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOutgoingTypedLinks
+instance Prelude.Hashable ListOutgoingTypedLinks where
+  hashWithSalt _salt ListOutgoingTypedLinks' {..} =
+    _salt `Prelude.hashWithSalt` filterAttributeRanges
+      `Prelude.hashWithSalt` consistencyLevel
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterTypedLink
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData ListOutgoingTypedLinks
+instance Prelude.NFData ListOutgoingTypedLinks where
+  rnf ListOutgoingTypedLinks' {..} =
+    Prelude.rnf filterAttributeRanges
+      `Prelude.seq` Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterTypedLink
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders ListOutgoingTypedLinks where
   toHeaders ListOutgoingTypedLinks' {..} =
@@ -284,3 +300,8 @@ listOutgoingTypedLinksResponse_httpStatus = Lens.lens (\ListOutgoingTypedLinksRe
 instance
   Prelude.NFData
     ListOutgoingTypedLinksResponse
+  where
+  rnf ListOutgoingTypedLinksResponse' {..} =
+    Prelude.rnf typedLinkSpecifiers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -78,6 +78,13 @@ instance Core.FromJSON BucketPolicy where
             Prelude.<*> (x Core..:? "allowsPublicReadAccess")
       )
 
-instance Prelude.Hashable BucketPolicy
+instance Prelude.Hashable BucketPolicy where
+  hashWithSalt _salt BucketPolicy' {..} =
+    _salt
+      `Prelude.hashWithSalt` allowsPublicWriteAccess
+      `Prelude.hashWithSalt` allowsPublicReadAccess
 
-instance Prelude.NFData BucketPolicy
+instance Prelude.NFData BucketPolicy where
+  rnf BucketPolicy' {..} =
+    Prelude.rnf allowsPublicWriteAccess
+      `Prelude.seq` Prelude.rnf allowsPublicReadAccess

@@ -102,6 +102,18 @@ instance Core.FromJSON SchemaVersionListItem where
             Prelude.<*> (x Core..:? "SchemaArn")
       )
 
-instance Prelude.Hashable SchemaVersionListItem
+instance Prelude.Hashable SchemaVersionListItem where
+  hashWithSalt _salt SchemaVersionListItem' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` schemaVersionId
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData SchemaVersionListItem
+instance Prelude.NFData SchemaVersionListItem where
+  rnf SchemaVersionListItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf schemaArn

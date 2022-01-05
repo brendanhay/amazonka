@@ -124,9 +124,12 @@ instance Core.AWSRequest GetInstanceSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstanceSnapshots
+instance Prelude.Hashable GetInstanceSnapshots where
+  hashWithSalt _salt GetInstanceSnapshots' {..} =
+    _salt `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetInstanceSnapshots
+instance Prelude.NFData GetInstanceSnapshots where
+  rnf GetInstanceSnapshots' {..} = Prelude.rnf pageToken
 
 instance Core.ToHeaders GetInstanceSnapshots where
   toHeaders =
@@ -225,4 +228,8 @@ getInstanceSnapshotsResponse_instanceSnapshots = Lens.lens (\GetInstanceSnapshot
 getInstanceSnapshotsResponse_httpStatus :: Lens.Lens' GetInstanceSnapshotsResponse Prelude.Int
 getInstanceSnapshotsResponse_httpStatus = Lens.lens (\GetInstanceSnapshotsResponse' {httpStatus} -> httpStatus) (\s@GetInstanceSnapshotsResponse' {} a -> s {httpStatus = a} :: GetInstanceSnapshotsResponse)
 
-instance Prelude.NFData GetInstanceSnapshotsResponse
+instance Prelude.NFData GetInstanceSnapshotsResponse where
+  rnf GetInstanceSnapshotsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf instanceSnapshots
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -137,7 +137,15 @@ instance
 instance
   Prelude.Hashable
     StackInstanceComprehensiveStatus
+  where
+  hashWithSalt
+    _salt
+    StackInstanceComprehensiveStatus' {..} =
+      _salt `Prelude.hashWithSalt` detailedStatus
 
 instance
   Prelude.NFData
     StackInstanceComprehensiveStatus
+  where
+  rnf StackInstanceComprehensiveStatus' {..} =
+    Prelude.rnf detailedStatus

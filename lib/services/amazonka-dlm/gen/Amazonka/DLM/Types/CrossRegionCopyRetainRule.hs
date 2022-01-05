@@ -76,9 +76,15 @@ instance Core.FromJSON CrossRegionCopyRetainRule where
             Prelude.<*> (x Core..:? "IntervalUnit")
       )
 
-instance Prelude.Hashable CrossRegionCopyRetainRule
+instance Prelude.Hashable CrossRegionCopyRetainRule where
+  hashWithSalt _salt CrossRegionCopyRetainRule' {..} =
+    _salt `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` intervalUnit
 
-instance Prelude.NFData CrossRegionCopyRetainRule
+instance Prelude.NFData CrossRegionCopyRetainRule where
+  rnf CrossRegionCopyRetainRule' {..} =
+    Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON CrossRegionCopyRetainRule where
   toJSON CrossRegionCopyRetainRule' {..} =

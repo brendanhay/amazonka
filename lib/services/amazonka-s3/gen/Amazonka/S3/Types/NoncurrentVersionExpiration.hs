@@ -77,9 +77,13 @@ instance Core.FromXML NoncurrentVersionExpiration where
     NoncurrentVersionExpiration'
       Prelude.<$> (x Core..@ "NoncurrentDays")
 
-instance Prelude.Hashable NoncurrentVersionExpiration
+instance Prelude.Hashable NoncurrentVersionExpiration where
+  hashWithSalt _salt NoncurrentVersionExpiration' {..} =
+    _salt `Prelude.hashWithSalt` noncurrentDays
 
-instance Prelude.NFData NoncurrentVersionExpiration
+instance Prelude.NFData NoncurrentVersionExpiration where
+  rnf NoncurrentVersionExpiration' {..} =
+    Prelude.rnf noncurrentDays
 
 instance Core.ToXML NoncurrentVersionExpiration where
   toXML NoncurrentVersionExpiration' {..} =

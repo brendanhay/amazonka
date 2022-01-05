@@ -107,9 +107,12 @@ instance Core.AWSRequest CreateDefaultVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDefaultVpc
+instance Prelude.Hashable CreateDefaultVpc where
+  hashWithSalt _salt CreateDefaultVpc' {..} =
+    _salt `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateDefaultVpc
+instance Prelude.NFData CreateDefaultVpc where
+  rnf CreateDefaultVpc' {..} = Prelude.rnf dryRun
 
 instance Core.ToHeaders CreateDefaultVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,4 +168,7 @@ createDefaultVpcResponse_vpc = Lens.lens (\CreateDefaultVpcResponse' {vpc} -> vp
 createDefaultVpcResponse_httpStatus :: Lens.Lens' CreateDefaultVpcResponse Prelude.Int
 createDefaultVpcResponse_httpStatus = Lens.lens (\CreateDefaultVpcResponse' {httpStatus} -> httpStatus) (\s@CreateDefaultVpcResponse' {} a -> s {httpStatus = a} :: CreateDefaultVpcResponse)
 
-instance Prelude.NFData CreateDefaultVpcResponse
+instance Prelude.NFData CreateDefaultVpcResponse where
+  rnf CreateDefaultVpcResponse' {..} =
+    Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf httpStatus

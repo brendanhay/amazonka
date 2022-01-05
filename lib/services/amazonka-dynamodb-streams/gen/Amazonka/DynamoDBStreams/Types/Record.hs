@@ -20,6 +20,7 @@
 module Amazonka.DynamoDBStreams.Types.Record where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.OperationType
 import Amazonka.DynamoDBStreams.Types.StreamRecord
@@ -199,6 +200,22 @@ instance Core.FromJSON Record where
             Prelude.<*> (x Core..:? "eventID")
       )
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt _salt Record' {..} =
+    _salt `Prelude.hashWithSalt` userIdentity
+      `Prelude.hashWithSalt` eventVersion
+      `Prelude.hashWithSalt` dynamodb
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` eventName
+      `Prelude.hashWithSalt` eventSource
+      `Prelude.hashWithSalt` eventID
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} =
+    Prelude.rnf userIdentity
+      `Prelude.seq` Prelude.rnf eventVersion
+      `Prelude.seq` Prelude.rnf dynamodb
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf eventName
+      `Prelude.seq` Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf eventID

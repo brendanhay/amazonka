@@ -73,6 +73,12 @@ instance Core.FromJSON Warning where
             Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable Warning
+instance Prelude.Hashable Warning where
+  hashWithSalt _salt Warning' {..} =
+    _salt `Prelude.hashWithSalt` pages
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData Warning
+instance Prelude.NFData Warning where
+  rnf Warning' {..} =
+    Prelude.rnf pages
+      `Prelude.seq` Prelude.rnf errorCode

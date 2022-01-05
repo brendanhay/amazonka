@@ -77,6 +77,11 @@ instance Core.FromJSON FailureDescription where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Details")
       )
 
-instance Prelude.Hashable FailureDescription
+instance Prelude.Hashable FailureDescription where
+  hashWithSalt _salt FailureDescription' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` details
 
-instance Prelude.NFData FailureDescription
+instance Prelude.NFData FailureDescription where
+  rnf FailureDescription' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf details

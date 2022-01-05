@@ -126,9 +126,17 @@ instance Core.AWSRequest SetIdentityPoolRoles where
   response =
     Response.receiveNull SetIdentityPoolRolesResponse'
 
-instance Prelude.Hashable SetIdentityPoolRoles
+instance Prelude.Hashable SetIdentityPoolRoles where
+  hashWithSalt _salt SetIdentityPoolRoles' {..} =
+    _salt `Prelude.hashWithSalt` roleMappings
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` roles
 
-instance Prelude.NFData SetIdentityPoolRoles
+instance Prelude.NFData SetIdentityPoolRoles where
+  rnf SetIdentityPoolRoles' {..} =
+    Prelude.rnf roleMappings
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf roles
 
 instance Core.ToHeaders SetIdentityPoolRoles where
   toHeaders =
@@ -177,4 +185,5 @@ newSetIdentityPoolRolesResponse ::
 newSetIdentityPoolRolesResponse =
   SetIdentityPoolRolesResponse'
 
-instance Prelude.NFData SetIdentityPoolRolesResponse
+instance Prelude.NFData SetIdentityPoolRolesResponse where
+  rnf _ = ()

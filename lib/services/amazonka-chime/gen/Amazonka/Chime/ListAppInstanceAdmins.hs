@@ -117,9 +117,17 @@ instance Core.AWSRequest ListAppInstanceAdmins where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAppInstanceAdmins
+instance Prelude.Hashable ListAppInstanceAdmins where
+  hashWithSalt _salt ListAppInstanceAdmins' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appInstanceArn
 
-instance Prelude.NFData ListAppInstanceAdmins
+instance Prelude.NFData ListAppInstanceAdmins where
+  rnf ListAppInstanceAdmins' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders ListAppInstanceAdmins where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,4 +207,9 @@ listAppInstanceAdminsResponse_appInstanceArn = Lens.lens (\ListAppInstanceAdmins
 listAppInstanceAdminsResponse_httpStatus :: Lens.Lens' ListAppInstanceAdminsResponse Prelude.Int
 listAppInstanceAdminsResponse_httpStatus = Lens.lens (\ListAppInstanceAdminsResponse' {httpStatus} -> httpStatus) (\s@ListAppInstanceAdminsResponse' {} a -> s {httpStatus = a} :: ListAppInstanceAdminsResponse)
 
-instance Prelude.NFData ListAppInstanceAdminsResponse
+instance Prelude.NFData ListAppInstanceAdminsResponse where
+  rnf ListAppInstanceAdminsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf appInstanceAdmins
+      `Prelude.seq` Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf httpStatus

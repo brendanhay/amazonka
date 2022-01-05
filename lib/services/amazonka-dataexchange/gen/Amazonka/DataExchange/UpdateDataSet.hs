@@ -128,9 +128,17 @@ instance Core.AWSRequest UpdateDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSet
+instance Prelude.Hashable UpdateDataSet where
+  hashWithSalt _salt UpdateDataSet' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData UpdateDataSet
+instance Prelude.NFData UpdateDataSet where
+  rnf UpdateDataSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders UpdateDataSet where
   toHeaders =
@@ -294,4 +302,16 @@ updateDataSetResponse_description = Lens.lens (\UpdateDataSetResponse' {descript
 updateDataSetResponse_httpStatus :: Lens.Lens' UpdateDataSetResponse Prelude.Int
 updateDataSetResponse_httpStatus = Lens.lens (\UpdateDataSetResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSetResponse' {} a -> s {httpStatus = a} :: UpdateDataSetResponse)
 
-instance Prelude.NFData UpdateDataSetResponse
+instance Prelude.NFData UpdateDataSetResponse where
+  rnf UpdateDataSetResponse' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf originDetails
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

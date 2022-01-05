@@ -191,6 +191,36 @@ instance Core.FromJSON ColumnMetadata where
             Prelude.<*> (x Core..:? "tableName")
       )
 
-instance Prelude.Hashable ColumnMetadata
+instance Prelude.Hashable ColumnMetadata where
+  hashWithSalt _salt ColumnMetadata' {..} =
+    _salt `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` isCaseSensitive
+      `Prelude.hashWithSalt` isCurrency
+      `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` isAutoIncrement
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arrayBaseColumnType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` isSigned
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` nullable
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData ColumnMetadata
+instance Prelude.NFData ColumnMetadata where
+  rnf ColumnMetadata' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf isCaseSensitive
+      `Prelude.seq` Prelude.rnf isCurrency
+      `Prelude.seq` Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf isAutoIncrement
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arrayBaseColumnType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf isSigned
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf nullable
+      `Prelude.seq` Prelude.rnf tableName

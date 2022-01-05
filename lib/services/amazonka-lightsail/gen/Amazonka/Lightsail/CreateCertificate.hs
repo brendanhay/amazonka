@@ -166,9 +166,20 @@ instance Core.AWSRequest CreateCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCertificate
+instance Prelude.Hashable CreateCertificate where
+  hashWithSalt _salt CreateCertificate' {..} =
+    _salt
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CreateCertificate
+instance Prelude.NFData CreateCertificate where
+  rnf CreateCertificate' {..} =
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CreateCertificate where
   toHeaders =
@@ -258,4 +269,8 @@ createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {o
 createCertificateResponse_httpStatus :: Lens.Lens' CreateCertificateResponse Prelude.Int
 createCertificateResponse_httpStatus = Lens.lens (\CreateCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateResponse' {} a -> s {httpStatus = a} :: CreateCertificateResponse)
 
-instance Prelude.NFData CreateCertificateResponse
+instance Prelude.NFData CreateCertificateResponse where
+  rnf CreateCertificateResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

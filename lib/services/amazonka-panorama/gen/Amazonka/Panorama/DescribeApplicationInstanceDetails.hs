@@ -111,10 +111,18 @@ instance
 instance
   Prelude.Hashable
     DescribeApplicationInstanceDetails
+  where
+  hashWithSalt
+    _salt
+    DescribeApplicationInstanceDetails' {..} =
+      _salt `Prelude.hashWithSalt` applicationInstanceId
 
 instance
   Prelude.NFData
     DescribeApplicationInstanceDetails
+  where
+  rnf DescribeApplicationInstanceDetails' {..} =
+    Prelude.rnf applicationInstanceId
 
 instance
   Core.ToHeaders
@@ -258,3 +266,14 @@ describeApplicationInstanceDetailsResponse_httpStatus = Lens.lens (\DescribeAppl
 instance
   Prelude.NFData
     DescribeApplicationInstanceDetailsResponse
+  where
+  rnf DescribeApplicationInstanceDetailsResponse' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
+      `Prelude.seq` Prelude.rnf manifestOverridesPayload
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf manifestPayload
+      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
+      `Prelude.seq` Prelude.rnf httpStatus

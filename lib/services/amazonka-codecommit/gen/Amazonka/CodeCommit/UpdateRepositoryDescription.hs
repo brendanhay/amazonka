@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateRepositoryDescription where
     Response.receiveNull
       UpdateRepositoryDescriptionResponse'
 
-instance Prelude.Hashable UpdateRepositoryDescription
+instance Prelude.Hashable UpdateRepositoryDescription where
+  hashWithSalt _salt UpdateRepositoryDescription' {..} =
+    _salt `Prelude.hashWithSalt` repositoryDescription
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData UpdateRepositoryDescription
+instance Prelude.NFData UpdateRepositoryDescription where
+  rnf UpdateRepositoryDescription' {..} =
+    Prelude.rnf repositoryDescription
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders UpdateRepositoryDescription where
   toHeaders =
@@ -160,3 +166,5 @@ newUpdateRepositoryDescriptionResponse =
 instance
   Prelude.NFData
     UpdateRepositoryDescriptionResponse
+  where
+  rnf _ = ()

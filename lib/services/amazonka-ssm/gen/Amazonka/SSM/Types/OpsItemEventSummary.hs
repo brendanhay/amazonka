@@ -123,6 +123,22 @@ instance Core.FromJSON OpsItemEventSummary where
             Prelude.<*> (x Core..:? "EventId")
       )
 
-instance Prelude.Hashable OpsItemEventSummary
+instance Prelude.Hashable OpsItemEventSummary where
+  hashWithSalt _salt OpsItemEventSummary' {..} =
+    _salt `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` detailType
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData OpsItemEventSummary
+instance Prelude.NFData OpsItemEventSummary where
+  rnf OpsItemEventSummary' {..} =
+    Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf detailType
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf eventId

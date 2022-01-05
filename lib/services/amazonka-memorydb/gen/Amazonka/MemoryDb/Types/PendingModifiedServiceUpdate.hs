@@ -77,5 +77,12 @@ instance Core.FromJSON PendingModifiedServiceUpdate where
 instance
   Prelude.Hashable
     PendingModifiedServiceUpdate
+  where
+  hashWithSalt _salt PendingModifiedServiceUpdate' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` serviceUpdateName
 
-instance Prelude.NFData PendingModifiedServiceUpdate
+instance Prelude.NFData PendingModifiedServiceUpdate where
+  rnf PendingModifiedServiceUpdate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serviceUpdateName

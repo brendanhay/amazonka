@@ -289,9 +289,31 @@ instance Core.AWSRequest UpdateFunctionCode where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateFunctionCode
+instance Prelude.Hashable UpdateFunctionCode where
+  hashWithSalt _salt UpdateFunctionCode' {..} =
+    _salt `Prelude.hashWithSalt` s3ObjectVersion
+      `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData UpdateFunctionCode
+instance Prelude.NFData UpdateFunctionCode where
+  rnf UpdateFunctionCode' {..} =
+    Prelude.rnf s3ObjectVersion
+      `Prelude.seq` Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders UpdateFunctionCode where
   toHeaders = Prelude.const Prelude.mempty

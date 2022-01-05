@@ -94,9 +94,12 @@ instance Core.AWSRequest GetParallelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetParallelData
+instance Prelude.Hashable GetParallelData where
+  hashWithSalt _salt GetParallelData' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetParallelData
+instance Prelude.NFData GetParallelData where
+  rnf GetParallelData' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetParallelData where
   toHeaders =
@@ -217,4 +220,10 @@ getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation = Lens.lens (\G
 getParallelDataResponse_httpStatus :: Lens.Lens' GetParallelDataResponse Prelude.Int
 getParallelDataResponse_httpStatus = Lens.lens (\GetParallelDataResponse' {httpStatus} -> httpStatus) (\s@GetParallelDataResponse' {} a -> s {httpStatus = a} :: GetParallelDataResponse)
 
-instance Prelude.NFData GetParallelDataResponse
+instance Prelude.NFData GetParallelDataResponse where
+  rnf GetParallelDataResponse' {..} =
+    Prelude.rnf parallelDataProperties
+      `Prelude.seq` Prelude.rnf dataLocation
+      `Prelude.seq` Prelude.rnf auxiliaryDataLocation
+      `Prelude.seq` Prelude.rnf latestUpdateAttemptAuxiliaryDataLocation
+      `Prelude.seq` Prelude.rnf httpStatus

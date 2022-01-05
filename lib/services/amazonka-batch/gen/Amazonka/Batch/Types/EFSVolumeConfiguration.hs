@@ -166,9 +166,21 @@ instance Core.FromJSON EFSVolumeConfiguration where
             Prelude.<*> (x Core..: "fileSystemId")
       )
 
-instance Prelude.Hashable EFSVolumeConfiguration
+instance Prelude.Hashable EFSVolumeConfiguration where
+  hashWithSalt _salt EFSVolumeConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` rootDirectory
+      `Prelude.hashWithSalt` transitEncryption
+      `Prelude.hashWithSalt` authorizationConfig
+      `Prelude.hashWithSalt` transitEncryptionPort
+      `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData EFSVolumeConfiguration
+instance Prelude.NFData EFSVolumeConfiguration where
+  rnf EFSVolumeConfiguration' {..} =
+    Prelude.rnf rootDirectory
+      `Prelude.seq` Prelude.rnf transitEncryption
+      `Prelude.seq` Prelude.rnf authorizationConfig
+      `Prelude.seq` Prelude.rnf transitEncryptionPort
+      `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Core.ToJSON EFSVolumeConfiguration where
   toJSON EFSVolumeConfiguration' {..} =

@@ -391,9 +391,48 @@ instance Core.AWSRequest CreateLayer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLayer
+instance Prelude.Hashable CreateLayer where
+  hashWithSalt _salt CreateLayer' {..} =
+    _salt
+      `Prelude.hashWithSalt` customInstanceProfileArn
+      `Prelude.hashWithSalt` customSecurityGroupIds
+      `Prelude.hashWithSalt` installUpdatesOnBoot
+      `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+      `Prelude.hashWithSalt` lifecycleEventConfiguration
+      `Prelude.hashWithSalt` customRecipes
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` volumeConfigurations
+      `Prelude.hashWithSalt` enableAutoHealing
+      `Prelude.hashWithSalt` packages
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` autoAssignPublicIps
+      `Prelude.hashWithSalt` useEbsOptimizedInstances
+      `Prelude.hashWithSalt` autoAssignElasticIps
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` shortname
 
-instance Prelude.NFData CreateLayer
+instance Prelude.NFData CreateLayer where
+  rnf CreateLayer' {..} =
+    Prelude.rnf customInstanceProfileArn
+      `Prelude.seq` Prelude.rnf customSecurityGroupIds
+      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf lifecycleEventConfiguration
+      `Prelude.seq` Prelude.rnf customRecipes
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf volumeConfigurations
+      `Prelude.seq` Prelude.rnf enableAutoHealing
+      `Prelude.seq` Prelude.rnf packages
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf autoAssignPublicIps
+      `Prelude.seq` Prelude.rnf useEbsOptimizedInstances
+      `Prelude.seq` Prelude.rnf autoAssignElasticIps
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf shortname
 
 instance Core.ToHeaders CreateLayer where
   toHeaders =
@@ -491,4 +530,7 @@ createLayerResponse_layerId = Lens.lens (\CreateLayerResponse' {layerId} -> laye
 createLayerResponse_httpStatus :: Lens.Lens' CreateLayerResponse Prelude.Int
 createLayerResponse_httpStatus = Lens.lens (\CreateLayerResponse' {httpStatus} -> httpStatus) (\s@CreateLayerResponse' {} a -> s {httpStatus = a} :: CreateLayerResponse)
 
-instance Prelude.NFData CreateLayerResponse
+instance Prelude.NFData CreateLayerResponse where
+  rnf CreateLayerResponse' {..} =
+    Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf httpStatus

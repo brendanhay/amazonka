@@ -82,7 +82,16 @@ instance
 instance
   Prelude.Hashable
     PhysicalResourceIdContextKeyValuePair
+  where
+  hashWithSalt
+    _salt
+    PhysicalResourceIdContextKeyValuePair' {..} =
+      _salt `Prelude.hashWithSalt` key
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     PhysicalResourceIdContextKeyValuePair
+  where
+  rnf PhysicalResourceIdContextKeyValuePair' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value

@@ -152,9 +152,17 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLoggingConfiguration
+instance Prelude.Hashable UpdateLoggingConfiguration where
+  hashWithSalt _salt UpdateLoggingConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` firewallName
 
-instance Prelude.NFData UpdateLoggingConfiguration
+instance Prelude.NFData UpdateLoggingConfiguration where
+  rnf UpdateLoggingConfiguration' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf firewallName
 
 instance Core.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
@@ -250,3 +258,9 @@ updateLoggingConfigurationResponse_httpStatus = Lens.lens (\UpdateLoggingConfigu
 instance
   Prelude.NFData
     UpdateLoggingConfigurationResponse
+  where
+  rnf UpdateLoggingConfigurationResponse' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf httpStatus

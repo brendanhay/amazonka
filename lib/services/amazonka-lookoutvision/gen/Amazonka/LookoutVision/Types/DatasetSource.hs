@@ -55,9 +55,13 @@ newDatasetSource =
 datasetSource_groundTruthManifest :: Lens.Lens' DatasetSource (Prelude.Maybe DatasetGroundTruthManifest)
 datasetSource_groundTruthManifest = Lens.lens (\DatasetSource' {groundTruthManifest} -> groundTruthManifest) (\s@DatasetSource' {} a -> s {groundTruthManifest = a} :: DatasetSource)
 
-instance Prelude.Hashable DatasetSource
+instance Prelude.Hashable DatasetSource where
+  hashWithSalt _salt DatasetSource' {..} =
+    _salt `Prelude.hashWithSalt` groundTruthManifest
 
-instance Prelude.NFData DatasetSource
+instance Prelude.NFData DatasetSource where
+  rnf DatasetSource' {..} =
+    Prelude.rnf groundTruthManifest
 
 instance Core.ToJSON DatasetSource where
   toJSON DatasetSource' {..} =

@@ -108,9 +108,19 @@ instance Core.FromJSON DebugHookConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable DebugHookConfig
+instance Prelude.Hashable DebugHookConfig where
+  hashWithSalt _salt DebugHookConfig' {..} =
+    _salt `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` collectionConfigurations
+      `Prelude.hashWithSalt` hookParameters
+      `Prelude.hashWithSalt` s3OutputPath
 
-instance Prelude.NFData DebugHookConfig
+instance Prelude.NFData DebugHookConfig where
+  rnf DebugHookConfig' {..} =
+    Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf collectionConfigurations
+      `Prelude.seq` Prelude.rnf hookParameters
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =

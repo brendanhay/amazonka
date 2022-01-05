@@ -83,6 +83,12 @@ instance Core.FromJSON ResourceDescription where
             Prelude.<*> (x Core..:? "Properties")
       )
 
-instance Prelude.Hashable ResourceDescription
+instance Prelude.Hashable ResourceDescription where
+  hashWithSalt _salt ResourceDescription' {..} =
+    _salt `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData ResourceDescription
+instance Prelude.NFData ResourceDescription where
+  rnf ResourceDescription' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf properties

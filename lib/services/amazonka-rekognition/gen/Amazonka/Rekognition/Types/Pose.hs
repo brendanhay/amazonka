@@ -82,6 +82,14 @@ instance Core.FromJSON Pose where
             Prelude.<*> (x Core..:? "Pitch")
       )
 
-instance Prelude.Hashable Pose
+instance Prelude.Hashable Pose where
+  hashWithSalt _salt Pose' {..} =
+    _salt `Prelude.hashWithSalt` yaw
+      `Prelude.hashWithSalt` roll
+      `Prelude.hashWithSalt` pitch
 
-instance Prelude.NFData Pose
+instance Prelude.NFData Pose where
+  rnf Pose' {..} =
+    Prelude.rnf yaw
+      `Prelude.seq` Prelude.rnf roll
+      `Prelude.seq` Prelude.rnf pitch

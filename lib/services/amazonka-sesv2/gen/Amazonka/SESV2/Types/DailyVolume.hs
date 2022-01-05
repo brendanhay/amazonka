@@ -92,6 +92,14 @@ instance Core.FromJSON DailyVolume where
             Prelude.<*> (x Core..:? "VolumeStatistics")
       )
 
-instance Prelude.Hashable DailyVolume
+instance Prelude.Hashable DailyVolume where
+  hashWithSalt _salt DailyVolume' {..} =
+    _salt `Prelude.hashWithSalt` domainIspPlacements
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` volumeStatistics
 
-instance Prelude.NFData DailyVolume
+instance Prelude.NFData DailyVolume where
+  rnf DailyVolume' {..} =
+    Prelude.rnf domainIspPlacements
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf volumeStatistics

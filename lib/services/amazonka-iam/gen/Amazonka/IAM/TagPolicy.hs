@@ -137,9 +137,15 @@ instance Core.AWSRequest TagPolicy where
   request = Request.postQuery defaultService
   response = Response.receiveNull TagPolicyResponse'
 
-instance Prelude.Hashable TagPolicy
+instance Prelude.Hashable TagPolicy where
+  hashWithSalt _salt TagPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagPolicy
+instance Prelude.NFData TagPolicy where
+  rnf TagPolicy' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,5 @@ newTagPolicyResponse ::
   TagPolicyResponse
 newTagPolicyResponse = TagPolicyResponse'
 
-instance Prelude.NFData TagPolicyResponse
+instance Prelude.NFData TagPolicyResponse where
+  rnf _ = ()

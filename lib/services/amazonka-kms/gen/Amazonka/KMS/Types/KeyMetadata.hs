@@ -551,6 +551,53 @@ instance Core.FromJSON KeyMetadata where
             Prelude.<*> (x Core..: "KeyId")
       )
 
-instance Prelude.Hashable KeyMetadata
+instance Prelude.Hashable KeyMetadata where
+  hashWithSalt _salt KeyMetadata' {..} =
+    _salt `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` expirationModel
+      `Prelude.hashWithSalt` keyManager
+      `Prelude.hashWithSalt` keySpec
+      `Prelude.hashWithSalt` customerMasterKeySpec
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` validTo
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` keyState
+      `Prelude.hashWithSalt` encryptionAlgorithms
+      `Prelude.hashWithSalt` aWSAccountId
+      `Prelude.hashWithSalt` signingAlgorithms
+      `Prelude.hashWithSalt` pendingDeletionWindowInDays
+      `Prelude.hashWithSalt` keyUsage
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` deletionDate
+      `Prelude.hashWithSalt` cloudHsmClusterId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` customKeyStoreId
+      `Prelude.hashWithSalt` multiRegion
+      `Prelude.hashWithSalt` multiRegionConfiguration
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData KeyMetadata
+instance Prelude.NFData KeyMetadata where
+  rnf KeyMetadata' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf expirationModel
+      `Prelude.seq` Prelude.rnf keyManager
+      `Prelude.seq` Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf customerMasterKeySpec
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf validTo
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf keyState
+      `Prelude.seq` Prelude.rnf encryptionAlgorithms
+      `Prelude.seq` Prelude.rnf aWSAccountId
+      `Prelude.seq` Prelude.rnf signingAlgorithms
+      `Prelude.seq` Prelude.rnf pendingDeletionWindowInDays
+      `Prelude.seq` Prelude.rnf keyUsage
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf cloudHsmClusterId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf customKeyStoreId
+      `Prelude.seq` Prelude.rnf multiRegion
+      `Prelude.seq` Prelude.rnf
+        multiRegionConfiguration
+      `Prelude.seq` Prelude.rnf keyId

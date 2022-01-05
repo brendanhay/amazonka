@@ -59,8 +59,13 @@ telemetryConfigurationUpdate_telemetry = Lens.lens (\TelemetryConfigurationUpdat
 instance
   Prelude.Hashable
     TelemetryConfigurationUpdate
+  where
+  hashWithSalt _salt TelemetryConfigurationUpdate' {..} =
+    _salt `Prelude.hashWithSalt` telemetry
 
-instance Prelude.NFData TelemetryConfigurationUpdate
+instance Prelude.NFData TelemetryConfigurationUpdate where
+  rnf TelemetryConfigurationUpdate' {..} =
+    Prelude.rnf telemetry
 
 instance Core.ToJSON TelemetryConfigurationUpdate where
   toJSON TelemetryConfigurationUpdate' {..} =

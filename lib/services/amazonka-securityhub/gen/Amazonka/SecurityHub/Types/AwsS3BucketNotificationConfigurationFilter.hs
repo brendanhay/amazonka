@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketNotificationConfigurationFilter
+  where
+  hashWithSalt
+    _salt
+    AwsS3BucketNotificationConfigurationFilter' {..} =
+      _salt `Prelude.hashWithSalt` s3KeyFilter
 
 instance
   Prelude.NFData
     AwsS3BucketNotificationConfigurationFilter
+  where
+  rnf AwsS3BucketNotificationConfigurationFilter' {..} =
+    Prelude.rnf s3KeyFilter
 
 instance
   Core.ToJSON

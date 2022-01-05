@@ -195,9 +195,19 @@ instance Core.AWSRequest UpdateLocationNfs where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLocationNfs
+instance Prelude.Hashable UpdateLocationNfs where
+  hashWithSalt _salt UpdateLocationNfs' {..} =
+    _salt `Prelude.hashWithSalt` onPremConfig
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData UpdateLocationNfs
+instance Prelude.NFData UpdateLocationNfs where
+  rnf UpdateLocationNfs' {..} =
+    Prelude.rnf onPremConfig
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf locationArn
 
 instance Core.ToHeaders UpdateLocationNfs where
   toHeaders =
@@ -261,4 +271,6 @@ newUpdateLocationNfsResponse pHttpStatus_ =
 updateLocationNfsResponse_httpStatus :: Lens.Lens' UpdateLocationNfsResponse Prelude.Int
 updateLocationNfsResponse_httpStatus = Lens.lens (\UpdateLocationNfsResponse' {httpStatus} -> httpStatus) (\s@UpdateLocationNfsResponse' {} a -> s {httpStatus = a} :: UpdateLocationNfsResponse)
 
-instance Prelude.NFData UpdateLocationNfsResponse
+instance Prelude.NFData UpdateLocationNfsResponse where
+  rnf UpdateLocationNfsResponse' {..} =
+    Prelude.rnf httpStatus

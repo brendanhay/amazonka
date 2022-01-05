@@ -78,6 +78,11 @@ instance Core.FromJSON InventoryResultEntity where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable InventoryResultEntity
+instance Prelude.Hashable InventoryResultEntity where
+  hashWithSalt _salt InventoryResultEntity' {..} =
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InventoryResultEntity
+instance Prelude.NFData InventoryResultEntity where
+  rnf InventoryResultEntity' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf id

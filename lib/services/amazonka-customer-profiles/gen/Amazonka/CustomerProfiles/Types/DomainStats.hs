@@ -101,6 +101,16 @@ instance Core.FromJSON DomainStats where
             Prelude.<*> (x Core..:? "ObjectCount")
       )
 
-instance Prelude.Hashable DomainStats
+instance Prelude.Hashable DomainStats where
+  hashWithSalt _salt DomainStats' {..} =
+    _salt `Prelude.hashWithSalt` meteringProfileCount
+      `Prelude.hashWithSalt` totalSize
+      `Prelude.hashWithSalt` profileCount
+      `Prelude.hashWithSalt` objectCount
 
-instance Prelude.NFData DomainStats
+instance Prelude.NFData DomainStats where
+  rnf DomainStats' {..} =
+    Prelude.rnf meteringProfileCount
+      `Prelude.seq` Prelude.rnf totalSize
+      `Prelude.seq` Prelude.rnf profileCount
+      `Prelude.seq` Prelude.rnf objectCount

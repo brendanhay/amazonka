@@ -148,6 +148,20 @@ instance Core.FromJSON SeveritySummary where
             Prelude.<*> (x Core..:? "CriticalCount")
       )
 
-instance Prelude.Hashable SeveritySummary
+instance Prelude.Hashable SeveritySummary where
+  hashWithSalt _salt SeveritySummary' {..} =
+    _salt `Prelude.hashWithSalt` lowCount
+      `Prelude.hashWithSalt` unspecifiedCount
+      `Prelude.hashWithSalt` highCount
+      `Prelude.hashWithSalt` mediumCount
+      `Prelude.hashWithSalt` informationalCount
+      `Prelude.hashWithSalt` criticalCount
 
-instance Prelude.NFData SeveritySummary
+instance Prelude.NFData SeveritySummary where
+  rnf SeveritySummary' {..} =
+    Prelude.rnf lowCount
+      `Prelude.seq` Prelude.rnf unspecifiedCount
+      `Prelude.seq` Prelude.rnf highCount
+      `Prelude.seq` Prelude.rnf mediumCount
+      `Prelude.seq` Prelude.rnf informationalCount
+      `Prelude.seq` Prelude.rnf criticalCount

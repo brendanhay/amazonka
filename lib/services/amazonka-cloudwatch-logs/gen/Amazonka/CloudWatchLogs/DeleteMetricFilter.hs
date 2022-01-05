@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteMetricFilter where
   response =
     Response.receiveNull DeleteMetricFilterResponse'
 
-instance Prelude.Hashable DeleteMetricFilter
+instance Prelude.Hashable DeleteMetricFilter where
+  hashWithSalt _salt DeleteMetricFilter' {..} =
+    _salt `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` filterName
 
-instance Prelude.NFData DeleteMetricFilter
+instance Prelude.NFData DeleteMetricFilter where
+  rnf DeleteMetricFilter' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders DeleteMetricFilter where
   toHeaders =
@@ -140,4 +146,5 @@ newDeleteMetricFilterResponse ::
 newDeleteMetricFilterResponse =
   DeleteMetricFilterResponse'
 
-instance Prelude.NFData DeleteMetricFilterResponse
+instance Prelude.NFData DeleteMetricFilterResponse where
+  rnf _ = ()

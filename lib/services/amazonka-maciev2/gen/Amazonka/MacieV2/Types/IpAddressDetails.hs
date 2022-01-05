@@ -109,6 +109,18 @@ instance Core.FromJSON IpAddressDetails where
             Prelude.<*> (x Core..:? "ipCountry")
       )
 
-instance Prelude.Hashable IpAddressDetails
+instance Prelude.Hashable IpAddressDetails where
+  hashWithSalt _salt IpAddressDetails' {..} =
+    _salt `Prelude.hashWithSalt` ipCity
+      `Prelude.hashWithSalt` ipGeoLocation
+      `Prelude.hashWithSalt` ipAddressV4
+      `Prelude.hashWithSalt` ipOwner
+      `Prelude.hashWithSalt` ipCountry
 
-instance Prelude.NFData IpAddressDetails
+instance Prelude.NFData IpAddressDetails where
+  rnf IpAddressDetails' {..} =
+    Prelude.rnf ipCity
+      `Prelude.seq` Prelude.rnf ipGeoLocation
+      `Prelude.seq` Prelude.rnf ipAddressV4
+      `Prelude.seq` Prelude.rnf ipOwner
+      `Prelude.seq` Prelude.rnf ipCountry

@@ -138,9 +138,17 @@ instance Core.AWSRequest ListProjectAssets where
             Prelude.<*> (x Core..?> "assetIds" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListProjectAssets
+instance Prelude.Hashable ListProjectAssets where
+  hashWithSalt _salt ListProjectAssets' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` projectId
 
-instance Prelude.NFData ListProjectAssets
+instance Prelude.NFData ListProjectAssets where
+  rnf ListProjectAssets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf projectId
 
 instance Core.ToHeaders ListProjectAssets where
   toHeaders =
@@ -216,4 +224,8 @@ listProjectAssetsResponse_httpStatus = Lens.lens (\ListProjectAssetsResponse' {h
 listProjectAssetsResponse_assetIds :: Lens.Lens' ListProjectAssetsResponse [Prelude.Text]
 listProjectAssetsResponse_assetIds = Lens.lens (\ListProjectAssetsResponse' {assetIds} -> assetIds) (\s@ListProjectAssetsResponse' {} a -> s {assetIds = a} :: ListProjectAssetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProjectAssetsResponse
+instance Prelude.NFData ListProjectAssetsResponse where
+  rnf ListProjectAssetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assetIds

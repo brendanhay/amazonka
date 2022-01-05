@@ -101,6 +101,16 @@ instance Core.FromXML EbsInfo where
       Prelude.<*> (x Core..@? "ebsOptimizedSupport")
       Prelude.<*> (x Core..@? "nvmeSupport")
 
-instance Prelude.Hashable EbsInfo
+instance Prelude.Hashable EbsInfo where
+  hashWithSalt _salt EbsInfo' {..} =
+    _salt `Prelude.hashWithSalt` ebsOptimizedInfo
+      `Prelude.hashWithSalt` encryptionSupport
+      `Prelude.hashWithSalt` ebsOptimizedSupport
+      `Prelude.hashWithSalt` nvmeSupport
 
-instance Prelude.NFData EbsInfo
+instance Prelude.NFData EbsInfo where
+  rnf EbsInfo' {..} =
+    Prelude.rnf ebsOptimizedInfo
+      `Prelude.seq` Prelude.rnf encryptionSupport
+      `Prelude.seq` Prelude.rnf ebsOptimizedSupport
+      `Prelude.seq` Prelude.rnf nvmeSupport

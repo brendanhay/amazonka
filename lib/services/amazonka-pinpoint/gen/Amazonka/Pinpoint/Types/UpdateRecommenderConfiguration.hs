@@ -343,10 +343,35 @@ updateRecommenderConfiguration_recommendationProviderRoleArn = Lens.lens (\Updat
 instance
   Prelude.Hashable
     UpdateRecommenderConfiguration
+  where
+  hashWithSalt
+    _salt
+    UpdateRecommenderConfiguration' {..} =
+      _salt
+        `Prelude.hashWithSalt` recommendationTransformerUri
+        `Prelude.hashWithSalt` recommendationsDisplayName
+        `Prelude.hashWithSalt` recommendationProviderIdType
+        `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` recommendationsPerMessage
+        `Prelude.hashWithSalt` recommendationProviderUri
+        `Prelude.hashWithSalt` recommendationProviderRoleArn
 
 instance
   Prelude.NFData
     UpdateRecommenderConfiguration
+  where
+  rnf UpdateRecommenderConfiguration' {..} =
+    Prelude.rnf recommendationTransformerUri
+      `Prelude.seq` Prelude.rnf recommendationsDisplayName
+      `Prelude.seq` Prelude.rnf recommendationProviderIdType
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf recommendationsPerMessage
+      `Prelude.seq` Prelude.rnf recommendationProviderUri
+      `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
 
 instance Core.ToJSON UpdateRecommenderConfiguration where
   toJSON UpdateRecommenderConfiguration' {..} =

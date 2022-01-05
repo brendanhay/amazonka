@@ -101,9 +101,13 @@ instance Core.AWSRequest DescribeInputSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInputSecurityGroup
+instance Prelude.Hashable DescribeInputSecurityGroup where
+  hashWithSalt _salt DescribeInputSecurityGroup' {..} =
+    _salt `Prelude.hashWithSalt` inputSecurityGroupId
 
-instance Prelude.NFData DescribeInputSecurityGroup
+instance Prelude.NFData DescribeInputSecurityGroup where
+  rnf DescribeInputSecurityGroup' {..} =
+    Prelude.rnf inputSecurityGroupId
 
 instance Core.ToHeaders DescribeInputSecurityGroup where
   toHeaders =
@@ -215,3 +219,12 @@ describeInputSecurityGroupResponse_httpStatus = Lens.lens (\DescribeInputSecurit
 instance
   Prelude.NFData
     DescribeInputSecurityGroupResponse
+  where
+  rnf DescribeInputSecurityGroupResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf whitelistRules
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

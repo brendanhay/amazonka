@@ -42,9 +42,9 @@ module Amazonka.SSM.Lens
     -- ** GetParameters
     getParameters_withDecryption,
     getParameters_names,
-    getParametersResponse_parameters,
-    getParametersResponse_invalidParameters,
     getParametersResponse_httpStatus,
+    getParametersResponse_invalidParameters,
+    getParametersResponse_parameters,
 
     -- ** DeletePatchBaseline
     deletePatchBaseline_baselineId,
@@ -96,8 +96,8 @@ module Amazonka.SSM.Lens
     -- ** GetParameter
     getParameter_withDecryption,
     getParameter_name,
-    getParameterResponse_parameter,
     getParameterResponse_httpStatus,
+    getParameterResponse_parameter,
 
     -- ** GetOpsMetadata
     getOpsMetadata_nextToken,
@@ -1029,8 +1029,8 @@ module Amazonka.SSM.Lens
     putParameter_name,
     putParameter_value,
     putParameterResponse_tier,
-    putParameterResponse_version,
     putParameterResponse_httpStatus,
+    putParameterResponse_version,
 
     -- ** DescribeMaintenanceWindowExecutionTaskInvocations
     describeMaintenanceWindowExecutionTaskInvocations_filters,
@@ -2206,12 +2206,12 @@ module Amazonka.SSM.Lens
     parameter_lastModifiedDate,
     parameter_selector,
     parameter_arn,
-    parameter_value,
     parameter_sourceResult,
-    parameter_name,
-    parameter_version,
-    parameter_type,
     parameter_dataType,
+    parameter_name,
+    parameter_type,
+    parameter_value,
+    parameter_version,
 
     -- ** ParameterHistory
     parameterHistory_lastModifiedDate,

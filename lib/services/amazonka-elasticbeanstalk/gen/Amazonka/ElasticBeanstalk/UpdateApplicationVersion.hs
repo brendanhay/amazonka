@@ -133,9 +133,17 @@ instance Core.AWSRequest UpdateApplicationVersion where
       "UpdateApplicationVersionResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdateApplicationVersion
+instance Prelude.Hashable UpdateApplicationVersion where
+  hashWithSalt _salt UpdateApplicationVersion' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` versionLabel
 
-instance Prelude.NFData UpdateApplicationVersion
+instance Prelude.NFData UpdateApplicationVersion where
+  rnf UpdateApplicationVersion' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf versionLabel
 
 instance Core.ToHeaders UpdateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty

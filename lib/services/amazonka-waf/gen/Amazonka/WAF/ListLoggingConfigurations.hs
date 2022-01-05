@@ -164,9 +164,15 @@ instance Core.AWSRequest ListLoggingConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLoggingConfigurations
+instance Prelude.Hashable ListLoggingConfigurations where
+  hashWithSalt _salt ListLoggingConfigurations' {..} =
+    _salt `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListLoggingConfigurations
+instance Prelude.NFData ListLoggingConfigurations where
+  rnf ListLoggingConfigurations' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListLoggingConfigurations where
   toHeaders =
@@ -261,3 +267,8 @@ listLoggingConfigurationsResponse_httpStatus = Lens.lens (\ListLoggingConfigurat
 instance
   Prelude.NFData
     ListLoggingConfigurationsResponse
+  where
+  rnf ListLoggingConfigurationsResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf loggingConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,6 +79,11 @@ instance Core.FromXML ReusableDelegationSetLimit where
     ReusableDelegationSetLimit'
       Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable ReusableDelegationSetLimit
+instance Prelude.Hashable ReusableDelegationSetLimit where
+  hashWithSalt _salt ReusableDelegationSetLimit' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ReusableDelegationSetLimit
+instance Prelude.NFData ReusableDelegationSetLimit where
+  rnf ReusableDelegationSetLimit' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value

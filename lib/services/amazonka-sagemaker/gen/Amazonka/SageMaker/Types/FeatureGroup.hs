@@ -249,6 +249,36 @@ instance Core.FromJSON FeatureGroup where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable FeatureGroup
+instance Prelude.Hashable FeatureGroup where
+  hashWithSalt _salt FeatureGroup' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` offlineStoreConfig
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` featureGroupStatus
+      `Prelude.hashWithSalt` featureDefinitions
+      `Prelude.hashWithSalt` offlineStoreStatus
+      `Prelude.hashWithSalt` onlineStoreConfig
+      `Prelude.hashWithSalt` eventTimeFeatureName
+      `Prelude.hashWithSalt` recordIdentifierFeatureName
+      `Prelude.hashWithSalt` featureGroupArn
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData FeatureGroup
+instance Prelude.NFData FeatureGroup where
+  rnf FeatureGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf offlineStoreConfig
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf featureDefinitions
+      `Prelude.seq` Prelude.rnf offlineStoreStatus
+      `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf eventTimeFeatureName
+      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
+      `Prelude.seq` Prelude.rnf featureGroupArn
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleArn

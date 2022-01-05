@@ -169,9 +169,17 @@ instance Core.AWSRequest DescribeConnections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnections
+instance Prelude.Hashable DescribeConnections where
+  hashWithSalt _salt DescribeConnections' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeConnections
+instance Prelude.NFData DescribeConnections where
+  rnf DescribeConnections' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeConnections where
   toHeaders =
@@ -260,4 +268,8 @@ describeConnectionsResponse_marker = Lens.lens (\DescribeConnectionsResponse' {m
 describeConnectionsResponse_httpStatus :: Lens.Lens' DescribeConnectionsResponse Prelude.Int
 describeConnectionsResponse_httpStatus = Lens.lens (\DescribeConnectionsResponse' {httpStatus} -> httpStatus) (\s@DescribeConnectionsResponse' {} a -> s {httpStatus = a} :: DescribeConnectionsResponse)
 
-instance Prelude.NFData DescribeConnectionsResponse
+instance Prelude.NFData DescribeConnectionsResponse where
+  rnf DescribeConnectionsResponse' {..} =
+    Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

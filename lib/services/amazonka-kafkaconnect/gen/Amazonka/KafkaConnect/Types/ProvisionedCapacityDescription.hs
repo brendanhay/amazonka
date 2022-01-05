@@ -78,7 +78,17 @@ instance Core.FromJSON ProvisionedCapacityDescription where
 instance
   Prelude.Hashable
     ProvisionedCapacityDescription
+  where
+  hashWithSalt
+    _salt
+    ProvisionedCapacityDescription' {..} =
+      _salt `Prelude.hashWithSalt` workerCount
+        `Prelude.hashWithSalt` mcuCount
 
 instance
   Prelude.NFData
     ProvisionedCapacityDescription
+  where
+  rnf ProvisionedCapacityDescription' {..} =
+    Prelude.rnf workerCount
+      `Prelude.seq` Prelude.rnf mcuCount

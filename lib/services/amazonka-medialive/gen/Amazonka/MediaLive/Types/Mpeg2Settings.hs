@@ -363,9 +363,43 @@ instance Core.FromJSON Mpeg2Settings where
             Prelude.<*> (x Core..: "framerateDenominator")
       )
 
-instance Prelude.Hashable Mpeg2Settings
+instance Prelude.Hashable Mpeg2Settings where
+  hashWithSalt _salt Mpeg2Settings' {..} =
+    _salt `Prelude.hashWithSalt` scanType
+      `Prelude.hashWithSalt` timecodeInsertion
+      `Prelude.hashWithSalt` afdSignaling
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` gopSizeUnits
+      `Prelude.hashWithSalt` subgopLength
+      `Prelude.hashWithSalt` displayAspectRatio
+      `Prelude.hashWithSalt` gopNumBFrames
+      `Prelude.hashWithSalt` fixedAfd
+      `Prelude.hashWithSalt` filterSettings
+      `Prelude.hashWithSalt` colorMetadata
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` framerateDenominator
 
-instance Prelude.NFData Mpeg2Settings
+instance Prelude.NFData Mpeg2Settings where
+  rnf Mpeg2Settings' {..} =
+    Prelude.rnf scanType
+      `Prelude.seq` Prelude.rnf timecodeInsertion
+      `Prelude.seq` Prelude.rnf afdSignaling
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf gopSizeUnits
+      `Prelude.seq` Prelude.rnf subgopLength
+      `Prelude.seq` Prelude.rnf displayAspectRatio
+      `Prelude.seq` Prelude.rnf gopNumBFrames
+      `Prelude.seq` Prelude.rnf fixedAfd
+      `Prelude.seq` Prelude.rnf filterSettings
+      `Prelude.seq` Prelude.rnf colorMetadata
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf gopClosedCadence
+      `Prelude.seq` Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf framerateDenominator
 
 instance Core.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =

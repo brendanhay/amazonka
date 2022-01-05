@@ -105,9 +105,15 @@ instance Core.AWSRequest ListProfilePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProfilePermissions
+instance Prelude.Hashable ListProfilePermissions where
+  hashWithSalt _salt ListProfilePermissions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData ListProfilePermissions
+instance Prelude.NFData ListProfilePermissions where
+  rnf ListProfilePermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf profileName
 
 instance Core.ToHeaders ListProfilePermissions where
   toHeaders =
@@ -201,3 +207,10 @@ listProfilePermissionsResponse_httpStatus = Lens.lens (\ListProfilePermissionsRe
 instance
   Prelude.NFData
     ListProfilePermissionsResponse
+  where
+  rnf ListProfilePermissionsResponse' {..} =
+    Prelude.rnf policySizeBytes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

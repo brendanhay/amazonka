@@ -169,6 +169,30 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..:? "EndpointArn")
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt _salt Endpoint' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` outpostsId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` securityGroupId
+      `Prelude.hashWithSalt` accessType
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf outpostsId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf securityGroupId
+      `Prelude.seq` Prelude.rnf accessType
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf endpointArn

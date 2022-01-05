@@ -87,6 +87,14 @@ instance Core.FromXML ConflictingAlias where
       Prelude.<*> (x Core..@? "AccountId")
       Prelude.<*> (x Core..@? "DistributionId")
 
-instance Prelude.Hashable ConflictingAlias
+instance Prelude.Hashable ConflictingAlias where
+  hashWithSalt _salt ConflictingAlias' {..} =
+    _salt `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` distributionId
 
-instance Prelude.NFData ConflictingAlias
+instance Prelude.NFData ConflictingAlias where
+  rnf ConflictingAlias' {..} =
+    Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf distributionId

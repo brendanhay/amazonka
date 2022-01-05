@@ -64,9 +64,15 @@ replaceableItem_name = Lens.lens (\ReplaceableItem' {name} -> name) (\s@Replacea
 replaceableItem_attributes :: Lens.Lens' ReplaceableItem [ReplaceableAttribute]
 replaceableItem_attributes = Lens.lens (\ReplaceableItem' {attributes} -> attributes) (\s@ReplaceableItem' {} a -> s {attributes = a} :: ReplaceableItem) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ReplaceableItem
+instance Prelude.Hashable ReplaceableItem where
+  hashWithSalt _salt ReplaceableItem' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData ReplaceableItem
+instance Prelude.NFData ReplaceableItem where
+  rnf ReplaceableItem' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToQuery ReplaceableItem where
   toQuery ReplaceableItem' {..} =

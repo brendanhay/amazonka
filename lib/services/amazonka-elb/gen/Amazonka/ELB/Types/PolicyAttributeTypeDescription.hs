@@ -132,7 +132,23 @@ instance Core.FromXML PolicyAttributeTypeDescription where
 instance
   Prelude.Hashable
     PolicyAttributeTypeDescription
+  where
+  hashWithSalt
+    _salt
+    PolicyAttributeTypeDescription' {..} =
+      _salt `Prelude.hashWithSalt` attributeType
+        `Prelude.hashWithSalt` cardinality
+        `Prelude.hashWithSalt` defaultValue
+        `Prelude.hashWithSalt` attributeName
+        `Prelude.hashWithSalt` description
 
 instance
   Prelude.NFData
     PolicyAttributeTypeDescription
+  where
+  rnf PolicyAttributeTypeDescription' {..} =
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf cardinality
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf description

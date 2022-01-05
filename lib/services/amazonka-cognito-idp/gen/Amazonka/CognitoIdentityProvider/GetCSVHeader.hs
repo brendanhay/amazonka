@@ -93,9 +93,12 @@ instance Core.AWSRequest GetCSVHeader where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCSVHeader
+instance Prelude.Hashable GetCSVHeader where
+  hashWithSalt _salt GetCSVHeader' {..} =
+    _salt `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData GetCSVHeader
+instance Prelude.NFData GetCSVHeader where
+  rnf GetCSVHeader' {..} = Prelude.rnf userPoolId
 
 instance Core.ToHeaders GetCSVHeader where
   toHeaders =
@@ -178,4 +181,8 @@ getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -
 getCSVHeaderResponse_httpStatus :: Lens.Lens' GetCSVHeaderResponse Prelude.Int
 getCSVHeaderResponse_httpStatus = Lens.lens (\GetCSVHeaderResponse' {httpStatus} -> httpStatus) (\s@GetCSVHeaderResponse' {} a -> s {httpStatus = a} :: GetCSVHeaderResponse)
 
-instance Prelude.NFData GetCSVHeaderResponse
+instance Prelude.NFData GetCSVHeaderResponse where
+  rnf GetCSVHeaderResponse' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf cSVHeader
+      `Prelude.seq` Prelude.rnf httpStatus

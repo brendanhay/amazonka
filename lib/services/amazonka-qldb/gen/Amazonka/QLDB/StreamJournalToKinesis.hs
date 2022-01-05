@@ -247,9 +247,25 @@ instance Core.AWSRequest StreamJournalToKinesis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StreamJournalToKinesis
+instance Prelude.Hashable StreamJournalToKinesis where
+  hashWithSalt _salt StreamJournalToKinesis' {..} =
+    _salt `Prelude.hashWithSalt` exclusiveEndTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ledgerName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inclusiveStartTime
+      `Prelude.hashWithSalt` kinesisConfiguration
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData StreamJournalToKinesis
+instance Prelude.NFData StreamJournalToKinesis where
+  rnf StreamJournalToKinesis' {..} =
+    Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inclusiveStartTime
+      `Prelude.seq` Prelude.rnf kinesisConfiguration
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders StreamJournalToKinesis where
   toHeaders =
@@ -336,3 +352,7 @@ streamJournalToKinesisResponse_httpStatus = Lens.lens (\StreamJournalToKinesisRe
 instance
   Prelude.NFData
     StreamJournalToKinesisResponse
+  where
+  rnf StreamJournalToKinesisResponse' {..} =
+    Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf httpStatus

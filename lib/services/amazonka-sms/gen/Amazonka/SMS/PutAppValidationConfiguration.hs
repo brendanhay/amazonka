@@ -115,8 +115,18 @@ instance
 instance
   Prelude.Hashable
     PutAppValidationConfiguration
+  where
+  hashWithSalt _salt PutAppValidationConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` serverGroupValidationConfigurations
+      `Prelude.hashWithSalt` appValidationConfigurations
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData PutAppValidationConfiguration
+instance Prelude.NFData PutAppValidationConfiguration where
+  rnf PutAppValidationConfiguration' {..} =
+    Prelude.rnf serverGroupValidationConfigurations
+      `Prelude.seq` Prelude.rnf appValidationConfigurations
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders PutAppValidationConfiguration where
   toHeaders =
@@ -184,3 +194,6 @@ putAppValidationConfigurationResponse_httpStatus = Lens.lens (\PutAppValidationC
 instance
   Prelude.NFData
     PutAppValidationConfigurationResponse
+  where
+  rnf PutAppValidationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

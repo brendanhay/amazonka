@@ -216,6 +216,24 @@ instance Core.FromJSON Build where
             Prelude.<*> (x Core..:? "SizeOnDisk")
       )
 
-instance Prelude.Hashable Build
+instance Prelude.Hashable Build where
+  hashWithSalt _salt Build' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` buildId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` buildArn
+      `Prelude.hashWithSalt` sizeOnDisk
 
-instance Prelude.NFData Build
+instance Prelude.NFData Build where
+  rnf Build' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf buildId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf buildArn
+      `Prelude.seq` Prelude.rnf sizeOnDisk

@@ -88,6 +88,11 @@ instance Core.FromJSON NotificationChannel where
             Prelude.<$> (x Core..:? "Config") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable NotificationChannel
+instance Prelude.Hashable NotificationChannel where
+  hashWithSalt _salt NotificationChannel' {..} =
+    _salt `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData NotificationChannel
+instance Prelude.NFData NotificationChannel where
+  rnf NotificationChannel' {..} =
+    Prelude.rnf config `Prelude.seq` Prelude.rnf id

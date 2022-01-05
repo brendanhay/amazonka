@@ -139,9 +139,21 @@ instance Core.FromJSON UsageRecord where
             Prelude.<*> (x Core..: "Dimension")
       )
 
-instance Prelude.Hashable UsageRecord
+instance Prelude.Hashable UsageRecord where
+  hashWithSalt _salt UsageRecord' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` usageAllocations
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` customerIdentifier
+      `Prelude.hashWithSalt` dimension
 
-instance Prelude.NFData UsageRecord
+instance Prelude.NFData UsageRecord where
+  rnf UsageRecord' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf usageAllocations
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf customerIdentifier
+      `Prelude.seq` Prelude.rnf dimension
 
 instance Core.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =

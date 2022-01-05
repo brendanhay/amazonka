@@ -456,9 +456,21 @@ scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@
 scheduleRunTest_type :: Lens.Lens' ScheduleRunTest TestType
 scheduleRunTest_type = Lens.lens (\ScheduleRunTest' {type'} -> type') (\s@ScheduleRunTest' {} a -> s {type' = a} :: ScheduleRunTest)
 
-instance Prelude.Hashable ScheduleRunTest
+instance Prelude.Hashable ScheduleRunTest where
+  hashWithSalt _salt ScheduleRunTest' {..} =
+    _salt `Prelude.hashWithSalt` testSpecArn
+      `Prelude.hashWithSalt` testPackageArn
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ScheduleRunTest
+instance Prelude.NFData ScheduleRunTest where
+  rnf ScheduleRunTest' {..} =
+    Prelude.rnf testSpecArn
+      `Prelude.seq` Prelude.rnf testPackageArn
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ScheduleRunTest where
   toJSON ScheduleRunTest' {..} =

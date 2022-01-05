@@ -217,6 +217,16 @@ instance Core.FromJSON DataCatalog where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable DataCatalog
+instance Prelude.Hashable DataCatalog where
+  hashWithSalt _salt DataCatalog' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DataCatalog
+instance Prelude.NFData DataCatalog where
+  rnf DataCatalog' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

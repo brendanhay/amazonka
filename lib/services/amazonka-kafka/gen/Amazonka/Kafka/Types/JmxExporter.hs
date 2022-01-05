@@ -61,6 +61,9 @@ instance Core.FromJSON JmxExporter where
             Prelude.<$> (x Core..: "enabledInBroker")
       )
 
-instance Prelude.Hashable JmxExporter
+instance Prelude.Hashable JmxExporter where
+  hashWithSalt _salt JmxExporter' {..} =
+    _salt `Prelude.hashWithSalt` enabledInBroker
 
-instance Prelude.NFData JmxExporter
+instance Prelude.NFData JmxExporter where
+  rnf JmxExporter' {..} = Prelude.rnf enabledInBroker

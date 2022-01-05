@@ -108,9 +108,15 @@ instance Core.AWSRequest DescribeDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDomain
+instance Prelude.Hashable DescribeDomain where
+  hashWithSalt _salt DescribeDomain' {..} =
+    _salt `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeDomain
+instance Prelude.NFData DescribeDomain where
+  rnf DescribeDomain' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeDomain where
   toHeaders =
@@ -216,4 +222,11 @@ describeDomainResponse_displayName = Lens.lens (\DescribeDomainResponse' {displa
 describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
-instance Prelude.NFData DescribeDomainResponse
+instance Prelude.NFData DescribeDomainResponse where
+  rnf DescribeDomainResponse' {..} =
+    Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf acmCertificateArn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf httpStatus

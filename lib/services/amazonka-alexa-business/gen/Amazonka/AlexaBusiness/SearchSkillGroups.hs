@@ -166,9 +166,19 @@ instance Core.AWSRequest SearchSkillGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchSkillGroups
+instance Prelude.Hashable SearchSkillGroups where
+  hashWithSalt _salt SearchSkillGroups' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchSkillGroups
+instance Prelude.NFData SearchSkillGroups where
+  rnf SearchSkillGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchSkillGroups where
   toHeaders =
@@ -259,4 +269,9 @@ searchSkillGroupsResponse_totalCount = Lens.lens (\SearchSkillGroupsResponse' {t
 searchSkillGroupsResponse_httpStatus :: Lens.Lens' SearchSkillGroupsResponse Prelude.Int
 searchSkillGroupsResponse_httpStatus = Lens.lens (\SearchSkillGroupsResponse' {httpStatus} -> httpStatus) (\s@SearchSkillGroupsResponse' {} a -> s {httpStatus = a} :: SearchSkillGroupsResponse)
 
-instance Prelude.NFData SearchSkillGroupsResponse
+instance Prelude.NFData SearchSkillGroupsResponse where
+  rnf SearchSkillGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf skillGroups
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf httpStatus

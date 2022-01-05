@@ -92,9 +92,15 @@ instance Core.AWSRequest ModifyInstanceGroups where
   response =
     Response.receiveNull ModifyInstanceGroupsResponse'
 
-instance Prelude.Hashable ModifyInstanceGroups
+instance Prelude.Hashable ModifyInstanceGroups where
+  hashWithSalt _salt ModifyInstanceGroups' {..} =
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` instanceGroups
 
-instance Prelude.NFData ModifyInstanceGroups
+instance Prelude.NFData ModifyInstanceGroups where
+  rnf ModifyInstanceGroups' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf instanceGroups
 
 instance Core.ToHeaders ModifyInstanceGroups where
   toHeaders =
@@ -142,4 +148,5 @@ newModifyInstanceGroupsResponse ::
 newModifyInstanceGroupsResponse =
   ModifyInstanceGroupsResponse'
 
-instance Prelude.NFData ModifyInstanceGroupsResponse
+instance Prelude.NFData ModifyInstanceGroupsResponse where
+  rnf _ = ()

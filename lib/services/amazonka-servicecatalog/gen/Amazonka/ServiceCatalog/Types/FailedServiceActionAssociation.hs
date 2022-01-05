@@ -110,7 +110,23 @@ instance Core.FromJSON FailedServiceActionAssociation where
 instance
   Prelude.Hashable
     FailedServiceActionAssociation
+  where
+  hashWithSalt
+    _salt
+    FailedServiceActionAssociation' {..} =
+      _salt `Prelude.hashWithSalt` provisioningArtifactId
+        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` serviceActionId
+        `Prelude.hashWithSalt` productId
 
 instance
   Prelude.NFData
     FailedServiceActionAssociation
+  where
+  rnf FailedServiceActionAssociation' {..} =
+    Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf serviceActionId
+      `Prelude.seq` Prelude.rnf productId

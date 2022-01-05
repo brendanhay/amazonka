@@ -108,9 +108,17 @@ diskImageDetail_format = Lens.lens (\DiskImageDetail' {format} -> format) (\s@Di
 diskImageDetail_importManifestUrl :: Lens.Lens' DiskImageDetail Prelude.Text
 diskImageDetail_importManifestUrl = Lens.lens (\DiskImageDetail' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDetail' {} a -> s {importManifestUrl = a} :: DiskImageDetail)
 
-instance Prelude.Hashable DiskImageDetail
+instance Prelude.Hashable DiskImageDetail where
+  hashWithSalt _salt DiskImageDetail' {..} =
+    _salt `Prelude.hashWithSalt` bytes
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` importManifestUrl
 
-instance Prelude.NFData DiskImageDetail
+instance Prelude.NFData DiskImageDetail where
+  rnf DiskImageDetail' {..} =
+    Prelude.rnf bytes
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf importManifestUrl
 
 instance Core.ToQuery DiskImageDetail where
   toQuery DiskImageDetail' {..} =

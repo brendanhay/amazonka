@@ -93,9 +93,15 @@ instance Core.AWSRequest FlushStageCache where
   response =
     Response.receiveNull FlushStageCacheResponse'
 
-instance Prelude.Hashable FlushStageCache
+instance Prelude.Hashable FlushStageCache where
+  hashWithSalt _salt FlushStageCache' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData FlushStageCache
+instance Prelude.NFData FlushStageCache where
+  rnf FlushStageCache' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders FlushStageCache where
   toHeaders =
@@ -133,4 +139,5 @@ newFlushStageCacheResponse ::
   FlushStageCacheResponse
 newFlushStageCacheResponse = FlushStageCacheResponse'
 
-instance Prelude.NFData FlushStageCacheResponse
+instance Prelude.NFData FlushStageCacheResponse where
+  rnf _ = ()

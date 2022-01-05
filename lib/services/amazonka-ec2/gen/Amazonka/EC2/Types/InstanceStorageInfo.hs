@@ -95,6 +95,16 @@ instance Core.FromXML InstanceStorageInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable InstanceStorageInfo
+instance Prelude.Hashable InstanceStorageInfo where
+  hashWithSalt _salt InstanceStorageInfo' {..} =
+    _salt `Prelude.hashWithSalt` totalSizeInGB
+      `Prelude.hashWithSalt` encryptionSupport
+      `Prelude.hashWithSalt` nvmeSupport
+      `Prelude.hashWithSalt` disks
 
-instance Prelude.NFData InstanceStorageInfo
+instance Prelude.NFData InstanceStorageInfo where
+  rnf InstanceStorageInfo' {..} =
+    Prelude.rnf totalSizeInGB
+      `Prelude.seq` Prelude.rnf encryptionSupport
+      `Prelude.seq` Prelude.rnf nvmeSupport
+      `Prelude.seq` Prelude.rnf disks

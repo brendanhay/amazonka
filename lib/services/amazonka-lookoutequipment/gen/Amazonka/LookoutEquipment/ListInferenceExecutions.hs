@@ -152,9 +152,23 @@ instance Core.AWSRequest ListInferenceExecutions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInferenceExecutions
+instance Prelude.Hashable ListInferenceExecutions where
+  hashWithSalt _salt ListInferenceExecutions' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` dataEndTimeBefore
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dataStartTimeAfter
+      `Prelude.hashWithSalt` inferenceSchedulerName
 
-instance Prelude.NFData ListInferenceExecutions
+instance Prelude.NFData ListInferenceExecutions where
+  rnf ListInferenceExecutions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataEndTimeBefore
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dataStartTimeAfter
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
 instance Core.ToHeaders ListInferenceExecutions where
   toHeaders =
@@ -259,3 +273,8 @@ listInferenceExecutionsResponse_httpStatus = Lens.lens (\ListInferenceExecutions
 instance
   Prelude.NFData
     ListInferenceExecutionsResponse
+  where
+  rnf ListInferenceExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf inferenceExecutionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

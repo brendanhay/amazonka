@@ -71,9 +71,15 @@ instance Core.FromJSON Bandwidth where
             Prelude.<*> (x Core..:? "UploadSpeed")
       )
 
-instance Prelude.Hashable Bandwidth
+instance Prelude.Hashable Bandwidth where
+  hashWithSalt _salt Bandwidth' {..} =
+    _salt `Prelude.hashWithSalt` downloadSpeed
+      `Prelude.hashWithSalt` uploadSpeed
 
-instance Prelude.NFData Bandwidth
+instance Prelude.NFData Bandwidth where
+  rnf Bandwidth' {..} =
+    Prelude.rnf downloadSpeed
+      `Prelude.seq` Prelude.rnf uploadSpeed
 
 instance Core.ToJSON Bandwidth where
   toJSON Bandwidth' {..} =

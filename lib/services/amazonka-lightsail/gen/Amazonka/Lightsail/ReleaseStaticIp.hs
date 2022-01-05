@@ -86,9 +86,12 @@ instance Core.AWSRequest ReleaseStaticIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReleaseStaticIp
+instance Prelude.Hashable ReleaseStaticIp where
+  hashWithSalt _salt ReleaseStaticIp' {..} =
+    _salt `Prelude.hashWithSalt` staticIpName
 
-instance Prelude.NFData ReleaseStaticIp
+instance Prelude.NFData ReleaseStaticIp where
+  rnf ReleaseStaticIp' {..} = Prelude.rnf staticIpName
 
 instance Core.ToHeaders ReleaseStaticIp where
   toHeaders =
@@ -163,4 +166,7 @@ releaseStaticIpResponse_operations = Lens.lens (\ReleaseStaticIpResponse' {opera
 releaseStaticIpResponse_httpStatus :: Lens.Lens' ReleaseStaticIpResponse Prelude.Int
 releaseStaticIpResponse_httpStatus = Lens.lens (\ReleaseStaticIpResponse' {httpStatus} -> httpStatus) (\s@ReleaseStaticIpResponse' {} a -> s {httpStatus = a} :: ReleaseStaticIpResponse)
 
-instance Prelude.NFData ReleaseStaticIpResponse
+instance Prelude.NFData ReleaseStaticIpResponse where
+  rnf ReleaseStaticIpResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -59,9 +59,12 @@ instance Core.FromXML InstanceMonitoring where
     InstanceMonitoring'
       Prelude.<$> (x Core..@? "Enabled")
 
-instance Prelude.Hashable InstanceMonitoring
+instance Prelude.Hashable InstanceMonitoring where
+  hashWithSalt _salt InstanceMonitoring' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData InstanceMonitoring
+instance Prelude.NFData InstanceMonitoring where
+  rnf InstanceMonitoring' {..} = Prelude.rnf enabled
 
 instance Core.ToQuery InstanceMonitoring where
   toQuery InstanceMonitoring' {..} =

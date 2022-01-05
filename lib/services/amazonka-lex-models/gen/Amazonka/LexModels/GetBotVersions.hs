@@ -155,9 +155,17 @@ instance Core.AWSRequest GetBotVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBotVersions
+instance Prelude.Hashable GetBotVersions where
+  hashWithSalt _salt GetBotVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetBotVersions
+instance Prelude.NFData GetBotVersions where
+  rnf GetBotVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetBotVersions where
   toHeaders =
@@ -241,4 +249,8 @@ getBotVersionsResponse_nextToken = Lens.lens (\GetBotVersionsResponse' {nextToke
 getBotVersionsResponse_httpStatus :: Lens.Lens' GetBotVersionsResponse Prelude.Int
 getBotVersionsResponse_httpStatus = Lens.lens (\GetBotVersionsResponse' {httpStatus} -> httpStatus) (\s@GetBotVersionsResponse' {} a -> s {httpStatus = a} :: GetBotVersionsResponse)
 
-instance Prelude.NFData GetBotVersionsResponse
+instance Prelude.NFData GetBotVersionsResponse where
+  rnf GetBotVersionsResponse' {..} =
+    Prelude.rnf bots
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

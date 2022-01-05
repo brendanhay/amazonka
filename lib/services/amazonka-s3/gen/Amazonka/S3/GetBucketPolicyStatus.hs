@@ -127,9 +127,15 @@ instance Core.AWSRequest GetBucketPolicyStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketPolicyStatus
+instance Prelude.Hashable GetBucketPolicyStatus where
+  hashWithSalt _salt GetBucketPolicyStatus' {..} =
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData GetBucketPolicyStatus
+instance Prelude.NFData GetBucketPolicyStatus where
+  rnf GetBucketPolicyStatus' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketPolicyStatus where
   toHeaders GetBucketPolicyStatus' {..} =
@@ -185,4 +191,7 @@ getBucketPolicyStatusResponse_policyStatus = Lens.lens (\GetBucketPolicyStatusRe
 getBucketPolicyStatusResponse_httpStatus :: Lens.Lens' GetBucketPolicyStatusResponse Prelude.Int
 getBucketPolicyStatusResponse_httpStatus = Lens.lens (\GetBucketPolicyStatusResponse' {httpStatus} -> httpStatus) (\s@GetBucketPolicyStatusResponse' {} a -> s {httpStatus = a} :: GetBucketPolicyStatusResponse)
 
-instance Prelude.NFData GetBucketPolicyStatusResponse
+instance Prelude.NFData GetBucketPolicyStatusResponse where
+  rnf GetBucketPolicyStatusResponse' {..} =
+    Prelude.rnf policyStatus
+      `Prelude.seq` Prelude.rnf httpStatus

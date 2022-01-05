@@ -129,9 +129,21 @@ instance Core.AWSRequest UpdatePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline where
+  hashWithSalt _salt UpdatePipeline' {..} =
+    _salt `Prelude.hashWithSalt` pipelineDisplayName
+      `Prelude.hashWithSalt` pipelineDescription
+      `Prelude.hashWithSalt` pipelineDefinition
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline where
+  rnf UpdatePipeline' {..} =
+    Prelude.rnf pipelineDisplayName
+      `Prelude.seq` Prelude.rnf pipelineDescription
+      `Prelude.seq` Prelude.rnf pipelineDefinition
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf pipelineName
 
 instance Core.ToHeaders UpdatePipeline where
   toHeaders =
@@ -206,4 +218,7 @@ updatePipelineResponse_pipelineArn = Lens.lens (\UpdatePipelineResponse' {pipeli
 updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Prelude.Int
 updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineResponse' {} a -> s {httpStatus = a} :: UpdatePipelineResponse)
 
-instance Prelude.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse where
+  rnf UpdatePipelineResponse' {..} =
+    Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf httpStatus

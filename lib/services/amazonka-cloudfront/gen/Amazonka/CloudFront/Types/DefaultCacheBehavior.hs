@@ -668,9 +668,45 @@ instance Core.FromXML DefaultCacheBehavior where
       Prelude.<*> (x Core..@ "TargetOriginId")
       Prelude.<*> (x Core..@ "ViewerProtocolPolicy")
 
-instance Prelude.Hashable DefaultCacheBehavior
+instance Prelude.Hashable DefaultCacheBehavior where
+  hashWithSalt _salt DefaultCacheBehavior' {..} =
+    _salt `Prelude.hashWithSalt` allowedMethods
+      `Prelude.hashWithSalt` lambdaFunctionAssociations
+      `Prelude.hashWithSalt` maxTTL
+      `Prelude.hashWithSalt` minTTL
+      `Prelude.hashWithSalt` compress
+      `Prelude.hashWithSalt` smoothStreaming
+      `Prelude.hashWithSalt` trustedKeyGroups
+      `Prelude.hashWithSalt` realtimeLogConfigArn
+      `Prelude.hashWithSalt` defaultTTL
+      `Prelude.hashWithSalt` forwardedValues
+      `Prelude.hashWithSalt` trustedSigners
+      `Prelude.hashWithSalt` functionAssociations
+      `Prelude.hashWithSalt` originRequestPolicyId
+      `Prelude.hashWithSalt` fieldLevelEncryptionId
+      `Prelude.hashWithSalt` cachePolicyId
+      `Prelude.hashWithSalt` targetOriginId
+      `Prelude.hashWithSalt` viewerProtocolPolicy
 
-instance Prelude.NFData DefaultCacheBehavior
+instance Prelude.NFData DefaultCacheBehavior where
+  rnf DefaultCacheBehavior' {..} =
+    Prelude.rnf allowedMethods
+      `Prelude.seq` Prelude.rnf lambdaFunctionAssociations
+      `Prelude.seq` Prelude.rnf maxTTL
+      `Prelude.seq` Prelude.rnf minTTL
+      `Prelude.seq` Prelude.rnf compress
+      `Prelude.seq` Prelude.rnf smoothStreaming
+      `Prelude.seq` Prelude.rnf trustedKeyGroups
+      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
+      `Prelude.seq` Prelude.rnf defaultTTL
+      `Prelude.seq` Prelude.rnf forwardedValues
+      `Prelude.seq` Prelude.rnf trustedSigners
+      `Prelude.seq` Prelude.rnf functionAssociations
+      `Prelude.seq` Prelude.rnf originRequestPolicyId
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionId
+      `Prelude.seq` Prelude.rnf cachePolicyId
+      `Prelude.seq` Prelude.rnf targetOriginId
+      `Prelude.seq` Prelude.rnf viewerProtocolPolicy
 
 instance Core.ToXML DefaultCacheBehavior where
   toXML DefaultCacheBehavior' {..} =

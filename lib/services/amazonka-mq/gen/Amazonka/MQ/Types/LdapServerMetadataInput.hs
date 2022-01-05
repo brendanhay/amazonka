@@ -245,9 +245,33 @@ ldapServerMetadataInput_roleBase = Lens.lens (\LdapServerMetadataInput' {roleBas
 ldapServerMetadataInput_serviceAccountPassword :: Lens.Lens' LdapServerMetadataInput Prelude.Text
 ldapServerMetadataInput_serviceAccountPassword = Lens.lens (\LdapServerMetadataInput' {serviceAccountPassword} -> serviceAccountPassword) (\s@LdapServerMetadataInput' {} a -> s {serviceAccountPassword = a} :: LdapServerMetadataInput)
 
-instance Prelude.Hashable LdapServerMetadataInput
+instance Prelude.Hashable LdapServerMetadataInput where
+  hashWithSalt _salt LdapServerMetadataInput' {..} =
+    _salt `Prelude.hashWithSalt` userRoleName
+      `Prelude.hashWithSalt` userSearchSubtree
+      `Prelude.hashWithSalt` roleSearchSubtree
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` hosts
+      `Prelude.hashWithSalt` userSearchMatching
+      `Prelude.hashWithSalt` userBase
+      `Prelude.hashWithSalt` roleSearchMatching
+      `Prelude.hashWithSalt` serviceAccountUsername
+      `Prelude.hashWithSalt` roleBase
+      `Prelude.hashWithSalt` serviceAccountPassword
 
-instance Prelude.NFData LdapServerMetadataInput
+instance Prelude.NFData LdapServerMetadataInput where
+  rnf LdapServerMetadataInput' {..} =
+    Prelude.rnf userRoleName
+      `Prelude.seq` Prelude.rnf userSearchSubtree
+      `Prelude.seq` Prelude.rnf roleSearchSubtree
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf hosts
+      `Prelude.seq` Prelude.rnf userSearchMatching
+      `Prelude.seq` Prelude.rnf userBase
+      `Prelude.seq` Prelude.rnf roleSearchMatching
+      `Prelude.seq` Prelude.rnf serviceAccountUsername
+      `Prelude.seq` Prelude.rnf roleBase
+      `Prelude.seq` Prelude.rnf serviceAccountPassword
 
 instance Core.ToJSON LdapServerMetadataInput where
   toJSON LdapServerMetadataInput' {..} =

@@ -83,6 +83,14 @@ instance Core.FromJSON TransitGatewayRegistration where
             Prelude.<*> (x Core..:? "TransitGatewayArn")
       )
 
-instance Prelude.Hashable TransitGatewayRegistration
+instance Prelude.Hashable TransitGatewayRegistration where
+  hashWithSalt _salt TransitGatewayRegistration' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` transitGatewayArn
 
-instance Prelude.NFData TransitGatewayRegistration
+instance Prelude.NFData TransitGatewayRegistration where
+  rnf TransitGatewayRegistration' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf transitGatewayArn

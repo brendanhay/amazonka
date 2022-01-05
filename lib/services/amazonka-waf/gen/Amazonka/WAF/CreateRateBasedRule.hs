@@ -274,9 +274,23 @@ instance Core.AWSRequest CreateRateBasedRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRateBasedRule
+instance Prelude.Hashable CreateRateBasedRule where
+  hashWithSalt _salt CreateRateBasedRule' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` rateKey
+      `Prelude.hashWithSalt` rateLimit
+      `Prelude.hashWithSalt` changeToken
 
-instance Prelude.NFData CreateRateBasedRule
+instance Prelude.NFData CreateRateBasedRule where
+  rnf CreateRateBasedRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rateKey
+      `Prelude.seq` Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateRateBasedRule where
   toHeaders =
@@ -369,4 +383,8 @@ createRateBasedRuleResponse_changeToken = Lens.lens (\CreateRateBasedRuleRespons
 createRateBasedRuleResponse_httpStatus :: Lens.Lens' CreateRateBasedRuleResponse Prelude.Int
 createRateBasedRuleResponse_httpStatus = Lens.lens (\CreateRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRateBasedRuleResponse' {} a -> s {httpStatus = a} :: CreateRateBasedRuleResponse)
 
-instance Prelude.NFData CreateRateBasedRuleResponse
+instance Prelude.NFData CreateRateBasedRuleResponse where
+  rnf CreateRateBasedRuleResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

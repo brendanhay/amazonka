@@ -95,9 +95,17 @@ instance Core.FromJSON AsyncInferenceOutputConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable AsyncInferenceOutputConfig
+instance Prelude.Hashable AsyncInferenceOutputConfig where
+  hashWithSalt _salt AsyncInferenceOutputConfig' {..} =
+    _salt `Prelude.hashWithSalt` notificationConfig
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` s3OutputPath
 
-instance Prelude.NFData AsyncInferenceOutputConfig
+instance Prelude.NFData AsyncInferenceOutputConfig where
+  rnf AsyncInferenceOutputConfig' {..} =
+    Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON AsyncInferenceOutputConfig where
   toJSON AsyncInferenceOutputConfig' {..} =

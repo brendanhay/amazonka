@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateApiKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateApiKey
+instance Prelude.Hashable UpdateApiKey where
+  hashWithSalt _salt UpdateApiKey' {..} =
+    _salt `Prelude.hashWithSalt` patchOperations
+      `Prelude.hashWithSalt` apiKey
 
-instance Prelude.NFData UpdateApiKey
+instance Prelude.NFData UpdateApiKey where
+  rnf UpdateApiKey' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf apiKey
 
 instance Core.ToHeaders UpdateApiKey where
   toHeaders =

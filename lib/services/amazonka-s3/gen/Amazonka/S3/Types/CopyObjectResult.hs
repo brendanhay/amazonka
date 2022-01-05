@@ -71,6 +71,12 @@ instance Core.FromXML CopyObjectResult where
       Prelude.<$> (x Core..@? "ETag")
       Prelude.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable CopyObjectResult
+instance Prelude.Hashable CopyObjectResult where
+  hashWithSalt _salt CopyObjectResult' {..} =
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` lastModified
 
-instance Prelude.NFData CopyObjectResult
+instance Prelude.NFData CopyObjectResult where
+  rnf CopyObjectResult' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf lastModified

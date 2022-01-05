@@ -114,9 +114,13 @@ instance Core.AWSRequest DescribeDatasetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDatasetGroup
+instance Prelude.Hashable DescribeDatasetGroup where
+  hashWithSalt _salt DescribeDatasetGroup' {..} =
+    _salt `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData DescribeDatasetGroup
+instance Prelude.NFData DescribeDatasetGroup where
+  rnf DescribeDatasetGroup' {..} =
+    Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders DescribeDatasetGroup where
   toHeaders =
@@ -295,4 +299,13 @@ describeDatasetGroupResponse_lastModificationTime = Lens.lens (\DescribeDatasetG
 describeDatasetGroupResponse_httpStatus :: Lens.Lens' DescribeDatasetGroupResponse Prelude.Int
 describeDatasetGroupResponse_httpStatus = Lens.lens (\DescribeDatasetGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetGroupResponse' {} a -> s {httpStatus = a} :: DescribeDatasetGroupResponse)
 
-instance Prelude.NFData DescribeDatasetGroupResponse
+instance Prelude.NFData DescribeDatasetGroupResponse where
+  rnf DescribeDatasetGroupResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf datasetArns
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf datasetGroupName
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf httpStatus

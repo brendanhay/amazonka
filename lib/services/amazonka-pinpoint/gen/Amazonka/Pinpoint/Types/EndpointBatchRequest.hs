@@ -58,9 +58,12 @@ newEndpointBatchRequest =
 endpointBatchRequest_item :: Lens.Lens' EndpointBatchRequest [EndpointBatchItem]
 endpointBatchRequest_item = Lens.lens (\EndpointBatchRequest' {item} -> item) (\s@EndpointBatchRequest' {} a -> s {item = a} :: EndpointBatchRequest) Prelude.. Lens.coerced
 
-instance Prelude.Hashable EndpointBatchRequest
+instance Prelude.Hashable EndpointBatchRequest where
+  hashWithSalt _salt EndpointBatchRequest' {..} =
+    _salt `Prelude.hashWithSalt` item
 
-instance Prelude.NFData EndpointBatchRequest
+instance Prelude.NFData EndpointBatchRequest where
+  rnf EndpointBatchRequest' {..} = Prelude.rnf item
 
 instance Core.ToJSON EndpointBatchRequest where
   toJSON EndpointBatchRequest' {..} =

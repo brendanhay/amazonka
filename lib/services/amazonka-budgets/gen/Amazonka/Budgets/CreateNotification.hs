@@ -141,9 +141,19 @@ instance Core.AWSRequest CreateNotification where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNotification
+instance Prelude.Hashable CreateNotification where
+  hashWithSalt _salt CreateNotification' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` subscribers
 
-instance Prelude.NFData CreateNotification
+instance Prelude.NFData CreateNotification where
+  rnf CreateNotification' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf subscribers
 
 instance Core.ToHeaders CreateNotification where
   toHeaders =
@@ -209,4 +219,6 @@ newCreateNotificationResponse pHttpStatus_ =
 createNotificationResponse_httpStatus :: Lens.Lens' CreateNotificationResponse Prelude.Int
 createNotificationResponse_httpStatus = Lens.lens (\CreateNotificationResponse' {httpStatus} -> httpStatus) (\s@CreateNotificationResponse' {} a -> s {httpStatus = a} :: CreateNotificationResponse)
 
-instance Prelude.NFData CreateNotificationResponse
+instance Prelude.NFData CreateNotificationResponse where
+  rnf CreateNotificationResponse' {..} =
+    Prelude.rnf httpStatus

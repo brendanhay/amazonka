@@ -168,9 +168,17 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheSecurityGroups
+instance Prelude.Hashable DescribeCacheSecurityGroups where
+  hashWithSalt _salt DescribeCacheSecurityGroups' {..} =
+    _salt `Prelude.hashWithSalt` cacheSecurityGroupName
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeCacheSecurityGroups
+instance Prelude.NFData DescribeCacheSecurityGroups where
+  rnf DescribeCacheSecurityGroups' {..} =
+    Prelude.rnf cacheSecurityGroupName
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeCacheSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,3 +257,8 @@ describeCacheSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeCacheSecuri
 instance
   Prelude.NFData
     DescribeCacheSecurityGroupsResponse
+  where
+  rnf DescribeCacheSecurityGroupsResponse' {..} =
+    Prelude.rnf cacheSecurityGroups
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

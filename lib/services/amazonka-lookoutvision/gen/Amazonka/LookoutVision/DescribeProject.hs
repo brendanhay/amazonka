@@ -89,9 +89,12 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProject
+instance Prelude.Hashable DescribeProject where
+  hashWithSalt _salt DescribeProject' {..} =
+    _salt `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DescribeProject
+instance Prelude.NFData DescribeProject where
+  rnf DescribeProject' {..} = Prelude.rnf projectName
 
 instance Core.ToHeaders DescribeProject where
   toHeaders =
@@ -151,4 +154,7 @@ describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
 describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectResponse' {} a -> s {httpStatus = a} :: DescribeProjectResponse)
 
-instance Prelude.NFData DescribeProjectResponse
+instance Prelude.NFData DescribeProjectResponse where
+  rnf DescribeProjectResponse' {..} =
+    Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf httpStatus

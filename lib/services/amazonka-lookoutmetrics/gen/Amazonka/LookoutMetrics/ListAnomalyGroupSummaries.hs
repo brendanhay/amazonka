@@ -132,9 +132,19 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAnomalyGroupSummaries
+instance Prelude.Hashable ListAnomalyGroupSummaries where
+  hashWithSalt _salt ListAnomalyGroupSummaries' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` sensitivityThreshold
 
-instance Prelude.NFData ListAnomalyGroupSummaries
+instance Prelude.NFData ListAnomalyGroupSummaries where
+  rnf ListAnomalyGroupSummaries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf sensitivityThreshold
 
 instance Core.ToHeaders ListAnomalyGroupSummaries where
   toHeaders =
@@ -229,3 +239,9 @@ listAnomalyGroupSummariesResponse_httpStatus = Lens.lens (\ListAnomalyGroupSumma
 instance
   Prelude.NFData
     ListAnomalyGroupSummariesResponse
+  where
+  rnf ListAnomalyGroupSummariesResponse' {..} =
+    Prelude.rnf anomalyGroupStatistics
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf anomalyGroupSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

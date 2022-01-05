@@ -157,9 +157,33 @@ organizationEventFilter_entityValues = Lens.lens (\OrganizationEventFilter' {ent
 organizationEventFilter_services :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_services = Lens.lens (\OrganizationEventFilter' {services} -> services) (\s@OrganizationEventFilter' {} a -> s {services = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable OrganizationEventFilter
+instance Prelude.Hashable OrganizationEventFilter where
+  hashWithSalt _salt OrganizationEventFilter' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` awsAccountIds
+      `Prelude.hashWithSalt` eventTypeCategories
+      `Prelude.hashWithSalt` eventTypeCodes
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` eventStatusCodes
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` entityArns
+      `Prelude.hashWithSalt` entityValues
+      `Prelude.hashWithSalt` services
 
-instance Prelude.NFData OrganizationEventFilter
+instance Prelude.NFData OrganizationEventFilter where
+  rnf OrganizationEventFilter' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf awsAccountIds
+      `Prelude.seq` Prelude.rnf eventTypeCategories
+      `Prelude.seq` Prelude.rnf eventTypeCodes
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf eventStatusCodes
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf entityArns
+      `Prelude.seq` Prelude.rnf entityValues
+      `Prelude.seq` Prelude.rnf services
 
 instance Core.ToJSON OrganizationEventFilter where
   toJSON OrganizationEventFilter' {..} =

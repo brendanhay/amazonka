@@ -108,10 +108,19 @@ instance
 instance
   Prelude.Hashable
     GetCertificateAuthorityCertificate
+  where
+  hashWithSalt
+    _salt
+    GetCertificateAuthorityCertificate' {..} =
+      _salt
+        `Prelude.hashWithSalt` certificateAuthorityArn
 
 instance
   Prelude.NFData
     GetCertificateAuthorityCertificate
+  where
+  rnf GetCertificateAuthorityCertificate' {..} =
+    Prelude.rnf certificateAuthorityArn
 
 instance
   Core.ToHeaders
@@ -219,3 +228,8 @@ getCertificateAuthorityCertificateResponse_httpStatus = Lens.lens (\GetCertifica
 instance
   Prelude.NFData
     GetCertificateAuthorityCertificateResponse
+  where
+  rnf GetCertificateAuthorityCertificateResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf httpStatus

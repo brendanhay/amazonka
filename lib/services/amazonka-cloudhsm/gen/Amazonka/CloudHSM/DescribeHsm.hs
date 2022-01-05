@@ -157,9 +157,15 @@ instance Core.AWSRequest DescribeHsm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHsm
+instance Prelude.Hashable DescribeHsm where
+  hashWithSalt _salt DescribeHsm' {..} =
+    _salt `Prelude.hashWithSalt` hsmSerialNumber
+      `Prelude.hashWithSalt` hsmArn
 
-instance Prelude.NFData DescribeHsm
+instance Prelude.NFData DescribeHsm where
+  rnf DescribeHsm' {..} =
+    Prelude.rnf hsmSerialNumber
+      `Prelude.seq` Prelude.rnf hsmArn
 
 instance Core.ToHeaders DescribeHsm where
   toHeaders =
@@ -414,4 +420,27 @@ describeHsmResponse_hsmType = Lens.lens (\DescribeHsmResponse' {hsmType} -> hsmT
 describeHsmResponse_httpStatus :: Lens.Lens' DescribeHsmResponse Prelude.Int
 describeHsmResponse_httpStatus = Lens.lens (\DescribeHsmResponse' {httpStatus} -> httpStatus) (\s@DescribeHsmResponse' {} a -> s {httpStatus = a} :: DescribeHsmResponse)
 
-instance Prelude.NFData DescribeHsmResponse
+instance Prelude.NFData DescribeHsmResponse where
+  rnf DescribeHsmResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf eniId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf sshKeyLastUpdated
+      `Prelude.seq` Prelude.rnf subscriptionEndDate
+      `Prelude.seq` Prelude.rnf serverCertUri
+      `Prelude.seq` Prelude.rnf subscriptionType
+      `Prelude.seq` Prelude.rnf sshPublicKey
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf partitions
+      `Prelude.seq` Prelude.rnf subscriptionStartDate
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf serverCertLastUpdated
+      `Prelude.seq` Prelude.rnf softwareVersion
+      `Prelude.seq` Prelude.rnf vendorName
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf hsmArn
+      `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf hsmType
+      `Prelude.seq` Prelude.rnf httpStatus

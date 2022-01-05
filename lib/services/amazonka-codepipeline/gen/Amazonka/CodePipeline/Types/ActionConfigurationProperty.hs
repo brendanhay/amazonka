@@ -177,9 +177,25 @@ instance Core.FromJSON ActionConfigurationProperty where
             Prelude.<*> (x Core..: "secret")
       )
 
-instance Prelude.Hashable ActionConfigurationProperty
+instance Prelude.Hashable ActionConfigurationProperty where
+  hashWithSalt _salt ActionConfigurationProperty' {..} =
+    _salt `Prelude.hashWithSalt` queryable
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` required
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` secret
 
-instance Prelude.NFData ActionConfigurationProperty
+instance Prelude.NFData ActionConfigurationProperty where
+  rnf ActionConfigurationProperty' {..} =
+    Prelude.rnf queryable
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf required
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf secret
 
 instance Core.ToJSON ActionConfigurationProperty where
   toJSON ActionConfigurationProperty' {..} =

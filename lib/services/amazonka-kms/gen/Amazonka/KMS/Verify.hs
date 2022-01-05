@@ -339,9 +339,23 @@ instance Core.AWSRequest Verify where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Verify
+instance Prelude.Hashable Verify where
+  hashWithSalt _salt Verify' {..} =
+    _salt `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` signingAlgorithm
 
-instance Prelude.NFData Verify
+instance Prelude.NFData Verify where
+  rnf Verify' {..} =
+    Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf signingAlgorithm
 
 instance Core.ToHeaders Verify where
   toHeaders =
@@ -450,4 +464,9 @@ verifyResponse_keyId = Lens.lens (\VerifyResponse' {keyId} -> keyId) (\s@VerifyR
 verifyResponse_httpStatus :: Lens.Lens' VerifyResponse Prelude.Int
 verifyResponse_httpStatus = Lens.lens (\VerifyResponse' {httpStatus} -> httpStatus) (\s@VerifyResponse' {} a -> s {httpStatus = a} :: VerifyResponse)
 
-instance Prelude.NFData VerifyResponse
+instance Prelude.NFData VerifyResponse where
+  rnf VerifyResponse' {..} =
+    Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf signatureValid
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf httpStatus

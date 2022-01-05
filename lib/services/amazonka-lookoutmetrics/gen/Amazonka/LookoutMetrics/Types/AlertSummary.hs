@@ -146,6 +146,26 @@ instance Core.FromJSON AlertSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable AlertSummary
+instance Prelude.Hashable AlertSummary where
+  hashWithSalt _salt AlertSummary' {..} =
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` alertName
+      `Prelude.hashWithSalt` alertSensitivityThreshold
+      `Prelude.hashWithSalt` alertStatus
+      `Prelude.hashWithSalt` alertArn
+      `Prelude.hashWithSalt` alertType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModificationTime
 
-instance Prelude.NFData AlertSummary
+instance Prelude.NFData AlertSummary where
+  rnf AlertSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf alertName
+      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
+      `Prelude.seq` Prelude.rnf alertStatus
+      `Prelude.seq` Prelude.rnf alertArn
+      `Prelude.seq` Prelude.rnf alertType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModificationTime

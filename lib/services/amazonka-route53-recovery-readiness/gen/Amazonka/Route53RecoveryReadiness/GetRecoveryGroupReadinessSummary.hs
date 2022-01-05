@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     GetRecoveryGroupReadinessSummary
+  where
+  hashWithSalt
+    _salt
+    GetRecoveryGroupReadinessSummary' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` recoveryGroupName
 
 instance
   Prelude.NFData
     GetRecoveryGroupReadinessSummary
+  where
+  rnf GetRecoveryGroupReadinessSummary' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf recoveryGroupName
 
 instance
   Core.ToHeaders
@@ -249,3 +261,9 @@ getRecoveryGroupReadinessSummaryResponse_httpStatus = Lens.lens (\GetRecoveryGro
 instance
   Prelude.NFData
     GetRecoveryGroupReadinessSummaryResponse
+  where
+  rnf GetRecoveryGroupReadinessSummaryResponse' {..} =
+    Prelude.rnf readinessChecks
+      `Prelude.seq` Prelude.rnf readiness
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

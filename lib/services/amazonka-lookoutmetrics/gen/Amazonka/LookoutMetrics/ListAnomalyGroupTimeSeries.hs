@@ -147,9 +147,21 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAnomalyGroupTimeSeries
+instance Prelude.Hashable ListAnomalyGroupTimeSeries where
+  hashWithSalt _salt ListAnomalyGroupTimeSeries' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` anomalyGroupId
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData ListAnomalyGroupTimeSeries
+instance Prelude.NFData ListAnomalyGroupTimeSeries where
+  rnf ListAnomalyGroupTimeSeries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf anomalyGroupId
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToHeaders ListAnomalyGroupTimeSeries where
   toHeaders =
@@ -260,3 +272,11 @@ listAnomalyGroupTimeSeriesResponse_httpStatus = Lens.lens (\ListAnomalyGroupTime
 instance
   Prelude.NFData
     ListAnomalyGroupTimeSeriesResponse
+  where
+  rnf ListAnomalyGroupTimeSeriesResponse' {..} =
+    Prelude.rnf timeSeriesList
+      `Prelude.seq` Prelude.rnf timestampList
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf anomalyGroupId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

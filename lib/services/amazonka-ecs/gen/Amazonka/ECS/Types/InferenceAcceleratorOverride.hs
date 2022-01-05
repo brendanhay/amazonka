@@ -85,8 +85,15 @@ instance Core.FromJSON InferenceAcceleratorOverride where
 instance
   Prelude.Hashable
     InferenceAcceleratorOverride
+  where
+  hashWithSalt _salt InferenceAcceleratorOverride' {..} =
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` deviceType
 
-instance Prelude.NFData InferenceAcceleratorOverride
+instance Prelude.NFData InferenceAcceleratorOverride where
+  rnf InferenceAcceleratorOverride' {..} =
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToJSON InferenceAcceleratorOverride where
   toJSON InferenceAcceleratorOverride' {..} =

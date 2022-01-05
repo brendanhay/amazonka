@@ -74,6 +74,12 @@ instance Core.FromXML InstanceUsage where
       Prelude.<$> (x Core..@? "accountId")
       Prelude.<*> (x Core..@? "usedInstanceCount")
 
-instance Prelude.Hashable InstanceUsage
+instance Prelude.Hashable InstanceUsage where
+  hashWithSalt _salt InstanceUsage' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` usedInstanceCount
 
-instance Prelude.NFData InstanceUsage
+instance Prelude.NFData InstanceUsage where
+  rnf InstanceUsage' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf usedInstanceCount

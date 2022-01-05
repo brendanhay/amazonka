@@ -96,6 +96,16 @@ instance Core.FromJSON TaskTimedOutEventDetails where
             Prelude.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskTimedOutEventDetails
+instance Prelude.Hashable TaskTimedOutEventDetails where
+  hashWithSalt _salt TaskTimedOutEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resource
 
-instance Prelude.NFData TaskTimedOutEventDetails
+instance Prelude.NFData TaskTimedOutEventDetails where
+  rnf TaskTimedOutEventDetails' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resource

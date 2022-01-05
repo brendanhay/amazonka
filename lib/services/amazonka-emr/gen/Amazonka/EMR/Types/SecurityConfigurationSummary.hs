@@ -75,5 +75,12 @@ instance Core.FromJSON SecurityConfigurationSummary where
 instance
   Prelude.Hashable
     SecurityConfigurationSummary
+  where
+  hashWithSalt _salt SecurityConfigurationSummary' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
 
-instance Prelude.NFData SecurityConfigurationSummary
+instance Prelude.NFData SecurityConfigurationSummary where
+  rnf SecurityConfigurationSummary' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime

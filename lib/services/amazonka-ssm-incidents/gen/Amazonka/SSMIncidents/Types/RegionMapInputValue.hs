@@ -51,9 +51,13 @@ newRegionMapInputValue =
 regionMapInputValue_sseKmsKeyId :: Lens.Lens' RegionMapInputValue (Prelude.Maybe Prelude.Text)
 regionMapInputValue_sseKmsKeyId = Lens.lens (\RegionMapInputValue' {sseKmsKeyId} -> sseKmsKeyId) (\s@RegionMapInputValue' {} a -> s {sseKmsKeyId = a} :: RegionMapInputValue)
 
-instance Prelude.Hashable RegionMapInputValue
+instance Prelude.Hashable RegionMapInputValue where
+  hashWithSalt _salt RegionMapInputValue' {..} =
+    _salt `Prelude.hashWithSalt` sseKmsKeyId
 
-instance Prelude.NFData RegionMapInputValue
+instance Prelude.NFData RegionMapInputValue where
+  rnf RegionMapInputValue' {..} =
+    Prelude.rnf sseKmsKeyId
 
 instance Core.ToJSON RegionMapInputValue where
   toJSON RegionMapInputValue' {..} =

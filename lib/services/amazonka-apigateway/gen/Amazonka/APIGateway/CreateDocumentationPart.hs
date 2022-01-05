@@ -123,9 +123,17 @@ instance Core.AWSRequest CreateDocumentationPart where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDocumentationPart
+instance Prelude.Hashable CreateDocumentationPart where
+  hashWithSalt _salt CreateDocumentationPart' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData CreateDocumentationPart
+instance Prelude.NFData CreateDocumentationPart where
+  rnf CreateDocumentationPart' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf properties
 
 instance Core.ToHeaders CreateDocumentationPart where
   toHeaders =

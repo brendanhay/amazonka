@@ -114,9 +114,14 @@ instance Core.AWSRequest PublishFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PublishFunction
+instance Prelude.Hashable PublishFunction where
+  hashWithSalt _salt PublishFunction' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData PublishFunction
+instance Prelude.NFData PublishFunction where
+  rnf PublishFunction' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf ifMatch
 
 instance Core.ToHeaders PublishFunction where
   toHeaders PublishFunction' {..} =
@@ -172,4 +177,7 @@ publishFunctionResponse_functionSummary = Lens.lens (\PublishFunctionResponse' {
 publishFunctionResponse_httpStatus :: Lens.Lens' PublishFunctionResponse Prelude.Int
 publishFunctionResponse_httpStatus = Lens.lens (\PublishFunctionResponse' {httpStatus} -> httpStatus) (\s@PublishFunctionResponse' {} a -> s {httpStatus = a} :: PublishFunctionResponse)
 
-instance Prelude.NFData PublishFunctionResponse
+instance Prelude.NFData PublishFunctionResponse where
+  rnf PublishFunctionResponse' {..} =
+    Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf httpStatus

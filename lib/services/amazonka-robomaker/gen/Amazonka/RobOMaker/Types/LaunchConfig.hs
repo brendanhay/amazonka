@@ -144,9 +144,23 @@ instance Core.FromJSON LaunchConfig where
             Prelude.<*> (x Core..:? "streamUI")
       )
 
-instance Prelude.Hashable LaunchConfig
+instance Prelude.Hashable LaunchConfig where
+  hashWithSalt _salt LaunchConfig' {..} =
+    _salt `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` portForwardingConfig
+      `Prelude.hashWithSalt` launchFile
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` streamUI
 
-instance Prelude.NFData LaunchConfig
+instance Prelude.NFData LaunchConfig where
+  rnf LaunchConfig' {..} =
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf portForwardingConfig
+      `Prelude.seq` Prelude.rnf launchFile
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf streamUI
 
 instance Core.ToJSON LaunchConfig where
   toJSON LaunchConfig' {..} =

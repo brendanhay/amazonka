@@ -118,5 +118,20 @@ instance Core.FromJSON BehaviorModelTrainingSummary where
 instance
   Prelude.Hashable
     BehaviorModelTrainingSummary
+  where
+  hashWithSalt _salt BehaviorModelTrainingSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastModelRefreshDate
+      `Prelude.hashWithSalt` behaviorName
+      `Prelude.hashWithSalt` datapointsCollectionPercentage
+      `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` trainingDataCollectionStartDate
+      `Prelude.hashWithSalt` modelStatus
 
-instance Prelude.NFData BehaviorModelTrainingSummary
+instance Prelude.NFData BehaviorModelTrainingSummary where
+  rnf BehaviorModelTrainingSummary' {..} =
+    Prelude.rnf lastModelRefreshDate
+      `Prelude.seq` Prelude.rnf behaviorName
+      `Prelude.seq` Prelude.rnf datapointsCollectionPercentage
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf trainingDataCollectionStartDate
+      `Prelude.seq` Prelude.rnf modelStatus

@@ -69,7 +69,15 @@ instance
 instance
   Prelude.Hashable
     ChannelModeratedByAppInstanceUserSummary
+  where
+  hashWithSalt
+    _salt
+    ChannelModeratedByAppInstanceUserSummary' {..} =
+      _salt `Prelude.hashWithSalt` channelSummary
 
 instance
   Prelude.NFData
     ChannelModeratedByAppInstanceUserSummary
+  where
+  rnf ChannelModeratedByAppInstanceUserSummary' {..} =
+    Prelude.rnf channelSummary

@@ -80,6 +80,12 @@ instance Core.FromJSON Websocket where
             Prelude.<*> (x Core..:? "ConnectionExpiry")
       )
 
-instance Prelude.Hashable Websocket
+instance Prelude.Hashable Websocket where
+  hashWithSalt _salt Websocket' {..} =
+    _salt `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` connectionExpiry
 
-instance Prelude.NFData Websocket
+instance Prelude.NFData Websocket where
+  rnf Websocket' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf connectionExpiry

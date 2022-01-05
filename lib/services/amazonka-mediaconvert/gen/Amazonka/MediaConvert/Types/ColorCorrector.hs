@@ -208,9 +208,25 @@ instance Core.FromJSON ColorCorrector where
             Prelude.<*> (x Core..:? "brightness")
       )
 
-instance Prelude.Hashable ColorCorrector
+instance Prelude.Hashable ColorCorrector where
+  hashWithSalt _salt ColorCorrector' {..} =
+    _salt `Prelude.hashWithSalt` saturation
+      `Prelude.hashWithSalt` hue
+      `Prelude.hashWithSalt` sampleRangeConversion
+      `Prelude.hashWithSalt` colorSpaceConversion
+      `Prelude.hashWithSalt` hdr10Metadata
+      `Prelude.hashWithSalt` contrast
+      `Prelude.hashWithSalt` brightness
 
-instance Prelude.NFData ColorCorrector
+instance Prelude.NFData ColorCorrector where
+  rnf ColorCorrector' {..} =
+    Prelude.rnf saturation
+      `Prelude.seq` Prelude.rnf hue
+      `Prelude.seq` Prelude.rnf sampleRangeConversion
+      `Prelude.seq` Prelude.rnf colorSpaceConversion
+      `Prelude.seq` Prelude.rnf hdr10Metadata
+      `Prelude.seq` Prelude.rnf contrast
+      `Prelude.seq` Prelude.rnf brightness
 
 instance Core.ToJSON ColorCorrector where
   toJSON ColorCorrector' {..} =

@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFilter
+instance Prelude.Hashable DescribeFilter where
+  hashWithSalt _salt DescribeFilter' {..} =
+    _salt `Prelude.hashWithSalt` filterArn
 
-instance Prelude.NFData DescribeFilter
+instance Prelude.NFData DescribeFilter where
+  rnf DescribeFilter' {..} = Prelude.rnf filterArn
 
 instance Core.ToHeaders DescribeFilter where
   toHeaders =
@@ -156,4 +159,7 @@ describeFilterResponse_filter = Lens.lens (\DescribeFilterResponse' {filter'} ->
 describeFilterResponse_httpStatus :: Lens.Lens' DescribeFilterResponse Prelude.Int
 describeFilterResponse_httpStatus = Lens.lens (\DescribeFilterResponse' {httpStatus} -> httpStatus) (\s@DescribeFilterResponse' {} a -> s {httpStatus = a} :: DescribeFilterResponse)
 
-instance Prelude.NFData DescribeFilterResponse
+instance Prelude.NFData DescribeFilterResponse where
+  rnf DescribeFilterResponse' {..} =
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf httpStatus

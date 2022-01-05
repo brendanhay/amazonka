@@ -90,6 +90,16 @@ instance Core.FromXML ProcessedUpdateAction where
       Prelude.<*> (x Core..@? "UpdateActionStatus")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
 
-instance Prelude.Hashable ProcessedUpdateAction
+instance Prelude.Hashable ProcessedUpdateAction where
+  hashWithSalt _salt ProcessedUpdateAction' {..} =
+    _salt `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` updateActionStatus
+      `Prelude.hashWithSalt` replicationGroupId
 
-instance Prelude.NFData ProcessedUpdateAction
+instance Prelude.NFData ProcessedUpdateAction where
+  rnf ProcessedUpdateAction' {..} =
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf updateActionStatus
+      `Prelude.seq` Prelude.rnf replicationGroupId

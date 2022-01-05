@@ -85,9 +85,12 @@ instance Core.AWSRequest GetUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUpload
+instance Prelude.Hashable GetUpload where
+  hashWithSalt _salt GetUpload' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetUpload
+instance Prelude.NFData GetUpload where
+  rnf GetUpload' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetUpload where
   toHeaders =
@@ -160,4 +163,7 @@ getUploadResponse_upload = Lens.lens (\GetUploadResponse' {upload} -> upload) (\
 getUploadResponse_httpStatus :: Lens.Lens' GetUploadResponse Prelude.Int
 getUploadResponse_httpStatus = Lens.lens (\GetUploadResponse' {httpStatus} -> httpStatus) (\s@GetUploadResponse' {} a -> s {httpStatus = a} :: GetUploadResponse)
 
-instance Prelude.NFData GetUploadResponse
+instance Prelude.NFData GetUploadResponse where
+  rnf GetUploadResponse' {..} =
+    Prelude.rnf upload
+      `Prelude.seq` Prelude.rnf httpStatus

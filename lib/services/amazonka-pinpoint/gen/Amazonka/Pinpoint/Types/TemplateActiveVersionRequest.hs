@@ -75,8 +75,13 @@ templateActiveVersionRequest_version = Lens.lens (\TemplateActiveVersionRequest'
 instance
   Prelude.Hashable
     TemplateActiveVersionRequest
+  where
+  hashWithSalt _salt TemplateActiveVersionRequest' {..} =
+    _salt `Prelude.hashWithSalt` version
 
-instance Prelude.NFData TemplateActiveVersionRequest
+instance Prelude.NFData TemplateActiveVersionRequest where
+  rnf TemplateActiveVersionRequest' {..} =
+    Prelude.rnf version
 
 instance Core.ToJSON TemplateActiveVersionRequest where
   toJSON TemplateActiveVersionRequest' {..} =

@@ -150,9 +150,23 @@ instance Core.AWSRequest UpdateFilter where
             Prelude.<*> (x Core..:> "name")
       )
 
-instance Prelude.Hashable UpdateFilter
+instance Prelude.Hashable UpdateFilter where
+  hashWithSalt _salt UpdateFilter' {..} =
+    _salt `Prelude.hashWithSalt` findingCriteria
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` filterName
 
-instance Prelude.NFData UpdateFilter
+instance Prelude.NFData UpdateFilter where
+  rnf UpdateFilter' {..} =
+    Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders UpdateFilter where
   toHeaders =
@@ -229,4 +243,7 @@ updateFilterResponse_httpStatus = Lens.lens (\UpdateFilterResponse' {httpStatus}
 updateFilterResponse_name :: Lens.Lens' UpdateFilterResponse Prelude.Text
 updateFilterResponse_name = Lens.lens (\UpdateFilterResponse' {name} -> name) (\s@UpdateFilterResponse' {} a -> s {name = a} :: UpdateFilterResponse)
 
-instance Prelude.NFData UpdateFilterResponse
+instance Prelude.NFData UpdateFilterResponse where
+  rnf UpdateFilterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

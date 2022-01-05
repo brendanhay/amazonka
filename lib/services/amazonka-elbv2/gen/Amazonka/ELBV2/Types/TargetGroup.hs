@@ -279,6 +279,44 @@ instance Core.FromXML TargetGroup where
       Prelude.<*> (x Core..@? "TargetGroupName")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable TargetGroup
+instance Prelude.Hashable TargetGroup where
+  hashWithSalt _salt TargetGroup' {..} =
+    _salt `Prelude.hashWithSalt` protocolVersion
+      `Prelude.hashWithSalt` matcher
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` healthCheckEnabled
+      `Prelude.hashWithSalt` unhealthyThresholdCount
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` healthyThresholdCount
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` loadBalancerArns
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` healthCheckTimeoutSeconds
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData TargetGroup
+instance Prelude.NFData TargetGroup where
+  rnf TargetGroup' {..} =
+    Prelude.rnf protocolVersion
+      `Prelude.seq` Prelude.rnf matcher
+      `Prelude.seq` Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf healthCheckEnabled
+      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf healthyThresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf loadBalancerArns
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf port

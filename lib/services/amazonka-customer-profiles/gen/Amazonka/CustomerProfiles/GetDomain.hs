@@ -100,9 +100,12 @@ instance Core.AWSRequest GetDomain where
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
 
-instance Prelude.Hashable GetDomain
+instance Prelude.Hashable GetDomain where
+  hashWithSalt _salt GetDomain' {..} =
+    _salt `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetDomain
+instance Prelude.NFData GetDomain where
+  rnf GetDomain' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders GetDomain where
   toHeaders =
@@ -267,4 +270,15 @@ getDomainResponse_createdAt = Lens.lens (\GetDomainResponse' {createdAt} -> crea
 getDomainResponse_lastUpdatedAt :: Lens.Lens' GetDomainResponse Prelude.UTCTime
 getDomainResponse_lastUpdatedAt = Lens.lens (\GetDomainResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetDomainResponse' {} a -> s {lastUpdatedAt = a} :: GetDomainResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetDomainResponse
+instance Prelude.NFData GetDomainResponse where
+  rnf GetDomainResponse' {..} =
+    Prelude.rnf defaultExpirationDays
+      `Prelude.seq` Prelude.rnf defaultEncryptionKey
+      `Prelude.seq` Prelude.rnf matching
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf deadLetterQueueUrl
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

@@ -266,9 +266,25 @@ instance Core.AWSRequest DescribeUsageLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUsageLimits
+instance Prelude.Hashable DescribeUsageLimits where
+  hashWithSalt _salt DescribeUsageLimits' {..} =
+    _salt `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` usageLimitId
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` featureType
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
 
-instance Prelude.NFData DescribeUsageLimits
+instance Prelude.NFData DescribeUsageLimits where
+  rnf DescribeUsageLimits' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf usageLimitId
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf featureType
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeUsageLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -359,4 +375,8 @@ describeUsageLimitsResponse_marker = Lens.lens (\DescribeUsageLimitsResponse' {m
 describeUsageLimitsResponse_httpStatus :: Lens.Lens' DescribeUsageLimitsResponse Prelude.Int
 describeUsageLimitsResponse_httpStatus = Lens.lens (\DescribeUsageLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeUsageLimitsResponse' {} a -> s {httpStatus = a} :: DescribeUsageLimitsResponse)
 
-instance Prelude.NFData DescribeUsageLimitsResponse
+instance Prelude.NFData DescribeUsageLimitsResponse where
+  rnf DescribeUsageLimitsResponse' {..} =
+    Prelude.rnf usageLimits
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus

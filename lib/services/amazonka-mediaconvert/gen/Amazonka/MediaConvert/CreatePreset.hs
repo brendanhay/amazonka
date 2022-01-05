@@ -133,9 +133,21 @@ instance Core.AWSRequest CreatePreset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePreset
+instance Prelude.Hashable CreatePreset where
+  hashWithSalt _salt CreatePreset' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreatePreset
+instance Prelude.NFData CreatePreset where
+  rnf CreatePreset' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreatePreset where
   toHeaders =
@@ -210,4 +222,7 @@ createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> pres
 createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
 createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
-instance Prelude.NFData CreatePresetResponse
+instance Prelude.NFData CreatePresetResponse where
+  rnf CreatePresetResponse' {..} =
+    Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -162,9 +162,27 @@ instance Core.AWSRequest ListTestGridSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTestGridSessions
+instance Prelude.Hashable ListTestGridSessions where
+  hashWithSalt _salt ListTestGridSessions' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` maxResult
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` endTimeBefore
+      `Prelude.hashWithSalt` endTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` projectArn
 
-instance Prelude.NFData ListTestGridSessions
+instance Prelude.NFData ListTestGridSessions where
+  rnf ListTestGridSessions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResult
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf endTimeBefore
+      `Prelude.seq` Prelude.rnf endTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf projectArn
 
 instance Core.ToHeaders ListTestGridSessions where
   toHeaders =
@@ -252,4 +270,8 @@ listTestGridSessionsResponse_testGridSessions = Lens.lens (\ListTestGridSessions
 listTestGridSessionsResponse_httpStatus :: Lens.Lens' ListTestGridSessionsResponse Prelude.Int
 listTestGridSessionsResponse_httpStatus = Lens.lens (\ListTestGridSessionsResponse' {httpStatus} -> httpStatus) (\s@ListTestGridSessionsResponse' {} a -> s {httpStatus = a} :: ListTestGridSessionsResponse)
 
-instance Prelude.NFData ListTestGridSessionsResponse
+instance Prelude.NFData ListTestGridSessionsResponse where
+  rnf ListTestGridSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf testGridSessions
+      `Prelude.seq` Prelude.rnf httpStatus

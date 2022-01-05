@@ -143,9 +143,15 @@ instance Core.AWSRequest AddAttachmentsToSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddAttachmentsToSet
+instance Prelude.Hashable AddAttachmentsToSet where
+  hashWithSalt _salt AddAttachmentsToSet' {..} =
+    _salt `Prelude.hashWithSalt` attachmentSetId
+      `Prelude.hashWithSalt` attachments
 
-instance Prelude.NFData AddAttachmentsToSet
+instance Prelude.NFData AddAttachmentsToSet where
+  rnf AddAttachmentsToSet' {..} =
+    Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf attachments
 
 instance Core.ToHeaders AddAttachmentsToSet where
   toHeaders =
@@ -238,4 +244,8 @@ addAttachmentsToSetResponse_attachmentSetId = Lens.lens (\AddAttachmentsToSetRes
 addAttachmentsToSetResponse_httpStatus :: Lens.Lens' AddAttachmentsToSetResponse Prelude.Int
 addAttachmentsToSetResponse_httpStatus = Lens.lens (\AddAttachmentsToSetResponse' {httpStatus} -> httpStatus) (\s@AddAttachmentsToSetResponse' {} a -> s {httpStatus = a} :: AddAttachmentsToSetResponse)
 
-instance Prelude.NFData AddAttachmentsToSetResponse
+instance Prelude.NFData AddAttachmentsToSetResponse where
+  rnf AddAttachmentsToSetResponse' {..} =
+    Prelude.rnf expiryTime
+      `Prelude.seq` Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf httpStatus

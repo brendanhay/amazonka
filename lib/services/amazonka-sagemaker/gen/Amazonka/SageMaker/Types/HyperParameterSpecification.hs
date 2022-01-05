@@ -137,9 +137,25 @@ instance Core.FromJSON HyperParameterSpecification where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable HyperParameterSpecification
+instance Prelude.Hashable HyperParameterSpecification where
+  hashWithSalt _salt HyperParameterSpecification' {..} =
+    _salt `Prelude.hashWithSalt` isTunable
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` isRequired
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData HyperParameterSpecification
+instance Prelude.NFData HyperParameterSpecification where
+  rnf HyperParameterSpecification' {..} =
+    Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf isRequired
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON HyperParameterSpecification where
   toJSON HyperParameterSpecification' {..} =

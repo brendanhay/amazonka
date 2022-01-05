@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteProvisioningTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProvisioningTemplate
+instance Prelude.Hashable DeleteProvisioningTemplate where
+  hashWithSalt _salt DeleteProvisioningTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DeleteProvisioningTemplate
+instance Prelude.NFData DeleteProvisioningTemplate where
+  rnf DeleteProvisioningTemplate' {..} =
+    Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,3 +143,6 @@ deleteProvisioningTemplateResponse_httpStatus = Lens.lens (\DeleteProvisioningTe
 instance
   Prelude.NFData
     DeleteProvisioningTemplateResponse
+  where
+  rnf DeleteProvisioningTemplateResponse' {..} =
+    Prelude.rnf httpStatus

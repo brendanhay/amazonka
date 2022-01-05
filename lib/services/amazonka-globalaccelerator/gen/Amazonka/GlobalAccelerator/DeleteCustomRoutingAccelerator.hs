@@ -107,10 +107,18 @@ instance
 instance
   Prelude.Hashable
     DeleteCustomRoutingAccelerator
+  where
+  hashWithSalt
+    _salt
+    DeleteCustomRoutingAccelerator' {..} =
+      _salt `Prelude.hashWithSalt` acceleratorArn
 
 instance
   Prelude.NFData
     DeleteCustomRoutingAccelerator
+  where
+  rnf DeleteCustomRoutingAccelerator' {..} =
+    Prelude.rnf acceleratorArn
 
 instance
   Core.ToHeaders
@@ -163,3 +171,5 @@ newDeleteCustomRoutingAcceleratorResponse =
 instance
   Prelude.NFData
     DeleteCustomRoutingAcceleratorResponse
+  where
+  rnf _ = ()

@@ -72,6 +72,12 @@ instance Core.FromJSON S3BucketOwner where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable S3BucketOwner
+instance Prelude.Hashable S3BucketOwner where
+  hashWithSalt _salt S3BucketOwner' {..} =
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData S3BucketOwner
+instance Prelude.NFData S3BucketOwner where
+  rnf S3BucketOwner' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf id

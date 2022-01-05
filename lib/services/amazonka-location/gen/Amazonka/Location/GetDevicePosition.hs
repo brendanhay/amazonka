@@ -108,9 +108,15 @@ instance Core.AWSRequest GetDevicePosition where
             Prelude.<*> (x Core..:> "SampleTime")
       )
 
-instance Prelude.Hashable GetDevicePosition
+instance Prelude.Hashable GetDevicePosition where
+  hashWithSalt _salt GetDevicePosition' {..} =
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` trackerName
 
-instance Prelude.NFData GetDevicePosition
+instance Prelude.NFData GetDevicePosition where
+  rnf GetDevicePosition' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders GetDevicePosition where
   toHeaders =
@@ -226,4 +232,10 @@ getDevicePositionResponse_receivedTime = Lens.lens (\GetDevicePositionResponse' 
 getDevicePositionResponse_sampleTime :: Lens.Lens' GetDevicePositionResponse Prelude.UTCTime
 getDevicePositionResponse_sampleTime = Lens.lens (\GetDevicePositionResponse' {sampleTime} -> sampleTime) (\s@GetDevicePositionResponse' {} a -> s {sampleTime = a} :: GetDevicePositionResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetDevicePositionResponse
+instance Prelude.NFData GetDevicePositionResponse where
+  rnf GetDevicePositionResponse' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf receivedTime
+      `Prelude.seq` Prelude.rnf sampleTime

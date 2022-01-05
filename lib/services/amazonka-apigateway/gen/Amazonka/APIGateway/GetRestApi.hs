@@ -93,9 +93,12 @@ instance Core.AWSRequest GetRestApi where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetRestApi
+instance Prelude.Hashable GetRestApi where
+  hashWithSalt _salt GetRestApi' {..} =
+    _salt `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetRestApi
+instance Prelude.NFData GetRestApi where
+  rnf GetRestApi' {..} = Prelude.rnf restApiId
 
 instance Core.ToHeaders GetRestApi where
   toHeaders =

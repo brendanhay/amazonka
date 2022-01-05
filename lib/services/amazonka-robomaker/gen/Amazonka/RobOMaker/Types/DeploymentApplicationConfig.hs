@@ -92,9 +92,17 @@ instance Core.FromJSON DeploymentApplicationConfig where
             Prelude.<*> (x Core..: "launchConfig")
       )
 
-instance Prelude.Hashable DeploymentApplicationConfig
+instance Prelude.Hashable DeploymentApplicationConfig where
+  hashWithSalt _salt DeploymentApplicationConfig' {..} =
+    _salt `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` applicationVersion
+      `Prelude.hashWithSalt` launchConfig
 
-instance Prelude.NFData DeploymentApplicationConfig
+instance Prelude.NFData DeploymentApplicationConfig where
+  rnf DeploymentApplicationConfig' {..} =
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf launchConfig
 
 instance Core.ToJSON DeploymentApplicationConfig where
   toJSON DeploymentApplicationConfig' {..} =

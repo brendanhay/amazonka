@@ -164,6 +164,26 @@ instance Core.FromJSON Anomaly where
             Prelude.<*> (x Core..: "MonitorArn")
       )
 
-instance Prelude.Hashable Anomaly
+instance Prelude.Hashable Anomaly where
+  hashWithSalt _salt Anomaly' {..} =
+    _salt `Prelude.hashWithSalt` anomalyStartDate
+      `Prelude.hashWithSalt` dimensionValue
+      `Prelude.hashWithSalt` rootCauses
+      `Prelude.hashWithSalt` anomalyEndDate
+      `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` anomalyId
+      `Prelude.hashWithSalt` anomalyScore
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` monitorArn
 
-instance Prelude.NFData Anomaly
+instance Prelude.NFData Anomaly where
+  rnf Anomaly' {..} =
+    Prelude.rnf anomalyStartDate
+      `Prelude.seq` Prelude.rnf dimensionValue
+      `Prelude.seq` Prelude.rnf rootCauses
+      `Prelude.seq` Prelude.rnf anomalyEndDate
+      `Prelude.seq` Prelude.rnf feedback
+      `Prelude.seq` Prelude.rnf anomalyId
+      `Prelude.seq` Prelude.rnf anomalyScore
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf monitorArn

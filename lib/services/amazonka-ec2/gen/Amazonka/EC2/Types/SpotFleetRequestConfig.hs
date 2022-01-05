@@ -130,6 +130,20 @@ instance Core.FromXML SpotFleetRequestConfig where
                   )
       Prelude.<*> (x Core..@? "activityStatus")
 
-instance Prelude.Hashable SpotFleetRequestConfig
+instance Prelude.Hashable SpotFleetRequestConfig where
+  hashWithSalt _salt SpotFleetRequestConfig' {..} =
+    _salt `Prelude.hashWithSalt` spotFleetRequestConfig
+      `Prelude.hashWithSalt` spotFleetRequestId
+      `Prelude.hashWithSalt` spotFleetRequestState
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` activityStatus
 
-instance Prelude.NFData SpotFleetRequestConfig
+instance Prelude.NFData SpotFleetRequestConfig where
+  rnf SpotFleetRequestConfig' {..} =
+    Prelude.rnf spotFleetRequestConfig
+      `Prelude.seq` Prelude.rnf spotFleetRequestId
+      `Prelude.seq` Prelude.rnf spotFleetRequestState
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf activityStatus

@@ -124,9 +124,19 @@ instance Core.AWSRequest UpdateArchive where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateArchive
+instance Prelude.Hashable UpdateArchive where
+  hashWithSalt _salt UpdateArchive' {..} =
+    _salt `Prelude.hashWithSalt` eventPattern
+      `Prelude.hashWithSalt` retentionDays
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` archiveName
 
-instance Prelude.NFData UpdateArchive
+instance Prelude.NFData UpdateArchive where
+  rnf UpdateArchive' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf retentionDays
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf archiveName
 
 instance Core.ToHeaders UpdateArchive where
   toHeaders =
@@ -224,4 +234,10 @@ updateArchiveResponse_stateReason = Lens.lens (\UpdateArchiveResponse' {stateRea
 updateArchiveResponse_httpStatus :: Lens.Lens' UpdateArchiveResponse Prelude.Int
 updateArchiveResponse_httpStatus = Lens.lens (\UpdateArchiveResponse' {httpStatus} -> httpStatus) (\s@UpdateArchiveResponse' {} a -> s {httpStatus = a} :: UpdateArchiveResponse)
 
-instance Prelude.NFData UpdateArchiveResponse
+instance Prelude.NFData UpdateArchiveResponse where
+  rnf UpdateArchiveResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf archiveArn
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf httpStatus

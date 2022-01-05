@@ -308,6 +308,34 @@ instance Core.FromJSON MatchingBucket where
             Prelude.<*> (x Core..:? "classifiableSizeInBytes")
       )
 
-instance Prelude.Hashable MatchingBucket
+instance Prelude.Hashable MatchingBucket where
+  hashWithSalt _salt MatchingBucket' {..} =
+    _salt `Prelude.hashWithSalt` sizeInBytesCompressed
+      `Prelude.hashWithSalt` objectCountByEncryptionType
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` classifiableObjectCount
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` unclassifiableObjectSizeInBytes
+      `Prelude.hashWithSalt` unclassifiableObjectCount
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` jobDetails
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` objectCount
+      `Prelude.hashWithSalt` classifiableSizeInBytes
 
-instance Prelude.NFData MatchingBucket
+instance Prelude.NFData MatchingBucket where
+  rnf MatchingBucket' {..} =
+    Prelude.rnf sizeInBytesCompressed
+      `Prelude.seq` Prelude.rnf objectCountByEncryptionType
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf classifiableObjectCount
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf unclassifiableObjectSizeInBytes
+      `Prelude.seq` Prelude.rnf unclassifiableObjectCount
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf jobDetails
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf objectCount
+      `Prelude.seq` Prelude.rnf classifiableSizeInBytes

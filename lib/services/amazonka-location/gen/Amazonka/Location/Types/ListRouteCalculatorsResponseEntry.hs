@@ -196,7 +196,25 @@ instance
 instance
   Prelude.Hashable
     ListRouteCalculatorsResponseEntry
+  where
+  hashWithSalt
+    _salt
+    ListRouteCalculatorsResponseEntry' {..} =
+      _salt `Prelude.hashWithSalt` calculatorName
+        `Prelude.hashWithSalt` createTime
+        `Prelude.hashWithSalt` dataSource
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` pricingPlan
+        `Prelude.hashWithSalt` updateTime
 
 instance
   Prelude.NFData
     ListRouteCalculatorsResponseEntry
+  where
+  rnf ListRouteCalculatorsResponseEntry' {..} =
+    Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf updateTime

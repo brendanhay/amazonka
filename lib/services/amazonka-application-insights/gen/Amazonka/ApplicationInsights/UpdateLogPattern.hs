@@ -170,9 +170,21 @@ instance Core.AWSRequest UpdateLogPattern where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLogPattern
+instance Prelude.Hashable UpdateLogPattern where
+  hashWithSalt _salt UpdateLogPattern' {..} =
+    _salt `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` patternSetName
+      `Prelude.hashWithSalt` patternName
 
-instance Prelude.NFData UpdateLogPattern
+instance Prelude.NFData UpdateLogPattern where
+  rnf UpdateLogPattern' {..} =
+    Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf patternSetName
+      `Prelude.seq` Prelude.rnf patternName
 
 instance Core.ToHeaders UpdateLogPattern where
   toHeaders =
@@ -257,4 +269,8 @@ updateLogPatternResponse_resourceGroupName = Lens.lens (\UpdateLogPatternRespons
 updateLogPatternResponse_httpStatus :: Lens.Lens' UpdateLogPatternResponse Prelude.Int
 updateLogPatternResponse_httpStatus = Lens.lens (\UpdateLogPatternResponse' {httpStatus} -> httpStatus) (\s@UpdateLogPatternResponse' {} a -> s {httpStatus = a} :: UpdateLogPatternResponse)
 
-instance Prelude.NFData UpdateLogPatternResponse
+instance Prelude.NFData UpdateLogPatternResponse where
+  rnf UpdateLogPatternResponse' {..} =
+    Prelude.rnf logPattern
+      `Prelude.seq` Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf httpStatus

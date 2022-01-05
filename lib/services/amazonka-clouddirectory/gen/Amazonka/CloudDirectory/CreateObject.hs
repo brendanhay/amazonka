@@ -142,9 +142,21 @@ instance Core.AWSRequest CreateObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateObject
+instance Prelude.Hashable CreateObject where
+  hashWithSalt _salt CreateObject' {..} =
+    _salt `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` objectAttributeList
+      `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` schemaFacets
 
-instance Prelude.NFData CreateObject
+instance Prelude.NFData CreateObject where
+  rnf CreateObject' {..} =
+    Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf objectAttributeList
+      `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf schemaFacets
 
 instance Core.ToHeaders CreateObject where
   toHeaders CreateObject' {..} =
@@ -211,4 +223,7 @@ createObjectResponse_objectIdentifier = Lens.lens (\CreateObjectResponse' {objec
 createObjectResponse_httpStatus :: Lens.Lens' CreateObjectResponse Prelude.Int
 createObjectResponse_httpStatus = Lens.lens (\CreateObjectResponse' {httpStatus} -> httpStatus) (\s@CreateObjectResponse' {} a -> s {httpStatus = a} :: CreateObjectResponse)
 
-instance Prelude.NFData CreateObjectResponse
+instance Prelude.NFData CreateObjectResponse where
+  rnf CreateObjectResponse' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

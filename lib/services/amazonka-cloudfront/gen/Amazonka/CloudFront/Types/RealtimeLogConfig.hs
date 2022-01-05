@@ -138,6 +138,18 @@ instance Core.FromXML RealtimeLogConfig where
                       Prelude.>>= Core.parseXMLList "Field"
                   )
 
-instance Prelude.Hashable RealtimeLogConfig
+instance Prelude.Hashable RealtimeLogConfig where
+  hashWithSalt _salt RealtimeLogConfig' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` samplingRate
+      `Prelude.hashWithSalt` endPoints
+      `Prelude.hashWithSalt` fields
 
-instance Prelude.NFData RealtimeLogConfig
+instance Prelude.NFData RealtimeLogConfig where
+  rnf RealtimeLogConfig' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf samplingRate
+      `Prelude.seq` Prelude.rnf endPoints
+      `Prelude.seq` Prelude.rnf fields

@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteMesh where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteMesh
+instance Prelude.Hashable DeleteMesh where
+  hashWithSalt _salt DeleteMesh' {..} =
+    _salt `Prelude.hashWithSalt` meshName
 
-instance Prelude.NFData DeleteMesh
+instance Prelude.NFData DeleteMesh where
+  rnf DeleteMesh' {..} = Prelude.rnf meshName
 
 instance Core.ToHeaders DeleteMesh where
   toHeaders =
@@ -155,4 +158,7 @@ deleteMeshResponse_httpStatus = Lens.lens (\DeleteMeshResponse' {httpStatus} -> 
 deleteMeshResponse_mesh :: Lens.Lens' DeleteMeshResponse MeshData
 deleteMeshResponse_mesh = Lens.lens (\DeleteMeshResponse' {mesh} -> mesh) (\s@DeleteMeshResponse' {} a -> s {mesh = a} :: DeleteMeshResponse)
 
-instance Prelude.NFData DeleteMeshResponse
+instance Prelude.NFData DeleteMeshResponse where
+  rnf DeleteMeshResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mesh

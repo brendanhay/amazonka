@@ -225,9 +225,35 @@ instance Core.AWSRequest ListOfferings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOfferings
+instance Prelude.Hashable ListOfferings where
+  hashWithSalt _salt ListOfferings' {..} =
+    _salt `Prelude.hashWithSalt` videoQuality
+      `Prelude.hashWithSalt` maximumFramerate
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` channelConfiguration
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` channelClass
+      `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListOfferings
+instance Prelude.NFData ListOfferings where
+  rnf ListOfferings' {..} =
+    Prelude.rnf videoQuality
+      `Prelude.seq` Prelude.rnf maximumFramerate
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf channelConfiguration
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOfferings where
   toHeaders =
@@ -309,4 +335,8 @@ listOfferingsResponse_offerings = Lens.lens (\ListOfferingsResponse' {offerings}
 listOfferingsResponse_httpStatus :: Lens.Lens' ListOfferingsResponse Prelude.Int
 listOfferingsResponse_httpStatus = Lens.lens (\ListOfferingsResponse' {httpStatus} -> httpStatus) (\s@ListOfferingsResponse' {} a -> s {httpStatus = a} :: ListOfferingsResponse)
 
-instance Prelude.NFData ListOfferingsResponse
+instance Prelude.NFData ListOfferingsResponse where
+  rnf ListOfferingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf offerings
+      `Prelude.seq` Prelude.rnf httpStatus

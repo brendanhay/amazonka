@@ -110,9 +110,15 @@ instance Core.AWSRequest CreateInternetGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInternetGateway
+instance Prelude.Hashable CreateInternetGateway where
+  hashWithSalt _salt CreateInternetGateway' {..} =
+    _salt `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateInternetGateway
+instance Prelude.NFData CreateInternetGateway where
+  rnf CreateInternetGateway' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders CreateInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,4 +179,7 @@ createInternetGatewayResponse_internetGateway = Lens.lens (\CreateInternetGatewa
 createInternetGatewayResponse_httpStatus :: Lens.Lens' CreateInternetGatewayResponse Prelude.Int
 createInternetGatewayResponse_httpStatus = Lens.lens (\CreateInternetGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateInternetGatewayResponse' {} a -> s {httpStatus = a} :: CreateInternetGatewayResponse)
 
-instance Prelude.NFData CreateInternetGatewayResponse
+instance Prelude.NFData CreateInternetGatewayResponse where
+  rnf CreateInternetGatewayResponse' {..} =
+    Prelude.rnf internetGateway
+      `Prelude.seq` Prelude.rnf httpStatus

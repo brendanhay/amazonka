@@ -55,9 +55,13 @@ newEnvironmentPropertyUpdates =
 environmentPropertyUpdates_propertyGroups :: Lens.Lens' EnvironmentPropertyUpdates [PropertyGroup]
 environmentPropertyUpdates_propertyGroups = Lens.lens (\EnvironmentPropertyUpdates' {propertyGroups} -> propertyGroups) (\s@EnvironmentPropertyUpdates' {} a -> s {propertyGroups = a} :: EnvironmentPropertyUpdates) Prelude.. Lens.coerced
 
-instance Prelude.Hashable EnvironmentPropertyUpdates
+instance Prelude.Hashable EnvironmentPropertyUpdates where
+  hashWithSalt _salt EnvironmentPropertyUpdates' {..} =
+    _salt `Prelude.hashWithSalt` propertyGroups
 
-instance Prelude.NFData EnvironmentPropertyUpdates
+instance Prelude.NFData EnvironmentPropertyUpdates where
+  rnf EnvironmentPropertyUpdates' {..} =
+    Prelude.rnf propertyGroups
 
 instance Core.ToJSON EnvironmentPropertyUpdates where
   toJSON EnvironmentPropertyUpdates' {..} =

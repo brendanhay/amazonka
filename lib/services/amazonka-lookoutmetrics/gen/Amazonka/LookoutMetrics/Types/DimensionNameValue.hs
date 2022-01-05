@@ -78,6 +78,12 @@ instance Core.FromJSON DimensionNameValue where
             Prelude.<*> (x Core..: "DimensionValue")
       )
 
-instance Prelude.Hashable DimensionNameValue
+instance Prelude.Hashable DimensionNameValue where
+  hashWithSalt _salt DimensionNameValue' {..} =
+    _salt `Prelude.hashWithSalt` dimensionName
+      `Prelude.hashWithSalt` dimensionValue
 
-instance Prelude.NFData DimensionNameValue
+instance Prelude.NFData DimensionNameValue where
+  rnf DimensionNameValue' {..} =
+    Prelude.rnf dimensionName
+      `Prelude.seq` Prelude.rnf dimensionValue

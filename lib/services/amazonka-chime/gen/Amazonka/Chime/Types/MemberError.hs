@@ -82,6 +82,14 @@ instance Core.FromJSON MemberError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable MemberError
+instance Prelude.Hashable MemberError where
+  hashWithSalt _salt MemberError' {..} =
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData MemberError
+instance Prelude.NFData MemberError where
+  rnf MemberError' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

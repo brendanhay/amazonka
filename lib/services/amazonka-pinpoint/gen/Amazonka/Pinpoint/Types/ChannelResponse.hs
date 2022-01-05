@@ -149,6 +149,26 @@ instance Core.FromJSON ChannelResponse where
             Prelude.<*> (x Core..:? "HasCredential")
       )
 
-instance Prelude.Hashable ChannelResponse
+instance Prelude.Hashable ChannelResponse where
+  hashWithSalt _salt ChannelResponse' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` hasCredential
 
-instance Prelude.NFData ChannelResponse
+instance Prelude.NFData ChannelResponse where
+  rnf ChannelResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf hasCredential

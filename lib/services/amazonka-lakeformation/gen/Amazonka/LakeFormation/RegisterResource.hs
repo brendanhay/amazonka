@@ -148,9 +148,17 @@ instance Core.AWSRequest RegisterResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterResource
+instance Prelude.Hashable RegisterResource where
+  hashWithSalt _salt RegisterResource' {..} =
+    _salt `Prelude.hashWithSalt` useServiceLinkedRole
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData RegisterResource
+instance Prelude.NFData RegisterResource where
+  rnf RegisterResource' {..} =
+    Prelude.rnf useServiceLinkedRole
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders RegisterResource where
   toHeaders =
@@ -214,4 +222,6 @@ newRegisterResourceResponse pHttpStatus_ =
 registerResourceResponse_httpStatus :: Lens.Lens' RegisterResourceResponse Prelude.Int
 registerResourceResponse_httpStatus = Lens.lens (\RegisterResourceResponse' {httpStatus} -> httpStatus) (\s@RegisterResourceResponse' {} a -> s {httpStatus = a} :: RegisterResourceResponse)
 
-instance Prelude.NFData RegisterResourceResponse
+instance Prelude.NFData RegisterResourceResponse where
+  rnf RegisterResourceResponse' {..} =
+    Prelude.rnf httpStatus

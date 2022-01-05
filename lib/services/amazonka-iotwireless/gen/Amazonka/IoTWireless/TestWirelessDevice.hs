@@ -87,9 +87,12 @@ instance Core.AWSRequest TestWirelessDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestWirelessDevice
+instance Prelude.Hashable TestWirelessDevice where
+  hashWithSalt _salt TestWirelessDevice' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData TestWirelessDevice
+instance Prelude.NFData TestWirelessDevice where
+  rnf TestWirelessDevice' {..} = Prelude.rnf id
 
 instance Core.ToHeaders TestWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,7 @@ testWirelessDeviceResponse_result = Lens.lens (\TestWirelessDeviceResponse' {res
 testWirelessDeviceResponse_httpStatus :: Lens.Lens' TestWirelessDeviceResponse Prelude.Int
 testWirelessDeviceResponse_httpStatus = Lens.lens (\TestWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@TestWirelessDeviceResponse' {} a -> s {httpStatus = a} :: TestWirelessDeviceResponse)
 
-instance Prelude.NFData TestWirelessDeviceResponse
+instance Prelude.NFData TestWirelessDeviceResponse where
+  rnf TestWirelessDeviceResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus

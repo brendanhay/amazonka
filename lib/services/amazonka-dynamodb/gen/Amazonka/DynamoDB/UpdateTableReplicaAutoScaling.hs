@@ -136,8 +136,19 @@ instance
 instance
   Prelude.Hashable
     UpdateTableReplicaAutoScaling
+  where
+  hashWithSalt _salt UpdateTableReplicaAutoScaling' {..} =
+    _salt `Prelude.hashWithSalt` replicaUpdates
+      `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingUpdate
+      `Prelude.hashWithSalt` globalSecondaryIndexUpdates
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData UpdateTableReplicaAutoScaling
+instance Prelude.NFData UpdateTableReplicaAutoScaling where
+  rnf UpdateTableReplicaAutoScaling' {..} =
+    Prelude.rnf replicaUpdates
+      `Prelude.seq` Prelude.rnf provisionedWriteCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexUpdates
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders UpdateTableReplicaAutoScaling where
   toHeaders =
@@ -219,3 +230,7 @@ updateTableReplicaAutoScalingResponse_httpStatus = Lens.lens (\UpdateTableReplic
 instance
   Prelude.NFData
     UpdateTableReplicaAutoScalingResponse
+  where
+  rnf UpdateTableReplicaAutoScalingResponse' {..} =
+    Prelude.rnf tableAutoScalingDescription
+      `Prelude.seq` Prelude.rnf httpStatus

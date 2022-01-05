@@ -74,9 +74,14 @@ instance Core.FromJSON TagStepDetails where
             Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Tags")
       )
 
-instance Prelude.Hashable TagStepDetails
+instance Prelude.Hashable TagStepDetails where
+  hashWithSalt _salt TagStepDetails' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagStepDetails
+instance Prelude.NFData TagStepDetails where
+  rnf TagStepDetails' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =

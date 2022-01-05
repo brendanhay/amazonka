@@ -94,9 +94,12 @@ instance Core.AWSRequest EnableInsightRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableInsightRules
+instance Prelude.Hashable EnableInsightRules where
+  hashWithSalt _salt EnableInsightRules' {..} =
+    _salt `Prelude.hashWithSalt` ruleNames
 
-instance Prelude.NFData EnableInsightRules
+instance Prelude.NFData EnableInsightRules where
+  rnf EnableInsightRules' {..} = Prelude.rnf ruleNames
 
 instance Core.ToHeaders EnableInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +160,7 @@ enableInsightRulesResponse_failures = Lens.lens (\EnableInsightRulesResponse' {f
 enableInsightRulesResponse_httpStatus :: Lens.Lens' EnableInsightRulesResponse Prelude.Int
 enableInsightRulesResponse_httpStatus = Lens.lens (\EnableInsightRulesResponse' {httpStatus} -> httpStatus) (\s@EnableInsightRulesResponse' {} a -> s {httpStatus = a} :: EnableInsightRulesResponse)
 
-instance Prelude.NFData EnableInsightRulesResponse
+instance Prelude.NFData EnableInsightRulesResponse where
+  rnf EnableInsightRulesResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

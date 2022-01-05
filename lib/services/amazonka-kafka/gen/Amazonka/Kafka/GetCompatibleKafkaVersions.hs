@@ -89,9 +89,13 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCompatibleKafkaVersions
+instance Prelude.Hashable GetCompatibleKafkaVersions where
+  hashWithSalt _salt GetCompatibleKafkaVersions' {..} =
+    _salt `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData GetCompatibleKafkaVersions
+instance Prelude.NFData GetCompatibleKafkaVersions where
+  rnf GetCompatibleKafkaVersions' {..} =
+    Prelude.rnf clusterArn
 
 instance Core.ToHeaders GetCompatibleKafkaVersions where
   toHeaders =
@@ -154,3 +158,7 @@ getCompatibleKafkaVersionsResponse_httpStatus = Lens.lens (\GetCompatibleKafkaVe
 instance
   Prelude.NFData
     GetCompatibleKafkaVersionsResponse
+  where
+  rnf GetCompatibleKafkaVersionsResponse' {..} =
+    Prelude.rnf compatibleKafkaVersions
+      `Prelude.seq` Prelude.rnf httpStatus

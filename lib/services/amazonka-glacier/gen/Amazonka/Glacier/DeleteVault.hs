@@ -128,9 +128,15 @@ instance Core.AWSRequest DeleteVault where
       Prelude.. Request.delete defaultService
   response = Response.receiveNull DeleteVaultResponse'
 
-instance Prelude.Hashable DeleteVault
+instance Prelude.Hashable DeleteVault where
+  hashWithSalt _salt DeleteVault' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` vaultName
 
-instance Prelude.NFData DeleteVault
+instance Prelude.NFData DeleteVault where
+  rnf DeleteVault' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DeleteVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +167,5 @@ newDeleteVaultResponse ::
   DeleteVaultResponse
 newDeleteVaultResponse = DeleteVaultResponse'
 
-instance Prelude.NFData DeleteVaultResponse
+instance Prelude.NFData DeleteVaultResponse where
+  rnf _ = ()

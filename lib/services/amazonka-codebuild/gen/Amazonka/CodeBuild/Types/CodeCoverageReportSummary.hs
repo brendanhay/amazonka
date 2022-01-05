@@ -118,6 +118,20 @@ instance Core.FromJSON CodeCoverageReportSummary where
             Prelude.<*> (x Core..:? "lineCoveragePercentage")
       )
 
-instance Prelude.Hashable CodeCoverageReportSummary
+instance Prelude.Hashable CodeCoverageReportSummary where
+  hashWithSalt _salt CodeCoverageReportSummary' {..} =
+    _salt `Prelude.hashWithSalt` branchesMissed
+      `Prelude.hashWithSalt` linesMissed
+      `Prelude.hashWithSalt` branchesCovered
+      `Prelude.hashWithSalt` linesCovered
+      `Prelude.hashWithSalt` branchCoveragePercentage
+      `Prelude.hashWithSalt` lineCoveragePercentage
 
-instance Prelude.NFData CodeCoverageReportSummary
+instance Prelude.NFData CodeCoverageReportSummary where
+  rnf CodeCoverageReportSummary' {..} =
+    Prelude.rnf branchesMissed
+      `Prelude.seq` Prelude.rnf linesMissed
+      `Prelude.seq` Prelude.rnf branchesCovered
+      `Prelude.seq` Prelude.rnf linesCovered
+      `Prelude.seq` Prelude.rnf branchCoveragePercentage
+      `Prelude.seq` Prelude.rnf lineCoveragePercentage

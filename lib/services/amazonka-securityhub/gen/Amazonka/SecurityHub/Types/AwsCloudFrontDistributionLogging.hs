@@ -102,10 +102,24 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionLogging
+  where
+  hashWithSalt
+    _salt
+    AwsCloudFrontDistributionLogging' {..} =
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` includeCookies
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionLogging
+  where
+  rnf AwsCloudFrontDistributionLogging' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf includeCookies
 
 instance Core.ToJSON AwsCloudFrontDistributionLogging where
   toJSON AwsCloudFrontDistributionLogging' {..} =

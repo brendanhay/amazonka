@@ -70,9 +70,14 @@ instance Core.FromJSON AwsRdsDbProcessorFeature where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AwsRdsDbProcessorFeature
+instance Prelude.Hashable AwsRdsDbProcessorFeature where
+  hashWithSalt _salt AwsRdsDbProcessorFeature' {..} =
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AwsRdsDbProcessorFeature
+instance Prelude.NFData AwsRdsDbProcessorFeature where
+  rnf AwsRdsDbProcessorFeature' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AwsRdsDbProcessorFeature where
   toJSON AwsRdsDbProcessorFeature' {..} =

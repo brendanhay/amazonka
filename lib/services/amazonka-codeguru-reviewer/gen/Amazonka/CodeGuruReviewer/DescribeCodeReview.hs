@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeCodeReview where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCodeReview
+instance Prelude.Hashable DescribeCodeReview where
+  hashWithSalt _salt DescribeCodeReview' {..} =
+    _salt `Prelude.hashWithSalt` codeReviewArn
 
-instance Prelude.NFData DescribeCodeReview
+instance Prelude.NFData DescribeCodeReview where
+  rnf DescribeCodeReview' {..} =
+    Prelude.rnf codeReviewArn
 
 instance Core.ToHeaders DescribeCodeReview where
   toHeaders =
@@ -158,4 +162,7 @@ describeCodeReviewResponse_codeReview = Lens.lens (\DescribeCodeReviewResponse' 
 describeCodeReviewResponse_httpStatus :: Lens.Lens' DescribeCodeReviewResponse Prelude.Int
 describeCodeReviewResponse_httpStatus = Lens.lens (\DescribeCodeReviewResponse' {httpStatus} -> httpStatus) (\s@DescribeCodeReviewResponse' {} a -> s {httpStatus = a} :: DescribeCodeReviewResponse)
 
-instance Prelude.NFData DescribeCodeReviewResponse
+instance Prelude.NFData DescribeCodeReviewResponse where
+  rnf DescribeCodeReviewResponse' {..} =
+    Prelude.rnf codeReview
+      `Prelude.seq` Prelude.rnf httpStatus

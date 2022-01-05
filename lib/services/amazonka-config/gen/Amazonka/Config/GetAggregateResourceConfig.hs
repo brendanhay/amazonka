@@ -104,9 +104,16 @@ instance Core.AWSRequest GetAggregateResourceConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAggregateResourceConfig
+instance Prelude.Hashable GetAggregateResourceConfig where
+  hashWithSalt _salt GetAggregateResourceConfig' {..} =
+    _salt
+      `Prelude.hashWithSalt` configurationAggregatorName
+      `Prelude.hashWithSalt` resourceIdentifier
 
-instance Prelude.NFData GetAggregateResourceConfig
+instance Prelude.NFData GetAggregateResourceConfig where
+  rnf GetAggregateResourceConfig' {..} =
+    Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance Core.ToHeaders GetAggregateResourceConfig where
   toHeaders =
@@ -184,3 +191,7 @@ getAggregateResourceConfigResponse_httpStatus = Lens.lens (\GetAggregateResource
 instance
   Prelude.NFData
     GetAggregateResourceConfigResponse
+  where
+  rnf GetAggregateResourceConfigResponse' {..} =
+    Prelude.rnf configurationItem
+      `Prelude.seq` Prelude.rnf httpStatus

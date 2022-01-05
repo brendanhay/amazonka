@@ -88,10 +88,20 @@ instance
 instance
   Prelude.Hashable
     AsyncInferenceNotificationConfig
+  where
+  hashWithSalt
+    _salt
+    AsyncInferenceNotificationConfig' {..} =
+      _salt `Prelude.hashWithSalt` errorTopic
+        `Prelude.hashWithSalt` successTopic
 
 instance
   Prelude.NFData
     AsyncInferenceNotificationConfig
+  where
+  rnf AsyncInferenceNotificationConfig' {..} =
+    Prelude.rnf errorTopic
+      `Prelude.seq` Prelude.rnf successTopic
 
 instance Core.ToJSON AsyncInferenceNotificationConfig where
   toJSON AsyncInferenceNotificationConfig' {..} =

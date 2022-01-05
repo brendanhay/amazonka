@@ -158,6 +158,20 @@ instance Core.FromJSON DevicePool where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable DevicePool
+instance Prelude.Hashable DevicePool where
+  hashWithSalt _salt DevicePool' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DevicePool
+instance Prelude.NFData DevicePool where
+  rnf DevicePool' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxDevices
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

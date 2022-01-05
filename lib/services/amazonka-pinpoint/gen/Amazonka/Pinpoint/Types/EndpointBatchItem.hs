@@ -255,9 +255,35 @@ endpointBatchItem_id = Lens.lens (\EndpointBatchItem' {id} -> id) (\s@EndpointBa
 endpointBatchItem_channelType :: Lens.Lens' EndpointBatchItem (Prelude.Maybe ChannelType)
 endpointBatchItem_channelType = Lens.lens (\EndpointBatchItem' {channelType} -> channelType) (\s@EndpointBatchItem' {} a -> s {channelType = a} :: EndpointBatchItem)
 
-instance Prelude.Hashable EndpointBatchItem
+instance Prelude.Hashable EndpointBatchItem where
+  hashWithSalt _salt EndpointBatchItem' {..} =
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` demographic
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` effectiveDate
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` optOut
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` channelType
 
-instance Prelude.NFData EndpointBatchItem
+instance Prelude.NFData EndpointBatchItem where
+  rnf EndpointBatchItem' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf demographic
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf effectiveDate
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf optOut
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf channelType
 
 instance Core.ToJSON EndpointBatchItem where
   toJSON EndpointBatchItem' {..} =

@@ -328,9 +328,23 @@ instance Core.FromJSON LinuxParameters where
             Prelude.<*> (x Core..:? "maxSwap")
       )
 
-instance Prelude.Hashable LinuxParameters
+instance Prelude.Hashable LinuxParameters where
+  hashWithSalt _salt LinuxParameters' {..} =
+    _salt `Prelude.hashWithSalt` sharedMemorySize
+      `Prelude.hashWithSalt` initProcessEnabled
+      `Prelude.hashWithSalt` tmpfs
+      `Prelude.hashWithSalt` swappiness
+      `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` maxSwap
 
-instance Prelude.NFData LinuxParameters
+instance Prelude.NFData LinuxParameters where
+  rnf LinuxParameters' {..} =
+    Prelude.rnf sharedMemorySize
+      `Prelude.seq` Prelude.rnf initProcessEnabled
+      `Prelude.seq` Prelude.rnf tmpfs
+      `Prelude.seq` Prelude.rnf swappiness
+      `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf maxSwap
 
 instance Core.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =

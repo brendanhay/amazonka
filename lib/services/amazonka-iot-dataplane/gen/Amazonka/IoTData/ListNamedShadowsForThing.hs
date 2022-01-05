@@ -117,9 +117,17 @@ instance Core.AWSRequest ListNamedShadowsForThing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNamedShadowsForThing
+instance Prelude.Hashable ListNamedShadowsForThing where
+  hashWithSalt _salt ListNamedShadowsForThing' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData ListNamedShadowsForThing
+instance Prelude.NFData ListNamedShadowsForThing where
+  rnf ListNamedShadowsForThing' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders ListNamedShadowsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,3 +209,9 @@ listNamedShadowsForThingResponse_httpStatus = Lens.lens (\ListNamedShadowsForThi
 instance
   Prelude.NFData
     ListNamedShadowsForThingResponse
+  where
+  rnf ListNamedShadowsForThingResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -106,9 +106,12 @@ instance Core.AWSRequest GetRetainedMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRetainedMessage
+instance Prelude.Hashable GetRetainedMessage where
+  hashWithSalt _salt GetRetainedMessage' {..} =
+    _salt `Prelude.hashWithSalt` topic
 
-instance Prelude.NFData GetRetainedMessage
+instance Prelude.NFData GetRetainedMessage where
+  rnf GetRetainedMessage' {..} = Prelude.rnf topic
 
 instance Core.ToHeaders GetRetainedMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,4 +203,10 @@ getRetainedMessageResponse_qos = Lens.lens (\GetRetainedMessageResponse' {qos} -
 getRetainedMessageResponse_httpStatus :: Lens.Lens' GetRetainedMessageResponse Prelude.Int
 getRetainedMessageResponse_httpStatus = Lens.lens (\GetRetainedMessageResponse' {httpStatus} -> httpStatus) (\s@GetRetainedMessageResponse' {} a -> s {httpStatus = a} :: GetRetainedMessageResponse)
 
-instance Prelude.NFData GetRetainedMessageResponse
+instance Prelude.NFData GetRetainedMessageResponse where
+  rnf GetRetainedMessageResponse' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf qos
+      `Prelude.seq` Prelude.rnf httpStatus

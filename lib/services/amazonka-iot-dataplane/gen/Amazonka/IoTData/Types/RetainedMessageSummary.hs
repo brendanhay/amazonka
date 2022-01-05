@@ -95,6 +95,16 @@ instance Core.FromJSON RetainedMessageSummary where
             Prelude.<*> (x Core..:? "payloadSize")
       )
 
-instance Prelude.Hashable RetainedMessageSummary
+instance Prelude.Hashable RetainedMessageSummary where
+  hashWithSalt _salt RetainedMessageSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` qos
+      `Prelude.hashWithSalt` payloadSize
 
-instance Prelude.NFData RetainedMessageSummary
+instance Prelude.NFData RetainedMessageSummary where
+  rnf RetainedMessageSummary' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf qos
+      `Prelude.seq` Prelude.rnf payloadSize

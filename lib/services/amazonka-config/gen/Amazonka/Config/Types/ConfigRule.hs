@@ -295,9 +295,31 @@ instance Core.FromJSON ConfigRule where
             Prelude.<*> (x Core..: "Source")
       )
 
-instance Prelude.Hashable ConfigRule
+instance Prelude.Hashable ConfigRule where
+  hashWithSalt _salt ConfigRule' {..} =
+    _salt `Prelude.hashWithSalt` inputParameters
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` maximumExecutionFrequency
+      `Prelude.hashWithSalt` configRuleId
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` configRuleState
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configRuleArn
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData ConfigRule
+instance Prelude.NFData ConfigRule where
+  rnf ConfigRule' {..} =
+    Prelude.rnf inputParameters
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
+      `Prelude.seq` Prelude.rnf configRuleId
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf configRuleState
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf configRuleArn
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON ConfigRule where
   toJSON ConfigRule' {..} =

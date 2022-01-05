@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeDeliveryChannels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDeliveryChannels
+instance Prelude.Hashable DescribeDeliveryChannels where
+  hashWithSalt _salt DescribeDeliveryChannels' {..} =
+    _salt `Prelude.hashWithSalt` deliveryChannelNames
 
-instance Prelude.NFData DescribeDeliveryChannels
+instance Prelude.NFData DescribeDeliveryChannels where
+  rnf DescribeDeliveryChannels' {..} =
+    Prelude.rnf deliveryChannelNames
 
 instance Core.ToHeaders DescribeDeliveryChannels where
   toHeaders =
@@ -174,3 +178,7 @@ describeDeliveryChannelsResponse_httpStatus = Lens.lens (\DescribeDeliveryChanne
 instance
   Prelude.NFData
     DescribeDeliveryChannelsResponse
+  where
+  rnf DescribeDeliveryChannelsResponse' {..} =
+    Prelude.rnf deliveryChannels
+      `Prelude.seq` Prelude.rnf httpStatus

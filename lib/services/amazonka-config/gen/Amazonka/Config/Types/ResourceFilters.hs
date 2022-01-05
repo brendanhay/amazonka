@@ -80,9 +80,19 @@ resourceFilters_accountId = Lens.lens (\ResourceFilters' {accountId} -> accountI
 resourceFilters_region :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
 resourceFilters_region = Lens.lens (\ResourceFilters' {region} -> region) (\s@ResourceFilters' {} a -> s {region = a} :: ResourceFilters)
 
-instance Prelude.Hashable ResourceFilters
+instance Prelude.Hashable ResourceFilters where
+  hashWithSalt _salt ResourceFilters' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData ResourceFilters
+instance Prelude.NFData ResourceFilters where
+  rnf ResourceFilters' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON ResourceFilters where
   toJSON ResourceFilters' {..} =

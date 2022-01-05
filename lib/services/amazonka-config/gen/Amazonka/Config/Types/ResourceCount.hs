@@ -72,6 +72,12 @@ instance Core.FromJSON ResourceCount where
             Prelude.<*> (x Core..:? "count")
       )
 
-instance Prelude.Hashable ResourceCount
+instance Prelude.Hashable ResourceCount where
+  hashWithSalt _salt ResourceCount' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData ResourceCount
+instance Prelude.NFData ResourceCount where
+  rnf ResourceCount' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf count

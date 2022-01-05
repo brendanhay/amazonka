@@ -200,6 +200,25 @@ instance Core.FromJSON ConformancePackStatusDetail where
             Prelude.<*> (x Core..: "LastUpdateRequestedTime")
       )
 
-instance Prelude.Hashable ConformancePackStatusDetail
+instance Prelude.Hashable ConformancePackStatusDetail where
+  hashWithSalt _salt ConformancePackStatusDetail' {..} =
+    _salt
+      `Prelude.hashWithSalt` conformancePackStatusReason
+      `Prelude.hashWithSalt` lastUpdateCompletedTime
+      `Prelude.hashWithSalt` conformancePackName
+      `Prelude.hashWithSalt` conformancePackId
+      `Prelude.hashWithSalt` conformancePackArn
+      `Prelude.hashWithSalt` conformancePackState
+      `Prelude.hashWithSalt` stackArn
+      `Prelude.hashWithSalt` lastUpdateRequestedTime
 
-instance Prelude.NFData ConformancePackStatusDetail
+instance Prelude.NFData ConformancePackStatusDetail where
+  rnf ConformancePackStatusDetail' {..} =
+    Prelude.rnf conformancePackStatusReason
+      `Prelude.seq` Prelude.rnf lastUpdateCompletedTime
+      `Prelude.seq` Prelude.rnf conformancePackName
+      `Prelude.seq` Prelude.rnf conformancePackId
+      `Prelude.seq` Prelude.rnf conformancePackArn
+      `Prelude.seq` Prelude.rnf conformancePackState
+      `Prelude.seq` Prelude.rnf stackArn
+      `Prelude.seq` Prelude.rnf lastUpdateRequestedTime

@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     DescribeRemediationConfigurations
+  where
+  hashWithSalt
+    _salt
+    DescribeRemediationConfigurations' {..} =
+      _salt `Prelude.hashWithSalt` configRuleNames
 
 instance
   Prelude.NFData
     DescribeRemediationConfigurations
+  where
+  rnf DescribeRemediationConfigurations' {..} =
+    Prelude.rnf configRuleNames
 
 instance
   Core.ToHeaders
@@ -188,3 +196,7 @@ describeRemediationConfigurationsResponse_httpStatus = Lens.lens (\DescribeRemed
 instance
   Prelude.NFData
     DescribeRemediationConfigurationsResponse
+  where
+  rnf DescribeRemediationConfigurationsResponse' {..} =
+    Prelude.rnf remediationConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -183,10 +183,32 @@ instance
 instance
   Prelude.Hashable
     OrganizationManagedRuleMetadata
+  where
+  hashWithSalt
+    _salt
+    OrganizationManagedRuleMetadata' {..} =
+      _salt `Prelude.hashWithSalt` inputParameters
+        `Prelude.hashWithSalt` resourceIdScope
+        `Prelude.hashWithSalt` tagValueScope
+        `Prelude.hashWithSalt` maximumExecutionFrequency
+        `Prelude.hashWithSalt` tagKeyScope
+        `Prelude.hashWithSalt` resourceTypesScope
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` ruleIdentifier
 
 instance
   Prelude.NFData
     OrganizationManagedRuleMetadata
+  where
+  rnf OrganizationManagedRuleMetadata' {..} =
+    Prelude.rnf inputParameters
+      `Prelude.seq` Prelude.rnf resourceIdScope
+      `Prelude.seq` Prelude.rnf tagValueScope
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
+      `Prelude.seq` Prelude.rnf tagKeyScope
+      `Prelude.seq` Prelude.rnf resourceTypesScope
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ruleIdentifier
 
 instance Core.ToJSON OrganizationManagedRuleMetadata where
   toJSON OrganizationManagedRuleMetadata' {..} =

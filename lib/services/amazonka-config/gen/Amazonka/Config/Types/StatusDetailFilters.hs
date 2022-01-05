@@ -169,9 +169,16 @@ statusDetailFilters_memberAccountRuleStatus = Lens.lens (\StatusDetailFilters' {
 statusDetailFilters_accountId :: Lens.Lens' StatusDetailFilters (Prelude.Maybe Prelude.Text)
 statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> accountId) (\s@StatusDetailFilters' {} a -> s {accountId = a} :: StatusDetailFilters)
 
-instance Prelude.Hashable StatusDetailFilters
+instance Prelude.Hashable StatusDetailFilters where
+  hashWithSalt _salt StatusDetailFilters' {..} =
+    _salt
+      `Prelude.hashWithSalt` memberAccountRuleStatus
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData StatusDetailFilters
+instance Prelude.NFData StatusDetailFilters where
+  rnf StatusDetailFilters' {..} =
+    Prelude.rnf memberAccountRuleStatus
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToJSON StatusDetailFilters where
   toJSON StatusDetailFilters' {..} =

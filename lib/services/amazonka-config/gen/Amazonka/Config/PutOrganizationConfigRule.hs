@@ -163,9 +163,20 @@ instance Core.AWSRequest PutOrganizationConfigRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutOrganizationConfigRule
+instance Prelude.Hashable PutOrganizationConfigRule where
+  hashWithSalt _salt PutOrganizationConfigRule' {..} =
+    _salt
+      `Prelude.hashWithSalt` organizationManagedRuleMetadata
+      `Prelude.hashWithSalt` excludedAccounts
+      `Prelude.hashWithSalt` organizationCustomRuleMetadata
+      `Prelude.hashWithSalt` organizationConfigRuleName
 
-instance Prelude.NFData PutOrganizationConfigRule
+instance Prelude.NFData PutOrganizationConfigRule where
+  rnf PutOrganizationConfigRule' {..} =
+    Prelude.rnf organizationManagedRuleMetadata
+      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
+      `Prelude.seq` Prelude.rnf organizationConfigRuleName
 
 instance Core.ToHeaders PutOrganizationConfigRule where
   toHeaders =
@@ -247,3 +258,7 @@ putOrganizationConfigRuleResponse_httpStatus = Lens.lens (\PutOrganizationConfig
 instance
   Prelude.NFData
     PutOrganizationConfigRuleResponse
+  where
+  rnf PutOrganizationConfigRuleResponse' {..} =
+    Prelude.rnf organizationConfigRuleArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -120,9 +120,13 @@ instance Core.AWSRequest StartConfigRulesEvaluation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartConfigRulesEvaluation
+instance Prelude.Hashable StartConfigRulesEvaluation where
+  hashWithSalt _salt StartConfigRulesEvaluation' {..} =
+    _salt `Prelude.hashWithSalt` configRuleNames
 
-instance Prelude.NFData StartConfigRulesEvaluation
+instance Prelude.NFData StartConfigRulesEvaluation where
+  rnf StartConfigRulesEvaluation' {..} =
+    Prelude.rnf configRuleNames
 
 instance Core.ToHeaders StartConfigRulesEvaluation where
   toHeaders =
@@ -189,3 +193,6 @@ startConfigRulesEvaluationResponse_httpStatus = Lens.lens (\StartConfigRulesEval
 instance
   Prelude.NFData
     StartConfigRulesEvaluationResponse
+  where
+  rnf StartConfigRulesEvaluationResponse' {..} =
+    Prelude.rnf httpStatus

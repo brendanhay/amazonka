@@ -162,10 +162,26 @@ instance
 instance
   Prelude.Hashable
     GetAggregateDiscoveredResourceCounts
+  where
+  hashWithSalt
+    _salt
+    GetAggregateDiscoveredResourceCounts' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` groupByKey
+        `Prelude.hashWithSalt` configurationAggregatorName
 
 instance
   Prelude.NFData
     GetAggregateDiscoveredResourceCounts
+  where
+  rnf GetAggregateDiscoveredResourceCounts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf groupByKey
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
   Core.ToHeaders
@@ -298,3 +314,10 @@ getAggregateDiscoveredResourceCountsResponse_totalDiscoveredResources = Lens.len
 instance
   Prelude.NFData
     GetAggregateDiscoveredResourceCountsResponse
+  where
+  rnf GetAggregateDiscoveredResourceCountsResponse' {..} =
+    Prelude.rnf groupedResourceCounts
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupByKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalDiscoveredResources

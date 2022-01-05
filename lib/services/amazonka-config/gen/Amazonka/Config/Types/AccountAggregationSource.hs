@@ -84,9 +84,17 @@ instance Core.FromJSON AccountAggregationSource where
             Prelude.<*> (x Core..: "AccountIds")
       )
 
-instance Prelude.Hashable AccountAggregationSource
+instance Prelude.Hashable AccountAggregationSource where
+  hashWithSalt _salt AccountAggregationSource' {..} =
+    _salt `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` allAwsRegions
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData AccountAggregationSource
+instance Prelude.NFData AccountAggregationSource where
+  rnf AccountAggregationSource' {..} =
+    Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf allAwsRegions
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToJSON AccountAggregationSource where
   toJSON AccountAggregationSource' {..} =

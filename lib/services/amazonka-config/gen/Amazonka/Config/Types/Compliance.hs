@@ -127,6 +127,13 @@ instance Core.FromJSON Compliance where
             Prelude.<*> (x Core..:? "ComplianceType")
       )
 
-instance Prelude.Hashable Compliance
+instance Prelude.Hashable Compliance where
+  hashWithSalt _salt Compliance' {..} =
+    _salt
+      `Prelude.hashWithSalt` complianceContributorCount
+      `Prelude.hashWithSalt` complianceType
 
-instance Prelude.NFData Compliance
+instance Prelude.NFData Compliance where
+  rnf Compliance' {..} =
+    Prelude.rnf complianceContributorCount
+      `Prelude.seq` Prelude.rnf complianceType

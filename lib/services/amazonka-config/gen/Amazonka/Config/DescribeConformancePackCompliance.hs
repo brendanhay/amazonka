@@ -141,10 +141,24 @@ instance
 instance
   Prelude.Hashable
     DescribeConformancePackCompliance
+  where
+  hashWithSalt
+    _salt
+    DescribeConformancePackCompliance' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` conformancePackName
 
 instance
   Prelude.NFData
     DescribeConformancePackCompliance
+  where
+  rnf DescribeConformancePackCompliance' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf conformancePackName
 
 instance
   Core.ToHeaders
@@ -260,3 +274,9 @@ describeConformancePackComplianceResponse_conformancePackRuleComplianceList = Le
 instance
   Prelude.NFData
     DescribeConformancePackComplianceResponse
+  where
+  rnf DescribeConformancePackComplianceResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf conformancePackName
+      `Prelude.seq` Prelude.rnf conformancePackRuleComplianceList

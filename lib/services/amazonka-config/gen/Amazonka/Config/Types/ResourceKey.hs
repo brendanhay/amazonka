@@ -77,9 +77,15 @@ instance Core.FromJSON ResourceKey where
             Prelude.<*> (x Core..: "resourceId")
       )
 
-instance Prelude.Hashable ResourceKey
+instance Prelude.Hashable ResourceKey where
+  hashWithSalt _salt ResourceKey' {..} =
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ResourceKey
+instance Prelude.NFData ResourceKey where
+  rnf ResourceKey' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =

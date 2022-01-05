@@ -78,10 +78,15 @@ instance
 instance
   Prelude.Hashable
     GetComplianceSummaryByConfigRule
+  where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
 instance
   Prelude.NFData
     GetComplianceSummaryByConfigRule
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -161,3 +166,7 @@ getComplianceSummaryByConfigRuleResponse_httpStatus = Lens.lens (\GetComplianceS
 instance
   Prelude.NFData
     GetComplianceSummaryByConfigRuleResponse
+  where
+  rnf GetComplianceSummaryByConfigRuleResponse' {..} =
+    Prelude.rnf complianceSummary
+      `Prelude.seq` Prelude.rnf httpStatus

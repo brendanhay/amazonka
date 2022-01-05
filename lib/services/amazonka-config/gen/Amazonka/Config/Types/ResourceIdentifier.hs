@@ -94,6 +94,16 @@ instance Core.FromJSON ResourceIdentifier where
             Prelude.<*> (x Core..:? "resourceDeletionTime")
       )
 
-instance Prelude.Hashable ResourceIdentifier
+instance Prelude.Hashable ResourceIdentifier where
+  hashWithSalt _salt ResourceIdentifier' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceDeletionTime
 
-instance Prelude.NFData ResourceIdentifier
+instance Prelude.NFData ResourceIdentifier where
+  rnf ResourceIdentifier' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceDeletionTime

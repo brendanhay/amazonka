@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     RemediationExceptionResourceKey
+  where
+  hashWithSalt
+    _salt
+    RemediationExceptionResourceKey' {..} =
+      _salt `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     RemediationExceptionResourceKey
+  where
+  rnf RemediationExceptionResourceKey' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToJSON RemediationExceptionResourceKey where
   toJSON RemediationExceptionResourceKey' {..} =

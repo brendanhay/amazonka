@@ -99,10 +99,19 @@ instance
 instance
   Prelude.Hashable
     DeleteOrganizationConformancePack
+  where
+  hashWithSalt
+    _salt
+    DeleteOrganizationConformancePack' {..} =
+      _salt
+        `Prelude.hashWithSalt` organizationConformancePackName
 
 instance
   Prelude.NFData
     DeleteOrganizationConformancePack
+  where
+  rnf DeleteOrganizationConformancePack' {..} =
+    Prelude.rnf organizationConformancePackName
 
 instance
   Core.ToHeaders
@@ -166,3 +175,5 @@ newDeleteOrganizationConformancePackResponse =
 instance
   Prelude.NFData
     DeleteOrganizationConformancePackResponse
+  where
+  rnf _ = ()

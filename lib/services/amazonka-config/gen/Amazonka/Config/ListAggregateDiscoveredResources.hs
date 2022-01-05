@@ -190,10 +190,26 @@ instance
 instance
   Prelude.Hashable
     ListAggregateDiscoveredResources
+  where
+  hashWithSalt
+    _salt
+    ListAggregateDiscoveredResources' {..} =
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` configurationAggregatorName
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     ListAggregateDiscoveredResources
+  where
+  rnf ListAggregateDiscoveredResources' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance
   Core.ToHeaders
@@ -293,3 +309,8 @@ listAggregateDiscoveredResourcesResponse_httpStatus = Lens.lens (\ListAggregateD
 instance
   Prelude.NFData
     ListAggregateDiscoveredResourcesResponse
+  where
+  rnf ListAggregateDiscoveredResourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
+      `Prelude.seq` Prelude.rnf httpStatus

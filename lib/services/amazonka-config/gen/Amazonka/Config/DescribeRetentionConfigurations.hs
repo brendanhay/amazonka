@@ -157,10 +157,21 @@ instance
 instance
   Prelude.Hashable
     DescribeRetentionConfigurations
+  where
+  hashWithSalt
+    _salt
+    DescribeRetentionConfigurations' {..} =
+      _salt
+        `Prelude.hashWithSalt` retentionConfigurationNames
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeRetentionConfigurations
+  where
+  rnf DescribeRetentionConfigurations' {..} =
+    Prelude.rnf retentionConfigurationNames
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -251,3 +262,8 @@ describeRetentionConfigurationsResponse_httpStatus = Lens.lens (\DescribeRetenti
 instance
   Prelude.NFData
     DescribeRetentionConfigurationsResponse
+  where
+  rnf DescribeRetentionConfigurationsResponse' {..} =
+    Prelude.rnf retentionConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -223,10 +223,30 @@ instance
 instance
   Prelude.Hashable
     PutOrganizationConformancePack
+  where
+  hashWithSalt
+    _salt
+    PutOrganizationConformancePack' {..} =
+      _salt `Prelude.hashWithSalt` deliveryS3Bucket
+        `Prelude.hashWithSalt` deliveryS3KeyPrefix
+        `Prelude.hashWithSalt` templateS3Uri
+        `Prelude.hashWithSalt` conformancePackInputParameters
+        `Prelude.hashWithSalt` excludedAccounts
+        `Prelude.hashWithSalt` templateBody
+        `Prelude.hashWithSalt` organizationConformancePackName
 
 instance
   Prelude.NFData
     PutOrganizationConformancePack
+  where
+  rnf PutOrganizationConformancePack' {..} =
+    Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
+      `Prelude.seq` Prelude.rnf templateS3Uri
+      `Prelude.seq` Prelude.rnf conformancePackInputParameters
+      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf organizationConformancePackName
 
 instance
   Core.ToHeaders
@@ -316,3 +336,7 @@ putOrganizationConformancePackResponse_httpStatus = Lens.lens (\PutOrganizationC
 instance
   Prelude.NFData
     PutOrganizationConformancePackResponse
+  where
+  rnf PutOrganizationConformancePackResponse' {..} =
+    Prelude.rnf organizationConformancePackArn
+      `Prelude.seq` Prelude.rnf httpStatus

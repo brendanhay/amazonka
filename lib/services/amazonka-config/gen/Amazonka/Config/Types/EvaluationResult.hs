@@ -146,6 +146,21 @@ instance Core.FromJSON EvaluationResult where
             Prelude.<*> (x Core..:? "ComplianceType")
       )
 
-instance Prelude.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult where
+  hashWithSalt _salt EvaluationResult' {..} =
+    _salt
+      `Prelude.hashWithSalt` evaluationResultIdentifier
+      `Prelude.hashWithSalt` annotation
+      `Prelude.hashWithSalt` configRuleInvokedTime
+      `Prelude.hashWithSalt` resultRecordedTime
+      `Prelude.hashWithSalt` resultToken
+      `Prelude.hashWithSalt` complianceType
 
-instance Prelude.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult where
+  rnf EvaluationResult' {..} =
+    Prelude.rnf evaluationResultIdentifier
+      `Prelude.seq` Prelude.rnf annotation
+      `Prelude.seq` Prelude.rnf configRuleInvokedTime
+      `Prelude.seq` Prelude.rnf resultRecordedTime
+      `Prelude.seq` Prelude.rnf resultToken
+      `Prelude.seq` Prelude.rnf complianceType

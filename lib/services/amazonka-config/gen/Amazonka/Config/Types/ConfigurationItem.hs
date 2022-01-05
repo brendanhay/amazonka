@@ -341,6 +341,44 @@ instance Core.FromJSON ConfigurationItem where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ConfigurationItem
+instance Prelude.Hashable ConfigurationItem where
+  hashWithSalt _salt ConfigurationItem' {..} =
+    _salt `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` configurationStateId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceCreationTime
+      `Prelude.hashWithSalt` configurationItemStatus
+      `Prelude.hashWithSalt` configurationItemCaptureTime
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` supplementaryConfiguration
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` relationships
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` relatedEvents
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` configurationItemMD5Hash
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ConfigurationItem
+instance Prelude.NFData ConfigurationItem where
+  rnf ConfigurationItem' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf configurationStateId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceCreationTime
+      `Prelude.seq` Prelude.rnf configurationItemStatus
+      `Prelude.seq` Prelude.rnf configurationItemCaptureTime
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf supplementaryConfiguration
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf relationships
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf relatedEvents
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf configurationItemMD5Hash
+      `Prelude.seq` Prelude.rnf tags

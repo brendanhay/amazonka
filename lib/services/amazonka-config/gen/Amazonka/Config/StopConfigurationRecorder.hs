@@ -88,9 +88,14 @@ instance Core.AWSRequest StopConfigurationRecorder where
     Response.receiveNull
       StopConfigurationRecorderResponse'
 
-instance Prelude.Hashable StopConfigurationRecorder
+instance Prelude.Hashable StopConfigurationRecorder where
+  hashWithSalt _salt StopConfigurationRecorder' {..} =
+    _salt
+      `Prelude.hashWithSalt` configurationRecorderName
 
-instance Prelude.NFData StopConfigurationRecorder
+instance Prelude.NFData StopConfigurationRecorder where
+  rnf StopConfigurationRecorder' {..} =
+    Prelude.rnf configurationRecorderName
 
 instance Core.ToHeaders StopConfigurationRecorder where
   toHeaders =
@@ -142,3 +147,5 @@ newStopConfigurationRecorderResponse =
 instance
   Prelude.NFData
     StopConfigurationRecorderResponse
+  where
+  rnf _ = ()

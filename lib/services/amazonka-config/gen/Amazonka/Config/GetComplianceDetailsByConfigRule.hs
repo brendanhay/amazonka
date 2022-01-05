@@ -179,10 +179,24 @@ instance
 instance
   Prelude.Hashable
     GetComplianceDetailsByConfigRule
+  where
+  hashWithSalt
+    _salt
+    GetComplianceDetailsByConfigRule' {..} =
+      _salt `Prelude.hashWithSalt` complianceTypes
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` configRuleName
 
 instance
   Prelude.NFData
     GetComplianceDetailsByConfigRule
+  where
+  rnf GetComplianceDetailsByConfigRule' {..} =
+    Prelude.rnf complianceTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf configRuleName
 
 instance
   Core.ToHeaders
@@ -284,3 +298,8 @@ getComplianceDetailsByConfigRuleResponse_httpStatus = Lens.lens (\GetComplianceD
 instance
   Prelude.NFData
     GetComplianceDetailsByConfigRuleResponse
+  where
+  rnf GetComplianceDetailsByConfigRuleResponse' {..} =
+    Prelude.rnf evaluationResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

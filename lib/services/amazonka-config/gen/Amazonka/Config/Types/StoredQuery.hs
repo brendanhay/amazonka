@@ -109,9 +109,21 @@ instance Core.FromJSON StoredQuery where
             Prelude.<*> (x Core..: "QueryName")
       )
 
-instance Prelude.Hashable StoredQuery
+instance Prelude.Hashable StoredQuery where
+  hashWithSalt _salt StoredQuery' {..} =
+    _salt `Prelude.hashWithSalt` queryId
+      `Prelude.hashWithSalt` queryArn
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` queryName
 
-instance Prelude.NFData StoredQuery
+instance Prelude.NFData StoredQuery where
+  rnf StoredQuery' {..} =
+    Prelude.rnf queryId
+      `Prelude.seq` Prelude.rnf queryArn
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf queryName
 
 instance Core.ToJSON StoredQuery where
   toJSON StoredQuery' {..} =

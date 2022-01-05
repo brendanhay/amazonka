@@ -65,10 +65,20 @@ configRuleComplianceSummaryFilters_awsRegion = Lens.lens (\ConfigRuleComplianceS
 instance
   Prelude.Hashable
     ConfigRuleComplianceSummaryFilters
+  where
+  hashWithSalt
+    _salt
+    ConfigRuleComplianceSummaryFilters' {..} =
+      _salt `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` awsRegion
 
 instance
   Prelude.NFData
     ConfigRuleComplianceSummaryFilters
+  where
+  rnf ConfigRuleComplianceSummaryFilters' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf awsRegion
 
 instance
   Core.ToJSON

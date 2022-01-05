@@ -85,6 +85,12 @@ instance Core.FromJSON RetentionConfiguration where
             Prelude.<*> (x Core..: "RetentionPeriodInDays")
       )
 
-instance Prelude.Hashable RetentionConfiguration
+instance Prelude.Hashable RetentionConfiguration where
+  hashWithSalt _salt RetentionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` retentionPeriodInDays
 
-instance Prelude.NFData RetentionConfiguration
+instance Prelude.NFData RetentionConfiguration where
+  rnf RetentionConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf retentionPeriodInDays

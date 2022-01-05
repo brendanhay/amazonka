@@ -103,9 +103,13 @@ instance Core.AWSRequest PutRetentionConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRetentionConfiguration
+instance Prelude.Hashable PutRetentionConfiguration where
+  hashWithSalt _salt PutRetentionConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` retentionPeriodInDays
 
-instance Prelude.NFData PutRetentionConfiguration
+instance Prelude.NFData PutRetentionConfiguration where
+  rnf PutRetentionConfiguration' {..} =
+    Prelude.rnf retentionPeriodInDays
 
 instance Core.ToHeaders PutRetentionConfiguration where
   toHeaders =
@@ -181,3 +185,7 @@ putRetentionConfigurationResponse_httpStatus = Lens.lens (\PutRetentionConfigura
 instance
   Prelude.NFData
     PutRetentionConfigurationResponse
+  where
+  rnf PutRetentionConfigurationResponse' {..} =
+    Prelude.rnf retentionConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

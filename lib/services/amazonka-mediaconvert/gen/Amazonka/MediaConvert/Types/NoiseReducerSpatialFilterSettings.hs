@@ -98,10 +98,22 @@ instance
 instance
   Prelude.Hashable
     NoiseReducerSpatialFilterSettings
+  where
+  hashWithSalt
+    _salt
+    NoiseReducerSpatialFilterSettings' {..} =
+      _salt `Prelude.hashWithSalt` strength
+        `Prelude.hashWithSalt` postFilterSharpenStrength
+        `Prelude.hashWithSalt` speed
 
 instance
   Prelude.NFData
     NoiseReducerSpatialFilterSettings
+  where
+  rnf NoiseReducerSpatialFilterSettings' {..} =
+    Prelude.rnf strength
+      `Prelude.seq` Prelude.rnf postFilterSharpenStrength
+      `Prelude.seq` Prelude.rnf speed
 
 instance
   Core.ToJSON

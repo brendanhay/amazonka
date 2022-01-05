@@ -200,9 +200,21 @@ instance Core.FromJSON FileSourceSettings where
             Prelude.<*> (x Core..:? "sourceFile")
       )
 
-instance Prelude.Hashable FileSourceSettings
+instance Prelude.Hashable FileSourceSettings where
+  hashWithSalt _salt FileSourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` framerate
+      `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` timeDelta
+      `Prelude.hashWithSalt` timeDeltaUnits
+      `Prelude.hashWithSalt` sourceFile
 
-instance Prelude.NFData FileSourceSettings
+instance Prelude.NFData FileSourceSettings where
+  rnf FileSourceSettings' {..} =
+    Prelude.rnf framerate
+      `Prelude.seq` Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf timeDelta
+      `Prelude.seq` Prelude.rnf timeDeltaUnits
+      `Prelude.seq` Prelude.rnf sourceFile
 
 instance Core.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =

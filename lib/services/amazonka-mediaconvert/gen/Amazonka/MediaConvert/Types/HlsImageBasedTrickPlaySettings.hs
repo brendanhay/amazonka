@@ -162,10 +162,28 @@ instance Core.FromJSON HlsImageBasedTrickPlaySettings where
 instance
   Prelude.Hashable
     HlsImageBasedTrickPlaySettings
+  where
+  hashWithSalt
+    _salt
+    HlsImageBasedTrickPlaySettings' {..} =
+      _salt `Prelude.hashWithSalt` tileWidth
+        `Prelude.hashWithSalt` thumbnailHeight
+        `Prelude.hashWithSalt` intervalCadence
+        `Prelude.hashWithSalt` thumbnailWidth
+        `Prelude.hashWithSalt` thumbnailInterval
+        `Prelude.hashWithSalt` tileHeight
 
 instance
   Prelude.NFData
     HlsImageBasedTrickPlaySettings
+  where
+  rnf HlsImageBasedTrickPlaySettings' {..} =
+    Prelude.rnf tileWidth
+      `Prelude.seq` Prelude.rnf thumbnailHeight
+      `Prelude.seq` Prelude.rnf intervalCadence
+      `Prelude.seq` Prelude.rnf thumbnailWidth
+      `Prelude.seq` Prelude.rnf thumbnailInterval
+      `Prelude.seq` Prelude.rnf tileHeight
 
 instance Core.ToJSON HlsImageBasedTrickPlaySettings where
   toJSON HlsImageBasedTrickPlaySettings' {..} =

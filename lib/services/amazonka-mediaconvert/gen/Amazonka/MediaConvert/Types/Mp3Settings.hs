@@ -118,9 +118,21 @@ instance Core.FromJSON Mp3Settings where
             Prelude.<*> (x Core..:? "vbrQuality")
       )
 
-instance Prelude.Hashable Mp3Settings
+instance Prelude.Hashable Mp3Settings where
+  hashWithSalt _salt Mp3Settings' {..} =
+    _salt `Prelude.hashWithSalt` channels
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` vbrQuality
 
-instance Prelude.NFData Mp3Settings
+instance Prelude.NFData Mp3Settings where
+  rnf Mp3Settings' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf vbrQuality
 
 instance Core.ToJSON Mp3Settings where
   toJSON Mp3Settings' {..} =

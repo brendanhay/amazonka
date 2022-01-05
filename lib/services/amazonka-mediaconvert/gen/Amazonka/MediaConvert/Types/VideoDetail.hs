@@ -71,6 +71,12 @@ instance Core.FromJSON VideoDetail where
             Prelude.<*> (x Core..:? "widthInPx")
       )
 
-instance Prelude.Hashable VideoDetail
+instance Prelude.Hashable VideoDetail where
+  hashWithSalt _salt VideoDetail' {..} =
+    _salt `Prelude.hashWithSalt` heightInPx
+      `Prelude.hashWithSalt` widthInPx
 
-instance Prelude.NFData VideoDetail
+instance Prelude.NFData VideoDetail where
+  rnf VideoDetail' {..} =
+    Prelude.rnf heightInPx
+      `Prelude.seq` Prelude.rnf widthInPx

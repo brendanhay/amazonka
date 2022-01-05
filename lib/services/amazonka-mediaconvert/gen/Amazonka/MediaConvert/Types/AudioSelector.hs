@@ -258,9 +258,33 @@ instance Core.FromJSON AudioSelector where
             Prelude.<*> (x Core..:? "remixSettings")
       )
 
-instance Prelude.Hashable AudioSelector
+instance Prelude.Hashable AudioSelector where
+  hashWithSalt _salt AudioSelector' {..} =
+    _salt `Prelude.hashWithSalt` tracks
+      `Prelude.hashWithSalt` customLanguageCode
+      `Prelude.hashWithSalt` programSelection
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` defaultSelection
+      `Prelude.hashWithSalt` pids
+      `Prelude.hashWithSalt` hlsRenditionGroupSettings
+      `Prelude.hashWithSalt` selectorType
+      `Prelude.hashWithSalt` externalAudioFileInput
+      `Prelude.hashWithSalt` remixSettings
 
-instance Prelude.NFData AudioSelector
+instance Prelude.NFData AudioSelector where
+  rnf AudioSelector' {..} =
+    Prelude.rnf tracks
+      `Prelude.seq` Prelude.rnf customLanguageCode
+      `Prelude.seq` Prelude.rnf programSelection
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf defaultSelection
+      `Prelude.seq` Prelude.rnf pids
+      `Prelude.seq` Prelude.rnf hlsRenditionGroupSettings
+      `Prelude.seq` Prelude.rnf selectorType
+      `Prelude.seq` Prelude.rnf externalAudioFileInput
+      `Prelude.seq` Prelude.rnf remixSettings
 
 instance Core.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =

@@ -111,9 +111,19 @@ instance Core.FromJSON WavSettings where
             Prelude.<*> (x Core..:? "sampleRate")
       )
 
-instance Prelude.Hashable WavSettings
+instance Prelude.Hashable WavSettings where
+  hashWithSalt _salt WavSettings' {..} =
+    _salt `Prelude.hashWithSalt` bitDepth
+      `Prelude.hashWithSalt` channels
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` sampleRate
 
-instance Prelude.NFData WavSettings
+instance Prelude.NFData WavSettings where
+  rnf WavSettings' {..} =
+    Prelude.rnf bitDepth
+      `Prelude.seq` Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON WavSettings where
   toJSON WavSettings' {..} =

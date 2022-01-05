@@ -135,9 +135,17 @@ instance Core.FromJSON Deinterlacer where
             Prelude.<*> (x Core..:? "algorithm")
       )
 
-instance Prelude.Hashable Deinterlacer
+instance Prelude.Hashable Deinterlacer where
+  hashWithSalt _salt Deinterlacer' {..} =
+    _salt `Prelude.hashWithSalt` control
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` algorithm
 
-instance Prelude.NFData Deinterlacer
+instance Prelude.NFData Deinterlacer where
+  rnf Deinterlacer' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf algorithm
 
 instance Core.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =

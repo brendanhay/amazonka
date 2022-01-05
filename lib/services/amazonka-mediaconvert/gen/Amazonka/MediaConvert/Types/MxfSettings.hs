@@ -126,9 +126,17 @@ instance Core.FromJSON MxfSettings where
             Prelude.<*> (x Core..:? "profile")
       )
 
-instance Prelude.Hashable MxfSettings
+instance Prelude.Hashable MxfSettings where
+  hashWithSalt _salt MxfSettings' {..} =
+    _salt `Prelude.hashWithSalt` xavcProfileSettings
+      `Prelude.hashWithSalt` afdSignaling
+      `Prelude.hashWithSalt` profile
 
-instance Prelude.NFData MxfSettings
+instance Prelude.NFData MxfSettings where
+  rnf MxfSettings' {..} =
+    Prelude.rnf xavcProfileSettings
+      `Prelude.seq` Prelude.rnf afdSignaling
+      `Prelude.seq` Prelude.rnf profile
 
 instance Core.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =

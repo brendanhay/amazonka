@@ -528,9 +528,51 @@ instance Core.FromJSON Input where
             Prelude.<*> (x Core..:? "filterEnable")
       )
 
-instance Prelude.Hashable Input
+instance Prelude.Hashable Input where
+  hashWithSalt _salt Input' {..} =
+    _salt `Prelude.hashWithSalt` videoSelector
+      `Prelude.hashWithSalt` supplementalImps
+      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` audioSelectorGroups
+      `Prelude.hashWithSalt` timecodeSource
+      `Prelude.hashWithSalt` audioSelectors
+      `Prelude.hashWithSalt` decryptionSettings
+      `Prelude.hashWithSalt` deblockFilter
+      `Prelude.hashWithSalt` inputClippings
+      `Prelude.hashWithSalt` crop
+      `Prelude.hashWithSalt` denoiseFilter
+      `Prelude.hashWithSalt` imageInserter
+      `Prelude.hashWithSalt` filterStrength
+      `Prelude.hashWithSalt` psiControl
+      `Prelude.hashWithSalt` captionSelectors
+      `Prelude.hashWithSalt` fileInput
+      `Prelude.hashWithSalt` timecodeStart
+      `Prelude.hashWithSalt` inputScanType
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` filterEnable
 
-instance Prelude.NFData Input
+instance Prelude.NFData Input where
+  rnf Input' {..} =
+    Prelude.rnf videoSelector
+      `Prelude.seq` Prelude.rnf supplementalImps
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf audioSelectorGroups
+      `Prelude.seq` Prelude.rnf timecodeSource
+      `Prelude.seq` Prelude.rnf audioSelectors
+      `Prelude.seq` Prelude.rnf decryptionSettings
+      `Prelude.seq` Prelude.rnf deblockFilter
+      `Prelude.seq` Prelude.rnf inputClippings
+      `Prelude.seq` Prelude.rnf crop
+      `Prelude.seq` Prelude.rnf denoiseFilter
+      `Prelude.seq` Prelude.rnf imageInserter
+      `Prelude.seq` Prelude.rnf filterStrength
+      `Prelude.seq` Prelude.rnf psiControl
+      `Prelude.seq` Prelude.rnf captionSelectors
+      `Prelude.seq` Prelude.rnf fileInput
+      `Prelude.seq` Prelude.rnf timecodeStart
+      `Prelude.seq` Prelude.rnf inputScanType
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf filterEnable
 
 instance Core.ToJSON Input where
   toJSON Input' {..} =

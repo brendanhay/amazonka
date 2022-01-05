@@ -97,9 +97,19 @@ instance Core.FromJSON Rectangle where
             Prelude.<*> (x Core..:? "y")
       )
 
-instance Prelude.Hashable Rectangle
+instance Prelude.Hashable Rectangle where
+  hashWithSalt _salt Rectangle' {..} =
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` x
+      `Prelude.hashWithSalt` y
 
-instance Prelude.NFData Rectangle
+instance Prelude.NFData Rectangle where
+  rnf Rectangle' {..} =
+    Prelude.rnf height
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf x
+      `Prelude.seq` Prelude.rnf y
 
 instance Core.ToJSON Rectangle where
   toJSON Rectangle' {..} =

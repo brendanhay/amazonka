@@ -71,9 +71,14 @@ instance Core.FromJSON PartnerWatermarking where
             Prelude.<$> (x Core..:? "nexguardFileMarkerSettings")
       )
 
-instance Prelude.Hashable PartnerWatermarking
+instance Prelude.Hashable PartnerWatermarking where
+  hashWithSalt _salt PartnerWatermarking' {..} =
+    _salt
+      `Prelude.hashWithSalt` nexguardFileMarkerSettings
 
-instance Prelude.NFData PartnerWatermarking
+instance Prelude.NFData PartnerWatermarking where
+  rnf PartnerWatermarking' {..} =
+    Prelude.rnf nexguardFileMarkerSettings
 
 instance Core.ToJSON PartnerWatermarking where
   toJSON PartnerWatermarking' {..} =

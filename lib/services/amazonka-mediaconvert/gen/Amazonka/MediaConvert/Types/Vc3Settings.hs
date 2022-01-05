@@ -353,9 +353,29 @@ instance Core.FromJSON Vc3Settings where
             Prelude.<*> (x Core..:? "framerateNumerator")
       )
 
-instance Prelude.Hashable Vc3Settings
+instance Prelude.Hashable Vc3Settings where
+  hashWithSalt _salt Vc3Settings' {..} =
+    _salt `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` telecine
+      `Prelude.hashWithSalt` interlaceMode
+      `Prelude.hashWithSalt` scanTypeConversionMode
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` vc3Class
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` framerateNumerator
 
-instance Prelude.NFData Vc3Settings
+instance Prelude.NFData Vc3Settings where
+  rnf Vc3Settings' {..} =
+    Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf telecine
+      `Prelude.seq` Prelude.rnf interlaceMode
+      `Prelude.seq` Prelude.rnf scanTypeConversionMode
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf vc3Class
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf framerateNumerator
 
 instance Core.ToJSON Vc3Settings where
   toJSON Vc3Settings' {..} =

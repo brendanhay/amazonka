@@ -84,9 +84,13 @@ instance Core.FromJSON SccDestinationSettings where
             Prelude.<$> (x Core..:? "framerate")
       )
 
-instance Prelude.Hashable SccDestinationSettings
+instance Prelude.Hashable SccDestinationSettings where
+  hashWithSalt _salt SccDestinationSettings' {..} =
+    _salt `Prelude.hashWithSalt` framerate
 
-instance Prelude.NFData SccDestinationSettings
+instance Prelude.NFData SccDestinationSettings where
+  rnf SccDestinationSettings' {..} =
+    Prelude.rnf framerate
 
 instance Core.ToJSON SccDestinationSettings where
   toJSON SccDestinationSettings' {..} =

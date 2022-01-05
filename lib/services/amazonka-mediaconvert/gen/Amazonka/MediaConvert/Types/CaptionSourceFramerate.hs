@@ -97,9 +97,15 @@ instance Core.FromJSON CaptionSourceFramerate where
             Prelude.<*> (x Core..:? "framerateNumerator")
       )
 
-instance Prelude.Hashable CaptionSourceFramerate
+instance Prelude.Hashable CaptionSourceFramerate where
+  hashWithSalt _salt CaptionSourceFramerate' {..} =
+    _salt `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateNumerator
 
-instance Prelude.NFData CaptionSourceFramerate
+instance Prelude.NFData CaptionSourceFramerate where
+  rnf CaptionSourceFramerate' {..} =
+    Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateNumerator
 
 instance Core.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =

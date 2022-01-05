@@ -312,9 +312,27 @@ instance Core.FromJSON VideoSelector where
             Prelude.<*> (x Core..:? "sampleRange")
       )
 
-instance Prelude.Hashable VideoSelector
+instance Prelude.Hashable VideoSelector where
+  hashWithSalt _salt VideoSelector' {..} =
+    _salt `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` alphaBehavior
+      `Prelude.hashWithSalt` colorSpaceUsage
+      `Prelude.hashWithSalt` hdr10Metadata
+      `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` rotate
+      `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` sampleRange
 
-instance Prelude.NFData VideoSelector
+instance Prelude.NFData VideoSelector where
+  rnf VideoSelector' {..} =
+    Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf alphaBehavior
+      `Prelude.seq` Prelude.rnf colorSpaceUsage
+      `Prelude.seq` Prelude.rnf hdr10Metadata
+      `Prelude.seq` Prelude.rnf pid
+      `Prelude.seq` Prelude.rnf rotate
+      `Prelude.seq` Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf sampleRange
 
 instance Core.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =

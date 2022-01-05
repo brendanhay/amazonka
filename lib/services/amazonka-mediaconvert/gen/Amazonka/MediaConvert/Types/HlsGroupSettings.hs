@@ -621,9 +621,81 @@ instance Core.FromJSON HlsGroupSettings where
             Prelude.<*> (x Core..:? "manifestCompression")
       )
 
-instance Prelude.Hashable HlsGroupSettings
+instance Prelude.Hashable HlsGroupSettings where
+  hashWithSalt _salt HlsGroupSettings' {..} =
+    _salt `Prelude.hashWithSalt` directoryStructure
+      `Prelude.hashWithSalt` segmentControl
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` timedMetadataId3Period
+      `Prelude.hashWithSalt` targetDurationCompatibilityMode
+      `Prelude.hashWithSalt` imageBasedTrickPlay
+      `Prelude.hashWithSalt` additionalManifests
+      `Prelude.hashWithSalt` minSegmentLength
+      `Prelude.hashWithSalt` programDateTime
+      `Prelude.hashWithSalt` segmentLengthControl
+      `Prelude.hashWithSalt` imageBasedTrickPlaySettings
+      `Prelude.hashWithSalt` programDateTimePeriod
+      `Prelude.hashWithSalt` codecSpecification
+      `Prelude.hashWithSalt` captionLanguageMappings
+      `Prelude.hashWithSalt` baseUrl
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` minFinalSegmentLength
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentLength
+      `Prelude.hashWithSalt` timedMetadataId3Frame
+      `Prelude.hashWithSalt` outputSelection
+      `Prelude.hashWithSalt` captionLanguageSetting
+      `Prelude.hashWithSalt` segmentsPerSubdirectory
+      `Prelude.hashWithSalt` manifestDurationFormat
+      `Prelude.hashWithSalt` audioOnlyHeader
+      `Prelude.hashWithSalt` clientCache
+      `Prelude.hashWithSalt` timestampDeltaMilliseconds
+      `Prelude.hashWithSalt` streamInfResolution
+      `Prelude.hashWithSalt` manifestCompression
 
-instance Prelude.NFData HlsGroupSettings
+instance Prelude.NFData HlsGroupSettings where
+  rnf HlsGroupSettings' {..} =
+    Prelude.rnf directoryStructure
+      `Prelude.seq` Prelude.rnf segmentControl
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf timedMetadataId3Period
+      `Prelude.seq` Prelude.rnf targetDurationCompatibilityMode
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlay
+      `Prelude.seq` Prelude.rnf additionalManifests
+      `Prelude.seq` Prelude.rnf minSegmentLength
+      `Prelude.seq` Prelude.rnf programDateTime
+      `Prelude.seq` Prelude.rnf segmentLengthControl
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlaySettings
+      `Prelude.seq` Prelude.rnf programDateTimePeriod
+      `Prelude.seq` Prelude.rnf codecSpecification
+      `Prelude.seq` Prelude.rnf captionLanguageMappings
+      `Prelude.seq` Prelude.rnf baseUrl
+      `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf minFinalSegmentLength
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf segmentLength
+      `Prelude.seq` Prelude.rnf
+        timedMetadataId3Frame
+      `Prelude.seq` Prelude.rnf
+        outputSelection
+      `Prelude.seq` Prelude.rnf
+        captionLanguageSetting
+      `Prelude.seq` Prelude.rnf
+        segmentsPerSubdirectory
+      `Prelude.seq` Prelude.rnf
+        manifestDurationFormat
+      `Prelude.seq` Prelude.rnf
+        audioOnlyHeader
+      `Prelude.seq` Prelude.rnf
+        clientCache
+      `Prelude.seq` Prelude.rnf
+        timestampDeltaMilliseconds
+      `Prelude.seq` Prelude.rnf
+        streamInfResolution
+      `Prelude.seq` Prelude.rnf
+        manifestCompression
 
 instance Core.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =

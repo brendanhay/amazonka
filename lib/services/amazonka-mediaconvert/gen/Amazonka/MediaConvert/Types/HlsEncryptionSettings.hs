@@ -170,9 +170,25 @@ instance Core.FromJSON HlsEncryptionSettings where
             Prelude.<*> (x Core..:? "initializationVectorInManifest")
       )
 
-instance Prelude.Hashable HlsEncryptionSettings
+instance Prelude.Hashable HlsEncryptionSettings where
+  hashWithSalt _salt HlsEncryptionSettings' {..} =
+    _salt `Prelude.hashWithSalt` offlineEncrypted
+      `Prelude.hashWithSalt` encryptionMethod
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` staticKeyProvider
+      `Prelude.hashWithSalt` spekeKeyProvider
+      `Prelude.hashWithSalt` initializationVectorInManifest
 
-instance Prelude.NFData HlsEncryptionSettings
+instance Prelude.NFData HlsEncryptionSettings where
+  rnf HlsEncryptionSettings' {..} =
+    Prelude.rnf offlineEncrypted
+      `Prelude.seq` Prelude.rnf encryptionMethod
+      `Prelude.seq` Prelude.rnf constantInitializationVector
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf staticKeyProvider
+      `Prelude.seq` Prelude.rnf spekeKeyProvider
+      `Prelude.seq` Prelude.rnf initializationVectorInManifest
 
 instance Core.ToJSON HlsEncryptionSettings where
   toJSON HlsEncryptionSettings' {..} =

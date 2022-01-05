@@ -237,9 +237,33 @@ instance Core.FromJSON InsertableImage where
             Prelude.<*> (x Core..:? "fadeIn")
       )
 
-instance Prelude.Hashable InsertableImage
+instance Prelude.Hashable InsertableImage where
+  hashWithSalt _salt InsertableImage' {..} =
+    _salt `Prelude.hashWithSalt` imageX
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` fadeOut
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` opacity
+      `Prelude.hashWithSalt` layer
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` imageY
+      `Prelude.hashWithSalt` imageInserterInput
+      `Prelude.hashWithSalt` fadeIn
 
-instance Prelude.NFData InsertableImage
+instance Prelude.NFData InsertableImage where
+  rnf InsertableImage' {..} =
+    Prelude.rnf imageX
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf fadeOut
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf opacity
+      `Prelude.seq` Prelude.rnf layer
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf imageY
+      `Prelude.seq` Prelude.rnf imageInserterInput
+      `Prelude.seq` Prelude.rnf fadeIn
 
 instance Core.ToJSON InsertableImage where
   toJSON InsertableImage' {..} =

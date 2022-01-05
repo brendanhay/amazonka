@@ -107,9 +107,19 @@ instance Core.FromJSON StaticKeyProvider where
             Prelude.<*> (x Core..:? "keyFormatVersions")
       )
 
-instance Prelude.Hashable StaticKeyProvider
+instance Prelude.Hashable StaticKeyProvider where
+  hashWithSalt _salt StaticKeyProvider' {..} =
+    _salt `Prelude.hashWithSalt` staticKeyValue
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` keyFormat
+      `Prelude.hashWithSalt` keyFormatVersions
 
-instance Prelude.NFData StaticKeyProvider
+instance Prelude.NFData StaticKeyProvider where
+  rnf StaticKeyProvider' {..} =
+    Prelude.rnf staticKeyValue
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf keyFormat
+      `Prelude.seq` Prelude.rnf keyFormatVersions
 
 instance Core.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =

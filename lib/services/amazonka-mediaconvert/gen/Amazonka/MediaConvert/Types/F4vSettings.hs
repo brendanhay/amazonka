@@ -66,9 +66,12 @@ instance Core.FromJSON F4vSettings where
             Prelude.<$> (x Core..:? "moovPlacement")
       )
 
-instance Prelude.Hashable F4vSettings
+instance Prelude.Hashable F4vSettings where
+  hashWithSalt _salt F4vSettings' {..} =
+    _salt `Prelude.hashWithSalt` moovPlacement
 
-instance Prelude.NFData F4vSettings
+instance Prelude.NFData F4vSettings where
+  rnf F4vSettings' {..} = Prelude.rnf moovPlacement
 
 instance Core.ToJSON F4vSettings where
   toJSON F4vSettings' {..} =

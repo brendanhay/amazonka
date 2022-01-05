@@ -113,9 +113,15 @@ instance Core.FromJSON MxfXavcProfileSettings where
             Prelude.<*> (x Core..:? "durationMode")
       )
 
-instance Prelude.Hashable MxfXavcProfileSettings
+instance Prelude.Hashable MxfXavcProfileSettings where
+  hashWithSalt _salt MxfXavcProfileSettings' {..} =
+    _salt `Prelude.hashWithSalt` maxAncDataSize
+      `Prelude.hashWithSalt` durationMode
 
-instance Prelude.NFData MxfXavcProfileSettings
+instance Prelude.NFData MxfXavcProfileSettings where
+  rnf MxfXavcProfileSettings' {..} =
+    Prelude.rnf maxAncDataSize
+      `Prelude.seq` Prelude.rnf durationMode
 
 instance Core.ToJSON MxfXavcProfileSettings where
   toJSON MxfXavcProfileSettings' {..} =

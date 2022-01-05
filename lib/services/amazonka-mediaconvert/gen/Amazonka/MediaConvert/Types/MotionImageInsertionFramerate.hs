@@ -84,8 +84,15 @@ instance Core.FromJSON MotionImageInsertionFramerate where
 instance
   Prelude.Hashable
     MotionImageInsertionFramerate
+  where
+  hashWithSalt _salt MotionImageInsertionFramerate' {..} =
+    _salt `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateNumerator
 
-instance Prelude.NFData MotionImageInsertionFramerate
+instance Prelude.NFData MotionImageInsertionFramerate where
+  rnf MotionImageInsertionFramerate' {..} =
+    Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateNumerator
 
 instance Core.ToJSON MotionImageInsertionFramerate where
   toJSON MotionImageInsertionFramerate' {..} =

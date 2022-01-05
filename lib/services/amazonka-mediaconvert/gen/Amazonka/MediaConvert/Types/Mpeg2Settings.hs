@@ -906,9 +906,85 @@ instance Core.FromJSON Mpeg2Settings where
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
-instance Prelude.Hashable Mpeg2Settings
+instance Prelude.Hashable Mpeg2Settings where
+  hashWithSalt _salt Mpeg2Settings' {..} =
+    _salt `Prelude.hashWithSalt` qualityTuningLevel
+      `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` sceneChangeDetect
+      `Prelude.hashWithSalt` hrdBufferInitialFillPercentage
+      `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` numberBFramesBetweenReferenceFrames
+      `Prelude.hashWithSalt` gopSizeUnits
+      `Prelude.hashWithSalt` hrdBufferSize
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` telecine
+      `Prelude.hashWithSalt` intraDcPrecision
+      `Prelude.hashWithSalt` dynamicSubGop
+      `Prelude.hashWithSalt` minIInterval
+      `Prelude.hashWithSalt` interlaceMode
+      `Prelude.hashWithSalt` parControl
+      `Prelude.hashWithSalt` scanTypeConversionMode
+      `Prelude.hashWithSalt` softness
+      `Prelude.hashWithSalt` codecProfile
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` codecLevel
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` syntax
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` parDenominator
+      `Prelude.hashWithSalt` spatialAdaptiveQuantization
 
-instance Prelude.NFData Mpeg2Settings
+instance Prelude.NFData Mpeg2Settings where
+  rnf Mpeg2Settings' {..} =
+    Prelude.rnf qualityTuningLevel
+      `Prelude.seq` Prelude.rnf temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf sceneChangeDetect
+      `Prelude.seq` Prelude.rnf hrdBufferInitialFillPercentage
+      `Prelude.seq` Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf parNumerator
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
+      `Prelude.seq` Prelude.rnf gopSizeUnits
+      `Prelude.seq` Prelude.rnf hrdBufferSize
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf telecine
+      `Prelude.seq` Prelude.rnf intraDcPrecision
+      `Prelude.seq` Prelude.rnf dynamicSubGop
+      `Prelude.seq` Prelude.rnf minIInterval
+      `Prelude.seq` Prelude.rnf interlaceMode
+      `Prelude.seq` Prelude.rnf parControl
+      `Prelude.seq` Prelude.rnf scanTypeConversionMode
+      `Prelude.seq` Prelude.rnf softness
+      `Prelude.seq` Prelude.rnf codecProfile
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf
+        framerateDenominator
+      `Prelude.seq` Prelude.rnf
+        framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf codecLevel
+      `Prelude.seq` Prelude.rnf
+        framerateControl
+      `Prelude.seq` Prelude.rnf
+        adaptiveQuantization
+      `Prelude.seq` Prelude.rnf
+        framerateNumerator
+      `Prelude.seq` Prelude.rnf
+        maxBitrate
+      `Prelude.seq` Prelude.rnf
+        syntax
+      `Prelude.seq` Prelude.rnf
+        gopClosedCadence
+      `Prelude.seq` Prelude.rnf
+        parDenominator
+      `Prelude.seq` Prelude.rnf
+        spatialAdaptiveQuantization
 
 instance Core.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =

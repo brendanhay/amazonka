@@ -148,6 +148,20 @@ instance Core.FromJSON ReservationPlan where
             Prelude.<*> (x Core..:? "renewalType")
       )
 
-instance Prelude.Hashable ReservationPlan
+instance Prelude.Hashable ReservationPlan where
+  hashWithSalt _salt ReservationPlan' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` purchasedAt
+      `Prelude.hashWithSalt` commitment
+      `Prelude.hashWithSalt` reservedSlots
+      `Prelude.hashWithSalt` renewalType
 
-instance Prelude.NFData ReservationPlan
+instance Prelude.NFData ReservationPlan where
+  rnf ReservationPlan' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf purchasedAt
+      `Prelude.seq` Prelude.rnf commitment
+      `Prelude.seq` Prelude.rnf reservedSlots
+      `Prelude.seq` Prelude.rnf renewalType

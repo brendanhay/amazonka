@@ -83,9 +83,15 @@ instance Core.FromJSON Hdr10Plus where
             Prelude.<*> (x Core..:? "targetMonitorNits")
       )
 
-instance Prelude.Hashable Hdr10Plus
+instance Prelude.Hashable Hdr10Plus where
+  hashWithSalt _salt Hdr10Plus' {..} =
+    _salt `Prelude.hashWithSalt` masteringMonitorNits
+      `Prelude.hashWithSalt` targetMonitorNits
 
-instance Prelude.NFData Hdr10Plus
+instance Prelude.NFData Hdr10Plus where
+  rnf Hdr10Plus' {..} =
+    Prelude.rnf masteringMonitorNits
+      `Prelude.seq` Prelude.rnf targetMonitorNits
 
 instance Core.ToJSON Hdr10Plus where
   toJSON Hdr10Plus' {..} =

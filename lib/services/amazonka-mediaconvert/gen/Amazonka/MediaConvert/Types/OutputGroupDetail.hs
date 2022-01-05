@@ -60,6 +60,10 @@ instance Core.FromJSON OutputGroupDetail where
             Prelude.<$> (x Core..:? "outputDetails" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OutputGroupDetail
+instance Prelude.Hashable OutputGroupDetail where
+  hashWithSalt _salt OutputGroupDetail' {..} =
+    _salt `Prelude.hashWithSalt` outputDetails
 
-instance Prelude.NFData OutputGroupDetail
+instance Prelude.NFData OutputGroupDetail where
+  rnf OutputGroupDetail' {..} =
+    Prelude.rnf outputDetails

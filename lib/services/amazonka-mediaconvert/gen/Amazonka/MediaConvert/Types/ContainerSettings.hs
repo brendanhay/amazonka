@@ -198,9 +198,29 @@ instance Core.FromJSON ContainerSettings where
             Prelude.<*> (x Core..:? "f4vSettings")
       )
 
-instance Prelude.Hashable ContainerSettings
+instance Prelude.Hashable ContainerSettings where
+  hashWithSalt _salt ContainerSettings' {..} =
+    _salt `Prelude.hashWithSalt` m2tsSettings
+      `Prelude.hashWithSalt` mxfSettings
+      `Prelude.hashWithSalt` m3u8Settings
+      `Prelude.hashWithSalt` cmfcSettings
+      `Prelude.hashWithSalt` movSettings
+      `Prelude.hashWithSalt` mp4Settings
+      `Prelude.hashWithSalt` mpdSettings
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` f4vSettings
 
-instance Prelude.NFData ContainerSettings
+instance Prelude.NFData ContainerSettings where
+  rnf ContainerSettings' {..} =
+    Prelude.rnf m2tsSettings
+      `Prelude.seq` Prelude.rnf mxfSettings
+      `Prelude.seq` Prelude.rnf m3u8Settings
+      `Prelude.seq` Prelude.rnf cmfcSettings
+      `Prelude.seq` Prelude.rnf movSettings
+      `Prelude.seq` Prelude.rnf mp4Settings
+      `Prelude.seq` Prelude.rnf mpdSettings
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf f4vSettings
 
 instance Core.ToJSON ContainerSettings where
   toJSON ContainerSettings' {..} =

@@ -474,9 +474,53 @@ instance Core.FromJSON Eac3Settings where
             Prelude.<*> (x Core..:? "dialnorm")
       )
 
-instance Prelude.Hashable Eac3Settings
+instance Prelude.Hashable Eac3Settings where
+  hashWithSalt _salt Eac3Settings' {..} =
+    _salt `Prelude.hashWithSalt` stereoDownmix
+      `Prelude.hashWithSalt` loRoCenterMixLevel
+      `Prelude.hashWithSalt` ltRtCenterMixLevel
+      `Prelude.hashWithSalt` lfeFilter
+      `Prelude.hashWithSalt` dynamicRangeCompressionLine
+      `Prelude.hashWithSalt` ltRtSurroundMixLevel
+      `Prelude.hashWithSalt` metadataControl
+      `Prelude.hashWithSalt` loRoSurroundMixLevel
+      `Prelude.hashWithSalt` surroundMode
+      `Prelude.hashWithSalt` attenuationControl
+      `Prelude.hashWithSalt` passthroughControl
+      `Prelude.hashWithSalt` bitstreamMode
+      `Prelude.hashWithSalt` lfeControl
+      `Prelude.hashWithSalt` dynamicRangeCompressionRf
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` dcFilter
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` phaseControl
+      `Prelude.hashWithSalt` surroundExMode
+      `Prelude.hashWithSalt` dialnorm
 
-instance Prelude.NFData Eac3Settings
+instance Prelude.NFData Eac3Settings where
+  rnf Eac3Settings' {..} =
+    Prelude.rnf stereoDownmix
+      `Prelude.seq` Prelude.rnf loRoCenterMixLevel
+      `Prelude.seq` Prelude.rnf ltRtCenterMixLevel
+      `Prelude.seq` Prelude.rnf lfeFilter
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionLine
+      `Prelude.seq` Prelude.rnf ltRtSurroundMixLevel
+      `Prelude.seq` Prelude.rnf metadataControl
+      `Prelude.seq` Prelude.rnf loRoSurroundMixLevel
+      `Prelude.seq` Prelude.rnf surroundMode
+      `Prelude.seq` Prelude.rnf attenuationControl
+      `Prelude.seq` Prelude.rnf passthroughControl
+      `Prelude.seq` Prelude.rnf bitstreamMode
+      `Prelude.seq` Prelude.rnf lfeControl
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionRf
+      `Prelude.seq` Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf dcFilter
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf phaseControl
+      `Prelude.seq` Prelude.rnf surroundExMode
+      `Prelude.seq` Prelude.rnf dialnorm
 
 instance Core.ToJSON Eac3Settings where
   toJSON Eac3Settings' {..} =

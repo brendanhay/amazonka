@@ -318,9 +318,37 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJob
+instance Prelude.Hashable CreateJob where
+  hashWithSalt _salt CreateJob' {..} =
+    _salt `Prelude.hashWithSalt` jobTemplate
+      `Prelude.hashWithSalt` accelerationSettings
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` statusUpdateInterval
+      `Prelude.hashWithSalt` hopDestinations
+      `Prelude.hashWithSalt` simulateReservedQueue
+      `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` billingTagsSource
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData CreateJob
+instance Prelude.NFData CreateJob where
+  rnf CreateJob' {..} =
+    Prelude.rnf jobTemplate
+      `Prelude.seq` Prelude.rnf accelerationSettings
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf statusUpdateInterval
+      `Prelude.seq` Prelude.rnf hopDestinations
+      `Prelude.seq` Prelude.rnf simulateReservedQueue
+      `Prelude.seq` Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf billingTagsSource
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf settings
 
 instance Core.ToHeaders CreateJob where
   toHeaders =
@@ -409,4 +437,7 @@ createJobResponse_job = Lens.lens (\CreateJobResponse' {job} -> job) (\s@CreateJ
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
 createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance Prelude.NFData CreateJobResponse
+instance Prelude.NFData CreateJobResponse where
+  rnf CreateJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

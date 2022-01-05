@@ -351,9 +351,31 @@ instance Core.FromJSON CaptionDestinationSettings where
             Prelude.<*> (x Core..:? "imscDestinationSettings")
       )
 
-instance Prelude.Hashable CaptionDestinationSettings
+instance Prelude.Hashable CaptionDestinationSettings where
+  hashWithSalt _salt CaptionDestinationSettings' {..} =
+    _salt `Prelude.hashWithSalt` srtDestinationSettings
+      `Prelude.hashWithSalt` teletextDestinationSettings
+      `Prelude.hashWithSalt` dvbSubDestinationSettings
+      `Prelude.hashWithSalt` ttmlDestinationSettings
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` webvttDestinationSettings
+      `Prelude.hashWithSalt` embeddedDestinationSettings
+      `Prelude.hashWithSalt` sccDestinationSettings
+      `Prelude.hashWithSalt` burninDestinationSettings
+      `Prelude.hashWithSalt` imscDestinationSettings
 
-instance Prelude.NFData CaptionDestinationSettings
+instance Prelude.NFData CaptionDestinationSettings where
+  rnf CaptionDestinationSettings' {..} =
+    Prelude.rnf srtDestinationSettings
+      `Prelude.seq` Prelude.rnf teletextDestinationSettings
+      `Prelude.seq` Prelude.rnf dvbSubDestinationSettings
+      `Prelude.seq` Prelude.rnf ttmlDestinationSettings
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf webvttDestinationSettings
+      `Prelude.seq` Prelude.rnf embeddedDestinationSettings
+      `Prelude.seq` Prelude.rnf sccDestinationSettings
+      `Prelude.seq` Prelude.rnf burninDestinationSettings
+      `Prelude.seq` Prelude.rnf imscDestinationSettings
 
 instance Core.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =

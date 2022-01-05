@@ -176,9 +176,21 @@ instance Core.AWSRequest ListJobTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobTemplates
+instance Prelude.Hashable ListJobTemplates where
+  hashWithSalt _salt ListJobTemplates' {..} =
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` listBy
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListJobTemplates
+instance Prelude.NFData ListJobTemplates where
+  rnf ListJobTemplates' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf listBy
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListJobTemplates where
   toHeaders =
@@ -252,4 +264,8 @@ listJobTemplatesResponse_nextToken = Lens.lens (\ListJobTemplatesResponse' {next
 listJobTemplatesResponse_httpStatus :: Lens.Lens' ListJobTemplatesResponse Prelude.Int
 listJobTemplatesResponse_httpStatus = Lens.lens (\ListJobTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListJobTemplatesResponse' {} a -> s {httpStatus = a} :: ListJobTemplatesResponse)
 
-instance Prelude.NFData ListJobTemplatesResponse
+instance Prelude.NFData ListJobTemplatesResponse where
+  rnf ListJobTemplatesResponse' {..} =
+    Prelude.rnf jobTemplates
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

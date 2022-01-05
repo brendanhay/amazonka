@@ -123,9 +123,19 @@ instance Core.FromJSON DvbSdtSettings where
             Prelude.<*> (x Core..:? "serviceName")
       )
 
-instance Prelude.Hashable DvbSdtSettings
+instance Prelude.Hashable DvbSdtSettings where
+  hashWithSalt _salt DvbSdtSettings' {..} =
+    _salt `Prelude.hashWithSalt` sdtInterval
+      `Prelude.hashWithSalt` serviceProviderName
+      `Prelude.hashWithSalt` outputSdt
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData DvbSdtSettings
+instance Prelude.NFData DvbSdtSettings where
+  rnf DvbSdtSettings' {..} =
+    Prelude.rnf sdtInterval
+      `Prelude.seq` Prelude.rnf serviceProviderName
+      `Prelude.seq` Prelude.rnf outputSdt
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =

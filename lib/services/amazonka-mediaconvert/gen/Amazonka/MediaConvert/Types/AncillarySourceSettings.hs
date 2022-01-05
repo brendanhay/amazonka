@@ -105,9 +105,17 @@ instance Core.FromJSON AncillarySourceSettings where
             Prelude.<*> (x Core..:? "sourceAncillaryChannelNumber")
       )
 
-instance Prelude.Hashable AncillarySourceSettings
+instance Prelude.Hashable AncillarySourceSettings where
+  hashWithSalt _salt AncillarySourceSettings' {..} =
+    _salt `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` terminateCaptions
+      `Prelude.hashWithSalt` sourceAncillaryChannelNumber
 
-instance Prelude.NFData AncillarySourceSettings
+instance Prelude.NFData AncillarySourceSettings where
+  rnf AncillarySourceSettings' {..} =
+    Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf terminateCaptions
+      `Prelude.seq` Prelude.rnf sourceAncillaryChannelNumber
 
 instance Core.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =

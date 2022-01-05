@@ -160,9 +160,19 @@ instance Core.FromJSON CaptionDescriptionPreset where
             Prelude.<*> (x Core..:? "languageDescription")
       )
 
-instance Prelude.Hashable CaptionDescriptionPreset
+instance Prelude.Hashable CaptionDescriptionPreset where
+  hashWithSalt _salt CaptionDescriptionPreset' {..} =
+    _salt `Prelude.hashWithSalt` customLanguageCode
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` languageDescription
 
-instance Prelude.NFData CaptionDescriptionPreset
+instance Prelude.NFData CaptionDescriptionPreset where
+  rnf CaptionDescriptionPreset' {..} =
+    Prelude.rnf customLanguageCode
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf languageDescription
 
 instance Core.ToJSON CaptionDescriptionPreset where
   toJSON CaptionDescriptionPreset' {..} =

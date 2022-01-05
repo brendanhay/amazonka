@@ -98,9 +98,17 @@ instance Core.FromJSON DolbyVision where
             Prelude.<*> (x Core..:? "l6Metadata")
       )
 
-instance Prelude.Hashable DolbyVision
+instance Prelude.Hashable DolbyVision where
+  hashWithSalt _salt DolbyVision' {..} =
+    _salt `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` l6Mode
+      `Prelude.hashWithSalt` l6Metadata
 
-instance Prelude.NFData DolbyVision
+instance Prelude.NFData DolbyVision where
+  rnf DolbyVision' {..} =
+    Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf l6Mode
+      `Prelude.seq` Prelude.rnf l6Metadata
 
 instance Core.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =

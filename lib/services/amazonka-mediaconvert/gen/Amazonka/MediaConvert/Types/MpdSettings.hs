@@ -197,9 +197,21 @@ instance Core.FromJSON MpdSettings where
             Prelude.<*> (x Core..:? "captionContainerType")
       )
 
-instance Prelude.Hashable MpdSettings
+instance Prelude.Hashable MpdSettings where
+  hashWithSalt _salt MpdSettings' {..} =
+    _salt `Prelude.hashWithSalt` scte35Esam
+      `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` scte35Source
+      `Prelude.hashWithSalt` accessibilityCaptionHints
+      `Prelude.hashWithSalt` captionContainerType
 
-instance Prelude.NFData MpdSettings
+instance Prelude.NFData MpdSettings where
+  rnf MpdSettings' {..} =
+    Prelude.rnf scte35Esam
+      `Prelude.seq` Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf scte35Source
+      `Prelude.seq` Prelude.rnf accessibilityCaptionHints
+      `Prelude.seq` Prelude.rnf captionContainerType
 
 instance Core.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =

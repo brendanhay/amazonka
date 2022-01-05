@@ -131,6 +131,20 @@ instance Core.FromJSON Permission where
             Prelude.<*> (x Core..:? "CertificateAuthorityArn")
       )
 
-instance Prelude.Hashable Permission
+instance Prelude.Hashable Permission where
+  hashWithSalt _salt Permission' {..} =
+    _salt `Prelude.hashWithSalt` sourceAccount
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` certificateAuthorityArn
 
-instance Prelude.NFData Permission
+instance Prelude.NFData Permission where
+  rnf Permission' {..} =
+    Prelude.rnf sourceAccount
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn

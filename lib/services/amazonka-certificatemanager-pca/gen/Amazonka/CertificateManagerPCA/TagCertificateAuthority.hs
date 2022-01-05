@@ -118,9 +118,16 @@ instance Core.AWSRequest TagCertificateAuthority where
     Response.receiveNull
       TagCertificateAuthorityResponse'
 
-instance Prelude.Hashable TagCertificateAuthority
+instance Prelude.Hashable TagCertificateAuthority where
+  hashWithSalt _salt TagCertificateAuthority' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagCertificateAuthority
+instance Prelude.NFData TagCertificateAuthority where
+  rnf TagCertificateAuthority' {..} =
+    Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagCertificateAuthority where
   toHeaders =
@@ -173,3 +180,5 @@ newTagCertificateAuthorityResponse =
 instance
   Prelude.NFData
     TagCertificateAuthorityResponse
+  where
+  rnf _ = ()

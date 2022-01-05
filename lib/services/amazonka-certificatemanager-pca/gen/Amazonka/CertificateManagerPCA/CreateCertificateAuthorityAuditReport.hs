@@ -154,10 +154,23 @@ instance
 instance
   Prelude.Hashable
     CreateCertificateAuthorityAuditReport
+  where
+  hashWithSalt
+    _salt
+    CreateCertificateAuthorityAuditReport' {..} =
+      _salt
+        `Prelude.hashWithSalt` certificateAuthorityArn
+        `Prelude.hashWithSalt` s3BucketName
+        `Prelude.hashWithSalt` auditReportResponseFormat
 
 instance
   Prelude.NFData
     CreateCertificateAuthorityAuditReport
+  where
+  rnf CreateCertificateAuthorityAuditReport' {..} =
+    Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf auditReportResponseFormat
 
 instance
   Core.ToHeaders
@@ -261,3 +274,9 @@ createCertificateAuthorityAuditReportResponse_httpStatus = Lens.lens (\CreateCer
 instance
   Prelude.NFData
     CreateCertificateAuthorityAuditReportResponse
+  where
+  rnf
+    CreateCertificateAuthorityAuditReportResponse' {..} =
+      Prelude.rnf s3Key
+        `Prelude.seq` Prelude.rnf auditReportId
+        `Prelude.seq` Prelude.rnf httpStatus

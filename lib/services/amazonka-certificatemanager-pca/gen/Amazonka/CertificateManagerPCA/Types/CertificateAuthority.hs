@@ -258,6 +258,36 @@ instance Core.FromJSON CertificateAuthority where
             Prelude.<*> (x Core..:? "NotAfter")
       )
 
-instance Prelude.Hashable CertificateAuthority
+instance Prelude.Hashable CertificateAuthority where
+  hashWithSalt _salt CertificateAuthority' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` certificateAuthorityConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` serial
+      `Prelude.hashWithSalt` keyStorageSecurityStandard
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` restorableUntil
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` revocationConfiguration
+      `Prelude.hashWithSalt` lastStateChangeAt
+      `Prelude.hashWithSalt` notAfter
 
-instance Prelude.NFData CertificateAuthority
+instance Prelude.NFData CertificateAuthority where
+  rnf CertificateAuthority' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serial
+      `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf restorableUntil
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf revocationConfiguration
+      `Prelude.seq` Prelude.rnf lastStateChangeAt
+      `Prelude.seq` Prelude.rnf notAfter

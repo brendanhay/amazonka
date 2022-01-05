@@ -139,10 +139,24 @@ instance
 instance
   Prelude.Hashable
     CertificateAuthorityConfiguration
+  where
+  hashWithSalt
+    _salt
+    CertificateAuthorityConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` csrExtensions
+        `Prelude.hashWithSalt` keyAlgorithm
+        `Prelude.hashWithSalt` signingAlgorithm
+        `Prelude.hashWithSalt` subject
 
 instance
   Prelude.NFData
     CertificateAuthorityConfiguration
+  where
+  rnf CertificateAuthorityConfiguration' {..} =
+    Prelude.rnf csrExtensions
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf subject
 
 instance
   Core.ToJSON

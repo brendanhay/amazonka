@@ -244,9 +244,39 @@ instance Core.FromJSON ASN1Subject where
             Prelude.<*> (x Core..:? "DistinguishedNameQualifier")
       )
 
-instance Prelude.Hashable ASN1Subject
+instance Prelude.Hashable ASN1Subject where
+  hashWithSalt _salt ASN1Subject' {..} =
+    _salt `Prelude.hashWithSalt` givenName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` commonName
+      `Prelude.hashWithSalt` organizationalUnit
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` generationQualifier
+      `Prelude.hashWithSalt` locality
+      `Prelude.hashWithSalt` pseudonym
+      `Prelude.hashWithSalt` initials
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` organization
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` surname
+      `Prelude.hashWithSalt` distinguishedNameQualifier
 
-instance Prelude.NFData ASN1Subject
+instance Prelude.NFData ASN1Subject where
+  rnf ASN1Subject' {..} =
+    Prelude.rnf givenName
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf commonName
+      `Prelude.seq` Prelude.rnf organizationalUnit
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf generationQualifier
+      `Prelude.seq` Prelude.rnf locality
+      `Prelude.seq` Prelude.rnf pseudonym
+      `Prelude.seq` Prelude.rnf initials
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf organization
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf surname
+      `Prelude.seq` Prelude.rnf distinguishedNameQualifier
 
 instance Core.ToJSON ASN1Subject where
   toJSON ASN1Subject' {..} =

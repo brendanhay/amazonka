@@ -115,9 +115,14 @@ instance Core.AWSRequest RestoreCertificateAuthority where
     Response.receiveNull
       RestoreCertificateAuthorityResponse'
 
-instance Prelude.Hashable RestoreCertificateAuthority
+instance Prelude.Hashable RestoreCertificateAuthority where
+  hashWithSalt _salt RestoreCertificateAuthority' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
 
-instance Prelude.NFData RestoreCertificateAuthority
+instance Prelude.NFData RestoreCertificateAuthority where
+  rnf RestoreCertificateAuthority' {..} =
+    Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders RestoreCertificateAuthority where
   toHeaders =
@@ -169,3 +174,5 @@ newRestoreCertificateAuthorityResponse =
 instance
   Prelude.NFData
     RestoreCertificateAuthorityResponse
+  where
+  rnf _ = ()

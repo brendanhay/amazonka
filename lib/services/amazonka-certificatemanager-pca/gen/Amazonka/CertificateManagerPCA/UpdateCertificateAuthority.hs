@@ -142,9 +142,17 @@ instance Core.AWSRequest UpdateCertificateAuthority where
     Response.receiveNull
       UpdateCertificateAuthorityResponse'
 
-instance Prelude.Hashable UpdateCertificateAuthority
+instance Prelude.Hashable UpdateCertificateAuthority where
+  hashWithSalt _salt UpdateCertificateAuthority' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` revocationConfiguration
+      `Prelude.hashWithSalt` certificateAuthorityArn
 
-instance Prelude.NFData UpdateCertificateAuthority
+instance Prelude.NFData UpdateCertificateAuthority where
+  rnf UpdateCertificateAuthority' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf revocationConfiguration
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders UpdateCertificateAuthority where
   toHeaders =
@@ -199,3 +207,5 @@ newUpdateCertificateAuthorityResponse =
 instance
   Prelude.NFData
     UpdateCertificateAuthorityResponse
+  where
+  rnf _ = ()

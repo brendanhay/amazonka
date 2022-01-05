@@ -251,9 +251,23 @@ instance Core.AWSRequest CreateCertificateAuthority where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCertificateAuthority
+instance Prelude.Hashable CreateCertificateAuthority where
+  hashWithSalt _salt CreateCertificateAuthority' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` keyStorageSecurityStandard
+      `Prelude.hashWithSalt` revocationConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateAuthorityConfiguration
+      `Prelude.hashWithSalt` certificateAuthorityType
 
-instance Prelude.NFData CreateCertificateAuthority
+instance Prelude.NFData CreateCertificateAuthority where
+  rnf CreateCertificateAuthority' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
+      `Prelude.seq` Prelude.rnf revocationConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
+      `Prelude.seq` Prelude.rnf certificateAuthorityType
 
 instance Core.ToHeaders CreateCertificateAuthority where
   toHeaders =
@@ -349,3 +363,7 @@ createCertificateAuthorityResponse_httpStatus = Lens.lens (\CreateCertificateAut
 instance
   Prelude.NFData
     CreateCertificateAuthorityResponse
+  where
+  rnf CreateCertificateAuthorityResponse' {..} =
+    Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -115,9 +115,16 @@ instance Core.AWSRequest UntagCertificateAuthority where
     Response.receiveNull
       UntagCertificateAuthorityResponse'
 
-instance Prelude.Hashable UntagCertificateAuthority
+instance Prelude.Hashable UntagCertificateAuthority where
+  hashWithSalt _salt UntagCertificateAuthority' {..} =
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData UntagCertificateAuthority
+instance Prelude.NFData UntagCertificateAuthority where
+  rnf UntagCertificateAuthority' {..} =
+    Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders UntagCertificateAuthority where
   toHeaders =
@@ -170,3 +177,5 @@ newUntagCertificateAuthorityResponse =
 instance
   Prelude.NFData
     UntagCertificateAuthorityResponse
+  where
+  rnf _ = ()

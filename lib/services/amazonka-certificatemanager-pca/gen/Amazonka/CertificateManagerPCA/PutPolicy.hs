@@ -142,9 +142,15 @@ instance Core.AWSRequest PutPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutPolicyResponse'
 
-instance Prelude.Hashable PutPolicy
+instance Prelude.Hashable PutPolicy where
+  hashWithSalt _salt PutPolicy' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutPolicy
+instance Prelude.NFData PutPolicy where
+  rnf PutPolicy' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutPolicy where
   toHeaders =
@@ -188,4 +194,5 @@ newPutPolicyResponse ::
   PutPolicyResponse
 newPutPolicyResponse = PutPolicyResponse'
 
-instance Prelude.NFData PutPolicyResponse
+instance Prelude.NFData PutPolicyResponse where
+  rnf _ = ()

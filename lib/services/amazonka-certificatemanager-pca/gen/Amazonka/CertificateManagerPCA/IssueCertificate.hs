@@ -434,9 +434,27 @@ instance Core.AWSRequest IssueCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IssueCertificate
+instance Prelude.Hashable IssueCertificate where
+  hashWithSalt _salt IssueCertificate' {..} =
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` apiPassthrough
+      `Prelude.hashWithSalt` templateArn
+      `Prelude.hashWithSalt` validityNotBefore
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` csr
+      `Prelude.hashWithSalt` signingAlgorithm
+      `Prelude.hashWithSalt` validity
 
-instance Prelude.NFData IssueCertificate
+instance Prelude.NFData IssueCertificate where
+  rnf IssueCertificate' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf apiPassthrough
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf validityNotBefore
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf csr
+      `Prelude.seq` Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf validity
 
 instance Core.ToHeaders IssueCertificate where
   toHeaders =
@@ -529,4 +547,7 @@ issueCertificateResponse_certificateArn = Lens.lens (\IssueCertificateResponse' 
 issueCertificateResponse_httpStatus :: Lens.Lens' IssueCertificateResponse Prelude.Int
 issueCertificateResponse_httpStatus = Lens.lens (\IssueCertificateResponse' {httpStatus} -> httpStatus) (\s@IssueCertificateResponse' {} a -> s {httpStatus = a} :: IssueCertificateResponse)
 
-instance Prelude.NFData IssueCertificateResponse
+instance Prelude.NFData IssueCertificateResponse where
+  rnf IssueCertificateResponse' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf httpStatus

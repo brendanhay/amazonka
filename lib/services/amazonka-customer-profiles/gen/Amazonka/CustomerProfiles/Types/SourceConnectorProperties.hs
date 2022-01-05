@@ -105,9 +105,21 @@ sourceConnectorProperties_zendesk = Lens.lens (\SourceConnectorProperties' {zend
 sourceConnectorProperties_s3 :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe S3SourceProperties)
 sourceConnectorProperties_s3 = Lens.lens (\SourceConnectorProperties' {s3} -> s3) (\s@SourceConnectorProperties' {} a -> s {s3 = a} :: SourceConnectorProperties)
 
-instance Prelude.Hashable SourceConnectorProperties
+instance Prelude.Hashable SourceConnectorProperties where
+  hashWithSalt _salt SourceConnectorProperties' {..} =
+    _salt `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData SourceConnectorProperties
+instance Prelude.NFData SourceConnectorProperties where
+  rnf SourceConnectorProperties' {..} =
+    Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf s3
 
 instance Core.ToJSON SourceConnectorProperties where
   toJSON SourceConnectorProperties' {..} =

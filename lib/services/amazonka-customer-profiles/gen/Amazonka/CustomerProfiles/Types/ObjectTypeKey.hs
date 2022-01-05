@@ -102,9 +102,15 @@ instance Core.FromJSON ObjectTypeKey where
                         )
       )
 
-instance Prelude.Hashable ObjectTypeKey
+instance Prelude.Hashable ObjectTypeKey where
+  hashWithSalt _salt ObjectTypeKey' {..} =
+    _salt `Prelude.hashWithSalt` fieldNames
+      `Prelude.hashWithSalt` standardIdentifiers
 
-instance Prelude.NFData ObjectTypeKey
+instance Prelude.NFData ObjectTypeKey where
+  rnf ObjectTypeKey' {..} =
+    Prelude.rnf fieldNames
+      `Prelude.seq` Prelude.rnf standardIdentifiers
 
 instance Core.ToJSON ObjectTypeKey where
   toJSON ObjectTypeKey' {..} =

@@ -77,9 +77,18 @@ salesforceSourceProperties_includeDeletedRecords = Lens.lens (\SalesforceSourceP
 salesforceSourceProperties_object :: Lens.Lens' SalesforceSourceProperties Prelude.Text
 salesforceSourceProperties_object = Lens.lens (\SalesforceSourceProperties' {object'} -> object') (\s@SalesforceSourceProperties' {} a -> s {object' = a} :: SalesforceSourceProperties)
 
-instance Prelude.Hashable SalesforceSourceProperties
+instance Prelude.Hashable SalesforceSourceProperties where
+  hashWithSalt _salt SalesforceSourceProperties' {..} =
+    _salt
+      `Prelude.hashWithSalt` enableDynamicFieldUpdate
+      `Prelude.hashWithSalt` includeDeletedRecords
+      `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData SalesforceSourceProperties
+instance Prelude.NFData SalesforceSourceProperties where
+  rnf SalesforceSourceProperties' {..} =
+    Prelude.rnf enableDynamicFieldUpdate
+      `Prelude.seq` Prelude.rnf includeDeletedRecords
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =

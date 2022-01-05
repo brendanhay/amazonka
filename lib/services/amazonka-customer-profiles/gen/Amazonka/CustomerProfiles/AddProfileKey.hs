@@ -129,9 +129,19 @@ instance Core.AWSRequest AddProfileKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddProfileKey
+instance Prelude.Hashable AddProfileKey where
+  hashWithSalt _salt AddProfileKey' {..} =
+    _salt `Prelude.hashWithSalt` profileId
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData AddProfileKey
+instance Prelude.NFData AddProfileKey where
+  rnf AddProfileKey' {..} =
+    Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders AddProfileKey where
   toHeaders =
@@ -209,4 +219,8 @@ addProfileKeyResponse_keyName = Lens.lens (\AddProfileKeyResponse' {keyName} -> 
 addProfileKeyResponse_httpStatus :: Lens.Lens' AddProfileKeyResponse Prelude.Int
 addProfileKeyResponse_httpStatus = Lens.lens (\AddProfileKeyResponse' {httpStatus} -> httpStatus) (\s@AddProfileKeyResponse' {} a -> s {httpStatus = a} :: AddProfileKeyResponse)
 
-instance Prelude.NFData AddProfileKeyResponse
+instance Prelude.NFData AddProfileKeyResponse where
+  rnf AddProfileKeyResponse' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf httpStatus

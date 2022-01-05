@@ -324,9 +324,57 @@ instance Core.AWSRequest UpdateProfile where
             Prelude.<*> (x Core..:> "ProfileId")
       )
 
-instance Prelude.Hashable UpdateProfile
+instance Prelude.Hashable UpdateProfile where
+  hashWithSalt _salt UpdateProfile' {..} =
+    _salt `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` mobilePhoneNumber
+      `Prelude.hashWithSalt` mailingAddress
+      `Prelude.hashWithSalt` middleName
+      `Prelude.hashWithSalt` personalEmailAddress
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` additionalInformation
+      `Prelude.hashWithSalt` homePhoneNumber
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` businessEmailAddress
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` accountNumber
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` billingAddress
+      `Prelude.hashWithSalt` businessPhoneNumber
+      `Prelude.hashWithSalt` birthDate
+      `Prelude.hashWithSalt` businessName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` profileId
 
-instance Prelude.NFData UpdateProfile
+instance Prelude.NFData UpdateProfile where
+  rnf UpdateProfile' {..} =
+    Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf mobilePhoneNumber
+      `Prelude.seq` Prelude.rnf mailingAddress
+      `Prelude.seq` Prelude.rnf middleName
+      `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf additionalInformation
+      `Prelude.seq` Prelude.rnf homePhoneNumber
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf partyType
+      `Prelude.seq` Prelude.rnf businessEmailAddress
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf accountNumber
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf billingAddress
+      `Prelude.seq` Prelude.rnf businessPhoneNumber
+      `Prelude.seq` Prelude.rnf birthDate
+      `Prelude.seq` Prelude.rnf businessName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf profileId
 
 instance Core.ToHeaders UpdateProfile where
   toHeaders =
@@ -425,4 +473,7 @@ updateProfileResponse_httpStatus = Lens.lens (\UpdateProfileResponse' {httpStatu
 updateProfileResponse_profileId :: Lens.Lens' UpdateProfileResponse Prelude.Text
 updateProfileResponse_profileId = Lens.lens (\UpdateProfileResponse' {profileId} -> profileId) (\s@UpdateProfileResponse' {} a -> s {profileId = a} :: UpdateProfileResponse)
 
-instance Prelude.NFData UpdateProfileResponse
+instance Prelude.NFData UpdateProfileResponse where
+  rnf UpdateProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profileId

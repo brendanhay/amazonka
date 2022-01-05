@@ -108,8 +108,13 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
 instance
   Prelude.Hashable
     GetProfileObjectTypeTemplate
+  where
+  hashWithSalt _salt GetProfileObjectTypeTemplate' {..} =
+    _salt `Prelude.hashWithSalt` templateId
 
-instance Prelude.NFData GetProfileObjectTypeTemplate
+instance Prelude.NFData GetProfileObjectTypeTemplate where
+  rnf GetProfileObjectTypeTemplate' {..} =
+    Prelude.rnf templateId
 
 instance Core.ToHeaders GetProfileObjectTypeTemplate where
   toHeaders =
@@ -233,3 +238,12 @@ getProfileObjectTypeTemplateResponse_httpStatus = Lens.lens (\GetProfileObjectTy
 instance
   Prelude.NFData
     GetProfileObjectTypeTemplateResponse
+  where
+  rnf GetProfileObjectTypeTemplateResponse' {..} =
+    Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf sourceObject
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf allowProfileCreation
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf httpStatus

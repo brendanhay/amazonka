@@ -105,10 +105,20 @@ instance
 instance
   Prelude.Hashable
     ListProfileObjectTypeTemplates
+  where
+  hashWithSalt
+    _salt
+    ListProfileObjectTypeTemplates' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     ListProfileObjectTypeTemplates
+  where
+  rnf ListProfileObjectTypeTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -186,3 +196,8 @@ listProfileObjectTypeTemplatesResponse_httpStatus = Lens.lens (\ListProfileObjec
 instance
   Prelude.NFData
     ListProfileObjectTypeTemplatesResponse
+  where
+  rnf ListProfileObjectTypeTemplatesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

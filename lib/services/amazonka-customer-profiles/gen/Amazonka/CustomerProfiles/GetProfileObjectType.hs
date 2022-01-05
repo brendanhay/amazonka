@@ -120,9 +120,15 @@ instance Core.AWSRequest GetProfileObjectType where
             Prelude.<*> (x Core..:> "Description")
       )
 
-instance Prelude.Hashable GetProfileObjectType
+instance Prelude.Hashable GetProfileObjectType where
+  hashWithSalt _salt GetProfileObjectType' {..} =
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` objectTypeName
 
-instance Prelude.NFData GetProfileObjectType
+instance Prelude.NFData GetProfileObjectType where
+  rnf GetProfileObjectType' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf objectTypeName
 
 instance Core.ToHeaders GetProfileObjectType where
   toHeaders =
@@ -301,4 +307,17 @@ getProfileObjectTypeResponse_objectTypeName = Lens.lens (\GetProfileObjectTypeRe
 getProfileObjectTypeResponse_description :: Lens.Lens' GetProfileObjectTypeResponse Prelude.Text
 getProfileObjectTypeResponse_description = Lens.lens (\GetProfileObjectTypeResponse' {description} -> description) (\s@GetProfileObjectTypeResponse' {} a -> s {description = a} :: GetProfileObjectTypeResponse)
 
-instance Prelude.NFData GetProfileObjectTypeResponse
+instance Prelude.NFData GetProfileObjectTypeResponse where
+  rnf GetProfileObjectTypeResponse' {..} =
+    Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf allowProfileCreation
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf description

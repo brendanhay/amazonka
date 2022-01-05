@@ -126,9 +126,23 @@ flowDefinition_tasks = Lens.lens (\FlowDefinition' {tasks} -> tasks) (\s@FlowDef
 flowDefinition_triggerConfig :: Lens.Lens' FlowDefinition TriggerConfig
 flowDefinition_triggerConfig = Lens.lens (\FlowDefinition' {triggerConfig} -> triggerConfig) (\s@FlowDefinition' {} a -> s {triggerConfig = a} :: FlowDefinition)
 
-instance Prelude.Hashable FlowDefinition
+instance Prelude.Hashable FlowDefinition where
+  hashWithSalt _salt FlowDefinition' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` kmsArn
+      `Prelude.hashWithSalt` sourceFlowConfig
+      `Prelude.hashWithSalt` tasks
+      `Prelude.hashWithSalt` triggerConfig
 
-instance Prelude.NFData FlowDefinition
+instance Prelude.NFData FlowDefinition where
+  rnf FlowDefinition' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf kmsArn
+      `Prelude.seq` Prelude.rnf sourceFlowConfig
+      `Prelude.seq` Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf triggerConfig
 
 instance Core.ToJSON FlowDefinition where
   toJSON FlowDefinition' {..} =

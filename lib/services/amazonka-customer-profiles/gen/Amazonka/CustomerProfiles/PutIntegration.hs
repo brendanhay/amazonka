@@ -146,9 +146,21 @@ instance Core.AWSRequest PutIntegration where
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
 
-instance Prelude.Hashable PutIntegration
+instance Prelude.Hashable PutIntegration where
+  hashWithSalt _salt PutIntegration' {..} =
+    _salt `Prelude.hashWithSalt` flowDefinition
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` objectTypeName
 
-instance Prelude.NFData PutIntegration
+instance Prelude.NFData PutIntegration where
+  rnf PutIntegration' {..} =
+    Prelude.rnf flowDefinition
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf objectTypeName
 
 instance Core.ToHeaders PutIntegration where
   toHeaders =
@@ -281,4 +293,12 @@ putIntegrationResponse_createdAt = Lens.lens (\PutIntegrationResponse' {createdA
 putIntegrationResponse_lastUpdatedAt :: Lens.Lens' PutIntegrationResponse Prelude.UTCTime
 putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutIntegrationResponse' {} a -> s {lastUpdatedAt = a} :: PutIntegrationResponse) Prelude.. Core._Time
 
-instance Prelude.NFData PutIntegrationResponse
+instance Prelude.NFData PutIntegrationResponse where
+  rnf PutIntegrationResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

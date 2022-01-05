@@ -85,6 +85,14 @@ instance Core.FromJSON ListProfileObjectsItem where
             Prelude.<*> (x Core..:? "Object")
       )
 
-instance Prelude.Hashable ListProfileObjectsItem
+instance Prelude.Hashable ListProfileObjectsItem where
+  hashWithSalt _salt ListProfileObjectsItem' {..} =
+    _salt `Prelude.hashWithSalt` profileObjectUniqueKey
+      `Prelude.hashWithSalt` objectTypeName
+      `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData ListProfileObjectsItem
+instance Prelude.NFData ListProfileObjectsItem where
+  rnf ListProfileObjectsItem' {..} =
+    Prelude.rnf profileObjectUniqueKey
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf object'

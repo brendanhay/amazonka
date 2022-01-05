@@ -100,6 +100,16 @@ instance Core.FromJSON ListDomainItem where
             Prelude.<*> (x Core..: "LastUpdatedAt")
       )
 
-instance Prelude.Hashable ListDomainItem
+instance Prelude.Hashable ListDomainItem where
+  hashWithSalt _salt ListDomainItem' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
 
-instance Prelude.NFData ListDomainItem
+instance Prelude.NFData ListDomainItem where
+  rnf ListDomainItem' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

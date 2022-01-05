@@ -52,9 +52,12 @@ newMatchingRequest pEnabled_ =
 matchingRequest_enabled :: Lens.Lens' MatchingRequest Prelude.Bool
 matchingRequest_enabled = Lens.lens (\MatchingRequest' {enabled} -> enabled) (\s@MatchingRequest' {} a -> s {enabled = a} :: MatchingRequest)
 
-instance Prelude.Hashable MatchingRequest
+instance Prelude.Hashable MatchingRequest where
+  hashWithSalt _salt MatchingRequest' {..} =
+    _salt `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData MatchingRequest
+instance Prelude.NFData MatchingRequest where
+  rnf MatchingRequest' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON MatchingRequest where
   toJSON MatchingRequest' {..} =

@@ -310,9 +310,55 @@ instance Core.AWSRequest CreateProfile where
             Prelude.<*> (x Core..:> "ProfileId")
       )
 
-instance Prelude.Hashable CreateProfile
+instance Prelude.Hashable CreateProfile where
+  hashWithSalt _salt CreateProfile' {..} =
+    _salt `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` mobilePhoneNumber
+      `Prelude.hashWithSalt` mailingAddress
+      `Prelude.hashWithSalt` middleName
+      `Prelude.hashWithSalt` personalEmailAddress
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` additionalInformation
+      `Prelude.hashWithSalt` homePhoneNumber
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` businessEmailAddress
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` accountNumber
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` billingAddress
+      `Prelude.hashWithSalt` businessPhoneNumber
+      `Prelude.hashWithSalt` birthDate
+      `Prelude.hashWithSalt` businessName
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CreateProfile
+instance Prelude.NFData CreateProfile where
+  rnf CreateProfile' {..} =
+    Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf mobilePhoneNumber
+      `Prelude.seq` Prelude.rnf mailingAddress
+      `Prelude.seq` Prelude.rnf middleName
+      `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf additionalInformation
+      `Prelude.seq` Prelude.rnf homePhoneNumber
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf partyType
+      `Prelude.seq` Prelude.rnf businessEmailAddress
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf accountNumber
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf billingAddress
+      `Prelude.seq` Prelude.rnf businessPhoneNumber
+      `Prelude.seq` Prelude.rnf birthDate
+      `Prelude.seq` Prelude.rnf businessName
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CreateProfile where
   toHeaders =
@@ -410,4 +456,7 @@ createProfileResponse_httpStatus = Lens.lens (\CreateProfileResponse' {httpStatu
 createProfileResponse_profileId :: Lens.Lens' CreateProfileResponse Prelude.Text
 createProfileResponse_profileId = Lens.lens (\CreateProfileResponse' {profileId} -> profileId) (\s@CreateProfileResponse' {} a -> s {profileId = a} :: CreateProfileResponse)
 
-instance Prelude.NFData CreateProfileResponse
+instance Prelude.NFData CreateProfileResponse where
+  rnf CreateProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profileId

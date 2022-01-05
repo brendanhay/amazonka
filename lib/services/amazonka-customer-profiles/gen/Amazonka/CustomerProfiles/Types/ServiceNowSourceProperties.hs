@@ -53,9 +53,13 @@ newServiceNowSourceProperties pObject_ =
 serviceNowSourceProperties_object :: Lens.Lens' ServiceNowSourceProperties Prelude.Text
 serviceNowSourceProperties_object = Lens.lens (\ServiceNowSourceProperties' {object'} -> object') (\s@ServiceNowSourceProperties' {} a -> s {object' = a} :: ServiceNowSourceProperties)
 
-instance Prelude.Hashable ServiceNowSourceProperties
+instance Prelude.Hashable ServiceNowSourceProperties where
+  hashWithSalt _salt ServiceNowSourceProperties' {..} =
+    _salt `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData ServiceNowSourceProperties
+instance Prelude.NFData ServiceNowSourceProperties where
+  rnf ServiceNowSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON ServiceNowSourceProperties where
   toJSON ServiceNowSourceProperties' {..} =

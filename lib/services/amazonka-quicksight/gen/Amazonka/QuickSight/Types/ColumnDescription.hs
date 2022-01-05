@@ -58,9 +58,12 @@ instance Core.FromJSON ColumnDescription where
           ColumnDescription' Prelude.<$> (x Core..:? "Text")
       )
 
-instance Prelude.Hashable ColumnDescription
+instance Prelude.Hashable ColumnDescription where
+  hashWithSalt _salt ColumnDescription' {..} =
+    _salt `Prelude.hashWithSalt` text
 
-instance Prelude.NFData ColumnDescription
+instance Prelude.NFData ColumnDescription where
+  rnf ColumnDescription' {..} = Prelude.rnf text
 
 instance Core.ToJSON ColumnDescription where
   toJSON ColumnDescription' {..} =

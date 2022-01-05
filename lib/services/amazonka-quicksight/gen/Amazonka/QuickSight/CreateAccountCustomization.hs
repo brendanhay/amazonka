@@ -179,9 +179,19 @@ instance Core.AWSRequest CreateAccountCustomization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAccountCustomization
+instance Prelude.Hashable CreateAccountCustomization where
+  hashWithSalt _salt CreateAccountCustomization' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` accountCustomization
 
-instance Prelude.NFData CreateAccountCustomization
+instance Prelude.NFData CreateAccountCustomization where
+  rnf CreateAccountCustomization' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf accountCustomization
 
 instance Core.ToHeaders CreateAccountCustomization where
   toHeaders =
@@ -305,3 +315,11 @@ createAccountCustomizationResponse_status = Lens.lens (\CreateAccountCustomizati
 instance
   Prelude.NFData
     CreateAccountCustomizationResponse
+  where
+  rnf CreateAccountCustomizationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf accountCustomization
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf status

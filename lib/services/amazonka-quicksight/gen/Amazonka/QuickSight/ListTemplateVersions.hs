@@ -157,9 +157,19 @@ instance Core.AWSRequest ListTemplateVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTemplateVersions
+instance Prelude.Hashable ListTemplateVersions where
+  hashWithSalt _salt ListTemplateVersions' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` templateId
 
-instance Prelude.NFData ListTemplateVersions
+instance Prelude.NFData ListTemplateVersions where
+  rnf ListTemplateVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf templateId
 
 instance Core.ToHeaders ListTemplateVersions where
   toHeaders =
@@ -252,4 +262,9 @@ listTemplateVersionsResponse_nextToken = Lens.lens (\ListTemplateVersionsRespons
 listTemplateVersionsResponse_status :: Lens.Lens' ListTemplateVersionsResponse Prelude.Int
 listTemplateVersionsResponse_status = Lens.lens (\ListTemplateVersionsResponse' {status} -> status) (\s@ListTemplateVersionsResponse' {} a -> s {status = a} :: ListTemplateVersionsResponse)
 
-instance Prelude.NFData ListTemplateVersionsResponse
+instance Prelude.NFData ListTemplateVersionsResponse where
+  rnf ListTemplateVersionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf templateVersionSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status

@@ -225,9 +225,31 @@ instance Core.AWSRequest CreateDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSource
+instance Prelude.Hashable CreateDataSource where
+  hashWithSalt _salt CreateDataSource' {..} =
+    _salt `Prelude.hashWithSalt` dataSourceParameters
+      `Prelude.hashWithSalt` sslProperties
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` vpcConnectionProperties
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateDataSource
+instance Prelude.NFData CreateDataSource where
+  rnf CreateDataSource' {..} =
+    Prelude.rnf dataSourceParameters
+      `Prelude.seq` Prelude.rnf sslProperties
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf vpcConnectionProperties
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateDataSource where
   toHeaders =
@@ -338,4 +360,10 @@ createDataSourceResponse_dataSourceId = Lens.lens (\CreateDataSourceResponse' {d
 createDataSourceResponse_status :: Lens.Lens' CreateDataSourceResponse Prelude.Int
 createDataSourceResponse_status = Lens.lens (\CreateDataSourceResponse' {status} -> status) (\s@CreateDataSourceResponse' {} a -> s {status = a} :: CreateDataSourceResponse)
 
-instance Prelude.NFData CreateDataSourceResponse
+instance Prelude.NFData CreateDataSourceResponse where
+  rnf CreateDataSourceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf status

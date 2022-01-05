@@ -73,9 +73,14 @@ instance Core.FromJSON InputColumn where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable InputColumn
+instance Prelude.Hashable InputColumn where
+  hashWithSalt _salt InputColumn' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData InputColumn
+instance Prelude.NFData InputColumn where
+  rnf InputColumn' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON InputColumn where
   toJSON InputColumn' {..} =

@@ -87,9 +87,17 @@ instance Core.FromJSON SqlServerParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable SqlServerParameters
+instance Prelude.Hashable SqlServerParameters where
+  hashWithSalt _salt SqlServerParameters' {..} =
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData SqlServerParameters
+instance Prelude.NFData SqlServerParameters where
+  rnf SqlServerParameters' {..} =
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToJSON SqlServerParameters where
   toJSON SqlServerParameters' {..} =

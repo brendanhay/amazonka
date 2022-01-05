@@ -133,9 +133,19 @@ instance Core.AWSRequest SearchFolders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchFolders
+instance Prelude.Hashable SearchFolders where
+  hashWithSalt _salt SearchFolders' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchFolders
+instance Prelude.NFData SearchFolders where
+  rnf SearchFolders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders SearchFolders where
   toHeaders =
@@ -231,4 +241,9 @@ searchFoldersResponse_folderSummaryList = Lens.lens (\SearchFoldersResponse' {fo
 searchFoldersResponse_status :: Lens.Lens' SearchFoldersResponse Prelude.Int
 searchFoldersResponse_status = Lens.lens (\SearchFoldersResponse' {status} -> status) (\s@SearchFoldersResponse' {} a -> s {status = a} :: SearchFoldersResponse)
 
-instance Prelude.NFData SearchFoldersResponse
+instance Prelude.NFData SearchFoldersResponse where
+  rnf SearchFoldersResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf folderSummaryList
+      `Prelude.seq` Prelude.rnf status

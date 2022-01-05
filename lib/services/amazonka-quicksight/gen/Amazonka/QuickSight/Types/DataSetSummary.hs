@@ -149,6 +149,26 @@ instance Core.FromJSON DataSetSummary where
             Prelude.<*> (x Core..:? "RowLevelPermissionDataSet")
       )
 
-instance Prelude.Hashable DataSetSummary
+instance Prelude.Hashable DataSetSummary where
+  hashWithSalt _salt DataSetSummary' {..} =
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfigurationApplied
+      `Prelude.hashWithSalt` columnLevelPermissionRulesApplied
+      `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
 
-instance Prelude.NFData DataSetSummary
+instance Prelude.NFData DataSetSummary where
+  rnf DataSetSummary' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfigurationApplied
+      `Prelude.seq` Prelude.rnf columnLevelPermissionRulesApplied
+      `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet

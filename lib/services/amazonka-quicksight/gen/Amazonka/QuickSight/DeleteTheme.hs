@@ -124,9 +124,17 @@ instance Core.AWSRequest DeleteTheme where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTheme
+instance Prelude.Hashable DeleteTheme where
+  hashWithSalt _salt DeleteTheme' {..} =
+    _salt `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` themeId
 
-instance Prelude.NFData DeleteTheme
+instance Prelude.NFData DeleteTheme where
+  rnf DeleteTheme' {..} =
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf themeId
 
 instance Core.ToHeaders DeleteTheme where
   toHeaders =
@@ -209,4 +217,9 @@ deleteThemeResponse_arn = Lens.lens (\DeleteThemeResponse' {arn} -> arn) (\s@Del
 deleteThemeResponse_status :: Lens.Lens' DeleteThemeResponse Prelude.Int
 deleteThemeResponse_status = Lens.lens (\DeleteThemeResponse' {status} -> status) (\s@DeleteThemeResponse' {} a -> s {status = a} :: DeleteThemeResponse)
 
-instance Prelude.NFData DeleteThemeResponse
+instance Prelude.NFData DeleteThemeResponse where
+  rnf DeleteThemeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

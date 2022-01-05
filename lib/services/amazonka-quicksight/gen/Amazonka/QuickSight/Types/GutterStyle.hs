@@ -58,9 +58,12 @@ instance Core.FromJSON GutterStyle where
       "GutterStyle"
       (\x -> GutterStyle' Prelude.<$> (x Core..:? "Show"))
 
-instance Prelude.Hashable GutterStyle
+instance Prelude.Hashable GutterStyle where
+  hashWithSalt _salt GutterStyle' {..} =
+    _salt `Prelude.hashWithSalt` show
 
-instance Prelude.NFData GutterStyle
+instance Prelude.NFData GutterStyle where
+  rnf GutterStyle' {..} = Prelude.rnf show
 
 instance Core.ToJSON GutterStyle where
   toJSON GutterStyle' {..} =

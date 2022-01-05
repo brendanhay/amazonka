@@ -115,8 +115,15 @@ instance Core.AWSRequest DescribeDashboardPermissions where
 instance
   Prelude.Hashable
     DescribeDashboardPermissions
+  where
+  hashWithSalt _salt DescribeDashboardPermissions' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dashboardId
 
-instance Prelude.NFData DescribeDashboardPermissions
+instance Prelude.NFData DescribeDashboardPermissions where
+  rnf DescribeDashboardPermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dashboardId
 
 instance Core.ToHeaders DescribeDashboardPermissions where
   toHeaders =
@@ -211,3 +218,10 @@ describeDashboardPermissionsResponse_status = Lens.lens (\DescribeDashboardPermi
 instance
   Prelude.NFData
     DescribeDashboardPermissionsResponse
+  where
+  rnf DescribeDashboardPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf status

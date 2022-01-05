@@ -124,9 +124,17 @@ instance Core.AWSRequest DescribeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGroup
+instance Prelude.Hashable DescribeGroup where
+  hashWithSalt _salt DescribeGroup' {..} =
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData DescribeGroup
+instance Prelude.NFData DescribeGroup where
+  rnf DescribeGroup' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DescribeGroup where
   toHeaders =
@@ -200,4 +208,8 @@ describeGroupResponse_group = Lens.lens (\DescribeGroupResponse' {group'} -> gro
 describeGroupResponse_status :: Lens.Lens' DescribeGroupResponse Prelude.Int
 describeGroupResponse_status = Lens.lens (\DescribeGroupResponse' {status} -> status) (\s@DescribeGroupResponse' {} a -> s {status = a} :: DescribeGroupResponse)
 
-instance Prelude.NFData DescribeGroupResponse
+instance Prelude.NFData DescribeGroupResponse where
+  rnf DescribeGroupResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf status

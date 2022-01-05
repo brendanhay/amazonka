@@ -66,9 +66,15 @@ dataSetReference_dataSetPlaceholder = Lens.lens (\DataSetReference' {dataSetPlac
 dataSetReference_dataSetArn :: Lens.Lens' DataSetReference Prelude.Text
 dataSetReference_dataSetArn = Lens.lens (\DataSetReference' {dataSetArn} -> dataSetArn) (\s@DataSetReference' {} a -> s {dataSetArn = a} :: DataSetReference)
 
-instance Prelude.Hashable DataSetReference
+instance Prelude.Hashable DataSetReference where
+  hashWithSalt _salt DataSetReference' {..} =
+    _salt `Prelude.hashWithSalt` dataSetPlaceholder
+      `Prelude.hashWithSalt` dataSetArn
 
-instance Prelude.NFData DataSetReference
+instance Prelude.NFData DataSetReference where
+  rnf DataSetReference' {..} =
+    Prelude.rnf dataSetPlaceholder
+      `Prelude.seq` Prelude.rnf dataSetArn
 
 instance Core.ToJSON DataSetReference where
   toJSON DataSetReference' {..} =

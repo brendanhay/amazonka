@@ -84,9 +84,17 @@ analysisSearchFilter_value = Lens.lens (\AnalysisSearchFilter' {value} -> value)
 analysisSearchFilter_name :: Lens.Lens' AnalysisSearchFilter (Prelude.Maybe AnalysisFilterAttribute)
 analysisSearchFilter_name = Lens.lens (\AnalysisSearchFilter' {name} -> name) (\s@AnalysisSearchFilter' {} a -> s {name = a} :: AnalysisSearchFilter)
 
-instance Prelude.Hashable AnalysisSearchFilter
+instance Prelude.Hashable AnalysisSearchFilter where
+  hashWithSalt _salt AnalysisSearchFilter' {..} =
+    _salt `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AnalysisSearchFilter
+instance Prelude.NFData AnalysisSearchFilter where
+  rnf AnalysisSearchFilter' {..} =
+    Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AnalysisSearchFilter where
   toJSON AnalysisSearchFilter' {..} =

@@ -135,9 +135,19 @@ instance Core.AWSRequest DeleteGroupMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGroupMembership
+instance Prelude.Hashable DeleteGroupMembership where
+  hashWithSalt _salt DeleteGroupMembership' {..} =
+    _salt `Prelude.hashWithSalt` memberName
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData DeleteGroupMembership
+instance Prelude.NFData DeleteGroupMembership where
+  rnf DeleteGroupMembership' {..} =
+    Prelude.rnf memberName
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DeleteGroupMembership where
   toHeaders =
@@ -205,4 +215,7 @@ deleteGroupMembershipResponse_requestId = Lens.lens (\DeleteGroupMembershipRespo
 deleteGroupMembershipResponse_status :: Lens.Lens' DeleteGroupMembershipResponse Prelude.Int
 deleteGroupMembershipResponse_status = Lens.lens (\DeleteGroupMembershipResponse' {status} -> status) (\s@DeleteGroupMembershipResponse' {} a -> s {status = a} :: DeleteGroupMembershipResponse)
 
-instance Prelude.NFData DeleteGroupMembershipResponse
+instance Prelude.NFData DeleteGroupMembershipResponse where
+  rnf DeleteGroupMembershipResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status

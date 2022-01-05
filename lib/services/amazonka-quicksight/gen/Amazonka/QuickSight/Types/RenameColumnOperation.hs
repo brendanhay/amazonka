@@ -75,9 +75,15 @@ instance Core.FromJSON RenameColumnOperation where
             Prelude.<*> (x Core..: "NewColumnName")
       )
 
-instance Prelude.Hashable RenameColumnOperation
+instance Prelude.Hashable RenameColumnOperation where
+  hashWithSalt _salt RenameColumnOperation' {..} =
+    _salt `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` newColumnName'
 
-instance Prelude.NFData RenameColumnOperation
+instance Prelude.NFData RenameColumnOperation where
+  rnf RenameColumnOperation' {..} =
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf newColumnName'
 
 instance Core.ToJSON RenameColumnOperation where
   toJSON RenameColumnOperation' {..} =

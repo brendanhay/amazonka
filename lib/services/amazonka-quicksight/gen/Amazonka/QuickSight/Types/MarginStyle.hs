@@ -55,9 +55,12 @@ instance Core.FromJSON MarginStyle where
       "MarginStyle"
       (\x -> MarginStyle' Prelude.<$> (x Core..:? "Show"))
 
-instance Prelude.Hashable MarginStyle
+instance Prelude.Hashable MarginStyle where
+  hashWithSalt _salt MarginStyle' {..} =
+    _salt `Prelude.hashWithSalt` show
 
-instance Prelude.NFData MarginStyle
+instance Prelude.NFData MarginStyle where
+  rnf MarginStyle' {..} = Prelude.rnf show
 
 instance Core.ToJSON MarginStyle where
   toJSON MarginStyle' {..} =

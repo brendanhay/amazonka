@@ -118,8 +118,15 @@ instance
 instance
   Prelude.Hashable
     DescribeDataSourcePermissions
+  where
+  hashWithSalt _salt DescribeDataSourcePermissions' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSourceId
 
-instance Prelude.NFData DescribeDataSourcePermissions
+instance Prelude.NFData DescribeDataSourcePermissions where
+  rnf DescribeDataSourcePermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSourceId
 
 instance Core.ToHeaders DescribeDataSourcePermissions where
   toHeaders =
@@ -217,3 +224,10 @@ describeDataSourcePermissionsResponse_status = Lens.lens (\DescribeDataSourcePer
 instance
   Prelude.NFData
     DescribeDataSourcePermissionsResponse
+  where
+  rnf DescribeDataSourcePermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf dataSourceArn
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf status

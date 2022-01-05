@@ -72,6 +72,11 @@ instance Core.FromJSON AnalysisError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable AnalysisError
+instance Prelude.Hashable AnalysisError where
+  hashWithSalt _salt AnalysisError' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData AnalysisError
+instance Prelude.NFData AnalysisError where
+  rnf AnalysisError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

@@ -61,9 +61,12 @@ instance Core.FromJSON JiraParameters where
             Prelude.<$> (x Core..: "SiteBaseUrl")
       )
 
-instance Prelude.Hashable JiraParameters
+instance Prelude.Hashable JiraParameters where
+  hashWithSalt _salt JiraParameters' {..} =
+    _salt `Prelude.hashWithSalt` siteBaseUrl
 
-instance Prelude.NFData JiraParameters
+instance Prelude.NFData JiraParameters where
+  rnf JiraParameters' {..} = Prelude.rnf siteBaseUrl
 
 instance Core.ToJSON JiraParameters where
   toJSON JiraParameters' {..} =

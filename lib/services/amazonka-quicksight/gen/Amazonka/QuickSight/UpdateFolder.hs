@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFolder
+instance Prelude.Hashable UpdateFolder where
+  hashWithSalt _salt UpdateFolder' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateFolder
+instance Prelude.NFData UpdateFolder where
+  rnf UpdateFolder' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateFolder where
   toHeaders =
@@ -204,4 +212,9 @@ updateFolderResponse_folderId = Lens.lens (\UpdateFolderResponse' {folderId} -> 
 updateFolderResponse_status :: Lens.Lens' UpdateFolderResponse Prelude.Int
 updateFolderResponse_status = Lens.lens (\UpdateFolderResponse' {status} -> status) (\s@UpdateFolderResponse' {} a -> s {status = a} :: UpdateFolderResponse)
 
-instance Prelude.NFData UpdateFolderResponse
+instance Prelude.NFData UpdateFolderResponse where
+  rnf UpdateFolderResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf status

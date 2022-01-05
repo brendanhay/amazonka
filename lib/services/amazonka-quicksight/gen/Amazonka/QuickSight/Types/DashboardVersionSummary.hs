@@ -112,6 +112,20 @@ instance Core.FromJSON DashboardVersionSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable DashboardVersionSummary
+instance Prelude.Hashable DashboardVersionSummary where
+  hashWithSalt _salt DashboardVersionSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` sourceEntityArn
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData DashboardVersionSummary
+instance Prelude.NFData DashboardVersionSummary where
+  rnf DashboardVersionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf sourceEntityArn
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf description

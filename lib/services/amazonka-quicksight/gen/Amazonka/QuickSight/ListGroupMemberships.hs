@@ -147,9 +147,21 @@ instance Core.AWSRequest ListGroupMemberships where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroupMemberships
+instance Prelude.Hashable ListGroupMemberships where
+  hashWithSalt _salt ListGroupMemberships' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData ListGroupMemberships
+instance Prelude.NFData ListGroupMemberships where
+  rnf ListGroupMemberships' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders ListGroupMemberships where
   toHeaders =
@@ -238,4 +250,9 @@ listGroupMembershipsResponse_groupMemberList = Lens.lens (\ListGroupMembershipsR
 listGroupMembershipsResponse_status :: Lens.Lens' ListGroupMembershipsResponse Prelude.Int
 listGroupMembershipsResponse_status = Lens.lens (\ListGroupMembershipsResponse' {status} -> status) (\s@ListGroupMembershipsResponse' {} a -> s {status = a} :: ListGroupMembershipsResponse)
 
-instance Prelude.NFData ListGroupMembershipsResponse
+instance Prelude.NFData ListGroupMembershipsResponse where
+  rnf ListGroupMembershipsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupMemberList
+      `Prelude.seq` Prelude.rnf status

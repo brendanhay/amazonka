@@ -118,9 +118,17 @@ instance Core.AWSRequest DeleteUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser where
+  hashWithSalt _salt DeleteUser' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData DeleteUser
+instance Prelude.NFData DeleteUser where
+  rnf DeleteUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
@@ -185,4 +193,7 @@ deleteUserResponse_requestId = Lens.lens (\DeleteUserResponse' {requestId} -> re
 deleteUserResponse_status :: Lens.Lens' DeleteUserResponse Prelude.Int
 deleteUserResponse_status = Lens.lens (\DeleteUserResponse' {status} -> status) (\s@DeleteUserResponse' {} a -> s {status = a} :: DeleteUserResponse)
 
-instance Prelude.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse where
+  rnf DeleteUserResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status

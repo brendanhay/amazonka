@@ -209,9 +209,27 @@ instance Core.AWSRequest CreateTheme where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTheme
+instance Prelude.Hashable CreateTheme where
+  hashWithSalt _salt CreateTheme' {..} =
+    _salt `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` baseThemeId
+      `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData CreateTheme
+instance Prelude.NFData CreateTheme where
+  rnf CreateTheme' {..} =
+    Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf baseThemeId
+      `Prelude.seq` Prelude.rnf configuration
 
 instance Core.ToHeaders CreateTheme where
   toHeaders =
@@ -325,4 +343,11 @@ createThemeResponse_versionArn = Lens.lens (\CreateThemeResponse' {versionArn} -
 createThemeResponse_status :: Lens.Lens' CreateThemeResponse Prelude.Int
 createThemeResponse_status = Lens.lens (\CreateThemeResponse' {status} -> status) (\s@CreateThemeResponse' {} a -> s {status = a} :: CreateThemeResponse)
 
-instance Prelude.NFData CreateThemeResponse
+instance Prelude.NFData CreateThemeResponse where
+  rnf CreateThemeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf status

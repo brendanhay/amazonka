@@ -86,9 +86,17 @@ instance Core.FromJSON PhysicalTable where
             Prelude.<*> (x Core..:? "CustomSql")
       )
 
-instance Prelude.Hashable PhysicalTable
+instance Prelude.Hashable PhysicalTable where
+  hashWithSalt _salt PhysicalTable' {..} =
+    _salt `Prelude.hashWithSalt` s3Source
+      `Prelude.hashWithSalt` relationalTable
+      `Prelude.hashWithSalt` customSql
 
-instance Prelude.NFData PhysicalTable
+instance Prelude.NFData PhysicalTable where
+  rnf PhysicalTable' {..} =
+    Prelude.rnf s3Source
+      `Prelude.seq` Prelude.rnf relationalTable
+      `Prelude.seq` Prelude.rnf customSql
 
 instance Core.ToJSON PhysicalTable where
   toJSON PhysicalTable' {..} =

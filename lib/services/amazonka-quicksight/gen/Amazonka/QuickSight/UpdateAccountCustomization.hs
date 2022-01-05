@@ -138,9 +138,17 @@ instance Core.AWSRequest UpdateAccountCustomization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccountCustomization
+instance Prelude.Hashable UpdateAccountCustomization where
+  hashWithSalt _salt UpdateAccountCustomization' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` accountCustomization
 
-instance Prelude.NFData UpdateAccountCustomization
+instance Prelude.NFData UpdateAccountCustomization where
+  rnf UpdateAccountCustomization' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf accountCustomization
 
 instance Core.ToHeaders UpdateAccountCustomization where
   toHeaders =
@@ -263,3 +271,11 @@ updateAccountCustomizationResponse_status = Lens.lens (\UpdateAccountCustomizati
 instance
   Prelude.NFData
     UpdateAccountCustomizationResponse
+  where
+  rnf UpdateAccountCustomizationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf accountCustomization
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf status

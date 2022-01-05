@@ -109,9 +109,15 @@ instance Core.AWSRequest DescribeFolderPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFolderPermissions
+instance Prelude.Hashable DescribeFolderPermissions where
+  hashWithSalt _salt DescribeFolderPermissions' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` folderId
 
-instance Prelude.NFData DescribeFolderPermissions
+instance Prelude.NFData DescribeFolderPermissions where
+  rnf DescribeFolderPermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DescribeFolderPermissions where
   toHeaders =
@@ -206,3 +212,10 @@ describeFolderPermissionsResponse_status = Lens.lens (\DescribeFolderPermissions
 instance
   Prelude.NFData
     DescribeFolderPermissionsResponse
+  where
+  rnf DescribeFolderPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf status

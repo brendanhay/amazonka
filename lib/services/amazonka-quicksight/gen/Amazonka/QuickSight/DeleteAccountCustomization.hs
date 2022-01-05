@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteAccountCustomization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccountCustomization
+instance Prelude.Hashable DeleteAccountCustomization where
+  hashWithSalt _salt DeleteAccountCustomization' {..} =
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DeleteAccountCustomization
+instance Prelude.NFData DeleteAccountCustomization where
+  rnf DeleteAccountCustomization' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Core.ToHeaders DeleteAccountCustomization where
   toHeaders =
@@ -179,3 +185,7 @@ deleteAccountCustomizationResponse_status = Lens.lens (\DeleteAccountCustomizati
 instance
   Prelude.NFData
     DeleteAccountCustomizationResponse
+  where
+  rnf DeleteAccountCustomizationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status

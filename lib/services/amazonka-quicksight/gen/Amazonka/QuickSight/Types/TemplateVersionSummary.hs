@@ -102,6 +102,18 @@ instance Core.FromJSON TemplateVersionSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable TemplateVersionSummary
+instance Prelude.Hashable TemplateVersionSummary where
+  hashWithSalt _salt TemplateVersionSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData TemplateVersionSummary
+instance Prelude.NFData TemplateVersionSummary where
+  rnf TemplateVersionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf description

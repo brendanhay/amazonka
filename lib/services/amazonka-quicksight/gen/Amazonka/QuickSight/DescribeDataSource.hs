@@ -105,9 +105,15 @@ instance Core.AWSRequest DescribeDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataSource
+instance Prelude.Hashable DescribeDataSource where
+  hashWithSalt _salt DescribeDataSource' {..} =
+    _salt `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSourceId
 
-instance Prelude.NFData DescribeDataSource
+instance Prelude.NFData DescribeDataSource where
+  rnf DescribeDataSource' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSourceId
 
 instance Core.ToHeaders DescribeDataSource where
   toHeaders =
@@ -180,4 +186,8 @@ describeDataSourceResponse_dataSource = Lens.lens (\DescribeDataSourceResponse' 
 describeDataSourceResponse_status :: Lens.Lens' DescribeDataSourceResponse Prelude.Int
 describeDataSourceResponse_status = Lens.lens (\DescribeDataSourceResponse' {status} -> status) (\s@DescribeDataSourceResponse' {} a -> s {status = a} :: DescribeDataSourceResponse)
 
-instance Prelude.NFData DescribeDataSourceResponse
+instance Prelude.NFData DescribeDataSourceResponse where
+  rnf DescribeDataSourceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf status

@@ -87,9 +87,17 @@ instance Core.FromJSON SnowflakeParameters where
             Prelude.<*> (x Core..: "Warehouse")
       )
 
-instance Prelude.Hashable SnowflakeParameters
+instance Prelude.Hashable SnowflakeParameters where
+  hashWithSalt _salt SnowflakeParameters' {..} =
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` warehouse
 
-instance Prelude.NFData SnowflakeParameters
+instance Prelude.NFData SnowflakeParameters where
+  rnf SnowflakeParameters' {..} =
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf warehouse
 
 instance Core.ToJSON SnowflakeParameters where
   toJSON SnowflakeParameters' {..} =

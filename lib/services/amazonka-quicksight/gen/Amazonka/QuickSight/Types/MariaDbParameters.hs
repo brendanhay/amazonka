@@ -87,9 +87,17 @@ instance Core.FromJSON MariaDbParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable MariaDbParameters
+instance Prelude.Hashable MariaDbParameters where
+  hashWithSalt _salt MariaDbParameters' {..} =
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData MariaDbParameters
+instance Prelude.NFData MariaDbParameters where
+  rnf MariaDbParameters' {..} =
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf database
 
 instance Core.ToJSON MariaDbParameters where
   toJSON MariaDbParameters' {..} =

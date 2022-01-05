@@ -136,9 +136,26 @@ instance Core.FromJSON TransformOperation where
             Prelude.<*> (x Core..:? "RenameColumnOperation")
       )
 
-instance Prelude.Hashable TransformOperation
+instance Prelude.Hashable TransformOperation where
+  hashWithSalt _salt TransformOperation' {..} =
+    _salt
+      `Prelude.hashWithSalt` castColumnTypeOperation
+      `Prelude.hashWithSalt` tagColumnOperation
+      `Prelude.hashWithSalt` createColumnsOperation
+      `Prelude.hashWithSalt` untagColumnOperation
+      `Prelude.hashWithSalt` filterOperation
+      `Prelude.hashWithSalt` projectOperation
+      `Prelude.hashWithSalt` renameColumnOperation
 
-instance Prelude.NFData TransformOperation
+instance Prelude.NFData TransformOperation where
+  rnf TransformOperation' {..} =
+    Prelude.rnf castColumnTypeOperation
+      `Prelude.seq` Prelude.rnf tagColumnOperation
+      `Prelude.seq` Prelude.rnf createColumnsOperation
+      `Prelude.seq` Prelude.rnf untagColumnOperation
+      `Prelude.seq` Prelude.rnf filterOperation
+      `Prelude.seq` Prelude.rnf projectOperation
+      `Prelude.seq` Prelude.rnf renameColumnOperation
 
 instance Core.ToJSON TransformOperation where
   toJSON TransformOperation' {..} =

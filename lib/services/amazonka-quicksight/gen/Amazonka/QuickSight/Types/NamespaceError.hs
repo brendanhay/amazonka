@@ -72,6 +72,11 @@ instance Core.FromJSON NamespaceError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable NamespaceError
+instance Prelude.Hashable NamespaceError where
+  hashWithSalt _salt NamespaceError' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData NamespaceError
+instance Prelude.NFData NamespaceError where
+  rnf NamespaceError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

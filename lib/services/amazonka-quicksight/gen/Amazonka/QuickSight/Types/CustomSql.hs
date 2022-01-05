@@ -98,9 +98,19 @@ instance Core.FromJSON CustomSql where
             Prelude.<*> (x Core..: "SqlQuery")
       )
 
-instance Prelude.Hashable CustomSql
+instance Prelude.Hashable CustomSql where
+  hashWithSalt _salt CustomSql' {..} =
+    _salt `Prelude.hashWithSalt` columns
+      `Prelude.hashWithSalt` dataSourceArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sqlQuery
 
-instance Prelude.NFData CustomSql
+instance Prelude.NFData CustomSql where
+  rnf CustomSql' {..} =
+    Prelude.rnf columns
+      `Prelude.seq` Prelude.rnf dataSourceArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sqlQuery
 
 instance Core.ToJSON CustomSql where
   toJSON CustomSql' {..} =

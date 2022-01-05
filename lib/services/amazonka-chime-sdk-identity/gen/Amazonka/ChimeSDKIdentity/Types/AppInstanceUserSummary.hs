@@ -82,6 +82,14 @@ instance Core.FromJSON AppInstanceUserSummary where
             Prelude.<*> (x Core..:? "Metadata")
       )
 
-instance Prelude.Hashable AppInstanceUserSummary
+instance Prelude.Hashable AppInstanceUserSummary where
+  hashWithSalt _salt AppInstanceUserSummary' {..} =
+    _salt `Prelude.hashWithSalt` appInstanceUserArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metadata
 
-instance Prelude.NFData AppInstanceUserSummary
+instance Prelude.NFData AppInstanceUserSummary where
+  rnf AppInstanceUserSummary' {..} =
+    Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata

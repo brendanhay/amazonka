@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.GlobalTableDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.GlobalTableStatus
 import Amazonka.DynamoDB.Types.ReplicaDescription
 import qualified Amazonka.Lens as Lens
@@ -130,6 +131,18 @@ instance Core.FromJSON GlobalTableDescription where
                         )
       )
 
-instance Prelude.Hashable GlobalTableDescription
+instance Prelude.Hashable GlobalTableDescription where
+  hashWithSalt _salt GlobalTableDescription' {..} =
+    _salt `Prelude.hashWithSalt` globalTableStatus
+      `Prelude.hashWithSalt` globalTableName
+      `Prelude.hashWithSalt` globalTableArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` replicationGroup
 
-instance Prelude.NFData GlobalTableDescription
+instance Prelude.NFData GlobalTableDescription where
+  rnf GlobalTableDescription' {..} =
+    Prelude.rnf globalTableStatus
+      `Prelude.seq` Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf globalTableArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf replicationGroup

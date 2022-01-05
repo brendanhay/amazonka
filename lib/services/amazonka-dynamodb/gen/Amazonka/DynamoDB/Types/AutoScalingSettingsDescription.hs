@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.AutoScalingSettingsDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -115,7 +116,23 @@ instance Core.FromJSON AutoScalingSettingsDescription where
 instance
   Prelude.Hashable
     AutoScalingSettingsDescription
+  where
+  hashWithSalt
+    _salt
+    AutoScalingSettingsDescription' {..} =
+      _salt `Prelude.hashWithSalt` autoScalingDisabled
+        `Prelude.hashWithSalt` minimumUnits
+        `Prelude.hashWithSalt` maximumUnits
+        `Prelude.hashWithSalt` scalingPolicies
+        `Prelude.hashWithSalt` autoScalingRoleArn
 
 instance
   Prelude.NFData
     AutoScalingSettingsDescription
+  where
+  rnf AutoScalingSettingsDescription' {..} =
+    Prelude.rnf autoScalingDisabled
+      `Prelude.seq` Prelude.rnf minimumUnits
+      `Prelude.seq` Prelude.rnf maximumUnits
+      `Prelude.seq` Prelude.rnf scalingPolicies
+      `Prelude.seq` Prelude.rnf autoScalingRoleArn

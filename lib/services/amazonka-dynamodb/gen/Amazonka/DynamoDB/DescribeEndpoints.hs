@@ -70,9 +70,12 @@ instance Core.AWSRequest DescribeEndpoints where
             Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeEndpoints
+instance Prelude.Hashable DescribeEndpoints where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData DescribeEndpoints
+instance Prelude.NFData DescribeEndpoints where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeEndpoints where
   toHeaders =
@@ -137,4 +140,7 @@ describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {h
 describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse [Endpoint]
 describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeEndpointsResponse
+instance Prelude.NFData DescribeEndpointsResponse where
+  rnf DescribeEndpointsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpoints

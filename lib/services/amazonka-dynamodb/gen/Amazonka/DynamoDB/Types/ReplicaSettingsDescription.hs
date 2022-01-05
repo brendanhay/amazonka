@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaSettingsDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.BillingModeSummary
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
@@ -197,6 +198,26 @@ instance Core.FromJSON ReplicaSettingsDescription where
             Prelude.<*> (x Core..: "RegionName")
       )
 
-instance Prelude.Hashable ReplicaSettingsDescription
+instance Prelude.Hashable ReplicaSettingsDescription where
+  hashWithSalt _salt ReplicaSettingsDescription' {..} =
+    _salt `Prelude.hashWithSalt` replicaStatus
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
+      `Prelude.hashWithSalt` replicaProvisionedWriteCapacityUnits
+      `Prelude.hashWithSalt` replicaBillingModeSummary
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettings
+      `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData ReplicaSettingsDescription
+instance Prelude.NFData ReplicaSettingsDescription where
+  rnf ReplicaSettingsDescription' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits
+      `Prelude.seq` Prelude.rnf replicaProvisionedWriteCapacityUnits
+      `Prelude.seq` Prelude.rnf replicaBillingModeSummary
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettings
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf regionName

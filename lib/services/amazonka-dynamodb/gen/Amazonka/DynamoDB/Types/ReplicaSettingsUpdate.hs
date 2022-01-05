@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaSettingsUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
 import qualified Amazonka.Lens as Lens
@@ -105,9 +106,21 @@ replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (\Re
 replicaSettingsUpdate_regionName :: Lens.Lens' ReplicaSettingsUpdate Prelude.Text
 replicaSettingsUpdate_regionName = Lens.lens (\ReplicaSettingsUpdate' {regionName} -> regionName) (\s@ReplicaSettingsUpdate' {} a -> s {regionName = a} :: ReplicaSettingsUpdate)
 
-instance Prelude.Hashable ReplicaSettingsUpdate
+instance Prelude.Hashable ReplicaSettingsUpdate where
+  hashWithSalt _salt ReplicaSettingsUpdate' {..} =
+    _salt
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettingsUpdate
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettingsUpdate
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData ReplicaSettingsUpdate
+instance Prelude.NFData ReplicaSettingsUpdate where
+  rnf ReplicaSettingsUpdate' {..} =
+    Prelude.rnf
+      replicaProvisionedReadCapacityAutoScalingSettingsUpdate
+      `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettingsUpdate
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ExportDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ExportFormat
 import Amazonka.DynamoDB.Types.ExportStatus
 import Amazonka.DynamoDB.Types.S3SseAlgorithm
@@ -277,6 +278,46 @@ instance Core.FromJSON ExportDescription where
             Prelude.<*> (x Core..:? "S3Bucket")
       )
 
-instance Prelude.Hashable ExportDescription
+instance Prelude.Hashable ExportDescription where
+  hashWithSalt _salt ExportDescription' {..} =
+    _salt `Prelude.hashWithSalt` s3BucketOwner
+      `Prelude.hashWithSalt` exportFormat
+      `Prelude.hashWithSalt` s3SseKmsKeyId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` exportStatus
+      `Prelude.hashWithSalt` failureMessage
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` billedSizeBytes
+      `Prelude.hashWithSalt` exportArn
+      `Prelude.hashWithSalt` exportTime
+      `Prelude.hashWithSalt` s3SseAlgorithm
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` exportManifest
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` s3Bucket
 
-instance Prelude.NFData ExportDescription
+instance Prelude.NFData ExportDescription where
+  rnf ExportDescription' {..} =
+    Prelude.rnf s3BucketOwner
+      `Prelude.seq` Prelude.rnf exportFormat
+      `Prelude.seq` Prelude.rnf s3SseKmsKeyId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf billedSizeBytes
+      `Prelude.seq` Prelude.rnf exportArn
+      `Prelude.seq` Prelude.rnf exportTime
+      `Prelude.seq` Prelude.rnf s3SseAlgorithm
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf exportManifest
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf s3Bucket

@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.ExpectedAttributeValue where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ComparisonOperator
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -685,9 +685,19 @@ expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> va
 expectedAttributeValue_comparisonOperator :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe ComparisonOperator)
 expectedAttributeValue_comparisonOperator = Lens.lens (\ExpectedAttributeValue' {comparisonOperator} -> comparisonOperator) (\s@ExpectedAttributeValue' {} a -> s {comparisonOperator = a} :: ExpectedAttributeValue)
 
-instance Prelude.Hashable ExpectedAttributeValue
+instance Prelude.Hashable ExpectedAttributeValue where
+  hashWithSalt _salt ExpectedAttributeValue' {..} =
+    _salt `Prelude.hashWithSalt` attributeValueList
+      `Prelude.hashWithSalt` exists
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` comparisonOperator
 
-instance Prelude.NFData ExpectedAttributeValue
+instance Prelude.NFData ExpectedAttributeValue where
+  rnf ExpectedAttributeValue' {..} =
+    Prelude.rnf attributeValueList
+      `Prelude.seq` Prelude.rnf exists
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf comparisonOperator
 
 instance Core.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =

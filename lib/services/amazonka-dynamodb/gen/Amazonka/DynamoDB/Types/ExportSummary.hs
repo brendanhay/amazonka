@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ExportSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ExportStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -75,6 +76,12 @@ instance Core.FromJSON ExportSummary where
             Prelude.<*> (x Core..:? "ExportArn")
       )
 
-instance Prelude.Hashable ExportSummary
+instance Prelude.Hashable ExportSummary where
+  hashWithSalt _salt ExportSummary' {..} =
+    _salt `Prelude.hashWithSalt` exportStatus
+      `Prelude.hashWithSalt` exportArn
 
-instance Prelude.NFData ExportSummary
+instance Prelude.NFData ExportSummary where
+  rnf ExportSummary' {..} =
+    Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf exportArn

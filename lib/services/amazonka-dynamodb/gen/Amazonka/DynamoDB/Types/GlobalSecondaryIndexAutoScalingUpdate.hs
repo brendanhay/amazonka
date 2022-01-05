@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.GlobalSecondaryIndexAutoScalingUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -66,10 +67,22 @@ globalSecondaryIndexAutoScalingUpdate_indexName = Lens.lens (\GlobalSecondaryInd
 instance
   Prelude.Hashable
     GlobalSecondaryIndexAutoScalingUpdate
+  where
+  hashWithSalt
+    _salt
+    GlobalSecondaryIndexAutoScalingUpdate' {..} =
+      _salt
+        `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingUpdate
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     GlobalSecondaryIndexAutoScalingUpdate
+  where
+  rnf GlobalSecondaryIndexAutoScalingUpdate' {..} =
+    Prelude.rnf
+      provisionedWriteCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON

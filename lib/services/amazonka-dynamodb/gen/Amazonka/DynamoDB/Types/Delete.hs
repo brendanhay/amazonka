@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.Delete where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -114,9 +114,24 @@ delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :
 delete_tableName :: Lens.Lens' Delete Prelude.Text
 delete_tableName = Lens.lens (\Delete' {tableName} -> tableName) (\s@Delete' {} a -> s {tableName = a} :: Delete)
 
-instance Prelude.Hashable Delete
+instance Prelude.Hashable Delete where
+  hashWithSalt _salt Delete' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Delete
+instance Prelude.NFData Delete where
+  rnf Delete' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON Delete where
   toJSON Delete' {..} =

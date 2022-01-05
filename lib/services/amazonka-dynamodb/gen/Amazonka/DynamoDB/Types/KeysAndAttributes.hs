@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.KeysAndAttributes where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -272,9 +272,21 @@ instance Core.FromJSON KeysAndAttributes where
             Prelude.<*> (x Core..: "Keys")
       )
 
-instance Prelude.Hashable KeysAndAttributes
+instance Prelude.Hashable KeysAndAttributes where
+  hashWithSalt _salt KeysAndAttributes' {..} =
+    _salt `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` keys
 
-instance Prelude.NFData KeysAndAttributes
+instance Prelude.NFData KeysAndAttributes where
+  rnf KeysAndAttributes' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf keys
 
 instance Core.ToJSON KeysAndAttributes where
   toJSON KeysAndAttributes' {..} =

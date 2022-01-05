@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.GlobalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
@@ -161,9 +162,19 @@ globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -
 globalSecondaryIndex_projection :: Lens.Lens' GlobalSecondaryIndex Projection
 globalSecondaryIndex_projection = Lens.lens (\GlobalSecondaryIndex' {projection} -> projection) (\s@GlobalSecondaryIndex' {} a -> s {projection = a} :: GlobalSecondaryIndex)
 
-instance Prelude.Hashable GlobalSecondaryIndex
+instance Prelude.Hashable GlobalSecondaryIndex where
+  hashWithSalt _salt GlobalSecondaryIndex' {..} =
+    _salt `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` projection
 
-instance Prelude.NFData GlobalSecondaryIndex
+instance Prelude.NFData GlobalSecondaryIndex where
+  rnf GlobalSecondaryIndex' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
 
 instance Core.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =

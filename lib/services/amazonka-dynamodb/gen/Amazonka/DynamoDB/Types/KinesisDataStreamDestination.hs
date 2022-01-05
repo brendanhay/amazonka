@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.KinesisDataStreamDestination where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.DestinationStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -87,5 +88,14 @@ instance Core.FromJSON KinesisDataStreamDestination where
 instance
   Prelude.Hashable
     KinesisDataStreamDestination
+  where
+  hashWithSalt _salt KinesisDataStreamDestination' {..} =
+    _salt `Prelude.hashWithSalt` destinationStatus
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` destinationStatusDescription
 
-instance Prelude.NFData KinesisDataStreamDestination
+instance Prelude.NFData KinesisDataStreamDestination where
+  rnf KinesisDataStreamDestination' {..} =
+    Prelude.rnf destinationStatus
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf destinationStatusDescription

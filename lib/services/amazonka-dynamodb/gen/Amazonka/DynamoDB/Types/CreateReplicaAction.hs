@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.CreateReplicaAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,9 +53,12 @@ newCreateReplicaAction pRegionName_ =
 createReplicaAction_regionName :: Lens.Lens' CreateReplicaAction Prelude.Text
 createReplicaAction_regionName = Lens.lens (\CreateReplicaAction' {regionName} -> regionName) (\s@CreateReplicaAction' {} a -> s {regionName = a} :: CreateReplicaAction)
 
-instance Prelude.Hashable CreateReplicaAction
+instance Prelude.Hashable CreateReplicaAction where
+  hashWithSalt _salt CreateReplicaAction' {..} =
+    _salt `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData CreateReplicaAction
+instance Prelude.NFData CreateReplicaAction where
+  rnf CreateReplicaAction' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON CreateReplicaAction where
   toJSON CreateReplicaAction' {..} =

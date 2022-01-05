@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ConsumedCapacity where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.Capacity
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -141,6 +142,22 @@ instance Core.FromJSON ConsumedCapacity where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable ConsumedCapacity
+instance Prelude.Hashable ConsumedCapacity where
+  hashWithSalt _salt ConsumedCapacity' {..} =
+    _salt `Prelude.hashWithSalt` readCapacityUnits
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` capacityUnits
+      `Prelude.hashWithSalt` writeCapacityUnits
+      `Prelude.hashWithSalt` localSecondaryIndexes
+      `Prelude.hashWithSalt` table
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData ConsumedCapacity
+instance Prelude.NFData ConsumedCapacity where
+  rnf ConsumedCapacity' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf capacityUnits
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
+      `Prelude.seq` Prelude.rnf localSecondaryIndexes
+      `Prelude.seq` Prelude.rnf table
+      `Prelude.seq` Prelude.rnf tableName

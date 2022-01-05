@@ -27,6 +27,7 @@ module Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype PointInTimeRecoveryStatus = PointInTimeRecoveryStatus'

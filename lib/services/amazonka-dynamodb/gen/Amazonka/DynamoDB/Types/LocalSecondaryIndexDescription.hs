@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.LocalSecondaryIndexDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import qualified Amazonka.Lens as Lens
@@ -180,7 +181,25 @@ instance Core.FromJSON LocalSecondaryIndexDescription where
 instance
   Prelude.Hashable
     LocalSecondaryIndexDescription
+  where
+  hashWithSalt
+    _salt
+    LocalSecondaryIndexDescription' {..} =
+      _salt `Prelude.hashWithSalt` indexSizeBytes
+        `Prelude.hashWithSalt` indexArn
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` itemCount
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     LocalSecondaryIndexDescription
+  where
+  rnf LocalSecondaryIndexDescription' {..} =
+    Prelude.rnf indexSizeBytes
+      `Prelude.seq` Prelude.rnf indexArn
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf indexName

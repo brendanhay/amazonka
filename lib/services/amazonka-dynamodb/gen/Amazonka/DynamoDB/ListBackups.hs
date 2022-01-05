@@ -213,9 +213,23 @@ instance Core.AWSRequest ListBackups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBackups
+instance Prelude.Hashable ListBackups where
+  hashWithSalt _salt ListBackups' {..} =
+    _salt `Prelude.hashWithSalt` timeRangeUpperBound
+      `Prelude.hashWithSalt` timeRangeLowerBound
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartBackupArn
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData ListBackups
+instance Prelude.NFData ListBackups where
+  rnf ListBackups' {..} =
+    Prelude.rnf timeRangeUpperBound
+      `Prelude.seq` Prelude.rnf timeRangeLowerBound
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartBackupArn
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders ListBackups where
   toHeaders =
@@ -335,4 +349,8 @@ listBackupsResponse_lastEvaluatedBackupArn = Lens.lens (\ListBackupsResponse' {l
 listBackupsResponse_httpStatus :: Lens.Lens' ListBackupsResponse Prelude.Int
 listBackupsResponse_httpStatus = Lens.lens (\ListBackupsResponse' {httpStatus} -> httpStatus) (\s@ListBackupsResponse' {} a -> s {httpStatus = a} :: ListBackupsResponse)
 
-instance Prelude.NFData ListBackupsResponse
+instance Prelude.NFData ListBackupsResponse where
+  rnf ListBackupsResponse' {..} =
+    Prelude.rnf backupSummaries
+      `Prelude.seq` Prelude.rnf lastEvaluatedBackupArn
+      `Prelude.seq` Prelude.rnf httpStatus

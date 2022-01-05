@@ -487,9 +487,32 @@ instance Core.AWSRequest DeleteItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteItem
+instance Prelude.Hashable DeleteItem where
+  hashWithSalt _salt DeleteItem' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` returnValues
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` expected
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData DeleteItem
+instance Prelude.NFData DeleteItem where
+  rnf DeleteItem' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf returnValues
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf expected
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders DeleteItem where
   toHeaders =
@@ -684,4 +707,9 @@ deleteItemResponse_attributes = Lens.lens (\DeleteItemResponse' {attributes} -> 
 deleteItemResponse_httpStatus :: Lens.Lens' DeleteItemResponse Prelude.Int
 deleteItemResponse_httpStatus = Lens.lens (\DeleteItemResponse' {httpStatus} -> httpStatus) (\s@DeleteItemResponse' {} a -> s {httpStatus = a} :: DeleteItemResponse)
 
-instance Prelude.NFData DeleteItemResponse
+instance Prelude.NFData DeleteItemResponse where
+  rnf DeleteItemResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

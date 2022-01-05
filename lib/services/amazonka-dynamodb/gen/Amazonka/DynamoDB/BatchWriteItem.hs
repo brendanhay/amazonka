@@ -115,8 +115,8 @@ module Amazonka.DynamoDB.BatchWriteItem
     -- * Response Lenses
     batchWriteItemResponse_itemCollectionMetrics,
     batchWriteItemResponse_consumedCapacity,
-    batchWriteItemResponse_unprocessedItems,
     batchWriteItemResponse_httpStatus,
+    batchWriteItemResponse_unprocessedItems,
   )
 where
 
@@ -279,15 +279,23 @@ instance Core.AWSRequest BatchWriteItem where
             Prelude.<*> ( x Core..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..?> "UnprocessedItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchWriteItem
+instance Prelude.Hashable BatchWriteItem where
+  hashWithSalt _salt BatchWriteItem' {..} =
+    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` requestItems
 
-instance Prelude.NFData BatchWriteItem
+instance Prelude.NFData BatchWriteItem where
+  rnf BatchWriteItem' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf requestItems
 
 instance Core.ToHeaders BatchWriteItem where
   toHeaders =
@@ -354,6 +362,8 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     -- -   @CapacityUnits@ - The total number of capacity units consumed.
     consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
     -- | A map of tables and requests against those tables that were not
     -- processed. The @UnprocessedItems@ value is in the same form as
     -- @RequestItems@, so you can provide this value directly to a subsequent
@@ -387,9 +397,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     -- If there are no unprocessed items remaining, the response contains an
     -- empty @UnprocessedItems@ map.
-    unprocessedItems :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)),
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    unprocessedItems :: Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -429,6 +437,8 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 --
 -- -   @CapacityUnits@ - The total number of capacity units consumed.
 --
+-- 'httpStatus', 'batchWriteItemResponse_httpStatus' - The response's http status code.
+--
 -- 'unprocessedItems', 'batchWriteItemResponse_unprocessedItems' - A map of tables and requests against those tables that were not
 -- processed. The @UnprocessedItems@ value is in the same form as
 -- @RequestItems@, so you can provide this value directly to a subsequent
@@ -462,8 +472,6 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty @UnprocessedItems@ map.
---
--- 'httpStatus', 'batchWriteItemResponse_httpStatus' - The response's http status code.
 newBatchWriteItemResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -473,8 +481,8 @@ newBatchWriteItemResponse pHttpStatus_ =
     { itemCollectionMetrics =
         Prelude.Nothing,
       consumedCapacity = Prelude.Nothing,
-      unprocessedItems = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+      httpStatus = pHttpStatus_,
+      unprocessedItems = Prelude.mempty
     }
 
 -- | A list of tables that were processed by @BatchWriteItem@ and, for each
@@ -509,6 +517,10 @@ batchWriteItemResponse_itemCollectionMetrics = Lens.lens (\BatchWriteItemRespons
 batchWriteItemResponse_consumedCapacity :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe [ConsumedCapacity])
 batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchWriteItemResponse' {} a -> s {consumedCapacity = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The response's http status code.
+batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Prelude.Int
+batchWriteItemResponse_httpStatus = Lens.lens (\BatchWriteItemResponse' {httpStatus} -> httpStatus) (\s@BatchWriteItemResponse' {} a -> s {httpStatus = a} :: BatchWriteItemResponse)
+
 -- | A map of tables and requests against those tables that were not
 -- processed. The @UnprocessedItems@ value is in the same form as
 -- @RequestItems@, so you can provide this value directly to a subsequent
@@ -542,11 +554,12 @@ batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {c
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty @UnprocessedItems@ map.
-batchWriteItemResponse_unprocessedItems :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)))
-batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {unprocessedItems} -> unprocessedItems) (\s@BatchWriteItemResponse' {} a -> s {unprocessedItems = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Lens.coerced
+batchWriteItemResponse_unprocessedItems :: Lens.Lens' BatchWriteItemResponse (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest))
+batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {unprocessedItems} -> unprocessedItems) (\s@BatchWriteItemResponse' {} a -> s {unprocessedItems = a} :: BatchWriteItemResponse) Prelude.. Lens.coerced
 
--- | The response's http status code.
-batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Prelude.Int
-batchWriteItemResponse_httpStatus = Lens.lens (\BatchWriteItemResponse' {httpStatus} -> httpStatus) (\s@BatchWriteItemResponse' {} a -> s {httpStatus = a} :: BatchWriteItemResponse)
-
-instance Prelude.NFData BatchWriteItemResponse
+instance Prelude.NFData BatchWriteItemResponse where
+  rnf BatchWriteItemResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedItems

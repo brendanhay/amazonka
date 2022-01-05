@@ -71,6 +71,7 @@ library
     Amazonka.DynamoDB.ExecuteTransaction
     Amazonka.DynamoDB.ExportTableToPointInTime
     Amazonka.DynamoDB.GetItem
+    Amazonka.DynamoDB.Internal
     Amazonka.DynamoDB.Lens
     Amazonka.DynamoDB.ListBackups
     Amazonka.DynamoDB.ListContributorInsights
@@ -90,7 +91,6 @@ library
     Amazonka.DynamoDB.Types.ArchivalSummary
     Amazonka.DynamoDB.Types.AttributeAction
     Amazonka.DynamoDB.Types.AttributeDefinition
-    Amazonka.DynamoDB.Types.AttributeValue
     Amazonka.DynamoDB.Types.AttributeValueUpdate
     Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
     Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
@@ -226,8 +226,13 @@ library
     Amazonka.DynamoDB.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
-    , base           >=4.12 && <5
+    , aeson
+    , amazonka-core         ^>=2.0
+    , base                  >=4.12    && <5
+    , containers
+    , hashable              >=1.3.4.0 && <1.5
+    , unordered-containers
+    , vector
 
 test-suite amazonka-dynamodb-test
   type:             exitcode-stdio-1.0

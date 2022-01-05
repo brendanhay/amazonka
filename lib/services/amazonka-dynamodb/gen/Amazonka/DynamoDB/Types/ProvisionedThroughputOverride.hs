@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ProvisionedThroughputOverride where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,8 +70,13 @@ instance Core.FromJSON ProvisionedThroughputOverride where
 instance
   Prelude.Hashable
     ProvisionedThroughputOverride
+  where
+  hashWithSalt _salt ProvisionedThroughputOverride' {..} =
+    _salt `Prelude.hashWithSalt` readCapacityUnits
 
-instance Prelude.NFData ProvisionedThroughputOverride
+instance Prelude.NFData ProvisionedThroughputOverride where
+  rnf ProvisionedThroughputOverride' {..} =
+    Prelude.rnf readCapacityUnits
 
 instance Core.ToJSON ProvisionedThroughputOverride where
   toJSON ProvisionedThroughputOverride' {..} =

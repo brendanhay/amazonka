@@ -48,8 +48,8 @@ module Amazonka.DynamoDB.GetItem
 
     -- * Response Lenses
     getItemResponse_consumedCapacity,
-    getItemResponse_item,
     getItemResponse_httpStatus,
+    getItemResponse_item,
   )
 where
 
@@ -323,13 +323,29 @@ instance Core.AWSRequest GetItem where
       ( \s h x ->
           GetItemResponse'
             Prelude.<$> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "Item" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Item" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetItem
+instance Prelude.Hashable GetItem where
+  hashWithSalt _salt GetItem' {..} =
+    _salt `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GetItem
+instance Prelude.NFData GetItem where
+  rnf GetItem' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetItem where
   toHeaders =
@@ -381,11 +397,11 @@ data GetItemResponse = GetItemResponse'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
     -- | A map of attribute names to @AttributeValue@ objects, as specified by
     -- @ProjectionExpression@.
-    item :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    item :: Prelude.HashMap Prelude.Text AttributeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -405,10 +421,10 @@ data GetItemResponse = GetItemResponse'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'httpStatus', 'getItemResponse_httpStatus' - The response's http status code.
+--
 -- 'item', 'getItemResponse_item' - A map of attribute names to @AttributeValue@ objects, as specified by
 -- @ProjectionExpression@.
---
--- 'httpStatus', 'getItemResponse_httpStatus' - The response's http status code.
 newGetItemResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -417,8 +433,8 @@ newGetItemResponse pHttpStatus_ =
   GetItemResponse'
     { consumedCapacity =
         Prelude.Nothing,
-      item = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+      httpStatus = pHttpStatus_,
+      item = Prelude.mempty
     }
 
 -- | The capacity units consumed by the @GetItem@ operation. The data
@@ -431,13 +447,17 @@ newGetItemResponse pHttpStatus_ =
 getItemResponse_consumedCapacity :: Lens.Lens' GetItemResponse (Prelude.Maybe ConsumedCapacity)
 getItemResponse_consumedCapacity = Lens.lens (\GetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@GetItemResponse' {} a -> s {consumedCapacity = a} :: GetItemResponse)
 
--- | A map of attribute names to @AttributeValue@ objects, as specified by
--- @ProjectionExpression@.
-getItemResponse_item :: Lens.Lens' GetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemResponse' {} a -> s {item = a} :: GetItemResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getItemResponse_httpStatus :: Lens.Lens' GetItemResponse Prelude.Int
 getItemResponse_httpStatus = Lens.lens (\GetItemResponse' {httpStatus} -> httpStatus) (\s@GetItemResponse' {} a -> s {httpStatus = a} :: GetItemResponse)
 
-instance Prelude.NFData GetItemResponse
+-- | A map of attribute names to @AttributeValue@ objects, as specified by
+-- @ProjectionExpression@.
+getItemResponse_item :: Lens.Lens' GetItemResponse (Prelude.HashMap Prelude.Text AttributeValue)
+getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemResponse' {} a -> s {item = a} :: GetItemResponse) Prelude.. Lens.coerced
+
+instance Prelude.NFData GetItemResponse where
+  rnf GetItemResponse' {..} =
+    Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf item

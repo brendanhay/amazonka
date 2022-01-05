@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
 import qualified Amazonka.Lens as Lens
@@ -104,10 +105,24 @@ createReplicationGroupMemberAction_regionName = Lens.lens (\CreateReplicationGro
 instance
   Prelude.Hashable
     CreateReplicationGroupMemberAction
+  where
+  hashWithSalt
+    _salt
+    CreateReplicationGroupMemberAction' {..} =
+      _salt `Prelude.hashWithSalt` kmsMasterKeyId
+        `Prelude.hashWithSalt` provisionedThroughputOverride
+        `Prelude.hashWithSalt` globalSecondaryIndexes
+        `Prelude.hashWithSalt` regionName
 
 instance
   Prelude.NFData
     CreateReplicationGroupMemberAction
+  where
+  rnf CreateReplicationGroupMemberAction' {..} =
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf regionName
 
 instance
   Core.ToJSON

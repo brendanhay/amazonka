@@ -260,9 +260,19 @@ instance Core.AWSRequest TransactWriteItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TransactWriteItems
+instance Prelude.Hashable TransactWriteItems where
+  hashWithSalt _salt TransactWriteItems' {..} =
+    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` transactItems
 
-instance Prelude.NFData TransactWriteItems
+instance Prelude.NFData TransactWriteItems where
+  rnf TransactWriteItems' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf transactItems
 
 instance Core.ToHeaders TransactWriteItems where
   toHeaders =
@@ -360,4 +370,8 @@ transactWriteItemsResponse_consumedCapacity = Lens.lens (\TransactWriteItemsResp
 transactWriteItemsResponse_httpStatus :: Lens.Lens' TransactWriteItemsResponse Prelude.Int
 transactWriteItemsResponse_httpStatus = Lens.lens (\TransactWriteItemsResponse' {httpStatus} -> httpStatus) (\s@TransactWriteItemsResponse' {} a -> s {httpStatus = a} :: TransactWriteItemsResponse)
 
-instance Prelude.NFData TransactWriteItemsResponse
+instance Prelude.NFData TransactWriteItemsResponse where
+  rnf TransactWriteItemsResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.ItemCollectionMetrics where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,6 +107,12 @@ instance Core.FromJSON ItemCollectionMetrics where
                         )
       )
 
-instance Prelude.Hashable ItemCollectionMetrics
+instance Prelude.Hashable ItemCollectionMetrics where
+  hashWithSalt _salt ItemCollectionMetrics' {..} =
+    _salt `Prelude.hashWithSalt` itemCollectionKey
+      `Prelude.hashWithSalt` sizeEstimateRangeGB
 
-instance Prelude.NFData ItemCollectionMetrics
+instance Prelude.NFData ItemCollectionMetrics where
+  rnf ItemCollectionMetrics' {..} =
+    Prelude.rnf itemCollectionKey
+      `Prelude.seq` Prelude.rnf sizeEstimateRangeGB

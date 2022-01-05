@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeGlobalTableSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGlobalTableSettings
+instance Prelude.Hashable DescribeGlobalTableSettings where
+  hashWithSalt _salt DescribeGlobalTableSettings' {..} =
+    _salt `Prelude.hashWithSalt` globalTableName
 
-instance Prelude.NFData DescribeGlobalTableSettings
+instance Prelude.NFData DescribeGlobalTableSettings where
+  rnf DescribeGlobalTableSettings' {..} =
+    Prelude.rnf globalTableName
 
 instance Core.ToHeaders DescribeGlobalTableSettings where
   toHeaders =
@@ -182,3 +186,8 @@ describeGlobalTableSettingsResponse_httpStatus = Lens.lens (\DescribeGlobalTable
 instance
   Prelude.NFData
     DescribeGlobalTableSettingsResponse
+  where
+  rnf DescribeGlobalTableSettingsResponse' {..} =
+    Prelude.rnf replicaSettings
+      `Prelude.seq` Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf httpStatus

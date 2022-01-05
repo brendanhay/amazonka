@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.FailureException where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,6 +72,12 @@ instance Core.FromJSON FailureException where
             Prelude.<*> (x Core..:? "ExceptionDescription")
       )
 
-instance Prelude.Hashable FailureException
+instance Prelude.Hashable FailureException where
+  hashWithSalt _salt FailureException' {..} =
+    _salt `Prelude.hashWithSalt` exceptionName
+      `Prelude.hashWithSalt` exceptionDescription
 
-instance Prelude.NFData FailureException
+instance Prelude.NFData FailureException where
+  rnf FailureException' {..} =
+    Prelude.rnf exceptionName
+      `Prelude.seq` Prelude.rnf exceptionDescription

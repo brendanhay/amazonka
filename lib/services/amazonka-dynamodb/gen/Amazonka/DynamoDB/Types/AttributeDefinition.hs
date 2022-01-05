@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.AttributeDefinition where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ScalarAttributeType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -98,9 +99,15 @@ instance Core.FromJSON AttributeDefinition where
             Prelude.<*> (x Core..: "AttributeType")
       )
 
-instance Prelude.Hashable AttributeDefinition
+instance Prelude.Hashable AttributeDefinition where
+  hashWithSalt _salt AttributeDefinition' {..} =
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` attributeType
 
-instance Prelude.NFData AttributeDefinition
+instance Prelude.NFData AttributeDefinition where
+  rnf AttributeDefinition' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf attributeType
 
 instance Core.ToJSON AttributeDefinition where
   toJSON AttributeDefinition' {..} =

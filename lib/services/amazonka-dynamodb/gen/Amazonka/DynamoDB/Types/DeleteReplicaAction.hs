@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.DeleteReplicaAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,9 +53,12 @@ newDeleteReplicaAction pRegionName_ =
 deleteReplicaAction_regionName :: Lens.Lens' DeleteReplicaAction Prelude.Text
 deleteReplicaAction_regionName = Lens.lens (\DeleteReplicaAction' {regionName} -> regionName) (\s@DeleteReplicaAction' {} a -> s {regionName = a} :: DeleteReplicaAction)
 
-instance Prelude.Hashable DeleteReplicaAction
+instance Prelude.Hashable DeleteReplicaAction where
+  hashWithSalt _salt DeleteReplicaAction' {..} =
+    _salt `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData DeleteReplicaAction
+instance Prelude.NFData DeleteReplicaAction where
+  rnf DeleteReplicaAction' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON DeleteReplicaAction where
   toJSON DeleteReplicaAction' {..} =

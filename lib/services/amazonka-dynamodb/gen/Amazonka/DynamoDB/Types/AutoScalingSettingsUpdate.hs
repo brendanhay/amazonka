@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -100,9 +101,21 @@ autoScalingSettingsUpdate_maximumUnits = Lens.lens (\AutoScalingSettingsUpdate' 
 autoScalingSettingsUpdate_autoScalingRoleArn :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Text)
 autoScalingSettingsUpdate_autoScalingRoleArn = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingRoleArn} -> autoScalingRoleArn) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingRoleArn = a} :: AutoScalingSettingsUpdate)
 
-instance Prelude.Hashable AutoScalingSettingsUpdate
+instance Prelude.Hashable AutoScalingSettingsUpdate where
+  hashWithSalt _salt AutoScalingSettingsUpdate' {..} =
+    _salt `Prelude.hashWithSalt` autoScalingDisabled
+      `Prelude.hashWithSalt` minimumUnits
+      `Prelude.hashWithSalt` scalingPolicyUpdate
+      `Prelude.hashWithSalt` maximumUnits
+      `Prelude.hashWithSalt` autoScalingRoleArn
 
-instance Prelude.NFData AutoScalingSettingsUpdate
+instance Prelude.NFData AutoScalingSettingsUpdate where
+  rnf AutoScalingSettingsUpdate' {..} =
+    Prelude.rnf autoScalingDisabled
+      `Prelude.seq` Prelude.rnf minimumUnits
+      `Prelude.seq` Prelude.rnf scalingPolicyUpdate
+      `Prelude.seq` Prelude.rnf maximumUnits
+      `Prelude.seq` Prelude.rnf autoScalingRoleArn
 
 instance Core.ToJSON AutoScalingSettingsUpdate where
   toJSON AutoScalingSettingsUpdate' {..} =

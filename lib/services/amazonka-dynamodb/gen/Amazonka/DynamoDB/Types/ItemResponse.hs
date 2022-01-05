@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.ItemResponse where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,6 +60,9 @@ instance Core.FromJSON ItemResponse where
             Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ItemResponse
+instance Prelude.Hashable ItemResponse where
+  hashWithSalt _salt ItemResponse' {..} =
+    _salt `Prelude.hashWithSalt` item
 
-instance Prelude.NFData ItemResponse
+instance Prelude.NFData ItemResponse where
+  rnf ItemResponse' {..} = Prelude.rnf item

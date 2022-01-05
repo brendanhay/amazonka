@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ReplicaUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.CreateReplicaAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
 import qualified Amazonka.Lens as Lens
@@ -72,9 +73,15 @@ replicaUpdate_create = Lens.lens (\ReplicaUpdate' {create} -> create) (\s@Replic
 replicaUpdate_delete :: Lens.Lens' ReplicaUpdate (Prelude.Maybe DeleteReplicaAction)
 replicaUpdate_delete = Lens.lens (\ReplicaUpdate' {delete'} -> delete') (\s@ReplicaUpdate' {} a -> s {delete' = a} :: ReplicaUpdate)
 
-instance Prelude.Hashable ReplicaUpdate
+instance Prelude.Hashable ReplicaUpdate where
+  hashWithSalt _salt ReplicaUpdate' {..} =
+    _salt `Prelude.hashWithSalt` create
+      `Prelude.hashWithSalt` delete'
 
-instance Prelude.NFData ReplicaUpdate
+instance Prelude.NFData ReplicaUpdate where
+  rnf ReplicaUpdate' {..} =
+    Prelude.rnf create
+      `Prelude.seq` Prelude.rnf delete'
 
 instance Core.ToJSON ReplicaUpdate where
   toJSON ReplicaUpdate' {..} =

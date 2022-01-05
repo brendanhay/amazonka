@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.BackupDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BackupDetails
 import Amazonka.DynamoDB.Types.SourceTableDetails
 import Amazonka.DynamoDB.Types.SourceTableFeatureDetails
@@ -87,6 +88,14 @@ instance Core.FromJSON BackupDescription where
             Prelude.<*> (x Core..:? "SourceTableFeatureDetails")
       )
 
-instance Prelude.Hashable BackupDescription
+instance Prelude.Hashable BackupDescription where
+  hashWithSalt _salt BackupDescription' {..} =
+    _salt `Prelude.hashWithSalt` backupDetails
+      `Prelude.hashWithSalt` sourceTableDetails
+      `Prelude.hashWithSalt` sourceTableFeatureDetails
 
-instance Prelude.NFData BackupDescription
+instance Prelude.NFData BackupDescription where
+  rnf BackupDescription' {..} =
+    Prelude.rnf backupDetails
+      `Prelude.seq` Prelude.rnf sourceTableDetails
+      `Prelude.seq` Prelude.rnf sourceTableFeatureDetails

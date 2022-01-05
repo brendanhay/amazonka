@@ -91,10 +91,10 @@ module Amazonka.DynamoDB.BatchGetItem
     newBatchGetItemResponse,
 
     -- * Response Lenses
-    batchGetItemResponse_unprocessedKeys,
-    batchGetItemResponse_responses,
     batchGetItemResponse_consumedCapacity,
     batchGetItemResponse_httpStatus,
+    batchGetItemResponse_responses,
+    batchGetItemResponse_unprocessedKeys,
   )
 where
 
@@ -363,19 +363,25 @@ instance Core.AWSRequest BatchGetItem where
     Response.receiveJSON
       ( \s h x ->
           BatchGetItemResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedKeys"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Core..?> "Responses" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Core..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "UnprocessedKeys"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Prelude.Hashable BatchGetItem
+instance Prelude.Hashable BatchGetItem where
+  hashWithSalt _salt BatchGetItem' {..} =
+    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` requestItems
 
-instance Prelude.NFData BatchGetItem
+instance Prelude.NFData BatchGetItem where
+  rnf BatchGetItem' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf requestItems
 
 instance Core.ToHeaders BatchGetItem where
   toHeaders =
@@ -412,7 +418,21 @@ instance Core.ToQuery BatchGetItem where
 --
 -- /See:/ 'newBatchGetItemResponse' smart constructor.
 data BatchGetItemResponse = BatchGetItemResponse'
-  { -- | A map of tables and their respective keys that were not processed with
+  { -- | The read capacity units consumed by the entire @BatchGetItem@ operation.
+    --
+    -- Each element consists of:
+    --
+    -- -   @TableName@ - The table that consumed the provisioned throughput.
+    --
+    -- -   @CapacityUnits@ - The total number of capacity units consumed.
+    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A map of table name to a list of items. Each object in @Responses@
+    -- consists of a table name, along with a map of attribute data consisting
+    -- of the data type and attribute value.
+    responses :: Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue],
+    -- | A map of tables and their respective keys that were not processed with
     -- the current response. The @UnprocessedKeys@ value is in the same form as
     -- @RequestItems@, so the value can be provided directly to a subsequent
     -- @BatchGetItem@ operation. For more information, see @RequestItems@ in
@@ -433,21 +453,7 @@ data BatchGetItemResponse = BatchGetItemResponse'
     --
     -- If there are no unprocessed keys remaining, the response contains an
     -- empty @UnprocessedKeys@ map.
-    unprocessedKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text KeysAndAttributes),
-    -- | A map of table name to a list of items. Each object in @Responses@
-    -- consists of a table name, along with a map of attribute data consisting
-    -- of the data type and attribute value.
-    responses :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue]),
-    -- | The read capacity units consumed by the entire @BatchGetItem@ operation.
-    --
-    -- Each element consists of:
-    --
-    -- -   @TableName@ - The table that consumed the provisioned throughput.
-    --
-    -- -   @CapacityUnits@ - The total number of capacity units consumed.
-    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    unprocessedKeys :: Prelude.HashMap Prelude.Text KeysAndAttributes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -458,6 +464,20 @@ data BatchGetItemResponse = BatchGetItemResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'consumedCapacity', 'batchGetItemResponse_consumedCapacity' - The read capacity units consumed by the entire @BatchGetItem@ operation.
+--
+-- Each element consists of:
+--
+-- -   @TableName@ - The table that consumed the provisioned throughput.
+--
+-- -   @CapacityUnits@ - The total number of capacity units consumed.
+--
+-- 'httpStatus', 'batchGetItemResponse_httpStatus' - The response's http status code.
+--
+-- 'responses', 'batchGetItemResponse_responses' - A map of table name to a list of items. Each object in @Responses@
+-- consists of a table name, along with a map of attribute data consisting
+-- of the data type and attribute value.
 --
 -- 'unprocessedKeys', 'batchGetItemResponse_unprocessedKeys' - A map of tables and their respective keys that were not processed with
 -- the current response. The @UnprocessedKeys@ value is in the same form as
@@ -480,32 +500,38 @@ data BatchGetItemResponse = BatchGetItemResponse'
 --
 -- If there are no unprocessed keys remaining, the response contains an
 -- empty @UnprocessedKeys@ map.
---
--- 'responses', 'batchGetItemResponse_responses' - A map of table name to a list of items. Each object in @Responses@
--- consists of a table name, along with a map of attribute data consisting
--- of the data type and attribute value.
---
--- 'consumedCapacity', 'batchGetItemResponse_consumedCapacity' - The read capacity units consumed by the entire @BatchGetItem@ operation.
---
--- Each element consists of:
---
--- -   @TableName@ - The table that consumed the provisioned throughput.
---
--- -   @CapacityUnits@ - The total number of capacity units consumed.
---
--- 'httpStatus', 'batchGetItemResponse_httpStatus' - The response's http status code.
 newBatchGetItemResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   BatchGetItemResponse
 newBatchGetItemResponse pHttpStatus_ =
   BatchGetItemResponse'
-    { unprocessedKeys =
+    { consumedCapacity =
         Prelude.Nothing,
-      responses = Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+      httpStatus = pHttpStatus_,
+      responses = Prelude.mempty,
+      unprocessedKeys = Prelude.mempty
     }
+
+-- | The read capacity units consumed by the entire @BatchGetItem@ operation.
+--
+-- Each element consists of:
+--
+-- -   @TableName@ - The table that consumed the provisioned throughput.
+--
+-- -   @CapacityUnits@ - The total number of capacity units consumed.
+batchGetItemResponse_consumedCapacity :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe [ConsumedCapacity])
+batchGetItemResponse_consumedCapacity = Lens.lens (\BatchGetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchGetItemResponse' {} a -> s {consumedCapacity = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+batchGetItemResponse_httpStatus :: Lens.Lens' BatchGetItemResponse Prelude.Int
+batchGetItemResponse_httpStatus = Lens.lens (\BatchGetItemResponse' {httpStatus} -> httpStatus) (\s@BatchGetItemResponse' {} a -> s {httpStatus = a} :: BatchGetItemResponse)
+
+-- | A map of table name to a list of items. Each object in @Responses@
+-- consists of a table name, along with a map of attribute data consisting
+-- of the data type and attribute value.
+batchGetItemResponse_responses :: Lens.Lens' BatchGetItemResponse (Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue])
+batchGetItemResponse_responses = Lens.lens (\BatchGetItemResponse' {responses} -> responses) (\s@BatchGetItemResponse' {} a -> s {responses = a} :: BatchGetItemResponse) Prelude.. Lens.coerced
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The @UnprocessedKeys@ value is in the same form as
@@ -528,27 +554,12 @@ newBatchGetItemResponse pHttpStatus_ =
 --
 -- If there are no unprocessed keys remaining, the response contains an
 -- empty @UnprocessedKeys@ map.
-batchGetItemResponse_unprocessedKeys :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text KeysAndAttributes))
-batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetItemResponse' {} a -> s {unprocessedKeys = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens.coerced
+batchGetItemResponse_unprocessedKeys :: Lens.Lens' BatchGetItemResponse (Prelude.HashMap Prelude.Text KeysAndAttributes)
+batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetItemResponse' {} a -> s {unprocessedKeys = a} :: BatchGetItemResponse) Prelude.. Lens.coerced
 
--- | A map of table name to a list of items. Each object in @Responses@
--- consists of a table name, along with a map of attribute data consisting
--- of the data type and attribute value.
-batchGetItemResponse_responses :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue]))
-batchGetItemResponse_responses = Lens.lens (\BatchGetItemResponse' {responses} -> responses) (\s@BatchGetItemResponse' {} a -> s {responses = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The read capacity units consumed by the entire @BatchGetItem@ operation.
---
--- Each element consists of:
---
--- -   @TableName@ - The table that consumed the provisioned throughput.
---
--- -   @CapacityUnits@ - The total number of capacity units consumed.
-batchGetItemResponse_consumedCapacity :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe [ConsumedCapacity])
-batchGetItemResponse_consumedCapacity = Lens.lens (\BatchGetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchGetItemResponse' {} a -> s {consumedCapacity = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The response's http status code.
-batchGetItemResponse_httpStatus :: Lens.Lens' BatchGetItemResponse Prelude.Int
-batchGetItemResponse_httpStatus = Lens.lens (\BatchGetItemResponse' {httpStatus} -> httpStatus) (\s@BatchGetItemResponse' {} a -> s {httpStatus = a} :: BatchGetItemResponse)
-
-instance Prelude.NFData BatchGetItemResponse
+instance Prelude.NFData BatchGetItemResponse where
+  rnf BatchGetItemResponse' {..} =
+    Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf unprocessedKeys

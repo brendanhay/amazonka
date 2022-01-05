@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.SSESpecification where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.SSEType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -107,9 +108,17 @@ sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId}
 sSESpecification_sSEType :: Lens.Lens' SSESpecification (Prelude.Maybe SSEType)
 sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (\s@SSESpecification' {} a -> s {sSEType = a} :: SSESpecification)
 
-instance Prelude.Hashable SSESpecification
+instance Prelude.Hashable SSESpecification where
+  hashWithSalt _salt SSESpecification' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` sSEType
 
-instance Prelude.NFData SSESpecification
+instance Prelude.NFData SSESpecification where
+  rnf SSESpecification' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf sSEType
 
 instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =

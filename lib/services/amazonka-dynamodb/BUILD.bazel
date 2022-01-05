@@ -51,7 +51,6 @@ haskell_library(
         "gen/Amazonka/DynamoDB/Types/ArchivalSummary.hs",
         "gen/Amazonka/DynamoDB/Types/AttributeAction.hs",
         "gen/Amazonka/DynamoDB/Types/AttributeDefinition.hs",
-        "gen/Amazonka/DynamoDB/Types/AttributeValue.hs",
         "gen/Amazonka/DynamoDB/Types/AttributeValueUpdate.hs",
         "gen/Amazonka/DynamoDB/Types/AutoScalingPolicyDescription.hs",
         "gen/Amazonka/DynamoDB/Types/AutoScalingPolicyUpdate.hs",
@@ -185,6 +184,7 @@ haskell_library(
         "gen/Amazonka/DynamoDB/UpdateTableReplicaAutoScaling.hs",
         "gen/Amazonka/DynamoDB/UpdateTimeToLive.hs",
         "gen/Amazonka/DynamoDB/Waiters.hs",
+        "src/Amazonka/DynamoDB/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -198,7 +198,12 @@ haskell_library(
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka-core",
+        "@stackage//:aeson",
         "@stackage//:base",
+        "@stackage//:containers",
+        "@stackage//:hashable",
+        "@stackage//:unordered-containers",
+        "@stackage//:vector",
     ],
 )
 

@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.ParameterizedStatement where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,9 +65,15 @@ parameterizedStatement_parameters = Lens.lens (\ParameterizedStatement' {paramet
 parameterizedStatement_statement :: Lens.Lens' ParameterizedStatement Prelude.Text
 parameterizedStatement_statement = Lens.lens (\ParameterizedStatement' {statement} -> statement) (\s@ParameterizedStatement' {} a -> s {statement = a} :: ParameterizedStatement)
 
-instance Prelude.Hashable ParameterizedStatement
+instance Prelude.Hashable ParameterizedStatement where
+  hashWithSalt _salt ParameterizedStatement' {..} =
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` statement
 
-instance Prelude.NFData ParameterizedStatement
+instance Prelude.NFData ParameterizedStatement where
+  rnf ParameterizedStatement' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf statement
 
 instance Core.ToJSON ParameterizedStatement where
   toJSON ParameterizedStatement' {..} =

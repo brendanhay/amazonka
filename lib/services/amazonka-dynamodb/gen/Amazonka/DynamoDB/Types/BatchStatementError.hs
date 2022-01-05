@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.BatchStatementError where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BatchStatementErrorCodeEnum
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -72,6 +73,11 @@ instance Core.FromJSON BatchStatementError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable BatchStatementError
+instance Prelude.Hashable BatchStatementError where
+  hashWithSalt _salt BatchStatementError' {..} =
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData BatchStatementError
+instance Prelude.NFData BatchStatementError where
+  rnf BatchStatementError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

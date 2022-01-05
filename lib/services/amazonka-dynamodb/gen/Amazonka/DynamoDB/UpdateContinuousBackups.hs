@@ -115,9 +115,15 @@ instance Core.AWSRequest UpdateContinuousBackups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContinuousBackups
+instance Prelude.Hashable UpdateContinuousBackups where
+  hashWithSalt _salt UpdateContinuousBackups' {..} =
+    _salt `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` pointInTimeRecoverySpecification
 
-instance Prelude.NFData UpdateContinuousBackups
+instance Prelude.NFData UpdateContinuousBackups where
+  rnf UpdateContinuousBackups' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf pointInTimeRecoverySpecification
 
 instance Core.ToHeaders UpdateContinuousBackups where
   toHeaders =
@@ -197,3 +203,7 @@ updateContinuousBackupsResponse_httpStatus = Lens.lens (\UpdateContinuousBackups
 instance
   Prelude.NFData
     UpdateContinuousBackupsResponse
+  where
+  rnf UpdateContinuousBackupsResponse' {..} =
+    Prelude.rnf continuousBackupsDescription
+      `Prelude.seq` Prelude.rnf httpStatus

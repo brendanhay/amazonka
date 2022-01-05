@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.Update where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -128,9 +128,26 @@ update_updateExpression = Lens.lens (\Update' {updateExpression} -> updateExpres
 update_tableName :: Lens.Lens' Update Prelude.Text
 update_tableName = Lens.lens (\Update' {tableName} -> tableName) (\s@Update' {} a -> s {tableName = a} :: Update)
 
-instance Prelude.Hashable Update
+instance Prelude.Hashable Update where
+  hashWithSalt _salt Update' {..} =
+    _salt
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` updateExpression
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData Update
+instance Prelude.NFData Update where
+  rnf Update' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf updateExpression
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON Update where
   toJSON Update' {..} =

@@ -105,10 +105,10 @@ module Amazonka.DynamoDB.Lens
     -- ** BatchGetItem
     batchGetItem_returnConsumedCapacity,
     batchGetItem_requestItems,
-    batchGetItemResponse_unprocessedKeys,
-    batchGetItemResponse_responses,
     batchGetItemResponse_consumedCapacity,
     batchGetItemResponse_httpStatus,
+    batchGetItemResponse_responses,
+    batchGetItemResponse_unprocessedKeys,
 
     -- ** ListBackups
     listBackups_timeRangeUpperBound,
@@ -185,8 +185,8 @@ module Amazonka.DynamoDB.Lens
     getItem_tableName,
     getItem_key,
     getItemResponse_consumedCapacity,
-    getItemResponse_item,
     getItemResponse_httpStatus,
+    getItemResponse_item,
 
     -- ** DescribeBackup
     describeBackup_backupArn,
@@ -242,8 +242,8 @@ module Amazonka.DynamoDB.Lens
     batchWriteItem_requestItems,
     batchWriteItemResponse_itemCollectionMetrics,
     batchWriteItemResponse_consumedCapacity,
-    batchWriteItemResponse_unprocessedItems,
     batchWriteItemResponse_httpStatus,
+    batchWriteItemResponse_unprocessedItems,
 
     -- ** ExportTableToPointInTime
     exportTableToPointInTime_s3BucketOwner,
@@ -337,9 +337,9 @@ module Amazonka.DynamoDB.Lens
     queryResponse_lastEvaluatedKey,
     queryResponse_count,
     queryResponse_scannedCount,
-    queryResponse_items,
     queryResponse_consumedCapacity,
     queryResponse_httpStatus,
+    queryResponse_items,
 
     -- ** CreateTable
     createTable_provisionedThroughput,
@@ -460,18 +460,6 @@ module Amazonka.DynamoDB.Lens
     -- ** AttributeDefinition
     attributeDefinition_attributeName,
     attributeDefinition_attributeType,
-
-    -- ** AttributeValue
-    attributeValue_l,
-    attributeValue_ns,
-    attributeValue_m,
-    attributeValue_null,
-    attributeValue_n,
-    attributeValue_bs,
-    attributeValue_b,
-    attributeValue_ss,
-    attributeValue_s,
-    attributeValue_bool,
 
     -- ** AttributeValueUpdate
     attributeValueUpdate_value,
@@ -1046,7 +1034,6 @@ import Amazonka.DynamoDB.TransactGetItems
 import Amazonka.DynamoDB.TransactWriteItems
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeDefinition
-import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AttributeValueUpdate
 import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
 import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate

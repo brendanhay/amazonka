@@ -30,6 +30,7 @@ module Amazonka.DynamoDB.Types.DestinationStatus
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Prelude as Prelude
 
 newtype DestinationStatus = DestinationStatus'

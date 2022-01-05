@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.WriteRequest where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.DeleteRequest
 import Amazonka.DynamoDB.Types.PutRequest
 import qualified Amazonka.Lens as Lens
@@ -76,9 +77,15 @@ instance Core.FromJSON WriteRequest where
             Prelude.<*> (x Core..:? "PutRequest")
       )
 
-instance Prelude.Hashable WriteRequest
+instance Prelude.Hashable WriteRequest where
+  hashWithSalt _salt WriteRequest' {..} =
+    _salt `Prelude.hashWithSalt` deleteRequest
+      `Prelude.hashWithSalt` putRequest
 
-instance Prelude.NFData WriteRequest
+instance Prelude.NFData WriteRequest where
+  rnf WriteRequest' {..} =
+    Prelude.rnf deleteRequest
+      `Prelude.seq` Prelude.rnf putRequest
 
 instance Core.ToJSON WriteRequest where
   toJSON WriteRequest' {..} =

@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,6 +76,12 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..: "CachePeriodInMinutes")
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt _salt Endpoint' {..} =
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` cachePeriodInMinutes
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf cachePeriodInMinutes

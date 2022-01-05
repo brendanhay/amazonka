@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.Condition where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ComparisonOperator
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -564,9 +564,15 @@ condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> at
 condition_comparisonOperator :: Lens.Lens' Condition ComparisonOperator
 condition_comparisonOperator = Lens.lens (\Condition' {comparisonOperator} -> comparisonOperator) (\s@Condition' {} a -> s {comparisonOperator = a} :: Condition)
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt _salt Condition' {..} =
+    _salt `Prelude.hashWithSalt` attributeValueList
+      `Prelude.hashWithSalt` comparisonOperator
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf attributeValueList
+      `Prelude.seq` Prelude.rnf comparisonOperator
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

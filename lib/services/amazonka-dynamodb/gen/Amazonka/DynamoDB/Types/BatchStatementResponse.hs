@@ -20,7 +20,7 @@
 module Amazonka.DynamoDB.Types.BatchStatementResponse where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.BatchStatementError
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -83,6 +83,14 @@ instance Core.FromJSON BatchStatementResponse where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable BatchStatementResponse
+instance Prelude.Hashable BatchStatementResponse where
+  hashWithSalt _salt BatchStatementResponse' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData BatchStatementResponse
+instance Prelude.NFData BatchStatementResponse where
+  rnf BatchStatementResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf item
+      `Prelude.seq` Prelude.rnf tableName

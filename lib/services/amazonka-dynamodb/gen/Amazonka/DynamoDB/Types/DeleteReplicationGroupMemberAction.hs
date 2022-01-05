@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,10 +59,18 @@ deleteReplicationGroupMemberAction_regionName = Lens.lens (\DeleteReplicationGro
 instance
   Prelude.Hashable
     DeleteReplicationGroupMemberAction
+  where
+  hashWithSalt
+    _salt
+    DeleteReplicationGroupMemberAction' {..} =
+      _salt `Prelude.hashWithSalt` regionName
 
 instance
   Prelude.NFData
     DeleteReplicationGroupMemberAction
+  where
+  rnf DeleteReplicationGroupMemberAction' {..} =
+    Prelude.rnf regionName
 
 instance
   Core.ToJSON

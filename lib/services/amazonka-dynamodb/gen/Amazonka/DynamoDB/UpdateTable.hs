@@ -298,9 +298,27 @@ instance Core.AWSRequest UpdateTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTable
+instance Prelude.Hashable UpdateTable where
+  hashWithSalt _salt UpdateTable' {..} =
+    _salt `Prelude.hashWithSalt` attributeDefinitions
+      `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` sSESpecification
+      `Prelude.hashWithSalt` replicaUpdates
+      `Prelude.hashWithSalt` globalSecondaryIndexUpdates
+      `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` streamSpecification
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData UpdateTable
+instance Prelude.NFData UpdateTable where
+  rnf UpdateTable' {..} =
+    Prelude.rnf attributeDefinitions
+      `Prelude.seq` Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf sSESpecification
+      `Prelude.seq` Prelude.rnf replicaUpdates
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexUpdates
+      `Prelude.seq` Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf streamSpecification
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders UpdateTable where
   toHeaders =
@@ -385,4 +403,7 @@ updateTableResponse_tableDescription = Lens.lens (\UpdateTableResponse' {tableDe
 updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Prelude.Int
 updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -> httpStatus) (\s@UpdateTableResponse' {} a -> s {httpStatus = a} :: UpdateTableResponse)
 
-instance Prelude.NFData UpdateTableResponse
+instance Prelude.NFData UpdateTableResponse where
+  rnf UpdateTableResponse' {..} =
+    Prelude.rnf tableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

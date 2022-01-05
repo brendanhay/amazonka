@@ -262,6 +262,24 @@ instance Core.FromXML User where
       Prelude.<*> (x Core..@ "Arn")
       Prelude.<*> (x Core..@ "CreateDate")
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` passwordLastUsed
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createDate
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf passwordLastUsed
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createDate

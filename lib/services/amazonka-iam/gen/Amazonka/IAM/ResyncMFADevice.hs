@@ -167,9 +167,19 @@ instance Core.AWSRequest ResyncMFADevice where
   response =
     Response.receiveNull ResyncMFADeviceResponse'
 
-instance Prelude.Hashable ResyncMFADevice
+instance Prelude.Hashable ResyncMFADevice where
+  hashWithSalt _salt ResyncMFADevice' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` authenticationCode1
+      `Prelude.hashWithSalt` authenticationCode2
 
-instance Prelude.NFData ResyncMFADevice
+instance Prelude.NFData ResyncMFADevice where
+  rnf ResyncMFADevice' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf authenticationCode1
+      `Prelude.seq` Prelude.rnf authenticationCode2
 
 instance Core.ToHeaders ResyncMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +214,5 @@ newResyncMFADeviceResponse ::
   ResyncMFADeviceResponse
 newResyncMFADeviceResponse = ResyncMFADeviceResponse'
 
-instance Prelude.NFData ResyncMFADeviceResponse
+instance Prelude.NFData ResyncMFADeviceResponse where
+  rnf _ = ()

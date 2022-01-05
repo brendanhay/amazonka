@@ -125,9 +125,15 @@ instance Core.AWSRequest DeleteSigningCertificate where
     Response.receiveNull
       DeleteSigningCertificateResponse'
 
-instance Prelude.Hashable DeleteSigningCertificate
+instance Prelude.Hashable DeleteSigningCertificate where
+  hashWithSalt _salt DeleteSigningCertificate' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` certificateId
 
-instance Prelude.NFData DeleteSigningCertificate
+instance Prelude.NFData DeleteSigningCertificate where
+  rnf DeleteSigningCertificate' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf certificateId
 
 instance Core.ToHeaders DeleteSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,3 +170,5 @@ newDeleteSigningCertificateResponse =
 instance
   Prelude.NFData
     DeleteSigningCertificateResponse
+  where
+  rnf _ = ()

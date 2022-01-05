@@ -95,9 +95,13 @@ instance Core.AWSRequest DeleteAccountAlias where
   response =
     Response.receiveNull DeleteAccountAliasResponse'
 
-instance Prelude.Hashable DeleteAccountAlias
+instance Prelude.Hashable DeleteAccountAlias where
+  hashWithSalt _salt DeleteAccountAlias' {..} =
+    _salt `Prelude.hashWithSalt` accountAlias
 
-instance Prelude.NFData DeleteAccountAlias
+instance Prelude.NFData DeleteAccountAlias where
+  rnf DeleteAccountAlias' {..} =
+    Prelude.rnf accountAlias
 
 instance Core.ToHeaders DeleteAccountAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +134,5 @@ newDeleteAccountAliasResponse ::
 newDeleteAccountAliasResponse =
   DeleteAccountAliasResponse'
 
-instance Prelude.NFData DeleteAccountAliasResponse
+instance Prelude.NFData DeleteAccountAliasResponse where
+  rnf _ = ()

@@ -133,9 +133,15 @@ instance Core.AWSRequest AttachUserPolicy where
   response =
     Response.receiveNull AttachUserPolicyResponse'
 
-instance Prelude.Hashable AttachUserPolicy
+instance Prelude.Hashable AttachUserPolicy where
+  hashWithSalt _salt AttachUserPolicy' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData AttachUserPolicy
+instance Prelude.NFData AttachUserPolicy where
+  rnf AttachUserPolicy' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders AttachUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +175,5 @@ newAttachUserPolicyResponse ::
 newAttachUserPolicyResponse =
   AttachUserPolicyResponse'
 
-instance Prelude.NFData AttachUserPolicyResponse
+instance Prelude.NFData AttachUserPolicyResponse where
+  rnf _ = ()

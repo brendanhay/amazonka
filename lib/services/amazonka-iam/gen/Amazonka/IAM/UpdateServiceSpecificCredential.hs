@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     UpdateServiceSpecificCredential
+  where
+  hashWithSalt
+    _salt
+    UpdateServiceSpecificCredential' {..} =
+      _salt `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` serviceSpecificCredentialId
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     UpdateServiceSpecificCredential
+  where
+  rnf UpdateServiceSpecificCredential' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
+      `Prelude.seq` Prelude.rnf status
 
 instance
   Core.ToHeaders
@@ -196,3 +208,5 @@ newUpdateServiceSpecificCredentialResponse =
 instance
   Prelude.NFData
     UpdateServiceSpecificCredentialResponse
+  where
+  rnf _ = ()

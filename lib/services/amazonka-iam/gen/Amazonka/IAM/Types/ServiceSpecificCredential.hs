@@ -163,6 +163,22 @@ instance Core.FromXML ServiceSpecificCredential where
       Prelude.<*> (x Core..@ "UserName")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable ServiceSpecificCredential
+instance Prelude.Hashable ServiceSpecificCredential where
+  hashWithSalt _salt ServiceSpecificCredential' {..} =
+    _salt `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceUserName
+      `Prelude.hashWithSalt` servicePassword
+      `Prelude.hashWithSalt` serviceSpecificCredentialId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ServiceSpecificCredential
+instance Prelude.NFData ServiceSpecificCredential where
+  rnf ServiceSpecificCredential' {..} =
+    Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceUserName
+      `Prelude.seq` Prelude.rnf servicePassword
+      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf status

@@ -244,9 +244,19 @@ instance Core.AWSRequest ListAttachedUserPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttachedUserPolicies
+instance Prelude.Hashable ListAttachedUserPolicies where
+  hashWithSalt _salt ListAttachedUserPolicies' {..} =
+    _salt `Prelude.hashWithSalt` pathPrefix
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListAttachedUserPolicies
+instance Prelude.NFData ListAttachedUserPolicies where
+  rnf ListAttachedUserPolicies' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders ListAttachedUserPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,3 +363,9 @@ listAttachedUserPoliciesResponse_httpStatus = Lens.lens (\ListAttachedUserPolici
 instance
   Prelude.NFData
     ListAttachedUserPoliciesResponse
+  where
+  rnf ListAttachedUserPoliciesResponse' {..} =
+    Prelude.rnf attachedPolicies
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -145,9 +145,17 @@ instance Core.AWSRequest UpdateSigningCertificate where
     Response.receiveNull
       UpdateSigningCertificateResponse'
 
-instance Prelude.Hashable UpdateSigningCertificate
+instance Prelude.Hashable UpdateSigningCertificate where
+  hashWithSalt _salt UpdateSigningCertificate' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateSigningCertificate
+instance Prelude.NFData UpdateSigningCertificate where
+  rnf UpdateSigningCertificate' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,3 +193,5 @@ newUpdateSigningCertificateResponse =
 instance
   Prelude.NFData
     UpdateSigningCertificateResponse
+  where
+  rnf _ = ()

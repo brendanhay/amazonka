@@ -72,6 +72,11 @@ instance Core.FromXML Position where
     Position'
       Prelude.<$> (x Core..@? "Line") Prelude.<*> (x Core..@? "Column")
 
-instance Prelude.Hashable Position
+instance Prelude.Hashable Position where
+  hashWithSalt _salt Position' {..} =
+    _salt `Prelude.hashWithSalt` line
+      `Prelude.hashWithSalt` column
 
-instance Prelude.NFData Position
+instance Prelude.NFData Position where
+  rnf Position' {..} =
+    Prelude.rnf line `Prelude.seq` Prelude.rnf column

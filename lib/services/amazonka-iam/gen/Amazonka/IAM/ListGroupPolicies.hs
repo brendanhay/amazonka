@@ -197,9 +197,17 @@ instance Core.AWSRequest ListGroupPolicies where
                         )
       )
 
-instance Prelude.Hashable ListGroupPolicies
+instance Prelude.Hashable ListGroupPolicies where
+  hashWithSalt _salt ListGroupPolicies' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData ListGroupPolicies
+instance Prelude.NFData ListGroupPolicies where
+  rnf ListGroupPolicies' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders ListGroupPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,4 +325,9 @@ listGroupPoliciesResponse_httpStatus = Lens.lens (\ListGroupPoliciesResponse' {h
 listGroupPoliciesResponse_policyNames :: Lens.Lens' ListGroupPoliciesResponse [Prelude.Text]
 listGroupPoliciesResponse_policyNames = Lens.lens (\ListGroupPoliciesResponse' {policyNames} -> policyNames) (\s@ListGroupPoliciesResponse' {} a -> s {policyNames = a} :: ListGroupPoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListGroupPoliciesResponse
+instance Prelude.NFData ListGroupPoliciesResponse where
+  rnf ListGroupPoliciesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyNames

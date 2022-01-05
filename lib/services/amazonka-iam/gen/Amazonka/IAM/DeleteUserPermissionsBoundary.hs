@@ -94,8 +94,13 @@ instance
 instance
   Prelude.Hashable
     DeleteUserPermissionsBoundary
+  where
+  hashWithSalt _salt DeleteUserPermissionsBoundary' {..} =
+    _salt `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DeleteUserPermissionsBoundary
+instance Prelude.NFData DeleteUserPermissionsBoundary where
+  rnf DeleteUserPermissionsBoundary' {..} =
+    Prelude.rnf userName
 
 instance Core.ToHeaders DeleteUserPermissionsBoundary where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,3 +138,5 @@ newDeleteUserPermissionsBoundaryResponse =
 instance
   Prelude.NFData
     DeleteUserPermissionsBoundaryResponse
+  where
+  rnf _ = ()

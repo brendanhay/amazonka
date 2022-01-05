@@ -98,5 +98,12 @@ instance Core.FromXML DeletionTaskFailureReasonType where
 instance
   Prelude.Hashable
     DeletionTaskFailureReasonType
+  where
+  hashWithSalt _salt DeletionTaskFailureReasonType' {..} =
+    _salt `Prelude.hashWithSalt` roleUsageList
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData DeletionTaskFailureReasonType
+instance Prelude.NFData DeletionTaskFailureReasonType where
+  rnf DeletionTaskFailureReasonType' {..} =
+    Prelude.rnf roleUsageList
+      `Prelude.seq` Prelude.rnf reason

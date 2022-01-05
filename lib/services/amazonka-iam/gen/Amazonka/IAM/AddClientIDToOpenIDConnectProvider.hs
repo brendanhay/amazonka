@@ -115,10 +115,21 @@ instance
 instance
   Prelude.Hashable
     AddClientIDToOpenIDConnectProvider
+  where
+  hashWithSalt
+    _salt
+    AddClientIDToOpenIDConnectProvider' {..} =
+      _salt
+        `Prelude.hashWithSalt` openIDConnectProviderArn
+        `Prelude.hashWithSalt` clientID
 
 instance
   Prelude.NFData
     AddClientIDToOpenIDConnectProvider
+  where
+  rnf AddClientIDToOpenIDConnectProvider' {..} =
+    Prelude.rnf openIDConnectProviderArn
+      `Prelude.seq` Prelude.rnf clientID
 
 instance
   Core.ToHeaders
@@ -167,3 +178,5 @@ newAddClientIDToOpenIDConnectProviderResponse =
 instance
   Prelude.NFData
     AddClientIDToOpenIDConnectProviderResponse
+  where
+  rnf _ = ()

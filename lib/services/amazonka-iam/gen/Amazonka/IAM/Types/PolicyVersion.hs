@@ -146,6 +146,16 @@ instance Core.FromXML PolicyVersion where
       Prelude.<*> (x Core..@? "Document")
       Prelude.<*> (x Core..@? "IsDefaultVersion")
 
-instance Prelude.Hashable PolicyVersion
+instance Prelude.Hashable PolicyVersion where
+  hashWithSalt _salt PolicyVersion' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` isDefaultVersion
 
-instance Prelude.NFData PolicyVersion
+instance Prelude.NFData PolicyVersion where
+  rnf PolicyVersion' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf isDefaultVersion

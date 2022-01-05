@@ -142,9 +142,14 @@ instance Core.AWSRequest TagRole where
   request = Request.postQuery defaultService
   response = Response.receiveNull TagRoleResponse'
 
-instance Prelude.Hashable TagRole
+instance Prelude.Hashable TagRole where
+  hashWithSalt _salt TagRole' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagRole
+instance Prelude.NFData TagRole where
+  rnf TagRole' {..} =
+    Prelude.rnf roleName `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +181,5 @@ newTagRoleResponse ::
   TagRoleResponse
 newTagRoleResponse = TagRoleResponse'
 
-instance Prelude.NFData TagRoleResponse
+instance Prelude.NFData TagRoleResponse where
+  rnf _ = ()

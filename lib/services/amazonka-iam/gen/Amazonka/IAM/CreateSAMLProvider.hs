@@ -205,9 +205,17 @@ instance Core.AWSRequest CreateSAMLProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSAMLProvider
+instance Prelude.Hashable CreateSAMLProvider where
+  hashWithSalt _salt CreateSAMLProvider' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sAMLMetadataDocument
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateSAMLProvider
+instance Prelude.NFData CreateSAMLProvider where
+  rnf CreateSAMLProvider' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sAMLMetadataDocument
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,4 +299,8 @@ createSAMLProviderResponse_tags = Lens.lens (\CreateSAMLProviderResponse' {tags}
 createSAMLProviderResponse_httpStatus :: Lens.Lens' CreateSAMLProviderResponse Prelude.Int
 createSAMLProviderResponse_httpStatus = Lens.lens (\CreateSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@CreateSAMLProviderResponse' {} a -> s {httpStatus = a} :: CreateSAMLProviderResponse)
 
-instance Prelude.NFData CreateSAMLProviderResponse
+instance Prelude.NFData CreateSAMLProviderResponse where
+  rnf CreateSAMLProviderResponse' {..} =
+    Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -256,6 +256,33 @@ instance Core.FromXML RoleDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable RoleDetail
+instance Prelude.Hashable RoleDetail where
+  hashWithSalt _salt RoleDetail' {..} =
+    _salt
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` instanceProfileList
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` roleId
+      `Prelude.hashWithSalt` roleLastUsed
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` rolePolicyList
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` attachedManagedPolicies
 
-instance Prelude.NFData RoleDetail
+instance Prelude.NFData RoleDetail where
+  rnf RoleDetail' {..} =
+    Prelude.rnf assumeRolePolicyDocument
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf instanceProfileList
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf roleId
+      `Prelude.seq` Prelude.rnf roleLastUsed
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf rolePolicyList
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies

@@ -101,6 +101,12 @@ instance Core.FromXML RoleLastUsed where
       Prelude.<$> (x Core..@? "LastUsedDate")
       Prelude.<*> (x Core..@? "Region")
 
-instance Prelude.Hashable RoleLastUsed
+instance Prelude.Hashable RoleLastUsed where
+  hashWithSalt _salt RoleLastUsed' {..} =
+    _salt `Prelude.hashWithSalt` lastUsedDate
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData RoleLastUsed
+instance Prelude.NFData RoleLastUsed where
+  rnf RoleLastUsed' {..} =
+    Prelude.rnf lastUsedDate
+      `Prelude.seq` Prelude.rnf region

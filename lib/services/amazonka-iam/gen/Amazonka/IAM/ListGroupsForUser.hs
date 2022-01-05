@@ -189,9 +189,17 @@ instance Core.AWSRequest ListGroupsForUser where
                         )
       )
 
-instance Prelude.Hashable ListGroupsForUser
+instance Prelude.Hashable ListGroupsForUser where
+  hashWithSalt _salt ListGroupsForUser' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListGroupsForUser
+instance Prelude.NFData ListGroupsForUser where
+  rnf ListGroupsForUser' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders ListGroupsForUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,4 +302,9 @@ listGroupsForUserResponse_httpStatus = Lens.lens (\ListGroupsForUserResponse' {h
 listGroupsForUserResponse_groups :: Lens.Lens' ListGroupsForUserResponse [Group]
 listGroupsForUserResponse_groups = Lens.lens (\ListGroupsForUserResponse' {groups} -> groups) (\s@ListGroupsForUserResponse' {} a -> s {groups = a} :: ListGroupsForUserResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListGroupsForUserResponse
+instance Prelude.NFData ListGroupsForUserResponse where
+  rnf ListGroupsForUserResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groups

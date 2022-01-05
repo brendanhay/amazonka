@@ -206,8 +206,19 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
 instance
   Prelude.Hashable
     GetOrganizationsAccessReport
+  where
+  hashWithSalt _salt GetOrganizationsAccessReport' {..} =
+    _salt `Prelude.hashWithSalt` sortKey
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetOrganizationsAccessReport
+instance Prelude.NFData GetOrganizationsAccessReport where
+  rnf GetOrganizationsAccessReport' {..} =
+    Prelude.rnf sortKey
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetOrganizationsAccessReport where
   toHeaders = Prelude.const Prelude.mempty
@@ -406,3 +417,15 @@ getOrganizationsAccessReportResponse_jobCreationDate = Lens.lens (\GetOrganizati
 instance
   Prelude.NFData
     GetOrganizationsAccessReportResponse
+  where
+  rnf GetOrganizationsAccessReportResponse' {..} =
+    Prelude.rnf numberOfServicesNotAccessed
+      `Prelude.seq` Prelude.rnf jobCompletionDate
+      `Prelude.seq` Prelude.rnf accessDetails
+      `Prelude.seq` Prelude.rnf numberOfServicesAccessible
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobCreationDate

@@ -185,9 +185,17 @@ instance Core.AWSRequest GetGroup where
                         )
       )
 
-instance Prelude.Hashable GetGroup
+instance Prelude.Hashable GetGroup where
+  hashWithSalt _salt GetGroup' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData GetGroup
+instance Prelude.NFData GetGroup where
+  rnf GetGroup' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders GetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,4 +307,10 @@ getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@G
 getGroupResponse_users :: Lens.Lens' GetGroupResponse [User]
 getGroupResponse_users = Lens.lens (\GetGroupResponse' {users} -> users) (\s@GetGroupResponse' {} a -> s {users = a} :: GetGroupResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetGroupResponse
+instance Prelude.NFData GetGroupResponse where
+  rnf GetGroupResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf users

@@ -107,9 +107,15 @@ instance Core.AWSRequest UntagUser where
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagUserResponse'
 
-instance Prelude.Hashable UntagUser
+instance Prelude.Hashable UntagUser where
+  hashWithSalt _salt UntagUser' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagUser
+instance Prelude.NFData UntagUser where
+  rnf UntagUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +148,5 @@ newUntagUserResponse ::
   UntagUserResponse
 newUntagUserResponse = UntagUserResponse'
 
-instance Prelude.NFData UntagUserResponse
+instance Prelude.NFData UntagUserResponse where
+  rnf _ = ()

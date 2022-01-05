@@ -111,7 +111,17 @@ instance
 instance
   Prelude.Hashable
     ListPoliciesGrantingServiceAccessEntry
+  where
+  hashWithSalt
+    _salt
+    ListPoliciesGrantingServiceAccessEntry' {..} =
+      _salt `Prelude.hashWithSalt` serviceNamespace
+        `Prelude.hashWithSalt` policies
 
 instance
   Prelude.NFData
     ListPoliciesGrantingServiceAccessEntry
+  where
+  rnf ListPoliciesGrantingServiceAccessEntry' {..} =
+    Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf policies

@@ -89,9 +89,17 @@ contextEntry_contextKeyName = Lens.lens (\ContextEntry' {contextKeyName} -> cont
 contextEntry_contextKeyType :: Lens.Lens' ContextEntry (Prelude.Maybe ContextKeyTypeEnum)
 contextEntry_contextKeyType = Lens.lens (\ContextEntry' {contextKeyType} -> contextKeyType) (\s@ContextEntry' {} a -> s {contextKeyType = a} :: ContextEntry)
 
-instance Prelude.Hashable ContextEntry
+instance Prelude.Hashable ContextEntry where
+  hashWithSalt _salt ContextEntry' {..} =
+    _salt `Prelude.hashWithSalt` contextKeyValues
+      `Prelude.hashWithSalt` contextKeyName
+      `Prelude.hashWithSalt` contextKeyType
 
-instance Prelude.NFData ContextEntry
+instance Prelude.NFData ContextEntry where
+  rnf ContextEntry' {..} =
+    Prelude.rnf contextKeyValues
+      `Prelude.seq` Prelude.rnf contextKeyName
+      `Prelude.seq` Prelude.rnf contextKeyType
 
 instance Core.ToQuery ContextEntry where
   toQuery ContextEntry' {..} =

@@ -117,9 +117,15 @@ instance Core.AWSRequest UntagSAMLProvider where
   response =
     Response.receiveNull UntagSAMLProviderResponse'
 
-instance Prelude.Hashable UntagSAMLProvider
+instance Prelude.Hashable UntagSAMLProvider where
+  hashWithSalt _salt UntagSAMLProvider' {..} =
+    _salt `Prelude.hashWithSalt` sAMLProviderArn
+      `Prelude.hashWithSalt` tagKeys
 
-instance Prelude.NFData UntagSAMLProvider
+instance Prelude.NFData UntagSAMLProvider where
+  rnf UntagSAMLProvider' {..} =
+    Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,4 +159,5 @@ newUntagSAMLProviderResponse ::
 newUntagSAMLProviderResponse =
   UntagSAMLProviderResponse'
 
-instance Prelude.NFData UntagSAMLProviderResponse
+instance Prelude.NFData UntagSAMLProviderResponse where
+  rnf _ = ()

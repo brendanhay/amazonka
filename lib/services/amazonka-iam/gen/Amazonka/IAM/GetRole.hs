@@ -110,9 +110,12 @@ instance Core.AWSRequest GetRole where
             Prelude.<*> (x Core..@ "Role")
       )
 
-instance Prelude.Hashable GetRole
+instance Prelude.Hashable GetRole where
+  hashWithSalt _salt GetRole' {..} =
+    _salt `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData GetRole
+instance Prelude.NFData GetRole where
+  rnf GetRole' {..} = Prelude.rnf roleName
 
 instance Core.ToHeaders GetRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +174,7 @@ getRoleResponse_httpStatus = Lens.lens (\GetRoleResponse' {httpStatus} -> httpSt
 getRoleResponse_role :: Lens.Lens' GetRoleResponse Role
 getRoleResponse_role = Lens.lens (\GetRoleResponse' {role'} -> role') (\s@GetRoleResponse' {} a -> s {role' = a} :: GetRoleResponse)
 
-instance Prelude.NFData GetRoleResponse
+instance Prelude.NFData GetRoleResponse where
+  rnf GetRoleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf role'

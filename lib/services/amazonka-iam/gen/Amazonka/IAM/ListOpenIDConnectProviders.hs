@@ -82,9 +82,12 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOpenIDConnectProviders
+instance Prelude.Hashable ListOpenIDConnectProviders where
+  hashWithSalt _salt _ =
+    _salt `Prelude.hashWithSalt` ()
 
-instance Prelude.NFData ListOpenIDConnectProviders
+instance Prelude.NFData ListOpenIDConnectProviders where
+  rnf _ = ()
 
 instance Core.ToHeaders ListOpenIDConnectProviders where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,3 +154,7 @@ listOpenIDConnectProvidersResponse_httpStatus = Lens.lens (\ListOpenIDConnectPro
 instance
   Prelude.NFData
     ListOpenIDConnectProvidersResponse
+  where
+  rnf ListOpenIDConnectProvidersResponse' {..} =
+    Prelude.rnf openIDConnectProviderList
+      `Prelude.seq` Prelude.rnf httpStatus

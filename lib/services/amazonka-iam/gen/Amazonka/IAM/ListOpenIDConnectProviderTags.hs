@@ -182,8 +182,17 @@ instance
 instance
   Prelude.Hashable
     ListOpenIDConnectProviderTags
+  where
+  hashWithSalt _salt ListOpenIDConnectProviderTags' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` openIDConnectProviderArn
 
-instance Prelude.NFData ListOpenIDConnectProviderTags
+instance Prelude.NFData ListOpenIDConnectProviderTags where
+  rnf ListOpenIDConnectProviderTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf openIDConnectProviderArn
 
 instance Core.ToHeaders ListOpenIDConnectProviderTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,3 +308,9 @@ listOpenIDConnectProviderTagsResponse_tags = Lens.lens (\ListOpenIDConnectProvid
 instance
   Prelude.NFData
     ListOpenIDConnectProviderTagsResponse
+  where
+  rnf ListOpenIDConnectProviderTagsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

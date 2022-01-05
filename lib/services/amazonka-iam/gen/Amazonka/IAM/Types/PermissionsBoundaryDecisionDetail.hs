@@ -89,7 +89,16 @@ instance
 instance
   Prelude.Hashable
     PermissionsBoundaryDecisionDetail
+  where
+  hashWithSalt
+    _salt
+    PermissionsBoundaryDecisionDetail' {..} =
+      _salt
+        `Prelude.hashWithSalt` allowedByPermissionsBoundary
 
 instance
   Prelude.NFData
     PermissionsBoundaryDecisionDetail
+  where
+  rnf PermissionsBoundaryDecisionDetail' {..} =
+    Prelude.rnf allowedByPermissionsBoundary

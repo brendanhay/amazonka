@@ -141,10 +141,20 @@ instance
 instance
   Prelude.Hashable
     ListServiceSpecificCredentials
+  where
+  hashWithSalt
+    _salt
+    ListServiceSpecificCredentials' {..} =
+      _salt `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` serviceName
 
 instance
   Prelude.NFData
     ListServiceSpecificCredentials
+  where
+  rnf ListServiceSpecificCredentials' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance
   Core.ToHeaders
@@ -214,3 +224,7 @@ listServiceSpecificCredentialsResponse_httpStatus = Lens.lens (\ListServiceSpeci
 instance
   Prelude.NFData
     ListServiceSpecificCredentialsResponse
+  where
+  rnf ListServiceSpecificCredentialsResponse' {..} =
+    Prelude.rnf serviceSpecificCredentials
+      `Prelude.seq` Prelude.rnf httpStatus

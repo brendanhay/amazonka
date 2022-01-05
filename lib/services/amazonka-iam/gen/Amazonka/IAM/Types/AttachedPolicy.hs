@@ -75,6 +75,12 @@ instance Core.FromXML AttachedPolicy where
       Prelude.<$> (x Core..@? "PolicyName")
       Prelude.<*> (x Core..@? "PolicyArn")
 
-instance Prelude.Hashable AttachedPolicy
+instance Prelude.Hashable AttachedPolicy where
+  hashWithSalt _salt AttachedPolicy' {..} =
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData AttachedPolicy
+instance Prelude.NFData AttachedPolicy where
+  rnf AttachedPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyArn

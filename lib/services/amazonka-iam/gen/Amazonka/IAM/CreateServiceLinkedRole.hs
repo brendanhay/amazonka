@@ -172,9 +172,17 @@ instance Core.AWSRequest CreateServiceLinkedRole where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateServiceLinkedRole
+instance Prelude.Hashable CreateServiceLinkedRole where
+  hashWithSalt _salt CreateServiceLinkedRole' {..} =
+    _salt `Prelude.hashWithSalt` customSuffix
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` aWSServiceName
 
-instance Prelude.NFData CreateServiceLinkedRole
+instance Prelude.NFData CreateServiceLinkedRole where
+  rnf CreateServiceLinkedRole' {..} =
+    Prelude.rnf customSuffix
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf aWSServiceName
 
 instance Core.ToHeaders CreateServiceLinkedRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,3 +244,7 @@ createServiceLinkedRoleResponse_httpStatus = Lens.lens (\CreateServiceLinkedRole
 instance
   Prelude.NFData
     CreateServiceLinkedRoleResponse
+  where
+  rnf CreateServiceLinkedRoleResponse' {..} =
+    Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -157,9 +157,17 @@ instance Core.AWSRequest GetSSHPublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSSHPublicKey
+instance Prelude.Hashable GetSSHPublicKey where
+  hashWithSalt _salt GetSSHPublicKey' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` sSHPublicKeyId
+      `Prelude.hashWithSalt` encoding
 
-instance Prelude.NFData GetSSHPublicKey
+instance Prelude.NFData GetSSHPublicKey where
+  rnf GetSSHPublicKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf sSHPublicKeyId
+      `Prelude.seq` Prelude.rnf encoding
 
 instance Core.ToHeaders GetSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,4 +228,7 @@ getSSHPublicKeyResponse_sSHPublicKey = Lens.lens (\GetSSHPublicKeyResponse' {sSH
 getSSHPublicKeyResponse_httpStatus :: Lens.Lens' GetSSHPublicKeyResponse Prelude.Int
 getSSHPublicKeyResponse_httpStatus = Lens.lens (\GetSSHPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetSSHPublicKeyResponse' {} a -> s {httpStatus = a} :: GetSSHPublicKeyResponse)
 
-instance Prelude.NFData GetSSHPublicKeyResponse
+instance Prelude.NFData GetSSHPublicKeyResponse where
+  rnf GetSSHPublicKeyResponse' {..} =
+    Prelude.rnf sSHPublicKey
+      `Prelude.seq` Prelude.rnf httpStatus

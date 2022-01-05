@@ -71,6 +71,11 @@ instance Core.FromXML ErrorDetails where
     ErrorDetails'
       Prelude.<$> (x Core..@ "Message") Prelude.<*> (x Core..@ "Code")
 
-instance Prelude.Hashable ErrorDetails
+instance Prelude.Hashable ErrorDetails where
+  hashWithSalt _salt ErrorDetails' {..} =
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ErrorDetails
+instance Prelude.NFData ErrorDetails where
+  rnf ErrorDetails' {..} =
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

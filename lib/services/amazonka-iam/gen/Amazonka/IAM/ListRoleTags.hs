@@ -165,9 +165,17 @@ instance Core.AWSRequest ListRoleTags where
                         )
       )
 
-instance Prelude.Hashable ListRoleTags
+instance Prelude.Hashable ListRoleTags where
+  hashWithSalt _salt ListRoleTags' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData ListRoleTags
+instance Prelude.NFData ListRoleTags where
+  rnf ListRoleTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders ListRoleTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,4 +281,9 @@ listRoleTagsResponse_httpStatus = Lens.lens (\ListRoleTagsResponse' {httpStatus}
 listRoleTagsResponse_tags :: Lens.Lens' ListRoleTagsResponse [Tag]
 listRoleTagsResponse_tags = Lens.lens (\ListRoleTagsResponse' {tags} -> tags) (\s@ListRoleTagsResponse' {} a -> s {tags = a} :: ListRoleTagsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListRoleTagsResponse
+instance Prelude.NFData ListRoleTagsResponse where
+  rnf ListRoleTagsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

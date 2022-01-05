@@ -138,9 +138,15 @@ instance Core.AWSRequest TagInstanceProfile where
   response =
     Response.receiveNull TagInstanceProfileResponse'
 
-instance Prelude.Hashable TagInstanceProfile
+instance Prelude.Hashable TagInstanceProfile where
+  hashWithSalt _salt TagInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` instanceProfileName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagInstanceProfile
+instance Prelude.NFData TagInstanceProfile where
+  rnf TagInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,5 @@ newTagInstanceProfileResponse ::
 newTagInstanceProfileResponse =
   TagInstanceProfileResponse'
 
-instance Prelude.NFData TagInstanceProfileResponse
+instance Prelude.NFData TagInstanceProfileResponse where
+  rnf _ = ()

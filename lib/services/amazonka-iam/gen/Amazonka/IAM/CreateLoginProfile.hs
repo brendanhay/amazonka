@@ -174,9 +174,17 @@ instance Core.AWSRequest CreateLoginProfile where
             Prelude.<*> (x Core..@ "LoginProfile")
       )
 
-instance Prelude.Hashable CreateLoginProfile
+instance Prelude.Hashable CreateLoginProfile where
+  hashWithSalt _salt CreateLoginProfile' {..} =
+    _salt `Prelude.hashWithSalt` passwordResetRequired
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData CreateLoginProfile
+instance Prelude.NFData CreateLoginProfile where
+  rnf CreateLoginProfile' {..} =
+    Prelude.rnf passwordResetRequired
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToHeaders CreateLoginProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,4 +250,7 @@ createLoginProfileResponse_httpStatus = Lens.lens (\CreateLoginProfileResponse' 
 createLoginProfileResponse_loginProfile :: Lens.Lens' CreateLoginProfileResponse LoginProfile
 createLoginProfileResponse_loginProfile = Lens.lens (\CreateLoginProfileResponse' {loginProfile} -> loginProfile) (\s@CreateLoginProfileResponse' {} a -> s {loginProfile = a} :: CreateLoginProfileResponse)
 
-instance Prelude.NFData CreateLoginProfileResponse
+instance Prelude.NFData CreateLoginProfileResponse where
+  rnf CreateLoginProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loginProfile

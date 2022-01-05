@@ -65,6 +65,10 @@ instance Core.FromXML OrganizationsDecisionDetail where
     OrganizationsDecisionDetail'
       Prelude.<$> (x Core..@? "AllowedByOrganizations")
 
-instance Prelude.Hashable OrganizationsDecisionDetail
+instance Prelude.Hashable OrganizationsDecisionDetail where
+  hashWithSalt _salt OrganizationsDecisionDetail' {..} =
+    _salt `Prelude.hashWithSalt` allowedByOrganizations
 
-instance Prelude.NFData OrganizationsDecisionDetail
+instance Prelude.NFData OrganizationsDecisionDetail where
+  rnf OrganizationsDecisionDetail' {..} =
+    Prelude.rnf allowedByOrganizations

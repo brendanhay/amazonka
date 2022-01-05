@@ -135,9 +135,15 @@ instance Core.AWSRequest UpdateSAMLProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSAMLProvider
+instance Prelude.Hashable UpdateSAMLProvider where
+  hashWithSalt _salt UpdateSAMLProvider' {..} =
+    _salt `Prelude.hashWithSalt` sAMLMetadataDocument
+      `Prelude.hashWithSalt` sAMLProviderArn
 
-instance Prelude.NFData UpdateSAMLProvider
+instance Prelude.NFData UpdateSAMLProvider where
+  rnf UpdateSAMLProvider' {..} =
+    Prelude.rnf sAMLMetadataDocument
+      `Prelude.seq` Prelude.rnf sAMLProviderArn
 
 instance Core.ToHeaders UpdateSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +203,7 @@ updateSAMLProviderResponse_sAMLProviderArn = Lens.lens (\UpdateSAMLProviderRespo
 updateSAMLProviderResponse_httpStatus :: Lens.Lens' UpdateSAMLProviderResponse Prelude.Int
 updateSAMLProviderResponse_httpStatus = Lens.lens (\UpdateSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateSAMLProviderResponse' {} a -> s {httpStatus = a} :: UpdateSAMLProviderResponse)
 
-instance Prelude.NFData UpdateSAMLProviderResponse
+instance Prelude.NFData UpdateSAMLProviderResponse where
+  rnf UpdateSAMLProviderResponse' {..} =
+    Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf httpStatus

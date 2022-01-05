@@ -131,10 +131,21 @@ instance
 instance
   Prelude.Hashable
     RemoveClientIDFromOpenIDConnectProvider
+  where
+  hashWithSalt
+    _salt
+    RemoveClientIDFromOpenIDConnectProvider' {..} =
+      _salt
+        `Prelude.hashWithSalt` openIDConnectProviderArn
+        `Prelude.hashWithSalt` clientID
 
 instance
   Prelude.NFData
     RemoveClientIDFromOpenIDConnectProvider
+  where
+  rnf RemoveClientIDFromOpenIDConnectProvider' {..} =
+    Prelude.rnf openIDConnectProviderArn
+      `Prelude.seq` Prelude.rnf clientID
 
 instance
   Core.ToHeaders
@@ -183,3 +194,5 @@ newRemoveClientIDFromOpenIDConnectProviderResponse =
 instance
   Prelude.NFData
     RemoveClientIDFromOpenIDConnectProviderResponse
+  where
+  rnf _ = ()

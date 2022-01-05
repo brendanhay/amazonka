@@ -197,9 +197,17 @@ instance Core.AWSRequest CreateInstanceProfile where
             Prelude.<*> (x Core..@ "InstanceProfile")
       )
 
-instance Prelude.Hashable CreateInstanceProfile
+instance Prelude.Hashable CreateInstanceProfile where
+  hashWithSalt _salt CreateInstanceProfile' {..} =
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceProfileName
 
-instance Prelude.NFData CreateInstanceProfile
+instance Prelude.NFData CreateInstanceProfile where
+  rnf CreateInstanceProfile' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceProfileName
 
 instance Core.ToHeaders CreateInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,4 +274,7 @@ createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResp
 createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse InstanceProfile
 createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@CreateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
 
-instance Prelude.NFData CreateInstanceProfileResponse
+instance Prelude.NFData CreateInstanceProfileResponse where
+  rnf CreateInstanceProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceProfile

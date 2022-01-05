@@ -131,9 +131,15 @@ instance Core.AWSRequest DeleteRolePolicy where
   response =
     Response.receiveNull DeleteRolePolicyResponse'
 
-instance Prelude.Hashable DeleteRolePolicy
+instance Prelude.Hashable DeleteRolePolicy where
+  hashWithSalt _salt DeleteRolePolicy' {..} =
+    _salt `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData DeleteRolePolicy
+instance Prelude.NFData DeleteRolePolicy where
+  rnf DeleteRolePolicy' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders DeleteRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,5 @@ newDeleteRolePolicyResponse ::
 newDeleteRolePolicyResponse =
   DeleteRolePolicyResponse'
 
-instance Prelude.NFData DeleteRolePolicyResponse
+instance Prelude.NFData DeleteRolePolicyResponse where
+  rnf _ = ()

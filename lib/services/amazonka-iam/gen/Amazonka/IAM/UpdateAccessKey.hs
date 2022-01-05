@@ -147,9 +147,17 @@ instance Core.AWSRequest UpdateAccessKey where
   response =
     Response.receiveNull UpdateAccessKeyResponse'
 
-instance Prelude.Hashable UpdateAccessKey
+instance Prelude.Hashable UpdateAccessKey where
+  hashWithSalt _salt UpdateAccessKey' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateAccessKey
+instance Prelude.NFData UpdateAccessKey where
+  rnf UpdateAccessKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateAccessKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +191,5 @@ newUpdateAccessKeyResponse ::
   UpdateAccessKeyResponse
 newUpdateAccessKeyResponse = UpdateAccessKeyResponse'
 
-instance Prelude.NFData UpdateAccessKeyResponse
+instance Prelude.NFData UpdateAccessKeyResponse where
+  rnf _ = ()

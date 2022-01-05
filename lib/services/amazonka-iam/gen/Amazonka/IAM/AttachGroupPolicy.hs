@@ -130,9 +130,15 @@ instance Core.AWSRequest AttachGroupPolicy where
   response =
     Response.receiveNull AttachGroupPolicyResponse'
 
-instance Prelude.Hashable AttachGroupPolicy
+instance Prelude.Hashable AttachGroupPolicy where
+  hashWithSalt _salt AttachGroupPolicy' {..} =
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData AttachGroupPolicy
+instance Prelude.NFData AttachGroupPolicy where
+  rnf AttachGroupPolicy' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders AttachGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +172,5 @@ newAttachGroupPolicyResponse ::
 newAttachGroupPolicyResponse =
   AttachGroupPolicyResponse'
 
-instance Prelude.NFData AttachGroupPolicyResponse
+instance Prelude.NFData AttachGroupPolicyResponse where
+  rnf _ = ()

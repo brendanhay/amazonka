@@ -214,9 +214,19 @@ instance Core.AWSRequest EnableMFADevice where
   response =
     Response.receiveNull EnableMFADeviceResponse'
 
-instance Prelude.Hashable EnableMFADevice
+instance Prelude.Hashable EnableMFADevice where
+  hashWithSalt _salt EnableMFADevice' {..} =
+    _salt `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` authenticationCode1
+      `Prelude.hashWithSalt` authenticationCode2
 
-instance Prelude.NFData EnableMFADevice
+instance Prelude.NFData EnableMFADevice where
+  rnf EnableMFADevice' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf authenticationCode1
+      `Prelude.seq` Prelude.rnf authenticationCode2
 
 instance Core.ToHeaders EnableMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,4 +261,5 @@ newEnableMFADeviceResponse ::
   EnableMFADeviceResponse
 newEnableMFADeviceResponse = EnableMFADeviceResponse'
 
-instance Prelude.NFData EnableMFADeviceResponse
+instance Prelude.NFData EnableMFADeviceResponse where
+  rnf _ = ()

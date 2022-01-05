@@ -63,9 +63,15 @@ addRegionAction_sseKmsKeyId = Lens.lens (\AddRegionAction' {sseKmsKeyId} -> sseK
 addRegionAction_regionName :: Lens.Lens' AddRegionAction Prelude.Text
 addRegionAction_regionName = Lens.lens (\AddRegionAction' {regionName} -> regionName) (\s@AddRegionAction' {} a -> s {regionName = a} :: AddRegionAction)
 
-instance Prelude.Hashable AddRegionAction
+instance Prelude.Hashable AddRegionAction where
+  hashWithSalt _salt AddRegionAction' {..} =
+    _salt `Prelude.hashWithSalt` sseKmsKeyId
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData AddRegionAction
+instance Prelude.NFData AddRegionAction where
+  rnf AddRegionAction' {..} =
+    Prelude.rnf sseKmsKeyId
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON AddRegionAction where
   toJSON AddRegionAction' {..} =

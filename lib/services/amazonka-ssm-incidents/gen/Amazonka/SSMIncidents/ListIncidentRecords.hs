@@ -162,9 +162,17 @@ instance Core.AWSRequest ListIncidentRecords where
                         )
       )
 
-instance Prelude.Hashable ListIncidentRecords
+instance Prelude.Hashable ListIncidentRecords where
+  hashWithSalt _salt ListIncidentRecords' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListIncidentRecords
+instance Prelude.NFData ListIncidentRecords where
+  rnf ListIncidentRecords' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIncidentRecords where
   toHeaders =
@@ -241,4 +249,8 @@ listIncidentRecordsResponse_httpStatus = Lens.lens (\ListIncidentRecordsResponse
 listIncidentRecordsResponse_incidentRecordSummaries :: Lens.Lens' ListIncidentRecordsResponse [IncidentRecordSummary]
 listIncidentRecordsResponse_incidentRecordSummaries = Lens.lens (\ListIncidentRecordsResponse' {incidentRecordSummaries} -> incidentRecordSummaries) (\s@ListIncidentRecordsResponse' {} a -> s {incidentRecordSummaries = a} :: ListIncidentRecordsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListIncidentRecordsResponse
+instance Prelude.NFData ListIncidentRecordsResponse where
+  rnf ListIncidentRecordsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf incidentRecordSummaries

@@ -145,6 +145,22 @@ instance Core.FromJSON IncidentRecordSummary where
             Prelude.<*> (x Core..: "title")
       )
 
-instance Prelude.Hashable IncidentRecordSummary
+instance Prelude.Hashable IncidentRecordSummary where
+  hashWithSalt _salt IncidentRecordSummary' {..} =
+    _salt `Prelude.hashWithSalt` resolvedTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` incidentRecordSource
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` title
 
-instance Prelude.NFData IncidentRecordSummary
+instance Prelude.NFData IncidentRecordSummary where
+  rnf IncidentRecordSummary' {..} =
+    Prelude.rnf resolvedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf incidentRecordSource
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf title

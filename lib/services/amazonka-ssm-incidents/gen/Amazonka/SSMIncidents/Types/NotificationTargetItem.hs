@@ -62,9 +62,13 @@ instance Core.FromJSON NotificationTargetItem where
             Prelude.<$> (x Core..:? "snsTopicArn")
       )
 
-instance Prelude.Hashable NotificationTargetItem
+instance Prelude.Hashable NotificationTargetItem where
+  hashWithSalt _salt NotificationTargetItem' {..} =
+    _salt `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData NotificationTargetItem
+instance Prelude.NFData NotificationTargetItem where
+  rnf NotificationTargetItem' {..} =
+    Prelude.rnf snsTopicArn
 
 instance Core.ToJSON NotificationTargetItem where
   toJSON NotificationTargetItem' {..} =

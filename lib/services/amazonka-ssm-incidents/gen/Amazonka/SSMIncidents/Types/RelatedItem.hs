@@ -74,9 +74,15 @@ instance Core.FromJSON RelatedItem where
             Prelude.<*> (x Core..: "identifier")
       )
 
-instance Prelude.Hashable RelatedItem
+instance Prelude.Hashable RelatedItem where
+  hashWithSalt _salt RelatedItem' {..} =
+    _salt `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData RelatedItem
+instance Prelude.NFData RelatedItem where
+  rnf RelatedItem' {..} =
+    Prelude.rnf title
+      `Prelude.seq` Prelude.rnf identifier
 
 instance Core.ToJSON RelatedItem where
   toJSON RelatedItem' {..} =

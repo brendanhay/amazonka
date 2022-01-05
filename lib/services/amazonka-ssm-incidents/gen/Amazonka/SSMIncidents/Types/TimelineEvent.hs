@@ -136,6 +136,20 @@ instance Core.FromJSON TimelineEvent where
             Prelude.<*> (x Core..: "incidentRecordArn")
       )
 
-instance Prelude.Hashable TimelineEvent
+instance Prelude.Hashable TimelineEvent where
+  hashWithSalt _salt TimelineEvent' {..} =
+    _salt `Prelude.hashWithSalt` eventData
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventUpdatedTime
+      `Prelude.hashWithSalt` incidentRecordArn
 
-instance Prelude.NFData TimelineEvent
+instance Prelude.NFData TimelineEvent where
+  rnf TimelineEvent' {..} =
+    Prelude.rnf eventData
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventUpdatedTime
+      `Prelude.seq` Prelude.rnf incidentRecordArn

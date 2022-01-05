@@ -120,6 +120,18 @@ instance Core.FromJSON EventSummary where
             Prelude.<*> (x Core..: "incidentRecordArn")
       )
 
-instance Prelude.Hashable EventSummary
+instance Prelude.Hashable EventSummary where
+  hashWithSalt _salt EventSummary' {..} =
+    _salt `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventUpdatedTime
+      `Prelude.hashWithSalt` incidentRecordArn
 
-instance Prelude.NFData EventSummary
+instance Prelude.NFData EventSummary where
+  rnf EventSummary' {..} =
+    Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventUpdatedTime
+      `Prelude.seq` Prelude.rnf incidentRecordArn

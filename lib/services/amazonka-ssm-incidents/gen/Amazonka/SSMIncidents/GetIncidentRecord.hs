@@ -86,9 +86,12 @@ instance Core.AWSRequest GetIncidentRecord where
             Prelude.<*> (x Core..:> "incidentRecord")
       )
 
-instance Prelude.Hashable GetIncidentRecord
+instance Prelude.Hashable GetIncidentRecord where
+  hashWithSalt _salt GetIncidentRecord' {..} =
+    _salt `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetIncidentRecord
+instance Prelude.NFData GetIncidentRecord where
+  rnf GetIncidentRecord' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetIncidentRecord where
   toHeaders =
@@ -151,4 +154,7 @@ getIncidentRecordResponse_httpStatus = Lens.lens (\GetIncidentRecordResponse' {h
 getIncidentRecordResponse_incidentRecord :: Lens.Lens' GetIncidentRecordResponse IncidentRecord
 getIncidentRecordResponse_incidentRecord = Lens.lens (\GetIncidentRecordResponse' {incidentRecord} -> incidentRecord) (\s@GetIncidentRecordResponse' {} a -> s {incidentRecord = a} :: GetIncidentRecordResponse)
 
-instance Prelude.NFData GetIncidentRecordResponse
+instance Prelude.NFData GetIncidentRecordResponse where
+  rnf GetIncidentRecordResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf incidentRecord

@@ -64,9 +64,15 @@ updateReplicationSetAction_addRegionAction = Lens.lens (\UpdateReplicationSetAct
 updateReplicationSetAction_deleteRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe DeleteRegionAction)
 updateReplicationSetAction_deleteRegionAction = Lens.lens (\UpdateReplicationSetAction' {deleteRegionAction} -> deleteRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {deleteRegionAction = a} :: UpdateReplicationSetAction)
 
-instance Prelude.Hashable UpdateReplicationSetAction
+instance Prelude.Hashable UpdateReplicationSetAction where
+  hashWithSalt _salt UpdateReplicationSetAction' {..} =
+    _salt `Prelude.hashWithSalt` addRegionAction
+      `Prelude.hashWithSalt` deleteRegionAction
 
-instance Prelude.NFData UpdateReplicationSetAction
+instance Prelude.NFData UpdateReplicationSetAction where
+  rnf UpdateReplicationSetAction' {..} =
+    Prelude.rnf addRegionAction
+      `Prelude.seq` Prelude.rnf deleteRegionAction
 
 instance Core.ToJSON UpdateReplicationSetAction where
   toJSON UpdateReplicationSetAction' {..} =

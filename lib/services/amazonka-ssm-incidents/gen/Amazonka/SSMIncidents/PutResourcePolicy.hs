@@ -103,9 +103,15 @@ instance Core.AWSRequest PutResourcePolicy where
             Prelude.<*> (x Core..:> "policyId")
       )
 
-instance Prelude.Hashable PutResourcePolicy
+instance Prelude.Hashable PutResourcePolicy where
+  hashWithSalt _salt PutResourcePolicy' {..} =
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData PutResourcePolicy
+instance Prelude.NFData PutResourcePolicy where
+  rnf PutResourcePolicy' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
@@ -174,4 +180,7 @@ putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {h
 putResourcePolicyResponse_policyId :: Lens.Lens' PutResourcePolicyResponse Prelude.Text
 putResourcePolicyResponse_policyId = Lens.lens (\PutResourcePolicyResponse' {policyId} -> policyId) (\s@PutResourcePolicyResponse' {} a -> s {policyId = a} :: PutResourcePolicyResponse)
 
-instance Prelude.NFData PutResourcePolicyResponse
+instance Prelude.NFData PutResourcePolicyResponse where
+  rnf PutResourcePolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyId

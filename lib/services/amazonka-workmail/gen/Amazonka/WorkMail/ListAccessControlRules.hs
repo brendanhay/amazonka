@@ -89,9 +89,13 @@ instance Core.AWSRequest ListAccessControlRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccessControlRules
+instance Prelude.Hashable ListAccessControlRules where
+  hashWithSalt _salt ListAccessControlRules' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData ListAccessControlRules
+instance Prelude.NFData ListAccessControlRules where
+  rnf ListAccessControlRules' {..} =
+    Prelude.rnf organizationId
 
 instance Core.ToHeaders ListAccessControlRules where
   toHeaders =
@@ -165,3 +169,7 @@ listAccessControlRulesResponse_httpStatus = Lens.lens (\ListAccessControlRulesRe
 instance
   Prelude.NFData
     ListAccessControlRulesResponse
+  where
+  rnf ListAccessControlRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteRetentionPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRetentionPolicy
+instance Prelude.Hashable DeleteRetentionPolicy where
+  hashWithSalt _salt DeleteRetentionPolicy' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteRetentionPolicy
+instance Prelude.NFData DeleteRetentionPolicy where
+  rnf DeleteRetentionPolicy' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteRetentionPolicy where
   toHeaders =
@@ -164,4 +170,6 @@ newDeleteRetentionPolicyResponse pHttpStatus_ =
 deleteRetentionPolicyResponse_httpStatus :: Lens.Lens' DeleteRetentionPolicyResponse Prelude.Int
 deleteRetentionPolicyResponse_httpStatus = Lens.lens (\DeleteRetentionPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteRetentionPolicyResponse' {} a -> s {httpStatus = a} :: DeleteRetentionPolicyResponse)
 
-instance Prelude.NFData DeleteRetentionPolicyResponse
+instance Prelude.NFData DeleteRetentionPolicyResponse where
+  rnf DeleteRetentionPolicyResponse' {..} =
+    Prelude.rnf httpStatus

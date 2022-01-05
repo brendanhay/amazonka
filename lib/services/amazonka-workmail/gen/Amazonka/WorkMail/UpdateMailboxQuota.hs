@@ -118,9 +118,17 @@ instance Core.AWSRequest UpdateMailboxQuota where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMailboxQuota
+instance Prelude.Hashable UpdateMailboxQuota where
+  hashWithSalt _salt UpdateMailboxQuota' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` mailboxQuota
 
-instance Prelude.NFData UpdateMailboxQuota
+instance Prelude.NFData UpdateMailboxQuota where
+  rnf UpdateMailboxQuota' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf mailboxQuota
 
 instance Core.ToHeaders UpdateMailboxQuota where
   toHeaders =
@@ -184,4 +192,6 @@ newUpdateMailboxQuotaResponse pHttpStatus_ =
 updateMailboxQuotaResponse_httpStatus :: Lens.Lens' UpdateMailboxQuotaResponse Prelude.Int
 updateMailboxQuotaResponse_httpStatus = Lens.lens (\UpdateMailboxQuotaResponse' {httpStatus} -> httpStatus) (\s@UpdateMailboxQuotaResponse' {} a -> s {httpStatus = a} :: UpdateMailboxQuotaResponse)
 
-instance Prelude.NFData UpdateMailboxQuotaResponse
+instance Prelude.NFData UpdateMailboxQuotaResponse where
+  rnf UpdateMailboxQuotaResponse' {..} =
+    Prelude.rnf httpStatus

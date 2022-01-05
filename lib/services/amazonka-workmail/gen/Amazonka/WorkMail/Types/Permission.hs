@@ -111,6 +111,14 @@ instance Core.FromJSON Permission where
                         )
       )
 
-instance Prelude.Hashable Permission
+instance Prelude.Hashable Permission where
+  hashWithSalt _salt Permission' {..} =
+    _salt `Prelude.hashWithSalt` granteeId
+      `Prelude.hashWithSalt` granteeType
+      `Prelude.hashWithSalt` permissionValues
 
-instance Prelude.NFData Permission
+instance Prelude.NFData Permission where
+  rnf Permission' {..} =
+    Prelude.rnf granteeId
+      `Prelude.seq` Prelude.rnf granteeType
+      `Prelude.seq` Prelude.rnf permissionValues

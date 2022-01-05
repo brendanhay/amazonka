@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteAccessControlRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccessControlRule
+instance Prelude.Hashable DeleteAccessControlRule where
+  hashWithSalt _salt DeleteAccessControlRule' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteAccessControlRule
+instance Prelude.NFData DeleteAccessControlRule where
+  rnf DeleteAccessControlRule' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteAccessControlRule where
   toHeaders =
@@ -171,3 +177,6 @@ deleteAccessControlRuleResponse_httpStatus = Lens.lens (\DeleteAccessControlRule
 instance
   Prelude.NFData
     DeleteAccessControlRuleResponse
+  where
+  rnf DeleteAccessControlRuleResponse' {..} =
+    Prelude.rnf httpStatus

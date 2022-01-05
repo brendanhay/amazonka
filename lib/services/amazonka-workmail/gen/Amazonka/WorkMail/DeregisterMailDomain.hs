@@ -105,9 +105,15 @@ instance Core.AWSRequest DeregisterMailDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterMailDomain
+instance Prelude.Hashable DeregisterMailDomain where
+  hashWithSalt _salt DeregisterMailDomain' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeregisterMailDomain
+instance Prelude.NFData DeregisterMailDomain where
+  rnf DeregisterMailDomain' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DeregisterMailDomain where
   toHeaders =
@@ -170,4 +176,6 @@ newDeregisterMailDomainResponse pHttpStatus_ =
 deregisterMailDomainResponse_httpStatus :: Lens.Lens' DeregisterMailDomainResponse Prelude.Int
 deregisterMailDomainResponse_httpStatus = Lens.lens (\DeregisterMailDomainResponse' {httpStatus} -> httpStatus) (\s@DeregisterMailDomainResponse' {} a -> s {httpStatus = a} :: DeregisterMailDomainResponse)
 
-instance Prelude.NFData DeregisterMailDomainResponse
+instance Prelude.NFData DeregisterMailDomainResponse where
+  rnf DeregisterMailDomainResponse' {..} =
+    Prelude.rnf httpStatus

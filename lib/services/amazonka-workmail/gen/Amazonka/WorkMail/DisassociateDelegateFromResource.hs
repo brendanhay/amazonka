@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateDelegateFromResource
+  where
+  hashWithSalt
+    _salt
+    DisassociateDelegateFromResource' {..} =
+      _salt `Prelude.hashWithSalt` organizationId
+        `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` entityId
 
 instance
   Prelude.NFData
     DisassociateDelegateFromResource
+  where
+  rnf DisassociateDelegateFromResource' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance
   Core.ToHeaders
@@ -203,3 +215,6 @@ disassociateDelegateFromResourceResponse_httpStatus = Lens.lens (\DisassociateDe
 instance
   Prelude.NFData
     DisassociateDelegateFromResourceResponse
+  where
+  rnf DisassociateDelegateFromResourceResponse' {..} =
+    Prelude.rnf httpStatus

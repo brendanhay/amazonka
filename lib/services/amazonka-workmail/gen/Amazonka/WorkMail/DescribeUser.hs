@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUser
+instance Prelude.Hashable DescribeUser where
+  hashWithSalt _salt DescribeUser' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DescribeUser
+instance Prelude.NFData DescribeUser where
+  rnf DescribeUser' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders DescribeUser where
   toHeaders =
@@ -272,4 +278,14 @@ describeUserResponse_enabledDate = Lens.lens (\DescribeUserResponse' {enabledDat
 describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int
 describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus} -> httpStatus) (\s@DescribeUserResponse' {} a -> s {httpStatus = a} :: DescribeUserResponse)
 
-instance Prelude.NFData DescribeUserResponse
+instance Prelude.NFData DescribeUserResponse where
+  rnf DescribeUserResponse' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf disabledDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf enabledDate
+      `Prelude.seq` Prelude.rnf httpStatus

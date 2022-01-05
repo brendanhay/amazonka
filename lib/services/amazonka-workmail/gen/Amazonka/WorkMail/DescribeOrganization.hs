@@ -106,9 +106,13 @@ instance Core.AWSRequest DescribeOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOrganization
+instance Prelude.Hashable DescribeOrganization where
+  hashWithSalt _salt DescribeOrganization' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DescribeOrganization
+instance Prelude.NFData DescribeOrganization where
+  rnf DescribeOrganization' {..} =
+    Prelude.rnf organizationId
 
 instance Core.ToHeaders DescribeOrganization where
   toHeaders =
@@ -260,4 +264,15 @@ describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationRe
 describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Prelude.Int
 describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationResponse)
 
-instance Prelude.NFData DescribeOrganizationResponse
+instance Prelude.NFData DescribeOrganizationResponse where
+  rnf DescribeOrganizationResponse' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf completedDate
+      `Prelude.seq` Prelude.rnf directoryType
+      `Prelude.seq` Prelude.rnf defaultMailDomain
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf httpStatus

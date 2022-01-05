@@ -101,9 +101,15 @@ instance Core.AWSRequest PutInboundDmarcSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutInboundDmarcSettings
+instance Prelude.Hashable PutInboundDmarcSettings where
+  hashWithSalt _salt PutInboundDmarcSettings' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` enforced
 
-instance Prelude.NFData PutInboundDmarcSettings
+instance Prelude.NFData PutInboundDmarcSettings where
+  rnf PutInboundDmarcSettings' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf enforced
 
 instance Core.ToHeaders PutInboundDmarcSettings where
   toHeaders =
@@ -169,3 +175,6 @@ putInboundDmarcSettingsResponse_httpStatus = Lens.lens (\PutInboundDmarcSettings
 instance
   Prelude.NFData
     PutInboundDmarcSettingsResponse
+  where
+  rnf PutInboundDmarcSettingsResponse' {..} =
+    Prelude.rnf httpStatus

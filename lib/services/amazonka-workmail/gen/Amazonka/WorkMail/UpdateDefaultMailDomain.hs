@@ -103,9 +103,15 @@ instance Core.AWSRequest UpdateDefaultMailDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDefaultMailDomain
+instance Prelude.Hashable UpdateDefaultMailDomain where
+  hashWithSalt _salt UpdateDefaultMailDomain' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDefaultMailDomain
+instance Prelude.NFData UpdateDefaultMailDomain where
+  rnf UpdateDefaultMailDomain' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDefaultMailDomain where
   toHeaders =
@@ -171,3 +177,6 @@ updateDefaultMailDomainResponse_httpStatus = Lens.lens (\UpdateDefaultMailDomain
 instance
   Prelude.NFData
     UpdateDefaultMailDomainResponse
+  where
+  rnf UpdateDefaultMailDomainResponse' {..} =
+    Prelude.rnf httpStatus

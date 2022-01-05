@@ -76,6 +76,11 @@ instance Core.FromJSON Delegate where
             Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Delegate
+instance Prelude.Hashable Delegate where
+  hashWithSalt _salt Delegate' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Delegate
+instance Prelude.NFData Delegate where
+  rnf Delegate' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'

@@ -105,9 +105,15 @@ instance Core.AWSRequest DeregisterFromWorkMail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterFromWorkMail
+instance Prelude.Hashable DeregisterFromWorkMail where
+  hashWithSalt _salt DeregisterFromWorkMail' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` entityId
 
-instance Prelude.NFData DeregisterFromWorkMail
+instance Prelude.NFData DeregisterFromWorkMail where
+  rnf DeregisterFromWorkMail' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders DeregisterFromWorkMail where
   toHeaders =
@@ -173,3 +179,6 @@ deregisterFromWorkMailResponse_httpStatus = Lens.lens (\DeregisterFromWorkMailRe
 instance
   Prelude.NFData
     DeregisterFromWorkMailResponse
+  where
+  rnf DeregisterFromWorkMailResponse' {..} =
+    Prelude.rnf httpStatus

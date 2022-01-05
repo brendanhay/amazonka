@@ -147,6 +147,26 @@ instance Core.FromJSON MailboxExportJob where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable MailboxExportJob
+instance Prelude.Hashable MailboxExportJob where
+  hashWithSalt _salt MailboxExportJob' {..} =
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` estimatedProgress
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` s3Path
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` s3BucketName
 
-instance Prelude.NFData MailboxExportJob
+instance Prelude.NFData MailboxExportJob where
+  rnf MailboxExportJob' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf estimatedProgress
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf s3Path
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf s3BucketName

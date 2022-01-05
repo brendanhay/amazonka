@@ -99,9 +99,15 @@ instance Core.AWSRequest CreateGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroup
+instance Prelude.Hashable CreateGroup where
+  hashWithSalt _salt CreateGroup' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateGroup
+instance Prelude.NFData CreateGroup where
+  rnf CreateGroup' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateGroup where
   toHeaders =
@@ -172,4 +178,7 @@ createGroupResponse_groupId = Lens.lens (\CreateGroupResponse' {groupId} -> grou
 createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Prelude.NFData CreateGroupResponse where
+  rnf CreateGroupResponse' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf httpStatus

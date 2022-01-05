@@ -135,9 +135,19 @@ instance Core.AWSRequest GetAccessControlEffect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccessControlEffect
+instance Prelude.Hashable GetAccessControlEffect where
+  hashWithSalt _salt GetAccessControlEffect' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData GetAccessControlEffect
+instance Prelude.NFData GetAccessControlEffect where
+  rnf GetAccessControlEffect' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetAccessControlEffect where
   toHeaders =
@@ -223,3 +233,8 @@ getAccessControlEffectResponse_httpStatus = Lens.lens (\GetAccessControlEffectRe
 instance
   Prelude.NFData
     GetAccessControlEffectResponse
+  where
+  rnf GetAccessControlEffectResponse' {..} =
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf matchedRules
+      `Prelude.seq` Prelude.rnf httpStatus

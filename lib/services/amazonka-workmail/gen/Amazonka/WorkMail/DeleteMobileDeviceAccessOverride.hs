@@ -155,10 +155,22 @@ instance
 instance
   Prelude.Hashable
     DeleteMobileDeviceAccessOverride
+  where
+  hashWithSalt
+    _salt
+    DeleteMobileDeviceAccessOverride' {..} =
+      _salt `Prelude.hashWithSalt` organizationId
+        `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` deviceId
 
 instance
   Prelude.NFData
     DeleteMobileDeviceAccessOverride
+  where
+  rnf DeleteMobileDeviceAccessOverride' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance
   Core.ToHeaders
@@ -232,3 +244,6 @@ deleteMobileDeviceAccessOverrideResponse_httpStatus = Lens.lens (\DeleteMobileDe
 instance
   Prelude.NFData
     DeleteMobileDeviceAccessOverrideResponse
+  where
+  rnf DeleteMobileDeviceAccessOverrideResponse' {..} =
+    Prelude.rnf httpStatus

@@ -133,6 +133,24 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "EnabledDate")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` disabledDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` userRole
+      `Prelude.hashWithSalt` enabledDate
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf disabledDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf enabledDate

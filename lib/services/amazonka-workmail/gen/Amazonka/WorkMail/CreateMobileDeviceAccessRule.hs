@@ -235,8 +235,37 @@ instance Core.AWSRequest CreateMobileDeviceAccessRule where
 instance
   Prelude.Hashable
     CreateMobileDeviceAccessRule
+  where
+  hashWithSalt _salt CreateMobileDeviceAccessRule' {..} =
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` deviceUserAgents
+      `Prelude.hashWithSalt` deviceTypes
+      `Prelude.hashWithSalt` notDeviceTypes
+      `Prelude.hashWithSalt` notDeviceOperatingSystems
+      `Prelude.hashWithSalt` deviceModels
+      `Prelude.hashWithSalt` deviceOperatingSystems
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` notDeviceUserAgents
+      `Prelude.hashWithSalt` notDeviceModels
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` effect
 
-instance Prelude.NFData CreateMobileDeviceAccessRule
+instance Prelude.NFData CreateMobileDeviceAccessRule where
+  rnf CreateMobileDeviceAccessRule' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf deviceUserAgents
+      `Prelude.seq` Prelude.rnf deviceTypes
+      `Prelude.seq` Prelude.rnf notDeviceTypes
+      `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
+      `Prelude.seq` Prelude.rnf deviceModels
+      `Prelude.seq` Prelude.rnf deviceOperatingSystems
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf notDeviceUserAgents
+      `Prelude.seq` Prelude.rnf notDeviceModels
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf effect
 
 instance Core.ToHeaders CreateMobileDeviceAccessRule where
   toHeaders =
@@ -328,3 +357,7 @@ createMobileDeviceAccessRuleResponse_httpStatus = Lens.lens (\CreateMobileDevice
 instance
   Prelude.NFData
     CreateMobileDeviceAccessRuleResponse
+  where
+  rnf CreateMobileDeviceAccessRuleResponse' {..} =
+    Prelude.rnf mobileDeviceAccessRuleId
+      `Prelude.seq` Prelude.rnf httpStatus

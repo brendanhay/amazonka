@@ -134,9 +134,21 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMobileDeviceAccessEffect
+instance Prelude.Hashable GetMobileDeviceAccessEffect where
+  hashWithSalt _salt GetMobileDeviceAccessEffect' {..} =
+    _salt `Prelude.hashWithSalt` deviceOperatingSystem
+      `Prelude.hashWithSalt` deviceModel
+      `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` deviceUserAgent
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData GetMobileDeviceAccessEffect
+instance Prelude.NFData GetMobileDeviceAccessEffect where
+  rnf GetMobileDeviceAccessEffect' {..} =
+    Prelude.rnf deviceOperatingSystem
+      `Prelude.seq` Prelude.rnf deviceModel
+      `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf deviceUserAgent
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders GetMobileDeviceAccessEffect where
   toHeaders =
@@ -234,3 +246,8 @@ getMobileDeviceAccessEffectResponse_httpStatus = Lens.lens (\GetMobileDeviceAcce
 instance
   Prelude.NFData
     GetMobileDeviceAccessEffectResponse
+  where
+  rnf GetMobileDeviceAccessEffectResponse' {..} =
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf matchedRules
+      `Prelude.seq` Prelude.rnf httpStatus

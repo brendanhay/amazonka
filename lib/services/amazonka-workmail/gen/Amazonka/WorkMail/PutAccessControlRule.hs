@@ -201,9 +201,31 @@ instance Core.AWSRequest PutAccessControlRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccessControlRule
+instance Prelude.Hashable PutAccessControlRule where
+  hashWithSalt _salt PutAccessControlRule' {..} =
+    _salt `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` notUserIds
+      `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` notIpRanges
+      `Prelude.hashWithSalt` notActions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` effect
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData PutAccessControlRule
+instance Prelude.NFData PutAccessControlRule where
+  rnf PutAccessControlRule' {..} =
+    Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf notUserIds
+      `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf notIpRanges
+      `Prelude.seq` Prelude.rnf notActions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders PutAccessControlRule where
   toHeaders =
@@ -274,4 +296,6 @@ newPutAccessControlRuleResponse pHttpStatus_ =
 putAccessControlRuleResponse_httpStatus :: Lens.Lens' PutAccessControlRuleResponse Prelude.Int
 putAccessControlRuleResponse_httpStatus = Lens.lens (\PutAccessControlRuleResponse' {httpStatus} -> httpStatus) (\s@PutAccessControlRuleResponse' {} a -> s {httpStatus = a} :: PutAccessControlRuleResponse)
 
-instance Prelude.NFData PutAccessControlRuleResponse
+instance Prelude.NFData PutAccessControlRuleResponse where
+  rnf PutAccessControlRuleResponse' {..} =
+    Prelude.rnf httpStatus

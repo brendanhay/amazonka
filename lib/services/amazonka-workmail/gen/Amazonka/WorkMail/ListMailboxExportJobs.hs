@@ -111,9 +111,17 @@ instance Core.AWSRequest ListMailboxExportJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMailboxExportJobs
+instance Prelude.Hashable ListMailboxExportJobs where
+  hashWithSalt _salt ListMailboxExportJobs' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData ListMailboxExportJobs
+instance Prelude.NFData ListMailboxExportJobs where
+  rnf ListMailboxExportJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders ListMailboxExportJobs where
   toHeaders =
@@ -195,4 +203,8 @@ listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' 
 listMailboxExportJobsResponse_httpStatus :: Lens.Lens' ListMailboxExportJobsResponse Prelude.Int
 listMailboxExportJobsResponse_httpStatus = Lens.lens (\ListMailboxExportJobsResponse' {httpStatus} -> httpStatus) (\s@ListMailboxExportJobsResponse' {} a -> s {httpStatus = a} :: ListMailboxExportJobsResponse)
 
-instance Prelude.NFData ListMailboxExportJobsResponse
+instance Prelude.NFData ListMailboxExportJobsResponse where
+  rnf ListMailboxExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus

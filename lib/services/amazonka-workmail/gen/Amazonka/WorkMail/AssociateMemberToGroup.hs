@@ -114,9 +114,17 @@ instance Core.AWSRequest AssociateMemberToGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateMemberToGroup
+instance Prelude.Hashable AssociateMemberToGroup where
+  hashWithSalt _salt AssociateMemberToGroup' {..} =
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData AssociateMemberToGroup
+instance Prelude.NFData AssociateMemberToGroup where
+  rnf AssociateMemberToGroup' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders AssociateMemberToGroup where
   toHeaders =
@@ -183,3 +191,6 @@ associateMemberToGroupResponse_httpStatus = Lens.lens (\AssociateMemberToGroupRe
 instance
   Prelude.NFData
     AssociateMemberToGroupResponse
+  where
+  rnf AssociateMemberToGroupResponse' {..} =
+    Prelude.rnf httpStatus

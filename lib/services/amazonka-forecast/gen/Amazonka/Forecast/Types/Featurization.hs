@@ -110,9 +110,15 @@ instance Core.FromJSON Featurization where
             Prelude.<*> (x Core..: "AttributeName")
       )
 
-instance Prelude.Hashable Featurization
+instance Prelude.Hashable Featurization where
+  hashWithSalt _salt Featurization' {..} =
+    _salt `Prelude.hashWithSalt` featurizationPipeline
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData Featurization
+instance Prelude.NFData Featurization where
+  rnf Featurization' {..} =
+    Prelude.rnf featurizationPipeline
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON Featurization where
   toJSON Featurization' {..} =

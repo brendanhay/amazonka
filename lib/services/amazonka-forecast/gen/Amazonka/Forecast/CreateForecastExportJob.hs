@@ -251,9 +251,19 @@ instance Core.AWSRequest CreateForecastExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateForecastExportJob
+instance Prelude.Hashable CreateForecastExportJob where
+  hashWithSalt _salt CreateForecastExportJob' {..} =
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` forecastExportJobName
+      `Prelude.hashWithSalt` forecastArn
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData CreateForecastExportJob
+instance Prelude.NFData CreateForecastExportJob where
+  rnf CreateForecastExportJob' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf forecastExportJobName
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToHeaders CreateForecastExportJob where
   toHeaders =
@@ -332,3 +342,7 @@ createForecastExportJobResponse_httpStatus = Lens.lens (\CreateForecastExportJob
 instance
   Prelude.NFData
     CreateForecastExportJobResponse
+  where
+  rnf CreateForecastExportJobResponse' {..} =
+    Prelude.rnf forecastExportJobArn
+      `Prelude.seq` Prelude.rnf httpStatus

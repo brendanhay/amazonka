@@ -75,9 +75,14 @@ instance Core.FromJSON CategoricalParameterRange where
             Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Values")
       )
 
-instance Prelude.Hashable CategoricalParameterRange
+instance Prelude.Hashable CategoricalParameterRange where
+  hashWithSalt _salt CategoricalParameterRange' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData CategoricalParameterRange
+instance Prelude.NFData CategoricalParameterRange where
+  rnf CategoricalParameterRange' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON CategoricalParameterRange where
   toJSON CategoricalParameterRange' {..} =

@@ -84,9 +84,17 @@ filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {valu
 filter_condition :: Lens.Lens' Filter FilterConditionString
 filter_condition = Lens.lens (\Filter' {condition} -> condition) (\s@Filter' {} a -> s {condition = a} :: Filter)
 
-instance Prelude.Hashable Filter
+instance Prelude.Hashable Filter where
+  hashWithSalt _salt Filter' {..} =
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData Filter
+instance Prelude.NFData Filter where
+  rnf Filter' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf condition
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =

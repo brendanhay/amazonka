@@ -101,9 +101,12 @@ instance Core.AWSRequest DeleteResourceTree where
   response =
     Response.receiveNull DeleteResourceTreeResponse'
 
-instance Prelude.Hashable DeleteResourceTree
+instance Prelude.Hashable DeleteResourceTree where
+  hashWithSalt _salt DeleteResourceTree' {..} =
+    _salt `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DeleteResourceTree
+instance Prelude.NFData DeleteResourceTree where
+  rnf DeleteResourceTree' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders DeleteResourceTree where
   toHeaders =
@@ -148,4 +151,5 @@ newDeleteResourceTreeResponse ::
 newDeleteResourceTreeResponse =
   DeleteResourceTreeResponse'
 
-instance Prelude.NFData DeleteResourceTreeResponse
+instance Prelude.NFData DeleteResourceTreeResponse where
+  rnf _ = ()

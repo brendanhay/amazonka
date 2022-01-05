@@ -208,9 +208,17 @@ instance Core.AWSRequest ListForecastExportJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListForecastExportJobs
+instance Prelude.Hashable ListForecastExportJobs where
+  hashWithSalt _salt ListForecastExportJobs' {..} =
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListForecastExportJobs
+instance Prelude.NFData ListForecastExportJobs where
+  rnf ListForecastExportJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListForecastExportJobs where
   toHeaders =
@@ -297,3 +305,8 @@ listForecastExportJobsResponse_httpStatus = Lens.lens (\ListForecastExportJobsRe
 instance
   Prelude.NFData
     ListForecastExportJobsResponse
+  where
+  rnf ListForecastExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf forecastExportJobs
+      `Prelude.seq` Prelude.rnf httpStatus

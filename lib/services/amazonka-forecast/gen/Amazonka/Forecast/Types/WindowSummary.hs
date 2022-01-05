@@ -119,6 +119,18 @@ instance Core.FromJSON WindowSummary where
             Prelude.<*> (x Core..:? "ItemCount")
       )
 
-instance Prelude.Hashable WindowSummary
+instance Prelude.Hashable WindowSummary where
+  hashWithSalt _salt WindowSummary' {..} =
+    _salt `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` testWindowEnd
+      `Prelude.hashWithSalt` evaluationType
+      `Prelude.hashWithSalt` testWindowStart
+      `Prelude.hashWithSalt` itemCount
 
-instance Prelude.NFData WindowSummary
+instance Prelude.NFData WindowSummary where
+  rnf WindowSummary' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf testWindowEnd
+      `Prelude.seq` Prelude.rnf evaluationType
+      `Prelude.seq` Prelude.rnf testWindowStart
+      `Prelude.seq` Prelude.rnf itemCount

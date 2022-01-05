@@ -62,9 +62,12 @@ instance Core.FromJSON Schema where
           Schema' Prelude.<$> (x Core..:? "Attributes")
       )
 
-instance Prelude.Hashable Schema
+instance Prelude.Hashable Schema where
+  hashWithSalt _salt Schema' {..} =
+    _salt `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData Schema
+instance Prelude.NFData Schema where
+  rnf Schema' {..} = Prelude.rnf attributes
 
 instance Core.ToJSON Schema where
   toJSON Schema' {..} =

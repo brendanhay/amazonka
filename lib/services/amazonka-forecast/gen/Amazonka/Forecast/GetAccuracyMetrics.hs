@@ -112,9 +112,13 @@ instance Core.AWSRequest GetAccuracyMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccuracyMetrics
+instance Prelude.Hashable GetAccuracyMetrics where
+  hashWithSalt _salt GetAccuracyMetrics' {..} =
+    _salt `Prelude.hashWithSalt` predictorArn
 
-instance Prelude.NFData GetAccuracyMetrics
+instance Prelude.NFData GetAccuracyMetrics where
+  rnf GetAccuracyMetrics' {..} =
+    Prelude.rnf predictorArn
 
 instance Core.ToHeaders GetAccuracyMetrics where
   toHeaders =
@@ -225,4 +229,9 @@ getAccuracyMetricsResponse_autoMLOverrideStrategy = Lens.lens (\GetAccuracyMetri
 getAccuracyMetricsResponse_httpStatus :: Lens.Lens' GetAccuracyMetricsResponse Prelude.Int
 getAccuracyMetricsResponse_httpStatus = Lens.lens (\GetAccuracyMetricsResponse' {httpStatus} -> httpStatus) (\s@GetAccuracyMetricsResponse' {} a -> s {httpStatus = a} :: GetAccuracyMetricsResponse)
 
-instance Prelude.NFData GetAccuracyMetricsResponse
+instance Prelude.NFData GetAccuracyMetricsResponse where
+  rnf GetAccuracyMetricsResponse' {..} =
+    Prelude.rnf predictorEvaluationResults
+      `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
+      `Prelude.seq` Prelude.rnf httpStatus

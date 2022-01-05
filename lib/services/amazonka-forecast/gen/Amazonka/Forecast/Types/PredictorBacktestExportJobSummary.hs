@@ -193,7 +193,27 @@ instance
 instance
   Prelude.Hashable
     PredictorBacktestExportJobSummary
+  where
+  hashWithSalt
+    _salt
+    PredictorBacktestExportJobSummary' {..} =
+      _salt `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` destination
+        `Prelude.hashWithSalt` predictorBacktestExportJobArn
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` predictorBacktestExportJobName
+        `Prelude.hashWithSalt` lastModificationTime
 
 instance
   Prelude.NFData
     PredictorBacktestExportJobSummary
+  where
+  rnf PredictorBacktestExportJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf predictorBacktestExportJobArn
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf predictorBacktestExportJobName
+      `Prelude.seq` Prelude.rnf lastModificationTime

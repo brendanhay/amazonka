@@ -245,9 +245,19 @@ instance Core.AWSRequest CreateForecast where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateForecast
+instance Prelude.Hashable CreateForecast where
+  hashWithSalt _salt CreateForecast' {..} =
+    _salt `Prelude.hashWithSalt` forecastTypes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` forecastName
+      `Prelude.hashWithSalt` predictorArn
 
-instance Prelude.NFData CreateForecast
+instance Prelude.NFData CreateForecast where
+  rnf CreateForecast' {..} =
+    Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf forecastName
+      `Prelude.seq` Prelude.rnf predictorArn
 
 instance Core.ToHeaders CreateForecast where
   toHeaders =
@@ -320,4 +330,7 @@ createForecastResponse_forecastArn = Lens.lens (\CreateForecastResponse' {foreca
 createForecastResponse_httpStatus :: Lens.Lens' CreateForecastResponse Prelude.Int
 createForecastResponse_httpStatus = Lens.lens (\CreateForecastResponse' {httpStatus} -> httpStatus) (\s@CreateForecastResponse' {} a -> s {httpStatus = a} :: CreateForecastResponse)
 
-instance Prelude.NFData CreateForecastResponse
+instance Prelude.NFData CreateForecastResponse where
+  rnf CreateForecastResponse' {..} =
+    Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -80,9 +80,15 @@ instance Core.FromJSON InputDataConfig where
             Prelude.<*> (x Core..: "DatasetGroupArn")
       )
 
-instance Prelude.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig where
+  hashWithSalt _salt InputDataConfig' {..} =
+    _salt `Prelude.hashWithSalt` supplementaryFeatures
+      `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig where
+  rnf InputDataConfig' {..} =
+    Prelude.rnf supplementaryFeatures
+      `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

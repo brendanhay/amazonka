@@ -84,9 +84,13 @@ instance Core.AWSRequest DeleteDatasetImportJob where
     Response.receiveNull
       DeleteDatasetImportJobResponse'
 
-instance Prelude.Hashable DeleteDatasetImportJob
+instance Prelude.Hashable DeleteDatasetImportJob where
+  hashWithSalt _salt DeleteDatasetImportJob' {..} =
+    _salt `Prelude.hashWithSalt` datasetImportJobArn
 
-instance Prelude.NFData DeleteDatasetImportJob
+instance Prelude.NFData DeleteDatasetImportJob where
+  rnf DeleteDatasetImportJob' {..} =
+    Prelude.rnf datasetImportJobArn
 
 instance Core.ToHeaders DeleteDatasetImportJob where
   toHeaders =
@@ -136,3 +140,5 @@ newDeleteDatasetImportJobResponse =
 instance
   Prelude.NFData
     DeleteDatasetImportJobResponse
+  where
+  rnf _ = ()

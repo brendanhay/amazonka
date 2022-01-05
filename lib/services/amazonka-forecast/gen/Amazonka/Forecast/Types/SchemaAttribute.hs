@@ -74,9 +74,15 @@ instance Core.FromJSON SchemaAttribute where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable SchemaAttribute
+instance Prelude.Hashable SchemaAttribute where
+  hashWithSalt _salt SchemaAttribute' {..} =
+    _salt `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData SchemaAttribute
+instance Prelude.NFData SchemaAttribute where
+  rnf SchemaAttribute' {..} =
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON SchemaAttribute where
   toJSON SchemaAttribute' {..} =

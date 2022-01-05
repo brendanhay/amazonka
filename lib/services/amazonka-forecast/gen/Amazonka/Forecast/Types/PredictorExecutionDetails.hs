@@ -72,6 +72,10 @@ instance Core.FromJSON PredictorExecutionDetails where
             Prelude.<$> (x Core..:? "PredictorExecutions")
       )
 
-instance Prelude.Hashable PredictorExecutionDetails
+instance Prelude.Hashable PredictorExecutionDetails where
+  hashWithSalt _salt PredictorExecutionDetails' {..} =
+    _salt `Prelude.hashWithSalt` predictorExecutions
 
-instance Prelude.NFData PredictorExecutionDetails
+instance Prelude.NFData PredictorExecutionDetails where
+  rnf PredictorExecutionDetails' {..} =
+    Prelude.rnf predictorExecutions

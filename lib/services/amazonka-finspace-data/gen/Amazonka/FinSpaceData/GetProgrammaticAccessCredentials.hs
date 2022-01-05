@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     GetProgrammaticAccessCredentials
+  where
+  hashWithSalt
+    _salt
+    GetProgrammaticAccessCredentials' {..} =
+      _salt `Prelude.hashWithSalt` durationInMinutes
+        `Prelude.hashWithSalt` environmentId
 
 instance
   Prelude.NFData
     GetProgrammaticAccessCredentials
+  where
+  rnf GetProgrammaticAccessCredentials' {..} =
+    Prelude.rnf durationInMinutes
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance
   Core.ToHeaders
@@ -192,3 +202,8 @@ getProgrammaticAccessCredentialsResponse_httpStatus = Lens.lens (\GetProgrammati
 instance
   Prelude.NFData
     GetProgrammaticAccessCredentialsResponse
+  where
+  rnf GetProgrammaticAccessCredentialsResponse' {..} =
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf durationInMinutes
+      `Prelude.seq` Prelude.rnf httpStatus

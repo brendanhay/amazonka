@@ -238,6 +238,40 @@ instance Core.FromJSON OriginEndpoint where
             Prelude.<*> (x Core..:? "origination")
       )
 
-instance Prelude.Hashable OriginEndpoint
+instance Prelude.Hashable OriginEndpoint where
+  hashWithSalt _salt OriginEndpoint' {..} =
+    _salt `Prelude.hashWithSalt` whitelist
+      `Prelude.hashWithSalt` hlsPackage
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` authorization
+      `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` startoverWindowSeconds
+      `Prelude.hashWithSalt` dashPackage
+      `Prelude.hashWithSalt` mssPackage
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` timeDelaySeconds
+      `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` origination
 
-instance Prelude.NFData OriginEndpoint
+instance Prelude.NFData OriginEndpoint where
+  rnf OriginEndpoint' {..} =
+    Prelude.rnf whitelist
+      `Prelude.seq` Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf origination

@@ -195,6 +195,24 @@ instance Core.FromJSON HlsManifest where
             Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable HlsManifest
+instance Prelude.Hashable HlsManifest where
+  hashWithSalt _salt HlsManifest' {..} =
+    _salt `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` playlistType
+      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` includeIframeOnlyStream
+      `Prelude.hashWithSalt` playlistWindowSeconds
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData HlsManifest
+instance Prelude.NFData HlsManifest where
+  rnf HlsManifest' {..} =
+    Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf playlistType
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
+      `Prelude.seq` Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf id

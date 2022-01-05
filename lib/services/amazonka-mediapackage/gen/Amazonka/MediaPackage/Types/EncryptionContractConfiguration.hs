@@ -95,10 +95,20 @@ instance
 instance
   Prelude.Hashable
     EncryptionContractConfiguration
+  where
+  hashWithSalt
+    _salt
+    EncryptionContractConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` presetSpeke20Audio
+        `Prelude.hashWithSalt` presetSpeke20Video
 
 instance
   Prelude.NFData
     EncryptionContractConfiguration
+  where
+  rnf EncryptionContractConfiguration' {..} =
+    Prelude.rnf presetSpeke20Audio
+      `Prelude.seq` Prelude.rnf presetSpeke20Video
 
 instance Core.ToJSON EncryptionContractConfiguration where
   toJSON EncryptionContractConfiguration' {..} =

@@ -414,9 +414,25 @@ instance Core.FromJSON AdvancedFieldSelector where
             Prelude.<*> (x Core..: "Field")
       )
 
-instance Prelude.Hashable AdvancedFieldSelector
+instance Prelude.Hashable AdvancedFieldSelector where
+  hashWithSalt _salt AdvancedFieldSelector' {..} =
+    _salt `Prelude.hashWithSalt` endsWith
+      `Prelude.hashWithSalt` notStartsWith
+      `Prelude.hashWithSalt` equals
+      `Prelude.hashWithSalt` notEquals
+      `Prelude.hashWithSalt` notEndsWith
+      `Prelude.hashWithSalt` startsWith
+      `Prelude.hashWithSalt` field
 
-instance Prelude.NFData AdvancedFieldSelector
+instance Prelude.NFData AdvancedFieldSelector where
+  rnf AdvancedFieldSelector' {..} =
+    Prelude.rnf endsWith
+      `Prelude.seq` Prelude.rnf notStartsWith
+      `Prelude.seq` Prelude.rnf equals
+      `Prelude.seq` Prelude.rnf notEquals
+      `Prelude.seq` Prelude.rnf notEndsWith
+      `Prelude.seq` Prelude.rnf startsWith
+      `Prelude.seq` Prelude.rnf field
 
 instance Core.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =

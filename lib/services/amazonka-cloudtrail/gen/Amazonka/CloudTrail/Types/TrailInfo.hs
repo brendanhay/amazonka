@@ -82,6 +82,14 @@ instance Core.FromJSON TrailInfo where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable TrailInfo
+instance Prelude.Hashable TrailInfo where
+  hashWithSalt _salt TrailInfo' {..} =
+    _salt `Prelude.hashWithSalt` trailARN
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TrailInfo
+instance Prelude.NFData TrailInfo where
+  rnf TrailInfo' {..} =
+    Prelude.rnf trailARN
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf name

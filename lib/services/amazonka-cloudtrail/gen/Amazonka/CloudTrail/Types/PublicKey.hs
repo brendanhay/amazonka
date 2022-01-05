@@ -99,6 +99,16 @@ instance Core.FromJSON PublicKey where
             Prelude.<*> (x Core..:? "ValidityStartTime")
       )
 
-instance Prelude.Hashable PublicKey
+instance Prelude.Hashable PublicKey where
+  hashWithSalt _salt PublicKey' {..} =
+    _salt `Prelude.hashWithSalt` fingerprint
+      `Prelude.hashWithSalt` validityEndTime
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` validityStartTime
 
-instance Prelude.NFData PublicKey
+instance Prelude.NFData PublicKey where
+  rnf PublicKey' {..} =
+    Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf validityEndTime
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf validityStartTime

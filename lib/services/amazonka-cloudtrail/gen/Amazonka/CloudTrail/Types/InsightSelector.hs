@@ -64,9 +64,12 @@ instance Core.FromJSON InsightSelector where
             Prelude.<$> (x Core..:? "InsightType")
       )
 
-instance Prelude.Hashable InsightSelector
+instance Prelude.Hashable InsightSelector where
+  hashWithSalt _salt InsightSelector' {..} =
+    _salt `Prelude.hashWithSalt` insightType
 
-instance Prelude.NFData InsightSelector
+instance Prelude.NFData InsightSelector where
+  rnf InsightSelector' {..} = Prelude.rnf insightType
 
 instance Core.ToJSON InsightSelector where
   toJSON InsightSelector' {..} =

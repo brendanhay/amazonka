@@ -139,9 +139,12 @@ instance Core.AWSRequest GetTrailStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTrailStatus
+instance Prelude.Hashable GetTrailStatus where
+  hashWithSalt _salt GetTrailStatus' {..} =
+    _salt `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetTrailStatus
+instance Prelude.NFData GetTrailStatus where
+  rnf GetTrailStatus' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetTrailStatus where
   toHeaders =
@@ -451,4 +454,25 @@ getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {st
 getTrailStatusResponse_httpStatus :: Lens.Lens' GetTrailStatusResponse Prelude.Int
 getTrailStatusResponse_httpStatus = Lens.lens (\GetTrailStatusResponse' {httpStatus} -> httpStatus) (\s@GetTrailStatusResponse' {} a -> s {httpStatus = a} :: GetTrailStatusResponse)
 
-instance Prelude.NFData GetTrailStatusResponse
+instance Prelude.NFData GetTrailStatusResponse where
+  rnf GetTrailStatusResponse' {..} =
+    Prelude.rnf timeLoggingStopped
+      `Prelude.seq` Prelude.rnf latestDeliveryError
+      `Prelude.seq` Prelude.rnf latestDigestDeliveryTime
+      `Prelude.seq` Prelude.rnf latestNotificationAttemptSucceeded
+      `Prelude.seq` Prelude.rnf startLoggingTime
+      `Prelude.seq` Prelude.rnf latestNotificationError
+      `Prelude.seq` Prelude.rnf latestDeliveryAttemptSucceeded
+      `Prelude.seq` Prelude.rnf isLogging
+      `Prelude.seq` Prelude.rnf timeLoggingStarted
+      `Prelude.seq` Prelude.rnf latestDigestDeliveryError
+      `Prelude.seq` Prelude.rnf latestDeliveryAttemptTime
+      `Prelude.seq` Prelude.rnf latestDeliveryTime
+      `Prelude.seq` Prelude.rnf latestCloudWatchLogsDeliveryTime
+      `Prelude.seq` Prelude.rnf
+        latestCloudWatchLogsDeliveryError
+      `Prelude.seq` Prelude.rnf latestNotificationTime
+      `Prelude.seq` Prelude.rnf
+        latestNotificationAttemptTime
+      `Prelude.seq` Prelude.rnf stopLoggingTime
+      `Prelude.seq` Prelude.rnf httpStatus

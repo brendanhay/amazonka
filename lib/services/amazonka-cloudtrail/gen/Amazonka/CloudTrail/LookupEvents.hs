@@ -235,9 +235,23 @@ instance Core.AWSRequest LookupEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LookupEvents
+instance Prelude.Hashable LookupEvents where
+  hashWithSalt _salt LookupEvents' {..} =
+    _salt `Prelude.hashWithSalt` eventCategory
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` lookupAttributes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData LookupEvents
+instance Prelude.NFData LookupEvents where
+  rnf LookupEvents' {..} =
+    Prelude.rnf eventCategory
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf lookupAttributes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders LookupEvents where
   toHeaders =
@@ -344,4 +358,8 @@ lookupEventsResponse_events = Lens.lens (\LookupEventsResponse' {events} -> even
 lookupEventsResponse_httpStatus :: Lens.Lens' LookupEventsResponse Prelude.Int
 lookupEventsResponse_httpStatus = Lens.lens (\LookupEventsResponse' {httpStatus} -> httpStatus) (\s@LookupEventsResponse' {} a -> s {httpStatus = a} :: LookupEventsResponse)
 
-instance Prelude.NFData LookupEventsResponse
+instance Prelude.NFData LookupEventsResponse where
+  rnf LookupEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -117,9 +117,12 @@ instance Core.AWSRequest ListTrails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTrails
+instance Prelude.Hashable ListTrails where
+  hashWithSalt _salt ListTrails' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTrails
+instance Prelude.NFData ListTrails where
+  rnf ListTrails' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders ListTrails where
   toHeaders =
@@ -211,4 +214,8 @@ listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) 
 listTrailsResponse_httpStatus :: Lens.Lens' ListTrailsResponse Prelude.Int
 listTrailsResponse_httpStatus = Lens.lens (\ListTrailsResponse' {httpStatus} -> httpStatus) (\s@ListTrailsResponse' {} a -> s {httpStatus = a} :: ListTrailsResponse)
 
-instance Prelude.NFData ListTrailsResponse
+instance Prelude.NFData ListTrailsResponse where
+  rnf ListTrailsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trails
+      `Prelude.seq` Prelude.rnf httpStatus

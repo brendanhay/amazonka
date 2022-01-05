@@ -158,9 +158,12 @@ instance Core.AWSRequest GetEventSelectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventSelectors
+instance Prelude.Hashable GetEventSelectors where
+  hashWithSalt _salt GetEventSelectors' {..} =
+    _salt `Prelude.hashWithSalt` trailName
 
-instance Prelude.NFData GetEventSelectors
+instance Prelude.NFData GetEventSelectors where
+  rnf GetEventSelectors' {..} = Prelude.rnf trailName
 
 instance Core.ToHeaders GetEventSelectors where
   toHeaders =
@@ -247,4 +250,9 @@ getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectors
 getEventSelectorsResponse_httpStatus :: Lens.Lens' GetEventSelectorsResponse Prelude.Int
 getEventSelectorsResponse_httpStatus = Lens.lens (\GetEventSelectorsResponse' {httpStatus} -> httpStatus) (\s@GetEventSelectorsResponse' {} a -> s {httpStatus = a} :: GetEventSelectorsResponse)
 
-instance Prelude.NFData GetEventSelectorsResponse
+instance Prelude.NFData GetEventSelectorsResponse where
+  rnf GetEventSelectorsResponse' {..} =
+    Prelude.rnf trailARN
+      `Prelude.seq` Prelude.rnf eventSelectors
+      `Prelude.seq` Prelude.rnf advancedEventSelectors
+      `Prelude.seq` Prelude.rnf httpStatus

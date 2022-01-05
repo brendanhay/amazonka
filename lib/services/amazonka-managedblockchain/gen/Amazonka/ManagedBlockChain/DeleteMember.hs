@@ -105,9 +105,15 @@ instance Core.AWSRequest DeleteMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMember
+instance Prelude.Hashable DeleteMember where
+  hashWithSalt _salt DeleteMember' {..} =
+    _salt `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData DeleteMember
+instance Prelude.NFData DeleteMember where
+  rnf DeleteMember' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders DeleteMember where
   toHeaders =
@@ -159,4 +165,6 @@ newDeleteMemberResponse pHttpStatus_ =
 deleteMemberResponse_httpStatus :: Lens.Lens' DeleteMemberResponse Prelude.Int
 deleteMemberResponse_httpStatus = Lens.lens (\DeleteMemberResponse' {httpStatus} -> httpStatus) (\s@DeleteMemberResponse' {} a -> s {httpStatus = a} :: DeleteMemberResponse)
 
-instance Prelude.NFData DeleteMemberResponse
+instance Prelude.NFData DeleteMemberResponse where
+  rnf DeleteMemberResponse' {..} =
+    Prelude.rnf httpStatus

@@ -229,6 +229,22 @@ instance Core.FromJSON MemberSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable MemberSummary
+instance Prelude.Hashable MemberSummary where
+  hashWithSalt _salt MemberSummary' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` isOwned
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData MemberSummary
+instance Prelude.NFData MemberSummary where
+  rnf MemberSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf isOwned
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description

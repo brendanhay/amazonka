@@ -73,6 +73,12 @@ instance Core.FromJSON MemberFabricAttributes where
             Prelude.<*> (x Core..:? "AdminUsername")
       )
 
-instance Prelude.Hashable MemberFabricAttributes
+instance Prelude.Hashable MemberFabricAttributes where
+  hashWithSalt _salt MemberFabricAttributes' {..} =
+    _salt `Prelude.hashWithSalt` caEndpoint
+      `Prelude.hashWithSalt` adminUsername
 
-instance Prelude.NFData MemberFabricAttributes
+instance Prelude.NFData MemberFabricAttributes where
+  rnf MemberFabricAttributes' {..} =
+    Prelude.rnf caEndpoint
+      `Prelude.seq` Prelude.rnf adminUsername

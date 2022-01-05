@@ -211,6 +211,32 @@ instance Core.FromJSON Network where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Network
+instance Prelude.Hashable Network where
+  hashWithSalt _salt Network' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` framework
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` frameworkVersion
+      `Prelude.hashWithSalt` vpcEndpointServiceName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` votingPolicy
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` frameworkAttributes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Network
+instance Prelude.NFData Network where
+  rnf Network' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf frameworkVersion
+      `Prelude.seq` Prelude.rnf vpcEndpointServiceName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf votingPolicy
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf frameworkAttributes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags

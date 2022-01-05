@@ -218,9 +218,23 @@ instance Core.AWSRequest CreateProposal where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProposal
+instance Prelude.Hashable CreateProposal where
+  hashWithSalt _salt CreateProposal' {..} =
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData CreateProposal
+instance Prelude.NFData CreateProposal where
+  rnf CreateProposal' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToHeaders CreateProposal where
   toHeaders =
@@ -293,4 +307,7 @@ createProposalResponse_proposalId = Lens.lens (\CreateProposalResponse' {proposa
 createProposalResponse_httpStatus :: Lens.Lens' CreateProposalResponse Prelude.Int
 createProposalResponse_httpStatus = Lens.lens (\CreateProposalResponse' {httpStatus} -> httpStatus) (\s@CreateProposalResponse' {} a -> s {httpStatus = a} :: CreateProposalResponse)
 
-instance Prelude.NFData CreateProposalResponse
+instance Prelude.NFData CreateProposalResponse where
+  rnf CreateProposalResponse' {..} =
+    Prelude.rnf proposalId
+      `Prelude.seq` Prelude.rnf httpStatus

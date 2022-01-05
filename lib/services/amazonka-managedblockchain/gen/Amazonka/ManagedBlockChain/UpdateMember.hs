@@ -112,9 +112,18 @@ instance Core.AWSRequest UpdateMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMember
+instance Prelude.Hashable UpdateMember where
+  hashWithSalt _salt UpdateMember' {..} =
+    _salt
+      `Prelude.hashWithSalt` logPublishingConfiguration
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData UpdateMember
+instance Prelude.NFData UpdateMember where
+  rnf UpdateMember' {..} =
+    Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders UpdateMember where
   toHeaders =
@@ -175,4 +184,6 @@ newUpdateMemberResponse pHttpStatus_ =
 updateMemberResponse_httpStatus :: Lens.Lens' UpdateMemberResponse Prelude.Int
 updateMemberResponse_httpStatus = Lens.lens (\UpdateMemberResponse' {httpStatus} -> httpStatus) (\s@UpdateMemberResponse' {} a -> s {httpStatus = a} :: UpdateMemberResponse)
 
-instance Prelude.NFData UpdateMemberResponse
+instance Prelude.NFData UpdateMemberResponse where
+  rnf UpdateMemberResponse' {..} =
+    Prelude.rnf httpStatus

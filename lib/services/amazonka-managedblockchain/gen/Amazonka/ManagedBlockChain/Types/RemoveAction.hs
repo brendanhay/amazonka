@@ -64,9 +64,12 @@ instance Core.FromJSON RemoveAction where
           RemoveAction' Prelude.<$> (x Core..: "MemberId")
       )
 
-instance Prelude.Hashable RemoveAction
+instance Prelude.Hashable RemoveAction where
+  hashWithSalt _salt RemoveAction' {..} =
+    _salt `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData RemoveAction
+instance Prelude.NFData RemoveAction where
+  rnf RemoveAction' {..} = Prelude.rnf memberId
 
 instance Core.ToJSON RemoveAction where
   toJSON RemoveAction' {..} =

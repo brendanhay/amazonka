@@ -83,6 +83,10 @@ instance Core.FromJSON NetworkEthereumAttributes where
             Prelude.<$> (x Core..:? "ChainId")
       )
 
-instance Prelude.Hashable NetworkEthereumAttributes
+instance Prelude.Hashable NetworkEthereumAttributes where
+  hashWithSalt _salt NetworkEthereumAttributes' {..} =
+    _salt `Prelude.hashWithSalt` chainId
 
-instance Prelude.NFData NetworkEthereumAttributes
+instance Prelude.NFData NetworkEthereumAttributes where
+  rnf NetworkEthereumAttributes' {..} =
+    Prelude.rnf chainId

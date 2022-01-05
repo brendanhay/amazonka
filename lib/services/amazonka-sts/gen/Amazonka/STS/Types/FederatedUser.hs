@@ -87,6 +87,12 @@ instance Core.FromXML FederatedUser where
       Prelude.<$> (x Core..@ "FederatedUserId")
       Prelude.<*> (x Core..@ "Arn")
 
-instance Prelude.Hashable FederatedUser
+instance Prelude.Hashable FederatedUser where
+  hashWithSalt _salt FederatedUser' {..} =
+    _salt `Prelude.hashWithSalt` federatedUserId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData FederatedUser
+instance Prelude.NFData FederatedUser where
+  rnf FederatedUser' {..} =
+    Prelude.rnf federatedUserId
+      `Prelude.seq` Prelude.rnf arn

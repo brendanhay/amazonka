@@ -122,9 +122,12 @@ instance Core.AWSRequest GetAccessKeyInfo where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccessKeyInfo
+instance Prelude.Hashable GetAccessKeyInfo where
+  hashWithSalt _salt GetAccessKeyInfo' {..} =
+    _salt `Prelude.hashWithSalt` accessKeyId
 
-instance Prelude.NFData GetAccessKeyInfo
+instance Prelude.NFData GetAccessKeyInfo where
+  rnf GetAccessKeyInfo' {..} = Prelude.rnf accessKeyId
 
 instance Core.ToHeaders GetAccessKeyInfo where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +184,7 @@ getAccessKeyInfoResponse_account = Lens.lens (\GetAccessKeyInfoResponse' {accoun
 getAccessKeyInfoResponse_httpStatus :: Lens.Lens' GetAccessKeyInfoResponse Prelude.Int
 getAccessKeyInfoResponse_httpStatus = Lens.lens (\GetAccessKeyInfoResponse' {httpStatus} -> httpStatus) (\s@GetAccessKeyInfoResponse' {} a -> s {httpStatus = a} :: GetAccessKeyInfoResponse)
 
-instance Prelude.NFData GetAccessKeyInfoResponse
+instance Prelude.NFData GetAccessKeyInfoResponse where
+  rnf GetAccessKeyInfoResponse' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf httpStatus

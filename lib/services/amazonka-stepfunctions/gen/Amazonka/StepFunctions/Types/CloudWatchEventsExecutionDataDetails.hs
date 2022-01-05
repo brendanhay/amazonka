@@ -71,7 +71,15 @@ instance
 instance
   Prelude.Hashable
     CloudWatchEventsExecutionDataDetails
+  where
+  hashWithSalt
+    _salt
+    CloudWatchEventsExecutionDataDetails' {..} =
+      _salt `Prelude.hashWithSalt` included
 
 instance
   Prelude.NFData
     CloudWatchEventsExecutionDataDetails
+  where
+  rnf CloudWatchEventsExecutionDataDetails' {..} =
+    Prelude.rnf included

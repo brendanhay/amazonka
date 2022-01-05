@@ -92,5 +92,14 @@ instance Core.FromJSON ExecutionStartedEventDetails where
 instance
   Prelude.Hashable
     ExecutionStartedEventDetails
+  where
+  hashWithSalt _salt ExecutionStartedEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` inputDetails
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ExecutionStartedEventDetails
+instance Prelude.NFData ExecutionStartedEventDetails where
+  rnf ExecutionStartedEventDetails' {..} =
+    Prelude.rnf inputDetails
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf roleArn

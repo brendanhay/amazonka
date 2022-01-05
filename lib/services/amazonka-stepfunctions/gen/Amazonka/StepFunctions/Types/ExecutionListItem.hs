@@ -172,6 +172,20 @@ instance Core.FromJSON ExecutionListItem where
             Prelude.<*> (x Core..: "startDate")
       )
 
-instance Prelude.Hashable ExecutionListItem
+instance Prelude.Hashable ExecutionListItem where
+  hashWithSalt _salt ExecutionListItem' {..} =
+    _salt `Prelude.hashWithSalt` stopDate
+      `Prelude.hashWithSalt` executionArn
+      `Prelude.hashWithSalt` stateMachineArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startDate
 
-instance Prelude.NFData ExecutionListItem
+instance Prelude.NFData ExecutionListItem where
+  rnf ExecutionListItem' {..} =
+    Prelude.rnf stopDate
+      `Prelude.seq` Prelude.rnf executionArn
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startDate

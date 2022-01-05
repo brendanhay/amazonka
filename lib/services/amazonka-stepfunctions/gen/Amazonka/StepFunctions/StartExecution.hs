@@ -213,9 +213,19 @@ instance Core.AWSRequest StartExecution where
             Prelude.<*> (x Core..:> "startDate")
       )
 
-instance Prelude.Hashable StartExecution
+instance Prelude.Hashable StartExecution where
+  hashWithSalt _salt StartExecution' {..} =
+    _salt `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` traceHeader
+      `Prelude.hashWithSalt` stateMachineArn
 
-instance Prelude.NFData StartExecution
+instance Prelude.NFData StartExecution where
+  rnf StartExecution' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf traceHeader
+      `Prelude.seq` Prelude.rnf stateMachineArn
 
 instance Core.ToHeaders StartExecution where
   toHeaders =
@@ -304,4 +314,8 @@ startExecutionResponse_executionArn = Lens.lens (\StartExecutionResponse' {execu
 startExecutionResponse_startDate :: Lens.Lens' StartExecutionResponse Prelude.UTCTime
 startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDate} -> startDate) (\s@StartExecutionResponse' {} a -> s {startDate = a} :: StartExecutionResponse) Prelude.. Core._Time
 
-instance Prelude.NFData StartExecutionResponse
+instance Prelude.NFData StartExecutionResponse where
+  rnf StartExecutionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf executionArn
+      `Prelude.seq` Prelude.rnf startDate

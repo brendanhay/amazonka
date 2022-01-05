@@ -124,9 +124,15 @@ instance Core.AWSRequest GetActivityTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetActivityTask
+instance Prelude.Hashable GetActivityTask where
+  hashWithSalt _salt GetActivityTask' {..} =
+    _salt `Prelude.hashWithSalt` workerName
+      `Prelude.hashWithSalt` activityArn
 
-instance Prelude.NFData GetActivityTask
+instance Prelude.NFData GetActivityTask where
+  rnf GetActivityTask' {..} =
+    Prelude.rnf workerName
+      `Prelude.seq` Prelude.rnf activityArn
 
 instance Core.ToHeaders GetActivityTask where
   toHeaders =
@@ -220,4 +226,8 @@ getActivityTaskResponse_taskToken = Lens.lens (\GetActivityTaskResponse' {taskTo
 getActivityTaskResponse_httpStatus :: Lens.Lens' GetActivityTaskResponse Prelude.Int
 getActivityTaskResponse_httpStatus = Lens.lens (\GetActivityTaskResponse' {httpStatus} -> httpStatus) (\s@GetActivityTaskResponse' {} a -> s {httpStatus = a} :: GetActivityTaskResponse)
 
-instance Prelude.NFData GetActivityTaskResponse
+instance Prelude.NFData GetActivityTaskResponse where
+  rnf GetActivityTaskResponse' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf taskToken
+      `Prelude.seq` Prelude.rnf httpStatus

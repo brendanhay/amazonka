@@ -79,7 +79,16 @@ instance
 instance
   Prelude.Hashable
     ActivityScheduleFailedEventDetails
+  where
+  hashWithSalt
+    _salt
+    ActivityScheduleFailedEventDetails' {..} =
+      _salt `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` cause
 
 instance
   Prelude.NFData
     ActivityScheduleFailedEventDetails
+  where
+  rnf ActivityScheduleFailedEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

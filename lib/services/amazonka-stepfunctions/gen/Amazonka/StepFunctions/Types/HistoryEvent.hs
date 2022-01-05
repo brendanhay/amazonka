@@ -447,6 +447,104 @@ instance Core.FromJSON HistoryEvent where
             Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable HistoryEvent
+instance Prelude.Hashable HistoryEvent where
+  hashWithSalt _salt HistoryEvent' {..} =
+    _salt
+      `Prelude.hashWithSalt` mapStateStartedEventDetails
+      `Prelude.hashWithSalt` taskSubmitFailedEventDetails
+      `Prelude.hashWithSalt` taskStartedEventDetails
+      `Prelude.hashWithSalt` activityStartedEventDetails
+      `Prelude.hashWithSalt` taskSubmittedEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionStartFailedEventDetails
+      `Prelude.hashWithSalt` taskStartFailedEventDetails
+      `Prelude.hashWithSalt` stateExitedEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionSucceededEventDetails
+      `Prelude.hashWithSalt` taskSucceededEventDetails
+      `Prelude.hashWithSalt` activitySucceededEventDetails
+      `Prelude.hashWithSalt` mapIterationAbortedEventDetails
+      `Prelude.hashWithSalt` mapIterationSucceededEventDetails
+      `Prelude.hashWithSalt` mapIterationStartedEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionTimedOutEventDetails
+      `Prelude.hashWithSalt` taskTimedOutEventDetails
+      `Prelude.hashWithSalt` activityTimedOutEventDetails
+      `Prelude.hashWithSalt` executionFailedEventDetails
+      `Prelude.hashWithSalt` executionAbortedEventDetails
+      `Prelude.hashWithSalt` executionSucceededEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionScheduledEventDetails
+      `Prelude.hashWithSalt` taskScheduledEventDetails
+      `Prelude.hashWithSalt` activityScheduledEventDetails
+      `Prelude.hashWithSalt` executionStartedEventDetails
+      `Prelude.hashWithSalt` activityScheduleFailedEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionScheduleFailedEventDetails
+      `Prelude.hashWithSalt` stateEnteredEventDetails
+      `Prelude.hashWithSalt` previousEventId
+      `Prelude.hashWithSalt` activityFailedEventDetails
+      `Prelude.hashWithSalt` taskFailedEventDetails
+      `Prelude.hashWithSalt` lambdaFunctionFailedEventDetails
+      `Prelude.hashWithSalt` executionTimedOutEventDetails
+      `Prelude.hashWithSalt` mapIterationFailedEventDetails
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData HistoryEvent
+instance Prelude.NFData HistoryEvent where
+  rnf HistoryEvent' {..} =
+    Prelude.rnf mapStateStartedEventDetails
+      `Prelude.seq` Prelude.rnf taskSubmitFailedEventDetails
+      `Prelude.seq` Prelude.rnf taskStartedEventDetails
+      `Prelude.seq` Prelude.rnf activityStartedEventDetails
+      `Prelude.seq` Prelude.rnf taskSubmittedEventDetails
+      `Prelude.seq` Prelude.rnf lambdaFunctionStartFailedEventDetails
+      `Prelude.seq` Prelude.rnf taskStartFailedEventDetails
+      `Prelude.seq` Prelude.rnf stateExitedEventDetails
+      `Prelude.seq` Prelude.rnf lambdaFunctionSucceededEventDetails
+      `Prelude.seq` Prelude.rnf taskSucceededEventDetails
+      `Prelude.seq` Prelude.rnf activitySucceededEventDetails
+      `Prelude.seq` Prelude.rnf mapIterationAbortedEventDetails
+      `Prelude.seq` Prelude.rnf
+        mapIterationSucceededEventDetails
+      `Prelude.seq` Prelude.rnf
+        mapIterationStartedEventDetails
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionTimedOutEventDetails
+      `Prelude.seq` Prelude.rnf taskTimedOutEventDetails
+      `Prelude.seq` Prelude.rnf
+        activityTimedOutEventDetails
+      `Prelude.seq` Prelude.rnf
+        executionFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        executionAbortedEventDetails
+      `Prelude.seq` Prelude.rnf
+        executionSucceededEventDetails
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionScheduledEventDetails
+      `Prelude.seq` Prelude.rnf
+        taskScheduledEventDetails
+      `Prelude.seq` Prelude.rnf
+        activityScheduledEventDetails
+      `Prelude.seq` Prelude.rnf
+        executionStartedEventDetails
+      `Prelude.seq` Prelude.rnf
+        activityScheduleFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionScheduleFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        stateEnteredEventDetails
+      `Prelude.seq` Prelude.rnf
+        previousEventId
+      `Prelude.seq` Prelude.rnf
+        activityFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        taskFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        lambdaFunctionFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        executionTimedOutEventDetails
+      `Prelude.seq` Prelude.rnf
+        mapIterationFailedEventDetails
+      `Prelude.seq` Prelude.rnf
+        timestamp
+      `Prelude.seq` Prelude.rnf
+        type'
+      `Prelude.seq` Prelude.rnf
+        id

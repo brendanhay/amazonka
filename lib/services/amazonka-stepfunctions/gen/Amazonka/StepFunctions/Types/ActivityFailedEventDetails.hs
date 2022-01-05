@@ -72,6 +72,11 @@ instance Core.FromJSON ActivityFailedEventDetails where
             Prelude.<*> (x Core..:? "cause")
       )
 
-instance Prelude.Hashable ActivityFailedEventDetails
+instance Prelude.Hashable ActivityFailedEventDetails where
+  hashWithSalt _salt ActivityFailedEventDetails' {..} =
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` cause
 
-instance Prelude.NFData ActivityFailedEventDetails
+instance Prelude.NFData ActivityFailedEventDetails where
+  rnf ActivityFailedEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

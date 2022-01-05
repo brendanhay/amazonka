@@ -106,6 +106,18 @@ instance Core.FromJSON ImageScanFinding where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ImageScanFinding
+instance Prelude.Hashable ImageScanFinding where
+  hashWithSalt _salt ImageScanFinding' {..} =
+    _salt `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData ImageScanFinding
+instance Prelude.NFData ImageScanFinding where
+  rnf ImageScanFinding' {..} =
+    Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf description

@@ -110,9 +110,15 @@ instance Core.AWSRequest GetLifecyclePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLifecyclePolicy
+instance Prelude.Hashable GetLifecyclePolicy where
+  hashWithSalt _salt GetLifecyclePolicy' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetLifecyclePolicy
+instance Prelude.NFData GetLifecyclePolicy where
+  rnf GetLifecyclePolicy' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders GetLifecyclePolicy where
   toHeaders =
@@ -211,4 +217,10 @@ getLifecyclePolicyResponse_repositoryName = Lens.lens (\GetLifecyclePolicyRespon
 getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Int
 getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@GetLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: GetLifecyclePolicyResponse)
 
-instance Prelude.NFData GetLifecyclePolicyResponse
+instance Prelude.NFData GetLifecyclePolicyResponse where
+  rnf GetLifecyclePolicyResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf lastEvaluatedAt
+      `Prelude.seq` Prelude.rnf lifecyclePolicyText
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf httpStatus

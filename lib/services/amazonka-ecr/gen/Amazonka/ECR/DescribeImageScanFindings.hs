@@ -210,9 +210,21 @@ instance Core.AWSRequest DescribeImageScanFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageScanFindings
+instance Prelude.Hashable DescribeImageScanFindings where
+  hashWithSalt _salt DescribeImageScanFindings' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData DescribeImageScanFindings
+instance Prelude.NFData DescribeImageScanFindings where
+  rnf DescribeImageScanFindings' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders DescribeImageScanFindings where
   toHeaders =
@@ -343,3 +355,12 @@ describeImageScanFindingsResponse_httpStatus = Lens.lens (\DescribeImageScanFind
 instance
   Prelude.NFData
     DescribeImageScanFindingsResponse
+  where
+  rnf DescribeImageScanFindingsResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageScanFindings
+      `Prelude.seq` Prelude.rnf imageScanStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf httpStatus

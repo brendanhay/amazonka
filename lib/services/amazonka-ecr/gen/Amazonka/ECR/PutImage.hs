@@ -164,9 +164,23 @@ instance Core.AWSRequest PutImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutImage
+instance Prelude.Hashable PutImage where
+  hashWithSalt _salt PutImage' {..} =
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` imageManifestMediaType
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageTag
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageManifest
 
-instance Prelude.NFData PutImage
+instance Prelude.NFData PutImage where
+  rnf PutImage' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageManifestMediaType
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageTag
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageManifest
 
 instance Core.ToHeaders PutImage where
   toHeaders =
@@ -243,4 +257,7 @@ putImageResponse_image = Lens.lens (\PutImageResponse' {image} -> image) (\s@Put
 putImageResponse_httpStatus :: Lens.Lens' PutImageResponse Prelude.Int
 putImageResponse_httpStatus = Lens.lens (\PutImageResponse' {httpStatus} -> httpStatus) (\s@PutImageResponse' {} a -> s {httpStatus = a} :: PutImageResponse)
 
-instance Prelude.NFData PutImageResponse
+instance Prelude.NFData PutImageResponse where
+  rnf PutImageResponse' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf httpStatus

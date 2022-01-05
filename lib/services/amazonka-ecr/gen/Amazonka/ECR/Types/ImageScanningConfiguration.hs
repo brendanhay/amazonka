@@ -80,9 +80,13 @@ instance Core.FromJSON ImageScanningConfiguration where
             Prelude.<$> (x Core..:? "scanOnPush")
       )
 
-instance Prelude.Hashable ImageScanningConfiguration
+instance Prelude.Hashable ImageScanningConfiguration where
+  hashWithSalt _salt ImageScanningConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` scanOnPush
 
-instance Prelude.NFData ImageScanningConfiguration
+instance Prelude.NFData ImageScanningConfiguration where
+  rnf ImageScanningConfiguration' {..} =
+    Prelude.rnf scanOnPush
 
 instance Core.ToJSON ImageScanningConfiguration where
   toJSON ImageScanningConfiguration' {..} =

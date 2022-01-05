@@ -83,6 +83,14 @@ instance Core.FromJSON ImageFailure where
             Prelude.<*> (x Core..:? "imageId")
       )
 
-instance Prelude.Hashable ImageFailure
+instance Prelude.Hashable ImageFailure where
+  hashWithSalt _salt ImageFailure' {..} =
+    _salt `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` imageId
 
-instance Prelude.NFData ImageFailure
+instance Prelude.NFData ImageFailure where
+  rnf ImageFailure' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf imageId

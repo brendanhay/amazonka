@@ -81,9 +81,15 @@ instance Core.FromJSON ReplicationDestination where
             Prelude.<*> (x Core..: "registryId")
       )
 
-instance Prelude.Hashable ReplicationDestination
+instance Prelude.Hashable ReplicationDestination where
+  hashWithSalt _salt ReplicationDestination' {..} =
+    _salt `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData ReplicationDestination
+instance Prelude.NFData ReplicationDestination where
+  rnf ReplicationDestination' {..} =
+    Prelude.rnf region
+      `Prelude.seq` Prelude.rnf registryId
 
 instance Core.ToJSON ReplicationDestination where
   toJSON ReplicationDestination' {..} =

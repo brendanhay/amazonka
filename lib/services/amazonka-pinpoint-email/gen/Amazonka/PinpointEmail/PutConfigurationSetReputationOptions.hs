@@ -118,10 +118,21 @@ instance
 instance
   Prelude.Hashable
     PutConfigurationSetReputationOptions
+  where
+  hashWithSalt
+    _salt
+    PutConfigurationSetReputationOptions' {..} =
+      _salt
+        `Prelude.hashWithSalt` reputationMetricsEnabled
+        `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     PutConfigurationSetReputationOptions
+  where
+  rnf PutConfigurationSetReputationOptions' {..} =
+    Prelude.rnf reputationMetricsEnabled
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
   Core.ToHeaders
@@ -203,3 +214,6 @@ putConfigurationSetReputationOptionsResponse_httpStatus = Lens.lens (\PutConfigu
 instance
   Prelude.NFData
     PutConfigurationSetReputationOptionsResponse
+  where
+  rnf PutConfigurationSetReputationOptionsResponse' {..} =
+    Prelude.rnf httpStatus

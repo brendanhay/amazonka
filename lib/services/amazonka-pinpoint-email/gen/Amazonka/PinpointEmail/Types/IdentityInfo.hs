@@ -115,6 +115,14 @@ instance Core.FromJSON IdentityInfo where
             Prelude.<*> (x Core..:? "SendingEnabled")
       )
 
-instance Prelude.Hashable IdentityInfo
+instance Prelude.Hashable IdentityInfo where
+  hashWithSalt _salt IdentityInfo' {..} =
+    _salt `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` sendingEnabled
 
-instance Prelude.NFData IdentityInfo
+instance Prelude.NFData IdentityInfo where
+  rnf IdentityInfo' {..} =
+    Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf sendingEnabled

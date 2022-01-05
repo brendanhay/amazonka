@@ -182,10 +182,26 @@ instance
 instance
   Prelude.Hashable
     ListDomainDeliverabilityCampaigns
+  where
+  hashWithSalt
+    _salt
+    ListDomainDeliverabilityCampaigns' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` startDate
+        `Prelude.hashWithSalt` endDate
+        `Prelude.hashWithSalt` subscribedDomain
 
 instance
   Prelude.NFData
     ListDomainDeliverabilityCampaigns
+  where
+  rnf ListDomainDeliverabilityCampaigns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf subscribedDomain
 
 instance
   Core.ToHeaders
@@ -292,3 +308,8 @@ listDomainDeliverabilityCampaignsResponse_domainDeliverabilityCampaigns = Lens.l
 instance
   Prelude.NFData
     ListDomainDeliverabilityCampaignsResponse
+  where
+  rnf ListDomainDeliverabilityCampaignsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainDeliverabilityCampaigns

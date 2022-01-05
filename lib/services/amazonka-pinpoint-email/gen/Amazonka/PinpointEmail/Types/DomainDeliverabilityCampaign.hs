@@ -252,5 +252,36 @@ instance Core.FromJSON DomainDeliverabilityCampaign where
 instance
   Prelude.Hashable
     DomainDeliverabilityCampaign
+  where
+  hashWithSalt _salt DomainDeliverabilityCampaign' {..} =
+    _salt `Prelude.hashWithSalt` spamCount
+      `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` esps
+      `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` deleteRate
+      `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` sendingIps
+      `Prelude.hashWithSalt` firstSeenDateTime
+      `Prelude.hashWithSalt` inboxCount
+      `Prelude.hashWithSalt` readDeleteRate
+      `Prelude.hashWithSalt` projectedVolume
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` readRate
+      `Prelude.hashWithSalt` lastSeenDateTime
 
-instance Prelude.NFData DomainDeliverabilityCampaign
+instance Prelude.NFData DomainDeliverabilityCampaign where
+  rnf DomainDeliverabilityCampaign' {..} =
+    Prelude.rnf spamCount
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf esps
+      `Prelude.seq` Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf deleteRate
+      `Prelude.seq` Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf sendingIps
+      `Prelude.seq` Prelude.rnf firstSeenDateTime
+      `Prelude.seq` Prelude.rnf inboxCount
+      `Prelude.seq` Prelude.rnf readDeleteRate
+      `Prelude.seq` Prelude.rnf projectedVolume
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf readRate
+      `Prelude.seq` Prelude.rnf lastSeenDateTime

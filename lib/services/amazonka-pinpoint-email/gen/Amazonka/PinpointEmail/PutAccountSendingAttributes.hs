@@ -99,9 +99,13 @@ instance Core.AWSRequest PutAccountSendingAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccountSendingAttributes
+instance Prelude.Hashable PutAccountSendingAttributes where
+  hashWithSalt _salt PutAccountSendingAttributes' {..} =
+    _salt `Prelude.hashWithSalt` sendingEnabled
 
-instance Prelude.NFData PutAccountSendingAttributes
+instance Prelude.NFData PutAccountSendingAttributes where
+  rnf PutAccountSendingAttributes' {..} =
+    Prelude.rnf sendingEnabled
 
 instance Core.ToHeaders PutAccountSendingAttributes where
   toHeaders =
@@ -165,3 +169,6 @@ putAccountSendingAttributesResponse_httpStatus = Lens.lens (\PutAccountSendingAt
 instance
   Prelude.NFData
     PutAccountSendingAttributesResponse
+  where
+  rnf PutAccountSendingAttributesResponse' {..} =
+    Prelude.rnf httpStatus

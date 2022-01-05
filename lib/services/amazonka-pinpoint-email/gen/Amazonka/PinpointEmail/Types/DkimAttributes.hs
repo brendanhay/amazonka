@@ -167,6 +167,14 @@ instance Core.FromJSON DkimAttributes where
             Prelude.<*> (x Core..:? "SigningEnabled")
       )
 
-instance Prelude.Hashable DkimAttributes
+instance Prelude.Hashable DkimAttributes where
+  hashWithSalt _salt DkimAttributes' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` tokens
+      `Prelude.hashWithSalt` signingEnabled
 
-instance Prelude.NFData DkimAttributes
+instance Prelude.NFData DkimAttributes where
+  rnf DkimAttributes' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tokens
+      `Prelude.seq` Prelude.rnf signingEnabled

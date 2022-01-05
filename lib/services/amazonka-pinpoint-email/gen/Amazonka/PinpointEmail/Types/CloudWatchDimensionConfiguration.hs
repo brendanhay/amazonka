@@ -158,10 +158,22 @@ instance
 instance
   Prelude.Hashable
     CloudWatchDimensionConfiguration
+  where
+  hashWithSalt
+    _salt
+    CloudWatchDimensionConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` dimensionName
+        `Prelude.hashWithSalt` dimensionValueSource
+        `Prelude.hashWithSalt` defaultDimensionValue
 
 instance
   Prelude.NFData
     CloudWatchDimensionConfiguration
+  where
+  rnf CloudWatchDimensionConfiguration' {..} =
+    Prelude.rnf dimensionName
+      `Prelude.seq` Prelude.rnf dimensionValueSource
+      `Prelude.seq` Prelude.rnf defaultDimensionValue
 
 instance Core.ToJSON CloudWatchDimensionConfiguration where
   toJSON CloudWatchDimensionConfiguration' {..} =

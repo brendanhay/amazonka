@@ -153,9 +153,15 @@ instance Core.AWSRequest ListEmailIdentities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEmailIdentities
+instance Prelude.Hashable ListEmailIdentities where
+  hashWithSalt _salt ListEmailIdentities' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pageSize
 
-instance Prelude.NFData ListEmailIdentities
+instance Prelude.NFData ListEmailIdentities where
+  rnf ListEmailIdentities' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListEmailIdentities where
   toHeaders =
@@ -239,4 +245,8 @@ listEmailIdentitiesResponse_emailIdentities = Lens.lens (\ListEmailIdentitiesRes
 listEmailIdentitiesResponse_httpStatus :: Lens.Lens' ListEmailIdentitiesResponse Prelude.Int
 listEmailIdentitiesResponse_httpStatus = Lens.lens (\ListEmailIdentitiesResponse' {httpStatus} -> httpStatus) (\s@ListEmailIdentitiesResponse' {} a -> s {httpStatus = a} :: ListEmailIdentitiesResponse)
 
-instance Prelude.NFData ListEmailIdentitiesResponse
+instance Prelude.NFData ListEmailIdentitiesResponse where
+  rnf ListEmailIdentitiesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf emailIdentities
+      `Prelude.seq` Prelude.rnf httpStatus

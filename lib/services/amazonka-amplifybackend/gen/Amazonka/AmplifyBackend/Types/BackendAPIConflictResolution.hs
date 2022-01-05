@@ -67,8 +67,13 @@ instance Core.FromJSON BackendAPIConflictResolution where
 instance
   Prelude.Hashable
     BackendAPIConflictResolution
+  where
+  hashWithSalt _salt BackendAPIConflictResolution' {..} =
+    _salt `Prelude.hashWithSalt` resolutionStrategy
 
-instance Prelude.NFData BackendAPIConflictResolution
+instance Prelude.NFData BackendAPIConflictResolution where
+  rnf BackendAPIConflictResolution' {..} =
+    Prelude.rnf resolutionStrategy
 
 instance Core.ToJSON BackendAPIConflictResolution where
   toJSON BackendAPIConflictResolution' {..} =

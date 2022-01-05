@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateBackendConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBackendConfig
+instance Prelude.Hashable UpdateBackendConfig where
+  hashWithSalt _salt UpdateBackendConfig' {..} =
+    _salt `Prelude.hashWithSalt` loginAuthConfig
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData UpdateBackendConfig
+instance Prelude.NFData UpdateBackendConfig where
+  rnf UpdateBackendConfig' {..} =
+    Prelude.rnf loginAuthConfig
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders UpdateBackendConfig where
   toHeaders =
@@ -208,4 +214,10 @@ updateBackendConfigResponse_loginAuthConfig = Lens.lens (\UpdateBackendConfigRes
 updateBackendConfigResponse_httpStatus :: Lens.Lens' UpdateBackendConfigResponse Prelude.Int
 updateBackendConfigResponse_httpStatus = Lens.lens (\UpdateBackendConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateBackendConfigResponse' {} a -> s {httpStatus = a} :: UpdateBackendConfigResponse)
 
-instance Prelude.NFData UpdateBackendConfigResponse
+instance Prelude.NFData UpdateBackendConfigResponse where
+  rnf UpdateBackendConfigResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendManagerAppId
+      `Prelude.seq` Prelude.rnf loginAuthConfig
+      `Prelude.seq` Prelude.rnf httpStatus

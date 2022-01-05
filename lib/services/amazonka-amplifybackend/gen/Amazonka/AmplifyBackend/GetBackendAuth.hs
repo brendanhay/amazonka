@@ -125,9 +125,17 @@ instance Core.AWSRequest GetBackendAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackendAuth
+instance Prelude.Hashable GetBackendAuth where
+  hashWithSalt _salt GetBackendAuth' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData GetBackendAuth
+instance Prelude.NFData GetBackendAuth where
+  rnf GetBackendAuth' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders GetBackendAuth where
   toHeaders =
@@ -238,4 +246,11 @@ getBackendAuthResponse_backendEnvironmentName = Lens.lens (\GetBackendAuthRespon
 getBackendAuthResponse_httpStatus :: Lens.Lens' GetBackendAuthResponse Prelude.Int
 getBackendAuthResponse_httpStatus = Lens.lens (\GetBackendAuthResponse' {httpStatus} -> httpStatus) (\s@GetBackendAuthResponse' {} a -> s {httpStatus = a} :: GetBackendAuthResponse)
 
-instance Prelude.NFData GetBackendAuthResponse
+instance Prelude.NFData GetBackendAuthResponse where
+  rnf GetBackendAuthResponse' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

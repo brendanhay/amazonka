@@ -61,10 +61,18 @@ updateBackendAuthIdentityPoolConfig_unauthenticatedLogin = Lens.lens (\UpdateBac
 instance
   Prelude.Hashable
     UpdateBackendAuthIdentityPoolConfig
+  where
+  hashWithSalt
+    _salt
+    UpdateBackendAuthIdentityPoolConfig' {..} =
+      _salt `Prelude.hashWithSalt` unauthenticatedLogin
 
 instance
   Prelude.NFData
     UpdateBackendAuthIdentityPoolConfig
+  where
+  rnf UpdateBackendAuthIdentityPoolConfig' {..} =
+    Prelude.rnf unauthenticatedLogin
 
 instance
   Core.ToJSON

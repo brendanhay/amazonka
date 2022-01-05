@@ -109,9 +109,15 @@ instance Core.AWSRequest RemoveAllBackends where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveAllBackends
+instance Prelude.Hashable RemoveAllBackends where
+  hashWithSalt _salt RemoveAllBackends' {..} =
+    _salt `Prelude.hashWithSalt` cleanAmplifyApp
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData RemoveAllBackends
+instance Prelude.NFData RemoveAllBackends where
+  rnf RemoveAllBackends' {..} =
+    Prelude.rnf cleanAmplifyApp
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders RemoveAllBackends where
   toHeaders =
@@ -216,4 +222,11 @@ removeAllBackendsResponse_appId = Lens.lens (\RemoveAllBackendsResponse' {appId}
 removeAllBackendsResponse_httpStatus :: Lens.Lens' RemoveAllBackendsResponse Prelude.Int
 removeAllBackendsResponse_httpStatus = Lens.lens (\RemoveAllBackendsResponse' {httpStatus} -> httpStatus) (\s@RemoveAllBackendsResponse' {} a -> s {httpStatus = a} :: RemoveAllBackendsResponse)
 
-instance Prelude.NFData RemoveAllBackendsResponse
+instance Prelude.NFData RemoveAllBackendsResponse where
+  rnf RemoveAllBackendsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf httpStatus

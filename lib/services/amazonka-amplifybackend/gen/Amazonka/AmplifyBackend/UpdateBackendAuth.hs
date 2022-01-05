@@ -140,9 +140,19 @@ instance Core.AWSRequest UpdateBackendAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBackendAuth
+instance Prelude.Hashable UpdateBackendAuth where
+  hashWithSalt _salt UpdateBackendAuth' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceConfig
 
-instance Prelude.NFData UpdateBackendAuth
+instance Prelude.NFData UpdateBackendAuth where
+  rnf UpdateBackendAuth' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceConfig
 
 instance Core.ToHeaders UpdateBackendAuth where
   toHeaders =
@@ -261,4 +271,12 @@ updateBackendAuthResponse_backendEnvironmentName = Lens.lens (\UpdateBackendAuth
 updateBackendAuthResponse_httpStatus :: Lens.Lens' UpdateBackendAuthResponse Prelude.Int
 updateBackendAuthResponse_httpStatus = Lens.lens (\UpdateBackendAuthResponse' {httpStatus} -> httpStatus) (\s@UpdateBackendAuthResponse' {} a -> s {httpStatus = a} :: UpdateBackendAuthResponse)
 
-instance Prelude.NFData UpdateBackendAuthResponse
+instance Prelude.NFData UpdateBackendAuthResponse where
+  rnf UpdateBackendAuthResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

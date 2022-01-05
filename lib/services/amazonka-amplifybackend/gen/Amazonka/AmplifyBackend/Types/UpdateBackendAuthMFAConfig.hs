@@ -68,9 +68,15 @@ updateBackendAuthMFAConfig_settings = Lens.lens (\UpdateBackendAuthMFAConfig' {s
 updateBackendAuthMFAConfig_mfaMode :: Lens.Lens' UpdateBackendAuthMFAConfig (Prelude.Maybe MFAMode)
 updateBackendAuthMFAConfig_mfaMode = Lens.lens (\UpdateBackendAuthMFAConfig' {mfaMode} -> mfaMode) (\s@UpdateBackendAuthMFAConfig' {} a -> s {mfaMode = a} :: UpdateBackendAuthMFAConfig)
 
-instance Prelude.Hashable UpdateBackendAuthMFAConfig
+instance Prelude.Hashable UpdateBackendAuthMFAConfig where
+  hashWithSalt _salt UpdateBackendAuthMFAConfig' {..} =
+    _salt `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` mfaMode
 
-instance Prelude.NFData UpdateBackendAuthMFAConfig
+instance Prelude.NFData UpdateBackendAuthMFAConfig where
+  rnf UpdateBackendAuthMFAConfig' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf mfaMode
 
 instance Core.ToJSON UpdateBackendAuthMFAConfig where
   toJSON UpdateBackendAuthMFAConfig' {..} =

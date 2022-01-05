@@ -119,9 +119,17 @@ instance Core.AWSRequest GetBackendAPIModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackendAPIModels
+instance Prelude.Hashable GetBackendAPIModels where
+  hashWithSalt _salt GetBackendAPIModels' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData GetBackendAPIModels
+instance Prelude.NFData GetBackendAPIModels where
+  rnf GetBackendAPIModels' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders GetBackendAPIModels where
   toHeaders =
@@ -202,4 +210,8 @@ getBackendAPIModelsResponse_models = Lens.lens (\GetBackendAPIModelsResponse' {m
 getBackendAPIModelsResponse_httpStatus :: Lens.Lens' GetBackendAPIModelsResponse Prelude.Int
 getBackendAPIModelsResponse_httpStatus = Lens.lens (\GetBackendAPIModelsResponse' {httpStatus} -> httpStatus) (\s@GetBackendAPIModelsResponse' {} a -> s {httpStatus = a} :: GetBackendAPIModelsResponse)
 
-instance Prelude.NFData GetBackendAPIModelsResponse
+instance Prelude.NFData GetBackendAPIModelsResponse where
+  rnf GetBackendAPIModelsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf models
+      `Prelude.seq` Prelude.rnf httpStatus

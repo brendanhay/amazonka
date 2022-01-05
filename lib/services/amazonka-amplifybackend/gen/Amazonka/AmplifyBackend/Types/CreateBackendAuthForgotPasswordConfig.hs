@@ -104,10 +104,22 @@ instance
 instance
   Prelude.Hashable
     CreateBackendAuthForgotPasswordConfig
+  where
+  hashWithSalt
+    _salt
+    CreateBackendAuthForgotPasswordConfig' {..} =
+      _salt `Prelude.hashWithSalt` emailSettings
+        `Prelude.hashWithSalt` smsSettings
+        `Prelude.hashWithSalt` deliveryMethod
 
 instance
   Prelude.NFData
     CreateBackendAuthForgotPasswordConfig
+  where
+  rnf CreateBackendAuthForgotPasswordConfig' {..} =
+    Prelude.rnf emailSettings
+      `Prelude.seq` Prelude.rnf smsSettings
+      `Prelude.seq` Prelude.rnf deliveryMethod
 
 instance
   Core.ToJSON

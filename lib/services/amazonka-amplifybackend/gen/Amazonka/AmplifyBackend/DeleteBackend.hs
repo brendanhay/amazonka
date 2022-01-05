@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteBackend where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBackend
+instance Prelude.Hashable DeleteBackend where
+  hashWithSalt _salt DeleteBackend' {..} =
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
 
-instance Prelude.NFData DeleteBackend
+instance Prelude.NFData DeleteBackend where
+  rnf DeleteBackend' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
 
 instance Core.ToHeaders DeleteBackend where
   toHeaders =
@@ -224,4 +230,12 @@ deleteBackendResponse_backendEnvironmentName = Lens.lens (\DeleteBackendResponse
 deleteBackendResponse_httpStatus :: Lens.Lens' DeleteBackendResponse Prelude.Int
 deleteBackendResponse_httpStatus = Lens.lens (\DeleteBackendResponse' {httpStatus} -> httpStatus) (\s@DeleteBackendResponse' {} a -> s {httpStatus = a} :: DeleteBackendResponse)
 
-instance Prelude.NFData DeleteBackendResponse
+instance Prelude.NFData DeleteBackendResponse where
+  rnf DeleteBackendResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus

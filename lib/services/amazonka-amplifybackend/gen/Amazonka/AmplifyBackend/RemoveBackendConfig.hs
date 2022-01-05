@@ -86,9 +86,12 @@ instance Core.AWSRequest RemoveBackendConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveBackendConfig
+instance Prelude.Hashable RemoveBackendConfig where
+  hashWithSalt _salt RemoveBackendConfig' {..} =
+    _salt `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData RemoveBackendConfig
+instance Prelude.NFData RemoveBackendConfig where
+  rnf RemoveBackendConfig' {..} = Prelude.rnf appId
 
 instance Core.ToHeaders RemoveBackendConfig where
   toHeaders =
@@ -151,4 +154,7 @@ removeBackendConfigResponse_error = Lens.lens (\RemoveBackendConfigResponse' {er
 removeBackendConfigResponse_httpStatus :: Lens.Lens' RemoveBackendConfigResponse Prelude.Int
 removeBackendConfigResponse_httpStatus = Lens.lens (\RemoveBackendConfigResponse' {httpStatus} -> httpStatus) (\s@RemoveBackendConfigResponse' {} a -> s {httpStatus = a} :: RemoveBackendConfigResponse)
 
-instance Prelude.NFData RemoveBackendConfigResponse
+instance Prelude.NFData RemoveBackendConfigResponse where
+  rnf RemoveBackendConfigResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf httpStatus

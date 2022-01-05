@@ -209,9 +209,27 @@ instance Core.AWSRequest CreateToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateToken
+instance Prelude.Hashable CreateToken where
+  hashWithSalt _salt CreateToken' {..} =
+    _salt `Prelude.hashWithSalt` redirectUri
+      `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` grantType
+      `Prelude.hashWithSalt` deviceCode
 
-instance Prelude.NFData CreateToken
+instance Prelude.NFData CreateToken where
+  rnf CreateToken' {..} =
+    Prelude.rnf redirectUri
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf grantType
+      `Prelude.seq` Prelude.rnf deviceCode
 
 instance Core.ToHeaders CreateToken where
   toHeaders =
@@ -328,4 +346,11 @@ createTokenResponse_idToken = Lens.lens (\CreateTokenResponse' {idToken} -> idTo
 createTokenResponse_httpStatus :: Lens.Lens' CreateTokenResponse Prelude.Int
 createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -> httpStatus) (\s@CreateTokenResponse' {} a -> s {httpStatus = a} :: CreateTokenResponse)
 
-instance Prelude.NFData CreateTokenResponse
+instance Prelude.NFData CreateTokenResponse where
+  rnf CreateTokenResponse' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf expiresIn
+      `Prelude.seq` Prelude.rnf tokenType
+      `Prelude.seq` Prelude.rnf idToken
+      `Prelude.seq` Prelude.rnf httpStatus

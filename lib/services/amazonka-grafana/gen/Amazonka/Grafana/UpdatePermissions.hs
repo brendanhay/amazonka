@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdatePermissions where
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable UpdatePermissions
+instance Prelude.Hashable UpdatePermissions where
+  hashWithSalt _salt UpdatePermissions' {..} =
+    _salt `Prelude.hashWithSalt` updateInstructionBatch
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData UpdatePermissions
+instance Prelude.NFData UpdatePermissions where
+  rnf UpdatePermissions' {..} =
+    Prelude.rnf updateInstructionBatch
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders UpdatePermissions where
   toHeaders =
@@ -179,4 +185,7 @@ updatePermissionsResponse_httpStatus = Lens.lens (\UpdatePermissionsResponse' {h
 updatePermissionsResponse_errors :: Lens.Lens' UpdatePermissionsResponse [UpdateError]
 updatePermissionsResponse_errors = Lens.lens (\UpdatePermissionsResponse' {errors} -> errors) (\s@UpdatePermissionsResponse' {} a -> s {errors = a} :: UpdatePermissionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData UpdatePermissionsResponse
+instance Prelude.NFData UpdatePermissionsResponse where
+  rnf UpdatePermissionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

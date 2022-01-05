@@ -82,6 +82,13 @@ instance Core.FromJSON AuthenticationSummary where
             Prelude.<*> (x Core..:? "providers" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AuthenticationSummary
+instance Prelude.Hashable AuthenticationSummary where
+  hashWithSalt _salt AuthenticationSummary' {..} =
+    _salt
+      `Prelude.hashWithSalt` samlConfigurationStatus
+      `Prelude.hashWithSalt` providers
 
-instance Prelude.NFData AuthenticationSummary
+instance Prelude.NFData AuthenticationSummary where
+  rnf AuthenticationSummary' {..} =
+    Prelude.rnf samlConfigurationStatus
+      `Prelude.seq` Prelude.rnf providers

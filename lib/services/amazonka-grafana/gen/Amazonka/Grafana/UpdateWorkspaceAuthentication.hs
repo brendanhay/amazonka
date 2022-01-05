@@ -137,8 +137,17 @@ instance
 instance
   Prelude.Hashable
     UpdateWorkspaceAuthentication
+  where
+  hashWithSalt _salt UpdateWorkspaceAuthentication' {..} =
+    _salt `Prelude.hashWithSalt` samlConfiguration
+      `Prelude.hashWithSalt` authenticationProviders
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData UpdateWorkspaceAuthentication
+instance Prelude.NFData UpdateWorkspaceAuthentication where
+  rnf UpdateWorkspaceAuthentication' {..} =
+    Prelude.rnf samlConfiguration
+      `Prelude.seq` Prelude.rnf authenticationProviders
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders UpdateWorkspaceAuthentication where
   toHeaders =
@@ -224,3 +233,7 @@ updateWorkspaceAuthenticationResponse_authentication = Lens.lens (\UpdateWorkspa
 instance
   Prelude.NFData
     UpdateWorkspaceAuthenticationResponse
+  where
+  rnf UpdateWorkspaceAuthenticationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authentication

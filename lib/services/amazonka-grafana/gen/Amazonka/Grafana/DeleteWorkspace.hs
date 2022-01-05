@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteWorkspace where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable DeleteWorkspace
+instance Prelude.Hashable DeleteWorkspace where
+  hashWithSalt _salt DeleteWorkspace' {..} =
+    _salt `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DeleteWorkspace
+instance Prelude.NFData DeleteWorkspace where
+  rnf DeleteWorkspace' {..} = Prelude.rnf workspaceId
 
 instance Core.ToHeaders DeleteWorkspace where
   toHeaders =
@@ -149,4 +152,7 @@ deleteWorkspaceResponse_httpStatus = Lens.lens (\DeleteWorkspaceResponse' {httpS
 deleteWorkspaceResponse_workspace :: Lens.Lens' DeleteWorkspaceResponse WorkspaceDescription
 deleteWorkspaceResponse_workspace = Lens.lens (\DeleteWorkspaceResponse' {workspace} -> workspace) (\s@DeleteWorkspaceResponse' {} a -> s {workspace = a} :: DeleteWorkspaceResponse)
 
-instance Prelude.NFData DeleteWorkspaceResponse
+instance Prelude.NFData DeleteWorkspaceResponse where
+  rnf DeleteWorkspaceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

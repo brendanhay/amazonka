@@ -100,9 +100,15 @@ instance Core.AWSRequest DisassociateLicense where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable DisassociateLicense
+instance Prelude.Hashable DisassociateLicense where
+  hashWithSalt _salt DisassociateLicense' {..} =
+    _salt `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData DisassociateLicense
+instance Prelude.NFData DisassociateLicense where
+  rnf DisassociateLicense' {..} =
+    Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders DisassociateLicense where
   toHeaders =
@@ -170,4 +176,7 @@ disassociateLicenseResponse_httpStatus = Lens.lens (\DisassociateLicenseResponse
 disassociateLicenseResponse_workspace :: Lens.Lens' DisassociateLicenseResponse WorkspaceDescription
 disassociateLicenseResponse_workspace = Lens.lens (\DisassociateLicenseResponse' {workspace} -> workspace) (\s@DisassociateLicenseResponse' {} a -> s {workspace = a} :: DisassociateLicenseResponse)
 
-instance Prelude.NFData DisassociateLicenseResponse
+instance Prelude.NFData DisassociateLicenseResponse where
+  rnf DisassociateLicenseResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

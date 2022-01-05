@@ -102,9 +102,15 @@ instance Core.AWSRequest AssociateLicense where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable AssociateLicense
+instance Prelude.Hashable AssociateLicense where
+  hashWithSalt _salt AssociateLicense' {..} =
+    _salt `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData AssociateLicense
+instance Prelude.NFData AssociateLicense where
+  rnf AssociateLicense' {..} =
+    Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders AssociateLicense where
   toHeaders =
@@ -173,4 +179,7 @@ associateLicenseResponse_httpStatus = Lens.lens (\AssociateLicenseResponse' {htt
 associateLicenseResponse_workspace :: Lens.Lens' AssociateLicenseResponse WorkspaceDescription
 associateLicenseResponse_workspace = Lens.lens (\AssociateLicenseResponse' {workspace} -> workspace) (\s@AssociateLicenseResponse' {} a -> s {workspace = a} :: AssociateLicenseResponse)
 
-instance Prelude.NFData AssociateLicenseResponse
+instance Prelude.NFData AssociateLicenseResponse where
+  rnf AssociateLicenseResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

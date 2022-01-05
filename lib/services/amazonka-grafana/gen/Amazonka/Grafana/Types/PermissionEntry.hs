@@ -74,6 +74,11 @@ instance Core.FromJSON PermissionEntry where
             Prelude.<$> (x Core..: "role") Prelude.<*> (x Core..: "user")
       )
 
-instance Prelude.Hashable PermissionEntry
+instance Prelude.Hashable PermissionEntry where
+  hashWithSalt _salt PermissionEntry' {..} =
+    _salt `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` user
 
-instance Prelude.NFData PermissionEntry
+instance Prelude.NFData PermissionEntry where
+  rnf PermissionEntry' {..} =
+    Prelude.rnf role' `Prelude.seq` Prelude.rnf user

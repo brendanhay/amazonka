@@ -108,10 +108,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateWebsiteCertificateAuthority
+  where
+  hashWithSalt
+    _salt
+    DisassociateWebsiteCertificateAuthority' {..} =
+      _salt `Prelude.hashWithSalt` fleetArn
+        `Prelude.hashWithSalt` websiteCaId
 
 instance
   Prelude.NFData
     DisassociateWebsiteCertificateAuthority
+  where
+  rnf DisassociateWebsiteCertificateAuthority' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf websiteCaId
 
 instance
   Core.ToHeaders
@@ -187,3 +197,7 @@ disassociateWebsiteCertificateAuthorityResponse_httpStatus = Lens.lens (\Disasso
 instance
   Prelude.NFData
     DisassociateWebsiteCertificateAuthorityResponse
+  where
+  rnf
+    DisassociateWebsiteCertificateAuthorityResponse' {..} =
+      Prelude.rnf httpStatus

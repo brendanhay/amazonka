@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateDomainMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDomainMetadata
+instance Prelude.Hashable UpdateDomainMetadata where
+  hashWithSalt _salt UpdateDomainMetadata' {..} =
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainMetadata
+instance Prelude.NFData UpdateDomainMetadata where
+  rnf UpdateDomainMetadata' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainMetadata where
   toHeaders =
@@ -170,4 +178,6 @@ newUpdateDomainMetadataResponse pHttpStatus_ =
 updateDomainMetadataResponse_httpStatus :: Lens.Lens' UpdateDomainMetadataResponse Prelude.Int
 updateDomainMetadataResponse_httpStatus = Lens.lens (\UpdateDomainMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainMetadataResponse' {} a -> s {httpStatus = a} :: UpdateDomainMetadataResponse)
 
-instance Prelude.NFData UpdateDomainMetadataResponse
+instance Prelude.NFData UpdateDomainMetadataResponse where
+  rnf UpdateDomainMetadataResponse' {..} =
+    Prelude.rnf httpStatus

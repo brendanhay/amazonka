@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     DescribeIdentityProviderConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeIdentityProviderConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DescribeIdentityProviderConfiguration
+  where
+  rnf DescribeIdentityProviderConfiguration' {..} =
+    Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -206,3 +214,10 @@ describeIdentityProviderConfigurationResponse_httpStatus = Lens.lens (\DescribeI
 instance
   Prelude.NFData
     DescribeIdentityProviderConfigurationResponse
+  where
+  rnf
+    DescribeIdentityProviderConfigurationResponse' {..} =
+      Prelude.rnf identityProviderType
+        `Prelude.seq` Prelude.rnf serviceProviderSamlMetadata
+        `Prelude.seq` Prelude.rnf identityProviderSamlMetadata
+        `Prelude.seq` Prelude.rnf httpStatus

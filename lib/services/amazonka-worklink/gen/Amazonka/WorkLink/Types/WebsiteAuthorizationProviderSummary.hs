@@ -106,7 +106,22 @@ instance
 instance
   Prelude.Hashable
     WebsiteAuthorizationProviderSummary
+  where
+  hashWithSalt
+    _salt
+    WebsiteAuthorizationProviderSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` authorizationProviderId
+        `Prelude.hashWithSalt` createdTime
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` authorizationProviderType
 
 instance
   Prelude.NFData
     WebsiteAuthorizationProviderSummary
+  where
+  rnf WebsiteAuthorizationProviderSummary' {..} =
+    Prelude.rnf authorizationProviderId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf authorizationProviderType

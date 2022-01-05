@@ -123,10 +123,22 @@ instance
 instance
   Prelude.Hashable
     ListWebsiteCertificateAuthorities
+  where
+  hashWithSalt
+    _salt
+    ListWebsiteCertificateAuthorities' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     ListWebsiteCertificateAuthorities
+  where
+  rnf ListWebsiteCertificateAuthorities' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -223,3 +235,8 @@ listWebsiteCertificateAuthoritiesResponse_httpStatus = Lens.lens (\ListWebsiteCe
 instance
   Prelude.NFData
     ListWebsiteCertificateAuthoritiesResponse
+  where
+  rnf ListWebsiteCertificateAuthoritiesResponse' {..} =
+    Prelude.rnf websiteCertificateAuthorities
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

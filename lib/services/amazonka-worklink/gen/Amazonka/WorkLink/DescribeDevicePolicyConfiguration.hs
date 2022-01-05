@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     DescribeDevicePolicyConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeDevicePolicyConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DescribeDevicePolicyConfiguration
+  where
+  rnf DescribeDevicePolicyConfiguration' {..} =
+    Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -183,3 +191,7 @@ describeDevicePolicyConfigurationResponse_httpStatus = Lens.lens (\DescribeDevic
 instance
   Prelude.NFData
     DescribeDevicePolicyConfigurationResponse
+  where
+  rnf DescribeDevicePolicyConfigurationResponse' {..} =
+    Prelude.rnf deviceCaCertificate
+      `Prelude.seq` Prelude.rnf httpStatus

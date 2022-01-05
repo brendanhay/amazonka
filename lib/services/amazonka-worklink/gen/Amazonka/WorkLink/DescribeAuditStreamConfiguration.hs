@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribeAuditStreamConfiguration
+  where
+  hashWithSalt
+    _salt
+    DescribeAuditStreamConfiguration' {..} =
+      _salt `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DescribeAuditStreamConfiguration
+  where
+  rnf DescribeAuditStreamConfiguration' {..} =
+    Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -178,3 +186,7 @@ describeAuditStreamConfigurationResponse_httpStatus = Lens.lens (\DescribeAuditS
 instance
   Prelude.NFData
     DescribeAuditStreamConfigurationResponse
+  where
+  rnf DescribeAuditStreamConfigurationResponse' {..} =
+    Prelude.rnf auditStreamArn
+      `Prelude.seq` Prelude.rnf httpStatus

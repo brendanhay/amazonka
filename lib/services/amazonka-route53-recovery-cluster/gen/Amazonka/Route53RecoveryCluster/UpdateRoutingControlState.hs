@@ -110,9 +110,15 @@ instance Core.AWSRequest UpdateRoutingControlState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRoutingControlState
+instance Prelude.Hashable UpdateRoutingControlState where
+  hashWithSalt _salt UpdateRoutingControlState' {..} =
+    _salt `Prelude.hashWithSalt` routingControlArn
+      `Prelude.hashWithSalt` routingControlState
 
-instance Prelude.NFData UpdateRoutingControlState
+instance Prelude.NFData UpdateRoutingControlState where
+  rnf UpdateRoutingControlState' {..} =
+    Prelude.rnf routingControlArn
+      `Prelude.seq` Prelude.rnf routingControlState
 
 instance Core.ToHeaders UpdateRoutingControlState where
   toHeaders =
@@ -179,3 +185,6 @@ updateRoutingControlStateResponse_httpStatus = Lens.lens (\UpdateRoutingControlS
 instance
   Prelude.NFData
     UpdateRoutingControlStateResponse
+  where
+  rnf UpdateRoutingControlStateResponse' {..} =
+    Prelude.rnf httpStatus

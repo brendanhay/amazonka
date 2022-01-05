@@ -107,9 +107,13 @@ instance Core.AWSRequest GetRoutingControlState where
             Prelude.<*> (x Core..:> "RoutingControlState")
       )
 
-instance Prelude.Hashable GetRoutingControlState
+instance Prelude.Hashable GetRoutingControlState where
+  hashWithSalt _salt GetRoutingControlState' {..} =
+    _salt `Prelude.hashWithSalt` routingControlArn
 
-instance Prelude.NFData GetRoutingControlState
+instance Prelude.NFData GetRoutingControlState where
+  rnf GetRoutingControlState' {..} =
+    Prelude.rnf routingControlArn
 
 instance Core.ToHeaders GetRoutingControlState where
   toHeaders =
@@ -199,3 +203,8 @@ getRoutingControlStateResponse_routingControlState = Lens.lens (\GetRoutingContr
 instance
   Prelude.NFData
     GetRoutingControlStateResponse
+  where
+  rnf GetRoutingControlStateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf routingControlArn
+      `Prelude.seq` Prelude.rnf routingControlState

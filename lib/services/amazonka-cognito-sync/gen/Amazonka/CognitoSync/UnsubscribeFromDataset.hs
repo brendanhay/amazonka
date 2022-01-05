@@ -139,9 +139,19 @@ instance Core.AWSRequest UnsubscribeFromDataset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnsubscribeFromDataset
+instance Prelude.Hashable UnsubscribeFromDataset where
+  hashWithSalt _salt UnsubscribeFromDataset' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData UnsubscribeFromDataset
+instance Prelude.NFData UnsubscribeFromDataset where
+  rnf UnsubscribeFromDataset' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders UnsubscribeFromDataset where
   toHeaders =
@@ -205,3 +215,6 @@ unsubscribeFromDatasetResponse_httpStatus = Lens.lens (\UnsubscribeFromDatasetRe
 instance
   Prelude.NFData
     UnsubscribeFromDatasetResponse
+  where
+  rnf UnsubscribeFromDatasetResponse' {..} =
+    Prelude.rnf httpStatus

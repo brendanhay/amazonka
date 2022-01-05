@@ -195,9 +195,25 @@ instance Core.AWSRequest ListRecords where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRecords
+instance Prelude.Hashable ListRecords where
+  hashWithSalt _salt ListRecords' {..} =
+    _salt `Prelude.hashWithSalt` lastSyncCount
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` syncSessionToken
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` datasetName
 
-instance Prelude.NFData ListRecords
+instance Prelude.NFData ListRecords where
+  rnf ListRecords' {..} =
+    Prelude.rnf lastSyncCount
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf syncSessionToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf datasetName
 
 instance Core.ToHeaders ListRecords where
   toHeaders =
@@ -344,4 +360,15 @@ listRecordsResponse_datasetSyncCount = Lens.lens (\ListRecordsResponse' {dataset
 listRecordsResponse_httpStatus :: Lens.Lens' ListRecordsResponse Prelude.Int
 listRecordsResponse_httpStatus = Lens.lens (\ListRecordsResponse' {httpStatus} -> httpStatus) (\s@ListRecordsResponse' {} a -> s {httpStatus = a} :: ListRecordsResponse)
 
-instance Prelude.NFData ListRecordsResponse
+instance Prelude.NFData ListRecordsResponse where
+  rnf ListRecordsResponse' {..} =
+    Prelude.rnf datasetDeletedAfterRequestedSyncCount
+      `Prelude.seq` Prelude.rnf datasetExists
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf mergedDatasetNames
+      `Prelude.seq` Prelude.rnf syncSessionToken
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf datasetSyncCount
+      `Prelude.seq` Prelude.rnf httpStatus

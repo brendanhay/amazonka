@@ -102,9 +102,13 @@ instance Core.AWSRequest DescribeIdentityPoolUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIdentityPoolUsage
+instance Prelude.Hashable DescribeIdentityPoolUsage where
+  hashWithSalt _salt DescribeIdentityPoolUsage' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData DescribeIdentityPoolUsage
+instance Prelude.NFData DescribeIdentityPoolUsage where
+  rnf DescribeIdentityPoolUsage' {..} =
+    Prelude.rnf identityPoolId
 
 instance Core.ToHeaders DescribeIdentityPoolUsage where
   toHeaders =
@@ -169,3 +173,7 @@ describeIdentityPoolUsageResponse_httpStatus = Lens.lens (\DescribeIdentityPoolU
 instance
   Prelude.NFData
     DescribeIdentityPoolUsageResponse
+  where
+  rnf DescribeIdentityPoolUsageResponse' {..} =
+    Prelude.rnf identityPoolUsage
+      `Prelude.seq` Prelude.rnf httpStatus

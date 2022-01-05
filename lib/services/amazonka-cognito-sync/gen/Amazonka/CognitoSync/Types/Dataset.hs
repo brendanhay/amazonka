@@ -134,6 +134,22 @@ instance Core.FromJSON Dataset where
             Prelude.<*> (x Core..:? "IdentityId")
       )
 
-instance Prelude.Hashable Dataset
+instance Prelude.Hashable Dataset where
+  hashWithSalt _salt Dataset' {..} =
+    _salt `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` numRecords
+      `Prelude.hashWithSalt` dataStorage
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData Dataset
+instance Prelude.NFData Dataset where
+  rnf Dataset' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf numRecords
+      `Prelude.seq` Prelude.rnf dataStorage
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf identityId

@@ -139,9 +139,19 @@ instance Core.AWSRequest SubscribeToDataset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SubscribeToDataset
+instance Prelude.Hashable SubscribeToDataset where
+  hashWithSalt _salt SubscribeToDataset' {..} =
+    _salt `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData SubscribeToDataset
+instance Prelude.NFData SubscribeToDataset where
+  rnf SubscribeToDataset' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders SubscribeToDataset where
   toHeaders =
@@ -205,4 +215,6 @@ newSubscribeToDatasetResponse pHttpStatus_ =
 subscribeToDatasetResponse_httpStatus :: Lens.Lens' SubscribeToDatasetResponse Prelude.Int
 subscribeToDatasetResponse_httpStatus = Lens.lens (\SubscribeToDatasetResponse' {httpStatus} -> httpStatus) (\s@SubscribeToDatasetResponse' {} a -> s {httpStatus = a} :: SubscribeToDatasetResponse)
 
-instance Prelude.NFData SubscribeToDatasetResponse
+instance Prelude.NFData SubscribeToDatasetResponse where
+  rnf SubscribeToDatasetResponse' {..} =
+    Prelude.rnf httpStatus

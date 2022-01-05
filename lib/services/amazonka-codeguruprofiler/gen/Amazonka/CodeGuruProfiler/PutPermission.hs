@@ -158,9 +158,19 @@ instance Core.AWSRequest PutPermission where
             Prelude.<*> (x Core..:> "revisionId")
       )
 
-instance Prelude.Hashable PutPermission
+instance Prelude.Hashable PutPermission where
+  hashWithSalt _salt PutPermission' {..} =
+    _salt `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` actionGroup
+      `Prelude.hashWithSalt` principals
+      `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData PutPermission
+instance Prelude.NFData PutPermission where
+  rnf PutPermission' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf actionGroup
+      `Prelude.seq` Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders PutPermission where
   toHeaders =
@@ -259,4 +269,8 @@ putPermissionResponse_policy = Lens.lens (\PutPermissionResponse' {policy} -> po
 putPermissionResponse_revisionId :: Lens.Lens' PutPermissionResponse Prelude.Text
 putPermissionResponse_revisionId = Lens.lens (\PutPermissionResponse' {revisionId} -> revisionId) (\s@PutPermissionResponse' {} a -> s {revisionId = a} :: PutPermissionResponse)
 
-instance Prelude.NFData PutPermissionResponse
+instance Prelude.NFData PutPermissionResponse where
+  rnf PutPermissionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf revisionId

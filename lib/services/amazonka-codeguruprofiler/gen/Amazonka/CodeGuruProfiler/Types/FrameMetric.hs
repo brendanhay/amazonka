@@ -102,9 +102,17 @@ instance Core.FromJSON FrameMetric where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FrameMetric
+instance Prelude.Hashable FrameMetric where
+  hashWithSalt _salt FrameMetric' {..} =
+    _salt `Prelude.hashWithSalt` frameName
+      `Prelude.hashWithSalt` threadStates
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData FrameMetric
+instance Prelude.NFData FrameMetric where
+  rnf FrameMetric' {..} =
+    Prelude.rnf frameName
+      `Prelude.seq` Prelude.rnf threadStates
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON FrameMetric where
   toJSON FrameMetric' {..} =

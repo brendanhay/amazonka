@@ -70,9 +70,13 @@ instance Core.FromJSON AgentOrchestrationConfig where
             Prelude.<$> (x Core..: "profilingEnabled")
       )
 
-instance Prelude.Hashable AgentOrchestrationConfig
+instance Prelude.Hashable AgentOrchestrationConfig where
+  hashWithSalt _salt AgentOrchestrationConfig' {..} =
+    _salt `Prelude.hashWithSalt` profilingEnabled
 
-instance Prelude.NFData AgentOrchestrationConfig
+instance Prelude.NFData AgentOrchestrationConfig where
+  rnf AgentOrchestrationConfig' {..} =
+    Prelude.rnf profilingEnabled
 
 instance Core.ToJSON AgentOrchestrationConfig where
   toJSON AgentOrchestrationConfig' {..} =

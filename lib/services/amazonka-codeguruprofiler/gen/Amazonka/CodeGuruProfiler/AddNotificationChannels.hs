@@ -108,9 +108,15 @@ instance Core.AWSRequest AddNotificationChannels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddNotificationChannels
+instance Prelude.Hashable AddNotificationChannels where
+  hashWithSalt _salt AddNotificationChannels' {..} =
+    _salt `Prelude.hashWithSalt` channels
+      `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData AddNotificationChannels
+instance Prelude.NFData AddNotificationChannels where
+  rnf AddNotificationChannels' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders AddNotificationChannels where
   toHeaders =
@@ -185,3 +191,7 @@ addNotificationChannelsResponse_httpStatus = Lens.lens (\AddNotificationChannels
 instance
   Prelude.NFData
     AddNotificationChannelsResponse
+  where
+  rnf AddNotificationChannelsResponse' {..} =
+    Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

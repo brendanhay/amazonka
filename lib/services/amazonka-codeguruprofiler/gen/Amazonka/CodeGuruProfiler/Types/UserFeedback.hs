@@ -64,6 +64,9 @@ instance Core.FromJSON UserFeedback where
       "UserFeedback"
       (\x -> UserFeedback' Prelude.<$> (x Core..: "type"))
 
-instance Prelude.Hashable UserFeedback
+instance Prelude.Hashable UserFeedback where
+  hashWithSalt _salt UserFeedback' {..} =
+    _salt `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData UserFeedback
+instance Prelude.NFData UserFeedback where
+  rnf UserFeedback' {..} = Prelude.rnf type'

@@ -117,6 +117,16 @@ instance Core.FromJSON AnomalyInstance where
             Prelude.<*> (x Core..: "startTime")
       )
 
-instance Prelude.Hashable AnomalyInstance
+instance Prelude.Hashable AnomalyInstance where
+  hashWithSalt _salt AnomalyInstance' {..} =
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` userFeedback
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData AnomalyInstance
+instance Prelude.NFData AnomalyInstance where
+  rnf AnomalyInstance' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf userFeedback
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf startTime

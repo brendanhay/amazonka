@@ -159,9 +159,19 @@ instance Core.AWSRequest UpdateFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFunction
+instance Prelude.Hashable UpdateFunction where
+  hashWithSalt _salt UpdateFunction' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` functionConfig
+      `Prelude.hashWithSalt` functionCode
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateFunction
+instance Prelude.NFData UpdateFunction where
+  rnf UpdateFunction' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf functionConfig
+      `Prelude.seq` Prelude.rnf functionCode
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToElement UpdateFunction where
   toElement =
@@ -240,4 +250,8 @@ updateFunctionResponse_functionSummary = Lens.lens (\UpdateFunctionResponse' {fu
 updateFunctionResponse_httpStatus :: Lens.Lens' UpdateFunctionResponse Prelude.Int
 updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpStatus} -> httpStatus) (\s@UpdateFunctionResponse' {} a -> s {httpStatus = a} :: UpdateFunctionResponse)
 
-instance Prelude.NFData UpdateFunctionResponse
+instance Prelude.NFData UpdateFunctionResponse where
+  rnf UpdateFunctionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf httpStatus

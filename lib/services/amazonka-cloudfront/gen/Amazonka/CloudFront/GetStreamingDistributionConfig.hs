@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     GetStreamingDistributionConfig
+  where
+  hashWithSalt
+    _salt
+    GetStreamingDistributionConfig' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetStreamingDistributionConfig
+  where
+  rnf GetStreamingDistributionConfig' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -172,3 +180,8 @@ getStreamingDistributionConfigResponse_httpStatus = Lens.lens (\GetStreamingDist
 instance
   Prelude.NFData
     GetStreamingDistributionConfigResponse
+  where
+  rnf GetStreamingDistributionConfigResponse' {..} =
+    Prelude.rnf streamingDistributionConfig
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -100,10 +100,19 @@ instance
 instance
   Prelude.Hashable
     CreateFieldLevelEncryptionProfile
+  where
+  hashWithSalt
+    _salt
+    CreateFieldLevelEncryptionProfile' {..} =
+      _salt
+        `Prelude.hashWithSalt` fieldLevelEncryptionProfileConfig
 
 instance
   Prelude.NFData
     CreateFieldLevelEncryptionProfile
+  where
+  rnf CreateFieldLevelEncryptionProfile' {..} =
+    Prelude.rnf fieldLevelEncryptionProfileConfig
 
 instance
   Core.ToElement
@@ -199,3 +208,9 @@ createFieldLevelEncryptionProfileResponse_httpStatus = Lens.lens (\CreateFieldLe
 instance
   Prelude.NFData
     CreateFieldLevelEncryptionProfileResponse
+  where
+  rnf CreateFieldLevelEncryptionProfileResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionProfile
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -415,9 +415,25 @@ instance Core.FromXML ViewerCertificate where
       Prelude.<*> (x Core..@? "IAMCertificateId")
       Prelude.<*> (x Core..@? "CloudFrontDefaultCertificate")
 
-instance Prelude.Hashable ViewerCertificate
+instance Prelude.Hashable ViewerCertificate where
+  hashWithSalt _salt ViewerCertificate' {..} =
+    _salt `Prelude.hashWithSalt` sSLSupportMethod
+      `Prelude.hashWithSalt` aCMCertificateArn
+      `Prelude.hashWithSalt` certificateSource
+      `Prelude.hashWithSalt` minimumProtocolVersion
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` iAMCertificateId
+      `Prelude.hashWithSalt` cloudFrontDefaultCertificate
 
-instance Prelude.NFData ViewerCertificate
+instance Prelude.NFData ViewerCertificate where
+  rnf ViewerCertificate' {..} =
+    Prelude.rnf sSLSupportMethod
+      `Prelude.seq` Prelude.rnf aCMCertificateArn
+      `Prelude.seq` Prelude.rnf certificateSource
+      `Prelude.seq` Prelude.rnf minimumProtocolVersion
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf iAMCertificateId
+      `Prelude.seq` Prelude.rnf cloudFrontDefaultCertificate
 
 instance Core.ToXML ViewerCertificate where
   toXML ViewerCertificate' {..} =

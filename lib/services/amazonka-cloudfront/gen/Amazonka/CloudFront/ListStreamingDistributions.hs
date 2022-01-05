@@ -125,9 +125,15 @@ instance Core.AWSRequest ListStreamingDistributions where
             Prelude.<*> (Core.parseXML x)
       )
 
-instance Prelude.Hashable ListStreamingDistributions
+instance Prelude.Hashable ListStreamingDistributions where
+  hashWithSalt _salt ListStreamingDistributions' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ListStreamingDistributions
+instance Prelude.NFData ListStreamingDistributions where
+  rnf ListStreamingDistributions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListStreamingDistributions where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +198,7 @@ listStreamingDistributionsResponse_streamingDistributionList = Lens.lens (\ListS
 instance
   Prelude.NFData
     ListStreamingDistributionsResponse
+  where
+  rnf ListStreamingDistributionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streamingDistributionList

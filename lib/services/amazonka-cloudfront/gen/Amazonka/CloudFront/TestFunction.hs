@@ -159,9 +159,19 @@ instance Core.AWSRequest TestFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestFunction
+instance Prelude.Hashable TestFunction where
+  hashWithSalt _salt TestFunction' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` eventObject
 
-instance Prelude.NFData TestFunction
+instance Prelude.NFData TestFunction where
+  rnf TestFunction' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf eventObject
 
 instance Core.ToElement TestFunction where
   toElement =
@@ -228,4 +238,7 @@ testFunctionResponse_testResult = Lens.lens (\TestFunctionResponse' {testResult}
 testFunctionResponse_httpStatus :: Lens.Lens' TestFunctionResponse Prelude.Int
 testFunctionResponse_httpStatus = Lens.lens (\TestFunctionResponse' {httpStatus} -> httpStatus) (\s@TestFunctionResponse' {} a -> s {httpStatus = a} :: TestFunctionResponse)
 
-instance Prelude.NFData TestFunctionResponse
+instance Prelude.NFData TestFunctionResponse where
+  rnf TestFunctionResponse' {..} =
+    Prelude.rnf testResult
+      `Prelude.seq` Prelude.rnf httpStatus

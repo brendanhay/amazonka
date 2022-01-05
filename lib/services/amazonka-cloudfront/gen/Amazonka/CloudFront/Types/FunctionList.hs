@@ -103,6 +103,16 @@ instance Core.FromXML FunctionList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable FunctionList
+instance Prelude.Hashable FunctionList where
+  hashWithSalt _salt FunctionList' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData FunctionList
+instance Prelude.NFData FunctionList where
+  rnf FunctionList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf quantity

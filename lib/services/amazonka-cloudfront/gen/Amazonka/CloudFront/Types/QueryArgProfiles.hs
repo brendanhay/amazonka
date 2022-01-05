@@ -78,9 +78,15 @@ instance Core.FromXML QueryArgProfiles where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable QueryArgProfiles
+instance Prelude.Hashable QueryArgProfiles where
+  hashWithSalt _salt QueryArgProfiles' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData QueryArgProfiles
+instance Prelude.NFData QueryArgProfiles where
+  rnf QueryArgProfiles' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =

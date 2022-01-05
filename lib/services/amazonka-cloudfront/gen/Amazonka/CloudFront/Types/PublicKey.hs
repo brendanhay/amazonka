@@ -96,6 +96,14 @@ instance Core.FromXML PublicKey where
       Prelude.<*> (x Core..@ "CreatedTime")
       Prelude.<*> (x Core..@ "PublicKeyConfig")
 
-instance Prelude.Hashable PublicKey
+instance Prelude.Hashable PublicKey where
+  hashWithSalt _salt PublicKey' {..} =
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` publicKeyConfig
 
-instance Prelude.NFData PublicKey
+instance Prelude.NFData PublicKey where
+  rnf PublicKey' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf publicKeyConfig

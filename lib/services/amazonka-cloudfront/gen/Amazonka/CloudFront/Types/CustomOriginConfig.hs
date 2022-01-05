@@ -212,9 +212,23 @@ instance Core.FromXML CustomOriginConfig where
       Prelude.<*> (x Core..@ "HTTPSPort")
       Prelude.<*> (x Core..@ "OriginProtocolPolicy")
 
-instance Prelude.Hashable CustomOriginConfig
+instance Prelude.Hashable CustomOriginConfig where
+  hashWithSalt _salt CustomOriginConfig' {..} =
+    _salt `Prelude.hashWithSalt` originKeepaliveTimeout
+      `Prelude.hashWithSalt` originReadTimeout
+      `Prelude.hashWithSalt` originSslProtocols
+      `Prelude.hashWithSalt` hTTPPort
+      `Prelude.hashWithSalt` hTTPSPort
+      `Prelude.hashWithSalt` originProtocolPolicy
 
-instance Prelude.NFData CustomOriginConfig
+instance Prelude.NFData CustomOriginConfig where
+  rnf CustomOriginConfig' {..} =
+    Prelude.rnf originKeepaliveTimeout
+      `Prelude.seq` Prelude.rnf originReadTimeout
+      `Prelude.seq` Prelude.rnf originSslProtocols
+      `Prelude.seq` Prelude.rnf hTTPPort
+      `Prelude.seq` Prelude.rnf hTTPSPort
+      `Prelude.seq` Prelude.rnf originProtocolPolicy
 
 instance Core.ToXML CustomOriginConfig where
   toXML CustomOriginConfig' {..} =

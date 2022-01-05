@@ -254,6 +254,28 @@ instance Core.FromXML Distribution where
       Prelude.<*> (x Core..@ "DomainName")
       Prelude.<*> (x Core..@ "DistributionConfig")
 
-instance Prelude.Hashable Distribution
+instance Prelude.Hashable Distribution where
+  hashWithSalt _salt Distribution' {..} =
+    _salt `Prelude.hashWithSalt` activeTrustedKeyGroups
+      `Prelude.hashWithSalt` aliasICPRecordals
+      `Prelude.hashWithSalt` activeTrustedSigners
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` inProgressInvalidationBatches
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` distributionConfig
 
-instance Prelude.NFData Distribution
+instance Prelude.NFData Distribution where
+  rnf Distribution' {..} =
+    Prelude.rnf activeTrustedKeyGroups
+      `Prelude.seq` Prelude.rnf aliasICPRecordals
+      `Prelude.seq` Prelude.rnf activeTrustedSigners
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf inProgressInvalidationBatches
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf distributionConfig

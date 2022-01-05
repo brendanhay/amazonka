@@ -164,9 +164,19 @@ instance Core.AWSRequest ListConflictingAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConflictingAliases
+instance Prelude.Hashable ListConflictingAliases where
+  hashWithSalt _salt ListConflictingAliases' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` distributionId
+      `Prelude.hashWithSalt` alias
 
-instance Prelude.NFData ListConflictingAliases
+instance Prelude.NFData ListConflictingAliases where
+  rnf ListConflictingAliases' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf distributionId
+      `Prelude.seq` Prelude.rnf alias
 
 instance Core.ToHeaders ListConflictingAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,3 +236,7 @@ listConflictingAliasesResponse_httpStatus = Lens.lens (\ListConflictingAliasesRe
 instance
   Prelude.NFData
     ListConflictingAliasesResponse
+  where
+  rnf ListConflictingAliasesResponse' {..} =
+    Prelude.rnf conflictingAliasesList
+      `Prelude.seq` Prelude.rnf httpStatus

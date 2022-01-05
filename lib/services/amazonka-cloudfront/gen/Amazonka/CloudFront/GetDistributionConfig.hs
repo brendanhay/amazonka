@@ -93,9 +93,12 @@ instance Core.AWSRequest GetDistributionConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionConfig
+instance Prelude.Hashable GetDistributionConfig where
+  hashWithSalt _salt GetDistributionConfig' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetDistributionConfig
+instance Prelude.NFData GetDistributionConfig where
+  rnf GetDistributionConfig' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetDistributionConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +164,8 @@ getDistributionConfigResponse_distributionConfig = Lens.lens (\GetDistributionCo
 getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Prelude.Int
 getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResponse' {httpStatus} -> httpStatus) (\s@GetDistributionConfigResponse' {} a -> s {httpStatus = a} :: GetDistributionConfigResponse)
 
-instance Prelude.NFData GetDistributionConfigResponse
+instance Prelude.NFData GetDistributionConfigResponse where
+  rnf GetDistributionConfigResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf distributionConfig
+      `Prelude.seq` Prelude.rnf httpStatus

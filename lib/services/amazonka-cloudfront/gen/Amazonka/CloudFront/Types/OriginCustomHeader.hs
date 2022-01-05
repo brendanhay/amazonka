@@ -81,9 +81,15 @@ instance Core.FromXML OriginCustomHeader where
       Prelude.<$> (x Core..@ "HeaderName")
       Prelude.<*> (x Core..@ "HeaderValue")
 
-instance Prelude.Hashable OriginCustomHeader
+instance Prelude.Hashable OriginCustomHeader where
+  hashWithSalt _salt OriginCustomHeader' {..} =
+    _salt `Prelude.hashWithSalt` headerName
+      `Prelude.hashWithSalt` headerValue
 
-instance Prelude.NFData OriginCustomHeader
+instance Prelude.NFData OriginCustomHeader where
+  rnf OriginCustomHeader' {..} =
+    Prelude.rnf headerName
+      `Prelude.seq` Prelude.rnf headerValue
 
 instance Core.ToXML OriginCustomHeader where
   toXML OriginCustomHeader' {..} =

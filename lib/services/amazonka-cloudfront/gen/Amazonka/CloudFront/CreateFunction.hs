@@ -154,9 +154,17 @@ instance Core.AWSRequest CreateFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFunction
+instance Prelude.Hashable CreateFunction where
+  hashWithSalt _salt CreateFunction' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionConfig
+      `Prelude.hashWithSalt` functionCode
 
-instance Prelude.NFData CreateFunction
+instance Prelude.NFData CreateFunction where
+  rnf CreateFunction' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionConfig
+      `Prelude.seq` Prelude.rnf functionCode
 
 instance Core.ToElement CreateFunction where
   toElement =
@@ -245,4 +253,9 @@ createFunctionResponse_functionSummary = Lens.lens (\CreateFunctionResponse' {fu
 createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Prelude.Int
 createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpStatus} -> httpStatus) (\s@CreateFunctionResponse' {} a -> s {httpStatus = a} :: CreateFunctionResponse)
 
-instance Prelude.NFData CreateFunctionResponse
+instance Prelude.NFData CreateFunctionResponse where
+  rnf CreateFunctionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -103,6 +103,16 @@ instance Core.FromXML ConflictingAliasesList where
       Prelude.<*> (x Core..@? "MaxItems")
       Prelude.<*> (x Core..@? "NextMarker")
 
-instance Prelude.Hashable ConflictingAliasesList
+instance Prelude.Hashable ConflictingAliasesList where
+  hashWithSalt _salt ConflictingAliasesList' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ConflictingAliasesList
+instance Prelude.NFData ConflictingAliasesList where
+  rnf ConflictingAliasesList' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

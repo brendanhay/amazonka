@@ -114,9 +114,14 @@ instance Core.AWSRequest DeleteOriginRequestPolicy where
     Response.receiveNull
       DeleteOriginRequestPolicyResponse'
 
-instance Prelude.Hashable DeleteOriginRequestPolicy
+instance Prelude.Hashable DeleteOriginRequestPolicy where
+  hashWithSalt _salt DeleteOriginRequestPolicy' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteOriginRequestPolicy
+instance Prelude.NFData DeleteOriginRequestPolicy where
+  rnf DeleteOriginRequestPolicy' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteOriginRequestPolicy where
   toHeaders DeleteOriginRequestPolicy' {..} =
@@ -148,3 +153,5 @@ newDeleteOriginRequestPolicyResponse =
 instance
   Prelude.NFData
     DeleteOriginRequestPolicyResponse
+  where
+  rnf _ = ()

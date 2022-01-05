@@ -79,9 +79,15 @@ instance Core.FromXML FunctionAssociation where
       Prelude.<$> (x Core..@ "FunctionARN")
       Prelude.<*> (x Core..@ "EventType")
 
-instance Prelude.Hashable FunctionAssociation
+instance Prelude.Hashable FunctionAssociation where
+  hashWithSalt _salt FunctionAssociation' {..} =
+    _salt `Prelude.hashWithSalt` functionARN
+      `Prelude.hashWithSalt` eventType
 
-instance Prelude.NFData FunctionAssociation
+instance Prelude.NFData FunctionAssociation where
+  rnf FunctionAssociation' {..} =
+    Prelude.rnf functionARN
+      `Prelude.seq` Prelude.rnf eventType
 
 instance Core.ToXML FunctionAssociation where
   toXML FunctionAssociation' {..} =

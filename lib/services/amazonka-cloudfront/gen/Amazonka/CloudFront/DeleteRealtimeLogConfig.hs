@@ -101,9 +101,14 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
     Response.receiveNull
       DeleteRealtimeLogConfigResponse'
 
-instance Prelude.Hashable DeleteRealtimeLogConfig
+instance Prelude.Hashable DeleteRealtimeLogConfig where
+  hashWithSalt _salt DeleteRealtimeLogConfig' {..} =
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteRealtimeLogConfig
+instance Prelude.NFData DeleteRealtimeLogConfig where
+  rnf DeleteRealtimeLogConfig' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance Core.ToElement DeleteRealtimeLogConfig where
   toElement =
@@ -144,3 +149,5 @@ newDeleteRealtimeLogConfigResponse =
 instance
   Prelude.NFData
     DeleteRealtimeLogConfigResponse
+  where
+  rnf _ = ()

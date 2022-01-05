@@ -98,6 +98,14 @@ instance Core.FromXML ActiveTrustedSigners where
       Prelude.<*> (x Core..@ "Enabled")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable ActiveTrustedSigners
+instance Prelude.Hashable ActiveTrustedSigners where
+  hashWithSalt _salt ActiveTrustedSigners' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData ActiveTrustedSigners
+instance Prelude.NFData ActiveTrustedSigners where
+  rnf ActiveTrustedSigners' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf quantity

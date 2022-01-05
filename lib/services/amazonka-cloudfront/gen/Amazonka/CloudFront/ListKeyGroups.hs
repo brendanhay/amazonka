@@ -115,9 +115,15 @@ instance Core.AWSRequest ListKeyGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListKeyGroups
+instance Prelude.Hashable ListKeyGroups where
+  hashWithSalt _salt ListKeyGroups' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
 
-instance Prelude.NFData ListKeyGroups
+instance Prelude.NFData ListKeyGroups where
+  rnf ListKeyGroups' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListKeyGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +177,7 @@ listKeyGroupsResponse_keyGroupList = Lens.lens (\ListKeyGroupsResponse' {keyGrou
 listKeyGroupsResponse_httpStatus :: Lens.Lens' ListKeyGroupsResponse Prelude.Int
 listKeyGroupsResponse_httpStatus = Lens.lens (\ListKeyGroupsResponse' {httpStatus} -> httpStatus) (\s@ListKeyGroupsResponse' {} a -> s {httpStatus = a} :: ListKeyGroupsResponse)
 
-instance Prelude.NFData ListKeyGroupsResponse
+instance Prelude.NFData ListKeyGroupsResponse where
+  rnf ListKeyGroupsResponse' {..} =
+    Prelude.rnf keyGroupList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -83,9 +83,15 @@ instance Core.FromXML QueryArgProfileConfig where
       Prelude.<$> (x Core..@? "QueryArgProfiles")
       Prelude.<*> (x Core..@ "ForwardWhenQueryArgProfileIsUnknown")
 
-instance Prelude.Hashable QueryArgProfileConfig
+instance Prelude.Hashable QueryArgProfileConfig where
+  hashWithSalt _salt QueryArgProfileConfig' {..} =
+    _salt `Prelude.hashWithSalt` queryArgProfiles
+      `Prelude.hashWithSalt` forwardWhenQueryArgProfileIsUnknown
 
-instance Prelude.NFData QueryArgProfileConfig
+instance Prelude.NFData QueryArgProfileConfig where
+  rnf QueryArgProfileConfig' {..} =
+    Prelude.rnf queryArgProfiles
+      `Prelude.seq` Prelude.rnf forwardWhenQueryArgProfileIsUnknown
 
 instance Core.ToXML QueryArgProfileConfig where
   toXML QueryArgProfileConfig' {..} =

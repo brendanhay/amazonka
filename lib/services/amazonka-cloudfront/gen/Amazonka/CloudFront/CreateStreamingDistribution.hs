@@ -100,9 +100,14 @@ instance Core.AWSRequest CreateStreamingDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamingDistribution
+instance Prelude.Hashable CreateStreamingDistribution where
+  hashWithSalt _salt CreateStreamingDistribution' {..} =
+    _salt
+      `Prelude.hashWithSalt` streamingDistributionConfig
 
-instance Prelude.NFData CreateStreamingDistribution
+instance Prelude.NFData CreateStreamingDistribution where
+  rnf CreateStreamingDistribution' {..} =
+    Prelude.rnf streamingDistributionConfig
 
 instance Core.ToElement CreateStreamingDistribution where
   toElement CreateStreamingDistribution' {..} =
@@ -186,3 +191,9 @@ createStreamingDistributionResponse_httpStatus = Lens.lens (\CreateStreamingDist
 instance
   Prelude.NFData
     CreateStreamingDistributionResponse
+  where
+  rnf CreateStreamingDistributionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf streamingDistribution
+      `Prelude.seq` Prelude.rnf httpStatus

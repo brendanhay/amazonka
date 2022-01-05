@@ -94,10 +94,18 @@ instance
 instance
   Prelude.Hashable
     GetFieldLevelEncryptionProfile
+  where
+  hashWithSalt
+    _salt
+    GetFieldLevelEncryptionProfile' {..} =
+      _salt `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetFieldLevelEncryptionProfile
+  where
+  rnf GetFieldLevelEncryptionProfile' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -171,3 +179,8 @@ getFieldLevelEncryptionProfileResponse_httpStatus = Lens.lens (\GetFieldLevelEnc
 instance
   Prelude.NFData
     GetFieldLevelEncryptionProfileResponse
+  where
+  rnf GetFieldLevelEncryptionProfileResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionProfile
+      `Prelude.seq` Prelude.rnf httpStatus

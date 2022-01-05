@@ -86,9 +86,15 @@ instance Core.FromXML ContentTypeProfileConfig where
       Prelude.<$> (x Core..@? "ContentTypeProfiles")
       Prelude.<*> (x Core..@ "ForwardWhenContentTypeIsUnknown")
 
-instance Prelude.Hashable ContentTypeProfileConfig
+instance Prelude.Hashable ContentTypeProfileConfig where
+  hashWithSalt _salt ContentTypeProfileConfig' {..} =
+    _salt `Prelude.hashWithSalt` contentTypeProfiles
+      `Prelude.hashWithSalt` forwardWhenContentTypeIsUnknown
 
-instance Prelude.NFData ContentTypeProfileConfig
+instance Prelude.NFData ContentTypeProfileConfig where
+  rnf ContentTypeProfileConfig' {..} =
+    Prelude.rnf contentTypeProfiles
+      `Prelude.seq` Prelude.rnf forwardWhenContentTypeIsUnknown
 
 instance Core.ToXML ContentTypeProfileConfig where
   toXML ContentTypeProfileConfig' {..} =

@@ -106,9 +106,14 @@ instance Core.AWSRequest DescribeFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFunction
+instance Prelude.Hashable DescribeFunction where
+  hashWithSalt _salt DescribeFunction' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeFunction
+instance Prelude.NFData DescribeFunction where
+  rnf DescribeFunction' {..} =
+    Prelude.rnf stage `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +183,8 @@ describeFunctionResponse_functionSummary = Lens.lens (\DescribeFunctionResponse'
 describeFunctionResponse_httpStatus :: Lens.Lens' DescribeFunctionResponse Prelude.Int
 describeFunctionResponse_httpStatus = Lens.lens (\DescribeFunctionResponse' {httpStatus} -> httpStatus) (\s@DescribeFunctionResponse' {} a -> s {httpStatus = a} :: DescribeFunctionResponse)
 
-instance Prelude.NFData DescribeFunctionResponse
+instance Prelude.NFData DescribeFunctionResponse where
+  rnf DescribeFunctionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf httpStatus

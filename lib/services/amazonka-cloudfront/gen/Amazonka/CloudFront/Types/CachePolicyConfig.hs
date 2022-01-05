@@ -219,9 +219,23 @@ instance Core.FromXML CachePolicyConfig where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "MinTTL")
 
-instance Prelude.Hashable CachePolicyConfig
+instance Prelude.Hashable CachePolicyConfig where
+  hashWithSalt _salt CachePolicyConfig' {..} =
+    _salt `Prelude.hashWithSalt` maxTTL
+      `Prelude.hashWithSalt` parametersInCacheKeyAndForwardedToOrigin
+      `Prelude.hashWithSalt` defaultTTL
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minTTL
 
-instance Prelude.NFData CachePolicyConfig
+instance Prelude.NFData CachePolicyConfig where
+  rnf CachePolicyConfig' {..} =
+    Prelude.rnf maxTTL
+      `Prelude.seq` Prelude.rnf parametersInCacheKeyAndForwardedToOrigin
+      `Prelude.seq` Prelude.rnf defaultTTL
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minTTL
 
 instance Core.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =

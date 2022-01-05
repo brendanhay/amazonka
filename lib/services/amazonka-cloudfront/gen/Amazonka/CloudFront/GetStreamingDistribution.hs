@@ -91,9 +91,12 @@ instance Core.AWSRequest GetStreamingDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStreamingDistribution
+instance Prelude.Hashable GetStreamingDistribution where
+  hashWithSalt _salt GetStreamingDistribution' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetStreamingDistribution
+instance Prelude.NFData GetStreamingDistribution where
+  rnf GetStreamingDistribution' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetStreamingDistribution where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,3 +165,8 @@ getStreamingDistributionResponse_httpStatus = Lens.lens (\GetStreamingDistributi
 instance
   Prelude.NFData
     GetStreamingDistributionResponse
+  where
+  rnf GetStreamingDistributionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf streamingDistribution
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -398,6 +398,48 @@ instance Core.FromXML DistributionSummary where
       Prelude.<*> (x Core..@ "HttpVersion")
       Prelude.<*> (x Core..@ "IsIPV6Enabled")
 
-instance Prelude.Hashable DistributionSummary
+instance Prelude.Hashable DistributionSummary where
+  hashWithSalt _salt DistributionSummary' {..} =
+    _salt `Prelude.hashWithSalt` originGroups
+      `Prelude.hashWithSalt` aliasICPRecordals
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` aliases
+      `Prelude.hashWithSalt` origins
+      `Prelude.hashWithSalt` defaultCacheBehavior
+      `Prelude.hashWithSalt` cacheBehaviors
+      `Prelude.hashWithSalt` customErrorResponses
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` priceClass
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` viewerCertificate
+      `Prelude.hashWithSalt` restrictions
+      `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` httpVersion
+      `Prelude.hashWithSalt` isIPV6Enabled
 
-instance Prelude.NFData DistributionSummary
+instance Prelude.NFData DistributionSummary where
+  rnf DistributionSummary' {..} =
+    Prelude.rnf originGroups
+      `Prelude.seq` Prelude.rnf aliasICPRecordals
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf origins
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf customErrorResponses
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf priceClass
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf viewerCertificate
+      `Prelude.seq` Prelude.rnf restrictions
+      `Prelude.seq` Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf httpVersion
+      `Prelude.seq` Prelude.rnf isIPV6Enabled

@@ -95,9 +95,12 @@ instance Core.AWSRequest GetKeyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyGroup
+instance Prelude.Hashable GetKeyGroup where
+  hashWithSalt _salt GetKeyGroup' {..} =
+    _salt `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetKeyGroup
+instance Prelude.NFData GetKeyGroup where
+  rnf GetKeyGroup' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetKeyGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +160,8 @@ getKeyGroupResponse_keyGroup = Lens.lens (\GetKeyGroupResponse' {keyGroup} -> ke
 getKeyGroupResponse_httpStatus :: Lens.Lens' GetKeyGroupResponse Prelude.Int
 getKeyGroupResponse_httpStatus = Lens.lens (\GetKeyGroupResponse' {httpStatus} -> httpStatus) (\s@GetKeyGroupResponse' {} a -> s {httpStatus = a} :: GetKeyGroupResponse)
 
-instance Prelude.NFData GetKeyGroupResponse
+instance Prelude.NFData GetKeyGroupResponse where
+  rnf GetKeyGroupResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf keyGroup
+      `Prelude.seq` Prelude.rnf httpStatus

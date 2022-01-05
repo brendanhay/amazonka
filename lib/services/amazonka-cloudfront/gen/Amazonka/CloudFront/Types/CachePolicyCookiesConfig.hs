@@ -136,9 +136,15 @@ instance Core.FromXML CachePolicyCookiesConfig where
       Prelude.<$> (x Core..@? "Cookies")
       Prelude.<*> (x Core..@ "CookieBehavior")
 
-instance Prelude.Hashable CachePolicyCookiesConfig
+instance Prelude.Hashable CachePolicyCookiesConfig where
+  hashWithSalt _salt CachePolicyCookiesConfig' {..} =
+    _salt `Prelude.hashWithSalt` cookies
+      `Prelude.hashWithSalt` cookieBehavior
 
-instance Prelude.NFData CachePolicyCookiesConfig
+instance Prelude.NFData CachePolicyCookiesConfig where
+  rnf CachePolicyCookiesConfig' {..} =
+    Prelude.rnf cookies
+      `Prelude.seq` Prelude.rnf cookieBehavior
 
 instance Core.ToXML CachePolicyCookiesConfig where
   toXML CachePolicyCookiesConfig' {..} =

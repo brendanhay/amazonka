@@ -134,6 +134,12 @@ instance Core.FromXML AliasICPRecordal where
       Prelude.<$> (x Core..@? "CNAME")
       Prelude.<*> (x Core..@? "ICPRecordalStatus")
 
-instance Prelude.Hashable AliasICPRecordal
+instance Prelude.Hashable AliasICPRecordal where
+  hashWithSalt _salt AliasICPRecordal' {..} =
+    _salt `Prelude.hashWithSalt` cname
+      `Prelude.hashWithSalt` iCPRecordalStatus
 
-instance Prelude.NFData AliasICPRecordal
+instance Prelude.NFData AliasICPRecordal where
+  rnf AliasICPRecordal' {..} =
+    Prelude.rnf cname
+      `Prelude.seq` Prelude.rnf iCPRecordalStatus

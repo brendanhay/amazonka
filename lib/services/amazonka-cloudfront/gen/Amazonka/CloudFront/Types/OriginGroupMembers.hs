@@ -74,9 +74,15 @@ instance Core.FromXML OriginGroupMembers where
                       Prelude.>>= Core.parseXMLList1 "OriginGroupMember"
                   )
 
-instance Prelude.Hashable OriginGroupMembers
+instance Prelude.Hashable OriginGroupMembers where
+  hashWithSalt _salt OriginGroupMembers' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData OriginGroupMembers
+instance Prelude.NFData OriginGroupMembers where
+  rnf OriginGroupMembers' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToXML OriginGroupMembers where
   toXML OriginGroupMembers' {..} =

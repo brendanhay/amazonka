@@ -118,10 +118,20 @@ instance
 instance
   Prelude.Hashable
     OriginRequestPolicyCookiesConfig
+  where
+  hashWithSalt
+    _salt
+    OriginRequestPolicyCookiesConfig' {..} =
+      _salt `Prelude.hashWithSalt` cookies
+        `Prelude.hashWithSalt` cookieBehavior
 
 instance
   Prelude.NFData
     OriginRequestPolicyCookiesConfig
+  where
+  rnf OriginRequestPolicyCookiesConfig' {..} =
+    Prelude.rnf cookies
+      `Prelude.seq` Prelude.rnf cookieBehavior
 
 instance Core.ToXML OriginRequestPolicyCookiesConfig where
   toXML OriginRequestPolicyCookiesConfig' {..} =

@@ -106,10 +106,19 @@ instance
 instance
   Prelude.Hashable
     CreateStreamingDistributionWithTags
+  where
+  hashWithSalt
+    _salt
+    CreateStreamingDistributionWithTags' {..} =
+      _salt
+        `Prelude.hashWithSalt` streamingDistributionConfigWithTags
 
 instance
   Prelude.NFData
     CreateStreamingDistributionWithTags
+  where
+  rnf CreateStreamingDistributionWithTags' {..} =
+    Prelude.rnf streamingDistributionConfigWithTags
 
 instance
   Core.ToElement
@@ -207,3 +216,9 @@ createStreamingDistributionWithTagsResponse_httpStatus = Lens.lens (\CreateStrea
 instance
   Prelude.NFData
     CreateStreamingDistributionWithTagsResponse
+  where
+  rnf CreateStreamingDistributionWithTagsResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf streamingDistribution
+      `Prelude.seq` Prelude.rnf httpStatus

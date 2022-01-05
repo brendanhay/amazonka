@@ -94,9 +94,15 @@ instance Core.FromXML CachedMethods where
                       Prelude.>>= Core.parseXMLList "Method"
                   )
 
-instance Prelude.Hashable CachedMethods
+instance Prelude.Hashable CachedMethods where
+  hashWithSalt _salt CachedMethods' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData CachedMethods
+instance Prelude.NFData CachedMethods where
+  rnf CachedMethods' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToXML CachedMethods where
   toXML CachedMethods' {..} =

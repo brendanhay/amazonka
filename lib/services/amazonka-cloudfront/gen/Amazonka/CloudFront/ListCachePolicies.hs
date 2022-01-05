@@ -147,9 +147,17 @@ instance Core.AWSRequest ListCachePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCachePolicies
+instance Prelude.Hashable ListCachePolicies where
+  hashWithSalt _salt ListCachePolicies' {..} =
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ListCachePolicies
+instance Prelude.NFData ListCachePolicies where
+  rnf ListCachePolicies' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders ListCachePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +212,7 @@ listCachePoliciesResponse_cachePolicyList = Lens.lens (\ListCachePoliciesRespons
 listCachePoliciesResponse_httpStatus :: Lens.Lens' ListCachePoliciesResponse Prelude.Int
 listCachePoliciesResponse_httpStatus = Lens.lens (\ListCachePoliciesResponse' {httpStatus} -> httpStatus) (\s@ListCachePoliciesResponse' {} a -> s {httpStatus = a} :: ListCachePoliciesResponse)
 
-instance Prelude.NFData ListCachePoliciesResponse
+instance Prelude.NFData ListCachePoliciesResponse where
+  rnf ListCachePoliciesResponse' {..} =
+    Prelude.rnf cachePolicyList
+      `Prelude.seq` Prelude.rnf httpStatus

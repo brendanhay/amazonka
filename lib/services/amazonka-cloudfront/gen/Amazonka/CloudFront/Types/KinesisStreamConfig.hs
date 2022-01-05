@@ -93,9 +93,15 @@ instance Core.FromXML KinesisStreamConfig where
       Prelude.<$> (x Core..@ "RoleARN")
       Prelude.<*> (x Core..@ "StreamARN")
 
-instance Prelude.Hashable KinesisStreamConfig
+instance Prelude.Hashable KinesisStreamConfig where
+  hashWithSalt _salt KinesisStreamConfig' {..} =
+    _salt `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData KinesisStreamConfig
+instance Prelude.NFData KinesisStreamConfig where
+  rnf KinesisStreamConfig' {..} =
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf streamARN
 
 instance Core.ToXML KinesisStreamConfig where
   toXML KinesisStreamConfig' {..} =

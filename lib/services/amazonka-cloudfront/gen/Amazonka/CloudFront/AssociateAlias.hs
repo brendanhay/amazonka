@@ -106,9 +106,15 @@ instance Core.AWSRequest AssociateAlias where
   response =
     Response.receiveNull AssociateAliasResponse'
 
-instance Prelude.Hashable AssociateAlias
+instance Prelude.Hashable AssociateAlias where
+  hashWithSalt _salt AssociateAlias' {..} =
+    _salt `Prelude.hashWithSalt` targetDistributionId
+      `Prelude.hashWithSalt` alias
 
-instance Prelude.NFData AssociateAlias
+instance Prelude.NFData AssociateAlias where
+  rnf AssociateAlias' {..} =
+    Prelude.rnf targetDistributionId
+      `Prelude.seq` Prelude.rnf alias
 
 instance Core.ToHeaders AssociateAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +145,5 @@ newAssociateAliasResponse ::
   AssociateAliasResponse
 newAssociateAliasResponse = AssociateAliasResponse'
 
-instance Prelude.NFData AssociateAliasResponse
+instance Prelude.NFData AssociateAliasResponse where
+  rnf _ = ()

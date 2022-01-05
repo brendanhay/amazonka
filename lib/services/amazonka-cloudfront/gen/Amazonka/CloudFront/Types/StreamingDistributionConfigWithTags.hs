@@ -74,10 +74,21 @@ streamingDistributionConfigWithTags_tags = Lens.lens (\StreamingDistributionConf
 instance
   Prelude.Hashable
     StreamingDistributionConfigWithTags
+  where
+  hashWithSalt
+    _salt
+    StreamingDistributionConfigWithTags' {..} =
+      _salt
+        `Prelude.hashWithSalt` streamingDistributionConfig
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     StreamingDistributionConfigWithTags
+  where
+  rnf StreamingDistributionConfigWithTags' {..} =
+    Prelude.rnf streamingDistributionConfig
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Core.ToXML

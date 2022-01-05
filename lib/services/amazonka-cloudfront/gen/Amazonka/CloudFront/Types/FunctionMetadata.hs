@@ -114,6 +114,16 @@ instance Core.FromXML FunctionMetadata where
       Prelude.<*> (x Core..@ "FunctionARN")
       Prelude.<*> (x Core..@ "LastModifiedTime")
 
-instance Prelude.Hashable FunctionMetadata
+instance Prelude.Hashable FunctionMetadata where
+  hashWithSalt _salt FunctionMetadata' {..} =
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` functionARN
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData FunctionMetadata
+instance Prelude.NFData FunctionMetadata where
+  rnf FunctionMetadata' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf functionARN
+      `Prelude.seq` Prelude.rnf lastModifiedTime

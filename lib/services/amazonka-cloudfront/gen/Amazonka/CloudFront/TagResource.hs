@@ -87,9 +87,14 @@ instance Core.AWSRequest TagResource where
   request = Request.postXML defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Prelude.Hashable TagResource
+instance Prelude.Hashable TagResource where
+  hashWithSalt _salt TagResource' {..} =
+    _salt `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TagResource
+instance Prelude.NFData TagResource where
+  rnf TagResource' {..} =
+    Prelude.rnf resource `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToElement TagResource where
   toElement TagResource' {..} =
@@ -122,4 +127,5 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Prelude.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse where
+  rnf _ = ()

@@ -75,9 +75,15 @@ instance Core.FromXML StatusCodes where
                       Prelude.>>= Core.parseXMLList1 "StatusCode"
                   )
 
-instance Prelude.Hashable StatusCodes
+instance Prelude.Hashable StatusCodes where
+  hashWithSalt _salt StatusCodes' {..} =
+    _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData StatusCodes
+instance Prelude.NFData StatusCodes where
+  rnf StatusCodes' {..} =
+    Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToXML StatusCodes where
   toXML StatusCodes' {..} =

@@ -92,9 +92,15 @@ instance Core.FromXML QueryStringCacheKeys where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable QueryStringCacheKeys
+instance Prelude.Hashable QueryStringCacheKeys where
+  hashWithSalt _salt QueryStringCacheKeys' {..} =
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
 
-instance Prelude.NFData QueryStringCacheKeys
+instance Prelude.NFData QueryStringCacheKeys where
+  rnf QueryStringCacheKeys' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML QueryStringCacheKeys where
   toXML QueryStringCacheKeys' {..} =

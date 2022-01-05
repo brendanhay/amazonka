@@ -127,9 +127,17 @@ instance Core.AWSRequest UpdateKeyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateKeyGroup
+instance Prelude.Hashable UpdateKeyGroup where
+  hashWithSalt _salt UpdateKeyGroup' {..} =
+    _salt `Prelude.hashWithSalt` ifMatch
+      `Prelude.hashWithSalt` keyGroupConfig
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateKeyGroup
+instance Prelude.NFData UpdateKeyGroup where
+  rnf UpdateKeyGroup' {..} =
+    Prelude.rnf ifMatch
+      `Prelude.seq` Prelude.rnf keyGroupConfig
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToElement UpdateKeyGroup where
   toElement UpdateKeyGroup' {..} =
@@ -196,4 +204,8 @@ updateKeyGroupResponse_keyGroup = Lens.lens (\UpdateKeyGroupResponse' {keyGroup}
 updateKeyGroupResponse_httpStatus :: Lens.Lens' UpdateKeyGroupResponse Prelude.Int
 updateKeyGroupResponse_httpStatus = Lens.lens (\UpdateKeyGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateKeyGroupResponse' {} a -> s {httpStatus = a} :: UpdateKeyGroupResponse)
 
-instance Prelude.NFData UpdateKeyGroupResponse
+instance Prelude.NFData UpdateKeyGroupResponse where
+  rnf UpdateKeyGroupResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf keyGroup
+      `Prelude.seq` Prelude.rnf httpStatus

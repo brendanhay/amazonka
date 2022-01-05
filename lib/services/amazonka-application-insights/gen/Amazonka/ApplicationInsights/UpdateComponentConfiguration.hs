@@ -164,8 +164,21 @@ instance Core.AWSRequest UpdateComponentConfiguration where
 instance
   Prelude.Hashable
     UpdateComponentConfiguration
+  where
+  hashWithSalt _salt UpdateComponentConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` componentConfiguration
+      `Prelude.hashWithSalt` monitor
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` componentName
 
-instance Prelude.NFData UpdateComponentConfiguration
+instance Prelude.NFData UpdateComponentConfiguration where
+  rnf UpdateComponentConfiguration' {..} =
+    Prelude.rnf componentConfiguration
+      `Prelude.seq` Prelude.rnf monitor
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf componentName
 
 instance Core.ToHeaders UpdateComponentConfiguration where
   toHeaders =
@@ -236,3 +249,6 @@ updateComponentConfigurationResponse_httpStatus = Lens.lens (\UpdateComponentCon
 instance
   Prelude.NFData
     UpdateComponentConfigurationResponse
+  where
+  rnf UpdateComponentConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

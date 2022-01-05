@@ -185,9 +185,23 @@ instance Core.AWSRequest ListConfigurationHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConfigurationHistory
+instance Prelude.Hashable ListConfigurationHistory where
+  hashWithSalt _salt ListConfigurationHistory' {..} =
+    _salt `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` eventStatus
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListConfigurationHistory
+instance Prelude.NFData ListConfigurationHistory where
+  rnf ListConfigurationHistory' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf eventStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListConfigurationHistory where
   toHeaders =
@@ -284,3 +298,8 @@ listConfigurationHistoryResponse_httpStatus = Lens.lens (\ListConfigurationHisto
 instance
   Prelude.NFData
     ListConfigurationHistoryResponse
+  where
+  rnf ListConfigurationHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventList
+      `Prelude.seq` Prelude.rnf httpStatus

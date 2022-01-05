@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeProblemObservations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProblemObservations
+instance Prelude.Hashable DescribeProblemObservations where
+  hashWithSalt _salt DescribeProblemObservations' {..} =
+    _salt `Prelude.hashWithSalt` problemId
 
-instance Prelude.NFData DescribeProblemObservations
+instance Prelude.NFData DescribeProblemObservations where
+  rnf DescribeProblemObservations' {..} =
+    Prelude.rnf problemId
 
 instance Core.ToHeaders DescribeProblemObservations where
   toHeaders =
@@ -163,3 +167,7 @@ describeProblemObservationsResponse_httpStatus = Lens.lens (\DescribeProblemObse
 instance
   Prelude.NFData
     DescribeProblemObservationsResponse
+  where
+  rnf DescribeProblemObservationsResponse' {..} =
+    Prelude.rnf relatedObservations
+      `Prelude.seq` Prelude.rnf httpStatus

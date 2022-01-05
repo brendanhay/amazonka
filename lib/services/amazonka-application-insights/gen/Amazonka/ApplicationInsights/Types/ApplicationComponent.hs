@@ -132,6 +132,22 @@ instance Core.FromJSON ApplicationComponent where
             Prelude.<*> (x Core..:? "ComponentRemarks")
       )
 
-instance Prelude.Hashable ApplicationComponent
+instance Prelude.Hashable ApplicationComponent where
+  hashWithSalt _salt ApplicationComponent' {..} =
+    _salt `Prelude.hashWithSalt` osType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` detectedWorkload
+      `Prelude.hashWithSalt` monitor
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` componentRemarks
 
-instance Prelude.NFData ApplicationComponent
+instance Prelude.NFData ApplicationComponent where
+  rnf ApplicationComponent' {..} =
+    Prelude.rnf osType
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf detectedWorkload
+      `Prelude.seq` Prelude.rnf monitor
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf componentRemarks

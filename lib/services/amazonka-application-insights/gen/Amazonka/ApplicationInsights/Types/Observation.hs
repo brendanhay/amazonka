@@ -534,6 +534,120 @@ instance Core.FromJSON Observation where
             Prelude.<*> (x Core..:? "HealthService")
       )
 
-instance Prelude.Hashable Observation
+instance Prelude.Hashable Observation where
+  hashWithSalt _salt Observation' {..} =
+    _salt `Prelude.hashWithSalt` codeDeployApplication
+      `Prelude.hashWithSalt` rdsEventMessage
+      `Prelude.hashWithSalt` codeDeployDeploymentId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceARN
+      `Prelude.hashWithSalt` xRayRequestAverageLatency
+      `Prelude.hashWithSalt` statesStatus
+      `Prelude.hashWithSalt` codeDeployDeploymentGroup
+      `Prelude.hashWithSalt` healthEventTypeCategory
+      `Prelude.hashWithSalt` xRayRequestCount
+      `Prelude.hashWithSalt` s3EventName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` ec2State
+      `Prelude.hashWithSalt` logGroup
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` healthEventDescription
+      `Prelude.hashWithSalt` cloudWatchEventSource
+      `Prelude.hashWithSalt` codeDeployState
+      `Prelude.hashWithSalt` xRayErrorPercent
+      `Prelude.hashWithSalt` statesArn
+      `Prelude.hashWithSalt` cloudWatchEventId
+      `Prelude.hashWithSalt` logText
+      `Prelude.hashWithSalt` logFilter
+      `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` rdsEventCategories
+      `Prelude.hashWithSalt` xRayNodeType
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` statesInput
+      `Prelude.hashWithSalt` xRayNodeName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` healthEventArn
+      `Prelude.hashWithSalt` healthEventTypeCode
+      `Prelude.hashWithSalt` ebsResult
+      `Prelude.hashWithSalt` cloudWatchEventDetailType
+      `Prelude.hashWithSalt` codeDeployInstanceGroupId
+      `Prelude.hashWithSalt` ebsCause
+      `Prelude.hashWithSalt` ebsEvent
+      `Prelude.hashWithSalt` ebsRequestId
+      `Prelude.hashWithSalt` xRayFaultPercent
+      `Prelude.hashWithSalt` statesExecutionArn
+      `Prelude.hashWithSalt` lineTime
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` xRayThrottlePercent
+      `Prelude.hashWithSalt` healthService
 
-instance Prelude.NFData Observation
+instance Prelude.NFData Observation where
+  rnf Observation' {..} =
+    Prelude.rnf codeDeployApplication
+      `Prelude.seq` Prelude.rnf rdsEventMessage
+      `Prelude.seq` Prelude.rnf codeDeployDeploymentId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceARN
+      `Prelude.seq` Prelude.rnf xRayRequestAverageLatency
+      `Prelude.seq` Prelude.rnf statesStatus
+      `Prelude.seq` Prelude.rnf codeDeployDeploymentGroup
+      `Prelude.seq` Prelude.rnf healthEventTypeCategory
+      `Prelude.seq` Prelude.rnf xRayRequestCount
+      `Prelude.seq` Prelude.rnf s3EventName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf ec2State
+      `Prelude.seq` Prelude.rnf logGroup
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf healthEventDescription
+      `Prelude.seq` Prelude.rnf cloudWatchEventSource
+      `Prelude.seq` Prelude.rnf codeDeployState
+      `Prelude.seq` Prelude.rnf xRayErrorPercent
+      `Prelude.seq` Prelude.rnf statesArn
+      `Prelude.seq` Prelude.rnf
+        cloudWatchEventId
+      `Prelude.seq` Prelude.rnf logText
+      `Prelude.seq` Prelude.rnf logFilter
+      `Prelude.seq` Prelude.rnf
+        metricNamespace
+      `Prelude.seq` Prelude.rnf
+        rdsEventCategories
+      `Prelude.seq` Prelude.rnf
+        xRayNodeType
+      `Prelude.seq` Prelude.rnf
+        endTime
+      `Prelude.seq` Prelude.rnf
+        statesInput
+      `Prelude.seq` Prelude.rnf
+        xRayNodeName
+      `Prelude.seq` Prelude.rnf
+        id
+      `Prelude.seq` Prelude.rnf
+        healthEventArn
+      `Prelude.seq` Prelude.rnf
+        healthEventTypeCode
+      `Prelude.seq` Prelude.rnf
+        ebsResult
+      `Prelude.seq` Prelude.rnf
+        cloudWatchEventDetailType
+      `Prelude.seq` Prelude.rnf
+        codeDeployInstanceGroupId
+      `Prelude.seq` Prelude.rnf
+        ebsCause
+      `Prelude.seq` Prelude.rnf
+        ebsEvent
+      `Prelude.seq` Prelude.rnf
+        ebsRequestId
+      `Prelude.seq` Prelude.rnf
+        xRayFaultPercent
+      `Prelude.seq` Prelude.rnf
+        statesExecutionArn
+      `Prelude.seq` Prelude.rnf
+        lineTime
+      `Prelude.seq` Prelude.rnf
+        unit
+      `Prelude.seq` Prelude.rnf
+        xRayThrottlePercent
+      `Prelude.seq` Prelude.rnf
+        healthService

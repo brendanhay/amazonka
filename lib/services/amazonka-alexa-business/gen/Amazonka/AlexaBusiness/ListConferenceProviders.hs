@@ -128,9 +128,15 @@ instance Core.AWSRequest ListConferenceProviders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListConferenceProviders
+instance Prelude.Hashable ListConferenceProviders where
+  hashWithSalt _salt ListConferenceProviders' {..} =
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData ListConferenceProviders
+instance Prelude.NFData ListConferenceProviders where
+  rnf ListConferenceProviders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListConferenceProviders where
   toHeaders =
@@ -213,3 +219,8 @@ listConferenceProvidersResponse_httpStatus = Lens.lens (\ListConferenceProviders
 instance
   Prelude.NFData
     ListConferenceProvidersResponse
+  where
+  rnf ListConferenceProvidersResponse' {..} =
+    Prelude.rnf conferenceProviders
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus

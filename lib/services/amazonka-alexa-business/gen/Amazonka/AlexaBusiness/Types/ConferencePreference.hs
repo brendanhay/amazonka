@@ -63,9 +63,14 @@ instance Core.FromJSON ConferencePreference where
             Prelude.<$> (x Core..:? "DefaultConferenceProviderArn")
       )
 
-instance Prelude.Hashable ConferencePreference
+instance Prelude.Hashable ConferencePreference where
+  hashWithSalt _salt ConferencePreference' {..} =
+    _salt
+      `Prelude.hashWithSalt` defaultConferenceProviderArn
 
-instance Prelude.NFData ConferencePreference
+instance Prelude.NFData ConferencePreference where
+  rnf ConferencePreference' {..} =
+    Prelude.rnf defaultConferenceProviderArn
 
 instance Core.ToJSON ConferencePreference where
   toJSON ConferencePreference' {..} =

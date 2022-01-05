@@ -100,8 +100,15 @@ instance Core.AWSRequest AssociateSkillWithSkillGroup where
 instance
   Prelude.Hashable
     AssociateSkillWithSkillGroup
+  where
+  hashWithSalt _salt AssociateSkillWithSkillGroup' {..} =
+    _salt `Prelude.hashWithSalt` skillGroupArn
+      `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData AssociateSkillWithSkillGroup
+instance Prelude.NFData AssociateSkillWithSkillGroup where
+  rnf AssociateSkillWithSkillGroup' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf skillId
 
 instance Core.ToHeaders AssociateSkillWithSkillGroup where
   toHeaders =
@@ -166,3 +173,6 @@ associateSkillWithSkillGroupResponse_httpStatus = Lens.lens (\AssociateSkillWith
 instance
   Prelude.NFData
     AssociateSkillWithSkillGroupResponse
+  where
+  rnf AssociateSkillWithSkillGroupResponse' {..} =
+    Prelude.rnf httpStatus

@@ -116,9 +116,17 @@ instance Core.AWSRequest DeleteRoomSkillParameter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRoomSkillParameter
+instance Prelude.Hashable DeleteRoomSkillParameter where
+  hashWithSalt _salt DeleteRoomSkillParameter' {..} =
+    _salt `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` parameterKey
 
-instance Prelude.NFData DeleteRoomSkillParameter
+instance Prelude.NFData DeleteRoomSkillParameter where
+  rnf DeleteRoomSkillParameter' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf skillId
+      `Prelude.seq` Prelude.rnf parameterKey
 
 instance Core.ToHeaders DeleteRoomSkillParameter where
   toHeaders =
@@ -184,3 +192,6 @@ deleteRoomSkillParameterResponse_httpStatus = Lens.lens (\DeleteRoomSkillParamet
 instance
   Prelude.NFData
     DeleteRoomSkillParameterResponse
+  where
+  rnf DeleteRoomSkillParameterResponse' {..} =
+    Prelude.rnf httpStatus

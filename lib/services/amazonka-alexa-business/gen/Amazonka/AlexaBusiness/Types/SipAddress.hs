@@ -75,9 +75,14 @@ instance Core.FromJSON SipAddress where
             Prelude.<$> (x Core..: "Uri") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable SipAddress
+instance Prelude.Hashable SipAddress where
+  hashWithSalt _salt SipAddress' {..} =
+    _salt `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SipAddress
+instance Prelude.NFData SipAddress where
+  rnf SipAddress' {..} =
+    Prelude.rnf uri `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SipAddress where
   toJSON SipAddress' {..} =

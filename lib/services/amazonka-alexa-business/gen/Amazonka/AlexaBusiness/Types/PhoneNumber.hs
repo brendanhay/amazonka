@@ -77,9 +77,14 @@ instance Core.FromJSON PhoneNumber where
             Prelude.<$> (x Core..: "Number") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable PhoneNumber
+instance Prelude.Hashable PhoneNumber where
+  hashWithSalt _salt PhoneNumber' {..} =
+    _salt `Prelude.hashWithSalt` number
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData PhoneNumber
+instance Prelude.NFData PhoneNumber where
+  rnf PhoneNumber' {..} =
+    Prelude.rnf number `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =

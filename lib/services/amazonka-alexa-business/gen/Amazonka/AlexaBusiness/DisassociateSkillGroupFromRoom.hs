@@ -105,10 +105,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateSkillGroupFromRoom
+  where
+  hashWithSalt
+    _salt
+    DisassociateSkillGroupFromRoom' {..} =
+      _salt `Prelude.hashWithSalt` skillGroupArn
+        `Prelude.hashWithSalt` roomArn
 
 instance
   Prelude.NFData
     DisassociateSkillGroupFromRoom
+  where
+  rnf DisassociateSkillGroupFromRoom' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance
   Core.ToHeaders
@@ -177,3 +187,6 @@ disassociateSkillGroupFromRoomResponse_httpStatus = Lens.lens (\DisassociateSkil
 instance
   Prelude.NFData
     DisassociateSkillGroupFromRoomResponse
+  where
+  rnf DisassociateSkillGroupFromRoomResponse' {..} =
+    Prelude.rnf httpStatus

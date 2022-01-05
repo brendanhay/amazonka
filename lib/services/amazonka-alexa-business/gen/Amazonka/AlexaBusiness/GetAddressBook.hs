@@ -86,9 +86,12 @@ instance Core.AWSRequest GetAddressBook where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAddressBook
+instance Prelude.Hashable GetAddressBook where
+  hashWithSalt _salt GetAddressBook' {..} =
+    _salt `Prelude.hashWithSalt` addressBookArn
 
-instance Prelude.NFData GetAddressBook
+instance Prelude.NFData GetAddressBook where
+  rnf GetAddressBook' {..} = Prelude.rnf addressBookArn
 
 instance Core.ToHeaders GetAddressBook where
   toHeaders =
@@ -159,4 +162,7 @@ getAddressBookResponse_addressBook = Lens.lens (\GetAddressBookResponse' {addres
 getAddressBookResponse_httpStatus :: Lens.Lens' GetAddressBookResponse Prelude.Int
 getAddressBookResponse_httpStatus = Lens.lens (\GetAddressBookResponse' {httpStatus} -> httpStatus) (\s@GetAddressBookResponse' {} a -> s {httpStatus = a} :: GetAddressBookResponse)
 
-instance Prelude.NFData GetAddressBookResponse
+instance Prelude.NFData GetAddressBookResponse where
+  rnf GetAddressBookResponse' {..} =
+    Prelude.rnf addressBook
+      `Prelude.seq` Prelude.rnf httpStatus

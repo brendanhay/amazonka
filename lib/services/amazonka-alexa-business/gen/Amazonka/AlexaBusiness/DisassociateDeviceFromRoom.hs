@@ -87,9 +87,13 @@ instance Core.AWSRequest DisassociateDeviceFromRoom where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDeviceFromRoom
+instance Prelude.Hashable DisassociateDeviceFromRoom where
+  hashWithSalt _salt DisassociateDeviceFromRoom' {..} =
+    _salt `Prelude.hashWithSalt` deviceArn
 
-instance Prelude.NFData DisassociateDeviceFromRoom
+instance Prelude.NFData DisassociateDeviceFromRoom where
+  rnf DisassociateDeviceFromRoom' {..} =
+    Prelude.rnf deviceArn
 
 instance Core.ToHeaders DisassociateDeviceFromRoom where
   toHeaders =
@@ -152,3 +156,6 @@ disassociateDeviceFromRoomResponse_httpStatus = Lens.lens (\DisassociateDeviceFr
 instance
   Prelude.NFData
     DisassociateDeviceFromRoomResponse
+  where
+  rnf DisassociateDeviceFromRoomResponse' {..} =
+    Prelude.rnf httpStatus

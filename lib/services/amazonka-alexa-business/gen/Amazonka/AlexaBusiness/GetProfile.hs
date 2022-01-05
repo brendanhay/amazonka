@@ -82,9 +82,12 @@ instance Core.AWSRequest GetProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProfile
+instance Prelude.Hashable GetProfile where
+  hashWithSalt _salt GetProfile' {..} =
+    _salt `Prelude.hashWithSalt` profileArn
 
-instance Prelude.NFData GetProfile
+instance Prelude.NFData GetProfile where
+  rnf GetProfile' {..} = Prelude.rnf profileArn
 
 instance Core.ToHeaders GetProfile where
   toHeaders =
@@ -152,4 +155,7 @@ getProfileResponse_profile = Lens.lens (\GetProfileResponse' {profile} -> profil
 getProfileResponse_httpStatus :: Lens.Lens' GetProfileResponse Prelude.Int
 getProfileResponse_httpStatus = Lens.lens (\GetProfileResponse' {httpStatus} -> httpStatus) (\s@GetProfileResponse' {} a -> s {httpStatus = a} :: GetProfileResponse)
 
-instance Prelude.NFData GetProfileResponse
+instance Prelude.NFData GetProfileResponse where
+  rnf GetProfileResponse' {..} =
+    Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -139,9 +139,23 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoom
+instance Prelude.Hashable CreateRoom where
+  hashWithSalt _salt CreateRoom' {..} =
+    _salt `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` providerCalendarId
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roomName
 
-instance Prelude.NFData CreateRoom
+instance Prelude.NFData CreateRoom where
+  rnf CreateRoom' {..} =
+    Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf providerCalendarId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roomName
 
 instance Core.ToHeaders CreateRoom where
   toHeaders =
@@ -217,4 +231,7 @@ createRoomResponse_roomArn = Lens.lens (\CreateRoomResponse' {roomArn} -> roomAr
 createRoomResponse_httpStatus :: Lens.Lens' CreateRoomResponse Prelude.Int
 createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> httpStatus) (\s@CreateRoomResponse' {} a -> s {httpStatus = a} :: CreateRoomResponse)
 
-instance Prelude.NFData CreateRoomResponse
+instance Prelude.NFData CreateRoomResponse where
+  rnf CreateRoomResponse' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf httpStatus

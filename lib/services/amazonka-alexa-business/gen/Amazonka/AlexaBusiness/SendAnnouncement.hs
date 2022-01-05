@@ -137,9 +137,19 @@ instance Core.AWSRequest SendAnnouncement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendAnnouncement
+instance Prelude.Hashable SendAnnouncement where
+  hashWithSalt _salt SendAnnouncement' {..} =
+    _salt `Prelude.hashWithSalt` timeToLiveInSeconds
+      `Prelude.hashWithSalt` roomFilters
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData SendAnnouncement
+instance Prelude.NFData SendAnnouncement where
+  rnf SendAnnouncement' {..} =
+    Prelude.rnf timeToLiveInSeconds
+      `Prelude.seq` Prelude.rnf roomFilters
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders SendAnnouncement where
   toHeaders =
@@ -214,4 +224,7 @@ sendAnnouncementResponse_announcementArn = Lens.lens (\SendAnnouncementResponse'
 sendAnnouncementResponse_httpStatus :: Lens.Lens' SendAnnouncementResponse Prelude.Int
 sendAnnouncementResponse_httpStatus = Lens.lens (\SendAnnouncementResponse' {httpStatus} -> httpStatus) (\s@SendAnnouncementResponse' {} a -> s {httpStatus = a} :: SendAnnouncementResponse)
 
-instance Prelude.NFData SendAnnouncementResponse
+instance Prelude.NFData SendAnnouncementResponse where
+  rnf SendAnnouncementResponse' {..} =
+    Prelude.rnf announcementArn
+      `Prelude.seq` Prelude.rnf httpStatus

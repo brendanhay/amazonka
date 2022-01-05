@@ -107,9 +107,17 @@ instance Core.AWSRequest UpdateGatewayGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGatewayGroup
+instance Prelude.Hashable UpdateGatewayGroup where
+  hashWithSalt _salt UpdateGatewayGroup' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` gatewayGroupArn
 
-instance Prelude.NFData UpdateGatewayGroup
+instance Prelude.NFData UpdateGatewayGroup where
+  rnf UpdateGatewayGroup' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf gatewayGroupArn
 
 instance Core.ToHeaders UpdateGatewayGroup where
   toHeaders =
@@ -173,4 +181,6 @@ newUpdateGatewayGroupResponse pHttpStatus_ =
 updateGatewayGroupResponse_httpStatus :: Lens.Lens' UpdateGatewayGroupResponse Prelude.Int
 updateGatewayGroupResponse_httpStatus = Lens.lens (\UpdateGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGatewayGroupResponse' {} a -> s {httpStatus = a} :: UpdateGatewayGroupResponse)
 
-instance Prelude.NFData UpdateGatewayGroupResponse
+instance Prelude.NFData UpdateGatewayGroupResponse where
+  rnf UpdateGatewayGroupResponse' {..} =
+    Prelude.rnf httpStatus

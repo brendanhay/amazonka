@@ -85,9 +85,13 @@ instance Core.AWSRequest DisassociateSkillFromUsers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateSkillFromUsers
+instance Prelude.Hashable DisassociateSkillFromUsers where
+  hashWithSalt _salt DisassociateSkillFromUsers' {..} =
+    _salt `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData DisassociateSkillFromUsers
+instance Prelude.NFData DisassociateSkillFromUsers where
+  rnf DisassociateSkillFromUsers' {..} =
+    Prelude.rnf skillId
 
 instance Core.ToHeaders DisassociateSkillFromUsers where
   toHeaders =
@@ -150,3 +154,6 @@ disassociateSkillFromUsersResponse_httpStatus = Lens.lens (\DisassociateSkillFro
 instance
   Prelude.NFData
     DisassociateSkillFromUsersResponse
+  where
+  rnf DisassociateSkillFromUsersResponse' {..} =
+    Prelude.rnf httpStatus

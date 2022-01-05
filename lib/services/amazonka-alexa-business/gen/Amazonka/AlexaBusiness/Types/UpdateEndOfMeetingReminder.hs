@@ -80,9 +80,17 @@ updateEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\UpdateEndOfMeetingRem
 updateEndOfMeetingReminder_reminderType :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
 updateEndOfMeetingReminder_reminderType = Lens.lens (\UpdateEndOfMeetingReminder' {reminderType} -> reminderType) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderType = a} :: UpdateEndOfMeetingReminder)
 
-instance Prelude.Hashable UpdateEndOfMeetingReminder
+instance Prelude.Hashable UpdateEndOfMeetingReminder where
+  hashWithSalt _salt UpdateEndOfMeetingReminder' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` reminderAtMinutes
+      `Prelude.hashWithSalt` reminderType
 
-instance Prelude.NFData UpdateEndOfMeetingReminder
+instance Prelude.NFData UpdateEndOfMeetingReminder where
+  rnf UpdateEndOfMeetingReminder' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf reminderAtMinutes
+      `Prelude.seq` Prelude.rnf reminderType
 
 instance Core.ToJSON UpdateEndOfMeetingReminder where
   toJSON UpdateEndOfMeetingReminder' {..} =

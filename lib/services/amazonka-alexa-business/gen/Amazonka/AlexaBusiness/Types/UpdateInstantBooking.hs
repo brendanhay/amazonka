@@ -66,9 +66,15 @@ updateInstantBooking_enabled = Lens.lens (\UpdateInstantBooking' {enabled} -> en
 updateInstantBooking_durationInMinutes :: Lens.Lens' UpdateInstantBooking (Prelude.Maybe Prelude.Int)
 updateInstantBooking_durationInMinutes = Lens.lens (\UpdateInstantBooking' {durationInMinutes} -> durationInMinutes) (\s@UpdateInstantBooking' {} a -> s {durationInMinutes = a} :: UpdateInstantBooking)
 
-instance Prelude.Hashable UpdateInstantBooking
+instance Prelude.Hashable UpdateInstantBooking where
+  hashWithSalt _salt UpdateInstantBooking' {..} =
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` durationInMinutes
 
-instance Prelude.NFData UpdateInstantBooking
+instance Prelude.NFData UpdateInstantBooking where
+  rnf UpdateInstantBooking' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf durationInMinutes
 
 instance Core.ToJSON UpdateInstantBooking where
   toJSON UpdateInstantBooking' {..} =

@@ -122,9 +122,21 @@ instance Core.AWSRequest UpdateRoom where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRoom
+instance Prelude.Hashable UpdateRoom where
+  hashWithSalt _salt UpdateRoom' {..} =
+    _salt `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` providerCalendarId
+      `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` roomName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateRoom
+instance Prelude.NFData UpdateRoom where
+  rnf UpdateRoom' {..} =
+    Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf providerCalendarId
+      `Prelude.seq` Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf roomName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateRoom where
   toHeaders =
@@ -187,4 +199,5 @@ newUpdateRoomResponse pHttpStatus_ =
 updateRoomResponse_httpStatus :: Lens.Lens' UpdateRoomResponse Prelude.Int
 updateRoomResponse_httpStatus = Lens.lens (\UpdateRoomResponse' {httpStatus} -> httpStatus) (\s@UpdateRoomResponse' {} a -> s {httpStatus = a} :: UpdateRoomResponse)
 
-instance Prelude.NFData UpdateRoomResponse
+instance Prelude.NFData UpdateRoomResponse where
+  rnf UpdateRoomResponse' {..} = Prelude.rnf httpStatus

@@ -104,9 +104,17 @@ instance Core.AWSRequest UpdateSkillGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSkillGroup
+instance Prelude.Hashable UpdateSkillGroup where
+  hashWithSalt _salt UpdateSkillGroup' {..} =
+    _salt `Prelude.hashWithSalt` skillGroupArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` skillGroupName
 
-instance Prelude.NFData UpdateSkillGroup
+instance Prelude.NFData UpdateSkillGroup where
+  rnf UpdateSkillGroup' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf skillGroupName
 
 instance Core.ToHeaders UpdateSkillGroup where
   toHeaders =
@@ -170,4 +178,6 @@ newUpdateSkillGroupResponse pHttpStatus_ =
 updateSkillGroupResponse_httpStatus :: Lens.Lens' UpdateSkillGroupResponse Prelude.Int
 updateSkillGroupResponse_httpStatus = Lens.lens (\UpdateSkillGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateSkillGroupResponse' {} a -> s {httpStatus = a} :: UpdateSkillGroupResponse)
 
-instance Prelude.NFData UpdateSkillGroupResponse
+instance Prelude.NFData UpdateSkillGroupResponse where
+  rnf UpdateSkillGroupResponse' {..} =
+    Prelude.rnf httpStatus

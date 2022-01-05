@@ -97,9 +97,15 @@ instance Core.AWSRequest DeleteSkillAuthorization where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSkillAuthorization
+instance Prelude.Hashable DeleteSkillAuthorization where
+  hashWithSalt _salt DeleteSkillAuthorization' {..} =
+    _salt `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData DeleteSkillAuthorization
+instance Prelude.NFData DeleteSkillAuthorization where
+  rnf DeleteSkillAuthorization' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf skillId
 
 instance Core.ToHeaders DeleteSkillAuthorization where
   toHeaders =
@@ -164,3 +170,6 @@ deleteSkillAuthorizationResponse_httpStatus = Lens.lens (\DeleteSkillAuthorizati
 instance
   Prelude.NFData
     DeleteSkillAuthorizationResponse
+  where
+  rnf DeleteSkillAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus

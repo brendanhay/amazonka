@@ -81,6 +81,14 @@ instance Core.FromJSON SkillGroupData where
             Prelude.<*> (x Core..:? "SkillGroupName")
       )
 
-instance Prelude.Hashable SkillGroupData
+instance Prelude.Hashable SkillGroupData where
+  hashWithSalt _salt SkillGroupData' {..} =
+    _salt `Prelude.hashWithSalt` skillGroupArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` skillGroupName
 
-instance Prelude.NFData SkillGroupData
+instance Prelude.NFData SkillGroupData where
+  rnf SkillGroupData' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf skillGroupName

@@ -107,6 +107,18 @@ instance Core.FromJSON BusinessReport where
             Prelude.<*> (x Core..:? "S3Location")
       )
 
-instance Prelude.Hashable BusinessReport
+instance Prelude.Hashable BusinessReport where
+  hashWithSalt _salt BusinessReport' {..} =
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` deliveryTime
+      `Prelude.hashWithSalt` downloadUrl
+      `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData BusinessReport
+instance Prelude.NFData BusinessReport where
+  rnf BusinessReport' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf deliveryTime
+      `Prelude.seq` Prelude.rnf downloadUrl
+      `Prelude.seq` Prelude.rnf s3Location

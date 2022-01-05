@@ -69,9 +69,12 @@ instance Core.FromJSON MeetingSetting where
           MeetingSetting' Prelude.<$> (x Core..: "RequirePin")
       )
 
-instance Prelude.Hashable MeetingSetting
+instance Prelude.Hashable MeetingSetting where
+  hashWithSalt _salt MeetingSetting' {..} =
+    _salt `Prelude.hashWithSalt` requirePin
 
-instance Prelude.NFData MeetingSetting
+instance Prelude.NFData MeetingSetting where
+  rnf MeetingSetting' {..} = Prelude.rnf requirePin
 
 instance Core.ToJSON MeetingSetting where
   toJSON MeetingSetting' {..} =

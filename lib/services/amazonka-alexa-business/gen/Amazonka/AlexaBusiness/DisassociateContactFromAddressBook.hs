@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateContactFromAddressBook
+  where
+  hashWithSalt
+    _salt
+    DisassociateContactFromAddressBook' {..} =
+      _salt `Prelude.hashWithSalt` contactArn
+        `Prelude.hashWithSalt` addressBookArn
 
 instance
   Prelude.NFData
     DisassociateContactFromAddressBook
+  where
+  rnf DisassociateContactFromAddressBook' {..} =
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf addressBookArn
 
 instance
   Core.ToHeaders
@@ -189,3 +199,6 @@ disassociateContactFromAddressBookResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociateContactFromAddressBookResponse
+  where
+  rnf DisassociateContactFromAddressBookResponse' {..} =
+    Prelude.rnf httpStatus

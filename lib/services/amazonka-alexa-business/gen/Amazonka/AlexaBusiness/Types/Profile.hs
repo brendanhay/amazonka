@@ -208,6 +208,38 @@ instance Core.FromJSON Profile where
             Prelude.<*> (x Core..:? "IsDefault")
       )
 
-instance Prelude.Hashable Profile
+instance Prelude.Hashable Profile where
+  hashWithSalt _salt Profile' {..} =
+    _salt `Prelude.hashWithSalt` setupModeDisabled
+      `Prelude.hashWithSalt` pSTNEnabled
+      `Prelude.hashWithSalt` addressBookArn
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` wakeWord
+      `Prelude.hashWithSalt` meetingRoomConfiguration
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` temperatureUnit
+      `Prelude.hashWithSalt` dataRetentionOptIn
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` maxVolumeLimit
+      `Prelude.hashWithSalt` isDefault
 
-instance Prelude.NFData Profile
+instance Prelude.NFData Profile where
+  rnf Profile' {..} =
+    Prelude.rnf setupModeDisabled
+      `Prelude.seq` Prelude.rnf pSTNEnabled
+      `Prelude.seq` Prelude.rnf addressBookArn
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf wakeWord
+      `Prelude.seq` Prelude.rnf meetingRoomConfiguration
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf temperatureUnit
+      `Prelude.seq` Prelude.rnf dataRetentionOptIn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf maxVolumeLimit
+      `Prelude.seq` Prelude.rnf isDefault

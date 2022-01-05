@@ -165,6 +165,28 @@ instance Core.FromJSON SkillDetails where
             Prelude.<*> (x Core..:? "BulletPoints" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SkillDetails
+instance Prelude.Hashable SkillDetails where
+  hashWithSalt _salt SkillDetails' {..} =
+    _salt `Prelude.hashWithSalt` skillTypes
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` invocationPhrase
+      `Prelude.hashWithSalt` developerInfo
+      `Prelude.hashWithSalt` endUserLicenseAgreement
+      `Prelude.hashWithSalt` genericKeywords
+      `Prelude.hashWithSalt` reviews
+      `Prelude.hashWithSalt` releaseDate
+      `Prelude.hashWithSalt` newInThisVersionBulletPoints'
+      `Prelude.hashWithSalt` bulletPoints
 
-instance Prelude.NFData SkillDetails
+instance Prelude.NFData SkillDetails where
+  rnf SkillDetails' {..} =
+    Prelude.rnf skillTypes
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf invocationPhrase
+      `Prelude.seq` Prelude.rnf developerInfo
+      `Prelude.seq` Prelude.rnf endUserLicenseAgreement
+      `Prelude.seq` Prelude.rnf genericKeywords
+      `Prelude.seq` Prelude.rnf reviews
+      `Prelude.seq` Prelude.rnf releaseDate
+      `Prelude.seq` Prelude.rnf newInThisVersionBulletPoints'
+      `Prelude.seq` Prelude.rnf bulletPoints

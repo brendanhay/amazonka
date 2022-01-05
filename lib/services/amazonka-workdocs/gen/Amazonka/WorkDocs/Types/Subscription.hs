@@ -82,6 +82,14 @@ instance Core.FromJSON Subscription where
             Prelude.<*> (x Core..:? "SubscriptionId")
       )
 
-instance Prelude.Hashable Subscription
+instance Prelude.Hashable Subscription where
+  hashWithSalt _salt Subscription' {..} =
+    _salt `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` endPoint
+      `Prelude.hashWithSalt` subscriptionId
 
-instance Prelude.NFData Subscription
+instance Prelude.NFData Subscription where
+  rnf Subscription' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf endPoint
+      `Prelude.seq` Prelude.rnf subscriptionId

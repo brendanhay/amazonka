@@ -141,9 +141,21 @@ instance Core.AWSRequest GetDocumentPath where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentPath
+instance Prelude.Hashable GetDocumentPath where
+  hashWithSalt _salt GetDocumentPath' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` documentId
 
-instance Prelude.NFData GetDocumentPath
+instance Prelude.NFData GetDocumentPath where
+  rnf GetDocumentPath' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf documentId
 
 instance Core.ToHeaders GetDocumentPath where
   toHeaders GetDocumentPath' {..} =
@@ -204,4 +216,7 @@ getDocumentPathResponse_path = Lens.lens (\GetDocumentPathResponse' {path} -> pa
 getDocumentPathResponse_httpStatus :: Lens.Lens' GetDocumentPathResponse Prelude.Int
 getDocumentPathResponse_httpStatus = Lens.lens (\GetDocumentPathResponse' {httpStatus} -> httpStatus) (\s@GetDocumentPathResponse' {} a -> s {httpStatus = a} :: GetDocumentPathResponse)
 
-instance Prelude.NFData GetDocumentPathResponse
+instance Prelude.NFData GetDocumentPathResponse where
+  rnf GetDocumentPathResponse' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,9 +111,17 @@ instance Core.AWSRequest GetFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFolder
+instance Prelude.Hashable GetFolder where
+  hashWithSalt _salt GetFolder' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` includeCustomMetadata
+      `Prelude.hashWithSalt` folderId
 
-instance Prelude.NFData GetFolder
+instance Prelude.NFData GetFolder where
+  rnf GetFolder' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf includeCustomMetadata
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders GetFolder where
   toHeaders GetFolder' {..} =
@@ -183,4 +191,8 @@ getFolderResponse_metadata = Lens.lens (\GetFolderResponse' {metadata} -> metada
 getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Prelude.Int
 getFolderResponse_httpStatus = Lens.lens (\GetFolderResponse' {httpStatus} -> httpStatus) (\s@GetFolderResponse' {} a -> s {httpStatus = a} :: GetFolderResponse)
 
-instance Prelude.NFData GetFolderResponse
+instance Prelude.NFData GetFolderResponse where
+  rnf GetFolderResponse' {..} =
+    Prelude.rnf customMetadata
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf httpStatus

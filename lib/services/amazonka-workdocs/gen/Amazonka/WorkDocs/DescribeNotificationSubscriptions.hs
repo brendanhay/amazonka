@@ -147,10 +147,22 @@ instance
 instance
   Prelude.Hashable
     DescribeNotificationSubscriptions
+  where
+  hashWithSalt
+    _salt
+    DescribeNotificationSubscriptions' {..} =
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` organizationId
 
 instance
   Prelude.NFData
     DescribeNotificationSubscriptions
+  where
+  rnf DescribeNotificationSubscriptions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance
   Core.ToHeaders
@@ -240,3 +252,8 @@ describeNotificationSubscriptionsResponse_httpStatus = Lens.lens (\DescribeNotif
 instance
   Prelude.NFData
     DescribeNotificationSubscriptionsResponse
+  where
+  rnf DescribeNotificationSubscriptionsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf subscriptions
+      `Prelude.seq` Prelude.rnf httpStatus

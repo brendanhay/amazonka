@@ -60,6 +60,9 @@ instance Core.FromJSON ResourcePath where
             Prelude.<$> (x Core..:? "Components" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourcePath
+instance Prelude.Hashable ResourcePath where
+  hashWithSalt _salt ResourcePath' {..} =
+    _salt `Prelude.hashWithSalt` components
 
-instance Prelude.NFData ResourcePath
+instance Prelude.NFData ResourcePath where
+  rnf ResourcePath' {..} = Prelude.rnf components

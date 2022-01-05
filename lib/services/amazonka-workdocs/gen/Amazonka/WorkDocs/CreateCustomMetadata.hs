@@ -123,9 +123,19 @@ instance Core.AWSRequest CreateCustomMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomMetadata
+instance Prelude.Hashable CreateCustomMetadata where
+  hashWithSalt _salt CreateCustomMetadata' {..} =
+    _salt `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` customMetadata
 
-instance Prelude.NFData CreateCustomMetadata
+instance Prelude.NFData CreateCustomMetadata where
+  rnf CreateCustomMetadata' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf customMetadata
 
 instance Core.ToHeaders CreateCustomMetadata where
   toHeaders CreateCustomMetadata' {..} =
@@ -186,4 +196,6 @@ newCreateCustomMetadataResponse pHttpStatus_ =
 createCustomMetadataResponse_httpStatus :: Lens.Lens' CreateCustomMetadataResponse Prelude.Int
 createCustomMetadataResponse_httpStatus = Lens.lens (\CreateCustomMetadataResponse' {httpStatus} -> httpStatus) (\s@CreateCustomMetadataResponse' {} a -> s {httpStatus = a} :: CreateCustomMetadataResponse)
 
-instance Prelude.NFData CreateCustomMetadataResponse
+instance Prelude.NFData CreateCustomMetadataResponse where
+  rnf CreateCustomMetadataResponse' {..} =
+    Prelude.rnf httpStatus

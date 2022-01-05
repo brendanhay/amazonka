@@ -117,9 +117,19 @@ instance Core.AWSRequest DeleteLabels where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLabels
+instance Prelude.Hashable DeleteLabels where
+  hashWithSalt _salt DeleteLabels' {..} =
+    _salt `Prelude.hashWithSalt` deleteAll
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData DeleteLabels
+instance Prelude.NFData DeleteLabels where
+  rnf DeleteLabels' {..} =
+    Prelude.rnf deleteAll
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DeleteLabels where
   toHeaders DeleteLabels' {..} =
@@ -173,4 +183,6 @@ newDeleteLabelsResponse pHttpStatus_ =
 deleteLabelsResponse_httpStatus :: Lens.Lens' DeleteLabelsResponse Prelude.Int
 deleteLabelsResponse_httpStatus = Lens.lens (\DeleteLabelsResponse' {httpStatus} -> httpStatus) (\s@DeleteLabelsResponse' {} a -> s {httpStatus = a} :: DeleteLabelsResponse)
 
-instance Prelude.NFData DeleteLabelsResponse
+instance Prelude.NFData DeleteLabelsResponse where
+  rnf DeleteLabelsResponse' {..} =
+    Prelude.rnf httpStatus

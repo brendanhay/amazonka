@@ -141,9 +141,21 @@ instance Core.AWSRequest GetFolderPath where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFolderPath
+instance Prelude.Hashable GetFolderPath where
+  hashWithSalt _salt GetFolderPath' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` folderId
 
-instance Prelude.NFData GetFolderPath
+instance Prelude.NFData GetFolderPath where
+  rnf GetFolderPath' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders GetFolderPath where
   toHeaders GetFolderPath' {..} =
@@ -204,4 +216,7 @@ getFolderPathResponse_path = Lens.lens (\GetFolderPathResponse' {path} -> path) 
 getFolderPathResponse_httpStatus :: Lens.Lens' GetFolderPathResponse Prelude.Int
 getFolderPathResponse_httpStatus = Lens.lens (\GetFolderPathResponse' {httpStatus} -> httpStatus) (\s@GetFolderPathResponse' {} a -> s {httpStatus = a} :: GetFolderPathResponse)
 
-instance Prelude.NFData GetFolderPathResponse
+instance Prelude.NFData GetFolderPathResponse where
+  rnf GetFolderPathResponse' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf httpStatus

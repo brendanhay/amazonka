@@ -110,9 +110,17 @@ instance Core.AWSRequest CreateFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFolder
+instance Prelude.Hashable CreateFolder where
+  hashWithSalt _salt CreateFolder' {..} =
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentFolderId
 
-instance Prelude.NFData CreateFolder
+instance Prelude.NFData CreateFolder where
+  rnf CreateFolder' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parentFolderId
 
 instance Core.ToHeaders CreateFolder where
   toHeaders CreateFolder' {..} =
@@ -176,4 +184,7 @@ createFolderResponse_metadata = Lens.lens (\CreateFolderResponse' {metadata} -> 
 createFolderResponse_httpStatus :: Lens.Lens' CreateFolderResponse Prelude.Int
 createFolderResponse_httpStatus = Lens.lens (\CreateFolderResponse' {httpStatus} -> httpStatus) (\s@CreateFolderResponse' {} a -> s {httpStatus = a} :: CreateFolderResponse)
 
-instance Prelude.NFData CreateFolderResponse
+instance Prelude.NFData CreateFolderResponse where
+  rnf CreateFolderResponse' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf httpStatus

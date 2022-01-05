@@ -205,6 +205,38 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "RecycleBinFolderId")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt _salt User' {..} =
+    _salt `Prelude.hashWithSalt` givenName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` storage
+      `Prelude.hashWithSalt` modifiedTimestamp
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` rootFolderId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` surname
+      `Prelude.hashWithSalt` timeZoneId
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` recycleBinFolderId
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf givenName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf storage
+      `Prelude.seq` Prelude.rnf modifiedTimestamp
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf rootFolderId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf surname
+      `Prelude.seq` Prelude.rnf timeZoneId
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf recycleBinFolderId

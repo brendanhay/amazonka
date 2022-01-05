@@ -101,6 +101,18 @@ instance Core.FromJSON UserMetadata where
             Prelude.<*> (x Core..:? "Surname")
       )
 
-instance Prelude.Hashable UserMetadata
+instance Prelude.Hashable UserMetadata where
+  hashWithSalt _salt UserMetadata' {..} =
+    _salt `Prelude.hashWithSalt` givenName
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` surname
 
-instance Prelude.NFData UserMetadata
+instance Prelude.NFData UserMetadata where
+  rnf UserMetadata' {..} =
+    Prelude.rnf givenName
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf surname

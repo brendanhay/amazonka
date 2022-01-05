@@ -160,9 +160,17 @@ instance Core.AWSRequest GetMedia where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetMedia
+instance Prelude.Hashable GetMedia where
+  hashWithSalt _salt GetMedia' {..} =
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` startSelector
 
-instance Prelude.NFData GetMedia
+instance Prelude.NFData GetMedia where
+  rnf GetMedia' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf startSelector
 
 instance Core.ToHeaders GetMedia where
   toHeaders = Prelude.const Prelude.mempty

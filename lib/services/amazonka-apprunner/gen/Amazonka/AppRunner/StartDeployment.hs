@@ -100,9 +100,12 @@ instance Core.AWSRequest StartDeployment where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable StartDeployment
+instance Prelude.Hashable StartDeployment where
+  hashWithSalt _salt StartDeployment' {..} =
+    _salt `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData StartDeployment
+instance Prelude.NFData StartDeployment where
+  rnf StartDeployment' {..} = Prelude.rnf serviceArn
 
 instance Core.ToHeaders StartDeployment where
   toHeaders =
@@ -176,4 +179,7 @@ startDeploymentResponse_httpStatus = Lens.lens (\StartDeploymentResponse' {httpS
 startDeploymentResponse_operationId :: Lens.Lens' StartDeploymentResponse Prelude.Text
 startDeploymentResponse_operationId = Lens.lens (\StartDeploymentResponse' {operationId} -> operationId) (\s@StartDeploymentResponse' {} a -> s {operationId = a} :: StartDeploymentResponse)
 
-instance Prelude.NFData StartDeploymentResponse
+instance Prelude.NFData StartDeploymentResponse where
+  rnf StartDeploymentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

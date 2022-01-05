@@ -85,9 +85,15 @@ instance Core.FromJSON AuthenticationConfiguration where
             Prelude.<*> (x Core..:? "ConnectionArn")
       )
 
-instance Prelude.Hashable AuthenticationConfiguration
+instance Prelude.Hashable AuthenticationConfiguration where
+  hashWithSalt _salt AuthenticationConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` accessRoleArn
+      `Prelude.hashWithSalt` connectionArn
 
-instance Prelude.NFData AuthenticationConfiguration
+instance Prelude.NFData AuthenticationConfiguration where
+  rnf AuthenticationConfiguration' {..} =
+    Prelude.rnf accessRoleArn
+      `Prelude.seq` Prelude.rnf connectionArn
 
 instance Core.ToJSON AuthenticationConfiguration where
   toJSON AuthenticationConfiguration' {..} =

@@ -108,7 +108,20 @@ instance
 instance
   Prelude.Hashable
     AutoScalingConfigurationSummary
+  where
+  hashWithSalt
+    _salt
+    AutoScalingConfigurationSummary' {..} =
+      _salt
+        `Prelude.hashWithSalt` autoScalingConfigurationName
+        `Prelude.hashWithSalt` autoScalingConfigurationRevision
+        `Prelude.hashWithSalt` autoScalingConfigurationArn
 
 instance
   Prelude.NFData
     AutoScalingConfigurationSummary
+  where
+  rnf AutoScalingConfigurationSummary' {..} =
+    Prelude.rnf autoScalingConfigurationName
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationRevision
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationArn

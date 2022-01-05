@@ -113,9 +113,16 @@ instance Core.FromJSON CodeConfiguration where
             Prelude.<*> (x Core..: "ConfigurationSource")
       )
 
-instance Prelude.Hashable CodeConfiguration
+instance Prelude.Hashable CodeConfiguration where
+  hashWithSalt _salt CodeConfiguration' {..} =
+    _salt
+      `Prelude.hashWithSalt` codeConfigurationValues
+      `Prelude.hashWithSalt` configurationSource
 
-instance Prelude.NFData CodeConfiguration
+instance Prelude.NFData CodeConfiguration where
+  rnf CodeConfiguration' {..} =
+    Prelude.rnf codeConfigurationValues
+      `Prelude.seq` Prelude.rnf configurationSource
 
 instance Core.ToJSON CodeConfiguration where
   toJSON CodeConfiguration' {..} =

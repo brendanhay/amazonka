@@ -125,9 +125,21 @@ instance Core.FromJSON CodeConfigurationValues where
             Prelude.<*> (x Core..: "Runtime")
       )
 
-instance Prelude.Hashable CodeConfigurationValues
+instance Prelude.Hashable CodeConfigurationValues where
+  hashWithSalt _salt CodeConfigurationValues' {..} =
+    _salt `Prelude.hashWithSalt` startCommand
+      `Prelude.hashWithSalt` runtimeEnvironmentVariables
+      `Prelude.hashWithSalt` buildCommand
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` runtime
 
-instance Prelude.NFData CodeConfigurationValues
+instance Prelude.NFData CodeConfigurationValues where
+  rnf CodeConfigurationValues' {..} =
+    Prelude.rnf startCommand
+      `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
+      `Prelude.seq` Prelude.rnf buildCommand
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf runtime
 
 instance Core.ToJSON CodeConfigurationValues where
   toJSON CodeConfigurationValues' {..} =

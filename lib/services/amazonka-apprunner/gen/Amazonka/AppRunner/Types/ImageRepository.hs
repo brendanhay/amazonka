@@ -108,9 +108,17 @@ instance Core.FromJSON ImageRepository where
             Prelude.<*> (x Core..: "ImageRepositoryType")
       )
 
-instance Prelude.Hashable ImageRepository
+instance Prelude.Hashable ImageRepository where
+  hashWithSalt _salt ImageRepository' {..} =
+    _salt `Prelude.hashWithSalt` imageConfiguration
+      `Prelude.hashWithSalt` imageIdentifier
+      `Prelude.hashWithSalt` imageRepositoryType
 
-instance Prelude.NFData ImageRepository
+instance Prelude.NFData ImageRepository where
+  rnf ImageRepository' {..} =
+    Prelude.rnf imageConfiguration
+      `Prelude.seq` Prelude.rnf imageIdentifier
+      `Prelude.seq` Prelude.rnf imageRepositoryType
 
 instance Core.ToJSON ImageRepository where
   toJSON ImageRepository' {..} =

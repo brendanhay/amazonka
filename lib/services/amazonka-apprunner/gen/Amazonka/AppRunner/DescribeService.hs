@@ -89,9 +89,12 @@ instance Core.AWSRequest DescribeService where
             Prelude.<*> (x Core..:> "Service")
       )
 
-instance Prelude.Hashable DescribeService
+instance Prelude.Hashable DescribeService where
+  hashWithSalt _salt DescribeService' {..} =
+    _salt `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData DescribeService
+instance Prelude.NFData DescribeService where
+  rnf DescribeService' {..} = Prelude.rnf serviceArn
 
 instance Core.ToHeaders DescribeService where
   toHeaders =
@@ -162,4 +165,7 @@ describeServiceResponse_httpStatus = Lens.lens (\DescribeServiceResponse' {httpS
 describeServiceResponse_service :: Lens.Lens' DescribeServiceResponse Service
 describeServiceResponse_service = Lens.lens (\DescribeServiceResponse' {service} -> service) (\s@DescribeServiceResponse' {} a -> s {service = a} :: DescribeServiceResponse)
 
-instance Prelude.NFData DescribeServiceResponse
+instance Prelude.NFData DescribeServiceResponse where
+  rnf DescribeServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf service

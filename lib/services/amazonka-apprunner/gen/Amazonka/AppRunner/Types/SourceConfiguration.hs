@@ -135,9 +135,19 @@ instance Core.FromJSON SourceConfiguration where
             Prelude.<*> (x Core..:? "AuthenticationConfiguration")
       )
 
-instance Prelude.Hashable SourceConfiguration
+instance Prelude.Hashable SourceConfiguration where
+  hashWithSalt _salt SourceConfiguration' {..} =
+    _salt `Prelude.hashWithSalt` imageRepository
+      `Prelude.hashWithSalt` codeRepository
+      `Prelude.hashWithSalt` autoDeploymentsEnabled
+      `Prelude.hashWithSalt` authenticationConfiguration
 
-instance Prelude.NFData SourceConfiguration
+instance Prelude.NFData SourceConfiguration where
+  rnf SourceConfiguration' {..} =
+    Prelude.rnf imageRepository
+      `Prelude.seq` Prelude.rnf codeRepository
+      `Prelude.seq` Prelude.rnf autoDeploymentsEnabled
+      `Prelude.seq` Prelude.rnf authenticationConfiguration
 
 instance Core.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =

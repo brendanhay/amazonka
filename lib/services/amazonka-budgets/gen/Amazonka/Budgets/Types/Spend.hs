@@ -84,9 +84,14 @@ instance Core.FromJSON Spend where
             Prelude.<$> (x Core..: "Amount") Prelude.<*> (x Core..: "Unit")
       )
 
-instance Prelude.Hashable Spend
+instance Prelude.Hashable Spend where
+  hashWithSalt _salt Spend' {..} =
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` unit
 
-instance Prelude.NFData Spend
+instance Prelude.NFData Spend where
+  rnf Spend' {..} =
+    Prelude.rnf amount `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON Spend where
   toJSON Spend' {..} =

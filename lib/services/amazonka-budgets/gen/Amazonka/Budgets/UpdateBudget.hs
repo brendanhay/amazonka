@@ -111,9 +111,15 @@ instance Core.AWSRequest UpdateBudget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBudget
+instance Prelude.Hashable UpdateBudget where
+  hashWithSalt _salt UpdateBudget' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` newBudget'
 
-instance Prelude.NFData UpdateBudget
+instance Prelude.NFData UpdateBudget where
+  rnf UpdateBudget' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf newBudget'
 
 instance Core.ToHeaders UpdateBudget where
   toHeaders =
@@ -174,4 +180,6 @@ newUpdateBudgetResponse pHttpStatus_ =
 updateBudgetResponse_httpStatus :: Lens.Lens' UpdateBudgetResponse Prelude.Int
 updateBudgetResponse_httpStatus = Lens.lens (\UpdateBudgetResponse' {httpStatus} -> httpStatus) (\s@UpdateBudgetResponse' {} a -> s {httpStatus = a} :: UpdateBudgetResponse)
 
-instance Prelude.NFData UpdateBudgetResponse
+instance Prelude.NFData UpdateBudgetResponse where
+  rnf UpdateBudgetResponse' {..} =
+    Prelude.rnf httpStatus

@@ -117,9 +117,17 @@ instance Core.AWSRequest DeleteBudgetAction where
             Prelude.<*> (x Core..:> "Action")
       )
 
-instance Prelude.Hashable DeleteBudgetAction
+instance Prelude.Hashable DeleteBudgetAction where
+  hashWithSalt _salt DeleteBudgetAction' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` actionId
 
-instance Prelude.NFData DeleteBudgetAction
+instance Prelude.NFData DeleteBudgetAction where
+  rnf DeleteBudgetAction' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf actionId
 
 instance Core.ToHeaders DeleteBudgetAction where
   toHeaders =
@@ -216,4 +224,9 @@ deleteBudgetActionResponse_budgetName = Lens.lens (\DeleteBudgetActionResponse' 
 deleteBudgetActionResponse_action :: Lens.Lens' DeleteBudgetActionResponse Action
 deleteBudgetActionResponse_action = Lens.lens (\DeleteBudgetActionResponse' {action} -> action) (\s@DeleteBudgetActionResponse' {} a -> s {action = a} :: DeleteBudgetActionResponse)
 
-instance Prelude.NFData DeleteBudgetActionResponse
+instance Prelude.NFData DeleteBudgetActionResponse where
+  rnf DeleteBudgetActionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf action

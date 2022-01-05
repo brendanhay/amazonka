@@ -134,9 +134,19 @@ instance Core.AWSRequest DeleteSubscriber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSubscriber
+instance Prelude.Hashable DeleteSubscriber where
+  hashWithSalt _salt DeleteSubscriber' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` subscriber
 
-instance Prelude.NFData DeleteSubscriber
+instance Prelude.NFData DeleteSubscriber where
+  rnf DeleteSubscriber' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf subscriber
 
 instance Core.ToHeaders DeleteSubscriber where
   toHeaders =
@@ -202,4 +212,6 @@ newDeleteSubscriberResponse pHttpStatus_ =
 deleteSubscriberResponse_httpStatus :: Lens.Lens' DeleteSubscriberResponse Prelude.Int
 deleteSubscriberResponse_httpStatus = Lens.lens (\DeleteSubscriberResponse' {httpStatus} -> httpStatus) (\s@DeleteSubscriberResponse' {} a -> s {httpStatus = a} :: DeleteSubscriberResponse)
 
-instance Prelude.NFData DeleteSubscriberResponse
+instance Prelude.NFData DeleteSubscriberResponse where
+  rnf DeleteSubscriberResponse' {..} =
+    Prelude.rnf httpStatus

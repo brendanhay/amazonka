@@ -396,9 +396,31 @@ instance Core.FromJSON Budget where
             Prelude.<*> (x Core..: "BudgetType")
       )
 
-instance Prelude.Hashable Budget
+instance Prelude.Hashable Budget where
+  hashWithSalt _salt Budget' {..} =
+    _salt `Prelude.hashWithSalt` calculatedSpend
+      `Prelude.hashWithSalt` plannedBudgetLimits
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` budgetLimit
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` costTypes
+      `Prelude.hashWithSalt` costFilters
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` timeUnit
+      `Prelude.hashWithSalt` budgetType
 
-instance Prelude.NFData Budget
+instance Prelude.NFData Budget where
+  rnf Budget' {..} =
+    Prelude.rnf calculatedSpend
+      `Prelude.seq` Prelude.rnf plannedBudgetLimits
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf budgetLimit
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf costTypes
+      `Prelude.seq` Prelude.rnf costFilters
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf timeUnit
+      `Prelude.seq` Prelude.rnf budgetType
 
 instance Core.ToJSON Budget where
   toJSON Budget' {..} =

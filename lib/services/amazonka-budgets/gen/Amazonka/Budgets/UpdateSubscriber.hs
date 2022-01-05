@@ -144,9 +144,21 @@ instance Core.AWSRequest UpdateSubscriber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubscriber
+instance Prelude.Hashable UpdateSubscriber where
+  hashWithSalt _salt UpdateSubscriber' {..} =
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` oldSubscriber
+      `Prelude.hashWithSalt` newSubscriber'
 
-instance Prelude.NFData UpdateSubscriber
+instance Prelude.NFData UpdateSubscriber where
+  rnf UpdateSubscriber' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf oldSubscriber
+      `Prelude.seq` Prelude.rnf newSubscriber'
 
 instance Core.ToHeaders UpdateSubscriber where
   toHeaders =
@@ -214,4 +226,6 @@ newUpdateSubscriberResponse pHttpStatus_ =
 updateSubscriberResponse_httpStatus :: Lens.Lens' UpdateSubscriberResponse Prelude.Int
 updateSubscriberResponse_httpStatus = Lens.lens (\UpdateSubscriberResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriberResponse' {} a -> s {httpStatus = a} :: UpdateSubscriberResponse)
 
-instance Prelude.NFData UpdateSubscriberResponse
+instance Prelude.NFData UpdateSubscriberResponse where
+  rnf UpdateSubscriberResponse' {..} =
+    Prelude.rnf httpStatus

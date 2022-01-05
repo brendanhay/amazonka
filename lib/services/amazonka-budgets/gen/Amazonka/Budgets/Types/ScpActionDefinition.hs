@@ -75,9 +75,15 @@ instance Core.FromJSON ScpActionDefinition where
             Prelude.<*> (x Core..: "TargetIds")
       )
 
-instance Prelude.Hashable ScpActionDefinition
+instance Prelude.Hashable ScpActionDefinition where
+  hashWithSalt _salt ScpActionDefinition' {..} =
+    _salt `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` targetIds
 
-instance Prelude.NFData ScpActionDefinition
+instance Prelude.NFData ScpActionDefinition where
+  rnf ScpActionDefinition' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf targetIds
 
 instance Core.ToJSON ScpActionDefinition where
   toJSON ScpActionDefinition' {..} =

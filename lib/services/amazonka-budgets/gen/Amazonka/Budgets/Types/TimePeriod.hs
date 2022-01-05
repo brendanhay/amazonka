@@ -117,9 +117,14 @@ instance Core.FromJSON TimePeriod where
             Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
       )
 
-instance Prelude.Hashable TimePeriod
+instance Prelude.Hashable TimePeriod where
+  hashWithSalt _salt TimePeriod' {..} =
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` end
 
-instance Prelude.NFData TimePeriod
+instance Prelude.NFData TimePeriod where
+  rnf TimePeriod' {..} =
+    Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
 instance Core.ToJSON TimePeriod where
   toJSON TimePeriod' {..} =

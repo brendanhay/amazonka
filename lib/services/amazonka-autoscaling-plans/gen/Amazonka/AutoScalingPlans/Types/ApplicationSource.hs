@@ -72,9 +72,15 @@ instance Core.FromJSON ApplicationSource where
             Prelude.<*> (x Core..:? "CloudFormationStackARN")
       )
 
-instance Prelude.Hashable ApplicationSource
+instance Prelude.Hashable ApplicationSource where
+  hashWithSalt _salt ApplicationSource' {..} =
+    _salt `Prelude.hashWithSalt` tagFilters
+      `Prelude.hashWithSalt` cloudFormationStackARN
 
-instance Prelude.NFData ApplicationSource
+instance Prelude.NFData ApplicationSource where
+  rnf ApplicationSource' {..} =
+    Prelude.rnf tagFilters
+      `Prelude.seq` Prelude.rnf cloudFormationStackARN
 
 instance Core.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =

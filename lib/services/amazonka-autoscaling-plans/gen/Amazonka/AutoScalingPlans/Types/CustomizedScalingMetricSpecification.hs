@@ -151,10 +151,26 @@ instance
 instance
   Prelude.Hashable
     CustomizedScalingMetricSpecification
+  where
+  hashWithSalt
+    _salt
+    CustomizedScalingMetricSpecification' {..} =
+      _salt `Prelude.hashWithSalt` dimensions
+        `Prelude.hashWithSalt` unit
+        `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` statistic
 
 instance
   Prelude.NFData
     CustomizedScalingMetricSpecification
+  where
+  rnf CustomizedScalingMetricSpecification' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf statistic
 
 instance
   Core.ToJSON

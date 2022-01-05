@@ -162,10 +162,20 @@ instance
 instance
   Prelude.Hashable
     PredefinedScalingMetricSpecification
+  where
+  hashWithSalt
+    _salt
+    PredefinedScalingMetricSpecification' {..} =
+      _salt `Prelude.hashWithSalt` resourceLabel
+        `Prelude.hashWithSalt` predefinedScalingMetricType
 
 instance
   Prelude.NFData
     PredefinedScalingMetricSpecification
+  where
+  rnf PredefinedScalingMetricSpecification' {..} =
+    Prelude.rnf resourceLabel
+      `Prelude.seq` Prelude.rnf predefinedScalingMetricType
 
 instance
   Core.ToJSON

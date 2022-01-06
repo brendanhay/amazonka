@@ -285,7 +285,7 @@ normaliseHeaders :: [Header] -> NormalisedHeaders
 normaliseHeaders =
   Tag
     . map (first CI.foldedCase)
-    . Map.toList
+    . Map.toAscList
     . Map.delete "authorization"
     . Map.delete "content-length"
     . Map.fromListWith const

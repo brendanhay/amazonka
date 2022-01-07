@@ -78,7 +78,9 @@ library
   exposed-modules:
     Amazonka
     Amazonka.Auth
+    Amazonka.Auth.Background
     Amazonka.Auth.Exception
+    Amazonka.Auth.InstanceProfile
     Amazonka.Auth.Keys
     Amazonka.EC2.Metadata
     Amazonka.Env

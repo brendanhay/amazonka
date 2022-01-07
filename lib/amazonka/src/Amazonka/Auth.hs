@@ -70,10 +70,11 @@ module Amazonka.Auth
   )
 where
 
+import Amazonka.Auth.Exception
 import Amazonka.Data
 import Amazonka.EC2.Metadata
 import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
-import Amazonka.Lens (catching, catching_, exception, prism, throwingM, _IOException)
+import Amazonka.Lens (catching, catching_, throwingM, _IOException)
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
@@ -327,88 +328,7 @@ instance ToLog Credentials where
 instance Show Credentials where
   show = BS8.unpack . toBS . build
 
--- | An error thrown when attempting to read AuthN/AuthZ information.
-data AuthError
-  = RetrievalError HttpException
-  | MissingEnvError Text
-  | InvalidEnvError Text
-  | MissingFileError FilePath
-  | InvalidFileError Text
-  | InvalidIAMError Text
-  deriving stock (Show, Generic)
 
-instance Exception AuthError
-
-instance ToLog AuthError where
-  build = \case
-    RetrievalError e -> build e
-    MissingEnvError e -> "[MissingEnvError]  { message = " <> build e <> "}"
-    InvalidEnvError e -> "[InvalidEnvError]  { message = " <> build e <> "}"
-    MissingFileError f -> "[MissingFileError] { path = " <> build f <> "}"
-    InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
-    InvalidIAMError e -> "[InvalidIAMError]  { message = " <> build e <> "}"
-
-class AsAuthError a where
-  -- | A general authentication error.
-  _AuthError :: Prism' a AuthError
-
-  {-# MINIMAL _AuthError #-}
-
-  -- | An error occured while communicating over HTTP with
-  -- the local metadata endpoint.
-  _RetrievalError :: Prism' a HttpException
-
-  -- | The named environment variable was not found.
-  _MissingEnvError :: Prism' a Text
-
-  -- | An error occured parsing named environment variable's value.
-  _InvalidEnvError :: Prism' a Text
-
-  -- | The specified credentials file could not be found.
-  _MissingFileError :: Prism' a FilePath
-
-  -- | An error occured parsing the credentials file.
-  _InvalidFileError :: Prism' a Text
-
-  -- | The specified IAM profile could not be found or deserialised.
-  _InvalidIAMError :: Prism' a Text
-
-  _RetrievalError = _AuthError . _RetrievalError
-  _MissingEnvError = _AuthError . _MissingEnvError
-  _InvalidEnvError = _AuthError . _InvalidEnvError
-  _MissingFileError = _AuthError . _MissingFileError
-  _InvalidFileError = _AuthError . _InvalidFileError
-  _InvalidIAMError = _AuthError . _InvalidIAMError
-
-instance AsAuthError SomeException where
-  _AuthError = exception
-
-instance AsAuthError AuthError where
-  _AuthError = id
-
-  _RetrievalError = prism RetrievalError $ \case
-    RetrievalError e -> Right e
-    x -> Left x
-
-  _MissingEnvError = prism MissingEnvError $ \case
-    MissingEnvError e -> Right e
-    x -> Left x
-
-  _InvalidEnvError = prism InvalidEnvError $ \case
-    InvalidEnvError e -> Right e
-    x -> Left x
-
-  _MissingFileError = prism MissingFileError $ \case
-    MissingFileError f -> Right f
-    x -> Left x
-
-  _InvalidFileError = prism InvalidFileError $ \case
-    InvalidFileError e -> Right e
-    x -> Left x
-
-  _InvalidIAMError = prism InvalidIAMError $ \case
-    InvalidIAMError e -> Right e
-    x -> Left x
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --

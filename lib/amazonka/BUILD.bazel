@@ -7,6 +7,7 @@ haskell_library(
         "src/Amazonka.hs",
         "src/Amazonka/Auth.hs",
         "src/Amazonka/Auth.hs-boot",  # keep
+        "src/Amazonka/Auth/Exception.hs",
         "src/Amazonka/EC2/Metadata.hs",
         "src/Amazonka/Env.hs",
         "src/Amazonka/HTTP.hs",

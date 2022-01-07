@@ -350,6 +350,7 @@ stack_snapshot(
         "unliftio",  # keep
         "unordered-containers",  # keep
         "uuid",
+        "vector",
         "xml-conduit",
         "xml-types",
         "yaml",

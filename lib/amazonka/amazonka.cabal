@@ -82,6 +82,7 @@ library
     Amazonka.Auth.Exception
     Amazonka.Auth.InstanceProfile
     Amazonka.Auth.Keys
+    Amazonka.Auth.STS
     Amazonka.EC2.Metadata
     Amazonka.Env
     Amazonka.HTTP

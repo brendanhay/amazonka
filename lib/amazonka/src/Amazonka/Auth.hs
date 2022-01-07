@@ -21,16 +21,6 @@ module Amazonka.Auth
     Credentials (..),
     Auth (..),
 
-    -- ** Defaults
-
-    -- *** Environment
-    envAccessKey,
-    envSecretKey,
-    envSessionToken,
-    envWebIdentityTokenFile,
-    envRole,
-    envRoleSessionName,
-
     -- ** Configuration
     confRegion,
     confFile,
@@ -78,47 +68,21 @@ import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySess
 import Amazonka.Auth.STS (fromWebIdentityEnv)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
-import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
 import Amazonka.Lens (catching, catching_, throwingM, _IOException)
 import Amazonka.Prelude
-import qualified Amazonka.STS as STS
-import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
 import Amazonka.Types
 import qualified Control.Exception as Exception
-import Control.Lens ((^.))
 import Control.Monad.Catch (MonadThrow (..))
 import Control.Monad.Trans.Maybe (MaybeT (..))
-import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Char as Char
 import qualified Data.Ini as INI
 import Data.Monoid (Dual, Endo)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import qualified Data.Text.IO as Text
-import qualified Data.UUID as UUID
-import qualified Data.UUID.V4 as UUID
 import qualified Network.HTTP.Client as Client
 import qualified System.Directory as Directory
 import qualified System.Environment as Environment
-
--- | Default access key environment variable.
-envAccessKey ::
-  -- | AWS_ACCESS_KEY_ID
-  Text
-envAccessKey = "AWS_ACCESS_KEY_ID"
-
--- | Default secret key environment variable.
-envSecretKey ::
-  -- | AWS_SECRET_ACCESS_KEY
-  Text
-envSecretKey = "AWS_SECRET_ACCESS_KEY"
-
--- | Default session token environment variable.
-envSessionToken ::
-  -- | AWS_SESSION_TOKEN
-  Text
-envSessionToken = "AWS_SESSION_TOKEN"
 
 -- | Default credentials profile environment variable.
 envProfile ::
@@ -131,24 +95,6 @@ envRegion ::
   -- | AWS_REGION
   Text
 envRegion = "AWS_REGION"
-
--- | Default web identity token file environment variable
-envWebIdentityTokenFile ::
-  -- | AWS_WEB_IDENTITY_TOKEN_FILE
-  Text
-envWebIdentityTokenFile = "AWS_WEB_IDENTITY_TOKEN_FILE"
-
--- | Default role environment variable
-envRole ::
-  -- | AWS_ROLE_ARN
-  Text
-envRole = "AWS_ROLE_ARN"
-
--- | Default role session name environment variable
-envRoleSessionName ::
-  -- | AWS_ROLE_SESSION_NAME
-  Text
-envRoleSessionName = "AWS_ROLE_SESSION_NAME"
 
 -- | Path to obtain container credentials environment variable (see
 -- 'FromContainer').
@@ -325,7 +271,7 @@ getAuth env@Env {..} =
     FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
     FromFile n cred conf -> fromFilePath n cred conf
     FromContainer -> fromContainer _envManager
-    FromWebIdentity -> fromWebIdentity env
+    FromWebIdentity -> fmap Just <$> fromWebIdentityEnv env
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
       -- let both errors propagate.
@@ -333,7 +279,7 @@ getAuth env@Env {..} =
         -- proceed, missing env keys
         catching _MissingFileError fromFile $ \f ->
           -- proceed, missing credentials file
-          catching_ _MissingEnvError (fromWebIdentity env) $
+          catching_ _MissingEnvError (fmap Just <$> fromWebIdentityEnv env) $
             -- proceed, missing env keys
             catching_ _MissingEnvError (fromContainer _envManager) $ do
               -- proceed, missing env key
@@ -429,69 +375,6 @@ fromFilePath profile cred conf =
           <> ", "
           <> Text.pack err
 
--- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
--- Obtain temporary credentials from STS:AssumeRoleWithWebIdentity
--- Token file is taken from env variable 'envWebIdentityTokenFile' and role from 'envRole'.
---
--- The STS service provides an access key, secret key, session token,
--- and expiration time, but it does not include a region, so the region will
--- attempt to be determined from the 'envRegion' environment variable if it is
--- set.
---
--- Like 'fromProfileName', additionally starts a refresh thread that will
--- periodically fetch fresh credentials before the current ones expire.
---
--- Throws 'MissingEnvError' if the 'envWebIdentityTokenFile' environment
--- variable is not set.
-fromWebIdentity ::
-  (MonadIO m, Foldable withAuth) =>
-  Env' withAuth ->
-  m (Auth, Maybe Region)
-fromWebIdentity env = do
-  -- Implementation modelled on the C++ SDK:
-  -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
-  tokenFile <- liftIO $ reqEnv envWebIdentityTokenFile
-  roleArn <- liftIO $ fromString <$> reqEnv envRole
-
-  sessionName <-
-    liftIO $
-      optEnv envRoleSessionName >>= \case
-        -- If no session name is set, we mimic the C++ SDK and use a
-        -- random UUID.
-        Nothing -> UUID.toText <$> UUID.nextRandom
-        Just v -> pure (fromString v)
-
-  reg <- getRegion
-  let env' = case reg of
-        Nothing -> env
-        Just r -> env {_envRegion = r}
-
-  -- We copy the behaviour of the C++ implementation: upon credential
-  -- expiration, re-read the token file content but ignore any changes
-  -- to the actual environment variables.
-  let getCredentials = do
-        token <- Text.readFile tokenFile
-        let assumeWeb =
-              STS.newAssumeRoleWithWebIdentity
-                roleArn
-                sessionName
-                token
-        eResponse <- runResourceT $ retryRequest env' assumeWeb
-        clientResponse <- either (liftIO . Exception.throwIO) pure eResponse
-        let mCredentials =
-              Client.responseBody clientResponse
-                ^. STS.assumeRoleWithWebIdentityResponse_credentials
-        case mCredentials of
-          Nothing ->
-            fail "sts:AssumeRoleWithWebIdentity returned no credentials."
-          Just c -> pure c
-
-  -- As the credentials from STS are temporary, we start a thread that is able
-  -- to fetch new ones automatically on expiry.
-  auth <- liftIO $ fetchAuthInBackground getCredentials
-
-  pure (auth, reg)
-
 -- | Obtain credentials exposed to a task via the ECS container agent, as
 -- described in the <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
 -- section of the AWS ECS documentation. The credentials are obtained by making
@@ -545,17 +428,6 @@ fromContainer m =
       InvalidIAMError
         . mappend "Error parsing Task Identity Document "
         . Text.pack
-
-reqEnv :: MonadIO m => Text -> m String
-reqEnv k =
-  optEnv k >>= \case
-    Nothing ->
-      liftIO . Exception.throwIO . MissingEnvError $
-        "Unable to read ENV variable: " <> k
-    Just v -> pure v
-
-optEnv :: MonadIO m => Text.Text -> m (Maybe String)
-optEnv k = liftIO . Environment.lookupEnv $ Text.unpack k
 
 -- | Try to read the region from the 'envRegion' variable.
 getRegion :: MonadIO m => m (Maybe Region)

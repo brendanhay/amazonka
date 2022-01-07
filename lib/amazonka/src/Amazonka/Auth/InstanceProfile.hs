@@ -6,21 +6,21 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve authentication from EC2 instance profiles.
+-- Retrieve authentication credentials from EC2 instance profiles.
 module Amazonka.Auth.InstanceProfile where
 
+import {-# SOURCE #-} Amazonka.Auth
+import Amazonka.Auth.Background
+import Amazonka.Auth.Exception
+import Amazonka.Data
+import Amazonka.EC2.Metadata
+import Amazonka.Prelude
+import Amazonka.Types
+import qualified Control.Exception as Exception
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import qualified Control.Exception as Exception
-import Amazonka.Data
-import Amazonka.Auth.Exception
-import Amazonka.Auth.Background
-import Amazonka.Prelude
-import Amazonka.EC2.Metadata
-import Amazonka.Types
-import qualified Network.HTTP.Client as Client
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --
@@ -30,16 +30,18 @@ import qualified Network.HTTP.Client as Client
 --
 -- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
 -- the default IAM profile cannot be read.
-fromProfile ::
+fromDefaultInstanceProfile ::
   MonadIO m =>
-  Client.Manager ->
-  m (Auth, Maybe Region)
-fromProfile m =
+  Env' withAuth ->
+  m (Auth, Region)
+fromDefaultInstanceProfile env =
   liftIO $ do
-    ls <- Exception.try $ metadata m (IAM (SecurityCredentials Nothing))
+    ls <-
+      Exception.try $
+        metadata (_envManager env) (IAM (SecurityCredentials Nothing))
 
     case BS8.lines <$> ls of
-      Right (x : _) -> fromProfileName m (Text.decodeUtf8 x)
+      Right (x : _) -> fromNamedInstanceProfile (Text.decodeUtf8 x) env
       Left e -> Exception.throwIO (RetrievalError e)
       _ ->
         Exception.throwIO $
@@ -61,25 +63,27 @@ fromProfile m =
 --
 -- If no session token or expiration time is present the credentials will
 -- be returned verbatim.
-fromProfileName ::
+fromNamedInstanceProfile ::
   MonadIO m =>
-  Client.Manager ->
   Text ->
-  m (Auth, Maybe Region)
-fromProfileName m name =
+  Env' withAuth ->
+  m (Auth, Region)
+fromNamedInstanceProfile name env =
   liftIO $ do
     auth <- fetchAuthInBackground getCredentials
     reg <- getRegionFromIdentity
 
-    pure (auth, Just reg)
+    pure (auth, reg)
   where
     getCredentials =
-      Exception.try (metadata m (IAM . SecurityCredentials $ Just name))
+      Exception.try (metadata manager (IAM . SecurityCredentials $ Just name))
         >>= handleErr (eitherDecode' . LBS8.fromStrict) invalidIAMErr
 
     getRegionFromIdentity =
-      Exception.try (identity m)
+      Exception.try (identity manager)
         >>= handleErr (fmap _region) invalidIdentityErr
+
+    manager = _envManager env
 
     handleErr f g = \case
       Left e -> Exception.throwIO (RetrievalError e)

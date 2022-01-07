@@ -50,8 +50,8 @@ module Amazonka.Auth
     fromKeysEnv,
     fromFile,
     fromFilePath,
-    fromProfile,
-    fromProfileName,
+    fromDefaultInstanceProfile,
+    fromNamedInstanceProfile,
     fromContainer,
 
     -- ** Keys
@@ -73,8 +73,9 @@ where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
-import Amazonka.Auth.InstanceProfile (fromProfile, fromProfileName)
+import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
+import Amazonka.Auth.STS (fromWebIdentityEnv)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
 import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
@@ -321,7 +322,7 @@ getAuth env@Env {..} =
     FromKeys a s -> pure (Just <$> fromKeys env a s)
     FromSession a s t -> pure (Just <$> fromSession env a s t)
     FromEnv -> fmap Just <$> fromKeysEnv env
-    FromProfile n -> fromProfileName _envManager n
+    FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
     FromFile n cred conf -> fromFilePath n cred conf
     FromContainer -> fromContainer _envManager
     FromWebIdentity -> fromWebIdentity env
@@ -343,7 +344,7 @@ getAuth env@Env {..} =
                 throwingM _MissingFileError f
 
               -- proceed, check EC2 metadata for IAM information.
-              fromProfile _envManager
+              fmap Just <$> fromDefaultInstanceProfile env
 
 -- | Loads the default @credentials@ INI file using the default profile name.
 --
@@ -502,8 +503,8 @@ fromWebIdentity env = do
 -- attempt to be determined from the 'envRegion' environment variable if it is
 -- set.
 --
--- Like 'fromProfileName', additionally starts a refresh thread that will
--- periodically fetch fresh credentials before the current ones expire.
+-- Like 'fromNamedInstanceProfile', additionally starts a refresh thread that
+-- will periodically fetch fresh credentials before the current ones expire.
 --
 -- Throws 'MissingEnvError' if the 'envContainerCredentialsURI' environment
 -- variable is not set or 'InvalidIAMError' if the payload returned by the ECS

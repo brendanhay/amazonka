@@ -319,8 +319,8 @@ getAuth ::
   m (Auth, Maybe Region)
 getAuth env@Env {..} =
   liftIO . \case
-    FromKeys a s -> pure (Just <$> fromKeys env a s)
-    FromSession a s t -> pure (Just <$> fromSession env a s t)
+    FromKeys a s -> pure (Just <$> fromKeys a s env)
+    FromSession a s t -> pure (Just <$> fromSession a s t env)
     FromEnv -> fmap Just <$> fromKeysEnv env
     FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
     FromFile n cred conf -> fromFilePath n cred conf

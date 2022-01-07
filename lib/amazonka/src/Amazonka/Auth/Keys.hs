@@ -24,8 +24,8 @@ import qualified Data.Text as Text
 import qualified System.Environment as Environment
 
 -- | Explicit access and secret keys.
-fromKeys :: Env' withAuth -> AccessKey -> SecretKey -> (Auth, Region)
-fromKeys env a s =
+fromKeys :: AccessKey -> SecretKey -> Env' withAuth -> (Auth, Region)
+fromKeys a s env =
   (Auth $ AuthEnv a (Sensitive s) Nothing Nothing, _envRegion env)
 
 -- | Temporary credentials from a STS session consisting of
@@ -33,8 +33,8 @@ fromKeys env a s =
 --
 -- /See:/ 'fromTemporarySession'
 fromSession ::
-  Env' withAuth -> AccessKey -> SecretKey -> SessionToken -> (Auth, Region)
-fromSession env a s t =
+  AccessKey -> SecretKey -> SessionToken -> Env' withAuth -> (Auth, Region)
+fromSession a s t env =
   (Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing), _envRegion env)
 
 -- | Temporary credentials from a STS session consisting of
@@ -42,13 +42,13 @@ fromSession env a s t =
 --
 -- /See:/ 'fromSession'
 fromTemporarySession ::
-  Env' withAuth ->
   AccessKey ->
   SecretKey ->
   SessionToken ->
   UTCTime ->
+  Env' withAuth ->
   (Auth, Region)
-fromTemporarySession env a s t e =
+fromTemporarySession a s t e env =
   (Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))), _envRegion env)
 
 -- | Retrieve access key, secret key and a session token from

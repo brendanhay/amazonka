@@ -79,6 +79,7 @@ library
     Amazonka
     Amazonka.Auth
     Amazonka.Auth.Exception
+    Amazonka.Auth.Keys
     Amazonka.EC2.Metadata
     Amazonka.Env
     Amazonka.HTTP

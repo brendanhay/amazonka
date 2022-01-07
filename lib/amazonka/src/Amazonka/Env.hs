@@ -52,10 +52,6 @@ import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 
-type Env = Env' Identity
-
-type EnvNoAuth = Env' Proxy
-
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
 -- Lenses can be used to further configure the resulting 'Env'.

@@ -47,8 +47,7 @@ module Amazonka.Auth
     fromKeys,
     fromSession,
     fromTemporarySession,
-    fromEnv,
-    fromEnvKeys,
+    fromKeysEnv,
     fromFile,
     fromFilePath,
     fromProfile,
@@ -66,11 +65,14 @@ module Amazonka.Auth
 
     -- * Env'
     -- $env
+    Env,
+    EnvNoAuth,
     Env' (..),
   )
 where
 
 import Amazonka.Auth.Exception
+import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
 import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
@@ -83,6 +85,7 @@ import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception
 import Control.Lens ((^.))
+import Control.Monad.Catch (MonadThrow(..))
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.ByteString.Char8 as BS8
@@ -230,40 +233,15 @@ confFile = liftIO (catching_ _IOException dir err)
 -- Both 'fromKeys' and 'fromSession' can be used directly to avoid the 'MonadIO'
 -- constraint.
 
--- | Explicit access and secret keys.
-fromKeys :: AccessKey -> SecretKey -> Auth
-fromKeys a s = Auth (AuthEnv a (Sensitive s) Nothing Nothing)
-
--- | Temporary credentials from a STS session consisting of
--- the access key, secret key, and session token.
---
--- /See:/ 'fromTemporarySession'
-fromSession :: AccessKey -> SecretKey -> SessionToken -> Auth
-fromSession a s t =
-  Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing)
-
--- | Temporary credentials from a STS session consisting of
--- the access key, secret key, session token, and expiration time.
---
--- /See:/ 'fromSession'
-fromTemporarySession ::
-  AccessKey ->
-  SecretKey ->
-  SessionToken ->
-  UTCTime ->
-  Auth
-fromTemporarySession a s t e =
-  Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e)))
-
 -- | Determines how AuthN/AuthZ information is retrieved.
 data Credentials
   = -- | Explicit access and secret keys. See 'fromKeys'.
     FromKeys AccessKey SecretKey
   | -- | Explicit access key, secret key and a session token. See 'fromSession'.
     FromSession AccessKey SecretKey SessionToken
-  | -- | Lookup specific environment variables for access key, secret key,
-    -- an optional session token, and an optional region, respectively.
-    FromEnv Text Text (Maybe Text) (Maybe Text)
+  | -- | Lookup environment variables for access key, secret key,
+    -- an optional session token, and an optional region.
+    FromEnv
   | -- | An IAM Profile name to lookup from the local EC2 instance-data.
     -- Environment variables to lookup for the access key, secret key and
     -- optional session token.
@@ -309,8 +287,8 @@ instance ToLog Credentials where
       "FromKeys " <> build a <> " ****"
     FromSession a _ _ ->
       "FromSession " <> build a <> " **** ****"
-    FromEnv a s t r ->
-      "FromEnv " <> build a <> " " <> build s <> " " <> m t <> " " <> m r
+    FromEnv ->
+      "FromEnv"
     FromProfile n ->
       "FromProfile " <> build n
     FromFile n f g ->
@@ -321,14 +299,18 @@ instance ToLog Credentials where
       "FromContainer"
     Discover ->
       "Discover"
-    where
-      m (Just x) = "(Just " <> build x <> ")"
-      m Nothing = "Nothing"
 
 instance Show Credentials where
   show = BS8.unpack . toBS . build
 
+-- discover :: Env' withAuth -> m (Auth, Region)
+-- discover = tryFromEnv $ tryFromWebIdentity $ tryCredentialsFile $ const (throwM ...)
 
+runCredentialChain :: MonadThrow m => [(a -> m (Maybe b))] -> a -> m b
+runCredentialChain chain env = case chain of
+  [] -> throwM CredentialChainExhausted
+  provider : chain' -> provider env
+    >>= maybe (runCredentialChain chain' env) pure
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --
@@ -341,9 +323,9 @@ getAuth ::
   m (Auth, Maybe Region)
 getAuth env@Env {..} =
   liftIO . \case
-    FromKeys a s -> pure (fromKeys a s, Nothing)
-    FromSession a s t -> pure (fromSession a s t, Nothing)
-    FromEnv a s t r -> fromEnvKeys a s t r
+    FromKeys a s -> pure (Just <$> fromKeys env a s)
+    FromSession a s t -> pure (Just <$> fromSession env a s t)
+    FromEnv -> fmap Just <$> fromKeysEnv env
     FromProfile n -> fromProfileName _envManager n
     FromFile n cred conf -> fromFilePath n cred conf
     FromContainer -> fromContainer _envManager
@@ -351,7 +333,7 @@ getAuth env@Env {..} =
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
       -- let both errors propagate.
-      catching_ _MissingEnvError fromEnv $
+      catching_ _MissingEnvError (fmap Just <$> fromKeysEnv env) $
         -- proceed, missing env keys
         catching _MissingFileError fromFile $ \f ->
           -- proceed, missing credentials file
@@ -367,53 +349,6 @@ getAuth env@Env {..} =
 
               -- proceed, check EC2 metadata for IAM information.
               fromProfile _envManager
-
--- | Retrieve access key, secret key, and a session token from the default
--- environment variables.
---
--- Throws 'MissingEnvError' if either of the default environment variables
--- cannot be read, but not if the session token is absent.
---
--- /See:/ 'envAccessKey', 'envSecretKey', 'envSessionToken'
-fromEnv :: MonadIO m => m (Auth, Maybe Region)
-fromEnv =
-  fromEnvKeys
-    envAccessKey
-    envSecretKey
-    (Just envSessionToken)
-    (Just envRegion)
-
--- | Retrieve access key, secret key and a session token from specific
--- environment variables.
---
--- Throws 'MissingEnvError' if either of the specified key environment variables
--- cannot be read, but not if the session token is absent.
-fromEnvKeys ::
-  MonadIO m =>
-  -- | Access key environment variable.
-  Text ->
-  -- | Secret key environment variable.
-  Text ->
-  -- | Session token environment variable.
-  Maybe Text ->
-  -- | Region environment variable.
-  Maybe Text ->
-  m (Auth, Maybe Region)
-fromEnvKeys access secret session region' =
-  liftIO $ (,) <$> fmap Auth lookupKeys <*> lookupRegion
-  where
-    lookupKeys =
-      AuthEnv
-        <$> (reqEnv access <&> AccessKey . BS8.pack)
-        <*> (reqEnv secret <&> Sensitive . SecretKey . BS8.pack)
-        <*> (opt session <&> fmap (Sensitive . SessionToken . BS8.pack))
-        <*> pure Nothing
-
-    lookupRegion = opt region' <&> fmap (Region' . Text.pack)
-
-    opt = \case
-      Nothing -> pure Nothing
-      Just k -> Environment.lookupEnv (Text.unpack k)
 
 -- | Loads the default @credentials@ INI file using the default profile name.
 --
@@ -754,6 +689,10 @@ fetchAuthInBackground menv =
 -- $env
 -- This really should be defined in @Amazonka.Env@, but we define it
 -- here to break a gnarly module import cycle.
+
+type Env = Env' Identity
+
+type EnvNoAuth = Env' Proxy
 
 -- | The environment containing the parameters required to make AWS requests.
 --
